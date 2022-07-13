@@ -2,17 +2,9 @@
 
 # StreamedWritingTrait
 
-
-
-
-
 * Full name: `\League\Flysystem\Adapter\Polyfill\StreamedWritingTrait`
 
-
-
-
 ## Methods
-
 
 ### stream
 
@@ -22,13 +14,6 @@ Stream fallback delegator.
 protected stream(string $path, resource $resource, \League\Flysystem\Config $config, string $fallback): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -37,7 +22,6 @@ protected stream(string $path, resource $resource, \League\Flysystem\Config $con
 | `$resource` | **resource** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 | `$fallback` | **string** |  |
-
 
 **Return Value:**
 
@@ -55,13 +39,6 @@ Write using a stream.
 public writeStream(string $path, resource $resource, \League\Flysystem\Config $config): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -69,7 +46,6 @@ public writeStream(string $path, resource $resource, \League\Flysystem\Config $c
 | `$path` | **string** |  |
 | `$resource` | **resource** |  |
 | `$config` | **\League\Flysystem\Config** |  |
-
 
 **Return Value:**
 
@@ -87,13 +63,6 @@ Update a file using a stream.
 public updateStream(string $path, resource $resource, \League\Flysystem\Config $config): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -101,7 +70,6 @@ public updateStream(string $path, resource $resource, \League\Flysystem\Config $
 | `$path` | **string** |  |
 | `$resource` | **resource** |  |
 | `$config` | **\League\Flysystem\Config** | Config object or visibility setting |
-
 
 **Return Value:**
 
@@ -113,18 +81,11 @@ false of file metadata
 
 ### write
 
-
-
 ```php
 public write(mixed $pash, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -133,26 +94,16 @@ public write(mixed $pash, mixed $contents, \League\Flysystem\Config $config): mi
 | `$pash` | **mixed** |  |
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
-
-
-
 
 ***
 
 ### update
 
-
-
 ```php
 public update(mixed $pash, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -161,9 +112,6 @@ public update(mixed $pash, mixed $contents, \League\Flysystem\Config $config): m
 | `$pash` | **mixed** |  |
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
-
-
-
 
 ***
 

@@ -2,50 +2,26 @@
 
 # Controller
 
-
-
-
-
 * Full name: `\LimeExtra\Controller`
 * Parent class: [`\Lime\AppAware`](../Lime/AppAware.md)
 
-
-
 ## Properties
 
-
 ### layout
-
-
 
 ```php
 protected $layout
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,65 +29,29 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### before
-
-
 
 ```php
 protected before(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### index
-
-
 
 ```php
 public index(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### render
 
-
-
 ```php
 protected render(mixed $view, mixed $params = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -120,25 +60,13 @@ protected render(mixed $view, mixed $params = array()): mixed
 | `$view` | **mixed** |  |
 | `$params` | **mixed** |  |
 
-
-
-
 ***
 
 ### param
 
-
-
 ```php
 protected param(mixed $key, mixed $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -147,25 +75,13 @@ protected param(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### module
 
-
-
 ```php
 protected module(mixed $module): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -173,25 +89,13 @@ protected module(mixed $module): mixed
 |-----------|------|-------------|
 | `$module` | **mixed** |  |
 
-
-
-
 ***
 
 ### helper
 
-
-
 ```php
 protected helper(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -199,25 +103,13 @@ protected helper(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### stop
 
-
-
 ```php
 protected stop(mixed $data = false, mixed $status = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -226,29 +118,15 @@ protected stop(mixed $data = false, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -256,45 +134,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -303,25 +157,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -329,34 +171,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

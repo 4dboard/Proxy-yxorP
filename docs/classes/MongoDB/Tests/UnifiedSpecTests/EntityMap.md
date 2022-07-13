@@ -2,31 +2,17 @@
 
 # EntityMap
 
-
-
-
-
 * Full name: `\MongoDB\Tests\UnifiedSpecTests\EntityMap`
 * This class implements:
-[`\ArrayAccess`](../../../ArrayAccess.md)
-
-
+  [`\ArrayAccess`](../../../ArrayAccess.md)
 
 ## Properties
 
-
 ### map
-
-
 
 ```php
 private array $map
 ```
-
-
-
-
-
 
 ***
 
@@ -39,94 +25,51 @@ has been called.
 private \stdClass[] $lsidsBySession
 ```
 
-
-
-
-
-
 ***
 
 ### isSupportedType
-
-
 
 ```php
 private static \PHPUnit\Framework\Constraint\Constraint $isSupportedType
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __destruct
-
-
 
 ```php
 public __destruct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### offsetExists
-
-
 
 ```php
 public offsetExists(mixed $id): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetexists - 
+* http://php.net/arrayaccess.offsetexists -
 
 ***
 
 ### offsetGet
 
-
-
 ```php
 public offsetGet(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -134,28 +77,17 @@ public offsetGet(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetget - 
+* http://php.net/arrayaccess.offsetget -
 
 ***
 
 ### offsetSet
 
-
-
 ```php
 public offsetSet(mixed $id, mixed $value): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -164,28 +96,17 @@ public offsetSet(mixed $id, mixed $value): void
 | `$id` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetset - 
+* http://php.net/arrayaccess.offsetset -
 
 ***
 
 ### offsetUnset
 
-
-
 ```php
 public offsetUnset(mixed $id): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -193,28 +114,17 @@ public offsetUnset(mixed $id): void
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetunset - 
+* http://php.net/arrayaccess.offsetunset -
 
 ***
 
 ### set
 
-
-
 ```php
 public set(string $id, mixed $value, ?string $parentId = null): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -223,9 +133,6 @@ public set(string $id, mixed $value, ?string $parentId = null): void
 | `$id` | **string** |  |
 | `$value` | **mixed** |  |
 | `$parentId` | **?string** |  |
-
-
-
 
 ***
 
@@ -237,41 +144,23 @@ Closes a cursor by removing it from the entity map.
 public closeCursor(string $cursorId): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cursorId` | **string** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Tests\UnifiedSpecTests\Operation::executeForCursor() - 
+* \MongoDB\Tests\UnifiedSpecTests\Operation::executeForCursor() -
 
 ***
 
 ### getClient
 
-
-
 ```php
 public getClient(string $clientId): \MongoDB\Client
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -279,25 +168,13 @@ public getClient(string $clientId): \MongoDB\Client
 |-----------|------|-------------|
 | `$clientId` | **string** |  |
 
-
-
-
 ***
 
 ### getCollection
 
-
-
 ```php
 public getCollection(string $collectionId): \MongoDB\Collection
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -305,25 +182,13 @@ public getCollection(string $collectionId): \MongoDB\Collection
 |-----------|------|-------------|
 | `$collectionId` | **string** |  |
 
-
-
-
 ***
 
 ### getDatabase
 
-
-
 ```php
 public getDatabase(string $databaseId): \MongoDB\Database
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -331,51 +196,27 @@ public getDatabase(string $databaseId): \MongoDB\Database
 |-----------|------|-------------|
 | `$databaseId` | **string** |  |
 
-
-
-
 ***
 
 ### getSession
-
-
 
 ```php
 public getSession(string $sessionId): \MongoDB\Driver\Session
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sessionId` | **string** |  |
-
-
-
 
 ***
 
 ### getLogicalSessionId
 
-
-
 ```php
 public getLogicalSessionId(string $sessionId): \stdClass
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -383,25 +224,13 @@ public getLogicalSessionId(string $sessionId): \stdClass
 |-----------|------|-------------|
 | `$sessionId` | **string** |  |
 
-
-
-
 ***
 
 ### getRootClientIdOf
 
-
-
 ```php
 public getRootClientIdOf(string $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -409,28 +238,15 @@ public getRootClientIdOf(string $id): mixed
 |-----------|------|-------------|
 | `$id` | **string** |  |
 
-
-
-
 ***
 
 ### isSupportedType
-
-
 
 ```php
 private static isSupportedType(): \PHPUnit\Framework\Constraint\Constraint
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 

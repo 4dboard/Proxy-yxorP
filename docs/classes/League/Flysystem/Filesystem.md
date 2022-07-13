@@ -2,36 +2,21 @@
 
 # Filesystem
 
-
-
-
-
 * Full name: `\League\Flysystem\Filesystem`
 * This class implements:
-[`\League\Flysystem\FilesystemInterface`](./FilesystemInterface.md)
-
-
+  [`\League\Flysystem\FilesystemInterface`](./FilesystemInterface.md)
 
 ## Properties
 
-
 ### adapter
-
-
 
 ```php
 protected \League\Flysystem\AdapterInterface $adapter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,22 +26,12 @@ Constructor.
 public __construct(\League\Flysystem\AdapterInterface $adapter, \League\Flysystem\Config|array $config = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **\League\Flysystem\AdapterInterface** |  |
 | `$config` | **\League\Flysystem\Config&#124;array** |  |
-
-
-
 
 ***
 
@@ -67,14 +42,6 @@ Get the Adapter.
 ```php
 public getAdapter(): \League\Flysystem\AdapterInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -92,21 +59,11 @@ Check whether a file exists.
 public has(mixed $path): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-
-
-
 
 ***
 
@@ -118,13 +75,6 @@ Write a new file.
 public write(mixed $path, mixed $contents, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -132,7 +82,6 @@ public write(mixed $path, mixed $contents, array $config = []): bool
 | `$path` | **mixed** | The path of the new file. |
 | `$contents` | **mixed** | The file contents. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -150,13 +99,6 @@ Write a new file using a stream.
 public writeStream(mixed $path, mixed $resource, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -164,7 +106,6 @@ public writeStream(mixed $path, mixed $resource, array $config = []): bool
 | `$path` | **mixed** | The path of the new file. |
 | `$resource` | **mixed** | The file handle. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -182,13 +123,6 @@ Create a file or update if exists.
 public put(mixed $path, mixed $contents, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -196,7 +130,6 @@ public put(mixed $path, mixed $contents, array $config = []): bool
 | `$path` | **mixed** | The path to the file. |
 | `$contents` | **mixed** | The file contents. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -214,13 +147,6 @@ Create a file or update if exists.
 public putStream(mixed $path, mixed $resource, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -228,7 +154,6 @@ public putStream(mixed $path, mixed $resource, array $config = []): bool
 | `$path` | **mixed** | The path to the file. |
 | `$resource` | **mixed** | The file handle. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -246,19 +171,11 @@ Read and delete a file.
 public readAndDelete(mixed $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -276,13 +193,6 @@ Update an existing file.
 public update(mixed $path, mixed $contents, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -290,7 +200,6 @@ public update(mixed $path, mixed $contents, array $config = []): bool
 | `$path` | **mixed** | The path of the existing file. |
 | `$contents` | **mixed** | The file contents. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -308,13 +217,6 @@ Update an existing file using a stream.
 public updateStream(mixed $path, mixed $resource, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -322,7 +224,6 @@ public updateStream(mixed $path, mixed $resource, array $config = []): bool
 | `$path` | **mixed** | The path of the existing file. |
 | `$resource` | **mixed** | The file handle. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -340,19 +241,11 @@ Read a file.
 public read(mixed $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -370,19 +263,11 @@ Retrieves a read-stream for a path.
 public readStream(mixed $path): resource|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -400,20 +285,12 @@ Rename a file.
 public rename(mixed $path, mixed $newpath): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | Path to the existing file. |
 | `$newpath` | **mixed** | The new path of the file. |
-
 
 **Return Value:**
 
@@ -431,20 +308,12 @@ Copy a file.
 public copy(mixed $path, mixed $newpath): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | Path to the existing file. |
 | `$newpath` | **mixed** | The new path of the file. |
-
 
 **Return Value:**
 
@@ -462,19 +331,11 @@ Delete a file.
 public delete(mixed $path): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -492,19 +353,11 @@ Delete a directory.
 public deleteDir(mixed $dirname): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -522,20 +375,12 @@ Create a directory.
 public createDir(mixed $dirname, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **mixed** | The name of the new directory. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -553,20 +398,12 @@ List contents of a directory.
 public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directory` | **mixed** | The directory to list. |
 | `$recursive` | **mixed** | Whether to list recursively. |
-
 
 **Return Value:**
 
@@ -584,19 +421,11 @@ Get a file's mime-type.
 public getMimetype(mixed $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -614,19 +443,11 @@ Get a file's timestamp.
 public getTimestamp(mixed $path): int|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -644,19 +465,11 @@ Get a file's visibility.
 public getVisibility(mixed $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -674,19 +487,11 @@ Get a file's size.
 public getSize(mixed $path): int|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -704,20 +509,12 @@ Set the visibility for a file.
 public setVisibility(mixed $path, mixed $visibility): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
 | `$visibility` | **mixed** | One of &#039;public&#039; or &#039;private&#039;. |
-
 
 **Return Value:**
 
@@ -735,19 +532,11 @@ Get a file's metadata.
 public getMetadata(mixed $path): array|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
-
 
 **Return Value:**
 
@@ -765,20 +554,12 @@ Get a file/directory handler.
 public get(mixed $path, \League\Flysystem\Handler $handler = null): \League\Flysystem\Handler
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the file. |
 | `$handler` | **\League\Flysystem\Handler** | An optional existing handler to populate. |
-
 
 **Return Value:**
 
@@ -796,21 +577,11 @@ Assert a file is present.
 public assertPresent(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | path to file |
-
-
-
 
 ***
 
@@ -822,27 +593,15 @@ Assert a file is absent.
 public assertAbsent(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | path to file |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### addPlugin
 
@@ -852,21 +611,11 @@ Register a plugin.
 public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\League\Flysystem\PluginInterface** |  |
-
-
-
 
 ***
 
@@ -878,21 +627,11 @@ Find a specific plugin.
 protected findPlugin(string $method): \League\Flysystem\PluginInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
-
-
-
 
 ***
 
@@ -904,13 +643,6 @@ Invoke a plugin by method name.
 protected invokePlugin(string $method, array $arguments, \League\Flysystem\FilesystemInterface $filesystem): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -918,9 +650,6 @@ protected invokePlugin(string $method, array $arguments, \League\Flysystem\Files
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
-
-
-
 
 ***
 
@@ -932,22 +661,12 @@ Plugins pass-through.
 public __call(string $method, array $arguments): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
-
-
-
 
 ***
 

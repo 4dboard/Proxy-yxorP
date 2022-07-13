@@ -2,33 +2,16 @@
 
 # BSONIteratorTest
 
-
-
-
-
 * Full name: `\MongoDB\Tests\Model\BSONIteratorTest`
 * Parent class: [`\MongoDB\Tests\TestCase`](../TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testValidValues
-
-
 
 ```php
 public testValidValues(?array $typeMap, mixed $binaryString, array $expectedDocuments): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,114 +21,49 @@ public testValidValues(?array $typeMap, mixed $binaryString, array $expectedDocu
 | `$binaryString` | **mixed** |  |
 | `$expectedDocuments` | **array** |  |
 
-
-
-
 ***
 
 ### provideTypeMapOptionsAndExpectedDocuments
-
-
 
 ```php
 public provideTypeMapOptionsAndExpectedDocuments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testCannotReadLengthFromFirstDocument
-
-
 
 ```php
 public testCannotReadLengthFromFirstDocument(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testCannotReadLengthFromSubsequentDocument
-
-
 
 ```php
 public testCannotReadLengthFromSubsequentDocument(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testCannotReadFirstDocument
-
-
 
 ```php
 public testCannotReadFirstDocument(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testCannotReadSecondDocument
-
-
 
 ```php
 public testCannotReadSecondDocument(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getUri
 
@@ -155,15 +73,7 @@ Return the connection URI.
 public static getUri(): string
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -175,13 +85,7 @@ Asserts that a document has expected values for some fields.
 public assertMatchesDocument(array|object $expectedDocument, array|object $actualDocument): void
 ```
 
-Only fields in the expected document will be checked. The actual document
-may contain additional fields.
-
-
-
-
-
+Only fields in the expected document will be checked. The actual document may contain additional fields.
 
 **Parameters:**
 
@@ -189,9 +93,6 @@ may contain additional fields.
 |-----------|------|-------------|
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
-
-
-
 
 ***
 
@@ -203,13 +104,7 @@ Asserts that a document has expected values for all fields.
 public assertSameDocument(array|object $expectedDocument, array|object $actualDocument): void
 ```
 
-The actual document will be compared directly with the expected document
-and may not contain extra fields.
-
-
-
-
-
+The actual document will be compared directly with the expected document and may not contain extra fields.
 
 **Parameters:**
 
@@ -218,25 +113,13 @@ and may not contain extra fields.
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
 
-
-
-
 ***
 
 ### assertSameDocuments
 
-
-
 ```php
 public assertSameDocuments(array $expectedDocuments, mixed $actualDocuments): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -244,9 +127,6 @@ public assertSameDocuments(array $expectedDocuments, mixed $actualDocuments): vo
 |-----------|------|-------------|
 | `$expectedDocuments` | **array** |  |
 | `$actualDocuments` | **mixed** |  |
-
-
-
 
 ***
 
@@ -258,81 +138,35 @@ Compatibility method as PHPUnit 9 no longer includes this method.
 public dataDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidArrayValues
-
-
 
 ```php
 public provideInvalidArrayValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidDocumentValues
-
-
 
 ```php
 public provideInvalidDocumentValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertDeprecated
 
-
-
 ```php
 protected assertDeprecated(callable $execution): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$execution` | **callable** |  |
-
-
-
 
 ***
 
@@ -344,16 +178,6 @@ Return the test collection name.
 protected getCollectionName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDatabaseName
@@ -363,16 +187,6 @@ Return the test database name.
 ```php
 protected getDatabaseName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -384,21 +198,11 @@ Return a list of invalid array values.
 protected getInvalidArrayValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -410,21 +214,11 @@ Return a list of invalid boolean values.
 protected getInvalidBooleanValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -436,21 +230,11 @@ Return a list of invalid document values.
 protected getInvalidDocumentValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -462,21 +246,11 @@ Return a list of invalid integer values.
 protected getInvalidIntegerValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -488,21 +262,11 @@ Return a list of invalid ReadPreference values.
 protected getInvalidReadConcernValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -514,21 +278,11 @@ Return a list of invalid ReadPreference values.
 protected getInvalidReadPreferenceValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -540,21 +294,11 @@ Return a list of invalid Session values.
 protected getInvalidSessionValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -566,21 +310,11 @@ Return a list of invalid string values.
 protected getInvalidStringValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -592,21 +326,11 @@ Return a list of invalid WriteConcern values.
 protected getInvalidWriteConcernValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -618,16 +342,6 @@ Return the test namespace.
 protected getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### wrapValuesForDataProvider
@@ -638,21 +352,11 @@ Wrap a list of values for use as a single-argument data provider.
 protected wrapValuesForDataProvider(array $values): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** | List of values |
-
-
-
 
 ***
 
@@ -664,23 +368,14 @@ Normalizes a BSON document or array for use with assertEquals().
 private normalizeBSON(array|object $bson): \MongoDB\Model\BSONDocument|\MongoDB\Model\BSONArray
 ```
 
-The argument will be converted to a BSONArray or BSONDocument based on
-its type and keys. Document fields will be sorted alphabetically. Each
-value within the array or document will then be normalized recursively.
-
-
-
-
-
+The argument will be converted to a BSONArray or BSONDocument based on its type and keys. Document fields will be sorted
+alphabetically. Each value within the array or document will then be normalized recursively.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bson` | **array&#124;object** |  |
-
-
-
 
 ***
 

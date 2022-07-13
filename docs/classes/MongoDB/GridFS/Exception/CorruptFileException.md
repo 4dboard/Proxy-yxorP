@@ -2,18 +2,10 @@
 
 # CorruptFileException
 
-
-
-
-
 * Full name: `\MongoDB\GridFS\Exception\CorruptFileException`
 * Parent class: [`\MongoDB\Exception\RuntimeException`](../../Exception/RuntimeException.md)
 
-
-
-
 ## Methods
-
 
 ### missingChunk
 
@@ -23,21 +15,13 @@ Thrown when a chunk is not found for an expected index.
 public static missingChunk(int $expectedIndex): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$expectedIndex` | **int** | Expected index number |
-
-
-
 
 ***
 
@@ -49,12 +33,7 @@ Thrown when a chunk has an unexpected index number.
 public static unexpectedIndex(int $index, int $expectedIndex): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -62,9 +41,6 @@ public static unexpectedIndex(int $index, int $expectedIndex): self
 |-----------|------|-------------|
 | `$index` | **int** | Actual index number (i.e. &quot;n&quot; field) |
 | `$expectedIndex` | **int** | Expected index number |
-
-
-
 
 ***
 
@@ -76,12 +52,7 @@ Thrown when a chunk has an unexpected data size.
 public static unexpectedSize(int $size, int $expectedSize): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -89,9 +60,6 @@ public static unexpectedSize(int $size, int $expectedSize): self
 |-----------|------|-------------|
 | `$size` | **int** | Actual size (i.e. &quot;data&quot; field length) |
 | `$expectedSize` | **int** | Expected size |
-
-
-
 
 ***
 

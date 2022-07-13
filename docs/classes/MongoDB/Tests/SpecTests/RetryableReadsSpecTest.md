@@ -4,52 +4,36 @@
 
 Retryable reads spec tests.
 
-
-
 * Full name: `\MongoDB\Tests\SpecTests\RetryableReadsSpecTest`
 * Parent class: [`\MongoDB\Tests\SpecTests\FunctionalTestCase`](./FunctionalTestCase.md)
 
 **See Also:**
 
-* https://github.com/mongodb/specifications/tree/master/source/retryable-reads - 
-
-
+* https://github.com/mongodb/specifications/tree/master/source/retryable-reads -
 
 ## Properties
 
-
 ### skippedOperations
-
-
 
 ```php
 private static array $skippedOperations
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### incompleteTests
 
-
-
 ```php
 private static array $incompleteTests
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### assertCommandMatches
 
@@ -59,12 +43,7 @@ Assert that the expected and actual command documents match.
 public static assertCommandMatches(\stdClass $expected, \stdClass $actual): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -72,9 +51,6 @@ public static assertCommandMatches(\stdClass $expected, \stdClass $actual): void
 |-----------|------|-------------|
 | `$expected` | **\stdClass** | Expected command document |
 | `$actual` | **\stdClass** | Actual command document |
-
-
-
 
 ***
 
@@ -85,13 +61,6 @@ Execute an individual test case from the specification.
 ```php
 public testRetryableReads(\stdClass $test, array $runOn, array|object $data, string $databaseName, string|null $collectionName, string|null $bucketName): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -104,72 +73,31 @@ public testRetryableReads(\stdClass $test, array $runOn, array|object $data, str
 | `$collectionName` | **string&#124;null** | Name of collection under test |
 | `$bucketName` | **string&#124;null** | Name of GridFS bucket under test |
 
-
-
-
 ***
 
 ### provideTests
-
-
 
 ```php
 public provideTests(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### setUp
-
-
 
 ```php
 public setUp(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### tearDown
 
-
-
 ```php
 public tearDown(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -181,13 +109,9 @@ Assert that the expected and actual command documents match.
 public static assertCommandMatches(\stdClass $expected, \stdClass $actual): void
 ```
 
-Note: Spec tests that do not assert command started events may throw an
-exception in lieu of implementing this method.
+Note: Spec tests that do not assert command started events may throw an exception in lieu of implementing this method.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -195,9 +119,6 @@ exception in lieu of implementing this method.
 |-----------|------|-------------|
 | `$expected` | **\stdClass** |  |
 | `$actual` | **\stdClass** |  |
-
-
-
 
 ***
 
@@ -209,13 +130,9 @@ Assert that the expected and actual command reply documents match.
 public static assertCommandReplyMatches(\stdClass $expected, \stdClass $actual): void
 ```
 
-Note: Spec tests that do not assert command started events may throw an
-exception in lieu of implementing this method.
+Note: Spec tests that do not assert command started events may throw an exception in lieu of implementing this method.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -223,9 +140,6 @@ exception in lieu of implementing this method.
 |-----------|------|-------------|
 | `$expected` | **\stdClass** | Expected command reply document |
 | `$actual` | **\stdClass** | Actual command reply document |
-
-
-
 
 ***
 
@@ -241,9 +155,6 @@ Extra keys in the actual value's document(s) will be ignored.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -251,9 +162,6 @@ Extra keys in the actual value's document(s) will be ignored.
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
 | `$message` | **string** |  |
-
-
-
 
 ***
 
@@ -265,22 +173,12 @@ Assert data within the outcome collection.
 protected assertOutcomeCollectionData(array $expectedDocuments, int $resultExpectation = ResultExpectation::ASSERT_SAME_DOCUMENT): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$expectedDocuments` | **array** |  |
 | `$resultExpectation` | **int** |  |
-
-
-
 
 ***
 
@@ -292,21 +190,11 @@ Checks server version and topology requirements.
 protected checkServerRequirements(array $runOn): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$runOn` | **array** |  |
-
-
-
 
 ***
 
@@ -318,22 +206,13 @@ Decode a JSON spec test.
 protected decodeJson(string $json): array|object
 ```
 
-This decodes the file through the driver's extended JSON parser to ensure
-proper handling of special types.
-
-
-
-
-
+This decodes the file through the driver's extended JSON parser to ensure proper handling of special types.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$json` | **string** |  |
-
-
-
 
 ***
 
@@ -345,16 +224,6 @@ Return the test context.
 protected getContext(): \MongoDB\Tests\SpecTests\Context
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setContext
@@ -365,21 +234,11 @@ Set the test context.
 protected setContext(\MongoDB\Tests\SpecTests\Context $context): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\MongoDB\Tests\SpecTests\Context** |  |
-
-
-
 
 ***
 
@@ -391,16 +250,6 @@ Drop the test and outcome collections by dropping them.
 protected dropTestAndOutcomeCollections(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### insertDataFixtures
@@ -411,13 +260,6 @@ Insert data fixtures into the test collection.
 protected insertDataFixtures(array $documents, string|null $collectionName = null): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -425,34 +267,19 @@ protected insertDataFixtures(array $documents, string|null $collectionName = nul
 | `$documents` | **array** |  |
 | `$collectionName` | **string&#124;null** |  |
 
-
-
-
 ***
 
 ### getOutcomeCollection
 
-
-
 ```php
 private getOutcomeCollection(array $collectionOptions = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collectionOptions` | **array** |  |
-
-
-
 
 ***
 
@@ -464,41 +291,19 @@ Return the corresponding topology constants for the current topology.
 private getTopology(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isServerlessRequirementSatisfied
 
-
-
 ```php
 private isServerlessRequirementSatisfied(?string $serverlessMode): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serverlessMode` | **?string** |  |
-
-
-
 
 ***
 
@@ -510,13 +315,6 @@ Checks if server version and topology requirements are satifised.
 private isServerRequirementSatisifed(string|null $minServerVersion, string|null $maxServerVersion, array|null $topologies = null, ?string $serverlessMode = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -526,25 +324,15 @@ private isServerRequirementSatisifed(string|null $minServerVersion, string|null 
 | `$topologies` | **array&#124;null** |  |
 | `$serverlessMode` | **?string** |  |
 
-
-
-
 ***
 
 ### createTestClient
-
-
 
 ```php
 public static createTestClient(?string $uri = null, array $options = [], array $driverOptions = []): \MongoDB\Client
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -553,26 +341,16 @@ public static createTestClient(?string $uri = null, array $options = [], array $
 | `$uri` | **?string** |  |
 | `$options` | **array** |  |
 | `$driverOptions` | **array** |  |
-
-
-
 
 ***
 
 ### createTestManager
 
-
-
 ```php
 public static createTestManager(?string $uri = null, array $options = [], array $driverOptions = []): \MongoDB\Driver\Manager
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -581,9 +359,6 @@ public static createTestManager(?string $uri = null, array $options = [], array 
 | `$uri` | **?string** |  |
 | `$options` | **array** |  |
 | `$driverOptions` | **array** |  |
-
-
-
 
 ***
 
@@ -595,32 +370,15 @@ Return the connection URI.
 public static getUri(): string
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### assertCollectionCount
 
-
-
 ```php
 protected assertCollectionCount(mixed $namespace, mixed $count): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -629,15 +387,11 @@ protected assertCollectionCount(mixed $namespace, mixed $count): void
 | `$namespace` | **mixed** |  |
 | `$count` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertCollectionDoesNotExist
 
-Asserts that a collection with the given name does not exist on the
-server.
+Asserts that a collection with the given name does not exist on the server.
 
 ```php
 protected assertCollectionDoesNotExist(string $collectionName, ?string $databaseName = null): void
@@ -645,20 +399,12 @@ protected assertCollectionDoesNotExist(string $collectionName, ?string $database
 
 $databaseName defaults to TestCase::getDatabaseName() if unspecified.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collectionName` | **string** |  |
 | `$databaseName` | **?string** |  |
-
-
-
 
 ***
 
@@ -670,16 +416,9 @@ Asserts that a collection with the given name exists on the server.
 protected assertCollectionExists(string $collectionName, ?string $databaseName = null, ?callable $callback = null): void
 ```
 
-$databaseName defaults to TestCase::getDatabaseName() if unspecified.
-An optional $callback may be provided, which should take a CollectionInfo
-argument as its first and only parameter. If a CollectionInfo matching
-the given name is found, it will be passed to the callback, which may
-perform additional assertions.
-
-
-
-
-
+$databaseName defaults to TestCase::getDatabaseName() if unspecified. An optional $callback may be provided, which
+should take a CollectionInfo argument as its first and only parameter. If a CollectionInfo matching the given name is
+found, it will be passed to the callback, which may perform additional assertions.
 
 **Parameters:**
 
@@ -689,25 +428,13 @@ perform additional assertions.
 | `$databaseName` | **?string** |  |
 | `$callback` | **?callable** |  |
 
-
-
-
 ***
 
 ### assertCommandSucceeded
 
-
-
 ```php
 protected assertCommandSucceeded(mixed $document): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -715,25 +442,13 @@ protected assertCommandSucceeded(mixed $document): void
 |-----------|------|-------------|
 | `$document` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertSameObjectId
 
-
-
 ```php
 protected assertSameObjectId(mixed $expectedObjectId, mixed $actualObjectId): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -741,9 +456,6 @@ protected assertSameObjectId(mixed $expectedObjectId, mixed $actualObjectId): vo
 |-----------|------|-------------|
 | `$expectedObjectId` | **mixed** |  |
 | `$actualObjectId` | **mixed** |  |
-
-
-
 
 ***
 
@@ -755,13 +467,7 @@ Configure a fail point for the test.
 public configureFailPoint(array|\stdClass $command, ?\MongoDB\Driver\Server $server = null): void
 ```
 
-The fail point will automatically be disabled during tearDown() to avoid
-affecting a subsequent test.
-
-
-
-
-
+The fail point will automatically be disabled during tearDown() to avoid affecting a subsequent test.
 
 **Parameters:**
 
@@ -769,9 +475,6 @@ affecting a subsequent test.
 |-----------|------|-------------|
 | `$command` | **array&#124;\stdClass** | configureFailPoint command document |
 | `$server` | **?\MongoDB\Driver\Server** |  |
-
-
-
 
 ***
 
@@ -783,23 +486,14 @@ Creates the test collection with the specified options.
 protected createCollection(array $options = []): void
 ```
 
-If the "writeConcern" option is not specified but is supported by the
-server, a majority write concern will be used. This is helpful for tests
-using transactions or secondary reads.
-
-
-
-
-
+If the "writeConcern" option is not specified but is supported by the server, a majority write concern will be used.
+This is helpful for tests using transactions or secondary reads.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -811,14 +505,8 @@ Drops the test collection with the specified options.
 protected dropCollection(array $options = []): void
 ```
 
-If the "writeConcern" option is not specified but is supported by the
-server, a majority write concern will be used. This is helpful for tests
-using transactions or secondary reads.
-
-
-
-
-
+If the "writeConcern" option is not specified but is supported by the server, a majority write concern will be used.
+This is helpful for tests using transactions or secondary reads.
 
 **Parameters:**
 
@@ -826,97 +514,49 @@ using transactions or secondary reads.
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### getFeatureCompatibilityVersion
-
-
 
 ```php
 protected getFeatureCompatibilityVersion(?\MongoDB\Driver\ReadPreference $readPreference = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readPreference` | **?\MongoDB\Driver\ReadPreference** |  |
-
-
-
 
 ***
 
 ### getPrimaryServer
 
-
-
 ```php
 protected getPrimaryServer(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### getServerVersion
 
-
-
 ```php
 protected getServerVersion(?\MongoDB\Driver\ReadPreference $readPreference = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readPreference` | **?\MongoDB\Driver\ReadPreference** |  |
-
-
-
 
 ***
 
 ### getServerStorageEngine
 
-
-
 ```php
 protected getServerStorageEngine(?\MongoDB\Driver\ReadPreference $readPreference = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -924,68 +564,29 @@ protected getServerStorageEngine(?\MongoDB\Driver\ReadPreference $readPreference
 |-----------|------|-------------|
 | `$readPreference` | **?\MongoDB\Driver\ReadPreference** |  |
 
-
-
-
 ***
 
 ### isLoadBalanced
-
-
 
 ```php
 protected isLoadBalanced(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isReplicaSet
-
-
 
 ```php
 protected isReplicaSet(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isMongos
 
-
-
 ```php
 protected isMongos(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -997,172 +598,73 @@ Return whether serverless (i.e. proxy as mongos) is being utilized.
 protected static isServerless(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### isShardedCluster
 
-
-
 ```php
 protected isShardedCluster(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### isShardedClusterUsingReplicasets
 
-
-
 ```php
 protected isShardedClusterUsingReplicasets(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### skipIfChangeStreamIsNotSupported
 
-
-
 ```php
 protected skipIfChangeStreamIsNotSupported(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### skipIfCausalConsistencyIsNotSupported
 
-
-
 ```php
 protected skipIfCausalConsistencyIsNotSupported(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### skipIfClientSideEncryptionIsNotSupported
 
-
-
 ```php
 protected skipIfClientSideEncryptionIsNotSupported(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### skipIfGeoHaystackIndexIsNotSupported
 
-
-
 ```php
 protected skipIfGeoHaystackIndexIsNotSupported(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### skipIfTransactionsAreNotSupported
 
-
-
 ```php
 protected skipIfTransactionsAreNotSupported(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### appendAuthenticationOptions
 
-
-
 ```php
 private static appendAuthenticationOptions(array $options): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -1170,34 +672,21 @@ private static appendAuthenticationOptions(array $options): array
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### appendServerApiOption
-
-
 
 ```php
 private static appendServerApiOption(array $driverOptions): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$driverOptions` | **array** |  |
-
-
-
 
 ***
 
@@ -1209,8 +698,7 @@ Disables any fail points that were configured earlier in the test.
 private disableFailPoints(): void
 ```
 
-This tracks fail points set via configureFailPoint() and should be called
-during tearDown().
+This tracks fail points set via configureFailPoint() and should be called during tearDown().
 
 
 
@@ -1224,27 +712,15 @@ during tearDown().
 
 ### getModuleInfo
 
-
-
 ```php
 private getModuleInfo(string $row): ?string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$row` | **string** |  |
-
-
-
 
 ***
 
@@ -1256,16 +732,6 @@ Checks if the failCommand command is supported on this server version
 private isFailCommandSupported(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isFailCommandEnabled
@@ -1275,16 +741,6 @@ Checks if the failCommand command is enabled by checking the enableTestCommands 
 ```php
 private isFailCommandEnabled(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1296,13 +752,7 @@ Asserts that a document has expected values for some fields.
 public assertMatchesDocument(array|object $expectedDocument, array|object $actualDocument): void
 ```
 
-Only fields in the expected document will be checked. The actual document
-may contain additional fields.
-
-
-
-
-
+Only fields in the expected document will be checked. The actual document may contain additional fields.
 
 **Parameters:**
 
@@ -1310,9 +760,6 @@ may contain additional fields.
 |-----------|------|-------------|
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
-
-
-
 
 ***
 
@@ -1324,13 +771,7 @@ Asserts that a document has expected values for all fields.
 public assertSameDocument(array|object $expectedDocument, array|object $actualDocument): void
 ```
 
-The actual document will be compared directly with the expected document
-and may not contain extra fields.
-
-
-
-
-
+The actual document will be compared directly with the expected document and may not contain extra fields.
 
 **Parameters:**
 
@@ -1339,25 +780,13 @@ and may not contain extra fields.
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
 
-
-
-
 ***
 
 ### assertSameDocuments
 
-
-
 ```php
 public assertSameDocuments(array $expectedDocuments, mixed $actualDocuments): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1365,9 +794,6 @@ public assertSameDocuments(array $expectedDocuments, mixed $actualDocuments): vo
 |-----------|------|-------------|
 | `$expectedDocuments` | **array** |  |
 | `$actualDocuments` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1379,81 +805,35 @@ Compatibility method as PHPUnit 9 no longer includes this method.
 public dataDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidArrayValues
-
-
 
 ```php
 public provideInvalidArrayValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidDocumentValues
-
-
 
 ```php
 public provideInvalidDocumentValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertDeprecated
 
-
-
 ```php
 protected assertDeprecated(callable $execution): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$execution` | **callable** |  |
-
-
-
 
 ***
 
@@ -1465,16 +845,6 @@ Return the test collection name.
 protected getCollectionName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDatabaseName
@@ -1484,16 +854,6 @@ Return the test database name.
 ```php
 protected getDatabaseName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1505,21 +865,11 @@ Return a list of invalid array values.
 protected getInvalidArrayValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1531,21 +881,11 @@ Return a list of invalid boolean values.
 protected getInvalidBooleanValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1557,21 +897,11 @@ Return a list of invalid document values.
 protected getInvalidDocumentValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1583,21 +913,11 @@ Return a list of invalid integer values.
 protected getInvalidIntegerValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1609,21 +929,11 @@ Return a list of invalid ReadPreference values.
 protected getInvalidReadConcernValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1635,21 +945,11 @@ Return a list of invalid ReadPreference values.
 protected getInvalidReadPreferenceValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1661,21 +961,11 @@ Return a list of invalid Session values.
 protected getInvalidSessionValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1687,21 +977,11 @@ Return a list of invalid string values.
 protected getInvalidStringValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1713,21 +993,11 @@ Return a list of invalid WriteConcern values.
 protected getInvalidWriteConcernValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1739,16 +1009,6 @@ Return the test namespace.
 protected getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### wrapValuesForDataProvider
@@ -1759,21 +1019,11 @@ Wrap a list of values for use as a single-argument data provider.
 protected wrapValuesForDataProvider(array $values): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** | List of values |
-
-
-
 
 ***
 
@@ -1785,23 +1035,14 @@ Normalizes a BSON document or array for use with assertEquals().
 private normalizeBSON(array|object $bson): \MongoDB\Model\BSONDocument|\MongoDB\Model\BSONArray
 ```
 
-The argument will be converted to a BSONArray or BSONDocument based on
-its type and keys. Document fields will be sorted alphabetically. Each
-value within the array or document will then be normalized recursively.
-
-
-
-
-
+The argument will be converted to a BSONArray or BSONDocument based on its type and keys. Document fields will be sorted
+alphabetically. Each value within the array or document will then be normalized recursively.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bson` | **array&#124;object** |  |
-
-
-
 
 ***
 

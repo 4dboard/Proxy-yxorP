@@ -2,17 +2,9 @@
 
 # StreamedCopyTrait
 
-
-
-
-
 * Full name: `\League\Flysystem\Adapter\Polyfill\StreamedCopyTrait`
 
-
-
-
 ## Methods
-
 
 ### copy
 
@@ -22,13 +14,6 @@ Copy a file.
 public copy(string $path, string $newpath): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -36,25 +21,15 @@ public copy(string $path, string $newpath): bool
 | `$path` | **string** |  |
 | `$newpath` | **string** |  |
 
-
-
-
 ***
 
 ### readStream
-
-
 
 ```php
 public readStream(string $path): resource
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -62,25 +37,15 @@ public readStream(string $path): resource
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
 ***
 
 ### writeStream
-
-
 
 ```php
 public writeStream(string $path, resource $resource, \League\Flysystem\Config $config): resource
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -89,9 +54,6 @@ public writeStream(string $path, resource $resource, \League\Flysystem\Config $c
 | `$path` | **string** |  |
 | `$resource` | **resource** |  |
 | `$config` | **\League\Flysystem\Config** |  |
-
-
-
 
 ***
 

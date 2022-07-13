@@ -2,12 +2,7 @@
 
 # Spyc
 
-
-
-
-
 * Full name: `\Spyc`
-
 
 ## Constants
 
@@ -17,219 +12,117 @@
 
 ## Properties
 
-
 ### setting_dump_force_quotes
-
-
 
 ```php
 public $setting_dump_force_quotes
 ```
 
-
-
-
-
-
 ***
 
 ### setting_use_syck_is_possible
-
-
 
 ```php
 public $setting_use_syck_is_possible
 ```
 
-
-
-
-
-
 ***
 
 ### _dumpIndent
-
-
 
 ```php
 private $_dumpIndent
 ```
 
-
-
-
-
-
 ***
 
 ### _dumpWordWrap
-
-
 
 ```php
 private $_dumpWordWrap
 ```
 
-
-
-
-
-
 ***
 
 ### _containsGroupAnchor
-
-
 
 ```php
 private $_containsGroupAnchor
 ```
 
-
-
-
-
-
 ***
 
 ### _containsGroupAlias
-
-
 
 ```php
 private $_containsGroupAlias
 ```
 
-
-
-
-
-
 ***
 
 ### path
-
-
 
 ```php
 private $path
 ```
 
-
-
-
-
-
 ***
 
 ### result
-
-
 
 ```php
 private $result
 ```
 
-
-
-
-
-
 ***
 
 ### LiteralPlaceHolder
-
-
 
 ```php
 private $LiteralPlaceHolder
 ```
 
-
-
-
-
-
 ***
 
 ### SavedGroups
-
-
 
 ```php
 private $SavedGroups
 ```
 
-
-
-
-
-
 ***
 
 ### indent
-
-
 
 ```php
 private $indent
 ```
 
-
-
-
-
-
 ***
 
 ### delayedPath
-
-
 
 ```php
 private $delayedPath
 ```
 
-
-
-
-
-
 ***
 
 ### _nodeId
-
-
 
 ```php
 public $_nodeId
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### load
-
-
 
 ```php
 public load(mixed $input): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -237,25 +130,13 @@ public load(mixed $input): mixed
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
 
-
-
-
 ***
 
 ### loadFile
 
-
-
 ```php
 public loadFile(mixed $file): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -263,51 +144,31 @@ public loadFile(mixed $file): mixed
 |-----------|------|-------------|
 | `$file` | **mixed** |  |
 
-
-
-
 ***
 
 ### YAMLLoad
-
-
 
 ```php
 public static YAMLLoad(mixed $input): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
-
-
-
 
 ***
 
 ### YAMLLoadString
 
-
-
 ```php
 public static YAMLLoadString(mixed $input): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -315,25 +176,15 @@ public static YAMLLoadString(mixed $input): mixed
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
 
-
-
-
 ***
 
 ### YAMLDump
-
-
 
 ```php
 public static YAMLDump(mixed $array, mixed $indent = false, mixed $wordwrap = false, mixed $no_opening_dashes = false): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -343,26 +194,14 @@ public static YAMLDump(mixed $array, mixed $indent = false, mixed $wordwrap = fa
 | `$indent` | **mixed** |  |
 | `$wordwrap` | **mixed** |  |
 | `$no_opening_dashes` | **mixed** |  |
-
-
-
 
 ***
 
 ### dump
 
-
-
 ```php
 public dump(mixed $array, mixed $indent = false, mixed $wordwrap = false, mixed $no_opening_dashes = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -373,25 +212,13 @@ public dump(mixed $array, mixed $indent = false, mixed $wordwrap = false, mixed 
 | `$wordwrap` | **mixed** |  |
 | `$no_opening_dashes` | **mixed** |  |
 
-
-
-
 ***
 
 ### _yamlize
 
-
-
 ```php
 private _yamlize(mixed $key, mixed $value, mixed $indent, mixed $previous_key = -1, mixed $first_key, mixed $source_array = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -404,25 +231,13 @@ private _yamlize(mixed $key, mixed $value, mixed $indent, mixed $previous_key = 
 | `$first_key` | **mixed** |  |
 | `$source_array` | **mixed** |  |
 
-
-
-
 ***
 
 ### _yamlizeArray
 
-
-
 ```php
 private _yamlizeArray(mixed $array, mixed $indent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -431,25 +246,13 @@ private _yamlizeArray(mixed $array, mixed $indent): mixed
 | `$array` | **mixed** |  |
 | `$indent` | **mixed** |  |
 
-
-
-
 ***
 
 ### _dumpNode
 
-
-
 ```php
 private _dumpNode(mixed $key, mixed $value, mixed $indent, mixed $previous_key = -1, mixed $first_key, mixed $source_array = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -462,52 +265,28 @@ private _dumpNode(mixed $key, mixed $value, mixed $indent, mixed $previous_key =
 | `$first_key` | **mixed** |  |
 | `$source_array` | **mixed** |  |
 
-
-
-
 ***
 
 ### _doLiteralBlock
-
-
 
 ```php
 private _doLiteralBlock(mixed $value, mixed $indent): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$indent` | **mixed** |  |
-
-
-
 
 ***
 
 ### _doFolding
 
-
-
 ```php
 private _doFolding(mixed $value, mixed $indent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -516,129 +295,69 @@ private _doFolding(mixed $value, mixed $indent): mixed
 | `$value` | **mixed** |  |
 | `$indent` | **mixed** |  |
 
-
-
-
 ***
 
 ### isTrueWord
-
-
 
 ```php
 private isTrueWord(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### isFalseWord
 
-
-
 ```php
 private isFalseWord(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### isNullWord
 
-
-
 ```php
 private isNullWord(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### isTranslationWord
 
-
-
 ```php
 private isTranslationWord(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### coerceValue
 
-
-
 ```php
 private coerceValue(mixed& $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -646,25 +365,15 @@ private coerceValue(mixed& $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### getTranslations
-
-
 
 ```php
 private static getTranslations(array $words): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -672,51 +381,27 @@ private static getTranslations(array $words): mixed
 |-----------|------|-------------|
 | `$words` | **array** |  |
 
-
-
-
 ***
 
 ### _load
-
-
 
 ```php
 private _load(mixed $input): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
-
-
-
 
 ***
 
 ### _loadString
 
-
-
 ```php
 private _loadString(mixed $input): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -724,25 +409,13 @@ private _loadString(mixed $input): mixed
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
 
-
-
-
 ***
 
 ### loadWithSource
 
-
-
 ```php
 private loadWithSource(mixed $Source): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -750,51 +423,27 @@ private loadWithSource(mixed $Source): mixed
 |-----------|------|-------------|
 | `$Source` | **mixed** |  |
 
-
-
-
 ***
 
 ### loadFromSource
-
-
 
 ```php
 private loadFromSource(mixed $input): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
-
-
-
 
 ***
 
 ### loadFromString
 
-
-
 ```php
 private loadFromString(mixed $input): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -802,25 +451,13 @@ private loadFromString(mixed $input): mixed
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
 
-
-
-
 ***
 
 ### _parseLine
 
-
-
 ```php
 private _parseLine(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -828,25 +465,13 @@ private _parseLine(mixed $line): mixed
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
 
-
-
-
 ***
 
 ### _toType
 
-
-
 ```php
 private _toType(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -854,25 +479,13 @@ private _toType(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### _inlineEscape
 
-
-
 ```php
 private _inlineEscape(mixed $inline): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -880,25 +493,13 @@ private _inlineEscape(mixed $inline): mixed
 |-----------|------|-------------|
 | `$inline` | **mixed** |  |
 
-
-
-
 ***
 
 ### literalBlockContinues
 
-
-
 ```php
 private literalBlockContinues(mixed $line, mixed $lineIndent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -907,25 +508,13 @@ private literalBlockContinues(mixed $line, mixed $lineIndent): mixed
 | `$line` | **mixed** |  |
 | `$lineIndent` | **mixed** |  |
 
-
-
-
 ***
 
 ### referenceContentsByAlias
 
-
-
 ```php
 private referenceContentsByAlias(mixed $alias): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -933,25 +522,13 @@ private referenceContentsByAlias(mixed $alias): mixed
 |-----------|------|-------------|
 | `$alias` | **mixed** |  |
 
-
-
-
 ***
 
 ### addArrayInline
 
-
-
 ```php
 private addArrayInline(mixed $array, mixed $indent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -960,25 +537,13 @@ private addArrayInline(mixed $array, mixed $indent): mixed
 | `$array` | **mixed** |  |
 | `$indent` | **mixed** |  |
 
-
-
-
 ***
 
 ### addArray
 
-
-
 ```php
 private addArray(mixed $incoming_data, mixed $incoming_indent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -987,51 +552,31 @@ private addArray(mixed $incoming_data, mixed $incoming_indent): mixed
 | `$incoming_data` | **mixed** |  |
 | `$incoming_indent` | **mixed** |  |
 
-
-
-
 ***
 
 ### startsLiteralBlock
-
-
 
 ```php
 private static startsLiteralBlock(mixed $line): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### greedilyNeedNextLine
 
-
-
 ```php
 private static greedilyNeedNextLine(mixed $line): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -1039,25 +584,13 @@ private static greedilyNeedNextLine(mixed $line): mixed
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
 
-
-
-
 ***
 
 ### addLiteralLine
 
-
-
 ```php
 private addLiteralLine(mixed $literalBlock, mixed $line, mixed $literalBlockStyle, mixed $indent = -1): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1068,25 +601,13 @@ private addLiteralLine(mixed $literalBlock, mixed $line, mixed $literalBlockStyl
 | `$literalBlockStyle` | **mixed** |  |
 | `$indent` | **mixed** |  |
 
-
-
-
 ***
 
 ### revertLiteralPlaceHolder
 
-
-
 ```php
 public revertLiteralPlaceHolder(mixed $lineArray, mixed $literalBlock): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1095,25 +616,15 @@ public revertLiteralPlaceHolder(mixed $lineArray, mixed $literalBlock): mixed
 | `$lineArray` | **mixed** |  |
 | `$literalBlock` | **mixed** |  |
 
-
-
-
 ***
 
 ### stripIndent
-
-
 
 ```php
 private static stripIndent(mixed $line, mixed $indent = -1): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -1121,52 +632,28 @@ private static stripIndent(mixed $line, mixed $indent = -1): mixed
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
 | `$indent` | **mixed** |  |
-
-
-
 
 ***
 
 ### getParentPathByIndent
 
-
-
 ```php
 private getParentPathByIndent(mixed $indent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$indent` | **mixed** |  |
-
-
-
 
 ***
 
 ### clearBiggerPathValues
 
-
-
 ```php
 private clearBiggerPathValues(mixed $indent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1174,207 +661,117 @@ private clearBiggerPathValues(mixed $indent): mixed
 |-----------|------|-------------|
 | `$indent` | **mixed** |  |
 
-
-
-
 ***
 
 ### isComment
-
-
 
 ```php
 private static isComment(mixed $line): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### isEmpty
 
-
-
 ```php
 private static isEmpty(mixed $line): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### isArrayElement
 
-
-
 ```php
 private isArrayElement(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### isHashElement
 
-
-
 ```php
 private isHashElement(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### isLiteral
 
-
-
 ```php
 private isLiteral(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### unquote
 
-
-
 ```php
 private static unquote(mixed $value): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### startsMappedSequence
 
-
-
 ```php
 private startsMappedSequence(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### returnMappedSequence
 
-
-
 ```php
 private returnMappedSequence(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1382,25 +779,13 @@ private returnMappedSequence(mixed $line): mixed
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
 
-
-
-
 ***
 
 ### checkKeysInValue
 
-
-
 ```php
 private checkKeysInValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1408,207 +793,111 @@ private checkKeysInValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### returnMappedValue
-
-
 
 ```php
 private returnMappedValue(mixed $line): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### startsMappedValue
 
-
-
 ```php
 private startsMappedValue(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### isPlainArray
 
-
-
 ```php
 private isPlainArray(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### returnPlainArray
 
-
-
 ```php
 private returnPlainArray(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### returnKeyValuePair
 
-
-
 ```php
 private returnKeyValuePair(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### returnArrayElement
 
-
-
 ```php
 private returnArrayElement(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### nodeContainsGroup
 
-
-
 ```php
 private nodeContainsGroup(mixed $line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
-
-
-
 
 ***
 
 ### addGroup
 
-
-
 ```php
 private addGroup(mixed $line, mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1616,26 +905,14 @@ private addGroup(mixed $line, mixed $group): mixed
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
 | `$group` | **mixed** |  |
-
-
-
 
 ***
 
 ### stripGroup
 
-
-
 ```php
 private stripGroup(mixed $line, mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1643,9 +920,6 @@ private stripGroup(mixed $line, mixed $group): mixed
 |-----------|------|-------------|
 | `$line` | **mixed** |  |
 | `$group` | **mixed** |  |
-
-
-
 
 ***
 

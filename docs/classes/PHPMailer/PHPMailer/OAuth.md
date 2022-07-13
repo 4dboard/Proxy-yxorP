@@ -8,16 +8,13 @@ Uses the oauth2-client package from the League of Extraordinary Packages.
 
 * Full name: `\PHPMailer\PHPMailer\OAuth`
 * This class implements:
-[`\PHPMailer\PHPMailer\OAuthTokenProvider`](./OAuthTokenProvider.md)
+  [`\PHPMailer\PHPMailer\OAuthTokenProvider`](./OAuthTokenProvider.md)
 
 **See Also:**
 
-* http://oauth2-client.thephpleague.com - 
-
-
+* http://oauth2-client.thephpleague.com -
 
 ## Properties
-
 
 ### provider
 
@@ -26,11 +23,6 @@ An instance of the League OAuth Client Provider.
 ```php
 protected \League\OAuth2\Client\Provider\AbstractProvider $provider
 ```
-
-
-
-
-
 
 ***
 
@@ -42,26 +34,15 @@ The current OAuth access token.
 protected \League\OAuth2\Client\Token\AccessToken $oauthToken
 ```
 
-
-
-
-
-
 ***
 
 ### oauthUserEmail
 
-The user's email address, usually used as the login ID
-and also the from address when sending email.
+The user's email address, usually used as the login ID and also the from address when sending email.
 
 ```php
 protected string $oauthUserEmail
 ```
-
-
-
-
-
 
 ***
 
@@ -73,11 +54,6 @@ The client secret, generated in the app definition of the service you're connect
 protected string $oauthClientSecret
 ```
 
-
-
-
-
-
 ***
 
 ### oauthClientId
@@ -87,11 +63,6 @@ The client ID, generated in the app definition of the service you're connecting 
 ```php
 protected string $oauthClientId
 ```
-
-
-
-
-
 
 ***
 
@@ -103,15 +74,9 @@ The refresh token, used to obtain new AccessTokens.
 protected string $oauthRefreshToken
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -121,21 +86,12 @@ OAuth constructor.
 public __construct(array $options): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$options` | **array** | Associative array containing<br />`provider`, `userName`, `clientSecret`, `clientId` and `refreshToken` elements |
-
-
-
+| `$options` | **
+array** | Associative array containing<br />`provider`, `userName`, `clientSecret`, `clientId` and `refreshToken` elements |
 
 ***
 
@@ -147,16 +103,6 @@ Get a new RefreshToken.
 protected getGrant(): \League\OAuth2\Client\Grant\RefreshToken
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getToken
@@ -167,16 +113,6 @@ Get a new AccessToken.
 protected getToken(): \League\OAuth2\Client\Token\AccessToken
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOauth64
@@ -186,16 +122,6 @@ Generate a base64-encoded OAuth token.
 ```php
 public getOauth64(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

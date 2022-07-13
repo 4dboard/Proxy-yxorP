@@ -2,178 +2,89 @@
 
 # DataCollection
 
-
-
-
-
 * Full name: `\DataCollection`
 * This class implements:
-[`\Iterator`](./Iterator.md)
-
-
+  [`\Iterator`](./Iterator.md)
 
 ## Properties
 
-
 ### position
-
-
 
 ```php
 protected $position
 ```
 
-
-
-
-
-
 ***
 
 ### items
-
-
 
 ```php
 protected $items
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $items): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$items` | **mixed** |  |
-
-
-
 
 ***
 
 ### create
 
-
-
 ```php
 public static create(mixed $items): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$items` | **mixed** |  |
-
-
-
 
 ***
 
 ### first
 
-
-
 ```php
 public first(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### last
 
-
-
 ```php
 public last(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reverse
 
-
-
 ```php
 public reverse(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setItems
 
-
-
 ```php
 protected setItems(mixed $items): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -181,51 +92,27 @@ protected setItems(mixed $items): mixed
 |-----------|------|-------------|
 | `$items` | **mixed** |  |
 
-
-
-
 ***
 
 ### limit
-
-
 
 ```php
 public limit(mixed $number): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
-
-
-
 
 ***
 
 ### skip
 
-
-
 ```php
 public skip(mixed $number): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -233,51 +120,27 @@ public skip(mixed $number): mixed
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
 
-
-
-
 ***
 
 ### not
-
-
 
 ```php
 public not(mixed $criteria): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-
-
-
 
 ***
 
 ### filter
 
-
-
 ```php
 public filter(mixed $criteria): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -285,25 +148,13 @@ public filter(mixed $criteria): mixed
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
 
-
-
-
 ***
 
 ### sort
 
-
-
 ```php
 public sort(mixed $expr, mixed $dir = 1): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -312,25 +163,13 @@ public sort(mixed $expr, mixed $dir = 1): mixed
 | `$expr` | **mixed** |  |
 | `$dir` | **mixed** |  |
 
-
-
-
 ***
 
 ### index
 
-
-
 ```php
 public index(mixed $obj): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -338,25 +177,13 @@ public index(mixed $obj): mixed
 |-----------|------|-------------|
 | `$obj` | **mixed** |  |
 
-
-
-
 ***
 
 ### eq
 
-
-
 ```php
 public eq(mixed $index): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -364,25 +191,13 @@ public eq(mixed $index): mixed
 |-----------|------|-------------|
 | `$index` | **mixed** |  |
 
-
-
-
 ***
 
 ### pagination
 
-
-
 ```php
 public pagination(mixed $limit = 5, mixed $current = 1): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -391,148 +206,61 @@ public pagination(mixed $limit = 5, mixed $current = 1): mixed
 | `$limit` | **mixed** |  |
 | `$current` | **mixed** |  |
 
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
-
-
 
 ```php
 public toArray(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### rewind
-
-
 
 ```php
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### current
-
-
 
 ```php
 public current(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
-
-
 
 ```php
 public key(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### next
-
-
 
 ```php
 public next(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### valid
 
-
-
 ```php
 public valid(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

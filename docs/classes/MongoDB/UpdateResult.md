@@ -4,71 +4,39 @@
 
 Result class for an update operation.
 
-
-
 * Full name: `\MongoDB\UpdateResult`
-
-
 
 ## Properties
 
-
 ### writeResult
-
-
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
-
-
-
-
-
 ***
 
 ### isAcknowledged
-
-
 
 ```php
 private bool $isAcknowledged
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
-
-
-
 
 ***
 
@@ -82,16 +50,9 @@ public getMatchedCount(): int
 
 This method should only be called if the write was acknowledged.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() - 
+* \MongoDB\UpdateResult::isAcknowledged() -
 
 ***
 
@@ -103,21 +64,13 @@ Return the number of documents that were modified.
 public getModifiedCount(): int|null
 ```
 
-This value is undefined (i.e. null) if the write executed as a legacy
-operation instead of command.
+This value is undefined (i.e. null) if the write executed as a legacy operation instead of command.
 
 This method should only be called if the write was acknowledged.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() - 
+* \MongoDB\UpdateResult::isAcknowledged() -
 
 ***
 
@@ -131,16 +84,9 @@ public getUpsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() - 
+* \MongoDB\UpdateResult::isAcknowledged() -
 
 ***
 
@@ -152,24 +98,16 @@ Return the ID of the document inserted by an upsert operation.
 public getUpsertedId(): mixed|null
 ```
 
-If the document had an ID prior to upserting (i.e. the server did not
-need to generate an ID), this will contain its "_id". Any
-server-generated ID will be a MongoDB\BSON\ObjectId instance.
+If the document had an ID prior to upserting (i.e. the server did not need to generate an ID), this will contain its "_
+id". Any server-generated ID will be a MongoDB\BSON\ObjectId instance.
 
 This value is undefined (i.e. null) if an upsert did not take place.
 
 This method should only be called if the write was acknowledged.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \MongoDB\UpdateResult::isAcknowledged() - 
+* \MongoDB\UpdateResult::isAcknowledged() -
 
 ***
 
@@ -182,8 +120,7 @@ public isAcknowledged(): bool
 ```
 
 If the update was not acknowledged, other fields from the WriteResult
-(e.g. matchedCount) will be undefined and their getter methods should not
-be invoked.
+(e.g. matchedCount) will be undefined and their getter methods should not be invoked.
 
 
 

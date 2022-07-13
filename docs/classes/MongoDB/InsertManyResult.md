@@ -4,77 +4,41 @@
 
 Result class for a multi-document insert operation.
 
-
-
 * Full name: `\MongoDB\InsertManyResult`
-
-
 
 ## Properties
 
-
 ### writeResult
-
-
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
-
-
-
-
-
 ***
 
 ### insertedIds
-
-
 
 ```php
 private array $insertedIds
 ```
 
-
-
-
-
-
 ***
 
 ### isAcknowledged
-
-
 
 ```php
 private bool $isAcknowledged
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult, array $insertedIds): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -82,9 +46,6 @@ public __construct(\MongoDB\Driver\WriteResult $writeResult, array $insertedIds)
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
 | `$insertedIds` | **array** |  |
-
-
-
 
 ***
 
@@ -98,16 +59,9 @@ public getInsertedCount(): int
 
 This method should only be called if the write was acknowledged.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \MongoDB\InsertManyResult::isAcknowledged() - 
+* \MongoDB\InsertManyResult::isAcknowledged() -
 
 ***
 
@@ -119,11 +73,9 @@ Return a map of the inserted documents' IDs.
 public getInsertedIds(): array
 ```
 
-The index of each ID in the map corresponds to each document's position
-in the bulk operation. If a document had an ID prior to inserting (i.e.
-the driver did not generate an ID), the index will contain its "_id"
-field value. Any driver-generated ID will be a MongoDB\BSON\ObjectId
-instance.
+The index of each ID in the map corresponds to each document's position in the bulk operation. If a document had an ID
+prior to inserting (i.e. the driver did not generate an ID), the index will contain its "_id"
+field value. Any driver-generated ID will be a MongoDB\BSON\ObjectId instance.
 
 
 

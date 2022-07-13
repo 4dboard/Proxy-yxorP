@@ -2,109 +2,59 @@
 
 # Lexy
 
-
-
-
-
 * Full name: `\Lexy`
-
-
 
 ## Properties
 
-
 ### cachePath
-
-
 
 ```php
 protected $cachePath
 ```
 
-
-
-
-
-
 ***
 
 ### srcinfo
-
-
 
 ```php
 protected $srcinfo
 ```
 
-
-
-
-
-
 ***
 
 ### compilers
-
-
 
 ```php
 protected $compilers
 ```
 
-
-
-
-
-
 ***
 
 ### extensions
-
-
 
 ```php
 protected $extensions
 ```
 
-
-
-
-
-
 ***
 
 ### allowed_calls
-
-
 
 ```php
 protected $allowed_calls
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### render
-
-
 
 ```php
 public static render(mixed $content, mixed $params = array(), mixed $sandbox = false, mixed $srcinfo = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -114,26 +64,14 @@ public static render(mixed $content, mixed $params = array(), mixed $sandbox = f
 | `$params` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 | `$srcinfo` | **mixed** |  |
-
-
-
 
 ***
 
 ### execute
 
-
-
 ```php
 public execute(mixed $content, mixed $params = array(), mixed $sandbox = false, mixed $srcinfo = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -144,25 +82,15 @@ public execute(mixed $content, mixed $params = array(), mixed $sandbox = false, 
 | `$sandbox` | **mixed** |  |
 | `$srcinfo` | **mixed** |  |
 
-
-
-
 ***
 
 ### render_file
-
-
 
 ```php
 public static render_file(mixed $file, mixed $params = array(), mixed $sandbox = false): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -171,26 +99,14 @@ public static render_file(mixed $file, mixed $params = array(), mixed $sandbox =
 | `$file` | **mixed** |  |
 | `$params` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
-
-
-
 
 ***
 
 ### file
 
-
-
 ```php
 public file(mixed $file, mixed $params = array(), mixed $sandbox = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -200,25 +116,13 @@ public file(mixed $file, mixed $params = array(), mixed $sandbox = false): mixed
 | `$params` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 
-
-
-
 ***
 
 ### get_cached_file
 
-
-
 ```php
 protected get_cached_file(mixed $file, mixed $sandbox): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -227,25 +131,13 @@ protected get_cached_file(mixed $file, mixed $sandbox): mixed
 | `$file` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 
-
-
-
 ***
 
 ### cache_file
 
-
-
 ```php
 protected cache_file(mixed $file, mixed $cachedfile, mixed $filemtime = null, mixed $sandbox = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -256,25 +148,13 @@ protected cache_file(mixed $file, mixed $cachedfile, mixed $filemtime = null, mi
 | `$filemtime` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 
-
-
-
 ***
 
 ### parse
 
-
-
 ```php
 public parse(mixed $text, mixed $sandbox = false, mixed $srcinfo = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -284,25 +164,13 @@ public parse(mixed $text, mixed $sandbox = false, mixed $srcinfo = null): mixed
 | `$sandbox` | **mixed** |  |
 | `$srcinfo` | **mixed** |  |
 
-
-
-
 ***
 
 ### compile
 
-
-
 ```php
 protected compile(mixed $text, mixed $sandbox = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -311,51 +179,27 @@ protected compile(mixed $text, mixed $sandbox = false): mixed
 | `$text` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 
-
-
-
 ***
 
 ### check_security
-
-
 
 ```php
 protected check_security(mixed $code): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
-
-
-
 
 ***
 
 ### check_syntax
 
-
-
 ```php
 protected check_syntax(mixed $code): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -363,25 +207,13 @@ protected check_syntax(mixed $code): mixed
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
 
-
-
-
 ***
 
 ### setCachePath
 
-
-
 ```php
 public setCachePath(mixed $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -389,25 +221,13 @@ public setCachePath(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### allowCall
 
-
-
 ```php
 public allowCall(mixed $call): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -415,25 +235,13 @@ public allowCall(mixed $call): mixed
 |-----------|------|-------------|
 | `$call` | **mixed** |  |
 
-
-
-
 ***
 
 ### extend
 
-
-
 ```php
 public extend(mixed $compiler): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -441,216 +249,117 @@ public extend(mixed $compiler): mixed
 |-----------|------|-------------|
 | `$compiler` | **mixed** |  |
 
-
-
-
 ***
 
 ### compile_comments
-
-
 
 ```php
 protected compile_comments(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_unescape_echos
 
-
-
 ```php
 protected compile_unescape_echos(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_echos
 
-
-
 ```php
 protected compile_echos(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_default_structures
 
-
-
 ```php
 protected compile_default_structures(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_else
 
-
-
 ```php
 protected compile_else(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_unless
 
-
-
 ```php
 protected compile_unless(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_php_tags
 
-
-
 ```php
 protected compile_php_tags(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### compile_extensions
 
-
-
 ```php
 protected compile_extensions(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 

@@ -4,12 +4,9 @@
 
 Spec test operation result expectation.
 
-
-
 * Full name: `\MongoDB\Tests\SpecTests\ResultExpectation`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -31,69 +28,37 @@ Spec test operation result expectation.
 
 ## Properties
 
-
 ### assertionType
-
-
 
 ```php
 private int $assertionType
 ```
 
-
-
-
-
-
 ***
 
 ### expectedValue
-
-
 
 ```php
 private mixed $expectedValue
 ```
 
-
-
-
-
-
 ***
 
 ### assertionCallable
-
-
 
 ```php
 private callable $assertionCallable
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 private __construct(int $assertionType, mixed $expectedValue): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -102,25 +67,15 @@ private __construct(int $assertionType, mixed $expectedValue): mixed
 | `$assertionType` | **int** |  |
 | `$expectedValue` | **mixed** |  |
 
-
-
-
 ***
 
 ### fromChangeStreams
-
-
 
 ```php
 public static fromChangeStreams(\stdClass $result, callable $assertionCallable): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -129,25 +84,15 @@ public static fromChangeStreams(\stdClass $result, callable $assertionCallable):
 | `$result` | **\stdClass** |  |
 | `$assertionCallable` | **callable** |  |
 
-
-
-
 ***
 
 ### fromClientSideEncryption
-
-
 
 ```php
 public static fromClientSideEncryption(\stdClass $operation, mixed $defaultAssertionType): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -155,26 +100,16 @@ public static fromClientSideEncryption(\stdClass $operation, mixed $defaultAsser
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 | `$defaultAssertionType` | **mixed** |  |
-
-
-
 
 ***
 
 ### fromCrud
 
-
-
 ```php
 public static fromCrud(\stdClass $operation, mixed $defaultAssertionType): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -182,26 +117,16 @@ public static fromCrud(\stdClass $operation, mixed $defaultAssertionType): mixed
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 | `$defaultAssertionType` | **mixed** |  |
-
-
-
 
 ***
 
 ### fromReadWriteConcern
 
-
-
 ```php
 public static fromReadWriteConcern(\stdClass $operation, mixed $defaultAssertionType): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -209,26 +134,16 @@ public static fromReadWriteConcern(\stdClass $operation, mixed $defaultAssertion
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 | `$defaultAssertionType` | **mixed** |  |
-
-
-
 
 ***
 
 ### fromRetryableReads
 
-
-
 ```php
 public static fromRetryableReads(\stdClass $operation, mixed $defaultAssertionType): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -237,25 +152,15 @@ public static fromRetryableReads(\stdClass $operation, mixed $defaultAssertionTy
 | `$operation` | **\stdClass** |  |
 | `$defaultAssertionType` | **mixed** |  |
 
-
-
-
 ***
 
 ### fromRetryableWrites
-
-
 
 ```php
 public static fromRetryableWrites(\stdClass $outcome, mixed $defaultAssertionType): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -264,25 +169,15 @@ public static fromRetryableWrites(\stdClass $outcome, mixed $defaultAssertionTyp
 | `$outcome` | **\stdClass** |  |
 | `$defaultAssertionType` | **mixed** |  |
 
-
-
-
 ***
 
 ### fromTransactions
-
-
 
 ```php
 public static fromTransactions(\stdClass $operation, mixed $defaultAssertionType): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -290,9 +185,6 @@ public static fromTransactions(\stdClass $operation, mixed $defaultAssertionType
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 | `$defaultAssertionType` | **mixed** |  |
-
-
-
 
 ***
 
@@ -304,13 +196,6 @@ Assert that the result expectation matches the actual outcome.
 public assert(\MongoDB\Tests\SpecTests\FunctionalTestCase $test, mixed $actual): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -318,54 +203,29 @@ public assert(\MongoDB\Tests\SpecTests\FunctionalTestCase $test, mixed $actual):
 | `$test` | **\MongoDB\Tests\SpecTests\FunctionalTestCase** | Test instance for performing assertions |
 | `$actual` | **mixed** |  |
 
-
-
-
 ***
 
 ### isExpected
-
-
 
 ```php
 public isExpected(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isArrayOfObjects
-
-
 
 ```php
 private static isArrayOfObjects(mixed $array): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **mixed** |  |
-
-
-
 
 ***
 
@@ -377,12 +237,7 @@ Determines whether the result is actually an error expectation.
 private static isErrorResult(mixed $result): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -390,11 +245,9 @@ private static isErrorResult(mixed $result): bool
 |-----------|------|-------------|
 | `$result` | **mixed** |  |
 
-
-
 **See Also:**
 
-* https://github.com/mongodb/specifications/blob/master/source/transactions/tests/README.rst#test-format - 
+* https://github.com/mongodb/specifications/blob/master/source/transactions/tests/README.rst#test-format -
 
 ***
 

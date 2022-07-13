@@ -2,12 +2,7 @@
 
 # RunOnRequirement
 
-
-
-
-
 * Full name: `\MongoDB\Tests\UnifiedSpecTests\RunOnRequirement`
-
 
 ## Constants
 
@@ -25,144 +20,81 @@
 
 ## Properties
 
-
 ### minServerVersion
-
-
 
 ```php
 private string $minServerVersion
 ```
 
-
-
-
-
-
 ***
 
 ### maxServerVersion
-
-
 
 ```php
 private string $maxServerVersion
 ```
 
-
-
-
-
-
 ***
 
 ### topologies
-
-
 
 ```php
 private array $topologies
 ```
 
-
-
-
-
-
 ***
 
 ### serverParameters
-
-
 
 ```php
 private \stdClass $serverParameters
 ```
 
-
-
-
-
-
 ***
 
 ### auth
-
-
 
 ```php
 private bool $auth
 ```
 
-
-
-
-
-
 ***
 
 ### serverless
-
-
 
 ```php
 private string $serverless
 ```
 
-
-
-
-
-
 ***
 
 ### supportedTopologies
-
-
 
 ```php
 private static array $supportedTopologies
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### supportedServerless
 
-
-
 ```php
 private static array $supportedServerless
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\stdClass $o): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -170,25 +102,13 @@ public __construct(\stdClass $o): mixed
 |-----------|------|-------------|
 | `$o` | **\stdClass** |  |
 
-
-
-
 ***
 
 ### isSatisfied
 
-
-
 ```php
 public isSatisfied(string $serverVersion, string $topology, \stdClass $serverParameters, bool $isAuthenticated, bool $isServerless): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -200,34 +120,19 @@ public isSatisfied(string $serverVersion, string $topology, \stdClass $serverPar
 | `$isAuthenticated` | **bool** |  |
 | `$isServerless` | **bool** |  |
 
-
-
-
 ***
 
 ### isTopologySatisfied
 
-
-
 ```php
 private isTopologySatisfied(string $topology): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$topology` | **string** |  |
-
-
-
 
 ***
 
