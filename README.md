@@ -468,9 +468,8 @@ have been preconfigured on the proxy server for your convenience. Consider a sim
 
 ![image](https://user-images.githubusercontent.com/6468571/177675573-c9df68a1-75e6-445a-9432-c0627b0e98a5.png)
 
-Navigate to the root of the project with your browser, register an account and then login.
-
-yxorP is database, PHP CURL, and Composer compatible. As proxy, yxorP has permission to edit. Cockpit manages a PHAR (
+Navigate to the root of the project with your browser, register an account and then login. yxorP is database, PHP CURL,
+and Composer compatible. As proxy, yxorP has permission to edit. Cockpit manages a PHAR (
 PHP archive) binary version of proxy that is used by a number of websites. The yxorP customizable web proxy.
 Market-ready proxy systems Not built-in functionality, but event-driven architecture and plugin-based design are
 crucial. Expandable, configurable. YxorP's graphical back-end CMS interface is unique. The hostname of the request
