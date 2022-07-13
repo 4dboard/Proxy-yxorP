@@ -36,14 +36,6 @@ class DataCollection implements \Iterator
     }
 
     /**
-     * @return int
-     */
-    public function count()
-    {
-        return count($this->items);
-    }
-
-    /**
      * @return null
      */
     public function first()
@@ -65,6 +57,18 @@ class DataCollection implements \Iterator
     public function reverse()
     {
         return $this->setItems(array_reverse($this->items));
+    }
+
+    /**
+     * @param $items
+     * @return DataCollection
+     */
+    protected function setItems($items)
+    {
+
+        $collection = new static($items, $this);
+
+        return $collection;
     }
 
     /**
@@ -209,6 +213,14 @@ class DataCollection implements \Iterator
     }
 
     /**
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->items);
+    }
+
+    /**
      * @return array
      */
     public function toArray()
@@ -250,17 +262,5 @@ class DataCollection implements \Iterator
     {
 
         return isset($this->items[$this->position]);
-    }
-
-    /**
-     * @param $items
-     * @return DataCollection
-     */
-    protected function setItems($items)
-    {
-
-        $collection = new static($items, $this);
-
-        return $collection;
     }
 }

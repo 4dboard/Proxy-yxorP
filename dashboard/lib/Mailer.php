@@ -8,8 +8,8 @@
  * file that was distributed with this source code.
  */
 
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Mailer
 {

@@ -81,6 +81,6 @@ put a file in `config/feed/collectionname.php` with your custom code
 * [ ] maybe different rss/atom versions
 * [ ] maybe GUI --> for now, config.yaml works fine
 * [x] mime error if calling with Lime instead of API
-  * Warning: Creating default object from empty value in E:\github\yxorp\addons\Feed\bootstrap.php on line 23
-  * Workaround: `error_reporting(0);`
+    * Warning: Creating default object from empty value in E:\github\yxorp\addons\Feed\bootstrap.php on line 23
+    * Workaround: `error_reporting(0);`
 * [ ] ...

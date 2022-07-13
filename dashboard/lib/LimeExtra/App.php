@@ -84,6 +84,15 @@ class App extends \Lime\App
         }
     }
 
+    /**
+     * Outputs view content result
+     * @param $template
+     * @param array $slots
+     */
+    public function renderView($template, $slots = [])
+    {
+        echo $this->view($template, $slots);
+    }
 
     /**
      * Render view.
@@ -144,16 +153,6 @@ class App extends \Lime\App
         $this->layout = $olayout;
 
         return $output;
-    }
-
-    /**
-     * Outputs view content result
-     * @param $template
-     * @param array $slots
-     */
-    public function renderView($template, $slots = [])
-    {
-        echo $this->view($template, $slots);
     }
 
     public function assets($src, $version = false)

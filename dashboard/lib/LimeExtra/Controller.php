@@ -30,18 +30,18 @@ class Controller extends \Lime\AppAware
     }
 
     /**
+     *
+     */
+    protected function before()
+    {
+    }
+
+    /**
      * @return string
      */
     public function index()
     {
         return 'Please implement the index action';
-    }
-
-    /**
-     *
-     */
-    protected function before()
-    {
     }
 
     /**

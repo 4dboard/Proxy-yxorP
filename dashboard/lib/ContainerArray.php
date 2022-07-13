@@ -21,6 +21,32 @@ class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonS
         $this->bindTo = $bindTo ? $bindTo : $this;
     }
 
+    public function count()
+    {
+        return count($this->props);
+    }
+
+    public function toArray()
+    {
+        return $this->props;
+    }
+
+    public function getIterator()
+    {
+        return clone $this->props;
+    }
+
+    public function __get($name)
+    {
+        return isset($this->props[$name]) ? $this->props[$name] : null;
+    }
+
+    public function __set($name, $value)
+    {
+
+        $this->extend(array($name => $value));
+    }
+
     public function extend()
     {
 
@@ -48,37 +74,6 @@ class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonS
         return $this;
     }
 
-    public function get($key, $default = null)
-    {
-        return $this->fetch_from_array($key, $default);
-    }
-
-    public function count()
-    {
-        return count($this->props);
-    }
-
-    public function toArray()
-    {
-        return $this->props;
-    }
-
-    public function getIterator()
-    {
-        return clone $this->props;
-    }
-
-    public function __get($name)
-    {
-        return isset($this->props[$name]) ? $this->props[$name] : null;
-    }
-
-    public function __set($name, $value)
-    {
-
-        $this->extend(array($name => $value));
-    }
-
     public function __isset($name)
     {
         return isset($this->props[$name]);
@@ -102,8 +97,6 @@ class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonS
 
         return null;
     }
-
-    // Array Access implementation
 
     public function offsetSet($key, $value)
     {
@@ -129,10 +122,68 @@ class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonS
         }
     }
 
+    // Array Access implementation
+
     public function offsetGet($key)
     {
 
         return $this->get($key, null);
+    }
+
+    public function get($key, $default = null)
+    {
+        return $this->fetch_from_array($key, $default);
+    }
+
+    protected function fetch_from_array($index = null, $default = null)
+    {
+
+        if (is_null($index)) {
+
+            return $default;
+
+        } elseif (isset($this->props[$index])) {
+
+            return $this->props[$index];
+
+        } elseif (strpos($index, '/')) {
+
+            $keys = explode('/', $index);
+
+            switch (count($keys)) {
+
+                case 1:
+                    if (isset($this->props[$keys[0]])) {
+                        return $this->props[$keys[0]];
+                    }
+                    break;
+
+                case 2:
+                    if (isset($this->props[$keys[0]][$keys[1]])) {
+                        return $this->props[$keys[0]][$keys[1]];
+                    }
+                    break;
+
+                case 3:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]];
+                    }
+                    break;
+
+                case 4:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]];
+                    }
+                    break;
+                case 5:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]];
+                    }
+                    break;
+            }
+        }
+
+        return $default;
     }
 
     public function offsetExists($key)
@@ -232,62 +283,6 @@ class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonS
             $context = array($_key => $next);
         }
         return $context[$_key];
-    }
-
-    public function jsonSerialize()
-    {
-        return $this->props;
-    }
-
-    protected function fetch_from_array($index = null, $default = null)
-    {
-
-        if (is_null($index)) {
-
-            return $default;
-
-        } elseif (isset($this->props[$index])) {
-
-            return $this->props[$index];
-
-        } elseif (strpos($index, '/')) {
-
-            $keys = explode('/', $index);
-
-            switch (count($keys)) {
-
-                case 1:
-                    if (isset($this->props[$keys[0]])) {
-                        return $this->props[$keys[0]];
-                    }
-                    break;
-
-                case 2:
-                    if (isset($this->props[$keys[0]][$keys[1]])) {
-                        return $this->props[$keys[0]][$keys[1]];
-                    }
-                    break;
-
-                case 3:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])) {
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]];
-                    }
-                    break;
-
-                case 4:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])) {
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]];
-                    }
-                    break;
-                case 5:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])) {
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]];
-                    }
-                    break;
-            }
-        }
-
-        return $default;
     }
 
     protected function _tokenize($data, $separator = ',', $leftBound = '(', $rightBound = ')')
@@ -431,6 +426,11 @@ class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonS
             }
         }
         return true;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->props;
     }
 
 }

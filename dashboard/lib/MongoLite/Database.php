@@ -97,6 +97,19 @@ class Database
     }
 
     /**
+     * Execute registred criteria function
+     *
+     * @param string $id
+     * @param array $document
+     * @return boolean
+     */
+    public function callCriteriaFunction($id, $document)
+    {
+
+        return isset($this->document_criterias[$id]) ? $this->document_criterias[$id]($document) : false;
+    }
+
+    /**
      * Register Criteria function
      *
      * @param mixed $criteria
@@ -127,19 +140,6 @@ class Database
     }
 
     /**
-     * Execute registred criteria function
-     *
-     * @param string $id
-     * @param array $document
-     * @return boolean
-     */
-    public function callCriteriaFunction($id, $document)
-    {
-
-        return isset($this->document_criterias[$id]) ? $this->document_criterias[$id]($document) : false;
-    }
-
-    /**
      * Vacuum database
      */
     public function vacuum()
@@ -158,16 +158,6 @@ class Database
     }
 
     /**
-     * Create a collection
-     *
-     * @param string $name
-     */
-    public function createCollection($name)
-    {
-        $this->connection->exec("CREATE TABLE `{$name}` ( id INTEGER PRIMARY KEY AUTOINCREMENT, document TEXT )");
-    }
-
-    /**
      * Drop a collection
      *
      * @param string $name
@@ -178,6 +168,23 @@ class Database
 
         // Remove collection from cache
         unset($this->collections[$name]);
+    }
+
+    /**
+     * Get all collections in the database
+     *
+     * @return array
+     */
+    public function listCollections()
+    {
+
+        foreach ($this->getCollectionNames() as $name) {
+            if (!isset($this->collections[$name])) {
+                $this->collections[$name] = new Collection($name, $this);
+            }
+        }
+
+        return $this->collections;
     }
 
     /**
@@ -199,21 +206,10 @@ class Database
         return $names;
     }
 
-    /**
-     * Get all collections in the database
-     *
-     * @return array
-     */
-    public function listCollections()
+    public function __get($collection)
     {
 
-        foreach ($this->getCollectionNames() as $name) {
-            if (!isset($this->collections[$name])) {
-                $this->collections[$name] = new Collection($name, $this);
-            }
-        }
-
-        return $this->collections;
+        return $this->selectCollection($collection);
     }
 
     /**
@@ -237,10 +233,14 @@ class Database
         return $this->collections[$name];
     }
 
-    public function __get($collection)
+    /**
+     * Create a collection
+     *
+     * @param string $name
+     */
+    public function createCollection($name)
     {
-
-        return $this->selectCollection($collection);
+        $this->connection->exec("CREATE TABLE `{$name}` ( id INTEGER PRIMARY KEY AUTOINCREMENT, document TEXT )");
     }
 }
 

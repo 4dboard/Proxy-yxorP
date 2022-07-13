@@ -22,22 +22,6 @@ class MongoLite
         $this->db = $options['db'];
     }
 
-    public function getCollection($name, $db = null)
-    {
-
-        if (strpos($name, '/') !== false) {
-            list($db, $name) = explode('/', $name, 2);
-        }
-
-        if (!$db) {
-            $db = $this->db;
-        }
-
-        $name = str_replace('/', '_', $name);
-
-        return $this->client->selectCollection($db, $name);
-    }
-
     public function dropCollection($name, $db = null)
     {
 
@@ -82,6 +66,22 @@ class MongoLite
     public function findOne($collection, $filter = [], $projection = null)
     {
         return $this->getCollection($collection)->findOne($filter, $projection);
+    }
+
+    public function getCollection($name, $db = null)
+    {
+
+        if (strpos($name, '/') !== false) {
+            list($db, $name) = explode('/', $name, 2);
+        }
+
+        if (!$db) {
+            $db = $this->db;
+        }
+
+        $name = str_replace('/', '_', $name);
+
+        return $this->client->selectCollection($db, $name);
     }
 
     public function findOneById($collection, $id)

@@ -57,47 +57,6 @@ class Client
     */
 
     /**
-     * Get value for specific key
-     *
-     * @param string $collection
-     * @param string $key
-     * @param mixed $default
-     * @return mixed
-     */
-    public function getKey($collection, $key, $default = null)
-    {
-
-        $entry = $this->driver->findOne($collection, ['key' => $key]);
-
-        return $entry ? $entry['val'] : $default;
-    }
-
-    /**
-     * Set value for specific key
-     *
-     * @param string $collection
-     * @param string $key
-     * @param mixed $value
-     */
-    public function setKey($collection, $key, $value)
-    {
-
-        $entry = $this->driver->findOne($collection, ['key' => $key]);
-
-        if ($entry) {
-            $entry['val'] = $value;
-        } else {
-            $entry = [
-                'key' => $key,
-                'val' => $value
-            ];
-        }
-
-        return $this->driver->save($collection, $entry);
-    }
-
-
-    /**
      * Delete Key(s)
      *
      * @param string $collection
@@ -137,6 +96,46 @@ class Client
         $this->setKey($collection, $key, $newone);
 
         return $newone;
+    }
+
+    /**
+     * Get value for specific key
+     *
+     * @param string $collection
+     * @param string $key
+     * @param mixed $default
+     * @return mixed
+     */
+    public function getKey($collection, $key, $default = null)
+    {
+
+        $entry = $this->driver->findOne($collection, ['key' => $key]);
+
+        return $entry ? $entry['val'] : $default;
+    }
+
+    /**
+     * Set value for specific key
+     *
+     * @param string $collection
+     * @param string $key
+     * @param mixed $value
+     */
+    public function setKey($collection, $key, $value)
+    {
+
+        $entry = $this->driver->findOne($collection, ['key' => $key]);
+
+        if ($entry) {
+            $entry['val'] = $value;
+        } else {
+            $entry = [
+                'key' => $key,
+                'val' => $value
+            ];
+        }
+
+        return $this->driver->save($collection, $entry);
     }
 
     /**
@@ -242,40 +241,6 @@ class Client
     }
 
     /**
-     * Set the string value of a hash field
-     *
-     * @param string $collection
-     * @param string $key
-     * @param string $field
-     * @param mixed $value
-     */
-    public function hset($collection, $key, $field, $value)
-    {
-
-        $set = $this->getKey($collection, $key, []);
-
-        $set[$field] = $value;
-        $this->setKey($collection, $key, $set);
-    }
-
-    /**
-     * Get the value of a hash field
-     *
-     * @param string $collection
-     * @param string $key
-     * @param string $field
-     * @param mixed $default
-     * @return mixed
-     */
-    public function hget($collection, $key, $field, $default = null)
-    {
-
-        $set = $this->getKey($collection, $key, []);
-
-        return isset($set[$field]) ? $set[$field] : $default;
-    }
-
-    /**
      * Get all the fields and values in a hash
      *
      * @param string $collection
@@ -307,21 +272,6 @@ class Client
     }
 
     /**
-     * Get all the fields in a hash
-     *
-     * @param string $collection
-     * @param string $key
-     * @return array
-     */
-    public function hkeys($key)
-    {
-
-        $set = $this->getKey($collection, $key, []);
-
-        return array_keys($set);
-    }
-
-    /**
      * Get all the values in a hash
      *
      * @param string $collection
@@ -347,6 +297,21 @@ class Client
     {
 
         return count($this->hkeys($key));
+    }
+
+    /**
+     * Get all the fields in a hash
+     *
+     * @param string $collection
+     * @param string $key
+     * @return array
+     */
+    public function hkeys($key)
+    {
+
+        $set = $this->getKey($collection, $key, []);
+
+        return array_keys($set);
     }
 
     /**
@@ -398,6 +363,40 @@ class Client
         $this->hset($collection, $key, $field, $newone);
 
         return $newone;
+    }
+
+    /**
+     * Get the value of a hash field
+     *
+     * @param string $collection
+     * @param string $key
+     * @param string $field
+     * @param mixed $default
+     * @return mixed
+     */
+    public function hget($collection, $key, $field, $default = null)
+    {
+
+        $set = $this->getKey($collection, $key, []);
+
+        return isset($set[$field]) ? $set[$field] : $default;
+    }
+
+    /**
+     * Set the string value of a hash field
+     *
+     * @param string $collection
+     * @param string $key
+     * @param string $field
+     * @param mixed $value
+     */
+    public function hset($collection, $key, $field, $value)
+    {
+
+        $set = $this->getKey($collection, $key, []);
+
+        $set[$field] = $value;
+        $this->setKey($collection, $key, $set);
     }
 
     /**

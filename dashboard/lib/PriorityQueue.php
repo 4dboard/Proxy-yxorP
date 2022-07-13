@@ -25,14 +25,14 @@ class PriorityQueue implements Countable, IteratorAggregate
         $this->extractMode = self::EXTR_DATA;
     }
 
-    public function count()
-    {
-        return count($this->items);
-    }
-
     public function isEmpty()
     {
         return (0 === $this->count());
+    }
+
+    public function count()
+    {
+        return count($this->items);
     }
 
     public function setExtractFlags($flags)
@@ -118,14 +118,14 @@ class PriorityQueue implements Countable, IteratorAggregate
         return $this->getIterator()->top();
     }
 
-    public function extract()
-    {
-        return $this->queue->extract();
-    }
-
     public function getIterator()
     {
         return clone $this->queue;
+    }
+
+    public function extract()
+    {
+        return $this->queue->extract();
     }
 
     public function __clone()

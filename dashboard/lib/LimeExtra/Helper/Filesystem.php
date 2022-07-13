@@ -137,30 +137,6 @@ class Filesystem extends \Lime\Helper
 
     /**
      * @param $path
-     * @throws \Exception
-     */
-    public function delete($path)
-    {
-
-        $path = $this->app->path($path);
-
-        if (\is_file($path) || \is_link($path)) {
-            $func = DIRECTORY_SEPARATOR === '\\' && \is_dir($path) ? 'rmdir' : 'unlink';
-            if (!@$func($path)) {
-                throw new \Exception("Unable to delete: {$path}.");
-            }
-        } elseif (\is_dir($path)) {
-            foreach (new \FilesystemIterator($path) as $item) {
-                $this->delete($item->getRealPath());
-            }
-            if (!@rmdir($path)) {
-                throw new \Exception("Unable to delete directory: {$path}.");
-            }
-        }
-    }
-
-    /**
-     * @param $path
      * @param $dest
      * @param bool|true $_init
      * @return bool
@@ -228,6 +204,30 @@ class Filesystem extends \Lime\Helper
         }
 
         return true;
+    }
+
+    /**
+     * @param $path
+     * @throws \Exception
+     */
+    public function delete($path)
+    {
+
+        $path = $this->app->path($path);
+
+        if (\is_file($path) || \is_link($path)) {
+            $func = DIRECTORY_SEPARATOR === '\\' && \is_dir($path) ? 'rmdir' : 'unlink';
+            if (!@$func($path)) {
+                throw new \Exception("Unable to delete: {$path}.");
+            }
+        } elseif (\is_dir($path)) {
+            foreach (new \FilesystemIterator($path) as $item) {
+                $this->delete($item->getRealPath());
+            }
+            if (!@rmdir($path)) {
+                throw new \Exception("Unable to delete directory: {$path}.");
+            }
+        }
     }
 
     /**
