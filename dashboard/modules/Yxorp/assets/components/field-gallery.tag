@@ -8,36 +8,51 @@
 
     <div ref="panel">
 
-        <div ref="imagescontainer" class="uk-sortable uk-grid uk-grid-match uk-grid-small uk-flex-center uk-grid-gutter uk-grid-width-medium-1-4" show="{ images && images.length }">
+        <div ref="imagescontainer"
+             class="uk-sortable uk-grid uk-grid-match uk-grid-small uk-flex-center uk-grid-gutter uk-grid-width-medium-1-4"
+             show="{ images && images.length }">
             <div data-idx="{ idx }" each="{ img,idx in images }">
                 <div class="uk-panel uk-panel-box uk-panel-thumbnail uk-panel-framed uk-visible-hover">
 
-                        <div class="uk-bg-transparent-pattern uk-position-relative" style="min-height:120px;">
-                            <canvas class="uk-responsive-width" width="200" height="150"></canvas>
-                            <div class="uk-position-absolute uk-position-cover uk-flex uk-flex-middle">
-                                <div class="uk-width-1-1 uk-text-center">
-                                    <cp-thumbnail src="{ img.path.match(/^(http\:|https\:|\/\/)/) ? img.path : (SITE_URL+'/'+img.path.replace(/^\//, '')) }" height="120"></cp-thumbnail>
-                                </div>
+                    <div class="uk-bg-transparent-pattern uk-position-relative" style="min-height:120px;">
+                        <canvas class="uk-responsive-width" width="200" height="150"></canvas>
+                        <div class="uk-position-absolute uk-position-cover uk-flex uk-flex-middle">
+                            <div class="uk-width-1-1 uk-text-center">
+                                <cp-thumbnail
+                                        src="{ img.path.match(/^(http\:|https\:|\/\/)/) ? img.path : (SITE_URL+'/'+img.path.replace(/^\//, '')) }"
+                                        height="120"></cp-thumbnail>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="uk-invisible uk-margin-top">
-                            <ul class="uk-grid uk-grid-small uk-flex-center uk-text-small">
-                                <li data-uk-dropdown="pos:'bottom-center'">
-                                    <a class="uk-text-muted" onclick="{ parent.selectAsset }" title="{ App.i18n.get('Select image') }" data-uk-tooltip><i class="uk-icon-image"></i></a>
-                                    <div class="uk-dropdown">
-                                        <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
-                                            <li class="uk-nav-header">{ App.i18n.get('Source') }</li>
-                                            <li><a onclick="{ parent.selectAsset }">{ App.i18n.get('Select Asset') }</a></li>
-                                            <li show="{App.$data.acl.finder}"><a onclick="{ parent.selectImage }">{ App.i18n.get('Select Image') }</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="uk-text-muted" onclick="{ parent.showMeta }" title="{ App.i18n.get('Edit meta data') }" data-uk-tooltip><i class="uk-icon-cog"></i></a></li>
-                                <li><a class="uk-text-muted" href="{ img.path.match(/^(http\:|https\:|\/\/)/) ? img.path : (SITE_URL+'/'+img.path.replace(/^\//, '')) }" data-uk-lightbox="type:'image'" title="{ App.i18n.get('Full size') }" data-uk-tooltip><i class="uk-icon-eye"></i></a></li>
-                                <li><a class="uk-text-danger" onclick="{ parent.remove }" title="{ App.i18n.get('Remove image') }" data-uk-tooltip><i class="uk-icon-trash-o"></i></a></li>
-                            </ul>
-                        </div>
+                    <div class="uk-invisible uk-margin-top">
+                        <ul class="uk-grid uk-grid-small uk-flex-center uk-text-small">
+                            <li data-uk-dropdown="pos:'bottom-center'">
+                                <a class="uk-text-muted" onclick="{ parent.selectAsset }"
+                                   title="{ App.i18n.get('Select image') }" data-uk-tooltip><i
+                                        class="uk-icon-image"></i></a>
+                                <div class="uk-dropdown">
+                                    <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
+                                        <li class="uk-nav-header">{ App.i18n.get('Source') }</li>
+                                        <li><a onclick="{ parent.selectAsset }">{ App.i18n.get('Select Asset') }</a>
+                                        </li>
+                                        <li show="{App.$data.acl.finder}"><a onclick="{ parent.selectImage }">{
+                                            App.i18n.get('Select Image') }</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a class="uk-text-muted" onclick="{ parent.showMeta }"
+                                   title="{ App.i18n.get('Edit meta data') }" data-uk-tooltip><i
+                                    class="uk-icon-cog"></i></a></li>
+                            <li><a class="uk-text-muted"
+                                   href="{ img.path.match(/^(http\:|https\:|\/\/)/) ? img.path : (SITE_URL+'/'+img.path.replace(/^\//, '')) }"
+                                   data-uk-lightbox="type:'image'" title="{ App.i18n.get('Full size') }"
+                                   data-uk-tooltip><i class="uk-icon-eye"></i></a></li>
+                            <li><a class="uk-text-danger" onclick="{ parent.remove }"
+                                   title="{ App.i18n.get('Remove image') }" data-uk-tooltip><i
+                                    class="uk-icon-trash-o"></i></a></li>
+                        </ul>
+                    </div>
 
                 </div>
 
@@ -46,7 +61,8 @@
 
         <div class="uk-text-center {images && images.length ? 'uk-margin-top':'' }">
             <div class="uk-text-muted" if="{ images && !images.length }">
-                <img class="uk-svg-adjust" riot-src="{ App.base('/assets/app/media/icons/gallery.svg') }" width="100" data-uk-svg>
+                <img class="uk-svg-adjust" riot-src="{ App.base('/assets/app/media/icons/gallery.svg') }" width="100"
+                     data-uk-svg>
                 <p>{ App.i18n.get('Gallery is empty') }</p>
             </div>
             <div class="uk-display-inline-block uk-position-relative" data-uk-dropdown="pos:'bottom-center'">
@@ -83,14 +99,18 @@
                             </div>
 
                             <div class="uk-margin">
-                                <cp-field type="{ field.type || 'text' }" bind="image.meta['{name}']" opts="{ field.options || {} }"></cp-field>
+                                <cp-field type="{ field.type || 'text' }" bind="image.meta['{name}']"
+                                          opts="{ field.options || {} }"></cp-field>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="uk-modal-footer uk-text-right"><button class="uk-button uk-button-large uk-button-link uk-modal-close">{ App.i18n.get('Close') }</button></div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-large uk-button-link uk-modal-close">{ App.i18n.get('Close') }
+                    </button>
+                </div>
 
             </div>
         </div>
@@ -112,7 +132,7 @@
             }
         };
 
-        this.on('mount', function() {
+        this.on('mount', function () {
 
             this.meta = App.$.extend(this.meta, opts.meta || {});
 
@@ -120,13 +140,13 @@
 
                 animation: false
 
-            }).element.on('change.uk.sortable', function(e, sortable, ele) {
+            }).element.on('change.uk.sortable', function (e, sortable, ele) {
 
                 ele = App.$(ele);
 
                 var images = $this.images,
-                    cidx   = ele.index(),
-                    oidx   = ele.data('idx');
+                    cidx = ele.index(),
+                    oidx = ele.data('idx');
 
                 images.splice(cidx, 0, images.splice(oidx, 1)[0]);
 
@@ -136,12 +156,12 @@
                 $this.images = [];
                 $this.update();
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $this.images = images;
                     $this.$setValue(images);
                     $this.update();
 
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $this.refs.panel.style.height = '';
                         $this.update();
                     }, 30)
@@ -153,28 +173,28 @@
 
             var _uploads = [];
 
-            App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function () {
 
                 UIkit.uploadDrop($this.root, {
 
                     action: App.route('/assetsmanager/upload'),
                     type: 'json',
-                    allow : '*.(jpg|jpeg|gif|png|webp)',
-                    beforeAll: function() {
+                    allow: '*.(jpg|jpeg|gif|png|webp)',
+                    beforeAll: function () {
                         _uploads = [];
                     },
-                    loadstart: function() {
+                    loadstart: function () {
                         $this.refs.uploadprogress.classList.remove('uk-hidden');
                     },
-                    progress: function(percent) {
+                    progress: function (percent) {
 
                         percent = Math.ceil(percent) + '%';
 
-                        $this.refs.progressbar.innerHTML   = '<span>'+percent+'</span>';
+                        $this.refs.progressbar.innerHTML = '<span>' + percent + '</span>';
                         $this.refs.progressbar.style.width = percent;
                     },
 
-                    complete: function(response) {
+                    complete: function (response) {
 
                         if (response && response.failed && response.failed.length) {
                             App.ui.notify("File(s) failed to upload.", "danger");
@@ -182,12 +202,12 @@
 
                         if (response && Array.isArray(response.assets) && response.assets.length) {
 
-                            response.assets.forEach(function(asset){
+                            response.assets.forEach(function (asset) {
 
                                 if (asset.mime.match(/^image\//)) {
                                     _uploads.push({
-                                        meta:{title:'', asset: asset._id},
-                                        path: ASSETS_URL.replace(SITE_URL, '')+asset.path
+                                        meta: {title: '', asset: asset._id},
+                                        path: ASSETS_URL.replace(SITE_URL, '') + asset.path
                                     });
                                 }
                             });
@@ -198,7 +218,7 @@
                         }
                     },
 
-                    allcomplete: function(response) {
+                    allcomplete: function (response) {
 
                         $this.refs.uploadprogress.classList.add('uk-hidden');
 
@@ -212,7 +232,7 @@
 
         });
 
-        this.$updateValue = function(value, field) {
+        this.$updateValue = function (value, field) {
 
             if (!Array.isArray(value)) {
                 value = [];
@@ -225,94 +245,100 @@
 
         }.bind(this);
 
-        this.$initBind = function() {
+        this.$initBind = function () {
             this.root.$value = this.images;
         };
 
-        this.on('bindingupdated', function() {
+        this.on('bindingupdated', function () {
             $this.$setValue(this.images);
         });
 
-        showMeta(e) {
+        showMeta(e)
+        {
 
             this.image = this.images[e.item.idx];
 
-            setTimeout(function() {
-                UIkit.modal($this.refs.modalmeta, {modal:false}).show().on('close.uk.modal', function(){
+            setTimeout(function () {
+                UIkit.modal($this.refs.modalmeta, {modal: false}).show().on('close.uk.modal', function () {
                     $this.image = null;
                 });
             }, 50)
         }
 
-        selectimages() {
+        selectimages()
+        {
 
-            App.media.select(function(selected) {
+            App.media.select(function (selected) {
 
                 var images = [];
 
-                selected.forEach(function(path){
-                    images.push({meta:{title:''}, path:path});
+                selected.forEach(function (path) {
+                    images.push({meta: {title: ''}, path: path});
                 });
 
                 $this.$setValue($this.images.concat(images));
 
-            }, { typefilter:'image', pattern: '*.jpg|*.jpeg|*.png|*.gif|*.svg|*.webp' });
+            }, {typefilter: 'image', pattern: '*.jpg|*.jpeg|*.png|*.gif|*.svg|*.webp'});
 
         }
 
-        selectAssetsImages() {
+        selectAssetsImages()
+        {
 
-            App.assets.select(function(assets){
+            App.assets.select(function (assets) {
 
                 if (Array.isArray(assets)) {
 
                     var images = [];
 
-                    assets.forEach(function(asset){
+                    assets.forEach(function (asset) {
 
                         if (asset.mime.match(/^image\//)) {
                             images.push({
-                                meta:{title:'', asset: asset._id},
-                                path: ASSETS_URL.replace(SITE_URL, '')+asset.path
+                                meta: {title: '', asset: asset._id},
+                                path: ASSETS_URL.replace(SITE_URL, '') + asset.path
                             });
                         }
                     });
 
                     $this.$setValue($this.images.concat(images));
                 }
-                
+
             }, {typefilter: 'image'});
         }
 
-        selectImage(e) {
+        selectImage(e)
+        {
 
             var image = e.item.img;
 
-            App.media.select(function(selected) {
+            App.media.select(function (selected) {
 
                 image.path = selected[0];
                 $this.$setValue($this.images);
                 $this.update();
 
-            }, { typefilter:'image', pattern: '*.jpg|*.jpeg|*.png|*.gif|*.svg|*.webp' });
+            }, {typefilter: 'image', pattern: '*.jpg|*.jpeg|*.png|*.gif|*.svg|*.webp'});
         }
 
-        selectAsset(e) {
+        selectAsset(e)
+        {
 
             var image = e.item.img;
 
-            App.assets.select(function(assets){
+            App.assets.select(function (assets) {
 
                 if (Array.isArray(assets) && assets[0]) {
 
-                    image.path = ASSETS_URL.replace(SITE_URL, '')+assets[0].path;
+                    image.path = ASSETS_URL.replace(SITE_URL, '') + assets[0].path;
                     $this.$setValue($this.images);
                     $this.update();
                 }
             });
         }
 
-        remove(e) {
+        remove(e)
+        {
             this.images.splice(e.item.idx, 1);
             this.$setValue(this.images);
         }

@@ -8,7 +8,7 @@
 
         this.value = {};
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
             if (opts.cls) {
                 App.$(this.refs.input).addClass(opts.cls);
@@ -22,18 +22,20 @@
                 '/assets/../inc/jsoneditor/jsoneditor.min.css',
                 '/assets/../inc/jsoneditor/jsoneditor.min.js'
 
-            ], function() {
+            ], function () {
 
                 editor = new JSONEditor(this.refs.input, {
                     modes: ['tree', 'code'],
                     mode: 'code',
-                    onError: function(e) {},
-                    onChange: function() {
-                        
+                    onError: function (e) {
+                    },
+                    onChange: function () {
+
                         try {
                             $this.value = editor.get() || {};
                             $this.$setValue($this.value, true);
-                        } catch(e) {}
+                        } catch (e) {
+                        }
                     }
                 });
 
@@ -44,15 +46,15 @@
         });
 
 
-        this.$updateValue = function(value) {
+        this.$updateValue = function (value) {
 
-            if (typeof(value) != 'object') {
+            if (typeof (value) != 'object') {
                 value = {};
             }
-            
+
             if (JSON.stringify(this.value) != JSON.stringify(value)) {
                 this.value = value || {};
-                if (editor)  {
+                if (editor) {
                     editor.set(this.value);
                 }
             }

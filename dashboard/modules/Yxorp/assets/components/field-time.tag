@@ -3,10 +3,10 @@
     <input ref="input" class="uk-width-1-1" bind="{ opts.bind }" type="text">
 
     <script>
-        
+
         var $this = this;
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
             if (opts.cls) {
                 App.$(this.refs.input).addClass(opts.cls);
@@ -16,9 +16,9 @@
                 this.refs.input.setAttribute('required', 'required');
             }
 
-            App.assets.require(['/assets/../inc/uikit/js/components/timepicker.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/timepicker.js'], function () {
 
-                UIkit.timepicker(this.refs.input, opts).element.on('change', function() {
+                UIkit.timepicker(this.refs.input, opts).element.on('change', function () {
                     $this.refs.input.$setValue($this.refs.input.value);
                 });
 

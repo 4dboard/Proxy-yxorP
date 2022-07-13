@@ -14,11 +14,11 @@
             this.refs.input.setAttribute('required', 'required');
         }
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
-            App.assets.require(['/assets/../inc/uikit/js/components/datepicker.js', '/assets/../inc/uikit/js/components/form-select.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/datepicker.js', '/assets/../inc/uikit/js/components/form-select.js'], function () {
 
-                UIkit.datepicker(this.refs.input, opts).element.on('change', function() {
+                UIkit.datepicker(this.refs.input, opts).element.on('change', function () {
                     $this.refs.input.$setValue($this.refs.input.value);
                 });
 

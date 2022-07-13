@@ -4,12 +4,16 @@
 
     <script>
 
-        this.on('mount', function() { this.update(); });
-        this.on('update', function() { if (opts.opts) App.$.extend(opts, opts.opts); });
+        this.on('mount', function () {
+            this.update();
+        });
+        this.on('update', function () {
+            if (opts.opts) App.$.extend(opts, opts.opts);
+        });
 
         var $this = this;
 
-        this.$updateValue = function(value, field) {
+        this.$updateValue = function (value, field) {
 
             if (value && this.refs.input.value !== value) {
                 this.refs.input.value = value;
@@ -22,25 +26,25 @@
 
         }.bind(this);
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
             App.assets.require([
                 '/assets/../inc/spectrum/spectrum.js',
                 '/assets/../inc/spectrum/spectrum.css'
-            ], function(){
+            ], function () {
 
                 $this.refs.input.value = $this.root.$value || '';
 
                 App.$($this.refs.input).spectrum(App.$.extend({
                     preferredFormat: 'rgb',
-                    allowEmpty:true,
+                    allowEmpty: true,
                     showInitial: true,
                     showInput: true,
                     showButtons: false,
                     showAlpha: true,
                     showSelectionPalette: true,
-                    palette: [ ],
-                    change: function() {
+                    palette: [],
+                    change: function () {
                         $this.$setValue($this.refs.input.value);
                     }
                 }, opts.spectrum));

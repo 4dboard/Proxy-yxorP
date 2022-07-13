@@ -13,7 +13,7 @@
 
         .uk-modal .uk-panel-box.finder-folder,
         .uk-modal .uk-panel-box.finder-file {
-            border: 1px rgba(0,0,0,0.1) solid;
+            border: 1px rgba(0, 0, 0, 0.1) solid;
         }
 
         .picoedit-toolbar {
@@ -35,8 +35,10 @@
             <div class="uk-float-left">
 
                 <span class="uk-button-group uk-margin-right">
-                    <button class="uk-button uk-button-large {listmode=='list' && 'uk-button-primary'}" type="button" onclick="{ toggleListMode }"><i class="uk-icon-list"></i></button>
-                    <button class="uk-button uk-button-large {listmode=='grid' && 'uk-button-primary'}" type="button" onclick="{ toggleListMode }"><i class="uk-icon-th"></i></button>
+                    <button class="uk-button uk-button-large {listmode=='list' && 'uk-button-primary'}" type="button"
+                            onclick="{ toggleListMode }"><i class="uk-icon-list"></i></button>
+                    <button class="uk-button uk-button-large {listmode=='grid' && 'uk-button-primary'}" type="button"
+                            onclick="{ toggleListMode }"><i class="uk-icon-th"></i></button>
                 </span>
 
                 <div class="uk-form uk-form-icon uk-display-inline-block">
@@ -46,7 +48,8 @@
 
                 <span class="uk-margin-left" data-uk-dropdown="mode:'click'">
 
-                    <a class="uk-text-{sortBy == 'name' ? 'muted':'primary'}" title="{ App.i18n.get('Sort files') }" data-uk-tooltip="pos:'right'"><i class="uk-icon-sort"></i> { App.Utils.ucfirst(sortBy) }</a>
+                    <a class="uk-text-{sortBy == 'name' ? 'muted':'primary'}" title="{ App.i18n.get('Sort files') }"
+                       data-uk-tooltip="pos:'right'"><i class="uk-icon-sort"></i> { App.Utils.ucfirst(sortBy) }</a>
 
                     <div class="uk-dropdown uk-margin-top uk-text-left">
                         <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
@@ -96,26 +99,30 @@
                                 </a>
                                 <a class="uk-form-file">
                                     <i class="uk-icon-folder-o uk-icon-justify"></i> { App.i18n.get('Folder') }
-                                    <input class="js-upload-folder" type="file" title="" multiple multiple directory webkitdirectory allowdirs>
+                                    <input class="js-upload-folder" type="file" title="" multiple multiple directory
+                                           webkitdirectory allowdirs>
                                 </a>
                             </li>
                         </ul>
 
                     </div>
 
-                    
+
                 </div>
 
                 <button class="uk-button uk-button-large" onclick="{ refresh }">
                     <i class="uk-icon-refresh"></i>
                 </button>
 
-                <span class="uk-margin-left" if="{ selected.count }" data-uk-dropdown="mode:'click', pos:'bottom-right'">
-                    <span class="uk-button uk-button-large"><strong>{ App.i18n.get('Batch') }:</strong> { selected.count } &nbsp;<i class="uk-icon-caret-down"></i></span>
+                <span class="uk-margin-left" if="{ selected.count }"
+                      data-uk-dropdown="mode:'click', pos:'bottom-right'">
+                    <span class="uk-button uk-button-large"><strong>{ App.i18n.get('Batch') }:</strong> { selected.count } &nbsp;<i
+                            class="uk-icon-caret-down"></i></span>
                     <div class="uk-dropdown uk-margin-top uk-text-left">
                         <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
                             <li class="uk-nav-header">{ App.i18n.get('Batch action') }</li>
-                            <li class="uk-nav-item-danger"><a onclick="{ removeSelected }">{ App.i18n.get('Delete') }</a></li>
+                            <li class="uk-nav-item-danger"><a
+                                    onclick="{ removeSelected }">{ App.i18n.get('Delete') }</a></li>
                         </ul>
                     </div>
                 </span>
@@ -132,12 +139,23 @@
 
                     <ul class="uk-nav uk-nav-side">
                         <li class="uk-nav-header">{ App.i18n.get('Display') }</li>
-                        <li class="{ !typefilter ? 'uk-active':'' }"><a data-type="" onclick="{ settypefilter }"><i class="uk-icon-circle-o uk-icon-justify"></i> { App.i18n.get('All') }</a></li>
-                        <li class="{ typefilter=='image' ? 'uk-active':'' }"><a data-type="image" onclick="{ settypefilter }"><i class="uk-icon-image uk-icon-justify"></i> { App.i18n.get('Images') }</a></li>
-                        <li class="{ typefilter=='video' ? 'uk-active':'' }"><a data-type="video" onclick="{ settypefilter }"><i class="uk-icon-video-camera uk-icon-justify"></i> { App.i18n.get('Video') }</a></li>
-                        <li class="{ typefilter=='audio' ? 'uk-active':'' }"><a data-type="audio" onclick="{ settypefilter }"><i class="uk-icon-volume-up uk-icon-justify"></i> { App.i18n.get('Audio') }</a></li>
-                        <li class="{ typefilter=='document' ? 'uk-active':'' }"><a data-type="document" onclick="{ settypefilter }"><i class="uk-icon-paper-plane uk-icon-justify"></i> { App.i18n.get('Documents') }</a></li>
-                        <li class="{ typefilter=='archive' ? 'uk-active':'' }"><a data-type="archive" onclick="{ settypefilter }"><i class="uk-icon-archive uk-icon-justify"></i> { App.i18n.get('Archives') }</a></li>
+                        <li class="{ !typefilter ? 'uk-active':'' }"><a data-type="" onclick="{ settypefilter }"><i
+                                class="uk-icon-circle-o uk-icon-justify"></i> { App.i18n.get('All') }</a></li>
+                        <li class="{ typefilter=='image' ? 'uk-active':'' }"><a data-type="image"
+                                                                                onclick="{ settypefilter }"><i
+                                class="uk-icon-image uk-icon-justify"></i> { App.i18n.get('Images') }</a></li>
+                        <li class="{ typefilter=='video' ? 'uk-active':'' }"><a data-type="video"
+                                                                                onclick="{ settypefilter }"><i
+                                class="uk-icon-video-camera uk-icon-justify"></i> { App.i18n.get('Video') }</a></li>
+                        <li class="{ typefilter=='audio' ? 'uk-active':'' }"><a data-type="audio"
+                                                                                onclick="{ settypefilter }"><i
+                                class="uk-icon-volume-up uk-icon-justify"></i> { App.i18n.get('Audio') }</a></li>
+                        <li class="{ typefilter=='document' ? 'uk-active':'' }"><a data-type="document"
+                                                                                   onclick="{ settypefilter }"><i
+                                class="uk-icon-paper-plane uk-icon-justify"></i> { App.i18n.get('Documents') }</a></li>
+                        <li class="{ typefilter=='archive' ? 'uk-active':'' }"><a data-type="archive"
+                                                                                  onclick="{ settypefilter }"><i
+                                class="uk-icon-archive uk-icon-justify"></i> { App.i18n.get('Archives') }</a></li>
                     </ul>
                 </div>
 
@@ -147,8 +165,11 @@
 
                 <div class="uk-panel">
                     <ul class="uk-breadcrumb">
-                        <li onclick="{ changedir }"><a title="{ App.i18n.get('Change dir to root') }"><i class="uk-icon-home"></i></a></li>
-                        <li each="{folder, idx in breadcrumbs}"><a onclick="{ parent.changedir }" title="Change dir to { folder.name }">{ folder.name }</a></li>
+                        <li onclick="{ changedir }"><a title="{ App.i18n.get('Change dir to root') }"><i
+                                class="uk-icon-home"></i></a></li>
+                        <li each="{folder, idx in breadcrumbs}"><a onclick="{ parent.changedir }"
+                                                                   title="Change dir to { folder.name }">{ folder.name
+                            }</a></li>
                     </ul>
                 </div>
 
@@ -158,11 +179,13 @@
                     </div>
                 </div>
 
-                <div class="uk-alert uk-text-center uk-margin" if="{ data && (this.typefilter || this.refs.filter.value) && (data.folders.length || data.files.length) }">
-                     { App.i18n.get('Filter is active') }
+                <div class="uk-alert uk-text-center uk-margin"
+                     if="{ data && (this.typefilter || this.refs.filter.value) && (data.folders.length || data.files.length) }">
+                    { App.i18n.get('Filter is active') }
                 </div>
 
-                <div class="uk-alert uk-text-center uk-margin" if="{ data && (!data.folders.length && !data.files.length) }">
+                <div class="uk-alert uk-text-center uk-margin"
+                     if="{ data && (!data.folders.length && !data.files.length) }">
                     { App.i18n.get('This is an empty folder') }
                 </div>
 
@@ -170,18 +193,22 @@
 
                     <div class="uk-margin-top" if="{data && data.folders.length}">
 
-                        <strong class="uk-text-small uk-text-muted" if="{ !(this.refs.filter.value) }"><i class="uk-icon-folder-o uk-margin-small-right"></i> { data.folders.length } { App.i18n.get('Folders') }</strong>
+                        <strong class="uk-text-small uk-text-muted" if="{ !(this.refs.filter.value) }"><i
+                                class="uk-icon-folder-o uk-margin-small-right"></i> { data.folders.length } {
+                            App.i18n.get('Folders') }</strong>
 
                         <ul class="uk-grid uk-grid-small uk-grid-match uk-grid-width-1-2 uk-grid-width-medium-1-4  uk-grid-width-xlarge-1-5">
 
-                            <li class="uk-grid-margin" each="{folder, idx in data.folders}" onclick="{ select }" if="{ infilter(folder) }">
+                            <li class="uk-grid-margin" each="{folder, idx in data.folders}" onclick="{ select }"
+                                if="{ infilter(folder) }">
                                 <div class="uk-panel uk-panel-box uk-panel-card finder-folder { folder.selected ? 'uk-selected':'' }">
                                     <div class="uk-flex">
                                         <div class="uk-margin-small-right">
                                             <i class="uk-icon-folder-o uk-text-muted js-no-item-select"></i>
                                         </div>
                                         <div class="uk-flex-item-1 uk-margin-small-right uk-text-truncate">
-                                            <a class="uk-link-muted uk-noselect" onclick="{ parent.changedir }"><strong>{ folder.name }</strong></a>
+                                            <a class="uk-link-muted uk-noselect" onclick="{ parent.changedir }"><strong>{
+                                                folder.name }</strong></a>
                                         </div>
                                         <div>
                                             <span data-uk-dropdown="mode:'click', pos:'bottom-right'">
@@ -189,10 +216,11 @@
                                                 <div class="uk-dropdown">
                                                     <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
                                                         <li class="uk-nav-header uk-text-truncate">{ folder.name }</li>
-                                                        <li><a class="uk-dropdown-close"onclick="{ parent.download }">{ App.i18n.get('Download') }</a></li>
+                                                        <li><a class="uk-dropdown-close" onclick="{ parent.download }">{ App.i18n.get('Download') }</a></li>
                                                         <li><a class="uk-dropdown-close" onclick="{ parent.rename }">{ App.i18n.get('Rename') }</a></li>
                                                         <li class="uk-nav-divider"></li>
-                                                        <li class="uk-nav-item-danger"><a class="uk-dropdown-close" onclick="{ parent.remove }">{ App.i18n.get('Delete') }</a></li>
+                                                        <li class="uk-nav-item-danger"><a class="uk-dropdown-close"
+                                                                                          onclick="{ parent.remove }">{ App.i18n.get('Delete') }</a></li>
                                                     </ul>
                                                 </div>
                                             </span>
@@ -207,29 +235,41 @@
 
                     <div class="uk-margin-top" if="{data && data.files.length}">
 
-                        <strong class="uk-text-small uk-text-muted" if="{ !(this.typefilter || this.refs.filter.value) }"><i class="uk-icon-file-o uk-margin-small-right"></i> { data.files.length } { App.i18n.get('Files') }</strong>
+                        <strong class="uk-text-small uk-text-muted"
+                                if="{ !(this.typefilter || this.refs.filter.value) }"><i
+                                class="uk-icon-file-o uk-margin-small-right"></i> { data.files.length } {
+                            App.i18n.get('Files') }</strong>
 
-                        <ul class="uk-grid uk-grid-small uk-grid-match uk-grid-width-1-2 uk-grid-width-medium-1-4 uk-grid-width-xlarge-1-5" if="{ listmode=='grid' }">
+                        <ul class="uk-grid uk-grid-small uk-grid-match uk-grid-width-1-2 uk-grid-width-medium-1-4 uk-grid-width-xlarge-1-5"
+                            if="{ listmode=='grid' }">
 
-                            <li class="uk-grid-margin" each="{file, idx in data.files}" onclick="{ select }" if="{ infilter(file) }">
+                            <li class="uk-grid-margin" each="{file, idx in data.files}" onclick="{ select }"
+                                if="{ infilter(file) }">
                                 <div class="uk-panel uk-panel-box finder-file { file.selected ? 'uk-selected':'' }">
 
                                     <div class="uk-panel-teaser uk-cover-background uk-position-relative">
                                         <div if="{ parent.getIconCls(file) != 'image' }">
-                                            <canvas class="uk-responsive-width uk-display-block" width="400" height="300"></canvas>
-                                            <div class="uk-position-center"><i class="uk-text-large uk-text-muted uk-icon-{ parent.getIconCls(file) }"></i></div>
+                                            <canvas class="uk-responsive-width uk-display-block" width="400"
+                                                    height="300"></canvas>
+                                            <div class="uk-position-center"><i
+                                                    class="uk-text-large uk-text-muted uk-icon-{ parent.getIconCls(file) }"></i>
+                                            </div>
                                         </div>
-                                        <cp-thumbnail src="{file.url}" width="400" height="300" if="{ parent.getIconCls(file) == 'image' }"></cp-thumbnail>
+                                        <cp-thumbnail src="{file.url}" width="400" height="300"
+                                                      if="{ parent.getIconCls(file) == 'image' }"></cp-thumbnail>
                                     </div>
 
                                     <div class="uk-flex">
-                                        <a class="uk-link-muted uk-flex-item-1 js-no-item-select uk-text-truncate uk-margin-small-right" onclick="{ parent.open }">{ file.name }</a>
-                                        <span class="uk-margin-small-right" data-uk-dropdown="mode:'click', pos:'bottom-right'">
+                                        <a class="uk-link-muted uk-flex-item-1 js-no-item-select uk-text-truncate uk-margin-small-right"
+                                           onclick="{ parent.open }">{ file.name }</a>
+                                        <span class="uk-margin-small-right"
+                                              data-uk-dropdown="mode:'click', pos:'bottom-right'">
                                             <a><i class="uk-icon-ellipsis-v js-no-item-select"></i></a>
                                             <div class="uk-dropdown">
                                                 <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
                                                     <li class="uk-nav-header uk-text-truncate">{ file.name }</li>
-                                                    <li><a class="uk-link-muted js-no-item-select" onclick="{ parent.open }">{ App.i18n.get('Open') }</a></li>
+                                                    <li><a class="uk-link-muted js-no-item-select"
+                                                           onclick="{ parent.open }">{ App.i18n.get('Open') }</a></li>
                                                     <li><a onclick="{ parent.rename }">{ App.i18n.get('Rename') }</a></li>
                                                     <li><a onclick="{ parent.download }">{ App.i18n.get('Download') }</a></li>
                                                     <li if="{ file.ext == 'zip' }"><a onclick="{ parent.unzip }">{ App.i18n.get('Unzip') }</a></li>
@@ -249,26 +289,31 @@
                             </li>
                         </ul>
 
-                        <table class="uk-table uk-table-tabbed uk-table-striped" if="{ listmode=='list' && data.files.length }">
+                        <table class="uk-table uk-table-tabbed uk-table-striped"
+                               if="{ listmode=='list' && data.files.length }">
                             <thead>
-                                <tr>
-                                    <td width="30"></td>
-                                    <th>{ App.i18n.get('Name') }</th>
-                                    <th width="10%">{ App.i18n.get('Size') }</th>
-                                    <th width="15%">{ App.i18n.get('Updated') }</th>
-                                    <th width="30"></th>
-                                </tr>
+                            <tr>
+                                <td width="30"></td>
+                                <th>{ App.i18n.get('Name') }</th>
+                                <th width="10%">{ App.i18n.get('Size') }</th>
+                                <th width="15%">{ App.i18n.get('Updated') }</th>
+                                <th width="30"></th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr class="{ file.selected ? 'uk-selected':'' }" each="{file, idx in data.files}" onclick="{ select }" if="{ infilter(file) }">
-                                    <td class="uk-text-center">
-                                        <span if="{ parent.getIconCls(file) != 'image' }"><i class="uk-text-muted uk-icon-{ parent.getIconCls(file) }"></i></span>
-                                        <cp-thumbnail src="{file.url}" width="400" height="300" if="{ parent.getIconCls(file) == 'image' }"></cp-thumbnail>
-                                    </td>
-                                    <td><a class="js-no-item-select" onclick="{ parent.open }">{ file.name }</a></td>
-                                    <td class="uk-text-small">{ file.size }</td>
-                                    <td class="uk-text-small">{ App.Utils.dateformat( new Date( 1000 * file.modified )) }</td>
-                                    <td>
+                            <tr class="{ file.selected ? 'uk-selected':'' }" each="{file, idx in data.files}"
+                                onclick="{ select }" if="{ infilter(file) }">
+                                <td class="uk-text-center">
+                                    <span if="{ parent.getIconCls(file) != 'image' }"><i
+                                            class="uk-text-muted uk-icon-{ parent.getIconCls(file) }"></i></span>
+                                    <cp-thumbnail src="{file.url}" width="400" height="300"
+                                                  if="{ parent.getIconCls(file) == 'image' }"></cp-thumbnail>
+                                </td>
+                                <td><a class="js-no-item-select" onclick="{ parent.open }">{ file.name }</a></td>
+                                <td class="uk-text-small">{ file.size }</td>
+                                <td class="uk-text-small">{ App.Utils.dateformat( new Date( 1000 * file.modified )) }
+                                </td>
+                                <td>
                                         <span class="uk-float-right" data-uk-dropdown="mode:'click'">
 
                                             <a class="uk-icon-ellipsis-v"></a>
@@ -276,7 +321,8 @@
                                             <div class="uk-dropdown uk-dropdown-flip">
                                                 <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
                                                     <li class="uk-nav-header">{ App.i18n.get('Actions') }</li>
-                                                    <li><a class="uk-link-muted js-no-item-select" onclick="{ parent.open }">{ App.i18n.get('Open') }</a></li>
+                                                    <li><a class="uk-link-muted js-no-item-select"
+                                                           onclick="{ parent.open }">{ App.i18n.get('Open') }</a></li>
                                                     <li><a onclick="{ parent.rename }">{ App.i18n.get('Rename') }</a></li>
                                                     <li><a onclick="{ parent.download }">{ App.i18n.get('Download') }</a></li>
                                                     <li if="{ file.ext == 'zip' }"><a onclick="{ parent.unzip }">{ App.i18n.get('Unzip') }</a></li>
@@ -285,8 +331,8 @@
                                                 </ul>
                                             </div>
                                         </span>
-                                    </td>
-                                </tr>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
 
@@ -310,44 +356,44 @@
 
         var $this = this,
             typefilters = {
-                'image'    : /\.(jpg|jpeg|png|gif|svg|webp)$/i,
-                'video'    : /\.(mp4|mov|ogv|webv|flv|avi)$/i,
-                'audio'    : /\.(mp3|weba|ogg|wav|flac)$/i,
-                'archive'  : /\.(zip|rar|7zip|gz)$/i,
-                'document' : /\.(htm|html|pdf|md)$/i,
-                'text'     : /\.(csv|txt|htm|html|php|css|less|js|json|md|markdown|yaml|xml|htaccess)$/i
+                'image': /\.(jpg|jpeg|png|gif|svg|webp)$/i,
+                'video': /\.(mp4|mov|ogv|webv|flv|avi)$/i,
+                'audio': /\.(mp3|weba|ogg|wav|flac)$/i,
+                'archive': /\.(zip|rar|7zip|gz)$/i,
+                'document': /\.(htm|html|pdf|md)$/i,
+                'text': /\.(csv|txt|htm|html|php|css|less|js|json|md|markdown|yaml|xml|htaccess)$/i
             };
 
         opts.root = opts.root || '/';
 
         this.currentpath = opts.path || App.session.get('app.finder.path', opts.root);
 
-        this.data        = null;
+        this.data = null;
         this.breadcrumbs = [];
-        this.selected    = {count:0, paths:{}};
-        this.bookmarks   = {"folders":[], "files":[]};
+        this.selected = {count: 0, paths: {}};
+        this.bookmarks = {"folders": [], "files": []};
 
         this.typefilter = opts.typefilter || '';
         this.namefilter = '';
 
-        this.mode       = 'table';
-        this.dirlist    = false;
-        this.selected   = {};
+        this.mode = 'table';
+        this.dirlist = false;
+        this.selected = {};
 
-        this.sortBy     = 'name';
-        this.listmode   = App.session.get('app.finder.listmode', 'list');
+        this.sortBy = 'name';
+        this.listmode = App.session.get('app.finder.listmode', 'list');
 
         this.modal = opts.modal;
 
 
-        App.$(this.refs.editor).on('click', function(e){
+        App.$(this.refs.editor).on('click', function (e) {
 
             if (e.target.classList.contains('uk-offcanvas-bar')) {
                 $this.tags.picoedit.codemirror.editor.focus();
             }
         });
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
             this.loadPath()
 
@@ -355,27 +401,27 @@
             App.assets.require([
                 '/assets/../inc/uikit/js/components/upload.js',
                 '/assets/../inc/uppie.js'
-            ], function() {
+            ], function () {
 
                 var uploadSettings = {
 
                         action: App.route('/media/api'),
-                        params: {"cmd":"upload"},
+                        params: {"cmd": "upload"},
                         type: 'json',
-                        before: function(options) {
+                        before: function (options) {
                             options.params.path = $this.currentpath;
                         },
-                        loadstart: function() {
+                        loadstart: function () {
                             $this.refs.uploadprogress.classList.remove('uk-hidden');
                         },
-                        progress: function(percent) {
+                        progress: function (percent) {
 
                             percent = Math.ceil(percent) + '%';
 
-                            $this.refs.progressbar.innerHTML   = '<span>'+percent+'</span>';
+                            $this.refs.progressbar.innerHTML = '<span>' + percent + '</span>';
                             $this.refs.progressbar.style.width = percent;
                         },
-                        allcomplete: function(response) {
+                        allcomplete: function (response) {
 
                             $this.refs.uploadprogress.classList.add('uk-hidden');
 
@@ -393,20 +439,20 @@
                             }
 
                         }
-                },
+                    },
 
-                uploadselect = UIkit.uploadSelect(App.$('.js-upload-select', $this.root)[0], uploadSettings),
-                uploaddrop   = UIkit.uploadDrop($this.root, uploadSettings);
+                    uploadselect = UIkit.uploadSelect(App.$('.js-upload-select', $this.root)[0], uploadSettings),
+                    uploaddrop = UIkit.uploadDrop($this.root, uploadSettings);
 
                 // upload folder
-                
+
                 var uppie = new Uppie();
 
                 uppie($this.root.querySelector('.js-upload-folder'), async (e, formData, files) => {
-                    
+
                     if (!files) return;
 
-                    files.forEach(function(path) {
+                    files.forEach(function (path) {
                         formData.append("paths[]", path);
                     });
 
@@ -418,28 +464,30 @@
 
                     xhr.setRequestHeader('Accept', 'application/json');
 
-                    xhr.upload.addEventListener('progress', function(e){
-                        uploadSettings.progress((e.loaded / e.total)*100, e);
+                    xhr.upload.addEventListener('progress', function (e) {
+                        uploadSettings.progress((e.loaded / e.total) * 100, e);
                     }, false);
 
-                    xhr.addEventListener('loadstart', function(e){ uploadSettings.loadstart(e); }, false);
-                    
-                    xhr.onreadystatechange = function() {
+                    xhr.addEventListener('loadstart', function (e) {
+                        uploadSettings.loadstart(e);
+                    }, false);
 
-                        if (xhr.readyState==4){
+                    xhr.onreadystatechange = function () {
+
+                        if (xhr.readyState == 4) {
 
                             var response = xhr.responseText;
 
                             try {
                                 response = App.$.parseJSON(response);
-                            } catch(e) {
+                            } catch (e) {
                                 response = false;
                             }
 
                             uploadSettings.allcomplete(response, xhr);
                         }
                     };
-                    
+
                     xhr.send(formData);
                 });
 
@@ -447,7 +495,8 @@
             });
         });
 
-        changedir(e, path) {
+        changedir(e, path)
+        {
 
             if (e && e.item) {
                 e.preventDefault();
@@ -460,7 +509,8 @@
             this.loadPath(path);
         }
 
-        open(e) {
+        open(e)
+        {
 
             e.preventDefault();
 
@@ -475,16 +525,16 @@
             if (name.match(typefilters.image)) {
 
                 UIkit.lightbox.create([
-                    {'source': file.url, 'type':'image'}
+                    {'source': file.url, 'type': 'image'}
                 ]).show();
 
-            } else if(name.match(typefilters.video)) {
+            } else if (name.match(typefilters.video)) {
 
                 UIkit.lightbox.create([
-                    {'source': file.url, 'type':'video'}
+                    {'source': file.url, 'type': 'video'}
                 ]).show();
 
-            } else if(name.match(typefilters.text) || name=='.env') {
+            } else if (name.match(typefilters.text) || name == '.env') {
 
                 UIkit.offcanvas.show(this.refs.editor);
                 this.tags.picoedit.open(file.path);
@@ -494,23 +544,26 @@
             }
         }
 
-        refresh() {
-            this.loadPath().then(function(){
+        refresh()
+        {
+            this.loadPath().then(function () {
                 App.ui.notify('Folder reloaded', 'success');
             });
         }
 
-        select(e, force) {
+        select(e, force)
+        {
 
             if (e && e.item && force || !e.target.classList.contains('js-no-item-select') && !App.$(e.target).parents('.js-no-item-select').length) {
 
                 // remove any text selection
                 try {
                     window.getSelection().empty()
-                } catch(err) {
+                } catch (err) {
                     try {
                         window.getSelection().removeAllRanges()
-                    } catch(err){}
+                    } catch (err) {
+                    }
                 }
 
                 var item = e.item.folder || e.item.file, idx = e.item.idx;
@@ -519,14 +572,14 @@
 
                     var prev, i, closest = idx, items = this.data[item.is_file ? 'files' : 'folders'];
 
-                    for (i=idx;i>=0;i--) {
+                    for (i = idx; i >= 0; i--) {
                         if (items[i].selected) {
                             closest = i;
                             break;
                         }
                     }
 
-                    for (i=idx;i>=closest;i--) {
+                    for (i = idx; i >= closest; i--) {
                         if (items[i].selected) break;
 
                         items[i].selected = true;
@@ -540,7 +593,7 @@
 
                 if (!(e.metaKey || e.ctrlKey)) {
 
-                    Object.keys(this.selected.paths).forEach(function(path) {
+                    Object.keys(this.selected.paths).forEach(function (path) {
                         if (path != item.path) {
                             $this.selected.paths[path].selected = false;
                             delete $this.selected.paths[path];
@@ -564,18 +617,19 @@
             }
         }
 
-        rename(e, item) {
+        rename(e, item)
+        {
 
             e.stopPropagation();
 
             item = e.item.folder || e.item.file;
 
-            App.ui.prompt("Please enter a name:", item.name, function(name){
+            App.ui.prompt("Please enter a name:", item.name, function (name) {
 
 
-                if (name!=item.name && name.trim()) {
+                if (name != item.name && name.trim()) {
 
-                    requestapi({"cmd":"rename", "path": item.path, "name":name});
+                    requestapi({"cmd": "rename", "path": item.path, "name": name});
                     item.path = item.path.replace(item.name, name);
                     item.name = name;
 
@@ -585,22 +639,24 @@
             });
         }
 
-        download(e, item) {
+        download(e, item)
+        {
 
             e.stopPropagation();
 
             item = e.item.file || e.item.folder;
 
-            window.open(App.route('/media/api?cmd=download&path='+item.path));
+            window.open(App.route('/media/api?cmd=download&path=' + item.path));
         }
 
-        unzip(e, item) {
+        unzip(e, item)
+        {
 
             e.stopPropagation();
 
             item = e.item.file;
 
-            requestapi({"cmd": "unzip", "path": $this.currentpath, "zip": item.path}, function(resp){
+            requestapi({"cmd": "unzip", "path": $this.currentpath, "zip": item.path}, function (resp) {
 
                 if (resp) {
 
@@ -616,19 +672,20 @@
             });
         }
 
-        remove(e, item, index) {
+        remove(e, item, index)
+        {
 
             e.stopPropagation();
 
             item = e.item.folder || e.item.file;
 
-            App.ui.confirm("Are you sure?", function() {
+            App.ui.confirm("Are you sure?", function () {
 
-                requestapi({"cmd":"removefiles", "paths": item.path}, function(){
+                requestapi({"cmd": "removefiles", "paths": item.path}, function () {
 
-                    index = $this.data[item.is_file ? "files":"folders"].indexOf(item);
+                    index = $this.data[item.is_file ? "files" : "folders"].indexOf(item);
 
-                    $this.data[item.is_file ? "files":"folders"].splice(index, 1);
+                    $this.data[item.is_file ? "files" : "folders"].splice(index, 1);
 
                     App.ui.notify("Item(s) deleted", "success");
 
@@ -639,15 +696,16 @@
             });
         }
 
-        removeSelected() {
+        removeSelected()
+        {
 
             var paths = Object.keys(this.selected.paths);
 
             if (paths.length) {
 
-                App.ui.confirm("Are you sure?", function() {
+                App.ui.confirm("Are you sure?", function () {
 
-                    requestapi({"cmd":"removefiles", "paths": paths}, function(){
+                    requestapi({"cmd": "removefiles", "paths": paths}, function () {
                         $this.loadPath();
                         App.ui.notify("File(s) deleted", "success");
                     });
@@ -655,51 +713,54 @@
             }
         }
 
-        createfolder() {
+        createfolder()
+        {
 
-            App.ui.prompt("Please enter a folder name:", "", function(name){
+            App.ui.prompt("Please enter a folder name:", "", function (name) {
 
                 if (name.trim()) {
-                    requestapi({"cmd":"createfolder", "path": $this.currentpath, "name":name}, function(){
+                    requestapi({"cmd": "createfolder", "path": $this.currentpath, "name": name}, function () {
                         $this.loadPath();
                     });
                 }
             });
         }
 
-        createfile() {
+        createfile()
+        {
 
-            App.ui.prompt("Please enter a file name:", "", function(name){
+            App.ui.prompt("Please enter a file name:", "", function (name) {
 
                 if (name.trim()) {
-                    requestapi({"cmd":"createfile", "path": $this.currentpath, "name":name}, function(){
+                    requestapi({"cmd": "createfile", "path": $this.currentpath, "name": name}, function () {
                         $this.loadPath();
                     });
                 }
             });
         }
 
-        loadPath(path, defer) {
+        loadPath(path, defer)
+        {
 
-            path  = path || $this.currentpath;
+            path = path || $this.currentpath;
             defer = App.deferred();
 
-            requestapi({cmd:"ls", path: path}, function(data){
+            requestapi({cmd: "ls", path: path}, function (data) {
 
                 $this.currentpath = path;
                 $this.breadcrumbs = [];
-                $this.selected    = {};
-                $this.selectAll   = false;
+                $this.selected = {};
+                $this.selectAll = false;
 
-                if ($this.currentpath && $this.currentpath != opts.root && $this.currentpath != '.'){
-                    var parts   = $this.currentpath.split('/'),
+                if ($this.currentpath && $this.currentpath != opts.root && $this.currentpath != '.') {
+                    var parts = $this.currentpath.split('/'),
                         tmppath = [],
-                        crumbs  = [];
+                        crumbs = [];
 
-                    for(var i=0;i<parts.length;i++){
-                        if(!parts[i]) continue;
+                    for (var i = 0; i < parts.length; i++) {
+                        if (!parts[i]) continue;
                         tmppath.push(parts[i]);
-                        crumbs.push({'name':parts[i],'path':tmppath.join("/")});
+                        crumbs.push({'name': parts[i], 'path': tmppath.join("/")});
                     }
 
                     $this.breadcrumbs = crumbs;
@@ -711,11 +772,11 @@
 
                 $this.data = data;
 
-                $this.data.files = $this.data.files.sort(function(a,b) {
+                $this.data.files = $this.data.files.sort(function (a, b) {
                     a = $this.sortBy == 'name' ? a[$this.sortBy].toLowerCase() : a[$this.sortBy];
-                    b =  $this.sortBy == 'name' ? b[$this.sortBy].toLowerCase() : b[$this.sortBy];
+                    b = $this.sortBy == 'name' ? b[$this.sortBy].toLowerCase() : b[$this.sortBy];
                     if (a < b) return -1;
-                    if (a> b) return 1;
+                    if (a > b) return 1;
                     return 0;
                 });
 
@@ -727,18 +788,21 @@
             return defer;
         }
 
-        settypefilter(e) {
+        settypefilter(e)
+        {
             e.preventDefault();
 
             this.typefilter = e.target.dataset.type;
             this.resetselected();
         }
 
-        updatefilter(e) {
+        updatefilter(e)
+        {
             this.resetselected();
         }
 
-        infilter(item) {
+        infilter(item)
+        {
 
             var name = item.name.toLowerCase();
 
@@ -752,22 +816,24 @@
             return (!this.refs.filter.value || (name && name.indexOf(this.refs.filter.value.toLowerCase()) !== -1));
         }
 
-        resetselected() {
+        resetselected()
+        {
 
             if (this.selected.paths) {
-                Object.keys(this.selected.paths).forEach(function(path) {
+                Object.keys(this.selected.paths).forEach(function (path) {
                     $this.selected.paths[path].selected = false;
                 });
             }
 
-            this.selected  = {count:0, paths:{}};
+            this.selected = {count: 0, paths: {}};
 
             if (opts.onChangeSelect) {
                 opts.onChangeSelect(this.selected);
             }
         }
 
-        getIconCls(file) {
+        getIconCls(file)
+        {
 
             var name = file.name.toLowerCase();
 
@@ -775,15 +841,15 @@
 
                 return 'image';
 
-            } else if(name.match(typefilters.video)) {
+            } else if (name.match(typefilters.video)) {
 
                 return 'video-camera';
 
-            } else if(name.match(typefilters.text)) {
+            } else if (name.match(typefilters.text)) {
 
                 return 'pencil';
 
-            } else if(name.match(typefilters.archive)) {
+            } else if (name.match(typefilters.archive)) {
 
                 return 'archive';
 
@@ -795,27 +861,29 @@
 
         function requestapi(data, fn, type) {
 
-            data = Object.assign({cmd:''}, data);
+            data = Object.assign({cmd: ''}, data);
 
-            App.request('/media/api', data).then(fn).catch(function() {
+            App.request('/media/api', data).then(fn).catch(function () {
                 App.ui.notify('Something went wrong.', 'danger');
             });
         }
 
-        doSortBy(sortby) {
+        doSortBy(sortby)
+        {
             this.sortBy = sortby;
 
-            $this.data.files = $this.data.files.sort(function(a,b) {
+            $this.data.files = $this.data.files.sort(function (a, b) {
                 a = $this.sortBy == 'name' ? a[$this.sortBy].toLowerCase() : a[$this.sortBy];
-                b =  $this.sortBy == 'name' ? b[$this.sortBy].toLowerCase() : b[$this.sortBy];
+                b = $this.sortBy == 'name' ? b[$this.sortBy].toLowerCase() : b[$this.sortBy];
                 if (a < b) return -1;
-                if (a> b) return 1;
+                if (a > b) return 1;
                 return 0;
             });
         }
 
-        toggleListMode() {
-            this.listmode = this.listmode=='list' ? 'grid':'list';
+        toggleListMode()
+        {
+            this.listmode = this.listmode == 'list' ? 'grid' : 'list';
             App.session.set('app.finder.listmode', this.listmode);
         }
 

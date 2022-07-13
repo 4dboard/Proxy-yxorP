@@ -7,13 +7,13 @@
 
     <script>
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
             if (opts.cls) {
                 App.$(this.refs.input).addClass(opts.cls);
             }
 
-            App.assets.require(['/assets/../inc/uikit/js/components/form-password.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/form-password.js'], function () {
 
                 UIkit.init(this.root);
 

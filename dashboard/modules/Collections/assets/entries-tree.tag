@@ -26,31 +26,31 @@
         this.ready = false;
         this.imageField = null;
 
-        this.on('mount', function() {
+        this.on('mount', function () {
 
-            App.assets.require(['/assets/../inc/uikit/js/components/nestable.js']).then(function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/nestable.js']).then(function () {
 
                 var listSrc;
 
-                $root.on('start.uk.nestable', function(e, nestable) {
+                $root.on('start.uk.nestable', function (e, nestable) {
                     e.stopPropagation();
-                    listSrc  = $this._getListObject(nestable.placeEl[0]);
+                    listSrc = $this._getListObject(nestable.placeEl[0]);
                 });
 
-                $root.on('change.uk.nestable', function(e, sortable, $item, action) {
+                $root.on('change.uk.nestable', function (e, sortable, $item, action) {
 
                     if (!sortable) return;
 
                     var entries = [], _pid = $item.parent().closest('[entry-id]').attr('entry-id') || null, item;
 
-                    $item.parent().children().each(function() {
+                    $item.parent().children().each(function () {
 
                         item = App.$(this);
 
                         entries.push({
-                            _id  : item.attr('entry-id'),
-                            _pid : _pid,
-                            _o   : item.index()
+                            _id: item.attr('entry-id'),
+                            _pid: _pid,
+                            _o: item.index()
                         })
                     });
 
@@ -64,12 +64,12 @@
                     $root.trigger('sort-update', [entries]);
                 });
 
-                $root.on('click', '[data-nestable-action="toggle"]', function() {
+                $root.on('click', '[data-nestable-action="toggle"]', function () {
 
-                    var li =  this.closest('li'),
+                    var li = this.closest('li'),
                         collapsed = li.classList.contains('uk-collapsed');
 
-                    localStorage[collapsed ? 'setItem':'removeItem']($this.collection._id+'_'+li.getAttribute('entry-id'), true);
+                    localStorage[collapsed ? 'setItem' : 'removeItem']($this.collection._id + '_' + li.getAttribute('entry-id'), true);
                 });
 
                 $this.ready = true;
@@ -77,7 +77,7 @@
             });
         })
 
-        this._getListObject = function(element) {
+        this._getListObject = function (element) {
 
             var list = element.parentNode.closest('[entry-id]');
 
@@ -90,9 +90,13 @@
 
 <entries-tree-list>
 
-    <li class="entry-item uk-nestable-item { isCollapsed(entry) && 'uk-collapsed'}" each="{entry in entries}" entry-id="{entry._id}">
-        <entries-tree-item collection="{parent.collection}" entry="{entry}" collection="{ collection }" imagefield="{imagefield}" parent="{_parent}" fields="{fields}"></entries-tree-item>
-        <ul class="uk-nestable-list" data-is="entries-tree-list" entries="{entry.children}" collection="{collection}" fields="{fields}" imagefield="{imagefield}" parent="{entry}" if="{entry.children && entry.children.length}"></ul>
+    <li class="entry-item uk-nestable-item { isCollapsed(entry) && 'uk-collapsed'}" each="{entry in entries}"
+        entry-id="{entry._id}">
+        <entries-tree-item collection="{parent.collection}" entry="{entry}" collection="{ collection }"
+                           imagefield="{imagefield}" parent="{_parent}" fields="{fields}"></entries-tree-item>
+        <ul class="uk-nestable-list" data-is="entries-tree-list" entries="{entry.children}" collection="{collection}"
+            fields="{fields}" imagefield="{imagefield}" parent="{entry}"
+            if="{entry.children && entry.children.length}"></ul>
     </li>
 
     <script>
@@ -104,12 +108,12 @@
 
         this._parent = opts.parent || null;
 
-        this.on('mount', function() {
+        this.on('mount', function () {
             this.root.__entries = this.entries;
         });
 
-        this.isCollapsed = function(entry) {
-            return (localStorage[this.collection._id+'_'+entry._id] && entry.children.length) || false;
+        this.isCollapsed = function (entry) {
+            return (localStorage[this.collection._id + '_' + entry._id] && entry.children.length) || false;
         }
 
     </script>
@@ -149,23 +153,31 @@
 
             <input data-check="{entry._id}" type="checkbox" class="uk-margin-small-right uk-checkbox">
 
-            <div class="uk-text-truncate uk-margin-small-left" each="{field,idy in fields}" if="{ entry[field.name] !== null && entry[field.name] !== undefined && field.name != '_modified' && field.name != '_created' }">
-                <a class="uk-link-muted" href="{ App.route('/collections/entry/'+parent.collection.name+'/'+parent.entry._id) }">
-                    <raw content="{ App.Utils.renderValue(field.type, parent.entry[field.name], field) }" if="{parent.entry[field.name] !== undefined}"></raw>
+            <div class="uk-text-truncate uk-margin-small-left" each="{field,idy in fields}"
+                 if="{ entry[field.name] !== null && entry[field.name] !== undefined && field.name != '_modified' && field.name != '_created' }">
+                <a class="uk-link-muted"
+                   href="{ App.route('/collections/entry/'+parent.collection.name+'/'+parent.entry._id) }">
+                    <raw content="{ App.Utils.renderValue(field.type, parent.entry[field.name], field) }"
+                         if="{parent.entry[field.name] !== undefined}"></raw>
                     <span class="uk-icon-eye-slash uk-text-muted" if="{parent.entry[field.name] === undefined}"></span>
                 </a>
             </div>
 
             <div class="uk-margin-small-left" data-uk-dropdown="mode:'click'" if="{ extrafields.length }">
 
-                <a class="extrafields-indicator uk-text-muted" title="{App.i18n.get('More fields')}" data-uk-tooltip="pos:'right'"><i class="uk-icon-ellipsis-h"></i></a>
+                <a class="extrafields-indicator uk-text-muted" title="{App.i18n.get('More fields')}"
+                   data-uk-tooltip="pos:'right'"><i class="uk-icon-ellipsis-h"></i></a>
 
                 <div class="uk-dropdown uk-dropdown-scrollable">
-                    <div class="uk-margin-small-bottom" each="{field,idy in extrafields}" if="{ field.name != '_modified' && field.name != '_created' }">
+                    <div class="uk-margin-small-bottom" each="{field,idy in extrafields}"
+                         if="{ field.name != '_modified' && field.name != '_created' }">
                         <span class="uk-text-small uk-text-uppercase uk-text-muted">{ field.label || field.name }</span>
-                        <a class="uk-link-muted uk-text-small uk-display-block uk-text-truncate" href="{App.route('/collections/entry/'+parent.collection.name+'/'+parent.entry._id) }">
-                            <raw content="{ App.Utils.renderValue(field.type, parent.entry[field.name], field) }" if="{parent.entry[field.name] !== undefined}"></raw>
-                            <span class="uk-icon-eye-slash uk-text-muted" if="{parent.entry[field.name] === undefined}"></span>
+                        <a class="uk-link-muted uk-text-small uk-display-block uk-text-truncate"
+                           href="{App.route('/collections/entry/'+parent.collection.name+'/'+parent.entry._id) }">
+                            <raw content="{ App.Utils.renderValue(field.type, parent.entry[field.name], field) }"
+                                 if="{parent.entry[field.name] !== undefined}"></raw>
+                            <span class="uk-icon-eye-slash uk-text-muted"
+                                  if="{parent.entry[field.name] === undefined}"></span>
                         </a>
                     </div>
                 </div>
@@ -204,15 +216,15 @@
         this.extrafields = this._fields.length > 2 ? this._fields.slice(2) : [];
         this.imagefield = opts.imagefield;
 
-        this.on('mount', function() {
+        this.on('mount', function () {
             this.root.parentNode.__entry = this.entry;
         });
 
-        this.remove = function(e) {
+        this.remove = function (e) {
             App.$(this.root).trigger('remove-entry', [this.entry]);
         }
 
-        this.duplicate = function(e) {
+        this.duplicate = function (e) {
             App.$(this.root).trigger('duplicate-entry', [this.entry, opts.parent]);
         }
 

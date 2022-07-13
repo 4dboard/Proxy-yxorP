@@ -4,18 +4,18 @@
 
     <script>
 
-        var $this     = this,
-            lang      = App.$data.user.i18n || document.documentElement.getAttribute('lang') || 'en',
-            languages = ['ar','az','ba','bg','by','ca','cs','da','de','el','eo','es_ar','es','fa','fi','fr','ge','he','hr','hu','id','it','ja','ko','lt','lv','mk','nl','no_NB','pl','pt_br','pt_pt','ro','ru','sl','sq','sr-cir','sr-lat','sv','th','tr','ua','vi','zh_cn','zh_tw'],
+        var $this = this,
+            lang = App.$data.user.i18n || document.documentElement.getAttribute('lang') || 'en',
+            languages = ['ar', 'az', 'ba', 'bg', 'by', 'ca', 'cs', 'da', 'de', 'el', 'eo', 'es_ar', 'es', 'fa', 'fi', 'fr', 'ge', 'he', 'hr', 'hu', 'id', 'it', 'ja', 'ko', 'lt', 'lv', 'mk', 'nl', 'no_NB', 'pl', 'pt_br', 'pt_pt', 'ro', 'ru', 'sl', 'sq', 'sr-cir', 'sr-lat', 'sv', 'th', 'tr', 'ua', 'vi', 'zh_cn', 'zh_tw'],
             editor;
 
         this.value = null;
 
-        this.$updateValue = function(value, field, force) {
+        this.$updateValue = function (value, field, force) {
 
             if (this.value != value) {
 
-                if (typeof(value) != 'string') {
+                if (typeof (value) != 'string') {
                     value = '';
                 }
 
@@ -29,7 +29,7 @@
         }.bind(this);
 
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
             if (opts.editor && opts.editor.language) {
                 lang = opts.editor.language;
@@ -44,7 +44,7 @@
             }
 
             if (!this.refs.input.id) {
-                this.refs.input.id = 'wysiwyg-'+parseInt(Math.random()*10000000, 10);
+                this.refs.input.id = 'wysiwyg-' + parseInt(Math.random() * 10000000, 10);
             }
 
             var assets = [
@@ -53,19 +53,19 @@
 
             var plugins = [];
 
-            App.assets.require(assets, function() {
+            App.assets.require(assets, function () {
 
-                App.assets.require(plugins, function() {
+                App.assets.require(plugins, function () {
 
                     initPlugins();
 
-                    setTimeout(function(){
+                    setTimeout(function () {
 
-                        if (!App.$('#'+this.refs.input.id).length) return;
+                        if (!App.$('#' + this.refs.input.id).length) return;
 
                         tinymce.init(App.$.extend(true, {
                             language: lang,
-                            language_url : lang == 'en' ? '' : PUBLIC_STORAGE_URL + '/assets/yxorp/i18n/tinymce/'+lang+'.js',
+                            language_url: lang == 'en' ? '' : PUBLIC_STORAGE_URL + '/assets/yxorp/i18n/tinymce/' + lang + '.js',
                             branding: false,
                             resize: true,
                             height: 350,
@@ -78,41 +78,41 @@
                             ],
                             toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table | fontsizeselect forecolor",
                             relative_urls: false,
-                            convert_urls : false
+                            convert_urls: false
                         }, opts.editor || {}, {
 
-                          selector: '#'+this.refs.input.id,
-                          setup: function (ed) {
+                            selector: '#' + this.refs.input.id,
+                            setup: function (ed) {
 
-                              $this.refs.input.value = $this.value || '';
+                                $this.refs.input.value = $this.value || '';
 
-                              var clbChange = function(e){
-                                ed.save();
-                                $this.$setValue($this.refs.input.value || '', true);
-                              };
+                                var clbChange = function (e) {
+                                    ed.save();
+                                    $this.$setValue($this.refs.input.value || '', true);
+                                };
 
-                              ed.on('ExecCommand', clbChange);
-                              ed.on('KeyUp', clbChange);
-                              ed.on('Change', clbChange);
-                              ed.on('focus', function() {
-                                $this.root.dispatchEvent(new Event('focusin', { bubbles: true, cancelable: true }));      
-                              });
+                                ed.on('ExecCommand', clbChange);
+                                ed.on('KeyUp', clbChange);
+                                ed.on('Change', clbChange);
+                                ed.on('focus', function () {
+                                    $this.root.dispatchEvent(new Event('focusin', {bubbles: true, cancelable: true}));
+                                });
 
-                              var clbSave = function(){
-                                var form = App.$($this.root).closest('form');
+                                var clbSave = function () {
+                                    var form = App.$($this.root).closest('form');
 
-                                if (form.length) {
-                                    form.trigger('submit', [ed]);
-                                }
-                              };
+                                    if (form.length) {
+                                        form.trigger('submit', [ed]);
+                                    }
+                                };
 
-                              ed.addShortcut('ctrl+s','Save', clbSave, ed);
-                              ed.addShortcut('meta+s','Save', clbSave, ed);
+                                ed.addShortcut('ctrl+s', 'Save', clbSave, ed);
+                                ed.addShortcut('meta+s', 'Save', clbSave, ed);
 
-                              editor = ed;
+                                editor = ed;
 
-                              App.$(document).trigger('init-wysiwyg-editor', [editor]);
-                          }
+                                App.$(document).trigger('init-wysiwyg-editor', [editor]);
+                            }
 
                         }));
 
@@ -121,11 +121,11 @@
 
                 }.bind(this));
 
-            }.bind(this)).catch(function(){
+            }.bind(this)).catch(function () {
 
                 this.refs.input.value = this.value || '';
 
-                App.$(this.refs.input).css('visibility','').on('change', function() {
+                App.$(this.refs.input).css('visibility', '').on('change', function () {
                     $this.$setValue(this.value || '');
                 });
 
@@ -137,18 +137,18 @@
 
             if (initPlugins.done) return;
 
-            tinymce.PluginManager.add('cpmediapath', function(editor) {
+            tinymce.PluginManager.add('cpmediapath', function (editor) {
 
                 if (App.$data.acl.finder) {
-                    
+
                     editor.addMenuItem('mediapath', {
                         icon: 'image',
                         text: App.i18n.get('Insert image (Finder)'),
-                        onclick: function(){
+                        onclick: function () {
 
-                            App.media.select(function(selected) {
-                                editor.insertContent('<img src="' + SITE_URL+'/'+selected + '" alt="">');
-                            }, { typefilter:'image', pattern: '*.jpg|*.jpeg|*.png|*.gif|*.svg|*.webp' });
+                            App.media.select(function (selected) {
+                                editor.insertContent('<img src="' + SITE_URL + '/' + selected + '" alt="">');
+                            }, {typefilter: 'image', pattern: '*.jpg|*.jpeg|*.png|*.gif|*.svg|*.webp'});
                         },
                         context: 'insert',
                         prependToContext: true
@@ -157,23 +157,23 @@
 
             });
 
-            tinymce.PluginManager.add('cpassetpath', function(editor) {
+            tinymce.PluginManager.add('cpassetpath', function (editor) {
 
                 editor.addMenuItem('assetpath', {
                     icon: 'image',
                     text: App.i18n.get('Insert Asset (Assets)'),
-                    onclick: function(){
+                    onclick: function () {
 
-                        App.assets.select(function(assets){
+                        App.assets.select(function (assets) {
 
                             if (Array.isArray(assets) && assets[0]) {
 
                                 var asset = assets[0], content;
 
                                 if (asset.mime.match(/^image\//)) {
-                                    content = '<img src="' + ASSETS_URL+asset.path + '" alt="">';
+                                    content = '<img src="' + ASSETS_URL + asset.path + '" alt="">';
                                 } else {
-                                    content = '<a href="' + ASSETS_URL+asset.path + '">'+asset.title+'<a>';
+                                    content = '<a href="' + ASSETS_URL + asset.path + '">' + asset.title + '<a>';
                                 }
 
                                 editor.insertContent(content);

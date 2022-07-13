@@ -3,13 +3,13 @@
     <script>
 
         var $this = this,
-            root  = this.root,
+            root = this.root,
             $root = App.$(root),
             $textarea, editor, options;
 
-        this.on('mount', function(){
+        this.on('mount', function () {
 
-            codemirror().then(function() {
+            codemirror().then(function () {
 
                 $textarea = App.$('<textarea style="visibility:hidden;"></textarea>');
 
@@ -24,7 +24,7 @@
                     readOnly: opts.readonly || false,
                     autoCloseBrackets: true,
                     extraKeys: {
-                        Tab: function(cm) {
+                        Tab: function (cm) {
                             var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
                             cm.replaceSelection(spaces);
                         }
@@ -35,12 +35,12 @@
                 this.editor = editor;
 
                 if (opts.syntax) {
-                    var mode = CodeMirror.findModeByName(opts.syntax) || {mode:'text'};
+                    var mode = CodeMirror.findModeByName(opts.syntax) || {mode: 'text'};
                     editor.setOption("mode", mode.mode);
                 }
 
                 if (opts.theme) {
-                    App.assets.require(['/assets/../inc/codemirror/theme/'+opts.theme+'.css'], function() {
+                    App.assets.require(['/assets/../inc/codemirror/theme/' + opts.theme + '.css'], function () {
                         editor.setOption("theme", opts.theme);
                     });
                 }
@@ -55,7 +55,7 @@
                     }
                 }
 
-                editor.on('focus', function() {
+                editor.on('focus', function () {
                     editor.refresh();
                 });
 

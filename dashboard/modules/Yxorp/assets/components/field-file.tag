@@ -10,11 +10,13 @@
 
         <div class="uk-flex uk-flex-middle">
 
-            <input class="uk-form-blank uk-flex-item-1" type="text" ref="input" bind="{ opts.bind }" placeholder="{ opts.placeholder || App.i18n.get('No file selected...') }">
+            <input class="uk-form-blank uk-flex-item-1" type="text" ref="input" bind="{ opts.bind }"
+                   placeholder="{ opts.placeholder || App.i18n.get('No file selected...') }">
 
             <span class="uk-margin-small-left" data-uk-dropdown="pos:'bottom-center'">
 
-                <button type="button" class="uk-button" ref="picker" title="{ App.i18n.get('Pick file') }" onclick="{ selectAsset }"><i class="uk-icon-paperclip"></i></button>
+                <button type="button" class="uk-button" ref="picker" title="{ App.i18n.get('Pick file') }"
+                        onclick="{ selectAsset }"><i class="uk-icon-paperclip"></i></button>
 
                 <div class="uk-dropdown" if="{App.$data.acl.finder}">
                     <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
@@ -36,7 +38,7 @@
 
         var $this = this, $input;
 
-        this.on('mount', function() {
+        this.on('mount', function () {
 
             $input = App.$(this.refs.input);
 
@@ -46,27 +48,27 @@
             }
 
             // handle uploads
-            App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function () {
 
                 UIkit.uploadDrop($this.root, {
 
                     action: App.route('/assetsmanager/upload'),
                     type: 'json',
                     filelimit: 1,
-                    before: function(options) {
+                    before: function (options) {
 
                     },
-                    loadstart: function() {
+                    loadstart: function () {
                         $this.refs.uploadprogress.classList.remove('uk-hidden');
                     },
-                    progress: function(percent) {
+                    progress: function (percent) {
 
                         percent = Math.ceil(percent) + '%';
 
-                        $this.refs.progressbar.innerHTML   = '<span>'+percent+'</span>';
+                        $this.refs.progressbar.innerHTML = '<span>' + percent + '</span>';
                         $this.refs.progressbar.style.width = percent;
                     },
-                    allcomplete: function(response) {
+                    allcomplete: function (response) {
 
                         $this.refs.uploadprogress.classList.add('uk-hidden');
 
@@ -75,7 +77,7 @@
                         }
 
                         if (response && Array.isArray(response.assets) && response.assets.length) {
-                            $this.refs.input.$setValue(ASSETS_URL.replace(SITE_URL+'/', '')+response.assets[0].path);
+                            $this.refs.input.$setValue(ASSETS_URL.replace(SITE_URL + '/', '') + response.assets[0].path);
                         }
 
                         if (!response) {
@@ -88,27 +90,31 @@
 
         });
 
-        selectFile() {
+        selectFile()
+        {
 
-            App.media.select(function(selected) {
+            App.media.select(function (selected) {
                 $this.refs.input.$setValue(selected[0]);
             }, {});
         }
 
-        selectAsset() {
+        selectAsset()
+        {
             App.assets.select(function (assets) {
                 if (Array.isArray(assets) && assets[0]) {
-                    $this.refs.input.$setValue(ASSETS_URL.replace(SITE_URL+'/', '')+assets[0].path);
+                    $this.refs.input.$setValue(ASSETS_URL.replace(SITE_URL + '/', '') + assets[0].path);
                     $this.update();
                 }
-            }, { typefilter: opts.typefilter, single: true });
+            }, {typefilter: opts.typefilter, single: true});
         }
 
-        shouldShowOpen() {
+        shouldShowOpen()
+        {
             return $this.refs.input.value.trim().length > 0;
         }
 
-        open() {
+        open()
+        {
             var url = $this.refs.input.value.trim();
             if (url) {
                 if (!url.match(/^(https?:)?\/\/?/i)) {
