@@ -154,13 +154,21 @@ docker run
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
-*NB:* _Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in
-the '.env.example' are correct and the file has been renamed '.env'._ Cockpit is the graphical user interface (GUI) for
-the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username
-and password set in the '.env' file. The credentials defined in the '.env' file are used to setup the sqlite database
-for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change'
-the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username
-and password are only used on the first run). The application can also always be reset via a clean installation.
+Create a copy of the 'example.env' file and name it '.env'.
+
+```
+
+cp ./example.env ./.env 
+
+```
+
+Update the values inside the '.env' as needed. By default the application is configured to proxy requests from any
+domain and return the 'www.example.com' website. To simply change the 'www.example.com' to another website for all
+incoming requests you can simply change this in the '.env' file. To configure the application to route a specific domain
+to a specific website, serve the website on 'localhost' or any domain you prefer and then visit the dashboard
+i.e. 'http://localhost/dashboard' login with username 'yxorP' and password 'yxorP' or the username and password you
+configured in the '.env' file. Once you have accessed the dashboard click on 'sites' and then duplicate the example
+website and modify the various options as needed.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
