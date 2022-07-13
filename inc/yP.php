@@ -285,6 +285,10 @@ class yP
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
 
+
+        /* It's setting the `YXORP_DASHBOARD_APP` constant to the `cockpit()` function. */
+        constants::set(YXORP_DASHBOARD_APP, yxorp());
+
         // ENV
         /* Reading the file and then calling the env function on each line. */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
