@@ -63,7 +63,7 @@ class Pool implements PromisorInterface
         }
     }
 
-    public function promise(): Promise\Promise|Promise\PromiseInterface
+    public function promise(): mixed
     {
         return $this->each->promise();
     }

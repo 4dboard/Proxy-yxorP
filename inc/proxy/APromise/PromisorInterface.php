@@ -12,5 +12,5 @@ interface PromisorInterface
      *
      * @return PromiseInterface
      */
-    public function promise(): PromiseInterface;
+    public function promise(): mixed;
 }

@@ -69,7 +69,7 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    public function promise(): Promise|PromiseInterface
+    public function promise(): mixed
     {
         if ($this->aggregate) {
             return $this->aggregate;
