@@ -66,10 +66,10 @@ Parallel*).
 
 ![image](https://user-images.githubusercontent.com/6468571/177686281-5c726469-125c-4075-a14d-8dfc086d1b54.png)
 
-PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the
-protocol is relatively similar to the HyperText Transfer Protocol's roots (HTTP). On top of that, state may be
-implemented via sessions, databases, shared memory, files, or anything else that retains state in some way. There may be
-alternatives, such as shared memory.
+PHP, unlike other programming languages, does not have its own state. Individual single inquiry is unique. The protocol
+mirrors the beginnings of the HyperText Transfer Protocol in this sense (HTTP). In addition, state may be implemented
+via sessions, databases, shared memory, files, or any other technology capable of storing state in some way. There may
+be more options, such as shared memory.
 
 ``` 
 
