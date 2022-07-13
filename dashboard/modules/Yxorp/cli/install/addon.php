@@ -2,7 +2,7 @@
 
 if (!YXORP_CLI) return;
 
-$url  = $app->param('url', null);
+$url = $app->param('url', null);
 $name = $app->param('name', null);
 
 if (!$name) {
@@ -15,9 +15,9 @@ if (!$url) {
     $url = "https://github.com/agentejo/{$name}/archive/master.zip";
 }
 
-$fs      = $app->helper('fs');
-$tmppath = $app->path('#tmp:').'/'.$name;
-$error   = false;
+$fs = $app->helper('fs');
+$tmppath = $app->path('#tmp:') . '/' . $name;
+$error = false;
 $zipname = null;
 
 if (!is_writable($app->path('#addons:'))) {
@@ -63,7 +63,7 @@ $addonRoot = null;
 
 // find addon root
 foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator("{$tmppath}/extract-{$zipname}")) as $file) {
-    
+
     if ($file->getFilename() == 'bootstrap.php') {
         $addonRoot = dirname($file->getRealPath());
         break;

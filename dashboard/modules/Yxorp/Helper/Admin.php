@@ -211,6 +211,24 @@ class Admin extends \Lime\Helper
         return $this->app->module('yxorp')->updateUserOption($key, $value);
     }
 
+    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
+    {
+
+        $meta = $this->isResourceLocked($resourceId);
+
+        if (!$meta) {
+            return true;
+        }
+
+        $user = $this->app->module('yxorp')->getUser();
+
+        if ($meta['user']['_id'] == $user['_id'] && $meta['sid'] == md5(session_id())) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isResourceLocked($resourceId, $ttl = null)
     {
 
@@ -225,24 +243,6 @@ class Admin extends \Lime\Helper
 
         if ($meta) {
             return $meta;
-        }
-
-        return false;
-    }
-
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
-    {
-
-        $meta = $this->isResourceLocked($resourceId);
-
-        if (!$meta) {
-            return true;
-        }
-
-        $user = $this->app->module('yxorp')->getUser();
-
-        if ($meta['user']['_id'] == $user['_id'] && $meta['sid'] == md5(session_id())) {
-            return true;
         }
 
         return false;

@@ -1,7 +1,16 @@
 <style>
-@if($collection['color'])
-.app-header { border-top: 8px {{ $collection['color'] }} solid; }
-@endif
+    @if($collection['color'])
+    .app-header {
+        border-top:
+
+    8px { {
+        $ collection ['color']
+    }
+    } solid
+
+    ;
+    }
+    @endif
 </style>
 
 <div>
@@ -10,7 +19,9 @@
         <li><a href="@route('/collections')">@lang('Collections')</a></li>
         <li class="uk-active" data-uk-dropdown="mode:'hover', delay:300">
 
-        <a href="@route('/collections/entries/'.$collection['name'])"><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$collection['label'] ? $collection['label']:$collection['name'], ENT_QUOTES, 'UTF-8') }}</a>
+            <a href="@route('/collections/entries/'.$collection['name'])"><i class="uk-icon-bars"></i> {{
+                htmlspecialchars(@$collection['label'] ? $collection['label']:$collection['name'], ENT_QUOTES, 'UTF-8')
+                }}</a>
 
             @if($app->module('collections')->hasaccess($collection['name'], 'collection_edit'))
             <div class="uk-dropdown">
@@ -18,8 +29,12 @@
                     <li class="uk-nav-header">@lang('Actions')</li>
                     <li><a href="@route('/collections/collection/'.$collection['name'])">@lang('Edit')</a></li>
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-truncate"><a href="@route('/collections/export/'.$collection['name'])" download="{{ $collection['name'] }}.collection.json">@lang('Export entries')</a></li>
-                    <li class="uk-text-truncate"><a href="@route('/collections/import/collection/'.$collection['name'])">@lang('Import entries')</a></li>
+                    <li class="uk-text-truncate"><a href="@route('/collections/export/'.$collection['name'])"
+                                                    download="{{ $collection['name'] }}.collection.json">@lang('Export
+                            entries')</a></li>
+                    <li class="uk-text-truncate"><a
+                                href="@route('/collections/import/collection/'.$collection['name'])">@lang('Import
+                            entries')</a></li>
                 </ul>
             </div>
             @endif
@@ -33,7 +48,8 @@
 <div riot-view>
 
 
-    <div class="uk-width-medium-1-3 uk-viewport-height-1-2 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle" if="{ loading }">
+    <div class="uk-width-medium-1-3 uk-viewport-height-1-2 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle"
+         if="{ loading }">
 
         <div class="uk-animation-fade uk-text-center">
             <cp-preloader class="uk-container-center"></cp-preloader>
@@ -41,12 +57,14 @@
 
     </div>
 
-    <div class="uk-width-medium-1-3 uk-viewport-height-1-2 uk-container-center uk-text-center uk-text-muted uk-flex uk-flex-center uk-flex-middle" if="{ !loading && !entries.length }">
+    <div class="uk-width-medium-1-3 uk-viewport-height-1-2 uk-container-center uk-text-center uk-text-muted uk-flex uk-flex-center uk-flex-middle"
+         if="{ !loading && !entries.length }">
 
         <div class="uk-animation-scale">
 
-            <img class="uk-svg-adjust" src="@url('assets:app/media/icons/misc/trash.svg')" width="80" alt="icon" data-uk-svg>
-            
+            <img class="uk-svg-adjust" src="@url('assets:app/media/icons/misc/trash.svg')" width="80" alt="icon"
+                 data-uk-svg>
+
             <div class="uk-h1 uk-margin-top">
                 @lang('Trash is empty')
             </div>
@@ -57,22 +75,26 @@
     <div if="{ !loading && entries.length }">
 
         <div class="uk-margin uk-flex uk-flex-right uk-flex-middle">
-            
+
             <div class="uk-flex-item-1 uk-flex uk-flex-middle">
 
                 <div class="uk-margin-small-right">
-                    <img class="uk-svg-adjust" src="@url('assets:app/media/icons/misc/trash.svg')" width="50" alt="icon" data-uk-svg>
+                    <img class="uk-svg-adjust" src="@url('assets:app/media/icons/misc/trash.svg')" width="50" alt="icon"
+                         data-uk-svg>
                 </div>
 
                 <h3>
-                    <strong>{{ htmlspecialchars(@$collection['label'] ? $collection['label']:$collection['name'], ENT_QUOTES, 'UTF-8') }}</strong>
+                    <strong>{{ htmlspecialchars(@$collection['label'] ? $collection['label']:$collection['name'],
+                        ENT_QUOTES, 'UTF-8') }}</strong>
                     @lang('Trash')
                 </h3>
             </div>
 
 
-            <div class="uk-display-inline-block uk-margin-small-right" data-uk-dropdown="mode:'click'" if="{ selected.length }">
-                <button class="uk-button uk-button-large uk-animation-fade">@lang('Batch Action') <span class="uk-badge uk-badge-contrast uk-margin-small-left">{ selected.length }</span></button>
+            <div class="uk-display-inline-block uk-margin-small-right" data-uk-dropdown="mode:'click'"
+                 if="{ selected.length }">
+                <button class="uk-button uk-button-large uk-animation-fade">@lang('Batch Action') <span
+                            class="uk-badge uk-badge-contrast uk-margin-small-left">{ selected.length }</span></button>
                 <div class="uk-dropdown">
                     <ul class="uk-nav uk-nav-dropdown uk-dropdown-close">
                         <li class="uk-nav-header">@lang('Actions')</li>
@@ -82,30 +104,36 @@
                 </div>
             </div>
 
-            <button type="button" class="uk-button uk-button-large uk-button-danger uk-flex uk-flex-middle" onclick="{ emptyTrash }">@lang('Empty Trash') <span class="uk-badge uk-badge-contrast uk-margin-small-left">{ count }</span></button>
+            <button type="button" class="uk-button uk-button-large uk-button-danger uk-flex uk-flex-middle"
+                    onclick="{ emptyTrash }">@lang('Empty Trash') <span
+                        class="uk-badge uk-badge-contrast uk-margin-small-left">{ count }</span></button>
 
         </div>
 
         <table class="uk-table uk-table-tabbed uk-table-striped uk-margin-top">
             <thead>
-                <tr>
-                    <th width="20"><input class="uk-checkbox" type="checkbox" data-check="all"></th>
-                    <th width="{field.name == '_modified' || field.name == '_created' ? '100':''}" class="uk-text-small" each="{field,idx in fields}">
-                        { field.label || field.name }
-                    </th>
-                    <th>@lang('Deleted')</th>
-                    <th width="20"></th>
-                </tr>
+            <tr>
+                <th width="20"><input class="uk-checkbox" type="checkbox" data-check="all"></th>
+                <th width="{field.name == '_modified' || field.name == '_created' ? '100':''}" class="uk-text-small"
+                    each="{field,idx in fields}">
+                    { field.label || field.name }
+                </th>
+                <th>@lang('Deleted')</th>
+                <th width="20"></th>
+            </tr>
             </thead>
             <tbody>
-                <tr each="{entry,idx in entries}">
-                    <td><input class="uk-checkbox" type="checkbox" data-check data-id="{ entry._id }"></td>
-                    <td class="uk-text-truncate" each="{field,idy in parent.fields}" if="{ field.name != '_created' }">
-                        <raw content="{ App.Utils.renderValue(field.type, parent.entry.data[field.name], field) }" if="{parent.entry.data[field.name] !== undefined}"></raw>
-                        <span class="uk-icon-eye-slash uk-text-muted" if="{parent.entry.data[field.name] === undefined}"></span>
-                    </td>
-                    <td><span class="uk-badge uk-badge-outline uk-text-warning">{ App.Utils.dateformat( new Date( 1000 * entry._created )) }</span></td>
-                    <td>
+            <tr each="{entry,idx in entries}">
+                <td><input class="uk-checkbox" type="checkbox" data-check data-id="{ entry._id }"></td>
+                <td class="uk-text-truncate" each="{field,idy in parent.fields}" if="{ field.name != '_created' }">
+                    <raw content="{ App.Utils.renderValue(field.type, parent.entry.data[field.name], field) }"
+                         if="{parent.entry.data[field.name] !== undefined}"></raw>
+                    <span class="uk-icon-eye-slash uk-text-muted"
+                          if="{parent.entry.data[field.name] === undefined}"></span>
+                </td>
+                <td><span class="uk-badge uk-badge-outline uk-text-warning">{ App.Utils.dateformat( new Date( 1000 * entry._created )) }</span>
+                </td>
+                <td>
                         <span data-uk-dropdown="mode:'click'">
 
                             <a class="uk-icon-bars"></a>
@@ -123,12 +151,13 @@
                                 <ul class="uk-nav uk-nav-dropdown uk-margin-top">
                                     <li class="uk-nav-header">@lang('Actions')</li>
                                     <li><a onclick="{ parent.recycle }">@lang('Recycle')</a></li>
-                                    <li class="uk-nav-item-danger"><a class="uk-dropdown-close" onclick="{ parent.remove }">@lang('Delete')</a></li>
+                                    <li class="uk-nav-item-danger"><a class="uk-dropdown-close"
+                                                                      onclick="{ parent.remove }">@lang('Delete')</a></li>
                                 </ul>
                             </div>
                         </span>
-                    </td>
-                </tr>
+                </td>
+            </tr>
             </tbody>
         </table>
 
@@ -147,7 +176,9 @@
 
                         <div class="uk-margin-small-top { pages > 5 ? 'uk-scrollable-box':'' }">
                             <ul class="uk-nav uk-nav-dropdown">
-                                <li class="uk-text-small" each="{k,v in new Array(pages)}"><a class="uk-dropdown-close" onclick="{ parent.loadpage.bind(parent, v+1) }">@lang('Page') {v + 1}</a></li>
+                                <li class="uk-text-small" each="{k,v in new Array(pages)}"><a class="uk-dropdown-close"
+                                                                                              onclick="{ parent.loadpage.bind(parent, v+1) }">@lang('Page')
+                                        {v + 1}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -178,7 +209,6 @@
         </div>
 
     </div>
-
 
 
     <script type="view/script">
@@ -417,6 +447,7 @@
             }.bind(this));
 
         }
+
 
     </script>
 

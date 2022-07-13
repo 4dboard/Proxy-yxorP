@@ -8,12 +8,12 @@
 </head>
 <body class="uk-height-viewport uk-flex uk-flex-middle">
 
-    <div class="uk-container uk-container-center uk-text-center uk-animation-slide-bottom">
+<div class="uk-container uk-container-center uk-text-center uk-animation-slide-bottom">
 
-        <img src="@base('assets:app/media/icons/emoticon-sad.svg')" width="150" height="150">
+    <img src="@base('assets:app/media/icons/emoticon-sad.svg')" width="150" height="150">
 
-        <p class="uk-text-large uk-margin-large uk-text-bold">Uuuups, something went wrong.</p>
+    <p class="uk-text-large uk-margin-large uk-text-bold">Uuuups, something went wrong.</p>
 
-    </div>
+</div>
 </body>
 </html>

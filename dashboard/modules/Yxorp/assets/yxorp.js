@@ -23,7 +23,7 @@
 
             if (!Array.isArray(args)) args = [args];
 
-            var req = App.request('/yxorp/call/' + module + '/' + method, { args: args, acl: acl });
+            var req = App.request('/yxorp/call/' + module + '/' + method, {args: args, acl: acl});
 
             // catch any error
             req.catch(function () {
@@ -39,7 +39,8 @@
 
                 if (!App.$data.acl.finder) return;
 
-                callback = callback || function () { };
+                callback = callback || function () {
+                };
 
                 options = App.$.extend({
                     previewfiles: false,
@@ -58,7 +59,7 @@
                     '<a class="uk-button uk-button-large uk-button-link uk-modal-close">' + App.i18n.get('Close') + '</a>',
                     '</div>',
                     '</div>'
-                ].join(''), { modal: false });
+                ].join(''), {modal: false});
 
                 dialog.dialog.addClass('uk-modal-dialog-large');
 
@@ -114,7 +115,7 @@
                     '<a class="uk-button uk-button-large uk-button-link uk-modal-close">' + App.i18n.get('Close') + '</a>',
                     '</div>',
                     '</div>'
-                ].join(''), { modal: false });
+                ].join(''), {modal: false});
 
                 dialog.dialog.addClass('uk-modal-dialog-large');
 
@@ -180,7 +181,7 @@
     Yxorp.account = function (id) {
         if (!_accounts[id]) {
             _accounts[id] = new Promise(function (resolve, reject) {
-                App.request('/accounts/find', { options: { filter: { _id: id } } }).then(function (response) {
+                App.request('/accounts/find', {options: {filter: {_id: id}}}).then(function (response) {
                     resolve(response && Array.isArray(response.accounts) && response.accounts[0] ? response.accounts[0] : null);
                 });
             });

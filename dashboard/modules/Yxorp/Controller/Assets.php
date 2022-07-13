@@ -10,8 +10,6 @@
 
 namespace yxorP\Controller;
 
-use ArrayObject;
-
 class Assets extends \yxorP\AuthController
 {
 
