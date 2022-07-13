@@ -287,6 +287,7 @@ class yP
         require PATH_DASHBOARD_BOOTSTRAP;
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
+
         // ENV
         /* Reading the file and then calling the env function on each line. */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
