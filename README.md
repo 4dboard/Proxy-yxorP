@@ -444,9 +444,9 @@ For more information please see: https://docs.lando.dev/config/lamp.html
 
 ![image](https://user-images.githubusercontent.com/6468571/177675740-33ed816f-4206-4ea3-b1e3-abdc45e04db3.png)
 
-When it comes to software updates, it is more often than not that they will be made to the application's dependant
-packages rather than the program itself; for example, most of the adjustments will be made to the php-proxy package
-rather than to the application itself.
+When it comes to software updates, the alterations that are made are most likely going to be made to the application's
+dependant packages rather than the program itself; for instance, the bulk of the modifications are going to be made to
+the php-proxy package rather than to the program itself.
 
 #### .env
 
