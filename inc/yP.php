@@ -106,6 +106,20 @@ class yP
         /* It's setting the constants that are used in the plugin. */
         self::localise($request);
 
+        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
+
+        /* Setting the token to the snag key. */
+        constants::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
+        /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
+
+        constants::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+
+        /* It's setting the `YXORP_DASHBOARD_APP` constant to the `cockpit()` function. */
+        constants::set(YXORP_DASHBOARD_APP, yxorp());
+
+        // EVENTS
+        constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
         foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
