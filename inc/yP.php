@@ -103,10 +103,10 @@ class yP
      */
     public function __construct(array $request)
     {
-        exit('123');
         /* It's setting the constants that are used in the plugin. */
         self::localise($request);
 
+        exit('123');
         /* Checking if the files exist in the directory. */
         foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
 
