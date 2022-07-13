@@ -211,7 +211,7 @@ class yP
     public static function publicSuffix(string $domain): mixed
     {
 
-        $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
+        $publicSuffixList = \Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
         $domain = domain::fromIDNA2008($domain);
 
 
