@@ -13,4 +13,5 @@ require __DIR__ . '/inc/yP.php';
  *  Calling the `proxy()` method of the `yxorP` class.
  */
 
+echo exit('123');
 inc\yP::proxy(__DIR__);
