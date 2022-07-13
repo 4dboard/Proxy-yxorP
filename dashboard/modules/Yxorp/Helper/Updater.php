@@ -11,11 +11,13 @@
 namespace yxorP\Helper;
 
 use Exception;
+use Lime\Helper;
+use ZipArchive;
 
 /**
  * Admin Helper class.
  */
-class Updater extends \Lime\Helper
+class Updater extends Helper
 {
 
 
@@ -52,7 +54,7 @@ class Updater extends \Lime\Helper
         // extract zip contents
 
         @mkdir("{$tmppath}/extract-{$zipname}", 0777);
-        $zip = new \ZipArchive;
+        $zip = new ZipArchive;
 
         if ($zip->open("{$tmppath}/{$zipname}") === true) {
 

@@ -10,7 +10,14 @@
 
 namespace yxorP\Controller;
 
-class Assets extends \yxorP\AuthController
+use ArrayObject;
+use yxorP\AuthController;
+use function array_merge_recursive;
+use function is_string;
+use function json_decode;
+use function session_write_close;
+
+class Assets extends AuthController
 {
 
     public function index()
@@ -22,7 +29,7 @@ class Assets extends \yxorP\AuthController
     public function listAssets()
     {
 
-        \session_write_close();
+        session_write_close();
 
         $options = [
             'sort' => ['created' => -1]
@@ -56,7 +63,7 @@ class Assets extends \yxorP\AuthController
     public function upload()
     {
 
-        \session_write_close();
+        session_write_close();
 
         $meta = ['folder' => $this->param('folder', '')];
 
@@ -66,7 +73,7 @@ class Assets extends \yxorP\AuthController
     public function uploadfolder()
     {
 
-        \session_write_close();
+        session_write_close();
 
         $paths = $this->param('paths') ?? [];
         $root = $this->param('folder');
@@ -77,7 +84,7 @@ class Assets extends \yxorP\AuthController
         }
 
         $user = $this->module('yxorp')->getUser();
-        $cache = new \ArrayObject([]);
+        $cache = new ArrayObject([]);
 
         $mkdir = function ($path) use ($root, $cache, $user) {
 
@@ -156,7 +163,7 @@ class Assets extends \yxorP\AuthController
 
         foreach ($folders as $path => $_files) {
             $meta = ['folder' => $cache[$path]];
-            $ret = \array_merge_recursive($ret, $this->module('yxorp')->uploadAssets($_files, $meta));
+            $ret = array_merge_recursive($ret, $this->module('yxorp')->uploadAssets($_files, $meta));
         }
 
         return $ret;
@@ -272,7 +279,7 @@ class Assets extends \yxorP\AuthController
     public function updateAssetFile()
     {
 
-        \session_write_close();
+        session_write_close();
 
         $asset = $this->param('asset');
 
@@ -280,8 +287,8 @@ class Assets extends \yxorP\AuthController
             return false;
         }
 
-        if (\is_string($asset)) {
-            $asset = \json_decode($asset, true);
+        if (is_string($asset)) {
+            $asset = json_decode($asset, true);
         }
 
         return $this->module('yxorp')->updateAssetFile('file', $asset);

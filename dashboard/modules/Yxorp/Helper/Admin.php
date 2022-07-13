@@ -11,11 +11,14 @@
 namespace yxorP\Helper;
 
 use ArrayObject;
+use ContainerArray;
+use Lime\Helper;
+use function strtolower;
 
 /**
  * Admin Helper class.
  */
-class Admin extends \Lime\Helper
+class Admin extends Helper
 {
 
     public $data;
@@ -27,7 +30,7 @@ class Admin extends \Lime\Helper
     public function initialize()
     {
 
-        $this->data = new \ContainerArray();
+        $this->data = new ContainerArray();
         $this->options = [];
         $this->user = $this->app->module('yxorp')->getUser();
 
@@ -36,7 +39,7 @@ class Admin extends \Lime\Helper
             unset($this->user['password'], $this->user['api_key'], $this->user['_reset_token']);
         }
 
-        $this->user['data'] = new \ContainerArray(isset($this->user['data']) && is_array($this->user['data']) ? $this->user['data'] : []);
+        $this->user['data'] = new ContainerArray(isset($this->user['data']) && is_array($this->user['data']) ? $this->user['data'] : []);
     }
 
     public function init()
@@ -121,7 +124,7 @@ class Admin extends \Lime\Helper
             $color = $this->favicon['color'] ?? null;
         }
 
-        $ext = \strtolower(pathinfo($favicon, PATHINFO_EXTENSION));
+        $ext = strtolower(pathinfo($favicon, PATHINFO_EXTENSION));
 
         if (!$ext) return;
 
@@ -211,6 +214,24 @@ class Admin extends \Lime\Helper
         return $this->app->module('yxorp')->updateUserOption($key, $value);
     }
 
+    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
+    {
+
+        $meta = $this->isResourceLocked($resourceId);
+
+        if (!$meta) {
+            return true;
+        }
+
+        $user = $this->app->module('yxorp')->getUser();
+
+        if ($meta['user']['_id'] == $user['_id'] && $meta['sid'] == md5(session_id())) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isResourceLocked($resourceId, $ttl = null)
     {
 
@@ -225,24 +246,6 @@ class Admin extends \Lime\Helper
 
         if ($meta) {
             return $meta;
-        }
-
-        return false;
-    }
-
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
-    {
-
-        $meta = $this->isResourceLocked($resourceId);
-
-        if (!$meta) {
-            return true;
-        }
-
-        $user = $this->app->module('yxorp')->getUser();
-
-        if ($meta['user']['_id'] == $user['_id'] && $meta['sid'] == md5(session_id())) {
-            return true;
         }
 
         return false;
