@@ -31,8 +31,7 @@
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177683962-8426f6e0-9626-4484-a1a0-1c03c952e8e4.png) ![image](https://user-images.githubusercontent.com/6468571/177686029-28027b8e-fadd-4aed-973b-d79bbe8edfdc.png)
+![image](https://user-images.githubusercontent.com/6468571/177686029-28027b8e-fadd-4aed-973b-d79bbe8edfdc.png)
 
 Flat files are used to hold the information created by the plug-and-play application yxorP. Since they are not
 necessary, Composer, PHP CURL, and databases are optional for the execution of this application. yxorP was created to
@@ -80,7 +79,6 @@ frameworks. According to the description, each of these servers is designed with
 non-blocking I/O." This is evident from the description.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/177686281-5c726469-125c-4075-a14d-8dfc086d1b54.png)
 
 PHP, in contrast to a significant number of other programming languages, does not come packaged with its own independent
@@ -121,8 +119,7 @@ server {
 ``` 
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177684223-790bd4aa-7e8a-4dbd-a5e0-87ce8f0c5a8e.png) ![image](https://user-images.githubusercontent.com/6468571/177686596-c72fadb4-1f88-4eb9-95d6-e83e1cbfc5f7.png)
+![image](https://user-images.githubusercontent.com/6468571/177686596-c72fadb4-1f88-4eb9-95d6-e83e1cbfc5f7.png)
 
 Both the Swoole and the RoadRunner servers, which are well-known for their speed and dependability, are capable of
 running PHP applications. These programs must have access to persistent data. After installation, the Swoole PHP
@@ -140,7 +137,6 @@ php ./server.php
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/177686387-dc457561-f3ad-404b-97c4-1b73b7f37e4d.png)
 
 Docker Compose is a tool that enables developers to build and deploy applications that are comprised of several
@@ -155,8 +151,7 @@ docker-composer up -d
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177684476-58524026-dacc-426a-ac26-5597836683b9.png) ![image](https://user-images.githubusercontent.com/6468571/177686426-5ba11476-7007-45e2-82ae-82a4879176e0.png)
+![image](https://user-images.githubusercontent.com/6468571/177686426-5ba11476-7007-45e2-82ae-82a4879176e0.png)
 
 Docker gives its customers the capacity to manage containers in a way that is comparable to managing virtual machines.
 This is due to the fact that containerized computers are comparable to virtual machines in that they are comparatively
@@ -195,9 +190,7 @@ website so that its settings may be modified.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177684819-fbdd79b3-93ad-4012-aa41-7661fd9638ec.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 ![image](https://user-images.githubusercontent.com/6468571/177685870-385a203b-9654-4c7b-b3e7-00c725d3fa51.png)
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
@@ -216,7 +209,7 @@ content spinning engine, the system is able to "enhance" (or "spin") information
 thesaurus/dictionary items) and without sacrificing quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
-![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
+![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
 ### Dashboard Back-End is awesome if you need a flexible content structure but don't want to be limited in how to
 
@@ -298,10 +291,12 @@ will decrease with time.
 All network access requests are continually monitored and filtered by a firewall, while proxy servers only provide the
 former role. This is the most significant distinction between the two security techniques. This is the most notable
 distinction between the two kinds of used safety measures. By emphasizing this contrast, the two unique types of
-security measures may be distinguished most clearly from one another. 
+security measures may be distinguished most clearly from one another.
 
-A proxy server connects the user's local computer to the server, allowing it to receive data on the user's behalf. This connection gives the local computer of the user access to the server. Due to these operations, the proxy server acts as an intermediate between the client and the
-server. Access should never be allowed unless specifically permitted by the appropriate authorities.
+A proxy server connects the user's local computer to the server, allowing it to receive data on the user's behalf. This
+connection gives the local computer of the user access to the server. Due to these operations, the proxy server acts as
+an intermediate between the client and the server. Access should never be allowed unless specifically permitted by the
+appropriate authorities.
 
 ![image](https://user-images.githubusercontent.com/6468571/178638799-eed7c7ae-0bc6-4fc8-9403-68caf71d182b.png)
 
