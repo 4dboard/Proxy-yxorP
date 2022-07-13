@@ -248,8 +248,9 @@ flat file variants of your original webpages. This is feasible by using yxorP to
 
 #### 🔥 Cache
 
-When you use caching to load your websites, you may reduce loading time and server strain, resulting in websites that
-load faster.
+When you load your websites utilizing caching, you not only reduce the likelihood that the loading time will increase,
+but you also reduce the server strain caused by your actions. Consequently, the time required for online pages to load
+will decrease with time.
 
 #### 📛 Firewall
 
