@@ -180,6 +180,32 @@ class LiteDBQuery
         return $sql;
     }
 
+    protected function buildConditions($conditions)
+    {
+        if (is_string($conditions)) $conditions = array($conditions);
+        if (!is_array($conditions) || !count($conditions)) {
+            return '';
+        }
+        $_conditions = [];
+        foreach ($conditions as $c) {
+            $sql = '';
+            if (is_string($c)) {
+                $sql = $c;
+            } elseif (is_array($c) && isset($c[0], $c[1])) {
+                $sql = $c[0];
+                foreach ($c[1] as $key => $value) {
+                    $sql = str_replace(':' . $key, $this->connection->quote($value), $sql);
+                }
+            }
+            if (count($_conditions) > 0 && strtoupper(substr($sql, 0, 4)) != 'AND ' && strtoupper(substr($sql, 0, 3)) != 'OR ') {
+                $sql = 'AND ' . $sql;
+            }
+            $_conditions[] = $sql;
+        }
+        $conditions = implode(' ', $_conditions);
+        return $conditions;
+    }
+
     public function one($conditions = null)
     {
         $this->limit = 1;
@@ -300,31 +326,5 @@ class LiteDBQuery
     public function drop()
     {
         $this->connection->exec("DROP TABLE `{$this->table}`");
-    }
-
-    protected function buildConditions($conditions)
-    {
-        if (is_string($conditions)) $conditions = array($conditions);
-        if (!is_array($conditions) || !count($conditions)) {
-            return '';
-        }
-        $_conditions = [];
-        foreach ($conditions as $c) {
-            $sql = '';
-            if (is_string($c)) {
-                $sql = $c;
-            } elseif (is_array($c) && isset($c[0], $c[1])) {
-                $sql = $c[0];
-                foreach ($c[1] as $key => $value) {
-                    $sql = str_replace(':' . $key, $this->connection->quote($value), $sql);
-                }
-            }
-            if (count($_conditions) > 0 && strtoupper(substr($sql, 0, 4)) != 'AND ' && strtoupper(substr($sql, 0, 3)) != 'OR ') {
-                $sql = 'AND ' . $sql;
-            }
-            $_conditions[] = $sql;
-        }
-        $conditions = implode(' ', $_conditions);
-        return $conditions;
     }
 }

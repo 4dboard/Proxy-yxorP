@@ -103,6 +103,45 @@
         return $this->fetch_from_array($key, $default);
     }
 
+    protected function fetch_from_array($index = null, $default = null)
+    {
+        if (is_null($index)) {
+            return $default;
+        } elseif (isset($this->props[$index])) {
+            return $this->props[$index];
+        } elseif (strpos($index, '/')) {
+            $keys = explode('/', $index);
+            switch (count($keys)) {
+                case 1:
+                    if (isset($this->props[$keys[0]])) {
+                        return $this->props[$keys[0]];
+                    }
+                    break;
+                case 2:
+                    if (isset($this->props[$keys[0]][$keys[1]])) {
+                        return $this->props[$keys[0]][$keys[1]];
+                    }
+                    break;
+                case 3:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]];
+                    }
+                    break;
+                case 4:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]];
+                    }
+                    break;
+                case 5:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]];
+                    }
+                    break;
+            }
+        }
+        return $default;
+    }
+
     public function offsetExists($key)
     {
         return $this->get($key, null) === null ? false : true;
@@ -181,50 +220,6 @@
             $context = array($_key => $next);
         }
         return $context[$_key];
-    }
-
-    public function jsonSerialize()
-    {
-        return $this->props;
-    }
-
-    protected function fetch_from_array($index = null, $default = null)
-    {
-        if (is_null($index)) {
-            return $default;
-        } elseif (isset($this->props[$index])) {
-            return $this->props[$index];
-        } elseif (strpos($index, '/')) {
-            $keys = explode('/', $index);
-            switch (count($keys)) {
-                case 1:
-                    if (isset($this->props[$keys[0]])) {
-                        return $this->props[$keys[0]];
-                    }
-                    break;
-                case 2:
-                    if (isset($this->props[$keys[0]][$keys[1]])) {
-                        return $this->props[$keys[0]][$keys[1]];
-                    }
-                    break;
-                case 3:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])) {
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]];
-                    }
-                    break;
-                case 4:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])) {
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]];
-                    }
-                    break;
-                case 5:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])) {
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]];
-                    }
-                    break;
-            }
-        }
-        return $default;
     }
 
     protected function _tokenize($data, $separator = ',', $leftBound = '(', $rightBound = ')')
@@ -343,5 +338,10 @@
             }
         }
         return true;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->props;
     }
 }
