@@ -149,10 +149,8 @@ class yP
         constants::set(YXORP_TARGET_PLUGINS, $siteDetails[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_TARGET_URL', ($siteDetails)[DASHBOARD_TARGET]);
-        define('YXORP_TARGET_URL', "localhost");
 
         // TARGET DOMAIN DETAILS
-        echo YXORP_TARGET_URL;
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
         $targetDomain = self::publicSuffix(YXORP_TARGET_URL ?: constants::get(ENV_DEFAULT_TARGET));
