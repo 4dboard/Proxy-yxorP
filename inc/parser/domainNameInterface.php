@@ -24,7 +24,7 @@ interface domainNameInterface extends aHostInterface
 
     public function withoutLabel(int $key, int ...$keys): self;
 
-    public function clear(): self;
+    public function clear(): mixed;
 
     public function slice(int $offset, int $length = null): self;
 }
