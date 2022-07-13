@@ -4,19 +4,15 @@
 
 Model class for a BSON document.
 
-The internal data will be cast to an object during BSON serialization to
-ensure that it becomes a BSON document.
+The internal data will be cast to an object during BSON serialization to ensure that it becomes a BSON document.
 
 * Full name: `\MongoDB\Model\BSONDocument`
 * Parent class: [`ArrayObject`](../../ArrayObject.md)
 * This class implements:
-[`\JsonSerializable`](../../JsonSerializable.md), [`\MongoDB\BSON\Serializable`](../BSON/Serializable.md), [`\MongoDB\BSON\Unserializable`](../BSON/Unserializable.md)
-
-
-
+  [`\JsonSerializable`](../../JsonSerializable.md), [`\MongoDB\BSON\Serializable`](../BSON/Serializable.md)
+  , [`\MongoDB\BSON\Unserializable`](../BSON/Unserializable.md)
 
 ## Methods
-
 
 ### __clone
 
@@ -26,33 +22,15 @@ Deep clone this BSONDocument.
 public __clone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __construct
 
-This overrides the parent constructor to allow property access of entries
-by default.
+This overrides the parent constructor to allow property access of entries by default.
 
 ```php
 public __construct(array $input = [], int $flags = ArrayObject::ARRAY_AS_PROPS, string $iteratorClass = &#039;ArrayIterator&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -62,11 +40,9 @@ public __construct(array $input = [], int $flags = ArrayObject::ARRAY_AS_PROPS, 
 | `$flags` | **int** |  |
 | `$iteratorClass` | **string** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayobject.construct - 
+* http://php.net/arrayobject.construct -
 
 ***
 
@@ -78,12 +54,7 @@ Factory method for var_export().
 public static __set_state(array $properties): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -91,11 +62,9 @@ public static __set_state(array $properties): self
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
-
-
 **See Also:**
 
-* http://php.net/oop5.magic#object.set-state - * http://php.net/var-export - 
+* http://php.net/oop5.magic#object.set-state - * http://php.net/var-export -
 
 ***
 
@@ -107,18 +76,9 @@ Serialize the document to BSON.
 public bsonSerialize(): object
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/mongodb-bson-serializable.bsonserialize - 
+* http://php.net/mongodb-bson-serializable.bsonserialize -
 
 ***
 
@@ -130,24 +90,15 @@ Unserialize the document to BSON.
 public bsonUnserialize(array $data): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** | Array data |
 
-
-
 **See Also:**
 
-* http://php.net/mongodb-bson-unserializable.bsonunserialize - 
+* http://php.net/mongodb-bson-unserializable.bsonunserialize -
 
 ***
 
@@ -159,18 +110,9 @@ Serialize the array to JSON.
 public jsonSerialize(): object
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/jsonserializable.jsonserialize - 
+* http://php.net/jsonserializable.jsonserialize -
 
 ***
 

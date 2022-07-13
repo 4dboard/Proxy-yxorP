@@ -2,105 +2,50 @@
 
 # Cache
 
-
-
-
-
 * Full name: `\Lime\Helper\Cache`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
-
-
 ## Properties
 
-
 ### prefix
-
-
 
 ```php
 public $prefix
 ```
 
-
-
-
-
-
 ***
 
 ### cachePath
-
-
 
 ```php
 protected $cachePath
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCachePath
-
-
 
 ```php
 public getCachePath(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCachePath
 
-
-
 ```php
 public setCachePath(mixed $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -108,25 +53,13 @@ public setCachePath(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### write
 
-
-
 ```php
 public write(mixed $key, mixed $value, mixed $duration = -1): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -136,25 +69,13 @@ public write(mixed $key, mixed $value, mixed $duration = -1): mixed
 | `$value` | **mixed** |  |
 | `$duration` | **mixed** |  |
 
-
-
-
 ***
 
 ### read
 
-
-
 ```php
 public read(mixed $key, mixed $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -163,25 +84,13 @@ public read(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### delete
 
-
-
 ```php
 public delete(mixed $key): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -189,49 +98,23 @@ public delete(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
-
 ***
 
 ### clear
-
-
 
 ```php
 public clear(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -239,45 +122,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -286,25 +145,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -312,34 +159,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

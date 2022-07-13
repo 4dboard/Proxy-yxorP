@@ -2,33 +2,16 @@
 
 # Trash
 
-
-
-
-
 * Full name: `\Collections\Controller\Trash`
 * Parent class: [`\yxorP\AuthController`](../../yxorP/AuthController.md)
 
-
-
-
 ## Methods
 
-
 ### collection
-
-
 
 ```php
 public collection(mixed $name = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -36,97 +19,49 @@ public collection(mixed $name = null): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### find
-
-
 
 ```php
 public find(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### empty
-
-
 
 ```php
 public empty(mixed $collection): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
-
-
-
 
 ***
 
 ### delete
 
-
-
 ```php
 public delete(mixed $collection): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
-
-
-
 
 ***
 
 ### recycle
 
-
-
 ```php
 public recycle(mixed $collection): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -134,29 +69,15 @@ public recycle(mixed $collection): mixed
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -164,65 +85,29 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### before
-
-
 
 ```php
 protected before(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### index
-
-
 
 ```php
 public index(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### render
 
-
-
 ```php
 protected render(mixed $view, mixed $params = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -231,25 +116,13 @@ protected render(mixed $view, mixed $params = array()): mixed
 | `$view` | **mixed** |  |
 | `$params` | **mixed** |  |
 
-
-
-
 ***
 
 ### param
 
-
-
 ```php
 protected param(mixed $key, mixed $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -258,25 +131,13 @@ protected param(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### module
 
-
-
 ```php
 protected module(mixed $module): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -284,25 +145,13 @@ protected module(mixed $module): mixed
 |-----------|------|-------------|
 | `$module` | **mixed** |  |
 
-
-
-
 ***
 
 ### helper
 
-
-
 ```php
 protected helper(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -310,25 +159,13 @@ protected helper(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### stop
 
-
-
 ```php
 protected stop(mixed $data = false, mixed $status = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -337,45 +174,21 @@ protected stop(mixed $data = false, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -384,25 +197,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -410,34 +211,19 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

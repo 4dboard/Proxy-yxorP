@@ -2,14 +2,9 @@
 
 # PriorityQueue
 
-
-
-
-
 * Full name: `\PriorityQueue`
 * This class implements:
-[`\Countable`](./Countable.md), [`\IteratorAggregate`](./IteratorAggregate.md)
-
+  [`\Countable`](./Countable.md), [`\IteratorAggregate`](./IteratorAggregate.md)
 
 ## Constants
 
@@ -21,129 +16,61 @@
 
 ## Properties
 
-
 ### queue
-
-
 
 ```php
 protected $queue
 ```
 
-
-
-
-
-
 ***
 
 ### items
-
-
 
 ```php
 protected $items
 ```
 
-
-
-
-
-
 ***
 
 ### extractMode
-
-
 
 ```php
 protected $extractMode
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isEmpty
-
-
 
 ```php
 public isEmpty(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExtractFlags
 
-
-
 ```php
 public setExtractFlags(mixed $flags): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -151,25 +78,13 @@ public setExtractFlags(mixed $flags): mixed
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
 
-
-
-
 ***
 
 ### insert
 
-
-
 ```php
 public insert(mixed $item, mixed $priority): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -178,25 +93,13 @@ public insert(mixed $item, mixed $priority): mixed
 | `$item` | **mixed** |  |
 | `$priority` | **mixed** |  |
 
-
-
-
 ***
 
 ### contains
 
-
-
 ```php
 public contains(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -204,25 +107,13 @@ public contains(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasPriority
 
-
-
 ```php
 public hasPriority(mixed $priority): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -230,25 +121,13 @@ public hasPriority(mixed $priority): mixed
 |-----------|------|-------------|
 | `$priority` | **mixed** |  |
 
-
-
-
 ***
 
 ### remove
 
-
-
 ```php
 public remove(mixed $item): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -256,25 +135,13 @@ public remove(mixed $item): mixed
 |-----------|------|-------------|
 | `$item` | **mixed** |  |
 
-
-
-
 ***
 
 ### toArray
 
-
-
 ```php
 public toArray(mixed $flag = self::EXTR_DATA): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -282,88 +149,37 @@ public toArray(mixed $flag = self::EXTR_DATA): mixed
 |-----------|------|-------------|
 | `$flag` | **mixed** |  |
 
-
-
-
 ***
 
 ### top
-
-
 
 ```php
 public top(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### extract
-
-
 
 ```php
 public extract(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __clone
 
-
-
 ```php
 public __clone(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

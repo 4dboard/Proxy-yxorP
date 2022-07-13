@@ -4,70 +4,43 @@
 
 Operation for the renameCollection command.
 
-
-
 * Full name: `\MongoDB\Operation\RenameCollection`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::rename() - 
-* \MongoDB\Database::renameCollection() - 
-* https://docs.mongodb.org/manual/reference/command/renameCollection/ - 
-
-
+* \MongoDB\Collection::rename() -
+* \MongoDB\Database::renameCollection() -
+* https://docs.mongodb.org/manual/reference/command/renameCollection/ -
 
 ## Properties
 
-
 ### fromNamespace
-
-
 
 ```php
 private string $fromNamespace
 ```
 
-
-
-
-
-
 ***
 
 ### toNamespace
-
-
 
 ```php
 private string $toNamespace
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -81,18 +54,11 @@ Supported options:
 
 * session (MongoDB\Driver\Session): Client session.
 
-* typeMap (array): Type map for BSON deserialization. This will be used
-  for the returned command result document.
+* typeMap (array): Type map for BSON deserialization. This will be used for the returned command result document.
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
-* dropTarget (boolean): If true, MongoDB will drop the target before
-  renaming the collection.
-
-
-
-
-
+* dropTarget (boolean): If true, MongoDB will drop the target before renaming the collection.
 
 **Parameters:**
 
@@ -104,9 +70,6 @@ Supported options:
 | `$toCollectionName` | **string** | New collection name |
 | `$options` | **array** | Command options |
 
-
-
-
 ***
 
 ### execute
@@ -117,28 +80,19 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): array|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
 **Return Value:**
 
 Command result document
 
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
@@ -150,18 +104,9 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php - 
+* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php -
 
 ***
 

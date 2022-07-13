@@ -2,13 +2,8 @@
 
 # ParsedownExtra
 
-
-
-
-
 * Full name: `\ParsedownExtra`
 * Parent class: [`\Parsedown`](./Parsedown.md)
-
 
 ## Constants
 
@@ -18,152 +13,79 @@
 
 ## Properties
 
-
 ### footnoteCount
-
-
 
 ```php
 private $footnoteCount
 ```
 
-
-
-
-
-
 ***
 
 ### regexAttribute
-
-
 
 ```php
 protected $regexAttribute
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### text
-
-
 
 ```php
 public text(mixed $text): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockAbbreviation
 
-
-
 ```php
 protected blockAbbreviation(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockFootnote
 
-
-
 ```php
 protected blockFootnote(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockFootnoteContinue
 
-
-
 ```php
 protected blockFootnoteContinue(mixed $Line, mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -171,52 +93,28 @@ protected blockFootnoteContinue(mixed $Line, mixed $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockFootnoteComplete
 
-
-
 ```php
 protected blockFootnoteComplete(mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockDefinitionList
 
-
-
 ```php
 protected blockDefinitionList(mixed $Line, mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -224,26 +122,14 @@ protected blockDefinitionList(mixed $Line, mixed $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockDefinitionListContinue
 
-
-
 ```php
 protected blockDefinitionListContinue(mixed $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -252,25 +138,13 @@ protected blockDefinitionListContinue(mixed $Line, array $Block): mixed
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
 
-
-
-
 ***
 
 ### blockHeader
 
-
-
 ```php
 protected blockHeader(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -278,25 +152,13 @@ protected blockHeader(mixed $Line): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 
-
-
-
 ***
 
 ### blockMarkupComplete
 
-
-
 ```php
 protected blockMarkupComplete(mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -304,25 +166,13 @@ protected blockMarkupComplete(mixed $Block): mixed
 |-----------|------|-------------|
 | `$Block` | **mixed** |  |
 
-
-
-
 ***
 
 ### blockSetextHeader
 
-
-
 ```php
 protected blockSetextHeader(mixed $Line, array $Block = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -331,51 +181,27 @@ protected blockSetextHeader(mixed $Line, array $Block = null): mixed
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
 
-
-
-
 ***
 
 ### inlineFootnoteMarker
-
-
 
 ```php
 protected inlineFootnoteMarker(mixed $Excerpt): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineLink
 
-
-
 ```php
 protected inlineLink(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -383,25 +209,13 @@ protected inlineLink(mixed $Excerpt): mixed
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
 
-
-
-
 ***
 
 ### unmarkedText
 
-
-
 ```php
 protected unmarkedText(mixed $text): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -409,25 +223,13 @@ protected unmarkedText(mixed $text): mixed
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
 
-
-
-
 ***
 
 ### addDdElement
 
-
-
 ```php
 protected addDdElement(array $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -436,45 +238,21 @@ protected addDdElement(array $Line, array $Block): mixed
 | `$Line` | **array** |  |
 | `$Block` | **array** |  |
 
-
-
-
 ***
 
 ### buildFootnoteElement
-
-
 
 ```php
 protected buildFootnoteElement(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### parseAttributeData
 
-
-
 ```php
 protected parseAttributeData(mixed $attributeString): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -482,25 +260,13 @@ protected parseAttributeData(mixed $attributeString): mixed
 |-----------|------|-------------|
 | `$attributeString` | **mixed** |  |
 
-
-
-
 ***
 
 ### processTag
 
-
-
 ```php
 protected processTag(mixed $elementMarkup): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -508,25 +274,13 @@ protected processTag(mixed $elementMarkup): mixed
 |-----------|------|-------------|
 | `$elementMarkup` | **mixed** |  |
 
-
-
-
 ***
 
 ### sortFootnotes
 
-
-
 ```php
 protected sortFootnotes(mixed $A, mixed $B): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -535,29 +289,15 @@ protected sortFootnotes(mixed $A, mixed $B): mixed
 | `$A` | **mixed** |  |
 | `$B` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### text
-
-
 
 ```php
 public text(mixed $text): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -565,25 +305,13 @@ public text(mixed $text): mixed
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
 
-
-
-
 ***
 
 ### setBreaksEnabled
 
-
-
 ```php
 public setBreaksEnabled(mixed $breaksEnabled): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -591,25 +319,13 @@ public setBreaksEnabled(mixed $breaksEnabled): mixed
 |-----------|------|-------------|
 | `$breaksEnabled` | **mixed** |  |
 
-
-
-
 ***
 
 ### setMarkupEscaped
 
-
-
 ```php
 public setMarkupEscaped(mixed $markupEscaped): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -617,25 +333,13 @@ public setMarkupEscaped(mixed $markupEscaped): mixed
 |-----------|------|-------------|
 | `$markupEscaped` | **mixed** |  |
 
-
-
-
 ***
 
 ### setUrlsLinked
 
-
-
 ```php
 public setUrlsLinked(mixed $urlsLinked): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -643,25 +347,13 @@ public setUrlsLinked(mixed $urlsLinked): mixed
 |-----------|------|-------------|
 | `$urlsLinked` | **mixed** |  |
 
-
-
-
 ***
 
 ### setSafeMode
 
-
-
 ```php
 public setSafeMode(mixed $safeMode): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -669,25 +361,13 @@ public setSafeMode(mixed $safeMode): mixed
 |-----------|------|-------------|
 | `$safeMode` | **mixed** |  |
 
-
-
-
 ***
 
 ### lines
 
-
-
 ```php
 protected lines(array $lines): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -695,51 +375,27 @@ protected lines(array $lines): mixed
 |-----------|------|-------------|
 | `$lines` | **array** |  |
 
-
-
-
 ***
 
 ### isBlockContinuable
-
-
 
 ```php
 protected isBlockContinuable(mixed $Type): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Type` | **mixed** |  |
-
-
-
 
 ***
 
 ### isBlockCompletable
 
-
-
 ```php
 protected isBlockCompletable(mixed $Type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -747,52 +403,28 @@ protected isBlockCompletable(mixed $Type): mixed
 |-----------|------|-------------|
 | `$Type` | **mixed** |  |
 
-
-
-
 ***
 
 ### blockCode
-
-
 
 ```php
 protected blockCode(mixed $Line, mixed $Block = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockCodeContinue
 
-
-
 ```php
 protected blockCodeContinue(mixed $Line, mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -800,78 +432,42 @@ protected blockCodeContinue(mixed $Line, mixed $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockCodeComplete
 
-
-
 ```php
 protected blockCodeComplete(mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockComment
 
-
-
 ```php
 protected blockComment(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockCommentContinue
 
-
-
 ```php
 protected blockCommentContinue(mixed $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -879,52 +475,28 @@ protected blockCommentContinue(mixed $Line, array $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockFencedCode
 
-
-
 ```php
 protected blockFencedCode(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockFencedCodeContinue
 
-
-
 ```php
 protected blockFencedCodeContinue(mixed $Line, mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -932,26 +504,14 @@ protected blockFencedCodeContinue(mixed $Line, mixed $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockFencedCodeComplete
 
-
-
 ```php
 protected blockFencedCodeComplete(mixed $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -959,77 +519,41 @@ protected blockFencedCodeComplete(mixed $Block): mixed
 |-----------|------|-------------|
 | `$Block` | **mixed** |  |
 
-
-
-
 ***
 
 ### blockHeader
-
-
 
 ```php
 protected blockHeader(mixed $Line): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockList
 
-
-
 ```php
 protected blockList(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockListContinue
 
-
-
 ```php
 protected blockListContinue(mixed $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1037,78 +561,42 @@ protected blockListContinue(mixed $Line, array $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockListComplete
 
-
-
 ```php
 protected blockListComplete(array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockQuote
 
-
-
 ```php
 protected blockQuote(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockQuoteContinue
 
-
-
 ```php
 protected blockQuoteContinue(mixed $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1116,52 +604,28 @@ protected blockQuoteContinue(mixed $Line, array $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockRule
 
-
-
 ```php
 protected blockRule(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockSetextHeader
 
-
-
 ```php
 protected blockSetextHeader(mixed $Line, array $Block = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1169,52 +633,28 @@ protected blockSetextHeader(mixed $Line, array $Block = null): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockMarkup
 
-
-
 ```php
 protected blockMarkup(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockMarkupContinue
 
-
-
 ```php
 protected blockMarkupContinue(mixed $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1222,52 +662,28 @@ protected blockMarkupContinue(mixed $Line, array $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockReference
 
-
-
 ```php
 protected blockReference(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
-
-
-
 
 ***
 
 ### blockTable
 
-
-
 ```php
 protected blockTable(mixed $Line, array $Block = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1275,26 +691,14 @@ protected blockTable(mixed $Line, array $Block = null): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
-
-
-
 
 ***
 
 ### blockTableContinue
 
-
-
 ```php
 protected blockTableContinue(mixed $Line, array $Block): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1303,25 +707,13 @@ protected blockTableContinue(mixed $Line, array $Block): mixed
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
 
-
-
-
 ***
 
 ### paragraph
 
-
-
 ```php
 protected paragraph(mixed $Line): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1329,25 +721,13 @@ protected paragraph(mixed $Line): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 
-
-
-
 ***
 
 ### line
 
-
-
 ```php
 public line(mixed $text, mixed $nonNestables = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1356,285 +736,153 @@ public line(mixed $text, mixed $nonNestables = array()): mixed
 | `$text` | **mixed** |  |
 | `$nonNestables` | **mixed** |  |
 
-
-
-
 ***
 
 ### inlineCode
-
-
 
 ```php
 protected inlineCode(mixed $Excerpt): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineEmailTag
 
-
-
 ```php
 protected inlineEmailTag(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineEmphasis
 
-
-
 ```php
 protected inlineEmphasis(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineEscapeSequence
 
-
-
 ```php
 protected inlineEscapeSequence(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineImage
 
-
-
 ```php
 protected inlineImage(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineLink
 
-
-
 ```php
 protected inlineLink(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineMarkup
 
-
-
 ```php
 protected inlineMarkup(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineSpecialCharacter
 
-
-
 ```php
 protected inlineSpecialCharacter(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineStrikethrough
 
-
-
 ```php
 protected inlineStrikethrough(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineUrl
 
-
-
 ```php
 protected inlineUrl(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
-
-
-
 
 ***
 
 ### inlineUrlTag
 
-
-
 ```php
 protected inlineUrlTag(mixed $Excerpt): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1642,25 +890,13 @@ protected inlineUrlTag(mixed $Excerpt): mixed
 |-----------|------|-------------|
 | `$Excerpt` | **mixed** |  |
 
-
-
-
 ***
 
 ### unmarkedText
 
-
-
 ```php
 protected unmarkedText(mixed $text): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1668,25 +904,13 @@ protected unmarkedText(mixed $text): mixed
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
 
-
-
-
 ***
 
 ### element
 
-
-
 ```php
 protected element(array $Element): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1694,25 +918,13 @@ protected element(array $Element): mixed
 |-----------|------|-------------|
 | `$Element` | **array** |  |
 
-
-
-
 ***
 
 ### elements
 
-
-
 ```php
 protected elements(array $Elements): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1720,25 +932,13 @@ protected elements(array $Elements): mixed
 |-----------|------|-------------|
 | `$Elements` | **array** |  |
 
-
-
-
 ***
 
 ### li
 
-
-
 ```php
 protected li(mixed $lines): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1746,25 +946,13 @@ protected li(mixed $lines): mixed
 |-----------|------|-------------|
 | `$lines` | **mixed** |  |
 
-
-
-
 ***
 
 ### parse
 
-
-
 ```php
 public parse(mixed $text): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1772,25 +960,13 @@ public parse(mixed $text): mixed
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
 
-
-
-
 ***
 
 ### sanitiseElement
 
-
-
 ```php
 protected sanitiseElement(array $Element): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1798,25 +974,13 @@ protected sanitiseElement(array $Element): mixed
 |-----------|------|-------------|
 | `$Element` | **array** |  |
 
-
-
-
 ***
 
 ### filterUnsafeUrlInAttribute
 
-
-
 ```php
 protected filterUnsafeUrlInAttribute(array $Element, mixed $attribute): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1825,25 +989,15 @@ protected filterUnsafeUrlInAttribute(array $Element, mixed $attribute): mixed
 | `$Element` | **array** |  |
 | `$attribute` | **mixed** |  |
 
-
-
-
 ***
 
 ### escape
-
-
 
 ```php
 protected static escape(mixed $text, mixed $allowQuotes = false): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -1852,25 +1006,15 @@ protected static escape(mixed $text, mixed $allowQuotes = false): mixed
 | `$text` | **mixed** |  |
 | `$allowQuotes` | **mixed** |  |
 
-
-
-
 ***
 
 ### striAtStart
-
-
 
 ```php
 protected static striAtStart(mixed $string, mixed $needle): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -1879,34 +1023,21 @@ protected static striAtStart(mixed $string, mixed $needle): mixed
 | `$string` | **mixed** |  |
 | `$needle` | **mixed** |  |
 
-
-
-
 ***
 
 ### instance
-
-
 
 ```php
 public static instance(mixed $name = &#039;default&#039;): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 

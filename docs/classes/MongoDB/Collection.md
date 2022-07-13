@@ -2,154 +2,87 @@
 
 # Collection
 
-
-
-
-
 * Full name: `\MongoDB\Collection`
-
-
 
 ## Properties
 
-
 ### defaultTypeMap
-
-
 
 ```php
 private static array $defaultTypeMap
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### wireVersionForReadConcernWithWriteStage
 
-
-
 ```php
 private static int $wireVersionForReadConcernWithWriteStage
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### collectionName
 
-
-
 ```php
 private string $collectionName
 ```
-
-
-
-
-
 
 ***
 
 ### databaseName
 
-
-
 ```php
 private string $databaseName
 ```
-
-
-
-
-
 
 ***
 
 ### manager
 
-
-
 ```php
 private \MongoDB\Driver\Manager $manager
 ```
-
-
-
-
-
 
 ***
 
 ### readConcern
 
-
-
 ```php
 private \MongoDB\Driver\ReadConcern $readConcern
 ```
-
-
-
-
-
 
 ***
 
 ### readPreference
 
-
-
 ```php
 private \MongoDB\Driver\ReadPreference $readPreference
 ```
-
-
-
-
-
 
 ***
 
 ### typeMap
 
-
-
 ```php
 private array $typeMap
 ```
-
-
-
-
-
 
 ***
 
 ### writeConcern
 
-
-
 ```php
 private \MongoDB\Driver\WriteConcern $writeConcern
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -159,28 +92,21 @@ Constructs new Collection instance.
 public __construct(\MongoDB\Driver\Manager $manager, string $databaseName, string $collectionName, array $options = []): mixed
 ```
 
-This class provides methods for collection-specific operations, such as
-CRUD (i.e. create, read, update, and delete) and index management.
+This class provides methods for collection-specific operations, such as CRUD (i.e. create, read, update, and delete) and
+index management.
 
 Supported options:
 
- * readConcern (MongoDB\Driver\ReadConcern): The default read concern to
-   use for collection operations. Defaults to the Manager's read concern.
+* readConcern (MongoDB\Driver\ReadConcern): The default read concern to use for collection operations. Defaults to the
+  Manager's read concern.
 
- * readPreference (MongoDB\Driver\ReadPreference): The default read
-   preference to use for collection operations. Defaults to the Manager's
-   read preference.
+* readPreference (MongoDB\Driver\ReadPreference): The default read preference to use for collection operations. Defaults
+  to the Manager's read preference.
 
- * typeMap (array): Default type map for cursors and BSON documents.
+* typeMap (array): Default type map for cursors and BSON documents.
 
- * writeConcern (MongoDB\Driver\WriteConcern): The default write concern
-   to use for collection operations. Defaults to the Manager's write
-   concern.
-
-
-
-
-
+* writeConcern (MongoDB\Driver\WriteConcern): The default write concern to use for collection operations. Defaults to
+  the Manager's write concern.
 
 **Parameters:**
 
@@ -190,9 +116,6 @@ Supported options:
 | `$databaseName` | **string** | Database name |
 | `$collectionName` | **string** | Collection name |
 | `$options` | **array** | Collection options |
-
-
-
 
 ***
 
@@ -204,18 +127,9 @@ Return internal properties for debugging purposes.
 public __debugInfo(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo - 
+* http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo -
 
 ***
 
@@ -227,18 +141,9 @@ Return the collection namespace (e.g. "db.collection").
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* https://docs.mongodb.org/manual/faq/developers/#faq-dev-namespace - 
+* https://docs.mongodb.org/manual/faq/developers/#faq-dev-namespace -
 
 ***
 
@@ -250,15 +155,9 @@ Executes an aggregation framework pipeline on the collection.
 public aggregate(array $pipeline, array $options = []): \Traversable
 ```
 
-Note: this method's return value depends on the MongoDB server version
-and the "useCursor" option. If "useCursor" is true, a Cursor will be
-returned; otherwise, an ArrayIterator is returned, which wraps the
+Note: this method's return value depends on the MongoDB server version and the "useCursor" option. If "useCursor" is
+true, a Cursor will be returned; otherwise, an ArrayIterator is returned, which wraps the
 "result" array from the command response document.
-
-
-
-
-
 
 **Parameters:**
 
@@ -266,8 +165,6 @@ returned; otherwise, an ArrayIterator is returned, which wraps the
 |-----------|------|-------------|
 | `$pipeline` | **array** | List of pipeline operations |
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -283,21 +180,12 @@ Executes multiple write operations.
 public bulkWrite(array[] $operations, array $options = []): \MongoDB\BulkWriteResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operations` | **array[]** | List of write operations |
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -313,14 +201,7 @@ Gets the number of documents matching the filter.
 public count(array|object $filter = [], array $options = []): int
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -328,8 +209,6 @@ public count(array|object $filter = [], array $options = []): int
 |-----------|------|-------------|
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -345,21 +224,12 @@ Gets the number of documents matching the filter.
 public countDocuments(array|object $filter = [], array $options = []): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -375,29 +245,22 @@ Create a single index for the collection.
 public createIndex(array|object $key, array $options = []): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **array&#124;object** | Document containing fields mapped to values,<br />which denote order or an index type |
+| `$key` | **
+array&#124;object** | Document containing fields mapped to values,<br />which denote order or an index type |
 | `$options` | **array** | Index and command options |
-
 
 **Return Value:**
 
 The name of the created index
 
-
 **See Also:**
 
-* \MongoDB\Collection::createIndexes() - * \MongoDB\Operation\CreateIndexes::__construct() - for supported command options
+* \MongoDB\Collection::createIndexes() - * \MongoDB\Operation\CreateIndexes::__construct() - for supported command
+  options
 
 ***
 
@@ -409,9 +272,8 @@ Create one or more indexes for the collection.
 public createIndexes(array[] $indexes, array $options = []): string[]
 ```
 
-Each element in the $indexes array must have a "key" document, which
-contains fields mapped to an order or type. Other options may follow.
-For example:
+Each element in the $indexes array must have a "key" document, which contains fields mapped to an order or type. Other
+options may follow. For example:
 
     $indexes = [
         // Create a unique index on the "username" field
@@ -423,11 +285,6 @@ For example:
 If the "name" option is unspecified, a name will be generated from the
 "key" document.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -435,15 +292,15 @@ If the "name" option is unspecified, a name will be generated from the
 | `$indexes` | **array[]** | List of index specifications |
 | `$options` | **array** | Command options |
 
-
 **Return Value:**
 
 The names of the created indexes
 
-
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/createIndexes/ - * http://docs.mongodb.org/manual/reference/method/db.collection.createIndex/ - * \MongoDB\Operation\CreateIndexes::__construct() - for supported command options
+* http://docs.mongodb.org/manual/reference/command/createIndexes/ -
+  * http://docs.mongodb.org/manual/reference/method/db.collection.createIndex/ - * \MongoDB\Operation\CreateIndexes::__
+  construct() - for supported command options
 
 ***
 
@@ -455,13 +312,6 @@ Deletes all documents matching the filter.
 public deleteMany(array|object $filter, array $options = []): \MongoDB\DeleteResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -469,11 +319,10 @@ public deleteMany(array|object $filter, array $options = []): \MongoDB\DeleteRes
 | `$filter` | **array&#124;object** | Query by which to delete documents |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\DeleteMany::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/delete/ - 
+* \MongoDB\Operation\DeleteMany::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/delete/ -
 
 ***
 
@@ -485,13 +334,6 @@ Deletes at most one document matching the filter.
 public deleteOne(array|object $filter, array $options = []): \MongoDB\DeleteResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -499,11 +341,10 @@ public deleteOne(array|object $filter, array $options = []): \MongoDB\DeleteResu
 | `$filter` | **array&#124;object** | Query by which to delete documents |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\DeleteOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/delete/ - 
+* \MongoDB\Operation\DeleteOne::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/delete/ -
 
 ***
 
@@ -515,13 +356,6 @@ Finds the distinct values for a specified field across the collection.
 public distinct(string $fieldName, array|object $filter = [], array $options = []): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -529,8 +363,6 @@ public distinct(string $fieldName, array|object $filter = [], array $options = [
 | `$fieldName` | **string** | Field for which to return distinct values |
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -546,24 +378,15 @@ Drop this collection.
 public drop(array $options = []): array|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Additional options |
 
-
 **Return Value:**
 
 Command result document
-
 
 **See Also:**
 
@@ -579,13 +402,6 @@ Drop a single index in the collection.
 public dropIndex(string|\MongoDB\Model\IndexInfo $indexName, array $options = []): array|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -593,11 +409,9 @@ public dropIndex(string|\MongoDB\Model\IndexInfo $indexName, array $options = []
 | `$indexName` | **string&#124;\MongoDB\Model\IndexInfo** | Index name or model object |
 | `$options` | **array** | Additional options |
 
-
 **Return Value:**
 
 Command result document
-
 
 **See Also:**
 
@@ -613,24 +427,15 @@ Drop all indexes in the collection.
 public dropIndexes(array $options = []): array|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Additional options |
 
-
 **Return Value:**
 
 Command result document
-
 
 **See Also:**
 
@@ -646,20 +451,11 @@ Gets an estimated number of documents in the collection using the collection met
 public estimatedDocumentCount(array $options = []): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -675,13 +471,6 @@ Explains explainable commands.
 public explain(\MongoDB\Operation\Explainable $explainable, array $options = []): array|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -689,11 +478,10 @@ public explain(\MongoDB\Operation\Explainable $explainable, array $options = [])
 | `$explainable` | **\MongoDB\Operation\Explainable** | Command on which to run explain |
 | `$options` | **array** | Additional options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Explain::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/explain/ - 
+* \MongoDB\Operation\Explain::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/explain/ -
 
 ***
 
@@ -705,13 +493,6 @@ Finds documents matching the query.
 public find(array|object $filter = [], array $options = []): \MongoDB\Driver\Cursor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -719,11 +500,10 @@ public find(array|object $filter = [], array $options = []): \MongoDB\Driver\Cur
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Additional options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Find::__construct() - for supported options* http://docs.mongodb.org/manual/core/read-operations-introduction/ - 
+* \MongoDB\Operation\Find::__construct() - for supported
+  options* http://docs.mongodb.org/manual/core/read-operations-introduction/ -
 
 ***
 
@@ -735,13 +515,6 @@ Finds a single document matching the query.
 public findOne(array|object $filter = [], array $options = []): array|object|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -749,11 +522,10 @@ public findOne(array|object $filter = [], array $options = []): array|object|nul
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Additional options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\FindOne::__construct() - for supported options* http://docs.mongodb.org/manual/core/read-operations-introduction/ - 
+* \MongoDB\Operation\FindOne::__construct() - for supported
+  options* http://docs.mongodb.org/manual/core/read-operations-introduction/ -
 
 ***
 
@@ -767,11 +539,6 @@ public findOneAndDelete(array|object $filter, array $options = []): array|object
 
 The document to return may be null if no document matched the filter.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -779,32 +546,23 @@ The document to return may be null if no document matched the filter.
 | `$filter` | **array&#124;object** | Query by which to filter documents |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\FindOneAndDelete::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/findAndModify/ - 
+* \MongoDB\Operation\FindOneAndDelete::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/findAndModify/ -
 
 ***
 
 ### findOneAndReplace
 
-Finds a single document and replaces it, returning either the original or
-the replaced document.
+Finds a single document and replaces it, returning either the original or the replaced document.
 
 ```php
 public findOneAndReplace(array|object $filter, array|object $replacement, array $options = []): array|object|null
 ```
 
-The document to return may be null if no document matched the filter. By
-default, the original document is returned. Specify
-FindOneAndReplace::RETURN_DOCUMENT_AFTER for the "returnDocument" option
-to return the updated document.
-
-
-
-
-
+The document to return may be null if no document matched the filter. By default, the original document is returned.
+Specify FindOneAndReplace::RETURN_DOCUMENT_AFTER for the "returnDocument" option to return the updated document.
 
 **Parameters:**
 
@@ -814,32 +572,23 @@ to return the updated document.
 | `$replacement` | **array&#124;object** | Replacement document |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\FindOneAndReplace::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/findAndModify/ - 
+* \MongoDB\Operation\FindOneAndReplace::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/findAndModify/ -
 
 ***
 
 ### findOneAndUpdate
 
-Finds a single document and updates it, returning either the original or
-the updated document.
+Finds a single document and updates it, returning either the original or the updated document.
 
 ```php
 public findOneAndUpdate(array|object $filter, array|object $update, array $options = []): array|object|null
 ```
 
-The document to return may be null if no document matched the filter. By
-default, the original document is returned. Specify
-FindOneAndUpdate::RETURN_DOCUMENT_AFTER for the "returnDocument" option
-to return the updated document.
-
-
-
-
-
+The document to return may be null if no document matched the filter. By default, the original document is returned.
+Specify FindOneAndUpdate::RETURN_DOCUMENT_AFTER for the "returnDocument" option to return the updated document.
 
 **Parameters:**
 
@@ -849,11 +598,10 @@ to return the updated document.
 | `$update` | **array&#124;object** | Update to apply to the matched document |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\FindOneAndReplace::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/findAndModify/ - 
+* \MongoDB\Operation\FindOneAndReplace::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/findAndModify/ -
 
 ***
 
@@ -865,16 +613,6 @@ Return the collection name.
 public getCollectionName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDatabaseName
@@ -884,16 +622,6 @@ Return the database name.
 ```php
 public getDatabaseName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -905,16 +633,6 @@ Return the Manager.
 public getManager(): \MongoDB\Driver\Manager
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getNamespace
@@ -925,18 +643,9 @@ Return the collection namespace.
 public getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* https://docs.mongodb.org/manual/reference/glossary/#term-namespace - 
+* https://docs.mongodb.org/manual/reference/glossary/#term-namespace -
 
 ***
 
@@ -948,18 +657,9 @@ Return the read concern for this collection.
 public getReadConcern(): \MongoDB\Driver\ReadConcern
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-readconcern.isdefault.php - 
+* http://php.net/manual/en/mongodb-driver-readconcern.isdefault.php -
 
 ***
 
@@ -971,16 +671,6 @@ Return the read preference for this collection.
 public getReadPreference(): \MongoDB\Driver\ReadPreference
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTypeMap
@@ -990,16 +680,6 @@ Return the type map for this collection.
 ```php
 public getTypeMap(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1011,18 +691,9 @@ Return the write concern for this collection.
 public getWriteConcern(): \MongoDB\Driver\WriteConcern
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-writeconcern.isdefault.php - 
+* http://php.net/manual/en/mongodb-driver-writeconcern.isdefault.php -
 
 ***
 
@@ -1034,13 +705,6 @@ Inserts multiple documents.
 public insertMany(array[]|object[] $documents, array $options = []): \MongoDB\InsertManyResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1048,11 +712,10 @@ public insertMany(array[]|object[] $documents, array $options = []): \MongoDB\In
 | `$documents` | **array[]&#124;object[]** | The documents to insert |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\InsertMany::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/insert/ - 
+* \MongoDB\Operation\InsertMany::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/insert/ -
 
 ***
 
@@ -1064,13 +727,6 @@ Inserts one document.
 public insertOne(array|object $document, array $options = []): \MongoDB\InsertOneResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1078,11 +734,10 @@ public insertOne(array|object $document, array $options = []): \MongoDB\InsertOn
 | `$document` | **array&#124;object** | The document to insert |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\InsertOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/insert/ - 
+* \MongoDB\Operation\InsertOne::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/insert/ -
 
 ***
 
@@ -1094,20 +749,11 @@ Returns information for all indexes for the collection.
 public listIndexes(array $options = []): \MongoDB\Model\IndexInfoIterator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
 
 **See Also:**
 
@@ -1123,13 +769,6 @@ Executes a map-reduce aggregation on the collection.
 public mapReduce(\MongoDB\BSON\JavascriptInterface $map, \MongoDB\BSON\JavascriptInterface $reduce, string|array|object $out, array $options = []): \MongoDB\MapReduceResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1139,11 +778,10 @@ public mapReduce(\MongoDB\BSON\JavascriptInterface $map, \MongoDB\BSON\Javascrip
 | `$out` | **string&#124;array&#124;object** | Output specification |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\MapReduce::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/mapReduce/ - 
+* \MongoDB\Operation\MapReduce::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/mapReduce/ -
 
 ***
 
@@ -1155,13 +793,6 @@ Renames the collection.
 public rename(string $toCollectionName, ?string $toDatabaseName = null, array $options = []): array|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1170,11 +801,9 @@ public rename(string $toCollectionName, ?string $toDatabaseName = null, array $o
 | `$toDatabaseName` | **?string** | New database name of the collection. Defaults to the original database. |
 | `$options` | **array** | Additional options |
 
-
 **Return Value:**
 
 Command result document
-
 
 **See Also:**
 
@@ -1190,13 +819,6 @@ Replaces at most one document matching the filter.
 public replaceOne(array|object $filter, array|object $replacement, array $options = []): \MongoDB\UpdateResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1205,11 +827,10 @@ public replaceOne(array|object $filter, array|object $replacement, array $option
 | `$replacement` | **array&#124;object** | Replacement document |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\ReplaceOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/update/ - 
+* \MongoDB\Operation\ReplaceOne::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/update/ -
 
 ***
 
@@ -1221,13 +842,6 @@ Updates all documents matching the filter.
 public updateMany(array|object $filter, array|object $update, array $options = []): \MongoDB\UpdateResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1236,11 +850,10 @@ public updateMany(array|object $filter, array|object $update, array $options = [
 | `$update` | **array&#124;object** | Update to apply to the matched documents |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\UpdateMany::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/update/ - 
+* \MongoDB\Operation\UpdateMany::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/update/ -
 
 ***
 
@@ -1252,13 +865,6 @@ Updates at most one document matching the filter.
 public updateOne(array|object $filter, array|object $update, array $options = []): \MongoDB\UpdateResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1267,11 +873,10 @@ public updateOne(array|object $filter, array|object $update, array $options = []
 | `$update` | **array&#124;object** | Update to apply to the matched document |
 | `$options` | **array** | Command options |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\UpdateOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/update/ - 
+* \MongoDB\Operation\UpdateOne::__construct() - for supported
+  options* http://docs.mongodb.org/manual/reference/command/update/ -
 
 ***
 
@@ -1283,21 +888,12 @@ Create a change stream for watching changes to the collection.
 public watch(array $pipeline = [], array $options = []): \MongoDB\ChangeStream
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pipeline` | **array** | List of pipeline operations |
 | `$options` | **array** | Command options |
-
-
 
 **See Also:**
 
@@ -1313,20 +909,11 @@ Get a clone of this collection with different options.
 public withOptions(array $options = []): \MongoDB\Collection
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Collection constructor options |
-
-
 
 **See Also:**
 
