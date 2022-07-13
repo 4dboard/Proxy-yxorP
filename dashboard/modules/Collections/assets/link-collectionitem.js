@@ -21,7 +21,10 @@
 
             linkCache[displayId] = new Promise(function (resolve) {
 
-                App.request('/collections/find', { collection: field.options.link, options: { lang: lang, filter: { _id: v._id } } }).then(function (data) {
+                App.request('/collections/find', {
+                    collection: field.options.link,
+                    options: {lang: lang, filter: {_id: v._id}}
+                }).then(function (data) {
 
                     if (!data.entries || !data.entries.length) {
                         v.display = 'n/a';
@@ -61,12 +64,13 @@
     function selectCollectionItem(fn, options) {
 
         var options = _.extend({
-            release: fn || function () { }
+            release: fn || function () {
+            }
         }, options || {});
 
         var dialog = UIkit.modal.dialog(
             '<div riot-view><link-collectionitem></link-collectionitem></div>',
-            { modal: false }
+            {modal: false}
         );
 
         options.dialog = dialog;
@@ -97,7 +101,7 @@
                     editor['replaceSelection']('<a href="' + data.url + '">' + data.title + '</a>');
                 }
 
-            }, { url: '', title: '' });
+            }, {url: '', title: ''});
 
         });
 
@@ -115,7 +119,7 @@
 
                     selectCollectionItem(function (data) {
                         ed.insertContent('<a href="' + data.url + '" alt="">' + data.title + '</a>');
-                    }, { url: '', title: '' });
+                    }, {url: '', title: ''});
                 },
                 context: 'insert',
                 prependToContext: true
@@ -229,78 +233,78 @@
 
               `, '', '', function (opts) {
 
-        var $this = this;
+            var $this = this;
 
-        this.count = 0;
-        this.page = 1;
-        this.pages = 1;
+            this.count = 0;
+            this.page = 1;
+            this.pages = 1;
 
-        App.request('/collections/_collections').then(function (data) {
-            $this.collections = data;
-            $this.update();
-        });
-
-        this.on('mount', function () {
-
-            App.$(this.refs.form).on('submit', function (e) {
-
-                e.preventDefault();
-                $this.parent.opts.release({ url: $this.refs.url.value, title: $this.refs.title.value });
-                $this.parent.opts.dialog.hide();
+            App.request('/collections/_collections').then(function (data) {
+                $this.collections = data;
+                $this.update();
             });
-        })
 
-        this.selectCollection = function (e) {
-            this.collection = e.item.name;
-            this.filter = '';
-            this.page = 1;
-            this.load();
-        }.bind(this)
+            this.on('mount', function () {
 
-        this.apply = function (e) {
-            this.refs.url.value = 'collection://' + this.collection + '/' + e.item.item._id;
-            this.refs.title.value = e.item.item.title || e.item.item.name || '';
-        }.bind(this)
+                App.$(this.refs.form).on('submit', function (e) {
 
-        this.val = function (ref) {
-            return this.refs[ref] && this.refs[ref].value;
-        }.bind(this)
+                    e.preventDefault();
+                    $this.parent.opts.release({url: $this.refs.url.value, title: $this.refs.title.value});
+                    $this.parent.opts.dialog.hide();
+                });
+            })
 
-        this.updatefilter = function (e) {
-            this.filter = e.target.value;
-            this.page = 1;
-            this.load();
-        }.bind(this)
+            this.selectCollection = function (e) {
+                this.collection = e.item.name;
+                this.filter = '';
+                this.page = 1;
+                this.load();
+            }.bind(this)
 
-        this.loadpage = function (page) {
-            this.page = page > this.pages ? this.pages : page;
-            this.load();
-        }.bind(this)
+            this.apply = function (e) {
+                this.refs.url.value = 'collection://' + this.collection + '/' + e.item.item._id;
+                this.refs.title.value = e.item.item.title || e.item.item.name || '';
+            }.bind(this)
 
-        this.load = function () {
+            this.val = function (ref) {
+                return this.refs[ref] && this.refs[ref].value;
+            }.bind(this)
 
-            this.items = null;
+            this.updatefilter = function (e) {
+                this.filter = e.target.value;
+                this.page = 1;
+                this.load();
+            }.bind(this)
 
-            var options = {
-                limit: 20
-            };
+            this.loadpage = function (page) {
+                this.page = page > this.pages ? this.pages : page;
+                this.load();
+            }.bind(this)
 
-            if (this.filter) {
-                options.filter = this.filter;
-            }
+            this.load = function () {
 
-            options.skip = (this.page - 1) * options.limit;
+                this.items = null;
 
-            App.request('/collections/find', { collection: this.collection, options: options }).then(function (data) {
+                var options = {
+                    limit: 20
+                };
 
-                this.items = data.entries;
-                this.page = data.page;
-                this.pages = data.pages;
-                this.count = data.count;
-                this.update();
+                if (this.filter) {
+                    options.filter = this.filter;
+                }
 
-            }.bind(this))
-        }.bind(this)
-    });
+                options.skip = (this.page - 1) * options.limit;
+
+                App.request('/collections/find', {collection: this.collection, options: options}).then(function (data) {
+
+                    this.items = data.entries;
+                    this.page = data.page;
+                    this.pages = data.pages;
+                    this.count = data.count;
+                    this.update();
+
+                }.bind(this))
+            }.bind(this)
+        });
 
 })();

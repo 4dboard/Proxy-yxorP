@@ -508,7 +508,6 @@ class Admin extends \yxorP\AuthController
         return compact('entries', 'count', 'pages', 'page');
     }
 
-
     public function revisions($collection, $id)
     {
 
