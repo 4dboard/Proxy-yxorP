@@ -12,4 +12,9 @@ f1() {
 }
 
 
-f1 './dashboard'
+f1 './dashboard/addons/'
+f1 './dashboard/assets/'
+f1 './dashboard/install/'
+f1 './dashboard/lib/'
+f1 './dashboard/modules/'
+f1 './dashboard/storage/'
