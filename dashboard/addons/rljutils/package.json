@@ -1,17 +1,17 @@
 {
-  "name": "yxorp-rljutils",
-  "version": "0.1.5",
-  "author": "Raffael Jesche",
-  "homepage": "https://github.com/raffaelj/yxorp_rljUtils",
-  "license": "MIT",
-  "description": "Addon for Yxorp CMS, that adds some hardening, cosmetics and helpers",
-  "scripts": {
-    "build": "npm run build:sass",
-    "watch": "npm run watch:sass",
-    "build:sass": "node-sass -r --source-map true --output-style compressed DarkMode/assets/style.scss DarkMode/assets/style.min.css",
-    "watch:sass": "npm run build:sass && npm run build:sass -- -w"
-  },
-  "devDependencies": {
-    "node-sass": "^7.0.1"
-  }
+    "name": "yxorp-rljutils",
+    "version": "0.1.5",
+    "author": "Raffael Jesche",
+    "homepage": "https://github.com/raffaelj/yxorp_rljUtils",
+    "license": "MIT",
+    "description": "Addon for Yxorp CMS, that adds some hardening, cosmetics and helpers",
+    "scripts": {
+        "build": "npm run build:sass",
+        "watch": "npm run watch:sass",
+        "build:sass": "node-sass -r --source-map true --output-style compressed DarkMode/assets/style.scss DarkMode/assets/style.min.css",
+        "watch:sass": "npm run build:sass && npm run build:sass -- -w"
+    },
+    "devDependencies": {
+        "node-sass": "^7.0.1"
+    }
 }

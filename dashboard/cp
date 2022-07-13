@@ -1,37 +1,35 @@
 #!/usr/bin/env php
 <?php
 
-use Lime\Request;
-
 if (PHP_SAPI !== 'cli') {
     exit('Script needs to be run from Command Line Interface (cli)');
 }
 
-const YXORP_CLI = true;
+define('YXORP_CLI', true);
 
 // set default timezone
 date_default_timezone_set('UTC');
 
-include_once(__DIR__ . '/bootstrap.php');
+include_once(__DIR__.'/bootstrap.php');
 
 $_REQUEST = CLI::opts(); // make option available via $app->param()
 $app = yxorp();
 
-$request = new Request([
-    'request' => $_REQUEST,
-    'server' => $_SERVER,
-    'site_url' => $app['site_url'],
-    'base_url' => $app['base_url'],
+$request = new \Lime\Request([
+    'request'    => $_REQUEST,
+    'server'     => $_SERVER,
+    'site_url'   => $app['site_url'],
+    'base_url'   => $app['base_url'],
     'base_route' => $app['base_route']
 ]);
 
 $app->request = $request;
 
-register_shutdown_function(function () use ($app) {
+register_shutdown_function(function() use($app){
     $app->trigger('shutdown');
 });
 
-set_exception_handler(function ($exception) use ($app) {
+set_exception_handler(function($exception) use($app) {
 
     $error = [
         'message' => $exception->getMessage(),
@@ -46,8 +44,8 @@ set_exception_handler(function ($exception) use ($app) {
     }
 
     CLI::writeln('YXORP CLI ERROR:', false);
-    CLI::writeln('-> in ' . $error['file'] . ':' . $error['line'] . "\n");
-    CLI::writeln($error['message'] . "\n");
+    CLI::writeln('-> in '.$error['file'].':'.$error['line']."\n");
+    CLI::writeln($error['message']."\n");
 });
 
 if (isset($argv[1])) {

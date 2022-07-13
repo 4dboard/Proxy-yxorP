@@ -3,13 +3,7 @@
 namespace LayoutComponents\Controller;
 
 
-use ArrayObject;
-use yxorP\AuthController;
-
-/**
- * @property \Lime\App $app
- */
-class Admin extends AuthController
+class Admin extends \yxorP\AuthController
 {
 
     public function index()
@@ -27,19 +21,19 @@ class Admin extends AuthController
             $json = [];
         }
 
-        $components = new ArrayObject($json);
+        $components = new \ArrayObject($json);
 
         return $this->render('layoutcomponents:views/index.php', compact('components'));
     }
 
-    public function store(): bool
+    public function store()
     {
         $components = $this->param('components');
 
         if ($components) {
             $this->helper('fs')->write('#storage:components.json', json_encode($components, JSON_PRETTY_PRINT));
             return true;
-        } else if (is_array($components)) {
+        } else if (is_array($components) && empty($components)) {
             $this->helper('fs')->delete('#storage:components.json');
             return true;
         }

@@ -47,11 +47,13 @@ $this->module('rljutils')->extend([
             ],
         ];
 
-        return array_replace_recursive(
+        $config = array_replace_recursive(
             $config,
             $this->app->storage->getKey('yxorp/options', 'rljutils', []),
             $this->app->retrieve('rljutils', [])
         );
+
+        return $config;
 
     },
 

@@ -2,10 +2,7 @@
 
 namespace Bootmanager\Controller;
 
-use DirectoryIterator;
-use yxorP\AuthController;
-
-class Admin extends AuthController
+class Admin extends \yxorP\AuthController
 {
 
     public function index()
@@ -27,14 +24,14 @@ class Admin extends AuthController
 
     }
 
-    public function getConfig(): array
+    public function getConfig()
     {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
             return $this('admin')->denyRequest();
         }
 
-        return array_replace_recursive(
+        $config = array_replace_recursive(
             [
                 'ui' => null,
                 'api' => null,
@@ -45,70 +42,7 @@ class Admin extends AuthController
             $this->app->retrieve('config/bootmanager', [])
         );
 
-    }
-
-    public function listModules(): array
-    {
-
-        if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
-            return $this('admin')->denyRequest();
-        }
-
-        $active = array_keys(get_object_vars($this->app['modules']));
-
-        $moduleDirs = [
-            'core' => YXORP_DIR . '/modules',
-            'addons' => YXORP_DIR . '/addons',
-        ];
-
-        if ($customAddonDirs = $this->app->retrieve('loadmodules')) {
-            $i = 1;
-            foreach ($customAddonDirs as $key => $dir) {
-                if (is_string($key)) $moduleDirs[$key] = $dir;
-                else $moduleDirs['loadmodules-' . $i++] = $dir;
-            }
-        }
-
-        $modules = [];
-        $disabled = $this->app->retrieve('modules.disabled', []);
-
-        foreach ($moduleDirs as $type => $dir) {
-
-            if (!file_exists($dir)) continue;
-
-            foreach (new DirectoryIterator($dir) as $module) {
-
-                if ($module->isFile() || $module->isDot()) continue;
-
-                $label = $module->getBasename();
-                $name = strtolower($label);
-
-                if (isset($modules[$name])) {
-                    // module exists already - possible reasons:
-                    // * the same addon in different module folders
-                    // * 2 modules in different folders share the same name
-                    // * ...
-
-                    $modules[$name]['danger'] = true;
-                    continue;
-                }
-
-                $modules[$name] = [
-                    'label' => $label,
-                    'type' => $type,
-                    // 'path' => $module->getRealPath(),
-                    'active' => in_array($name, $active),
-                    'forced' => ($type == 'core' && !in_array($label, $disabled))
-                        || ($type == 'addons' && !in_array($label, $disabled))
-                        || (str_starts_with($type, 'loadmodules') && !in_array($label, $disabled))
-                        || ($name == 'yxorp' || $name == 'bootmanager'),
-                ];
-
-            }
-
-        }
-
-        return $modules;
+        return $config;
 
     }
 
@@ -135,7 +69,7 @@ class Admin extends AuthController
 
     }
 
-    public function getUpdatedValues(): array
+    public function getUpdatedValues()
     {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
@@ -147,6 +81,71 @@ class Admin extends AuthController
         $modules = $this->listModules();
 
         return compact('config', 'modules');
+
+    }
+
+    public function listModules()
+    {
+
+        if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
+            return $this('admin')->denyRequest();
+        }
+
+        $active = array_keys(get_object_vars($this->app['modules']));
+
+        $moduleDirs = [
+            'core' => YXORP_DIR . '/modules',
+            'addons' => YXORP_DIR . '/addons',
+        ];
+
+        if ($customAddonDirs = $this->app->retrieve('loadmodules', null)) {
+            $i = 1;
+            foreach ($customAddonDirs as $key => $dir) {
+                if (is_string($key)) $moduleDirs[$key] = $dir;
+                else $moduleDirs['loadmodules-' . $i++] = $dir;
+            }
+        }
+
+        $modules = [];
+        $disabled = $this->app->retrieve('modules.disabled', []);
+
+        foreach ($moduleDirs as $type => $dir) {
+
+            if (!file_exists($dir)) continue;
+
+            foreach (new \DirectoryIterator($dir) as $module) {
+
+                if ($module->isFile() || $module->isDot()) continue;
+
+                $label = $module->getBasename();
+                $name = strtolower($label);
+
+                if (isset($modules[$name])) {
+                    // module exists already - possible reasons:
+                    // * the same addon in different module folders
+                    // * 2 modules in different folders share the same name
+                    // * ...
+
+                    $modules[$name]['danger'] = true;
+                    continue;
+                }
+
+                $modules[$name] = [
+                    'label' => $label,
+                    'type' => $type,
+                    // 'path' => $module->getRealPath(),
+                    'active' => in_array($name, $active),
+                    'forced' => ($type == 'core' && !in_array($label, $disabled))
+                        || ($type == 'addons' && !in_array($label, $disabled))
+                        || (strpos($type, 'loadmodules') === 0 && !in_array($label, $disabled))
+                        || ($name == 'yxorp' || $name == 'bootmanager'),
+                ];
+
+            }
+
+        }
+
+        return $modules;
 
     }
 

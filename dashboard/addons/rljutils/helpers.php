@@ -1,6 +1,6 @@
 <?php
 
-$this->on('admin.init', function () use ($helpers) {
+$this->on('admin.init', function() use($helpers) {
 
     if (!empty($helpers['locked_entries_disabled'])) {
 

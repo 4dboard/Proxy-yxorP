@@ -52,7 +52,7 @@ $YXORP_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
 $YXORP_DOCS_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__DIR__));
 
 # make sure that $_SERVER['DOCUMENT_ROOT'] is set correctly
-if (!str_starts_with($YXORP_DIR, $YXORP_DOCS_ROOT) && isset($_SERVER['SCRIPT_NAME'])) {
+if (strpos($YXORP_DIR, $YXORP_DOCS_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) {
     $YXORP_DOCS_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $YXORP_DIR);
 }
 
@@ -68,7 +68,7 @@ if (!defined('YXORP_ADMIN')) define('YXORP_ADMIN', 0);
 if (!defined('YXORP_DOCS_ROOT')) define('YXORP_DOCS_ROOT', $YXORP_DOCS_ROOT);
 if (!defined('YXORP_ENV_ROOT')) define('YXORP_ENV_ROOT', YXORP_DIR);
 if (!defined('YXORP_BASE_URL')) define('YXORP_BASE_URL', $YXORP_BASE_URL);
-if (!defined('YXORP_API_REQUEST')) define('YXORP_API_REQUEST', YXORP_ADMIN && str_contains($_SERVER['REQUEST_URI'], YXORP_BASE_URL . '/api/') ? 1 : 0);
+if (!defined('YXORP_API_REQUEST')) define('YXORP_API_REQUEST', YXORP_ADMIN && strpos($_SERVER['REQUEST_URI'], YXORP_BASE_URL . '/api/') !== false ? 1 : 0);
 if (!defined('YXORP_SITE_DIR')) define('YXORP_SITE_DIR', YXORP_ENV_ROOT == YXORP_DIR ? ($YXORP_DIR == YXORP_DOCS_ROOT ? YXORP_DIR : dirname(YXORP_DIR)) : YXORP_ENV_ROOT);
 if (!defined('YXORP_CONFIG_DIR')) define('YXORP_CONFIG_DIR', YXORP_ENV_ROOT . '/config');
 if (!defined('YXORP_BASE_ROUTE')) define('YXORP_BASE_ROUTE', $YXORP_BASE_ROUTE);
@@ -147,7 +147,8 @@ function yxorp($module = null)
 
         // nosql storage
         $app->service('storage', function () use ($config) {
-            return new MongoHybrid\Client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
+            $client = new MongoHybrid\Client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
+            return $client;
         });
 
         // file storage
@@ -201,24 +202,28 @@ function yxorp($module = null)
 
             $app->trigger('yxorp.filestorages.init', [&$storages]);
 
-            return new FileStorage($storages);
+            $filestorage = new FileStorage($storages);
+
+            return $filestorage;
         });
 
         // key-value storage
         $app->service('memory', function () use ($config) {
-            return new SimpleStorage\Client($config['memory']['server'], $config['memory']['options']);
+            $client = new SimpleStorage\Client($config['memory']['server'], $config['memory']['options']);
+            return $client;
         });
 
         // mailer service
         $app->service('mailer', function () use ($app, $config) {
 
-            $options = $config['mailer'] ?? [];
+            $options = isset($config['mailer']) ? $config['mailer'] : [];
 
             if (is_string($options)) {
-                parse_str($options, (array)$options);
+                parse_str($options, $options);
             }
 
-            return new \Mailer($options['transport'] ?? 'mail', $options);
+            $mailer = new \Mailer($options['transport'] ?? 'mail', $options);
+            return $mailer;
         });
 
         // set cache path
