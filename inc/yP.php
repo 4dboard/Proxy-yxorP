@@ -218,6 +218,40 @@ class yP
     }
 
     /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     *
+     * @param string dir
+     * @param string action
+     */
+    private function subscribe(string $dir, string $action): void
+    {
+        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
+        if (strlen($action) < 3) return;
+        /* It's removing the `.php` extension from the `$action` variable. */
+        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
+        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
+        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
+        require(DIR_ROOT . $dir . $action . EXT_PHP);
+        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
+        function. */
+        $this->addSubscriber(new $action());
+    }
+
+    /**
+     * > If the subscriber has a subscribe method, call it and pass the event manager to it
+     *
+     * @param object subscriber The subscriber to add to the event dispatcher.
+     */
+    private function addSubscriber(object $subscriber): void
+    {
+        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
+        and
+        passing the `$this` object to it. */
+        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe($this);
+    }
+
+    /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
      * @param string $yxorp_root
      * @param array|null $request
@@ -278,33 +312,6 @@ class yP
         constants::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
-    /**
-     * "It's copying the files from the `local` directory to the `cockpit` directory."
-     * @param string $src
-     * @param string $dst
-     * @return void
-     */
-    public static function migrate(string $src, string $dst): void
-    {
-        $dir = opendir($src);
-        @mkdir($dst);
-        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . CHAR_SLASH . $file)) self::migrate($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file); else  copy($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file);
-        closedir($dir);
-    }
-
-    /**
-     * > `yxorP` is a function that returns a `yxorP` object
-     *
-     * @param array|null $request
-     * @return self The yxorP object.
-     */
-    public static function yxorP(array|null $request = null): self
-    {
-        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
-        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
-    }
-
 
     /* Setting the value of the variable $_name to the value of the variable $_value. */
 
@@ -350,49 +357,17 @@ class yP
     }
 
     /**
-     * > This function adds a listener to the listeners array
-     *
-     * @param string event The name of the event to listen for.
-     * @param object callback The callback function to be executed when the event is triggered.
-     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     * "It's copying the files from the `local` directory to the `cockpit` directory."
+     * @param string $src
+     * @param string $dst
+     * @return void
      */
-    final public function addListener(string $event, object $callback): void
-    {/* It's adding a listener to the listeners array. */
-        $this->listeners[$event][0][] = $callback;
-    }
-
-    /**
-     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
-     * class exists in the yxorP namespace, if it does, it creates an instance of it
-     *
-     * @param string dir
-     * @param string action
-     */
-    private function subscribe(string $dir, string $action): void
+    public static function migrate(string $src, string $dst): void
     {
-        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
-        if (strlen($action) < 3) return;
-        /* It's removing the `.php` extension from the `$action` variable. */
-        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
-        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
-        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        require(DIR_ROOT . $dir . $action . EXT_PHP);
-        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
-        function. */
-        $this->addSubscriber(new $action());
-    }
-
-    /**
-     * > If the subscriber has a subscribe method, call it and pass the event manager to it
-     *
-     * @param object subscriber The subscriber to add to the event dispatcher.
-     */
-    private function addSubscriber(object $subscriber): void
-    {
-        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
-        and
-        passing the `$this` object to it. */
-        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe($this);
+        $dir = opendir($src);
+        @mkdir($dst);
+        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . CHAR_SLASH . $file)) self::migrate($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file); else  copy($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file);
+        closedir($dir);
     }
 
     /**
@@ -409,5 +384,30 @@ class yP
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * > `yxorP` is a function that returns a `yxorP` object
+     *
+     * @param array|null $request
+     * @return self The yxorP object.
+     */
+    public static function yxorP(array|null $request = null): self
+    {
+        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
+        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
+        return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
+    }
+
+    /**
+     * > This function adds a listener to the listeners array
+     *
+     * @param string event The name of the event to listen for.
+     * @param object callback The callback function to be executed when the event is triggered.
+     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    final public function addListener(string $event, object $callback): void
+    {/* It's adding a listener to the listeners array. */
+        $this->listeners[$event][0][] = $callback;
     }
 }
