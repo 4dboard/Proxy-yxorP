@@ -57,10 +57,10 @@ industry-standard error tracking systems*.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
-yxorP was designed to operate with either a stateless server (Apache) or a *stateful server* (Swoole) which are *
-high-performance* networking frameworks with an *event-driven, asynchronous, and non-blocking I/O* model - Compatible
-with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( *Parrelelle*) that are
-both rapid and scalable.
+yxorP was designed to work with either a stateless server (Apache) or a *stateful server* (Swoole), both of which are *
+high-performance* networking frameworks with a *event-driven, asynchronous, and non-blocking I/O* model - Compatible
+with TCP, UDP, Unix socket, HTTP, and Websocket and permits the creation of rapid and scalable concurrent services (*
+Parallel*).
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
