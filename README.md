@@ -341,17 +341,19 @@ impossible. During the creation of these apps, the extensive capabilities of the
 
 [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
 
-Visit their website to discover more about Gitpod and how its features evolve over time. Nevertheless, a Gitpod is
-really an Ubuntu 20.04 Focal Fossa container running in Docker. The installation procedure is hampered by the absence of
-the user gitpod from the list of sudoers. The Dockerfile associated with a Docker instance may be modified by
-installation components that need root access. Whether operations performed inside the Dockerfile, at the command line,
-or within the code are preferable depends on the circumstance. For many jobs, Dockerfiles do not need to be very
-elaborate.
+Visit their website to learn more about Gitpod and how the platform's capabilities are always expanding. These two
+topics are discussed on their website. Gitpods, on the other hand, are containers managed by Docker and running Ubuntu
+20.04 Focal Focal. The software installation process is hindered because the user gitpod is not on the list of users
+having sudo privileges. This raises the procedure's complexity. It is not impossible for installation components that
+need root privileges to alter the Dockerfile associated with a running instance of Docker. The optimum place for various
+activities may be the Dockerfile, the command line, or the code, depending on the circumstances of the situation. As
+Dockerfiles are only configuration files for containers, they do not need to be very complicated for the vast majority
+of operations.
 
-Gitpod has a user account called gitpod and a home directory located at /home/gitpod, but the only data kept in the
-shared and sharable workspace is the first Docker container. Only modifications performed in a Gitpod's workspace are
-maintained during a clone or rollback. Under the path /workspace/your-workspace-name, all files and folders are deemed
-to be part of the workspace.
+Gitpod has a user account and home directory named gitpod and located at /home/gitpod. Despite this, only the original
+Docker container is preserved in the shared and shareable workspace. When a repository is cloned or rolled back, only
+the modifications performed in the workspace of a Gitpod are kept. "workspace" refers to the directory structure
+available through the route /workspace/your-workspace-name, and "workspace" refers to the directory structure.
 
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png)
 
