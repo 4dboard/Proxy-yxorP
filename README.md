@@ -134,9 +134,9 @@ docker-composer up -d
 
 ![image](https://user-images.githubusercontent.com/6468571/177684476-58524026-dacc-426a-ac26-5597836683b9.png) ![image](https://user-images.githubusercontent.com/6468571/177686426-5ba11476-7007-45e2-82ae-82a4879176e0.png)
 
-Docker enables its users to manage containers in a manner comparable to managing very lightweight and modular virtual
-machines. This streamlines a number of duties, including the design and building of containers and the transportation of
-photographs, among others.
+Docker enables its users to manage containers in a manner analogous to managing very lightweight and modular virtual
+machines. This streamlines a variety of procedures, including the design and building of containers as well as the
+transport of pictures.
 
 ```
 
