@@ -159,13 +159,13 @@ cp ./example.env ./.env
 
 ```
 
-Modify the settings included inside the ".env" file, as required. The configuration of the application allows it to
-react to requests from any domain by serving as a proxy and sending them to the "example.com" website. Simply
-replace "www.example.com" with a new URL in the.env file, and all subsequent queries will reflect the change. After
-serving the website on localhost or any other domain, go to http://localhost/dashboard and log in using the username
-yxorP and the password you created. Additionally, you may utilize the credentials given in the '.env' file. This will
-enable you to set the program to route traffic from a specified domain to a particular website. After getting access to
-the dashboard, choose "sites" and clone the example website in order to modify its settings.
+Modify the settings included inside the ".env" file as necessary. The program is configured to respond to queries from
+any domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the.env
+file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
+domain, go to http://localhost/dashboard and enter the login yxorP and the password you established. In addition, you
+may use the credentials provided in the '.env' file. This will allow you to configure the application to direct traffic
+from a given domain to a specific website. After gaining access to the dashboard, choose "sites" and clone the example
+website so that its settings may be modified.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
