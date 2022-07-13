@@ -115,9 +115,6 @@ class yP
 
         constants::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
-        /* It's setting the `YXORP_DASHBOARD_APP` constant to the `cockpit()` function. */
-        constants::set(YXORP_DASHBOARD_APP, yxorp());
-
         // EVENTS
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
