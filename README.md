@@ -470,6 +470,8 @@ in a number of forms and without the source code because they are licensed works
 
 ***
 
+***
+
 # yxorP Documentation
 
 ## Namespaces
@@ -1257,3 +1259,4 @@ in a number of forms and without the source code because they are licensed works
 | [`SimpleImage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
 
 ***
+

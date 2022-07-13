@@ -3,13 +3,7 @@
 
 # yxorP Documentation
 
-
-
-
-
-
 ## Namespaces
-
 
 ### \
 
