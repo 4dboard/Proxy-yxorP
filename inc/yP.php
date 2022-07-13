@@ -127,7 +127,6 @@ class yP
         define('YXORP_SITE_URL', parse_url(constants::get(VAR_SERVER)[YXORP_HTTP_HOST])['host']);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         define('YXORP_REQUEST_URI', constants::get(VAR_SERVER)[REQUEST_URI]);
-        exit(constants::get(VAR_SERVER)[REQUEST_URI]);
 
         // SITE DOMAIN DETAILS
 

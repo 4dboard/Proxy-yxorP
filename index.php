@@ -4,6 +4,7 @@
 
 namespace yxorP;
 /* Including the file `yxorP.php` in the current file. */
+
 require __DIR__ . '/inc/yP.php';
 
 /**
@@ -11,4 +12,5 @@ require __DIR__ . '/inc/yP.php';
  *  A function that is called to start the proxy. // Returns true if the request was successful.
  *  Calling the `proxy()` method of the `yxorP` class.
  */
+
 inc\yP::proxy(__DIR__);
