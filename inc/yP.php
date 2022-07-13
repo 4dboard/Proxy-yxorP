@@ -266,6 +266,7 @@ class yP
         /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
         constants::create($yxorp_root);
 
+        exit('123');
         // REQUIRED
 
         /* Requiring the Cockpit library. */
