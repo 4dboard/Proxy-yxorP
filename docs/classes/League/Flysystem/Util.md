@@ -2,17 +2,9 @@
 
 # Util
 
-
-
-
-
 * Full name: `\League\Flysystem\Util`
 
-
-
-
 ## Methods
-
 
 ### pathinfo
 
@@ -22,19 +14,13 @@ Get normalized pathinfo.
 public static pathinfo(string $path): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
 
 **Return Value:**
 
@@ -52,19 +38,13 @@ Normalize a dirname return value.
 public static normalizeDirname(string $dirname): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **string** |  |
-
 
 **Return Value:**
 
@@ -82,19 +62,13 @@ Get a normalized dirname from a path.
 public static dirname(string $path): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
 
 **Return Value:**
 
@@ -112,12 +86,7 @@ Map result arrays.
 public static map(array $object, array $map): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -125,7 +94,6 @@ public static map(array $object, array $map): array
 |-----------|------|-------------|
 | `$object` | **array** |  |
 | `$map` | **array** |  |
-
 
 **Return Value:**
 
@@ -143,21 +111,13 @@ Normalize path.
 public static normalizePath(string $path): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -169,21 +129,13 @@ Normalize relative directories in a path.
 public static normalizeRelativePath(string $path): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -195,19 +147,13 @@ Rejects unprintable characters and invalid unicode characters.
 protected static removeFunkyWhiteSpace(string $path): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
 
 **Return Value:**
 
@@ -225,12 +171,7 @@ Normalize prefix.
 public static normalizePrefix(string $prefix, string $separator): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -238,7 +179,6 @@ public static normalizePrefix(string $prefix, string $separator): string
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 | `$separator` | **string** |  |
-
 
 **Return Value:**
 
@@ -256,19 +196,13 @@ Get content size.
 public static contentSize(string $contents): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$contents` | **string** |  |
-
 
 **Return Value:**
 
@@ -286,12 +220,7 @@ Guess MIME Type based on the path of the file and it's content.
 public static guessMimeType(string $path, string|resource $content): string|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -299,7 +228,6 @@ public static guessMimeType(string $path, string|resource $content): string|null
 |-----------|------|-------------|
 | `$path` | **string** |  |
 | `$content` | **string&#124;resource** |  |
-
 
 **Return Value:**
 
@@ -317,19 +245,13 @@ Emulate directories.
 public static emulateDirectories(array $listing): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$listing` | **array** |  |
-
 
 **Return Value:**
 
@@ -347,19 +269,13 @@ Ensure a Config instance.
 public static ensureConfig(null|array|\League\Flysystem\Config $config): \League\Flysystem\Config
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **null&#124;array&#124;\League\Flysystem\Config** |  |
-
 
 **Return Value:**
 
@@ -377,12 +293,7 @@ Rewind a stream.
 public static rewindStream(resource $resource): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -390,34 +301,21 @@ public static rewindStream(resource $resource): mixed
 |-----------|------|-------------|
 | `$resource` | **resource** |  |
 
-
-
-
 ***
 
 ### isSeekableStream
-
-
 
 ```php
 public static isSeekableStream(mixed $resource): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** |  |
-
-
-
 
 ***
 
@@ -429,19 +327,13 @@ Get the size of a stream.
 public static getStreamSize(resource $resource): int|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **resource** |  |
-
 
 **Return Value:**
 
@@ -459,12 +351,7 @@ Emulate the directories of a single object.
 protected static emulateObjectDirectories(array $object, array $directories, array $listedDirectories): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -473,9 +360,6 @@ protected static emulateObjectDirectories(array $object, array $directories, arr
 | `$object` | **array** |  |
 | `$directories` | **array** |  |
 | `$listedDirectories` | **array** |  |
-
-
-
 
 ***
 
@@ -487,21 +371,13 @@ Returns the trailing name component of the path.
 private static basename(string $path): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 

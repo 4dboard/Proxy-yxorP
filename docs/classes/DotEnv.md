@@ -2,32 +2,17 @@
 
 # DotEnv
 
-
-
-
-
 * Full name: `\DotEnv`
-
-
-
 
 ## Methods
 
-
 ### load
-
-
 
 ```php
 public static load(mixed $dir = &#039;.&#039;): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -35,25 +20,15 @@ public static load(mixed $dir = &#039;.&#039;): mixed
 |-----------|------|-------------|
 | `$dir` | **mixed** |  |
 
-
-
-
 ***
 
 ### parse
-
-
 
 ```php
 public static parse(mixed $str, mixed $expand = true): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -61,9 +36,6 @@ public static parse(mixed $str, mixed $expand = true): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 | `$expand` | **mixed** |  |
-
-
-
 
 ***
 

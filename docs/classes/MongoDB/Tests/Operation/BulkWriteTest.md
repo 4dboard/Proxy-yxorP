@@ -4,203 +4,92 @@
 
 Base class for Operation unit tests.
 
-
-
 * Full name: `\MongoDB\Tests\Operation\BulkWriteTest`
 * Parent class: [`\MongoDB\Tests\Operation\TestCase`](./TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testOperationsMustNotBeEmpty
-
-
 
 ```php
 public testOperationsMustNotBeEmpty(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testOperationsMustBeAList
-
-
 
 ```php
 public testOperationsMustBeAList(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testMultipleOperationsInOneElement
-
-
 
 ```php
 public testMultipleOperationsInOneElement(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testUnknownOperation
-
-
 
 ```php
 public testUnknownOperation(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testInsertOneDocumentArgumentMissing
-
-
 
 ```php
 public testInsertOneDocumentArgumentMissing(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testInsertOneDocumentArgumentTypeCheck
-
-
 
 ```php
 public testInsertOneDocumentArgumentTypeCheck(mixed $document): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **mixed** |  |
-
-
-
 
 ***
 
 ### testDeleteManyFilterArgumentMissing
 
-
-
 ```php
 public testDeleteManyFilterArgumentMissing(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testDeleteManyFilterArgumentTypeCheck
 
-
-
 ```php
 public testDeleteManyFilterArgumentTypeCheck(mixed $document): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **mixed** |  |
-
-
-
 
 ***
 
 ### testDeleteManyCollationOptionTypeCheck
 
-
-
 ```php
 public testDeleteManyCollationOptionTypeCheck(mixed $collation): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -208,65 +97,29 @@ public testDeleteManyCollationOptionTypeCheck(mixed $collation): void
 |-----------|------|-------------|
 | `$collation` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideInvalidDocumentValues
-
-
 
 ```php
 public provideInvalidDocumentValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testDeleteOneFilterArgumentMissing
-
-
 
 ```php
 public testDeleteOneFilterArgumentMissing(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testDeleteOneFilterArgumentTypeCheck
 
-
-
 ```php
 public testDeleteOneFilterArgumentTypeCheck(mixed $document): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -274,25 +127,13 @@ public testDeleteOneFilterArgumentTypeCheck(mixed $document): void
 |-----------|------|-------------|
 | `$document` | **mixed** |  |
 
-
-
-
 ***
 
 ### testDeleteOneCollationOptionTypeCheck
 
-
-
 ```php
 public testDeleteOneCollationOptionTypeCheck(mixed $collation): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -300,45 +141,21 @@ public testDeleteOneCollationOptionTypeCheck(mixed $collation): void
 |-----------|------|-------------|
 | `$collation` | **mixed** |  |
 
-
-
-
 ***
 
 ### testReplaceOneFilterArgumentMissing
-
-
 
 ```php
 public testReplaceOneFilterArgumentMissing(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testReplaceOneFilterArgumentTypeCheck
 
-
-
 ```php
 public testReplaceOneFilterArgumentTypeCheck(mixed $filter): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -346,45 +163,21 @@ public testReplaceOneFilterArgumentTypeCheck(mixed $filter): void
 |-----------|------|-------------|
 | `$filter` | **mixed** |  |
 
-
-
-
 ***
 
 ### testReplaceOneReplacementArgumentMissing
-
-
 
 ```php
 public testReplaceOneReplacementArgumentMissing(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testReplaceOneReplacementArgumentTypeCheck
 
-
-
 ```php
 public testReplaceOneReplacementArgumentTypeCheck(mixed $replacement): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -392,183 +185,87 @@ public testReplaceOneReplacementArgumentTypeCheck(mixed $replacement): void
 |-----------|------|-------------|
 | `$replacement` | **mixed** |  |
 
-
-
-
 ***
 
 ### testReplaceOneReplacementArgumentRequiresNoOperators
-
-
 
 ```php
 public testReplaceOneReplacementArgumentRequiresNoOperators(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testReplaceOneCollationOptionTypeCheck
-
-
 
 ```php
 public testReplaceOneCollationOptionTypeCheck(mixed $collation): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collation` | **mixed** |  |
-
-
-
 
 ***
 
 ### testReplaceOneUpsertOptionTypeCheck
 
-
-
 ```php
 public testReplaceOneUpsertOptionTypeCheck(mixed $upsert): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$upsert` | **mixed** |  |
-
-
-
 
 ***
 
 ### provideInvalidBooleanValues
 
-
-
 ```php
 public provideInvalidBooleanValues(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testUpdateManyFilterArgumentMissing
 
-
-
 ```php
 public testUpdateManyFilterArgumentMissing(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testUpdateManyFilterArgumentTypeCheck
 
-
-
 ```php
 public testUpdateManyFilterArgumentTypeCheck(mixed $filter): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filter` | **mixed** |  |
-
-
-
 
 ***
 
 ### testUpdateManyUpdateArgumentMissing
 
-
-
 ```php
 public testUpdateManyUpdateArgumentMissing(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testUpdateManyUpdateArgumentTypeCheck
 
-
-
 ```php
 public testUpdateManyUpdateArgumentTypeCheck(mixed $update): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -576,45 +273,21 @@ public testUpdateManyUpdateArgumentTypeCheck(mixed $update): void
 |-----------|------|-------------|
 | `$update` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateManyUpdateArgumentRequiresOperatorsOrPipeline
-
-
 
 ```php
 public testUpdateManyUpdateArgumentRequiresOperatorsOrPipeline(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testUpdateManyArrayFiltersOptionTypeCheck
 
-
-
 ```php
 public testUpdateManyArrayFiltersOptionTypeCheck(mixed $arrayFilters): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -622,25 +295,13 @@ public testUpdateManyArrayFiltersOptionTypeCheck(mixed $arrayFilters): void
 |-----------|------|-------------|
 | `$arrayFilters` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateManyCollationOptionTypeCheck
 
-
-
 ```php
 public testUpdateManyCollationOptionTypeCheck(mixed $collation): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -648,25 +309,13 @@ public testUpdateManyCollationOptionTypeCheck(mixed $collation): void
 |-----------|------|-------------|
 | `$collation` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateManyUpsertOptionTypeCheck
 
-
-
 ```php
 public testUpdateManyUpsertOptionTypeCheck(mixed $upsert): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -674,45 +323,21 @@ public testUpdateManyUpsertOptionTypeCheck(mixed $upsert): void
 |-----------|------|-------------|
 | `$upsert` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateOneFilterArgumentMissing
-
-
 
 ```php
 public testUpdateOneFilterArgumentMissing(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testUpdateOneFilterArgumentTypeCheck
 
-
-
 ```php
 public testUpdateOneFilterArgumentTypeCheck(mixed $filter): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -720,45 +345,21 @@ public testUpdateOneFilterArgumentTypeCheck(mixed $filter): void
 |-----------|------|-------------|
 | `$filter` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateOneUpdateArgumentMissing
-
-
 
 ```php
 public testUpdateOneUpdateArgumentMissing(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testUpdateOneUpdateArgumentTypeCheck
 
-
-
 ```php
 public testUpdateOneUpdateArgumentTypeCheck(mixed $update): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -766,45 +367,21 @@ public testUpdateOneUpdateArgumentTypeCheck(mixed $update): void
 |-----------|------|-------------|
 | `$update` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateOneUpdateArgumentRequiresOperatorsOrPipeline
-
-
 
 ```php
 public testUpdateOneUpdateArgumentRequiresOperatorsOrPipeline(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testUpdateOneArrayFiltersOptionTypeCheck
 
-
-
 ```php
 public testUpdateOneArrayFiltersOptionTypeCheck(mixed $arrayFilters): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -812,25 +389,13 @@ public testUpdateOneArrayFiltersOptionTypeCheck(mixed $arrayFilters): void
 |-----------|------|-------------|
 | `$arrayFilters` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateOneCollationOptionTypeCheck
 
-
-
 ```php
 public testUpdateOneCollationOptionTypeCheck(mixed $collation): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -838,25 +403,13 @@ public testUpdateOneCollationOptionTypeCheck(mixed $collation): void
 |-----------|------|-------------|
 | `$collation` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUpdateOneUpsertOptionTypeCheck
 
-
-
 ```php
 public testUpdateOneUpsertOptionTypeCheck(mixed $upsert): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -864,25 +417,13 @@ public testUpdateOneUpsertOptionTypeCheck(mixed $upsert): void
 |-----------|------|-------------|
 | `$upsert` | **mixed** |  |
 
-
-
-
 ***
 
 ### testConstructorOptionTypeChecks
 
-
-
 ```php
 public testConstructorOptionTypeChecks(array $options): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -890,34 +431,17 @@ public testConstructorOptionTypeChecks(array $options): void
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### provideInvalidConstructorOptions
-
-
 
 ```php
 public provideInvalidConstructorOptions(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getUri
 
@@ -927,15 +451,7 @@ Return the connection URI.
 public static getUri(): string
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -947,13 +463,7 @@ Asserts that a document has expected values for some fields.
 public assertMatchesDocument(array|object $expectedDocument, array|object $actualDocument): void
 ```
 
-Only fields in the expected document will be checked. The actual document
-may contain additional fields.
-
-
-
-
-
+Only fields in the expected document will be checked. The actual document may contain additional fields.
 
 **Parameters:**
 
@@ -961,9 +471,6 @@ may contain additional fields.
 |-----------|------|-------------|
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
-
-
-
 
 ***
 
@@ -975,13 +482,7 @@ Asserts that a document has expected values for all fields.
 public assertSameDocument(array|object $expectedDocument, array|object $actualDocument): void
 ```
 
-The actual document will be compared directly with the expected document
-and may not contain extra fields.
-
-
-
-
-
+The actual document will be compared directly with the expected document and may not contain extra fields.
 
 **Parameters:**
 
@@ -990,25 +491,13 @@ and may not contain extra fields.
 | `$expectedDocument` | **array&#124;object** |  |
 | `$actualDocument` | **array&#124;object** |  |
 
-
-
-
 ***
 
 ### assertSameDocuments
 
-
-
 ```php
 public assertSameDocuments(array $expectedDocuments, mixed $actualDocuments): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1016,9 +505,6 @@ public assertSameDocuments(array $expectedDocuments, mixed $actualDocuments): vo
 |-----------|------|-------------|
 | `$expectedDocuments` | **array** |  |
 | `$actualDocuments` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1030,81 +516,35 @@ Compatibility method as PHPUnit 9 no longer includes this method.
 public dataDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidArrayValues
-
-
 
 ```php
 public provideInvalidArrayValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidDocumentValues
-
-
 
 ```php
 public provideInvalidDocumentValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertDeprecated
 
-
-
 ```php
 protected assertDeprecated(callable $execution): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$execution` | **callable** |  |
-
-
-
 
 ***
 
@@ -1116,16 +556,6 @@ Return the test collection name.
 protected getCollectionName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDatabaseName
@@ -1135,16 +565,6 @@ Return the test database name.
 ```php
 protected getDatabaseName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1156,21 +576,11 @@ Return a list of invalid array values.
 protected getInvalidArrayValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1182,21 +592,11 @@ Return a list of invalid boolean values.
 protected getInvalidBooleanValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1208,21 +608,11 @@ Return a list of invalid document values.
 protected getInvalidDocumentValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1234,21 +624,11 @@ Return a list of invalid integer values.
 protected getInvalidIntegerValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1260,21 +640,11 @@ Return a list of invalid ReadPreference values.
 protected getInvalidReadConcernValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1286,21 +656,11 @@ Return a list of invalid ReadPreference values.
 protected getInvalidReadPreferenceValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1312,21 +672,11 @@ Return a list of invalid Session values.
 protected getInvalidSessionValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1338,21 +688,11 @@ Return a list of invalid string values.
 protected getInvalidStringValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1364,21 +704,11 @@ Return a list of invalid WriteConcern values.
 protected getInvalidWriteConcernValues(bool $includeNull = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeNull` | **bool** |  |
-
-
-
 
 ***
 
@@ -1390,16 +720,6 @@ Return the test namespace.
 protected getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### wrapValuesForDataProvider
@@ -1410,21 +730,11 @@ Wrap a list of values for use as a single-argument data provider.
 protected wrapValuesForDataProvider(array $values): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** | List of values |
-
-
-
 
 ***
 
@@ -1436,23 +746,14 @@ Normalizes a BSON document or array for use with assertEquals().
 private normalizeBSON(array|object $bson): \MongoDB\Model\BSONDocument|\MongoDB\Model\BSONArray
 ```
 
-The argument will be converted to a BSONArray or BSONDocument based on
-its type and keys. Document fields will be sorted alphabetically. Each
-value within the array or document will then be normalized recursively.
-
-
-
-
-
+The argument will be converted to a BSONArray or BSONDocument based on its type and keys. Document fields will be sorted
+alphabetically. Each value within the array or document will then be normalized recursively.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bson` | **array&#124;object** |  |
-
-
-
 
 ***
 
