@@ -67,7 +67,7 @@ interface CookieJarInterface extends Countable, IteratorAggregate
      *
      * @return CookieJarInterface
      */
-    public function clear(string $domain = null, string $path = null, string $name = null): CookieJarInterface;
+    public function clear(string $domain = null, string $path = null, string $name = null): mixed;
 
     /**
      * Discard all sessions cookies.

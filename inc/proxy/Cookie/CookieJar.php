@@ -3,6 +3,7 @@
 namespace yxorP\inc\proxy\Cookie;
 
 use ArrayIterator;
+use Exception;
 use ReturnTypeWillChange;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
@@ -116,7 +117,7 @@ class CookieJar implements CookieJarInterface
         }
     }
 
-    public function clear(string $domain = null, string $path = null, string $name = null)
+    public function clear(string $domain = null, string $path = null, string $name = null): mixed
     {
         if (!$domain) {
             $this->cookies = [];
@@ -227,7 +228,7 @@ class CookieJar implements CookieJarInterface
             return array_map(function (SetCookie $cookie) {
                 return $cookie->toArray();
             }, $this->getIterator()->getArrayCopy());
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
         }
     }
 
