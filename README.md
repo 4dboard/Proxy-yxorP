@@ -105,12 +105,11 @@ server {
 
 ![image](https://user-images.githubusercontent.com/6468571/177684223-790bd4aa-7e8a-4dbd-a5e0-87ce8f0c5a8e.png) ![image](https://user-images.githubusercontent.com/6468571/177686596-c72fadb4-1f88-4eb9-95d6-e83e1cbfc5f7.png)
 
-Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the
-execution of PHP applications with persistent data. After installation, the Swoole PHP extension provides users with
-access to a number of useful and intriguing functions. Among these features are coroutines, fibers, web sockets, and
-caching. In contrast, RoadRunner is a robust application server, load balancer, and process manager written in GoLang.
-Octane may use one of these two ways, depending on the program author. Due to the PHP Swoole extension, Octane has
-access to a significantly greater variety of functionalities than RoadRunner.
+Both the quick and stable Swoole and RoadRunner servers are capable of running PHP applications with persistent data.
+Once installed, the Swoole PHP extension offers users access to a range of useful and intriguing features. This includes
+web sockets, coroutines, fibers, and caching. RoadRunner is a robust application server, load balancer, and process
+manager developed using GoLang. Depending on the coder, Octane may use any of these methods. Due to the PHP Swoole
+extension, Octane has access to many more features than RoadRunner.
 
 ``` 
 
