@@ -467,7 +467,6 @@ in a number of forms and without the source code because they are licensed works
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-
 ***
 
 ***
