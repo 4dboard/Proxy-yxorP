@@ -129,11 +129,27 @@ class yP
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . 'inc' . DIRECTORY_SEPARATOR . $_asset . DIRECTORY_SEPARATOR);        // Reporting
 
         /* Loading the global variables from the cache. */
-        foreach ($cached = \yxorP\inc\http\cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
+        foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
 
         /* Defining a constant called CACHED_CONTEXT and setting it to the value of the $cached variable if it is set,
         otherwise it is set to true. */
         define('CACHED_CONTEXT', $cached ? 1 : 0);
+    }
+
+    /**
+     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+    final protected static function autoLoader(string $root): void
+    {
+        $interfaces = [];
+        $classes = [];
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface')) require_once $interfaces[] = $path; else $classes[] = $path;
+        foreach ($interfaces as $interface) require_once $interface;
+        foreach ($classes as $class) require_once $class;
     }
 
     /**
@@ -176,68 +192,6 @@ class yP
     }
 
     /**
-     * It's setting the value of the variable $_name to the value of the variable $_value.
-     * tmp is a temporary variable that's used to store the value of the variable $_name.
-     * Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
-     * Temporary variables are not stored in the persisted storage.
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
-     */
-    final public static function tmp(string $_name, string|array|object|null $_value): string|array|object|null
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
-    }
-
-    /**
-     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-
-    final public static function assetLoader(string $root): void
-    {
-        /* Loading all the files in the root directory and subdirectories. */
-        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], basename($path))) {
-            cache::set($content = file_get_contents($path));
-            exit($content);
-        }
-    }
-
-    /**
-     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-    final protected static function autoLoader(string $root): void
-    {
-        $interfaces = [];
-        $classes = [];
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface')) require_once $interfaces[] = $path; else $classes[] = $path;
-        foreach ($interfaces as $interface) require_once $interface;
-        foreach ($classes as $class) require_once $class;
-    }
-
-    /**
-     * > This function adds a listener to the listeners array
-     *
-     * @param string event The name of the event to listen for.
-     * @param object callback The callback function to be executed when the event is triggered.
-     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
-     */
-    final public function addListener(string $event, object $callback): void
-    {
-        /* It's adding a listener to the listeners array. */
-        self::$instance->listeners[$event][0][] = $callback;
-    }
-
-    /**
      * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
      * class exists in the yxorP namespace, if it does, it creates an instance of it
      * @param string $root
@@ -258,8 +212,21 @@ class yP
         self::$instance->addSubscriber(new $action());
     }
 
-
-    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
+    /**
+     * It's setting the value of the variable $_name to the value of the variable $_value.
+     * tmp is a temporary variable that's used to store the value of the variable $_name.
+     * Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
+     * Temporary variables are not stored in the persisted storage.
+     * @param string $_name
+     * @param string|array|object|null $_value
+     * @return string|array|object|null
+     */
+    final public static function tmp(string $_name, string|array|object|null $_value): string|array|object|null
+    {
+        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
+    }
 
     /**
      *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
@@ -272,6 +239,39 @@ class yP
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
+    }
+
+    /**
+     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+
+    final public static function assetLoader(string $root): void
+    {
+        /* Loading all the files in the root directory and subdirectories. */
+        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], basename($path))) {
+            cache::set($content = file_get_contents($path));
+            exit($content);
+        }
+    }
+
+
+    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
+
+    /**
+     * > This function adds a listener to the listeners array
+     *
+     * @param string event The name of the event to listen for.
+     * @param object callback The callback function to be executed when the event is triggered.
+     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    final public function addListener(string $event, object $callback): void
+    {
+        /* It's adding a listener to the listeners array. */
+        self::$instance->listeners[$event][0][] = $callback;
     }
 
     /**
