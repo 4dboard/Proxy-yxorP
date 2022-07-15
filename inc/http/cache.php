@@ -48,7 +48,7 @@ class cache
     {
         /* Used to write the data to the cache file. */
         file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n", "\r"], '', <<<'EOF'
-$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];$GLOB= gzinflate(stream_get_contents($f));include($u);fclose($t); __halt_compiler(); 
+$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$GLOB= gzinflate(stream_get_contents($f)); __halt_compiler(); 
 EOF
             ) . gzdeflate(var_export($content, true)));
     }
