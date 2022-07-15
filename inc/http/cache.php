@@ -47,13 +47,13 @@ class cache
     public static function store($val, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '<?php use \yxorP\inc\http\response; $GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';?>');
+        save(self::gen($key)['path'], '<?php $GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
     }
 
     public static function set($val, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        save(self::gen($key)['path'], '<?=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;?>');
+        save(self::gen($key)['path'], 'echo ' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;');
     }
 
 
@@ -72,6 +72,6 @@ include($u);
 fclose($t);
 __halt_compiler();
 S;
-        file_put_contents($path, $content);
+        file_put_contents($path, '<?=' . str_replace([' ', "\n"], '', $start) . $content);
     }
 }
