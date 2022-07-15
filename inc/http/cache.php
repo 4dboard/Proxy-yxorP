@@ -52,27 +52,13 @@ class cache
 
     public static function set($content, ?string $key = null): void
     {
-        if (strpos($content, '__halt_compiler();')) {
-            $action = 'uncompressed';
-            $content = explode('__halt_compiler();', $content)[1];
-            $content = gzinflate($content);
-            $after = strlen($content);
-        } else {
-            $action = 'compressed';
-            $content = gzdeflate($content);
-            $start = <<<'EOF'
-$f = fopen(__FILE__, 'r');
-fseek($f, __COMPILER_HALT_OFFSET__);
-$t = tmpfile();
-$u = stream_get_meta_data($t)['uri'];
-fwrite($t, gzinflate(stream_get_contents($f)));
-include($u);
-fclose($t);
-__halt_compiler();
-EOF;
-            $content = '<?php ' . str_replace([' ', "\n"], '', $start) . $content;
-            file_put_contents($key, $content);
-        }
+        $content = (strpos($content, '__halt_compiler();')) ? gzinflate(explode('__halt_compiler();', $content)[1]) : '<?php ' . str_replace([' ', "\n"], '', <<<'EOF'
+$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
+EOF
+            ) . gzdeflate($content);
+
+
+        file_put_contents($key, $content);
     }
 
 
