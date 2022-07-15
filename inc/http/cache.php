@@ -47,19 +47,11 @@ class cache
     public static function store($val, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        self::save(self::gen($key)['path'], '$GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
+        file_put_contents(self::gen($key)['path'], '$GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
     }
-
-    private static function save($path, $content): void
-    {
-    }
-
-
-    /* Used to set the data in the cache file. */
 
     public static function set($content, ?string $key = null): void
     {
-
         if (strpos($content, '__halt_compiler();')) {
             $action = 'uncompressed';
             $content = explode('__halt_compiler();', $content)[1];
@@ -80,5 +72,12 @@ __halt_compiler();
 EOF;
             file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n"], '', $start) . $content);
         }
+    }
+
+
+    /* Used to set the data in the cache file. */
+
+    private static function save($path, $content): void
+    {
     }
 }
