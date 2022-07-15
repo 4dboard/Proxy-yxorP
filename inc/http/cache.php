@@ -47,7 +47,23 @@ class cache
     public static function set($val, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '<?=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;?>');
+        save(self::gen($key)['path'], '<?=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;?>');
+    }
+
+    private static function save($path, $content): void
+    {
+        $content = gzdeflate($content);
+        $start = <<<S
+$f = fopen(__FILE__, 'r');
+fseek($f, __COMPILER_HALT_OFFSET__);
+$t = tmpfile();
+$u = stream_get_meta_data($t)['uri'];
+fwrite($t, gzinflate(stream_get_contents($f)));
+include($u);
+fclose($t);
+__halt_compiler();
+S;
+        file_put_contents($path,$content);
     }
 
 
