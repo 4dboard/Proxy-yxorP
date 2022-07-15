@@ -607,6 +607,7 @@ up-to-date so the results may be interpreted as precisely as possible. We cannot
 your assistance and support. We are really appreciative. Please accept our profound gratitude for all you've done for
 us.
 
+
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)  
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png) ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
 
@@ -654,36 +655,11 @@ us.
 - [x] Owners
 - [ ] Crate details
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177675374-f3d170e8-fd9a-4e76-a9bf-5805bc2ce504.png)
-
-[MIT Software License for .yxorP The PHP Web-Proxy by don Pablo](https://choosealicense.com/licenses/mit/) The
-Massachusetts Institute of Technology (MIT) License is a permissive free software license developed in the late 1980s by
-the Massachusetts Institute of Technology. The MIT License was named after Cambridge, Massachusetts's Massachusetts
-Institute of Technology. This software license's moniker was conceived at the Massachusetts Institute of Technology in
-Cambridge, Massachusetts. This software license was named after the Massachusetts Institute of Technology in Cambridge,
-Massachusetts. It is seldom referred to as the "MIT License," a common alternative name. In addition, it is also known
-as "MIT." Attaching a second function to another entity is only permitted in a few circumstances. This is owing to the
-permissive nature of the program, which assures compliance with license agreements. This sentence provides the
-explanation. This issue has occurred directly as a consequence. This license is simple and basic; it is a permissive
-license requiring just the protection of intellectual property rights and the disclosure of licensing conditions in an
-open and transparent manner. This license is concise and simple. This license has no superfluous language and is concise
-and unambiguous. The application process for this license is simple and expedient. It is possible to transmit licensed
-works, adaptations, and large-scale works utilizing a variety of transmission methods and without the source code due to
-the nature of the works. This is due to the fact that each of these works falls under one of three categories.
-
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-***
-
 # yxorP Documentation
+![image](https://user-images.githubusercontent.com/6468571/179241342-da132147-a8fa-4d44-9131-7fcb1d873b57.png)
 
-## Namespaces
-
-### \
-
-#### Classes
 
 | Class | Description |
 |-------|-------------|
@@ -720,3 +696,24 @@ the nature of the works. This is due to the fact that each of these works falls 
 | [`streamPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/streamPluginAction.md) | |
 | [`twitterPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/youtubePluginAction.md) | |
+
+
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
+
+![image](https://user-images.githubusercontent.com/6468571/177675374-f3d170e8-fd9a-4e76-a9bf-5805bc2ce504.png)
+
+[MIT Software License for .yxorP The PHP Web-Proxy by don Pablo](https://choosealicense.com/licenses/mit/) The
+Massachusetts Institute of Technology (MIT) License is a permissive free software license developed in the late 1980s by
+the Massachusetts Institute of Technology. The MIT License was named after Cambridge, Massachusetts's Massachusetts
+Institute of Technology. This software license's moniker was conceived at the Massachusetts Institute of Technology in
+Cambridge, Massachusetts. This software license was named after the Massachusetts Institute of Technology in Cambridge,
+Massachusetts. It is seldom referred to as the "MIT License," a common alternative name. In addition, it is also known
+as "MIT." Attaching a second function to another entity is only permitted in a few circumstances. This is owing to the
+permissive nature of the program, which assures compliance with license agreements. This sentence provides the
+explanation. This issue has occurred directly as a consequence. This license is simple and basic; it is a permissive
+license requiring just the protection of intellectual property rights and the disclosure of licensing conditions in an
+open and transparent manner. This license is concise and simple. This license has no superfluous language and is concise
+and unambiguous. The application process for this license is simple and expedient. It is possible to transmit licensed
+works, adaptations, and large-scale works utilizing a variety of transmission methods and without the source code due to
+the nature of the works. This is due to the fact that each of these works falls under one of three categories.
+
