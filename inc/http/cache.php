@@ -58,7 +58,7 @@ EOF
         file_put_contents(self::gen($key)['path'], (strpos($content, '__halt_compiler();')) ? gzinflate(explode('__halt_compiler();', $content)[1]) : '<?php ' . str_replace([' ', "\n", "\r"], '', <<<'EOF'
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
 EOF
-            ) . gzdeflate($content));
+            ) . gzdeflate(var_export($content, true)));
     }
 
 
