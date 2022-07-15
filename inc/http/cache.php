@@ -47,10 +47,7 @@ class cache
     public static function store($content, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n", "\r"], '', <<<'EOF'
-$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$GLOB= gzinflate(stream_get_contents($f)); __halt_compiler(); 
-EOF
-            ) . gzdeflate(var_export($content, true)));
+        file_put_contents(self::gen($key)['path'], '<?php $GLOB= ' . gzdeflate(var_export($content, true)) . '; __halt_compiler();');
     }
 
     public static function set($content, ?string $key = null): void
