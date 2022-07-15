@@ -3,9 +3,9 @@
 namespace yxorP\inc\parser;
 interface publicSuffixListInterface extends domainNameResolverInterface
 {
-    public function getCookieDomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
+    public function getCookieDomain(hostInterface $host): resolvedDomainNameInterface;
 
-    public function getICANNDomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
+    public function getICANNDomain(hostInterface $host): resolvedDomainNameInterface;
 
-    public function getPrivateDomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
+    public function getPrivateDomain(hostInterface $host): resolvedDomainNameInterface;
 }

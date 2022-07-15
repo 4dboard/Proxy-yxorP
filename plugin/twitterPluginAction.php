@@ -3,7 +3,8 @@
 
 use yorxP\debug\Utils\Html;
 use yxorP\inc\constants;
-use yxorP\inc\wrapper;
+use yxorP\inc\http\wrapper;
+use yxorp\inc\yP;
 
 /* Extending the wrapper class, which is a class that is used to create plugins. */
 
@@ -15,16 +16,13 @@ class twitterPluginAction extends wrapper
 
     public function onComplete(): void
     {
-        echo '11';
         /* Getting the response object from the constants class. */
-        $response = constants::get(VAR_RESPONSE);
+        $response = yP::get(VAR_RESPONSE);
         /* Getting the content of the response. */
         /* Removing all the scripts from the HTML. */
         $content = $response->getContent();
         /* Setting the content of the response to the content that we have modified. */
         $content = Html::remove_scripts($content);
         $response->setContent($content);
-
-        echo 'aa';
     }
 }

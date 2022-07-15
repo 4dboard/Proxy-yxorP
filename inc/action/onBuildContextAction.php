@@ -5,7 +5,8 @@
 use yxorP\inc\constants;
 use yxorP\inc\http\request;
 use yxorP\inc\http\response;
-use yxorP\inc\wrapper;
+use yxorP\inc\http\wrapper;
+use yxorp\inc\yP;
 
 /* Extending the wrapper class, which is a class that is used to wrap the request and response objects. */
 
@@ -15,8 +16,8 @@ class onBuildContextAction extends wrapper
     public function onBuildContext(): void
     {
         /* Setting the response object to the key RESPONSE. */
-        constants::set(VAR_RESPONSE, new Response());
+        yP::tmp(VAR_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
-        constants::set(VAR_REQUEST, Request::createFromGlobals());
+        yP::tmp(VAR_REQUEST, Request::createFromGlobals());
     }
 }

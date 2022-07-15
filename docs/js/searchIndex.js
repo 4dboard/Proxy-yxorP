@@ -3,12 +3,12 @@ Search.appendIndex(
                 {
             "fqsen": "\\YXORP_BOOTMANAGER",
             "name": "YXORP_BOOTMANAGER",
-            "summary": "",
+            "summary": "Boot\u0020Manager\u0020for\u0020Yxorp\u0020CMS",
             "url": "namespaces/default.html#constant_YXORP_BOOTMANAGER"
         },                {
             "fqsen": "\\Bootmanager\\Controller\\Admin",
             "name": "Admin",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Bootmanager-Controller-Admin.html"
         },                {
             "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
@@ -46,29 +46,9 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Bootmanager-Controller-Admin.html#method_getReadme"
         },                {
-            "fqsen": "\\Feed\\Controller\\RestApi",
-            "name": "RestApi",
-            "summary": "",
-            "url": "classes/Feed-Controller-RestApi.html"
-        },                {
-            "fqsen": "\\Feed\\Controller\\RestApi\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Feed-Controller-RestApi.html#method_index"
-        },                {
-            "fqsen": "\\Feed\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Feed-Controller-RestApi.html#method_get"
-        },                {
-            "fqsen": "\\Feed\\Controller\\RestApi\u003A\u003AlistFeeds\u0028\u0029",
-            "name": "listFeeds",
-            "summary": "",
-            "url": "classes/Feed-Controller-RestApi.html#method_listFeeds"
-        },                {
             "fqsen": "\\LayoutComponents\\Controller\\Admin",
             "name": "Admin",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/LayoutComponents-Controller-Admin.html"
         },                {
             "fqsen": "\\LayoutComponents\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
@@ -83,7 +63,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LayoutComponents\\Controller\\RestApi",
             "name": "RestApi",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/LayoutComponents-Controller-RestApi.html"
         },                {
             "fqsen": "\\LayoutComponents\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
@@ -98,7 +78,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\rljUtils\\Controller\\Admin",
             "name": "Admin",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/rljUtils-Controller-Admin.html"
         },                {
             "fqsen": "\\rljUtils\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
@@ -113,7 +93,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\YXORP_START_TIME",
             "name": "YXORP_START_TIME",
-            "summary": "",
+            "summary": "Yxorp\u0020start\u0020time",
             "url": "namespaces/default.html#constant_YXORP_START_TIME"
         },                {
             "fqsen": "\\YXORP_CLI",
@@ -128,7 +108,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\YXORP_ADMIN",
             "name": "YXORP_ADMIN",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "namespaces/default.html#constant_YXORP_ADMIN"
         },                {
             "fqsen": "\\YXORP_DOCS_ROOT",
@@ -196,9 +176,19 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_ADMIN_ROUTE"
         },                {
+            "fqsen": "\\YXORP_INSTALL",
+            "name": "YXORP_INSTALL",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_INSTALL"
+        },                {
+            "fqsen": "\\ensure_writable\u0028\u0029",
+            "name": "ensure_writable",
+            "summary": "",
+            "url": "namespaces/default.html#function_ensure_writable"
+        },                {
             "fqsen": "\\CLI",
             "name": "CLI",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/CLI.html"
         },                {
             "fqsen": "\\CLI\u003A\u003Abeep\u0028\u0029",
@@ -228,7 +218,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ContainerArray",
             "name": "ContainerArray",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/ContainerArray.html"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A__construct\u0028\u0029",
@@ -296,6 +286,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_get"
         },                {
+            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
+            "name": "fetch_from_array",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_fetch_from_array"
+        },                {
             "fqsen": "\\ContainerArray\u003A\u003AoffsetExists\u0028\u0029",
             "name": "offsetExists",
             "summary": "",
@@ -308,18 +303,8 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ContainerArray\u003A\u003Aextract\u0028\u0029",
             "name": "extract",
-            "summary": "",
+            "summary": "CakePHP\u0028tm\u0029\u0020\u003A\u0020Rapid\u0020Development\u0020Framework\u0020\u0028http\u003A\/\/cakephp.org\u0029\nCopyright\u0020\u0028c\u0029\u0020Cake\u0020Software\u0020Foundation,\u0020Inc.\u0020\u0028http\u003A\/\/cakefoundation.org\u0029",
             "url": "classes/ContainerArray.html#method_extract"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003AjsonSerialize\u0028\u0029",
-            "name": "jsonSerialize",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_jsonSerialize"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
-            "name": "fetch_from_array",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_fetch_from_array"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A_tokenize\u0028\u0029",
             "name": "_tokenize",
@@ -341,6 +326,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method__matches"
         },                {
+            "fqsen": "\\ContainerArray\u003A\u003AjsonSerialize\u0028\u0029",
+            "name": "jsonSerialize",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_jsonSerialize"
+        },                {
             "fqsen": "\\ContainerArray\u003A\u003A\u0024props",
             "name": "props",
             "summary": "",
@@ -353,7 +343,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DataCollection",
             "name": "DataCollection",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/DataCollection.html"
         },                {
             "fqsen": "\\DataCollection\u003A\u003A__construct\u0028\u0029",
@@ -380,6 +370,11 @@ Search.appendIndex(
             "name": "reverse",
             "summary": "",
             "url": "classes/DataCollection.html#method_reverse"
+        },                {
+            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
+            "name": "setItems",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_setItems"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Alimit\u0028\u0029",
             "name": "limit",
@@ -433,7 +428,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DataCollection\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
-            "summary": "",
+            "summary": "Iterator\u0020implementation",
             "url": "classes/DataCollection.html#method_rewind"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Acurrent\u0028\u0029",
@@ -456,11 +451,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/DataCollection.html#method_valid"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
-            "name": "setItems",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_setItems"
-        },                {
             "fqsen": "\\DataCollection\u003A\u003A\u0024position",
             "name": "position",
             "summary": "",
@@ -473,7 +463,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DotEnv",
             "name": "DotEnv",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/DotEnv.html"
         },                {
             "fqsen": "\\DotEnv\u003A\u003Aload\u0028\u0029",
@@ -501,6 +491,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/FileStorage.html#method_addStorage"
         },                {
+            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
+            "name": "initStorage",
+            "summary": "",
+            "url": "classes/FileStorage.html#method_initStorage"
+        },                {
             "fqsen": "\\FileStorage\u003A\u003Ause\u0028\u0029",
             "name": "use",
             "summary": "",
@@ -515,11 +510,6 @@ Search.appendIndex(
             "name": "__call",
             "summary": "",
             "url": "classes/FileStorage.html#method___call"
-        },                {
-            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
-            "name": "initStorage",
-            "summary": "",
-            "url": "classes/FileStorage.html#method_initStorage"
         },                {
             "fqsen": "\\FileStorage\u003A\u003A\u0024config",
             "name": "config",
@@ -548,27 +538,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lexy",
             "name": "Lexy",
-            "summary": "",
+            "summary": "Lexy\u0020class.\u0020Simple\u0020on\u0020the\u0020fly\u0020template\u0020parser\u0020class",
             "url": "classes/Lexy.html"
         },                {
             "fqsen": "\\Lexy\u003A\u003Arender\u0028\u0029",
             "name": "render",
-            "summary": "",
+            "summary": "\u005Brender\u0020description\u005D",
             "url": "classes/Lexy.html#method_render"
         },                {
             "fqsen": "\\Lexy\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
-            "summary": "",
+            "summary": "\u005Bexecute\u0020description\u005D",
             "url": "classes/Lexy.html#method_execute"
         },                {
             "fqsen": "\\Lexy\u003A\u003Arender_file\u0028\u0029",
             "name": "render_file",
-            "summary": "",
+            "summary": "\u005Brender_file\u0020description\u005D",
             "url": "classes/Lexy.html#method_render_file"
         },                {
             "fqsen": "\\Lexy\u003A\u003Afile\u0028\u0029",
             "name": "file",
-            "summary": "",
+            "summary": "\u005Bfile\u0020description\u005D",
             "url": "classes/Lexy.html#method_file"
         },                {
             "fqsen": "\\Lexy\u003A\u003Aget_cached_file\u0028\u0029",
@@ -583,27 +573,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lexy\u003A\u003Aparse\u0028\u0029",
             "name": "parse",
-            "summary": "",
+            "summary": "\u005Bparse\u0020description\u005D",
             "url": "classes/Lexy.html#method_parse"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile\u0028\u0029",
             "name": "compile",
-            "summary": "",
+            "summary": "\u005Bcompile\u0020description\u005D",
             "url": "classes/Lexy.html#method_compile"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acheck_security\u0028\u0029",
             "name": "check_security",
-            "summary": "",
+            "summary": "\u005Bcheck_security\u0020description\u005D",
             "url": "classes/Lexy.html#method_check_security"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acheck_syntax\u0028\u0029",
             "name": "check_syntax",
-            "summary": "",
+            "summary": "\u005Bcheck_syntax\u0020description\u005D",
             "url": "classes/Lexy.html#method_check_syntax"
         },                {
             "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
             "name": "setCachePath",
-            "summary": "",
+            "summary": "\u005BsetcachePath\u0020description\u005D",
             "url": "classes/Lexy.html#method_setCachePath"
         },                {
             "fqsen": "\\Lexy\u003A\u003AallowCall\u0028\u0029",
@@ -618,42 +608,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_comments\u0028\u0029",
             "name": "compile_comments",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020comments\u0020into\u0020PHP\u0020comments.",
             "url": "classes/Lexy.html#method_compile_comments"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_unescape_echos\u0028\u0029",
             "name": "compile_unescape_echos",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020escaped\u0020statements.",
             "url": "classes/Lexy.html#method_compile_unescape_echos"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_echos\u0028\u0029",
             "name": "compile_echos",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020echo\u0020statements\u0020into\u0020PHP\u0020echo\u0020statements.",
             "url": "classes/Lexy.html#method_compile_echos"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_default_structures\u0028\u0029",
             "name": "compile_default_structures",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020structure\u0020openings\u0020into\u0020PHP\u0020structure\u0020openings.",
             "url": "classes/Lexy.html#method_compile_default_structures"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_else\u0028\u0029",
             "name": "compile_else",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020else\u0020statements\u0020into\u0020PHP\u0020else\u0020statements.",
             "url": "classes/Lexy.html#method_compile_else"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_unless\u0028\u0029",
             "name": "compile_unless",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020\u0022unless\u0022\u0020statements\u0020into\u0020valid\u0020PHP.",
             "url": "classes/Lexy.html#method_compile_unless"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_php_tags\u0028\u0029",
             "name": "compile_php_tags",
-            "summary": "",
+            "summary": "Rewrites\u0020Lexi\u0027s\u0020php\u0020tags.",
             "url": "classes/Lexy.html#method_compile_php_tags"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_extensions\u0028\u0029",
             "name": "compile_extensions",
-            "summary": "",
+            "summary": "Execute\u0020user\u0020defined\u0020compilers.",
             "url": "classes/Lexy.html#method_compile_extensions"
         },                {
             "fqsen": "\\Lexy\u003A\u003A\u0024cachePath",
@@ -678,7 +668,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lexy\u003A\u003A\u0024allowed_calls",
             "name": "allowed_calls",
-            "summary": "",
+            "summary": "\u005B\u0024allowed_calls\u0020description\u005D",
             "url": "classes/Lexy.html#property_allowed_calls"
         },                {
             "fqsen": "\\Lime\\fetch_from_array\u0028\u0029",
@@ -693,12 +683,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/Lime-App.html#method___construct"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
             "name": "retrieve",
-            "summary": "",
+            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
             "url": "classes/Lime-App.html#method_retrieve"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
@@ -708,17 +698,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
-            "summary": "",
+            "summary": "Get\u0020App\u0020instance",
             "url": "classes/Lime-App.html#method_instance"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aservice\u0028\u0029",
             "name": "service",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020closure\u0020that\u0020stores\u0020the\u0020result\u0020of\u0020the\u0020given\u0020closure",
             "url": "classes/Lime-App.html#method_service"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AisExit\u0028\u0029",
             "name": "isExit",
-            "summary": "",
+            "summary": "Is\u0020application\u0020stopped\u003F",
             "url": "classes/Lime-App.html#method_isExit"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Abase\u0028\u0029",
@@ -728,7 +718,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
             "name": "baseUrl",
-            "summary": "",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
             "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003ApathToUrl\u0028\u0029",
@@ -738,7 +728,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
             "name": "path",
-            "summary": "",
+            "summary": "Path\u0020helper\u0020method",
             "url": "classes/Lime-App.html#method_path"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
@@ -753,22 +743,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
             "name": "routeUrl",
-            "summary": "",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
             "url": "classes/Lime-App.html#method_routeUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
             "name": "reroute",
-            "summary": "",
+            "summary": "Redirect\u0020to\u0020path.",
             "url": "classes/Lime-App.html#method_reroute"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
             "name": "stop",
-            "summary": "",
+            "summary": "stop\u0020application\u0020\u0028exit\u0029",
             "url": "classes/Lime-App.html#method_stop"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "",
+            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
             "url": "classes/Lime-App.html#method_set"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
@@ -778,7 +768,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Acache\u0028\u0029",
             "name": "cache",
-            "summary": "",
+            "summary": "Cache\u0020helper\u0020method",
             "url": "classes/Lime-App.html#method_cache"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
@@ -788,37 +778,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aon\u0028\u0029",
             "name": "on",
-            "summary": "",
+            "summary": "Bind\u0020an\u0020event\u0020to\u0020closure",
             "url": "classes/Lime-App.html#method_on"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arender\u0028\u0029",
             "name": "render",
-            "summary": "",
+            "summary": "Render\u0020view.",
             "url": "classes/Lime-App.html#method_render"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
             "name": "trigger",
-            "summary": "",
+            "summary": "Trigger\u0020event.",
             "url": "classes/Lime-App.html#method_trigger"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Astart\u0028\u0029",
             "name": "start",
-            "summary": "",
+            "summary": "Start\u0020block",
             "url": "classes/Lime-App.html#method_start"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aend\u0028\u0029",
             "name": "end",
-            "summary": "",
+            "summary": "End\u0020block",
             "url": "classes/Lime-App.html#method_end"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ablock\u0028\u0029",
             "name": "block",
-            "summary": "",
+            "summary": "Get\u0020block\u0020content",
             "url": "classes/Lime-App.html#method_block"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aescape\u0028\u0029",
             "name": "escape",
-            "summary": "",
+            "summary": "Escape\u0020string.",
             "url": "classes/Lime-App.html#method_escape"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
@@ -828,97 +818,97 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ascript\u0028\u0029",
             "name": "script",
-            "summary": "",
+            "summary": "Get\u0020script\u0020inc.\u0020markup",
             "url": "classes/Lime-App.html#method_script"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
             "name": "style",
-            "summary": "",
+            "summary": "Get\u0020style\u0020inc.\u0020markup",
             "url": "classes/Lime-App.html#method_style"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "",
+            "summary": "Bind\u0020GET\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_get"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
             "name": "bind",
-            "summary": "",
+            "summary": "Bind\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Apost\u0028\u0029",
             "name": "post",
-            "summary": "",
+            "summary": "Bind\u0020POST\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_post"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbindClass\u0028\u0029",
             "name": "bindClass",
-            "summary": "",
+            "summary": "Bind\u0020Class\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindClass"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
             "name": "invoke",
-            "summary": "",
+            "summary": "Invoke\u0020Class\u0020as\u0020controller",
             "url": "classes/Lime-App.html#method_invoke"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbindNamespace\u0028\u0029",
             "name": "bindNamespace",
-            "summary": "",
+            "summary": "Bind\u0020namespace\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindNamespace"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arun\u0028\u0029",
             "name": "run",
-            "summary": "",
+            "summary": "Run\u0020Application",
             "url": "classes/Lime-App.html#method_run"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Adispatch\u0028\u0029",
             "name": "dispatch",
-            "summary": "",
+            "summary": "Dispatch\u0020route",
             "url": "classes/Lime-App.html#method_dispatch"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arender_route\u0028\u0029",
             "name": "render_route",
-            "summary": "",
+            "summary": "Render\u0020dispatched\u0020route",
             "url": "classes/Lime-App.html#method_render_route"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aparam\u0028\u0029",
             "name": "param",
-            "summary": "",
+            "summary": "Get\u0020request\u0020variables",
             "url": "classes/Lime-App.html#method_param"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Areq_is\u0028\u0029",
             "name": "req_is",
-            "summary": "",
+            "summary": "Request\u0020helper\u0020function",
             "url": "classes/Lime-App.html#method_req_is"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AgetClientIp\u0028\u0029",
             "name": "getClientIp",
-            "summary": "",
+            "summary": "Get\u0020client\u0020ip.",
             "url": "classes/Lime-App.html#method_getClientIp"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AgetClientLang\u0028\u0029",
             "name": "getClientLang",
-            "summary": "",
+            "summary": "Get\u0020client\u0020language",
             "url": "classes/Lime-App.html#method_getClientLang"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AgetSiteUrl\u0028\u0029",
             "name": "getSiteUrl",
-            "summary": "",
+            "summary": "Get\u0020site\u0020url",
             "url": "classes/Lime-App.html#method_getSiteUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ahash\u0028\u0029",
             "name": "hash",
-            "summary": "",
+            "summary": "Create\u0020Hash",
             "url": "classes/Lime-App.html#method_hash"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
-            "summary": "",
+            "summary": "Decode\u0020RC4\u0020encrypted\u0020text",
             "url": "classes/Lime-App.html#method_decode"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
             "name": "encode",
-            "summary": "",
+            "summary": "RC4\u0020encryption",
             "url": "classes/Lime-App.html#method_encode"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Amodule\u0028\u0029",
@@ -1363,22 +1353,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LimeExtra\\App",
             "name": "App",
-            "summary": "",
+            "summary": "Class\u0020App",
             "url": "classes/LimeExtra-App.html"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/LimeExtra-App.html#method___construct"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003ArenderView\u0028\u0029",
             "name": "renderView",
-            "summary": "",
+            "summary": "Outputs\u0020view\u0020content\u0020result",
             "url": "classes/LimeExtra-App.html#method_renderView"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "",
+            "summary": "Render\u0020view.",
             "url": "classes/LimeExtra-App.html#method_view"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003Aassets\u0028\u0029",
@@ -1388,7 +1378,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LimeExtra\\Controller",
             "name": "Controller",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/LimeExtra-Controller.html"
         },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003A__construct\u0028\u0029",
@@ -1973,7 +1963,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LiteDB",
             "name": "LiteDB",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/LiteDB.html"
         },                {
             "fqsen": "\\LiteDB\u003A\u003Aconnect\u0028\u0029",
@@ -2071,6 +2061,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_buildSelect"
         },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
+            "name": "buildConditions",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildConditions"
+        },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Aone\u0028\u0029",
             "name": "one",
             "summary": "",
@@ -2115,11 +2110,6 @@ Search.appendIndex(
             "name": "drop",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_drop"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
-            "name": "buildConditions",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003A\u0024cmd",
             "name": "cmd",
@@ -2268,107 +2258,107 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AremoveKey\u0028\u0029",
             "name": "removeKey",
-            "summary": "",
+            "summary": "Delete\u0020Key\u0028s\u0029",
             "url": "classes/MongoHybrid-Client.html#method_removeKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AkeyExists\u0028\u0029",
             "name": "keyExists",
-            "summary": "",
+            "summary": "Check\u0020if\u0020key\u0020exists",
             "url": "classes/MongoHybrid-Client.html#method_keyExists"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AincrKey\u0028\u0029",
             "name": "incrKey",
-            "summary": "",
+            "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/MongoHybrid-Client.html#method_incrKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
             "name": "getKey",
-            "summary": "",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
             "url": "classes/MongoHybrid-Client.html#method_getKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
             "name": "setKey",
-            "summary": "",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
             "url": "classes/MongoHybrid-Client.html#method_setKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AdecrKey\u0028\u0029",
             "name": "decrKey",
-            "summary": "",
+            "summary": "Decrement\u0020value\u0020by\u0020x",
             "url": "classes/MongoHybrid-Client.html#method_decrKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Arpush\u0028\u0029",
             "name": "rpush",
-            "summary": "",
+            "summary": "Add\u0020item\u0020to\u0020a\u0020value\u0020\u0028right\u0029",
             "url": "classes/MongoHybrid-Client.html#method_rpush"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Alpush\u0028\u0029",
             "name": "lpush",
-            "summary": "",
+            "summary": "Add\u0020item\u0020to\u0020a\u0020value\u0020\u0028left\u0029",
             "url": "classes/MongoHybrid-Client.html#method_lpush"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Alset\u0028\u0029",
             "name": "lset",
-            "summary": "",
+            "summary": "Set\u0020the\u0020value\u0020of\u0020an\u0020element\u0020in\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/MongoHybrid-Client.html#method_lset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Alindex\u0028\u0029",
             "name": "lindex",
-            "summary": "",
+            "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/MongoHybrid-Client.html#method_lindex"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
-            "summary": "",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hgetall"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahexists\u0028\u0029",
             "name": "hexists",
-            "summary": "",
+            "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/MongoHybrid-Client.html#method_hexists"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
-            "summary": "",
+            "summary": "Get\u0020all\u0020the\u0020values\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hvals"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahlen\u0028\u0029",
             "name": "hlen",
-            "summary": "",
+            "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hlen"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
             "name": "hkeys",
-            "summary": "",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hkeys"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
-            "summary": "",
+            "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
             "url": "classes/MongoHybrid-Client.html#method_hdel"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahincrby\u0028\u0029",
             "name": "hincrby",
-            "summary": "",
+            "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/MongoHybrid-Client.html#method_hincrby"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
             "name": "hget",
-            "summary": "",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
             "url": "classes/MongoHybrid-Client.html#method_hget"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
             "name": "hset",
-            "summary": "",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
             "url": "classes/MongoHybrid-Client.html#method_hset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
-            "summary": "",
+            "summary": "Get\u0020the\u0020values\u0020of\u0020all\u0020the\u0020given\u0020hash\u0020fields",
             "url": "classes/MongoHybrid-Client.html#method_hmget"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahmset\u0028\u0029",
             "name": "hmset",
-            "summary": "",
+            "summary": "Set\u0020multiple\u0020hash\u0020fields\u0020to\u0020multiple\u0020values",
             "url": "classes/MongoHybrid-Client.html#method_hmset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003A__call\u0028\u0029",
@@ -2568,7 +2558,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoHybrid\\ResultSet\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/MongoHybrid-ResultSet.html#method___construct"
         },                {
             "fqsen": "\\MongoHybrid\\ResultSet\u003A\u003AhasOne\u0028\u0029",
@@ -2593,7 +2583,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoHybrid\\ResultSet\u003A\u003A\u0024driver",
             "name": "driver",
-            "summary": "",
+            "summary": "Driver",
             "url": "classes/MongoHybrid-ResultSet.html#property_driver"
         },                {
             "fqsen": "\\MongoHybrid\\ResultSet\u003A\u003A\u0024cache",
@@ -2603,27 +2593,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoLite\\Client",
             "name": "Client",
-            "summary": "",
+            "summary": "Client\u0020object.",
             "url": "classes/MongoLite-Client.html"
         },                {
             "fqsen": "\\MongoLite\\Client\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/MongoLite-Client.html#method___construct"
         },                {
             "fqsen": "\\MongoLite\\Client\u003A\u003AlistDBs\u0028\u0029",
             "name": "listDBs",
-            "summary": "",
+            "summary": "List\u0020Databases",
             "url": "classes/MongoLite-Client.html#method_listDBs"
         },                {
             "fqsen": "\\MongoLite\\Client\u003A\u003AselectCollection\u0028\u0029",
             "name": "selectCollection",
-            "summary": "",
+            "summary": "Select\u0020Collection",
             "url": "classes/MongoLite-Client.html#method_selectCollection"
         },                {
             "fqsen": "\\MongoLite\\Client\u003A\u003AselectDB\u0028\u0029",
             "name": "selectDB",
-            "summary": "",
+            "summary": "Select\u0020database",
             "url": "classes/MongoLite-Client.html#method_selectDB"
         },                {
             "fqsen": "\\MongoLite\\Client\u003A\u003A__get\u0028\u0029",
@@ -2648,67 +2638,67 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoLite\\Collection",
             "name": "Collection",
-            "summary": "",
+            "summary": "Collection\u0020object.",
             "url": "classes/MongoLite-Collection.html"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/MongoLite-Collection.html#method___construct"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Adrop\u0028\u0029",
             "name": "drop",
-            "summary": "",
+            "summary": "Drop\u0020collection",
             "url": "classes/MongoLite-Collection.html#method_drop"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003AinsertMany\u0028\u0029",
             "name": "insertMany",
-            "summary": "",
+            "summary": "Insert\u0020many\u0020documents",
             "url": "classes/MongoLite-Collection.html#method_insertMany"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Ainsert\u0028\u0029",
             "name": "insert",
-            "summary": "",
+            "summary": "Insert\u0020document",
             "url": "classes/MongoLite-Collection.html#method_insert"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003A_insert\u0028\u0029",
             "name": "_insert",
-            "summary": "",
+            "summary": "Insert\u0020document",
             "url": "classes/MongoLite-Collection.html#method__insert"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Save\u0020document",
             "url": "classes/MongoLite-Collection.html#method_save"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
-            "summary": "",
+            "summary": "Update\u0020documents",
             "url": "classes/MongoLite-Collection.html#method_update"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Remove\u0020documents",
             "url": "classes/MongoLite-Collection.html#method_remove"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "",
+            "summary": "Count\u0020documents\u0020in\u0020collections",
             "url": "classes/MongoLite-Collection.html#method_count"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "",
+            "summary": "Find\u0020documents",
             "url": "classes/MongoLite-Collection.html#method_find"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003AfindOne\u0028\u0029",
             "name": "findOne",
-            "summary": "",
+            "summary": "Find\u0020one\u0020document",
             "url": "classes/MongoLite-Collection.html#method_findOne"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003ArenameCollection\u0028\u0029",
             "name": "renameCollection",
-            "summary": "",
+            "summary": "Rename\u0020Collection",
             "url": "classes/MongoLite-Collection.html#method_renameCollection"
         },                {
             "fqsen": "\\MongoLite\\Collection\u003A\u003A\u0024database",
@@ -2728,17 +2718,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoLite\\Cursor",
             "name": "Cursor",
-            "summary": "",
+            "summary": "Cursor\u0020object.",
             "url": "classes/MongoLite-Cursor.html"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/MongoLite-Cursor.html#method___construct"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Acount\u0028\u0029",
             "name": "count",
-            "summary": "",
+            "summary": "Documents\u0020count",
             "url": "classes/MongoLite-Cursor.html#method_count"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003A\u0024limit",
@@ -2758,22 +2748,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Aeach\u0028\u0029",
             "name": "each",
-            "summary": "",
+            "summary": "Loop\u0020through\u0020result\u0020set",
             "url": "classes/MongoLite-Cursor.html#method_each"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
-            "summary": "",
+            "summary": "Iterator\u0020implementation",
             "url": "classes/MongoLite-Cursor.html#method_rewind"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "",
+            "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Cursor.html#method_toArray"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003AgetData\u0028\u0029",
             "name": "getData",
-            "summary": "",
+            "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Cursor.html#method_getData"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Acurrent\u0028\u0029",
@@ -2838,47 +2828,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoLite\\Database",
             "name": "Database",
-            "summary": "",
+            "summary": "Database\u0020object.",
             "url": "classes/MongoLite-Database.html"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/MongoLite-Database.html#method___construct"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AcallCriteriaFunction\u0028\u0029",
             "name": "callCriteriaFunction",
-            "summary": "",
+            "summary": "Execute\u0020registred\u0020criteria\u0020function",
             "url": "classes/MongoLite-Database.html#method_callCriteriaFunction"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
             "name": "registerCriteriaFunction",
-            "summary": "",
+            "summary": "Register\u0020Criteria\u0020function",
             "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003Avacuum\u0028\u0029",
             "name": "vacuum",
-            "summary": "",
+            "summary": "Vacuum\u0020database",
             "url": "classes/MongoLite-Database.html#method_vacuum"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003Adrop\u0028\u0029",
             "name": "drop",
-            "summary": "",
+            "summary": "Drop\u0020database",
             "url": "classes/MongoLite-Database.html#method_drop"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
-            "summary": "",
+            "summary": "Drop\u0020a\u0020collection",
             "url": "classes/MongoLite-Database.html#method_dropCollection"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AlistCollections\u0028\u0029",
             "name": "listCollections",
-            "summary": "",
+            "summary": "Get\u0020all\u0020collections\u0020in\u0020the\u0020database",
             "url": "classes/MongoLite-Database.html#method_listCollections"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
             "name": "getCollectionNames",
-            "summary": "",
+            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
             "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003A__get\u0028\u0029",
@@ -2888,12 +2878,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
             "name": "selectCollection",
-            "summary": "",
+            "summary": "Select\u0020collection",
             "url": "classes/MongoLite-Database.html#method_selectCollection"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
             "name": "createCollection",
-            "summary": "",
+            "summary": "Create\u0020a\u0020collection",
             "url": "classes/MongoLite-Database.html#method_createCollection"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003ADSN_PATH_MEMORY",
@@ -2953,7 +2943,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Pagination",
             "name": "Pagination",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/Pagination.html"
         },                {
             "fqsen": "\\Pagination\u003A\u003A__construct\u0028\u0029",
@@ -3003,7 +2993,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PriorityQueue",
             "name": "PriorityQueue",
-            "summary": "",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
             "url": "classes/PriorityQueue.html"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003A__construct\u0028\u0029",
@@ -3103,12 +3093,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RedisLite",
             "name": "RedisLite",
-            "summary": "",
+            "summary": "RedisLite\u0020class.",
             "url": "classes/RedisLite.html"
         },                {
             "fqsen": "\\RedisLite\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/RedisLite.html#method___construct"
         },                {
             "fqsen": "\\RedisLite\u003A\u003AcreateTable\u0028\u0029",
@@ -3118,127 +3108,127 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RedisLite\u003A\u003Aflushdb\u0028\u0029",
             "name": "flushdb",
-            "summary": "",
+            "summary": "Clear\u0020database",
             "url": "classes/RedisLite.html#method_flushdb"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Akeys\u0028\u0029",
             "name": "keys",
-            "summary": "",
+            "summary": "Get\u0020all\u0020keys\u0020matching\u0020a\u0020pattern",
             "url": "classes/RedisLite.html#method_keys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Adel\u0028\u0029",
             "name": "del",
-            "summary": "",
+            "summary": "Delete\u0020Key\u0028s\u0029",
             "url": "classes/RedisLite.html#method_del"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Atype\u0028\u0029",
             "name": "type",
-            "summary": "",
+            "summary": "Get\u0020value\u0020type",
             "url": "classes/RedisLite.html#method_type"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
             "url": "classes/RedisLite.html#method_get"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Adecr\u0028\u0029",
             "name": "decr",
-            "summary": "",
+            "summary": "Decrement\u0020value\u0020by\u0020x",
             "url": "classes/RedisLite.html#method_decr"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
             "name": "incr",
-            "summary": "",
+            "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/RedisLite.html#method_incr"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
             "url": "classes/RedisLite.html#method_set"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
             "name": "exists",
-            "summary": "",
+            "summary": "Check\u0020if\u0020key\u0020exists",
             "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Allen\u0028\u0029",
             "name": "llen",
-            "summary": "",
+            "summary": "Count\u0020\u0024value\u0020items",
             "url": "classes/RedisLite.html#method_llen"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Arpush\u0028\u0029",
             "name": "rpush",
-            "summary": "",
+            "summary": "Add\u0020item\u0020to\u0020a\u0020value\u0020\u0028right\u0029",
             "url": "classes/RedisLite.html#method_rpush"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Alpush\u0028\u0029",
             "name": "lpush",
-            "summary": "",
+            "summary": "Add\u0020item\u0020to\u0020a\u0020value\u0020\u0028left\u0029",
             "url": "classes/RedisLite.html#method_lpush"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Alset\u0028\u0029",
             "name": "lset",
-            "summary": "",
+            "summary": "Set\u0020the\u0020value\u0020of\u0020an\u0020element\u0020in\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/RedisLite.html#method_lset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Alindex\u0028\u0029",
             "name": "lindex",
-            "summary": "",
+            "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/RedisLite.html#method_lindex"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
-            "summary": "",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hgetall"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahexists\u0028\u0029",
             "name": "hexists",
-            "summary": "",
+            "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/RedisLite.html#method_hexists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
-            "summary": "",
+            "summary": "Get\u0020all\u0020the\u0020values\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hvals"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahlen\u0028\u0029",
             "name": "hlen",
-            "summary": "",
+            "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hlen"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
             "name": "hkeys",
-            "summary": "",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hkeys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
-            "summary": "",
+            "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
             "url": "classes/RedisLite.html#method_hdel"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahincrby\u0028\u0029",
             "name": "hincrby",
-            "summary": "",
+            "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/RedisLite.html#method_hincrby"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
             "name": "hget",
-            "summary": "",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
             "url": "classes/RedisLite.html#method_hget"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
             "name": "hset",
-            "summary": "",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
             "url": "classes/RedisLite.html#method_hset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
-            "summary": "",
+            "summary": "Get\u0020the\u0020values\u0020of\u0020all\u0020the\u0020given\u0020hash\u0020fields",
             "url": "classes/RedisLite.html#method_hmget"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmset\u0028\u0029",
             "name": "hmset",
-            "summary": "",
+            "summary": "Set\u0020multiple\u0020hash\u0020fields\u0020to\u0020multiple\u0020values",
             "url": "classes/RedisLite.html#method_hmset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003A\u0024path",
@@ -3283,77 +3273,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\spyc_load\u0028\u0029",
             "name": "spyc_load",
-            "summary": "",
+            "summary": "Parses\u0020YAML\u0020to\u0020array.",
             "url": "namespaces/default.html#function_spyc_load"
         },                {
             "fqsen": "\\spyc_load_file\u0028\u0029",
             "name": "spyc_load_file",
-            "summary": "",
+            "summary": "Parses\u0020YAML\u0020to\u0020array.",
             "url": "namespaces/default.html#function_spyc_load_file"
         },                {
             "fqsen": "\\spyc_dump\u0028\u0029",
             "name": "spyc_dump",
-            "summary": "",
+            "summary": "Dumps\u0020array\u0020to\u0020YAML.",
             "url": "namespaces/default.html#function_spyc_dump"
         },                {
             "fqsen": "\\Spyc",
             "name": "Spyc",
-            "summary": "",
+            "summary": "The\u0020Simple\u0020PHP\u0020YAML\u0020Class.",
             "url": "classes/Spyc.html"
         },                {
             "fqsen": "\\Spyc\u003A\u003Aload\u0028\u0029",
             "name": "load",
-            "summary": "",
+            "summary": "Load\u0020a\u0020valid\u0020YAML\u0020string\u0020to\u0020Spyc.",
             "url": "classes/Spyc.html#method_load"
         },                {
             "fqsen": "\\Spyc\u003A\u003AloadFile\u0028\u0029",
             "name": "loadFile",
-            "summary": "",
+            "summary": "Load\u0020a\u0020valid\u0020YAML\u0020file\u0020to\u0020Spyc.",
             "url": "classes/Spyc.html#method_loadFile"
         },                {
             "fqsen": "\\Spyc\u003A\u003AYAMLLoad\u0028\u0029",
             "name": "YAMLLoad",
-            "summary": "",
+            "summary": "Load\u0020YAML\u0020into\u0020a\u0020PHP\u0020array\u0020statically",
             "url": "classes/Spyc.html#method_YAMLLoad"
         },                {
             "fqsen": "\\Spyc\u003A\u003AYAMLLoadString\u0028\u0029",
             "name": "YAMLLoadString",
-            "summary": "",
+            "summary": "Load\u0020a\u0020string\u0020of\u0020YAML\u0020into\u0020a\u0020PHP\u0020array\u0020statically",
             "url": "classes/Spyc.html#method_YAMLLoadString"
         },                {
             "fqsen": "\\Spyc\u003A\u003AYAMLDump\u0028\u0029",
             "name": "YAMLDump",
-            "summary": "",
+            "summary": "Dump\u0020YAML\u0020from\u0020PHP\u0020array\u0020statically",
             "url": "classes/Spyc.html#method_YAMLDump"
         },                {
             "fqsen": "\\Spyc\u003A\u003Adump\u0028\u0029",
             "name": "dump",
-            "summary": "",
+            "summary": "Dump\u0020PHP\u0020array\u0020to\u0020YAML",
             "url": "classes/Spyc.html#method_dump"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_yamlize\u0028\u0029",
             "name": "_yamlize",
-            "summary": "",
+            "summary": "Attempts\u0020to\u0020convert\u0020a\u0020key\u0020\/\u0020value\u0020array\u0020item\u0020to\u0020YAML",
             "url": "classes/Spyc.html#method__yamlize"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_yamlizeArray\u0028\u0029",
             "name": "_yamlizeArray",
-            "summary": "",
+            "summary": "Attempts\u0020to\u0020convert\u0020an\u0020array\u0020to\u0020YAML",
             "url": "classes/Spyc.html#method__yamlizeArray"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_dumpNode\u0028\u0029",
             "name": "_dumpNode",
-            "summary": "",
+            "summary": "Returns\u0020YAML\u0020from\u0020a\u0020key\u0020and\u0020a\u0020value",
             "url": "classes/Spyc.html#method__dumpNode"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_doLiteralBlock\u0028\u0029",
             "name": "_doLiteralBlock",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020literal\u0020block\u0020for\u0020dumping",
             "url": "classes/Spyc.html#method__doLiteralBlock"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_doFolding\u0028\u0029",
             "name": "_doFolding",
-            "summary": "",
+            "summary": "Folds\u0020a\u0020string\u0020of\u0020text,\u0020if\u0020necessary",
             "url": "classes/Spyc.html#method__doFolding"
         },                {
             "fqsen": "\\Spyc\u003A\u003AisTrueWord\u0028\u0029",
@@ -3378,12 +3368,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Spyc\u003A\u003AcoerceValue\u0028\u0029",
             "name": "coerceValue",
-            "summary": "",
+            "summary": "Coerce\u0020a\u0020string\u0020into\u0020a\u0020native\u0020type\nReference\u003A\u0020http\u003A\/\/yaml.org\/type\/bool.html\nTODO\u003A\u0020Use\u0020only\u0020words\u0020from\u0020the\u0020YAML\u0020spec.",
             "url": "classes/Spyc.html#method_coerceValue"
         },                {
             "fqsen": "\\Spyc\u003A\u003AgetTranslations\u0028\u0029",
             "name": "getTranslations",
-            "summary": "",
+            "summary": "Given\u0020a\u0020set\u0020of\u0020words,\u0020perform\u0020the\u0020appropriate\u0020translations\u0020on\u0020them\u0020to\nmatch\u0020the\u0020YAML\u00201.1\u0020specification\u0020for\u0020type\u0020coercing.",
             "url": "classes/Spyc.html#method_getTranslations"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_load\u0028\u0029",
@@ -3413,17 +3403,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Spyc\u003A\u003A_parseLine\u0028\u0029",
             "name": "_parseLine",
-            "summary": "",
+            "summary": "Parses\u0020YAML\u0020code\u0020and\u0020returns\u0020an\u0020array\u0020for\u0020a\u0020node",
             "url": "classes/Spyc.html#method__parseLine"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_toType\u0028\u0029",
             "name": "_toType",
-            "summary": "",
+            "summary": "Finds\u0020the\u0020type\u0020of\u0020the\u0020passed\u0020value,\u0020returns\u0020the\u0020value\u0020as\u0020the\u0020new\u0020type.",
             "url": "classes/Spyc.html#method__toType"
         },                {
             "fqsen": "\\Spyc\u003A\u003A_inlineEscape\u0028\u0029",
             "name": "_inlineEscape",
-            "summary": "",
+            "summary": "Used\u0020in\u0020inlines\u0020to\u0020check\u0020for\u0020more\u0020inlines\u0020or\u0020quoted\u0020strings",
             "url": "classes/Spyc.html#method__inlineEscape"
         },                {
             "fqsen": "\\Spyc\u003A\u003AliteralBlockContinues\u0028\u0029",
@@ -3578,12 +3568,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Spyc\u003A\u003A\u0024setting_dump_force_quotes",
             "name": "setting_dump_force_quotes",
-            "summary": "",
+            "summary": "Setting\u0020this\u0020to\u0020true\u0020will\u0020force\u0020YAMLDump\u0020to\u0020enclose\u0020any\u0020string\u0020value\u0020in\nquotes.\u0020\u0020False\u0020by\u0020default.",
             "url": "classes/Spyc.html#property_setting_dump_force_quotes"
         },                {
             "fqsen": "\\Spyc\u003A\u003A\u0024setting_use_syck_is_possible",
             "name": "setting_use_syck_is_possible",
-            "summary": "",
+            "summary": "Setting\u0020this\u0020to\u0020true\u0020will\u0020forse\u0020YAMLLoad\u0020to\u0020use\u0020syck_load\u0020function\u0020when\npossible.\u0020False\u0020by\u0020default.",
             "url": "classes/Spyc.html#property_setting_use_syck_is_possible"
         },                {
             "fqsen": "\\Spyc\u003A\u003A\u0024_dumpIndent",
@@ -3633,7 +3623,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Spyc\u003A\u003A\u0024delayedPath",
             "name": "delayedPath",
-            "summary": "",
+            "summary": "Path\u0020modifier\u0020that\u0020should\u0020be\u0020applied\u0020after\u0020adding\u0020current\u0020element.",
             "url": "classes/Spyc.html#property_delayedPath"
         },                {
             "fqsen": "\\Spyc\u003A\u003A\u0024_nodeId",
@@ -3643,7 +3633,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\SVGSanitizer",
             "name": "SVGSanitizer",
-            "summary": "",
+            "summary": "Class\u0020SVGSanitizer",
             "url": "classes/SVGSanitizer.html"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
@@ -3653,107 +3643,107 @@ Search.appendIndex(
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
-            "summary": "",
+            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
             "url": "classes/SVGSanitizer.html#method_clean"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
             "name": "sanitize",
-            "summary": "",
+            "summary": "Sanitize\u0020the\u0020passed\u0020string",
             "url": "classes/SVGSanitizer.html#method_sanitize"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
             "name": "resetInternal",
-            "summary": "",
+            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
             "url": "classes/SVGSanitizer.html#method_resetInternal"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
             "name": "setUpBefore",
-            "summary": "",
+            "summary": "Set\u0020up\u0020libXML\u0020before\u0020we\u0020start",
             "url": "classes/SVGSanitizer.html#method_setUpBefore"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
             "name": "resetAfter",
-            "summary": "",
+            "summary": "Reset\u0020the\u0020class\u0020after\u0020use",
             "url": "classes/SVGSanitizer.html#method_resetAfter"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
             "name": "removeDoctype",
-            "summary": "",
+            "summary": "Remove\u0020the\u0020XML\u0020Doctype\nIt\u0020may\u0020be\u0020caught\u0020later\u0020on\u0020output\u0020but\u0020that\u0020seems\u0020to\u0020be\u0020buggy,\u0020so\u0020we\u0020need\u0020to\u0020make\u0020sure\u0020it\u0027s\u0020gone",
             "url": "classes/SVGSanitizer.html#method_removeDoctype"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AstartClean\u0028\u0029",
             "name": "startClean",
-            "summary": "",
+            "summary": "Start\u0020the\u0020cleaning\u0020with\u0020tags,\u0020then\u0020we\u0020move\u0020onto\u0020attributes\u0020and\u0020hrefs\u0020later",
             "url": "classes/SVGSanitizer.html#method_startClean"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
             "name": "cleanAttributesOnWhitelist",
-            "summary": "",
+            "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
             "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
             "name": "isAriaAttribute",
-            "summary": "",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
             "url": "classes/SVGSanitizer.html#method_isAriaAttribute"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
             "name": "isDataAttribute",
-            "summary": "",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
             "url": "classes/SVGSanitizer.html#method_isDataAttribute"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
             "name": "hasRemoteReference",
-            "summary": "",
+            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
             "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
             "name": "removeNonPrintableCharacters",
-            "summary": "",
+            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
             "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
             "name": "cleanXlinkHrefs",
-            "summary": "",
+            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
             "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
             "name": "cleanHrefs",
-            "summary": "",
+            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
             "url": "classes/SVGSanitizer.html#method_cleanHrefs"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
             "name": "isUseTagDirty",
-            "summary": "",
+            "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
             "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
             "name": "getXMLOptions",
-            "summary": "",
+            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
             "url": "classes/SVGSanitizer.html#method_getXMLOptions"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
             "name": "setXMLOptions",
-            "summary": "",
+            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
             "url": "classes/SVGSanitizer.html#method_setXMLOptions"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
             "name": "getAllowedTags",
-            "summary": "",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
             "url": "classes/SVGSanitizer.html#method_getAllowedTags"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
             "name": "setAllowedTags",
-            "summary": "",
+            "summary": "Set\u0020custom\u0020allowed\u0020tags",
             "url": "classes/SVGSanitizer.html#method_setAllowedTags"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
             "name": "getAllowedAttrs",
-            "summary": "",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
             "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
             "name": "setAllowedAttrs",
-            "summary": "",
+            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
             "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
@@ -3763,7 +3753,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
             "name": "minify",
-            "summary": "",
+            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
             "url": "classes/SVGSanitizer.html#method_minify"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
@@ -3773,7 +3763,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
-            "summary": "",
+            "summary": "Regex\u0020to\u0020catch\u0020script\u0020and\u0020data\u0020values\u0020in\u0020attributes",
             "url": "classes/SVGSanitizer.html#constant_SCRIPT_REGEX"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A\u0024xmlDocument",
@@ -22568,7 +22558,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Collections\\Controller\\Admin",
             "name": "Admin",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-Admin.html"
         },                {
             "fqsen": "\\Collections\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
@@ -22648,7 +22638,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Collections\\Controller\\Import",
             "name": "Import",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-Import.html"
         },                {
             "fqsen": "\\Collections\\Controller\\Import\u003A\u003Acollection\u0028\u0029",
@@ -22663,7 +22653,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Collections\\Controller\\RestApi",
             "name": "RestApi",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-RestApi.html"
         },                {
             "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
@@ -22718,7 +22708,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Collections\\Controller\\Trash",
             "name": "Trash",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-Trash.html"
         },                {
             "fqsen": "\\Collections\\Controller\\Trash\u003A\u003Acollection\u0028\u0029",
@@ -22748,7 +22738,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Collections\\Controller\\Utils",
             "name": "Utils",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-Utils.html"
         },                {
             "fqsen": "\\Collections\\Controller\\Utils\u003A\u003AgetUserCollections\u0028\u0029",
@@ -22763,7 +22753,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Forms\\Controller\\Admin",
             "name": "Admin",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Forms-Controller-Admin.html"
         },                {
             "fqsen": "\\Forms\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
@@ -22793,7 +22783,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Forms\\Controller\\RestApi",
             "name": "RestApi",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Forms-Controller-RestApi.html"
         },                {
             "fqsen": "\\Forms\\Controller\\RestApi\u003A\u003Asubmit\u0028\u0029",
@@ -22808,7 +22798,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Singletons\\Controller\\Admin",
             "name": "Admin",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Singletons-Controller-Admin.html"
         },                {
             "fqsen": "\\Singletons\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
@@ -22843,7 +22833,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Singletons\\Controller\\RestApi",
             "name": "RestApi",
-            "summary": "",
+            "summary": "Class\u0020Controller",
             "url": "classes/Singletons-Controller-RestApi.html"
         },                {
             "fqsen": "\\Singletons\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
@@ -22861,700 +22851,700 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Singletons-Controller-RestApi.html#method_listSingletons"
         },                {
-            "fqsen": "\\yxorP\\AuthController",
+            "fqsen": "\\Yxorp\\AuthController",
             "name": "AuthController",
-            "summary": "",
-            "url": "classes/yxorP-AuthController.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-AuthController.html"
         },                {
-            "fqsen": "\\yxorP\\AuthController\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Yxorp\\AuthController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-AuthController.html#method___construct"
+            "url": "classes/Yxorp-AuthController.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\AuthController\u003A\u003A\u0024layout",
+            "fqsen": "\\Yxorp\\AuthController\u003A\u003A\u0024layout",
             "name": "layout",
             "summary": "",
-            "url": "classes/yxorP-AuthController.html#property_layout"
+            "url": "classes/Yxorp-AuthController.html#property_layout"
         },                {
-            "fqsen": "\\yxorP\\AuthController\u003A\u003A\u0024user",
+            "fqsen": "\\Yxorp\\AuthController\u003A\u003A\u0024user",
             "name": "user",
             "summary": "",
-            "url": "classes/yxorP-AuthController.html#property_user"
+            "url": "classes/Yxorp-AuthController.html#property_user"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts",
+            "fqsen": "\\Yxorp\\Controller\\Accounts",
             "name": "Accounts",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Accounts.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_index"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_index"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Aaccount\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Aaccount\u0028\u0029",
             "name": "account",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_account"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_account"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
             "name": "getLanguages",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_getLanguages"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_getLanguages"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_create"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_create"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_save"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_save"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_remove"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_remove"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Afind\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Afind\u0028\u0029",
             "name": "find",
             "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_find"
+            "url": "classes/Yxorp-Controller-Accounts.html#method_find"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth",
+            "fqsen": "\\Yxorp\\Controller\\Auth",
             "name": "Auth",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Auth.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
             "name": "check",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_check"
+            "url": "classes/Yxorp-Controller-Auth.html#method_check"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
             "name": "login",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_login"
+            "url": "classes/Yxorp-Controller-Auth.html#method_login"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
             "name": "logout",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_logout"
+            "url": "classes/Yxorp-Controller-Auth.html#method_logout"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Aforgotpassword\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Aforgotpassword\u0028\u0029",
             "name": "forgotpassword",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_forgotpassword"
+            "url": "classes/Yxorp-Controller-Auth.html#method_forgotpassword"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Arequestreset\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Arequestreset\u0028\u0029",
             "name": "requestreset",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_requestreset"
+            "url": "classes/Yxorp-Controller-Auth.html#method_requestreset"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Anewpassword\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Anewpassword\u0028\u0029",
             "name": "newpassword",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_newpassword"
+            "url": "classes/Yxorp-Controller-Auth.html#method_newpassword"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Aresetpassword\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Aresetpassword\u0028\u0029",
             "name": "resetpassword",
             "summary": "",
-            "url": "classes/yxorP-Controller-Auth.html#method_resetpassword"
+            "url": "classes/Yxorp-Controller-Auth.html#method_resetpassword"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Base",
+            "fqsen": "\\Yxorp\\Controller\\Base",
             "name": "Base",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Base.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Base.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Adashboard\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Adashboard\u0028\u0029",
             "name": "dashboard",
             "summary": "",
-            "url": "classes/yxorP-Controller-Base.html#method_dashboard"
+            "url": "classes/Yxorp-Controller-Base.html#method_dashboard"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Asavedashboard\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Asavedashboard\u0028\u0029",
             "name": "savedashboard",
             "summary": "",
-            "url": "classes/yxorP-Controller-Base.html#method_savedashboard"
+            "url": "classes/Yxorp-Controller-Base.html#method_savedashboard"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Asearch\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Asearch\u0028\u0029",
             "name": "search",
             "summary": "",
-            "url": "classes/yxorP-Controller-Base.html#method_search"
+            "url": "classes/Yxorp-Controller-Base.html#method_search"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Acall\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Acall\u0028\u0029",
             "name": "call",
             "summary": "",
-            "url": "classes/yxorP-Controller-Base.html#method_call"
+            "url": "classes/Yxorp-Controller-Base.html#method_call"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media",
+            "fqsen": "\\Yxorp\\Controller\\Media",
             "name": "Media",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Media.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Media.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aapi\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aapi\u0028\u0029",
             "name": "api",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_api"
+            "url": "classes/Yxorp-Controller-Media.html#method_api"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
             "name": "savebookmarks",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_savebookmarks"
+            "url": "classes/Yxorp-Controller-Media.html#method_savebookmarks"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
             "name": "loadbookmarks",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_loadbookmarks"
+            "url": "classes/Yxorp-Controller-Media.html#method_loadbookmarks"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Als\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Als\u0028\u0029",
             "name": "ls",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_ls"
+            "url": "classes/Yxorp-Controller-Media.html#method_ls"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
             "name": "_getPathParameter",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method__getPathParameter"
+            "url": "classes/Yxorp-Controller-Media.html#method__getPathParameter"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_upload"
+            "url": "classes/Yxorp-Controller-Media.html#method_upload"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
             "name": "_isFileTypeAllowed",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method__isFileTypeAllowed"
+            "url": "classes/Yxorp-Controller-Media.html#method__isFileTypeAllowed"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
             "name": "uploadfolder",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_uploadfolder"
+            "url": "classes/Yxorp-Controller-Media.html#method_uploadfolder"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Acreatefolder\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Acreatefolder\u0028\u0029",
             "name": "createfolder",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_createfolder"
+            "url": "classes/Yxorp-Controller-Media.html#method_createfolder"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Acreatefile\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Acreatefile\u0028\u0029",
             "name": "createfile",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_createfile"
+            "url": "classes/Yxorp-Controller-Media.html#method_createfile"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aremovefiles\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aremovefiles\u0028\u0029",
             "name": "removefiles",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_removefiles"
+            "url": "classes/Yxorp-Controller-Media.html#method_removefiles"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_rrmdir\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A_rrmdir\u0028\u0029",
             "name": "_rrmdir",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method__rrmdir"
+            "url": "classes/Yxorp-Controller-Media.html#method__rrmdir"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Arename\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Arename\u0028\u0029",
             "name": "rename",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_rename"
+            "url": "classes/Yxorp-Controller-Media.html#method_rename"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Areadfile\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Areadfile\u0028\u0029",
             "name": "readfile",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_readfile"
+            "url": "classes/Yxorp-Controller-Media.html#method_readfile"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Awritefile\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Awritefile\u0028\u0029",
             "name": "writefile",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_writefile"
+            "url": "classes/Yxorp-Controller-Media.html#method_writefile"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aunzip\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aunzip\u0028\u0029",
             "name": "unzip",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_unzip"
+            "url": "classes/Yxorp-Controller-Media.html#method_unzip"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Adownload\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Adownload\u0028\u0029",
             "name": "download",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_download"
+            "url": "classes/Yxorp-Controller-Media.html#method_download"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Adownloadfolder\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Adownloadfolder\u0028\u0029",
             "name": "downloadfolder",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_downloadfolder"
+            "url": "classes/Yxorp-Controller-Media.html#method_downloadfolder"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Agetfilelist\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Agetfilelist\u0028\u0029",
             "name": "getfilelist",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method_getfilelist"
+            "url": "classes/Yxorp-Controller-Media.html#method_getfilelist"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A\u0024root",
+            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A\u0024root",
             "name": "root",
             "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#property_root"
+            "url": "classes/Yxorp-Controller-Media.html#property_root"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestAdmin",
+            "fqsen": "\\Yxorp\\Controller\\RestAdmin",
             "name": "RestAdmin",
-            "summary": "",
-            "url": "classes/yxorP-Controller-RestAdmin.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-RestAdmin.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestAdmin\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestAdmin\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestAdmin.html#method___construct"
+            "url": "classes/Yxorp-Controller-RestAdmin.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestAdmin\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestAdmin\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestAdmin.html#method_index"
+            "url": "classes/Yxorp-Controller-RestAdmin.html#method_index"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestAdmin\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestAdmin\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestAdmin.html#method_save"
+            "url": "classes/Yxorp-Controller-RestAdmin.html#method_save"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi",
+            "fqsen": "\\Yxorp\\Controller\\RestApi",
             "name": "RestApi",
-            "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-RestApi.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
             "name": "authUser",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_authUser"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_authUser"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003ArefreshUserApiKey\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003ArefreshUserApiKey\u0028\u0029",
             "name": "refreshUserApiKey",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_refreshUserApiKey"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_refreshUserApiKey"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AsaveUser\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AsaveUser\u0028\u0029",
             "name": "saveUser",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_saveUser"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_saveUser"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AlistUsers\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AlistUsers\u0028\u0029",
             "name": "listUsers",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_listUsers"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_listUsers"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Aimage\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Aimage\u0028\u0029",
             "name": "image",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_image"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_image"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Aassets\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Aassets\u0028\u0029",
             "name": "assets",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_assets"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_assets"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Aasset\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Aasset\u0028\u0029",
             "name": "asset",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_asset"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_asset"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AaddAssets\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AaddAssets\u0028\u0029",
             "name": "addAssets",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_addAssets"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_addAssets"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AupdateAssets\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AupdateAssets\u0028\u0029",
             "name": "updateAssets",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_updateAssets"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_updateAssets"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AremoveAssets\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AremoveAssets\u0028\u0029",
             "name": "removeAssets",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_removeAssets"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_removeAssets"
         },                {
-            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/yxorP-Controller-RestApi.html#method_before"
+            "url": "classes/Yxorp-Controller-RestApi.html#method_before"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Settings",
+            "fqsen": "\\Yxorp\\Controller\\Settings",
             "name": "Settings",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Settings.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html#method_index"
+            "url": "classes/Yxorp-Controller-Settings.html#method_index"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
             "name": "info",
             "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html#method_info"
+            "url": "classes/Yxorp-Controller-Settings.html#method_info"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
             "name": "getUptdateInfo",
             "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html#method_getUptdateInfo"
+            "url": "classes/Yxorp-Controller-Settings.html#method_getUptdateInfo"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
             "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html#method_edit"
+            "url": "classes/Yxorp-Controller-Settings.html#method_edit"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aupdate\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html#method_update"
+            "url": "classes/Yxorp-Controller-Settings.html#method_update"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils",
+            "fqsen": "\\Yxorp\\Controller\\Utils",
             "name": "Utils",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Utils.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003Athumb_url\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003Athumb_url\u0028\u0029",
             "name": "thumb_url",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_thumb_url"
+            "url": "classes/Yxorp-Controller-Utils.html#method_thumb_url"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AgetCacheSize\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AgetCacheSize\u0028\u0029",
             "name": "getCacheSize",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_getCacheSize"
+            "url": "classes/Yxorp-Controller-Utils.html#method_getCacheSize"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArevisionsCount\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArevisionsCount\u0028\u0029",
             "name": "revisionsCount",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_revisionsCount"
+            "url": "classes/Yxorp-Controller-Utils.html#method_revisionsCount"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArevisionsRemove\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArevisionsRemove\u0028\u0029",
             "name": "revisionsRemove",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_revisionsRemove"
+            "url": "classes/Yxorp-Controller-Utils.html#method_revisionsRemove"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArevisionsRemoveAll\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArevisionsRemoveAll\u0028\u0029",
             "name": "revisionsRemoveAll",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_revisionsRemoveAll"
+            "url": "classes/Yxorp-Controller-Utils.html#method_revisionsRemoveAll"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AisResourceLocked\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AisResourceLocked\u0028\u0029",
             "name": "isResourceLocked",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_isResourceLocked"
+            "url": "classes/Yxorp-Controller-Utils.html#method_isResourceLocked"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AlockResourceId\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_lockResourceId"
+            "url": "classes/Yxorp-Controller-Utils.html#method_lockResourceId"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AunlockResourceId\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AunlockResourceId\u0028\u0029",
             "name": "unlockResourceId",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_unlockResourceId"
+            "url": "classes/Yxorp-Controller-Utils.html#method_unlockResourceId"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AunlockResourceIdByCurrentUser\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AunlockResourceIdByCurrentUser\u0028\u0029",
             "name": "unlockResourceIdByCurrentUser",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_unlockResourceIdByCurrentUser"
+            "url": "classes/Yxorp-Controller-Utils.html#method_unlockResourceIdByCurrentUser"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AstartJobRunner\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AstartJobRunner\u0028\u0029",
             "name": "startJobRunner",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_startJobRunner"
+            "url": "classes/Yxorp-Controller-Utils.html#method_startJobRunner"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArestartJobRunner\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArestartJobRunner\u0028\u0029",
             "name": "restartJobRunner",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_restartJobRunner"
+            "url": "classes/Yxorp-Controller-Utils.html#method_restartJobRunner"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AstopJobRunner\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AstopJobRunner\u0028\u0029",
             "name": "stopJobRunner",
             "summary": "",
-            "url": "classes/yxorP-Controller-Utils.html#method_stopJobRunner"
+            "url": "classes/Yxorp-Controller-Utils.html#method_stopJobRunner"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Webhooks",
+            "fqsen": "\\Yxorp\\Controller\\Webhooks",
             "name": "Webhooks",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Webhooks.html"
+            "summary": "Class\u0020Controller",
+            "url": "classes/Yxorp-Controller-Webhooks.html"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-Controller-Webhooks.html#method___construct"
+            "url": "classes/Yxorp-Controller-Webhooks.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/yxorP-Controller-Webhooks.html#method_index"
+            "url": "classes/Yxorp-Controller-Webhooks.html#method_index"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Awebhook\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Awebhook\u0028\u0029",
             "name": "webhook",
             "summary": "",
-            "url": "classes/yxorP-Controller-Webhooks.html#method_webhook"
+            "url": "classes/Yxorp-Controller-Webhooks.html#method_webhook"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/yxorP-Controller-Webhooks.html#method_save"
+            "url": "classes/Yxorp-Controller-Webhooks.html#method_save"
         },                {
-            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/yxorP-Controller-Webhooks.html#method_remove"
+            "url": "classes/Yxorp-Controller-Webhooks.html#method_remove"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin",
+            "fqsen": "\\Yxorp\\Helper\\Admin",
             "name": "Admin",
             "summary": "Admin\u0020Helper\u0020class.",
-            "url": "classes/yxorP-Helper-Admin.html"
+            "url": "classes/Yxorp-Helper-Admin.html"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_initialize"
+            "url": "classes/Yxorp-Helper-Admin.html#method_initialize"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003Ainit\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003Ainit\u0028\u0029",
             "name": "init",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_init"
+            "url": "classes/Yxorp-Helper-Admin.html#method_init"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024favicon",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024favicon",
             "name": "favicon",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#property_favicon"
+            "url": "classes/Yxorp-Helper-Admin.html#property_favicon"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AaddMenuItem\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AaddMenuItem\u0028\u0029",
             "name": "addMenuItem",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_addMenuItem"
+            "url": "classes/Yxorp-Helper-Admin.html#method_addMenuItem"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AaddAssets\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AaddAssets\u0028\u0029",
             "name": "addAssets",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_addAssets"
+            "url": "classes/Yxorp-Helper-Admin.html#method_addAssets"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AextractVar\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AextractVar\u0028\u0029",
             "name": "extractVar",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_extractVar"
+            "url": "classes/Yxorp-Helper-Admin.html#method_extractVar"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AgetOption\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AgetOption\u0028\u0029",
             "name": "getOption",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_getOption"
+            "url": "classes/Yxorp-Helper-Admin.html#method_getOption"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AsetOption\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AsetOption\u0028\u0029",
             "name": "setOption",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_setOption"
+            "url": "classes/Yxorp-Helper-Admin.html#method_setOption"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AgetUserOption\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AgetUserOption\u0028\u0029",
             "name": "getUserOption",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_getUserOption"
+            "url": "classes/Yxorp-Helper-Admin.html#method_getUserOption"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AsetUserOption\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AsetUserOption\u0028\u0029",
             "name": "setUserOption",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_setUserOption"
+            "url": "classes/Yxorp-Helper-Admin.html#method_setUserOption"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
             "name": "isResourceEditableByCurrentUser",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+            "url": "classes/Yxorp-Helper-Admin.html#method_isResourceEditableByCurrentUser"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
             "name": "isResourceLocked",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_isResourceLocked"
+            "url": "classes/Yxorp-Helper-Admin.html#method_isResourceLocked"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_lockResourceId"
+            "url": "classes/Yxorp-Helper-Admin.html#method_lockResourceId"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
             "name": "unlockResourceId",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_unlockResourceId"
+            "url": "classes/Yxorp-Helper-Admin.html#method_unlockResourceId"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AdenyRequest\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AdenyRequest\u0028\u0029",
             "name": "denyRequest",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_denyRequest"
+            "url": "classes/Yxorp-Helper-Admin.html#method_denyRequest"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024data",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024data",
             "name": "data",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#property_data"
+            "url": "classes/Yxorp-Helper-Admin.html#property_data"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024options",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024options",
             "name": "options",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#property_options"
+            "url": "classes/Yxorp-Helper-Admin.html#property_options"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024user",
+            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024user",
             "name": "user",
             "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#property_user"
+            "url": "classes/Yxorp-Helper-Admin.html#property_user"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async",
+            "fqsen": "\\Yxorp\\Helper\\Async",
             "name": "Async",
             "summary": "Async\u0020Helper\u0020class.",
-            "url": "classes/yxorP-Helper-Async.html"
+            "url": "classes/Yxorp-Helper-Async.html"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
             "name": "exec",
             "summary": "",
-            "url": "classes/yxorP-Helper-Async.html#method_exec"
+            "url": "classes/Yxorp-Helper-Async.html#method_exec"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
             "summary": "",
-            "url": "classes/yxorP-Helper-Async.html#method_execInBackground"
+            "url": "classes/Yxorp-Helper-Async.html#method_execInBackground"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
             "name": "isExecAvailable",
             "summary": "",
-            "url": "classes/yxorP-Helper-Async.html#method_isExecAvailable"
+            "url": "classes/Yxorp-Helper-Async.html#method_isExecAvailable"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
             "name": "finished",
             "summary": "",
-            "url": "classes/yxorP-Helper-Async.html#method_finished"
+            "url": "classes/Yxorp-Helper-Async.html#method_finished"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003A\u0024phpPath",
+            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
             "summary": "",
-            "url": "classes/yxorP-Helper-Async.html#property_phpPath"
+            "url": "classes/Yxorp-Helper-Async.html#property_phpPath"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Csrf",
+            "fqsen": "\\Yxorp\\Helper\\Csrf",
             "name": "Csrf",
             "summary": "",
-            "url": "classes/yxorP-Helper-Csrf.html"
+            "url": "classes/Yxorp-Helper-Csrf.html"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/yxorP-Helper-Csrf.html#method_initialize"
+            "url": "classes/Yxorp-Helper-Csrf.html#method_initialize"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
             "name": "token",
             "summary": "",
-            "url": "classes/yxorP-Helper-Csrf.html#method_token"
+            "url": "classes/Yxorp-Helper-Csrf.html#method_token"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
             "name": "generateToken",
             "summary": "",
-            "url": "classes/yxorP-Helper-Csrf.html#method_generateToken"
+            "url": "classes/Yxorp-Helper-Csrf.html#method_generateToken"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
             "name": "isValid",
             "summary": "",
-            "url": "classes/yxorP-Helper-Csrf.html#method_isValid"
+            "url": "classes/Yxorp-Helper-Csrf.html#method_isValid"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs",
+            "fqsen": "\\Yxorp\\Helper\\Jobs",
             "name": "Jobs",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html"
+            "url": "classes/Yxorp-Helper-Jobs.html"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_initialize"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_initialize"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_add"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_add"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
             "name": "isRunnerActive",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_isRunnerActive"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_isRunnerActive"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AstopRunner\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AstopRunner\u0028\u0029",
             "name": "stopRunner",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_stopRunner"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_stopRunner"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AcountJobs\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AcountJobs\u0028\u0029",
             "name": "countJobs",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_countJobs"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_countJobs"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Arun\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Arun\u0028\u0029",
             "name": "run",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_run"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_run"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
             "name": "work",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_work"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_work"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
             "name": "getJob",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_getJob"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_getJob"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_execute"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_execute"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_remove"
+            "url": "classes/Yxorp-Helper-Jobs.html#method_remove"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions",
+            "fqsen": "\\Yxorp\\Helper\\Revisions",
             "name": "Revisions",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html"
+            "url": "classes/Yxorp-Helper-Revisions.html"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_initialize"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_initialize"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
             "name": "count",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_count"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_count"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
             "name": "getList",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_getList"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_getList"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_add"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_add"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_get"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_get"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_remove"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_remove"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
             "name": "removeAll",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#method_removeAll"
+            "url": "classes/Yxorp-Helper-Revisions.html#method_removeAll"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003A\u0024storage",
+            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003A\u0024storage",
             "name": "storage",
             "summary": "",
-            "url": "classes/yxorP-Helper-Revisions.html#property_storage"
+            "url": "classes/Yxorp-Helper-Revisions.html#property_storage"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Updater",
+            "fqsen": "\\Yxorp\\Helper\\Updater",
             "name": "Updater",
             "summary": "Admin\u0020Helper\u0020class.",
-            "url": "classes/yxorP-Helper-Updater.html"
+            "url": "classes/Yxorp-Helper-Updater.html"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Updater\u003A\u003Aupdate\u0028\u0029",
+            "fqsen": "\\Yxorp\\Helper\\Updater\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "",
-            "url": "classes/yxorP-Helper-Updater.html#method_update"
+            "url": "classes/Yxorp-Helper-Updater.html#method_update"
         },                {
             "fqsen": "\\blockListPluginAction",
             "name": "blockListPluginAction",
@@ -23805,16 +23795,6 @@ Search.appendIndex(
             "name": "Bootmanager",
             "summary": "",
             "url": "namespaces/bootmanager.html"
-        },                {
-            "fqsen": "\\Feed\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/feed-controller.html"
-        },                {
-            "fqsen": "\\Feed",
-            "name": "Feed",
-            "summary": "",
-            "url": "namespaces/feed.html"
         },                {
             "fqsen": "\\LayoutComponents\\Controller",
             "name": "Controller",
@@ -24131,19 +24111,24 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/singletons.html"
         },                {
-            "fqsen": "\\yxorP",
-            "name": "yxorP",
+            "fqsen": "\\Yxorp",
+            "name": "Yxorp",
             "summary": "",
             "url": "namespaces/yxorp.html"
         },                {
-            "fqsen": "\\yxorP\\Controller",
+            "fqsen": "\\Yxorp\\Controller",
             "name": "Controller",
             "summary": "",
             "url": "namespaces/yxorp-controller.html"
         },                {
-            "fqsen": "\\yxorP\\Helper",
+            "fqsen": "\\Yxorp\\Helper",
             "name": "Helper",
             "summary": "",
             "url": "namespaces/yxorp-helper.html"
+        },                {
+            "fqsen": "\\yxorP",
+            "name": "yxorP",
+            "summary": "",
+            "url": "namespaces/yxorp.html"
         }            ]
 );

@@ -3,7 +3,7 @@
 namespace yxorP\inc\parser\storage;
 
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use yxorP\inc\parser\topInterfaceLevelDomainListInterface;
+use yxorP\inc\parser\topLevelDomainListInterface;
 use yxorP\inc\parser\topLevelDomains;
 use yxorP\inc\parser\unableToLoadResource;
 use yxorP\psr\Http\Client\ClientInterface;
@@ -20,7 +20,7 @@ final class topLevelDomainListPsr18Client implements topLevelDomainListClientInt
         $this->requestFactory = $requestFactory;
     }
 
-    public function get(string $uri): topInterfaceLevelDomainListInterface
+    public function get(string $uri): topLevelDomainListInterface
     {
         $request = $this->requestFactory->createRequest('GET', $uri);
         try {

@@ -5,7 +5,7 @@ namespace yxorP\inc\parser\storage;
 use DateInterval;
 use Psr\SimpleCache\InvalidArgumentException;
 use Throwable;
-use yxorP\inc\parser\topInterfaceLevelDomainListInterface;
+use yxorP\inc\parser\topLevelDomainListInterface;
 use yxorP\psr\SimpleCache\CacheException;
 use yxorP\psr\SimpleCache\CacheInterface;
 use function md5;
@@ -21,23 +21,20 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
     {
         $this->cache = $cache;
         $this->cachePrefix = $cachePrefix;
-        try {
-            $this->cacheTtl = timeToLive::convert($cacheTtl);
-        } catch (\Exception $e) {
-        }
+        $this->cacheTtl = timeToLive::convert($cacheTtl);
     }
 
     /**
      * @throws InvalidArgumentException
      */
-    public function fetch(string $uri): ?topInterfaceLevelDomainListInterface
+    public function fetch(string $uri): ?topLevelDomainListInterface
     {
         $cacheKey = $this->cacheKey($uri);
         $topLevelDomainList = $this->cache->get($cacheKey);
         if (null === $topLevelDomainList) {
             return null;
         }
-        if (!$topLevelDomainList instanceof topInterfaceLevelDomainListInterface) {
+        if (!$topLevelDomainList instanceof topLevelDomainListInterface) {
             $this->cache->delete($cacheKey);
             return null;
         }
@@ -53,7 +50,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
      * @throws Throwable
      * @throws InvalidArgumentException
      */
-    public function remember(string $uri, topInterfaceLevelDomainListInterface $topLevelDomainList): bool
+    public function remember(string $uri, topLevelDomainListInterface $topLevelDomainList): bool
     {
         try {
             return $this->cache->set($this->cacheKey($uri), $topLevelDomainList, $this->cacheTtl);

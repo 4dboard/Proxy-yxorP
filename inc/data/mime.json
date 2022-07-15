@@ -99,6 +99,7 @@
   "jpm": "video/jpm",
   "js": "text/javascript",
   "ktx": "image/ktx",
+  "br": "br",
   "list": "text/plain",
   "log": "text/plain",
   "lvp": "audio/vnd.lucent.voice",

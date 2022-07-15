@@ -3,18 +3,18 @@
 namespace yxorP\inc\parser\storage;
 
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use yxorP\inc\GuzzleHttp\ClientInterface;
 use yxorP\inc\parser\publicSuffixListInterface;
 use yxorP\inc\parser\rules;
 use yxorP\inc\parser\unableToLoadResource;
-use yxorP\inc\proxy\ClientInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;
 
 final class publicSuffixListPsr18Client implements publicSuffixListClientInterface
 {
-    private ClientInterface $client;
+    private clientInterface $client;
     private RequestFactoryInterface $requestFactory;
 
-    public function __construct(ClientInterface $client, RequestFactoryInterface $requestFactory)
+    public function __construct(clientInterface $client, RequestFactoryInterface $requestFactory)
     {
         $this->client = $client;
         $this->requestFactory = $requestFactory;

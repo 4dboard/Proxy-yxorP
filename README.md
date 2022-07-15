@@ -36,7 +36,7 @@
 Flat files are used to hold the information created by the plug-and-play application yxorP. Since they are not
 necessary, Composer, PHP CURL, and databases are optional for the execution of this application. yxorP was created to
 function as a proxy and is capable of altering the contents of several websites. This was the original aim behind its
-creation. The Cockpit, the system's principal backend, controls this component (GUI).
+creation. The Admin, the system's principal backend, controls this component (GUI).
 
 It is common knowledge that yxorP is one of the web proxy systems that, compared to other web proxy systems now
 available on the market, enables users to tailor their surfing experience in the most ways. yxorP is among the most
@@ -183,10 +183,47 @@ cp ./example.env ./.env
 Modify the settings included inside the ".env" file as necessary. The program is configured to respond to queries from
 any domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the.env
 file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
-domain, go to http://localhost/dashboard and enter the login yxorP and the password you established. In addition, you
-may use the credentials provided in the '.env' file. This will allow you to configure the application to direct traffic
-from a given domain to a specific website. After gaining access to the dashboard, choose "sites" and clone the example
-website so that its settings may be modified.
+domain, go to http://localhost/cockpit and enter the login yxorP and the password you established. In addition, you may
+use the credentials provided in the '.env' file. This will allow you to configure the application to direct traffic from
+a given domain to a specific website. After gaining access to the admin, choose "sites" and clone the example website so
+that its settings may be modified.
+
+After cloning the repository, you need to pull the Cockpit submodule as well like this:
+
+```bash
+
+  //Clone the repository
+  git clone https://github.com/4dboard/proxy-yxorp
+  
+  //Pull the Cockpit submodule  
+  git submodule init
+  
+```
+
+# Troubleshooting
+
+## Technical Issue and Assistance
+
+### The program is "plug and play" and works properly out of the box; the following issues have been noted with the application could be:
+
+- Verify that the computer has been outfitted with all of the necessary PHP extensions, such as the following:
+
+    - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
+    - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
+      with IDN.
+
+- You need to check that the "./cockpit" submodule was properly retrieved; the directory should already be present at
+  the top level of the project and have some information. If the directory is not there, you may quickly initialize the
+  submodule by entering "git submodule init" into the terminal.
+
+- Ensure that the x cache folders that can be found in "./cockpit/storage/tmp" and "./inc/tmp." are able to have their
+  contents written to. Either the command "chmod 775./cockpit/storage/tmp" or the command "chown root:
+  ./cockpit/storage/tmp" may be used to make the files readable again.
+
+If you have completed all of these steps, you should be experiencing no difficulty.
+
+However if you are still experiencing problems, you will likely need to contact a developer or file a request for help
+on github's issue tracker for this project.
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/diagrams.png)
 
@@ -211,21 +248,21 @@ thesaurus/dictionary items) and without sacrificing quality.
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/Idna.png)
 ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
-### Dashboard Back-End is awesome if you need a flexible content structure but don't want to be limited in how to
+### Admin Back-End is awesome if you need a flexible content structure but don't want to be limited in how to
 
 ![image](https://user-images.githubusercontent.com/6468571/178638445-0805737e-d8e5-418a-92d3-3b1e6a704a8d.png)
 
-Implementation is the most efficient approach to use the offered information. Cockpit is a good option to investigate if
+Implementation is the most efficient approach to use the offered information. Admin is a good option to investigate if
 you need to manage a large number of devices or require a content management interface for static site builders. Both of
-these scenarios need cautious cockpit operation. If any of these apply to your situation, you should give them special
-consideration. Each of these occurrences happens sometimes. Construct whole new apps, then provide Cockpit access to
-them so it can feed them content.
+these scenarios need cautious admin operation. If any of these apply to your situation, you should give them special
+consideration. Each of these occurrences happens sometimes. Construct whole new apps, then provide Admin access to them
+so it can feed them content.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
-The headless dashboard is displayed with an API-first layout that prioritizes and hierarchically arranges data. This
+The headless admin is displayed with an API-first layout that prioritizes and hierarchically arranges data. This
 separation between client-side consumption and management of information and server-side administration of material
-should simplify the publishing process. The dashboard is limited to the tasks required to maintain back-end content. Its
+should simplify the publishing process. The admin is limited to the tasks required to maintain back-end content. Its
 fundamental objective is to distribute structured content across several media via a simple application programming
 interface, as opposed to depending on the transmission of data through individual web pages.
 
@@ -237,7 +274,7 @@ interface, as opposed to depending on the transmission of data through individua
 
 Manage flexible content models. Despite the existence of accessible content models, none have been developed before. You
 will be solely responsible for developing the content model required for this method. A user interface free of
-extraneous elements and clutter. Dashboard provides not just an easy user interface, but also one that is continuously
+extraneous elements and clutter. Admin provides not just an easy user interface, but also one that is continuously
 updated. You may use the system in any way you see appropriate, so long as you adhere to the set requirements. There is
 just one system in place. Utilize a straightforward application programming interface to get access to your content (
 API).
@@ -507,7 +544,7 @@ have been preconfigured on the proxy server for your convenience. Consider a sim
 
 Utilize your web browser to go to the root directory of the project. The next step is account registration, followed by
 login. yxorP is Composer-compatible and supports databases, PHP, and CURL. Given that yxorP is operating as their proxy,
-alterations are permissible. Cockpit controls the PHAR (PHP archive) binary version of proxies, which is used by many
+alterations are permissible. Admin controls the PHAR (PHP archive) binary version of proxies, which is used by many
 websites. The yxorP web proxy, which permits user experience customisation, is commercially available and deployable.
 However, a plugin-based architecture and event-driven design are required. Expandable, customisable. YxorP offers the
 industry's most potent graphical back-end content management system interface. When a request is made, the hostname will
@@ -550,7 +587,7 @@ us.
 - [x] TxT DB
 - [x] Login
 - [x] Registration
-- [x] Dashboard
+- [x] Admin
 - [x] Who is Online
 - [x] Documentation
 - [ ] Tables
@@ -613,24 +650,24 @@ the nature of the works. This is due to the fact that each of these works falls 
 | Class | Description |
 |-------|-------------|
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
-| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the Cockpit project.|
+| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the Admin project.|
 | [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the Cockpit project.|
-| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the Cockpit project.|
-| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the Cockpit project.|
+| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the Admin project.|
+| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the Admin project.|
+| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the Admin project.|
 | [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
 | [`Lexy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
-| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the Cockpit project.|
+| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the Admin project.|
 | [`LiteDBQuery`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDBQuery.md) | |
 | [`Mailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer.md) | |
 | [`Mailer_Message`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer_Message.md) | |
-| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the Cockpit project.|
+| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the Admin project.|
 | [`Parsedown`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Parsedown.md) | |
 | [`ParsedownExtra`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtra.md) | |
 | [`ParsedownExtraTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtraTest.md) | |
 | [`PhpToken`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PhpToken.md) | |
-| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Cockpit project.|
+| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Admin project.|
 | [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
 | [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
 | [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
@@ -652,42 +689,42 @@ the nature of the works. This is due to the fact that each of these works falls 
 |-----------|-------------|
 | [`Stringable`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Stringable.md) | |
 
-### \Cockpit
+### \Admin
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`AuthController`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/AuthController.md) | Class Controller|
+| [`AuthController`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/AuthController.md) | Class Controller|
 
-### \Cockpit\Controller
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`Accounts`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Accounts.md) | Class Controller|
-| [`Auth`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Auth.md) | Class Controller|
-| [`Base`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Base.md) | Class Controller|
-| [`Media`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Media.md) | Class Controller|
-| [`RestAdmin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/RestAdmin.md) | Class Controller|
-| [`RestApi`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/RestApi.md) | Class Controller|
-| [`Settings`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Settings.md) | Class Controller|
-| [`Utils`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Utils.md) | Class Controller|
-| [`Webhooks`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Webhooks.md) | Class Controller|
-
-### \Cockpit\Helper
+### \Admin\Controller
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Admin.md) | Admin Helper class.|
-| [`Async`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Async.md) | Async Helper class.|
-| [`Csrf`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Csrf.md) | |
-| [`Jobs`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Jobs.md) | |
-| [`Revisions`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Revisions.md) | |
-| [`Updater`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
+| [`Accounts`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Accounts.md) | Class Controller|
+| [`Auth`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Auth.md) | Class Controller|
+| [`Base`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Base.md) | Class Controller|
+| [`Media`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Media.md) | Class Controller|
+| [`RestAdmin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/RestAdmin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/RestApi.md) | Class Controller|
+| [`Settings`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Settings.md) | Class Controller|
+| [`Utils`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Utils.md) | Class Controller|
+| [`Webhooks`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Controller/Webhooks.md) | Class Controller|
+
+### \Admin\Helper
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Helper/Admin.md) | Admin Helper class.|
+| [`Async`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Helper/Async.md) | Async Helper class.|
+| [`Csrf`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Helper/Csrf.md) | |
+| [`Jobs`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Helper/Jobs.md) | |
+| [`Revisions`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Helper/Revisions.md) | |
+| [`Updater`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Admin/Helper/Updater.md) | Admin Helper class.|
 
 ### \ColinODell\Json5
 

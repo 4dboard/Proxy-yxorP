@@ -18,7 +18,7 @@ use function method_exists;
 use function preg_match;
 use function trim;
 
-final class topLevelDomains implements topInterfaceLevelDomainListInterface
+final class topLevelDomains implements topLevelDomainListInterface
 {
     private const IANA_DATE_FORMAT = 'D M d H:i:s Y e';
     private const REGEXP_HEADER_LINE = '/^\# Version (?<version>\d+), Last Updated (?<date>.*?)$/';
@@ -126,7 +126,7 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         }
     }
 
-    public function resolve($host): resolvedInterfaceDomainNameInterface
+    public function resolve($host): resolvedDomainNameInterface
     {
         try {
             $domain = $this->validateDomain($host);
@@ -141,13 +141,13 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         }
     }
 
-    private function validateDomain($domain): aaDomainNameInterface
+    private function validateDomain($domain): nameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof aaDomainNameInterface) {
-            $domain = aaDomain::fromIDNA2008($domain);
+        if (!$domain instanceof nameInterface) {
+            $domain = domain::fromIDNA2008($domain);
         }
         $label = $domain->label(0);
         if (in_array($label, [null, ''], true)) {
@@ -156,12 +156,12 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         return $domain;
     }
 
-    private function containsTopLevelDomain(aaDomainNameInterface $domain): bool
+    private function containsTopLevelDomain(nameInterface $domain): bool
     {
         return isset($this->records[$domain->toAscii()->label(0)]);
     }
 
-    public function getIANADomain($host): resolvedInterfaceDomainNameInterface
+    public function getIANADomain($host): resolvedDomainNameInterface
     {
         $domain = $this->validateDomain($host);
         if (!$this->containsTopLevelDomain($domain)) {

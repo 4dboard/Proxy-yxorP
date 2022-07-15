@@ -21,10 +21,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
     {
         $this->cache = $cache;
         $this->cachePrefix = $cachePrefix;
-        try {
-            $this->cacheTtl = timeToLive::convert($cacheTtl);
-        } catch (\Exception $e) {
-        }
+        $this->cacheTtl = timeToLive::convert($cacheTtl);
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php namespace yxorP\inc\minify;
-class quotesRemover extends areplacer implements minfyInterface
+class quotesRemover extends areplacerInterface implements minfyInterface
 {
     public function getReplacePatternData(): array
     {

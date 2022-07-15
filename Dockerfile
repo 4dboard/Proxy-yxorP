@@ -39,7 +39,7 @@ COPY --chown=www-data:www-data . .
 
 # be sure nginx is properly passing to php-fpm and fpm is responding
 HEALTHCHECK --interval=5s --timeout=3s \
-  CMD curl -f http://localhost/cockpit || exit 1
+  CMD curl -f http://localhost/admin || exit 1
 
 WORKDIR /var/www/app/public
 EXPOSE 80 443 9000 9001

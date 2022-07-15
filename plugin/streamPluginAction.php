@@ -3,7 +3,8 @@
 /* Importing the wrapper class from the yxorP\inc\http namespace. */
 
 use yxorP\inc\constants;
-use yxorP\inc\wrapper;
+use yxorP\inc\http\wrapper;
+use yxorp\inc\yP;
 
 /* Extending the wrapper class, which is a class that allows you to listen to events. */
 
@@ -20,19 +21,19 @@ class streamPluginAction extends wrapper
     `$stream` variable to true. */
     public function onSent(): void
     {
-        $content_type = constants::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
+        $content_type = yP::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
         /* Getting the content length of the response. */
-        $content_length = constants::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);
+        $content_length = yP::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);
         /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
         `$stream` variable to true. */
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
             /* Setting the `$stream` variable to true. */
             $this->stream = true;
             /* Sending the headers of the response. */
-            constants::get(VAR_RESPONSE)->sendHeaders();
+            yP::get(VAR_RESPONSE)->sendHeaders();
             /* Checking if the request has a parameter called `force_buffering`. If it does, it will not disable the output
             buffering. */
-            if (!constants::get(VAR_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(false);
+            if (!yP::get(VAR_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(false);
         }
     }
 
@@ -42,7 +43,7 @@ class streamPluginAction extends wrapper
         /* Checking if the response should be streamed or not. */
         if ($this->stream) {
             /* Echoing the data that is received from the server. */
-            echo $event['data'];
+            //echo $event['data'];
             /* Flushing the output buffer. */
             flush();
         }

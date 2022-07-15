@@ -2,7 +2,7 @@
 
 namespace yxorP\inc\parser\storage;
 
-use yxorP\inc\parser\topInterfaceLevelDomainListInterface;
+use yxorP\inc\parser\topLevelDomainListInterface;
 
 final class topLevelDomainsStorage implements topLevelDomainListStorageInterface
 {
@@ -15,7 +15,7 @@ final class topLevelDomainsStorage implements topLevelDomainListStorageInterface
         $this->client = $client;
     }
 
-    public function get(string $uri): topInterfaceLevelDomainListInterface
+    public function get(string $uri): topLevelDomainListInterface
     {
         $topLevelDomains = $this->cache->fetch($uri);
         if (null !== $topLevelDomains) {

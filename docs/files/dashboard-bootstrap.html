@@ -66,16 +66,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/feed.html" class="">Feed</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/feed-controller.html" class="">Controller</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/layoutcomponents.html" class="">LayoutComponents</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -302,16 +292,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-controller.html" class="">Controller</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-helper.html" class="">Helper</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -321,11 +301,29 @@
 </h4>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/LimeExtra.html" class="">LimeExtra</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Lime.html" class="">Lime</a>
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
                 <a href="packages/Lime-Helper.html" class="">Helper</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/Spyc.html" class="">Spyc</a>
+</h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/enshrined.html" class="">enshrined</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/enshrined-svgSanitize.html" class="">svgSanitize</a>
                 
             </li>
             </ul>
@@ -376,8 +374,8 @@
     <article class="phpdocumentor-element -file">
         <h2 class="phpdocumentor-content__title">bootstrap.php</h2>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">This file is part of the Yxorp project.</p>
+
 
 
 
@@ -430,7 +428,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_YXORP_CLI">YXORP_CLI</a>
     <span>
-        &nbsp;= \PHP_SAPI == &#039;cli&#039;                            </span>
+        &nbsp;= \PHP_SAPI === &#039;cli&#039;                            </span>
 </dt>
 <dd></dd>
 
@@ -479,7 +477,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_YXORP_SITE_DIR">YXORP_SITE_DIR</a>
     <span>
-        &nbsp;= \YXORP_ENV_ROOT == \YXORP_DIR ? $YXORP_DIR == \YXORP_DOCS_ROOT ? \YXORP_DIR : \dirname(\YXORP_DIR) : \YXORP_ENV_ROOT                            </span>
+        &nbsp;= \YXORP_ENV_ROOT === \YXORP_DIR ? $YXORP_DIR === \YXORP_DOCS_ROOT ? \YXORP_DIR : \dirname(\YXORP_DIR) : \YXORP_ENV_ROOT                            </span>
 </dt>
 <dd></dd>
 
@@ -488,7 +486,7 @@
     <span>
         &nbsp;= \microtime(\true)                            </span>
 </dt>
-<dd></dd>
+<dd>Yxorp start time</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_YXORP_STORAGE_FOLDER">YXORP_STORAGE_FOLDER</a>
@@ -523,7 +521,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -552,7 +550,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -581,7 +579,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -610,7 +608,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -639,7 +637,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -668,7 +666,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -677,7 +675,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">YXORP_CLI</span>
-    = <span class="phpdocumentor-signature__default-value">\PHP_SAPI == &#039;cli&#039;</span>
+    = <span class="phpdocumentor-signature__default-value">\PHP_SAPI === &#039;cli&#039;</span>
 </code>
 
 
@@ -697,7 +695,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -726,7 +724,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -755,7 +753,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -784,7 +782,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -813,7 +811,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -842,7 +840,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -871,7 +869,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -880,7 +878,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">YXORP_SITE_DIR</span>
-    = <span class="phpdocumentor-signature__default-value">\YXORP_ENV_ROOT == \YXORP_DIR ? $YXORP_DIR == \YXORP_DOCS_ROOT ? \YXORP_DIR : \dirname(\YXORP_DIR) : \YXORP_ENV_ROOT</span>
+    = <span class="phpdocumentor-signature__default-value">\YXORP_ENV_ROOT === \YXORP_DIR ? $YXORP_DIR === \YXORP_DOCS_ROOT ? \YXORP_DIR : \dirname(\YXORP_DIR) : \YXORP_ENV_ROOT</span>
 </code>
 
 
@@ -900,11 +898,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Yxorp start time</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -913,8 +912,7 @@
 </code>
 
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <section class="phpdocumentor-description"></section>
 
     
@@ -929,7 +927,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -964,7 +962,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="dashboard/bootstrap.php"><a href="files/dashboard-bootstrap.html"><abbr title="dashboard/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 

@@ -5,6 +5,7 @@
 use JetBrains\PhpStorm\Pure;
 use yxorP;
 use yxorP\inc\constants;
+use yxorp\inc\yP;
 
 /* A class that represents an HTTP request. */
 
@@ -38,7 +39,6 @@ class request
     }
 
     /* Setting the URL of the request. */
-
     public function setUrl($url): void
     {
         $query = parse_url($url, PHP_URL_QUERY);
@@ -53,7 +53,6 @@ class request
     }
 
     /* Parsing a query string into an array. */
-
     public static function parseQuery($query): array
     {
         $result = array();
@@ -63,7 +62,6 @@ class request
 
 
     /* A method that is called by the wrapper class. */
-
     public function setBody($body, $content_type = false): void
     {
         $this->post->clear();
@@ -75,7 +73,6 @@ class request
     }
 
     /* Setting the body of the request. */
-
     public function prepare(): void
     {
         if ($this->files->all()) {
@@ -99,14 +96,12 @@ class request
     }
 
     /* Preparing the body of the request. */
-
     private static function generateBoundary(): string
     {
         return '-----' . md5(microtime() . mt_rand());
     }
 
     /* Generating a boundary for the multipart/form-data request. */
-
     public static function buildPostBody($fields, $files, $boundary = null): string
     {
         $part_field = "--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n";
@@ -146,7 +141,6 @@ class request
     }
 
     /* Building the body of the request. */
-
     private function detectContentType($data): string
     {
         $content_type = 'application/octet-stream';
@@ -158,21 +152,20 @@ class request
     }
 
     /* Detecting the content type of the request. */
-
     public static function createFromGlobals(): request
     {
-        $method = (constants::get(VAR_SERVER))[YXORP_REQUEST_METHOD];
-        $scheme = (isset(constants::get(VAR_SERVER)[VAR_HTTPS]) && (constants::get(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
-        $url = $scheme . ':' . YXORP_PROXY_URL;
+        $method = (yP::get(VAR_SERVER))[YXORP_REQUEST_METHOD];
+        $scheme = (isset(yP::get(VAR_SERVER)[VAR_HTTPS]) && (yP::get(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
+        $url = $scheme . ':' . YXORP_GUZZLE_URL;
         $request = new request($method, $url);
-        foreach (constants::get(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
+        foreach (yP::get(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
             $name = substr($name, 5);
             $name = str_replace(CHAR_UNDER, ' ', $name);
             $name = ucwords(strtolower($name));
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set(VAR_USER_IP, (constants::get(VAR_SERVER))[YXORP_REMOTE_ADDR]);
+        $request->params->set(VAR_USER_IP, (yP::get(VAR_SERVER))[YXORP_REMOTE_ADDR]);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);
@@ -183,14 +176,12 @@ class request
 
 
     /* A getter method for the `$method` property. */
-
     public function getMethod(): string
     {
         return $this->method;
     }
 
     /* Setting the method of the request. */
-
     public function setMethod($method): void
     {
         $this->method = strtoupper($method);
@@ -200,18 +191,16 @@ class request
 
     #[Pure] public function getUrl(): string
     {
-        return YXORP_PROXY_URL;
+        return YXORP_GUZZLE_URL;
     }
 
     /* A getter method for the `$protocol_version` property. */
-
     public function getProtocolVersion(): string
     {
         return $this->protocol_version;
     }
 
     /* Getting the raw headers of the request. */
-
     public function getRawHeaders(): string
     {
         $result = array();
@@ -225,14 +214,12 @@ class request
     }
 
     /* Returning the prepared body of the request. */
-
     public function getRawBody(): string
     {
         return $this->prepared_body;
     }
 
     /* An alias for `public function getUrl()`. */
-
     public function getUri()
     {
         return call_user_func_array(array($this, "getUrl"), func_get_args());

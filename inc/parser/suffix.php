@@ -6,15 +6,15 @@ use JetBrains\PhpStorm\Pure;
 use function count;
 use function in_array;
 
-final class suffix implements effectiveTopLevelDomainInterface
+final class suffix implements topLevelDomainInterface
 {
     private const ICANN = 'ICANN';
     private const PRIVATE = 'PRIVATE';
     private const IANA = 'IANA';
-    private aaDomainNameInterface $domain;
+    private nameInterface $domain;
     private string $section;
 
-    private function __construct(aaDomainNameInterface $domain, string $section)
+    private function __construct(nameInterface $domain, string $section)
     {
         $this->domain = $domain;
         $this->section = $section;
@@ -34,13 +34,13 @@ final class suffix implements effectiveTopLevelDomainInterface
         return new self($domain, self::ICANN);
     }
 
-    private static function setDomainName($domain): aaDomainNameInterface
+    private static function setDomainName($domain): nameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof aaDomainNameInterface) {
-            $domain = aaDomain::fromIDNA2008($domain);
+        if (!$domain instanceof nameInterface) {
+            $domain = domain::fromIDNA2008($domain);
         }
         if ('' === $domain->label(0)) {
             throw syntaxError::dueToInvalidSuffix($domain);
@@ -48,7 +48,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         return $domain;
     }
 
-    public function domain(): aaDomainNameInterface
+    public function domain(): nameInterface
     {
         return $this->domain;
     }
@@ -121,7 +121,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         return $this->domain->toString();
     }
 
-    public function normalize(aaDomainNameInterface $domain): self
+    public function normalize(nameInterface $domain): self
     {
         $newDomain = $domain->clear()->append($this->toUnicode());
         if ($domain->isAscii()) {

@@ -4,15 +4,15 @@ namespace yxorP\inc\parser;
 
 use function count;
 
-final class resolvedDomain implements resolvedInterfaceDomainNameInterface
+final class resolvedDomain implements resolvedDomainNameInterface
 {
-    private aaDomainNameInterface $domain;
-    private effectiveTopLevelDomainInterface $suffix;
-    private aaDomainNameInterface $secondLevelDomain;
-    private aaDomainNameInterface $registrableDomain;
-    private aaDomainNameInterface $subDomain;
+    private nameInterface $domain;
+    private topLevelDomainInterface $suffix;
+    private nameInterface $secondLevelDomain;
+    private nameInterface $registrableDomain;
+    private nameInterface $subDomain;
 
-    private function __construct(aaDomainNameInterface $domain, effectiveTopLevelDomainInterface $suffix)
+    private function __construct(nameInterface $domain, topLevelDomainInterface $suffix)
     {
         $this->domain = $domain;
         $this->suffix = $suffix;
@@ -52,18 +52,18 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
         return new self($domain, suffix::fromICANN($domain->slice(0, $suffixLength)));
     }
 
-    private static function setDomainName($domain): aaDomainNameInterface
+    private static function setDomainName($domain): nameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             return $domain->domain();
         }
-        if ($domain instanceof aaDomainNameInterface) {
+        if ($domain instanceof nameInterface) {
             return $domain;
         }
-        return aaDomain::fromIDNA2008($domain);
+        return domain::fromIDNA2008($domain);
     }
 
-    public function domain(): aaDomainNameInterface
+    public function domain(): nameInterface
     {
         return $this->domain;
     }
@@ -106,22 +106,22 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
         return $this->domain->toString();
     }
 
-    public function registrableDomain(): aaDomainNameInterface
+    public function registrableDomain(): nameInterface
     {
         return $this->registrableDomain;
     }
 
-    public function secondLevelDomain(): aaDomainNameInterface
+    public function secondLevelDomain(): nameInterface
     {
         return $this->secondLevelDomain;
     }
 
-    public function subDomain(): aaDomainNameInterface
+    public function subDomain(): nameInterface
     {
         return $this->subDomain;
     }
 
-    public function suffix(): effectiveTopLevelDomainInterface
+    public function suffix(): topLevelDomainInterface
     {
         return $this->suffix;
     }
@@ -138,7 +138,7 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
 
     public function withSuffix($suffix): self
     {
-        if (!$suffix instanceof effectiveTopLevelDomainInterface) {
+        if (!$suffix instanceof topLevelDomainInterface) {
             $suffix = suffix::fromUnknown($suffix);
         }
         return new self($this->domain->slice(count($this->suffix))->append($suffix), $suffix->normalize($this->domain));

@@ -62,7 +62,6 @@ class paramStore
     }
 
     /* Normalizing the key. */
-
     private function normalizeKey($key)
     {
         /* Checking if the `$case_sensitive` variable is true, and if it is, it will return the `$key` parameter. If it is
@@ -80,7 +79,6 @@ class paramStore
     }
 
     /* Removing the `$key` parameter from the `$data` variable. */
-
     public function remove($key): void
     {
         /* Removing the `$key` parameter from the `$data` variable. */
@@ -100,14 +98,12 @@ class paramStore
     }
 
     /* Returning the `$data` variable. */
-
     public function all(): array
     {
         return $this->data;
     }
 
     /* Returning the `$data` variable as a JSON string. */
-
     public function __toString()
     {
         /* Returning the `$data` variable as a JSON string. */

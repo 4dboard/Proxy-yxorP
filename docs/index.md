@@ -4,10 +4,6 @@
 # yxorP Documentation
 
 
-
-This is an automatically generated documentation for **yxorP Documentation**.
-
-
 ## Namespaces
 
 
@@ -996,9 +992,3 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Jobs`](./classes/yxorP/Helper/Jobs.md) | |
 | [`Revisions`](./classes/yxorP/Helper/Revisions.md) | |
 | [`Updater`](./classes/yxorP/Helper/Updater.md) | Admin Helper class.|
-
-
-
-
-***
-> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
