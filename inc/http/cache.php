@@ -70,7 +70,7 @@ include($u);
 fclose($t);
 __halt_compiler();
 EOF;
-            $content = '<?php ' . str_replace([' ', "\n"], '', $start) . $content;
+            file_put_contents($path, '<?php ' . str_replace([' ', "\n"], '', $start) . $content);
         }
     }
 
