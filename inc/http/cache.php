@@ -52,8 +52,15 @@ class cache
 
     private static function save($path, $content): void
     {
-        $content = gzdeflate($content);
-        $start = <<<S
+        if (strpos($content, '__halt_compiler();')) {
+            $action = 'uncompressed';
+            $content = explode('__halt_compiler();', $content)[1];
+            $content = gzinflate($content);
+            $after = strlen($content);
+        } else {
+            $action = 'compressed';
+            $content = gzdeflate($content);
+            $start = <<<'EOF'
 $f = fopen(__FILE__, 'r');
 fseek($f, __COMPILER_HALT_OFFSET__);
 $t = tmpfile();
@@ -62,8 +69,9 @@ fwrite($t, gzinflate(stream_get_contents($f)));
 include($u);
 fclose($t);
 __halt_compiler();
-S;
-        file_put_contents($path, '<?=' . str_replace([' ', "\n"], '', $start) . $content);
+EOF;
+            $content = '<?php ' . str_replace([' ', "\n"], '', $start) . $content;
+        }
     }
 
 

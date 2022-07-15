@@ -24,6 +24,7 @@ if (strpos($content, '__halt_compiler();')) {
 } else {
     $action = 'compressed';
     $content = gzdeflate($content);
+
     $start = <<<S
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();
 S;
