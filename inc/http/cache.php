@@ -47,7 +47,7 @@ class cache
     public static function store($val, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '$GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
+        file_put_contents(self::gen($key)['path'], '<?php $GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
     }
 
     public static function set($content, ?string $key = null): void
