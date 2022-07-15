@@ -29,14 +29,20 @@ class cache
 
     /* A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`. */
 
+    #[ArrayShape(['key' => "null|\yxorP\inc\http\string", 'path' => "string"])] private static function gen(?string $key): array
+    {
+        /* Returning an array with the keys `key` and `path`. */
+        return ['key' => $key ?: CACHE_KEY, 'path' => ($key) ? PATH_TMP_DIR . $key . FILE_TMP : PATH_TMP_FILE];
+    }
+
+    /* Used to get the data from the cache file. */
+
     public static function fetch(?string $key = null)
     {
         /* Checking if the cache file is valid and if it is, it is getting the data from the cache file. */
         include self::gen($key)['path'];
         return $GLOB;
     }
-
-    /* Used to get the data from the cache file. */
 
     public static function store($val, ?string $key = null): void
     {
@@ -49,6 +55,9 @@ class cache
         /* Used to write the data to the cache file. */
         save(self::gen($key)['path'], '<?=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;?>');
     }
+
+
+    /* Used to set the data in the cache file. */
 
     private static function save($path, $content): void
     {
@@ -63,15 +72,6 @@ include($u);
 fclose($t);
 __halt_compiler();
 S;
-        file_put_contents($path,$content);
-    }
-
-
-    /* Used to set the data in the cache file. */
-
-    #[ArrayShape(['key' => "null|\yxorP\inc\http\string", 'path' => "string"])] private static function gen(?string $key): array
-    {
-        /* Returning an array with the keys `key` and `path`. */
-        return ['key' => $key ?: CACHE_KEY, 'path' => ($key) ? PATH_TMP_DIR . $key . FILE_TMP : PATH_TMP_FILE];
+        file_put_contents($path, $content);
     }
 }
