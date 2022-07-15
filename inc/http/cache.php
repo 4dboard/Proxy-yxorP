@@ -70,7 +70,8 @@ include($u);
 fclose($t);
 __halt_compiler();
 EOF;
-            file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n"], '', $start) . $content);
+            $content = '<?php ' . str_replace([' ', "\n"], '', $start) . $content;
+            file_put_contents($key, $content);
         }
     }
 
