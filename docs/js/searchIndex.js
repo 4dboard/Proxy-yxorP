@@ -1,185 +1,95 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\YXORP_BOOTMANAGER",
-            "name": "YXORP_BOOTMANAGER",
-            "summary": "Boot\u0020Manager\u0020for\u0020Yxorp\u0020CMS",
-            "url": "namespaces/default.html#constant_YXORP_BOOTMANAGER"
+            "fqsen": "\\COCKPIT_START_TIME",
+            "name": "COCKPIT_START_TIME",
+            "summary": "Cockpit\u0020start\u0020time",
+            "url": "namespaces/default.html#constant_COCKPIT_START_TIME"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin",
-            "name": "Admin",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Bootmanager-Controller-Admin.html"
-        },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
+            "fqsen": "\\COCKPIT_CLI",
+            "name": "COCKPIT_CLI",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_index"
+            "url": "namespaces/default.html#constant_COCKPIT_CLI"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003Asettings\u0028\u0029",
-            "name": "settings",
+            "fqsen": "\\COCKPIT_DIR",
+            "name": "COCKPIT_DIR",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_settings"
+            "url": "namespaces/default.html#constant_COCKPIT_DIR"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AgetConfig\u0028\u0029",
-            "name": "getConfig",
+            "fqsen": "\\COCKPIT_ADMIN",
+            "name": "COCKPIT_ADMIN",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "url": "namespaces/default.html#constant_COCKPIT_ADMIN"
+        },                {
+            "fqsen": "\\COCKPIT_DOCS_ROOT",
+            "name": "COCKPIT_DOCS_ROOT",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_getConfig"
+            "url": "namespaces/default.html#constant_COCKPIT_DOCS_ROOT"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AlistModules\u0028\u0029",
-            "name": "listModules",
+            "fqsen": "\\COCKPIT_ENV_ROOT",
+            "name": "COCKPIT_ENV_ROOT",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_listModules"
+            "url": "namespaces/default.html#constant_COCKPIT_ENV_ROOT"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AsaveConfig\u0028\u0029",
-            "name": "saveConfig",
+            "fqsen": "\\COCKPIT_BASE_URL",
+            "name": "COCKPIT_BASE_URL",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_saveConfig"
+            "url": "namespaces/default.html#constant_COCKPIT_BASE_URL"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AgetUpdatedValues\u0028\u0029",
-            "name": "getUpdatedValues",
+            "fqsen": "\\COCKPIT_API_REQUEST",
+            "name": "COCKPIT_API_REQUEST",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_getUpdatedValues"
+            "url": "namespaces/default.html#constant_COCKPIT_API_REQUEST"
         },                {
-            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AgetReadme\u0028\u0029",
-            "name": "getReadme",
+            "fqsen": "\\COCKPIT_SITE_DIR",
+            "name": "COCKPIT_SITE_DIR",
             "summary": "",
-            "url": "classes/Bootmanager-Controller-Admin.html#method_getReadme"
+            "url": "namespaces/default.html#constant_COCKPIT_SITE_DIR"
         },                {
-            "fqsen": "\\LayoutComponents\\Controller\\Admin",
-            "name": "Admin",
-            "summary": "Class\u0020Controller",
-            "url": "classes/LayoutComponents-Controller-Admin.html"
-        },                {
-            "fqsen": "\\LayoutComponents\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
+            "fqsen": "\\COCKPIT_CONFIG_DIR",
+            "name": "COCKPIT_CONFIG_DIR",
             "summary": "",
-            "url": "classes/LayoutComponents-Controller-Admin.html#method_index"
+            "url": "namespaces/default.html#constant_COCKPIT_CONFIG_DIR"
         },                {
-            "fqsen": "\\LayoutComponents\\Controller\\Admin\u003A\u003Astore\u0028\u0029",
-            "name": "store",
+            "fqsen": "\\COCKPIT_BASE_ROUTE",
+            "name": "COCKPIT_BASE_ROUTE",
             "summary": "",
-            "url": "classes/LayoutComponents-Controller-Admin.html#method_store"
+            "url": "namespaces/default.html#constant_COCKPIT_BASE_ROUTE"
         },                {
-            "fqsen": "\\LayoutComponents\\Controller\\RestApi",
-            "name": "RestApi",
-            "summary": "Class\u0020Controller",
-            "url": "classes/LayoutComponents-Controller-RestApi.html"
-        },                {
-            "fqsen": "\\LayoutComponents\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
-            "name": "get",
+            "fqsen": "\\COCKPIT_STORAGE_FOLDER",
+            "name": "COCKPIT_STORAGE_FOLDER",
             "summary": "",
-            "url": "classes/LayoutComponents-Controller-RestApi.html#method_get"
+            "url": "namespaces/default.html#constant_COCKPIT_STORAGE_FOLDER"
         },                {
-            "fqsen": "\\LayoutComponents\\Controller\\RestApi\u003A\u003Astore\u0028\u0029",
-            "name": "store",
+            "fqsen": "\\COCKPIT_ADMIN_CP",
+            "name": "COCKPIT_ADMIN_CP",
             "summary": "",
-            "url": "classes/LayoutComponents-Controller-RestApi.html#method_store"
+            "url": "namespaces/default.html#constant_COCKPIT_ADMIN_CP"
         },                {
-            "fqsen": "\\rljUtils\\Controller\\Admin",
-            "name": "Admin",
-            "summary": "Class\u0020Controller",
-            "url": "classes/rljUtils-Controller-Admin.html"
-        },                {
-            "fqsen": "\\rljUtils\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
+            "fqsen": "\\COCKPIT_PUBLIC_STORAGE_FOLDER",
+            "name": "COCKPIT_PUBLIC_STORAGE_FOLDER",
             "summary": "",
-            "url": "classes/rljUtils-Controller-Admin.html#method_index"
+            "url": "namespaces/default.html#constant_COCKPIT_PUBLIC_STORAGE_FOLDER"
         },                {
-            "fqsen": "\\rljUtils\\Controller\\Admin\u003A\u003AsaveConfig\u0028\u0029",
-            "name": "saveConfig",
+            "fqsen": "\\COCKPIT_CONFIG_PATH",
+            "name": "COCKPIT_CONFIG_PATH",
             "summary": "",
-            "url": "classes/rljUtils-Controller-Admin.html#method_saveConfig"
+            "url": "namespaces/default.html#constant_COCKPIT_CONFIG_PATH"
         },                {
-            "fqsen": "\\YXORP_START_TIME",
-            "name": "YXORP_START_TIME",
-            "summary": "Yxorp\u0020start\u0020time",
-            "url": "namespaces/default.html#constant_YXORP_START_TIME"
-        },                {
-            "fqsen": "\\YXORP_CLI",
-            "name": "YXORP_CLI",
+            "fqsen": "\\cockpit\u0028\u0029",
+            "name": "cockpit",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_CLI"
+            "url": "namespaces/default.html#function_cockpit"
         },                {
-            "fqsen": "\\YXORP_DIR",
-            "name": "YXORP_DIR",
+            "fqsen": "\\COCKPIT_ADMIN_ROUTE",
+            "name": "COCKPIT_ADMIN_ROUTE",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_DIR"
+            "url": "namespaces/default.html#constant_COCKPIT_ADMIN_ROUTE"
         },                {
-            "fqsen": "\\YXORP_ADMIN",
-            "name": "YXORP_ADMIN",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
-            "url": "namespaces/default.html#constant_YXORP_ADMIN"
-        },                {
-            "fqsen": "\\YXORP_DOCS_ROOT",
-            "name": "YXORP_DOCS_ROOT",
+            "fqsen": "\\COCKPIT_INSTALL",
+            "name": "COCKPIT_INSTALL",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_DOCS_ROOT"
-        },                {
-            "fqsen": "\\YXORP_ENV_ROOT",
-            "name": "YXORP_ENV_ROOT",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_ENV_ROOT"
-        },                {
-            "fqsen": "\\YXORP_BASE_URL",
-            "name": "YXORP_BASE_URL",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_BASE_URL"
-        },                {
-            "fqsen": "\\YXORP_API_REQUEST",
-            "name": "YXORP_API_REQUEST",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_API_REQUEST"
-        },                {
-            "fqsen": "\\YXORP_SITE_DIR",
-            "name": "YXORP_SITE_DIR",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_SITE_DIR"
-        },                {
-            "fqsen": "\\YXORP_CONFIG_DIR",
-            "name": "YXORP_CONFIG_DIR",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_CONFIG_DIR"
-        },                {
-            "fqsen": "\\YXORP_BASE_ROUTE",
-            "name": "YXORP_BASE_ROUTE",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_BASE_ROUTE"
-        },                {
-            "fqsen": "\\YXORP_STORAGE_FOLDER",
-            "name": "YXORP_STORAGE_FOLDER",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_STORAGE_FOLDER"
-        },                {
-            "fqsen": "\\YXORP_ADMIN_CP",
-            "name": "YXORP_ADMIN_CP",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_ADMIN_CP"
-        },                {
-            "fqsen": "\\YXORP_PUBLIC_STORAGE_FOLDER",
-            "name": "YXORP_PUBLIC_STORAGE_FOLDER",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_PUBLIC_STORAGE_FOLDER"
-        },                {
-            "fqsen": "\\YXORP_CONFIG_PATH",
-            "name": "YXORP_CONFIG_PATH",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_CONFIG_PATH"
-        },                {
-            "fqsen": "\\yxorp\u0028\u0029",
-            "name": "yxorp",
-            "summary": "",
-            "url": "namespaces/default.html#function_yxorp"
-        },                {
-            "fqsen": "\\YXORP_ADMIN_ROUTE",
-            "name": "YXORP_ADMIN_ROUTE",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_ADMIN_ROUTE"
-        },                {
-            "fqsen": "\\YXORP_INSTALL",
-            "name": "YXORP_INSTALL",
-            "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_INSTALL"
+            "url": "namespaces/default.html#constant_COCKPIT_INSTALL"
         },                {
             "fqsen": "\\ensure_writable\u0028\u0029",
             "name": "ensure_writable",
@@ -188,7 +98,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\CLI",
             "name": "CLI",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/CLI.html"
         },                {
             "fqsen": "\\CLI\u003A\u003Abeep\u0028\u0029",
@@ -201,15 +111,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/CLI.html#method_opts"
         },                {
-            "fqsen": "\\CLI\u003A\u003Awriteln\u0028\u0029",
-            "name": "writeln",
-            "summary": "",
-            "url": "classes/CLI.html#method_writeln"
-        },                {
             "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
             "name": "write",
             "summary": "",
             "url": "classes/CLI.html#method_write"
+        },                {
+            "fqsen": "\\CLI\u003A\u003Awriteln\u0028\u0029",
+            "name": "writeln",
+            "summary": "",
+            "url": "classes/CLI.html#method_writeln"
         },                {
             "fqsen": "\\CLI\u003A\u003Aprogress\u0028\u0029",
             "name": "progress",
@@ -218,13 +128,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ContainerArray",
             "name": "ContainerArray",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/ContainerArray.html"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/ContainerArray.html#method___construct"
+        },                {
+            "fqsen": "\\ContainerArray\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_extend"
+        },                {
+            "fqsen": "\\ContainerArray\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_get"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003Acount\u0028\u0029",
             "name": "count",
@@ -241,20 +161,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_getIterator"
         },                {
-            "fqsen": "\\ContainerArray\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method___get"
-        },                {
             "fqsen": "\\ContainerArray\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/ContainerArray.html#method___set"
         },                {
-            "fqsen": "\\ContainerArray\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
+            "fqsen": "\\ContainerArray\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
             "summary": "",
-            "url": "classes/ContainerArray.html#method_extend"
+            "url": "classes/ContainerArray.html#method___get"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -281,16 +196,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_offsetGet"
         },                {
-            "fqsen": "\\ContainerArray\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_get"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
-            "name": "fetch_from_array",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_fetch_from_array"
-        },                {
             "fqsen": "\\ContainerArray\u003A\u003AoffsetExists\u0028\u0029",
             "name": "offsetExists",
             "summary": "",
@@ -300,6 +205,11 @@ Search.appendIndex(
             "name": "offsetUnset",
             "summary": "",
             "url": "classes/ContainerArray.html#method_offsetUnset"
+        },                {
+            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
+            "name": "fetch_from_array",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_fetch_from_array"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003Aextract\u0028\u0029",
             "name": "extract",
@@ -343,18 +253,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DataCollection",
             "name": "DataCollection",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/DataCollection.html"
+        },                {
+            "fqsen": "\\DataCollection\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_create"
         },                {
             "fqsen": "\\DataCollection\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/DataCollection.html#method___construct"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
+            "fqsen": "\\DataCollection\u003A\u003Acount\u0028\u0029",
+            "name": "count",
             "summary": "",
-            "url": "classes/DataCollection.html#method_create"
+            "url": "classes/DataCollection.html#method_count"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Afirst\u0028\u0029",
             "name": "first",
@@ -370,11 +285,6 @@ Search.appendIndex(
             "name": "reverse",
             "summary": "",
             "url": "classes/DataCollection.html#method_reverse"
-        },                {
-            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
-            "name": "setItems",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_setItems"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Alimit\u0028\u0029",
             "name": "limit",
@@ -411,15 +321,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/DataCollection.html#method_eq"
         },                {
+            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
+            "name": "setItems",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_setItems"
+        },                {
             "fqsen": "\\DataCollection\u003A\u003Apagination\u0028\u0029",
             "name": "pagination",
             "summary": "",
             "url": "classes/DataCollection.html#method_pagination"
-        },                {
-            "fqsen": "\\DataCollection\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_count"
         },                {
             "fqsen": "\\DataCollection\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
@@ -463,7 +373,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DotEnv",
             "name": "DotEnv",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/DotEnv.html"
         },                {
             "fqsen": "\\DotEnv\u003A\u003Aload\u0028\u0029",
@@ -491,11 +401,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/FileStorage.html#method_addStorage"
         },                {
-            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
-            "name": "initStorage",
-            "summary": "",
-            "url": "classes/FileStorage.html#method_initStorage"
-        },                {
             "fqsen": "\\FileStorage\u003A\u003Ause\u0028\u0029",
             "name": "use",
             "summary": "",
@@ -505,6 +410,11 @@ Search.appendIndex(
             "name": "getURL",
             "summary": "",
             "url": "classes/FileStorage.html#method_getURL"
+        },                {
+            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
+            "name": "initStorage",
+            "summary": "",
+            "url": "classes/FileStorage.html#method_initStorage"
         },                {
             "fqsen": "\\FileStorage\u003A\u003A__call\u0028\u0029",
             "name": "__call",
@@ -546,15 +456,20 @@ Search.appendIndex(
             "summary": "\u005Brender\u0020description\u005D",
             "url": "classes/Lexy.html#method_render"
         },                {
-            "fqsen": "\\Lexy\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "\u005Bexecute\u0020description\u005D",
-            "url": "classes/Lexy.html#method_execute"
-        },                {
             "fqsen": "\\Lexy\u003A\u003Arender_file\u0028\u0029",
             "name": "render_file",
             "summary": "\u005Brender_file\u0020description\u005D",
             "url": "classes/Lexy.html#method_render_file"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "\u005BsetcachePath\u0020description\u005D",
+            "url": "classes/Lexy.html#method_setCachePath"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "\u005Bexecute\u0020description\u005D",
+            "url": "classes/Lexy.html#method_execute"
         },                {
             "fqsen": "\\Lexy\u003A\u003Afile\u0028\u0029",
             "name": "file",
@@ -581,21 +496,6 @@ Search.appendIndex(
             "summary": "\u005Bcompile\u0020description\u005D",
             "url": "classes/Lexy.html#method_compile"
         },                {
-            "fqsen": "\\Lexy\u003A\u003Acheck_security\u0028\u0029",
-            "name": "check_security",
-            "summary": "\u005Bcheck_security\u0020description\u005D",
-            "url": "classes/Lexy.html#method_check_security"
-        },                {
-            "fqsen": "\\Lexy\u003A\u003Acheck_syntax\u0028\u0029",
-            "name": "check_syntax",
-            "summary": "\u005Bcheck_syntax\u0020description\u005D",
-            "url": "classes/Lexy.html#method_check_syntax"
-        },                {
-            "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "\u005BsetcachePath\u0020description\u005D",
-            "url": "classes/Lexy.html#method_setCachePath"
-        },                {
             "fqsen": "\\Lexy\u003A\u003AallowCall\u0028\u0029",
             "name": "allowCall",
             "summary": "",
@@ -605,6 +505,16 @@ Search.appendIndex(
             "name": "extend",
             "summary": "",
             "url": "classes/Lexy.html#method_extend"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Acheck_security\u0028\u0029",
+            "name": "check_security",
+            "summary": "\u005Bcheck_security\u0020description\u005D",
+            "url": "classes/Lexy.html#method_check_security"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Acheck_syntax\u0028\u0029",
+            "name": "check_syntax",
+            "summary": "\u005Bcheck_syntax\u0020description\u005D",
+            "url": "classes/Lexy.html#method_check_syntax"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_comments\u0028\u0029",
             "name": "compile_comments",
@@ -686,16 +596,6 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/Lime-App.html#method___construct"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
-            "name": "retrieve",
-            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_retrieve"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
-            "name": "getRequestfromGlobals",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
             "summary": "Get\u0020App\u0020instance",
@@ -706,90 +606,85 @@ Search.appendIndex(
             "summary": "Returns\u0020a\u0020closure\u0020that\u0020stores\u0020the\u0020result\u0020of\u0020the\u0020given\u0020closure",
             "url": "classes/Lime-App.html#method_service"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "stop\u0020application\u0020\u0028exit\u0029",
+            "url": "classes/Lime-App.html#method_stop"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003AisExit\u0028\u0029",
             "name": "isExit",
             "summary": "Is\u0020application\u0020stopped\u003F",
             "url": "classes/Lime-App.html#method_isExit"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Abase\u0028\u0029",
-            "name": "base",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_base"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
             "name": "baseUrl",
             "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
             "url": "classes/Lime-App.html#method_baseUrl"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003ApathToUrl\u0028\u0029",
-            "name": "pathToUrl",
+            "fqsen": "\\Lime\\App\u003A\u003Abase\u0028\u0029",
+            "name": "base",
             "summary": "",
-            "url": "classes/Lime-App.html#method_pathToUrl"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
-            "name": "path",
-            "summary": "Path\u0020helper\u0020method",
-            "url": "classes/Lime-App.html#method_path"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
-            "name": "isAbsolutePath",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_isAbsolutePath"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_route"
+            "url": "classes/Lime-App.html#method_base"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
             "name": "routeUrl",
             "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
             "url": "classes/Lime-App.html#method_routeUrl"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_route"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
             "name": "reroute",
             "summary": "Redirect\u0020to\u0020path.",
             "url": "classes/Lime-App.html#method_reroute"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "stop\u0020application\u0020\u0028exit\u0029",
-            "url": "classes/Lime-App.html#method_stop"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
             "name": "set",
             "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
             "url": "classes/Lime-App.html#method_set"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
+            "name": "retrieve",
+            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_retrieve"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
+            "name": "path",
+            "summary": "Path\u0020helper\u0020method",
+            "url": "classes/Lime-App.html#method_path"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
             "name": "paths",
             "summary": "",
             "url": "classes/Lime-App.html#property_paths"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003ApathToUrl\u0028\u0029",
+            "name": "pathToUrl",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_pathToUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "Cache\u0020helper\u0020method",
             "url": "classes/Lime-App.html#method_cache"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
-            "name": "helper",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_helper"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Aon\u0028\u0029",
             "name": "on",
             "summary": "Bind\u0020an\u0020event\u0020to\u0020closure",
             "url": "classes/Lime-App.html#method_on"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Arender\u0028\u0029",
-            "name": "render",
-            "summary": "Render\u0020view.",
-            "url": "classes/Lime-App.html#method_render"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
             "name": "trigger",
             "summary": "Trigger\u0020event.",
             "url": "classes/Lime-App.html#method_trigger"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "Render\u0020view.",
+            "url": "classes/Lime-App.html#method_render"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Astart\u0028\u0029",
             "name": "start",
@@ -811,30 +706,25 @@ Search.appendIndex(
             "summary": "Escape\u0020string.",
             "url": "classes/Lime-App.html#method_escape"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
-            "name": "assets",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_assets"
+            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Get\u0020style\u0020inc.\u0020markup",
+            "url": "classes/Lime-App.html#method_style"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Get\u0020script\u0020inc.\u0020markup",
             "url": "classes/Lime-App.html#method_script"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Get\u0020style\u0020inc.\u0020markup",
-            "url": "classes/Lime-App.html#method_style"
+            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
+            "name": "assets",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_assets"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Bind\u0020GET\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_get"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
-            "name": "bind",
-            "summary": "Bind\u0020request\u0020to\u0020route",
-            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Apost\u0028\u0029",
             "name": "post",
@@ -846,15 +736,15 @@ Search.appendIndex(
             "summary": "Bind\u0020Class\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindClass"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
-            "name": "invoke",
-            "summary": "Invoke\u0020Class\u0020as\u0020controller",
-            "url": "classes/Lime-App.html#method_invoke"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003AbindNamespace\u0028\u0029",
             "name": "bindNamespace",
             "summary": "Bind\u0020namespace\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindNamespace"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
+            "name": "bind",
+            "summary": "Bind\u0020request\u0020to\u0020route",
+            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arun\u0028\u0029",
             "name": "run",
@@ -870,6 +760,11 @@ Search.appendIndex(
             "name": "render_route",
             "summary": "Render\u0020dispatched\u0020route",
             "url": "classes/Lime-App.html#method_render_route"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
+            "name": "invoke",
+            "summary": "Invoke\u0020Class\u0020as\u0020controller",
+            "url": "classes/Lime-App.html#method_invoke"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -901,30 +796,40 @@ Search.appendIndex(
             "summary": "Create\u0020Hash",
             "url": "classes/Lime-App.html#method_hash"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "RC4\u0020encryption",
+            "url": "classes/Lime-App.html#method_encode"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
             "summary": "Decode\u0020RC4\u0020encrypted\u0020text",
             "url": "classes/Lime-App.html#method_decode"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "RC4\u0020encryption",
-            "url": "classes/Lime-App.html#method_encode"
+            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
+            "name": "helper",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_helper"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
+            "name": "isAbsolutePath",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_isAbsolutePath"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Amodule\u0028\u0029",
             "name": "module",
             "summary": "",
             "url": "classes/Lime-App.html#method_module"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AloadModules\u0028\u0029",
-            "name": "loadModules",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_loadModules"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
             "name": "registerModule",
             "summary": "",
             "url": "classes/Lime-App.html#method_registerModule"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AloadModules\u0028\u0029",
+            "name": "loadModules",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_loadModules"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbootModule\u0028\u0029",
             "name": "bootModule",
@@ -961,35 +866,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-App.html#method___invoke"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
+            "name": "getRequestfromGlobals",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024apps",
             "name": "apps",
             "summary": "",
             "url": "classes/Lime-App.html#property_apps"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024response",
-            "name": "response",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_response"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024request",
-            "name": "request",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_request"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024helpers",
-            "name": "helpers",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_helpers"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024layout",
-            "name": "layout",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_layout"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024viewvars",
-            "name": "viewvars",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_viewvars"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
             "name": "registry",
@@ -1015,6 +900,31 @@ Search.appendIndex(
             "name": "exit",
             "summary": "",
             "url": "classes/Lime-App.html#property_exit"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024response",
+            "name": "response",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_response"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024request",
+            "name": "request",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_request"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024helpers",
+            "name": "helpers",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_helpers"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024layout",
+            "name": "layout",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_layout"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024viewvars",
+            "name": "viewvars",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_viewvars"
         },                {
             "fqsen": "\\Lime\\AppAware",
             "name": "AppAware",
@@ -1056,20 +966,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Module.html"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
+            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
             "summary": "",
-            "url": "classes/Lime-Module.html#method___get"
+            "url": "classes/Lime-Module.html#method_extend"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/Lime-Module.html#method___set"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
+            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
             "summary": "",
-            "url": "classes/Lime-Module.html#method_extend"
+            "url": "classes/Lime-Module.html#method___get"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -1106,15 +1016,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_initialize"
         },                {
-            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AgetCachePath\u0028\u0029",
-            "name": "getCachePath",
-            "summary": "",
-            "url": "classes/Lime-Helper-Cache.html#method_getCachePath"
-        },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AsetCachePath\u0028\u0029",
             "name": "setCachePath",
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_setCachePath"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AgetCachePath\u0028\u0029",
+            "name": "getCachePath",
+            "summary": "",
+            "url": "classes/Lime-Helper-Cache.html#method_getCachePath"
         },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003Awrite\u0028\u0029",
             "name": "write",
@@ -1176,35 +1086,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#method_destroy"
         },                {
-            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/Lime-Helper-Session.html#property_name"
-        },                {
             "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
             "name": "initialized",
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#property_initialized"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Lime-Helper-Session.html#property_name"
         },                {
             "fqsen": "\\Lime\\Request",
             "name": "Request",
             "summary": "",
             "url": "classes/Lime-Request.html"
         },                {
-            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Lime-Request.html#method___construct"
-        },                {
             "fqsen": "\\Lime\\Request\u003A\u003AfromGlobalRequest\u0028\u0029",
             "name": "fromGlobalRequest",
             "summary": "",
             "url": "classes/Lime-Request.html#method_fromGlobalRequest"
         },                {
-            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
-            "name": "getAllHeaders",
+            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
             "summary": "",
-            "url": "classes/Lime-Request.html#method_getAllHeaders"
+            "url": "classes/Lime-Request.html#method___construct"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -1230,6 +1135,11 @@ Search.appendIndex(
             "name": "is",
             "summary": "",
             "url": "classes/Lime-Request.html#method_is"
+        },                {
+            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
+            "name": "getAllHeaders",
+            "summary": "",
+            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003A\u0024request",
             "name": "request",
@@ -1306,16 +1216,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#method_flush"
         },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
-            "name": "statusCodes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_statusCodes"
-        },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
-            "name": "mimeTypes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_mimeTypes"
-        },                {
             "fqsen": "\\Lime\\Response\u003A\u003A\u0024body",
             "name": "body",
             "summary": "",
@@ -1351,6 +1251,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#property_headers"
         },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
+            "name": "statusCodes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_statusCodes"
+        },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
+            "name": "mimeTypes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_mimeTypes"
+        },                {
             "fqsen": "\\LimeExtra\\App",
             "name": "App",
             "summary": "Class\u0020App",
@@ -1361,15 +1271,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/LimeExtra-App.html#method___construct"
         },                {
-            "fqsen": "\\LimeExtra\\App\u003A\u003ArenderView\u0028\u0029",
-            "name": "renderView",
-            "summary": "Outputs\u0020view\u0020content\u0020result",
-            "url": "classes/LimeExtra-App.html#method_renderView"
-        },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003Aview\u0028\u0029",
             "name": "view",
             "summary": "Render\u0020view.",
             "url": "classes/LimeExtra-App.html#method_view"
+        },                {
+            "fqsen": "\\LimeExtra\\App\u003A\u003ArenderView\u0028\u0029",
+            "name": "renderView",
+            "summary": "Outputs\u0020view\u0020content\u0020result",
+            "url": "classes/LimeExtra-App.html#method_renderView"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003Aassets\u0028\u0029",
             "name": "assets",
@@ -1386,15 +1296,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Controller.html#method___construct"
         },                {
-            "fqsen": "\\LimeExtra\\Controller\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/LimeExtra-Controller.html#method_before"
-        },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
             "url": "classes/LimeExtra-Controller.html#method_index"
+        },                {
+            "fqsen": "\\LimeExtra\\Controller\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/LimeExtra-Controller.html#method_before"
         },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003Arender\u0028\u0029",
             "name": "render",
@@ -1431,35 +1341,35 @@ Search.appendIndex(
             "summary": "Assets\u0020class.",
             "url": "classes/LimeExtra-Helper-Assets.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle_and_script\u0028\u0029",
-            "name": "style_and_script",
-            "summary": "Echo\u0020tags\u0020for\u0020scripts\u0020and\u0020styles",
-            "url": "classes/LimeExtra-Helper-Assets.html#method_style_and_script"
+            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Compile\u0020styles\u0020and\u0020return\u0020in\u0020a\u0020link\u0020tag",
+            "url": "classes/LimeExtra-Helper-Assets.html#method_style"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Compile\u0020scripts\u0020and\u0020return\u0020in\u0020a\u0020script\u0020tag",
             "url": "classes/LimeExtra-Helper-Assets.html#method_script"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle_and_script\u0028\u0029",
+            "name": "style_and_script",
+            "summary": "Echo\u0020tags\u0020for\u0020scripts\u0020and\u0020styles",
+            "url": "classes/LimeExtra-Helper-Assets.html#method_style_and_script"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Acompile\u0028\u0029",
             "name": "compile",
             "summary": "Compile\u0020assets\u0020into\u0020one\u0020file",
             "url": "classes/LimeExtra-Helper-Assets.html#method_compile"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Compile\u0020styles\u0020and\u0020return\u0020in\u0020a\u0020link\u0020tag",
-            "url": "classes/LimeExtra-Helper-Assets.html#method_style"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie",
             "name": "Cookie",
             "summary": "",
             "url": "classes/LimeExtra-Helper-Cookie.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003AgetAndDelete\u0028\u0029",
-            "name": "getAndDelete",
-            "summary": "gets\u0020a\u0020cookie\u0020and\u0020eats\u0020it",
-            "url": "classes/LimeExtra-Helper-Cookie.html#method_getAndDelete"
+            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "sets\u0020a\u0020cookie",
+            "url": "classes/LimeExtra-Helper-Cookie.html#method_set"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aget\u0028\u0029",
             "name": "get",
@@ -1471,10 +1381,10 @@ Search.appendIndex(
             "summary": "deletes\u0020a\u0020cookie",
             "url": "classes/LimeExtra-Helper-Cookie.html#method_delete"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "sets\u0020a\u0020cookie",
-            "url": "classes/LimeExtra-Helper-Cookie.html#method_set"
+            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003AgetAndDelete\u0028\u0029",
+            "name": "getAndDelete",
+            "summary": "gets\u0020a\u0020cookie\u0020and\u0020eats\u0020it",
+            "url": "classes/LimeExtra-Helper-Cookie.html#method_getAndDelete"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003A\u0024_cookies",
             "name": "_cookies",
@@ -1521,6 +1431,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Helper-Filesystem.html#method_mkdir"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-Filesystem.html#method_delete"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
             "summary": "",
@@ -1530,11 +1445,6 @@ Search.appendIndex(
             "name": "rename",
             "summary": "",
             "url": "classes/LimeExtra-Helper-Filesystem.html#method_rename"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-Filesystem.html#method_delete"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003AgetDirSize\u0028\u0029",
             "name": "getDirSize",
@@ -1626,6 +1536,16 @@ Search.appendIndex(
             "summary": "Get\u0020language\u0020data",
             "url": "classes/LimeExtra-Helper-I18n.html#method_data"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locale",
+            "name": "locale",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-I18n.html#property_locale"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024_languages",
+            "name": "_languages",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-I18n.html#property__languages"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locals",
             "name": "locals",
             "summary": "",
@@ -1640,16 +1560,6 @@ Search.appendIndex(
             "name": "currencies",
             "summary": "",
             "url": "classes/LimeExtra-Helper-I18n.html#property_currencies"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locale",
-            "name": "locale",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-I18n.html#property_locale"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024_languages",
-            "name": "_languages",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-I18n.html#property__languages"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Image",
             "name": "Image",
@@ -1921,20 +1831,30 @@ Search.appendIndex(
             "summary": "Class\u0020YAML",
             "url": "classes/LimeExtra-Helper-YAML.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromString\u0028\u0029",
-            "name": "fromString",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_fromString"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AsetCachePath\u0028\u0029",
             "name": "setCachePath",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_setCachePath"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromString\u0028\u0029",
+            "name": "fromString",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_fromString"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromFile\u0028\u0029",
             "name": "fromFile",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_fromFile"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoYAML\u0028\u0029",
+            "name": "toYAML",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_toYAML"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoFile\u0028\u0029",
+            "name": "toFile",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_toFile"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003Aget_cached_file\u0028\u0029",
             "name": "get_cached_file",
@@ -1946,16 +1866,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_cache_file"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoFile\u0028\u0029",
-            "name": "toFile",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_toFile"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoYAML\u0028\u0029",
-            "name": "toYAML",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_toYAML"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003A\u0024cachePath",
             "name": "cachePath",
             "summary": "",
@@ -1963,7 +1873,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LiteDB",
             "name": "LiteDB",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/LiteDB.html"
         },                {
             "fqsen": "\\LiteDB\u003A\u003Aconnect\u0028\u0029",
@@ -2016,6 +1926,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_from"
         },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003Awhere\u0028\u0029",
+            "name": "where",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_where"
+        },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Ajoin\u0028\u0029",
             "name": "join",
             "summary": "",
@@ -2050,21 +1965,6 @@ Search.appendIndex(
             "name": "all",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_all"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003Awhere\u0028\u0029",
-            "name": "where",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_where"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildSelect\u0028\u0029",
-            "name": "buildSelect",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildSelect"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
-            "name": "buildConditions",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Aone\u0028\u0029",
             "name": "one",
@@ -2110,6 +2010,16 @@ Search.appendIndex(
             "name": "drop",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_drop"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildSelect\u0028\u0029",
+            "name": "buildSelect",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildSelect"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
+            "name": "buildConditions",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003A\u0024cmd",
             "name": "cmd",
@@ -2256,6 +2166,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method_insert"
         },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_getKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
+            "name": "setKey",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_setKey"
+        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AremoveKey\u0028\u0029",
             "name": "removeKey",
             "summary": "Delete\u0020Key\u0028s\u0029",
@@ -2270,16 +2190,6 @@ Search.appendIndex(
             "name": "incrKey",
             "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/MongoHybrid-Client.html#method_incrKey"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
-            "name": "getKey",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_getKey"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
-            "name": "setKey",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_setKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AdecrKey\u0028\u0029",
             "name": "decrKey",
@@ -2306,6 +2216,16 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/MongoHybrid-Client.html#method_lindex"
         },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hset"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hget"
+        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -2315,6 +2235,11 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/MongoHybrid-Client.html#method_hexists"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/MongoHybrid-Client.html#method_hkeys"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -2326,11 +2251,6 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hlen"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/MongoHybrid-Client.html#method_hkeys"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -2340,16 +2260,6 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/MongoHybrid-Client.html#method_hincrby"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hget"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -2366,15 +2276,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method___call"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024type",
-            "name": "type",
-            "summary": "",
-            "url": "classes/MongoHybrid-Client.html#property_type"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
             "name": "driver",
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#property_driver"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "",
+            "url": "classes/MongoHybrid-Client.html#property_type"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo",
             "name": "Mongo",
@@ -2385,6 +2295,11 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method___construct"
+        },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
@@ -2401,20 +2316,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOneById"
         },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
-        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AfindOne\u0028\u0029",
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOne"
-        },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixMongoIds\u0028\u0029",
-            "name": "_fixMongoIds",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method__fixMongoIds"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003Afind\u0028\u0029",
             "name": "find",
@@ -2456,6 +2361,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_count"
         },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixMongoIds\u0028\u0029",
+            "name": "_fixMongoIds",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method__fixMongoIds"
+        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A\u0024client",
             "name": "client",
             "summary": "",
@@ -2481,6 +2391,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method___construct"
         },                {
+            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
+        },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "",
@@ -2495,11 +2410,6 @@ Search.appendIndex(
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method_findOne"
-        },                {
-            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
@@ -2751,11 +2661,6 @@ Search.appendIndex(
             "summary": "Loop\u0020through\u0020result\u0020set",
             "url": "classes/MongoLite-Cursor.html#method_each"
         },                {
-            "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "Iterator\u0020implementation",
-            "url": "classes/MongoLite-Cursor.html#method_rewind"
-        },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
@@ -2765,6 +2670,11 @@ Search.appendIndex(
             "name": "getData",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Cursor.html#method_getData"
+        },                {
+            "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "Iterator\u0020implementation",
+            "url": "classes/MongoLite-Cursor.html#method_rewind"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Acurrent\u0028\u0029",
             "name": "current",
@@ -2836,15 +2746,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/MongoLite-Database.html#method___construct"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AcallCriteriaFunction\u0028\u0029",
-            "name": "callCriteriaFunction",
-            "summary": "Execute\u0020registred\u0020criteria\u0020function",
-            "url": "classes/MongoLite-Database.html#method_callCriteriaFunction"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
             "name": "registerCriteriaFunction",
             "summary": "Register\u0020Criteria\u0020function",
             "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AcallCriteriaFunction\u0028\u0029",
+            "name": "callCriteriaFunction",
+            "summary": "Execute\u0020registred\u0020criteria\u0020function",
+            "url": "classes/MongoLite-Database.html#method_callCriteriaFunction"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003Avacuum\u0028\u0029",
             "name": "vacuum",
@@ -2856,35 +2766,35 @@ Search.appendIndex(
             "summary": "Drop\u0020database",
             "url": "classes/MongoLite-Database.html#method_drop"
         },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
+            "name": "createCollection",
+            "summary": "Create\u0020a\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_createCollection"
+        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "Drop\u0020a\u0020collection",
             "url": "classes/MongoLite-Database.html#method_dropCollection"
-        },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AlistCollections\u0028\u0029",
-            "name": "listCollections",
-            "summary": "Get\u0020all\u0020collections\u0020in\u0020the\u0020database",
-            "url": "classes/MongoLite-Database.html#method_listCollections"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
             "name": "getCollectionNames",
             "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
             "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
-            "summary": "",
-            "url": "classes/MongoLite-Database.html#method___get"
+            "fqsen": "\\MongoLite\\Database\u003A\u003AlistCollections\u0028\u0029",
+            "name": "listCollections",
+            "summary": "Get\u0020all\u0020collections\u0020in\u0020the\u0020database",
+            "url": "classes/MongoLite-Database.html#method_listCollections"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
             "name": "selectCollection",
             "summary": "Select\u0020collection",
             "url": "classes/MongoLite-Database.html#method_selectCollection"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
-            "name": "createCollection",
-            "summary": "Create\u0020a\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_createCollection"
+            "fqsen": "\\MongoLite\\Database\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/MongoLite-Database.html#method___get"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003ADSN_PATH_MEMORY",
             "name": "DSN_PATH_MEMORY",
@@ -2943,7 +2853,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Pagination",
             "name": "Pagination",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/Pagination.html"
         },                {
             "fqsen": "\\Pagination\u003A\u003A__construct\u0028\u0029",
@@ -2993,7 +2903,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PriorityQueue",
             "name": "PriorityQueue",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Yxorp\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/PriorityQueue.html"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003A__construct\u0028\u0029",
@@ -3001,15 +2911,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PriorityQueue.html#method___construct"
         },                {
-            "fqsen": "\\PriorityQueue\u003A\u003AisEmpty\u0028\u0029",
-            "name": "isEmpty",
-            "summary": "",
-            "url": "classes/PriorityQueue.html#method_isEmpty"
-        },                {
             "fqsen": "\\PriorityQueue\u003A\u003Acount\u0028\u0029",
             "name": "count",
             "summary": "",
             "url": "classes/PriorityQueue.html#method_count"
+        },                {
+            "fqsen": "\\PriorityQueue\u003A\u003AisEmpty\u0028\u0029",
+            "name": "isEmpty",
+            "summary": "",
+            "url": "classes/PriorityQueue.html#method_isEmpty"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003AsetExtractFlags\u0028\u0029",
             "name": "setExtractFlags",
@@ -3046,15 +2956,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PriorityQueue.html#method_top"
         },                {
-            "fqsen": "\\PriorityQueue\u003A\u003AgetIterator\u0028\u0029",
-            "name": "getIterator",
-            "summary": "",
-            "url": "classes/PriorityQueue.html#method_getIterator"
-        },                {
             "fqsen": "\\PriorityQueue\u003A\u003Aextract\u0028\u0029",
             "name": "extract",
             "summary": "",
             "url": "classes/PriorityQueue.html#method_extract"
+        },                {
+            "fqsen": "\\PriorityQueue\u003A\u003AgetIterator\u0028\u0029",
+            "name": "getIterator",
+            "summary": "",
+            "url": "classes/PriorityQueue.html#method_getIterator"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003A__clone\u0028\u0029",
             "name": "__clone",
@@ -3106,10 +3016,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/RedisLite.html#method_createTable"
         },                {
+            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/RedisLite.html#method_get"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/RedisLite.html#method_set"
+        },                {
             "fqsen": "\\RedisLite\u003A\u003Aflushdb\u0028\u0029",
             "name": "flushdb",
             "summary": "Clear\u0020database",
             "url": "classes/RedisLite.html#method_flushdb"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
+            "name": "exists",
+            "summary": "Check\u0020if\u0020key\u0020exists",
+            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Akeys\u0028\u0029",
             "name": "keys",
@@ -3126,30 +3051,15 @@ Search.appendIndex(
             "summary": "Get\u0020value\u0020type",
             "url": "classes/RedisLite.html#method_type"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_get"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Adecr\u0028\u0029",
-            "name": "decr",
-            "summary": "Decrement\u0020value\u0020by\u0020x",
-            "url": "classes/RedisLite.html#method_decr"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
             "name": "incr",
             "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/RedisLite.html#method_incr"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_set"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
-            "name": "exists",
-            "summary": "Check\u0020if\u0020key\u0020exists",
-            "url": "classes/RedisLite.html#method_exists"
+            "fqsen": "\\RedisLite\u003A\u003Adecr\u0028\u0029",
+            "name": "decr",
+            "summary": "Decrement\u0020value\u0020by\u0020x",
+            "url": "classes/RedisLite.html#method_decr"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Allen\u0028\u0029",
             "name": "llen",
@@ -3176,6 +3086,16 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/RedisLite.html#method_lindex"
         },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/RedisLite.html#method_hset"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/RedisLite.html#method_hget"
+        },                {
             "fqsen": "\\RedisLite\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -3185,6 +3105,11 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/RedisLite.html#method_hexists"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/RedisLite.html#method_hkeys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -3196,11 +3121,6 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hlen"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/RedisLite.html#method_hkeys"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -3210,16 +3130,6 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/RedisLite.html#method_hincrby"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hget"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -3636,95 +3546,30 @@ Search.appendIndex(
             "summary": "Class\u0020SVGSanitizer",
             "url": "classes/SVGSanitizer.html"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#method___construct"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
             "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
             "url": "classes/SVGSanitizer.html#method_clean"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
-            "name": "sanitize",
-            "summary": "Sanitize\u0020the\u0020passed\u0020string",
-            "url": "classes/SVGSanitizer.html#method_sanitize"
+            "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#method___construct"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
             "name": "resetInternal",
             "summary": "Set\u0020up\u0020the\u0020DOMDocument",
             "url": "classes/SVGSanitizer.html#method_resetInternal"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
-            "name": "setUpBefore",
-            "summary": "Set\u0020up\u0020libXML\u0020before\u0020we\u0020start",
-            "url": "classes/SVGSanitizer.html#method_setUpBefore"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
-            "name": "resetAfter",
-            "summary": "Reset\u0020the\u0020class\u0020after\u0020use",
-            "url": "classes/SVGSanitizer.html#method_resetAfter"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
-            "name": "removeDoctype",
-            "summary": "Remove\u0020the\u0020XML\u0020Doctype\nIt\u0020may\u0020be\u0020caught\u0020later\u0020on\u0020output\u0020but\u0020that\u0020seems\u0020to\u0020be\u0020buggy,\u0020so\u0020we\u0020need\u0020to\u0020make\u0020sure\u0020it\u0027s\u0020gone",
-            "url": "classes/SVGSanitizer.html#method_removeDoctype"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AstartClean\u0028\u0029",
-            "name": "startClean",
-            "summary": "Start\u0020the\u0020cleaning\u0020with\u0020tags,\u0020then\u0020we\u0020move\u0020onto\u0020attributes\u0020and\u0020hrefs\u0020later",
-            "url": "classes/SVGSanitizer.html#method_startClean"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
-            "name": "cleanAttributesOnWhitelist",
-            "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
-            "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
-            "name": "isAriaAttribute",
-            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
-            "url": "classes/SVGSanitizer.html#method_isAriaAttribute"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
-            "name": "isDataAttribute",
-            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
-            "url": "classes/SVGSanitizer.html#method_isDataAttribute"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
-            "name": "hasRemoteReference",
-            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
-            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
-            "name": "removeNonPrintableCharacters",
-            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
-            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
-            "name": "cleanXlinkHrefs",
-            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
-            "name": "cleanHrefs",
-            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
-            "name": "isUseTagDirty",
-            "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
-            "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
+            "name": "setXMLOptions",
+            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
             "name": "getXMLOptions",
             "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
             "url": "classes/SVGSanitizer.html#method_getXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
-            "name": "setXMLOptions",
-            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
             "name": "getAllowedTags",
@@ -3751,6 +3596,56 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
         },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
+            "name": "sanitize",
+            "summary": "Sanitize\u0020the\u0020passed\u0020string",
+            "url": "classes/SVGSanitizer.html#method_sanitize"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
+            "name": "setUpBefore",
+            "summary": "Set\u0020up\u0020libXML\u0020before\u0020we\u0020start",
+            "url": "classes/SVGSanitizer.html#method_setUpBefore"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
+            "name": "resetAfter",
+            "summary": "Reset\u0020the\u0020class\u0020after\u0020use",
+            "url": "classes/SVGSanitizer.html#method_resetAfter"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
+            "name": "removeDoctype",
+            "summary": "Remove\u0020the\u0020XML\u0020Doctype\nIt\u0020may\u0020be\u0020caught\u0020later\u0020on\u0020output\u0020but\u0020that\u0020seems\u0020to\u0020be\u0020buggy,\u0020so\u0020we\u0020need\u0020to\u0020make\u0020sure\u0020it\u0027s\u0020gone",
+            "url": "classes/SVGSanitizer.html#method_removeDoctype"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AstartClean\u0028\u0029",
+            "name": "startClean",
+            "summary": "Start\u0020the\u0020cleaning\u0020with\u0020tags,\u0020then\u0020we\u0020move\u0020onto\u0020attributes\u0020and\u0020hrefs\u0020later",
+            "url": "classes/SVGSanitizer.html#method_startClean"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
+            "name": "cleanAttributesOnWhitelist",
+            "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
+            "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
+            "name": "cleanXlinkHrefs",
+            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
+            "name": "cleanHrefs",
+            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
+            "name": "removeNonPrintableCharacters",
+            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
+            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
+            "name": "hasRemoteReference",
+            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
+            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
+        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
             "name": "minify",
             "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
@@ -3760,6 +3655,21 @@ Search.appendIndex(
             "name": "removeXMLTag",
             "summary": "",
             "url": "classes/SVGSanitizer.html#property_removeXMLTag"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
+            "name": "isAriaAttribute",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
+            "url": "classes/SVGSanitizer.html#method_isAriaAttribute"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
+            "name": "isDataAttribute",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
+            "url": "classes/SVGSanitizer.html#method_isDataAttribute"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
+            "name": "isUseTagDirty",
+            "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
+            "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
@@ -3810,16 +3720,6 @@ Search.appendIndex(
             "name": "__destruct",
             "summary": "Destroys\u0020the\u0020image\u0020resource.",
             "url": "classes/claviska-SimpleImage.html#method___destruct"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AsetFlag\u0028\u0029",
-            "name": "setFlag",
-            "summary": "Set\u0020flag\u0020value.",
-            "url": "classes/claviska-SimpleImage.html#method_setFlag"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetFlag\u0028\u0029",
-            "name": "getFlag",
-            "summary": "Get\u0020flag\u0020value.",
-            "url": "classes/claviska-SimpleImage.html#method_getFlag"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AfromDataUri\u0028\u0029",
             "name": "fromDataUri",
@@ -4211,11 +4111,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/claviska-SimpleImage.html#constant_ERR_WRITE"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AERR_INVALID_FLAG",
-            "name": "ERR_INVALID_FLAG",
-            "summary": "",
-            "url": "classes/claviska-SimpleImage.html#constant_ERR_INVALID_FLAG"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003A\u0024image",
             "name": "image",
             "summary": "",
@@ -4516,11 +4411,6 @@ Search.appendIndex(
             "summary": "ClassLoader\u0020implements\u0020a\u0020PSR\u002D0,\u0020PSR\u002D4\u0020and\u0020classmap\u0020class\u0020loader.",
             "url": "classes/Composer-Autoload-ClassLoader.html"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method___construct"
-        },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetPrefixes\u0028\u0029",
             "name": "getPrefixes",
             "summary": "",
@@ -4621,20 +4511,10 @@ Search.appendIndex(
             "summary": "Finds\u0020the\u0020path\u0020to\u0020the\u0020file\u0020where\u0020the\u0020class\u0020is\u0020defined.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_findFile"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetRegisteredLoaders\u0028\u0029",
-            "name": "getRegisteredLoaders",
-            "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020indexed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders"
-        },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AfindFileWithExtension\u0028\u0029",
             "name": "findFileWithExtension",
             "summary": "",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
-            "name": "vendorDir",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixLengthsPsr4",
             "name": "prefixLengthsPsr4",
@@ -4686,39 +4566,29 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024registeredLoaders",
-            "name": "registeredLoaders",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders"
-        },                {
             "fqsen": "\\Composer\\InstalledVersions",
             "name": "InstalledVersions",
-            "summary": "This\u0020class\u0020is\u0020copied\u0020in\u0020every\u0020Composer\u0020installed\u0020project\u0020and\u0020available\u0020to\u0020all",
+            "summary": "",
             "url": "classes/Composer-InstalledVersions.html"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackages\u0028\u0029",
             "name": "getInstalledPackages",
-            "summary": "Returns\u0020a\u0020list\u0020of\u0020all\u0020package\u0020names\u0020which\u0020are\u0020present,\u0020either\u0020by\u0020being\u0020installed,\u0020replaced\u0020or\u0020provided",
+            "summary": "",
             "url": "classes/Composer-InstalledVersions.html#method_getInstalledPackages"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackagesByType\u0028\u0029",
-            "name": "getInstalledPackagesByType",
-            "summary": "Returns\u0020a\u0020list\u0020of\u0020all\u0020package\u0020names\u0020with\u0020a\u0020specific\u0020type\u0020e.g.\u0020\u0027library\u0027",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AisInstalled\u0028\u0029",
             "name": "isInstalled",
-            "summary": "Checks\u0020whether\u0020the\u0020given\u0020package\u0020is\u0020installed",
+            "summary": "",
             "url": "classes/Composer-InstalledVersions.html#method_isInstalled"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003Asatisfies\u0028\u0029",
             "name": "satisfies",
-            "summary": "Checks\u0020whether\u0020the\u0020given\u0020package\u0020satisfies\u0020a\u0020version\u0020constraint",
+            "summary": "",
             "url": "classes/Composer-InstalledVersions.html#method_satisfies"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetVersionRanges\u0028\u0029",
             "name": "getVersionRanges",
-            "summary": "Returns\u0020a\u0020version\u0020constraint\u0020representing\u0020all\u0020the\u0020range\u0028s\u0029\u0020which\u0020are\u0020installed\u0020for\u0020a\u0020given\u0020package",
+            "summary": "",
             "url": "classes/Composer-InstalledVersions.html#method_getVersionRanges"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetVersion\u0028\u0029",
@@ -4736,11 +4606,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Composer-InstalledVersions.html#method_getReference"
         },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstallPath\u0028\u0029",
-            "name": "getInstallPath",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstallPath"
-        },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetRootPackage\u0028\u0029",
             "name": "getRootPackage",
             "summary": "",
@@ -4748,38 +4613,108 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetRawData\u0028\u0029",
             "name": "getRawData",
-            "summary": "Returns\u0020the\u0020raw\u0020installed.php\u0020data\u0020for\u0020custom\u0020implementations",
+            "summary": "",
             "url": "classes/Composer-InstalledVersions.html#method_getRawData"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetAllRawData\u0028\u0029",
-            "name": "getAllRawData",
-            "summary": "Returns\u0020the\u0020raw\u0020data\u0020of\u0020all\u0020installed.php\u0020which\u0020are\u0020currently\u0020loaded\u0020for\u0020custom\u0020implementations",
-            "url": "classes/Composer-InstalledVersions.html#method_getAllRawData"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003Areload\u0028\u0029",
             "name": "reload",
-            "summary": "Lets\u0020you\u0020reload\u0020the\u0020static\u0020array\u0020from\u0020another\u0020file",
-            "url": "classes/Composer-InstalledVersions.html#method_reload"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
-            "name": "getInstalled",
             "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
+            "url": "classes/Composer-InstalledVersions.html#method_reload"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installed",
             "name": "installed",
             "summary": "",
             "url": "classes/Composer-InstalledVersions.html#property_installed"
         },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
-            "name": "canGetVendors",
+            "fqsen": "\\PackageVersions\\Installer",
+            "name": "Installer",
             "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
+            "url": "classes/PackageVersions-Installer.html"
         },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
-            "name": "installedByVendor",
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003Aactivate\u0028\u0029",
+            "name": "activate",
             "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
+            "url": "classes/PackageVersions-Installer.html#method_activate"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003Adeactivate\u0028\u0029",
+            "name": "deactivate",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_deactivate"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003Auninstall\u0028\u0029",
+            "name": "uninstall",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_uninstall"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AgetSubscribedEvents\u0028\u0029",
+            "name": "getSubscribedEvents",
+            "summary": "\u007B\u0040inheritDoc\u007D",
+            "url": "classes/PackageVersions-Installer.html#method_getSubscribedEvents"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AdumpVersionsClass\u0028\u0029",
+            "name": "dumpVersionsClass",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_dumpVersionsClass"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AgenerateVersionsClass\u0028\u0029",
+            "name": "generateVersionsClass",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_generateVersionsClass"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AwriteVersionClassToFile\u0028\u0029",
+            "name": "writeVersionClassToFile",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_writeVersionClassToFile"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AlocateRootPackageInstallPath\u0028\u0029",
+            "name": "locateRootPackageInstallPath",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_locateRootPackageInstallPath"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AgetRootPackageAlias\u0028\u0029",
+            "name": "getRootPackageAlias",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_getRootPackageAlias"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AgetVersions\u0028\u0029",
+            "name": "getVersions",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_getVersions"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003A\u0024generatedClassTemplate",
+            "name": "generatedClassTemplate",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#property_generatedClassTemplate"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions",
+            "name": "Versions",
+            "summary": "This\u0020class\u0020is\u0020generated\u0020by\u0020composer\/package\u002Dversions\u002Ddeprecated,\u0020specifically\u0020by",
+            "url": "classes/PackageVersions-Versions.html"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/PackageVersions-Versions.html#method___construct"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions\u003A\u003ArootPackageName\u0028\u0029",
+            "name": "rootPackageName",
+            "summary": "",
+            "url": "classes/PackageVersions-Versions.html#method_rootPackageName"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/PackageVersions-Versions.html#method_getVersion"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions\u003A\u003Acomposer2ApiUsable\u0028\u0029",
+            "name": "composer2ApiUsable",
+            "summary": "",
+            "url": "classes/PackageVersions-Versions.html#method_composer2ApiUsable"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions\u003A\u003AROOT_PACKAGE_NAME",
+            "name": "ROOT_PACKAGE_NAME",
+            "summary": "",
+            "url": "classes/PackageVersions-Versions.html#constant_ROOT_PACKAGE_NAME"
         },                {
             "fqsen": "\\Parsedown",
             "name": "Parsedown",
@@ -5346,16 +5281,6 @@ Search.appendIndex(
             "summary": "Encode\u0020a\u0020string\u0020with\u0020URL\u002Dsafe\u0020Base64.",
             "url": "classes/Firebase-JWT-JWT.html#method_urlsafeB64Encode"
         },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AgetKeyMaterialAndAlgorithm\u0028\u0029",
-            "name": "getKeyMaterialAndAlgorithm",
-            "summary": "Determine\u0020if\u0020an\u0020algorithm\u0020has\u0020been\u0020provided\u0020for\u0020each\u0020Key",
-            "url": "classes/Firebase-JWT-JWT.html#method_getKeyMaterialAndAlgorithm"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AconstantTimeEquals\u0028\u0029",
-            "name": "constantTimeEquals",
-            "summary": "",
-            "url": "classes/Firebase-JWT-JWT.html#method_constantTimeEquals"
-        },                {
             "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AhandleJsonError\u0028\u0029",
             "name": "handleJsonError",
             "summary": "Helper\u0020method\u0020to\u0020create\u0020a\u0020JSON\u0020error.",
@@ -5416,70 +5341,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Firebase-JWT-JWT.html#property_supported_algs"
         },                {
-            "fqsen": "\\Firebase\\JWT\\Key",
-            "name": "Key",
-            "summary": "",
-            "url": "classes/Firebase-JWT-Key.html"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\Key\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Firebase-JWT-Key.html#method___construct"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\Key\u003A\u003AgetAlgorithm\u0028\u0029",
-            "name": "getAlgorithm",
-            "summary": "Return\u0020the\u0020algorithm\u0020valid\u0020for\u0020this\u0020key",
-            "url": "classes/Firebase-JWT-Key.html#method_getAlgorithm"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\Key\u003A\u003AgetKeyMaterial\u0028\u0029",
-            "name": "getKeyMaterial",
-            "summary": "",
-            "url": "classes/Firebase-JWT-Key.html#method_getKeyMaterial"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\Key\u003A\u003A\u0024algorithm",
-            "name": "algorithm",
-            "summary": "",
-            "url": "classes/Firebase-JWT-Key.html#property_algorithm"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\Key\u003A\u003A\u0024keyMaterial",
-            "name": "keyMaterial",
-            "summary": "",
-            "url": "classes/Firebase-JWT-Key.html#property_keyMaterial"
-        },                {
             "fqsen": "\\Firebase\\JWT\\SignatureInvalidException",
             "name": "SignatureInvalidException",
             "summary": "",
             "url": "classes/Firebase-JWT-SignatureInvalidException.html"
-        },                {
-            "fqsen": "\\Jean85\\Exception\\ProvidedPackageException",
-            "name": "ProvidedPackageException",
-            "summary": "",
-            "url": "classes/Jean85-Exception-ProvidedPackageException.html"
-        },                {
-            "fqsen": "\\Jean85\\Exception\\ProvidedPackageException\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Jean85-Exception-ProvidedPackageException.html#method_create"
-        },                {
-            "fqsen": "\\Jean85\\Exception\\ReplacedPackageException",
-            "name": "ReplacedPackageException",
-            "summary": "",
-            "url": "classes/Jean85-Exception-ReplacedPackageException.html"
-        },                {
-            "fqsen": "\\Jean85\\Exception\\ReplacedPackageException\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Jean85-Exception-ReplacedPackageException.html#method_create"
-        },                {
-            "fqsen": "\\Jean85\\Exception\\VersionMissingExceptionInterface",
-            "name": "VersionMissingExceptionInterface",
-            "summary": "",
-            "url": "classes/Jean85-Exception-VersionMissingExceptionInterface.html"
-        },                {
-            "fqsen": "\\Jean85\\Exception\\VersionMissingExceptionInterface\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Jean85-Exception-VersionMissingExceptionInterface.html#method_create"
         },                {
             "fqsen": "\\Jean85\\PrettyVersions",
             "name": "PrettyVersions",
@@ -5501,15 +5366,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Jean85-PrettyVersions.html#method_getRootPackageVersion"
         },                {
-            "fqsen": "\\Jean85\\PrettyVersions\u003A\u003AcheckProvidedPackages\u0028\u0029",
-            "name": "checkProvidedPackages",
+            "fqsen": "\\Jean85\\PrettyVersions\u003A\u003ASHORT_COMMIT_LENGTH",
+            "name": "SHORT_COMMIT_LENGTH",
             "summary": "",
-            "url": "classes/Jean85-PrettyVersions.html#method_checkProvidedPackages"
-        },                {
-            "fqsen": "\\Jean85\\PrettyVersions\u003A\u003AcheckReplacedPackages\u0028\u0029",
-            "name": "checkReplacedPackages",
-            "summary": "",
-            "url": "classes/Jean85-PrettyVersions.html#method_checkReplacedPackages"
+            "url": "classes/Jean85-PrettyVersions.html#constant_SHORT_COMMIT_LENGTH"
         },                {
             "fqsen": "\\Jean85\\Version",
             "name": "Version",
@@ -5531,15 +5391,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getFullVersion"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortCommit\u0028\u0029",
-            "name": "getVersionWithShortCommit",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#method_getVersionWithShortCommit"
-        },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortReference\u0028\u0029",
             "name": "getVersionWithShortReference",
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getVersionWithShortReference"
+        },                {
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortCommit\u0028\u0029",
+            "name": "getVersionWithShortCommit",
+            "summary": "",
+            "url": "classes/Jean85-Version.html#method_getVersionWithShortCommit"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetPackageName\u0028\u0029",
             "name": "getPackageName",
@@ -5551,25 +5411,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getShortVersion"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetCommitHash\u0028\u0029",
-            "name": "getCommitHash",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#method_getCommitHash"
-        },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetReference\u0028\u0029",
             "name": "getReference",
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getReference"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetShortCommitHash\u0028\u0029",
-            "name": "getShortCommitHash",
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetCommitHash\u0028\u0029",
+            "name": "getCommitHash",
             "summary": "",
-            "url": "classes/Jean85-Version.html#method_getShortCommitHash"
+            "url": "classes/Jean85-Version.html#method_getCommitHash"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetShortReference\u0028\u0029",
             "name": "getShortReference",
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getShortReference"
+        },                {
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetShortCommitHash\u0028\u0029",
+            "name": "getShortCommitHash",
+            "summary": "",
+            "url": "classes/Jean85-Version.html#method_getShortCommitHash"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
@@ -5581,30 +5441,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Jean85-Version.html#constant_SHORT_COMMIT_LENGTH"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003ANO_VERSION_TEXT",
-            "name": "NO_VERSION_TEXT",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#constant_NO_VERSION_TEXT"
-        },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003ANO_REFERENCE_TEXT",
-            "name": "NO_REFERENCE_TEXT",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#constant_NO_REFERENCE_TEXT"
-        },                {
             "fqsen": "\\Jean85\\Version\u003A\u003A\u0024packageName",
             "name": "packageName",
             "summary": "",
             "url": "classes/Jean85-Version.html#property_packageName"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003A\u0024prettyVersion",
-            "name": "prettyVersion",
+            "fqsen": "\\Jean85\\Version\u003A\u003A\u0024shortVersion",
+            "name": "shortVersion",
             "summary": "",
-            "url": "classes/Jean85-Version.html#property_prettyVersion"
+            "url": "classes/Jean85-Version.html#property_shortVersion"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003A\u0024reference",
-            "name": "reference",
+            "fqsen": "\\Jean85\\Version\u003A\u003A\u0024commitHash",
+            "name": "commitHash",
             "summary": "",
-            "url": "classes/Jean85-Version.html#property_reference"
+            "url": "classes/Jean85-Version.html#property_commitHash"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003A\u0024versionIsTagged",
             "name": "versionIsTagged",
@@ -6760,11 +6610,6 @@ Search.appendIndex(
             "name": "getRawExecResponseCode",
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_getRawExecResponseCode"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AhasFtpConnection\u0028\u0029",
-            "name": "hasFtpConnection",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_hasFtpConnection"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003A\u0024transferMode",
             "name": "transferMode",
@@ -8471,11 +8316,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-MimeTypeDetection-FinfoMimeTypeDetector.html#property_bufferSampleSize"
         },                {
-            "fqsen": "\\League\\MimeTypeDetection\\FinfoMimeTypeDetector\u003A\u003A\u0024inconclusiveMimetypes",
-            "name": "inconclusiveMimetypes",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-FinfoMimeTypeDetector.html#property_inconclusiveMimetypes"
-        },                {
             "fqsen": "\\League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap",
             "name": "GeneratedExtensionToMimeTypeMap",
             "summary": "",
@@ -8510,31 +8350,6 @@ Search.appendIndex(
             "name": "detectMimeTypeFromFile",
             "summary": "",
             "url": "classes/League-MimeTypeDetection-MimeTypeDetector.html#method_detectMimeTypeFromFile"
-        },                {
-            "fqsen": "\\League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap",
-            "name": "OverridingExtensionToMimeTypeMap",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-OverridingExtensionToMimeTypeMap.html"
-        },                {
-            "fqsen": "\\League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-OverridingExtensionToMimeTypeMap.html#method___construct"
-        },                {
-            "fqsen": "\\League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap\u003A\u003AlookupMimeType\u0028\u0029",
-            "name": "lookupMimeType",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-OverridingExtensionToMimeTypeMap.html#method_lookupMimeType"
-        },                {
-            "fqsen": "\\League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap\u003A\u003A\u0024innerMap",
-            "name": "innerMap",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-OverridingExtensionToMimeTypeMap.html#property_innerMap"
-        },                {
-            "fqsen": "\\League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap\u003A\u003A\u0024overrides",
-            "name": "overrides",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-OverridingExtensionToMimeTypeMap.html#property_overrides"
         },                {
             "fqsen": "\\ZipStream\\Exception\\FileNotFoundException",
             "name": "FileNotFoundException",
@@ -9031,6 +8846,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Client.html#property_defaultTypeMap"
         },                {
+            "fqsen": "\\MongoDB\\Client\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Client.html#property_wireVersionForReadConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Client\u003A\u003A\u0024wireVersionForWritableCommandWriteConcern",
+            "name": "wireVersionForWritableCommandWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Client.html#property_wireVersionForWritableCommandWriteConcern"
+        },                {
             "fqsen": "\\MongoDB\\Client\u003A\u003A\u0024handshakeSeparator",
             "name": "handshakeSeparator",
             "summary": "",
@@ -9246,11 +9071,6 @@ Search.appendIndex(
             "summary": "Executes\u0020a\u0020map\u002Dreduce\u0020aggregation\u0020on\u0020the\u0020collection.",
             "url": "classes/MongoDB-Collection.html#method_mapReduce"
         },                {
-            "fqsen": "\\MongoDB\\Collection\u003A\u003Arename\u0028\u0029",
-            "name": "rename",
-            "summary": "Renames\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Collection.html#method_rename"
-        },                {
             "fqsen": "\\MongoDB\\Collection\u003A\u003AreplaceOne\u0028\u0029",
             "name": "replaceOne",
             "summary": "Replaces\u0020at\u0020most\u0020one\u0020document\u0020matching\u0020the\u0020filter.",
@@ -9280,6 +9100,21 @@ Search.appendIndex(
             "name": "defaultTypeMap",
             "summary": "",
             "url": "classes/MongoDB-Collection.html#property_defaultTypeMap"
+        },                {
+            "fqsen": "\\MongoDB\\Collection\u003A\u003A\u0024wireVersionForFindAndModifyWriteConcern",
+            "name": "wireVersionForFindAndModifyWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Collection.html#property_wireVersionForFindAndModifyWriteConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Collection\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Collection.html#property_wireVersionForReadConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Collection\u003A\u003A\u0024wireVersionForWritableCommandWriteConcern",
+            "name": "wireVersionForWritableCommandWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Collection.html#property_wireVersionForWritableCommandWriteConcern"
         },                {
             "fqsen": "\\MongoDB\\Collection\u003A\u003A\u0024wireVersionForReadConcernWithWriteStage",
             "name": "wireVersionForReadConcernWithWriteStage",
@@ -9416,11 +9251,6 @@ Search.appendIndex(
             "summary": "Modifies\u0020a\u0020collection\u0020or\u0020view.",
             "url": "classes/MongoDB-Database.html#method_modifyCollection"
         },                {
-            "fqsen": "\\MongoDB\\Database\u003A\u003ArenameCollection\u0028\u0029",
-            "name": "renameCollection",
-            "summary": "Rename\u0020a\u0020collection\u0020within\u0020this\u0020database.",
-            "url": "classes/MongoDB-Database.html#method_renameCollection"
-        },                {
             "fqsen": "\\MongoDB\\Database\u003A\u003AselectCollection\u0028\u0029",
             "name": "selectCollection",
             "summary": "Select\u0020a\u0020collection\u0020within\u0020this\u0020database.",
@@ -9445,6 +9275,16 @@ Search.appendIndex(
             "name": "defaultTypeMap",
             "summary": "",
             "url": "classes/MongoDB-Database.html#property_defaultTypeMap"
+        },                {
+            "fqsen": "\\MongoDB\\Database\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Database.html#property_wireVersionForReadConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Database\u003A\u003A\u0024wireVersionForWritableCommandWriteConcern",
+            "name": "wireVersionForWritableCommandWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Database.html#property_wireVersionForWritableCommandWriteConcern"
         },                {
             "fqsen": "\\MongoDB\\Database\u003A\u003A\u0024wireVersionForReadConcernWithWriteStage",
             "name": "wireVersionForReadConcernWithWriteStage",
@@ -9615,6 +9455,11 @@ Search.appendIndex(
             "name": "writeConcernNotSupportedInTransaction",
             "summary": "Thrown\u0020when\u0020a\u0020writeConcern\u0020is\u0020used\u0020with\u0020a\u0020write\u0020operation\u0020in\u0020a\u0020transaction.",
             "url": "classes/MongoDB-Exception-UnsupportedException.html#method_writeConcernNotSupportedInTransaction"
+        },                {
+            "fqsen": "\\MongoDB\\is_string_array\u0028\u0029",
+            "name": "is_string_array",
+            "summary": "",
+            "url": "namespaces/mongodb.html#function_is_string_array"
         },                {
             "fqsen": "\\MongoDB\\with_transaction\u0028\u0029",
             "name": "with_transaction",
@@ -10161,16 +10006,6 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020maximum\u0020size\u0020\u0028in\u0020bytes\u0029\u0020of\u0020the\u0020capped\u0020collection.",
             "url": "classes/MongoDB-Model-CollectionInfo.html#method_getCappedSize"
         },                {
-            "fqsen": "\\MongoDB\\Model\\CollectionInfo\u003A\u003AgetIdIndex\u0028\u0029",
-            "name": "getIdIndex",
-            "summary": "Return\u0020information\u0020about\u0020the\u0020_id\u0020index\u0020for\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Model-CollectionInfo.html#method_getIdIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Model\\CollectionInfo\u003A\u003AgetInfo\u0028\u0029",
-            "name": "getInfo",
-            "summary": "Return\u0020the\u0020\u0022info\u0022\u0020property\u0020of\u0020the\u0020server\u0020response.",
-            "url": "classes/MongoDB-Model-CollectionInfo.html#method_getInfo"
-        },                {
             "fqsen": "\\MongoDB\\Model\\CollectionInfo\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
             "summary": "Return\u0020the\u0020collection\u0020name.",
@@ -10180,11 +10015,6 @@ Search.appendIndex(
             "name": "getOptions",
             "summary": "Return\u0020the\u0020collection\u0020options.",
             "url": "classes/MongoDB-Model-CollectionInfo.html#method_getOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Model\\CollectionInfo\u003A\u003AgetType\u0028\u0029",
-            "name": "getType",
-            "summary": "Return\u0020the\u0020collection\u0020type.",
-            "url": "classes/MongoDB-Model-CollectionInfo.html#method_getType"
         },                {
             "fqsen": "\\MongoDB\\Model\\CollectionInfo\u003A\u003AisCapped\u0028\u0029",
             "name": "isCapped",
@@ -10413,12 +10243,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-Aggregate.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AcreateCommandDocument\u0028\u0029",
             "name": "createCommandDocument",
-            "summary": "Create\u0020the\u0020aggregate\u0020command\u0020document.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-Aggregate.html#method_createCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AcreateCommandOptions\u0028\u0029",
@@ -10426,10 +10256,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-Aggregate.html#method_createCommandOptions"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AexecuteCommand\u0028\u0029",
-            "name": "executeCommand",
-            "summary": "Execute\u0020the\u0020aggregate\u0020command\u0020using\u0020the\u0020appropriate\u0020Server\u0020method.",
-            "url": "classes/MongoDB-Operation-Aggregate.html#method_executeCommand"
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
+            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
+            "url": "classes/MongoDB-Operation-Aggregate.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AhasWriteStage\u0028\u0029",
+            "name": "hasWriteStage",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Aggregate.html#method_hasWriteStage"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Aggregate.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024wireVersionForDocumentLevelValidation",
+            "name": "wireVersionForDocumentLevelValidation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Aggregate.html#property_wireVersionForDocumentLevelValidation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Aggregate.html#property_wireVersionForReadConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Aggregate.html#property_wireVersionForWriteConcern"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -10451,16 +10306,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-Aggregate.html#property_options"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024isExplain",
-            "name": "isExplain",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-Aggregate.html#property_isExplain"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024isWrite",
-            "name": "isWrite",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-Aggregate.html#property_isWrite"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\BulkWrite",
             "name": "BulkWrite",
             "summary": "Operation\u0020for\u0020executing\u0020multiple\u0020write\u0020operations.",
@@ -10476,15 +10321,10 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-BulkWrite.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003AcreateBulkWriteOptions\u0028\u0029",
-            "name": "createBulkWriteOptions",
-            "summary": "Create\u0020options\u0020for\u0020constructing\u0020the\u0020bulk\u0020write.",
-            "url": "classes/MongoDB-Operation-BulkWrite.html#method_createBulkWriteOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003AcreateExecuteOptions\u0028\u0029",
-            "name": "createExecuteOptions",
+            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020bulk\u0020write.",
-            "url": "classes/MongoDB-Operation-BulkWrite.html#method_createExecuteOptions"
+            "url": "classes/MongoDB-Operation-BulkWrite.html#method_createOptions"
         },                {
             "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003ADELETE_MANY",
             "name": "DELETE_MANY",
@@ -10516,6 +10356,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-BulkWrite.html#constant_UPDATE_ONE"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003A\u0024wireVersionForArrayFilters",
+            "name": "wireVersionForArrayFilters",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-BulkWrite.html#property_wireVersionForArrayFilters"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-BulkWrite.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003A\u0024wireVersionForDocumentLevelValidation",
+            "name": "wireVersionForDocumentLevelValidation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-BulkWrite.html#property_wireVersionForDocumentLevelValidation"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003A\u0024databaseName",
             "name": "databaseName",
             "summary": "",
@@ -10536,6 +10391,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-BulkWrite.html#property_options"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003A\u0024isArrayFiltersUsed",
+            "name": "isArrayFiltersUsed",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-BulkWrite.html#property_isArrayFiltersUsed"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\BulkWrite\u003A\u003A\u0024isCollationUsed",
+            "name": "isCollationUsed",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-BulkWrite.html#property_isCollationUsed"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\Count",
             "name": "Count",
             "summary": "Operation\u0020for\u0020the\u0020count\u0020command.",
@@ -10553,7 +10418,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-Count.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003AcreateCommandDocument\u0028\u0029",
@@ -10565,6 +10430,16 @@ Search.appendIndex(
             "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-Count.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Count.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Count.html#property_wireVersionForReadConcern"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -10671,6 +10546,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-CreateCollection.html#constant_NO_PADDING"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\CreateCollection\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-CreateCollection.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\CreateCollection\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-CreateCollection.html#property_wireVersionForWriteConcern"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\CreateCollection\u003A\u003A\u0024databaseName",
             "name": "databaseName",
             "summary": "",
@@ -10711,6 +10596,16 @@ Search.appendIndex(
             "summary": "Create\u0020one\u0020or\u0020more\u0020indexes\u0020for\u0020the\u0020collection\u0020using\u0020the\u0020createIndexes\ncommand.",
             "url": "classes/MongoDB-Operation-CreateIndexes.html#method_executeCommand"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-CreateIndexes.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-CreateIndexes.html#property_wireVersionForWriteConcern"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003A\u0024wireVersionForCommitQuorum",
             "name": "wireVersionForCommitQuorum",
             "summary": "",
@@ -10730,6 +10625,11 @@ Search.appendIndex(
             "name": "indexes",
             "summary": "",
             "url": "classes/MongoDB-Operation-CreateIndexes.html#property_indexes"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003A\u0024isCollationUsed",
+            "name": "isCollationUsed",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-CreateIndexes.html#property_isCollationUsed"
         },                {
             "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003A\u0024options",
             "name": "options",
@@ -10788,7 +10688,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\DeleteMany\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-DeleteMany.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\DeleteMany\u003A\u003A\u0024delete",
@@ -10813,7 +10713,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\DeleteOne\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-DeleteOne.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\DeleteOne\u003A\u003A\u0024delete",
@@ -10838,7 +10738,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-Distinct.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003AcreateCommandDocument\u0028\u0029",
@@ -10850,6 +10750,16 @@ Search.appendIndex(
             "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-Distinct.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Distinct.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Distinct.html#property_wireVersionForReadConcern"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -10901,6 +10811,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-DropCollection.html#property_errorCodeNamespaceNotFound"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\DropCollection\u003A\u003A\u0024errorMessageNamespaceNotFound",
+            "name": "errorMessageNamespaceNotFound",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-DropCollection.html#property_errorMessageNamespaceNotFound"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\DropCollection\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-DropCollection.html#property_wireVersionForWriteConcern"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\DropCollection\u003A\u003A\u0024databaseName",
             "name": "databaseName",
             "summary": "",
@@ -10935,6 +10855,11 @@ Search.appendIndex(
             "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-DropDatabase.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\DropDatabase\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-DropDatabase.html#property_wireVersionForWriteConcern"
         },                {
             "fqsen": "\\MongoDB\\Operation\\DropDatabase\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -10971,6 +10896,11 @@ Search.appendIndex(
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-DropIndexes.html#method_createOptions"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\DropIndexes\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-DropIndexes.html#property_wireVersionForWriteConcern"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\DropIndexes\u003A\u003A\u0024databaseName",
             "name": "databaseName",
             "summary": "",
@@ -10998,7 +10928,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructs\u0020a\u0020command\u0020to\u0020get\u0020the\u0020estimated\u0020number\u0020of\u0020documents\u0020in\u0020a\ncollection.",
+            "summary": "Constructs\u0020a\u0020count\u0020command.",
             "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method___construct"
         },                {
             "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003Aexecute\u0028\u0029",
@@ -11008,18 +10938,8 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method_getCommandDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003AcreateAggregate\u0028\u0029",
-            "name": "createAggregate",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createAggregate"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003AcreateCommand\u0028\u0029",
-            "name": "createCommand",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createCommand"
         },                {
             "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003AcreateCount\u0028\u0029",
             "name": "createCount",
@@ -11041,15 +10961,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#property_options"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003A\u0024errorCodeCollectionNotFound",
-            "name": "errorCodeCollectionNotFound",
+            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003A\u0024count",
+            "name": "count",
             "summary": "",
-            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#property_errorCodeCollectionNotFound"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003A\u0024wireVersionForCollStats",
-            "name": "wireVersionForCollStats",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#property_wireVersionForCollStats"
+            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#property_count"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Explain",
             "name": "Explain",
@@ -11063,7 +10978,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
-            "summary": "Execute\u0020the\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-Explain.html#method_execute"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003AcreateOptions\u0028\u0029",
@@ -11095,6 +11010,16 @@ Search.appendIndex(
             "name": "wireVersionForAggregate",
             "summary": "",
             "url": "classes/MongoDB-Operation-Explain.html#property_wireVersionForAggregate"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003A\u0024wireVersionForDistinct",
+            "name": "wireVersionForDistinct",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Explain.html#property_wireVersionForDistinct"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003A\u0024wireVersionForFindAndModify",
+            "name": "wireVersionForFindAndModify",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Explain.html#property_wireVersionForFindAndModify"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -11128,7 +11053,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-Find.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AcreateCommandDocument\u0028\u0029",
@@ -11160,6 +11085,21 @@ Search.appendIndex(
             "name": "TAILABLE_AWAIT",
             "summary": "",
             "url": "classes/MongoDB-Operation-Find.html#constant_TAILABLE_AWAIT"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Find.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Find.html#property_wireVersionForReadConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003A\u0024wireVersionForAllowDiskUseServerSideError",
+            "name": "wireVersionForAllowDiskUseServerSideError",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Find.html#property_wireVersionForAllowDiskUseServerSideError"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -11198,7 +11138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOne\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-FindOne.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOne\u003A\u003A\u0024find",
@@ -11223,7 +11163,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOneAndDelete\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-FindOneAndDelete.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOneAndDelete\u003A\u003A\u0024findAndModify",
@@ -11248,7 +11188,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOneAndReplace\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-FindOneAndReplace.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOneAndReplace\u003A\u003ARETURN_DOCUMENT_BEFORE",
@@ -11283,7 +11223,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOneAndUpdate\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-FindOneAndUpdate.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\FindOneAndUpdate\u003A\u003ARETURN_DOCUMENT_BEFORE",
@@ -11316,15 +11256,15 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-InsertMany.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\InsertMany\u003A\u003AcreateBulkWriteOptions\u0028\u0029",
-            "name": "createBulkWriteOptions",
-            "summary": "Create\u0020options\u0020for\u0020constructing\u0020the\u0020bulk\u0020write.",
-            "url": "classes/MongoDB-Operation-InsertMany.html#method_createBulkWriteOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\InsertMany\u003A\u003AcreateExecuteOptions\u0028\u0029",
-            "name": "createExecuteOptions",
+            "fqsen": "\\MongoDB\\Operation\\InsertMany\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020bulk\u0020write.",
-            "url": "classes/MongoDB-Operation-InsertMany.html#method_createExecuteOptions"
+            "url": "classes/MongoDB-Operation-InsertMany.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\InsertMany\u003A\u003A\u0024wireVersionForDocumentLevelValidation",
+            "name": "wireVersionForDocumentLevelValidation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-InsertMany.html#property_wireVersionForDocumentLevelValidation"
         },                {
             "fqsen": "\\MongoDB\\Operation\\InsertMany\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -11361,15 +11301,15 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-InsertOne.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\InsertOne\u003A\u003AcreateBulkWriteOptions\u0028\u0029",
-            "name": "createBulkWriteOptions",
-            "summary": "Create\u0020options\u0020for\u0020constructing\u0020the\u0020bulk\u0020write.",
-            "url": "classes/MongoDB-Operation-InsertOne.html#method_createBulkWriteOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\InsertOne\u003A\u003AcreateExecuteOptions\u0028\u0029",
-            "name": "createExecuteOptions",
+            "fqsen": "\\MongoDB\\Operation\\InsertOne\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020bulk\u0020write.",
-            "url": "classes/MongoDB-Operation-InsertOne.html#method_createExecuteOptions"
+            "url": "classes/MongoDB-Operation-InsertOne.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\InsertOne\u003A\u003A\u0024wireVersionForDocumentLevelValidation",
+            "name": "wireVersionForDocumentLevelValidation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-InsertOne.html#property_wireVersionForDocumentLevelValidation"
         },                {
             "fqsen": "\\MongoDB\\Operation\\InsertOne\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -11561,6 +11501,26 @@ Search.appendIndex(
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-MapReduce.html#method_createOptions"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003A\u0024wireVersionForCollation",
+            "name": "wireVersionForCollation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-MapReduce.html#property_wireVersionForCollation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003A\u0024wireVersionForDocumentLevelValidation",
+            "name": "wireVersionForDocumentLevelValidation",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-MapReduce.html#property_wireVersionForDocumentLevelValidation"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003A\u0024wireVersionForReadConcern",
+            "name": "wireVersionForReadConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-MapReduce.html#property_wireVersionForReadConcern"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003A\u0024wireVersionForWriteConcern",
+            "name": "wireVersionForWriteConcern",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-MapReduce.html#property_wireVersionForWriteConcern"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003A\u0024databaseName",
             "name": "databaseName",
             "summary": "",
@@ -11631,41 +11591,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-ModifyCollection.html#property_options"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection",
-            "name": "RenameCollection",
-            "summary": "Operation\u0020for\u0020the\u0020renameCollection\u0020command.",
-            "url": "classes/MongoDB-Operation-RenameCollection.html"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructs\u0020a\u0020renameCollection\u0020command.",
-            "url": "classes/MongoDB-Operation-RenameCollection.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "Execute\u0020the\u0020operation.",
-            "url": "classes/MongoDB-Operation-RenameCollection.html#method_execute"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection\u003A\u003AcreateOptions\u0028\u0029",
-            "name": "createOptions",
-            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
-            "url": "classes/MongoDB-Operation-RenameCollection.html#method_createOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection\u003A\u003A\u0024fromNamespace",
-            "name": "fromNamespace",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-RenameCollection.html#property_fromNamespace"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection\u003A\u003A\u0024toNamespace",
-            "name": "toNamespace",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-RenameCollection.html#property_toNamespace"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\RenameCollection\u003A\u003A\u0024options",
-            "name": "options",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-RenameCollection.html#property_options"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\ReplaceOne",
             "name": "ReplaceOne",
             "summary": "Operation\u0020for\u0020replacing\u0020a\u0020single\u0020document\u0020with\u0020the\u0020update\u0020command.",
@@ -11703,7 +11628,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\UpdateMany\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-UpdateMany.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\UpdateMany\u003A\u003A\u0024update",
@@ -11728,7 +11653,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\MongoDB\\Operation\\UpdateOne\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
-            "summary": "Returns\u0020the\u0020command\u0020document\u0020for\u0020this\u0020operation.",
+            "summary": "",
             "url": "classes/MongoDB-Operation-UpdateOne.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\UpdateOne\u003A\u003A\u0024update",
@@ -11891,8891 +11816,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-UpdateResult.html#property_writeResult"
         },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest",
-            "name": "ClientFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020Client\u0020class.",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AtestGetManager\u0028\u0029",
-            "name": "testGetManager",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_testGetManager"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AtestDropDatabase\u0028\u0029",
-            "name": "testDropDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_testDropDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AtestListDatabases\u0028\u0029",
-            "name": "testListDatabases",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_testListDatabases"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AtestListDatabaseNames\u0028\u0029",
-            "name": "testListDatabaseNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_testListDatabaseNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AassertDatabaseExists\u0028\u0029",
-            "name": "assertDatabaseExists",
-            "summary": "Asserts\u0020that\u0020a\u0020database\u0020with\u0020the\u0020given\u0020name\u0020exists\u0020on\u0020the\u0020server.",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_assertDatabaseExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003AtestStartSession\u0028\u0029",
-            "name": "testStartSession",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#method_testStartSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientFunctionalTest\u003A\u003A\u0024client",
-            "name": "client",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientFunctionalTest.html#property_client"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest",
-            "name": "ClientTest",
-            "summary": "Unit\u0020tests\u0020for\u0020the\u0020Client\u0020class.",
-            "url": "classes/MongoDB-Tests-ClientTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestConstructorDefaultUri\u0028\u0029",
-            "name": "testConstructorDefaultUri",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testConstructorDefaultUri"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestConstructorAutoEncryptionOpts\u0028\u0029",
-            "name": "testConstructorAutoEncryptionOpts",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testConstructorAutoEncryptionOpts"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestConstructorDriverOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorDriverOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testConstructorDriverOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AprovideInvalidConstructorDriverOptions\u0028\u0029",
-            "name": "provideInvalidConstructorDriverOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_provideInvalidConstructorDriverOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestToString\u0028\u0029",
-            "name": "testToString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testToString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestSelectCollectionInheritsOptions\u0028\u0029",
-            "name": "testSelectCollectionInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testSelectCollectionInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestSelectCollectionPassesOptions\u0028\u0029",
-            "name": "testSelectCollectionPassesOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testSelectCollectionPassesOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestGetSelectsDatabaseAndInheritsOptions\u0028\u0029",
-            "name": "testGetSelectsDatabaseAndInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testGetSelectsDatabaseAndInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestSelectDatabaseInheritsOptions\u0028\u0029",
-            "name": "testSelectDatabaseInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testSelectDatabaseInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestSelectDatabasePassesOptions\u0028\u0029",
-            "name": "testSelectDatabasePassesOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testSelectDatabasePassesOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestCreateClientEncryption\u0028\u0029",
-            "name": "testCreateClientEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testCreateClientEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestCreateClientEncryptionWithKeyVaultClient\u0028\u0029",
-            "name": "testCreateClientEncryptionWithKeyVaultClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testCreateClientEncryptionWithKeyVaultClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestCreateClientEncryptionWithManager\u0028\u0029",
-            "name": "testCreateClientEncryptionWithManager",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testCreateClientEncryptionWithManager"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\ClientTest\u003A\u003AtestCreateClientEncryptionWithInvalidKeyVaultClient\u0028\u0029",
-            "name": "testCreateClientEncryptionWithInvalidKeyVaultClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-ClientTest.html#method_testCreateClientEncryptionWithInvalidKeyVaultClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest",
-            "name": "CollectionFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020Collection\u0020class.",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestConstructorDatabaseNameArgument\u0028\u0029",
-            "name": "testConstructorDatabaseNameArgument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testConstructorDatabaseNameArgument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestConstructorCollectionNameArgument\u0028\u0029",
-            "name": "testConstructorCollectionNameArgument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testConstructorCollectionNameArgument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AprovideInvalidDatabaseAndCollectionNames\u0028\u0029",
-            "name": "provideInvalidDatabaseAndCollectionNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_provideInvalidDatabaseAndCollectionNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestGetManager\u0028\u0029",
-            "name": "testGetManager",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testGetManager"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestToString\u0028\u0029",
-            "name": "testToString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testToString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AgetGetCollectionName\u0028\u0029",
-            "name": "getGetCollectionName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_getGetCollectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AgetGetDatabaseName\u0028\u0029",
-            "name": "getGetDatabaseName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_getGetDatabaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestGetNamespace\u0028\u0029",
-            "name": "testGetNamespace",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testGetNamespace"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestAggregateWithinTransaction\u0028\u0029",
-            "name": "testAggregateWithinTransaction",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testAggregateWithinTransaction"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestCreateIndexSplitsCommandOptions\u0028\u0029",
-            "name": "testCreateIndexSplitsCommandOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testCreateIndexSplitsCommandOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestDistinctWithTypeMap\u0028\u0029",
-            "name": "testDistinctWithTypeMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testDistinctWithTypeMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocuments\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestDrop\u0028\u0029",
-            "name": "testDrop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testDrop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestDropIndexShouldNotAllowWildcardCharacter\u0028\u0029",
-            "name": "testDropIndexShouldNotAllowWildcardCharacter",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testDropIndexShouldNotAllowWildcardCharacter"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestExplain\u0028\u0029",
-            "name": "testExplain",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testExplain"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestFindOne\u0028\u0029",
-            "name": "testFindOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testFindOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestFindWithinTransaction\u0028\u0029",
-            "name": "testFindWithinTransaction",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testFindWithinTransaction"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestRenameToSameDatabase\u0028\u0029",
-            "name": "testRenameToSameDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testRenameToSameDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestRenameToDifferentDatabase\u0028\u0029",
-            "name": "testRenameToDifferentDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testRenameToDifferentDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestWithOptionsInheritsOptions\u0028\u0029",
-            "name": "testWithOptionsInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testWithOptionsInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestWithOptionsPassesOptions\u0028\u0029",
-            "name": "testWithOptionsPassesOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testWithOptionsPassesOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestMapReduce\u0028\u0029",
-            "name": "testMapReduce",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testMapReduce"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AcollectionMethodClosures\u0028\u0029",
-            "name": "collectionMethodClosures",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_collectionMethodClosures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AcollectionReadMethodClosures\u0028\u0029",
-            "name": "collectionReadMethodClosures",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_collectionReadMethodClosures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AcollectionWriteMethodClosures\u0028\u0029",
-            "name": "collectionWriteMethodClosures",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_collectionWriteMethodClosures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestMethodDoesNotInheritReadWriteConcernInTranasaction\u0028\u0029",
-            "name": "testMethodDoesNotInheritReadWriteConcernInTranasaction",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testMethodDoesNotInheritReadWriteConcernInTranasaction"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestMethodInTransactionWithWriteConcernOption\u0028\u0029",
-            "name": "testMethodInTransactionWithWriteConcernOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testMethodInTransactionWithWriteConcernOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AtestMethodInTransactionWithReadConcernOption\u0028\u0029",
-            "name": "testMethodInTransactionWithReadConcernOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_testMethodInTransactionWithReadConcernOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CollectionFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Collection-CollectionFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest",
-            "name": "CrudSpecFunctionalTest",
-            "summary": "CRUD\u0020spec\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AtestSpecification\u0028\u0029",
-            "name": "testSpecification",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_testSpecification"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AprovideSpecificationTests\u0028\u0029",
-            "name": "provideSpecificationTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_provideSpecificationTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AassertEquivalentCollections\u0028\u0029",
-            "name": "assertEquivalentCollections",
-            "summary": "Assert\u0020that\u0020the\u0020collections\u0020contain\u0020equivalent\u0020documents.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_assertEquivalentCollections"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AcheckServerlessRequirement\u0028\u0029",
-            "name": "checkServerlessRequirement",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_checkServerlessRequirement"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AcheckServerVersion\u0028\u0029",
-            "name": "checkServerVersion",
-            "summary": "Checks\u0020that\u0020the\u0020server\u0020version\u0020is\u0020within\u0020the\u0020allowed\u0020bounds\u0020\u0028if\u0020any\u0029.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_checkServerVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AexecuteOperation\u0028\u0029",
-            "name": "executeOperation",
-            "summary": "Executes\u0020an\u0020\u0022operation\u0022\u0020block.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_executeOperation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AexecuteOutcome\u0028\u0029",
-            "name": "executeOutcome",
-            "summary": "Executes\u0020an\u0020\u0022outcome\u0022\u0020block.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_executeOutcome"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AextractResultFromException\u0028\u0029",
-            "name": "extractResultFromException",
-            "summary": "Extracts\u0020a\u0020result\u0020from\u0020an\u0020exception.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_extractResultFromException"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AexecuteAssertResult\u0028\u0029",
-            "name": "executeAssertResult",
-            "summary": "Executes\u0020the\u0020\u0022result\u0022\u0020section\u0020of\u0020an\u0020\u0022outcome\u0022\u0020block.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_executeAssertResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AinitializeData\u0028\u0029",
-            "name": "initializeData",
-            "summary": "Initializes\u0020data\u0020in\u0020the\u0020test\u0020collections.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_initializeData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AprepareBulkWriteRequest\u0028\u0029",
-            "name": "prepareBulkWriteRequest",
-            "summary": "Prepares\u0020a\u0020request\u0020element\u0020for\u0020a\u0020bulkWrite\u0020operation.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_prepareBulkWriteRequest"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003AprepareFindAndModifyArguments\u0028\u0029",
-            "name": "prepareFindAndModifyArguments",
-            "summary": "Prepares\u0020arguments\u0020for\u0020findOneAndReplace\u0020and\u0020findOneAndUpdate\u0020operations.",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#method_prepareFindAndModifyArguments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003ASERVERLESS_ALLOW",
-            "name": "SERVERLESS_ALLOW",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#constant_SERVERLESS_ALLOW"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003ASERVERLESS_FORBID",
-            "name": "SERVERLESS_FORBID",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#constant_SERVERLESS_FORBID"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003ASERVERLESS_REQUIRE",
-            "name": "SERVERLESS_REQUIRE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#constant_SERVERLESS_REQUIRE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\CrudSpecFunctionalTest\u003A\u003A\u0024expectedCollection",
-            "name": "expectedCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-CrudSpecFunctionalTest.html#property_expectedCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\FunctionalTestCase",
-            "name": "FunctionalTestCase",
-            "summary": "Base\u0020class\u0020for\u0020Collection\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Collection-FunctionalTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\FunctionalTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-FunctionalTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\FunctionalTestCase\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-FunctionalTestCase.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection\\FunctionalTestCase\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Collection-FunctionalTestCase.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command\\ListCollectionsTest",
-            "name": "ListCollectionsTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Command-ListCollectionsTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command\\ListCollectionsTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Command-ListCollectionsTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command\\ListCollectionsTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Command-ListCollectionsTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command\\ListDatabasesTest",
-            "name": "ListDatabasesTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Command-ListDatabasesTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command\\ListDatabasesTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Command-ListDatabasesTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command\\ListDatabasesTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Command-ListDatabasesTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\CommandObserver",
-            "name": "CommandObserver",
-            "summary": "Observes\u0020command\u0020documents\u0020using\u0020the\u0020driver\u0027s\u0020monitoring\u0020API.",
-            "url": "classes/MongoDB-Tests-CommandObserver.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\CommandObserver\u003A\u003Aobserve\u0028\u0029",
-            "name": "observe",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-CommandObserver.html#method_observe"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\CommandObserver\u003A\u003AcommandStarted\u0028\u0029",
-            "name": "commandStarted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-CommandObserver.html#method_commandStarted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\CommandObserver\u003A\u003AcommandSucceeded\u0028\u0029",
-            "name": "commandSucceeded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-CommandObserver.html#method_commandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\CommandObserver\u003A\u003AcommandFailed\u0028\u0029",
-            "name": "commandFailed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-CommandObserver.html#method_commandFailed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\CommandObserver\u003A\u003A\u0024commands",
-            "name": "commands",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-CommandObserver.html#property_commands"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest",
-            "name": "CollectionManagementFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020collection\u0020management\u0020methods.",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest\u003A\u003AtestCreateCollection\u0028\u0029",
-            "name": "testCreateCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html#method_testCreateCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest\u003A\u003AtestDropCollection\u0028\u0029",
-            "name": "testDropCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html#method_testDropCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest\u003A\u003AtestListCollections\u0028\u0029",
-            "name": "testListCollections",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html#method_testListCollections"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest\u003A\u003AtestListCollectionsWithFilter\u0028\u0029",
-            "name": "testListCollectionsWithFilter",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html#method_testListCollectionsWithFilter"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest\u003A\u003AtestListCollectionNames\u0028\u0029",
-            "name": "testListCollectionNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html#method_testListCollectionNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\CollectionManagementFunctionalTest\u003A\u003AtestListCollectionNamesWithFilter\u0028\u0029",
-            "name": "testListCollectionNamesWithFilter",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-CollectionManagementFunctionalTest.html#method_testListCollectionNamesWithFilter"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest",
-            "name": "DatabaseFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020Database\u0020class.",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestConstructorDatabaseNameArgument\u0028\u0029",
-            "name": "testConstructorDatabaseNameArgument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testConstructorDatabaseNameArgument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AprovideInvalidDatabaseNames\u0028\u0029",
-            "name": "provideInvalidDatabaseNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_provideInvalidDatabaseNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestGetManager\u0028\u0029",
-            "name": "testGetManager",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testGetManager"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestToString\u0028\u0029",
-            "name": "testToString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testToString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AgetGetDatabaseName\u0028\u0029",
-            "name": "getGetDatabaseName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_getGetDatabaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestCommand\u0028\u0029",
-            "name": "testCommand",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testCommand"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestCommandDoesNotInheritReadPreference\u0028\u0029",
-            "name": "testCommandDoesNotInheritReadPreference",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testCommandDoesNotInheritReadPreference"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestCommandAppliesTypeMapToCursor\u0028\u0029",
-            "name": "testCommandAppliesTypeMapToCursor",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testCommandAppliesTypeMapToCursor"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestCommandCommandArgumentTypeCheck\u0028\u0029",
-            "name": "testCommandCommandArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testCommandCommandArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestDrop\u0028\u0029",
-            "name": "testDrop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testDrop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestDropCollection\u0028\u0029",
-            "name": "testDropCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testDropCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestGetSelectsCollectionAndInheritsOptions\u0028\u0029",
-            "name": "testGetSelectsCollectionAndInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testGetSelectsCollectionAndInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestModifyCollection\u0028\u0029",
-            "name": "testModifyCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testModifyCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestRenameCollectionToSameDatabase\u0028\u0029",
-            "name": "testRenameCollectionToSameDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testRenameCollectionToSameDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestRenameCollectionToDifferentDatabase\u0028\u0029",
-            "name": "testRenameCollectionToDifferentDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testRenameCollectionToDifferentDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestSelectCollectionInheritsOptions\u0028\u0029",
-            "name": "testSelectCollectionInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testSelectCollectionInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestSelectCollectionPassesOptions\u0028\u0029",
-            "name": "testSelectCollectionPassesOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testSelectCollectionPassesOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestSelectGridFSBucketInheritsOptions\u0028\u0029",
-            "name": "testSelectGridFSBucketInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testSelectGridFSBucketInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestSelectGridFSBucketPassesOptions\u0028\u0029",
-            "name": "testSelectGridFSBucketPassesOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testSelectGridFSBucketPassesOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestWithOptionsInheritsOptions\u0028\u0029",
-            "name": "testWithOptionsInheritsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testWithOptionsInheritsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\DatabaseFunctionalTest\u003A\u003AtestWithOptionsPassesOptions\u0028\u0029",
-            "name": "testWithOptionsPassesOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-DatabaseFunctionalTest.html#method_testWithOptionsPassesOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\FunctionalTestCase",
-            "name": "FunctionalTestCase",
-            "summary": "Base\u0020class\u0020for\u0020Database\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Database-FunctionalTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\FunctionalTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-FunctionalTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database\\FunctionalTestCase\u003A\u003A\u0024database",
-            "name": "database",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Database-FunctionalTestCase.html#property_database"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest",
-            "name": "DocumentationExamplesTest",
-            "summary": "Documentation\u0020examples\u0020to\u0020be\u0020parsed\u0020for\u0020inclusion\u0020in\u0020the\u0020MongoDB\u0020manual.",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_1_2\u0028\u0029",
-            "name": "testExample_1_2",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_1_2"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_3\u0028\u0029",
-            "name": "testExample_3",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_3"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_6_13\u0028\u0029",
-            "name": "testExample_6_13",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_6_13"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_14_19\u0028\u0029",
-            "name": "testExample_14_19",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_14_19"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_20_28\u0028\u0029",
-            "name": "testExample_20_28",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_20_28"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_29_37\u0028\u0029",
-            "name": "testExample_29_37",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_29_37"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_38_41\u0028\u0029",
-            "name": "testExample_38_41",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_38_41"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_42_50\u0028\u0029",
-            "name": "testExample_42_50",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_42_50"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_51_54\u0028\u0029",
-            "name": "testExample_51_54",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_51_54"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestExample_55_58\u0028\u0029",
-            "name": "testExample_55_58",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testExample_55_58"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestChangeStreamExample_1_4\u0028\u0029",
-            "name": "testChangeStreamExample_1_4",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testChangeStreamExample_1_4"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestAggregation_example_1\u0028\u0029",
-            "name": "testAggregation_example_1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testAggregation_example_1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestAggregation_example_2\u0028\u0029",
-            "name": "testAggregation_example_2",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testAggregation_example_2"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestAggregation_example_3\u0028\u0029",
-            "name": "testAggregation_example_3",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testAggregation_example_3"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestAggregation_example_4\u0028\u0029",
-            "name": "testAggregation_example_4",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testAggregation_example_4"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestRunCommand_example_1\u0028\u0029",
-            "name": "testRunCommand_example_1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testRunCommand_example_1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestRunCommand_example_2\u0028\u0029",
-            "name": "testRunCommand_example_2",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testRunCommand_example_2"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestIndex_example_1\u0028\u0029",
-            "name": "testIndex_example_1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testIndex_example_1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestIndex_example_2\u0028\u0029",
-            "name": "testIndex_example_2",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testIndex_example_2"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AupdateEmployeeInfo1\u0028\u0029",
-            "name": "updateEmployeeInfo1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_updateEmployeeInfo1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestTransactions_intro_example_1\u0028\u0029",
-            "name": "testTransactions_intro_example_1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testTransactions_intro_example_1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003ArunTransactionWithRetry1\u0028\u0029",
-            "name": "runTransactionWithRetry1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_runTransactionWithRetry1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AcommitWithRetry2\u0028\u0029",
-            "name": "commitWithRetry2",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_commitWithRetry2"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003ArunTransactionWithRetry3\u0028\u0029",
-            "name": "runTransactionWithRetry3",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_runTransactionWithRetry3"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AcommitWithRetry3\u0028\u0029",
-            "name": "commitWithRetry3",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_commitWithRetry3"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AupdateEmployeeInfo3\u0028\u0029",
-            "name": "updateEmployeeInfo3",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_updateEmployeeInfo3"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AdoUpdateEmployeeInfo\u0028\u0029",
-            "name": "doUpdateEmployeeInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_doUpdateEmployeeInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestTransactions_retry_example_3\u0028\u0029",
-            "name": "testTransactions_retry_example_3",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testTransactions_retry_example_3"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestCausalConsistency\u0028\u0029",
-            "name": "testCausalConsistency",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testCausalConsistency"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestVersionedApi\u0028\u0029",
-            "name": "testVersionedApi",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testVersionedApi"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestVersionedApiMigration\u0028\u0029",
-            "name": "testVersionedApiMigration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testVersionedApiMigration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AtestWithTransactionExample\u0028\u0029",
-            "name": "testWithTransactionExample",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_testWithTransactionExample"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AgetCollectionName\u0028\u0029",
-            "name": "getCollectionName",
-            "summary": "Return\u0020the\u0020test\u0020collection\u0020name.",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_getCollectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AassertCursorCount\u0028\u0029",
-            "name": "assertCursorCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_assertCursorCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\DocumentationExamplesTest\u003A\u003AassertInventoryCount\u0028\u0029",
-            "name": "assertInventoryCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-DocumentationExamplesTest.html#method_assertInventoryCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase",
-            "name": "FunctionalTestCase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AcreateTestClient\u0028\u0029",
-            "name": "createTestClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_createTestClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AcreateTestManager\u0028\u0029",
-            "name": "createTestManager",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_createTestManager"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AgetUri\u0028\u0029",
-            "name": "getUri",
-            "summary": "Return\u0020the\u0020connection\u0020URI.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_getUri"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AassertCollectionCount\u0028\u0029",
-            "name": "assertCollectionCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_assertCollectionCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AassertCollectionDoesNotExist\u0028\u0029",
-            "name": "assertCollectionDoesNotExist",
-            "summary": "Asserts\u0020that\u0020a\u0020collection\u0020with\u0020the\u0020given\u0020name\u0020does\u0020not\u0020exist\u0020on\u0020the\nserver.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_assertCollectionDoesNotExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AassertCollectionExists\u0028\u0029",
-            "name": "assertCollectionExists",
-            "summary": "Asserts\u0020that\u0020a\u0020collection\u0020with\u0020the\u0020given\u0020name\u0020exists\u0020on\u0020the\u0020server.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_assertCollectionExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AassertCommandSucceeded\u0028\u0029",
-            "name": "assertCommandSucceeded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_assertCommandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AassertSameObjectId\u0028\u0029",
-            "name": "assertSameObjectId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_assertSameObjectId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AconfigureFailPoint\u0028\u0029",
-            "name": "configureFailPoint",
-            "summary": "Configure\u0020a\u0020fail\u0020point\u0020for\u0020the\u0020test.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_configureFailPoint"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AcreateCollection\u0028\u0029",
-            "name": "createCollection",
-            "summary": "Creates\u0020the\u0020test\u0020collection\u0020with\u0020the\u0020specified\u0020options.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_createCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AdropCollection\u0028\u0029",
-            "name": "dropCollection",
-            "summary": "Drops\u0020the\u0020test\u0020collection\u0020with\u0020the\u0020specified\u0020options.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_dropCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AgetFeatureCompatibilityVersion\u0028\u0029",
-            "name": "getFeatureCompatibilityVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_getFeatureCompatibilityVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AgetPrimaryServer\u0028\u0029",
-            "name": "getPrimaryServer",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_getPrimaryServer"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AgetServerVersion\u0028\u0029",
-            "name": "getServerVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_getServerVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AgetServerStorageEngine\u0028\u0029",
-            "name": "getServerStorageEngine",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_getServerStorageEngine"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisLoadBalanced\u0028\u0029",
-            "name": "isLoadBalanced",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isLoadBalanced"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisReplicaSet\u0028\u0029",
-            "name": "isReplicaSet",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isReplicaSet"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisMongos\u0028\u0029",
-            "name": "isMongos",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isMongos"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisServerless\u0028\u0029",
-            "name": "isServerless",
-            "summary": "Return\u0020whether\u0020serverless\u0020\u0028i.e.\u0020proxy\u0020as\u0020mongos\u0029\u0020is\u0020being\u0020utilized.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isServerless"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisShardedCluster\u0028\u0029",
-            "name": "isShardedCluster",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isShardedCluster"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisShardedClusterUsingReplicasets\u0028\u0029",
-            "name": "isShardedClusterUsingReplicasets",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isShardedClusterUsingReplicasets"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AskipIfChangeStreamIsNotSupported\u0028\u0029",
-            "name": "skipIfChangeStreamIsNotSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_skipIfChangeStreamIsNotSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AskipIfCausalConsistencyIsNotSupported\u0028\u0029",
-            "name": "skipIfCausalConsistencyIsNotSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_skipIfCausalConsistencyIsNotSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AskipIfClientSideEncryptionIsNotSupported\u0028\u0029",
-            "name": "skipIfClientSideEncryptionIsNotSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_skipIfClientSideEncryptionIsNotSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AskipIfGeoHaystackIndexIsNotSupported\u0028\u0029",
-            "name": "skipIfGeoHaystackIndexIsNotSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_skipIfGeoHaystackIndexIsNotSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AskipIfTransactionsAreNotSupported\u0028\u0029",
-            "name": "skipIfTransactionsAreNotSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_skipIfTransactionsAreNotSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AappendAuthenticationOptions\u0028\u0029",
-            "name": "appendAuthenticationOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_appendAuthenticationOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AappendServerApiOption\u0028\u0029",
-            "name": "appendServerApiOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_appendServerApiOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AdisableFailPoints\u0028\u0029",
-            "name": "disableFailPoints",
-            "summary": "Disables\u0020any\u0020fail\u0020points\u0020that\u0020were\u0020configured\u0020earlier\u0020in\u0020the\u0020test.",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_disableFailPoints"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AgetModuleInfo\u0028\u0029",
-            "name": "getModuleInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_getModuleInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisFailCommandSupported\u0028\u0029",
-            "name": "isFailCommandSupported",
-            "summary": "Checks\u0020if\u0020the\u0020failCommand\u0020command\u0020is\u0020supported\u0020on\u0020this\u0020server\u0020version",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isFailCommandSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003AisFailCommandEnabled\u0028\u0029",
-            "name": "isFailCommandEnabled",
-            "summary": "Checks\u0020if\u0020the\u0020failCommand\u0020command\u0020is\u0020enabled\u0020by\u0020checking\u0020the\u0020enableTestCommands\u0020parameter",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#method_isFailCommandEnabled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003A\u0024manager",
-            "name": "manager",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#property_manager"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionalTestCase\u003A\u003A\u0024configuredFailPoints",
-            "name": "configuredFailPoints",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionalTestCase.html#property_configuredFailPoints"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest",
-            "name": "FunctionsTest",
-            "summary": "Unit\u0020tests\u0020for\u0020utility\u0020functions.",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestApplyTypeMapToDocument\u0028\u0029",
-            "name": "testApplyTypeMapToDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testApplyTypeMapToDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovideDocumentAndTypeMap\u0028\u0029",
-            "name": "provideDocumentAndTypeMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_provideDocumentAndTypeMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestGenerateIndexName\u0028\u0029",
-            "name": "testGenerateIndexName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testGenerateIndexName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovideIndexSpecificationDocumentsAndGeneratedNames\u0028\u0029",
-            "name": "provideIndexSpecificationDocumentsAndGeneratedNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_provideIndexSpecificationDocumentsAndGeneratedNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestGenerateIndexNameArgumentTypeCheck\u0028\u0029",
-            "name": "testGenerateIndexNameArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testGenerateIndexNameArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestIsFirstKeyOperator\u0028\u0029",
-            "name": "testIsFirstKeyOperator",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testIsFirstKeyOperator"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovideIsFirstKeyOperatorDocuments\u0028\u0029",
-            "name": "provideIsFirstKeyOperatorDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_provideIsFirstKeyOperatorDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestIsFirstKeyOperatorArgumentTypeCheck\u0028\u0029",
-            "name": "testIsFirstKeyOperatorArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testIsFirstKeyOperatorArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestIsMapReduceOutputInline\u0028\u0029",
-            "name": "testIsMapReduceOutputInline",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testIsMapReduceOutputInline"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovideMapReduceOutValues\u0028\u0029",
-            "name": "provideMapReduceOutValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_provideMapReduceOutValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestCreateFieldPathTypeMap\u0028\u0029",
-            "name": "testCreateFieldPathTypeMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testCreateFieldPathTypeMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovideTypeMapValues\u0028\u0029",
-            "name": "provideTypeMapValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_provideTypeMapValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestIsPipeline\u0028\u0029",
-            "name": "testIsPipeline",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testIsPipeline"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovidePipelines\u0028\u0029",
-            "name": "providePipelines",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_providePipelines"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AtestIsWriteConcernAcknowledged\u0028\u0029",
-            "name": "testIsWriteConcernAcknowledged",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_testIsWriteConcernAcknowledged"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\FunctionsTest\u003A\u003AprovideWriteConcerns\u0028\u0029",
-            "name": "provideWriteConcerns",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-FunctionsTest.html#method_provideWriteConcerns"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest",
-            "name": "BucketFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020Bucket\u0020class.",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestValidConstructorOptions\u0028\u0029",
-            "name": "testValidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testValidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestConstructorShouldRequireChunkSizeBytesOptionToBePositive\u0028\u0029",
-            "name": "testConstructorShouldRequireChunkSizeBytesOptionToBePositive",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testConstructorShouldRequireChunkSizeBytesOptionToBePositive"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDelete\u0028\u0029",
-            "name": "testDelete",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDelete"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AprovideInputDataAndExpectedChunks\u0028\u0029",
-            "name": "provideInputDataAndExpectedChunks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_provideInputDataAndExpectedChunks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDeleteShouldRequireFileToExist\u0028\u0029",
-            "name": "testDeleteShouldRequireFileToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDeleteShouldRequireFileToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDeleteStillRemovesChunksIfFileDoesNotExist\u0028\u0029",
-            "name": "testDeleteStillRemovesChunksIfFileDoesNotExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDeleteStillRemovesChunksIfFileDoesNotExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadingFileWithMissingChunk\u0028\u0029",
-            "name": "testDownloadingFileWithMissingChunk",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadingFileWithMissingChunk"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadingFileWithUnexpectedChunkIndex\u0028\u0029",
-            "name": "testDownloadingFileWithUnexpectedChunkIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadingFileWithUnexpectedChunkIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadingFileWithUnexpectedChunkSize\u0028\u0029",
-            "name": "testDownloadingFileWithUnexpectedChunkSize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadingFileWithUnexpectedChunkSize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStream\u0028\u0029",
-            "name": "testDownloadToStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamShouldRequireDestinationStream\u0028\u0029",
-            "name": "testDownloadToStreamShouldRequireDestinationStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamShouldRequireDestinationStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AprovideInvalidStreamValues\u0028\u0029",
-            "name": "provideInvalidStreamValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_provideInvalidStreamValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamShouldRequireFileToExist\u0028\u0029",
-            "name": "testDownloadToStreamShouldRequireFileToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamShouldRequireFileToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamByName\u0028\u0029",
-            "name": "testDownloadToStreamByName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamByName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamByNameShouldRequireDestinationStream\u0028\u0029",
-            "name": "testDownloadToStreamByNameShouldRequireDestinationStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamByNameShouldRequireDestinationStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamByNameShouldRequireFilenameAndRevisionToExist\u0028\u0029",
-            "name": "testDownloadToStreamByNameShouldRequireFilenameAndRevisionToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamByNameShouldRequireFilenameAndRevisionToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AprovideNonexistentFilenameAndRevision\u0028\u0029",
-            "name": "provideNonexistentFilenameAndRevision",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_provideNonexistentFilenameAndRevision"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDrop\u0028\u0029",
-            "name": "testDrop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDrop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestFind\u0028\u0029",
-            "name": "testFind",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testFind"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestFindUsesTypeMap\u0028\u0029",
-            "name": "testFindUsesTypeMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testFindUsesTypeMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestFindOne\u0028\u0029",
-            "name": "testFindOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testFindOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetBucketNameWithCustomValue\u0028\u0029",
-            "name": "testGetBucketNameWithCustomValue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetBucketNameWithCustomValue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetBucketNameWithDefaultValue\u0028\u0029",
-            "name": "testGetBucketNameWithDefaultValue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetBucketNameWithDefaultValue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetChunksCollection\u0028\u0029",
-            "name": "testGetChunksCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetChunksCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetChunkSizeBytesWithCustomValue\u0028\u0029",
-            "name": "testGetChunkSizeBytesWithCustomValue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetChunkSizeBytesWithCustomValue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetChunkSizeBytesWithDefaultValue\u0028\u0029",
-            "name": "testGetChunkSizeBytesWithDefaultValue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetChunkSizeBytesWithDefaultValue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetDatabaseName\u0028\u0029",
-            "name": "testGetDatabaseName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetDatabaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileDocumentForStreamUsesTypeMap\u0028\u0029",
-            "name": "testGetFileDocumentForStreamUsesTypeMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileDocumentForStreamUsesTypeMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileDocumentForStreamWithReadableStream\u0028\u0029",
-            "name": "testGetFileDocumentForStreamWithReadableStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileDocumentForStreamWithReadableStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileDocumentForStreamWithWritableStream\u0028\u0029",
-            "name": "testGetFileDocumentForStreamWithWritableStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileDocumentForStreamWithWritableStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileDocumentForStreamShouldRequireGridFSStreamResource\u0028\u0029",
-            "name": "testGetFileDocumentForStreamShouldRequireGridFSStreamResource",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileDocumentForStreamShouldRequireGridFSStreamResource"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AprovideInvalidGridFSStreamValues\u0028\u0029",
-            "name": "provideInvalidGridFSStreamValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_provideInvalidGridFSStreamValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileIdForStreamUsesTypeMap\u0028\u0029",
-            "name": "testGetFileIdForStreamUsesTypeMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileIdForStreamUsesTypeMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileIdForStreamWithReadableStream\u0028\u0029",
-            "name": "testGetFileIdForStreamWithReadableStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileIdForStreamWithReadableStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileIdForStreamWithWritableStream\u0028\u0029",
-            "name": "testGetFileIdForStreamWithWritableStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileIdForStreamWithWritableStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFileIdForStreamShouldRequireGridFSStreamResource\u0028\u0029",
-            "name": "testGetFileIdForStreamShouldRequireGridFSStreamResource",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFileIdForStreamShouldRequireGridFSStreamResource"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestGetFilesCollection\u0028\u0029",
-            "name": "testGetFilesCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testGetFilesCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenDownloadStream\u0028\u0029",
-            "name": "testOpenDownloadStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenDownloadStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenDownloadStreamAndMultipleReadOperations\u0028\u0029",
-            "name": "testOpenDownloadStreamAndMultipleReadOperations",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenDownloadStreamAndMultipleReadOperations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenDownloadStreamShouldRequireFileToExist\u0028\u0029",
-            "name": "testOpenDownloadStreamShouldRequireFileToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenDownloadStreamShouldRequireFileToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenDownloadStreamByNameShouldRequireFilenameToExist\u0028\u0029",
-            "name": "testOpenDownloadStreamByNameShouldRequireFilenameToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenDownloadStreamByNameShouldRequireFilenameToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenDownloadStreamByName\u0028\u0029",
-            "name": "testOpenDownloadStreamByName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenDownloadStreamByName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenDownloadStreamByNameShouldRequireFilenameAndRevisionToExist\u0028\u0029",
-            "name": "testOpenDownloadStreamByNameShouldRequireFilenameAndRevisionToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenDownloadStreamByNameShouldRequireFilenameAndRevisionToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenUploadStream\u0028\u0029",
-            "name": "testOpenUploadStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenUploadStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestOpenUploadStreamAndMultipleWriteOperations\u0028\u0029",
-            "name": "testOpenUploadStreamAndMultipleWriteOperations",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testOpenUploadStreamAndMultipleWriteOperations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestRename\u0028\u0029",
-            "name": "testRename",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testRename"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestRenameShouldNotRequireFileToBeModified\u0028\u0029",
-            "name": "testRenameShouldNotRequireFileToBeModified",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testRenameShouldNotRequireFileToBeModified"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestRenameShouldRequireFileToExist\u0028\u0029",
-            "name": "testRenameShouldRequireFileToExist",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testRenameShouldRequireFileToExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestUploadFromStream\u0028\u0029",
-            "name": "testUploadFromStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testUploadFromStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestUploadFromStreamShouldRequireSourceStream\u0028\u0029",
-            "name": "testUploadFromStreamShouldRequireSourceStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testUploadFromStreamShouldRequireSourceStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestUploadingAnEmptyFile\u0028\u0029",
-            "name": "testUploadingAnEmptyFile",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testUploadingAnEmptyFile"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestUploadingFirstFileCreatesIndexes\u0028\u0029",
-            "name": "testUploadingFirstFileCreatesIndexes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testUploadingFirstFileCreatesIndexes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestExistingIndexIsReused\u0028\u0029",
-            "name": "testExistingIndexIsReused",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testExistingIndexIsReused"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamFails\u0028\u0029",
-            "name": "testDownloadToStreamFails",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamFails"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDownloadToStreamByNameFails\u0028\u0029",
-            "name": "testDownloadToStreamByNameFails",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDownloadToStreamByNameFails"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestUploadFromStreamFails\u0028\u0029",
-            "name": "testUploadFromStreamFails",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testUploadFromStreamFails"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AtestDanglingOpenWritableStream\u0028\u0029",
-            "name": "testDanglingOpenWritableStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_testDanglingOpenWritableStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AassertIndexExists\u0028\u0029",
-            "name": "assertIndexExists",
-            "summary": "Asserts\u0020that\u0020an\u0020index\u0020with\u0020the\u0020given\u0020name\u0020exists\u0020for\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_assertIndexExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AassertIndexNotExists\u0028\u0029",
-            "name": "assertIndexNotExists",
-            "summary": "Asserts\u0020that\u0020an\u0020index\u0020with\u0020the\u0020given\u0020name\u0020does\u0020not\u0020exist\u0020for\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_assertIndexNotExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\BucketFunctionalTest\u003A\u003AgetInvalidStreamValues\u0028\u0029",
-            "name": "getInvalidStreamValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020stream\u0020values.",
-            "url": "classes/MongoDB-Tests-GridFS-BucketFunctionalTest.html#method_getInvalidStreamValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase",
-            "name": "FunctionalTestCase",
-            "summary": "Base\u0020class\u0020for\u0020GridFS\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase\u003A\u003AassertStreamContents\u0028\u0029",
-            "name": "assertStreamContents",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020a\u0020stream\u0020containing\u0020the\u0020expected\u0020data.",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html#method_assertStreamContents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase\u003A\u003AcreateStream\u0028\u0029",
-            "name": "createStream",
-            "summary": "Creates\u0020an\u0020in\u002Dmemory\u0020stream\u0020with\u0020the\u0020given\u0020data.",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html#method_createStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase\u003A\u003A\u0024bucket",
-            "name": "bucket",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html#property_bucket"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase\u003A\u003A\u0024chunksCollection",
-            "name": "chunksCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html#property_chunksCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\FunctionalTestCase\u003A\u003A\u0024filesCollection",
-            "name": "filesCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-FunctionalTestCase.html#property_filesCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest",
-            "name": "ReadableStreamFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020internal\u0020ReadableStream\u0020class.",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestGetFile\u0028\u0029",
-            "name": "testGetFile",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testGetFile"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestConstructorFileDocumentChecks\u0028\u0029",
-            "name": "testConstructorFileDocumentChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testConstructorFileDocumentChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AprovideInvalidConstructorFileDocuments\u0028\u0029",
-            "name": "provideInvalidConstructorFileDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_provideInvalidConstructorFileDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestReadBytes\u0028\u0029",
-            "name": "testReadBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testReadBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AprovideFileIdAndExpectedBytes\u0028\u0029",
-            "name": "provideFileIdAndExpectedBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_provideFileIdAndExpectedBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AprovideFilteredFileIdAndExpectedBytes\u0028\u0029",
-            "name": "provideFilteredFileIdAndExpectedBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_provideFilteredFileIdAndExpectedBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestReadBytesCalledMultipleTimes\u0028\u0029",
-            "name": "testReadBytesCalledMultipleTimes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testReadBytesCalledMultipleTimes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestReadBytesWithMissingChunk\u0028\u0029",
-            "name": "testReadBytesWithMissingChunk",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testReadBytesWithMissingChunk"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestReadBytesWithUnexpectedChunkIndex\u0028\u0029",
-            "name": "testReadBytesWithUnexpectedChunkIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testReadBytesWithUnexpectedChunkIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestReadBytesWithUnexpectedChunkSize\u0028\u0029",
-            "name": "testReadBytesWithUnexpectedChunkSize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testReadBytesWithUnexpectedChunkSize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestReadBytesWithNegativeLength\u0028\u0029",
-            "name": "testReadBytesWithNegativeLength",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testReadBytesWithNegativeLength"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestSeekBeforeReading\u0028\u0029",
-            "name": "testSeekBeforeReading",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testSeekBeforeReading"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestSeekOutOfRange\u0028\u0029",
-            "name": "testSeekOutOfRange",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testSeekOutOfRange"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestSeekPreviousChunk\u0028\u0029",
-            "name": "testSeekPreviousChunk",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testSeekPreviousChunk"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AprovidePreviousChunkSeekOffsetAndBytes\u0028\u0029",
-            "name": "providePreviousChunkSeekOffsetAndBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_providePreviousChunkSeekOffsetAndBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestSeekSameChunk\u0028\u0029",
-            "name": "testSeekSameChunk",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testSeekSameChunk"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AprovideSameChunkSeekOffsetAndBytes\u0028\u0029",
-            "name": "provideSameChunkSeekOffsetAndBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_provideSameChunkSeekOffsetAndBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AtestSeekSubsequentChunk\u0028\u0029",
-            "name": "testSeekSubsequentChunk",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_testSeekSubsequentChunk"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003AprovideSubsequentChunkSeekOffsetAndBytes\u0028\u0029",
-            "name": "provideSubsequentChunkSeekOffsetAndBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#method_provideSubsequentChunkSeekOffsetAndBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\ReadableStreamFunctionalTest\u003A\u003A\u0024collectionWrapper",
-            "name": "collectionWrapper",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-ReadableStreamFunctionalTest.html#property_collectionWrapper"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest",
-            "name": "StreamWrapperFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020internal\u0020StreamWrapper\u0020class.",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestReadableStreamClose\u0028\u0029",
-            "name": "testReadableStreamClose",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testReadableStreamClose"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestReadableStreamEof\u0028\u0029",
-            "name": "testReadableStreamEof",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testReadableStreamEof"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestReadableStreamRead\u0028\u0029",
-            "name": "testReadableStreamRead",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testReadableStreamRead"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestReadableStreamSeek\u0028\u0029",
-            "name": "testReadableStreamSeek",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testReadableStreamSeek"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestReadableStreamStat\u0028\u0029",
-            "name": "testReadableStreamStat",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testReadableStreamStat"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestReadableStreamWrite\u0028\u0029",
-            "name": "testReadableStreamWrite",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testReadableStreamWrite"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamClose\u0028\u0029",
-            "name": "testWritableStreamClose",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamClose"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamEof\u0028\u0029",
-            "name": "testWritableStreamEof",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamEof"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamRead\u0028\u0029",
-            "name": "testWritableStreamRead",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamRead"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamSeek\u0028\u0029",
-            "name": "testWritableStreamSeek",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamSeek"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamStatBeforeSaving\u0028\u0029",
-            "name": "testWritableStreamStatBeforeSaving",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamStatBeforeSaving"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamStatAfterSaving\u0028\u0029",
-            "name": "testWritableStreamStatAfterSaving",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamStatAfterSaving"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\StreamWrapperFunctionalTest\u003A\u003AtestWritableStreamWrite\u0028\u0029",
-            "name": "testWritableStreamWrite",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-StreamWrapperFunctionalTest.html#method_testWritableStreamWrite"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream",
-            "name": "UnusableStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Aregister\u0028\u0029",
-            "name": "register",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_register"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_close\u0028\u0029",
-            "name": "stream_close",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_close"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_eof\u0028\u0029",
-            "name": "stream_eof",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_eof"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_open\u0028\u0029",
-            "name": "stream_open",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_open"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_read\u0028\u0029",
-            "name": "stream_read",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_read"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_seek\u0028\u0029",
-            "name": "stream_seek",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_seek"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_stat\u0028\u0029",
-            "name": "stream_stat",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_stat"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_tell\u0028\u0029",
-            "name": "stream_tell",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_tell"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\UnusableStream\u003A\u003Astream_write\u0028\u0029",
-            "name": "stream_write",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-UnusableStream.html#method_stream_write"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest",
-            "name": "WritableStreamFunctionalTest",
-            "summary": "Functional\u0020tests\u0020for\u0020the\u0020internal\u0020WritableStream\u0020class.",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AtestValidConstructorOptions\u0028\u0029",
-            "name": "testValidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_testValidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AtestConstructorShouldRequireChunkSizeBytesOptionToBePositive\u0028\u0029",
-            "name": "testConstructorShouldRequireChunkSizeBytesOptionToBePositive",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_testConstructorShouldRequireChunkSizeBytesOptionToBePositive"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AtestWriteBytesAlwaysUpdatesFileSize\u0028\u0029",
-            "name": "testWriteBytesAlwaysUpdatesFileSize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_testWriteBytesAlwaysUpdatesFileSize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AtestWriteBytesCalculatesMD5\u0028\u0029",
-            "name": "testWriteBytesCalculatesMD5",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_testWriteBytesCalculatesMD5"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003AprovideInputDataAndExpectedMD5\u0028\u0029",
-            "name": "provideInputDataAndExpectedMD5",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#method_provideInputDataAndExpectedMD5"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS\\WritableStreamFunctionalTest\u003A\u003A\u0024collectionWrapper",
-            "name": "collectionWrapper",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-GridFS-WritableStreamFunctionalTest.html#property_collectionWrapper"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest",
-            "name": "BSONArrayTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestBsonSerializeReindexesKeys\u0028\u0029",
-            "name": "testBsonSerializeReindexesKeys",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testBsonSerializeReindexesKeys"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestClone\u0028\u0029",
-            "name": "testClone",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testClone"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestCloneRespectsUncloneableObjects\u0028\u0029",
-            "name": "testCloneRespectsUncloneableObjects",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testCloneRespectsUncloneableObjects"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestCloneSupportsBSONTypes\u0028\u0029",
-            "name": "testCloneSupportsBSONTypes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testCloneSupportsBSONTypes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestJsonSerialize\u0028\u0029",
-            "name": "testJsonSerialize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testJsonSerialize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestJsonSerializeReindexesKeys\u0028\u0029",
-            "name": "testJsonSerializeReindexesKeys",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testJsonSerializeReindexesKeys"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONArrayTest\u003A\u003AtestSetState\u0028\u0029",
-            "name": "testSetState",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONArrayTest.html#method_testSetState"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest",
-            "name": "BSONDocumentTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestConstructorDefaultsToPropertyAccess\u0028\u0029",
-            "name": "testConstructorDefaultsToPropertyAccess",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testConstructorDefaultsToPropertyAccess"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestBsonSerializeCastsToObject\u0028\u0029",
-            "name": "testBsonSerializeCastsToObject",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testBsonSerializeCastsToObject"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestClone\u0028\u0029",
-            "name": "testClone",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testClone"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestCloneRespectsUncloneableObjects\u0028\u0029",
-            "name": "testCloneRespectsUncloneableObjects",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testCloneRespectsUncloneableObjects"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestCloneSupportsBSONTypes\u0028\u0029",
-            "name": "testCloneSupportsBSONTypes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testCloneSupportsBSONTypes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestJsonSerialize\u0028\u0029",
-            "name": "testJsonSerialize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testJsonSerialize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestJsonSerializeCastsToObject\u0028\u0029",
-            "name": "testJsonSerializeCastsToObject",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testJsonSerializeCastsToObject"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONDocumentTest\u003A\u003AtestSetState\u0028\u0029",
-            "name": "testSetState",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONDocumentTest.html#method_testSetState"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest",
-            "name": "BSONIteratorTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest\u003A\u003AtestValidValues\u0028\u0029",
-            "name": "testValidValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html#method_testValidValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocuments\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html#method_provideTypeMapOptionsAndExpectedDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest\u003A\u003AtestCannotReadLengthFromFirstDocument\u0028\u0029",
-            "name": "testCannotReadLengthFromFirstDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html#method_testCannotReadLengthFromFirstDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest\u003A\u003AtestCannotReadLengthFromSubsequentDocument\u0028\u0029",
-            "name": "testCannotReadLengthFromSubsequentDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html#method_testCannotReadLengthFromSubsequentDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest\u003A\u003AtestCannotReadFirstDocument\u0028\u0029",
-            "name": "testCannotReadFirstDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html#method_testCannotReadFirstDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\BSONIteratorTest\u003A\u003AtestCannotReadSecondDocument\u0028\u0029",
-            "name": "testCannotReadSecondDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-BSONIteratorTest.html#method_testCannotReadSecondDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest",
-            "name": "CachingIteratorTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestTraversingGeneratorConsumesIt\u0028\u0029",
-            "name": "testTraversingGeneratorConsumesIt",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testTraversingGeneratorConsumesIt"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestConstructorRewinds\u0028\u0029",
-            "name": "testConstructorRewinds",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testConstructorRewinds"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestIteration\u0028\u0029",
-            "name": "testIteration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testIteration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestIterationWithEmptySet\u0028\u0029",
-            "name": "testIterationWithEmptySet",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testIterationWithEmptySet"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestPartialIterationDoesNotExhaust\u0028\u0029",
-            "name": "testPartialIterationDoesNotExhaust",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testPartialIterationDoesNotExhaust"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestRewindAfterPartialIteration\u0028\u0029",
-            "name": "testRewindAfterPartialIteration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testRewindAfterPartialIteration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestCount\u0028\u0029",
-            "name": "testCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestCountAfterPartialIteration\u0028\u0029",
-            "name": "testCountAfterPartialIteration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testCountAfterPartialIteration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestCountWithEmptySet\u0028\u0029",
-            "name": "testCountWithEmptySet",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testCountWithEmptySet"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AtestWithWrongIterator\u0028\u0029",
-            "name": "testWithWrongIterator",
-            "summary": "This\u0020protects\u0020against\u0020iterators\u0020that\u0020return\u0020valid\u0020keys\u0020on\u0020invalid\npositions,\u0020which\u0020was\u0020the\u0020case\u0020in\u0020ext\u002Dmongodb\u0020until\u0020PHPC\u002D1748\u0020was\u0020fixed.",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_testWithWrongIterator"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CachingIteratorTest\u003A\u003AgetTraversable\u0028\u0029",
-            "name": "getTraversable",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CachingIteratorTest.html#method_getTraversable"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest",
-            "name": "ChangeStreamIteratorTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestFirstBatchArgumentTypeCheck\u0028\u0029",
-            "name": "testFirstBatchArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testFirstBatchArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AprovideInvalidIntegerValues\u0028\u0029",
-            "name": "provideInvalidIntegerValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_provideInvalidIntegerValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestInitialResumeToken\u0028\u0029",
-            "name": "testInitialResumeToken",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testInitialResumeToken"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestInitialResumeTokenArgumentTypeCheck\u0028\u0029",
-            "name": "testInitialResumeTokenArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testInitialResumeTokenArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestPostBatchResumeTokenArgumentTypeCheck\u0028\u0029",
-            "name": "testPostBatchResumeTokenArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testPostBatchResumeTokenArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AprovideInvalidObjectValues\u0028\u0029",
-            "name": "provideInvalidObjectValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_provideInvalidObjectValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestPostBatchResumeTokenIsReturnedForLastElementInFirstBatch\u0028\u0029",
-            "name": "testPostBatchResumeTokenIsReturnedForLastElementInFirstBatch",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testPostBatchResumeTokenIsReturnedForLastElementInFirstBatch"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestRewindIsNopWhenFirstBatchIsEmpty\u0028\u0029",
-            "name": "testRewindIsNopWhenFirstBatchIsEmpty",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testRewindIsNopWhenFirstBatchIsEmpty"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AtestRewindAdvancesWhenFirstBatchIsNotEmpty\u0028\u0029",
-            "name": "testRewindAdvancesWhenFirstBatchIsNotEmpty",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_testRewindAdvancesWhenFirstBatchIsNotEmpty"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003AassertNoCommandExecuted\u0028\u0029",
-            "name": "assertNoCommandExecuted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#method_assertNoCommandExecuted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\ChangeStreamIteratorTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-ChangeStreamIteratorTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest",
-            "name": "CollectionInfoTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestGetBasicInformation\u0028\u0029",
-            "name": "testGetBasicInformation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testGetBasicInformation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestMissingFields\u0028\u0029",
-            "name": "testMissingFields",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testMissingFields"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestCappedCollectionMethods\u0028\u0029",
-            "name": "testCappedCollectionMethods",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testCappedCollectionMethods"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestDebugInfo\u0028\u0029",
-            "name": "testDebugInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testDebugInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestImplementsArrayAccess\u0028\u0029",
-            "name": "testImplementsArrayAccess",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testImplementsArrayAccess"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestOffsetSetCannotBeCalled\u0028\u0029",
-            "name": "testOffsetSetCannotBeCalled",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testOffsetSetCannotBeCalled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\CollectionInfoTest\u003A\u003AtestOffsetUnsetCannotBeCalled\u0028\u0029",
-            "name": "testOffsetUnsetCannotBeCalled",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-CollectionInfoTest.html#method_testOffsetUnsetCannotBeCalled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest",
-            "name": "DatabaseInfoTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestGetName\u0028\u0029",
-            "name": "testGetName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testGetName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestGetSizeOnDisk\u0028\u0029",
-            "name": "testGetSizeOnDisk",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testGetSizeOnDisk"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestIsEmpty\u0028\u0029",
-            "name": "testIsEmpty",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testIsEmpty"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestDebugInfo\u0028\u0029",
-            "name": "testDebugInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testDebugInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestImplementsArrayAccess\u0028\u0029",
-            "name": "testImplementsArrayAccess",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testImplementsArrayAccess"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestOffsetSetCannotBeCalled\u0028\u0029",
-            "name": "testOffsetSetCannotBeCalled",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testOffsetSetCannotBeCalled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\DatabaseInfoTest\u003A\u003AtestOffsetUnsetCannotBeCalled\u0028\u0029",
-            "name": "testOffsetUnsetCannotBeCalled",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-DatabaseInfoTest.html#method_testOffsetUnsetCannotBeCalled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest",
-            "name": "IndexInfoFunctionalTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest\u003A\u003AtestIs2dSphere\u0028\u0029",
-            "name": "testIs2dSphere",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html#method_testIs2dSphere"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest\u003A\u003AtestIsGeoHaystack\u0028\u0029",
-            "name": "testIsGeoHaystack",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html#method_testIsGeoHaystack"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest\u003A\u003AtestIsText\u0028\u0029",
-            "name": "testIsText",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html#method_testIsText"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoFunctionalTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoFunctionalTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest",
-            "name": "IndexInfoTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestBasicIndex\u0028\u0029",
-            "name": "testBasicIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testBasicIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestSparseIndex\u0028\u0029",
-            "name": "testSparseIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testSparseIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestUniqueIndex\u0028\u0029",
-            "name": "testUniqueIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testUniqueIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestTtlIndex\u0028\u0029",
-            "name": "testTtlIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testTtlIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestDebugInfo\u0028\u0029",
-            "name": "testDebugInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testDebugInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestImplementsArrayAccess\u0028\u0029",
-            "name": "testImplementsArrayAccess",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testImplementsArrayAccess"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestOffsetSetCannotBeCalled\u0028\u0029",
-            "name": "testOffsetSetCannotBeCalled",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testOffsetSetCannotBeCalled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestOffsetUnsetCannotBeCalled\u0028\u0029",
-            "name": "testOffsetUnsetCannotBeCalled",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testOffsetUnsetCannotBeCalled"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestIs2dSphere\u0028\u0029",
-            "name": "testIs2dSphere",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testIs2dSphere"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestIsGeoHaystack\u0028\u0029",
-            "name": "testIsGeoHaystack",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testIsGeoHaystack"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInfoTest\u003A\u003AtestIsText\u0028\u0029",
-            "name": "testIsText",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInfoTest.html#method_testIsText"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest",
-            "name": "IndexInputTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AtestConstructorShouldRequireKey\u0028\u0029",
-            "name": "testConstructorShouldRequireKey",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_testConstructorShouldRequireKey"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AtestConstructorShouldRequireKeyToBeArrayOrObject\u0028\u0029",
-            "name": "testConstructorShouldRequireKeyToBeArrayOrObject",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_testConstructorShouldRequireKeyToBeArrayOrObject"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AtestConstructorShouldRequireKeyFieldOrderToBeNumericOrString\u0028\u0029",
-            "name": "testConstructorShouldRequireKeyFieldOrderToBeNumericOrString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_testConstructorShouldRequireKeyFieldOrderToBeNumericOrString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AprovideInvalidFieldOrderValues\u0028\u0029",
-            "name": "provideInvalidFieldOrderValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_provideInvalidFieldOrderValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AtestConstructorShouldRequireNameToBeString\u0028\u0029",
-            "name": "testConstructorShouldRequireNameToBeString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_testConstructorShouldRequireNameToBeString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AtestNameGeneration\u0028\u0029",
-            "name": "testNameGeneration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_testNameGeneration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AprovideExpectedNameAndKey\u0028\u0029",
-            "name": "provideExpectedNameAndKey",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_provideExpectedNameAndKey"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\IndexInputTest\u003A\u003AtestBsonSerialization\u0028\u0029",
-            "name": "testBsonSerialization",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-IndexInputTest.html#method_testBsonSerialization"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\UncloneableObject",
-            "name": "UncloneableObject",
-            "summary": "This\u0020class\u0020is\u0020used\u0020by\u0020the\u0020BSONArray\u0020and\u0020BSONDocument\u0020clone\u0020tests.",
-            "url": "classes/MongoDB-Tests-Model-UncloneableObject.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model\\UncloneableObject\u003A\u003A__clone\u0028\u0029",
-            "name": "__clone",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Model-UncloneableObject.html#method___clone"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest",
-            "name": "AggregateFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestAllowDiskUseIsOmittedByDefault\u0028\u0029",
-            "name": "testAllowDiskUseIsOmittedByDefault",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testAllowDiskUseIsOmittedByDefault"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestBatchSizeIsIgnoredIfPipelineIncludesOutStage\u0028\u0029",
-            "name": "testBatchSizeIsIgnoredIfPipelineIncludesOutStage",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testBatchSizeIsIgnoredIfPipelineIncludesOutStage"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestCurrentOpCommand\u0028\u0029",
-            "name": "testCurrentOpCommand",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testCurrentOpCommand"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestDefaultReadConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultReadConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testDefaultReadConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestEmptyPipelineReturnsAllDocuments\u0028\u0029",
-            "name": "testEmptyPipelineReturnsAllDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testEmptyPipelineReturnsAllDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestUnrecognizedPipelineState\u0028\u0029",
-            "name": "testUnrecognizedPipelineState",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testUnrecognizedPipelineState"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestTypeMapOption\u0028\u0029",
-            "name": "testTypeMapOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testTypeMapOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestExplainOption\u0028\u0029",
-            "name": "testExplainOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testExplainOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestExplainOptionWithWriteConcern\u0028\u0029",
-            "name": "testExplainOptionWithWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testExplainOptionWithWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocuments\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AtestReadPreferenceWithinTransaction\u0028\u0029",
-            "name": "testReadPreferenceWithinTransaction",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_testReadPreferenceWithinTransaction"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-AggregateFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateTest",
-            "name": "AggregateTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-AggregateTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateTest\u003A\u003AtestConstructorPipelineArgumentMustBeAList\u0028\u0029",
-            "name": "testConstructorPipelineArgumentMustBeAList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateTest.html#method_testConstructorPipelineArgumentMustBeAList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateTest\u003A\u003AtestConstructorBatchSizeOptionRequiresUseCursor\u0028\u0029",
-            "name": "testConstructorBatchSizeOptionRequiresUseCursor",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateTest.html#method_testConstructorBatchSizeOptionRequiresUseCursor"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\AggregateTest\u003A\u003AgetInvalidHintValues\u0028\u0029",
-            "name": "getInvalidHintValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-AggregateTest.html#method_getInvalidHintValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest",
-            "name": "BulkWriteFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestInserts\u0028\u0029",
-            "name": "testInserts",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testInserts"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUpdates\u0028\u0029",
-            "name": "testUpdates",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUpdates"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestDeletes\u0028\u0029",
-            "name": "testDeletes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testDeletes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestMixedOrderedOperations\u0028\u0029",
-            "name": "testMixedOrderedOperations",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testMixedOrderedOperations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcern\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesDeletedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesDeletedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesDeletedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesInsertCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesInsertCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesInsertCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesMatchedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesMatchedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesMatchedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesModifiedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesModifiedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesModifiedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesUpsertedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesUpsertedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesUpsertedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesUpsertedIds\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesUpsertedIds",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesUpsertedIds"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AtestBulkWriteWithPipelineUpdates\u0028\u0029",
-            "name": "testBulkWriteWithPipelineUpdates",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_testBulkWriteWithPipelineUpdates"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteFunctionalTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteFunctionalTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest",
-            "name": "BulkWriteTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestOperationsMustNotBeEmpty\u0028\u0029",
-            "name": "testOperationsMustNotBeEmpty",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testOperationsMustNotBeEmpty"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestOperationsMustBeAList\u0028\u0029",
-            "name": "testOperationsMustBeAList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testOperationsMustBeAList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestMultipleOperationsInOneElement\u0028\u0029",
-            "name": "testMultipleOperationsInOneElement",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testMultipleOperationsInOneElement"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUnknownOperation\u0028\u0029",
-            "name": "testUnknownOperation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUnknownOperation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestInsertOneDocumentArgumentMissing\u0028\u0029",
-            "name": "testInsertOneDocumentArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testInsertOneDocumentArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestInsertOneDocumentArgumentTypeCheck\u0028\u0029",
-            "name": "testInsertOneDocumentArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testInsertOneDocumentArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestDeleteManyFilterArgumentMissing\u0028\u0029",
-            "name": "testDeleteManyFilterArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testDeleteManyFilterArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestDeleteManyFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testDeleteManyFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testDeleteManyFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestDeleteManyCollationOptionTypeCheck\u0028\u0029",
-            "name": "testDeleteManyCollationOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testDeleteManyCollationOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AprovideInvalidDocumentValues\u0028\u0029",
-            "name": "provideInvalidDocumentValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_provideInvalidDocumentValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestDeleteOneFilterArgumentMissing\u0028\u0029",
-            "name": "testDeleteOneFilterArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testDeleteOneFilterArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestDeleteOneFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testDeleteOneFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testDeleteOneFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestDeleteOneCollationOptionTypeCheck\u0028\u0029",
-            "name": "testDeleteOneCollationOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testDeleteOneCollationOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneFilterArgumentMissing\u0028\u0029",
-            "name": "testReplaceOneFilterArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneFilterArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testReplaceOneFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneReplacementArgumentMissing\u0028\u0029",
-            "name": "testReplaceOneReplacementArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneReplacementArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneReplacementArgumentTypeCheck\u0028\u0029",
-            "name": "testReplaceOneReplacementArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneReplacementArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneReplacementArgumentRequiresNoOperators\u0028\u0029",
-            "name": "testReplaceOneReplacementArgumentRequiresNoOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneReplacementArgumentRequiresNoOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneCollationOptionTypeCheck\u0028\u0029",
-            "name": "testReplaceOneCollationOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneCollationOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestReplaceOneUpsertOptionTypeCheck\u0028\u0029",
-            "name": "testReplaceOneUpsertOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testReplaceOneUpsertOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AprovideInvalidBooleanValues\u0028\u0029",
-            "name": "provideInvalidBooleanValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_provideInvalidBooleanValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyFilterArgumentMissing\u0028\u0029",
-            "name": "testUpdateManyFilterArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyFilterArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testUpdateManyFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyUpdateArgumentMissing\u0028\u0029",
-            "name": "testUpdateManyUpdateArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyUpdateArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyUpdateArgumentTypeCheck\u0028\u0029",
-            "name": "testUpdateManyUpdateArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyUpdateArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyUpdateArgumentRequiresOperatorsOrPipeline\u0028\u0029",
-            "name": "testUpdateManyUpdateArgumentRequiresOperatorsOrPipeline",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyUpdateArgumentRequiresOperatorsOrPipeline"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyArrayFiltersOptionTypeCheck\u0028\u0029",
-            "name": "testUpdateManyArrayFiltersOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyArrayFiltersOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyCollationOptionTypeCheck\u0028\u0029",
-            "name": "testUpdateManyCollationOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyCollationOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateManyUpsertOptionTypeCheck\u0028\u0029",
-            "name": "testUpdateManyUpsertOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateManyUpsertOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneFilterArgumentMissing\u0028\u0029",
-            "name": "testUpdateOneFilterArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneFilterArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testUpdateOneFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneUpdateArgumentMissing\u0028\u0029",
-            "name": "testUpdateOneUpdateArgumentMissing",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneUpdateArgumentMissing"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneUpdateArgumentTypeCheck\u0028\u0029",
-            "name": "testUpdateOneUpdateArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneUpdateArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneUpdateArgumentRequiresOperatorsOrPipeline\u0028\u0029",
-            "name": "testUpdateOneUpdateArgumentRequiresOperatorsOrPipeline",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneUpdateArgumentRequiresOperatorsOrPipeline"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneArrayFiltersOptionTypeCheck\u0028\u0029",
-            "name": "testUpdateOneArrayFiltersOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneArrayFiltersOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneCollationOptionTypeCheck\u0028\u0029",
-            "name": "testUpdateOneCollationOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneCollationOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestUpdateOneUpsertOptionTypeCheck\u0028\u0029",
-            "name": "testUpdateOneUpsertOptionTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testUpdateOneUpsertOptionTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\BulkWriteTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-BulkWriteTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsFunctionalTest",
-            "name": "CountDocumentsFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsFunctionalTest\u003A\u003AtestEmptyCollection\u0028\u0029",
-            "name": "testEmptyCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsFunctionalTest.html#method_testEmptyCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsFunctionalTest\u003A\u003AtestNonEmptyCollection\u0028\u0029",
-            "name": "testNonEmptyCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsFunctionalTest.html#method_testNonEmptyCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsTest",
-            "name": "CountDocumentsTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountDocumentsTest\u003A\u003AgetInvalidHintValues\u0028\u0029",
-            "name": "getInvalidHintValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountDocumentsTest.html#method_getInvalidHintValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountFunctionalTest",
-            "name": "CountFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CountFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountFunctionalTest\u003A\u003AtestDefaultReadConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultReadConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountFunctionalTest.html#method_testDefaultReadConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountFunctionalTest\u003A\u003AtestHintOption\u0028\u0029",
-            "name": "testHintOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountFunctionalTest.html#method_testHintOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountTest",
-            "name": "CountTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CountTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CountTest\u003A\u003AgetInvalidHintValues\u0028\u0029",
-            "name": "getInvalidHintValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CountTest.html#method_getInvalidHintValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionFunctionalTest",
-            "name": "CreateCollectionFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionTest",
-            "name": "CreateCollectionTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateCollectionTest\u003A\u003AtestAutoIndexIdOptionIsDeprecated\u0028\u0029",
-            "name": "testAutoIndexIdOptionIsDeprecated",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateCollectionTest.html#method_testAutoIndexIdOptionIsDeprecated"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest",
-            "name": "CreateIndexesFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCreateSparseUniqueIndex\u0028\u0029",
-            "name": "testCreateSparseUniqueIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCreateSparseUniqueIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCreateCompoundIndex\u0028\u0029",
-            "name": "testCreateCompoundIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCreateCompoundIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCreateGeospatialIndex\u0028\u0029",
-            "name": "testCreateGeospatialIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCreateGeospatialIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCreateTTLIndex\u0028\u0029",
-            "name": "testCreateTTLIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCreateTTLIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCreateIndexes\u0028\u0029",
-            "name": "testCreateIndexes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCreateIndexes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCreateConflictingIndexesWithCommand\u0028\u0029",
-            "name": "testCreateConflictingIndexesWithCommand",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCreateConflictingIndexesWithCommand"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCommitQuorumOption\u0028\u0029",
-            "name": "testCommitQuorumOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCommitQuorumOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AtestCommitQuorumUnsupported\u0028\u0029",
-            "name": "testCommitQuorumUnsupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_testCommitQuorumUnsupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesFunctionalTest\u003A\u003AassertIndexExists\u0028\u0029",
-            "name": "assertIndexExists",
-            "summary": "Asserts\u0020that\u0020an\u0020index\u0020with\u0020the\u0020given\u0020name\u0020exists\u0020for\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesFunctionalTest.html#method_assertIndexExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest",
-            "name": "CreateIndexesTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest\u003A\u003AtestConstructorIndexesArgumentMustBeAList\u0028\u0029",
-            "name": "testConstructorIndexesArgumentMustBeAList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html#method_testConstructorIndexesArgumentMustBeAList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest\u003A\u003AtestConstructorRequiresAtLeastOneIndex\u0028\u0029",
-            "name": "testConstructorRequiresAtLeastOneIndex",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html#method_testConstructorRequiresAtLeastOneIndex"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest\u003A\u003AtestConstructorRequiresIndexSpecificationsToBeAnArray\u0028\u0029",
-            "name": "testConstructorRequiresIndexSpecificationsToBeAnArray",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html#method_testConstructorRequiresIndexSpecificationsToBeAnArray"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\CreateIndexesTest\u003A\u003AprovideInvalidIndexSpecificationTypes\u0028\u0029",
-            "name": "provideInvalidIndexSpecificationTypes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-CreateIndexesTest.html#method_provideInvalidIndexSpecificationTypes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DatabaseCommandFunctionalTest",
-            "name": "DatabaseCommandFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DatabaseCommandFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DatabaseCommandFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DatabaseCommandFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DatabaseCommandTest",
-            "name": "DatabaseCommandTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DatabaseCommandTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DatabaseCommandTest\u003A\u003AtestConstructorCommandArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorCommandArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DatabaseCommandTest.html#method_testConstructorCommandArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DatabaseCommandTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DatabaseCommandTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DatabaseCommandTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DatabaseCommandTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest",
-            "name": "DeleteFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AtestDeleteOne\u0028\u0029",
-            "name": "testDeleteOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_testDeleteOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AtestDeleteMany\u0028\u0029",
-            "name": "testDeleteMany",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_testDeleteMany"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AtestHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError\u0028\u0029",
-            "name": "testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcern\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_testUnacknowledgedWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesDeletedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesDeletedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesDeletedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteFunctionalTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteFunctionalTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteTest",
-            "name": "DeleteTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DeleteTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteTest\u003A\u003AtestConstructorLimitArgumentMustBeOneOrZero\u0028\u0029",
-            "name": "testConstructorLimitArgumentMustBeOneOrZero",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteTest.html#method_testConstructorLimitArgumentMustBeOneOrZero"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteTest\u003A\u003AprovideInvalidLimitValues\u0028\u0029",
-            "name": "provideInvalidLimitValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteTest.html#method_provideInvalidLimitValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DeleteTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DeleteTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctFunctionalTest",
-            "name": "DistinctFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DistinctFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctFunctionalTest\u003A\u003AtestDefaultReadConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultReadConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctFunctionalTest.html#method_testDefaultReadConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctFunctionalTest\u003A\u003AtestTypeMapOption\u0028\u0029",
-            "name": "testTypeMapOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctFunctionalTest.html#method_testTypeMapOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocuments\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctTest",
-            "name": "DistinctTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DistinctTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DistinctTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DistinctTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionFunctionalTest",
-            "name": "DropCollectionFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionFunctionalTest\u003A\u003AtestDropExistingCollection\u0028\u0029",
-            "name": "testDropExistingCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionFunctionalTest.html#method_testDropExistingCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionFunctionalTest\u003A\u003AtestDropNonexistentCollection\u0028\u0029",
-            "name": "testDropNonexistentCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionFunctionalTest.html#method_testDropNonexistentCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionTest",
-            "name": "DropCollectionTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropCollectionTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropCollectionTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseFunctionalTest",
-            "name": "DropDatabaseFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseFunctionalTest\u003A\u003AtestDropExistingDatabase\u0028\u0029",
-            "name": "testDropExistingDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseFunctionalTest.html#method_testDropExistingDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseFunctionalTest\u003A\u003AtestDropNonexistentDatabase\u0028\u0029",
-            "name": "testDropNonexistentDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseFunctionalTest.html#method_testDropNonexistentDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseFunctionalTest\u003A\u003AassertDatabaseDoesNotExist\u0028\u0029",
-            "name": "assertDatabaseDoesNotExist",
-            "summary": "Asserts\u0020that\u0020a\u0020database\u0020with\u0020the\u0020given\u0020name\u0020does\u0020not\u0020exist\u0020on\u0020the\u0020server.",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseFunctionalTest.html#method_assertDatabaseDoesNotExist"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseTest",
-            "name": "DropDatabaseTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropDatabaseTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropDatabaseTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest",
-            "name": "DropIndexesFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest\u003A\u003AtestDropOneIndexByName\u0028\u0029",
-            "name": "testDropOneIndexByName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html#method_testDropOneIndexByName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest\u003A\u003AtestDropAllIndexesByWildcard\u0028\u0029",
-            "name": "testDropAllIndexesByWildcard",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html#method_testDropAllIndexesByWildcard"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest\u003A\u003AtestDropByIndexInfo\u0028\u0029",
-            "name": "testDropByIndexInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html#method_testDropByIndexInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesFunctionalTest\u003A\u003AassertIndexExists\u0028\u0029",
-            "name": "assertIndexExists",
-            "summary": "Asserts\u0020that\u0020an\u0020index\u0020with\u0020the\u0020given\u0020name\u0020exists\u0020for\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesFunctionalTest.html#method_assertIndexExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesTest",
-            "name": "DropIndexesTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesTest\u003A\u003AtestDropIndexShouldNotAllowEmptyIndexName\u0028\u0029",
-            "name": "testDropIndexShouldNotAllowEmptyIndexName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesTest.html#method_testDropIndexShouldNotAllowEmptyIndexName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\DropIndexesTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-DropIndexesTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\EstimatedDocumentCountTest",
-            "name": "EstimatedDocumentCountTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-EstimatedDocumentCountTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\EstimatedDocumentCountTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-EstimatedDocumentCountTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\EstimatedDocumentCountTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-EstimatedDocumentCountTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest",
-            "name": "ExplainFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestCount\u0028\u0029",
-            "name": "testCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestDelete\u0028\u0029",
-            "name": "testDelete",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testDelete"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestDeleteMany\u0028\u0029",
-            "name": "testDeleteMany",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testDeleteMany"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestDeleteOne\u0028\u0029",
-            "name": "testDeleteOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testDeleteOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestDistinct\u0028\u0029",
-            "name": "testDistinct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testDistinct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindAndModify\u0028\u0029",
-            "name": "testFindAndModify",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindAndModify"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFind\u0028\u0029",
-            "name": "testFind",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFind"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindMaxAwait\u0028\u0029",
-            "name": "testFindMaxAwait",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindMaxAwait"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindModifiers\u0028\u0029",
-            "name": "testFindModifiers",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindModifiers"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindOne\u0028\u0029",
-            "name": "testFindOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindOneAndDelete\u0028\u0029",
-            "name": "testFindOneAndDelete",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindOneAndDelete"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindOneAndReplace\u0028\u0029",
-            "name": "testFindOneAndReplace",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindOneAndReplace"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestFindOneAndUpdate\u0028\u0029",
-            "name": "testFindOneAndUpdate",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testFindOneAndUpdate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestUpdate\u0028\u0029",
-            "name": "testUpdate",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testUpdate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestUpdateBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testUpdateBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testUpdateBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestUpdateBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testUpdateBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testUpdateBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestUpdateMany\u0028\u0029",
-            "name": "testUpdateMany",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testUpdateMany"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestUpdateOne\u0028\u0029",
-            "name": "testUpdateOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testUpdateOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestAggregate\u0028\u0029",
-            "name": "testAggregate",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testAggregate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AtestAggregateOptimizedToQuery\u0028\u0029",
-            "name": "testAggregateOptimizedToQuery",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_testAggregateOptimizedToQuery"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AprovideVerbosityInformation\u0028\u0029",
-            "name": "provideVerbosityInformation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_provideVerbosityInformation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AassertExplainResult\u0028\u0029",
-            "name": "assertExplainResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_assertExplainResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-ExplainFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainTest",
-            "name": "ExplainTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ExplainTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ExplainTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ExplainTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest",
-            "name": "FindAndModifyFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestManagerReadConcernIsOmitted\u0028\u0029",
-            "name": "testManagerReadConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testManagerReadConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestHintOptionUnsupportedClientSideError\u0028\u0029",
-            "name": "testHintOptionUnsupportedClientSideError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testHintOptionUnsupportedClientSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError\u0028\u0029",
-            "name": "testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AtestTypeMapOption\u0028\u0029",
-            "name": "testTypeMapOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_testTypeMapOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocument\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyTest",
-            "name": "FindAndModifyTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindAndModifyTest\u003A\u003AtestConstructorUpdateAndRemoveOptionsAreMutuallyExclusive\u0028\u0029",
-            "name": "testConstructorUpdateAndRemoveOptionsAreMutuallyExclusive",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindAndModifyTest.html#method_testConstructorUpdateAndRemoveOptionsAreMutuallyExclusive"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest",
-            "name": "FindFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AtestDefaultReadConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultReadConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_testDefaultReadConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AtestHintOption\u0028\u0029",
-            "name": "testHintOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_testHintOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AtestTypeMapOption\u0028\u0029",
-            "name": "testTypeMapOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_testTypeMapOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocuments\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AtestMaxAwaitTimeMS\u0028\u0029",
-            "name": "testMaxAwaitTimeMS",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_testMaxAwaitTimeMS"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AtestReadPreferenceWithinTransaction\u0028\u0029",
-            "name": "testReadPreferenceWithinTransaction",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_testReadPreferenceWithinTransaction"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-FindFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndDeleteTest",
-            "name": "FindOneAndDeleteTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndDeleteTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndDeleteTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndDeleteTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndDeleteTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndDeleteTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndDeleteTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndDeleteTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest",
-            "name": "FindOneAndReplaceTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AtestConstructorReplacementArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorReplacementArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_testConstructorReplacementArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AtestConstructorReplacementArgumentRequiresNoOperators\u0028\u0029",
-            "name": "testConstructorReplacementArgumentRequiresNoOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_testConstructorReplacementArgumentRequiresNoOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AtestConstructorReturnDocumentOption\u0028\u0029",
-            "name": "testConstructorReturnDocumentOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_testConstructorReturnDocumentOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndReplaceTest\u003A\u003AprovideInvalidConstructorReturnDocumentOptions\u0028\u0029",
-            "name": "provideInvalidConstructorReturnDocumentOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndReplaceTest.html#method_provideInvalidConstructorReturnDocumentOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest",
-            "name": "FindOneAndUpdateTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AtestConstructorUpdateArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorUpdateArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_testConstructorUpdateArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AtestConstructorUpdateArgumentRequiresOperatorsOrPipeline\u0028\u0029",
-            "name": "testConstructorUpdateArgumentRequiresOperatorsOrPipeline",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_testConstructorUpdateArgumentRequiresOperatorsOrPipeline"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AtestConstructorReturnDocumentOption\u0028\u0029",
-            "name": "testConstructorReturnDocumentOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_testConstructorReturnDocumentOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneAndUpdateTest\u003A\u003AprovideInvalidConstructorReturnDocumentOptions\u0028\u0029",
-            "name": "provideInvalidConstructorReturnDocumentOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneAndUpdateTest.html#method_provideInvalidConstructorReturnDocumentOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneFunctionalTest",
-            "name": "FindOneFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindOneFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneFunctionalTest\u003A\u003AtestTypeMapOption\u0028\u0029",
-            "name": "testTypeMapOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneFunctionalTest.html#method_testTypeMapOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocument\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindOneFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindOneFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-FindOneFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest",
-            "name": "FindTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AtestSnapshotOptionIsDeprecated\u0028\u0029",
-            "name": "testSnapshotOptionIsDeprecated",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_testSnapshotOptionIsDeprecated"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AtestMaxScanOptionIsDeprecated\u0028\u0029",
-            "name": "testMaxScanOptionIsDeprecated",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_testMaxScanOptionIsDeprecated"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AgetInvalidHintValues\u0028\u0029",
-            "name": "getInvalidHintValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_getInvalidHintValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AtestConstructorCursorTypeOption\u0028\u0029",
-            "name": "testConstructorCursorTypeOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_testConstructorCursorTypeOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FindTest\u003A\u003AprovideInvalidConstructorCursorTypeOptions\u0028\u0029",
-            "name": "provideInvalidConstructorCursorTypeOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FindTest.html#method_provideInvalidConstructorCursorTypeOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FunctionalTestCase",
-            "name": "FunctionalTestCase",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-FunctionalTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FunctionalTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FunctionalTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FunctionalTestCase\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FunctionalTestCase.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FunctionalTestCase\u003A\u003AcreateDefaultReadConcern\u0028\u0029",
-            "name": "createDefaultReadConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FunctionalTestCase.html#method_createDefaultReadConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FunctionalTestCase\u003A\u003AcreateDefaultWriteConcern\u0028\u0029",
-            "name": "createDefaultWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FunctionalTestCase.html#method_createDefaultWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\FunctionalTestCase\u003A\u003AcreateSession\u0028\u0029",
-            "name": "createSession",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-FunctionalTestCase.html#method_createSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest",
-            "name": "InsertManyFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestInsertMany\u0028\u0029",
-            "name": "testInsertMany",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testInsertMany"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcern\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testUnacknowledgedWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesInsertedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesInsertedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesInsertedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesInsertedId\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesInsertedId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesInsertedId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyFunctionalTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyFunctionalTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyTest",
-            "name": "InsertManyTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyTest\u003A\u003AtestConstructorDocumentsMustNotBeEmpty\u0028\u0029",
-            "name": "testConstructorDocumentsMustNotBeEmpty",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyTest.html#method_testConstructorDocumentsMustNotBeEmpty"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyTest\u003A\u003AtestConstructorDocumentsMustBeAList\u0028\u0029",
-            "name": "testConstructorDocumentsMustBeAList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyTest.html#method_testConstructorDocumentsMustBeAList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyTest\u003A\u003AtestConstructorDocumentsArgumentElementTypeChecks\u0028\u0029",
-            "name": "testConstructorDocumentsArgumentElementTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyTest.html#method_testConstructorDocumentsArgumentElementTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertManyTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertManyTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest",
-            "name": "InsertOneFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestInsertOneWithExistingId\u0028\u0029",
-            "name": "testInsertOneWithExistingId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testInsertOneWithExistingId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AprovideDocumentWithExistingId\u0028\u0029",
-            "name": "provideDocumentWithExistingId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_provideDocumentWithExistingId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestInsertOneWithGeneratedId\u0028\u0029",
-            "name": "testInsertOneWithGeneratedId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testInsertOneWithGeneratedId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcern\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testUnacknowledgedWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesInsertedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesInsertedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesInsertedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesInsertedId\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesInsertedId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesInsertedId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneFunctionalTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneFunctionalTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneTest",
-            "name": "InsertOneTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneTest\u003A\u003AtestConstructorDocumentArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorDocumentArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneTest.html#method_testConstructorDocumentArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\InsertOneTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-InsertOneTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionNamesFunctionalTest",
-            "name": "ListCollectionNamesFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionNamesFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionNamesFunctionalTest\u003A\u003AtestListCollectionNamesForNewlyCreatedDatabase\u0028\u0029",
-            "name": "testListCollectionNamesForNewlyCreatedDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionNamesFunctionalTest.html#method_testListCollectionNamesForNewlyCreatedDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionNamesFunctionalTest\u003A\u003AtestAuthorizedCollectionsOption\u0028\u0029",
-            "name": "testAuthorizedCollectionsOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionNamesFunctionalTest.html#method_testAuthorizedCollectionsOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionNamesFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionNamesFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionsFunctionalTest",
-            "name": "ListCollectionsFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionsFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionsFunctionalTest\u003A\u003AtestListCollectionsForNewlyCreatedDatabase\u0028\u0029",
-            "name": "testListCollectionsForNewlyCreatedDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionsFunctionalTest.html#method_testListCollectionsForNewlyCreatedDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionsFunctionalTest\u003A\u003AtestIdIndexAndInfo\u0028\u0029",
-            "name": "testIdIndexAndInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionsFunctionalTest.html#method_testIdIndexAndInfo"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionsFunctionalTest\u003A\u003AtestListCollectionsForNonexistentDatabase\u0028\u0029",
-            "name": "testListCollectionsForNonexistentDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionsFunctionalTest.html#method_testListCollectionsForNonexistentDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionsFunctionalTest\u003A\u003AtestAuthorizedCollectionsOption\u0028\u0029",
-            "name": "testAuthorizedCollectionsOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionsFunctionalTest.html#method_testAuthorizedCollectionsOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListCollectionsFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListCollectionsFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabaseNamesFunctionalTest",
-            "name": "ListDatabaseNamesFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabaseNamesFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabaseNamesFunctionalTest\u003A\u003AtestListDatabaseNames\u0028\u0029",
-            "name": "testListDatabaseNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabaseNamesFunctionalTest.html#method_testListDatabaseNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabaseNamesFunctionalTest\u003A\u003AtestAuthorizedDatabasesOption\u0028\u0029",
-            "name": "testAuthorizedDatabasesOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabaseNamesFunctionalTest.html#method_testAuthorizedDatabasesOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabaseNamesFunctionalTest\u003A\u003AtestFilterOption\u0028\u0029",
-            "name": "testFilterOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabaseNamesFunctionalTest.html#method_testFilterOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabaseNamesFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabaseNamesFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabasesFunctionalTest",
-            "name": "ListDatabasesFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabasesFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabasesFunctionalTest\u003A\u003AtestListDatabases\u0028\u0029",
-            "name": "testListDatabases",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabasesFunctionalTest.html#method_testListDatabases"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabasesFunctionalTest\u003A\u003AtestAuthorizedDatabasesOption\u0028\u0029",
-            "name": "testAuthorizedDatabasesOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabasesFunctionalTest.html#method_testAuthorizedDatabasesOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabasesFunctionalTest\u003A\u003AtestFilterOption\u0028\u0029",
-            "name": "testFilterOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabasesFunctionalTest.html#method_testFilterOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListDatabasesFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListDatabasesFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesFunctionalTest",
-            "name": "ListIndexesFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesFunctionalTest\u003A\u003AtestListIndexesForNewlyCreatedCollection\u0028\u0029",
-            "name": "testListIndexesForNewlyCreatedCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesFunctionalTest.html#method_testListIndexesForNewlyCreatedCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesFunctionalTest\u003A\u003AtestListIndexesForNonexistentCollection\u0028\u0029",
-            "name": "testListIndexesForNonexistentCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesFunctionalTest.html#method_testListIndexesForNonexistentCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesTest",
-            "name": "ListIndexesTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ListIndexesTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ListIndexesTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest",
-            "name": "MapReduceFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestDefaultReadConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultReadConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testDefaultReadConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestFinalize\u0028\u0029",
-            "name": "testFinalize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testFinalize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestResult\u0028\u0029",
-            "name": "testResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestResultIncludesTimingWithVerboseOption\u0028\u0029",
-            "name": "testResultIncludesTimingWithVerboseOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testResultIncludesTimingWithVerboseOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestResultDoesNotIncludeTimingWithoutVerboseOption\u0028\u0029",
-            "name": "testResultDoesNotIncludeTimingWithoutVerboseOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testResultDoesNotIncludeTimingWithoutVerboseOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestTypeMapOptionWithInlineResults\u0028\u0029",
-            "name": "testTypeMapOptionWithInlineResults",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testTypeMapOptionWithInlineResults"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedDocuments\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_provideTypeMapOptionsAndExpectedDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AtestTypeMapOptionWithOutputCollection\u0028\u0029",
-            "name": "testTypeMapOptionWithOutputCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_testTypeMapOptionWithOutputCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceFunctionalTest\u003A\u003AsortResults\u0028\u0029",
-            "name": "sortResults",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceFunctionalTest.html#method_sortResults"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceTest",
-            "name": "MapReduceTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceTest\u003A\u003AtestConstructorOutArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorOutArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceTest.html#method_testConstructorOutArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceTest\u003A\u003AprovideInvalidOutValues\u0028\u0029",
-            "name": "provideInvalidOutValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceTest.html#method_provideInvalidOutValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\MapReduceTest\u003A\u003AgetInvalidJavascriptValues\u0028\u0029",
-            "name": "getInvalidJavascriptValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-MapReduceTest.html#method_getInvalidJavascriptValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ModifyCollectionFunctionalTest",
-            "name": "ModifyCollectionFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ModifyCollectionFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ModifyCollectionFunctionalTest\u003A\u003AtestCollMod\u0028\u0029",
-            "name": "testCollMod",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ModifyCollectionFunctionalTest.html#method_testCollMod"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ModifyCollectionTest",
-            "name": "ModifyCollectionTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ModifyCollectionTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ModifyCollectionTest\u003A\u003AtestConstructorEmptyCollectionOptions\u0028\u0029",
-            "name": "testConstructorEmptyCollectionOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ModifyCollectionTest.html#method_testConstructorEmptyCollectionOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ModifyCollectionTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ModifyCollectionTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ModifyCollectionTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ModifyCollectionTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest",
-            "name": "RenameCollectionFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AtestDefaultWriteConcernIsOmitted\u0028\u0029",
-            "name": "testDefaultWriteConcernIsOmitted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_testDefaultWriteConcernIsOmitted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AtestRenameCollectionToNonexistentTarget\u0028\u0029",
-            "name": "testRenameCollectionToNonexistentTarget",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_testRenameCollectionToNonexistentTarget"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AtestRenameCollectionExistingTarget\u0028\u0029",
-            "name": "testRenameCollectionExistingTarget",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_testRenameCollectionExistingTarget"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AtestRenameNonexistentCollection\u0028\u0029",
-            "name": "testRenameNonexistentCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_testRenameNonexistentCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003A\u0024errorCodeNamespaceNotFound",
-            "name": "errorCodeNamespaceNotFound",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#property_errorCodeNamespaceNotFound"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003A\u0024errorCodeNamespaceExists",
-            "name": "errorCodeNamespaceExists",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#property_errorCodeNamespaceExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionFunctionalTest\u003A\u003A\u0024toCollectionName",
-            "name": "toCollectionName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionFunctionalTest.html#property_toCollectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionTest",
-            "name": "RenameCollectionTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\RenameCollectionTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-RenameCollectionTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest",
-            "name": "ReplaceOneTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest\u003A\u003AtestConstructorReplacementArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorReplacementArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html#method_testConstructorReplacementArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest\u003A\u003AtestConstructorReplacementArgument\u0028\u0029",
-            "name": "testConstructorReplacementArgument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html#method_testConstructorReplacementArgument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest\u003A\u003AtestConstructorReplacementArgumentRequiresNoOperators\u0028\u0029",
-            "name": "testConstructorReplacementArgumentRequiresNoOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html#method_testConstructorReplacementArgumentRequiresNoOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest\u003A\u003AprovideReplacementDocuments\u0028\u0029",
-            "name": "provideReplacementDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html#method_provideReplacementDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\ReplaceOneTest\u003A\u003AprovideUpdateDocuments\u0028\u0029",
-            "name": "provideUpdateDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-ReplaceOneTest.html#method_provideUpdateDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\TestCase",
-            "name": "TestCase",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-TestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest",
-            "name": "UpdateFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestSessionOption\u0028\u0029",
-            "name": "testSessionOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testSessionOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestBypassDocumentValidationSetWhenTrue\u0028\u0029",
-            "name": "testBypassDocumentValidationSetWhenTrue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testBypassDocumentValidationSetWhenTrue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestBypassDocumentValidationUnsetWhenFalse\u0028\u0029",
-            "name": "testBypassDocumentValidationUnsetWhenFalse",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testBypassDocumentValidationUnsetWhenFalse"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError\u0028\u0029",
-            "name": "testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUpdateOne\u0028\u0029",
-            "name": "testUpdateOne",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUpdateOne"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUpdateMany\u0028\u0029",
-            "name": "testUpdateMany",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUpdateMany"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUpdateManyWithExistingId\u0028\u0029",
-            "name": "testUpdateManyWithExistingId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUpdateManyWithExistingId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUpdateManyWithGeneratedId\u0028\u0029",
-            "name": "testUpdateManyWithGeneratedId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUpdateManyWithGeneratedId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcern\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUnacknowledgedWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesMatchedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesMatchedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesMatchedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesModifiedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesModifiedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesModifiedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesUpsertedCount\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesUpsertedCount",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesUpsertedCount"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AtestUnacknowledgedWriteConcernAccessesUpsertedId\u0028\u0029",
-            "name": "testUnacknowledgedWriteConcernAccessesUpsertedId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_testUnacknowledgedWriteConcernAccessesUpsertedId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003AcreateFixtures\u0028\u0029",
-            "name": "createFixtures",
-            "summary": "Create\u0020data\u0020fixtures.",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#method_createFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateFunctionalTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateFunctionalTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest",
-            "name": "UpdateManyTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest\u003A\u003AtestConstructorUpdateArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorUpdateArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html#method_testConstructorUpdateArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest\u003A\u003AtestConstructorUpdateArgument\u0028\u0029",
-            "name": "testConstructorUpdateArgument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html#method_testConstructorUpdateArgument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest\u003A\u003AtestConstructorUpdateArgumentRequiresOperators\u0028\u0029",
-            "name": "testConstructorUpdateArgumentRequiresOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html#method_testConstructorUpdateArgumentRequiresOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest\u003A\u003AprovideReplacementDocuments\u0028\u0029",
-            "name": "provideReplacementDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html#method_provideReplacementDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateManyTest\u003A\u003AprovideUpdateDocuments\u0028\u0029",
-            "name": "provideUpdateDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateManyTest.html#method_provideUpdateDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest",
-            "name": "UpdateOneTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest\u003A\u003AtestConstructorUpdateArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorUpdateArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html#method_testConstructorUpdateArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest\u003A\u003AtestConstructorUpdateArgument\u0028\u0029",
-            "name": "testConstructorUpdateArgument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html#method_testConstructorUpdateArgument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest\u003A\u003AtestConstructorUpdateArgumentRequiresOperators\u0028\u0029",
-            "name": "testConstructorUpdateArgumentRequiresOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html#method_testConstructorUpdateArgumentRequiresOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest\u003A\u003AprovideReplacementDocuments\u0028\u0029",
-            "name": "provideReplacementDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html#method_provideReplacementDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateOneTest\u003A\u003AprovideUpdateDocuments\u0028\u0029",
-            "name": "provideUpdateDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateOneTest.html#method_provideUpdateDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateTest",
-            "name": "UpdateTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020unit\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-UpdateTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateTest\u003A\u003AtestConstructorFilterArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorFilterArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateTest.html#method_testConstructorFilterArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateTest\u003A\u003AtestConstructorUpdateArgumentTypeCheck\u0028\u0029",
-            "name": "testConstructorUpdateArgumentTypeCheck",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateTest.html#method_testConstructorUpdateArgumentTypeCheck"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\UpdateTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-UpdateTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest",
-            "name": "WatchFunctionalTest",
-            "summary": "Base\u0020class\u0020for\u0020Operation\u0020functional\u0020tests.",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestGetResumeToken\u0028\u0029",
-            "name": "testGetResumeToken",
-            "summary": "Prose\u0020test\u00201\u003A\u0020\u0022ChangeStream\u0020must\u0020continuously\u0020track\u0020the\u0020last\u0020seen\nresumeToken\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testGetResumeToken"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestGetResumeTokenWithPostBatchResumeToken\u0028\u0029",
-            "name": "testGetResumeTokenWithPostBatchResumeToken",
-            "summary": "Prose\u0020test\u00201\u003A\u0020\u0022ChangeStream\u0020must\u0020continuously\u0020track\u0020the\u0020last\u0020seen\nresumeToken\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testGetResumeTokenWithPostBatchResumeToken"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestNextResumesAfterConnectionException\u0028\u0029",
-            "name": "testNextResumesAfterConnectionException",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testNextResumesAfterConnectionException"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeBeforeReceivingAnyResultsIncludesPostBatchResumeToken\u0028\u0029",
-            "name": "testResumeBeforeReceivingAnyResultsIncludesPostBatchResumeToken",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeBeforeReceivingAnyResultsIncludesPostBatchResumeToken"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AassertResumeAfter\u0028\u0029",
-            "name": "assertResumeAfter",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_assertResumeAfter"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeBeforeReceivingAnyResultsIncludesStartAtOperationTime\u0028\u0029",
-            "name": "testResumeBeforeReceivingAnyResultsIncludesStartAtOperationTime",
-            "summary": "Prose\u0020test\u00209\u003A\u0020\u0022\u0024changeStream\u0020stage\u0020for\u0020ChangeStream\u0020against\u0020a\u0020server\n\u003E\u003D4.0\u0020and\u0020\u003C4.0.7\u0020that\u0020has\u0020not\u0020received\u0020any\u0020results\u0020yet\u0020MUST\u0020include\u0020a\nstartAtOperationTime\u0020option\u0020when\u0020resuming\u0020a\u0020changestream.\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeBeforeReceivingAnyResultsIncludesStartAtOperationTime"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AassertStartAtOperationTime\u0028\u0029",
-            "name": "assertStartAtOperationTime",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_assertStartAtOperationTime"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestRewindMultipleTimesWithResults\u0028\u0029",
-            "name": "testRewindMultipleTimesWithResults",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testRewindMultipleTimesWithResults"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestRewindMultipleTimesWithNoResults\u0028\u0029",
-            "name": "testRewindMultipleTimesWithNoResults",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testRewindMultipleTimesWithNoResults"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestNoChangeAfterResumeBeforeInsert\u0028\u0029",
-            "name": "testNoChangeAfterResumeBeforeInsert",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testNoChangeAfterResumeBeforeInsert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeMultipleTimesInSuccession\u0028\u0029",
-            "name": "testResumeMultipleTimesInSuccession",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeMultipleTimesInSuccession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestKey\u0028\u0029",
-            "name": "testKey",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testKey"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestNonEmptyPipeline\u0028\u0029",
-            "name": "testNonEmptyPipeline",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testNonEmptyPipeline"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestInitialCursorIsNotClosed\u0028\u0029",
-            "name": "testInitialCursorIsNotClosed",
-            "summary": "Prose\u0020test\u00207\u003A\u0020\u0022Ensure\u0020that\u0020a\u0020cursor\u0020returned\u0020from\u0020an\u0020aggregate\u0020command\nwith\u0020a\u0020cursor\u0020id\u0020and\u0020an\u0020initial\u0020empty\u0020batch\u0020is\u0020not\u0020closed\u0020on\u0020the\u0020driver\nside.\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testInitialCursorIsNotClosed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeTokenNotFoundClientSideError\u0028\u0029",
-            "name": "testResumeTokenNotFoundClientSideError",
-            "summary": "Prose\u0020test\u00202\u003A\u0020\u0022ChangeStream\u0020will\u0020throw\u0020an\u0020exception\u0020if\u0020the\u0020server\nresponse\u0020is\u0020missing\u0020the\u0020resume\u0020token\u0020\u0028if\u0020wire\u0020version\u0020is\u0020\u003C\u00208,\u0020this\u0020is\u0020a\ndriver\u002Dside\u0020error\u003B\u0020for\u00208\u002B,\u0020this\u0020is\u0020a\u0020server\u002Dside\u0020error\u0029\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeTokenNotFoundClientSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeTokenNotFoundServerSideError\u0028\u0029",
-            "name": "testResumeTokenNotFoundServerSideError",
-            "summary": "Prose\u0020test\u00202\u003A\u0020\u0022ChangeStream\u0020will\u0020throw\u0020an\u0020exception\u0020if\u0020the\u0020server\nresponse\u0020is\u0020missing\u0020the\u0020resume\u0020token\u0020\u0028if\u0020wire\u0020version\u0020is\u0020\u003C\u00208,\u0020this\u0020is\u0020a\ndriver\u002Dside\u0020error\u003B\u0020for\u00208\u002B,\u0020this\u0020is\u0020a\u0020server\u002Dside\u0020error\u0029\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeTokenNotFoundServerSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeTokenInvalidTypeClientSideError\u0028\u0029",
-            "name": "testResumeTokenInvalidTypeClientSideError",
-            "summary": "Prose\u0020test\u00202\u003A\u0020\u0022ChangeStream\u0020will\u0020throw\u0020an\u0020exception\u0020if\u0020the\u0020server\nresponse\u0020is\u0020missing\u0020the\u0020resume\u0020token\u0020\u0028if\u0020wire\u0020version\u0020is\u0020\u003C\u00208,\u0020this\u0020is\u0020a\ndriver\u002Dside\u0020error\u003B\u0020for\u00208\u002B,\u0020this\u0020is\u0020a\u0020server\u002Dside\u0020error\u0029\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeTokenInvalidTypeClientSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeTokenInvalidTypeServerSideError\u0028\u0029",
-            "name": "testResumeTokenInvalidTypeServerSideError",
-            "summary": "Prose\u0020test\u00202\u003A\u0020\u0022ChangeStream\u0020will\u0020throw\u0020an\u0020exception\u0020if\u0020the\u0020server\nresponse\u0020is\u0020missing\u0020the\u0020resume\u0020token\u0020\u0028if\u0020wire\u0020version\u0020is\u0020\u003C\u00208,\u0020this\u0020is\u0020a\ndriver\u002Dside\u0020error\u003B\u0020for\u00208\u002B,\u0020this\u0020is\u0020a\u0020server\u002Dside\u0020error\u0029\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeTokenInvalidTypeServerSideError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestMaxAwaitTimeMS\u0028\u0029",
-            "name": "testMaxAwaitTimeMS",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testMaxAwaitTimeMS"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestRewindExtractsResumeTokenAndNextResumes\u0028\u0029",
-            "name": "testRewindExtractsResumeTokenAndNextResumes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testRewindExtractsResumeTokenAndNextResumes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeAfterOption\u0028\u0029",
-            "name": "testResumeAfterOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeAfterOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestStartAfterOption\u0028\u0029",
-            "name": "testStartAfterOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testStartAfterOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestTypeMapOption\u0028\u0029",
-            "name": "testTypeMapOption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testTypeMapOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AprovideTypeMapOptionsAndExpectedChangeDocument\u0028\u0029",
-            "name": "provideTypeMapOptionsAndExpectedChangeDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_provideTypeMapOptionsAndExpectedChangeDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestNextAdvancesKey\u0028\u0029",
-            "name": "testNextAdvancesKey",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testNextAdvancesKey"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeTokenNotFoundDoesNotAdvanceKey\u0028\u0029",
-            "name": "testResumeTokenNotFoundDoesNotAdvanceKey",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeTokenNotFoundDoesNotAdvanceKey"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestSessionPersistsAfterResume\u0028\u0029",
-            "name": "testSessionPersistsAfterResume",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testSessionPersistsAfterResume"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestSessionFreed\u0028\u0029",
-            "name": "testSessionFreed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testSessionFreed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeRepeatsOriginalPipelineAndOptions\u0028\u0029",
-            "name": "testResumeRepeatsOriginalPipelineAndOptions",
-            "summary": "Prose\u0020test\u00203\u003A\u0020\u0022ChangeStream\u0020will\u0020automatically\u0020resume\u0020one\u0020time\u0020on\u0020a\nresumable\u0020error\u0020\u0028including\u0020not\u0020primary\u0029\u0020with\u0020the\u0020initial\u0020pipeline\u0020and\noptions,\u0020except\u0020for\u0020the\u0020addition\/update\u0020of\u0020a\u0020resumeToken.\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeRepeatsOriginalPipelineAndOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestErrorDuringAggregateCommandDoesNotCauseResume\u0028\u0029",
-            "name": "testErrorDuringAggregateCommandDoesNotCauseResume",
-            "summary": "Prose\u0020test\u00204\u003A\u0020\u0022ChangeStream\u0020will\u0020not\u0020attempt\u0020to\u0020resume\u0020on\u0020any\u0020error\nencountered\u0020while\u0020executing\u0020an\u0020aggregate\u0020command.\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testErrorDuringAggregateCommandDoesNotCauseResume"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestOriginalReadPreferenceIsPreservedOnResume\u0028\u0029",
-            "name": "testOriginalReadPreferenceIsPreservedOnResume",
-            "summary": "Prose\u0020test\u00206\u003A\u0020\u0022ChangeStream\u0020will\u0020perform\u0020server\u0020selection\u0020before\nattempting\u0020to\u0020resume,\u0020using\u0020initial\u0020readPreference\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testOriginalReadPreferenceIsPreservedOnResume"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestGetResumeTokenReturnsOriginalResumeTokenOnEmptyBatch\u0028\u0029",
-            "name": "testGetResumeTokenReturnsOriginalResumeTokenOnEmptyBatch",
-            "summary": "Prose\u0020test\u002012\nFor\u0020a\u0020ChangeStream\u0020under\u0020these\u0020conditions\u003A\n\u002D\u0020Running\u0020against\u0020a\u0020server\u0020\u003C4.0.7.",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testGetResumeTokenReturnsOriginalResumeTokenOnEmptyBatch"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumeTokenBehaviour\u0028\u0029",
-            "name": "testResumeTokenBehaviour",
-            "summary": "Prose\u0020test\u002014\nFor\u0020a\u0020ChangeStream\u0020under\u0020these\u0020conditions\u003A\n\u0020\u002D\u0020The\u0020batch\u0020is\u0020not\u0020empty.",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumeTokenBehaviour"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumingChangeStreamWithoutPreviousResultsIncludesStartAfterOption\u0028\u0029",
-            "name": "testResumingChangeStreamWithoutPreviousResultsIncludesStartAfterOption",
-            "summary": "Prose\u0020test\u002017\u003A\u0020\u0022\u0024changeStream\u0020stage\u0020for\u0020ChangeStream\u0020started\u0020with\nstartAfter\u0020against\u0020a\u0020server\u0020\u003E\u003D4.1.1\u0020that\u0020has\u0020not\u0020received\u0020any\u0020results\u0020yet\nMUST\u0020include\u0020a\u0020startAfter\u0020option\u0020and\u0020MUST\u0020NOT\u0020include\u0020a\u0020resumeAfter\noption\u0020when\u0020resuming\u0020a\u0020change\u0020stream.\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumingChangeStreamWithoutPreviousResultsIncludesStartAfterOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AtestResumingChangeStreamWithPreviousResultsIncludesResumeAfterOption\u0028\u0029",
-            "name": "testResumingChangeStreamWithPreviousResultsIncludesResumeAfterOption",
-            "summary": "Prose\u0020test\u002018\u003A\u0020\u0022\u0024changeStream\u0020stage\u0020for\u0020ChangeStream\u0020started\u0020with\nstartAfter\u0020against\u0020a\u0020server\u0020\u003E\u003D4.1.1\u0020that\u0020has\u0020received\u0020at\u0020least\u0020one\u0020result\nMUST\u0020include\u0020a\u0020resumeAfter\u0020option\u0020and\u0020MUST\u0020NOT\u0020include\u0020a\u0020startAfter\noption\u0020when\u0020resuming\u0020a\u0020change\u0020stream.\u0022",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_testResumingChangeStreamWithPreviousResultsIncludesResumeAfterOption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AassertNoCommandExecuted\u0028\u0029",
-            "name": "assertNoCommandExecuted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_assertNoCommandExecuted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AforceChangeStreamResume\u0028\u0029",
-            "name": "forceChangeStreamResume",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_forceChangeStreamResume"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AgetPostBatchResumeTokenFromReply\u0028\u0029",
-            "name": "getPostBatchResumeTokenFromReply",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_getPostBatchResumeTokenFromReply"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AinsertDocument\u0028\u0029",
-            "name": "insertDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_insertDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AisPostBatchResumeTokenSupported\u0028\u0029",
-            "name": "isPostBatchResumeTokenSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_isPostBatchResumeTokenSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AisStartAtOperationTimeSupported\u0028\u0029",
-            "name": "isStartAtOperationTimeSupported",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_isStartAtOperationTimeSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AadvanceCursorUntilValid\u0028\u0029",
-            "name": "advanceCursorUntilValid",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_advanceCursorUntilValid"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AskipIfIsShardedCluster\u0028\u0029",
-            "name": "skipIfIsShardedCluster",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#method_skipIfIsShardedCluster"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003AINTERRUPTED",
-            "name": "INTERRUPTED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#constant_INTERRUPTED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003ANOT_PRIMARY",
-            "name": "NOT_PRIMARY",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#constant_NOT_PRIMARY"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003A\u0024wireVersionForStartAtOperationTime",
-            "name": "wireVersionForStartAtOperationTime",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#property_wireVersionForStartAtOperationTime"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchFunctionalTest\u003A\u003A\u0024defaultOptions",
-            "name": "defaultOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchFunctionalTest.html#property_defaultOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchTest",
-            "name": "WatchTest",
-            "summary": "Although\u0020these\u0020are\u0020unit\u0020tests,\u0020we\u0020extend\u0020FunctionalTestCase\u0020because\u0020Watch\u0020is\nconstructed\u0020with\u0020a\u0020Manager\u0020instance.",
-            "url": "classes/MongoDB-Tests-Operation-WatchTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchTest\u003A\u003AtestConstructorCollectionNameShouldBeNullIfDatabaseNameIsNull\u0028\u0029",
-            "name": "testConstructorCollectionNameShouldBeNullIfDatabaseNameIsNull",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchTest.html#method_testConstructorCollectionNameShouldBeNullIfDatabaseNameIsNull"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchTest\u003A\u003AtestConstructorPipelineArgumentMustBeAList\u0028\u0029",
-            "name": "testConstructorPipelineArgumentMustBeAList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchTest.html#method_testConstructorPipelineArgumentMustBeAList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchTest\u003A\u003AtestConstructorOptionTypeChecks\u0028\u0029",
-            "name": "testConstructorOptionTypeChecks",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchTest.html#method_testConstructorOptionTypeChecks"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchTest\u003A\u003AprovideInvalidConstructorOptions\u0028\u0029",
-            "name": "provideInvalidConstructorOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchTest.html#method_provideInvalidConstructorOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation\\WatchTest\u003A\u003AgetInvalidTimestampValues\u0028\u0029",
-            "name": "getInvalidTimestampValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-Operation-WatchTest.html#method_getInvalidTimestampValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\PedantryTest",
-            "name": "PedantryTest",
-            "summary": "Pedantic\u0020tests\u0020that\u0020have\u0020nothing\u0020to\u0020do\u0020with\u0020functional\u0020correctness.",
-            "url": "classes/MongoDB-Tests-PedantryTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\PedantryTest\u003A\u003AtestMethodsAreOrderedAlphabeticallyByVisibility\u0028\u0029",
-            "name": "testMethodsAreOrderedAlphabeticallyByVisibility",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-PedantryTest.html#method_testMethodsAreOrderedAlphabeticallyByVisibility"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\PedantryTest\u003A\u003AprovideProjectClassNames\u0028\u0029",
-            "name": "provideProjectClassNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-PedantryTest.html#method_provideProjectClassNames"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertArrayHasKey\u0028\u0029",
-            "name": "assertArrayHasKey",
-            "summary": "Asserts\u0020that\u0020an\u0020array\u0020has\u0020a\u0020specified\u0020key.",
-            "url": "namespaces/phpunit-framework.html#function_assertArrayHasKey"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertArrayNotHasKey\u0028\u0029",
-            "name": "assertArrayNotHasKey",
-            "summary": "Asserts\u0020that\u0020an\u0020array\u0020does\u0020not\u0020have\u0020a\u0020specified\u0020key.",
-            "url": "namespaces/phpunit-framework.html#function_assertArrayNotHasKey"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertContains\u0028\u0029",
-            "name": "assertContains",
-            "summary": "Asserts\u0020that\u0020a\u0020haystack\u0020contains\u0020a\u0020needle.",
-            "url": "namespaces/phpunit-framework.html#function_assertContains"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertContainsEquals\u0028\u0029",
-            "name": "assertContainsEquals",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_assertContainsEquals"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotContains\u0028\u0029",
-            "name": "assertNotContains",
-            "summary": "Asserts\u0020that\u0020a\u0020haystack\u0020does\u0020not\u0020contain\u0020a\u0020needle.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotContains"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotContainsEquals\u0028\u0029",
-            "name": "assertNotContainsEquals",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_assertNotContainsEquals"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertContainsOnly\u0028\u0029",
-            "name": "assertContainsOnly",
-            "summary": "Asserts\u0020that\u0020a\u0020haystack\u0020contains\u0020only\u0020values\u0020of\u0020a\u0020given\u0020type.",
-            "url": "namespaces/phpunit-framework.html#function_assertContainsOnly"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertContainsOnlyInstancesOf\u0028\u0029",
-            "name": "assertContainsOnlyInstancesOf",
-            "summary": "Asserts\u0020that\u0020a\u0020haystack\u0020contains\u0020only\u0020instances\u0020of\u0020a\u0020given\u0020class\u0020name.",
-            "url": "namespaces/phpunit-framework.html#function_assertContainsOnlyInstancesOf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotContainsOnly\u0028\u0029",
-            "name": "assertNotContainsOnly",
-            "summary": "Asserts\u0020that\u0020a\u0020haystack\u0020does\u0020not\u0020contain\u0020only\u0020values\u0020of\u0020a\u0020given\u0020type.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotContainsOnly"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertCount\u0028\u0029",
-            "name": "assertCount",
-            "summary": "Asserts\u0020the\u0020number\u0020of\u0020elements\u0020of\u0020an\u0020array,\u0020Countable\u0020or\u0020Traversable.",
-            "url": "namespaces/phpunit-framework.html#function_assertCount"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotCount\u0028\u0029",
-            "name": "assertNotCount",
-            "summary": "Asserts\u0020the\u0020number\u0020of\u0020elements\u0020of\u0020an\u0020array,\u0020Countable\u0020or\u0020Traversable.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotCount"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertEquals\u0028\u0029",
-            "name": "assertEquals",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertEquals"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertEqualsCanonicalizing\u0028\u0029",
-            "name": "assertEqualsCanonicalizing",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020equal\u0020\u0028canonicalizing\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertEqualsCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertEqualsIgnoringCase\u0028\u0029",
-            "name": "assertEqualsIgnoringCase",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020equal\u0020\u0028ignoring\u0020case\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertEqualsIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertEqualsWithDelta\u0028\u0029",
-            "name": "assertEqualsWithDelta",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020equal\u0020\u0028with\u0020delta\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertEqualsWithDelta"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotEquals\u0028\u0029",
-            "name": "assertNotEquals",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotEquals"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotEqualsCanonicalizing\u0028\u0029",
-            "name": "assertNotEqualsCanonicalizing",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020not\u0020equal\u0020\u0028canonicalizing\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotEqualsCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotEqualsIgnoringCase\u0028\u0029",
-            "name": "assertNotEqualsIgnoringCase",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020not\u0020equal\u0020\u0028ignoring\u0020case\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotEqualsIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotEqualsWithDelta\u0028\u0029",
-            "name": "assertNotEqualsWithDelta",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020are\u0020not\u0020equal\u0020\u0028with\u0020delta\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotEqualsWithDelta"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertEmpty\u0028\u0029",
-            "name": "assertEmpty",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020empty.",
-            "url": "namespaces/phpunit-framework.html#function_assertEmpty"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotEmpty\u0028\u0029",
-            "name": "assertNotEmpty",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020empty.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotEmpty"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertGreaterThan\u0028\u0029",
-            "name": "assertGreaterThan",
-            "summary": "Asserts\u0020that\u0020a\u0020value\u0020is\u0020greater\u0020than\u0020another\u0020value.",
-            "url": "namespaces/phpunit-framework.html#function_assertGreaterThan"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertGreaterThanOrEqual\u0028\u0029",
-            "name": "assertGreaterThanOrEqual",
-            "summary": "Asserts\u0020that\u0020a\u0020value\u0020is\u0020greater\u0020than\u0020or\u0020equal\u0020to\u0020another\u0020value.",
-            "url": "namespaces/phpunit-framework.html#function_assertGreaterThanOrEqual"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertLessThan\u0028\u0029",
-            "name": "assertLessThan",
-            "summary": "Asserts\u0020that\u0020a\u0020value\u0020is\u0020smaller\u0020than\u0020another\u0020value.",
-            "url": "namespaces/phpunit-framework.html#function_assertLessThan"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertLessThanOrEqual\u0028\u0029",
-            "name": "assertLessThanOrEqual",
-            "summary": "Asserts\u0020that\u0020a\u0020value\u0020is\u0020smaller\u0020than\u0020or\u0020equal\u0020to\u0020another\u0020value.",
-            "url": "namespaces/phpunit-framework.html#function_assertLessThanOrEqual"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileEquals\u0028\u0029",
-            "name": "assertFileEquals",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020is\u0020equal\u0020to\u0020the\u0020contents\u0020of\u0020another\nfile.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileEquals"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileEqualsCanonicalizing\u0028\u0029",
-            "name": "assertFileEqualsCanonicalizing",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020is\u0020equal\u0020to\u0020the\u0020contents\u0020of\u0020another\nfile\u0020\u0028canonicalizing\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileEqualsCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileEqualsIgnoringCase\u0028\u0029",
-            "name": "assertFileEqualsIgnoringCase",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020is\u0020equal\u0020to\u0020the\u0020contents\u0020of\u0020another\nfile\u0020\u0028ignoring\u0020case\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileEqualsIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileNotEquals\u0028\u0029",
-            "name": "assertFileNotEquals",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020is\u0020not\u0020equal\u0020to\u0020the\u0020contents\u0020of\nanother\u0020file.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileNotEquals"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileNotEqualsCanonicalizing\u0028\u0029",
-            "name": "assertFileNotEqualsCanonicalizing",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020is\u0020not\u0020equal\u0020to\u0020the\u0020contents\u0020of\u0020another\nfile\u0020\u0028canonicalizing\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileNotEqualsCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileNotEqualsIgnoringCase\u0028\u0029",
-            "name": "assertFileNotEqualsIgnoringCase",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020one\u0020file\u0020is\u0020not\u0020equal\u0020to\u0020the\u0020contents\u0020of\u0020another\nfile\u0020\u0028ignoring\u0020case\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileNotEqualsIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringEqualsFile\u0028\u0029",
-            "name": "assertStringEqualsFile",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020a\u0020string\u0020is\u0020equal\nto\u0020the\u0020contents\u0020of\u0020a\u0020file.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringEqualsFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringEqualsFileCanonicalizing\u0028\u0029",
-            "name": "assertStringEqualsFileCanonicalizing",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020a\u0020string\u0020is\u0020equal\nto\u0020the\u0020contents\u0020of\u0020a\u0020file\u0020\u0028canonicalizing\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringEqualsFileCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringEqualsFileIgnoringCase\u0028\u0029",
-            "name": "assertStringEqualsFileIgnoringCase",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020a\u0020string\u0020is\u0020equal\nto\u0020the\u0020contents\u0020of\u0020a\u0020file\u0020\u0028ignoring\u0020case\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringEqualsFileIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotEqualsFile\u0028\u0029",
-            "name": "assertStringNotEqualsFile",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020a\u0020string\u0020is\u0020not\u0020equal\nto\u0020the\u0020contents\u0020of\u0020a\u0020file.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotEqualsFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotEqualsFileCanonicalizing\u0028\u0029",
-            "name": "assertStringNotEqualsFileCanonicalizing",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020a\u0020string\u0020is\u0020not\u0020equal\nto\u0020the\u0020contents\u0020of\u0020a\u0020file\u0020\u0028canonicalizing\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotEqualsFileCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotEqualsFileIgnoringCase\u0028\u0029",
-            "name": "assertStringNotEqualsFileIgnoringCase",
-            "summary": "Asserts\u0020that\u0020the\u0020contents\u0020of\u0020a\u0020string\u0020is\u0020not\u0020equal\nto\u0020the\u0020contents\u0020of\u0020a\u0020file\u0020\u0028ignoring\u0020case\u0029.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotEqualsFileIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsReadable\u0028\u0029",
-            "name": "assertIsReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\/dir\u0020is\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotReadable\u0028\u0029",
-            "name": "assertIsNotReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\/dir\u0020exists\u0020and\u0020is\u0020not\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotIsReadable\u0028\u0029",
-            "name": "assertNotIsReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\/dir\u0020exists\u0020and\u0020is\u0020not\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotIsReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsWritable\u0028\u0029",
-            "name": "assertIsWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\/dir\u0020exists\u0020and\u0020is\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotWritable\u0028\u0029",
-            "name": "assertIsNotWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\/dir\u0020exists\u0020and\u0020is\u0020not\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotIsWritable\u0028\u0029",
-            "name": "assertNotIsWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\/dir\u0020exists\u0020and\u0020is\u0020not\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotIsWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryExists\u0028\u0029",
-            "name": "assertDirectoryExists",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryExists"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryDoesNotExist\u0028\u0029",
-            "name": "assertDirectoryDoesNotExist",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020does\u0020not\u0020exist.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryDoesNotExist"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryNotExists\u0028\u0029",
-            "name": "assertDirectoryNotExists",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020does\u0020not\u0020exist.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryNotExists"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryIsReadable\u0028\u0029",
-            "name": "assertDirectoryIsReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists\u0020and\u0020is\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryIsReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryIsNotReadable\u0028\u0029",
-            "name": "assertDirectoryIsNotReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists\u0020and\u0020is\u0020not\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryIsNotReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryNotIsReadable\u0028\u0029",
-            "name": "assertDirectoryNotIsReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists\u0020and\u0020is\u0020not\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryNotIsReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryIsWritable\u0028\u0029",
-            "name": "assertDirectoryIsWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists\u0020and\u0020is\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryIsWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryIsNotWritable\u0028\u0029",
-            "name": "assertDirectoryIsNotWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists\u0020and\u0020is\u0020not\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryIsNotWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDirectoryNotIsWritable\u0028\u0029",
-            "name": "assertDirectoryNotIsWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020directory\u0020exists\u0020and\u0020is\u0020not\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertDirectoryNotIsWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileExists\u0028\u0029",
-            "name": "assertFileExists",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileExists"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileDoesNotExist\u0028\u0029",
-            "name": "assertFileDoesNotExist",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020does\u0020not\u0020exist.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileDoesNotExist"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileNotExists\u0028\u0029",
-            "name": "assertFileNotExists",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020does\u0020not\u0020exist.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileNotExists"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileIsReadable\u0028\u0029",
-            "name": "assertFileIsReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists\u0020and\u0020is\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileIsReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileIsNotReadable\u0028\u0029",
-            "name": "assertFileIsNotReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists\u0020and\u0020is\u0020not\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileIsNotReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileNotIsReadable\u0028\u0029",
-            "name": "assertFileNotIsReadable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists\u0020and\u0020is\u0020not\u0020readable.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileNotIsReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileIsWritable\u0028\u0029",
-            "name": "assertFileIsWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists\u0020and\u0020is\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileIsWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileIsNotWritable\u0028\u0029",
-            "name": "assertFileIsNotWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists\u0020and\u0020is\u0020not\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileIsNotWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFileNotIsWritable\u0028\u0029",
-            "name": "assertFileNotIsWritable",
-            "summary": "Asserts\u0020that\u0020a\u0020file\u0020exists\u0020and\u0020is\u0020not\u0020writable.",
-            "url": "namespaces/phpunit-framework.html#function_assertFileNotIsWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertTrue\u0028\u0029",
-            "name": "assertTrue",
-            "summary": "Asserts\u0020that\u0020a\u0020condition\u0020is\u0020true.",
-            "url": "namespaces/phpunit-framework.html#function_assertTrue"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotTrue\u0028\u0029",
-            "name": "assertNotTrue",
-            "summary": "Asserts\u0020that\u0020a\u0020condition\u0020is\u0020not\u0020true.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotTrue"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFalse\u0028\u0029",
-            "name": "assertFalse",
-            "summary": "Asserts\u0020that\u0020a\u0020condition\u0020is\u0020false.",
-            "url": "namespaces/phpunit-framework.html#function_assertFalse"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotFalse\u0028\u0029",
-            "name": "assertNotFalse",
-            "summary": "Asserts\u0020that\u0020a\u0020condition\u0020is\u0020not\u0020false.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotFalse"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNull\u0028\u0029",
-            "name": "assertNull",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020null.",
-            "url": "namespaces/phpunit-framework.html#function_assertNull"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotNull\u0028\u0029",
-            "name": "assertNotNull",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020null.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotNull"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertFinite\u0028\u0029",
-            "name": "assertFinite",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020finite.",
-            "url": "namespaces/phpunit-framework.html#function_assertFinite"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertInfinite\u0028\u0029",
-            "name": "assertInfinite",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020infinite.",
-            "url": "namespaces/phpunit-framework.html#function_assertInfinite"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNan\u0028\u0029",
-            "name": "assertNan",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020nan.",
-            "url": "namespaces/phpunit-framework.html#function_assertNan"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertClassHasAttribute\u0028\u0029",
-            "name": "assertClassHasAttribute",
-            "summary": "Asserts\u0020that\u0020a\u0020class\u0020has\u0020a\u0020specified\u0020attribute.",
-            "url": "namespaces/phpunit-framework.html#function_assertClassHasAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertClassNotHasAttribute\u0028\u0029",
-            "name": "assertClassNotHasAttribute",
-            "summary": "Asserts\u0020that\u0020a\u0020class\u0020does\u0020not\u0020have\u0020a\u0020specified\u0020attribute.",
-            "url": "namespaces/phpunit-framework.html#function_assertClassNotHasAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertClassHasStaticAttribute\u0028\u0029",
-            "name": "assertClassHasStaticAttribute",
-            "summary": "Asserts\u0020that\u0020a\u0020class\u0020has\u0020a\u0020specified\u0020static\u0020attribute.",
-            "url": "namespaces/phpunit-framework.html#function_assertClassHasStaticAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertClassNotHasStaticAttribute\u0028\u0029",
-            "name": "assertClassNotHasStaticAttribute",
-            "summary": "Asserts\u0020that\u0020a\u0020class\u0020does\u0020not\u0020have\u0020a\u0020specified\u0020static\u0020attribute.",
-            "url": "namespaces/phpunit-framework.html#function_assertClassNotHasStaticAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertObjectHasAttribute\u0028\u0029",
-            "name": "assertObjectHasAttribute",
-            "summary": "Asserts\u0020that\u0020an\u0020object\u0020has\u0020a\u0020specified\u0020attribute.",
-            "url": "namespaces/phpunit-framework.html#function_assertObjectHasAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertObjectNotHasAttribute\u0028\u0029",
-            "name": "assertObjectNotHasAttribute",
-            "summary": "Asserts\u0020that\u0020an\u0020object\u0020does\u0020not\u0020have\u0020a\u0020specified\u0020attribute.",
-            "url": "namespaces/phpunit-framework.html#function_assertObjectNotHasAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertSame\u0028\u0029",
-            "name": "assertSame",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020have\u0020the\u0020same\u0020type\u0020and\u0020value.",
-            "url": "namespaces/phpunit-framework.html#function_assertSame"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotSame\u0028\u0029",
-            "name": "assertNotSame",
-            "summary": "Asserts\u0020that\u0020two\u0020variables\u0020do\u0020not\u0020have\u0020the\u0020same\u0020type\u0020and\u0020value.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotSame"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertInstanceOf\u0028\u0029",
-            "name": "assertInstanceOf",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020a\u0020given\u0020type.",
-            "url": "namespaces/phpunit-framework.html#function_assertInstanceOf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotInstanceOf\u0028\u0029",
-            "name": "assertNotInstanceOf",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020a\u0020given\u0020type.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotInstanceOf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsArray\u0028\u0029",
-            "name": "assertIsArray",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020array.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsArray"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsBool\u0028\u0029",
-            "name": "assertIsBool",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020bool.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsBool"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsFloat\u0028\u0029",
-            "name": "assertIsFloat",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020float.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsFloat"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsInt\u0028\u0029",
-            "name": "assertIsInt",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020int.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsInt"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNumeric\u0028\u0029",
-            "name": "assertIsNumeric",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020numeric.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNumeric"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsObject\u0028\u0029",
-            "name": "assertIsObject",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020object.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsObject"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsResource\u0028\u0029",
-            "name": "assertIsResource",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020resource.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsResource"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsClosedResource\u0028\u0029",
-            "name": "assertIsClosedResource",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020resource\u0020and\u0020is\u0020closed.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsClosedResource"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsString\u0028\u0029",
-            "name": "assertIsString",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020string.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsScalar\u0028\u0029",
-            "name": "assertIsScalar",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020scalar.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsScalar"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsCallable\u0028\u0029",
-            "name": "assertIsCallable",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020callable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsCallable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsIterable\u0028\u0029",
-            "name": "assertIsIterable",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020of\u0020type\u0020iterable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsIterable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotArray\u0028\u0029",
-            "name": "assertIsNotArray",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020array.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotArray"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotBool\u0028\u0029",
-            "name": "assertIsNotBool",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020bool.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotBool"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotFloat\u0028\u0029",
-            "name": "assertIsNotFloat",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020float.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotFloat"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotInt\u0028\u0029",
-            "name": "assertIsNotInt",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020int.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotInt"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotNumeric\u0028\u0029",
-            "name": "assertIsNotNumeric",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020numeric.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotNumeric"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotObject\u0028\u0029",
-            "name": "assertIsNotObject",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020object.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotObject"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotResource\u0028\u0029",
-            "name": "assertIsNotResource",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020resource.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotResource"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotClosedResource\u0028\u0029",
-            "name": "assertIsNotClosedResource",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020resource.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotClosedResource"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotString\u0028\u0029",
-            "name": "assertIsNotString",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020string.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotScalar\u0028\u0029",
-            "name": "assertIsNotScalar",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020scalar.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotScalar"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotCallable\u0028\u0029",
-            "name": "assertIsNotCallable",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020callable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotCallable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertIsNotIterable\u0028\u0029",
-            "name": "assertIsNotIterable",
-            "summary": "Asserts\u0020that\u0020a\u0020variable\u0020is\u0020not\u0020of\u0020type\u0020iterable.",
-            "url": "namespaces/phpunit-framework.html#function_assertIsNotIterable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertMatchesRegularExpression\u0028\u0029",
-            "name": "assertMatchesRegularExpression",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020matches\u0020a\u0020given\u0020regular\u0020expression.",
-            "url": "namespaces/phpunit-framework.html#function_assertMatchesRegularExpression"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertRegExp\u0028\u0029",
-            "name": "assertRegExp",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020matches\u0020a\u0020given\u0020regular\u0020expression.",
-            "url": "namespaces/phpunit-framework.html#function_assertRegExp"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertDoesNotMatchRegularExpression\u0028\u0029",
-            "name": "assertDoesNotMatchRegularExpression",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020does\u0020not\u0020match\u0020a\u0020given\u0020regular\u0020expression.",
-            "url": "namespaces/phpunit-framework.html#function_assertDoesNotMatchRegularExpression"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotRegExp\u0028\u0029",
-            "name": "assertNotRegExp",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020does\u0020not\u0020match\u0020a\u0020given\u0020regular\u0020expression.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotRegExp"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertSameSize\u0028\u0029",
-            "name": "assertSameSize",
-            "summary": "Assert\u0020that\u0020the\u0020size\u0020of\u0020two\u0020arrays\u0020\u0028or\u0020\u0060Countable\u0060\u0020or\u0020\u0060Traversable\u0060\u0020objects\u0029\nis\u0020the\u0020same.",
-            "url": "namespaces/phpunit-framework.html#function_assertSameSize"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertNotSameSize\u0028\u0029",
-            "name": "assertNotSameSize",
-            "summary": "Assert\u0020that\u0020the\u0020size\u0020of\u0020two\u0020arrays\u0020\u0028or\u0020\u0060Countable\u0060\u0020or\u0020\u0060Traversable\u0060\u0020objects\u0029\nis\u0020not\u0020the\u0020same.",
-            "url": "namespaces/phpunit-framework.html#function_assertNotSameSize"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringMatchesFormat\u0028\u0029",
-            "name": "assertStringMatchesFormat",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020matches\u0020a\u0020given\u0020format\u0020string.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringMatchesFormat"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotMatchesFormat\u0028\u0029",
-            "name": "assertStringNotMatchesFormat",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020does\u0020not\u0020match\u0020a\u0020given\u0020format\u0020string.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotMatchesFormat"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringMatchesFormatFile\u0028\u0029",
-            "name": "assertStringMatchesFormatFile",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020matches\u0020a\u0020given\u0020format\u0020file.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringMatchesFormatFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotMatchesFormatFile\u0028\u0029",
-            "name": "assertStringNotMatchesFormatFile",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020does\u0020not\u0020match\u0020a\u0020given\u0020format\u0020string.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotMatchesFormatFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringStartsWith\u0028\u0029",
-            "name": "assertStringStartsWith",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020starts\u0020with\u0020a\u0020given\u0020prefix.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringStartsWith"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringStartsNotWith\u0028\u0029",
-            "name": "assertStringStartsNotWith",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020starts\u0020not\u0020with\u0020a\u0020given\u0020prefix.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringStartsNotWith"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringContainsString\u0028\u0029",
-            "name": "assertStringContainsString",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_assertStringContainsString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringContainsStringIgnoringCase\u0028\u0029",
-            "name": "assertStringContainsStringIgnoringCase",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_assertStringContainsStringIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotContainsString\u0028\u0029",
-            "name": "assertStringNotContainsString",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotContainsString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringNotContainsStringIgnoringCase\u0028\u0029",
-            "name": "assertStringNotContainsStringIgnoringCase",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_assertStringNotContainsStringIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringEndsWith\u0028\u0029",
-            "name": "assertStringEndsWith",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020ends\u0020with\u0020a\u0020given\u0020suffix.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringEndsWith"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertStringEndsNotWith\u0028\u0029",
-            "name": "assertStringEndsNotWith",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020ends\u0020not\u0020with\u0020a\u0020given\u0020suffix.",
-            "url": "namespaces/phpunit-framework.html#function_assertStringEndsNotWith"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertXmlFileEqualsXmlFile\u0028\u0029",
-            "name": "assertXmlFileEqualsXmlFile",
-            "summary": "Asserts\u0020that\u0020two\u0020XML\u0020files\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertXmlFileEqualsXmlFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertXmlFileNotEqualsXmlFile\u0028\u0029",
-            "name": "assertXmlFileNotEqualsXmlFile",
-            "summary": "Asserts\u0020that\u0020two\u0020XML\u0020files\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertXmlFileNotEqualsXmlFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertXmlStringEqualsXmlFile\u0028\u0029",
-            "name": "assertXmlStringEqualsXmlFile",
-            "summary": "Asserts\u0020that\u0020two\u0020XML\u0020documents\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertXmlStringEqualsXmlFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertXmlStringNotEqualsXmlFile\u0028\u0029",
-            "name": "assertXmlStringNotEqualsXmlFile",
-            "summary": "Asserts\u0020that\u0020two\u0020XML\u0020documents\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertXmlStringNotEqualsXmlFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertXmlStringEqualsXmlString\u0028\u0029",
-            "name": "assertXmlStringEqualsXmlString",
-            "summary": "Asserts\u0020that\u0020two\u0020XML\u0020documents\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertXmlStringEqualsXmlString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertXmlStringNotEqualsXmlString\u0028\u0029",
-            "name": "assertXmlStringNotEqualsXmlString",
-            "summary": "Asserts\u0020that\u0020two\u0020XML\u0020documents\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertXmlStringNotEqualsXmlString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertEqualXMLStructure\u0028\u0029",
-            "name": "assertEqualXMLStructure",
-            "summary": "Asserts\u0020that\u0020a\u0020hierarchy\u0020of\u0020DOMElements\u0020matches.",
-            "url": "namespaces/phpunit-framework.html#function_assertEqualXMLStructure"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertThat\u0028\u0029",
-            "name": "assertThat",
-            "summary": "Evaluates\u0020a\u0020PHPUnit\\Framework\\Constraint\u0020matcher\u0020object.",
-            "url": "namespaces/phpunit-framework.html#function_assertThat"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJson\u0028\u0029",
-            "name": "assertJson",
-            "summary": "Asserts\u0020that\u0020a\u0020string\u0020is\u0020a\u0020valid\u0020JSON\u0020string.",
-            "url": "namespaces/phpunit-framework.html#function_assertJson"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJsonStringEqualsJsonString\u0028\u0029",
-            "name": "assertJsonStringEqualsJsonString",
-            "summary": "Asserts\u0020that\u0020two\u0020given\u0020JSON\u0020encoded\u0020objects\u0020or\u0020arrays\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertJsonStringEqualsJsonString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJsonStringNotEqualsJsonString\u0028\u0029",
-            "name": "assertJsonStringNotEqualsJsonString",
-            "summary": "Asserts\u0020that\u0020two\u0020given\u0020JSON\u0020encoded\u0020objects\u0020or\u0020arrays\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertJsonStringNotEqualsJsonString"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJsonStringEqualsJsonFile\u0028\u0029",
-            "name": "assertJsonStringEqualsJsonFile",
-            "summary": "Asserts\u0020that\u0020the\u0020generated\u0020JSON\u0020encoded\u0020object\u0020and\u0020the\u0020content\u0020of\u0020the\u0020given\u0020file\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertJsonStringEqualsJsonFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJsonStringNotEqualsJsonFile\u0028\u0029",
-            "name": "assertJsonStringNotEqualsJsonFile",
-            "summary": "Asserts\u0020that\u0020the\u0020generated\u0020JSON\u0020encoded\u0020object\u0020and\u0020the\u0020content\u0020of\u0020the\u0020given\u0020file\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertJsonStringNotEqualsJsonFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJsonFileEqualsJsonFile\u0028\u0029",
-            "name": "assertJsonFileEqualsJsonFile",
-            "summary": "Asserts\u0020that\u0020two\u0020JSON\u0020files\u0020are\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertJsonFileEqualsJsonFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\assertJsonFileNotEqualsJsonFile\u0028\u0029",
-            "name": "assertJsonFileNotEqualsJsonFile",
-            "summary": "Asserts\u0020that\u0020two\u0020JSON\u0020files\u0020are\u0020not\u0020equal.",
-            "url": "namespaces/phpunit-framework.html#function_assertJsonFileNotEqualsJsonFile"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\logicalAnd\u0028\u0029",
-            "name": "logicalAnd",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_logicalAnd"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\logicalOr\u0028\u0029",
-            "name": "logicalOr",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_logicalOr"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\logicalNot\u0028\u0029",
-            "name": "logicalNot",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_logicalNot"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\logicalXor\u0028\u0029",
-            "name": "logicalXor",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_logicalXor"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\anything\u0028\u0029",
-            "name": "anything",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_anything"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isTrue\u0028\u0029",
-            "name": "isTrue",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isTrue"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\callback\u0028\u0029",
-            "name": "callback",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_callback"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isFalse\u0028\u0029",
-            "name": "isFalse",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isFalse"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isJson\u0028\u0029",
-            "name": "isJson",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isJson"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isNull\u0028\u0029",
-            "name": "isNull",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isNull"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isFinite\u0028\u0029",
-            "name": "isFinite",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isFinite"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isInfinite\u0028\u0029",
-            "name": "isInfinite",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isInfinite"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isNan\u0028\u0029",
-            "name": "isNan",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isNan"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\containsEqual\u0028\u0029",
-            "name": "containsEqual",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_containsEqual"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\containsIdentical\u0028\u0029",
-            "name": "containsIdentical",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_containsIdentical"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\containsOnly\u0028\u0029",
-            "name": "containsOnly",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_containsOnly"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\containsOnlyInstancesOf\u0028\u0029",
-            "name": "containsOnlyInstancesOf",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_containsOnlyInstancesOf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\arrayHasKey\u0028\u0029",
-            "name": "arrayHasKey",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_arrayHasKey"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\equalTo\u0028\u0029",
-            "name": "equalTo",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_equalTo"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\equalToCanonicalizing\u0028\u0029",
-            "name": "equalToCanonicalizing",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_equalToCanonicalizing"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\equalToIgnoringCase\u0028\u0029",
-            "name": "equalToIgnoringCase",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_equalToIgnoringCase"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\equalToWithDelta\u0028\u0029",
-            "name": "equalToWithDelta",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_equalToWithDelta"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isEmpty\u0028\u0029",
-            "name": "isEmpty",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isEmpty"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isWritable\u0028\u0029",
-            "name": "isWritable",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isWritable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isReadable\u0028\u0029",
-            "name": "isReadable",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isReadable"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\directoryExists\u0028\u0029",
-            "name": "directoryExists",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_directoryExists"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\fileExists\u0028\u0029",
-            "name": "fileExists",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_fileExists"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\greaterThan\u0028\u0029",
-            "name": "greaterThan",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_greaterThan"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\greaterThanOrEqual\u0028\u0029",
-            "name": "greaterThanOrEqual",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_greaterThanOrEqual"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\classHasAttribute\u0028\u0029",
-            "name": "classHasAttribute",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_classHasAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\classHasStaticAttribute\u0028\u0029",
-            "name": "classHasStaticAttribute",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_classHasStaticAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\objectHasAttribute\u0028\u0029",
-            "name": "objectHasAttribute",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_objectHasAttribute"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\identicalTo\u0028\u0029",
-            "name": "identicalTo",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_identicalTo"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isInstanceOf\u0028\u0029",
-            "name": "isInstanceOf",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isInstanceOf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\isType\u0028\u0029",
-            "name": "isType",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_isType"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\lessThan\u0028\u0029",
-            "name": "lessThan",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_lessThan"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\lessThanOrEqual\u0028\u0029",
-            "name": "lessThanOrEqual",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_lessThanOrEqual"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\matchesRegularExpression\u0028\u0029",
-            "name": "matchesRegularExpression",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_matchesRegularExpression"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\matches\u0028\u0029",
-            "name": "matches",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_matches"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\stringStartsWith\u0028\u0029",
-            "name": "stringStartsWith",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_stringStartsWith"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\stringContains\u0028\u0029",
-            "name": "stringContains",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_stringContains"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\stringEndsWith\u0028\u0029",
-            "name": "stringEndsWith",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_stringEndsWith"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\countOf\u0028\u0029",
-            "name": "countOf",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_countOf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\any\u0028\u0029",
-            "name": "any",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\nzero\u0020or\u0020more\u0020times.",
-            "url": "namespaces/phpunit-framework.html#function_any"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\never\u0028\u0029",
-            "name": "never",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020never\u0020executed.",
-            "url": "namespaces/phpunit-framework.html#function_never"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\atLeast\u0028\u0029",
-            "name": "atLeast",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\nat\u0020least\u0020N\u0020times.",
-            "url": "namespaces/phpunit-framework.html#function_atLeast"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\atLeastOnce\u0028\u0029",
-            "name": "atLeastOnce",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\u0020at\u0020least\u0020once.",
-            "url": "namespaces/phpunit-framework.html#function_atLeastOnce"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\once\u0028\u0029",
-            "name": "once",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\u0020exactly\u0020once.",
-            "url": "namespaces/phpunit-framework.html#function_once"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\exactly\u0028\u0029",
-            "name": "exactly",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\nexactly\u0020\u0024count\u0020times.",
-            "url": "namespaces/phpunit-framework.html#function_exactly"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\atMost\u0028\u0029",
-            "name": "atMost",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\nat\u0020most\u0020N\u0020times.",
-            "url": "namespaces/phpunit-framework.html#function_atMost"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\at\u0028\u0029",
-            "name": "at",
-            "summary": "Returns\u0020a\u0020matcher\u0020that\u0020matches\u0020when\u0020the\u0020method\u0020is\u0020executed\nat\u0020the\u0020given\u0020index.",
-            "url": "namespaces/phpunit-framework.html#function_at"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\returnValue\u0028\u0029",
-            "name": "returnValue",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_returnValue"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\returnValueMap\u0028\u0029",
-            "name": "returnValueMap",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_returnValueMap"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\returnArgument\u0028\u0029",
-            "name": "returnArgument",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_returnArgument"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\returnCallback\u0028\u0029",
-            "name": "returnCallback",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_returnCallback"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\returnSelf\u0028\u0029",
-            "name": "returnSelf",
-            "summary": "Returns\u0020the\u0020current\u0020object.",
-            "url": "namespaces/phpunit-framework.html#function_returnSelf"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\throwException\u0028\u0029",
-            "name": "throwException",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_throwException"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework\\onConsecutiveCalls\u0028\u0029",
-            "name": "onConsecutiveCalls",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html#function_onConsecutiveCalls"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest",
-            "name": "AtlasDataLakeSpecTest",
-            "summary": "Atlas\u0020Data\u0020Lake\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AtestAtlasDataLake\u0028\u0029",
-            "name": "testAtlasDataLake",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_testAtlasDataLake"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AtestKillCursors\u0028\u0029",
-            "name": "testKillCursors",
-            "summary": "Prose\u0020test\u00201\u003A\u0020Connect\u0020without\u0020authentication",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_testKillCursors"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AtestConnectWithoutAuth\u0028\u0029",
-            "name": "testConnectWithoutAuth",
-            "summary": "Prose\u0020test\u00202\u003A\u0020Connect\u0020without\u0020authentication",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_testConnectWithoutAuth"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AtestConnectwithSCRAMSHA1\u0028\u0029",
-            "name": "testConnectwithSCRAMSHA1",
-            "summary": "Prose\u0020test\u00203\u003A\u0020Connect\u0020with\u0020SCRAM\u002DSHA\u002D1\u0020authentication",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_testConnectwithSCRAMSHA1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AtestConnectwithSCRAMSHA256\u0028\u0029",
-            "name": "testConnectwithSCRAMSHA256",
-            "summary": "Prose\u0020test\u00204\u003A\u0020Connect\u0020with\u0020SCRAM\u002DSHA\u002D256\u0020authentication",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_testConnectwithSCRAMSHA256"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\AtlasDataLakeSpecTest\u003A\u003AisAtlasDataLake\u0028\u0029",
-            "name": "isAtlasDataLake",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-AtlasDataLakeSpecTest.html#method_isAtlasDataLake"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest",
-            "name": "ChangeStreamsSpecTest",
-            "summary": "Change\u0020Streams\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AassertResult\u0028\u0029",
-            "name": "assertResult",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_assertResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AtestChangeStreams\u0028\u0029",
-            "name": "testChangeStreams",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_testChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AcreateChangeStream\u0028\u0029",
-            "name": "createChangeStream",
-            "summary": "Create\u0020a\u0020change\u0020stream.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_createChangeStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AcreateRunOn\u0028\u0029",
-            "name": "createRunOn",
-            "summary": "Convert\u0020the\u0020server\u0020requirements\u0020to\u0020a\u0020standard\u0020\u0022runOn\u0022\u0020array\u0020used\u0020by\u0020other\nspecifications.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_createRunOn"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AdropDatabasesAndCreateCollection\u0028\u0029",
-            "name": "dropDatabasesAndCreateCollection",
-            "summary": "Drop\u0020the\u0020database\u0020and\u0020create\u0020the\u0020collection.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_dropDatabasesAndCreateCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003AiterateChangeStream\u0028\u0029",
-            "name": "iterateChangeStream",
-            "summary": "Iterate\u0020a\u0020change\u0020stream.",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#method_iterateChangeStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ChangeStreamsSpecTest\u003A\u003A\u0024incompleteTests",
-            "name": "incompleteTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ChangeStreamsSpecTest.html#property_incompleteTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest",
-            "name": "ClientSideEncryptionSpecTest",
-            "summary": "Client\u002Dside\u0020encryption\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestClientSideEncryption\u0028\u0029",
-            "name": "testClientSideEncryption",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testClientSideEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestDataKeyAndDoubleEncryption\u0028\u0029",
-            "name": "testDataKeyAndDoubleEncryption",
-            "summary": "Prose\u0020test\u003A\u0020Data\u0020key\u0020and\u0020double\u0020encryption",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testDataKeyAndDoubleEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AdataKeyProvider\u0028\u0029",
-            "name": "dataKeyProvider",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_dataKeyProvider"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestExternalKeyVault\u0028\u0029",
-            "name": "testExternalKeyVault",
-            "summary": "Prose\u0020test\u003A\u0020External\u0020Key\u0020Vault",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testExternalKeyVault"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AprovideBSONSizeLimitsAndBatchSplittingTests\u0028\u0029",
-            "name": "provideBSONSizeLimitsAndBatchSplittingTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_provideBSONSizeLimitsAndBatchSplittingTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestBSONSizeLimitsAndBatchSplitting\u0028\u0029",
-            "name": "testBSONSizeLimitsAndBatchSplitting",
-            "summary": "Prose\u0020test\u003A\u0020BSON\u0020size\u0020limits\u0020and\u0020batch\u0020splitting",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testBSONSizeLimitsAndBatchSplitting"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestViewsAreProhibited\u0028\u0029",
-            "name": "testViewsAreProhibited",
-            "summary": "Prose\u0020test\u003A\u0020Views\u0020are\u0020prohibited",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testViewsAreProhibited"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestCorpus\u0028\u0029",
-            "name": "testCorpus",
-            "summary": "Prose\u0020test\u003A\u0020BSON\u0020Corpus",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testCorpus"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestCustomEndpoint\u0028\u0029",
-            "name": "testCustomEndpoint",
-            "summary": "Prose\u0020test\u003A\u0020Custom\u0020Endpoint",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testCustomEndpoint"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AcustomEndpointProvider\u0028\u0029",
-            "name": "customEndpointProvider",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_customEndpointProvider"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestBypassSpawningMongocryptdViaBypassSpawn\u0028\u0029",
-            "name": "testBypassSpawningMongocryptdViaBypassSpawn",
-            "summary": "Prose\u0020test\u003A\u0020Bypass\u0020spawning\u0020mongocryptd\u0020\u0028via\u0020mongocryptdBypassSpawn\u0029",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testBypassSpawningMongocryptdViaBypassSpawn"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestBypassSpawningMongocryptdViaBypassAutoEncryption\u0028\u0029",
-            "name": "testBypassSpawningMongocryptdViaBypassAutoEncryption",
-            "summary": "Bypass\u0020spawning\u0020mongocryptd\u0020\u0028via\u0020bypassAutoEncryption\u0029",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testBypassSpawningMongocryptdViaBypassAutoEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestInvalidKmsCertificate\u0028\u0029",
-            "name": "testInvalidKmsCertificate",
-            "summary": "Prose\u0020test\u003A\u0020Invalid\u0020KMS\u0020Certificate",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testInvalidKmsCertificate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestInvalidHostnameInKmsCertificate\u0028\u0029",
-            "name": "testInvalidHostnameInKmsCertificate",
-            "summary": "Prose\u0020test\u003A\u0020Invalid\u0020Hostname\u0020in\u0020KMS\u0020Certificate",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testInvalidHostnameInKmsCertificate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AtestKmsTlsOptions\u0028\u0029",
-            "name": "testKmsTlsOptions",
-            "summary": "Prose\u0020test\u003A\u0020KMS\u0020TLS\u0020Options",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_testKmsTlsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AprovideKmsTlsOptionsTests\u0028\u0029",
-            "name": "provideKmsTlsOptionsTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_provideKmsTlsOptionsTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AcraftInt64\u0028\u0029",
-            "name": "craftInt64",
-            "summary": "Casts\u0020the\u0020value\u0020for\u0020a\u0020BSON\u0020corpus\u0020structure\u0020to\u0020int64\u0020if\u0020necessary.",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_craftInt64"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AcreateTestCollection\u0028\u0029",
-            "name": "createTestCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_createTestCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AencryptCorpusValue\u0028\u0029",
-            "name": "encryptCorpusValue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_encryptCorpusValue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AgetEnv\u0028\u0029",
-            "name": "getEnv",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_getEnv"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AinsertKeyVaultData\u0028\u0029",
-            "name": "insertKeyVaultData",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_insertKeyVaultData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003AprepareCorpusData\u0028\u0029",
-            "name": "prepareCorpusData",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#method_prepareCorpusData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003ALOCAL_MASTERKEY",
-            "name": "LOCAL_MASTERKEY",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#constant_LOCAL_MASTERKEY"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ClientSideEncryptionSpecTest\u003A\u003A\u0024incompleteTests",
-            "name": "incompleteTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ClientSideEncryptionSpecTest.html#property_incompleteTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations",
-            "name": "CommandExpectations",
-            "summary": "Spec\u0020test\u0020CommandStartedEvent\u0020expectations.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromChangeStreams\u0028\u0029",
-            "name": "fromChangeStreams",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromClientSideEncryption\u0028\u0029",
-            "name": "fromClientSideEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromClientSideEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromCommandMonitoring\u0028\u0029",
-            "name": "fromCommandMonitoring",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromCommandMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromCrud\u0028\u0029",
-            "name": "fromCrud",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromCrud"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromReadWriteConcern\u0028\u0029",
-            "name": "fromReadWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromReadWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromRetryableReads\u0028\u0029",
-            "name": "fromRetryableReads",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromRetryableReads"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AfromTransactions\u0028\u0029",
-            "name": "fromTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_fromTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AcommandFailed\u0028\u0029",
-            "name": "commandFailed",
-            "summary": "Not\u0020used.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_commandFailed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AcommandStarted\u0028\u0029",
-            "name": "commandStarted",
-            "summary": "Tracks\u0020outgoing\u0020commands\u0020for\u0020spec\u0020test\u0020APM\u0020assertions.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_commandStarted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AcommandSucceeded\u0028\u0029",
-            "name": "commandSucceeded",
-            "summary": "Not\u0020used.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_commandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AstartMonitoring\u0028\u0029",
-            "name": "startMonitoring",
-            "summary": "Start\u0020command\u0020monitoring.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_startMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AstopMonitoring\u0028\u0029",
-            "name": "stopMonitoring",
-            "summary": "Stop\u0020command\u0020monitoring.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_stopMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "Assert\u0020that\u0020the\u0020command\u0020expectations\u0020match\u0020the\u0020monitored\u0020events.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003AisEventIgnored\u0028\u0029",
-            "name": "isEventIgnored",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#method_isEventIgnored"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024actualEvents",
-            "name": "actualEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_actualEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024expectedEvents",
-            "name": "expectedEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_expectedEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024ignoreCommandFailed",
-            "name": "ignoreCommandFailed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_ignoreCommandFailed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024ignoreCommandStarted",
-            "name": "ignoreCommandStarted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_ignoreCommandStarted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024ignoreCommandSucceeded",
-            "name": "ignoreCommandSucceeded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_ignoreCommandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024ignoreExtraEvents",
-            "name": "ignoreExtraEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_ignoreExtraEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024ignoreKeyVaultListCollections",
-            "name": "ignoreKeyVaultListCollections",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_ignoreKeyVaultListCollections"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandExpectations\u003A\u003A\u0024ignoredCommandNames",
-            "name": "ignoredCommandNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandExpectations.html#property_ignoredCommandNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandMonitoringSpecTest",
-            "name": "CommandMonitoringSpecTest",
-            "summary": "Command\u0020monitoring\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandMonitoringSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandMonitoringSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandMonitoringSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandMonitoringSpecTest\u003A\u003AassertCommandReplyMatches\u0028\u0029",
-            "name": "assertCommandReplyMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020reply\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandMonitoringSpecTest.html#method_assertCommandReplyMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandMonitoringSpecTest\u003A\u003AtestCommandMonitoring\u0028\u0029",
-            "name": "testCommandMonitoring",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandMonitoringSpecTest.html#method_testCommandMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandMonitoringSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandMonitoringSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\CommandMonitoringSpecTest\u003A\u003AcreateRunOn\u0028\u0029",
-            "name": "createRunOn",
-            "summary": "Convert\u0020the\u0020server\u0020and\u0020topology\u0020requirements\u0020to\u0020a\u0020standard\u0020\u0022runOn\u0022\u0020array\nused\u0020by\u0020other\u0020specifications.",
-            "url": "classes/MongoDB-Tests-SpecTests-CommandMonitoringSpecTest.html#method_createRunOn"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context",
-            "name": "Context",
-            "summary": "Execution\u0020context\u0020for\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AdisableEncryption\u0028\u0029",
-            "name": "disableEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_disableEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AenableEncryption\u0028\u0029",
-            "name": "enableEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_enableEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromChangeStreams\u0028\u0029",
-            "name": "fromChangeStreams",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromClientSideEncryption\u0028\u0029",
-            "name": "fromClientSideEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromClientSideEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromCommandMonitoring\u0028\u0029",
-            "name": "fromCommandMonitoring",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromCommandMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromCrud\u0028\u0029",
-            "name": "fromCrud",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromCrud"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromReadWriteConcern\u0028\u0029",
-            "name": "fromReadWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromReadWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromRetryableReads\u0028\u0029",
-            "name": "fromRetryableReads",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromRetryableReads"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromRetryableWrites\u0028\u0029",
-            "name": "fromRetryableWrites",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromRetryableWrites"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AfromTransactions\u0028\u0029",
-            "name": "fromTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_fromTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetAWSCredentials\u0028\u0029",
-            "name": "getAWSCredentials",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getAWSCredentials"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetAzureCredentials\u0028\u0029",
-            "name": "getAzureCredentials",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getAzureCredentials"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetKmipEndpoint\u0028\u0029",
-            "name": "getKmipEndpoint",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getKmipEndpoint"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetKmsTlsOptions\u0028\u0029",
-            "name": "getKmsTlsOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getKmsTlsOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetGCPCredentials\u0028\u0029",
-            "name": "getGCPCredentials",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getGCPCredentials"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetClient\u0028\u0029",
-            "name": "getClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetDatabase\u0028\u0029",
-            "name": "getDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AgetGridFSBucket\u0028\u0029",
-            "name": "getGridFSBucket",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_getGridFSBucket"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AprepareOptions\u0028\u0029",
-            "name": "prepareOptions",
-            "summary": "Prepare\u0020options\u0020readConcern,\u0020readPreference,\u0020and\u0020writeConcern\u0020options\u0020by\ncreating\u0020value\u0020objects.",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_prepareOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AreplaceArgumentSessionPlaceholder\u0028\u0029",
-            "name": "replaceArgumentSessionPlaceholder",
-            "summary": "Replace\u0020a\u0020session\u0020placeholder\u0020in\u0020an\u0020operation\u0020arguments\u0020array.",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_replaceArgumentSessionPlaceholder"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AreplaceCommandSessionPlaceholder\u0028\u0029",
-            "name": "replaceCommandSessionPlaceholder",
-            "summary": "Replace\u0020a\u0020logical\u0020session\u0020ID\u0020placeholder\u0020in\u0020a\u0020command\u0020document.",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_replaceCommandSessionPlaceholder"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AselectCollection\u0028\u0029",
-            "name": "selectCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_selectCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AselectDatabase\u0028\u0029",
-            "name": "selectDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_selectDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AselectGridFSBucket\u0028\u0029",
-            "name": "selectGridFSBucket",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_selectGridFSBucket"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AprepareGridFSBucketOptions\u0028\u0029",
-            "name": "prepareGridFSBucketOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_prepareGridFSBucketOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003AprepareSessionOptions\u0028\u0029",
-            "name": "prepareSessionOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#method_prepareSessionOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024bucketName",
-            "name": "bucketName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_bucketName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024client",
-            "name": "client",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_client"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024collectionName",
-            "name": "collectionName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_collectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024databaseName",
-            "name": "databaseName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_databaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024defaultWriteOptions",
-            "name": "defaultWriteOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_defaultWriteOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024outcomeReadOptions",
-            "name": "outcomeReadOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_outcomeReadOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024outcomeCollectionName",
-            "name": "outcomeCollectionName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_outcomeCollectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024session0",
-            "name": "session0",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_session0"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024session0Lsid",
-            "name": "session0Lsid",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_session0Lsid"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024session1",
-            "name": "session1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_session1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024session1Lsid",
-            "name": "session1Lsid",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_session1Lsid"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024encryptedClient",
-            "name": "encryptedClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_encryptedClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Context\u003A\u003A\u0024useEncryptedClient",
-            "name": "useEncryptedClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Context.html#property_useEncryptedClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint",
-            "name": "DocumentsMatchConstraint",
-            "summary": "Constraint\u0020that\u0020checks\u0020if\u0020one\u0020document\u0020matches\u0020another.",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020constraint.",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AdoEvaluate\u0028\u0029",
-            "name": "doEvaluate",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_doEvaluate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AassertBSONType\u0028\u0029",
-            "name": "assertBSONType",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_assertBSONType"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AassertEquals\u0028\u0029",
-            "name": "assertEquals",
-            "summary": "Compares\u0020two\u0020documents\u0020recursively.",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_assertEquals"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AdoAdditionalFailureDescription\u0028\u0029",
-            "name": "doAdditionalFailureDescription",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_doAdditionalFailureDescription"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AdoFailureDescription\u0028\u0029",
-            "name": "doFailureDescription",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_doFailureDescription"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AdoMatches\u0028\u0029",
-            "name": "doMatches",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_doMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AdoToString\u0028\u0029",
-            "name": "doToString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_doToString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003AprepareBSON\u0028\u0029",
-            "name": "prepareBSON",
-            "summary": "Prepare\u0020a\u0020BSON\u0020document\u0020or\u0020array\u0020for\u0020comparison.",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#method_prepareBSON"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024ignoreExtraKeysInRoot",
-            "name": "ignoreExtraKeysInRoot",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_ignoreExtraKeysInRoot"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024ignoreExtraKeysInEmbedded",
-            "name": "ignoreExtraKeysInEmbedded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_ignoreExtraKeysInEmbedded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024placeholders",
-            "name": "placeholders",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_placeholders"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024sortKeys",
-            "name": "sortKeys",
-            "summary": "TODO\u003A\u0020This\u0020is\u0020not\u0020currently\u0020used,\u0020but\u0020was\u0020preserved\u0020from\u0020the\u0020design\u0020of\nTestCase\u003A\u003AassertMatchesDocument\u0028\u0029,\u0020which\u0020would\u0020sort\u0020keys\u0020and\u0020then\u0020compare\ndocuments\u0020as\u0020JSON\u0020strings.\u0020If\u0020the\u0020TODO\u0020item\u0020in\u0020matches\u0028\u0029\u0020is\u0020implemented\nto\u0020make\u0020document\u0020comparisons\u0020more\u0020efficient,\u0020we\u0020may\u0020consider\u0020supporting\nthis\u0020option.",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_sortKeys"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_value"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024lastFailure",
-            "name": "lastFailure",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_lastFailure"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraint\u003A\u003A\u0024comparatorFactory",
-            "name": "comparatorFactory",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraint.html#property_comparatorFactory"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest",
-            "name": "DocumentsMatchConstraintTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AtestIgnoreExtraKeysInRoot\u0028\u0029",
-            "name": "testIgnoreExtraKeysInRoot",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_testIgnoreExtraKeysInRoot"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AtestIgnoreExtraKeysInEmbedded\u0028\u0029",
-            "name": "testIgnoreExtraKeysInEmbedded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_testIgnoreExtraKeysInEmbedded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AtestPlaceholders\u0028\u0029",
-            "name": "testPlaceholders",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_testPlaceholders"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AtestBSONTypeAssertions\u0028\u0029",
-            "name": "testBSONTypeAssertions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_testBSONTypeAssertions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AprovideBSONTypes\u0028\u0029",
-            "name": "provideBSONTypes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_provideBSONTypes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AtestErrorMessages\u0028\u0029",
-            "name": "testErrorMessages",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_testErrorMessages"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AerrorMessageProvider\u0028\u0029",
-            "name": "errorMessageProvider",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_errorMessageProvider"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\DocumentsMatchConstraintTest\u003A\u003AassertResult\u0028\u0029",
-            "name": "assertResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-DocumentsMatchConstraintTest.html#method_assertResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation",
-            "name": "ErrorExpectation",
-            "summary": "Spec\u0020test\u0020operation\u0020error\u0020expectation.",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromChangeStreams\u0028\u0029",
-            "name": "fromChangeStreams",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromClientSideEncryption\u0028\u0029",
-            "name": "fromClientSideEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromClientSideEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromCrud\u0028\u0029",
-            "name": "fromCrud",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromCrud"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromReadWriteConcern\u0028\u0029",
-            "name": "fromReadWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromReadWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromRetryableReads\u0028\u0029",
-            "name": "fromRetryableReads",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromRetryableReads"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromRetryableWrites\u0028\u0029",
-            "name": "fromRetryableWrites",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromRetryableWrites"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromTransactions\u0028\u0029",
-            "name": "fromTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AnoError\u0028\u0029",
-            "name": "noError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_noError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "Assert\u0020that\u0020the\u0020error\u0020expectation\u0020matches\u0020the\u0020actual\u0020outcome.",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024isExpected",
-            "name": "isExpected",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_isExpected"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AassertCodeName\u0028\u0029",
-            "name": "assertCodeName",
-            "summary": "Assert\u0020that\u0020the\u0020error\u0020code\u0020name\u0020expectation\u0020matches\u0020the\u0020actual\u0020outcome.",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_assertCodeName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AfromGenericOperation\u0028\u0029",
-            "name": "fromGenericOperation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_fromGenericOperation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003AisArrayOfStrings\u0028\u0029",
-            "name": "isArrayOfStrings",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#method_isArrayOfStrings"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024codeNameMap",
-            "name": "codeNameMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_codeNameMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024code",
-            "name": "code",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_code"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024codeName",
-            "name": "codeName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_codeName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024excludedLabels",
-            "name": "excludedLabels",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_excludedLabels"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024includedLabels",
-            "name": "includedLabels",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_includedLabels"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ErrorExpectation\u003A\u003A\u0024messageContains",
-            "name": "messageContains",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ErrorExpectation.html#property_messageContains"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase",
-            "name": "FunctionalTestCase",
-            "summary": "Base\u0020class\u0020for\u0020spec\u0020test\u0020runners.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AassertCommandReplyMatches\u0028\u0029",
-            "name": "assertCommandReplyMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020reply\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_assertCommandReplyMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AassertDocumentsMatch\u0028\u0029",
-            "name": "assertDocumentsMatch",
-            "summary": "Asserts\u0020that\u0020two\u0020given\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_assertDocumentsMatch"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AassertOutcomeCollectionData\u0028\u0029",
-            "name": "assertOutcomeCollectionData",
-            "summary": "Assert\u0020data\u0020within\u0020the\u0020outcome\u0020collection.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_assertOutcomeCollectionData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AcheckServerRequirements\u0028\u0029",
-            "name": "checkServerRequirements",
-            "summary": "Checks\u0020server\u0020version\u0020and\u0020topology\u0020requirements.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_checkServerRequirements"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AdecodeJson\u0028\u0029",
-            "name": "decodeJson",
-            "summary": "Decode\u0020a\u0020JSON\u0020spec\u0020test.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_decodeJson"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AgetContext\u0028\u0029",
-            "name": "getContext",
-            "summary": "Return\u0020the\u0020test\u0020context.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_getContext"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AsetContext\u0028\u0029",
-            "name": "setContext",
-            "summary": "Set\u0020the\u0020test\u0020context.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_setContext"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AdropTestAndOutcomeCollections\u0028\u0029",
-            "name": "dropTestAndOutcomeCollections",
-            "summary": "Drop\u0020the\u0020test\u0020and\u0020outcome\u0020collections\u0020by\u0020dropping\u0020them.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_dropTestAndOutcomeCollections"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AinsertDataFixtures\u0028\u0029",
-            "name": "insertDataFixtures",
-            "summary": "Insert\u0020data\u0020fixtures\u0020into\u0020the\u0020test\u0020collection.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_insertDataFixtures"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AgetOutcomeCollection\u0028\u0029",
-            "name": "getOutcomeCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_getOutcomeCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AgetTopology\u0028\u0029",
-            "name": "getTopology",
-            "summary": "Return\u0020the\u0020corresponding\u0020topology\u0020constants\u0020for\u0020the\u0020current\u0020topology.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_getTopology"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AisServerlessRequirementSatisfied\u0028\u0029",
-            "name": "isServerlessRequirementSatisfied",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_isServerlessRequirementSatisfied"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003AisServerRequirementSatisifed\u0028\u0029",
-            "name": "isServerRequirementSatisifed",
-            "summary": "Checks\u0020if\u0020server\u0020version\u0020and\u0020topology\u0020requirements\u0020are\u0020satifised.",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#method_isServerRequirementSatisifed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ATOPOLOGY_SINGLE",
-            "name": "TOPOLOGY_SINGLE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_TOPOLOGY_SINGLE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ATOPOLOGY_REPLICASET",
-            "name": "TOPOLOGY_REPLICASET",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_TOPOLOGY_REPLICASET"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ATOPOLOGY_SHARDED",
-            "name": "TOPOLOGY_SHARDED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_TOPOLOGY_SHARDED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ATOPOLOGY_LOAD_BALANCED",
-            "name": "TOPOLOGY_LOAD_BALANCED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_TOPOLOGY_LOAD_BALANCED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ASERVERLESS_ALLOW",
-            "name": "SERVERLESS_ALLOW",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_SERVERLESS_ALLOW"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ASERVERLESS_FORBID",
-            "name": "SERVERLESS_FORBID",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_SERVERLESS_FORBID"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003ASERVERLESS_REQUIRE",
-            "name": "SERVERLESS_REQUIRE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#constant_SERVERLESS_REQUIRE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\FunctionalTestCase\u003A\u003A\u0024context",
-            "name": "context",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-FunctionalTestCase.html#property_context"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation",
-            "name": "Operation",
-            "summary": "Spec\u0020test\u0020operation.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromChangeStreams\u0028\u0029",
-            "name": "fromChangeStreams",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromClientSideEncryption\u0028\u0029",
-            "name": "fromClientSideEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromClientSideEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromCommandMonitoring\u0028\u0029",
-            "name": "fromCommandMonitoring",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromCommandMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromConvenientTransactions\u0028\u0029",
-            "name": "fromConvenientTransactions",
-            "summary": "This\u0020method\u0020is\u0020exclusively\u0020used\u0020to\u0020prepare\u0020nested\u0020operations\u0020for\u0020the\nwithTransaction\u0020session\u0020operation",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromConvenientTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromCrud\u0028\u0029",
-            "name": "fromCrud",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromCrud"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromReadWriteConcern\u0028\u0029",
-            "name": "fromReadWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromReadWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromRetryableReads\u0028\u0029",
-            "name": "fromRetryableReads",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromRetryableReads"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromRetryableWrites\u0028\u0029",
-            "name": "fromRetryableWrites",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromRetryableWrites"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AfromTransactions\u0028\u0029",
-            "name": "fromTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_fromTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "Execute\u0020the\u0020operation\u0020and\u0020assert\u0020its\u0020outcome.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "Executes\u0020the\u0020operation\u0020with\u0020a\u0020given\u0020context.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_execute"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AexecuteForClient\u0028\u0029",
-            "name": "executeForClient",
-            "summary": "Executes\u0020the\u0020client\u0020operation\u0020and\u0020return\u0020its\u0020result.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_executeForClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AexecuteForCollection\u0028\u0029",
-            "name": "executeForCollection",
-            "summary": "Executes\u0020the\u0020collection\u0020operation\u0020and\u0020return\u0020its\u0020result.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_executeForCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AexecuteForDatabase\u0028\u0029",
-            "name": "executeForDatabase",
-            "summary": "Executes\u0020the\u0020database\u0020operation\u0020and\u0020return\u0020its\u0020result.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_executeForDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AexecuteForGridFSBucket\u0028\u0029",
-            "name": "executeForGridFSBucket",
-            "summary": "Executes\u0020the\u0020GridFS\u0020bucket\u0020operation\u0020and\u0020return\u0020its\u0020result.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_executeForGridFSBucket"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AexecuteForSession\u0028\u0029",
-            "name": "executeForSession",
-            "summary": "Executes\u0020the\u0020session\u0020operation\u0020and\u0020return\u0020its\u0020result.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_executeForSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AexecuteForTestRunner\u0028\u0029",
-            "name": "executeForTestRunner",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_executeForTestRunner"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AgetIndexNames\u0028\u0029",
-            "name": "getIndexNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_getIndexNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AgetResultAssertionType\u0028\u0029",
-            "name": "getResultAssertionType",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_getResultAssertionType"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AgetResultAssertionTypeForClient\u0028\u0029",
-            "name": "getResultAssertionTypeForClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_getResultAssertionTypeForClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AgetResultAssertionTypeForCollection\u0028\u0029",
-            "name": "getResultAssertionTypeForCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_getResultAssertionTypeForCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AgetResultAssertionTypeForDatabase\u0028\u0029",
-            "name": "getResultAssertionTypeForDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_getResultAssertionTypeForDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AprepareBulkWriteRequest\u0028\u0029",
-            "name": "prepareBulkWriteRequest",
-            "summary": "Prepares\u0020a\u0020request\u0020element\u0020for\u0020a\u0020bulkWrite\u0020operation.",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#method_prepareBulkWriteRequest"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_CLIENT",
-            "name": "OBJECT_CLIENT",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_CLIENT"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_COLLECTION",
-            "name": "OBJECT_COLLECTION",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_COLLECTION"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_DATABASE",
-            "name": "OBJECT_DATABASE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_DATABASE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_GRIDFS_BUCKET",
-            "name": "OBJECT_GRIDFS_BUCKET",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_GRIDFS_BUCKET"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_SELECT_COLLECTION",
-            "name": "OBJECT_SELECT_COLLECTION",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_SELECT_COLLECTION"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_SELECT_DATABASE",
-            "name": "OBJECT_SELECT_DATABASE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_SELECT_DATABASE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_SESSION0",
-            "name": "OBJECT_SESSION0",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_SESSION0"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_SESSION1",
-            "name": "OBJECT_SESSION1",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_SESSION1"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003AOBJECT_TEST_RUNNER",
-            "name": "OBJECT_TEST_RUNNER",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#constant_OBJECT_TEST_RUNNER"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024errorExpectation",
-            "name": "errorExpectation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_errorExpectation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024resultExpectation",
-            "name": "resultExpectation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_resultExpectation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024arguments",
-            "name": "arguments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_arguments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024collectionName",
-            "name": "collectionName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_collectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024collectionOptions",
-            "name": "collectionOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_collectionOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024databaseName",
-            "name": "databaseName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_databaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024databaseOptions",
-            "name": "databaseOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_databaseOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_name"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\Operation\u003A\u003A\u0024object",
-            "name": "object",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-Operation.html#property_object"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest",
-            "name": "PrimaryStepDownSpecTest",
-            "summary": "Base\u0020class\u0020for\u0020spec\u0020test\u0020runners.",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AtestNotPrimaryKeepsConnectionPool\u0028\u0029",
-            "name": "testNotPrimaryKeepsConnectionPool",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_testNotPrimaryKeepsConnectionPool"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AtestNotPrimaryResetConnectionPool\u0028\u0029",
-            "name": "testNotPrimaryResetConnectionPool",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_testNotPrimaryResetConnectionPool"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AtestShutdownResetConnectionPool\u0028\u0029",
-            "name": "testShutdownResetConnectionPool",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_testShutdownResetConnectionPool"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AtestInterruptedAtShutdownResetConnectionPool\u0028\u0029",
-            "name": "testInterruptedAtShutdownResetConnectionPool",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_testInterruptedAtShutdownResetConnectionPool"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AtestGetMoreIteration\u0028\u0029",
-            "name": "testGetMoreIteration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_testGetMoreIteration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AinsertDocuments\u0028\u0029",
-            "name": "insertDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_insertDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AdropAndRecreateCollection\u0028\u0029",
-            "name": "dropAndRecreateCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_dropAndRecreateCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AgetTotalConnectionsCreated\u0028\u0029",
-            "name": "getTotalConnectionsCreated",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_getTotalConnectionsCreated"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AwaitForPrimaryReelection\u0028\u0029",
-            "name": "waitForPrimaryReelection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#method_waitForPrimaryReelection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003AINTERRUPTED_AT_SHUTDOWN",
-            "name": "INTERRUPTED_AT_SHUTDOWN",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#constant_INTERRUPTED_AT_SHUTDOWN"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003ANOT_PRIMARY",
-            "name": "NOT_PRIMARY",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#constant_NOT_PRIMARY"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003ASHUTDOWN_IN_PROGRESS",
-            "name": "SHUTDOWN_IN_PROGRESS",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#constant_SHUTDOWN_IN_PROGRESS"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003A\u0024client",
-            "name": "client",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#property_client"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\PrimaryStepDownSpecTest\u003A\u003A\u0024collection",
-            "name": "collection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-PrimaryStepDownSpecTest.html#property_collection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ReadWriteConcernSpecTest",
-            "name": "ReadWriteConcernSpecTest",
-            "summary": "Base\u0020class\u0020for\u0020spec\u0020test\u0020runners.",
-            "url": "classes/MongoDB-Tests-SpecTests-ReadWriteConcernSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ReadWriteConcernSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-ReadWriteConcernSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ReadWriteConcernSpecTest\u003A\u003AtestReadWriteConcern\u0028\u0029",
-            "name": "testReadWriteConcern",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-ReadWriteConcernSpecTest.html#method_testReadWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ReadWriteConcernSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ReadWriteConcernSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ReadWriteConcernSpecTest\u003A\u003A\u0024incompleteTests",
-            "name": "incompleteTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ReadWriteConcernSpecTest.html#property_incompleteTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation",
-            "name": "ResultExpectation",
-            "summary": "Spec\u0020test\u0020operation\u0020result\u0020expectation.",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromChangeStreams\u0028\u0029",
-            "name": "fromChangeStreams",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromClientSideEncryption\u0028\u0029",
-            "name": "fromClientSideEncryption",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromClientSideEncryption"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromCrud\u0028\u0029",
-            "name": "fromCrud",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromCrud"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromReadWriteConcern\u0028\u0029",
-            "name": "fromReadWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromReadWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromRetryableReads\u0028\u0029",
-            "name": "fromRetryableReads",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromRetryableReads"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromRetryableWrites\u0028\u0029",
-            "name": "fromRetryableWrites",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromRetryableWrites"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AfromTransactions\u0028\u0029",
-            "name": "fromTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_fromTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "Assert\u0020that\u0020the\u0020result\u0020expectation\u0020matches\u0020the\u0020actual\u0020outcome.",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AisExpected\u0028\u0029",
-            "name": "isExpected",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_isExpected"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AisArrayOfObjects\u0028\u0029",
-            "name": "isArrayOfObjects",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_isArrayOfObjects"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AisErrorResult\u0028\u0029",
-            "name": "isErrorResult",
-            "summary": "Determines\u0020whether\u0020the\u0020result\u0020is\u0020actually\u0020an\u0020error\u0020expectation.",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#method_isErrorResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_NOTHING",
-            "name": "ASSERT_NOTHING",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_NOTHING"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_BULKWRITE",
-            "name": "ASSERT_BULKWRITE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_BULKWRITE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_DELETE",
-            "name": "ASSERT_DELETE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_DELETE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_INSERTMANY",
-            "name": "ASSERT_INSERTMANY",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_INSERTMANY"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_INSERTONE",
-            "name": "ASSERT_INSERTONE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_INSERTONE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_UPDATE",
-            "name": "ASSERT_UPDATE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_UPDATE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_SAME",
-            "name": "ASSERT_SAME",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_SAME"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_SAME_DOCUMENT",
-            "name": "ASSERT_SAME_DOCUMENT",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_SAME_DOCUMENT"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_SAME_DOCUMENTS",
-            "name": "ASSERT_SAME_DOCUMENTS",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_SAME_DOCUMENTS"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_MATCHES_DOCUMENT",
-            "name": "ASSERT_MATCHES_DOCUMENT",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_MATCHES_DOCUMENT"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_NULL",
-            "name": "ASSERT_NULL",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_NULL"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_CALLABLE",
-            "name": "ASSERT_CALLABLE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_CALLABLE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003AASSERT_DOCUMENTS_MATCH",
-            "name": "ASSERT_DOCUMENTS_MATCH",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#constant_ASSERT_DOCUMENTS_MATCH"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003A\u0024assertionType",
-            "name": "assertionType",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#property_assertionType"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003A\u0024expectedValue",
-            "name": "expectedValue",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#property_expectedValue"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\ResultExpectation\u003A\u003A\u0024assertionCallable",
-            "name": "assertionCallable",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-ResultExpectation.html#property_assertionCallable"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableReadsSpecTest",
-            "name": "RetryableReadsSpecTest",
-            "summary": "Retryable\u0020reads\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableReadsSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableReadsSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableReadsSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableReadsSpecTest\u003A\u003AtestRetryableReads\u0028\u0029",
-            "name": "testRetryableReads",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableReadsSpecTest.html#method_testRetryableReads"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableReadsSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableReadsSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableReadsSpecTest\u003A\u003A\u0024skippedOperations",
-            "name": "skippedOperations",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableReadsSpecTest.html#property_skippedOperations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableReadsSpecTest\u003A\u003A\u0024incompleteTests",
-            "name": "incompleteTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableReadsSpecTest.html#property_incompleteTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableWritesSpecTest",
-            "name": "RetryableWritesSpecTest",
-            "summary": "Retryable\u0020writes\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableWritesSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableWritesSpecTest\u003A\u003AtestRetryableWrites\u0028\u0029",
-            "name": "testRetryableWrites",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableWritesSpecTest.html#method_testRetryableWrites"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\RetryableWritesSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-RetryableWritesSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest",
-            "name": "TransactionsSpecTest",
-            "summary": "Transactions\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_tearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AassertCommandMatches\u0028\u0029",
-            "name": "assertCommandMatches",
-            "summary": "Assert\u0020that\u0020the\u0020expected\u0020and\u0020actual\u0020command\u0020documents\u0020match.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_assertCommandMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AtestTransactions\u0028\u0029",
-            "name": "testTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_testTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AprovideTransactionsTests\u0028\u0029",
-            "name": "provideTransactionsTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_provideTransactionsTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AtestTransactionsConvenientApi\u0028\u0029",
-            "name": "testTransactionsConvenientApi",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_testTransactionsConvenientApi"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AprovideTransactionsConvenientApiTests\u0028\u0029",
-            "name": "provideTransactionsConvenientApiTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_provideTransactionsConvenientApiTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003ArunTransactionTest\u0028\u0029",
-            "name": "runTransactionTest",
-            "summary": "Execute\u0020an\u0020individual\u0020test\u0020case\u0020from\u0020the\u0020specification.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_runTransactionTest"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AtestStartingNewTransactionOnPinnedSessionUnpinsSession\u0028\u0029",
-            "name": "testStartingNewTransactionOnPinnedSessionUnpinsSession",
-            "summary": "Prose\u0020test\u00201\u003A\u0020Test\u0020that\u0020starting\u0020a\u0020new\u0020transaction\u0020on\u0020a\u0020pinned\nClientSession\u0020unpins\u0020the\u0020session\u0020and\u0020normal\u0020server\u0020selection\u0020is\u0020performed\nfor\u0020the\u0020next\u0020operation.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_testStartingNewTransactionOnPinnedSessionUnpinsSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AtestRunningNonTransactionOperationOnPinnedSessionUnpinsSession\u0028\u0029",
-            "name": "testRunningNonTransactionOperationOnPinnedSessionUnpinsSession",
-            "summary": "Prose\u0020test\u00202\u003A\u0020Test\u0020non\u002Dtransaction\u0020operations\u0020using\u0020a\u0020pinned\nClientSession\u0020unpins\u0020the\u0020session\u0020and\u0020normal\u0020server\u0020selection\u0020is\nperformed.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_testRunningNonTransactionOperationOnPinnedSessionUnpinsSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AcreateTestCollection\u0028\u0029",
-            "name": "createTestCollection",
-            "summary": "Create\u0020the\u0020collection,\u0020since\u0020it\u0020cannot\u0020be\u0020created\u0020within\u0020a\u0020transaction.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_createTestCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AkillAllSessions\u0028\u0029",
-            "name": "killAllSessions",
-            "summary": "Kill\u0020all\u0020sessions\u0020on\u0020the\u0020cluster.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_killAllSessions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003ApreventStaleDbVersionError\u0028\u0029",
-            "name": "preventStaleDbVersionError",
-            "summary": "Work\u0020around\u0020potential\u0020error\u0020executing\u0020distinct\u0020on\u0020sharded\u0020clusters.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#method_preventStaleDbVersionError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003AINTERRUPTED",
-            "name": "INTERRUPTED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#constant_INTERRUPTED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests\\TransactionsSpecTest\u003A\u003A\u0024incompleteTests",
-            "name": "incompleteTests",
-            "summary": "In\u0020addition\u0020to\u0020the\u0020useMultipleMongoses\u0020tests,\u0020these\u0020should\u0020all\u0020pass\nbefore\u0020the\u0020driver\u0020can\u0020be\u0020considered\u0020compatible\u0020with\u0020MongoDB\u00204.2.",
-            "url": "classes/MongoDB-Tests-SpecTests-TransactionsSpecTest.html#property_incompleteTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase",
-            "name": "TestCase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-TestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetUri\u0028\u0029",
-            "name": "getUri",
-            "summary": "Return\u0020the\u0020connection\u0020URI.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getUri"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AassertMatchesDocument\u0028\u0029",
-            "name": "assertMatchesDocument",
-            "summary": "Asserts\u0020that\u0020a\u0020document\u0020has\u0020expected\u0020values\u0020for\u0020some\u0020fields.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_assertMatchesDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AassertSameDocument\u0028\u0029",
-            "name": "assertSameDocument",
-            "summary": "Asserts\u0020that\u0020a\u0020document\u0020has\u0020expected\u0020values\u0020for\u0020all\u0020fields.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_assertSameDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AassertSameDocuments\u0028\u0029",
-            "name": "assertSameDocuments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_assertSameDocuments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AdataDescription\u0028\u0029",
-            "name": "dataDescription",
-            "summary": "Compatibility\u0020method\u0020as\u0020PHPUnit\u00209\u0020no\u0020longer\u0020includes\u0020this\u0020method.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_dataDescription"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AprovideInvalidArrayValues\u0028\u0029",
-            "name": "provideInvalidArrayValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_provideInvalidArrayValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AprovideInvalidDocumentValues\u0028\u0029",
-            "name": "provideInvalidDocumentValues",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_provideInvalidDocumentValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AassertDeprecated\u0028\u0029",
-            "name": "assertDeprecated",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_assertDeprecated"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetCollectionName\u0028\u0029",
-            "name": "getCollectionName",
-            "summary": "Return\u0020the\u0020test\u0020collection\u0020name.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getCollectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetDatabaseName\u0028\u0029",
-            "name": "getDatabaseName",
-            "summary": "Return\u0020the\u0020test\u0020database\u0020name.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getDatabaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidArrayValues\u0028\u0029",
-            "name": "getInvalidArrayValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020array\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidArrayValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidBooleanValues\u0028\u0029",
-            "name": "getInvalidBooleanValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020boolean\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidBooleanValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidDocumentValues\u0028\u0029",
-            "name": "getInvalidDocumentValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020document\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidDocumentValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidIntegerValues\u0028\u0029",
-            "name": "getInvalidIntegerValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020integer\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidIntegerValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidReadConcernValues\u0028\u0029",
-            "name": "getInvalidReadConcernValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020ReadPreference\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidReadConcernValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidReadPreferenceValues\u0028\u0029",
-            "name": "getInvalidReadPreferenceValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020ReadPreference\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidReadPreferenceValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidSessionValues\u0028\u0029",
-            "name": "getInvalidSessionValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020Session\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidSessionValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidStringValues\u0028\u0029",
-            "name": "getInvalidStringValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020string\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidStringValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetInvalidWriteConcernValues\u0028\u0029",
-            "name": "getInvalidWriteConcernValues",
-            "summary": "Return\u0020a\u0020list\u0020of\u0020invalid\u0020WriteConcern\u0020values.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getInvalidWriteConcernValues"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AgetNamespace\u0028\u0029",
-            "name": "getNamespace",
-            "summary": "Return\u0020the\u0020test\u0020namespace.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_getNamespace"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AwrapValuesForDataProvider\u0028\u0029",
-            "name": "wrapValuesForDataProvider",
-            "summary": "Wrap\u0020a\u0020list\u0020of\u0020values\u0020for\u0020use\u0020as\u0020a\u0020single\u002Dargument\u0020data\u0020provider.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_wrapValuesForDataProvider"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\TestCase\u003A\u003AnormalizeBSON\u0028\u0029",
-            "name": "normalizeBSON",
-            "summary": "Normalizes\u0020a\u0020BSON\u0020document\u0020or\u0020array\u0020for\u0020use\u0020with\u0020assertEquals\u0028\u0029.",
-            "url": "classes/MongoDB-Tests-TestCase.html#method_normalizeBSON"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData",
-            "name": "CollectionData",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData\u003A\u003AprepareInitialData\u0028\u0029",
-            "name": "prepareInitialData",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html#method_prepareInitialData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData\u003A\u003AassertOutcome\u0028\u0029",
-            "name": "assertOutcome",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html#method_assertOutcome"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData\u003A\u003A\u0024collectionName",
-            "name": "collectionName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html#property_collectionName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData\u003A\u003A\u0024databaseName",
-            "name": "databaseName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html#property_databaseName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\CollectionData\u003A\u003A\u0024documents",
-            "name": "documents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-CollectionData.html#property_documents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType",
-            "name": "IsBsonType",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003Aany\u0028\u0029",
-            "name": "any",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_any"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003AanyOf\u0028\u0029",
-            "name": "anyOf",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_anyOf"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003AdoMatches\u0028\u0029",
-            "name": "doMatches",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_doMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003AdoToString\u0028\u0029",
-            "name": "doToString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_doToString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003AisArray\u0028\u0029",
-            "name": "isArray",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_isArray"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003AisObject\u0028\u0029",
-            "name": "isObject",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_isObject"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003AisArrayEmptyOrIndexed\u0028\u0029",
-            "name": "isArrayEmptyOrIndexed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#method_isArrayEmptyOrIndexed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003A\u0024types",
-            "name": "types",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#property_types"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonType\u003A\u003A\u0024type",
-            "name": "type",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonType.html#property_type"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest",
-            "name": "IsBsonTypeTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestConstraint\u0028\u0029",
-            "name": "testConstraint",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testConstraint"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AprovideTypes\u0028\u0029",
-            "name": "provideTypes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_provideTypes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestAny\u0028\u0029",
-            "name": "testAny",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testAny"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestAnyExcludesStream\u0028\u0029",
-            "name": "testAnyExcludesStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testAnyExcludesStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestAnyOf\u0028\u0029",
-            "name": "testAnyOf",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testAnyOf"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestErrorMessage\u0028\u0029",
-            "name": "testErrorMessage",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testErrorMessage"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestTypeArray\u0028\u0029",
-            "name": "testTypeArray",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testTypeArray"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestTypeObject\u0028\u0029",
-            "name": "testTypeObject",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testTypeObject"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestTypeJavascript\u0028\u0029",
-            "name": "testTypeJavascript",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testTypeJavascript"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AtestTypeJavascriptWithScope\u0028\u0029",
-            "name": "testTypeJavascriptWithScope",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_testTypeJavascriptWithScope"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\IsBsonTypeTest\u003A\u003AassertResult\u0028\u0029",
-            "name": "assertResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-IsBsonTypeTest.html#method_assertResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\SerializableArray",
-            "name": "SerializableArray",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-SerializableArray.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\SerializableArray\u003A\u003AbsonSerialize\u0028\u0029",
-            "name": "bsonSerialize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-SerializableArray.html#method_bsonSerialize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\SerializableObject",
-            "name": "SerializableObject",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-SerializableObject.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\SerializableObject\u003A\u003AbsonSerialize\u0028\u0029",
-            "name": "bsonSerialize",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-SerializableObject.html#method_bsonSerialize"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches",
-            "name": "Matches",
-            "summary": "Constraint\u0020that\u0020checks\u0020if\u0020one\u0020value\u0020matches\u0020another.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AdoEvaluate\u0028\u0029",
-            "name": "doEvaluate",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_doEvaluate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AassertEquals\u0028\u0029",
-            "name": "assertEquals",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_assertEquals"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AassertMatches\u0028\u0029",
-            "name": "assertMatches",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_assertMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AassertMatchesArray\u0028\u0029",
-            "name": "assertMatchesArray",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_assertMatchesArray"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AassertMatchesDocument\u0028\u0029",
-            "name": "assertMatchesDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_assertMatchesDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AassertMatchesOperator\u0028\u0029",
-            "name": "assertMatchesOperator",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_assertMatchesOperator"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AdoAdditionalFailureDescription\u0028\u0029",
-            "name": "doAdditionalFailureDescription",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_doAdditionalFailureDescription"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AdoFailureDescription\u0028\u0029",
-            "name": "doFailureDescription",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_doFailureDescription"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AdoMatches\u0028\u0029",
-            "name": "doMatches",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_doMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AdoToString\u0028\u0029",
-            "name": "doToString",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_doToString"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AfailAt\u0028\u0029",
-            "name": "failAt",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_failAt"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AgetOperatorName\u0028\u0029",
-            "name": "getOperatorName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_getOperatorName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AisNumeric\u0028\u0029",
-            "name": "isNumeric",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_isNumeric"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AisOperator\u0028\u0029",
-            "name": "isOperator",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_isOperator"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003Aprepare\u0028\u0029",
-            "name": "prepare",
-            "summary": "Prepare\u0020a\u0020value\u0020for\u0020comparison.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_prepare"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003AisArrayEmptyOrIndexed\u0028\u0029",
-            "name": "isArrayEmptyOrIndexed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#method_isArrayEmptyOrIndexed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003A\u0024entityMap",
-            "name": "entityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#property_entityMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003A\u0024value",
-            "name": "value",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#property_value"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003A\u0024allowExtraRootKeys",
-            "name": "allowExtraRootKeys",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#property_allowExtraRootKeys"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003A\u0024allowOperators",
-            "name": "allowOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#property_allowOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\Matches\u003A\u003A\u0024lastFailure",
-            "name": "lastFailure",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-Matches.html#property_lastFailure"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest",
-            "name": "MatchesTest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestMatchesDocument\u0028\u0029",
-            "name": "testMatchesDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testMatchesDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestDoNotAllowExtraRootKeys\u0028\u0029",
-            "name": "testDoNotAllowExtraRootKeys",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testDoNotAllowExtraRootKeys"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestDoNotAllowOperators\u0028\u0029",
-            "name": "testDoNotAllowOperators",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testDoNotAllowOperators"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorExists\u0028\u0029",
-            "name": "testOperatorExists",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorType\u0028\u0029",
-            "name": "testOperatorType",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorType"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorMatchesEntity\u0028\u0029",
-            "name": "testOperatorMatchesEntity",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorMatchesEntity"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorMatchesHexBytes\u0028\u0029",
-            "name": "testOperatorMatchesHexBytes",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorMatchesHexBytes"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorUnsetOrMatches\u0028\u0029",
-            "name": "testOperatorUnsetOrMatches",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorUnsetOrMatches"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorSessionLsid\u0028\u0029",
-            "name": "testOperatorSessionLsid",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorSessionLsid"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestErrorMessages\u0028\u0029",
-            "name": "testErrorMessages",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testErrorMessages"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AerrorMessageProvider\u0028\u0029",
-            "name": "errorMessageProvider",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_errorMessageProvider"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AtestOperatorSyntaxValidation\u0028\u0029",
-            "name": "testOperatorSyntaxValidation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_testOperatorSyntaxValidation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AoperatorErrorMessageProvider\u0028\u0029",
-            "name": "operatorErrorMessageProvider",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_operatorErrorMessageProvider"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint\\MatchesTest\u003A\u003AassertResult\u0028\u0029",
-            "name": "assertResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Constraint-MatchesTest.html#method_assertResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context",
-            "name": "Context",
-            "summary": "Execution\u0020context\u0020for\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateEntities\u0028\u0029",
-            "name": "createEntities",
-            "summary": "Create\u0020entities\u0020for\u0020\u0022createEntities\u0022.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createEntities"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AgetEntityMap\u0028\u0029",
-            "name": "getEntityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_getEntityMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AgetInternalClient\u0028\u0029",
-            "name": "getInternalClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_getInternalClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AisActiveClient\u0028\u0029",
-            "name": "isActiveClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_isActiveClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AsetActiveClient\u0028\u0029",
-            "name": "setActiveClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_setActiveClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AisInLoop\u0028\u0029",
-            "name": "isInLoop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_isInLoop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AsetInLoop\u0028\u0029",
-            "name": "setInLoop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_setInLoop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AassertExpectedEventsForClients\u0028\u0029",
-            "name": "assertExpectedEventsForClients",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_assertExpectedEventsForClients"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AstartEventObservers\u0028\u0029",
-            "name": "startEventObservers",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_startEventObservers"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AstopEventObservers\u0028\u0029",
-            "name": "stopEventObservers",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_stopEventObservers"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AgetEventObserverForClient\u0028\u0029",
-            "name": "getEventObserverForClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_getEventObserverForClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AstartEventCollectors\u0028\u0029",
-            "name": "startEventCollectors",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_startEventCollectors"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AstopEventCollectors\u0028\u0029",
-            "name": "stopEventCollectors",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_stopEventCollectors"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AconvertReadPreferenceTags\u0028\u0029",
-            "name": "convertReadPreferenceTags",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_convertReadPreferenceTags"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateClient\u0028\u0029",
-            "name": "createClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateEntityCollector\u0028\u0029",
-            "name": "createEntityCollector",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createEntityCollector"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateCollection\u0028\u0029",
-            "name": "createCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateDatabase\u0028\u0029",
-            "name": "createDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateSession\u0028\u0029",
-            "name": "createSession",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AcreateBucket\u0028\u0029",
-            "name": "createBucket",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_createBucket"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AprepareCollectionOrDatabaseOptions\u0028\u0029",
-            "name": "prepareCollectionOrDatabaseOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_prepareCollectionOrDatabaseOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AprepareBucketOptions\u0028\u0029",
-            "name": "prepareBucketOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_prepareBucketOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AprepareSessionOptions\u0028\u0029",
-            "name": "prepareSessionOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_prepareSessionOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AprepareDefaultTransactionOptions\u0028\u0029",
-            "name": "prepareDefaultTransactionOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_prepareDefaultTransactionOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003AremoveMultipleMongoses\u0028\u0029",
-            "name": "removeMultipleMongoses",
-            "summary": "Removes\u0020mongos\u0020hosts\u0020beyond\u0020the\u0020first\u0020if\u0020the\u0020URI\u0020refers\u0020to\u0020a\u0020sharded\ncluster.\u0020Otherwise,\u0020the\u0020URI\u0020is\u0020returned\u0020as\u002Dis.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_removeMultipleMongoses"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003ArequireMultipleMongoses\u0028\u0029",
-            "name": "requireMultipleMongoses",
-            "summary": "Requires\u0020multiple\u0020mongos\u0020hosts\u0020if\u0020the\u0020URI\u0020refers\u0020to\u0020a\u0020sharded\u0020cluster.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#method_requireMultipleMongoses"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024activeClient",
-            "name": "activeClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_activeClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024entityMap",
-            "name": "entityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_entityMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024eventCollectors",
-            "name": "eventCollectors",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_eventCollectors"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024eventObserversByClient",
-            "name": "eventObserversByClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_eventObserversByClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024internalClient",
-            "name": "internalClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_internalClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024inLoop",
-            "name": "inLoop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_inLoop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Context\u003A\u003A\u0024uri",
-            "name": "uri",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Context.html#property_uri"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap",
-            "name": "EntityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method___destruct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AoffsetExists\u0028\u0029",
-            "name": "offsetExists",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_offsetExists"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AoffsetGet\u0028\u0029",
-            "name": "offsetGet",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_offsetGet"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AoffsetSet\u0028\u0029",
-            "name": "offsetSet",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_offsetSet"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AoffsetUnset\u0028\u0029",
-            "name": "offsetUnset",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_offsetUnset"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_set"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AcloseCursor\u0028\u0029",
-            "name": "closeCursor",
-            "summary": "Closes\u0020a\u0020cursor\u0020by\u0020removing\u0020it\u0020from\u0020the\u0020entity\u0020map.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_closeCursor"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AgetClient\u0028\u0029",
-            "name": "getClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_getClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_getCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AgetDatabase\u0028\u0029",
-            "name": "getDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_getDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AgetSession\u0028\u0029",
-            "name": "getSession",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_getSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AgetLogicalSessionId\u0028\u0029",
-            "name": "getLogicalSessionId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_getLogicalSessionId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003AgetRootClientIdOf\u0028\u0029",
-            "name": "getRootClientIdOf",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#method_getRootClientIdOf"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003A\u0024isSupportedType",
-            "name": "isSupportedType",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#property_isSupportedType"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003A\u0024map",
-            "name": "map",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#property_map"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EntityMap\u003A\u003A\u0024lsidsBySession",
-            "name": "lsidsBySession",
-            "summary": "Track\u0020lsids\u0020so\u0020they\u0020can\u0020be\u0020accessed\u0020after\u0020Session\u003A\u003AgetLogicalSessionId\u0028\u0029\nhas\u0020been\u0020called.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EntityMap.html#property_lsidsBySession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector",
-            "name": "EventCollector",
-            "summary": "EventCollector\u0020handles\u0020\u0022storeEventsAsEntities\u0022\u0020for\u0020client\u0020entities.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003AcommandFailed\u0028\u0029",
-            "name": "commandFailed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_commandFailed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003AcommandStarted\u0028\u0029",
-            "name": "commandStarted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_commandStarted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003AcommandSucceeded\u0028\u0029",
-            "name": "commandSucceeded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_commandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003Astart\u0028\u0029",
-            "name": "start",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_start"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_stop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003AhandleCommandMonitoringEvent\u0028\u0029",
-            "name": "handleCommandMonitoringEvent",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_handleCommandMonitoringEvent"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003AgetConnectionId\u0028\u0029",
-            "name": "getConnectionId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_getConnectionId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003AgetEventName\u0028\u0029",
-            "name": "getEventName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#method_getEventName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003A\u0024supportedEvents",
-            "name": "supportedEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#property_supportedEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003A\u0024clientId",
-            "name": "clientId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#property_clientId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003A\u0024context",
-            "name": "context",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#property_context"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003A\u0024collectEvents",
-            "name": "collectEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#property_collectEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventCollector\u003A\u003A\u0024eventList",
-            "name": "eventList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventCollector.html#property_eventList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver",
-            "name": "EventObserver",
-            "summary": "EventObserver\u0020handles\u0020\u0022observeEvents\u0022\u0020for\u0020client\u0020entities\u0020and\u0020assertions\u0020for\n\u0022expectEvents\u0022\u0020and\u0020special\u0020operations\u0020\u0028e.g.\u0020assertSameLsidOnLastTwoCommands\u0029.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AcommandFailed\u0028\u0029",
-            "name": "commandFailed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_commandFailed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AcommandStarted\u0028\u0029",
-            "name": "commandStarted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_commandStarted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AcommandSucceeded\u0028\u0029",
-            "name": "commandSucceeded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_commandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003Astart\u0028\u0029",
-            "name": "start",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_start"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_stop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AgetLsidsOnLastTwoCommands\u0028\u0029",
-            "name": "getLsidsOnLastTwoCommands",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_getLsidsOnLastTwoCommands"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AassertEvent\u0028\u0029",
-            "name": "assertEvent",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_assertEvent"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AassertCommandStartedEvent\u0028\u0029",
-            "name": "assertCommandStartedEvent",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_assertCommandStartedEvent"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AassertCommandSucceededEvent\u0028\u0029",
-            "name": "assertCommandSucceededEvent",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_assertCommandSucceededEvent"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AassertCommandFailedEvent\u0028\u0029",
-            "name": "assertCommandFailedEvent",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_assertCommandFailedEvent"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AhandleEvent\u0028\u0029",
-            "name": "handleEvent",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_handleEvent"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003AisSensitiveCommand\u0028\u0029",
-            "name": "isSensitiveCommand",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#method_isSensitiveCommand"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024sensitiveCommands",
-            "name": "sensitiveCommands",
-            "summary": "These\u0020commands\u0020are\u0020always\u0020considered\u0020sensitive\u0020\u0028i.e.\u0020command\u0020and\u0020reply\ndocuments\u0020should\u0020be\u0020redacted\u0029.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_sensitiveCommands"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024sensitiveCommandsWithSpeculativeAuthenticate",
-            "name": "sensitiveCommandsWithSpeculativeAuthenticate",
-            "summary": "These\u0020commands\u0020are\u0020only\u0020considered\u0020sensitive\u0020when\u0020the\u0020command\u0020or\u0020reply\ndocument\u0020includes\u0020a\u0020speculativeAuthenticate\u0020field.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_sensitiveCommandsWithSpeculativeAuthenticate"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024supportedEvents",
-            "name": "supportedEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_supportedEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024unsupportedEvents",
-            "name": "unsupportedEvents",
-            "summary": "These\u0020events\u0020are\u0020defined\u0020in\u0020the\u0020specification\u0020but\u0020unsupported\u0020by\u0020PHPLIB\n\u0028e.g.\u0020CMAP\u0020events\u0029.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_unsupportedEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024actualEvents",
-            "name": "actualEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_actualEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024clientId",
-            "name": "clientId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_clientId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024context",
-            "name": "context",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_context"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024ignoreCommands",
-            "name": "ignoreCommands",
-            "summary": "The\u0020configureFailPoint\u0020command\u0020\u0028used\u0020by\u0020failPoint\u0020and\u0020targetedFailPoint\noperations\u0029\u0020is\u0020always\u0020ignored.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_ignoreCommands"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024observeEvents",
-            "name": "observeEvents",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_observeEvents"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\EventObserver\u003A\u003A\u0024observeSensitiveCommands",
-            "name": "observeSensitiveCommands",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-EventObserver.html#property_observeSensitiveCommands"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError",
-            "name": "ExpectedError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "Assert\u0020the\u0020outcome\u0020of\u0020an\u0020operation.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003AassertIsClientError\u0028\u0029",
-            "name": "assertIsClientError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#method_assertIsClientError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003AassertCodeName\u0028\u0029",
-            "name": "assertCodeName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#method_assertCodeName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024codeNameMap",
-            "name": "codeNameMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_codeNameMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024isError",
-            "name": "isError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_isError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024isClientError",
-            "name": "isClientError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_isClientError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024messageContains",
-            "name": "messageContains",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_messageContains"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024code",
-            "name": "code",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_code"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024codeName",
-            "name": "codeName",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_codeName"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024includedLabels",
-            "name": "includedLabels",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_includedLabels"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024excludedLabels",
-            "name": "excludedLabels",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_excludedLabels"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedError\u003A\u003A\u0024expectedResult",
-            "name": "expectedResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedError.html#property_expectedResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult",
-            "name": "ExpectedResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003Aprepare\u0028\u0029",
-            "name": "prepare",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#method_prepare"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003AprepareWriteResult\u0028\u0029",
-            "name": "prepareWriteResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#method_prepareWriteResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003A\u0024constraint",
-            "name": "constraint",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#property_constraint"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003A\u0024entityMap",
-            "name": "entityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#property_entityMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\ExpectedResult\u003A\u003A\u0024yieldingEntityId",
-            "name": "yieldingEntityId",
-            "summary": "ID\u0020of\u0020the\u0020entity\u0020yielding\u0020the\u0020result.\u0020This\u0020is\u0020mainly\u0020used\u0020to\u0020associate\nentities\u0020with\u0020a\u0020root\u0020client\u0020for\u0020collation\u0020of\u0020observed\u0020events.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-ExpectedResult.html#property_yieldingEntityId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver",
-            "name": "FailPointObserver",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003AcommandFailed\u0028\u0029",
-            "name": "commandFailed",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#method_commandFailed"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003AcommandStarted\u0028\u0029",
-            "name": "commandStarted",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#method_commandStarted"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003AcommandSucceeded\u0028\u0029",
-            "name": "commandSucceeded",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#method_commandSucceeded"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003AdisableFailPoints\u0028\u0029",
-            "name": "disableFailPoints",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#method_disableFailPoints"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003Astart\u0028\u0029",
-            "name": "start",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#method_start"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#method_stop"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\FailPointObserver\u003A\u003A\u0024failPointsAndServers",
-            "name": "failPointsAndServers",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-FailPointObserver.html#property_failPointsAndServers"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop",
-            "name": "Loop",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#method_execute"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024allowIteration",
-            "name": "allowIteration",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_allowIteration"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003AsetSleepUsecBetweenIterations\u0028\u0029",
-            "name": "setSleepUsecBetweenIterations",
-            "summary": "Set\u0020time\u0020to\u0020sleep\u0020between\u0020iterations.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#method_setSleepUsecBetweenIterations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003AhandleErrorOrFailure\u0028\u0029",
-            "name": "handleErrorOrFailure",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#method_handleErrorOrFailure"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003AinitializeListEntity\u0028\u0029",
-            "name": "initializeListEntity",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#method_initializeListEntity"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024sleepUsecBetweenIterations",
-            "name": "sleepUsecBetweenIterations",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_sleepUsecBetweenIterations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024context",
-            "name": "context",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_context"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024operations",
-            "name": "operations",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_operations"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024errorList",
-            "name": "errorList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_errorList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024failureList",
-            "name": "failureList",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_failureList"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024numSuccessfulOperationsEntityId",
-            "name": "numSuccessfulOperationsEntityId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_numSuccessfulOperationsEntityId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Loop\u003A\u003A\u0024numIterationsEntityId",
-            "name": "numIterationsEntityId",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Loop.html#property_numIterationsEntityId"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation",
-            "name": "Operation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003Aassert\u0028\u0029",
-            "name": "assert",
-            "summary": "Execute\u0020the\u0020operation\u0020and\u0020assert\u0020its\u0020outcome.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_assert"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_execute"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForChangeStream\u0028\u0029",
-            "name": "executeForChangeStream",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForChangeStream"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForClient\u0028\u0029",
-            "name": "executeForClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForCollection\u0028\u0029",
-            "name": "executeForCollection",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForCursor\u0028\u0029",
-            "name": "executeForCursor",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForCursor"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForDatabase\u0028\u0029",
-            "name": "executeForDatabase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForDatabase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForSession\u0028\u0029",
-            "name": "executeForSession",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForSession"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForBucket\u0028\u0029",
-            "name": "executeForBucket",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForBucket"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AexecuteForTestRunner\u0028\u0029",
-            "name": "executeForTestRunner",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_executeForTestRunner"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AgetIndexNames\u0028\u0029",
-            "name": "getIndexNames",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_getIndexNames"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AprepareArguments\u0028\u0029",
-            "name": "prepareArguments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_prepareArguments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AprepareBulkWriteRequest\u0028\u0029",
-            "name": "prepareBulkWriteRequest",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_prepareBulkWriteRequest"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AprepareUploadArguments\u0028\u0029",
-            "name": "prepareUploadArguments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#method_prepareUploadArguments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003AOBJECT_TEST_RUNNER",
-            "name": "OBJECT_TEST_RUNNER",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#constant_OBJECT_TEST_RUNNER"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024isTestRunnerOperation",
-            "name": "isTestRunnerOperation",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_isTestRunnerOperation"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_name"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024object",
-            "name": "object",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_object"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024arguments",
-            "name": "arguments",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_arguments"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024context",
-            "name": "context",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_context"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024entityMap",
-            "name": "entityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_entityMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024expectedError",
-            "name": "expectedError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_expectedError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024expectedResult",
-            "name": "expectedResult",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_expectedResult"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024ignoreResultAndError",
-            "name": "ignoreResultAndError",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_ignoreResultAndError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Operation\u003A\u003A\u0024saveResultAsEntity",
-            "name": "saveResultAsEntity",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Operation.html#property_saveResultAsEntity"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement",
-            "name": "RunOnRequirement",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003AisSatisfied\u0028\u0029",
-            "name": "isSatisfied",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#method_isSatisfied"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003AisTopologySatisfied\u0028\u0029",
-            "name": "isTopologySatisfied",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#method_isTopologySatisfied"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ATOPOLOGY_SINGLE",
-            "name": "TOPOLOGY_SINGLE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_TOPOLOGY_SINGLE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ATOPOLOGY_REPLICASET",
-            "name": "TOPOLOGY_REPLICASET",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_TOPOLOGY_REPLICASET"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ATOPOLOGY_SHARDED",
-            "name": "TOPOLOGY_SHARDED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_TOPOLOGY_SHARDED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ATOPOLOGY_SHARDED_REPLICASET",
-            "name": "TOPOLOGY_SHARDED_REPLICASET",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_TOPOLOGY_SHARDED_REPLICASET"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ATOPOLOGY_LOAD_BALANCED",
-            "name": "TOPOLOGY_LOAD_BALANCED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_TOPOLOGY_LOAD_BALANCED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ASERVERLESS_REQUIRE",
-            "name": "SERVERLESS_REQUIRE",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_SERVERLESS_REQUIRE"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ASERVERLESS_FORBID",
-            "name": "SERVERLESS_FORBID",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_SERVERLESS_FORBID"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003ASERVERLESS_ALLOW",
-            "name": "SERVERLESS_ALLOW",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_SERVERLESS_ALLOW"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003AVERSION_PATTERN",
-            "name": "VERSION_PATTERN",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#constant_VERSION_PATTERN"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024minServerVersion",
-            "name": "minServerVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_minServerVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024maxServerVersion",
-            "name": "maxServerVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_maxServerVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024topologies",
-            "name": "topologies",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_topologies"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024serverParameters",
-            "name": "serverParameters",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_serverParameters"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024auth",
-            "name": "auth",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_auth"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024serverless",
-            "name": "serverless",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_serverless"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024supportedTopologies",
-            "name": "supportedTopologies",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_supportedTopologies"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\RunOnRequirement\u003A\u003A\u0024supportedServerless",
-            "name": "supportedServerless",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-RunOnRequirement.html#property_supportedServerless"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest",
-            "name": "UnifiedSpecTest",
-            "summary": "Unified\u0020test\u0020format\u0020spec\u0020tests.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AsetUpBeforeClass\u0028\u0029",
-            "name": "setUpBeforeClass",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_setUpBeforeClass"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_setUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestChangeStreams\u0028\u0029",
-            "name": "testChangeStreams",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testChangeStreams"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideChangeStreamsTests\u0028\u0029",
-            "name": "provideChangeStreamsTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideChangeStreamsTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestCollectionManagement\u0028\u0029",
-            "name": "testCollectionManagement",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testCollectionManagement"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideCollectionManagementTests\u0028\u0029",
-            "name": "provideCollectionManagementTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideCollectionManagementTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestCommandMonitoring\u0028\u0029",
-            "name": "testCommandMonitoring",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testCommandMonitoring"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideCommandMonitoringTests\u0028\u0029",
-            "name": "provideCommandMonitoringTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideCommandMonitoringTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestCrud\u0028\u0029",
-            "name": "testCrud",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testCrud"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideCrudTests\u0028\u0029",
-            "name": "provideCrudTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideCrudTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestGridFS\u0028\u0029",
-            "name": "testGridFS",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testGridFS"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideGridFSTests\u0028\u0029",
-            "name": "provideGridFSTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideGridFSTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestLoadBalancers\u0028\u0029",
-            "name": "testLoadBalancers",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testLoadBalancers"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideLoadBalancers\u0028\u0029",
-            "name": "provideLoadBalancers",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideLoadBalancers"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestSessions\u0028\u0029",
-            "name": "testSessions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testSessions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideSessionsTests\u0028\u0029",
-            "name": "provideSessionsTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideSessionsTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestTransactions\u0028\u0029",
-            "name": "testTransactions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testTransactions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideTransactionsTests\u0028\u0029",
-            "name": "provideTransactionsTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideTransactionsTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestVersionedApi\u0028\u0029",
-            "name": "testVersionedApi",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testVersionedApi"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideVersionedApiTests\u0028\u0029",
-            "name": "provideVersionedApiTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideVersionedApiTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestPassingTests\u0028\u0029",
-            "name": "testPassingTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testPassingTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovidePassingTests\u0028\u0029",
-            "name": "providePassingTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_providePassingTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AtestFailingTests\u0028\u0029",
-            "name": "testFailingTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_testFailingTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideFailingTests\u0028\u0029",
-            "name": "provideFailingTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideFailingTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003AprovideTests\u0028\u0029",
-            "name": "provideTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#method_provideTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003A\u0024incompleteTests",
-            "name": "incompleteTests",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#property_incompleteTests"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedSpecTest\u003A\u003A\u0024runner",
-            "name": "runner",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedSpecTest.html#property_runner"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase",
-            "name": "UnifiedTestCase",
-            "summary": "Unified\u0020test\u0020case\u0020model\u0020class.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003AgetIterator\u0028\u0029",
-            "name": "getIterator",
-            "summary": "Return\u0020this\u0020object\u0020as\u0020arguments\u0020for\u0020UnifiedTestRunner\u003A\u003AdoTestCase\u0028\u0029.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#method_getIterator"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003AfromFile\u0028\u0029",
-            "name": "fromFile",
-            "summary": "Yields\u0020UnifiedTestCase\u0020objects\u0020for\u0020a\u0020JSON\u0020file.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#method_fromFile"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003AfromJSON\u0028\u0029",
-            "name": "fromJSON",
-            "summary": "Yields\u0020UnifiedTestCase\u0020objects\u0020for\u0020parsed\u0020JSON.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#method_fromJSON"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003A\u0024test",
-            "name": "test",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#property_test"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003A\u0024schemaVersion",
-            "name": "schemaVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#property_schemaVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003A\u0024runOnRequirements",
-            "name": "runOnRequirements",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#property_runOnRequirements"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003A\u0024createEntities",
-            "name": "createEntities",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#property_createEntities"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestCase\u003A\u003A\u0024initialData",
-            "name": "initialData",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestCase.html#property_initialData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner",
-            "name": "UnifiedTestRunner",
-            "summary": "Unified\u0020test\u0020runner.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method___construct"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003Arun\u0028\u0029",
-            "name": "run",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_run"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AsetEntityMapObserver\u0028\u0029",
-            "name": "setEntityMapObserver",
-            "summary": "Defines\u0020a\u0020callable\u0020to\u0020receive\u0020the\u0020EntityMap\u0020after\u0020each\u0020test.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_setEntityMapObserver"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AdoSetUp\u0028\u0029",
-            "name": "doSetUp",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_doSetUp"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AdoTearDown\u0028\u0029",
-            "name": "doTearDown",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_doTearDown"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AdoTestCase\u0028\u0029",
-            "name": "doTestCase",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_doTestCase"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AcheckRunOnRequirements\u0028\u0029",
-            "name": "checkRunOnRequirements",
-            "summary": "Checks\u0020server\u0020version\u0020and\u0020topology\u0020requirements.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_checkRunOnRequirements"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AgetPrimaryServer\u0028\u0029",
-            "name": "getPrimaryServer",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_getPrimaryServer"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AgetServerParameters\u0028\u0029",
-            "name": "getServerParameters",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_getServerParameters"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AgetServerVersion\u0028\u0029",
-            "name": "getServerVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_getServerVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AgetTopology\u0028\u0029",
-            "name": "getTopology",
-            "summary": "Return\u0020the\u0020topology\u0020type.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_getTopology"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AisAuthenticated\u0028\u0029",
-            "name": "isAuthenticated",
-            "summary": "Return\u0020whether\u0020the\u0020connection\u0020is\u0020authenticated.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_isAuthenticated"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AisServerless\u0028\u0029",
-            "name": "isServerless",
-            "summary": "Return\u0020whether\u0020serverless\u0020\u0028i.e.\u0020proxy\u0020as\u0020mongos\u0029\u0020is\u0020being\u0020utilized.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_isServerless"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AisSchemaVersionSupported\u0028\u0029",
-            "name": "isSchemaVersionSupported",
-            "summary": "Checks\u0020is\u0020a\u0020test\u0020format\u0020schema\u0020version\u0020is\u0020supported.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_isSchemaVersionSupported"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AisShardedClusterUsingReplicasets\u0028\u0029",
-            "name": "isShardedClusterUsingReplicasets",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_isShardedClusterUsingReplicasets"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AkillAllSessions\u0028\u0029",
-            "name": "killAllSessions",
-            "summary": "Kill\u0020all\u0020sessions\u0020on\u0020the\u0020cluster.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_killAllSessions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AassertOutcome\u0028\u0029",
-            "name": "assertOutcome",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_assertOutcome"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AprepareInitialData\u0028\u0029",
-            "name": "prepareInitialData",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_prepareInitialData"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003ApreventStaleDbVersionError\u0028\u0029",
-            "name": "preventStaleDbVersionError",
-            "summary": "Work\u0020around\u0020potential\u0020error\u0020executing\u0020distinct\u0020on\u0020sharded\u0020clusters.",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#method_preventStaleDbVersionError"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AATLAS_TLD",
-            "name": "ATLAS_TLD",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#constant_ATLAS_TLD"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003ASERVER_ERROR_INTERRUPTED",
-            "name": "SERVER_ERROR_INTERRUPTED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#constant_SERVER_ERROR_INTERRUPTED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003ASERVER_ERROR_UNAUTHORIZED",
-            "name": "SERVER_ERROR_UNAUTHORIZED",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#constant_SERVER_ERROR_UNAUTHORIZED"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AMIN_SCHEMA_VERSION",
-            "name": "MIN_SCHEMA_VERSION",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#constant_MIN_SCHEMA_VERSION"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003AMAX_SCHEMA_VERSION",
-            "name": "MAX_SCHEMA_VERSION",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#constant_MAX_SCHEMA_VERSION"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A\u0024internalClient",
-            "name": "internalClient",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#property_internalClient"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A\u0024internalClientUri",
-            "name": "internalClientUri",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#property_internalClientUri"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A\u0024allowKillAllSessions",
-            "name": "allowKillAllSessions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#property_allowKillAllSessions"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A\u0024entityMap",
-            "name": "entityMap",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#property_entityMap"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A\u0024entityMapObserver",
-            "name": "entityMapObserver",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#property_entityMapObserver"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\UnifiedTestRunner\u003A\u003A\u0024failPointObserver",
-            "name": "failPointObserver",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-UnifiedTestRunner.html#property_failPointObserver"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Util",
-            "name": "Util",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Util.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Util\u003A\u003AassertHasOnlyKeys\u0028\u0029",
-            "name": "assertHasOnlyKeys",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Util.html#method_assertHasOnlyKeys"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Util\u003A\u003AcreateReadConcern\u0028\u0029",
-            "name": "createReadConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Util.html#method_createReadConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Util\u003A\u003AcreateReadPreference\u0028\u0029",
-            "name": "createReadPreference",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Util.html#method_createReadPreference"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Util\u003A\u003AcreateWriteConcern\u0028\u0029",
-            "name": "createWriteConcern",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Util.html#method_createWriteConcern"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Util\u003A\u003AprepareCommonOptions\u0028\u0029",
-            "name": "prepareCommonOptions",
-            "summary": "",
-            "url": "classes/MongoDB-Tests-UnifiedSpecTests-Util.html#method_prepareCommonOptions"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\Exception",
             "name": "Exception",
             "summary": "PHPMailer\u0020exception\u0020handler.",
@@ -20840,16 +11880,6 @@ Search.appendIndex(
             "name": "oauthRefreshToken",
             "summary": "The\u0020refresh\u0020token,\u0020used\u0020to\u0020obtain\u0020new\u0020AccessTokens.",
             "url": "classes/PHPMailer-PHPMailer-OAuth.html#property_oauthRefreshToken"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\OAuthTokenProvider",
-            "name": "OAuthTokenProvider",
-            "summary": "OAuthTokenProvider\u0020\u002D\u0020OAuth2\u0020token\u0020provider\u0020interface.",
-            "url": "classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\OAuthTokenProvider\u003A\u003AgetOauth64\u0028\u0029",
-            "name": "getOauth64",
-            "summary": "Generate\u0020a\u0020base64\u002Dencoded\u0020OAuth\u0020token\u0020ensuring\u0020that\u0020the\u0020access\u0020token\u0020has\u0020not\u0020expired.",
-            "url": "classes/PHPMailer-PHPMailer-OAuthTokenProvider.html#method_getOauth64"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer",
             "name": "PHPMailer",
@@ -21271,11 +12301,6 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020error\u0020message\u0020in\u0020the\u0020current\u0020language.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_lang"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetSmtpErrorMessage\u0028\u0029",
-            "name": "getSmtpErrorMessage",
-            "summary": "Build\u0020an\u0020error\u0020message\u0020starting\u0020with\u0020a\u0020generic\u0020one\u0020and\u0020adding\u0020details\u0020if\u0020possible.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSmtpErrorMessage"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisError\u0028\u0029",
             "name": "isError",
             "summary": "Check\u0020if\u0020an\u0020error\u0020occurred.",
@@ -21418,12 +12443,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetOAuth\u0028\u0029",
             "name": "getOAuth",
-            "summary": "Get\u0020the\u0020OAuthTokenProvider\u0020instance.",
+            "summary": "Get\u0020the\u0020OAuth\u0020instance.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getOAuth"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetOAuth\u0028\u0029",
             "name": "setOAuth",
-            "summary": "Set\u0020an\u0020OAuthTokenProvider\u0020instance.",
+            "summary": "Set\u0020an\u0020OAuth\u0020instance.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setOAuth"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ACHARSET_ASCII",
@@ -21763,7 +12788,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024oauth",
             "name": "oauth",
-            "summary": "An\u0020implementation\u0020of\u0020the\u0020PHPMailer\u0020OAuthTokenProvider\u0020interface.",
+            "summary": "An\u0020instance\u0020of\u0020the\u0020PHPMailer\u0020OAuth\u0020class.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_oauth"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024Timeout",
@@ -22521,11 +13546,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Attribute.html#property_flags"
         },                {
-            "fqsen": "\\PhpToken",
-            "name": "PhpToken",
-            "summary": "",
-            "url": "classes/PhpToken.html"
-        },                {
             "fqsen": "\\Stringable",
             "name": "Stringable",
             "summary": "",
@@ -22546,10 +13566,705 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ValueError.html"
         },                {
-            "fqsen": "\\yxorp_populate_collection\u0028\u0029",
-            "name": "yxorp_populate_collection",
+            "fqsen": "\\Cockpit\\AuthController",
+            "name": "AuthController",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-AuthController.html"
+        },                {
+            "fqsen": "\\Cockpit\\AuthController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
             "summary": "",
-            "url": "namespaces/default.html#function_yxorp_populate_collection"
+            "url": "classes/Cockpit-AuthController.html#method___construct"
+        },                {
+            "fqsen": "\\Cockpit\\AuthController\u003A\u003A\u0024layout",
+            "name": "layout",
+            "summary": "",
+            "url": "classes/Cockpit-AuthController.html#property_layout"
+        },                {
+            "fqsen": "\\Cockpit\\AuthController\u003A\u003A\u0024user",
+            "name": "user",
+            "summary": "",
+            "url": "classes/Cockpit-AuthController.html#property_user"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts",
+            "name": "Accounts",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Accounts.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_index"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Aaccount\u0028\u0029",
+            "name": "account",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_account"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_create"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_save"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_remove"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Afind\u0028\u0029",
+            "name": "find",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_find"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
+            "name": "getLanguages",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_getLanguages"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth",
+            "name": "Auth",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Auth.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_check"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_login"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
+            "name": "logout",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_logout"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Aforgotpassword\u0028\u0029",
+            "name": "forgotpassword",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_forgotpassword"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Arequestreset\u0028\u0029",
+            "name": "requestreset",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_requestreset"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Anewpassword\u0028\u0029",
+            "name": "newpassword",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_newpassword"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Aresetpassword\u0028\u0029",
+            "name": "resetpassword",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Auth.html#method_resetpassword"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Base",
+            "name": "Base",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Base.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Adashboard\u0028\u0029",
+            "name": "dashboard",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Base.html#method_dashboard"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Asavedashboard\u0028\u0029",
+            "name": "savedashboard",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Base.html#method_savedashboard"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Asearch\u0028\u0029",
+            "name": "search",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Base.html#method_search"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Acall\u0028\u0029",
+            "name": "call",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Base.html#method_call"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media",
+            "name": "Media",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Media.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aapi\u0028\u0029",
+            "name": "api",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_api"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Als\u0028\u0029",
+            "name": "ls",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_ls"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
+            "name": "upload",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_upload"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
+            "name": "uploadfolder",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_uploadfolder"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Acreatefolder\u0028\u0029",
+            "name": "createfolder",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_createfolder"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Acreatefile\u0028\u0029",
+            "name": "createfile",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_createfile"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aremovefiles\u0028\u0029",
+            "name": "removefiles",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_removefiles"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_rrmdir\u0028\u0029",
+            "name": "_rrmdir",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method__rrmdir"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Arename\u0028\u0029",
+            "name": "rename",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_rename"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Areadfile\u0028\u0029",
+            "name": "readfile",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_readfile"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Awritefile\u0028\u0029",
+            "name": "writefile",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_writefile"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aunzip\u0028\u0029",
+            "name": "unzip",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_unzip"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Adownload\u0028\u0029",
+            "name": "download",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_download"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Adownloadfolder\u0028\u0029",
+            "name": "downloadfolder",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_downloadfolder"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Agetfilelist\u0028\u0029",
+            "name": "getfilelist",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_getfilelist"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
+            "name": "savebookmarks",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_savebookmarks"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
+            "name": "loadbookmarks",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_loadbookmarks"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
+            "name": "_getPathParameter",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method__getPathParameter"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
+            "name": "_isFileTypeAllowed",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method__isFileTypeAllowed"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A\u0024root",
+            "name": "root",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#property_root"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestAdmin",
+            "name": "RestAdmin",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-RestAdmin.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestAdmin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestAdmin.html#method___construct"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestAdmin\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestAdmin.html#method_index"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestAdmin\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestAdmin.html#method_save"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi",
+            "name": "RestApi",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-RestApi.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_before"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
+            "name": "authUser",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_authUser"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003ArefreshUserApiKey\u0028\u0029",
+            "name": "refreshUserApiKey",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_refreshUserApiKey"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AsaveUser\u0028\u0029",
+            "name": "saveUser",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_saveUser"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AlistUsers\u0028\u0029",
+            "name": "listUsers",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_listUsers"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Aimage\u0028\u0029",
+            "name": "image",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_image"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Aassets\u0028\u0029",
+            "name": "assets",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_assets"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Aasset\u0028\u0029",
+            "name": "asset",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_asset"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AaddAssets\u0028\u0029",
+            "name": "addAssets",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_addAssets"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AupdateAssets\u0028\u0029",
+            "name": "updateAssets",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_updateAssets"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AremoveAssets\u0028\u0029",
+            "name": "removeAssets",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_removeAssets"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings",
+            "name": "Settings",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Settings.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Settings.html#method_index"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
+            "name": "info",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Settings.html#method_info"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
+            "name": "edit",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Settings.html#method_edit"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Settings.html#method_update"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
+            "name": "getUptdateInfo",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Settings.html#method_getUptdateInfo"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils",
+            "name": "Utils",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Utils.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003Athumb_url\u0028\u0029",
+            "name": "thumb_url",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_thumb_url"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AgetCacheSize\u0028\u0029",
+            "name": "getCacheSize",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_getCacheSize"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArevisionsCount\u0028\u0029",
+            "name": "revisionsCount",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_revisionsCount"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArevisionsRemove\u0028\u0029",
+            "name": "revisionsRemove",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_revisionsRemove"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArevisionsRemoveAll\u0028\u0029",
+            "name": "revisionsRemoveAll",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_revisionsRemoveAll"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_isResourceLocked"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AlockResourceId\u0028\u0029",
+            "name": "lockResourceId",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_lockResourceId"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AunlockResourceId\u0028\u0029",
+            "name": "unlockResourceId",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_unlockResourceId"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AunlockResourceIdByCurrentUser\u0028\u0029",
+            "name": "unlockResourceIdByCurrentUser",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_unlockResourceIdByCurrentUser"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AstartJobRunner\u0028\u0029",
+            "name": "startJobRunner",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_startJobRunner"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArestartJobRunner\u0028\u0029",
+            "name": "restartJobRunner",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_restartJobRunner"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AstopJobRunner\u0028\u0029",
+            "name": "stopJobRunner",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Utils.html#method_stopJobRunner"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Webhooks",
+            "name": "Webhooks",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Cockpit-Controller-Webhooks.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Webhooks.html#method___construct"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Webhooks.html#method_index"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Awebhook\u0028\u0029",
+            "name": "webhook",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Webhooks.html#method_webhook"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Webhooks.html#method_save"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Webhooks.html#method_remove"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin",
+            "name": "Admin",
+            "summary": "Admin\u0020Helper\u0020class.",
+            "url": "classes/Cockpit-Helper-Admin.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_initialize"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_init"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024favicon",
+            "name": "favicon",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#property_favicon"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AaddMenuItem\u0028\u0029",
+            "name": "addMenuItem",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_addMenuItem"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AaddAssets\u0028\u0029",
+            "name": "addAssets",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_addAssets"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AextractVar\u0028\u0029",
+            "name": "extractVar",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_extractVar"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AgetOption\u0028\u0029",
+            "name": "getOption",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_getOption"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AsetOption\u0028\u0029",
+            "name": "setOption",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_setOption"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AgetUserOption\u0028\u0029",
+            "name": "getUserOption",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_getUserOption"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AsetUserOption\u0028\u0029",
+            "name": "setUserOption",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_setUserOption"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_isResourceLocked"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
+            "name": "isResourceEditableByCurrentUser",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
+            "name": "lockResourceId",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_lockResourceId"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
+            "name": "unlockResourceId",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_unlockResourceId"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AdenyRequest\u0028\u0029",
+            "name": "denyRequest",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_denyRequest"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024data",
+            "name": "data",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#property_data"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#property_options"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024user",
+            "name": "user",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#property_user"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async",
+            "name": "Async",
+            "summary": "Async\u0020Helper\u0020class.",
+            "url": "classes/Cockpit-Helper-Async.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
+            "name": "exec",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Async.html#method_exec"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "name": "finished",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Async.html#method_finished"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
+            "name": "execInBackground",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Async.html#method_execInBackground"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
+            "name": "isExecAvailable",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Async.html#method_isExecAvailable"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003A\u0024phpPath",
+            "name": "phpPath",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Async.html#property_phpPath"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Csrf",
+            "name": "Csrf",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Csrf.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Csrf.html#method_initialize"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "name": "generateToken",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Csrf.html#method_generateToken"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
+            "name": "token",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Csrf.html#method_token"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Csrf.html#method_isValid"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs",
+            "name": "Jobs",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_initialize"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
+            "name": "getJob",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_getJob"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_add"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_remove"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
+            "name": "work",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_work"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_execute"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
+            "name": "isRunnerActive",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_isRunnerActive"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AstopRunner\u0028\u0029",
+            "name": "stopRunner",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_stopRunner"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AcountJobs\u0028\u0029",
+            "name": "countJobs",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_countJobs"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_run"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions",
+            "name": "Revisions",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_initialize"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_count"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
+            "name": "getList",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_getList"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_add"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_get"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_remove"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
+            "name": "removeAll",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#method_removeAll"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003A\u0024storage",
+            "name": "storage",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Revisions.html#property_storage"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Updater",
+            "name": "Updater",
+            "summary": "Admin\u0020Helper\u0020class.",
+            "url": "classes/Cockpit-Helper-Updater.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Updater\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Updater.html#method_update"
+        },                {
+            "fqsen": "\\cockpit_populate_collection\u0028\u0029",
+            "name": "cockpit_populate_collection",
+            "summary": "",
+            "url": "namespaces/default.html#function_cockpit_populate_collection"
         },                {
             "fqsen": "\\_check_collection_rule\u0028\u0029",
             "name": "_check_collection_rule",
@@ -22656,6 +14371,11 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-RestApi.html"
         },                {
+            "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/Collections-Controller-RestApi.html#method_before"
+        },                {
             "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Deprecated\u0021\u0020use\u0020\/entries\u0020instead",
@@ -22700,11 +14420,6 @@ Search.appendIndex(
             "name": "listCollections",
             "summary": "",
             "url": "classes/Collections-Controller-RestApi.html#method_listCollections"
-        },                {
-            "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/Collections-Controller-RestApi.html#method_before"
         },                {
             "fqsen": "\\Collections\\Controller\\Trash",
             "name": "Trash",
@@ -22851,735 +14566,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Singletons-Controller-RestApi.html#method_listSingletons"
         },                {
-            "fqsen": "\\Yxorp\\AuthController",
-            "name": "AuthController",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-AuthController.html"
-        },                {
-            "fqsen": "\\Yxorp\\AuthController\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Yxorp-AuthController.html#method___construct"
-        },                {
-            "fqsen": "\\Yxorp\\AuthController\u003A\u003A\u0024layout",
-            "name": "layout",
-            "summary": "",
-            "url": "classes/Yxorp-AuthController.html#property_layout"
-        },                {
-            "fqsen": "\\Yxorp\\AuthController\u003A\u003A\u0024user",
-            "name": "user",
-            "summary": "",
-            "url": "classes/Yxorp-AuthController.html#property_user"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts",
-            "name": "Accounts",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Accounts.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_index"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Aaccount\u0028\u0029",
-            "name": "account",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_account"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
-            "name": "getLanguages",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_getLanguages"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_create"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_save"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_remove"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Accounts\u003A\u003Afind\u0028\u0029",
-            "name": "find",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Accounts.html#method_find"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth",
-            "name": "Auth",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Auth.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
-            "name": "check",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_check"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
-            "name": "login",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_login"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
-            "name": "logout",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_logout"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Aforgotpassword\u0028\u0029",
-            "name": "forgotpassword",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_forgotpassword"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Arequestreset\u0028\u0029",
-            "name": "requestreset",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_requestreset"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Anewpassword\u0028\u0029",
-            "name": "newpassword",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_newpassword"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Auth\u003A\u003Aresetpassword\u0028\u0029",
-            "name": "resetpassword",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Auth.html#method_resetpassword"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Base",
-            "name": "Base",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Base.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Adashboard\u0028\u0029",
-            "name": "dashboard",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Base.html#method_dashboard"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Asavedashboard\u0028\u0029",
-            "name": "savedashboard",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Base.html#method_savedashboard"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Asearch\u0028\u0029",
-            "name": "search",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Base.html#method_search"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Base\u003A\u003Acall\u0028\u0029",
-            "name": "call",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Base.html#method_call"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media",
-            "name": "Media",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Media.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aapi\u0028\u0029",
-            "name": "api",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_api"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
-            "name": "savebookmarks",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_savebookmarks"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
-            "name": "loadbookmarks",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_loadbookmarks"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Als\u0028\u0029",
-            "name": "ls",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_ls"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
-            "name": "_getPathParameter",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method__getPathParameter"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
-            "name": "upload",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_upload"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
-            "name": "_isFileTypeAllowed",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method__isFileTypeAllowed"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
-            "name": "uploadfolder",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_uploadfolder"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Acreatefolder\u0028\u0029",
-            "name": "createfolder",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_createfolder"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Acreatefile\u0028\u0029",
-            "name": "createfile",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_createfile"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aremovefiles\u0028\u0029",
-            "name": "removefiles",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_removefiles"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A_rrmdir\u0028\u0029",
-            "name": "_rrmdir",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method__rrmdir"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Arename\u0028\u0029",
-            "name": "rename",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_rename"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Areadfile\u0028\u0029",
-            "name": "readfile",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_readfile"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Awritefile\u0028\u0029",
-            "name": "writefile",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_writefile"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Aunzip\u0028\u0029",
-            "name": "unzip",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_unzip"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Adownload\u0028\u0029",
-            "name": "download",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_download"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Adownloadfolder\u0028\u0029",
-            "name": "downloadfolder",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_downloadfolder"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003Agetfilelist\u0028\u0029",
-            "name": "getfilelist",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#method_getfilelist"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Media\u003A\u003A\u0024root",
-            "name": "root",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Media.html#property_root"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestAdmin",
-            "name": "RestAdmin",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-RestAdmin.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestAdmin\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestAdmin.html#method___construct"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestAdmin\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestAdmin.html#method_index"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestAdmin\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestAdmin.html#method_save"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi",
-            "name": "RestApi",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-RestApi.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
-            "name": "authUser",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_authUser"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003ArefreshUserApiKey\u0028\u0029",
-            "name": "refreshUserApiKey",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_refreshUserApiKey"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AsaveUser\u0028\u0029",
-            "name": "saveUser",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_saveUser"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AlistUsers\u0028\u0029",
-            "name": "listUsers",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_listUsers"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Aimage\u0028\u0029",
-            "name": "image",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_image"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Aassets\u0028\u0029",
-            "name": "assets",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_assets"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Aasset\u0028\u0029",
-            "name": "asset",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_asset"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AaddAssets\u0028\u0029",
-            "name": "addAssets",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_addAssets"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AupdateAssets\u0028\u0029",
-            "name": "updateAssets",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_updateAssets"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003AremoveAssets\u0028\u0029",
-            "name": "removeAssets",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_removeAssets"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-RestApi.html#method_before"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Settings",
-            "name": "Settings",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Settings.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Settings.html#method_index"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
-            "name": "info",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Settings.html#method_info"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
-            "name": "getUptdateInfo",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Settings.html#method_getUptdateInfo"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
-            "name": "edit",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Settings.html#method_edit"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Settings\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Settings.html#method_update"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils",
-            "name": "Utils",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Utils.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003Athumb_url\u0028\u0029",
-            "name": "thumb_url",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_thumb_url"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AgetCacheSize\u0028\u0029",
-            "name": "getCacheSize",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_getCacheSize"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArevisionsCount\u0028\u0029",
-            "name": "revisionsCount",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_revisionsCount"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArevisionsRemove\u0028\u0029",
-            "name": "revisionsRemove",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_revisionsRemove"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArevisionsRemoveAll\u0028\u0029",
-            "name": "revisionsRemoveAll",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_revisionsRemoveAll"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_isResourceLocked"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AlockResourceId\u0028\u0029",
-            "name": "lockResourceId",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_lockResourceId"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AunlockResourceId\u0028\u0029",
-            "name": "unlockResourceId",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_unlockResourceId"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AunlockResourceIdByCurrentUser\u0028\u0029",
-            "name": "unlockResourceIdByCurrentUser",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_unlockResourceIdByCurrentUser"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AstartJobRunner\u0028\u0029",
-            "name": "startJobRunner",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_startJobRunner"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003ArestartJobRunner\u0028\u0029",
-            "name": "restartJobRunner",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_restartJobRunner"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Utils\u003A\u003AstopJobRunner\u0028\u0029",
-            "name": "stopJobRunner",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Utils.html#method_stopJobRunner"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Webhooks",
-            "name": "Webhooks",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Yxorp-Controller-Webhooks.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Webhooks.html#method___construct"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Webhooks.html#method_index"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Awebhook\u0028\u0029",
-            "name": "webhook",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Webhooks.html#method_webhook"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Webhooks.html#method_save"
-        },                {
-            "fqsen": "\\Yxorp\\Controller\\Webhooks\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Yxorp-Controller-Webhooks.html#method_remove"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin",
-            "name": "Admin",
-            "summary": "Admin\u0020Helper\u0020class.",
-            "url": "classes/Yxorp-Helper-Admin.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_initialize"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_init"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024favicon",
-            "name": "favicon",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#property_favicon"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AaddMenuItem\u0028\u0029",
-            "name": "addMenuItem",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_addMenuItem"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AaddAssets\u0028\u0029",
-            "name": "addAssets",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_addAssets"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AextractVar\u0028\u0029",
-            "name": "extractVar",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_extractVar"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AgetOption\u0028\u0029",
-            "name": "getOption",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_getOption"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AsetOption\u0028\u0029",
-            "name": "setOption",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_setOption"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AgetUserOption\u0028\u0029",
-            "name": "getUserOption",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_getUserOption"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AsetUserOption\u0028\u0029",
-            "name": "setUserOption",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_setUserOption"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
-            "name": "isResourceEditableByCurrentUser",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_isResourceEditableByCurrentUser"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_isResourceLocked"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
-            "name": "lockResourceId",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_lockResourceId"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
-            "name": "unlockResourceId",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_unlockResourceId"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003AdenyRequest\u0028\u0029",
-            "name": "denyRequest",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#method_denyRequest"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024data",
-            "name": "data",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#property_data"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024options",
-            "name": "options",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#property_options"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Admin\u003A\u003A\u0024user",
-            "name": "user",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Admin.html#property_user"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Async",
-            "name": "Async",
-            "summary": "Async\u0020Helper\u0020class.",
-            "url": "classes/Yxorp-Helper-Async.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
-            "name": "exec",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Async.html#method_exec"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
-            "name": "execInBackground",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Async.html#method_execInBackground"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
-            "name": "isExecAvailable",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Async.html#method_isExecAvailable"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
-            "name": "finished",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Async.html#method_finished"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Async\u003A\u003A\u0024phpPath",
-            "name": "phpPath",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Async.html#property_phpPath"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Csrf",
-            "name": "Csrf",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Csrf.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Csrf.html#method_initialize"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
-            "name": "token",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Csrf.html#method_token"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
-            "name": "generateToken",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Csrf.html#method_generateToken"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
-            "name": "isValid",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Csrf.html#method_isValid"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs",
-            "name": "Jobs",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_initialize"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
-            "name": "add",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_add"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
-            "name": "isRunnerActive",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_isRunnerActive"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AstopRunner\u0028\u0029",
-            "name": "stopRunner",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_stopRunner"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AcountJobs\u0028\u0029",
-            "name": "countJobs",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_countJobs"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Arun\u0028\u0029",
-            "name": "run",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_run"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
-            "name": "work",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_work"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
-            "name": "getJob",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_getJob"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_execute"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Jobs.html#method_remove"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions",
-            "name": "Revisions",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_initialize"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_count"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
-            "name": "getList",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_getList"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
-            "name": "add",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_add"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_get"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_remove"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
-            "name": "removeAll",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#method_removeAll"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Revisions\u003A\u003A\u0024storage",
-            "name": "storage",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Revisions.html#property_storage"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Updater",
-            "name": "Updater",
-            "summary": "Admin\u0020Helper\u0020class.",
-            "url": "classes/Yxorp-Helper-Updater.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper\\Updater\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/Yxorp-Helper-Updater.html#method_update"
-        },                {
             "fqsen": "\\blockListPluginAction",
             "name": "blockListPluginAction",
             "summary": "",
             "url": "classes/blockListPluginAction.html"
-        },                {
-            "fqsen": "\\blockListPluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "",
-            "url": "classes/blockListPluginAction.html#method_onBeforeSend"
         },                {
             "fqsen": "\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
             "name": "callable",
             "summary": "",
             "url": "classes/blockListPluginAction.html#method_callable"
         },                {
+            "fqsen": "\\blockListPluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "",
+            "url": "classes/blockListPluginAction.html#method_onBeforeSend"
+        },                {
             "fqsen": "\\cookiePluginAction",
             "name": "cookiePluginAction",
             "summary": "",
             "url": "classes/cookiePluginAction.html"
         },                {
-            "fqsen": "\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "",
-            "url": "classes/cookiePluginAction.html#method_onBeforeSend"
-        },                {
             "fqsen": "\\cookiePluginAction\u003A\u003AbeforeRequest\u0028\u0029",
             "name": "beforeRequest",
             "summary": "",
             "url": "classes/cookiePluginAction.html#method_beforeRequest"
-        },                {
-            "fqsen": "\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
-            "name": "onSent",
-            "summary": "",
-            "url": "classes/cookiePluginAction.html#method_onSent"
         },                {
             "fqsen": "\\cookiePluginAction\u003A\u003AheadersReceived\u0028\u0029",
             "name": "headersReceived",
@@ -23596,6 +14606,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/cookiePluginAction.html#method_parse_cookie"
         },                {
+            "fqsen": "\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "",
+            "url": "classes/cookiePluginAction.html#method_onBeforeSend"
+        },                {
+            "fqsen": "\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
+            "summary": "",
+            "url": "classes/cookiePluginAction.html#method_onSent"
+        },                {
             "fqsen": "\\cookiePluginAction\u003A\u003ACOOKIE_PREFIX",
             "name": "COOKIE_PREFIX",
             "summary": "",
@@ -23606,15 +14626,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/dailyMotionPluginAction.html"
         },                {
-            "fqsen": "\\dailyMotionPluginAction\u003A\u003AonComplete\u0028\u0029",
-            "name": "onComplete",
-            "summary": "",
-            "url": "classes/dailyMotionPluginAction.html#method_onComplete"
-        },                {
             "fqsen": "\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
             "name": "completed",
             "summary": "",
             "url": "classes/dailyMotionPluginAction.html#method_completed"
+        },                {
+            "fqsen": "\\dailyMotionPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
+            "summary": "",
+            "url": "classes/dailyMotionPluginAction.html#method_onComplete"
         },                {
             "fqsen": "\\dailyMotionPluginAction\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -23626,6 +14646,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/headerRewritePluginAction.html"
         },                {
+            "fqsen": "\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
+            "name": "headersReceived",
+            "summary": "",
+            "url": "classes/headerRewritePluginAction.html#method_headersReceived"
+        },                {
             "fqsen": "\\headerRewritePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "",
@@ -23635,11 +14660,6 @@ Search.appendIndex(
             "name": "onSent",
             "summary": "",
             "url": "classes/headerRewritePluginAction.html#method_onSent"
-        },                {
-            "fqsen": "\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
-            "name": "headersReceived",
-            "summary": "",
-            "url": "classes/headerRewritePluginAction.html#method_headersReceived"
         },                {
             "fqsen": "\\logPluginAction",
             "name": "logPluginAction",
@@ -23786,36 +14806,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\Bootmanager\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/bootmanager-controller.html"
-        },                {
-            "fqsen": "\\Bootmanager",
-            "name": "Bootmanager",
-            "summary": "",
-            "url": "namespaces/bootmanager.html"
-        },                {
-            "fqsen": "\\LayoutComponents\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/layoutcomponents-controller.html"
-        },                {
-            "fqsen": "\\LayoutComponents",
-            "name": "LayoutComponents",
-            "summary": "",
-            "url": "namespaces/layoutcomponents.html"
-        },                {
-            "fqsen": "\\rljUtils\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/rljutils-controller.html"
-        },                {
-            "fqsen": "\\rljUtils",
-            "name": "rljUtils",
-            "summary": "",
-            "url": "namespaces/rljutils.html"
-        },                {
             "fqsen": "\\Lime",
             "name": "Lime",
             "summary": "",
@@ -23876,6 +14866,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/composer.html"
         },                {
+            "fqsen": "\\PackageVersions",
+            "name": "PackageVersions",
+            "summary": "",
+            "url": "namespaces/packageversions.html"
+        },                {
             "fqsen": "\\Firebase\\JWT",
             "name": "JWT",
             "summary": "",
@@ -23885,11 +14880,6 @@ Search.appendIndex(
             "name": "Firebase",
             "summary": "",
             "url": "namespaces/firebase.html"
-        },                {
-            "fqsen": "\\Jean85\\Exception",
-            "name": "Exception",
-            "summary": "",
-            "url": "namespaces/jean85-exception.html"
         },                {
             "fqsen": "\\Jean85",
             "name": "Jean85",
@@ -23996,66 +14986,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/mongodb-operation.html"
         },                {
-            "fqsen": "\\MongoDB\\Tests",
-            "name": "Tests",
-            "summary": "",
-            "url": "namespaces/mongodb-tests.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Collection",
-            "name": "Collection",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-collection.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Command",
-            "name": "Command",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-command.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Database",
-            "name": "Database",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-database.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\GridFS",
-            "name": "GridFS",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-gridfs.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Model",
-            "name": "Model",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-model.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\Operation",
-            "name": "Operation",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-operation.html"
-        },                {
-            "fqsen": "\\PHPUnit\\Framework",
-            "name": "Framework",
-            "summary": "",
-            "url": "namespaces/phpunit-framework.html"
-        },                {
-            "fqsen": "\\PHPUnit",
-            "name": "PHPUnit",
-            "summary": "",
-            "url": "namespaces/phpunit.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\SpecTests",
-            "name": "SpecTests",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-spectests.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests",
-            "name": "UnifiedSpecTests",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-unifiedspectests.html"
-        },                {
-            "fqsen": "\\MongoDB\\Tests\\UnifiedSpecTests\\Constraint",
-            "name": "Constraint",
-            "summary": "",
-            "url": "namespaces/mongodb-tests-unifiedspectests-constraint.html"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer",
             "name": "PHPMailer",
             "summary": "",
@@ -24080,6 +15010,21 @@ Search.appendIndex(
             "name": "Symfony",
             "summary": "",
             "url": "namespaces/symfony.html"
+        },                {
+            "fqsen": "\\Cockpit",
+            "name": "Cockpit",
+            "summary": "",
+            "url": "namespaces/cockpit.html"
+        },                {
+            "fqsen": "\\Cockpit\\Controller",
+            "name": "Controller",
+            "summary": "",
+            "url": "namespaces/cockpit-controller.html"
+        },                {
+            "fqsen": "\\Cockpit\\Helper",
+            "name": "Helper",
+            "summary": "",
+            "url": "namespaces/cockpit-helper.html"
         },                {
             "fqsen": "\\Collections\\Controller",
             "name": "Controller",
@@ -24110,21 +15055,6 @@ Search.appendIndex(
             "name": "Singletons",
             "summary": "",
             "url": "namespaces/singletons.html"
-        },                {
-            "fqsen": "\\Yxorp",
-            "name": "Yxorp",
-            "summary": "",
-            "url": "namespaces/yxorp.html"
-        },                {
-            "fqsen": "\\Yxorp\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/yxorp-controller.html"
-        },                {
-            "fqsen": "\\Yxorp\\Helper",
-            "name": "Helper",
-            "summary": "",
-            "url": "namespaces/yxorp-helper.html"
         },                {
             "fqsen": "\\yxorP",
             "name": "yxorP",

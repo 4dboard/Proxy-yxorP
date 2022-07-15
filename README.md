@@ -83,9 +83,15 @@ non-blocking I/O." This is evident from the description.
 
 ![image](https://user-images.githubusercontent.com/6468571/179233034-8e2e3fa1-9c10-4e7b-9a26-34037073fd0d.png)
 
-PHP, unlike other programming languages, is by default staeless much like HTML or CSS. This aspect of the protocol is reminiscent of the first stages of the HyperText Transfer Protocol (HTTP) (HTTP). Sstate can be implemented however using sessions, databases, shared memory, files, or any other technology that is capable of keeping state in some capacity in some form or another.
+PHP, unlike other programming languages, is by default staeless much like HTML or CSS. This aspect of the protocol is
+reminiscent of the first stages of the HyperText Transfer Protocol (HTTP) (HTTP). Sstate can be implemented however
+using sessions, databases, shared memory, files, or any other technology that is capable of keeping state in some
+capacity in some form or another.
 
-A typlical setup for this type of PHP application would be using Apache or for example Nginx with php-fpm. NGINX web server (as reverse proxy) serves PHP applications through the FastCGI protocol (as a backend application server). NGINX employs PHP-FPM (FastCGI Process Manager), an alternative PHP FastCGI implementation that runs in the background as a daemon, listening for CGI requests i.e.
+A typlical setup for this type of PHP application would be using Apache or for example Nginx with php-fpm. NGINX web
+server (as reverse proxy) serves PHP applications through the FastCGI protocol (as a backend application server). NGINX
+employs PHP-FPM (FastCGI Process Manager), an alternative PHP FastCGI implementation that runs in the background as a
+daemon, listening for CGI requests i.e.
 
 ``` 
 
@@ -154,7 +160,6 @@ docker-composer up -d
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 ![image](https://user-images.githubusercontent.com/6468571/179234530-dd41bd2f-839d-4b5e-8926-cdc4e59647ce.png)
 
-
 Docker gives its customers the capacity to manage containers in a way that is comparable to managing virtual machines.
 This is due to the fact that containerized computers are comparable to virtual machines in that they are comparatively
 lightweight and modular. This makes it feasible to simplify a range of processes, including the design and construction
@@ -203,7 +208,6 @@ After cloning the repository, you need to pull the Cockpit submodule as well lik
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
 
 ![image](https://user-images.githubusercontent.com/6468571/179234863-ce04a562-df34-40f6-9919-043de73b76fe.png)
 
@@ -279,6 +283,7 @@ interface, as opposed to depending on the transmission of data through individua
 ![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179238514-b5df4a1f-a5cd-44d8-a3a5-fa59a2d5b34c.png)
+
 #### Key features:
 
 ![image](https://user-images.githubusercontent.com/6468571/178638561-576ea776-4fdb-4e2f-98e7-0d380de98212.png)
@@ -291,6 +296,7 @@ just one system in place. Utilize a straightforward application programming inte
 API).
 
 ![image](https://user-images.githubusercontent.com/6468571/179238576-4f1e7050-7f2a-4384-8cd8-9b9a092693fb.png)
+
 #### The Advantages Of Going Headless
 
 ![image](https://user-images.githubusercontent.com/6468571/178638648-57afc681-e222-4401-a1c6-a6c8812dd624.png)
@@ -323,6 +329,7 @@ flat file variants of your original webpages. This is feasible by using yxorP to
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔥 Cache
+
 ![image](https://user-images.githubusercontent.com/6468571/179238649-d6a11606-e6b2-4137-b67c-332497969087.png)
 
 The cached information is made accessible to customers through a Web proxy. These items may include anything that is
@@ -339,6 +346,7 @@ will decrease with time.
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 📛 Firewall
+
 ![image](https://user-images.githubusercontent.com/6468571/179238707-e5082057-6373-4ccf-8cff-7a2b3acb8799.png)
 
 All network access requests are continually monitored and filtered by a firewall, while proxy servers only provide the
@@ -360,6 +368,7 @@ follow these steps to their logical conclusion.
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔳 iFrame
+
 ![image](https://user-images.githubusercontent.com/6468571/179238874-b179f501-5270-448f-8b9a-7b79d5627a2a.png)
 
 The CORS Proxy API will use many backend technologies to fulfill all of your requests for third-party-controlled
@@ -375,6 +384,7 @@ behavior in question, although being plausible and "not suggested but attainable
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔱 Load-balancing
+
 ![image](https://user-images.githubusercontent.com/6468571/179238923-a6e8d869-8c73-4f45-be4d-866c18002269.png)
 
 TCP Proxy Load Balancing is a method that allows users from many regions of the world to share a single IP address. The
@@ -394,6 +404,7 @@ to execute this assignment effectively.
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # ⌛ Allways-online
+
 ![image](https://user-images.githubusercontent.com/6468571/179239125-b7142619-a9ae-4ae0-b258-a845f53b4515.png)
 
 It is possible to provide failover support across proxies by duplicating the first proxy server. This second proxy
@@ -677,27 +688,27 @@ the nature of the works. This is due to the fact that each of these works falls 
 | Class | Description |
 |-------|-------------|
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
-| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the Admin project.|
+| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | |
 | [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the Admin project.|
-| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the Admin project.|
-| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the Admin project.|
+| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | |
+| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | |
+| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | |
 | [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
-| [`Lexy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
-| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the Admin project.|
+| [`Lexy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lexy.md) | |
+| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | |
 | [`LiteDBQuery`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDBQuery.md) | |
 | [`Mailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer.md) | |
 | [`Mailer_Message`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer_Message.md) | |
-| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the Admin project.|
+| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | |
 | [`Parsedown`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Parsedown.md) | |
 | [`ParsedownExtra`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtra.md) | |
 | [`ParsedownExtraTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtraTest.md) | |
 | [`PhpToken`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PhpToken.md) | |
-| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Admin project.|
-| [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
-| [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
-| [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
+| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | |
+| [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | |
+| [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | |
+| [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | |
 | [`UnhandledMatchError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/UnhandledMatchError.md) | |
 | [`ValueError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ValueError.md) | |
 | [`blockListPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/blockListPluginAction.md) | |
@@ -709,4 +720,3 @@ the nature of the works. This is due to the fact that each of these works falls 
 | [`streamPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/streamPluginAction.md) | |
 | [`twitterPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/youtubePluginAction.md) | |
-
