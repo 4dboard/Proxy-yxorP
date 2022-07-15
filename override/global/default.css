@@ -12,14 +12,6 @@ html {
 }
 
 
-.canvas {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    background-color: #e8f4f6 !important;
-}
-
-
 @keyframes clouds-loop-1 {
     to {
         background-position: -1000px 0;
@@ -79,19 +71,6 @@ cloudflare-app {
     position: absolute !important;
 }
 
-#octo {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    position: fixed !important;
-    z-index: 0 !important;
-}
-
-
-i.fas,
-i.fab {
-    display: block !important;
-}
 
 * {
     transition: 0.2s all !important;
@@ -142,10 +121,6 @@ h ~ h {
 }
 
 @media screen and (min-width: 860px) {
-    i.fas,
-    i.fab {
-        display: inline-block !important;
-    }
 
     #headxr i,
     #headxr a {

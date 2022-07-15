@@ -1,6 +1,7 @@
 <?php
 /* Importing the wrapper class from the yxorP\inc\http namespace. */
 
+use Nette\Utils\Html;
 use yorxP\debug\Utils\Html;
 use yxorP\inc\constants;
 use yxorP\inc\http\wrapper;

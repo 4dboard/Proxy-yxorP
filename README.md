@@ -607,7 +607,6 @@ up-to-date so the results may be interpreted as precisely as possible. We cannot
 your assistance and support. We are really appreciative. Please accept our profound gratitude for all you've done for
 us.
 
-
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)  
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png) ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
 
@@ -658,8 +657,8 @@ us.
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # yxorP Documentation
-![image](https://user-images.githubusercontent.com/6468571/179241342-da132147-a8fa-4d44-9131-7fcb1d873b57.png)
 
+![image](https://user-images.githubusercontent.com/6468571/179241342-da132147-a8fa-4d44-9131-7fcb1d873b57.png)
 
 | Class | Description |
 |-------|-------------|
@@ -696,7 +695,6 @@ us.
 | [`streamPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/streamPluginAction.md) | |
 | [`twitterPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/youtubePluginAction.md) | |
-
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
 

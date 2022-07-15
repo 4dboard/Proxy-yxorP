@@ -116,22 +116,6 @@ html {
 
 }
 
-.row-main {
-    max-width: 1750px !important;
-}
-
-#relatedGames, .size--side .c-products, #main .row-main .size--content, #main .row-main .size--side {
-    width: 100% !important;
-}
-
-#relatedGames, .size--side .c-products, #main .row-main .size--content, #main .row-main .size--side {
-    width: 100% !important;
-}
-
-#side-games-panel, .b-above #game-panel #side-games-panel {
-    width: 300px !important;
-}
-
 strong {
     color: #0b5990 !important;
 }
@@ -150,14 +134,6 @@ body {
     min-height: initial !important;
 }
 
-
-#relatedGames, .size--side .c-products, #main .row-main .size--content, #main .row-main .size--side {
-    width: 100% !important;
-}
-
-#side-games-panel, .b-above #game-panel #side-games-panel {
-    width: 300px !important;
-}
 
 strong {
     color: #0b5990 !important;
@@ -193,9 +169,6 @@ a.language__item span {
 }
 
 @media (min-width: 801px) {
-    #menu-main {
-        right: 0 !important;
-    }
 
     .main {
         margin-right: 150px !important;
@@ -218,11 +191,6 @@ a.language__item span {
 
 #menu-main ul li:first-child {
     display: none !important;
-}
-
-#menu-main {
-    z-index: 9999999999 !important;
-    background: linear-gradient(182deg, #444444, transparent) !important;
 }
 
 header.header {
@@ -262,10 +230,6 @@ a.language__item span {
 }
 
 @media (min-width: 801px) {
-    #menu-main {
-        right: 0 !important;
-        overflow-y: hidden;
-    }
 
     .main {
         margin-right: 150px !important;
@@ -287,11 +251,6 @@ a.language__item span {
 
 #menu-main ul li:first-child {
     display: none !important;
-}
-
-#menu-main {
-    z-index: 9999999999 !important;
-    background: linear-gradient(182deg, #444444, transparent) !important;
 }
 
 html.don body {
@@ -351,11 +310,6 @@ html.don body {
     background-size: cover;
 }
 
-#updateToast {
-    right: initial !important;
-    left: 0 !important;
-}
-
 .b-intro * {
     color: #fff !important;
 }
@@ -368,10 +322,6 @@ html.don body {
 
 
 @media (min-width: 801px) {
-}
-
-.t-bar {
-    background: linear-gradient(155deg, black, transparent) !important;
 }
 
 @media (min-width: 768px) and (max-width: 1600px) {
