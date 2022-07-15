@@ -47,17 +47,8 @@ class cache
     public static function store($val, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        save(self::gen($key)['path'], '$GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
+        self::save(self::gen($key)['path'], '$GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
     }
-
-    public static function set($val, ?string $key = null): void
-    {
-        /* Used to write the data to the cache file. */
-        save(self::gen($key)['path'], 'echo ' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;');
-    }
-
-
-    /* Used to set the data in the cache file. */
 
     private static function save($path, $content): void
     {
@@ -73,5 +64,14 @@ fclose($t);
 __halt_compiler();
 S;
         file_put_contents($path, '<?=' . str_replace([' ', "\n"], '', $start) . $content);
+    }
+
+
+    /* Used to set the data in the cache file. */
+
+    public static function set($val, ?string $key = null): void
+    {
+        /* Used to write the data to the cache file. */
+        self::save(self::gen($key)['path'], 'echo ' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . ';exit;');
     }
 }
