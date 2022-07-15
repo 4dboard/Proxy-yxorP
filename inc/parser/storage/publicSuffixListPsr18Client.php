@@ -2,8 +2,8 @@
 
 namespace yxorP\inc\parser\storage;
 
+use GuzzleHttp\ClientInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use yxorP\inc\GuzzleHttp\ClientInterface;
 use yxorP\inc\parser\publicSuffixListInterface;
 use yxorP\inc\parser\rules;
 use yxorP\inc\parser\unableToLoadResource;

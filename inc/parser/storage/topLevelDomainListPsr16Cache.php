@@ -17,6 +17,9 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
     private string $cachePrefix;
     private ?DateInterval $cacheTtl;
 
+    /**
+     * @throws \Exception
+     */
     public function __construct(CacheInterface $cache, string $cachePrefix = '', $cacheTtl = null)
     {
         $this->cache = $cache;

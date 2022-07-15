@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\parser;
 
+use resource;
 use function fclose;
 use function fopen;
 use function stream_get_contents;

@@ -14,7 +14,6 @@ class helpers
 
 
     /**
-     * @param string $line
      * @return void
      * A function that takes in a url, width, height, and extension and returns a string.
      */
@@ -30,7 +29,6 @@ class helpers
     }
 
     /**
-     * @param string $line
      * @return void
      * A function that is used to render a video player.
      */
@@ -41,8 +39,7 @@ class helpers
     }
 
     /**
-     * @param string $line
-     * @return void
+     * @return string
      * Checking if the `$haystack` starts with the `$needles`.
      */
     public static function str_before($subject, $search)
@@ -56,25 +53,23 @@ class helpers
      * @return void
      * Returning the part of the string before the `$search` string.
      */
-    public static function is_html($content_type): bool
+    public static function is_html(string $line)
     {
         /* Checking if the content type is HTML. */
         return clean_content_type($content_type) === VAR_TEXT_HTML;
     }
 
     /**
-     * @param string $line
      * @return void
      * Checking if the `$content_type` is `text/html`.
      */
-    public static function in_arrayi($needle, $haystack): bool
+    public static function in_arrayi()
     {
         /* Checking if the `$content_type` is `text/html`. */
         return in_array(strtolower($needle), array_map(VAR_STRTOLOWER, $haystack), true);
     }
 
     /**
-     * @param string $line
      * @return void
      * Checking if the `$needle` is in the `$haystack` array.
      */
@@ -89,7 +84,7 @@ class helpers
      * @return void
      * It's checking if the `$pattern` matches the `$string`.
      */
-    public static function array_merge_custom(): array
+    public static function array_merge_custom(string $line)
     {
         /* Creating an empty array. */
         $arr = [];
@@ -101,11 +96,10 @@ class helpers
     }
 
     /**
-     * @param string $line
      * @return void
      * It's merging the arrays.
      */
-    public static function str_rot_pass($str, $key, $decrypt = false): string
+    public static function str_rot_pass()
     {
         /* Creating a string of spaces that is the same length as the string passed in. */
         $result = str_repeat(' ', strlen($str));
@@ -117,7 +111,6 @@ class helpers
     }
 
     /**
-     * @param string $line
      * @return void
      * It's returning the application URL.
      */
@@ -141,7 +134,7 @@ class helpers
      * @return void
      * It's replacing the `{$var}` with the `$var` value.
      */
-    public static function time_ms(): float
+    public static function time_ms(string $line)
     {
         /* Returning the current time in milliseconds. */
         return round(microtime(true) * 1000);
@@ -152,7 +145,7 @@ class helpers
      * @return void
      * It's returning the current time in milliseconds.
      */
-    public static function base64_url_encode($input): string
+    public static function base64_url_encode(string $line)
     {
         /* Encoding a string using base64 and then replacing the characters +/= with ._- */
         return rtrim(strtr(base64_encode($input), '+/=', '._-'));
@@ -163,14 +156,13 @@ class helpers
      * @return void
      * It's encoding the `$input` with the base64.
      */
-    public static function base64_url_decode($input): bool|string
+    public static function base64_url_decode(string $line)
     {
         /* Decoding a base64 string. */
         return base64_decode(strtr($input, '._-', '+/='));
     }
 
     /**
-     * @param string $line
      * @return void
      * It's decoding the `$input` with the base64.
      */
@@ -193,7 +185,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return string
      * It's proxifying the `$url` with the `$base_url`.
      */
     public static function add_http($url)
@@ -203,8 +195,7 @@ class helpers
     }
 
     /**
-     * @param string $line
-     * @return void
+     * @return string
      * It's adding the `http` to the `$url` if it doesn't have it.
      */
     public static function rel2abs($rel, $base)
@@ -259,7 +250,7 @@ class helpers
      * @return void
      * Extracting the subdomain from a domain.
      */
-    public static function extractSubdomains($domain): ?string
+    public static function extractSubdomains(string $line)
     {
         /* Checking if the domain is set and if it contains a period. */
         if ($domain && str_contains($domain, CHAR_PERIOD)) {

@@ -275,7 +275,7 @@ final class domain implements nameInterface
         return $clone;
     }
 
-    public function clear(): mixed
+    public function clear(): domain
     {
         if (null === $this->domain) {
             return $this;
