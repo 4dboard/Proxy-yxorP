@@ -8,16 +8,16 @@
   "packages": [],
   "packages-dev": [
     {
-      "name": "saggre/phpdocumentor-markdown",
+      "name": "yxorP/phpdocumentor-markdown",
       "version": "0.1.3",
       "source": {
         "type": "git",
-        "url": "https://github.com/Saggre/phpDocumentor-markdown.git",
+        "url": "https://github.com/yxorP/phpDocumentor-markdown.git",
         "reference": "35cf7221561ce75eba4301b770e329be45c6dba1"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Saggre/phpDocumentor-markdown/zipball/35cf7221561ce75eba4301b770e329be45c6dba1",
+        "url": "https://api.github.com/repos/yxorP/phpDocumentor-markdown/zipball/35cf7221561ce75eba4301b770e329be45c6dba1",
         "reference": "35cf7221561ce75eba4301b770e329be45c6dba1",
         "shasum": ""
       },
@@ -38,7 +38,7 @@
       ],
       "authors": [
         {
-          "name": "Saggre",
+          "name": "yxorP",
           "email": "sakri.koskimies@hotmail.com"
         }
       ],
@@ -52,8 +52,8 @@
         "phpdoc"
       ],
       "support": {
-        "issues": "https://github.com/Saggre/phpDocumentor-markdown/issues",
-        "source": "https://github.com/Saggre/phpDocumentor-markdown/tree/0.1.3"
+        "issues": "https://github.com/yxorP/phpDocumentor-markdown/issues",
+        "source": "https://github.com/yxorP/phpDocumentor-markdown/tree/0.1.3"
       },
       "time": "2022-04-20T17:19:33+00:00"
     }

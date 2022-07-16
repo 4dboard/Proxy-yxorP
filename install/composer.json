@@ -1,6 +1,6 @@
 {
   "require-dev": {
-    "saggre/phpdocumentor-markdown": "^0.1.3"
+    "yxorP/phpdocumentor-markdown": "^0.1.3"
   },
   "scripts": {
     "phpdoc-run": "phpdoc  -d './' -t docs/ --template=\"xml\""

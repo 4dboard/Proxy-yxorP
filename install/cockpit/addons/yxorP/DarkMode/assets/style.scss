@@ -23,6 +23,10 @@ html {
   color: $color-text;
 }
 
+body {
+  background: url('/app/lib/cockpit/assets/app/media/wallpapper.gif') no-repeat center center fixed !important;
+}
+
 .uk-button {
   background-color: $color-bg-light;
   color: $color-text-dark;
@@ -163,8 +167,4 @@ option {
 
 .uk-htmleditor-navbar-nav > li > a {
   color: #fff;
-}
-
-body {
-  background: url('/app/lib/cockpit/assets/app/media/wallpapper.gif') no-repeat center center fixed;
 }
