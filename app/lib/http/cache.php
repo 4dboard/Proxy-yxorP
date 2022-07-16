@@ -15,7 +15,7 @@ class cache
         /* Checking if the cache file is valid and if it is, it is including the cache file. */
         if (self::isValid(self::gen($key)['path'])) {
             @include self::gen($key)['path'];
-            exit;
+            exit(die());
         }
     }
 
