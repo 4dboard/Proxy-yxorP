@@ -367,7 +367,7 @@ class helpers
         define(YXORP_COCKPIT_INSTALL, true);
 
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
-        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        if (!PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
         /* It's inserting a new user into the `COCKPIT_accounts` collection. */
         if (!self::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
