@@ -2,7 +2,8 @@
 
 Copy the file `field-collectionlink.tag` to `config/tags`.
 
-Now the core field will be overwritten with the custom field and it is possible, to use multiple field names as display field.
+Now the core field will be overwritten with the custom field and it is possible, to use multiple field names as display
+field.
 
 modifications:
 
@@ -12,6 +13,5 @@ modifications:
 
 usage:
 
-* define multiple field names in collectionlink field options
-  to be displayed with collectionlink field
+* define multiple field names in collectionlink field options to be displayed with collectionlink field
 * e. g.: `"display": "{first_name} {last_name}"`

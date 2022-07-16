@@ -14,7 +14,11 @@ class helpers
 
 
     /**
-     * @return void
+     * @param $url
+     * @param string $width
+     * @param string $height
+     * @param bool $extension
+     * @return string A function that takes in a url, width, height, and extension and returns a string.
      * A function that takes in a url, width, height, and extension and returns a string.
      */
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
@@ -29,7 +33,9 @@ class helpers
     }
 
     /**
-     * @return void
+     * @param $haystack
+     * @param $needles
+     * @return bool A function that is used to render a video player.
      * A function that is used to render a video player.
      */
     public static function starts_with($haystack, $needles): bool
@@ -42,7 +48,7 @@ class helpers
      * @return string
      * Checking if the `$haystack` starts with the `$needles`.
      */
-    public static function str_before($subject, $search)
+    public static function str_before($subject, $search): string
     {
         /* Returning the first part of a string before the first occurrence of a given character. */
         return $search === CHAR_EMPTY_STRING ? $subject : explode($search, $subject)[0];
@@ -50,7 +56,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return bool
      * Returning the part of the string before the `$search` string.
      */
     public static function is_html(string $line)
@@ -60,7 +66,7 @@ class helpers
     }
 
     /**
-     * @return void
+     * @return bool
      * Checking if the `$content_type` is `text/html`.
      */
     public static function in_arrayi()
@@ -70,7 +76,9 @@ class helpers
     }
 
     /**
-     * @return void
+     * @param string $pattern
+     * @param string $string
+     * @return bool Checking if the `$needle` is in the `$haystack` array.
      * Checking if the `$needle` is in the `$haystack` array.
      */
     public static function re_match(string $pattern, string $string): bool
@@ -81,7 +89,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return array
      * It's checking if the `$pattern` matches the `$string`.
      */
     public static function array_merge_custom(string $line)
@@ -96,7 +104,7 @@ class helpers
     }
 
     /**
-     * @return void
+     * @return string
      * It's merging the arrays.
      */
     public static function str_rot_pass()
@@ -131,7 +139,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return float
      * It's replacing the `{$var}` with the `$var` value.
      */
     public static function time_ms(string $line)
@@ -142,7 +150,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return string
      * It's returning the current time in milliseconds.
      */
     public static function base64_url_encode(string $line)
@@ -153,7 +161,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return false|string
      * It's encoding the `$input` with the base64.
      */
     public static function base64_url_decode(string $line)
@@ -184,11 +192,11 @@ class helpers
     }
 
     /**
-     * @param string $line
+     * @param $url
      * @return string
      * It's proxifying the `$url` with the `$base_url`.
      */
-    public static function add_http($url)
+    public static function add_http($url): string
     {
         /* Checking if the url is not a valid url, then it will add the https:// to the url. */
         return (!preg_match(REG_EIGHT, $url)) ? VAR_HTTPS . $url : $url;
@@ -198,7 +206,7 @@ class helpers
      * @return string
      * It's adding the `http` to the `$url` if it doesn't have it.
      */
-    public static function rel2abs($rel, $base)
+    public static function rel2abs($rel, $base): string
     {
         /* Checking if the $rel variable starts with an empty string. */
         if (str_starts_with($rel, CHAR_EMPTY_STRING)) return VAR_HTTP . $rel;
@@ -230,8 +238,8 @@ class helpers
     }
 
     /**
-     * @param string $line
-     * @return void
+     * @param $arrays
+     * @return array It's converting the relative URL to the absolute URL.
      * It's converting the relative URL to the absolute URL.
      */
     public static function array_merge_ignore($arrays): array
@@ -247,7 +255,7 @@ class helpers
 
     /**
      * @param string $line
-     * @return void
+     * @return string
      * Extracting the subdomain from a domain.
      */
     public static function extractSubdomains(string $line)
@@ -262,7 +270,7 @@ class helpers
     }
 
     /**
-     * @param string $line
+     * @param $domain
      * @return void
      * It's merging the arrays.
      */
@@ -291,7 +299,7 @@ class helpers
 
 
     /**
-     * @param string $line
+     * @param array $req
      * @return void
      * It's checking if the file exists.
      */
@@ -356,8 +364,8 @@ class helpers
     }
 
     /**
-     * @param string $line
-     * @return void
+     * @param $file
+     * @return array A function that takes a file and returns an array.
      * A function that takes a file and returns an array.
      */
     public static function JSON($file): array
@@ -367,7 +375,6 @@ class helpers
     }
 
     /**
-     * @param string $line
      * @return void
      *
      * It creates a new user with the credentials defined in the `.env` file

@@ -80,13 +80,10 @@ class yP
         directory. */
         if (!CACHED_CONTEXT) self::set('YXORP_ACTIONS', scandir(DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION));
 
-        /* It's setting the `$actions` variable to an array of files in the `DIR_ROOT . DIR_APP .  DIR_LIB . DIR_ACTION` directory. */
-        $actions = [DIR_APP . DIR_LIB . DIR_ACTION => self::get('YXORP_ACTIONS'), DIR_PLUGIN => self::get(YXORP_TARGET_PLUGINS) ?: []];
-
         /* It's looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
         directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it. If
         the file is a class, it's requiring it. */
-        foreach ($actions as $key => $value) foreach ($value as $action) self::$instance->subscribe($key, $action);
+        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => self::get('YXORP_ACTIONS'), DIR_PLUGIN => self::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
 
         /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
         if (!CACHED_CONTEXT) if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
@@ -145,11 +142,9 @@ class yP
      */
     final protected static function autoLoader(string $root): void
     {
-        $interfaces = [];
         $classes = [];
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface')) require_once $interfaces[] = $path; else $classes[] = $path;
-        foreach ($interfaces as $interface) require_once $interface;
-        foreach ($classes as $class) require_once $class;
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
     /**

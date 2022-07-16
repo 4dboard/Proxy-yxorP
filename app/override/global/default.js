@@ -313,18 +313,20 @@ function octo() {
     }
 }
 
-var Notyf = function () {
+const Notyf = function () {
     "use strict";
     var e, o = function () {
         return (o = Object.assign || function (t) {
-            for (var i, e = 1, n = arguments.length; e < n; e++) for (var o in i = arguments[e]) Object.prototype.hasOwnProperty.call(i, o) && (t[o] = i[o]);
+            let i, e = 1;
+            const n = arguments.length;
+            for (; e < n; e++) for (let o in i = arguments[e]) Object.prototype.hasOwnProperty.call(i, o) && (t[o] = i[o]);
             return t
         }).apply(this, arguments)
     }, n = (t.prototype.on = function (t, i) {
-        var e = this.listeners[t] || [];
+        const e = this.listeners[t] || [];
         this.listeners[t] = e.concat([i])
     }, t.prototype.triggerEvent = function (t, i) {
-        var e = this;
+        const e = this;
         (this.listeners[t] || []).forEach(function (t) {
             return t({target: e, event: i})
         })
@@ -351,7 +353,7 @@ var Notyf = function () {
     }
 
     (i = f = f || {}).Dismiss = "dismiss";
-    var r = {
+    const r = {
         types: [{
             type: "success",
             className: "notyf__toast--success",
@@ -363,8 +365,9 @@ var Notyf = function () {
             backgroundColor: "#ed3d3d",
             icon: {className: "notyf__icon--error", tagName: "i"}
         }], duration: 2e3, ripple: !0, position: {x: "right", y: "bottom"}, dismissible: !(i.Click = "click")
-    }, c = (p.prototype.on = function (t, i) {
-        var e;
+    };
+    let c = (p.prototype.on = function (t, i) {
+        let e;
         this.events = o(o({}, this.events), ((e = {})[t] = i, e))
     }, p.prototype.update = function (t, i) {
         i === e.Add ? this.addNotification(t) : i === e.Remove && this.removeNotification(t)
@@ -374,10 +377,10 @@ var Notyf = function () {
             t.target === e && (e.removeEventListener(n.animationEndEventName, i), n.container.removeChild(e))
         }))
     }, p.prototype.addNotification = function (t) {
-        var i = this._renderNotification(t);
+        const i = this._renderNotification(t);
         this.notifications.push({notification: t, node: i}), this._announce(t.options.message || "Notification")
     }, p.prototype._renderNotification = function (t) {
-        var i = this._buildNotificationCard(t), e = t.options.className;
+        const i = this._buildNotificationCard(t), e = t.options.className;
         return e && (t = i.classList).add.apply(t, e.split(" ")), this.container.appendChild(i), i
     }, p.prototype._popRenderedNotification = function (t) {
         for (var i = -1, e = 0; e < this.notifications.length && i < 0; e++) this.notifications[e].notification === t && (i = e);
@@ -391,14 +394,15 @@ var Notyf = function () {
             t = this.container.style;
         t.setProperty("justify-content", e), t.setProperty("align-items", i)
     }, p.prototype._buildNotificationCard = function (n) {
-        var o = this, t = n.options, i = t.icon;
+        const o = this;
+        let t = n.options, i = t.icon;
         this.adjustContainerAlignment(t);
-        var e = this._createHTMLElement({tagName: "div", className: "notyf__toast"}),
-            s = this._createHTMLElement({tagName: "div", className: "notyf__ripple"}),
-            a = this._createHTMLElement({tagName: "div", className: "notyf__wrapper"}),
+        let e = this._createHTMLElement({tagName: "div", className: "notyf__toast"}),
+            s = this._createHTMLElement({tagName: "div", className: "notyf__ripple"});
+        const a = this._createHTMLElement({tagName: "div", className: "notyf__wrapper"}),
             r = this._createHTMLElement({tagName: "div", className: "notyf__message"});
         r.innerHTML = t.message || "";
-        var c, p, d, l, u = t.background || t.backgroundColor;
+        let c, p, d, l, u = t.background || t.backgroundColor;
         i && (c = this._createHTMLElement({
             tagName: "div", className: "notyf__icon"
         }), ("string" === typeof i || i instanceof String) && (c.innerHTML = String(i).valueOf()), "object" === typeof i && (p = i.tagName, d = i.className, l = i.text, i = void 0 === (i = i.color) ? u : i, l = this._createHTMLElement({
@@ -408,12 +412,12 @@ var Notyf = function () {
         }), u = this._createHTMLElement({
             tagName: "button", className: "notyf__dismiss-btn"
         }), s.appendChild(u), a.appendChild(s), e.classList.add("notyf__toast--dismissible"), u.addEventListener("click", function (t) {
-            var i, e;
+            let i, e;
             null !== (e = (i = o.events)[f.Dismiss]) && void 0 !== e && e.call(i, {
                 target: n, event: t
             }), t.stopPropagation()
         })), e.addEventListener("click", function (t) {
-            var i, e;
+            let i, e;
             return null === (e = (i = o.events)[f.Click]) || void 0 === e ? void 0 : e.call(i, {target: n, event: t})
         });
         t = "top" === this.getYPosition(t) ? "upper" : "lower";
@@ -422,15 +426,16 @@ var Notyf = function () {
         var i = t.tagName, e = t.className, t = t.text, i = document.createElement(i);
         return e && (i.className = e), i.textContent = t || null, i
     }, p.prototype._createA11yContainer = function () {
-        var t = this._createHTMLElement({tagName: "div", className: "notyf-announcer"});
+        const t = this._createHTMLElement({tagName: "div", className: "notyf-announcer"});
         t.setAttribute("aria-atomic", "true"), t.setAttribute("aria-live", "polite"), t.style.border = "0", t.style.clip = "rect(0 0 0 0)", t.style.height = "1px", t.style.margin = "-1px", t.style.overflow = "hidden", t.style.padding = "0", t.style.position = "absolute", t.style.width = "1px", t.style.outline = "0", document.body.appendChild(t), this.a11yContainer = t
     }, p.prototype._announce = function (t) {
-        var i = this;
+        const i = this;
         this.a11yContainer.textContent = "", setTimeout(function () {
             i.a11yContainer.textContent = t
         }, 100)
     }, p.prototype._getAnimationEndEventName = function () {
-        var t, i = document.createElement("_fake"), e = {
+        let t;
+        const i = document.createElement("_fake"), e = {
             MozTransition: "animationend",
             OTransition: "oAnimationEnd",
             WebkitTransition: "webkitAnimationEnd",
@@ -444,14 +449,14 @@ var Notyf = function () {
         this.notifications = [], this.events = {}, this.X_POSITION_FLEX_MAP = {
             left: "flex-start", center: "center", right: "flex-end"
         }, this.Y_POSITION_FLEX_MAP = {top: "flex-start", center: "center", bottom: "flex-end"};
-        var t = document.createDocumentFragment(), i = this._createHTMLElement({tagName: "div", className: "notyf"});
+        const t = document.createDocumentFragment(), i = this._createHTMLElement({tagName: "div", className: "notyf"});
         t.appendChild(i), document.body.appendChild(t), this.container = i, this.animationEndEventName = this._getAnimationEndEventName(), this._createA11yContainer()
     }
 
     function d(t) {
-        var e = this;
+        const e = this;
         this.dismiss = this._removeNotification, this.notifications = new s, this.view = new c;
-        var i = this.registerTypes(t);
+        const i = this.registerTypes(t);
         this.options = o(o({}, r), t), this.options.types = i, this.notifications.onUpdate(function (t, i) {
             return e.view.update(t, i)
         }), this.view.on(f.Dismiss, function (t) {
@@ -479,14 +484,14 @@ var Notyf = function () {
     }, d.prototype.dismissAll = function () {
         for (; this.notifications.splice(0, 1);) ;
     }, d.prototype.assignProps = function (t, i) {
-        var e = this;
+        const e = this;
         t.forEach(function (t) {
             i[t] = (null === i[t] ? e.options : i)[t]
         })
     }, d.prototype._pushNotification = function (t) {
-        var i = this;
+        const i = this;
         this.notifications.push(t);
-        var e = (void 0 !== t.options.duration ? t : this).options.duration;
+        const e = (void 0 !== t.options.duration ? t : this).options.duration;
         e && setTimeout(function () {
             return i._removeNotification(t)
         }, e)
@@ -497,9 +502,9 @@ var Notyf = function () {
         t = {type: t};
         return "string" === typeof i ? t.message = i : "object" === typeof i && (t = o(o({}, t), i)), t
     }, d.prototype.registerTypes = function (t) {
-        var i = (t && t.types || []).slice();
+        const i = (t && t.types || []).slice();
         return r.types.map(function (e) {
-            var n = -1;
+            let n = -1;
             i.forEach(function (t, i) {
                 t.type === e.type && (n = i)
             });

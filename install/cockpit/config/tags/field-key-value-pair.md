@@ -28,7 +28,8 @@ Limit the amount of items.
 
 ### defaultKeys
 
-Display default keys with empty values. If the field has data (entry was saved before), the default fields aren't displayed.
+Display default keys with empty values. If the field has data (entry was saved before), the default fields aren't
+displayed.
 
 ### prefix
 
@@ -52,7 +53,8 @@ output (format: array, prefix: og):
 
 ### displayPrefix
 
-Display a key prefix only while editing. Other than the `prefix`, the `displayPrefix` won't be added to the saved key names.
+Display a key prefix only while editing. Other than the `prefix`, the `displayPrefix` won't be added to the saved key
+names.
 
 ### format
 

@@ -5,7 +5,7 @@ $COCKPIT_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
 $COCKPIT_DOCS_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__DIR__));
 
 # make sure that $_SERVER['DOCUMENT_ROOT'] is set correctly
-if (strpos($COCKPIT_DIR, $COCKPIT_DOCS_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) {
+if (!str_starts_with($COCKPIT_DIR, $COCKPIT_DOCS_ROOT) && isset($_SERVER['SCRIPT_NAME'])) {
     $COCKPIT_DOCS_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $COCKPIT_DIR);
 }
 
@@ -13,7 +13,7 @@ $COCKPIT_BASE = trim(str_replace($COCKPIT_DOCS_ROOT, '', $COCKPIT_DIR), "/");
 
 
 define('COCKPIT_BASE_ROUTE', strlen($COCKPIT_BASE) ? "/{$COCKPIT_BASE}" : $COCKPIT_BASE);
-define('COCKPIT_API_REQUEST', strpos($_SERVER['REQUEST_URI'], COCKPIT_BASE_ROUTE . '/api/') !== false ? 1 : 0);
+define('COCKPIT_API_REQUEST', str_contains($_SERVER['REQUEST_URI'], COCKPIT_BASE_ROUTE . '/api/') ? 1 : 0);
 
 
 // define admin route

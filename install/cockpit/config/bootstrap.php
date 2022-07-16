@@ -17,17 +17,17 @@
  *
  * Related discussion:
  * https://discourse.getcockpit.com/t/how-to-downsize-uploaded-image-assets-to-max-width-height/883
- * 
+ *
  * A modified version with maxHeight and group acl variables by @creatingo:
  * https://discourse.getcockpit.com/t/how-to-downsize-uploaded-image-assets-to-max-width-height/883/5?u=raffaelj
  */
 
-$app->on('cockpit.assets.save', function(&$assets) {
+$app->on('cockpit.assets.save', function (&$assets) {
 
-    $maxWidth  = $this->retrieve('image_max_width', 1920);
+    $maxWidth = $this->retrieve('image_max_width', 1920);
 
-    $method    = 'bestFit';
-    $quality   = 100;
+    $method = 'bestFit';
+    $quality = 100;
 
     foreach ($assets as &$asset) {
 
@@ -46,9 +46,9 @@ $app->on('cockpit.assets.save', function(&$assets) {
             if ($result === false) continue;
 
             $info = getimagesize($path);
-            $asset['width']  = $info[0];
+            $asset['width'] = $info[0];
             $asset['height'] = $info[1];
-            $asset['size']   = filesize($path);
+            $asset['size'] = filesize($path);
 
         }
 

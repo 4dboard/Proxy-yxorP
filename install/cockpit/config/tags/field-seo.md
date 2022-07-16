@@ -26,10 +26,10 @@
 * [x] image fallback for field "featured_image"
 * [ ] highlight focus keywords https://stackoverflow.com/a/7924240
 * improve scoring
-  * [x] length
-  * [ ] pixel width
-  * [ ] focus keywords
-  * [ ] real words (ignore useless chars for counting)
+    * [x] length
+    * [ ] pixel width
+    * [ ] focus keywords
+    * [ ] real words (ignore useless chars for counting)
 * [ ] canonical
 * [ ] schemas
 * [ ] more/better help texts

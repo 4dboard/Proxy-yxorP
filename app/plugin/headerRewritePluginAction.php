@@ -17,6 +17,16 @@ use const VAR_RESPONSE;
 class headerRewritePluginAction extends wrapper
 {
     /* It's setting the `accept-encoding` header to `identity` and removing the `referer` header. */
+    public static function headersReceived($response, $request_url): void
+    {
+        /* It's getting the value of the `location` header. */
+        $location = $response->headers->get('location');
+        /* It's proxifying the URL of the `location` header. */
+        $response->headers->set('location', proxify_url($location, $request_url));
+    }
+
+    /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
+
     public function onBeforeSend(): void
     {
         /* It's setting the `accept-encoding` header to `identity`. */
@@ -25,7 +35,7 @@ class headerRewritePluginAction extends wrapper
         yP::get(VAR_REQUEST)->headers->remove('referer');
     }
 
-    /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
+    /* It's proxifying the URL of the `location` header. */
 
     public function onSent(): void
     {
@@ -45,15 +55,5 @@ class headerRewritePluginAction extends wrapper
         foreach ($response->headers->all() as $name => $value) if (!in_array($name, $forward_headers, true)) $response->headers->remove($name);
         /* It's setting the `content-disposition` header to the filename of the request. */
         if (!$response->headers->has('content-disposition')) $response->headers->set('Content-Disposition', 'filename="' . basename(parse_url($request_url, PHP_URL_PATH)) . '"');
-    }
-
-    /* It's proxifying the URL of the `location` header. */
-
-    public static function headersReceived($response, $request_url): void
-    {
-        /* It's getting the value of the `location` header. */
-        $location = $response->headers->get('location');
-        /* It's proxifying the URL of the `location` header. */
-        $response->headers->set('location', proxify_url($location, $request_url));
     }
 }

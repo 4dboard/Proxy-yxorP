@@ -20,11 +20,17 @@ final class psrStorageFactory implements resourceUriInterface, publicSuffixListS
         $this->requestFactory = $requestFactory;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorageInterface
     {
         return new rulesStorage(new publicSuffixListPsr16Cache($this->cache, $cachePrefix, $cacheTtl), new publicSuffixListPsr18Client($this->client, $this->requestFactory));
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): topLevelDomainListStorageInterface
     {
         return new topLevelDomainsStorage(new topLevelDomainListPsr16Cache($this->cache, $cachePrefix, $cacheTtl), new topLevelDomainListPsr18Client($this->client, $this->requestFactory));

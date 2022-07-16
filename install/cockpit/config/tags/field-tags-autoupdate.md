@@ -30,4 +30,5 @@ $app->bind('/get-all-available-tags', function() {
 });
 ```
 
-Now copy the modified field `field-tags-autoupdate.tag` into `/config/tags` and use it instead of the default tags field.
+Now copy the modified field `field-tags-autoupdate.tag` into `/config/tags` and use it instead of the default tags
+field.

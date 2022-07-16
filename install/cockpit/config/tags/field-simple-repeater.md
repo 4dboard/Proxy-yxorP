@@ -2,7 +2,8 @@
 
 Custom field for [Cockpit CMS](https://github.com/agentejo/cockpit)
 
-A simpler repeater field, than the original one. I modified the code of the original component, so credits go to @aheinze.
+A simpler repeater field, than the original one. I modified the code of the original component, so credits go to
+@aheinze.
 
 Copy the file `field-simple-repeater.tag` to `config/tags`
 

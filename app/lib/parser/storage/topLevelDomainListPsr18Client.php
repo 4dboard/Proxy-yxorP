@@ -2,11 +2,11 @@
 
 namespace yxorP\app\lib\parser\storage;
 
+use GuzzleHttp\ClientInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use yxorP\app\lib\parser\topLevelDomainListInterface;
 use yxorP\app\lib\parser\topLevelDomains;
 use yxorP\app\lib\parser\unableToLoadResource;
-use yxorP\psr\Http\Client\ClientInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;
 
 final class topLevelDomainListPsr18Client implements topLevelDomainListClientInterface

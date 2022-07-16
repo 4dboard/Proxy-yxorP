@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\parser\storage;
 
 use DateInterval;
+use Exception;
 use Psr\SimpleCache\InvalidArgumentException;
 use Throwable;
 use yxorP\app\lib\parser\topLevelDomainListInterface;
@@ -18,7 +19,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
     private ?DateInterval $cacheTtl;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(CacheInterface $cache, string $cachePrefix = '', $cacheTtl = null)
     {

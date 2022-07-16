@@ -104,6 +104,21 @@ final class domain implements nameInterface
         return idna::toAscii($domain, $option)->result();
     }
 
+    public static function __set_state(array $properties): self
+    {
+        return new self($properties['type'], $properties['domain']);
+    }
+
+    public static function fromIDNA2003($domain): self
+    {
+        return new self(self::IDNA_2003, $domain);
+    }
+
+    public static function fromIDNA2008($domain): self
+    {
+        return new self(self::IDNA_2008, $domain);
+    }
+
     public function value(): ?string
     {
         return $this->domain;
@@ -119,21 +134,6 @@ final class domain implements nameInterface
             return $this;
         }
         return new self($this->type, $domain);
-    }
-
-    public static function __set_state(array $properties): self
-    {
-        return new self($properties['type'], $properties['domain']);
-    }
-
-    public static function fromIDNA2003($domain): self
-    {
-        return new self(self::IDNA_2003, $domain);
-    }
-
-    public static function fromIDNA2008($domain): self
-    {
-        return new self(self::IDNA_2008, $domain);
     }
 
     public function getIterator(): Iterator

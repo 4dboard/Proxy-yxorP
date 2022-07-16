@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\parser\storage;
 
 use DateInterval;
+use Exception;
 use Psr\SimpleCache\InvalidArgumentException;
 use Throwable;
 use yxorP\app\lib\parser\publicSuffixListInterface;
@@ -18,7 +19,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
     private ?DateInterval $cacheTtl;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(CacheInterface $cache, string $cachePrefix = '', $cacheTtl = null)
     {

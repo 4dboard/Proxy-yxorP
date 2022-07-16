@@ -44,12 +44,6 @@ h ~ h {
     display: none !important
 }
 
-#headxr {
-    background: linear-gradient(90deg, black, transparent);
-    padding: 20px;
-    z-index: 99999999999999999999999999;
-}
-
 #headxr a {
     padding: 0.5rem 1.5rem !important;
     cursor: pointer !important;

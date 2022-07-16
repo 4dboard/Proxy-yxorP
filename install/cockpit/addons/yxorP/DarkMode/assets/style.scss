@@ -32,10 +32,6 @@ html {
   }
 }
 
-.uk-text-primary {
-  color: $color-primary !important;
-}
-
 .uk-panel-card {
   box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
 
@@ -64,14 +60,6 @@ cp-actionbar {
   color: $color-primary;
 }
 
-.uk-link-muted {
-  color: $color-text-less-bright;
-}
-
-.uk-link-muted:hover, .uk-link-muted a:hover {
-  color: #eee;
-}
-
 .uk-text-muted {
   color: #ddd !important;
 }
@@ -92,10 +80,6 @@ cp-actionbar {
 .uk-button-primary {
   background-color: $color-primary;
   color: #222;
-}
-
-.uk-badge {
-  background-color: $color-primary;
 }
 
 .uk-form {
@@ -141,24 +125,12 @@ option {
   background-color: #666;
 }
 
-.uk-text-danger {
-  color: $color-danger !important;
-}
-
 .uk-form-switch input[type="checkbox"] + label::after {
   background-color: $color-danger;
 }
 
 .uk-form-switch input[type="checkbox"] + label::before {
   background-color: #222;
-}
-
-.uk-modal {
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.uk-modal-dialog {
-  background-color: #333;
 }
 
 // Finder
