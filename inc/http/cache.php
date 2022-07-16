@@ -52,10 +52,7 @@ class cache
 
     public static function set($content, ?string $key = null): void
     {
-        file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n"], '', <<<'EOF'
-$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
-EOF
-            ) . gzdeflate($content));
+        file_put_contents(self::gen($key)['path'], "<?php $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler();" . gzdeflate($content));
     }
 
 
