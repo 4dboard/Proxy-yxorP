@@ -16,4 +16,7 @@ do
 	git pull git@github.com:4dboard/yxorP.git main|| git commit -m "update" -a
 	git add . || git commit -m "update" -a
 	git commit -m "update" -a  || git add .
+	git add . --all
+	git commit -m "update" -a
+	git push
 done
