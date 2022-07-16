@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-            <title>yxorP Documentation</title>
+            <title>Documentation</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="../">
@@ -24,7 +24,7 @@
     </head>
 <body id="top">
     <header class="phpdocumentor-header phpdocumentor-section">
-    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">yxorP Documentation</a></h1>
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
     <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
     <label class="phpdocumentor-header__menu-icon" for="menu-button">
         <i class="fas fa-bars"></i>
@@ -55,6 +55,16 @@
 <aside class="phpdocumentor-column -four phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/yxorp.html" class="">yxorP</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/yxorp-app.html" class="">app</a>
+                
+            </li>
+            </ul>
+
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/lime.html" class="">Lime</a>
 </h4>
@@ -258,8 +268,18 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/yxorp.html" class="">yxorP</a>
+    <a href="namespaces/phpdocumentormarkdown.html" class="">PhpDocumentorMarkdown</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpdocumentormarkdown-example.html" class="">Example</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/phpdocumentormarkdown-extension.html" class="">Extension</a>
+                
+            </li>
+            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -356,16 +376,32 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">This class is copied in every Composer installed project and available to all</p>
+
+    <section class="phpdocumentor-description"><p>See also https://getcomposer.org/doc/07-runtime.md#installed-versions</p>
+<p>To require its presence, you can require <code class="prettyprint">composer-runtime-api ^2.0</code></p>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">final</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                        </dl>
 
 
 
@@ -379,79 +415,121 @@
 
 <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Composer-InstalledVersions.html#property_canGetVendors">$canGetVendors</a>
+    <span>
+                        &nbsp;: bool|null            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Composer-InstalledVersions.html#property_installed">$installed</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Composer-InstalledVersions.html#property_installedByVendor">$installedByVendor</a>
+    <span>
+                        &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Composer-InstalledVersions.html#method_getAllRawData">getAllRawData()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
+</dt>
+<dd>Returns the raw data of all installed.php which are currently loaded for custom implementations</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackages">getInstalledPackages()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, string&gt;    </span>
+</dt>
+<dd>Returns a list of all package names which are present, either by being installed, replaced or provided</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType">getInstalledPackagesByType()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, string&gt;    </span>
+</dt>
+<dd>Returns a list of all package names with a specific type e.g. &#039;library&#039;</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Composer-InstalledVersions.html#method_getInstallPath">getInstallPath()</a>
+    <span>
+                                &nbsp;: string|null    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getPrettyVersion">getPrettyVersion()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: string|null    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getRawData">getRawData()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Returns the raw installed.php data for custom implementations</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getReference">getReference()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: string|null    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getRootPackage">getRootPackage()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getVersion">getVersion()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: string|null    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_getVersionRanges">getVersionRanges()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: string    </span>
 </dt>
-<dd></dd>
+<dd>Returns a version constraint representing all the range(s) which are installed for a given package</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_isInstalled">isInstalled()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd></dd>
+<dd>Checks whether the given package is installed</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_reload">reload()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Lets you reload the static array from another file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Composer-InstalledVersions.html#method_satisfies">satisfies()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks whether the given package satisfies a version constraint</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/Composer-InstalledVersions.html#method_getInstalled">getInstalled()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
 <dd></dd>
 
@@ -474,6 +552,38 @@
             -private
             -static                                            "
 >
+    <h4 class="phpdocumentor-element__name" id="property_canGetVendors">
+        $canGetVendors
+        <a href="classes/Composer-InstalledVersions.html#property_canGetVendors" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">bool|null</span>
+    <span class="phpdocumentor-signature__name">$canGetVendors</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
     <h4 class="phpdocumentor-element__name" id="property_installed">
         $installed
         <a href="classes/Composer-InstalledVersions.html#property_installed" class="headerlink"><i class="fas fa-link"></i></a>
@@ -481,24 +591,84 @@
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|null</span>
     <span class="phpdocumentor-signature__name">$installed</span>
-     = <span class="phpdocumentor-signature__default-value">array(&#039;root&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;dev-next&#039;, &#039;version&#039; =&gt; &#039;dev-next&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;33fa6432c928aa146bdba2a9690286fb13e78195&#039;, &#039;name&#039; =&gt; &#039;agentejo/cockpit&#039;), &#039;versions&#039; =&gt; array(&#039;agentejo/cockpit&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;dev-next&#039;, &#039;version&#039; =&gt; &#039;dev-next&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;33fa6432c928aa146bdba2a9690286fb13e78195&#039;), &#039;claviska/simpleimage&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;3.6.3&#039;, &#039;version&#039; =&gt; &#039;3.6.3.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;21b6f4bf4ef1927158b3e29bd0c2d99c6681c750&#039;), &#039;colinodell/json5&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;v2.2.0&#039;, &#039;version&#039; =&gt; &#039;2.2.0.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;dd7f788c5de3837d1483a216dc9b30e5d9c8c00a&#039;), &#039;composer/package-versions-deprecated&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;1.11.99.4&#039;, &#039;version&#039; =&gt; &#039;1.11.99.4&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;b174585d1fe49ceed21928a945138948cb394600&#039;), &#039;erusev/parsedown&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;1.7.4&#039;, &#039;version&#039; =&gt; &#039;1.7.4.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;cb17b6477dfff935958ba01325f2e8a2bfa6dab3&#039;), &#039;erusev/parsedown-extra&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;0.7.1&#039;, &#039;version&#039; =&gt; &#039;0.7.1.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;0db5cce7354e4b76f155d092ab5eb3981c21258c&#039;), &#039;firebase/php-jwt&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;v5.4.0&#039;, &#039;version&#039; =&gt; &#039;5.4.0.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;d2113d9b2e0e349796e72d2a63cf9319100382d2&#039;), &#039;jean85/pretty-package-versions&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;1.6.0&#039;, &#039;version&#039; =&gt; &#039;1.6.0.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;1e0104b46f045868f11942aea058cd7186d6c303&#039;), &#039;ksubileau/color-thief-php&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;v1.4.1&#039;, &#039;version&#039; =&gt; &#039;1.4.1.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;fc2acefacbd037f68cf61bcc62b30ac1bb16ed59&#039;), &#039;league/color-extractor&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;0.3.2&#039;, &#039;version&#039; =&gt; &#039;0.3.2.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;837086ec60f50c84c611c613963e4ad2e2aec806&#039;), &#039;league/flysystem&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;1.1.5&#039;, &#039;version&#039; =&gt; &#039;1.1.5.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;18634df356bfd4119fe3d6156bdb990c414c14ea&#039;), &#039;league/mime-type-detection&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;1.7.0&#039;, &#039;version&#039; =&gt; &#039;1.7.0.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3&#039;), &#039;maennchen/zipstream-php&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;v0.5.2&#039;, &#039;version&#039; =&gt; &#039;0.5.2.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;95922b6324955974675fd4923f987faa598408af&#039;), &#039;matthecat/colorextractor&#039; =&gt; array(&#039;replaced&#039; =&gt; array(0 =&gt; &#039;*&#039;)), &#039;mongodb/mongodb&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;1.8.0&#039;, &#039;version&#039; =&gt; &#039;1.8.0.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;953dbc19443aa9314c44b7217a16873347e6840d&#039;), &#039;ocramius/package-versions&#039; =&gt; array(&#039;replaced&#039; =&gt; array(0 =&gt; &#039;1.11.99&#039;)), &#039;phpmailer/phpmailer&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;v6.5.1&#039;, &#039;version&#039; =&gt; &#039;6.5.1.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;dd803df5ad7492e1b40637f7ebd258fee5ca7355&#039;), &#039;symfony/polyfill-php80&#039; =&gt; array(&#039;pretty_version&#039; =&gt; &#039;v1.23.1&#039;, &#039;version&#039; =&gt; &#039;1.23.1.0&#039;, &#039;aliases&#039; =&gt; array(), &#039;reference&#039; =&gt; &#039;1100343ed1a92e3a38f9ae122fc0eb21602547be&#039;)))</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
+    </code>
 
     
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-var</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array&lt;string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}&gt;}|array}|null</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_installedByVendor">
+        $installedByVendor
+        <a href="classes/Composer-InstalledVersions.html#property_installedByVendor" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+    <span class="phpdocumentor-signature__name">$installedByVendor</span>
+     = <span class="phpdocumentor-signature__default-value">array()</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-var</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array&lt;string, array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array&lt;string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}&gt;}&gt;</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
 </article>
             </section>
@@ -514,31 +684,196 @@
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getAllRawData">
+        getAllRawData()
+        <a href="classes/Composer-InstalledVersions.html#method_getAllRawData" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">285</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the raw data of all installed.php which are currently loaded for custom implementations</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAllRawData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>list&lt;array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array&lt;string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}&gt;}&gt;</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_getInstalledPackages">
         getInstalledPackages()
         <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackages" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">204</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a list of all package names which are present, either by being installed, replaced or provided</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getInstalledPackages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>list<string></p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getInstalledPackagesByType">
+        getInstalledPackagesByType()
+        <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">73</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a list of all package names with a specific type e.g. &#039;library&#039;</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getInstalledPackagesByType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>list<string></p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getInstallPath">
+        getInstallPath()
+        <a href="classes/Composer-InstalledVersions.html#method_getInstallPath" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">231</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getInstalledPackages</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getInstallPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
     
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$packageName</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>If the package is being replaced or provided but is not really installed, null will be returned as install path. Packages of type metapackages also have a null install path.</p>
+</section>
+
     
 </article>
                     <article
@@ -552,68 +887,92 @@
         <a href="classes/Composer-InstalledVersions.html#method_getPrettyVersion" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">296</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getPrettyVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getPrettyVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$packageName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present</p>
+</section>
+
     
 </article>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+            -deprecated                        -static                    "
 >
     <h4 class="phpdocumentor-element__name" id="method_getRawData">
         getRawData()
         <a href="classes/Composer-InstalledVersions.html#method_getRawData" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">341</span>
+    <span class="phpdocumentor-element-found-in__line">262</span>
 
     </aside>
 
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <p class="phpdocumentor-summary">Returns the raw installed.php data for custom implementations</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getRawData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getRawData</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span></code>
 
     
     
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">deprecated</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array&lt;string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}&gt;}</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
             &mdash;
         
     
@@ -629,37 +988,37 @@
         <a href="classes/Composer-InstalledVersions.html#method_getReference" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">313</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getReference</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getReference</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$packageName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>If the package is being replaced or provided but is not really installed, null will be returned as reference</p>
+</section>
+
     
 </article>
                     <article
@@ -673,24 +1032,38 @@
         <a href="classes/Composer-InstalledVersions.html#method_getRootPackage" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">330</span>
+    <span class="phpdocumentor-element-found-in__line">248</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getRootPackage</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getRootPackage</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
     
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
         
     
@@ -706,37 +1079,37 @@
         <a href="classes/Composer-InstalledVersions.html#method_getVersion" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">279</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getVersion</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$packageName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present</p>
+</section>
+
     
 </article>
                     <article
@@ -750,37 +1123,41 @@
         <a href="classes/Composer-InstalledVersions.html#method_getVersionRanges" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">252</span>
+    <span class="phpdocumentor-element-found-in__line">137</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns a version constraint representing all the range(s) which are installed for a given package</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getVersionRanges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getVersionRanges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>It is easier to use this via isInstalled() with the $constraint argument if you need to check
+whether a given version of a package is installed, and not just whether it exists</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$packageName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Version constraint usable with composer/semver</p>
+</section>
+
     
 </article>
                     <article
@@ -794,35 +1171,43 @@
         <a href="classes/Composer-InstalledVersions.html#method_isInstalled" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks whether the given package is installed</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isInstalled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isInstalled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$includeDevRequirements</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>This also returns true if the package name is provided or replaced by another package</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$packageName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$includeDevRequirements</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
         
     
@@ -838,35 +1223,60 @@
         <a href="classes/Composer-InstalledVersions.html#method_reload" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">364</span>
+    <span class="phpdocumentor-element-found-in__line">308</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Lets you reload the static array from another file</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">reload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">reload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>This is only useful for complex integrations in which a project needs to use
+this class but then also needs to execute another project's autoloader in process,
+and wants to ensure both projects have access to their version of installed.php.</p>
+<p>A typical case would be PHPUnit, where it would need to make sure it reads all
+the data it needs from this class, then call reload() with
+<code class="prettyprint">require $CWD/vendor/composer/installed.php</code> (or similar) as input to make sure
+the project in which it runs can then also use this class safely, without
+interference between PHPUnit's dependencies and the project's dependencies.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>A vendor/composer/installed.php data set</p>
+</section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-param</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array&lt;string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}&gt;} $data</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     
@@ -882,18 +1292,21 @@
         <a href="classes/Composer-InstalledVersions.html#method_satisfies" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/composer/InstalledVersions.php"><a href="files/cockpit-lib-vendor-composer-installedversions.html"><abbr title="cockpit/lib/vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">235</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks whether the given package satisfies a version constraint</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">satisfies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Composer\Semver\VersionParser">VersionParser</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parser</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$constraint</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">satisfies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Composer\Semver\VersionParser">VersionParser</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parser</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$constraint</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>e.g. If you want to know whether version 2.3+ of package foo/bar is installed, you would call:</p>
+<p>Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -902,23 +1315,24 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Composer\Semver\VersionParser">VersionParser</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Install composer/semver to have access to this class and functionality</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$packageName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$constraint</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>A version constraint to check for, if you pass one you have to make sure composer/semver is required by your package</p>
+</section>
 
             </dd>
             </dl>
@@ -926,7 +1340,54 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getInstalled">
+        getInstalled()
+        <a href="classes/Composer-InstalledVersions.html#method_getInstalled" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/composer/InstalledVersions.php"><a href="files/vendor-composer-installedversions.html"><abbr title="vendor/composer/InstalledVersions.php">InstalledVersions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">318</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getInstalled</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>list&lt;array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array&lt;string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}&gt;}&gt;</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, array&lt;string|int, mixed&gt;&gt;</span>
             &mdash;
         
     

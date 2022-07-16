@@ -286,6 +286,32 @@ public from(mixed $table): mixed
 
 ***
 
+### where
+
+
+
+```php
+public where(mixed $conditions): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$conditions` | **mixed** |  |
+
+
+
+
+***
+
 ### join
 
 
@@ -463,52 +489,6 @@ public all(mixed $condition = null): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$condition` | **mixed** |  |
-
-
-
-
-***
-
-### where
-
-
-
-```php
-public where(mixed $conditions): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$conditions` | **mixed** |  |
-
-
-
-
-***
-
-### buildSelect
-
-
-
-```php
-public buildSelect(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -740,6 +720,26 @@ public drop(): mixed
 
 ***
 
+### buildSelect
+
+
+
+```php
+public buildSelect(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### buildConditions
 
 
@@ -768,4 +768,4 @@ protected buildConditions(mixed $conditions): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

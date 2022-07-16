@@ -20,6 +20,66 @@ Operation for the mapReduce command.
 ## Properties
 
 
+### wireVersionForCollation
+
+
+
+```php
+private static int $wireVersionForCollation
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForDocumentLevelValidation
+
+
+
+```php
+private static int $wireVersionForDocumentLevelValidation
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForReadConcern
+
+
+
+```php
+private static int $wireVersionForReadConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForWriteConcern
+
+
+
+```php
+private static int $wireVersionForWriteConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### databaseName
 
 
@@ -147,7 +207,13 @@ Supported options:
    circumvent document level validation. This only applies when results
    are output to a collection.
 
+   For servers < 3.2, this option is ignored as document level validation
+   is not available.
+
  * collation (document): Collation specification.
+
+   This is not supported for server versions < 3.4 and will result in an
+   exception at execution time if used.
 
  * finalize (MongoDB\BSON\JavascriptInterface): Follows the reduce method
    and modifies the output.
@@ -170,6 +236,9 @@ Supported options:
  * readConcern (MongoDB\Driver\ReadConcern): Read concern. This is not
    supported when results are returned inline.
 
+   This is not supported for server versions < 3.2 and will result in an
+   exception at execution time if used.
+
  * readPreference (MongoDB\Driver\ReadPreference): Read preference.
 
    This option is ignored if results are output to a collection.
@@ -178,6 +247,8 @@ Supported options:
    the map, reduce and finalize functions.
 
  * session (MongoDB\Driver\Session): Client session.
+
+   Sessions are not supported for server versions < 3.6.
 
  * sort (document): Sorts the input documents. This option is useful for
    optimization. For example, specify the sort key to be the same as the
@@ -192,6 +263,9 @@ Supported options:
 
  * writeConcern (MongoDB\Driver\WriteConcern): Write concern. This only
    applies when results are output to a collection.
+
+   This is not supported for server versions < 3.4 and will result in an
+   exception at execution time if used.
 
 
 
@@ -274,7 +348,7 @@ private checkOutDeprecations(string|array|object $out): void
 Create the mapReduce command.
 
 ```php
-private createCommand(): \MongoDB\Driver\Command
+private createCommand(\MongoDB\Driver\Server $server): \MongoDB\Driver\Command
 ```
 
 
@@ -283,6 +357,12 @@ private createCommand(): \MongoDB\Driver\Command
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$server` | **\MongoDB\Driver\Server** |  |
 
 
 
@@ -347,4 +427,4 @@ private createOptions(bool $hasOutputCollection): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

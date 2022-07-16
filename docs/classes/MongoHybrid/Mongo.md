@@ -89,6 +89,33 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 
 ***
 
+### getCollection
+
+
+
+```php
+public getCollection(mixed $name, mixed $db = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+| `$db` | **mixed** |  |
+
+
+
+
+***
+
 ### dropCollection
 
 
@@ -171,33 +198,6 @@ public findOneById(mixed $collection, mixed $id): mixed
 
 ***
 
-### getCollection
-
-
-
-```php
-public getCollection(mixed $name, mixed $db = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$db` | **mixed** |  |
-
-
-
-
-***
-
 ### findOne
 
 
@@ -220,34 +220,6 @@ public findOne(mixed $collection, mixed $filter = [], mixed $projection = []): m
 | `$collection` | **mixed** |  |
 | `$filter` | **mixed** |  |
 | `$projection` | **mixed** |  |
-
-
-
-
-***
-
-### _fixMongoIds
-
-
-
-```php
-protected _fixMongoIds(mixed& $data, mixed $infinite = false, mixed $_level): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$data` | **mixed** |  |
-| `$infinite` | **mixed** |  |
-| `$_level` | **mixed** |  |
 
 
 
@@ -476,6 +448,34 @@ public count(mixed $collection, mixed $filter = [], mixed $options = []): mixed
 
 ***
 
+### _fixMongoIds
+
+
+
+```php
+protected _fixMongoIds(mixed& $data, mixed $infinite = false, mixed $_level): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$data` | **mixed** |  |
+| `$infinite` | **mixed** |  |
+| `$_level` | **mixed** |  |
+
+
+
 
 ***
 
+
+***
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

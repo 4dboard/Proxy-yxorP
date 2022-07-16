@@ -2,7 +2,7 @@
 
 # Collection
 
-
+Collection object.
 
 
 
@@ -18,7 +18,7 @@
 
 
 ```php
-public $database
+public object $database
 ```
 
 
@@ -33,7 +33,7 @@ public $database
 
 
 ```php
-public $name
+public string $name
 ```
 
 
@@ -48,10 +48,10 @@ public $name
 
 ### __construct
 
-
+Constructor
 
 ```php
-public __construct(mixed $name, mixed $database): mixed
+public __construct(string $name, object $database): mixed
 ```
 
 
@@ -65,8 +65,8 @@ public __construct(mixed $name, mixed $database): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$database` | **mixed** |  |
+| `$name` | **string** |  |
+| `$database` | **object** |  |
 
 
 
@@ -75,7 +75,7 @@ public __construct(mixed $name, mixed $database): mixed
 
 ### drop
 
-
+Drop collection
 
 ```php
 public drop(): mixed
@@ -95,10 +95,10 @@ public drop(): mixed
 
 ### insertMany
 
-
+Insert many documents
 
 ```php
-public insertMany(mixed $documents): mixed
+public insertMany(array $documents): \MongoLite\count
 ```
 
 
@@ -112,8 +112,12 @@ public insertMany(mixed $documents): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$documents` | **mixed** |  |
+| `$documents` | **array** |  |
 
+
+**Return Value:**
+
+of inserted documents for arrays
 
 
 
@@ -121,10 +125,10 @@ public insertMany(mixed $documents): mixed
 
 ### insert
 
-
+Insert document
 
 ```php
-public insert(mixed& $document): mixed
+public insert(array& $document): mixed
 ```
 
 
@@ -138,8 +142,13 @@ public insert(mixed& $document): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$document` | **mixed** |  |
+| `$document` | **array** |  |
 
+
+**Return Value:**
+
+last_insert_id for single document or
+count count of inserted documents for arrays
 
 
 
@@ -147,10 +156,10 @@ public insert(mixed& $document): mixed
 
 ### _insert
 
-
+Insert document
 
 ```php
-protected _insert(mixed& $document): mixed
+protected _insert(array& $document): mixed
 ```
 
 
@@ -164,7 +173,7 @@ protected _insert(mixed& $document): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$document` | **mixed** |  |
+| `$document` | **array** |  |
 
 
 
@@ -173,10 +182,10 @@ protected _insert(mixed& $document): mixed
 
 ### save
 
-
+Save document
 
 ```php
-public save(mixed& $document, mixed $create = false): mixed
+public save(array& $document, mixed $create = false): mixed
 ```
 
 
@@ -190,7 +199,7 @@ public save(mixed& $document, mixed $create = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$document` | **mixed** |  |
+| `$document` | **array** |  |
 | `$create` | **mixed** |  |
 
 
@@ -200,10 +209,10 @@ public save(mixed& $document, mixed $create = false): mixed
 
 ### update
 
-
+Update documents
 
 ```php
-public update(mixed $criteria, mixed $data, mixed $merge = true): mixed
+public update(mixed $criteria, array $data, mixed $merge = true): int
 ```
 
 
@@ -218,7 +227,7 @@ public update(mixed $criteria, mixed $data, mixed $merge = true): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-| `$data` | **mixed** |  |
+| `$data` | **array** |  |
 | `$merge` | **mixed** |  |
 
 
@@ -228,7 +237,7 @@ public update(mixed $criteria, mixed $data, mixed $merge = true): mixed
 
 ### remove
 
-
+Remove documents
 
 ```php
 public remove(mixed $criteria): mixed
@@ -254,10 +263,10 @@ public remove(mixed $criteria): mixed
 
 ### count
 
-
+Count documents in collections
 
 ```php
-public count(mixed $criteria = null): mixed
+public count(mixed $criteria = null): int
 ```
 
 
@@ -280,10 +289,10 @@ public count(mixed $criteria = null): mixed
 
 ### find
 
-
+Find documents
 
 ```php
-public find(mixed $criteria = null, mixed $projection = null): mixed
+public find(mixed $criteria = null, mixed $projection = null): object
 ```
 
 
@@ -301,16 +310,20 @@ public find(mixed $criteria = null, mixed $projection = null): mixed
 | `$projection` | **mixed** |  |
 
 
+**Return Value:**
+
+Cursor
+
 
 
 ***
 
 ### findOne
 
-
+Find one document
 
 ```php
-public findOne(mixed $criteria = null, mixed $projection = null): mixed
+public findOne(mixed $criteria = null, mixed $projection = null): array
 ```
 
 
@@ -334,10 +347,10 @@ public findOne(mixed $criteria = null, mixed $projection = null): mixed
 
 ### renameCollection
 
-
+Rename Collection
 
 ```php
-public renameCollection(mixed $newname): mixed
+public renameCollection(string $newname): bool
 ```
 
 
@@ -351,7 +364,7 @@ public renameCollection(mixed $newname): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$newname` | **mixed** |  |
+| `$newname` | **string** | [description] |
 
 
 
@@ -360,4 +373,4 @@ public renameCollection(mixed $newname): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

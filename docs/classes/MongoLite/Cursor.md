@@ -2,7 +2,7 @@
 
 # Cursor
 
-
+Cursor object.
 
 
 
@@ -20,7 +20,7 @@
 
 
 ```php
-protected $position
+protected bool|int $position
 ```
 
 
@@ -35,7 +35,7 @@ protected $position
 
 
 ```php
-protected $data
+protected array $data
 ```
 
 
@@ -50,7 +50,7 @@ protected $data
 
 
 ```php
-protected $collection
+protected \MongoLite\Collection $collection
 ```
 
 
@@ -65,7 +65,7 @@ protected $collection
 
 
 ```php
-protected $criteria
+protected string|null $criteria
 ```
 
 
@@ -80,7 +80,7 @@ protected $criteria
 
 
 ```php
-protected $projection
+protected array|null $projection
 ```
 
 
@@ -95,7 +95,7 @@ protected $projection
 
 
 ```php
-protected $limit
+protected null|int $limit
 ```
 
 
@@ -110,7 +110,7 @@ protected $limit
 
 
 ```php
-protected $skip
+protected null|int $skip
 ```
 
 
@@ -125,7 +125,7 @@ protected $skip
 
 
 ```php
-protected $sort
+protected null|array $sort
 ```
 
 
@@ -140,10 +140,10 @@ protected $sort
 
 ### __construct
 
-
+Constructor
 
 ```php
-public __construct(mixed $collection, mixed $criteria, mixed $projection = null): mixed
+public __construct(object $collection, mixed $criteria, mixed $projection = null): mixed
 ```
 
 
@@ -157,7 +157,7 @@ public __construct(mixed $collection, mixed $criteria, mixed $projection = null)
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
+| `$collection` | **object** |  |
 | `$criteria` | **mixed** |  |
 | `$projection` | **mixed** |  |
 
@@ -168,10 +168,10 @@ public __construct(mixed $collection, mixed $criteria, mixed $projection = null)
 
 ### count
 
-
+Documents count
 
 ```php
-public count(): mixed
+public count(): int
 ```
 
 
@@ -188,10 +188,10 @@ public count(): mixed
 
 ### limit
 
-
+Set limit
 
 ```php
-public limit(mixed $limit): mixed
+public limit(mixed $limit): object
 ```
 
 
@@ -208,16 +208,20 @@ public limit(mixed $limit): mixed
 | `$limit` | **mixed** |  |
 
 
+**Return Value:**
+
+Cursor
+
 
 
 ***
 
 ### sort
 
-
+Set sort
 
 ```php
-public sort(mixed $sorts): mixed
+public sort(mixed $sorts): object
 ```
 
 
@@ -234,16 +238,20 @@ public sort(mixed $sorts): mixed
 | `$sorts` | **mixed** |  |
 
 
+**Return Value:**
+
+Cursor
+
 
 
 ***
 
 ### skip
 
-
+Set skip
 
 ```php
-public skip(mixed $skip): mixed
+public skip(mixed $skip): object
 ```
 
 
@@ -260,16 +268,20 @@ public skip(mixed $skip): mixed
 | `$skip` | **mixed** |  |
 
 
+**Return Value:**
+
+Cursor
+
 
 
 ***
 
 ### each
 
-
+Loop through result set
 
 ```php
-public each(mixed $callable): mixed
+public each(mixed $callable): object
 ```
 
 
@@ -290,32 +302,12 @@ public each(mixed $callable): mixed
 
 ***
 
-### rewind
-
-
-
-```php
-public rewind(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### toArray
 
-
+Get documents matching criteria
 
 ```php
-public toArray(): mixed
+public toArray(): array
 ```
 
 
@@ -332,10 +324,30 @@ public toArray(): mixed
 
 ### getData
 
-
+Get documents matching criteria
 
 ```php
-protected getData(): mixed
+protected getData(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### rewind
+
+Iterator implementation
+
+```php
+public rewind(): mixed
 ```
 
 
@@ -432,4 +444,4 @@ public valid(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

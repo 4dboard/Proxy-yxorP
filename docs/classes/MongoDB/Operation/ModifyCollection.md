@@ -95,10 +95,15 @@ Supported options:
 
 * session (MongoDB\Driver\Session): Client session.
 
+  Sessions are not supported for server versions < 3.6.
+
 * typeMap (array): Type map for BSON deserialization. This will only be
   used for the returned command result document.
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
+
+  This is not supported for server versions < 3.2 and will result in an
+  exception at execution time if used.
 
 
 
@@ -177,4 +182,4 @@ private createOptions(): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

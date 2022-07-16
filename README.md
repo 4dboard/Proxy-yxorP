@@ -190,12 +190,12 @@ cp ./example.env ./.env
 Modify the settings included inside the ".env" file as necessary. The program is configured to respond to queries from
 any domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the.env
 file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
-domain, go to http://localhost/cockpit and enter the login yxorP and the password you established. In addition, you may
+domain, go to http://localhost/admin and enter the login yxorP and the password you established. In addition, you may
 use the credentials provided in the '.env' file. This will allow you to configure the application to direct traffic from
 a given domain to a specific website. After gaining access to the admin, choose "sites" and clone the example website so
 that its settings may be modified.
 
-After cloning the repository, you need to pull the Cockpit submodule as well like this:
+After cloning the repository, you need to pull the Cockpit submodule as well, like this:
 
 ```bash
 
@@ -204,6 +204,10 @@ After cloning the repository, you need to pull the Cockpit submodule as well lik
   
   //Pull the Cockpit submodule  
   git submodule init
+  
+  //If still not working you can try this:
+  git submodule add  https://github.com/agentejo/cockpit app/lib/cockpit
+
   
 ```
 

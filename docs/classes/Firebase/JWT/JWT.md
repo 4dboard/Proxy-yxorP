@@ -82,7 +82,7 @@ public static $supported_algs
 Decodes a JWT string into a PHP object.
 
 ```php
-public static decode(string $jwt, \Firebase\JWT\Key|\Firebase\JWT\Key[]|mixed $keyOrKeyArray, array $allowed_algs = array()): object
+public static decode(string $jwt, string|array|resource $key, array $allowed_algs = array()): object
 ```
 
 
@@ -97,8 +97,8 @@ public static decode(string $jwt, \Firebase\JWT\Key|\Firebase\JWT\Key[]|mixed $k
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwt` | **string** | The JWT |
-| `$keyOrKeyArray` | **\Firebase\JWT\Key&#124;\Firebase\JWT\Key[]&#124;mixed** | The Key or array of Key objects.<br />If the algorithm used is asymmetric, this is the public key<br />Each Key object contains an algorithm and matching key.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
-| `$allowed_algs` | **array** | [DEPRECATED] List of supported verification algorithms. Only<br />should be used for backwards  compatibility. |
+| `$key` | **string&#124;array&#124;resource** | The key, or map of keys.<br />If the algorithm used is asymmetric, this is the public key |
+| `$allowed_algs` | **array** | List of supported verification algorithms<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 
 
 **Return Value:**
@@ -325,64 +325,6 @@ The base64 encode of what you passed in
 
 ***
 
-### getKeyMaterialAndAlgorithm
-
-Determine if an algorithm has been provided for each Key
-
-```php
-private static getKeyMaterialAndAlgorithm(\Firebase\JWT\Key|\Firebase\JWT\Key[]|mixed $keyOrKeyArray, string|null $kid = null): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$keyOrKeyArray` | **\Firebase\JWT\Key&#124;\Firebase\JWT\Key[]&#124;mixed** |  |
-| `$kid` | **string&#124;null** |  |
-
-
-**Return Value:**
-
-containing the keyMaterial and algorithm
-
-
-
-***
-
-### constantTimeEquals
-
-
-
-```php
-public static constantTimeEquals(string $left, string $right): bool
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$left` | **string** |  |
-| `$right` | **string** |  |
-
-
-
-
-***
-
 ### handleJsonError
 
 Helper method to create a JSON error.
@@ -560,4 +502,4 @@ private static readDER(string $der, int $offset): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

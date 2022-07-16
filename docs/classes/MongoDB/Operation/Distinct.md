@@ -20,6 +20,36 @@ Operation for the distinct command.
 ## Properties
 
 
+### wireVersionForCollation
+
+
+
+```php
+private static int $wireVersionForCollation
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForReadConcern
+
+
+
+```php
+private static int $wireVersionForReadConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### databaseName
 
 
@@ -110,14 +140,22 @@ Supported options:
 
 * collation (document): Collation specification.
 
+  This is not supported for server versions < 3.4 and will result in an
+  exception at execution time if used.
+
 * maxTimeMS (integer): The maximum amount of time to allow the query to
   run.
 
 * readConcern (MongoDB\Driver\ReadConcern): Read concern.
 
+  This is not supported for server versions < 3.2 and will result in an
+  exception at execution time if used.
+
 * readPreference (MongoDB\Driver\ReadPreference): Read preference.
 
 * session (MongoDB\Driver\Session): Client session.
+
+  Sessions are not supported for server versions < 3.6.
 
 * typeMap (array): Type map for BSON deserialization.
 
@@ -172,10 +210,10 @@ public execute(\MongoDB\Driver\Server $server): array
 
 ### getCommandDocument
 
-Returns the command document for this operation.
+
 
 ```php
-public getCommandDocument(\MongoDB\Driver\Server $server): array
+public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 ```
 
 
@@ -193,9 +231,6 @@ public getCommandDocument(\MongoDB\Driver\Server $server): array
 
 
 
-**See Also:**
-
-* \MongoDB\Operation\Explainable::getCommandDocument() - 
 
 ***
 
@@ -244,4 +279,4 @@ private createOptions(): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

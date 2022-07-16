@@ -2,9 +2,12 @@
 
 # CLI
 
+This file is part of the Cockpit project.
 
+(c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
 
 * Full name: `\CLI`
 
@@ -61,12 +64,12 @@ public static opts(mixed $name = null, mixed $default = null): mixed
 
 ***
 
-### writeln
+### write
 
 
 
 ```php
-public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
+public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
 ```
 
 
@@ -89,12 +92,12 @@ public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null):
 
 ***
 
-### write
+### writeln
 
 
 
 ```php
-public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
+public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
 ```
 
 
@@ -146,4 +149,4 @@ public static progress(mixed $percent, mixed $dec): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

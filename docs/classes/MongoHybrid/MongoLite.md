@@ -58,6 +58,33 @@ public __construct(mixed $server, mixed $options = []): mixed
 
 ***
 
+### getCollection
+
+
+
+```php
+public getCollection(mixed $name, mixed $db = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+| `$db` | **mixed** |  |
+
+
+
+
+***
+
 ### dropCollection
 
 
@@ -135,33 +162,6 @@ public findOne(mixed $collection, mixed $filter = [], mixed $projection = null):
 | `$collection` | **mixed** |  |
 | `$filter` | **mixed** |  |
 | `$projection` | **mixed** |  |
-
-
-
-
-***
-
-### getCollection
-
-
-
-```php
-public getCollection(mixed $name, mixed $db = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$db` | **mixed** |  |
 
 
 
@@ -418,4 +418,4 @@ public count(mixed $collection, mixed $filter = []): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

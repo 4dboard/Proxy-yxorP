@@ -28,6 +28,51 @@ private static array $defaultTypeMap
 
 ***
 
+### wireVersionForFindAndModifyWriteConcern
+
+
+
+```php
+private static int $wireVersionForFindAndModifyWriteConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForReadConcern
+
+
+
+```php
+private static int $wireVersionForReadConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForWritableCommandWriteConcern
+
+
+
+```php
+private static int $wireVersionForWritableCommandWriteConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### wireVersionForReadConcernWithWriteStage
 
 
@@ -1147,41 +1192,6 @@ public mapReduce(\MongoDB\BSON\JavascriptInterface $map, \MongoDB\BSON\Javascrip
 
 ***
 
-### rename
-
-Renames the collection.
-
-```php
-public rename(string $toCollectionName, ?string $toDatabaseName = null, array $options = []): array|object
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$toCollectionName` | **string** | New name of the collection |
-| `$toDatabaseName` | **?string** | New database name of the collection. Defaults to the original database. |
-| `$options` | **array** | Additional options |
-
-
-**Return Value:**
-
-Command result document
-
-
-**See Also:**
-
-* \MongoDB\Operation\RenameCollection::__construct() - for supported options
-
-***
-
 ### replaceOne
 
 Replaces at most one document matching the filter.
@@ -1336,4 +1346,4 @@ public withOptions(array $options = []): \MongoDB\Collection
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

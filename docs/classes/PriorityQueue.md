@@ -2,9 +2,12 @@
 
 # PriorityQueue
 
+This file is part of the Cockpit project.
 
+(c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
 
 * Full name: `\PriorityQueue`
 * This class implements:
@@ -90,12 +93,12 @@ public __construct(): mixed
 
 ***
 
-### isEmpty
+### count
 
 
 
 ```php
-public isEmpty(): mixed
+public count(): mixed
 ```
 
 
@@ -110,12 +113,12 @@ public isEmpty(): mixed
 
 ***
 
-### count
+### isEmpty
 
 
 
 ```php
-public count(): mixed
+public isEmpty(): mixed
 ```
 
 
@@ -307,12 +310,12 @@ public top(): mixed
 
 ***
 
-### getIterator
+### extract
 
 
 
 ```php
-public getIterator(): mixed
+public extract(): mixed
 ```
 
 
@@ -327,12 +330,12 @@ public getIterator(): mixed
 
 ***
 
-### extract
+### getIterator
 
 
 
 ```php
-public extract(): mixed
+public getIterator(): mixed
 ```
 
 
@@ -369,4 +372,4 @@ public __clone(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

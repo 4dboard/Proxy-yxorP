@@ -7,8 +7,6 @@ OAuth - OAuth2 authentication wrapper class.
 Uses the oauth2-client package from the League of Extraordinary Packages.
 
 * Full name: `\PHPMailer\PHPMailer\OAuth`
-* This class implements:
-[`\PHPMailer\PHPMailer\OAuthTokenProvider`](./OAuthTokenProvider.md)
 
 **See Also:**
 
@@ -201,4 +199,4 @@ public getOauth64(): string
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

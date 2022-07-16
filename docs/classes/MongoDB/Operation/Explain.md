@@ -42,6 +42,36 @@ private static int $wireVersionForAggregate
 
 ***
 
+### wireVersionForDistinct
+
+
+
+```php
+private static int $wireVersionForDistinct
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForFindAndModify
+
+
+
+```php
+private static int $wireVersionForFindAndModify
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### databaseName
 
 
@@ -129,10 +159,10 @@ Supported options:
 
 ### execute
 
-Execute the operation.
+
 
 ```php
-public execute(\MongoDB\Driver\Server $server): array|object
+public execute(\MongoDB\Driver\Server $server): mixed
 ```
 
 
@@ -150,9 +180,6 @@ public execute(\MongoDB\Driver\Server $server): array|object
 
 
 
-**See Also:**
-
-* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -184,7 +211,7 @@ private createOptions(): array
 
 
 ```php
-private isFindAndModify(\MongoDB\Operation\Explainable $explainable): bool
+private isFindAndModify(mixed $explainable): mixed
 ```
 
 
@@ -198,7 +225,7 @@ private isFindAndModify(\MongoDB\Operation\Explainable $explainable): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$explainable` | **\MongoDB\Operation\Explainable** |  |
+| `$explainable` | **mixed** |  |
 
 
 
@@ -207,4 +234,4 @@ private isFindAndModify(\MongoDB\Operation\Explainable $explainable): bool
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

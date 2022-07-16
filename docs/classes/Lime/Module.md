@@ -32,12 +32,12 @@ protected $apis
 ## Methods
 
 
-### __get
+### extend
 
 
 
 ```php
-public __get(mixed $name): mixed
+public extend(mixed $api): mixed
 ```
 
 
@@ -51,7 +51,7 @@ public __get(mixed $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$api` | **mixed** |  |
 
 
 
@@ -85,12 +85,12 @@ public __set(mixed $name, mixed $value): mixed
 
 ***
 
-### extend
+### __get
 
 
 
 ```php
-public extend(mixed $api): mixed
+public __get(mixed $name): mixed
 ```
 
 
@@ -104,7 +104,7 @@ public extend(mixed $api): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$api` | **mixed** |  |
+| `$name` | **mixed** |  |
 
 
 
@@ -321,4 +321,4 @@ public __get(mixed $name): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

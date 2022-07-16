@@ -331,6 +331,7 @@ class helpers
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_TARGET_URL', (yP::get(SITE_DETAILS))[COCKPIT_TARGET]);
 
+
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
         if (!CACHED_CONTEXT) yP::set(TARGET_DOMAIN, self::publicSuffix(YXORP_TARGET_URL ?: yP::get(ENV_DEFAULT_TARGET)));
 
@@ -386,7 +387,7 @@ class helpers
         define(YXORP_COCKPIT_INSTALL, true);
 
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
-        self::migrate(PATH_COCKPIT_LOCAL, DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT);
+        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
         /* It's creating an array of user data. */
         $_account = [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
@@ -410,7 +411,7 @@ class helpers
         @mkdir($dst, 0744);
 
         /* Copying the contents of the source directory to the destination directory. */
-        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . CHAR_SLASH . $file)) self::migrate($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file); else  copy($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file);
+        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
         closedir($root);
     }
 

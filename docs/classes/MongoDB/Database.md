@@ -28,6 +28,36 @@ private static array $defaultTypeMap
 
 ***
 
+### wireVersionForReadConcern
+
+
+
+```php
+private static int $wireVersionForReadConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForWritableCommandWriteConcern
+
+
+
+```php
+private static int $wireVersionForWritableCommandWriteConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### wireVersionForReadConcernWithWriteStage
 
 
@@ -633,42 +663,6 @@ public modifyCollection(string $collectionName, array $collectionOptions, array 
 
 ***
 
-### renameCollection
-
-Rename a collection within this database.
-
-```php
-public renameCollection(string $fromCollectionName, string $toCollectionName, ?string $toDatabaseName = null, array $options = []): array|object
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$fromCollectionName` | **string** | Collection name |
-| `$toCollectionName` | **string** | New name of the collection |
-| `$toDatabaseName` | **?string** | New database name of the collection. Defaults to the original database. |
-| `$options` | **array** | Additional options |
-
-
-**Return Value:**
-
-Command result document
-
-
-**See Also:**
-
-* \MongoDB\Operation\RenameCollection::__construct() - for supported options
-
-***
-
 ### selectCollection
 
 Select a collection within this database.
@@ -789,4 +783,4 @@ public withOptions(array $options = []): \MongoDB\Database
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

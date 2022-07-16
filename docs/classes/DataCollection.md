@@ -2,9 +2,12 @@
 
 # DataCollection
 
+This file is part of the Cockpit project.
 
+(c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
 
 * Full name: `\DataCollection`
 * This class implements:
@@ -48,38 +51,12 @@ protected $items
 ## Methods
 
 
-### __construct
-
-
-
-```php
-public __construct(mixed $items): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$items` | **mixed** |  |
-
-
-
-
-***
-
 ### create
 
 
 
 ```php
-public static create(mixed $items): mixed
+public static create( $items): \DataCollection
 ```
 
 
@@ -93,7 +70,53 @@ public static create(mixed $items): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$items` | **mixed** |  |
+| `$items` | **** |  |
+
+
+
+
+***
+
+### __construct
+
+
+
+```php
+public __construct( $items): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$items` | **** |  |
+
+
+
+
+***
+
+### count
+
+
+
+```php
+public count(): int
+```
+
+
+
+
+
+
+
 
 
 
@@ -105,7 +128,7 @@ public static create(mixed $items): mixed
 
 
 ```php
-public first(): mixed
+public first(): null
 ```
 
 
@@ -125,7 +148,7 @@ public first(): mixed
 
 
 ```php
-public last(): mixed
+public last(): null
 ```
 
 
@@ -145,7 +168,7 @@ public last(): mixed
 
 
 ```php
-public reverse(): mixed
+public reverse(): \DataCollection
 ```
 
 
@@ -165,7 +188,7 @@ public reverse(): mixed
 
 
 ```php
-public limit(mixed $number): mixed
+public limit( $number): \DataCollection
 ```
 
 
@@ -179,7 +202,7 @@ public limit(mixed $number): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$number` | **mixed** |  |
+| `$number` | **** |  |
 
 
 
@@ -191,7 +214,7 @@ public limit(mixed $number): mixed
 
 
 ```php
-public skip(mixed $number): mixed
+public skip( $number): \DataCollection
 ```
 
 
@@ -205,7 +228,7 @@ public skip(mixed $number): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$number` | **mixed** |  |
+| `$number` | **** |  |
 
 
 
@@ -217,7 +240,7 @@ public skip(mixed $number): mixed
 
 
 ```php
-public not(mixed $criteria): mixed
+public not( $criteria): \DataCollection
 ```
 
 
@@ -231,7 +254,7 @@ public not(mixed $criteria): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$criteria` | **mixed** |  |
+| `$criteria` | **** |  |
 
 
 
@@ -243,7 +266,7 @@ public not(mixed $criteria): mixed
 
 
 ```php
-public filter(mixed $criteria): mixed
+public filter( $criteria): \DataCollection
 ```
 
 
@@ -257,7 +280,7 @@ public filter(mixed $criteria): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$criteria` | **mixed** |  |
+| `$criteria` | **** |  |
 
 
 
@@ -269,7 +292,7 @@ public filter(mixed $criteria): mixed
 
 
 ```php
-public sort(mixed $expr, mixed $dir = 1): mixed
+public sort( $expr, int $dir = 1): $this
 ```
 
 
@@ -283,8 +306,8 @@ public sort(mixed $expr, mixed $dir = 1): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$expr` | **mixed** |  |
-| `$dir` | **mixed** |  |
+| `$expr` | **** |  |
+| `$dir` | **int** |  |
 
 
 
@@ -296,7 +319,7 @@ public sort(mixed $expr, mixed $dir = 1): mixed
 
 
 ```php
-public index(mixed $obj): mixed
+public index( $obj): bool|int
 ```
 
 
@@ -310,7 +333,7 @@ public index(mixed $obj): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$obj` | **mixed** |  |
+| `$obj` | **** |  |
 
 
 
@@ -322,7 +345,7 @@ public index(mixed $obj): mixed
 
 
 ```php
-public eq(mixed $index): mixed
+public eq( $index): bool
 ```
 
 
@@ -336,7 +359,33 @@ public eq(mixed $index): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$index` | **mixed** |  |
+| `$index` | **** |  |
+
+
+
+
+***
+
+### setItems
+
+
+
+```php
+protected setItems( $items): \DataCollection
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$items` | **** |  |
 
 
 
@@ -348,7 +397,7 @@ public eq(mixed $index): mixed
 
 
 ```php
-public pagination(mixed $limit = 5, mixed $current = 1): mixed
+public pagination( $limit = 5,  $current = 1): \Pagination
 ```
 
 
@@ -362,28 +411,8 @@ public pagination(mixed $limit = 5, mixed $current = 1): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$limit` | **mixed** |  |
-| `$current` | **mixed** |  |
-
-
-
-
-***
-
-### count
-
-
-
-```php
-public count(): mixed
-```
-
-
-
-
-
-
-
+| `$limit` | **** |  |
+| `$current` | **** |  |
 
 
 
@@ -395,7 +424,7 @@ public count(): mixed
 
 
 ```php
-public toArray(): mixed
+public toArray(): array
 ```
 
 
@@ -412,7 +441,7 @@ public toArray(): mixed
 
 ### rewind
 
-
+Iterator implementation
 
 ```php
 public rewind(): mixed
@@ -510,32 +539,6 @@ public valid(): mixed
 
 ***
 
-### setItems
-
-
-
-```php
-protected setItems(mixed $items): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$items` | **mixed** |  |
-
-
-
 
 ***
-
-
-***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

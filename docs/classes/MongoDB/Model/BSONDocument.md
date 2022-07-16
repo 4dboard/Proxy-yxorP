@@ -44,7 +44,7 @@ This overrides the parent constructor to allow property access of entries
 by default.
 
 ```php
-public __construct(array $input = [], int $flags = ArrayObject::ARRAY_AS_PROPS, string $iteratorClass = &#039;ArrayIterator&#039;): mixed
+public __construct(array $input = [], int $flags = ArrayObject::ARRAY_AS_PROPS, string $iterator_class = &#039;ArrayIterator&#039;): mixed
 ```
 
 
@@ -60,7 +60,7 @@ public __construct(array $input = [], int $flags = ArrayObject::ARRAY_AS_PROPS, 
 |-----------|------|-------------|
 | `$input` | **array** |  |
 | `$flags` | **int** |  |
-| `$iteratorClass` | **string** |  |
+| `$iterator_class` | **string** |  |
 
 
 
@@ -176,4 +176,4 @@ public jsonSerialize(): object
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

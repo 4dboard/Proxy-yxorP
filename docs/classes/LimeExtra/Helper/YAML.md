@@ -32,32 +32,6 @@ protected $cachePath
 ## Methods
 
 
-### fromString
-
-
-
-```php
-public static fromString( $string): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$string` | **** |  |
-
-
-
-
-***
-
 ### setCachePath
 
 
@@ -84,6 +58,32 @@ public setCachePath( $path): mixed
 
 ***
 
+### fromString
+
+
+
+```php
+public static fromString( $string): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$string` | **** |  |
+
+
+
+
+***
+
 ### fromFile
 
 
@@ -104,6 +104,59 @@ public fromFile( $file): array|mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **** |  |
+
+
+
+
+***
+
+### toYAML
+
+
+
+```php
+public toYAML( $array): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$array` | **** |  |
+
+
+
+
+***
+
+### toFile
+
+
+
+```php
+public toFile( $file,  $array): int
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **** |  |
+| `$array` | **** |  |
 
 
 
@@ -158,59 +211,6 @@ protected cache_file( $file,  $cachedfile, null $filemtime = null): bool
 | `$file` | **** |  |
 | `$cachedfile` | **** |  |
 | `$filemtime` | **null** |  |
-
-
-
-
-***
-
-### toFile
-
-
-
-```php
-public toFile( $file,  $array): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **** |  |
-| `$array` | **** |  |
-
-
-
-
-***
-
-### toYAML
-
-
-
-```php
-public toYAML( $array): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$array` | **** |  |
 
 
 
@@ -348,4 +348,4 @@ public __get(mixed $name): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

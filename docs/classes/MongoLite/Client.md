@@ -2,7 +2,7 @@
 
 # Client
 
-
+Client object.
 
 
 
@@ -18,7 +18,7 @@
 
 
 ```php
-protected $databases
+protected array $databases
 ```
 
 
@@ -33,7 +33,7 @@ protected $databases
 
 
 ```php
-protected $path
+protected string $path
 ```
 
 
@@ -48,7 +48,7 @@ protected $path
 
 
 ```php
-protected $options
+protected array $options
 ```
 
 
@@ -63,10 +63,10 @@ protected $options
 
 ### __construct
 
-
+Constructor
 
 ```php
-public __construct(mixed $path, mixed $options = []): mixed
+public __construct(string $path, array $options = []): mixed
 ```
 
 
@@ -80,8 +80,8 @@ public __construct(mixed $path, mixed $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** |  |
-| `$options` | **mixed** |  |
+| `$path` | **string** | - Pathname to database file or :memory: |
+| `$options` | **array** |  |
 
 
 
@@ -90,10 +90,10 @@ public __construct(mixed $path, mixed $options = []): mixed
 
 ### listDBs
 
-
+List Databases
 
 ```php
-public listDBs(): mixed
+public listDBs(): array
 ```
 
 
@@ -104,16 +104,20 @@ public listDBs(): mixed
 
 
 
+**Return Value:**
+
+List of database names
+
 
 
 ***
 
 ### selectCollection
 
-
+Select Collection
 
 ```php
-public selectCollection(mixed $database, mixed $collection): mixed
+public selectCollection(string $database, string $collection): \MongoLite\Collection
 ```
 
 
@@ -127,8 +131,8 @@ public selectCollection(mixed $database, mixed $collection): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$database` | **mixed** |  |
-| `$collection` | **mixed** |  |
+| `$database` | **string** |  |
+| `$collection` | **string** |  |
 
 
 
@@ -137,10 +141,10 @@ public selectCollection(mixed $database, mixed $collection): mixed
 
 ### selectDB
 
-
+Select database
 
 ```php
-public selectDB(mixed $name): mixed
+public selectDB(string $name): \MongoLite\Database
 ```
 
 
@@ -154,7 +158,7 @@ public selectDB(mixed $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$name` | **string** |  |
 
 
 
@@ -189,4 +193,4 @@ public __get(mixed $database): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

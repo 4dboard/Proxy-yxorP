@@ -2,12 +2,12 @@
 
 # Utils
 
-
+Class Controller
 
 
 
 * Full name: `\Collections\Controller\Utils`
-* Parent class: [`\yxorP\AuthController`](../../yxorP/AuthController.md)
+* Parent class: [`\Cockpit\AuthController`](../../Cockpit/AuthController.md)
 
 
 
@@ -85,6 +85,26 @@ public __construct(mixed $app): mixed
 
 ***
 
+### index
+
+
+
+```php
+public index(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### before
 
 
@@ -105,32 +125,12 @@ protected before(): mixed
 
 ***
 
-### index
-
-
-
-```php
-public index(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### render
 
 
 
 ```php
-protected render(mixed $view, mixed $params = array()): mixed
+protected render( $view, array $params = array()): mixed
 ```
 
 
@@ -144,8 +144,8 @@ protected render(mixed $view, mixed $params = array()): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$view` | **mixed** |  |
-| `$params` | **mixed** |  |
+| `$view` | **** |  |
+| `$params` | **array** |  |
 
 
 
@@ -157,7 +157,7 @@ protected render(mixed $view, mixed $params = array()): mixed
 
 
 ```php
-protected param(mixed $key, mixed $default = null): mixed
+protected param( $key, null $default = null): mixed
 ```
 
 
@@ -171,8 +171,8 @@ protected param(mixed $key, mixed $default = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
-| `$default` | **mixed** |  |
+| `$key` | **** |  |
+| `$default` | **null** |  |
 
 
 
@@ -184,7 +184,7 @@ protected param(mixed $key, mixed $default = null): mixed
 
 
 ```php
-protected module(mixed $module): mixed
+protected module( $module): null
 ```
 
 
@@ -198,7 +198,7 @@ protected module(mixed $module): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$module` | **mixed** |  |
+| `$module` | **** |  |
 
 
 
@@ -210,7 +210,7 @@ protected module(mixed $module): mixed
 
 
 ```php
-protected helper(mixed $name): mixed
+protected helper( $name): mixed
 ```
 
 
@@ -224,7 +224,7 @@ protected helper(mixed $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$name` | **** |  |
 
 
 
@@ -359,4 +359,4 @@ public __get(mixed $name): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

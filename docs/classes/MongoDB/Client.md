@@ -28,6 +28,36 @@ private static array $defaultTypeMap
 
 ***
 
+### wireVersionForReadConcern
+
+
+
+```php
+private static int $wireVersionForReadConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### wireVersionForWritableCommandWriteConcern
+
+
+
+```php
+private static int $wireVersionForWritableCommandWriteConcern
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### handshakeSeparator
 
 
@@ -656,4 +686,4 @@ private mergeDriverInfo(array $driver): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

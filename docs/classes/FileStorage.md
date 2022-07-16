@@ -166,6 +166,32 @@ public getURL(mixed $file): mixed
 
 ***
 
+### initStorage
+
+
+
+```php
+protected initStorage(mixed $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
 ### __call
 
 
@@ -193,32 +219,6 @@ public __call(mixed $name, mixed $args): mixed
 
 ***
 
-### initStorage
-
-
-
-```php
-protected initStorage(mixed $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-
-
-
 
 ***
-
-
-***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

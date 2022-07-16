@@ -1,7 +1,11 @@
 
 ***
 
-# yxorP Documentation
+# Documentation
+
+
+
+This is an automatically generated documentation for **Documentation**.
 
 
 ## Namespaces
@@ -14,38 +18,39 @@
 | Class | Description |
 |-------|-------------|
 | [`Attribute`](./classes/Attribute.md) | |
-| [`CLI`](./classes/CLI.md) | |
+| [`CLI`](./classes/CLI.md) | This file is part of the Cockpit project.|
 | [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](./classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-| [`ContainerArray`](./classes/ContainerArray.md) | |
-| [`DataCollection`](./classes/DataCollection.md) | |
-| [`DotEnv`](./classes/DotEnv.md) | |
+| [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](./classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
+| [`ContainerArray`](./classes/ContainerArray.md) | This file is part of the Cockpit project.|
+| [`DataCollection`](./classes/DataCollection.md) | This file is part of the Cockpit project.|
+| [`DotEnv`](./classes/DotEnv.md) | This file is part of the Cockpit project.|
 | [`FileStorage`](./classes/FileStorage.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
-| [`Lexy`](./classes/Lexy.md) | |
-| [`LiteDB`](./classes/LiteDB.md) | |
+| [`Lexy`](./classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
+| [`LiteDB`](./classes/LiteDB.md) | This file is part of the Cockpit project.|
 | [`LiteDBQuery`](./classes/LiteDBQuery.md) | |
 | [`Mailer`](./classes/Mailer.md) | |
 | [`Mailer_Message`](./classes/Mailer_Message.md) | |
-| [`Pagination`](./classes/Pagination.md) | |
+| [`Pagination`](./classes/Pagination.md) | This file is part of the Cockpit project.|
 | [`Parsedown`](./classes/Parsedown.md) | |
 | [`ParsedownExtra`](./classes/ParsedownExtra.md) | |
 | [`ParsedownExtraTest`](./classes/ParsedownExtraTest.md) | |
-| [`PhpToken`](./classes/PhpToken.md) | |
-| [`PriorityQueue`](./classes/PriorityQueue.md) | |
-| [`RedisLite`](./classes/RedisLite.md) | |
-| [`SVGSanitizer`](./classes/SVGSanitizer.md) | |
-| [`Spyc`](./classes/Spyc.md) | |
+| [`PriorityQueue`](./classes/PriorityQueue.md) | This file is part of the Cockpit project.|
+| [`RedisLite`](./classes/RedisLite.md) | RedisLite class.|
+| [`SVGSanitizer`](./classes/SVGSanitizer.md) | Class SVGSanitizer|
+| [`Spyc`](./classes/Spyc.md) | The Simple PHP YAML Class.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
-| [`blockListPluginAction`](./classes/blockListPluginAction.md) | |
-| [`cookiePluginAction`](./classes/cookiePluginAction.md) | |
-| [`dailyMotionPluginAction`](./classes/dailyMotionPluginAction.md) | |
-| [`headerRewritePluginAction`](./classes/headerRewritePluginAction.md) | |
-| [`logPluginAction`](./classes/logPluginAction.md) | |
-| [`proxifyPluginAction`](./classes/proxifyPluginAction.md) | |
-| [`streamPluginAction`](./classes/streamPluginAction.md) | |
-| [`twitterPluginAction`](./classes/twitterPluginAction.md) | |
-| [`youtubePluginAction`](./classes/youtubePluginAction.md) | |
+| [`onBuildContextAction`](./classes/onBuildContextAction.md) | |
+| [`onBuildExceptionAction`](./classes/onBuildExceptionAction.md) | |
+| [`onBuildHeadersAction`](./classes/onBuildHeadersAction.md) | |
+| [`onBuildIncludesAction`](./classes/onBuildIncludesAction.md) | |
+| [`onBuildRequestAction`](./classes/onBuildRequestAction.md) | |
+| [`onCheckAction`](./classes/onCheckAction.md) | |
+| [`onCompleteAction`](./classes/onCompleteAction.md) | |
+| [`onFinalAction`](./classes/onFinalAction.md) | |
+| [`onSendAction`](./classes/onSendAction.md) | |
+| [`onWriteAction`](./classes/onWriteAction.md) | |
 
 
 
@@ -57,13 +62,48 @@
 
 
 
-### \Bootmanager\Controller
+### \Cockpit
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Bootmanager/Controller/Admin.md) | |
+| [`AuthController`](./classes/Cockpit/AuthController.md) | Class Controller|
+
+
+
+
+### \Cockpit\Controller
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Accounts`](./classes/Cockpit/Controller/Accounts.md) | Class Controller|
+| [`Auth`](./classes/Cockpit/Controller/Auth.md) | Class Controller|
+| [`Base`](./classes/Cockpit/Controller/Base.md) | Class Controller|
+| [`Media`](./classes/Cockpit/Controller/Media.md) | Class Controller|
+| [`RestAdmin`](./classes/Cockpit/Controller/RestAdmin.md) | Class Controller|
+| [`RestApi`](./classes/Cockpit/Controller/RestApi.md) | Class Controller|
+| [`Settings`](./classes/Cockpit/Controller/Settings.md) | Class Controller|
+| [`Utils`](./classes/Cockpit/Controller/Utils.md) | Class Controller|
+| [`Webhooks`](./classes/Cockpit/Controller/Webhooks.md) | Class Controller|
+
+
+
+
+### \Cockpit\Helper
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Admin`](./classes/Cockpit/Helper/Admin.md) | Admin Helper class.|
+| [`Async`](./classes/Cockpit/Helper/Async.md) | Async Helper class.|
+| [`Csrf`](./classes/Cockpit/Helper/Csrf.md) | |
+| [`Jobs`](./classes/Cockpit/Helper/Jobs.md) | |
+| [`Revisions`](./classes/Cockpit/Helper/Revisions.md) | |
+| [`Updater`](./classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
 
 
 
@@ -86,11 +126,11 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Collections/Controller/Admin.md) | |
-| [`Import`](./classes/Collections/Controller/Import.md) | |
-| [`RestApi`](./classes/Collections/Controller/RestApi.md) | |
-| [`Trash`](./classes/Collections/Controller/Trash.md) | |
-| [`Utils`](./classes/Collections/Controller/Utils.md) | |
+| [`Admin`](./classes/Collections/Controller/Admin.md) | Class Controller|
+| [`Import`](./classes/Collections/Controller/Import.md) | Class Controller|
+| [`RestApi`](./classes/Collections/Controller/RestApi.md) | Class Controller|
+| [`Trash`](./classes/Collections/Controller/Trash.md) | Class Controller|
+| [`Utils`](./classes/Collections/Controller/Utils.md) | Class Controller|
 
 
 
@@ -147,6 +187,7 @@
 
 | Class | Description |
 |-------|-------------|
+| [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
 
 
@@ -159,18 +200,9 @@
 | Class | Description |
 |-------|-------------|
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
+| [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
 | [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](./classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-
-
-
-
-### \Feed\Controller
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`RestApi`](./classes/Feed/Controller/RestApi.md) | |
+| [`ComposerStaticInit43ee69a3007d6872663d476a71cbd862`](./classes/Composer/Autoload/ComposerStaticInit43ee69a3007d6872663d476a71cbd862.md) | |
 
 
 
@@ -185,7 +217,6 @@
 | [`ExpiredException`](./classes/Firebase/JWT/ExpiredException.md) | |
 | [`JWK`](./classes/Firebase/JWT/JWK.md) | JSON Web Key implementation, based on this spec:<br />https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41|
 | [`JWT`](./classes/Firebase/JWT/JWT.md) | JSON Web Token implementation, based on this spec:<br />https://tools.ietf.org/html/rfc7519|
-| [`Key`](./classes/Firebase/JWT/Key.md) | |
 | [`SignatureInvalidException`](./classes/Firebase/JWT/SignatureInvalidException.md) | |
 
 
@@ -197,8 +228,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Forms/Controller/Admin.md) | |
-| [`RestApi`](./classes/Forms/Controller/RestApi.md) | |
+| [`Admin`](./classes/Forms/Controller/Admin.md) | Class Controller|
+| [`RestApi`](./classes/Forms/Controller/RestApi.md) | Class Controller|
 
 
 
@@ -211,37 +242,6 @@
 |-------|-------------|
 | [`PrettyVersions`](./classes/Jean85/PrettyVersions.md) | |
 | [`Version`](./classes/Jean85/Version.md) | |
-
-
-
-
-### \Jean85\Exception
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`ProvidedPackageException`](./classes/Jean85/Exception/ProvidedPackageException.md) | |
-| [`ReplacedPackageException`](./classes/Jean85/Exception/ReplacedPackageException.md) | |
-
-
-
-#### Interfaces
-
-| Interface | Description |
-|-----------|-------------|
-| [`VersionMissingExceptionInterface`](./classes/Jean85/Exception/VersionMissingExceptionInterface.md) | |
-
-
-
-### \LayoutComponents\Controller
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`Admin`](./classes/LayoutComponents/Controller/Admin.md) | |
-| [`RestApi`](./classes/LayoutComponents/Controller/RestApi.md) | |
 
 
 
@@ -387,7 +387,6 @@
 | [`ExtensionMimeTypeDetector`](./classes/League/MimeTypeDetection/ExtensionMimeTypeDetector.md) | |
 | [`FinfoMimeTypeDetector`](./classes/League/MimeTypeDetection/FinfoMimeTypeDetector.md) | |
 | [`GeneratedExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
-| [`OverridingExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/OverridingExtensionToMimeTypeMap.md) | |
 
 
 
@@ -422,8 +421,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`App`](./classes/LimeExtra/App.md) | |
-| [`Controller`](./classes/LimeExtra/Controller.md) | |
+| [`App`](./classes/LimeExtra/App.md) | Class App|
+| [`Controller`](./classes/LimeExtra/Controller.md) | Class Controller|
 
 
 
@@ -588,242 +587,10 @@
 | [`ListIndexes`](./classes/MongoDB/Operation/ListIndexes.md) | Operation for the listIndexes command.|
 | [`MapReduce`](./classes/MongoDB/Operation/MapReduce.md) | Operation for the mapReduce command.|
 | [`ModifyCollection`](./classes/MongoDB/Operation/ModifyCollection.md) | Operation for the collMod command.|
-| [`RenameCollection`](./classes/MongoDB/Operation/RenameCollection.md) | Operation for the renameCollection command.|
 | [`ReplaceOne`](./classes/MongoDB/Operation/ReplaceOne.md) | Operation for replacing a single document with the update command.|
 | [`UpdateMany`](./classes/MongoDB/Operation/UpdateMany.md) | Operation for updating multiple documents with the update command.|
 | [`UpdateOne`](./classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
 | [`Watch`](./classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
-
-
-
-
-### \MongoDB\Tests
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`ClientFunctionalTest`](./classes/MongoDB/Tests/ClientFunctionalTest.md) | Functional tests for the Client class.|
-| [`ClientTest`](./classes/MongoDB/Tests/ClientTest.md) | Unit tests for the Client class.|
-| [`CommandObserver`](./classes/MongoDB/Tests/CommandObserver.md) | Observes command documents using the driver&#039;s monitoring API.|
-| [`DocumentationExamplesTest`](./classes/MongoDB/Tests/DocumentationExamplesTest.md) | Documentation examples to be parsed for inclusion in the MongoDB manual.|
-| [`FunctionalTestCase`](./classes/MongoDB/Tests/FunctionalTestCase.md) | |
-| [`FunctionsTest`](./classes/MongoDB/Tests/FunctionsTest.md) | Unit tests for utility functions.|
-| [`PedantryTest`](./classes/MongoDB/Tests/PedantryTest.md) | Pedantic tests that have nothing to do with functional correctness.|
-| [`TestCase`](./classes/MongoDB/Tests/TestCase.md) | |
-
-
-
-
-### \MongoDB\Tests\Collection
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`CollectionFunctionalTest`](./classes/MongoDB/Tests/Collection/CollectionFunctionalTest.md) | Functional tests for the Collection class.|
-| [`CrudSpecFunctionalTest`](./classes/MongoDB/Tests/Collection/CrudSpecFunctionalTest.md) | CRUD spec functional tests.|
-| [`FunctionalTestCase`](./classes/MongoDB/Tests/Collection/FunctionalTestCase.md) | Base class for Collection functional tests.|
-
-
-
-
-### \MongoDB\Tests\Command
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`ListCollectionsTest`](./classes/MongoDB/Tests/Command/ListCollectionsTest.md) | |
-| [`ListDatabasesTest`](./classes/MongoDB/Tests/Command/ListDatabasesTest.md) | |
-
-
-
-
-### \MongoDB\Tests\Database
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`CollectionManagementFunctionalTest`](./classes/MongoDB/Tests/Database/CollectionManagementFunctionalTest.md) | Functional tests for collection management methods.|
-| [`DatabaseFunctionalTest`](./classes/MongoDB/Tests/Database/DatabaseFunctionalTest.md) | Functional tests for the Database class.|
-| [`FunctionalTestCase`](./classes/MongoDB/Tests/Database/FunctionalTestCase.md) | Base class for Database functional tests.|
-
-
-
-
-### \MongoDB\Tests\GridFS
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`BucketFunctionalTest`](./classes/MongoDB/Tests/GridFS/BucketFunctionalTest.md) | Functional tests for the Bucket class.|
-| [`FunctionalTestCase`](./classes/MongoDB/Tests/GridFS/FunctionalTestCase.md) | Base class for GridFS functional tests.|
-| [`ReadableStreamFunctionalTest`](./classes/MongoDB/Tests/GridFS/ReadableStreamFunctionalTest.md) | Functional tests for the internal ReadableStream class.|
-| [`StreamWrapperFunctionalTest`](./classes/MongoDB/Tests/GridFS/StreamWrapperFunctionalTest.md) | Functional tests for the internal StreamWrapper class.|
-| [`UnusableStream`](./classes/MongoDB/Tests/GridFS/UnusableStream.md) | |
-| [`WritableStreamFunctionalTest`](./classes/MongoDB/Tests/GridFS/WritableStreamFunctionalTest.md) | Functional tests for the internal WritableStream class.|
-
-
-
-
-### \MongoDB\Tests\Model
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`BSONArrayTest`](./classes/MongoDB/Tests/Model/BSONArrayTest.md) | |
-| [`BSONDocumentTest`](./classes/MongoDB/Tests/Model/BSONDocumentTest.md) | |
-| [`BSONIteratorTest`](./classes/MongoDB/Tests/Model/BSONIteratorTest.md) | |
-| [`CachingIteratorTest`](./classes/MongoDB/Tests/Model/CachingIteratorTest.md) | |
-| [`ChangeStreamIteratorTest`](./classes/MongoDB/Tests/Model/ChangeStreamIteratorTest.md) | |
-| [`CollectionInfoTest`](./classes/MongoDB/Tests/Model/CollectionInfoTest.md) | |
-| [`DatabaseInfoTest`](./classes/MongoDB/Tests/Model/DatabaseInfoTest.md) | |
-| [`IndexInfoFunctionalTest`](./classes/MongoDB/Tests/Model/IndexInfoFunctionalTest.md) | |
-| [`IndexInfoTest`](./classes/MongoDB/Tests/Model/IndexInfoTest.md) | |
-| [`IndexInputTest`](./classes/MongoDB/Tests/Model/IndexInputTest.md) | |
-| [`UncloneableObject`](./classes/MongoDB/Tests/Model/UncloneableObject.md) | This class is used by the BSONArray and BSONDocument clone tests.|
-
-
-
-
-### \MongoDB\Tests\Operation
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`AggregateFunctionalTest`](./classes/MongoDB/Tests/Operation/AggregateFunctionalTest.md) | Base class for Operation functional tests.|
-| [`AggregateTest`](./classes/MongoDB/Tests/Operation/AggregateTest.md) | Base class for Operation unit tests.|
-| [`BulkWriteFunctionalTest`](./classes/MongoDB/Tests/Operation/BulkWriteFunctionalTest.md) | Base class for Operation functional tests.|
-| [`BulkWriteTest`](./classes/MongoDB/Tests/Operation/BulkWriteTest.md) | Base class for Operation unit tests.|
-| [`CountDocumentsFunctionalTest`](./classes/MongoDB/Tests/Operation/CountDocumentsFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CountDocumentsTest`](./classes/MongoDB/Tests/Operation/CountDocumentsTest.md) | Base class for Operation unit tests.|
-| [`CountFunctionalTest`](./classes/MongoDB/Tests/Operation/CountFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CountTest`](./classes/MongoDB/Tests/Operation/CountTest.md) | Base class for Operation unit tests.|
-| [`CreateCollectionFunctionalTest`](./classes/MongoDB/Tests/Operation/CreateCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CreateCollectionTest`](./classes/MongoDB/Tests/Operation/CreateCollectionTest.md) | Base class for Operation unit tests.|
-| [`CreateIndexesFunctionalTest`](./classes/MongoDB/Tests/Operation/CreateIndexesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CreateIndexesTest`](./classes/MongoDB/Tests/Operation/CreateIndexesTest.md) | Base class for Operation unit tests.|
-| [`DatabaseCommandFunctionalTest`](./classes/MongoDB/Tests/Operation/DatabaseCommandFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DatabaseCommandTest`](./classes/MongoDB/Tests/Operation/DatabaseCommandTest.md) | Base class for Operation unit tests.|
-| [`DeleteFunctionalTest`](./classes/MongoDB/Tests/Operation/DeleteFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DeleteTest`](./classes/MongoDB/Tests/Operation/DeleteTest.md) | Base class for Operation unit tests.|
-| [`DistinctFunctionalTest`](./classes/MongoDB/Tests/Operation/DistinctFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DistinctTest`](./classes/MongoDB/Tests/Operation/DistinctTest.md) | Base class for Operation unit tests.|
-| [`DropCollectionFunctionalTest`](./classes/MongoDB/Tests/Operation/DropCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DropCollectionTest`](./classes/MongoDB/Tests/Operation/DropCollectionTest.md) | Base class for Operation unit tests.|
-| [`DropDatabaseFunctionalTest`](./classes/MongoDB/Tests/Operation/DropDatabaseFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DropDatabaseTest`](./classes/MongoDB/Tests/Operation/DropDatabaseTest.md) | Base class for Operation unit tests.|
-| [`DropIndexesFunctionalTest`](./classes/MongoDB/Tests/Operation/DropIndexesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DropIndexesTest`](./classes/MongoDB/Tests/Operation/DropIndexesTest.md) | Base class for Operation unit tests.|
-| [`EstimatedDocumentCountTest`](./classes/MongoDB/Tests/Operation/EstimatedDocumentCountTest.md) | Base class for Operation unit tests.|
-| [`ExplainFunctionalTest`](./classes/MongoDB/Tests/Operation/ExplainFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ExplainTest`](./classes/MongoDB/Tests/Operation/ExplainTest.md) | Base class for Operation unit tests.|
-| [`FindAndModifyFunctionalTest`](./classes/MongoDB/Tests/Operation/FindAndModifyFunctionalTest.md) | Base class for Operation functional tests.|
-| [`FindAndModifyTest`](./classes/MongoDB/Tests/Operation/FindAndModifyTest.md) | Base class for Operation unit tests.|
-| [`FindFunctionalTest`](./classes/MongoDB/Tests/Operation/FindFunctionalTest.md) | Base class for Operation functional tests.|
-| [`FindOneAndDeleteTest`](./classes/MongoDB/Tests/Operation/FindOneAndDeleteTest.md) | Base class for Operation unit tests.|
-| [`FindOneAndReplaceTest`](./classes/MongoDB/Tests/Operation/FindOneAndReplaceTest.md) | Base class for Operation unit tests.|
-| [`FindOneAndUpdateTest`](./classes/MongoDB/Tests/Operation/FindOneAndUpdateTest.md) | Base class for Operation unit tests.|
-| [`FindOneFunctionalTest`](./classes/MongoDB/Tests/Operation/FindOneFunctionalTest.md) | Base class for Operation functional tests.|
-| [`FindTest`](./classes/MongoDB/Tests/Operation/FindTest.md) | Base class for Operation unit tests.|
-| [`FunctionalTestCase`](./classes/MongoDB/Tests/Operation/FunctionalTestCase.md) | Base class for Operation functional tests.|
-| [`InsertManyFunctionalTest`](./classes/MongoDB/Tests/Operation/InsertManyFunctionalTest.md) | Base class for Operation functional tests.|
-| [`InsertManyTest`](./classes/MongoDB/Tests/Operation/InsertManyTest.md) | Base class for Operation unit tests.|
-| [`InsertOneFunctionalTest`](./classes/MongoDB/Tests/Operation/InsertOneFunctionalTest.md) | Base class for Operation functional tests.|
-| [`InsertOneTest`](./classes/MongoDB/Tests/Operation/InsertOneTest.md) | Base class for Operation unit tests.|
-| [`ListCollectionNamesFunctionalTest`](./classes/MongoDB/Tests/Operation/ListCollectionNamesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListCollectionsFunctionalTest`](./classes/MongoDB/Tests/Operation/ListCollectionsFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListDatabaseNamesFunctionalTest`](./classes/MongoDB/Tests/Operation/ListDatabaseNamesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListDatabasesFunctionalTest`](./classes/MongoDB/Tests/Operation/ListDatabasesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListIndexesFunctionalTest`](./classes/MongoDB/Tests/Operation/ListIndexesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListIndexesTest`](./classes/MongoDB/Tests/Operation/ListIndexesTest.md) | Base class for Operation unit tests.|
-| [`MapReduceFunctionalTest`](./classes/MongoDB/Tests/Operation/MapReduceFunctionalTest.md) | Base class for Operation functional tests.|
-| [`MapReduceTest`](./classes/MongoDB/Tests/Operation/MapReduceTest.md) | Base class for Operation unit tests.|
-| [`ModifyCollectionFunctionalTest`](./classes/MongoDB/Tests/Operation/ModifyCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ModifyCollectionTest`](./classes/MongoDB/Tests/Operation/ModifyCollectionTest.md) | Base class for Operation unit tests.|
-| [`RenameCollectionFunctionalTest`](./classes/MongoDB/Tests/Operation/RenameCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`RenameCollectionTest`](./classes/MongoDB/Tests/Operation/RenameCollectionTest.md) | Base class for Operation unit tests.|
-| [`ReplaceOneTest`](./classes/MongoDB/Tests/Operation/ReplaceOneTest.md) | Base class for Operation unit tests.|
-| [`TestCase`](./classes/MongoDB/Tests/Operation/TestCase.md) | Base class for Operation unit tests.|
-| [`UpdateFunctionalTest`](./classes/MongoDB/Tests/Operation/UpdateFunctionalTest.md) | Base class for Operation functional tests.|
-| [`UpdateManyTest`](./classes/MongoDB/Tests/Operation/UpdateManyTest.md) | Base class for Operation unit tests.|
-| [`UpdateOneTest`](./classes/MongoDB/Tests/Operation/UpdateOneTest.md) | Base class for Operation unit tests.|
-| [`UpdateTest`](./classes/MongoDB/Tests/Operation/UpdateTest.md) | Base class for Operation unit tests.|
-| [`WatchFunctionalTest`](./classes/MongoDB/Tests/Operation/WatchFunctionalTest.md) | Base class for Operation functional tests.|
-| [`WatchTest`](./classes/MongoDB/Tests/Operation/WatchTest.md) | Although these are unit tests, we extend FunctionalTestCase because Watch is<br />constructed with a Manager instance.|
-
-
-
-
-### \MongoDB\Tests\SpecTests
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`AtlasDataLakeSpecTest`](./classes/MongoDB/Tests/SpecTests/AtlasDataLakeSpecTest.md) | Atlas Data Lake spec tests.|
-| [`ChangeStreamsSpecTest`](./classes/MongoDB/Tests/SpecTests/ChangeStreamsSpecTest.md) | Change Streams spec tests.|
-| [`ClientSideEncryptionSpecTest`](./classes/MongoDB/Tests/SpecTests/ClientSideEncryptionSpecTest.md) | Client-side encryption spec tests.|
-| [`CommandExpectations`](./classes/MongoDB/Tests/SpecTests/CommandExpectations.md) | Spec test CommandStartedEvent expectations.|
-| [`CommandMonitoringSpecTest`](./classes/MongoDB/Tests/SpecTests/CommandMonitoringSpecTest.md) | Command monitoring spec tests.|
-| [`Context`](./classes/MongoDB/Tests/SpecTests/Context.md) | Execution context for spec tests.|
-| [`DocumentsMatchConstraint`](./classes/MongoDB/Tests/SpecTests/DocumentsMatchConstraint.md) | Constraint that checks if one document matches another.|
-| [`DocumentsMatchConstraintTest`](./classes/MongoDB/Tests/SpecTests/DocumentsMatchConstraintTest.md) | |
-| [`ErrorExpectation`](./classes/MongoDB/Tests/SpecTests/ErrorExpectation.md) | Spec test operation error expectation.|
-| [`FunctionalTestCase`](./classes/MongoDB/Tests/SpecTests/FunctionalTestCase.md) | Base class for spec test runners.|
-| [`Operation`](./classes/MongoDB/Tests/SpecTests/Operation.md) | Spec test operation.|
-| [`PrimaryStepDownSpecTest`](./classes/MongoDB/Tests/SpecTests/PrimaryStepDownSpecTest.md) | Base class for spec test runners.|
-| [`ReadWriteConcernSpecTest`](./classes/MongoDB/Tests/SpecTests/ReadWriteConcernSpecTest.md) | Base class for spec test runners.|
-| [`ResultExpectation`](./classes/MongoDB/Tests/SpecTests/ResultExpectation.md) | Spec test operation result expectation.|
-| [`RetryableReadsSpecTest`](./classes/MongoDB/Tests/SpecTests/RetryableReadsSpecTest.md) | Retryable reads spec tests.|
-| [`RetryableWritesSpecTest`](./classes/MongoDB/Tests/SpecTests/RetryableWritesSpecTest.md) | Retryable writes spec tests.|
-| [`TransactionsSpecTest`](./classes/MongoDB/Tests/SpecTests/TransactionsSpecTest.md) | Transactions spec tests.|
-
-
-
-
-### \MongoDB\Tests\UnifiedSpecTests
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`CollectionData`](./classes/MongoDB/Tests/UnifiedSpecTests/CollectionData.md) | |
-| [`Context`](./classes/MongoDB/Tests/UnifiedSpecTests/Context.md) | Execution context for spec tests.|
-| [`EntityMap`](./classes/MongoDB/Tests/UnifiedSpecTests/EntityMap.md) | |
-| [`EventCollector`](./classes/MongoDB/Tests/UnifiedSpecTests/EventCollector.md) | EventCollector handles &quot;storeEventsAsEntities&quot; for client entities.|
-| [`EventObserver`](./classes/MongoDB/Tests/UnifiedSpecTests/EventObserver.md) | EventObserver handles &quot;observeEvents&quot; for client entities and assertions for<br />&quot;expectEvents&quot; and special operations (e.g. assertSameLsidOnLastTwoCommands).|
-| [`ExpectedError`](./classes/MongoDB/Tests/UnifiedSpecTests/ExpectedError.md) | |
-| [`ExpectedResult`](./classes/MongoDB/Tests/UnifiedSpecTests/ExpectedResult.md) | |
-| [`FailPointObserver`](./classes/MongoDB/Tests/UnifiedSpecTests/FailPointObserver.md) | |
-| [`Loop`](./classes/MongoDB/Tests/UnifiedSpecTests/Loop.md) | |
-| [`Operation`](./classes/MongoDB/Tests/UnifiedSpecTests/Operation.md) | |
-| [`RunOnRequirement`](./classes/MongoDB/Tests/UnifiedSpecTests/RunOnRequirement.md) | |
-| [`UnifiedSpecTest`](./classes/MongoDB/Tests/UnifiedSpecTests/UnifiedSpecTest.md) | Unified test format spec tests.|
-| [`UnifiedTestCase`](./classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestCase.md) | Unified test case model class.|
-| [`UnifiedTestRunner`](./classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestRunner.md) | Unified test runner.|
-| [`Util`](./classes/MongoDB/Tests/UnifiedSpecTests/Util.md) | |
-
-
-
-
-### \MongoDB\Tests\UnifiedSpecTests\Constraint
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`IsBsonType`](./classes/MongoDB/Tests/UnifiedSpecTests/Constraint/IsBsonType.md) | |
-| [`IsBsonTypeTest`](./classes/MongoDB/Tests/UnifiedSpecTests/Constraint/IsBsonTypeTest.md) | |
-| [`Matches`](./classes/MongoDB/Tests/UnifiedSpecTests/Constraint/Matches.md) | Constraint that checks if one value matches another.|
-| [`MatchesTest`](./classes/MongoDB/Tests/UnifiedSpecTests/Constraint/MatchesTest.md) | |
-| [`SerializableArray`](./classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableArray.md) | |
-| [`SerializableObject`](./classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableObject.md) | |
 
 
 
@@ -848,10 +615,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/MongoLite/Client.md) | |
-| [`Collection`](./classes/MongoLite/Collection.md) | |
-| [`Cursor`](./classes/MongoLite/Cursor.md) | |
-| [`Database`](./classes/MongoLite/Database.md) | |
+| [`Client`](./classes/MongoLite/Client.md) | Client object.|
+| [`Collection`](./classes/MongoLite/Collection.md) | Collection object.|
+| [`Cursor`](./classes/MongoLite/Cursor.md) | Cursor object.|
+| [`Database`](./classes/MongoLite/Database.md) | Database object.|
 | [`UtilArrayQuery`](./classes/MongoLite/UtilArrayQuery.md) | |
 
 
@@ -871,11 +638,67 @@
 
 
 
+
+### \PackageVersions
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Installer`](./classes/PackageVersions/Installer.md) | |
+| [`Versions`](./classes/PackageVersions/Versions.md) | This class is generated by composer/package-versions-deprecated, specifically by|
+
+
+
+
+### \PhpDocumentorMarkdown\Example
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`AbstractProduct`](./classes/PhpDocumentorMarkdown/Example/AbstractProduct.md) | Base class for all products.|
+| [`Pizza`](./classes/PhpDocumentorMarkdown/Example/Pizza.md) | A pizza.|
+
+
+#### Traits
+
+| Trait | Description |
+|-------|-------------|
+| [`ReviewableTrait`](./classes/PhpDocumentorMarkdown/Example/ReviewableTrait.md) | A trait for reviewable objects.|
+
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`OAuthTokenProvider`](./classes/PHPMailer/PHPMailer/OAuthTokenProvider.md) | OAuthTokenProvider - OAuth2 token provider interface.|
+| [`ProductInterface`](./classes/PhpDocumentorMarkdown/Example/ProductInterface.md) | Interface for a product.|
+
+
+
+### \PhpDocumentorMarkdown\Example\Pizza
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Base`](./classes/PhpDocumentorMarkdown/Example/Pizza/Base.md) | Represents a pizza base.|
+| [`Sauce`](./classes/PhpDocumentorMarkdown/Example/Pizza/Sauce.md) | Pizza sauce class.|
+
+
+
+
+### \PhpDocumentorMarkdown\Extension
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`JsonExtension`](./classes/PhpDocumentorMarkdown/Extension/JsonExtension.md) | |
+| [`MacroDataExtension`](./classes/PhpDocumentorMarkdown/Extension/MacroDataExtension.md) | |
+| [`ObjectExtension`](./classes/PhpDocumentorMarkdown/Extension/ObjectExtension.md) | |
+
 
 
 
@@ -896,8 +719,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Singletons/Controller/Admin.md) | |
-| [`RestApi`](./classes/Singletons/Controller/RestApi.md) | |
+| [`Admin`](./classes/Singletons/Controller/Admin.md) | Class Controller|
+| [`RestApi`](./classes/Singletons/Controller/RestApi.md) | Class Controller|
 
 
 
@@ -939,56 +762,162 @@
 
 
 
-### \rljUtils\Controller
+### \yxorP\app
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/rljUtils/Controller/Admin.md) | |
+| [`yP`](./classes/yxorP/app/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
 
 
 
 
-### \yxorP
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`AuthController`](./classes/yxorP/AuthController.md) | |
-
-
-
-
-### \yxorP\Controller
+### \yxorP\app\lib\http
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`Accounts`](./classes/yxorP/Controller/Accounts.md) | |
-| [`Auth`](./classes/yxorP/Controller/Auth.md) | |
-| [`Base`](./classes/yxorP/Controller/Base.md) | |
-| [`Media`](./classes/yxorP/Controller/Media.md) | |
-| [`RestAdmin`](./classes/yxorP/Controller/RestAdmin.md) | |
-| [`RestApi`](./classes/yxorP/Controller/RestApi.md) | |
-| [`Settings`](./classes/yxorP/Controller/Settings.md) | |
-| [`Utils`](./classes/yxorP/Controller/Utils.md) | |
-| [`Webhooks`](./classes/yxorP/Controller/Webhooks.md) | |
+| [`cache`](./classes/yxorP/app/lib/http/cache.md) | |
+| [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | |
+| [`request`](./classes/yxorP/app/lib/http/request.md) | |
+| [`response`](./classes/yxorP/app/lib/http/response.md) | |
+| [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | |
+
+
+#### Traits
+
+| Trait | Description |
+|-------|-------------|
+| [`state`](./classes/yxorP/app/lib/http/state.md) | |
 
 
 
 
-### \yxorP\Helper
+### \yxorP\app\lib\minify
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/yxorP/Helper/Admin.md) | Admin Helper class.|
-| [`Async`](./classes/yxorP/Helper/Async.md) | Async Helper class.|
-| [`Csrf`](./classes/yxorP/Helper/Csrf.md) | |
-| [`Jobs`](./classes/yxorP/Helper/Jobs.md) | |
-| [`Revisions`](./classes/yxorP/Helper/Revisions.md) | |
-| [`Updater`](./classes/yxorP/Helper/Updater.md) | Admin Helper class.|
+| [`areplacerInterface`](./classes/yxorP/app/lib/minify/areplacerInterface.md) | |
+| [`attributesSimplifier`](./classes/yxorP/app/lib/minify/attributesSimplifier.md) | |
+| [`htmlCommentsRemover`](./classes/yxorP/app/lib/minify/htmlCommentsRemover.md) | |
+| [`inlineCssMinifier`](./classes/yxorP/app/lib/minify/inlineCssMinifier.md) | |
+| [`inlineJavascriptMinifier`](./classes/yxorP/app/lib/minify/inlineJavascriptMinifier.md) | |
+| [`minify`](./classes/yxorP/app/lib/minify/minify.md) | |
+| [`quotesRemover`](./classes/yxorP/app/lib/minify/quotesRemover.md) | |
+| [`whitespacesRemover`](./classes/yxorP/app/lib/minify/whitespacesRemover.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`minfyInterface`](./classes/yxorP/app/lib/minify/minfyInterface.md) | |
+
+
+
+### \yxorP\app\lib\parser
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`domain`](./classes/yxorP/app/lib/parser/domain.md) | |
+| [`idna`](./classes/yxorP/app/lib/parser/idna.md) | |
+| [`idnaInfo`](./classes/yxorP/app/lib/parser/idnaInfo.md) | |
+| [`resolvedDomain`](./classes/yxorP/app/lib/parser/resolvedDomain.md) | |
+| [`rules`](./classes/yxorP/app/lib/parser/rules.md) | |
+| [`stream`](./classes/yxorP/app/lib/parser/stream.md) | |
+| [`suffix`](./classes/yxorP/app/lib/parser/suffix.md) | |
+| [`syntaxError`](./classes/yxorP/app/lib/parser/syntaxError.md) | |
+| [`topLevelDomains`](./classes/yxorP/app/lib/parser/topLevelDomains.md) | |
+| [`unableToLoadPublicSuffixList`](./classes/yxorP/app/lib/parser/unableToLoadPublicSuffixList.md) | |
+| [`unableToLoadResource`](./classes/yxorP/app/lib/parser/unableToLoadResource.md) | |
+| [`unableToLoadTopLevelDomainList`](./classes/yxorP/app/lib/parser/unableToLoadTopLevelDomainList.md) | |
+| [`unableToResolveDomain`](./classes/yxorP/app/lib/parser/unableToResolveDomain.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`cannotProcessHostInterface`](./classes/yxorP/app/lib/parser/cannotProcessHostInterface.md) | |
+| [`domainNameProviderInterface`](./classes/yxorP/app/lib/parser/domainNameProviderInterface.md) | |
+| [`domainNameResolverInterface`](./classes/yxorP/app/lib/parser/domainNameResolverInterface.md) | |
+| [`hostInterface`](./classes/yxorP/app/lib/parser/hostInterface.md) | |
+| [`nameInterface`](./classes/yxorP/app/lib/parser/nameInterface.md) | |
+| [`publicSuffixListInterface`](./classes/yxorP/app/lib/parser/publicSuffixListInterface.md) | |
+| [`resolvedDomainNameInterface`](./classes/yxorP/app/lib/parser/resolvedDomainNameInterface.md) | |
+| [`resourceUriInterface`](./classes/yxorP/app/lib/parser/resourceUriInterface.md) | |
+| [`topLevelDomainInterface`](./classes/yxorP/app/lib/parser/topLevelDomainInterface.md) | |
+| [`topLevelDomainListInterface`](./classes/yxorP/app/lib/parser/topLevelDomainListInterface.md) | |
+
+
+
+### \yxorP\app\lib\parser\storage
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`psrStorageFactory`](./classes/yxorP/app/lib/parser/storage/psrStorageFactory.md) | |
+| [`publicSuffixListPsr16Cache`](./classes/yxorP/app/lib/parser/storage/publicSuffixListPsr16Cache.md) | |
+| [`publicSuffixListPsr18Client`](./classes/yxorP/app/lib/parser/storage/publicSuffixListPsr18Client.md) | |
+| [`rulesStorage`](./classes/yxorP/app/lib/parser/storage/rulesStorage.md) | |
+| [`timeToLive`](./classes/yxorP/app/lib/parser/storage/timeToLive.md) | |
+| [`topLevelDomainListPsr16Cache`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListPsr16Cache.md) | |
+| [`topLevelDomainListPsr18Client`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListPsr18Client.md) | |
+| [`topLevelDomainsStorage`](./classes/yxorP/app/lib/parser/storage/topLevelDomainsStorage.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`publicSuffixListCacheInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListCacheInterface.md) | |
+| [`publicSuffixListClientInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListClientInterface.md) | |
+| [`publicSuffixListStorageFactoryInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListStorageFactoryInterface.md) | |
+| [`publicSuffixListStorageInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListStorageInterface.md) | |
+| [`topLevelDomainListCacheInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListCacheInterface.md) | |
+| [`topLevelDomainListClientInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListClientInterface.md) | |
+| [`topLevelDomainListStorageFactoryInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListStorageFactoryInterface.md) | |
+| [`topLevelDomainListStorageInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListStorageInterface.md) | |
+
+
+
+### \yxorP\app\plugin
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`blockListPluginAction`](./classes/yxorP/app/plugin/blockListPluginAction.md) | |
+| [`cookiePluginAction`](./classes/yxorP/app/plugin/cookiePluginAction.md) | |
+| [`headerRewritePluginAction`](./classes/yxorP/app/plugin/headerRewritePluginAction.md) | |
+| [`logPluginAction`](./classes/yxorP/app/plugin/logPluginAction.md) | |
+| [`proxifyPluginAction`](./classes/yxorP/app/plugin/proxifyPluginAction.md) | |
+| [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | |
+
+
+
+
+### \yxorp\Controller
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Admin`](./classes/yxorp/Controller/Admin.md) | Class Controller|
+| [`Admin`](./classes/yxorp/Controller/Admin.md) | Class Controller|
+
+
+
+
+***
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

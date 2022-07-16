@@ -20,7 +20,7 @@ final class stream
         return $content;
     }
 
-    private static function fromPath(string $path, $context = null): bool
+    private static function fromPath(string $path, $context = null): mixed
     {
         if (null === $context) {
             return @fopen($path, 'r');

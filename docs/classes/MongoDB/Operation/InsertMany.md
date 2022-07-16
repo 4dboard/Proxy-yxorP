@@ -20,6 +20,21 @@ Operation for inserting multiple documents with the insert command.
 ## Properties
 
 
+### wireVersionForDocumentLevelValidation
+
+
+
+```php
+private static int $wireVersionForDocumentLevelValidation
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### databaseName
 
 
@@ -96,11 +111,16 @@ Supported options:
 * bypassDocumentValidation (boolean): If true, allows the write to
   circumvent document level validation.
 
+  For servers < 3.2, this option is ignored as document level validation
+  is not available.
+
 * ordered (boolean): If true, when an insert fails, return without
   performing the remaining writes. If false, when a write fails,
   continue with the remaining writes, if any. The default is true.
 
 * session (MongoDB\Driver\Session): Client session.
+
+  Sessions are not supported for server versions < 3.6.
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
@@ -152,35 +172,12 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\InsertManyResult
 
 ***
 
-### createBulkWriteOptions
-
-Create options for constructing the bulk write.
-
-```php
-private createBulkWriteOptions(): array
-```
-
-
-
-
-
-
-
-
-
-
-**See Also:**
-
-* https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php - 
-
-***
-
-### createExecuteOptions
+### createOptions
 
 Create options for executing the bulk write.
 
 ```php
-private createExecuteOptions(): array
+private createOptions(): array
 ```
 
 
@@ -200,4 +197,4 @@ private createExecuteOptions(): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

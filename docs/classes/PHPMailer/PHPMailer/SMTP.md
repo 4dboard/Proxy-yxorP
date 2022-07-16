@@ -13,7 +13,7 @@ Implements RFC 821 SMTP commands and provides some utility methods for sending m
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`VERSION`|public|string|&#039;6.6.3&#039;|
+|`VERSION`|public|string|&#039;6.5.1&#039;|
 |`LE`|public|string|&quot;\r\n&quot;|
 |`DEFAULT_PORT`|public|int|25|
 |`MAX_LINE_LENGTH`|public|int|998|
@@ -356,7 +356,7 @@ public startTLS(): bool
 Perform SMTP authentication.
 
 ```php
-public authenticate(string $username, string $password, string $authtype = null, \PHPMailer\PHPMailer\OAuthTokenProvider $OAuth = null): bool
+public authenticate(string $username, string $password, string $authtype = null, \PHPMailer\PHPMailer\OAuth $OAuth = null): bool
 ```
 
 Must be run after hello().
@@ -373,7 +373,7 @@ Must be run after hello().
 | `$username` | **string** | The user name |
 | `$password` | **string** | The password |
 | `$authtype` | **string** | The auth type (CRAM-MD5, PLAIN, LOGIN, XOAUTH2) |
-| `$OAuth` | **\PHPMailer\PHPMailer\OAuthTokenProvider** | An optional OAuthTokenProvider instance for XOAUTH2 authentication |
+| `$OAuth` | **\PHPMailer\PHPMailer\OAuth** | An optional OAuth instance for XOAUTH2 authentication |
 
 
 **Return Value:**
@@ -471,7 +471,7 @@ public data(string $msg_data): bool
 ```
 
 Issues a data command and sends the msg_data to the server,
-finalizing the mail transaction. $msg_data is the message
+finializing the mail transaction. $msg_data is the message
 that is to be send with the headers. Each header needs to be
 on a single line followed by a <CRLF> with the message headers
 and the message body being separated by an additional <CRLF>.
@@ -1262,4 +1262,4 @@ If no pattern was matched, it will return false.
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -13,9 +13,7 @@
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`SHORT_COMMIT_LENGTH`|private| |7|
-|`NO_VERSION_TEXT`|public| |&#039;{no version}&#039;|
-|`NO_REFERENCE_TEXT`|public| |&#039;{no reference}&#039;|
+|`SHORT_COMMIT_LENGTH`|public| |\Jean85\PrettyVersions::SHORT_COMMIT_LENGTH|
 
 ## Properties
 
@@ -35,12 +33,12 @@ private string $packageName
 
 ***
 
-### prettyVersion
+### shortVersion
 
 
 
 ```php
-private string $prettyVersion
+private string $shortVersion
 ```
 
 
@@ -50,12 +48,12 @@ private string $prettyVersion
 
 ***
 
-### reference
+### commitHash
 
 
 
 ```php
-private string $reference
+private string $commitHash
 ```
 
 
@@ -88,7 +86,7 @@ private bool $versionIsTagged
 
 
 ```php
-public __construct(string $packageName, ?string $prettyVersion = null, ?string $reference = null): mixed
+public __construct(string $packageName, string $version): mixed
 ```
 
 
@@ -103,8 +101,7 @@ public __construct(string $packageName, ?string $prettyVersion = null, ?string $
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$packageName` | **string** |  |
-| `$prettyVersion` | **?string** |  |
-| `$reference` | **?string** |  |
+| `$version` | **string** |  |
 
 
 
@@ -151,6 +148,26 @@ public getFullVersion(): string
 
 ***
 
+### getVersionWithShortReference
+
+
+
+```php
+public getVersionWithShortReference(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### getVersionWithShortCommit
 
 
@@ -165,26 +182,6 @@ public getVersionWithShortCommit(): string
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
-
-***
-
-### getVersionWithShortReference
-
-
-
-```php
-public getVersionWithShortReference(): string
-```
-
-
-
-
-
 
 
 
@@ -233,28 +230,6 @@ public getShortVersion(): string
 
 ***
 
-### getCommitHash
-
-
-
-```php
-public getCommitHash(): string
-```
-
-
-
-
-
-
-* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
-
-***
-
 ### getReference
 
 
@@ -275,12 +250,12 @@ public getReference(): string
 
 ***
 
-### getShortCommitHash
+### getCommitHash
 
 
 
 ```php
-public getShortCommitHash(): string
+public getCommitHash(): string
 ```
 
 
@@ -317,6 +292,28 @@ public getShortReference(): string
 
 ***
 
+### getShortCommitHash
+
+
+
+```php
+public getShortCommitHash(): string
+```
+
+
+
+
+
+
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
+
+***
+
 ### __toString
 
 
@@ -339,4 +336,4 @@ public __toString(): string
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
