@@ -52,7 +52,7 @@ class cache
 
     public static function set($content, ?string $key = null): void
     {
-        file_put_contents(self::gen($key)['path'], gzdeflate($content));
+        file_put_contents(self::gen($key)['path'], gzdeflate(var_export($content, true)));
     }
 
 
