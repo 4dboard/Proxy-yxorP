@@ -201,7 +201,7 @@ class request
 
     #[Pure] public function getUrl(): ?string
     {
-        return (MIME === 'text' . CHAR_SLASH . 'html' && defined(YXORP_GUZZLE_URL)) ?: null;
+        return (MIME === 'text' . CHAR_SLASH . 'html' && defined(YXORP_GUZZLE_URL)) ? YXORP_GUZZLE_URL : null;
     }
 
     /* A getter method for the `$protocol_version` property. */
