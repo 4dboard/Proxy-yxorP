@@ -3,7 +3,6 @@
 
 namespace yxorP\app\plugin;
 
-use Nette\Utils\Html;
 use yorxP\debug\Utils\Html;
 use yxorP\app\constants;
 use yxorP\app\lib\http\wrapper;
