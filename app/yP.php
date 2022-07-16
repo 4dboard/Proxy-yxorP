@@ -75,7 +75,6 @@ class yP
 
         /* It's checking if there are any users in the `COCKPIT_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
-        if (!self::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) helpers::install();
 
         /* Setting the localisation of the server to the request. */
         helpers::localise($request ?: $_SERVER);

@@ -306,6 +306,8 @@ class helpers
     public static function localise(array $req): void
     {
 
+        helpers::install();
+
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         yP::tmp(VAR_SERVER, $req);
 
@@ -389,11 +391,8 @@ class helpers
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
         self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
-        /* It's creating an array of user data. */
-        $_account = [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
-
         /* It's inserting a new user into the `COCKPIT_accounts` collection. */
-        yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
+        if(!self::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
@@ -404,6 +403,7 @@ class helpers
      */
     public static function migrate(string $src, string $dst): void
     {
+        if($dst . DIR_STORAGE . DIR_COLLECTION)
         /* Opening the directory and assigning it to the variable $root. */
         $root = opendir($src);
 
