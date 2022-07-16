@@ -4,7 +4,6 @@
 
 use yxorP\app\constants;
 use yxorP\app\lib\http\request;
-use yxorP\app\lib\http\response;
 use yxorP\app\lib\http\wrapper;
 use yxorP\app\yP;
 
@@ -15,8 +14,6 @@ class onBuildContextAction extends wrapper
     /* This function is used to build the request and response objects. */
     public function onBuildContext(): void
     {
-        /* Setting the response object to the key RESPONSE. */
-        yP::tmp(VAR_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
         yP::tmp(VAR_REQUEST, Request::createFromGlobals());
     }
