@@ -59,7 +59,7 @@ class yP
         /* It's checking if the request URI contains the COCKPIT directory, and if it does, it requires the COCKPIT index
         file. */
         self::init($request, $root);
-        
+
         // EVENTS
         /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
         if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
@@ -74,7 +74,7 @@ class yP
         if (!CACHED_CONTEXT) foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
 
         /* Setting the localisation of the server to the request. */
-        if (is_dir($dst . DIR_STORAGE . COCKPIT_COLLECTIONS)) helpers::localise($request ?: $_SERVER);
+        helpers::localise($request ?: $_SERVER);
 
         /* It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
         directory. */
