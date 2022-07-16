@@ -13,9 +13,7 @@ class cache
     public static function get(?string $key = null): void
     {
         /* Checking if the cache file is valid and if it is, it is including the cache file. */
-        if (self::isValid(self::gen($key)['path'])) {
-            @include self::gen($key)['path'];
-        }
+        if (self::isValid(self::gen($key)['path'])) @include self::gen($key)['path'];
     }
 
     /* Used to check if the cache file exists. */
