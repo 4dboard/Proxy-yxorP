@@ -366,6 +366,7 @@ class helpers
         define(YXORP_COCKPIT_INSTALL, true);
 
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
+        echo 1;
         echo PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS;
         exit(is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) ? true : false)
         if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
