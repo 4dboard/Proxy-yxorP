@@ -3,17 +3,7 @@
 
 # Documentation
 
-
-
-This is an automatically generated documentation for **Documentation**.
-
-
-## Namespaces
-
-
-### \
-
-#### Classes
+## Namespaces \ Classes
 
 | Class | Description |
 |-------|-------------|
