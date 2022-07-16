@@ -179,100 +179,6 @@ public __construct(mixed $method, mixed $url, mixed $body = null): mixed
 
 ***
 
-### parseQuery
-
-
-
-```php
-public static parseQuery(mixed $query): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$query` | **mixed** |  |
-
-
-
-
-***
-
-### buildPostBody
-
-
-
-```php
-public static buildPostBody(mixed $fields, mixed $files, mixed $boundary = null): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$fields` | **mixed** |  |
-| `$files` | **mixed** |  |
-| `$boundary` | **mixed** |  |
-
-
-
-
-***
-
-### createFromGlobals
-
-
-
-```php
-public static createFromGlobals(): \yxorP\app\lib\http\request
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### generateBoundary
-
-
-
-```php
-private static generateBoundary(): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
 ### setUrl
 
 
@@ -293,6 +199,32 @@ public setUrl(mixed $url): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **mixed** |  |
+
+
+
+
+***
+
+### parseQuery
+
+
+
+```php
+public static parseQuery(mixed $query): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$query` | **mixed** |  |
 
 
 
@@ -337,6 +269,100 @@ public prepare(): void
 
 
 
+
+
+
+
+
+
+
+***
+
+### generateBoundary
+
+
+
+```php
+private static generateBoundary(): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### buildPostBody
+
+
+
+```php
+public static buildPostBody(mixed $fields, mixed $files, mixed $boundary = null): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$fields` | **mixed** |  |
+| `$files` | **mixed** |  |
+| `$boundary` | **mixed** |  |
+
+
+
+
+***
+
+### detectContentType
+
+
+
+```php
+private detectContentType(mixed $data): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$data` | **mixed** |  |
+
+
+
+
+***
+
+### createFromGlobals
+
+
+
+```php
+public static createFromGlobals(): \yxorP\app\lib\http\request
+```
+
+
+
+* This method is **static**.
 
 
 
@@ -492,32 +518,6 @@ public getUri(): mixed
 
 ***
 
-### detectContentType
-
-
-
-```php
-private detectContentType(mixed $data): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$data` | **mixed** |  |
-
-
-
 
 ***
-
-
-***
-
+> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
