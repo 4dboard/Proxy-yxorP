@@ -55,13 +55,7 @@ class cache
         file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n"], '', <<<'EOF'
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
 EOF
-            ) . gzdeflate($content) . 'exit;');
+            ) . gzdeflate($content) . ';exit;');
     }
 
-
-    /* Used to set the data in the cache file. */
-
-    private static function save($path, $content): void
-    {
-    }
 }
