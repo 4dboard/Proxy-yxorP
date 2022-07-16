@@ -5,7 +5,7 @@ foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Metho
 if (!defined('CHAR_SLASH')) {
     foreach (['CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
     foreach (['FILE_TMP' => CHAR_PERIOD . VAR_TMP, 'DIR_TMP' => VAR_TMP . CHAR_SLASH] as $key => $value) define($key, $value);
-    foreach (['CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode($_SERVER['HTTP_HOST']), '+/=', '._-')), 'CACHE_KEY' => rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')), 'PATH_TMP_DIR' => __DIR__ . DIRECTORY_SEPARATOR . DIR_LIB . DIR_TMP] as $key => $value) define($key, $value);
+    foreach (['CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode($_SERVER['HTTP_HOST']), '+/=', '._-')), 'CACHE_KEY' => rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')), 'PATH_TMP_DIR' => __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP] as $key => $value) define($key, $value);
     define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
 }
 /* Checking if we must clear the cache */
