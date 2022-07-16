@@ -164,7 +164,7 @@ class request
     {
         $method = (yP::get(VAR_SERVER))[YXORP_REQUEST_METHOD];
         $scheme = (isset(yP::get(VAR_SERVER)[VAR_HTTPS]) && (yP::get(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
-        $url = $scheme . ':' . YXORP_GUZZLE_URL;
+        $url = $scheme . ':' .() (defined(YXORP_GUZZLE_URL)) ? YXORP_GUZZLE_URL : null);
         $request = new request($method, $url);
         foreach (yP::get(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
             $name = substr($name, 5);
