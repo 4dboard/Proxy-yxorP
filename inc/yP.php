@@ -131,7 +131,6 @@ class yP
         /* Loading the global variables from the cache. */
         foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
 
-        print_r($cached);
 
         foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) print_r($key);
 
