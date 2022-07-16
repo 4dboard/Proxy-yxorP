@@ -38,6 +38,7 @@ header('Content-Type: ' . $mime . ';charset=UTF-8');
 try {
     /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
     if (file_exists(PATH_TMP_FILE)) @include PATH_TMP_FILE;
+    exit;
 } catch (Exception $e) { /* Catching an exception and swallowing it. */
 }
 
