@@ -307,10 +307,10 @@ class helpers
     {
         helpers::install();
 
-        /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
+        /* Defining a constant called yP::get(YXORP_SERVER) and setting it to the value of $req. */
         yP::tmp(VAR_SERVER, $req);
 
-        /* Defining a constant called self::get(YXORP_DOMAIN) and setting it to the value of $req. Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
+        /* Defining a constant called yP::get(YXORP_DOMAIN) and setting it to the value of $req. Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         foreach (['YXORP_SITE_URL' => YXORP_HTTP_HOST, 'YXORP_REQUEST_URI' => REQUEST_URI] as $key => $value) define($key, yP::get(VAR_SERVER)[$value]);
 
         /* Checking if the site url contains a period. If it does, it returns false. */
@@ -371,7 +371,7 @@ class helpers
         if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
         /* It's inserting a new user into the `COCKPIT_accounts` collection. */
-        if (!self::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!yP::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
