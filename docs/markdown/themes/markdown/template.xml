@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <name>markdown</name>
+    <author>Sakri Koskimies</author>
+    <email>sakri.koskimies@hotmail.com</email>
+    <version>0.0.2</version>
+    <transformations>
+        <transformation writer="twig" source="index.md.twig" artifact="index.md"/>
+        <transformation writer="twig" query="indexes.classes" source="class.md.twig"
+                        artifact="classes/{{FullyQualifiedStructuralElementName}}.md"/>
+        <transformation writer="twig" query="indexes.traits" source="trait.md.twig"
+                        artifact="classes/{{FullyQualifiedStructuralElementName}}.md"/>
+        <transformation writer="twig" query="indexes.interfaces" source="interface.md.twig"
+                        artifact="classes/{{FullyQualifiedStructuralElementName}}.md"/>
+    </transformations>
+    <parameters>
+        <parameter key="twig-debug">true</parameter>
+    </parameters>
+</template>

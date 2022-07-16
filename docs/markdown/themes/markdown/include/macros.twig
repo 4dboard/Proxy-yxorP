@@ -1,0 +1,62 @@
+{#
+  Twig implementation of getRelativePath
+  @param $relativeTo string The path to make relative to
+  @param $path string The path to make relative
+#}
+{% macro mdGetRelativePath(relativeTo, path) %}
+{% set from = relativeTo | split('/') %}
+{% set to = path | split('/') %}
+{% set relPath = to %}
+{% set break = false %}
+{% for dir in from %}
+{% if not break %}
+{% set depth = loop.index0 %}
+{% if dir == to[depth] %}
+{% set relPath = relPath | slice(1) %}
+{% else %}
+{% set remaining = from | length - depth %}
+{% if remaining > 1 %}
+{% set relPathLen = relPath | length %}
+{% set padLength = remaining - 1 %}
+{% for i in 1..padLength %}
+{% set relPath = '..' | split('/') | merge(relPath) %}
+{% endfor %}
+{% set break = true %}
+{% else %}
+{% set relPath0 = './' ~ relPath[0] %}
+{% set relPathRest = relPath | slice(1) %}
+{% set relPath = relPath0|split('/') | merge(relPathRest) %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{{ relPath | join('/') }}{% endmacro %}
+
+{#
+  Get full md link for a node or for a namespace without /classes directory
+  @param $nodeOrNamespace object|string The node to get the link for or a PHP class namespace string
+#}
+{% macro mdNodePath(nodeOrNamespace) %}
+{{ nodeOrNamespace.FullyQualifiedStructuralElementName | default(nodeOrNamespace) | replace({'\\':'/'}) | trim ~ (parameter.urlFileExtensions == 'no' ? '' : '.md') }}{% endmacro %}
+
+{#
+  Get full link to a class from documentation root directory
+  @param $nodeOrNamespace object|string The node to get the link for or a PHP class namespace string
+#}
+{% macro mdClassPath(nodeOrNamespace) %}
+{{ 'classes' ~ _self.mdNodePath(nodeOrNamespace) | trim}}{% endmacro %}
+
+{#
+  Create a relative md link to a class
+  @param $nodeOrNamespace object|string The node to get the link for or a PHP class namespace string
+  @param $relativeTo string The path to make relative to (usually path of the md file that this is being printed to)
+  @param $name string|null Link text
+#}
+{% macro mdClassLink(nodeOrNamespace, relativeTo, name = null) %}
+[`{{ name | default(nodeOrNamespace.name) | default('Unknown') }}`]({{ _self.mdGetRelativePath(relativeTo, _self.mdClassPath(nodeOrNamespace))}}){% endmacro %}
+
+{#
+  Escape markdown special characters
+  @param $text string The text to escape
+#}
+{% macro mdEsc(text) %}{{ text | replace({'|':'&#124;'}) | raw }}{% endmacro %}

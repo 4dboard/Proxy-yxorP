@@ -1,0 +1,10 @@
+<phpunit backupGlobals="false" colors="true">
+    <testsuites>
+        <testsuite name="Twig">
+            <directory suffix="Test.php">./tests/Twig</directory>
+        </testsuite>
+    </testsuites>
+    <extensions>
+        <extension class="\PhpDocumentorMarkdown\Test\Twig\Extension"/>
+    </extensions>
+</phpunit>
