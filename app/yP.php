@@ -77,7 +77,7 @@ class yP
         `install()` function. */
 
         /* Setting the localisation of the server to the request. */
-        if ($dst . DIR_STORAGE . COCKPIT_COLLECTIONS) helpers::localise($request ?: $_SERVER);
+        if (is_dir($dst . DIR_STORAGE . COCKPIT_COLLECTIONS)) helpers::localise($request ?: $_SERVER);
 
         /* It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
         directory. */
