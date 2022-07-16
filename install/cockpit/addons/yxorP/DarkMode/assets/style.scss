@@ -1,0 +1,198 @@
+// dark theme
+
+$color-black: #000;
+
+$color-primary: #ff0098;
+$color-primary-hover: #8400ff;
+$color-danger: #ff0000;
+$color-danger-hover: #b7001d;
+
+$color-text: #efefef;
+$color-text-bright: #fff;
+$color-text-less-bright: #eee;
+$color-text-dark: $color-black;
+
+$color-bg-gloomy: $color-black;
+$color-bg-night: #222;
+$color-bg-dark: #333;
+
+$color-bg-light: #eee;
+
+html {
+  background-color: $color-bg-dark;
+  color: $color-text;
+}
+
+.uk-button {
+  background-color: $color-bg-light;
+  color: $color-text-dark;
+
+  &.uk-text-muted {
+    color: $color-black !important;
+  }
+}
+
+.uk-text-primary {
+  color: $color-primary !important;
+}
+
+.uk-panel-card {
+  box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
+
+  &:hover {
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 3px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+cp-actionbar {
+  background-color: #2a2a2a;
+}
+
+.uk-tab > li > a {
+  color: $color-text;
+}
+
+.uk-tab > li.uk-active > a {
+  color: $color-text-bright;
+
+  &:after {
+    background-color: $color-primary;
+  }
+}
+
+.uk-tab > li > a:hover, .uk-tab > li > a:focus, .uk-tab > li.uk-open > a {
+  color: $color-primary;
+}
+
+.uk-link-muted {
+  color: $color-text-less-bright;
+}
+
+.uk-link-muted:hover, .uk-link-muted a:hover {
+  color: #eee;
+}
+
+.uk-text-muted {
+  color: #ddd !important;
+}
+
+.uk-breadcrumb > li > a {
+  color: $color-text;
+}
+
+.uk-breadcrumb > li.uk-active > span {
+  color: #ddd !important;
+}
+
+.uk-button-primary:hover, .uk-button-primary:focus {
+  background-color: $color-primary-hover;
+  color: #eee;
+}
+
+.uk-button-primary {
+  background-color: $color-primary;
+  color: #222;
+}
+
+.uk-badge {
+  background-color: $color-primary;
+}
+
+.uk-form {
+  select, textarea, input:not([type]), input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    color: #ddd;
+
+    &:focus {
+      color: #ddd;
+    }
+  }
+
+  ::placeholder {
+    color: #ccc;
+  }
+}
+
+option {
+  background-color: #333;
+}
+
+::selection {
+  background-color: $color-primary;
+}
+
+.uk-nav-dropdown > li > a,
+.uk-nav-navbar > li > a {
+  color: #ddd;
+}
+
+.uk-nav-navbar > li > a:hover, .uk-nav-navbar > li > a:focus {
+  background-color: #333;
+}
+
+.uk-nav-dropdown > li > a:hover, .uk-nav-dropdown > li > a:focus {
+  background-color: #444;
+}
+
+.uk-nav-autocomplete > li > a {
+  color: #ddd;
+}
+
+.uk-nav-autocomplete > li.uk-active > a {
+  background-color: #666;
+}
+
+.uk-text-danger {
+  color: $color-danger !important;
+}
+
+.uk-form-switch input[type="checkbox"] + label::after {
+  background-color: $color-danger;
+}
+
+.uk-form-switch input[type="checkbox"] + label::before {
+  background-color: #222;
+}
+
+.uk-modal {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.uk-modal-dialog {
+  background-color: #333;
+}
+
+// Finder
+.uk-nav-side > li > a {
+  color: $color-primary;
+
+  &:hover, &:focus {
+    color: $color-primary-hover;
+  }
+}
+
+.uk-nav-side > li.uk-active > a {
+  background-color: #222;
+}
+
+
+.app-modulesbar > li > a {
+  color: rgba(200, 200, 200, 0.7);
+}
+
+.uk-datepicker-table a {
+  color: #ddd;
+}
+
+// wysiwyg/TinyMCE
+
+// entry preview
+
+// codemirror, html field
+
+.uk-htmleditor-navbar-nav > li > a {
+  color: #fff;
+}
+
+body {
+  background: url('/app/lib/cockpit/assets/app/media/wallpapper.gif') no-repeat center center fixed;
+}

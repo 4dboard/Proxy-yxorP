@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>yxorP Documentation</title>
+    <parser>
+        <target>build</target>
+    </parser>
+    <transformer>
+        <target>docs</target>
+    </transformer>
+    <transformations>
+        <template name="vendor/saggre/phpdocumentor-markdown/themes/markdown"/>
+    </transformations>
+    <files>
+        <directory>./action</directory>
+        <directory>./http</directory>
+        <directory>./minify</directory>
+        <directory>./plugin</directory>
+        <file>./yxorP.php</file>
+        <file>./index.php</file>
+        <ignore>./inc/*</ignore>
+        <ignore>./vendor/*</ignore>
+    </files>
+</phpdoc>

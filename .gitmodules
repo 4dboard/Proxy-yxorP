@@ -1,3 +1,0 @@
-[submodule "cockpit"]
-	path = cockpit
-	url = https://github.com/agentejo/cockpit

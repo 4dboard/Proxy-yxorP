@@ -5,7 +5,7 @@
 namespace yxorP;
 /* Including the file `yxorP.php` in the current file. */
 
-require __DIR__ . '/inc/yP.php';
+require __DIR__ . '/app/yP.php';
 
 /**
  *  Proxy to the yxorP::proxy() method.
@@ -14,4 +14,4 @@ require __DIR__ . '/inc/yP.php';
  */
 
 
-inc\yP::proxy(__DIR__);
+app\yP::proxy(__DIR__);

@@ -1,4 +1,6 @@
-
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(css|js)/(main|styles|application)\.[0-9]+(\.css|\.js)$ /$1/$2$3 [L]
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 # Note .htaccess files are an overhead, this logic should be in your Apache

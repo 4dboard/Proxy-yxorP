@@ -1,0 +1,110 @@
+html {
+    overflow: hidden !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    height: initial !important;
+    background-image: url('/default-loading.gif') !important;
+    background-color: #000 !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    filter: opacity(.99) saturate(1.5) hue-rotate(-25deg) !important;
+}
+
+z, x {
+    display: block;
+}
+
+body {
+    opacity: 0 !important;
+}
+
+html.don body {
+    opacity: 1 !important;
+    z-index: 1 !important;
+}
+
+cloudflare-app {
+    position: absolute !important;
+}
+
+canvas {
+    position: fixed !important;
+}
+
+* {
+    transition: 0.2s all !important;
+}
+
+header {
+    display: none !important
+}
+
+h ~ h {
+    display: none !important
+}
+
+#headxr {
+    background: linear-gradient(90deg, black, transparent);
+    padding: 20px;
+    z-index: 99999999999999999999999999;
+}
+
+#headxr a {
+    padding: 0.5rem 1.5rem !important;
+    cursor: pointer !important;
+    color: #ccc !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}
+
+#headxr a.current,
+#headxr a:hover {
+    color: #fff !important;
+    text-shadow: 0 0 6px #ffffffe3 !important;
+}
+
+#headxr i {
+    font-weight: normal !important;
+    font-size: 15px !important;
+    font-style: italic !important;
+}
+
+#headxr m {
+    position: absolute !important;
+    font-size: 9px !important;
+    color: #fff !important;
+    text-shadow: -1px 0 12px #fff;
+    font-style: italic !important;
+    bottom: 5px !important;
+    left: 38px !important;
+}
+
+#nav {
+    display: inline !important;
+}
+
+@media screen and (min-width: 860px) {
+
+    #headxr i,
+    #headxr a {
+        display: inline !important;
+        padding: 0 1.5rem !important;
+    }
+}
+
+
+@media (max-width: 801px) {
+
+    #headxr i,
+    #headxr a {
+        font-size: 10px !important;
+        padding: 0 10px !important;
+    }
+
+    m {
+        display: none !important;
+    }
+}
