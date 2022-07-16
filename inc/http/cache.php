@@ -50,9 +50,9 @@ class cache
         file_put_contents(self::gen($key)['path'], '<?php $GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
     }
 
-    public static function set($content, ?string $key = null): void
+    public static function set($val, ?string $key = null): void
     {
-        file_put_contents(self::gen($key)['path'], gzdeflate(var_export($content, true)));
+        file_put_contents(self::gen($key)['path'], gzdeflate(var_export($val, true)));
     }
 
 
