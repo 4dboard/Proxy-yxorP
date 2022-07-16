@@ -47,19 +47,15 @@ class cache
     public static function store($content, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '<?php ' . str_replace([' ', "\n", "\r"], '', <<<'EOF'
-$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];$GLOB= gzinflate(stream_get_contents($f));include($u);fclose($t); __halt_compiler();
-EOF
-            ) . gzdeflate('$GLOB=' . var_export($content, true)));
+        file_put_contents(self::gen($key)['path'], '<?php $GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)));
     }
 
     public static function set($content, ?string $key = null): void
     {
-        /*
         file_put_contents(self::gen($key)['path'], (strpos($content, '__halt_compiler();')) ? gzinflate(explode('__halt_compiler();', $content)[1]) : '<?php ' . str_replace([' ', "\n", "\r"], '', <<<'EOF'
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
 EOF
-            ) . gzdeflate(var_export($content, true)));*/
+            ) . gzdeflate($content));
     }
 
 
