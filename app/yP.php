@@ -72,7 +72,7 @@ class yP
 
         /* Reading the file and then calling the env function on each line. */
         if (!CACHED_CONTEXT) foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
-
+        echo 1;
         /* Setting the localisation of the server to the request. */
         helpers::localise($request ?: $_SERVER);
 
