@@ -15,6 +15,7 @@ class onBuildIncludesAction extends wrapper
         yP::assetLoader(YXORP_DIR_FULL);
         /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
         recursive. */
+        echo DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . VAR_GLOBAL;
         yP::assetLoader(DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . VAR_GLOBAL);
     }
 }
