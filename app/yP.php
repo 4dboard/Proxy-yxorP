@@ -244,7 +244,7 @@ class yP
     final public static function assetLoader(string $root): void
     {
         /* Loading all the files in the root directory and subdirectories. */
-        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], basename($path))) {
+        foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], basename($path))) {
             cache::set($content = file_get_contents($path));
             exit($content);
         }
