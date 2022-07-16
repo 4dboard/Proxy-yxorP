@@ -57,11 +57,4 @@ $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u 
 EOF
             ) . gzdeflate($content));
     }
-
-
-    /* Used to set the data in the cache file. */
-
-    private static function save($path, $content): void
-    {
-    }
 }
