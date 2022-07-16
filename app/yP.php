@@ -59,7 +59,7 @@ class yP
         /* It's checking if the request URI contains the COCKPIT directory, and if it does, it requires the COCKPIT index
         file. */
         self::init($request, $root);
-
+        exit('1');
         // EVENTS
         /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
         if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
@@ -183,6 +183,52 @@ class yP
     }
 
     /**
+     * It's setting the value of the variable $_name to the value of the variable $_value.
+     * tmp is a temporary variable that's used to store the value of the variable $_name.
+     * Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
+     * Temporary variables are not stored in the persisted storage.
+     * @param string $_name
+     * @param string|array|object|null $_value
+     * @return string|array|object|null
+     */
+    final public static function tmp(string $_name, string|array|object|null $_value): string|array|object|null
+    {
+        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
+    }
+
+    /**
+     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+
+    final public static function assetLoader(string $root): void
+    {
+        /* Loading all the files in the root directory and subdirectories. */
+        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], basename($path))) {
+            cache::set($content = file_get_contents($path));
+            exit($content);
+        }
+    }
+
+    /**
+     * > This function adds a listener to the listeners array
+     *
+     * @param string event The name of the event to listen for.
+     * @param object callback The callback function to be executed when the event is triggered.
+     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    final public function addListener(string $event, object $callback): void
+    {
+        /* It's adding a listener to the listeners array. */
+        self::$instance->listeners[$event][0][] = $callback;
+    }
+
+    /**
      * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
      * class exists in the yxorP namespace, if it does, it creates an instance of it
      * @param string $root
@@ -203,21 +249,8 @@ class yP
         self::$instance->addSubscriber(new $action());
     }
 
-    /**
-     * It's setting the value of the variable $_name to the value of the variable $_value.
-     * tmp is a temporary variable that's used to store the value of the variable $_name.
-     * Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
-     * Temporary variables are not stored in the persisted storage.
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
-     */
-    final public static function tmp(string $_name, string|array|object|null $_value): string|array|object|null
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
-    }
+
+    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
 
     /**
      *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
@@ -230,39 +263,6 @@ class yP
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
-    }
-
-    /**
-     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-
-    final public static function assetLoader(string $root): void
-    {
-        /* Loading all the files in the root directory and subdirectories. */
-        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], basename($path))) {
-            cache::set($content = file_get_contents($path));
-            exit($content);
-        }
-    }
-
-
-    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
-
-    /**
-     * > This function adds a listener to the listeners array
-     *
-     * @param string event The name of the event to listen for.
-     * @param object callback The callback function to be executed when the event is triggered.
-     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
-     */
-    final public function addListener(string $event, object $callback): void
-    {
-        /* It's adding a listener to the listeners array. */
-        self::$instance->listeners[$event][0][] = $callback;
     }
 
     /**
