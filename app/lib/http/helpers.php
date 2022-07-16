@@ -381,9 +381,8 @@ class helpers
      */
     public static function migrate(string $src, string $dst): void
     {
-        if ($dst . DIR_STORAGE . COCKPIT_COLLECTIONS)
-            /* Opening the directory and assigning it to the variable $root. */
-            $root = opendir($src);
+        /* Opening the directory and assigning it to the variable $root. */
+        $root = opendir($src);
 
         /* Creating a directory called "dst" with permissions of 0744. */
         @mkdir($dst, 0744);
