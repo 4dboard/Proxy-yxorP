@@ -6,6 +6,8 @@
 
 ## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
 
+yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone library was designed with the intention of providing a system that is not only easy to extend and alter, but also facilitates rapid and simple customization through plugins and themes.
+
 📢 [ [ ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
 ⚡ [ [ DEVELOPERS](https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md) ]
 🌈 [ [DOCUMENTATION](https://4dboard.github.io/Proxy-yxorP/docs/) ]
@@ -699,6 +701,22 @@ us.
 | [`streamPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/streamPluginAction.md) | |
 | [`twitterPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/youtubePluginAction.md) | |
+
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) 
+
+![image](https://user-images.githubusercontent.com/6468571/179353295-c5b6f399-2624-4c9e-98a2-6f54869bde2b.png)
+
+- [PHP Curl Class](https://github.com/php-curl-class/php-curl-class)      HTTP requests made easy PHP Curl Class makes it easy to send HTTP requests and integrate with web APIs.
+- [pminiProxy](https://github.com/joshdick/miniProxy) miniProxy is a simple web proxy written in PHP that can allow you to bypass Internet content filters, or to browse the internet anonymously. miniProxy is licensed under the GNU GPL v3. miniProxy is the successor to PageForward.
+- [php-proxy-app](https://github.com/Athlon1600/php-proxy-app)  Web Proxy Application built on php-proxy library ready to be installed on your server
+- [php-proxy](https://github.com/Athlon1600/php-proxy)   A web proxy script written in PHP and built as an alternative to Glype.
+- [KnProxy](https://github.com/jabbany/KnProxy) Lightweight, PHP-based Web Proxy that can utilize whatever remote connecting ablities your server has to offer. It should work out of the box. No configuration needed. For educational purposes.
+- [PHProxy](https://github.com/PHProxy/phproxy) PHP based web proxy. Initially developed by whitefyre
+- [Glype](https://github.com/k1995/glype)     A copy of glype,web-based proxy script written in PHP
+- [PHP Online Web Proxy](https://github.com/NicheOffice/php-web-proxy)  Online Web Proxy Website Script Written in PHP
+- [web-proxy-script](https://github.com/heiswayi/web-proxy-script)      Minimalist web proxy script
+- [Glype Official](https://github.com/vincentclee/glype)        About Glype proxy is a free, web-based proxy script written in PHP
+- [Censor Dodge Web Proxy](https://github.com/ryanmab/CensorDodge)      Censor Dodge is a lightweight and customisable proxy script built on PHP. The standalone library is intended to act as an extensible system that is easily customisable with plugins and themes.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
 
