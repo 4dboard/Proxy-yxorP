@@ -305,7 +305,6 @@ class helpers
      */
     public static function localise(array $req): void
     {
-        exit('1');
         helpers::install();
 
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
@@ -368,7 +367,6 @@ class helpers
 
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
 
-        exit('1');
         echo is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS);
         if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
