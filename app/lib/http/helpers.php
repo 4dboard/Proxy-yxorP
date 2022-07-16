@@ -305,7 +305,7 @@ class helpers
      */
     public static function localise(array $req): void
     {
-
+        exit('1');
         helpers::install();
 
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
