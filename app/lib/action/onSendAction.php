@@ -16,7 +16,6 @@ class onSendAction extends wrapper
      */
     public function onSend(): void
     {
-        $cookieFile = 'cookie_jar.txt';
         /* Creating a new `yxorP\app\lib\proxy\Client` object, and then it is sending a request to the `\yxorP\app\yP::get(YXORP_FETCH)` URL,
         with the `\yxorP\app\yP::get(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request. */
         yP::set(VAR_RESPONSE, yP::get(VAR_GUZZLE)->request(yP::get(VAR_REQUEST)->getMethod(), yP::get(VAR_REQUEST)->getUrl(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR)));
