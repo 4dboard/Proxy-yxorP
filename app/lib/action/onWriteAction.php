@@ -4,7 +4,6 @@
 use yxorP\app\constants;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\wrapper;
-use yxorP\app\lib\minify\minify;
 use yxorP\app\yP;
 
 /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. */
@@ -23,13 +22,18 @@ class onWriteAction extends wrapper
 
     private static function replace($content)
     {
-        return (minify::createDefault())->process(preg_replace_callback_array(['~\<x(.*?)x\>~is' => self::line($m),], $content)) ?: $content;
 
-    }
+        $patternCallbacks = [
+            '~\<x(.*?)x\>~is' =>
+                function ($m) {
+                    return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
+                }
+        ];
 
-    private static function line($m)
-    {
-        return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
+        return preg_replace_callback_array(
+            $patternCallbacks,
+            $content
+        );
 
     }
 
