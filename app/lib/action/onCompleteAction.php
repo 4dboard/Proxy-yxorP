@@ -18,6 +18,6 @@ class onCompleteAction extends wrapper
         cache::store($GLOBALS[$_SERVER['HTTP_HOST']], CACHE_KEY_CONTEXT);
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
         /* Getting the response object from the global variables. */
-        cache::set(yP::get(VAR_RESPONSE)->getContent());
+        cache::set(yP::get(VAR_RESPONSE)->getBody());
     }
 }

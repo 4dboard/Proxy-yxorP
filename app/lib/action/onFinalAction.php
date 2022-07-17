@@ -13,6 +13,6 @@ class onFinalAction extends wrapper
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. Checking if the MIME type is not text/html, application/javascript, text/css, application/xml, or contains text
         or html, and if it is not, it is setting the cache to the response content. */
-        //if (MIME !== VAR_TEXT_HTML && MIME !== 'application/javascript' && MIME !== 'text/css' && MIME !== 'application/xml' && !str_contains(MIME, VAR_TEXT) && !str_contains(MIME, VAR_HTML)) echo yP::get(VAR_RESPONSE)->getContent();
+        //if (MIME !== VAR_TEXT_HTML && MIME !== 'application/javascript' && MIME !== 'text/css' && MIME !== 'application/xml' && !str_contains(MIME, VAR_TEXT) && !str_contains(MIME, VAR_HTML)) echo yP::get(VAR_RESPONSE)->getBody();
     }
 }
