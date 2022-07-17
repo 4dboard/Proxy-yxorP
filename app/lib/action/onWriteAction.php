@@ -28,9 +28,8 @@ class onWriteAction extends wrapper
                     function ($m) {
                         return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
                     }
-            ],
-            $content ?: $content;
-    )
+            ], $content
+        ) ?: $content;
 
     }
 
