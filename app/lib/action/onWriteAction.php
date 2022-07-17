@@ -22,14 +22,9 @@ class onWriteAction extends wrapper
 
     private static function replace($content)
     {
-        return preg_replace_callback_array(
-            [
-                '~\<x(.*?)x\>~is' =>
-                    function ($m) {
-                        return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
-                    }
-            ], $content
-        ) ?: $content;
+        return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
+            return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
+        }], $content) ?: $content;
 
     }
 
