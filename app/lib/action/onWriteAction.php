@@ -6,11 +6,6 @@ use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\wrapper;
 use yxorP\app\yP;
 
-/* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. */
-
-/* Importing the `minify` class from the `yxorP\app\lib\minify` namespace. */
-
-/* Extending the `wrapper` class. */
 
 class onWriteAction extends wrapper
 {
@@ -22,6 +17,8 @@ class onWriteAction extends wrapper
 
     private static function replace($content)
     {
+
+        /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class. */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
             return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
         }], $content) ?: $content;
