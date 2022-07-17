@@ -34,6 +34,13 @@ class onWriteAction extends wrapper
         cache::set(CACHE_KEY, (minify::createDefault())->process(preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
             return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
         },], $content)) ?: $content);
+
+        if (MIME === VAR_TEXT_HTML || MIME === 'application/javascript' || MIME === 'text/css' || MIME === 'application/xml' || str_contains(MIME, VAR_TEXT) || str_contains(MIME, VAR_HTML))
+            cache::set(function ($content) {
+                return CACHE_KEY, (minify::createDefault())->process(preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
+                    return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
+                },], $content)) ?: $content;
+        });
     }
 
 }
