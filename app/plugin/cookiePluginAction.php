@@ -23,6 +23,18 @@ class cookiePluginAction extends wrapper
 
     /* A method that is called before the request is sent to the server. */
 
+    public function onBeforeSend(): void
+    {
+        /* Creating an empty array. */
+        $send_cookies = [];
+        /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
+        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', yP::get(VAR_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
+        /* Setting the cookie header. */
+        if (!empty($send_cookies)) yP::get(VAR_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
+    }
+
+    /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
+
     public static function beforeRequest($match)
     {
         /* Replacing the `_` with `.` in the cookie domain. */
@@ -35,7 +47,19 @@ class cookiePluginAction extends wrapper
         if (str_contains($host, $cookie->cookie_domain)) return $cookie->cookie_name . '=' . $cookie->cookie_value;
     }
 
-    /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
+    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
+
+    public function onSent(): void
+    {
+        /* Getting the response object from the constants class. */
+        $response = yP::get(VAR_RESPONSE);
+        /* Getting the `set-cookie` header from the response. */
+        $set_cookie = $response->headers->get('set-cookie');
+        /* Checking if the `set-cookie` header is set and if it is, it calls the `headersReceived` method. */
+        if ($set_cookie) self::headersReceived($response, $set_cookie);
+    }
+
+    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
 
     public static function headersReceived($response, $set_cookie): void
     {
@@ -46,19 +70,20 @@ class cookiePluginAction extends wrapper
         foreach ((array)$set_cookie as $line) self::Received($line);
     }
 
-    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
+    /* Parsing the cookie and then it is setting the cookie header. */
 
     public static function Received($line): void
     {
         /* Parsing the cookie and then it is setting the cookie header. */
-        $cookie = self::parse_cookie($line, yP::get(VAR_REQUEST)->getUri());$client->request('GET', '/');
+        $cookie = self::parse_cookie($line, yP::get(VAR_REQUEST)->getUri());
+        $client->request('GET', '/');
         /* Creating the cookie name. */
         $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace(CHAR_PERIOD, CHAR_UNDER, $cookie[VAR_DOMAIN]), $cookie['name']);
         /* Setting the cookie header. */
         yP::get(VAR_RESPONSE)->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
     }
 
-    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
+    /* Parsing the cookie and then it is returning an array with the cookie data. */
 
     private static function parse_cookie($line, $url): array
     {
@@ -90,29 +115,5 @@ class cookiePluginAction extends wrapper
         }
         /* Returning the cookie data. */
         return $data;
-    }
-
-    /* Parsing the cookie and then it is setting the cookie header. */
-
-    public function onBeforeSend(): void
-    {
-        /* Creating an empty array. */
-        $send_cookies = [];
-        /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
-        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', yP::get(VAR_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
-        /* Setting the cookie header. */
-        if (!empty($send_cookies)) yP::get(VAR_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
-    }
-
-    /* Parsing the cookie and then it is returning an array with the cookie data. */
-
-    public function onSent(): void
-    {
-        /* Getting the response object from the constants class. */
-        $response = yP::get(VAR_RESPONSE);
-        /* Getting the `set-cookie` header from the response. */
-        $set_cookie = $response->headers->get('set-cookie');
-        /* Checking if the `set-cookie` header is set and if it is, it calls the `headersReceived` method. */
-        if ($set_cookie) self::headersReceived($response, $set_cookie);
     }
 }
