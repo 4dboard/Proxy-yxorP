@@ -99,7 +99,7 @@ class yP
         self::tmp(VAR_BUGSNAG, Client::make(self::get(ENV_BUGSNAG_KEY)));
 
 
-        $cookieFile = 'cookie_jar.txt';
+        $cookieJar = new FileCookieJar('cookie_jar.txt', TRUE);
 
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
         self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
