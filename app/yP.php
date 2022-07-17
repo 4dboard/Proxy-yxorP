@@ -19,6 +19,7 @@ include 'constants.php';
  */
 
 use Bugsnag\Client;
+use FileCookieJar;
 use RuntimeException;
 use yxorP\app\lib\http\cache;
 use yxorP\app\lib\http\helpers;
