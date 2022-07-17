@@ -98,11 +98,8 @@ class yP
         /* It's setting the token to the snag key. */
         self::tmp(VAR_BUGSNAG, Client::make(self::get(ENV_BUGSNAG_KEY)));
 
-
-        $cookieJar = new FileCookieJar('cookie_jar.txt', TRUE);
-
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
-        self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar('cookie_jar.txt', TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
