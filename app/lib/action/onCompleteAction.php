@@ -21,6 +21,10 @@ class onCompleteAction extends wrapper
         /* Getting the response object from the global variables. */
         /* Getting the response object from the global variables. */
         /* Getting the response object from the global variables. */
+        /* Getting the response object from the global variables. */
+        /* Getting the response object from the global variables. */
+        /* Getting the response object from the global variables. */
+        /* Getting the response object from the global variables. */
         cache::set(yP::get(VAR_RESPONSE)->getContent());
     }
 }
