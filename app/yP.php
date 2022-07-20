@@ -102,15 +102,8 @@ class yP
         /* Setting the localisation of the server to the request. */
         helpers::localise($request ?: $_SERVER);
 
-        /* It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
-        directory. */
-        if (!CACHED_CONTEXT) self::set('YXORP_ACTIONS', scandir(DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION));
-
-        /* It's looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
-        directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it. If
-        the file is a class, it's requiring it. */
-        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => self::get('YXORP_ACTIONS'), DIR_PLUGIN => self::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
-
+        /* Loading the actions. */
+        self::loadActions();
         /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
         if (!CACHED_CONTEXT) if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
@@ -173,6 +166,24 @@ class yP
 
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `COCKPIT()` function. */
         self::set(YXORP_COCKPIT_APP, cockpit());
+
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    function loadActions()
+    {
+
+        /* It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
+        directory. */
+        if (!CACHED_CONTEXT) self::set('YXORP_ACTIONS', scandir(DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION));
+
+        /* It's looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
+        directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it. If
+        the file is a class, it's requiring it. */
+        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => self::get('YXORP_ACTIONS'), DIR_PLUGIN => self::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
 
     }
 
