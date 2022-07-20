@@ -694,6 +694,7 @@ us.
 | [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
 | [`UnhandledMatchError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/UnhandledMatchError.md) | |
 | [`ValueError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ValueError.md) | |
+| [`admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/admin.md) | |
 | [`onBuildContextAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildContextAction.md) | |
 | [`onBuildExceptionAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildExceptionAction.md) | |
 | [`onBuildHeadersAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildHeadersAction.md) | |
@@ -703,6 +704,7 @@ us.
 | [`onCompleteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCompleteAction.md) | |
 | [`onFinalAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onFinalAction.md) | |
 | [`onSendAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSendAction.md) | |
+| [`onSentAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSentAction.md) | |
 | [`onWriteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onWriteAction.md) | |
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
