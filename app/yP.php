@@ -64,8 +64,6 @@ class yP
         file. */
         self::init($request, $root);
 
-        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
     }
 
     /**
@@ -134,6 +132,8 @@ class yP
         self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOCKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
 
+        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
+        foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
     }
 
     /**
@@ -206,19 +206,6 @@ class yP
     }
 
     /**
-     *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
-     * them.
-     * @return void
-     * @var string $event_name
-     */
-    private function dispatch(string $event_name): void
-    {
-        /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
-        them. */
-        if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
-    }
-
-    /**
      *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
      * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
      * requiring it.
@@ -245,6 +232,19 @@ class yP
     {
         /* It's adding a listener to the listeners array. */
         self::$instance->listeners[$event][0][] = $callback;
+    }
+
+    /**
+     *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
+     * them.
+     * @return void
+     * @var string $event_name
+     */
+    private function dispatch(string $event_name): void
+    {
+        /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
+        them. */
+        if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
     }
 
 
