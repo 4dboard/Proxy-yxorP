@@ -104,6 +104,7 @@ class yP
 
         /* Loading the actions. */
         self::loadActions();
+        
         /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
         if (!CACHED_CONTEXT) if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
@@ -173,7 +174,7 @@ class yP
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
-    function loadActions()
+    final public static function loadActions()
     {
 
         /* It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
