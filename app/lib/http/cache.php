@@ -37,6 +37,7 @@ class cache
 
     public static function fetch(?string $key = null): array
     {
+        $GLOB = [];
         /* Checking if the cache file is valid and if it is, it is getting the data from the cache file. */
         include self::gen($key)['path'];
         return $GLOB;
