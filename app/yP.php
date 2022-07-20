@@ -80,7 +80,7 @@ class yP
         foreach (['PATH_COOCKIE_JAR' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOCKIE_JAR, 'PATH_DIR_COCKPIT' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT, 'PATH_COCKPIT_LOCAL' => DIR_ROOT . DIR_INSTALL . DIR_COCKPIT, 'PATH_COCKPIT_INDEX' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX, 'PATH_REWRITE' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE, 'PATH_COCKPIT_BOOTSTRAP' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP, 'PATH_INC_WRAPPER' => DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER, 'PATH_TLDS_ALPHA_BY_DOMAIN' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN, 'PATH_PUBLIC_SUFFIX_LIST' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST, 'PATH_FILE_MIME_TYPES' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES, 'PATH_GUZZLE' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE, 'PATH_BUGSNAG' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG] as $key => $value) define($key, $value);
 
         /* Checking if the files exist in the directory. */
-        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset . DIRECTORY_SEPARATOR);        // Reporting
+        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
 
         /* Loading the global variables from the cache. */
         foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
