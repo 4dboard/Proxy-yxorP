@@ -64,10 +64,6 @@ class yP
         file. */
         self::init($request, $root);
 
-        // EVENTS
-        /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
-        if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
-
         /* Requiring the COCKPIT library. */
         require PATH_COCKPIT_BOOTSTRAP;
 
@@ -130,6 +126,12 @@ class yP
         /* Defining a constant called CACHED_CONTEXT and setting it to the value of the $cached variable if it is set,
         otherwise it is set to true. */
         define('CACHED_CONTEXT', $cached ? 1 : 0);
+
+
+        // EVENTS
+        /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
+        if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+
     }
 
     /**
