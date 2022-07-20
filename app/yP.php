@@ -64,6 +64,39 @@ class yP
         file. */
         self::init($request, $root);
 
+        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
+        foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
+    }
+
+    /**
+     * @param ?array $request
+     * @param string $root
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    public static function init(?array $request, string $root): void
+    {
+        /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
+
+        foreach (['PATH_COOCKIE_JAR' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOCKIE_JAR, 'PATH_DIR_COCKPIT' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT, 'PATH_COCKPIT_LOCAL' => DIR_ROOT . DIR_INSTALL . DIR_COCKPIT, 'PATH_COCKPIT_INDEX' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX, 'PATH_REWRITE' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE, 'PATH_COCKPIT_BOOTSTRAP' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP, 'PATH_INC_WRAPPER' => DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER, 'PATH_TLDS_ALPHA_BY_DOMAIN' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN, 'PATH_PUBLIC_SUFFIX_LIST' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST, 'PATH_FILE_MIME_TYPES' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES, 'PATH_GUZZLE' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE, 'PATH_BUGSNAG' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG] as $key => $value) define($key, $value);
+
+        /* Checking if the files exist in the directory. */
+        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset . DIRECTORY_SEPARATOR);        // Reporting
+
+        /* Loading the global variables from the cache. */
+        foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
+
+        /* Defining a constant called CACHED_CONTEXT and setting it to the value of the $cached variable if it is set,
+        otherwise it is set to true. */
+        define('CACHED_CONTEXT', $cached ? 1 : 0);
+
+
+        // EVENTS
+        /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
+        if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+
+
         /* Requiring the COCKPIT library. */
         require PATH_COCKPIT_BOOTSTRAP;
 
@@ -100,37 +133,6 @@ class yP
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
         self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOCKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
-        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
-    }
-
-    /**
-     * @param ?array $request
-     * @param string $root
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     */
-    public static function init(?array $request, string $root): void
-    {
-        /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
-        appended to it. */
-
-        foreach (['PATH_COOCKIE_JAR' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOCKIE_JAR, 'PATH_DIR_COCKPIT' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT, 'PATH_COCKPIT_LOCAL' => DIR_ROOT . DIR_INSTALL . DIR_COCKPIT, 'PATH_COCKPIT_INDEX' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX, 'PATH_REWRITE' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE, 'PATH_COCKPIT_BOOTSTRAP' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP, 'PATH_INC_WRAPPER' => DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER, 'PATH_TLDS_ALPHA_BY_DOMAIN' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN, 'PATH_PUBLIC_SUFFIX_LIST' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST, 'PATH_FILE_MIME_TYPES' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES, 'PATH_GUZZLE' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE, 'PATH_BUGSNAG' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG] as $key => $value) define($key, $value);
-
-        /* Checking if the files exist in the directory. */
-        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset . DIRECTORY_SEPARATOR);        // Reporting
-
-        /* Loading the global variables from the cache. */
-        foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
-
-        /* Defining a constant called CACHED_CONTEXT and setting it to the value of the $cached variable if it is set,
-        otherwise it is set to true. */
-        define('CACHED_CONTEXT', $cached ? 1 : 0);
-
-
-        // EVENTS
-        /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
-        if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
     }
 
@@ -188,27 +190,6 @@ class yP
     }
 
     /**
-     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
-     * class exists in the yxorP namespace, if it does, it creates an instance of it
-     * @param string $root
-     * @param string $action
-     * @return void
-     */
-    private function subscribe(string $root, string $action): void
-    {
-        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
-        if (strlen($action) < 3) return;
-        /* It's removing the `.php` extension from the `$action` variable. */
-        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
-        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
-        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        require(DIR_ROOT . $root . $action . EXT_PHP);
-        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
-        function. */
-        self::$instance->addSubscriber(new $action());
-    }
-
-    /**
      * It's setting the value of the variable $_name to the value of the variable $_value.
      * tmp is a temporary variable that's used to store the value of the variable $_name.
      * Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
@@ -253,9 +234,6 @@ class yP
         }
     }
 
-
-    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
-
     /**
      * > This function adds a listener to the listeners array
      *
@@ -267,6 +245,30 @@ class yP
     {
         /* It's adding a listener to the listeners array. */
         self::$instance->listeners[$event][0][] = $callback;
+    }
+
+
+    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
+
+    /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     * @param string $root
+     * @param string $action
+     * @return void
+     */
+    private function subscribe(string $root, string $action): void
+    {
+        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
+        if (strlen($action) < 3) return;
+        /* It's removing the `.php` extension from the `$action` variable. */
+        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
+        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
+        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
+        require(DIR_ROOT . $root . $action . EXT_PHP);
+        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
+        function. */
+        self::$instance->addSubscriber(new $action());
     }
 
     /**
