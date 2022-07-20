@@ -35,7 +35,7 @@ class cache
 
     /* Used to get the data from the cache file. */
 
-    public static function fetch(?string $key = null)
+    public static function fetch(?string $key = null): array
     {
         /* Checking if the cache file is valid and if it is, it is getting the data from the cache file. */
         include self::gen($key)['path'];
