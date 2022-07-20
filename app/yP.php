@@ -93,11 +93,8 @@ class yP
         /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
         if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
-        /* Requiring the COCKPIT library. */
-        require PATH_COCKPIT_BOOTSTRAP;
-
-        /* It's setting the `YXORP_COCKPIT_APP` constant to the `COCKPIT()` function. */
-        self::set(YXORP_COCKPIT_APP, cockpit());
+        /* Loading the cockpit.php file. */
+        self::loadCockpit();
 
         /* Reading the file and then calling the env function on each line. */
         if (!CACHED_CONTEXT) foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
@@ -117,15 +114,9 @@ class yP
         /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
         if (!CACHED_CONTEXT) if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
-        /* It's requiring the Guzzle library. */
-        require PATH_GUZZLE;
-
-        /* It's requiring the Bugsnag library. */
-        require PATH_BUGSNAG;
-
-        /* It's setting the token to the snag key. */
-        self::tmp(VAR_BUGSNAG, Client::make(self::get(ENV_BUGSNAG_KEY)));
-
+        /* Loading the Guzzle Snag class. */
+        self::loadGuzzleSnag();
+        
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
         self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOCKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
@@ -175,6 +166,21 @@ class yP
     }
 
     /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    public static function loadCockpit(): void
+    {
+
+        /* Requiring the COCKPIT library. */
+        require PATH_COCKPIT_BOOTSTRAP;
+
+        /* It's setting the `YXORP_COCKPIT_APP` constant to the `COCKPIT()` function. */
+        self::set(YXORP_COCKPIT_APP, cockpit());
+
+    }
+
+    /**
      * It's checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
      * returns false.
      * @param string $_name
@@ -185,6 +191,24 @@ class yP
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
         return $GLOBALS[$_SERVER['HTTP_HOST']][$_name] ?: $GLOBALS[VAR_TMP_STORE][$_name];
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    public static function loadGuzzleSnag(): void
+    {
+
+        /* It's requiring the Guzzle library. */
+        require PATH_GUZZLE;
+
+        /* It's requiring the Bugsnag library. */
+        require PATH_BUGSNAG;
+
+        /* It's setting the token to the snag key. */
+        self::tmp(VAR_BUGSNAG, Client::make(self::get(ENV_BUGSNAG_KEY)));
+
     }
 
     /**
