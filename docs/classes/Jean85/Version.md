@@ -108,108 +108,6 @@ public __construct(string $packageName, string $version): mixed
 
 ***
 
-### getPrettyVersion
-
-
-
-```php
-public getPrettyVersion(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getFullVersion
-
-
-
-```php
-public getFullVersion(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getVersionWithShortReference
-
-
-
-```php
-public getVersionWithShortReference(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getVersionWithShortCommit
-
-
-
-```php
-public getVersionWithShortCommit(): string
-```
-
-
-
-
-
-
-* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
-
-***
-
-### getPackageName
-
-
-
-```php
-public getPackageName(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getShortVersion
 
 
@@ -230,12 +128,12 @@ public getShortVersion(): string
 
 ***
 
-### getReference
+### getFullVersion
 
 
 
 ```php
-public getReference(): string
+public getFullVersion(): string
 ```
 
 
@@ -272,12 +170,114 @@ public getCommitHash(): string
 
 ***
 
-### getShortReference
+### getReference
 
 
 
 ```php
-public getShortReference(): string
+public getReference(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getPackageName
+
+
+
+```php
+public getPackageName(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### __toString
+
+
+
+```php
+public __toString(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getPrettyVersion
+
+
+
+```php
+public getPrettyVersion(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getVersionWithShortCommit
+
+
+
+```php
+public getVersionWithShortCommit(): string
+```
+
+
+
+
+
+
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
+
+***
+
+### getVersionWithShortReference
+
+
+
+```php
+public getVersionWithShortReference(): string
 ```
 
 
@@ -314,12 +314,12 @@ public getShortCommitHash(): string
 
 ***
 
-### __toString
+### getShortReference
 
 
 
 ```php
-public __toString(): string
+public getShortReference(): string
 ```
 
 
@@ -336,4 +336,4 @@ public __toString(): string
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

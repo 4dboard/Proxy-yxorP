@@ -246,6 +246,46 @@ public connect(): mixed
 
 ***
 
+### login
+
+Login.
+
+```php
+protected login(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### disconnect
+
+Close the connection.
+
+```php
+public disconnect(): mixed
+```
+
+
+
+
+* This method is **abstract**.
+
+
+
+
+
+
+***
+
 ### setUtf8Mode
 
 Set the connection to UTF-8 mode.
@@ -306,12 +346,12 @@ protected setConnectionRoot(): mixed
 
 ***
 
-### login
+### isPureFtpdServer
 
-Login.
+
 
 ```php
-protected login(): mixed
+protected isPureFtpdServer(): bool
 ```
 
 
@@ -326,20 +366,28 @@ protected login(): mixed
 
 ***
 
-### disconnect
+### update
 
-Close the connection.
+
 
 ```php
-public disconnect(): mixed
+public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
 
 
 
 
-* This method is **abstract**.
 
 
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** |  |
+| `$contents` | **mixed** |  |
+| `$config` | **\League\Flysystem\Config** |  |
 
 
 
@@ -402,12 +450,12 @@ public writeStream(string $path, resource $resource, \League\Flysystem\Config $c
 
 ***
 
-### update
+### setVisibility
 
 
 
 ```php
-public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): mixed
+public setVisibility(mixed $path, mixed $visibility): mixed
 ```
 
 
@@ -422,8 +470,7 @@ public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): m
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-| `$contents` | **mixed** |  |
-| `$config` | **\League\Flysystem\Config** |  |
+| `$visibility` | **mixed** |  |
 
 
 
@@ -531,6 +578,59 @@ public deleteDir(mixed $dirname): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **mixed** |  |
+
+
+
+
+***
+
+### listDirectoryContentsRecursive
+
+
+
+```php
+protected listDirectoryContentsRecursive(string $directory): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$directory` | **string** |  |
+
+
+
+
+***
+
+### ftpRawlist
+
+The ftp_rawlist function with optional escaping.
+
+```php
+protected ftpRawlist(string $options, string $path): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$options` | **string** |  |
+| `$path` | **string** |  |
 
 
 
@@ -695,59 +795,6 @@ public readStream(string $path): resource
 
 ***
 
-### setVisibility
-
-
-
-```php
-public setVisibility(mixed $path, mixed $visibility): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** |  |
-| `$visibility` | **mixed** |  |
-
-
-
-
-***
-
-### listDirectoryContentsRecursive
-
-
-
-```php
-protected listDirectoryContentsRecursive(string $directory): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$directory` | **string** |  |
-
-
-
-
-***
-
 ### isConnected
 
 Check if a connection is active.
@@ -762,53 +809,6 @@ public isConnected(): bool
 * This method is **abstract**.
 
 
-
-
-
-
-***
-
-### isPureFtpdServer
-
-
-
-```php
-protected isPureFtpdServer(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### ftpRawlist
-
-The ftp_rawlist function with optional escaping.
-
-```php
-protected ftpRawlist(string $options, string $path): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$options` | **string** |  |
-| `$path` | **string** |  |
 
 
 
@@ -966,84 +966,12 @@ public setHost(string $host): $this
 
 ***
 
-### setPermPublic
-
-Set the public permission value.
-
-```php
-public setPermPublic(int $permPublic): $this
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$permPublic` | **int** |  |
-
-
-
-
-***
-
-### setPermPrivate
-
-Set the private permission value.
-
-```php
-public setPermPrivate(int $permPrivate): $this
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$permPrivate` | **int** |  |
-
-
-
-
-***
-
 ### getPort
 
 Returns the ftp port.
 
 ```php
 public getPort(): int
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getRoot
-
-Returns the root folder to work from.
-
-```php
-public getRoot(): string
 ```
 
 
@@ -1078,6 +1006,26 @@ public setPort(int|string $port): $this
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$port` | **int&#124;string** |  |
+
+
+
+
+***
+
+### getRoot
+
+Returns the root folder to work from.
+
+```php
+public getRoot(): string
+```
+
+
+
+
+
+
+
 
 
 
@@ -1355,339 +1303,6 @@ public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): 
 
 ***
 
-### normalizeListing
-
-Normalize a directory listing.
-
-```php
-protected normalizeListing(array $listing, string $prefix = &#039;&#039;): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$listing` | **array** |  |
-| `$prefix` | **string** |  |
-
-
-**Return Value:**
-
-directory listing
-
-
-
-***
-
-### sortListing
-
-Sort a directory listing.
-
-```php
-protected sortListing(array $result): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$result` | **array** |  |
-
-
-**Return Value:**
-
-sorted listing
-
-
-
-***
-
-### normalizeObject
-
-Normalize a file entry.
-
-```php
-protected normalizeObject(string $item, string $base): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$item` | **string** |  |
-| `$base` | **string** |  |
-
-
-**Return Value:**
-
-normalized file array
-
-
-
-***
-
-### normalizeUnixObject
-
-Normalize a Unix file entry.
-
-```php
-protected normalizeUnixObject(string $item, string $base): array
-```
-
-Given $item contains:
-   '-rw-r--r--   1 ftp      ftp           409 Aug 19 09:01 file1.txt'
-
-This function will return:
-[
-  'type' => 'file',
-  'path' => 'file1.txt',
-  'visibility' => 'public',
-  'size' => 409,
-  'timestamp' => 1566205260
-]
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$item` | **string** |  |
-| `$base` | **string** |  |
-
-
-**Return Value:**
-
-normalized file array
-
-
-
-***
-
-### normalizeUnixTimestamp
-
-Only accurate to the minute (current year), or to the day.
-
-```php
-protected normalizeUnixTimestamp(string $month, string $day, string $timeOrYear): int
-```
-
-Inadequacies in timestamp accuracy are due to limitations of the FTP 'LIST' command
-
-Note: The 'MLSD' command is a machine-readable replacement for 'LIST'
-but many FTP servers do not support it :(
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$month` | **string** | e.g. &#039;Aug&#039; |
-| `$day` | **string** | e.g. &#039;19&#039; |
-| `$timeOrYear` | **string** | e.g. &#039;09:01&#039; OR &#039;2015&#039; |
-
-
-
-
-***
-
-### normalizeWindowsObject
-
-Normalize a Windows/DOS file entry.
-
-```php
-protected normalizeWindowsObject(string $item, string $base): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$item` | **string** |  |
-| `$base` | **string** |  |
-
-
-**Return Value:**
-
-normalized file array
-
-
-
-***
-
-### detectSystemType
-
-Get the system type from a listing item.
-
-```php
-protected detectSystemType(string $item): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$item` | **string** |  |
-
-
-**Return Value:**
-
-the system type
-
-
-
-***
-
-### detectType
-
-Get the file type from the permissions.
-
-```php
-protected detectType(string $permissions): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$permissions` | **string** |  |
-
-
-**Return Value:**
-
-file type
-
-
-
-***
-
-### normalizePermissions
-
-Normalize a permissions string.
-
-```php
-protected normalizePermissions(string $permissions): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$permissions` | **string** |  |
-
-
-
-
-***
-
-### removeDotDirectories
-
-Filter out dot-directories.
-
-```php
-public removeDotDirectories(array $list): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$list` | **array** |  |
-
-
-
-
-***
-
-### has
-
-
-
-```php
-public has(mixed $path): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** |  |
-
-
-
-
-***
-
 ### getSize
 
 
@@ -1766,6 +1381,32 @@ public ensureDirectory(string $dirname): mixed
 
 ***
 
+### has
+
+
+
+```php
+public has(mixed $path): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** |  |
+
+
+
+
+***
+
 ### getConnection
 
 
@@ -1806,6 +1447,32 @@ public getPermPublic(): int
 
 ***
 
+### setPermPublic
+
+Set the public permission value.
+
+```php
+public setPermPublic(int $permPublic): $this
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$permPublic` | **int** |  |
+
+
+
+
+***
+
 ### getPermPrivate
 
 Get the private permission value.
@@ -1820,6 +1487,32 @@ public getPermPrivate(): int
 
 
 
+
+
+
+
+***
+
+### setPermPrivate
+
+Set the private permission value.
+
+```php
+public setPermPrivate(int $permPrivate): $this
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$permPrivate` | **int** |  |
 
 
 
@@ -1841,6 +1534,313 @@ public __destruct(): mixed
 
 
 
+
+
+
+***
+
+### normalizeListing
+
+Normalize a directory listing.
+
+```php
+protected normalizeListing(array $listing, string $prefix = &#039;&#039;): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$listing` | **array** |  |
+| `$prefix` | **string** |  |
+
+
+**Return Value:**
+
+directory listing
+
+
+
+***
+
+### removeDotDirectories
+
+Filter out dot-directories.
+
+```php
+public removeDotDirectories(array $list): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$list` | **array** |  |
+
+
+
+
+***
+
+### normalizeObject
+
+Normalize a file entry.
+
+```php
+protected normalizeObject(string $item, string $base): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$item` | **string** |  |
+| `$base` | **string** |  |
+
+
+**Return Value:**
+
+normalized file array
+
+
+
+***
+
+### detectSystemType
+
+Get the system type from a listing item.
+
+```php
+protected detectSystemType(string $item): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$item` | **string** |  |
+
+
+**Return Value:**
+
+the system type
+
+
+
+***
+
+### normalizeUnixObject
+
+Normalize a Unix file entry.
+
+```php
+protected normalizeUnixObject(string $item, string $base): array
+```
+
+Given $item contains:
+   '-rw-r--r--   1 ftp      ftp           409 Aug 19 09:01 file1.txt'
+
+This function will return:
+[
+  'type' => 'file',
+  'path' => 'file1.txt',
+  'visibility' => 'public',
+  'size' => 409,
+  'timestamp' => 1566205260
+]
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$item` | **string** |  |
+| `$base` | **string** |  |
+
+
+**Return Value:**
+
+normalized file array
+
+
+
+***
+
+### detectType
+
+Get the file type from the permissions.
+
+```php
+protected detectType(string $permissions): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$permissions` | **string** |  |
+
+
+**Return Value:**
+
+file type
+
+
+
+***
+
+### normalizeUnixTimestamp
+
+Only accurate to the minute (current year), or to the day.
+
+```php
+protected normalizeUnixTimestamp(string $month, string $day, string $timeOrYear): int
+```
+
+Inadequacies in timestamp accuracy are due to limitations of the FTP 'LIST' command
+
+Note: The 'MLSD' command is a machine-readable replacement for 'LIST'
+but many FTP servers do not support it :(
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$month` | **string** | e.g. &#039;Aug&#039; |
+| `$day` | **string** | e.g. &#039;19&#039; |
+| `$timeOrYear` | **string** | e.g. &#039;09:01&#039; OR &#039;2015&#039; |
+
+
+
+
+***
+
+### normalizePermissions
+
+Normalize a permissions string.
+
+```php
+protected normalizePermissions(string $permissions): int
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$permissions` | **string** |  |
+
+
+
+
+***
+
+### normalizeWindowsObject
+
+Normalize a Windows/DOS file entry.
+
+```php
+protected normalizeWindowsObject(string $item, string $base): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$item` | **string** |  |
+| `$base` | **string** |  |
+
+
+**Return Value:**
+
+normalized file array
+
+
+
+***
+
+### sortListing
+
+Sort a directory listing.
+
+```php
+protected sortListing(array $result): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$result` | **array** |  |
+
+
+**Return Value:**
+
+sorted listing
 
 
 
@@ -1872,12 +1872,12 @@ protected escapePath(mixed $path): mixed
 
 ***
 
-### setPathPrefix
+### applyPathPrefix
 
-Set the path prefix.
+Prefix a path.
 
 ```php
-public setPathPrefix(string $prefix): void
+public applyPathPrefix(string $path): string
 ```
 
 
@@ -1891,8 +1891,12 @@ public setPathPrefix(string $prefix): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$prefix` | **string** |  |
+| `$path` | **string** |  |
 
+
+**Return Value:**
+
+prefixed path
 
 
 
@@ -1922,12 +1926,12 @@ path prefix or null if pathPrefix is empty
 
 ***
 
-### applyPathPrefix
+### setPathPrefix
 
-Prefix a path.
+Set the path prefix.
 
 ```php
-public applyPathPrefix(string $path): string
+public setPathPrefix(string $prefix): void
 ```
 
 
@@ -1941,12 +1945,8 @@ public applyPathPrefix(string $path): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** |  |
+| `$prefix` | **string** |  |
 
-
-**Return Value:**
-
-prefixed path
 
 
 
@@ -1984,4 +1984,4 @@ path without the prefix
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

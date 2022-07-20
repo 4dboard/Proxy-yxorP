@@ -211,6 +211,46 @@ private domainToAscii(string $domain): string
 
 ***
 
+### value
+
+
+
+```php
+public value(): ?string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### toUnicode
+
+
+
+```php
+public toUnicode(): self
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### __set_state
 
 
@@ -283,46 +323,6 @@ public static fromIDNA2008(mixed $domain): self
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
-
-***
-
-### value
-
-
-
-```php
-public value(): ?string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### toUnicode
-
-
-
-```php
-public toUnicode(): self
-```
-
-
-
-
-
-
-
 
 
 
@@ -702,4 +702,4 @@ public slice(int $offset, int $length = null): self
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

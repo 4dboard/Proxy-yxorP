@@ -288,6 +288,32 @@ Supported options:
 
 ***
 
+### checkOutDeprecations
+
+
+
+```php
+private checkOutDeprecations(string|array|object $out): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$out` | **string&#124;array&#124;object** |  |
+
+
+
+
+***
+
 ### execute
 
 Execute the operation.
@@ -317,32 +343,6 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\MapReduceResult
 
 ***
 
-### checkOutDeprecations
-
-
-
-```php
-private checkOutDeprecations(string|array|object $out): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$out` | **string&#124;array&#124;object** |  |
-
-
-
-
-***
-
 ### createCommand
 
 Create the mapReduce command.
@@ -362,33 +362,6 @@ private createCommand(\MongoDB\Driver\Server $server): \MongoDB\Driver\Command
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$server` | **\MongoDB\Driver\Server** |  |
-
-
-
-
-***
-
-### createGetIteratorCallable
-
-Creates a callable for MapReduceResult::getIterator().
-
-```php
-private createGetIteratorCallable(\stdClass $result, \MongoDB\Driver\Server $server): callable
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$result` | **\stdClass** |  |
 | `$server` | **\MongoDB\Driver\Server** |  |
 
 
@@ -425,6 +398,33 @@ private createOptions(bool $hasOutputCollection): array
 
 ***
 
+### createGetIteratorCallable
+
+Creates a callable for MapReduceResult::getIterator().
+
+```php
+private createGetIteratorCallable(\stdClass $result, \MongoDB\Driver\Server $server): callable
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$result` | **\stdClass** |  |
+| `$server` | **\MongoDB\Driver\Server** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

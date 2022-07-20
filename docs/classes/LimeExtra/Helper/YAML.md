@@ -32,32 +32,6 @@ protected $cachePath
 ## Methods
 
 
-### setCachePath
-
-
-
-```php
-public setCachePath( $path): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **** |  |
-
-
-
-
-***
-
 ### fromString
 
 
@@ -84,6 +58,32 @@ public static fromString( $string): array
 
 ***
 
+### setCachePath
+
+
+
+```php
+public setCachePath( $path): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **** |  |
+
+
+
+
+***
+
 ### fromFile
 
 
@@ -104,59 +104,6 @@ public fromFile( $file): array|mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **** |  |
-
-
-
-
-***
-
-### toYAML
-
-
-
-```php
-public toYAML( $array): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$array` | **** |  |
-
-
-
-
-***
-
-### toFile
-
-
-
-```php
-public toFile( $file,  $array): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **** |  |
-| `$array` | **** |  |
 
 
 
@@ -211,6 +158,59 @@ protected cache_file( $file,  $cachedfile, null $filemtime = null): bool
 | `$file` | **** |  |
 | `$cachedfile` | **** |  |
 | `$filemtime` | **null** |  |
+
+
+
+
+***
+
+### toFile
+
+
+
+```php
+public toFile( $file,  $array): int
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **** |  |
+| `$array` | **** |  |
+
+
+
+
+***
+
+### toYAML
+
+
+
+```php
+public toYAML( $array): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$array` | **** |  |
 
 
 
@@ -348,4 +348,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

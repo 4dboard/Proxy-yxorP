@@ -243,6 +243,59 @@ protected string $last_reply
 ## Methods
 
 
+### connect
+
+Connect to an SMTP server.
+
+```php
+public connect(string $host, int $port = null, int $timeout = 30, array $options = []): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$host` | **string** | SMTP server IP or host name |
+| `$port` | **int** | The port number to connect to |
+| `$timeout` | **int** | How long to wait for the connection to open |
+| `$options` | **array** | An array of options for stream_context_create() |
+
+
+
+
+***
+
+### connected
+
+Check connection state.
+
+```php
+public connected(): bool
+```
+
+
+
+
+
+
+
+
+
+**Return Value:**
+
+True if connected
+
+
+
+***
+
 ### edebug
 
 Output debugging info via a user-selected method.
@@ -273,14 +326,15 @@ protected edebug(string $str, int $level): mixed
 
 ***
 
-### connect
+### close
 
-Connect to an SMTP server.
+Close the socket and clean up the state of the class.
 
 ```php
-public connect(string $host, int $port = null, int $timeout = 30, array $options = []): bool
+public close(): mixed
 ```
 
+Don't use this function without first trying to use QUIT.
 
 
 
@@ -288,17 +342,10 @@ public connect(string $host, int $port = null, int $timeout = 30, array $options
 
 
 
-**Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$host` | **string** | SMTP server IP or host name |
-| `$port` | **int** | The port number to connect to |
-| `$timeout` | **int** | How long to wait for the connection to open |
-| `$options` | **array** | An array of options for stream_context_create() |
+**See Also:**
 
-
-
+* \PHPMailer\PHPMailer\quit() - 
 
 ***
 
@@ -326,6 +373,168 @@ protected getSMTPConnection(string $host, int $port = null, int $timeout = 30, a
 | `$timeout` | **int** | How long to wait for the connection to open |
 | `$options` | **array** | An array of options for stream_context_create() |
 
+
+
+
+***
+
+### get_lines
+
+Read the SMTP server's response.
+
+```php
+protected get_lines(): string
+```
+
+Either before eof or socket timeout occurs on the operation.
+With SMTP we can tell if we have more lines to read if the
+4th character is '-' symbol. If it is a space then we don't
+need to read anything else.
+
+
+
+
+
+
+
+
+
+***
+
+### getError
+
+Get the latest error.
+
+```php
+public getError(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setError
+
+Set error messages and codes.
+
+```php
+protected setError(string $message, string $detail = &#039;&#039;, string $smtp_code = &#039;&#039;, string $smtp_code_ex = &#039;&#039;): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$message` | **string** | The error message |
+| `$detail` | **string** | Further detail on the error |
+| `$smtp_code` | **string** | An associated SMTP error code |
+| `$smtp_code_ex` | **string** | Extended SMTP code |
+
+
+
+
+***
+
+### quit
+
+Send an SMTP QUIT command.
+
+```php
+public quit(bool $close_on_error = true): bool
+```
+
+Closes the socket if there is no error or the $close_on_error argument is true.
+Implements from RFC 821: QUIT <CRLF>.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$close_on_error` | **bool** | Should the connection close if an error occurs? |
+
+
+
+
+***
+
+### sendCommand
+
+Send a command to an SMTP server and check its return code.
+
+```php
+protected sendCommand(string $command, string $commandstring, int|array $expect): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$command` | **string** | The command name - not sent to the server |
+| `$commandstring` | **string** | The actual command to send |
+| `$expect` | **int&#124;array** | One or more expected integer success codes |
+
+
+**Return Value:**
+
+True on success
+
+
+
+***
+
+### client_send
+
+Send raw data to the server.
+
+```php
+public client_send(string $data, string $command = &#039;&#039;): int|bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$data` | **string** | The data to send |
+| `$command` | **string** | Optionally, the command this is part of, used only for controlling debug output |
+
+
+**Return Value:**
+
+The number of bytes sent to the server or false on error
 
 
 
@@ -415,53 +624,6 @@ in case that function is not available.
 
 ***
 
-### connected
-
-Check connection state.
-
-```php
-public connected(): bool
-```
-
-
-
-
-
-
-
-
-
-**Return Value:**
-
-True if connected
-
-
-
-***
-
-### close
-
-Close the socket and clean up the state of the class.
-
-```php
-public close(): mixed
-```
-
-Don't use this function without first trying to use QUIT.
-
-
-
-
-
-
-
-
-**See Also:**
-
-* \PHPMailer\PHPMailer\quit() - 
-
-***
-
 ### data
 
 Send an SMTP DATA command.
@@ -487,6 +649,49 @@ Implements RFC 821: DATA <CRLF>.
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$msg_data` | **string** | Message data to send |
+
+
+
+
+***
+
+### recordLastTransactionID
+
+Extract and return the ID of the last SMTP transaction based on
+a list of patterns provided in SMTP::$smtp_transaction_id_patterns.
+
+```php
+protected recordLastTransactionID(): bool|string|null
+```
+
+Relies on the host providing the ID in response to a DATA command.
+If no reply has been received yet, it will return null.
+If no pattern was matched, it will return false.
+
+
+
+
+
+
+
+
+
+***
+
+### getLastReply
+
+Get the last reply from the server.
+
+```php
+public getLastReply(): string
+```
+
+
+
+
+
+
+
 
 
 
@@ -608,33 +813,6 @@ Implements RFC 821: MAIL <SP> FROM:<reverse-path> <CRLF>.
 
 ***
 
-### quit
-
-Send an SMTP QUIT command.
-
-```php
-public quit(bool $close_on_error = true): bool
-```
-
-Closes the socket if there is no error or the $close_on_error argument is true.
-Implements from RFC 821: QUIT <CRLF>.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$close_on_error` | **bool** | Should the connection close if an error occurs? |
-
-
-
-
-***
-
 ### recipient
 
 Send an SMTP RCPT command.
@@ -679,38 +857,6 @@ Implements RFC 821: RSET <CRLF>.
 
 
 
-
-
-**Return Value:**
-
-True on success
-
-
-
-***
-
-### sendCommand
-
-Send a command to an SMTP server and check its return code.
-
-```php
-protected sendCommand(string $command, string $commandstring, int|array $expect): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$command` | **string** | The command name - not sent to the server |
-| `$commandstring` | **string** | The actual command to send |
-| `$expect` | **int&#124;array** | One or more expected integer success codes |
 
 
 **Return Value:**
@@ -822,57 +968,6 @@ Implements from RFC 821: TURN <CRLF>.
 
 ***
 
-### client_send
-
-Send raw data to the server.
-
-```php
-public client_send(string $data, string $command = &#039;&#039;): int|bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$data` | **string** | The data to send |
-| `$command` | **string** | Optionally, the command this is part of, used only for controlling debug output |
-
-
-**Return Value:**
-
-The number of bytes sent to the server or false on error
-
-
-
-***
-
-### getError
-
-Get the latest error.
-
-```php
-public getError(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getServerExtList
 
 Get SMTP extensions available on the server.
@@ -928,49 +1023,6 @@ The method works in three ways, dependent on argument value and current state:
 
 ***
 
-### getLastReply
-
-Get the last reply from the server.
-
-```php
-public getLastReply(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### get_lines
-
-Read the SMTP server's response.
-
-```php
-protected get_lines(): string
-```
-
-Either before eof or socket timeout occurs on the operation.
-With SMTP we can tell if we have more lines to read if the
-4th character is '-' symbol. If it is a space then we don't
-need to read anything else.
-
-
-
-
-
-
-
-
-
-***
-
 ### setVerp
 
 Enable or disable VERP address generation.
@@ -1017,12 +1069,12 @@ public getVerp(): bool
 
 ***
 
-### setError
+### getDebugOutput
 
-Set error messages and codes.
+Get debug output method.
 
 ```php
-protected setError(string $message, string $detail = &#039;&#039;, string $smtp_code = &#039;&#039;, string $smtp_code_ex = &#039;&#039;): mixed
+public getDebugOutput(): string
 ```
 
 
@@ -1031,15 +1083,6 @@ protected setError(string $message, string $detail = &#039;&#039;, string $smtp_
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$message` | **string** | The error message |
-| `$detail` | **string** | Further detail on the error |
-| `$smtp_code` | **string** | An associated SMTP error code |
-| `$smtp_code_ex` | **string** | Extended SMTP code |
 
 
 
@@ -1066,26 +1109,6 @@ public setDebugOutput(string|callable $method = &#039;echo&#039;): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string&#124;callable** | The name of the mechanism to use for debugging output, or a callable to handle it |
-
-
-
-
-***
-
-### getDebugOutput
-
-Get debug output method.
-
-```php
-public getDebugOutput(): string
-```
-
-
-
-
-
-
-
 
 
 
@@ -1138,6 +1161,26 @@ public getDebugLevel(): int
 
 ***
 
+### getTimeout
+
+Get SMTP timeout.
+
+```php
+public getTimeout(): int
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### setTimeout
 
 Set SMTP timeout.
@@ -1164,14 +1207,16 @@ public setTimeout(int $timeout): mixed
 
 ***
 
-### getTimeout
+### getLastTransactionID
 
-Get SMTP timeout.
+Get the queue/transaction ID of the last SMTP transaction
+If no reply has been received yet, it will return null.
 
 ```php
-public getTimeout(): int
+public getLastTransactionID(): bool|string|null
 ```
 
+If no pattern was matched, it will return false.
 
 
 
@@ -1180,7 +1225,9 @@ public getTimeout(): int
 
 
 
+**See Also:**
 
+* \PHPMailer\PHPMailer\recordLastTransactionID() - 
 
 ***
 
@@ -1213,53 +1260,6 @@ protected errorHandler(int $errno, string $errmsg, string $errfile = &#039;&#039
 
 ***
 
-### recordLastTransactionID
-
-Extract and return the ID of the last SMTP transaction based on
-a list of patterns provided in SMTP::$smtp_transaction_id_patterns.
-
-```php
-protected recordLastTransactionID(): bool|string|null
-```
-
-Relies on the host providing the ID in response to a DATA command.
-If no reply has been received yet, it will return null.
-If no pattern was matched, it will return false.
-
-
-
-
-
-
-
-
 
 ***
-
-### getLastTransactionID
-
-Get the queue/transaction ID of the last SMTP transaction
-If no reply has been received yet, it will return null.
-
-```php
-public getLastTransactionID(): bool|string|null
-```
-
-If no pattern was matched, it will return false.
-
-
-
-
-
-
-
-
-**See Also:**
-
-* \PHPMailer\PHPMailer\recordLastTransactionID() - 
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

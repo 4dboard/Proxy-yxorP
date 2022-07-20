@@ -24,6 +24,92 @@
 ## Methods
 
 
+### getColor
+
+Use the median cut algorithm to cluster similar colors.
+
+```php
+public static getColor(mixed $sourceImage, int $quality = 10, array|null $area = null): array|bool
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
+| `$quality` | **int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
+| `$area` | **array&#124;null** | [x,y,w,h] It allows you to specify a rectangular area in the image in order to get<br />colors only for this area. It needs to be an associative array with the<br />following keys:<br />$area[&#039;x&#039;]: The x-coordinate of the top left corner of the area. Default to 0.<br />$area[&#039;y&#039;]: The y-coordinate of the top left corner of the area. Default to 0.<br />$area[&#039;w&#039;]: The width of the area. Default to image width minus x-coordinate.<br />$area[&#039;h&#039;]: The height of the area. Default to image height minus y-coordinate. |
+
+
+
+
+***
+
+### getPalette
+
+Use the median cut algorithm to cluster similar colors.
+
+```php
+public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality = 10, array|null $area = null): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
+| `$colorCount` | **int** | it determines the size of the palette; the number of colors returned |
+| `$quality` | **int** | 1 is the highest quality |
+| `$area` | **array&#124;null** | [x,y,w,h] |
+
+
+
+
+***
+
+### loadImage
+
+
+
+```php
+private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|null $area = null): int
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
+| `$quality` | **int** | Analyze every $quality pixels |
+| `$histo` | **array** | Histogram |
+| `$area` | **array&#124;null** |  |
+
+
+
+
+***
+
 ### getColorIndex
 
 Get combined color index (3 colors as one integer) from RGB values (0-255) or RGB Histogram Buckets (0-31).
@@ -47,6 +133,60 @@ public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self
 | `$green` | **int** |  |
 | `$blue` | **int** |  |
 | `$sigBits` | **int** |  |
+
+
+
+
+***
+
+### quantize
+
+
+
+```php
+private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThief\CMap
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$numPixels` | **** | Number of image pixels analyzed |
+| `$maxColors` | **** |  |
+| `$histo` | **array** | Histogram |
+
+
+
+
+***
+
+### vboxFromHistogram
+
+
+
+```php
+private static vboxFromHistogram(array $histo): \ColorThief\VBox
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$histo` | **array** |  |
 
 
 
@@ -107,12 +247,12 @@ public static naturalOrder(int $a, int $b): int
 
 ***
 
-### getColor
+### quantizeIter
 
-Use the median cut algorithm to cluster similar colors.
+Inner function to do the iteration.
 
 ```php
-public static getColor(mixed $sourceImage, int $quality = 10, array $area = null): array|bool
+private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, array $histo): mixed
 ```
 
 
@@ -126,122 +266,9 @@ public static getColor(mixed $sourceImage, int $quality = 10, array $area = null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
-| `$quality` | **int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
-| `$area` | **array** |  |
-
-
-
-
-***
-
-### getPalette
-
-Use the median cut algorithm to cluster similar colors.
-
-```php
-public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality = 10, array $area = null): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
-| `$colorCount` | **int** | it determines the size of the palette; the number of colors returned |
-| `$quality` | **int** | 1 is the highest quality |
-| `$area` | **array** |  |
-
-
-
-
-***
-
-### loadImage
-
-
-
-```php
-private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|null $area = null): int
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
-| `$quality` | **int** | Analyze every $quality pixels |
-| `$histo` | **array** | Histogram |
-| `$area` | **array&#124;null** |  |
-
-
-
-
-***
-
-### vboxFromHistogram
-
-
-
-```php
-private static vboxFromHistogram(array $histo): \ColorThief\VBox
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
+| `$priorityQueue` | **\ColorThief\PQueue** |  |
+| `$target` | **float** |  |
 | `$histo` | **array** |  |
-
-
-
-
-***
-
-### doCut
-
-
-
-```php
-private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, int $total): array|void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$color` | **string** |  |
-| `$vBox` | **\ColorThief\VBox** |  |
-| `$partialSum` | **array** |  |
-| `$total` | **int** |  |
 
 
 
@@ -334,12 +361,12 @@ private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): array
 
 ***
 
-### quantizeIter
+### doCut
 
-Inner function to do the iteration.
+
 
 ```php
-private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, array $histo): mixed
+private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, int $total): array|void
 ```
 
 
@@ -353,37 +380,10 @@ private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, a
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$priorityQueue` | **\ColorThief\PQueue** |  |
-| `$target` | **float** |  |
-| `$histo` | **array** |  |
-
-
-
-
-***
-
-### quantize
-
-
-
-```php
-private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThief\CMap
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$numPixels` | **** | Number of image pixels analyzed |
-| `$maxColors` | **** |  |
-| `$histo` | **array** | Histogram |
+| `$color` | **string** |  |
+| `$vBox` | **\ColorThief\VBox** |  |
+| `$partialSum` | **array** |  |
+| `$total` | **int** |  |
 
 
 
@@ -392,4 +392,4 @@ private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThi
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

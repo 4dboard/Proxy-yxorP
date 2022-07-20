@@ -170,6 +170,26 @@ Supported options:
 
 ***
 
+### createAggregate
+
+
+
+```php
+private createAggregate(): \MongoDB\Operation\Aggregate
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### execute
 
 Execute the operation.
@@ -199,26 +219,6 @@ public execute(\MongoDB\Driver\Server $server): int
 
 ***
 
-### createAggregate
-
-
-
-```php
-private createAggregate(): \MongoDB\Operation\Aggregate
-```
-
-
-
-
-
-
-
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

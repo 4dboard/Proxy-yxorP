@@ -196,6 +196,32 @@ public $route
 ## Methods
 
 
+### __construct
+
+
+
+```php
+public __construct(mixed $config = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$config` | **mixed** |  |
+
+
+
+
+***
+
 ### fromGlobalRequest
 
 
@@ -222,17 +248,17 @@ public static fromGlobalRequest(mixed $config = []): mixed
 
 ***
 
-### __construct
+### getAllHeaders
 
 
 
 ```php
-public __construct(mixed $config = []): mixed
+public static getAllHeaders(mixed $server): mixed
 ```
 
 
 
-
+* This method is **static**.
 
 
 
@@ -241,7 +267,7 @@ public __construct(mixed $config = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$config` | **mixed** |  |
+| `$server` | **mixed** |  |
 
 
 
@@ -374,32 +400,6 @@ public is(mixed $type): mixed
 
 ***
 
-### getAllHeaders
-
-
-
-```php
-public static getAllHeaders(mixed $server): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$server` | **mixed** |  |
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

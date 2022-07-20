@@ -220,6 +220,52 @@ Other options are documented in MongoDB\Driver\Manager::__construct().
 
 ***
 
+### mergeDriverInfo
+
+
+
+```php
+private mergeDriverInfo(array $driver): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$driver` | **array** |  |
+
+
+
+
+***
+
+### getVersion
+
+
+
+```php
+private static getVersion(): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### __debugInfo
 
 Return internal properties for debugging purposes.
@@ -271,6 +317,36 @@ be selected with complex syntax (e.g. $client->{"that-database"}) or
 **See Also:**
 
 * http://php.net/oop5.overloading#object.get - * http://php.net/types.string#language.types.string.parsing.complex - 
+
+***
+
+### selectDatabase
+
+Select a database.
+
+```php
+public selectDatabase(string $databaseName, array $options = []): \MongoDB\Database
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$databaseName` | **string** | Name of the database to select |
+| `$options` | **array** | Database constructor options |
+
+
+
+**See Also:**
+
+* \MongoDB\Database::__construct() - for supported options
 
 ***
 
@@ -549,36 +625,6 @@ public selectCollection(string $databaseName, string $collectionName, array $opt
 
 ***
 
-### selectDatabase
-
-Select a database.
-
-```php
-public selectDatabase(string $databaseName, array $options = []): \MongoDB\Database
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$databaseName` | **string** | Name of the database to select |
-| `$options` | **array** | Database constructor options |
-
-
-
-**See Also:**
-
-* \MongoDB\Database::__construct() - for supported options
-
-***
-
 ### startSession
 
 Start a new client session.
@@ -638,52 +684,6 @@ public watch(array $pipeline = [], array $options = []): \MongoDB\ChangeStream
 
 ***
 
-### getVersion
-
-
-
-```php
-private static getVersion(): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
 
 ***
-
-### mergeDriverInfo
-
-
-
-```php
-private mergeDriverInfo(array $driver): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$driver` | **array** |  |
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

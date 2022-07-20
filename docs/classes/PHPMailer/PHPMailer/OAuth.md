@@ -137,12 +137,12 @@ public __construct(array $options): mixed
 
 ***
 
-### getGrant
+### getOauth64
 
-Get a new RefreshToken.
+Generate a base64-encoded OAuth token.
 
 ```php
-protected getGrant(): \League\OAuth2\Client\Grant\RefreshToken
+public getOauth64(): string
 ```
 
 
@@ -177,12 +177,12 @@ protected getToken(): \League\OAuth2\Client\Token\AccessToken
 
 ***
 
-### getOauth64
+### getGrant
 
-Generate a base64-encoded OAuth token.
+Get a new RefreshToken.
 
 ```php
-public getOauth64(): string
+protected getGrant(): \League\OAuth2\Client\Grant\RefreshToken
 ```
 
 
@@ -199,4 +199,4 @@ public getOauth64(): string
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

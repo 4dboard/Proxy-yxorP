@@ -213,6 +213,32 @@ public __construct(mixed $r1, mixed $r2, mixed $g1, mixed $g2, mixed $b1, mixed 
 
 ***
 
+### count
+
+
+
+```php
+public count(mixed $force = false): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$force` | **mixed** |  |
+
+
+
+
+***
+
 ### volume
 
 
@@ -239,12 +265,12 @@ public volume(mixed $force = false): mixed
 
 ***
 
-### count
+### contains
 
 
 
 ```php
-public count(mixed $force = false): mixed
+public contains(array $rgbValue, mixed $rshift = ColorThief::RSHIFT): mixed
 ```
 
 
@@ -258,7 +284,8 @@ public count(mixed $force = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$force` | **mixed** |  |
+| `$rgbValue` | **array** |  |
+| `$rshift` | **mixed** |  |
 
 
 
@@ -311,33 +338,6 @@ public avg(bool $force = false): array|bool
 
 ***
 
-### contains
-
-
-
-```php
-public contains(array $rgbValue, mixed $rshift = ColorThief::RSHIFT): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$rgbValue` | **array** |  |
-| `$rshift` | **mixed** |  |
-
-
-
-
-***
-
 ### longestAxis
 
 Determines the longest axis.
@@ -360,4 +360,4 @@ public longestAxis(): string
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -75,6 +75,26 @@ public static toAscii(string $domain, int $options): \yxorP\app\lib\parser\idnaI
 
 ***
 
+### supportsIdna
+
+
+
+```php
+private static supportsIdna(): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### toUnicode
 
 
@@ -102,26 +122,6 @@ public static toUnicode(string $domain, int $options): \yxorP\app\lib\parser\idn
 
 ***
 
-### supportsIdna
-
-
-
-```php
-private static supportsIdna(): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

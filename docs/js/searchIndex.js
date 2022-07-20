@@ -1,21 +1,6 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\PATH_TMP_FILE",
-            "name": "PATH_TMP_FILE",
-            "summary": "",
-            "url": "namespaces/default.html#constant_PATH_TMP_FILE"
-        },                {
-            "fqsen": "\\MIME",
-            "name": "MIME",
-            "summary": "",
-            "url": "namespaces/default.html#constant_MIME"
-        },                {
-            "fqsen": "\\CACHE_FIX",
-            "name": "CACHE_FIX",
-            "summary": "",
-            "url": "namespaces/default.html#constant_CACHE_FIX"
-        },                {
             "fqsen": "\\COCKPIT_BASE_ROUTE",
             "name": "COCKPIT_BASE_ROUTE",
             "summary": "",
@@ -30,6 +15,26 @@ Search.appendIndex(
             "name": "COCKPIT_ADMIN_ROUTE",
             "summary": "",
             "url": "namespaces/default.html#constant_COCKPIT_ADMIN_ROUTE"
+        },                {
+            "fqsen": "\\admin",
+            "name": "admin",
+            "summary": "",
+            "url": "classes/admin.html"
+        },                {
+            "fqsen": "\\admin\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/admin.html#method_init"
+        },                {
+            "fqsen": "\\PATH_TMP_FILE",
+            "name": "PATH_TMP_FILE",
+            "summary": "",
+            "url": "namespaces/default.html#constant_PATH_TMP_FILE"
+        },                {
+            "fqsen": "\\CACHE_FIX",
+            "name": "CACHE_FIX",
+            "summary": "",
+            "url": "namespaces/default.html#constant_CACHE_FIX"
         },                {
             "fqsen": "\\onBuildContextAction",
             "name": "onBuildContextAction",
@@ -121,20 +126,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/onSendAction.html#method_onSend"
         },                {
+            "fqsen": "\\MIME",
+            "name": "MIME",
+            "summary": "",
+            "url": "namespaces/default.html#constant_MIME"
+        },                {
+            "fqsen": "\\onSentAction",
+            "name": "onSentAction",
+            "summary": "",
+            "url": "classes/onSentAction.html"
+        },                {
+            "fqsen": "\\onSentAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
+            "summary": "",
+            "url": "classes/onSentAction.html#method_onSent"
+        },                {
             "fqsen": "\\onWriteAction",
             "name": "onWriteAction",
             "summary": "",
             "url": "classes/onWriteAction.html"
         },                {
-            "fqsen": "\\onWriteAction\u003A\u003Areplace\u0028\u0029",
-            "name": "replace",
-            "summary": "",
-            "url": "classes/onWriteAction.html#method_replace"
-        },                {
             "fqsen": "\\onWriteAction\u003A\u003AonWrite\u0028\u0029",
             "name": "onWrite",
             "summary": "",
             "url": "classes/onWriteAction.html#method_onWrite"
+        },                {
+            "fqsen": "\\onWriteAction\u003A\u003Areplace\u0028\u0029",
+            "name": "replace",
+            "summary": "",
+            "url": "classes/onWriteAction.html#method_replace"
         },                {
             "fqsen": "\\yxorp\\Controller\\Admin",
             "name": "Admin",
@@ -246,15 +266,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/CLI.html#method_opts"
         },                {
-            "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "",
-            "url": "classes/CLI.html#method_write"
-        },                {
             "fqsen": "\\CLI\u003A\u003Awriteln\u0028\u0029",
             "name": "writeln",
             "summary": "",
             "url": "classes/CLI.html#method_writeln"
+        },                {
+            "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "",
+            "url": "classes/CLI.html#method_write"
         },                {
             "fqsen": "\\CLI\u003A\u003Aprogress\u0028\u0029",
             "name": "progress",
@@ -271,16 +291,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method___construct"
         },                {
-            "fqsen": "\\ContainerArray\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_extend"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_get"
-        },                {
             "fqsen": "\\ContainerArray\u003A\u003Acount\u0028\u0029",
             "name": "count",
             "summary": "",
@@ -296,15 +306,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_getIterator"
         },                {
+            "fqsen": "\\ContainerArray\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method___get"
+        },                {
             "fqsen": "\\ContainerArray\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/ContainerArray.html#method___set"
         },                {
-            "fqsen": "\\ContainerArray\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
+            "fqsen": "\\ContainerArray\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
             "summary": "",
-            "url": "classes/ContainerArray.html#method___get"
+            "url": "classes/ContainerArray.html#method_extend"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -331,6 +346,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_offsetGet"
         },                {
+            "fqsen": "\\ContainerArray\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_get"
+        },                {
+            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
+            "name": "fetch_from_array",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_fetch_from_array"
+        },                {
             "fqsen": "\\ContainerArray\u003A\u003AoffsetExists\u0028\u0029",
             "name": "offsetExists",
             "summary": "",
@@ -340,11 +365,6 @@ Search.appendIndex(
             "name": "offsetUnset",
             "summary": "",
             "url": "classes/ContainerArray.html#method_offsetUnset"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
-            "name": "fetch_from_array",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_fetch_from_array"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003Aextract\u0028\u0029",
             "name": "extract",
@@ -391,20 +411,15 @@ Search.appendIndex(
             "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
             "url": "classes/DataCollection.html"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_create"
-        },                {
             "fqsen": "\\DataCollection\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/DataCollection.html#method___construct"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003Acount\u0028\u0029",
-            "name": "count",
+            "fqsen": "\\DataCollection\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
             "summary": "",
-            "url": "classes/DataCollection.html#method_count"
+            "url": "classes/DataCollection.html#method_create"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Afirst\u0028\u0029",
             "name": "first",
@@ -420,6 +435,11 @@ Search.appendIndex(
             "name": "reverse",
             "summary": "",
             "url": "classes/DataCollection.html#method_reverse"
+        },                {
+            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
+            "name": "setItems",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_setItems"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Alimit\u0028\u0029",
             "name": "limit",
@@ -456,15 +476,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/DataCollection.html#method_eq"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
-            "name": "setItems",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_setItems"
-        },                {
             "fqsen": "\\DataCollection\u003A\u003Apagination\u0028\u0029",
             "name": "pagination",
             "summary": "",
             "url": "classes/DataCollection.html#method_pagination"
+        },                {
+            "fqsen": "\\DataCollection\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_count"
         },                {
             "fqsen": "\\DataCollection\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
@@ -536,6 +556,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/FileStorage.html#method_addStorage"
         },                {
+            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
+            "name": "initStorage",
+            "summary": "",
+            "url": "classes/FileStorage.html#method_initStorage"
+        },                {
             "fqsen": "\\FileStorage\u003A\u003Ause\u0028\u0029",
             "name": "use",
             "summary": "",
@@ -545,11 +570,6 @@ Search.appendIndex(
             "name": "getURL",
             "summary": "",
             "url": "classes/FileStorage.html#method_getURL"
-        },                {
-            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
-            "name": "initStorage",
-            "summary": "",
-            "url": "classes/FileStorage.html#method_initStorage"
         },                {
             "fqsen": "\\FileStorage\u003A\u003A__call\u0028\u0029",
             "name": "__call",
@@ -591,20 +611,15 @@ Search.appendIndex(
             "summary": "\u005Brender\u0020description\u005D",
             "url": "classes/Lexy.html#method_render"
         },                {
-            "fqsen": "\\Lexy\u003A\u003Arender_file\u0028\u0029",
-            "name": "render_file",
-            "summary": "\u005Brender_file\u0020description\u005D",
-            "url": "classes/Lexy.html#method_render_file"
-        },                {
-            "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "\u005BsetcachePath\u0020description\u005D",
-            "url": "classes/Lexy.html#method_setCachePath"
-        },                {
             "fqsen": "\\Lexy\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "\u005Bexecute\u0020description\u005D",
             "url": "classes/Lexy.html#method_execute"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Arender_file\u0028\u0029",
+            "name": "render_file",
+            "summary": "\u005Brender_file\u0020description\u005D",
+            "url": "classes/Lexy.html#method_render_file"
         },                {
             "fqsen": "\\Lexy\u003A\u003Afile\u0028\u0029",
             "name": "file",
@@ -631,16 +646,6 @@ Search.appendIndex(
             "summary": "\u005Bcompile\u0020description\u005D",
             "url": "classes/Lexy.html#method_compile"
         },                {
-            "fqsen": "\\Lexy\u003A\u003AallowCall\u0028\u0029",
-            "name": "allowCall",
-            "summary": "",
-            "url": "classes/Lexy.html#method_allowCall"
-        },                {
-            "fqsen": "\\Lexy\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
-            "summary": "",
-            "url": "classes/Lexy.html#method_extend"
-        },                {
             "fqsen": "\\Lexy\u003A\u003Acheck_security\u0028\u0029",
             "name": "check_security",
             "summary": "\u005Bcheck_security\u0020description\u005D",
@@ -650,6 +655,21 @@ Search.appendIndex(
             "name": "check_syntax",
             "summary": "\u005Bcheck_syntax\u0020description\u005D",
             "url": "classes/Lexy.html#method_check_syntax"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "\u005BsetcachePath\u0020description\u005D",
+            "url": "classes/Lexy.html#method_setCachePath"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003AallowCall\u0028\u0029",
+            "name": "allowCall",
+            "summary": "",
+            "url": "classes/Lexy.html#method_allowCall"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
+            "summary": "",
+            "url": "classes/Lexy.html#method_extend"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_comments\u0028\u0029",
             "name": "compile_comments",
@@ -731,6 +751,16 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/Lime-App.html#method___construct"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
+            "name": "retrieve",
+            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_retrieve"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
+            "name": "getRequestfromGlobals",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
             "summary": "Get\u0020App\u0020instance",
@@ -741,85 +771,90 @@ Search.appendIndex(
             "summary": "Returns\u0020a\u0020closure\u0020that\u0020stores\u0020the\u0020result\u0020of\u0020the\u0020given\u0020closure",
             "url": "classes/Lime-App.html#method_service"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "stop\u0020application\u0020\u0028exit\u0029",
-            "url": "classes/Lime-App.html#method_stop"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003AisExit\u0028\u0029",
             "name": "isExit",
             "summary": "Is\u0020application\u0020stopped\u003F",
             "url": "classes/Lime-App.html#method_isExit"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
-            "name": "baseUrl",
-            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
-            "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Abase\u0028\u0029",
             "name": "base",
             "summary": "",
             "url": "classes/Lime-App.html#method_base"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
-            "name": "routeUrl",
-            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
-            "url": "classes/Lime-App.html#method_routeUrl"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_route"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
-            "name": "reroute",
-            "summary": "Redirect\u0020to\u0020path.",
-            "url": "classes/Lime-App.html#method_reroute"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_set"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
-            "name": "retrieve",
-            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_retrieve"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
-            "name": "path",
-            "summary": "Path\u0020helper\u0020method",
-            "url": "classes/Lime-App.html#method_path"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
-            "name": "paths",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_paths"
+            "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
+            "name": "baseUrl",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
+            "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003ApathToUrl\u0028\u0029",
             "name": "pathToUrl",
             "summary": "",
             "url": "classes/Lime-App.html#method_pathToUrl"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
+            "name": "path",
+            "summary": "Path\u0020helper\u0020method",
+            "url": "classes/Lime-App.html#method_path"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
+            "name": "isAbsolutePath",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_isAbsolutePath"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_route"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
+            "name": "routeUrl",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
+            "url": "classes/Lime-App.html#method_routeUrl"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
+            "name": "reroute",
+            "summary": "Redirect\u0020to\u0020path.",
+            "url": "classes/Lime-App.html#method_reroute"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "stop\u0020application\u0020\u0028exit\u0029",
+            "url": "classes/Lime-App.html#method_stop"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_set"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
+            "name": "paths",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_paths"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "Cache\u0020helper\u0020method",
             "url": "classes/Lime-App.html#method_cache"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
+            "name": "helper",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_helper"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aon\u0028\u0029",
             "name": "on",
             "summary": "Bind\u0020an\u0020event\u0020to\u0020closure",
             "url": "classes/Lime-App.html#method_on"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
-            "name": "trigger",
-            "summary": "Trigger\u0020event.",
-            "url": "classes/Lime-App.html#method_trigger"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Arender\u0028\u0029",
             "name": "render",
             "summary": "Render\u0020view.",
             "url": "classes/Lime-App.html#method_render"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
+            "name": "trigger",
+            "summary": "Trigger\u0020event.",
+            "url": "classes/Lime-App.html#method_trigger"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Astart\u0028\u0029",
             "name": "start",
@@ -841,25 +876,30 @@ Search.appendIndex(
             "summary": "Escape\u0020string.",
             "url": "classes/Lime-App.html#method_escape"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Get\u0020style\u0020inc.\u0020markup",
-            "url": "classes/Lime-App.html#method_style"
+            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
+            "name": "assets",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_assets"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Get\u0020script\u0020inc.\u0020markup",
             "url": "classes/Lime-App.html#method_script"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
-            "name": "assets",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_assets"
+            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Get\u0020style\u0020inc.\u0020markup",
+            "url": "classes/Lime-App.html#method_style"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Bind\u0020GET\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_get"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
+            "name": "bind",
+            "summary": "Bind\u0020request\u0020to\u0020route",
+            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Apost\u0028\u0029",
             "name": "post",
@@ -871,15 +911,15 @@ Search.appendIndex(
             "summary": "Bind\u0020Class\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindClass"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
+            "name": "invoke",
+            "summary": "Invoke\u0020Class\u0020as\u0020controller",
+            "url": "classes/Lime-App.html#method_invoke"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003AbindNamespace\u0028\u0029",
             "name": "bindNamespace",
             "summary": "Bind\u0020namespace\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindNamespace"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
-            "name": "bind",
-            "summary": "Bind\u0020request\u0020to\u0020route",
-            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arun\u0028\u0029",
             "name": "run",
@@ -895,11 +935,6 @@ Search.appendIndex(
             "name": "render_route",
             "summary": "Render\u0020dispatched\u0020route",
             "url": "classes/Lime-App.html#method_render_route"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
-            "name": "invoke",
-            "summary": "Invoke\u0020Class\u0020as\u0020controller",
-            "url": "classes/Lime-App.html#method_invoke"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -931,40 +966,30 @@ Search.appendIndex(
             "summary": "Create\u0020Hash",
             "url": "classes/Lime-App.html#method_hash"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "RC4\u0020encryption",
-            "url": "classes/Lime-App.html#method_encode"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
             "summary": "Decode\u0020RC4\u0020encrypted\u0020text",
             "url": "classes/Lime-App.html#method_decode"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
-            "name": "helper",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_helper"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
-            "name": "isAbsolutePath",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_isAbsolutePath"
+            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "RC4\u0020encryption",
+            "url": "classes/Lime-App.html#method_encode"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Amodule\u0028\u0029",
             "name": "module",
             "summary": "",
             "url": "classes/Lime-App.html#method_module"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
-            "name": "registerModule",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_registerModule"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003AloadModules\u0028\u0029",
             "name": "loadModules",
             "summary": "",
             "url": "classes/Lime-App.html#method_loadModules"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
+            "name": "registerModule",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_registerModule"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbootModule\u0028\u0029",
             "name": "bootModule",
@@ -1001,40 +1026,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-App.html#method___invoke"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
-            "name": "getRequestfromGlobals",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024apps",
             "name": "apps",
             "summary": "",
             "url": "classes/Lime-App.html#property_apps"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
-            "name": "registry",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_registry"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024routes",
-            "name": "routes",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_routes"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024events",
-            "name": "events",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_events"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024blocks",
-            "name": "blocks",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_blocks"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024exit",
-            "name": "exit",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_exit"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024response",
             "name": "response",
@@ -1060,6 +1055,31 @@ Search.appendIndex(
             "name": "viewvars",
             "summary": "",
             "url": "classes/Lime-App.html#property_viewvars"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
+            "name": "registry",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_registry"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024routes",
+            "name": "routes",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_routes"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024events",
+            "name": "events",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_events"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024blocks",
+            "name": "blocks",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_blocks"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024exit",
+            "name": "exit",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_exit"
         },                {
             "fqsen": "\\Lime\\AppAware",
             "name": "AppAware",
@@ -1101,20 +1121,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Module.html"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
+            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
             "summary": "",
-            "url": "classes/Lime-Module.html#method_extend"
+            "url": "classes/Lime-Module.html#method___get"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/Lime-Module.html#method___set"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
+            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
             "summary": "",
-            "url": "classes/Lime-Module.html#method___get"
+            "url": "classes/Lime-Module.html#method_extend"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -1151,15 +1171,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_initialize"
         },                {
-            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "",
-            "url": "classes/Lime-Helper-Cache.html#method_setCachePath"
-        },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AgetCachePath\u0028\u0029",
             "name": "getCachePath",
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_getCachePath"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "",
+            "url": "classes/Lime-Helper-Cache.html#method_setCachePath"
         },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003Awrite\u0028\u0029",
             "name": "write",
@@ -1221,30 +1241,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#method_destroy"
         },                {
-            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
-            "name": "initialized",
-            "summary": "",
-            "url": "classes/Lime-Helper-Session.html#property_initialized"
-        },                {
             "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#property_name"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
+            "name": "initialized",
+            "summary": "",
+            "url": "classes/Lime-Helper-Session.html#property_initialized"
         },                {
             "fqsen": "\\Lime\\Request",
             "name": "Request",
             "summary": "",
             "url": "classes/Lime-Request.html"
         },                {
+            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Lime-Request.html#method___construct"
+        },                {
             "fqsen": "\\Lime\\Request\u003A\u003AfromGlobalRequest\u0028\u0029",
             "name": "fromGlobalRequest",
             "summary": "",
             "url": "classes/Lime-Request.html#method_fromGlobalRequest"
         },                {
-            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
+            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
+            "name": "getAllHeaders",
             "summary": "",
-            "url": "classes/Lime-Request.html#method___construct"
+            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -1270,11 +1295,6 @@ Search.appendIndex(
             "name": "is",
             "summary": "",
             "url": "classes/Lime-Request.html#method_is"
-        },                {
-            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
-            "name": "getAllHeaders",
-            "summary": "",
-            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003A\u0024request",
             "name": "request",
@@ -1351,6 +1371,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#method_flush"
         },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
+            "name": "statusCodes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_statusCodes"
+        },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
+            "name": "mimeTypes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_mimeTypes"
+        },                {
             "fqsen": "\\Lime\\Response\u003A\u003A\u0024body",
             "name": "body",
             "summary": "",
@@ -1386,16 +1416,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#property_headers"
         },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
-            "name": "statusCodes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_statusCodes"
-        },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
-            "name": "mimeTypes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_mimeTypes"
-        },                {
             "fqsen": "\\LimeExtra\\App",
             "name": "App",
             "summary": "Class\u0020App",
@@ -1406,15 +1426,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/LimeExtra-App.html#method___construct"
         },                {
-            "fqsen": "\\LimeExtra\\App\u003A\u003Aview\u0028\u0029",
-            "name": "view",
-            "summary": "Render\u0020view.",
-            "url": "classes/LimeExtra-App.html#method_view"
-        },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003ArenderView\u0028\u0029",
             "name": "renderView",
             "summary": "Outputs\u0020view\u0020content\u0020result",
             "url": "classes/LimeExtra-App.html#method_renderView"
+        },                {
+            "fqsen": "\\LimeExtra\\App\u003A\u003Aview\u0028\u0029",
+            "name": "view",
+            "summary": "Render\u0020view.",
+            "url": "classes/LimeExtra-App.html#method_view"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003Aassets\u0028\u0029",
             "name": "assets",
@@ -1431,15 +1451,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Controller.html#method___construct"
         },                {
-            "fqsen": "\\LimeExtra\\Controller\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/LimeExtra-Controller.html#method_index"
-        },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
             "url": "classes/LimeExtra-Controller.html#method_before"
+        },                {
+            "fqsen": "\\LimeExtra\\Controller\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/LimeExtra-Controller.html#method_index"
         },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003Arender\u0028\u0029",
             "name": "render",
@@ -1476,35 +1496,35 @@ Search.appendIndex(
             "summary": "Assets\u0020class.",
             "url": "classes/LimeExtra-Helper-Assets.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Compile\u0020styles\u0020and\u0020return\u0020in\u0020a\u0020link\u0020tag",
-            "url": "classes/LimeExtra-Helper-Assets.html#method_style"
+            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle_and_script\u0028\u0029",
+            "name": "style_and_script",
+            "summary": "Echo\u0020tags\u0020for\u0020scripts\u0020and\u0020styles",
+            "url": "classes/LimeExtra-Helper-Assets.html#method_style_and_script"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Compile\u0020scripts\u0020and\u0020return\u0020in\u0020a\u0020script\u0020tag",
             "url": "classes/LimeExtra-Helper-Assets.html#method_script"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle_and_script\u0028\u0029",
-            "name": "style_and_script",
-            "summary": "Echo\u0020tags\u0020for\u0020scripts\u0020and\u0020styles",
-            "url": "classes/LimeExtra-Helper-Assets.html#method_style_and_script"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Acompile\u0028\u0029",
             "name": "compile",
             "summary": "Compile\u0020assets\u0020into\u0020one\u0020file",
             "url": "classes/LimeExtra-Helper-Assets.html#method_compile"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Compile\u0020styles\u0020and\u0020return\u0020in\u0020a\u0020link\u0020tag",
+            "url": "classes/LimeExtra-Helper-Assets.html#method_style"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie",
             "name": "Cookie",
             "summary": "",
             "url": "classes/LimeExtra-Helper-Cookie.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "sets\u0020a\u0020cookie",
-            "url": "classes/LimeExtra-Helper-Cookie.html#method_set"
+            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003AgetAndDelete\u0028\u0029",
+            "name": "getAndDelete",
+            "summary": "gets\u0020a\u0020cookie\u0020and\u0020eats\u0020it",
+            "url": "classes/LimeExtra-Helper-Cookie.html#method_getAndDelete"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aget\u0028\u0029",
             "name": "get",
@@ -1516,10 +1536,10 @@ Search.appendIndex(
             "summary": "deletes\u0020a\u0020cookie",
             "url": "classes/LimeExtra-Helper-Cookie.html#method_delete"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003AgetAndDelete\u0028\u0029",
-            "name": "getAndDelete",
-            "summary": "gets\u0020a\u0020cookie\u0020and\u0020eats\u0020it",
-            "url": "classes/LimeExtra-Helper-Cookie.html#method_getAndDelete"
+            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "sets\u0020a\u0020cookie",
+            "url": "classes/LimeExtra-Helper-Cookie.html#method_set"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003A\u0024_cookies",
             "name": "_cookies",
@@ -1566,11 +1586,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Helper-Filesystem.html#method_mkdir"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-Filesystem.html#method_delete"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
             "summary": "",
@@ -1580,6 +1595,11 @@ Search.appendIndex(
             "name": "rename",
             "summary": "",
             "url": "classes/LimeExtra-Helper-Filesystem.html#method_rename"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-Filesystem.html#method_delete"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003AgetDirSize\u0028\u0029",
             "name": "getDirSize",
@@ -1671,16 +1691,6 @@ Search.appendIndex(
             "summary": "Get\u0020language\u0020data",
             "url": "classes/LimeExtra-Helper-I18n.html#method_data"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locale",
-            "name": "locale",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-I18n.html#property_locale"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024_languages",
-            "name": "_languages",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-I18n.html#property__languages"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locals",
             "name": "locals",
             "summary": "",
@@ -1695,6 +1705,16 @@ Search.appendIndex(
             "name": "currencies",
             "summary": "",
             "url": "classes/LimeExtra-Helper-I18n.html#property_currencies"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locale",
+            "name": "locale",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-I18n.html#property_locale"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024_languages",
+            "name": "_languages",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-I18n.html#property__languages"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Image",
             "name": "Image",
@@ -1966,30 +1986,20 @@ Search.appendIndex(
             "summary": "Class\u0020YAML",
             "url": "classes/LimeExtra-Helper-YAML.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_setCachePath"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromString\u0028\u0029",
             "name": "fromString",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_fromString"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_setCachePath"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromFile\u0028\u0029",
             "name": "fromFile",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_fromFile"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoYAML\u0028\u0029",
-            "name": "toYAML",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_toYAML"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoFile\u0028\u0029",
-            "name": "toFile",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_toFile"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003Aget_cached_file\u0028\u0029",
             "name": "get_cached_file",
@@ -2000,6 +2010,16 @@ Search.appendIndex(
             "name": "cache_file",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_cache_file"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoFile\u0028\u0029",
+            "name": "toFile",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_toFile"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoYAML\u0028\u0029",
+            "name": "toYAML",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_toYAML"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003A\u0024cachePath",
             "name": "cachePath",
@@ -2061,11 +2081,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_from"
         },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003Awhere\u0028\u0029",
-            "name": "where",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_where"
-        },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Ajoin\u0028\u0029",
             "name": "join",
             "summary": "",
@@ -2100,6 +2115,21 @@ Search.appendIndex(
             "name": "all",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_all"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003Awhere\u0028\u0029",
+            "name": "where",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_where"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildSelect\u0028\u0029",
+            "name": "buildSelect",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildSelect"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
+            "name": "buildConditions",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Aone\u0028\u0029",
             "name": "one",
@@ -2145,16 +2175,6 @@ Search.appendIndex(
             "name": "drop",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_drop"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildSelect\u0028\u0029",
-            "name": "buildSelect",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildSelect"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
-            "name": "buildConditions",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003A\u0024cmd",
             "name": "cmd",
@@ -2301,16 +2321,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method_insert"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
-            "name": "getKey",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_getKey"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
-            "name": "setKey",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_setKey"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AremoveKey\u0028\u0029",
             "name": "removeKey",
             "summary": "Delete\u0020Key\u0028s\u0029",
@@ -2325,6 +2335,16 @@ Search.appendIndex(
             "name": "incrKey",
             "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/MongoHybrid-Client.html#method_incrKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_getKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
+            "name": "setKey",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_setKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AdecrKey\u0028\u0029",
             "name": "decrKey",
@@ -2351,16 +2371,6 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/MongoHybrid-Client.html#method_lindex"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hset"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hget"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -2370,11 +2380,6 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/MongoHybrid-Client.html#method_hexists"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/MongoHybrid-Client.html#method_hkeys"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -2386,6 +2391,11 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hlen"
         },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/MongoHybrid-Client.html#method_hkeys"
+        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -2395,6 +2405,16 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/MongoHybrid-Client.html#method_hincrby"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hget"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -2411,15 +2431,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method___call"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
-            "name": "driver",
-            "summary": "",
-            "url": "classes/MongoHybrid-Client.html#property_driver"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024type",
             "name": "type",
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#property_type"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
+            "name": "driver",
+            "summary": "",
+            "url": "classes/MongoHybrid-Client.html#property_driver"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo",
             "name": "Mongo",
@@ -2430,11 +2450,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method___construct"
-        },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
@@ -2451,10 +2466,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOneById"
         },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
+        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AfindOne\u0028\u0029",
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOne"
+        },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixMongoIds\u0028\u0029",
+            "name": "_fixMongoIds",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method__fixMongoIds"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003Afind\u0028\u0029",
             "name": "find",
@@ -2496,11 +2521,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_count"
         },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixMongoIds\u0028\u0029",
-            "name": "_fixMongoIds",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method__fixMongoIds"
-        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A\u0024client",
             "name": "client",
             "summary": "",
@@ -2526,11 +2546,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method___construct"
         },                {
-            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
-        },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "",
@@ -2545,6 +2560,11 @@ Search.appendIndex(
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method_findOne"
+        },                {
+            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
@@ -2796,6 +2816,11 @@ Search.appendIndex(
             "summary": "Loop\u0020through\u0020result\u0020set",
             "url": "classes/MongoLite-Cursor.html#method_each"
         },                {
+            "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "Iterator\u0020implementation",
+            "url": "classes/MongoLite-Cursor.html#method_rewind"
+        },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
@@ -2805,11 +2830,6 @@ Search.appendIndex(
             "name": "getData",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Cursor.html#method_getData"
-        },                {
-            "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "Iterator\u0020implementation",
-            "url": "classes/MongoLite-Cursor.html#method_rewind"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Acurrent\u0028\u0029",
             "name": "current",
@@ -2881,15 +2901,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/MongoLite-Database.html#method___construct"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
-            "name": "registerCriteriaFunction",
-            "summary": "Register\u0020Criteria\u0020function",
-            "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AcallCriteriaFunction\u0028\u0029",
             "name": "callCriteriaFunction",
             "summary": "Execute\u0020registred\u0020criteria\u0020function",
             "url": "classes/MongoLite-Database.html#method_callCriteriaFunction"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
+            "name": "registerCriteriaFunction",
+            "summary": "Register\u0020Criteria\u0020function",
+            "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003Avacuum\u0028\u0029",
             "name": "vacuum",
@@ -2901,35 +2921,35 @@ Search.appendIndex(
             "summary": "Drop\u0020database",
             "url": "classes/MongoLite-Database.html#method_drop"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
-            "name": "createCollection",
-            "summary": "Create\u0020a\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_createCollection"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "Drop\u0020a\u0020collection",
             "url": "classes/MongoLite-Database.html#method_dropCollection"
-        },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
-            "name": "getCollectionNames",
-            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
-            "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AlistCollections\u0028\u0029",
             "name": "listCollections",
             "summary": "Get\u0020all\u0020collections\u0020in\u0020the\u0020database",
             "url": "classes/MongoLite-Database.html#method_listCollections"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
-            "name": "selectCollection",
-            "summary": "Select\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_selectCollection"
+            "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
+            "name": "getCollectionNames",
+            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
+            "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
             "url": "classes/MongoLite-Database.html#method___get"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
+            "name": "selectCollection",
+            "summary": "Select\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_selectCollection"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
+            "name": "createCollection",
+            "summary": "Create\u0020a\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_createCollection"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003ADSN_PATH_MEMORY",
             "name": "DSN_PATH_MEMORY",
@@ -3046,15 +3066,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PriorityQueue.html#method___construct"
         },                {
-            "fqsen": "\\PriorityQueue\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/PriorityQueue.html#method_count"
-        },                {
             "fqsen": "\\PriorityQueue\u003A\u003AisEmpty\u0028\u0029",
             "name": "isEmpty",
             "summary": "",
             "url": "classes/PriorityQueue.html#method_isEmpty"
+        },                {
+            "fqsen": "\\PriorityQueue\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/PriorityQueue.html#method_count"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003AsetExtractFlags\u0028\u0029",
             "name": "setExtractFlags",
@@ -3091,15 +3111,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PriorityQueue.html#method_top"
         },                {
-            "fqsen": "\\PriorityQueue\u003A\u003Aextract\u0028\u0029",
-            "name": "extract",
-            "summary": "",
-            "url": "classes/PriorityQueue.html#method_extract"
-        },                {
             "fqsen": "\\PriorityQueue\u003A\u003AgetIterator\u0028\u0029",
             "name": "getIterator",
             "summary": "",
             "url": "classes/PriorityQueue.html#method_getIterator"
+        },                {
+            "fqsen": "\\PriorityQueue\u003A\u003Aextract\u0028\u0029",
+            "name": "extract",
+            "summary": "",
+            "url": "classes/PriorityQueue.html#method_extract"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003A__clone\u0028\u0029",
             "name": "__clone",
@@ -3151,25 +3171,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/RedisLite.html#method_createTable"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_get"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_set"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Aflushdb\u0028\u0029",
             "name": "flushdb",
             "summary": "Clear\u0020database",
             "url": "classes/RedisLite.html#method_flushdb"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
-            "name": "exists",
-            "summary": "Check\u0020if\u0020key\u0020exists",
-            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Akeys\u0028\u0029",
             "name": "keys",
@@ -3186,15 +3191,30 @@ Search.appendIndex(
             "summary": "Get\u0020value\u0020type",
             "url": "classes/RedisLite.html#method_type"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
-            "name": "incr",
-            "summary": "Increment\u0020value\u0020by\u0020x",
-            "url": "classes/RedisLite.html#method_incr"
+            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/RedisLite.html#method_get"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Adecr\u0028\u0029",
             "name": "decr",
             "summary": "Decrement\u0020value\u0020by\u0020x",
             "url": "classes/RedisLite.html#method_decr"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
+            "name": "incr",
+            "summary": "Increment\u0020value\u0020by\u0020x",
+            "url": "classes/RedisLite.html#method_incr"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/RedisLite.html#method_set"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
+            "name": "exists",
+            "summary": "Check\u0020if\u0020key\u0020exists",
+            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Allen\u0028\u0029",
             "name": "llen",
@@ -3221,16 +3241,6 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/RedisLite.html#method_lindex"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hset"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hget"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -3240,11 +3250,6 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/RedisLite.html#method_hexists"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/RedisLite.html#method_hkeys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -3256,6 +3261,11 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hlen"
         },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/RedisLite.html#method_hkeys"
+        },                {
             "fqsen": "\\RedisLite\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -3265,6 +3275,16 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/RedisLite.html#method_hincrby"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/RedisLite.html#method_hget"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/RedisLite.html#method_hset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -3681,60 +3701,25 @@ Search.appendIndex(
             "summary": "Class\u0020SVGSanitizer",
             "url": "classes/SVGSanitizer.html"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
-            "name": "clean",
-            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
-            "url": "classes/SVGSanitizer.html#method_clean"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/SVGSanitizer.html#method___construct"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
-            "name": "resetInternal",
-            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
-            "url": "classes/SVGSanitizer.html#method_resetInternal"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
-            "name": "setXMLOptions",
-            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
-            "name": "getXMLOptions",
-            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
-            "name": "getAllowedTags",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
-            "name": "setAllowedTags",
-            "summary": "Set\u0020custom\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
-            "name": "getAllowedAttrs",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
-            "name": "setAllowedAttrs",
-            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
-            "name": "removeRemoteReferences",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
+            "name": "clean",
+            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
+            "url": "classes/SVGSanitizer.html#method_clean"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
             "name": "sanitize",
             "summary": "Sanitize\u0020the\u0020passed\u0020string",
             "url": "classes/SVGSanitizer.html#method_sanitize"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
+            "name": "resetInternal",
+            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
+            "url": "classes/SVGSanitizer.html#method_resetInternal"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
             "name": "setUpBefore",
@@ -3761,36 +3746,6 @@ Search.appendIndex(
             "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
             "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
-            "name": "cleanXlinkHrefs",
-            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
-            "name": "cleanHrefs",
-            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
-            "name": "removeNonPrintableCharacters",
-            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
-            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
-            "name": "hasRemoteReference",
-            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
-            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
-            "name": "minify",
-            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
-            "url": "classes/SVGSanitizer.html#method_minify"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
-            "name": "removeXMLTag",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
             "name": "isAriaAttribute",
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
@@ -3801,10 +3756,75 @@ Search.appendIndex(
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
             "url": "classes/SVGSanitizer.html#method_isDataAttribute"
         },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
+            "name": "hasRemoteReference",
+            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
+            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
+            "name": "removeNonPrintableCharacters",
+            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
+            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
+            "name": "cleanXlinkHrefs",
+            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
+            "name": "cleanHrefs",
+            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
+        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
             "name": "isUseTagDirty",
             "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
             "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
+            "name": "getXMLOptions",
+            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
+            "name": "setXMLOptions",
+            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
+            "name": "getAllowedTags",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
+            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
+            "name": "setAllowedTags",
+            "summary": "Set\u0020custom\u0020allowed\u0020tags",
+            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
+            "name": "getAllowedAttrs",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
+            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
+            "name": "setAllowedAttrs",
+            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
+            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
+            "name": "removeRemoteReferences",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
+            "name": "minify",
+            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
+            "url": "classes/SVGSanitizer.html#method_minify"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
+            "name": "removeXMLTag",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
@@ -3851,11 +3871,6 @@ Search.appendIndex(
             "summary": "Creates\u0020a\u0020new\u0020SimpleImage\u0020object.",
             "url": "classes/claviska-SimpleImage.html#method___construct"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Destroys\u0020the\u0020image\u0020resource.",
-            "url": "classes/claviska-SimpleImage.html#method___destruct"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AfromDataUri\u0028\u0029",
             "name": "fromDataUri",
             "summary": "Loads\u0020an\u0020image\u0020from\u0020a\u0020data\u0020URI.",
@@ -3866,25 +3881,45 @@ Search.appendIndex(
             "summary": "Loads\u0020an\u0020image\u0020from\u0020a\u0020file.",
             "url": "classes/claviska-SimpleImage.html#method_fromFile"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AfromNew\u0028\u0029",
-            "name": "fromNew",
-            "summary": "Creates\u0020a\u0020new\u0020image.",
-            "url": "classes/claviska-SimpleImage.html#method_fromNew"
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AdarkenColor\u0028\u0029",
+            "name": "darkenColor",
+            "summary": "Darkens\u0020a\u0020color.",
+            "url": "classes/claviska-SimpleImage.html#method_darkenColor"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AadjustColor\u0028\u0029",
+            "name": "adjustColor",
+            "summary": "Adjusts\u0020a\u0020color\u0020by\u0020increasing\/decreasing\u0020red\/green\/blue\/alpha\u0020values\u0020independently.",
+            "url": "classes/claviska-SimpleImage.html#method_adjustColor"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AlightenColor\u0028\u0029",
+            "name": "lightenColor",
+            "summary": "Lightens\u0020a\u0020color.",
+            "url": "classes/claviska-SimpleImage.html#method_lightenColor"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Destroys\u0020the\u0020image\u0020resource.",
+            "url": "classes/claviska-SimpleImage.html#method___destruct"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AfromString\u0028\u0029",
             "name": "fromString",
             "summary": "Creates\u0020a\u0020new\u0020image\u0020from\u0020a\u0020string.",
             "url": "classes/claviska-SimpleImage.html#method_fromString"
         },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AtoDataUri\u0028\u0029",
+            "name": "toDataUri",
+            "summary": "Generates\u0020a\u0020data\u0020URI.",
+            "url": "classes/claviska-SimpleImage.html#method_toDataUri"
+        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Agenerate\u0028\u0029",
             "name": "generate",
             "summary": "Generates\u0020an\u0020image.",
             "url": "classes/claviska-SimpleImage.html#method_generate"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AtoDataUri\u0028\u0029",
-            "name": "toDataUri",
-            "summary": "Generates\u0020a\u0020data\u0020URI.",
-            "url": "classes/claviska-SimpleImage.html#method_toDataUri"
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AkeepWithin\u0028\u0029",
+            "name": "keepWithin",
+            "summary": "Ensures\u0020a\u0020numeric\u0020value\u0020is\u0020always\u0020within\u0020the\u0020min\u0020and\u0020max\u0020range.",
+            "url": "classes/claviska-SimpleImage.html#method_keepWithin"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AtoDownload\u0028\u0029",
             "name": "toDownload",
@@ -3906,70 +3941,90 @@ Search.appendIndex(
             "summary": "Generates\u0020an\u0020image\u0020string.",
             "url": "classes/claviska-SimpleImage.html#method_toString"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AkeepWithin\u0028\u0029",
-            "name": "keepWithin",
-            "summary": "Ensures\u0020a\u0020numeric\u0020value\u0020is\u0020always\u0020within\u0020the\u0020min\u0020and\u0020max\u0020range.",
-            "url": "classes/claviska-SimpleImage.html#method_keepWithin"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetAspectRatio\u0028\u0029",
-            "name": "getAspectRatio",
-            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020aspect\u0020ratio.",
-            "url": "classes/claviska-SimpleImage.html#method_getAspectRatio"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetExif\u0028\u0029",
-            "name": "getExif",
-            "summary": "Gets\u0020the\u0020image\u0027s\u0020exif\u0020data.",
-            "url": "classes/claviska-SimpleImage.html#method_getExif"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetHeight\u0028\u0029",
-            "name": "getHeight",
-            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020height.",
-            "url": "classes/claviska-SimpleImage.html#method_getHeight"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetMimeType\u0028\u0029",
             "name": "getMimeType",
             "summary": "Gets\u0020the\u0020mime\u0020type\u0020of\u0020the\u0020loaded\u0020image.",
             "url": "classes/claviska-SimpleImage.html#method_getMimeType"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetOrientation\u0028\u0029",
-            "name": "getOrientation",
-            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020orientation.",
-            "url": "classes/claviska-SimpleImage.html#method_getOrientation"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetResolution\u0028\u0029",
             "name": "getResolution",
             "summary": "Gets\u0020the\u0020resolution\u0020of\u0020the\u0020image",
             "url": "classes/claviska-SimpleImage.html#method_getResolution"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetWidth\u0028\u0029",
-            "name": "getWidth",
-            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020width.",
-            "url": "classes/claviska-SimpleImage.html#method_getWidth"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AimageCopyMergeAlpha\u0028\u0029",
-            "name": "imageCopyMergeAlpha",
-            "summary": "Same\u0020as\u0020PHP\u0027s\u0020imagecopymerge,\u0020but\u0020works\u0020with\u0020transparent\u0020images.\u0020Used\u0020internally\u0020for\u0020overlay.",
-            "url": "classes/claviska-SimpleImage.html#method_imageCopyMergeAlpha"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AautoOrient\u0028\u0029",
             "name": "autoOrient",
             "summary": "Rotates\u0020an\u0020image\u0020so\u0020the\u0020orientation\u0020will\u0020be\u0020correct\u0020based\u0020on\u0020its\u0020exif\u0020data.\u0020It\u0020is\u0020safe\u0020to\u0020call\nthis\u0020method\u0020on\u0020images\u0020that\u0020don\u0027t\u0020have\u0020exif\u0020data\u0020\u0028no\u0020changes\u0020will\u0020be\u0020made\u0029.",
             "url": "classes/claviska-SimpleImage.html#method_autoOrient"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetExif\u0028\u0029",
+            "name": "getExif",
+            "summary": "Gets\u0020the\u0020image\u0027s\u0020exif\u0020data.",
+            "url": "classes/claviska-SimpleImage.html#method_getExif"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aflip\u0028\u0029",
+            "name": "flip",
+            "summary": "Flip\u0020the\u0020image\u0020horizontally\u0020or\u0020vertically.",
+            "url": "classes/claviska-SimpleImage.html#method_flip"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Arotate\u0028\u0029",
+            "name": "rotate",
+            "summary": "Rotates\u0020the\u0020image.",
+            "url": "classes/claviska-SimpleImage.html#method_rotate"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AallocateColor\u0028\u0029",
+            "name": "allocateColor",
+            "summary": "Converts\u0020a\u0020\u0022friendly\u0020color\u0022\u0020into\u0020a\u0020color\u0020identifier\u0020for\u0020use\u0020with\u0020GD\u0027s\u0020image\u0020functions.",
+            "url": "classes/claviska-SimpleImage.html#method_allocateColor"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AnormalizeColor\u0028\u0029",
+            "name": "normalizeColor",
+            "summary": "Normalizes\u0020a\u0020hex\u0020or\u0020array\u0020color\u0020value\u0020to\u0020a\u0020well\u002Dformatted\u0020RGBA\u0020array.",
+            "url": "classes/claviska-SimpleImage.html#method_normalizeColor"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AbestFit\u0028\u0029",
             "name": "bestFit",
             "summary": "Proportionally\u0020resize\u0020the\u0020image\u0020to\u0020fit\u0020inside\u0020a\u0020specific\u0020width\u0020and\u0020height.",
             "url": "classes/claviska-SimpleImage.html#method_bestFit"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Acrop\u0028\u0029",
-            "name": "crop",
-            "summary": "Crop\u0020the\u0020image.",
-            "url": "classes/claviska-SimpleImage.html#method_crop"
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetWidth\u0028\u0029",
+            "name": "getWidth",
+            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020width.",
+            "url": "classes/claviska-SimpleImage.html#method_getWidth"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetHeight\u0028\u0029",
+            "name": "getHeight",
+            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020height.",
+            "url": "classes/claviska-SimpleImage.html#method_getHeight"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetOrientation\u0028\u0029",
+            "name": "getOrientation",
+            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020orientation.",
+            "url": "classes/claviska-SimpleImage.html#method_getOrientation"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetAspectRatio\u0028\u0029",
+            "name": "getAspectRatio",
+            "summary": "Gets\u0020the\u0020image\u0027s\u0020current\u0020aspect\u0020ratio.",
+            "url": "classes/claviska-SimpleImage.html#method_getAspectRatio"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aresize\u0028\u0029",
+            "name": "resize",
+            "summary": "Resize\u0020an\u0020image\u0020to\u0020the\u0020specified\u0020dimensions.\u0020If\u0020only\u0020one\u0020dimension\u0020is\u0020specified,\u0020the\u0020image\u0020will\u0020be\u0020resized\u0020proportionally.",
+            "url": "classes/claviska-SimpleImage.html#method_resize"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Aduotone\u0028\u0029",
             "name": "duotone",
             "summary": "Applies\u0020a\u0020duotone\u0020filter\u0020to\u0020the\u0020image.",
             "url": "classes/claviska-SimpleImage.html#method_duotone"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetColorAt\u0028\u0029",
+            "name": "getColorAt",
+            "summary": "Gets\u0020the\u0020RGBA\u0020value\u0020of\u0020a\u0020single\u0020pixel.",
+            "url": "classes/claviska-SimpleImage.html#method_getColorAt"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Adot\u0028\u0029",
+            "name": "dot",
+            "summary": "Draws\u0020a\u0020single\u0020pixel\u0020dot.",
+            "url": "classes/claviska-SimpleImage.html#method_dot"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AfitToHeight\u0028\u0029",
             "name": "fitToHeight",
@@ -3981,40 +4036,15 @@ Search.appendIndex(
             "summary": "Proportionally\u0020resize\u0020the\u0020image\u0020to\u0020a\u0020specific\u0020width.",
             "url": "classes/claviska-SimpleImage.html#method_fitToWidth"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aflip\u0028\u0029",
-            "name": "flip",
-            "summary": "Flip\u0020the\u0020image\u0020horizontally\u0020or\u0020vertically.",
-            "url": "classes/claviska-SimpleImage.html#method_flip"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AmaxColors\u0028\u0029",
             "name": "maxColors",
             "summary": "Reduces\u0020the\u0020image\u0020to\u0020a\u0020maximum\u0020number\u0020of\u0020colors.",
             "url": "classes/claviska-SimpleImage.html#method_maxColors"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aoverlay\u0028\u0029",
-            "name": "overlay",
-            "summary": "Place\u0020an\u0020image\u0020on\u0020top\u0020of\u0020the\u0020current\u0020image.",
-            "url": "classes/claviska-SimpleImage.html#method_overlay"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aresize\u0028\u0029",
-            "name": "resize",
-            "summary": "Resize\u0020an\u0020image\u0020to\u0020the\u0020specified\u0020dimensions.\u0020If\u0020only\u0020one\u0020dimension\u0020is\u0020specified,\u0020the\u0020image\u0020will\u0020be\u0020resized\u0020proportionally.",
-            "url": "classes/claviska-SimpleImage.html#method_resize"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Aresolution\u0028\u0029",
             "name": "resolution",
             "summary": "Sets\u0020an\u0020image\u0027s\u0020resolution,\u0020as\u0020per\u0020https\u003A\/\/www.php.net\/manual\/en\/function.imageresolution.php",
             "url": "classes/claviska-SimpleImage.html#method_resolution"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Arotate\u0028\u0029",
-            "name": "rotate",
-            "summary": "Rotates\u0020the\u0020image.",
-            "url": "classes/claviska-SimpleImage.html#method_rotate"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Atext\u0028\u0029",
-            "name": "text",
-            "summary": "Adds\u0020text\u0020to\u0020the\u0020image.",
-            "url": "classes/claviska-SimpleImage.html#method_text"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AtextBox\u0028\u0029",
             "name": "textBox",
@@ -4031,35 +4061,60 @@ Search.appendIndex(
             "summary": "Receives\u0020a\u0020text\u0020and\u0020breaks\u0020into\u0020WORD\u0020\/\u0020SPACE\u0020\/\u0020NEW\u0020LINE.",
             "url": "classes/claviska-SimpleImage.html#method_textSeparateWords"
         },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AfromNew\u0028\u0029",
+            "name": "fromNew",
+            "summary": "Creates\u0020a\u0020new\u0020image.",
+            "url": "classes/claviska-SimpleImage.html#method_fromNew"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Afill\u0028\u0029",
+            "name": "fill",
+            "summary": "Fills\u0020the\u0020image\u0020with\u0020a\u0020solid\u0020color.",
+            "url": "classes/claviska-SimpleImage.html#method_fill"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Arectangle\u0028\u0029",
+            "name": "rectangle",
+            "summary": "Draws\u0020a\u0020rectangle.",
+            "url": "classes/claviska-SimpleImage.html#method_rectangle"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Atext\u0028\u0029",
+            "name": "text",
+            "summary": "Adds\u0020text\u0020to\u0020the\u0020image.",
+            "url": "classes/claviska-SimpleImage.html#method_text"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aoverlay\u0028\u0029",
+            "name": "overlay",
+            "summary": "Place\u0020an\u0020image\u0020on\u0020top\u0020of\u0020the\u0020current\u0020image.",
+            "url": "classes/claviska-SimpleImage.html#method_overlay"
+        },                {
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AimageCopyMergeAlpha\u0028\u0029",
+            "name": "imageCopyMergeAlpha",
+            "summary": "Same\u0020as\u0020PHP\u0027s\u0020imagecopymerge,\u0020but\u0020works\u0020with\u0020transparent\u0020images.\u0020Used\u0020internally\u0020for\u0020overlay.",
+            "url": "classes/claviska-SimpleImage.html#method_imageCopyMergeAlpha"
+        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Athumbnail\u0028\u0029",
             "name": "thumbnail",
             "summary": "Creates\u0020a\u0020thumbnail\u0020image.\u0020This\u0020function\u0020attempts\u0020to\u0020get\u0020the\u0020image\u0020as\u0020close\u0020to\u0020the\u0020provided\ndimensions\u0020as\u0020possible,\u0020then\u0020crops\u0020the\u0020remaining\u0020overflow\u0020to\u0020force\u0020the\u0020desired\u0020size.\u0020Useful\nfor\u0020generating\u0020thumbnail\u0020images.",
             "url": "classes/claviska-SimpleImage.html#method_thumbnail"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aarc\u0028\u0029",
-            "name": "arc",
-            "summary": "Draws\u0020an\u0020arc.",
-            "url": "classes/claviska-SimpleImage.html#method_arc"
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Acrop\u0028\u0029",
+            "name": "crop",
+            "summary": "Crop\u0020the\u0020image.",
+            "url": "classes/claviska-SimpleImage.html#method_crop"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Aborder\u0028\u0029",
             "name": "border",
             "summary": "Draws\u0020a\u0020border\u0020around\u0020the\u0020image.",
             "url": "classes/claviska-SimpleImage.html#method_border"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Adot\u0028\u0029",
-            "name": "dot",
-            "summary": "Draws\u0020a\u0020single\u0020pixel\u0020dot.",
-            "url": "classes/claviska-SimpleImage.html#method_dot"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Aellipse\u0028\u0029",
             "name": "ellipse",
             "summary": "Draws\u0020an\u0020ellipse.",
             "url": "classes/claviska-SimpleImage.html#method_ellipse"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Afill\u0028\u0029",
-            "name": "fill",
-            "summary": "Fills\u0020the\u0020image\u0020with\u0020a\u0020solid\u0020color.",
-            "url": "classes/claviska-SimpleImage.html#method_fill"
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003AexcludeInsideColor\u0028\u0029",
+            "name": "excludeInsideColor",
+            "summary": "Exclude\u0020inside\u0020color.",
+            "url": "classes/claviska-SimpleImage.html#method_excludeInsideColor"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Aline\u0028\u0029",
             "name": "line",
@@ -4071,20 +4126,15 @@ Search.appendIndex(
             "summary": "Draws\u0020a\u0020polygon.",
             "url": "classes/claviska-SimpleImage.html#method_polygon"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003Arectangle\u0028\u0029",
-            "name": "rectangle",
-            "summary": "Draws\u0020a\u0020rectangle.",
-            "url": "classes/claviska-SimpleImage.html#method_rectangle"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AroundedRectangle\u0028\u0029",
             "name": "roundedRectangle",
             "summary": "Draws\u0020a\u0020rounded\u0020rectangle.",
             "url": "classes/claviska-SimpleImage.html#method_roundedRectangle"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AexcludeInsideColor\u0028\u0029",
-            "name": "excludeInsideColor",
-            "summary": "Exclude\u0020inside\u0020color.",
-            "url": "classes/claviska-SimpleImage.html#method_excludeInsideColor"
+            "fqsen": "\\claviska\\SimpleImage\u003A\u003Aarc\u0028\u0029",
+            "name": "arc",
+            "summary": "Draws\u0020an\u0020arc.",
+            "url": "classes/claviska-SimpleImage.html#method_arc"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003Ablur\u0028\u0029",
             "name": "blur",
@@ -4156,40 +4206,10 @@ Search.appendIndex(
             "summary": "Applies\u0020the\u0020mean\u0020remove\u0020filter\u0020to\u0020produce\u0020a\u0020sketch\u0020effect.",
             "url": "classes/claviska-SimpleImage.html#method_sketch"
         },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AallocateColor\u0028\u0029",
-            "name": "allocateColor",
-            "summary": "Converts\u0020a\u0020\u0022friendly\u0020color\u0022\u0020into\u0020a\u0020color\u0020identifier\u0020for\u0020use\u0020with\u0020GD\u0027s\u0020image\u0020functions.",
-            "url": "classes/claviska-SimpleImage.html#method_allocateColor"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AadjustColor\u0028\u0029",
-            "name": "adjustColor",
-            "summary": "Adjusts\u0020a\u0020color\u0020by\u0020increasing\/decreasing\u0020red\/green\/blue\/alpha\u0020values\u0020independently.",
-            "url": "classes/claviska-SimpleImage.html#method_adjustColor"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AdarkenColor\u0028\u0029",
-            "name": "darkenColor",
-            "summary": "Darkens\u0020a\u0020color.",
-            "url": "classes/claviska-SimpleImage.html#method_darkenColor"
-        },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AextractColors\u0028\u0029",
             "name": "extractColors",
             "summary": "Extracts\u0020colors\u0020from\u0020an\u0020image\u0020like\u0020a\u0020human\u0020would\u0020do.\u2122\u0020This\u0020method\u0020requires\u0020the\u0020third\u002Dparty\nlibrary\u0020\\League\\ColorExtractor.\u0020If\u0020you\u0027re\u0020using\u0020Composer,\u0020it\u0020will\u0020be\u0020installed\u0020for\u0020you\nautomatically.",
             "url": "classes/claviska-SimpleImage.html#method_extractColors"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AgetColorAt\u0028\u0029",
-            "name": "getColorAt",
-            "summary": "Gets\u0020the\u0020RGBA\u0020value\u0020of\u0020a\u0020single\u0020pixel.",
-            "url": "classes/claviska-SimpleImage.html#method_getColorAt"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AlightenColor\u0028\u0029",
-            "name": "lightenColor",
-            "summary": "Lightens\u0020a\u0020color.",
-            "url": "classes/claviska-SimpleImage.html#method_lightenColor"
-        },                {
-            "fqsen": "\\claviska\\SimpleImage\u003A\u003AnormalizeColor\u0028\u0029",
-            "name": "normalizeColor",
-            "summary": "Normalizes\u0020a\u0020hex\u0020or\u0020array\u0020color\u0020value\u0020to\u0020a\u0020well\u002Dformatted\u0020RGBA\u0020array.",
-            "url": "classes/claviska-SimpleImage.html#method_normalizeColor"
         },                {
             "fqsen": "\\claviska\\SimpleImage\u003A\u003AERR_FILE_NOT_FOUND",
             "name": "ERR_FILE_NOT_FOUND",
@@ -4286,95 +4306,35 @@ Search.appendIndex(
             "summary": "Private\u0020constructor.",
             "url": "classes/ColinODell-Json5-Json5Decoder.html#method___construct"
         },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Adecode\u0028\u0029",
-            "name": "decode",
-            "summary": "Takes\u0020a\u0020JSON\u0020encoded\u0020string\u0020and\u0020converts\u0020it\u0020into\u0020a\u0020PHP\u0020variable.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_decode"
-        },                {
             "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AgetByte\u0028\u0029",
             "name": "getByte",
             "summary": "",
             "url": "classes/ColinODell-Json5-Json5Decoder.html#method_getByte"
         },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AcurrentChar\u0028\u0029",
-            "name": "currentChar",
-            "summary": "",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_currentChar"
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Adecode\u0028\u0029",
+            "name": "decode",
+            "summary": "Takes\u0020a\u0020JSON\u0020encoded\u0020string\u0020and\u0020converts\u0020it\u0020into\u0020a\u0020PHP\u0020variable.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_decode"
         },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Anext\u0028\u0029",
-            "name": "next",
-            "summary": "Parse\u0020the\u0020next\u0020character.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_next"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AnextOrFail\u0028\u0029",
-            "name": "nextOrFail",
-            "summary": "Parse\u0020the\u0020next\u0020character\u0020if\u0020it\u0020matches\u0020\u0024c\u0020or\u0020fail.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_nextOrFail"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Apeek\u0028\u0029",
-            "name": "peek",
-            "summary": "Get\u0020the\u0020next\u0020character\u0020without\u0020consuming\u0020it\u0020or\nassigning\u0020it\u0020to\u0020the\u0020ch\u0020variable.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_peek"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Amatch\u0028\u0029",
-            "name": "match",
-            "summary": "Attempt\u0020to\u0020match\u0020a\u0020regular\u0020expression\u0020at\u0020the\u0020current\u0020position\u0020on\u0020the\u0020current\u0020line.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_match"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aidentifier\u0028\u0029",
-            "name": "identifier",
-            "summary": "Parse\u0020an\u0020identifier.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_identifier"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Anumber\u0028\u0029",
-            "name": "number",
-            "summary": "",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_number"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Astring\u0028\u0029",
-            "name": "string",
-            "summary": "",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_string"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AinlineComment\u0028\u0029",
-            "name": "inlineComment",
-            "summary": "Skip\u0020an\u0020inline\u0020comment,\u0020assuming\u0020this\u0020is\u0020one.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_inlineComment"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AblockComment\u0028\u0029",
-            "name": "blockComment",
-            "summary": "Skip\u0020a\u0020block\u0020comment,\u0020assuming\u0020this\u0020is\u0020one.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_blockComment"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Acomment\u0028\u0029",
-            "name": "comment",
-            "summary": "Skip\u0020a\u0020comment,\u0020whether\u0020inline\u0020or\u0020block\u002Dlevel,\u0020assuming\u0020this\u0020is\u0020one.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_comment"
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Avalue\u0028\u0029",
+            "name": "value",
+            "summary": "Parse\u0020a\u0020JSON\u0020value.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_value"
         },                {
             "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Awhite\u0028\u0029",
             "name": "white",
             "summary": "Skip\u0020whitespace\u0020and\u0020comments.",
             "url": "classes/ColinODell-Json5-Json5Decoder.html#method_white"
         },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aword\u0028\u0029",
-            "name": "word",
-            "summary": "Matches\u0020true,\u0020false,\u0020null,\u0020etc",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_word"
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Acomment\u0028\u0029",
+            "name": "comment",
+            "summary": "Skip\u0020a\u0020comment,\u0020whether\u0020inline\u0020or\u0020block\u002Dlevel,\u0020assuming\u0020this\u0020is\u0020one.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_comment"
         },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aarr\u0028\u0029",
-            "name": "arr",
-            "summary": "",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_arr"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aobj\u0028\u0029",
-            "name": "obj",
-            "summary": "Parse\u0020an\u0020object\u0020value",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_obj"
-        },                {
-            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Avalue\u0028\u0029",
-            "name": "value",
-            "summary": "Parse\u0020a\u0020JSON\u0020value.",
-            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_value"
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AnextOrFail\u0028\u0029",
+            "name": "nextOrFail",
+            "summary": "Parse\u0020the\u0020next\u0020character\u0020if\u0020it\u0020matches\u0020\u0024c\u0020or\u0020fail.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_nextOrFail"
         },                {
             "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AthrowSyntaxError\u0028\u0029",
             "name": "throwSyntaxError",
@@ -4386,10 +4346,70 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColinODell-Json5-Json5Decoder.html#method_renderChar"
         },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AcurrentChar\u0028\u0029",
+            "name": "currentChar",
+            "summary": "",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_currentChar"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Anext\u0028\u0029",
+            "name": "next",
+            "summary": "Parse\u0020the\u0020next\u0020character.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_next"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Apeek\u0028\u0029",
+            "name": "peek",
+            "summary": "Get\u0020the\u0020next\u0020character\u0020without\u0020consuming\u0020it\u0020or\nassigning\u0020it\u0020to\u0020the\u0020ch\u0020variable.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_peek"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AinlineComment\u0028\u0029",
+            "name": "inlineComment",
+            "summary": "Skip\u0020an\u0020inline\u0020comment,\u0020assuming\u0020this\u0020is\u0020one.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_inlineComment"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AblockComment\u0028\u0029",
+            "name": "blockComment",
+            "summary": "Skip\u0020a\u0020block\u0020comment,\u0020assuming\u0020this\u0020is\u0020one.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_blockComment"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aobj\u0028\u0029",
+            "name": "obj",
+            "summary": "Parse\u0020an\u0020object\u0020value",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_obj"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Astring\u0028\u0029",
+            "name": "string",
+            "summary": "",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_string"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Amatch\u0028\u0029",
+            "name": "match",
+            "summary": "Attempt\u0020to\u0020match\u0020a\u0020regular\u0020expression\u0020at\u0020the\u0020current\u0020position\u0020on\u0020the\u0020current\u0020line.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_match"
+        },                {
             "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003AgetEscapee\u0028\u0029",
             "name": "getEscapee",
             "summary": "",
             "url": "classes/ColinODell-Json5-Json5Decoder.html#method_getEscapee"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aidentifier\u0028\u0029",
+            "name": "identifier",
+            "summary": "Parse\u0020an\u0020identifier.",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_identifier"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aarr\u0028\u0029",
+            "name": "arr",
+            "summary": "",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_arr"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Anumber\u0028\u0029",
+            "name": "number",
+            "summary": "",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_number"
+        },                {
+            "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003Aword\u0028\u0029",
+            "name": "word",
+            "summary": "Matches\u0020true,\u0020false,\u0020null,\u0020etc",
+            "url": "classes/ColinODell-Json5-Json5Decoder.html#method_word"
         },                {
             "fqsen": "\\ColinODell\\Json5\\Json5Decoder\u003A\u003A\u0024json",
             "name": "json",
@@ -4596,35 +4616,35 @@ Search.appendIndex(
             "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D4\u0020directories\u0020for\u0020a\u0020given\u0020namespace,\nreplacing\u0020any\u0020others\u0020previously\u0020set\u0020for\u0020this\u0020namespace.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_setPsr4"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetUseIncludePath\u0028\u0029",
-            "name": "setUseIncludePath",
-            "summary": "Turns\u0020on\u0020searching\u0020the\u0020include\u0020path\u0020for\u0020class\u0020files.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath"
-        },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetUseIncludePath\u0028\u0029",
             "name": "getUseIncludePath",
             "summary": "Can\u0020be\u0020used\u0020to\u0020check\u0020if\u0020the\u0020autoloader\u0020uses\u0020the\u0020include\u0020path\u0020to\u0020check\nfor\u0020classes.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetClassMapAuthoritative\u0028\u0029",
-            "name": "setClassMapAuthoritative",
-            "summary": "Turns\u0020off\u0020searching\u0020the\u0020prefix\u0020and\u0020fallback\u0020directories\u0020for\u0020classes\nthat\u0020have\u0020not\u0020been\u0020registered\u0020with\u0020the\u0020class\u0020map.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative"
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetUseIncludePath\u0028\u0029",
+            "name": "setUseIncludePath",
+            "summary": "Turns\u0020on\u0020searching\u0020the\u0020include\u0020path\u0020for\u0020class\u0020files.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AisClassMapAuthoritative\u0028\u0029",
             "name": "isClassMapAuthoritative",
             "summary": "Should\u0020class\u0020lookup\u0020fail\u0020if\u0020not\u0020found\u0020in\u0020the\u0020current\u0020class\u0020map\u003F",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetApcuPrefix\u0028\u0029",
-            "name": "setApcuPrefix",
-            "summary": "APCu\u0020prefix\u0020to\u0020use\u0020to\u0020cache\u0020found\/not\u002Dfound\u0020classes,\u0020if\u0020the\u0020extension\u0020is\u0020enabled.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix"
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetClassMapAuthoritative\u0028\u0029",
+            "name": "setClassMapAuthoritative",
+            "summary": "Turns\u0020off\u0020searching\u0020the\u0020prefix\u0020and\u0020fallback\u0020directories\u0020for\u0020classes\nthat\u0020have\u0020not\u0020been\u0020registered\u0020with\u0020the\u0020class\u0020map.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetApcuPrefix\u0028\u0029",
             "name": "getApcuPrefix",
             "summary": "The\u0020APCu\u0020prefix\u0020in\u0020use,\u0020or\u0020null\u0020if\u0020APCu\u0020caching\u0020is\u0020not\u0020enabled.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetApcuPrefix\u0028\u0029",
+            "name": "setApcuPrefix",
+            "summary": "APCu\u0020prefix\u0020to\u0020use\u0020to\u0020cache\u0020found\/not\u002Dfound\u0020classes,\u0020if\u0020the\u0020extension\u0020is\u0020enabled.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix"
         },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aregister\u0028\u0029",
             "name": "register",
@@ -4766,21 +4786,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PackageVersions-Installer.html"
         },                {
-            "fqsen": "\\PackageVersions\\Installer\u003A\u003Aactivate\u0028\u0029",
-            "name": "activate",
-            "summary": "",
-            "url": "classes/PackageVersions-Installer.html#method_activate"
-        },                {
-            "fqsen": "\\PackageVersions\\Installer\u003A\u003Adeactivate\u0028\u0029",
-            "name": "deactivate",
-            "summary": "",
-            "url": "classes/PackageVersions-Installer.html#method_deactivate"
-        },                {
-            "fqsen": "\\PackageVersions\\Installer\u003A\u003Auninstall\u0028\u0029",
-            "name": "uninstall",
-            "summary": "",
-            "url": "classes/PackageVersions-Installer.html#method_uninstall"
-        },                {
             "fqsen": "\\PackageVersions\\Installer\u003A\u003AgetSubscribedEvents\u0028\u0029",
             "name": "getSubscribedEvents",
             "summary": "\u007B\u0040inheritDoc\u007D",
@@ -4790,6 +4795,11 @@ Search.appendIndex(
             "name": "dumpVersionsClass",
             "summary": "",
             "url": "classes/PackageVersions-Installer.html#method_dumpVersionsClass"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003AgetVersions\u0028\u0029",
+            "name": "getVersions",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_getVersions"
         },                {
             "fqsen": "\\PackageVersions\\Installer\u003A\u003AgenerateVersionsClass\u0028\u0029",
             "name": "generateVersionsClass",
@@ -4811,10 +4821,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PackageVersions-Installer.html#method_getRootPackageAlias"
         },                {
-            "fqsen": "\\PackageVersions\\Installer\u003A\u003AgetVersions\u0028\u0029",
-            "name": "getVersions",
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003Aactivate\u0028\u0029",
+            "name": "activate",
             "summary": "",
-            "url": "classes/PackageVersions-Installer.html#method_getVersions"
+            "url": "classes/PackageVersions-Installer.html#method_activate"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003Adeactivate\u0028\u0029",
+            "name": "deactivate",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_deactivate"
+        },                {
+            "fqsen": "\\PackageVersions\\Installer\u003A\u003Auninstall\u0028\u0029",
+            "name": "uninstall",
+            "summary": "",
+            "url": "classes/PackageVersions-Installer.html#method_uninstall"
         },                {
             "fqsen": "\\PackageVersions\\Installer\u003A\u003A\u0024generatedClassTemplate",
             "name": "generatedClassTemplate",
@@ -4836,15 +4856,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PackageVersions-Versions.html#method_rootPackageName"
         },                {
-            "fqsen": "\\PackageVersions\\Versions\u003A\u003AgetVersion\u0028\u0029",
-            "name": "getVersion",
-            "summary": "",
-            "url": "classes/PackageVersions-Versions.html#method_getVersion"
-        },                {
             "fqsen": "\\PackageVersions\\Versions\u003A\u003Acomposer2ApiUsable\u0028\u0029",
             "name": "composer2ApiUsable",
             "summary": "",
             "url": "classes/PackageVersions-Versions.html#method_composer2ApiUsable"
+        },                {
+            "fqsen": "\\PackageVersions\\Versions\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/PackageVersions-Versions.html#method_getVersion"
         },                {
             "fqsen": "\\PackageVersions\\Versions\u003A\u003AROOT_PACKAGE_NAME",
             "name": "ROOT_PACKAGE_NAME",
@@ -4856,10 +4876,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003Atext\u0028\u0029",
-            "name": "text",
+            "fqsen": "\\Parsedown\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
             "summary": "",
-            "url": "classes/Parsedown.html#method_text"
+            "url": "classes/Parsedown.html#method_instance"
         },                {
             "fqsen": "\\Parsedown\u003A\u003AsetBreaksEnabled\u0028\u0029",
             "name": "setBreaksEnabled",
@@ -4881,20 +4901,50 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html#method_setSafeMode"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003Alines\u0028\u0029",
-            "name": "lines",
+            "fqsen": "\\Parsedown\u003A\u003Aline\u0028\u0029",
+            "name": "line",
             "summary": "",
-            "url": "classes/Parsedown.html#method_lines"
+            "url": "classes/Parsedown.html#method_line"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003AisBlockContinuable\u0028\u0029",
-            "name": "isBlockContinuable",
+            "fqsen": "\\Parsedown\u003A\u003AunmarkedText\u0028\u0029",
+            "name": "unmarkedText",
             "summary": "",
-            "url": "classes/Parsedown.html#method_isBlockContinuable"
+            "url": "classes/Parsedown.html#method_unmarkedText"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003AisBlockCompletable\u0028\u0029",
-            "name": "isBlockCompletable",
+            "fqsen": "\\Parsedown\u003A\u003Aelement\u0028\u0029",
+            "name": "element",
             "summary": "",
-            "url": "classes/Parsedown.html#method_isBlockCompletable"
+            "url": "classes/Parsedown.html#method_element"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003AsanitiseElement\u0028\u0029",
+            "name": "sanitiseElement",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_sanitiseElement"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003AfilterUnsafeUrlInAttribute\u0028\u0029",
+            "name": "filterUnsafeUrlInAttribute",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_filterUnsafeUrlInAttribute"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003AstriAtStart\u0028\u0029",
+            "name": "striAtStart",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_striAtStart"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003Aescape\u0028\u0029",
+            "name": "escape",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_escape"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_parse"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003Atext\u0028\u0029",
+            "name": "text",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_text"
         },                {
             "fqsen": "\\Parsedown\u003A\u003AblockCode\u0028\u0029",
             "name": "blockCode",
@@ -4951,6 +5001,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html#method_blockListContinue"
         },                {
+            "fqsen": "\\Parsedown\u003A\u003AblockReference\u0028\u0029",
+            "name": "blockReference",
+            "summary": "",
+            "url": "classes/Parsedown.html#method_blockReference"
+        },                {
             "fqsen": "\\Parsedown\u003A\u003AblockListComplete\u0028\u0029",
             "name": "blockListComplete",
             "summary": "",
@@ -4986,11 +5041,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html#method_blockMarkupContinue"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003AblockReference\u0028\u0029",
-            "name": "blockReference",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_blockReference"
-        },                {
             "fqsen": "\\Parsedown\u003A\u003AblockTable\u0028\u0029",
             "name": "blockTable",
             "summary": "",
@@ -5000,16 +5050,6 @@ Search.appendIndex(
             "name": "blockTableContinue",
             "summary": "",
             "url": "classes/Parsedown.html#method_blockTableContinue"
-        },                {
-            "fqsen": "\\Parsedown\u003A\u003Aparagraph\u0028\u0029",
-            "name": "paragraph",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_paragraph"
-        },                {
-            "fqsen": "\\Parsedown\u003A\u003Aline\u0028\u0029",
-            "name": "line",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_line"
         },                {
             "fqsen": "\\Parsedown\u003A\u003AinlineCode\u0028\u0029",
             "name": "inlineCode",
@@ -5066,16 +5106,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html#method_inlineUrlTag"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003AunmarkedText\u0028\u0029",
-            "name": "unmarkedText",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_unmarkedText"
-        },                {
-            "fqsen": "\\Parsedown\u003A\u003Aelement\u0028\u0029",
-            "name": "element",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_element"
-        },                {
             "fqsen": "\\Parsedown\u003A\u003Aelements\u0028\u0029",
             "name": "elements",
             "summary": "",
@@ -5086,40 +5116,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html#method_li"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003Aparse\u0028\u0029",
-            "name": "parse",
+            "fqsen": "\\Parsedown\u003A\u003Alines\u0028\u0029",
+            "name": "lines",
             "summary": "",
-            "url": "classes/Parsedown.html#method_parse"
+            "url": "classes/Parsedown.html#method_lines"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003AsanitiseElement\u0028\u0029",
-            "name": "sanitiseElement",
+            "fqsen": "\\Parsedown\u003A\u003AisBlockCompletable\u0028\u0029",
+            "name": "isBlockCompletable",
             "summary": "",
-            "url": "classes/Parsedown.html#method_sanitiseElement"
+            "url": "classes/Parsedown.html#method_isBlockCompletable"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003AfilterUnsafeUrlInAttribute\u0028\u0029",
-            "name": "filterUnsafeUrlInAttribute",
+            "fqsen": "\\Parsedown\u003A\u003AisBlockContinuable\u0028\u0029",
+            "name": "isBlockContinuable",
             "summary": "",
-            "url": "classes/Parsedown.html#method_filterUnsafeUrlInAttribute"
+            "url": "classes/Parsedown.html#method_isBlockContinuable"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003Aescape\u0028\u0029",
-            "name": "escape",
+            "fqsen": "\\Parsedown\u003A\u003Aparagraph\u0028\u0029",
+            "name": "paragraph",
             "summary": "",
-            "url": "classes/Parsedown.html#method_escape"
-        },                {
-            "fqsen": "\\Parsedown\u003A\u003AstriAtStart\u0028\u0029",
-            "name": "striAtStart",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_striAtStart"
-        },                {
-            "fqsen": "\\Parsedown\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/Parsedown.html#method_instance"
+            "url": "classes/Parsedown.html#method_paragraph"
         },                {
             "fqsen": "\\Parsedown\u003A\u003Aversion",
             "name": "version",
             "summary": "",
             "url": "classes/Parsedown.html#constant_version"
+        },                {
+            "fqsen": "\\Parsedown\u003A\u003A\u0024instances",
+            "name": "instances",
+            "summary": "",
+            "url": "classes/Parsedown.html#property_instances"
         },                {
             "fqsen": "\\Parsedown\u003A\u003A\u0024breaksEnabled",
             "name": "breaksEnabled",
@@ -5166,11 +5191,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Parsedown.html#property_inlineMarkerList"
         },                {
-            "fqsen": "\\Parsedown\u003A\u003A\u0024instances",
-            "name": "instances",
-            "summary": "",
-            "url": "classes/Parsedown.html#property_instances"
-        },                {
             "fqsen": "\\Parsedown\u003A\u003A\u0024DefinitionData",
             "name": "DefinitionData",
             "summary": "",
@@ -5216,11 +5236,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ParsedownExtra.html#method___construct"
         },                {
-            "fqsen": "\\ParsedownExtra\u003A\u003Atext\u0028\u0029",
-            "name": "text",
-            "summary": "",
-            "url": "classes/ParsedownExtra.html#method_text"
-        },                {
             "fqsen": "\\ParsedownExtra\u003A\u003AblockAbbreviation\u0028\u0029",
             "name": "blockAbbreviation",
             "summary": "",
@@ -5246,6 +5261,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ParsedownExtra.html#method_blockDefinitionList"
         },                {
+            "fqsen": "\\ParsedownExtra\u003A\u003AaddDdElement\u0028\u0029",
+            "name": "addDdElement",
+            "summary": "",
+            "url": "classes/ParsedownExtra.html#method_addDdElement"
+        },                {
             "fqsen": "\\ParsedownExtra\u003A\u003AblockDefinitionListContinue\u0028\u0029",
             "name": "blockDefinitionListContinue",
             "summary": "",
@@ -5256,10 +5276,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ParsedownExtra.html#method_blockHeader"
         },                {
+            "fqsen": "\\ParsedownExtra\u003A\u003AparseAttributeData\u0028\u0029",
+            "name": "parseAttributeData",
+            "summary": "",
+            "url": "classes/ParsedownExtra.html#method_parseAttributeData"
+        },                {
             "fqsen": "\\ParsedownExtra\u003A\u003AblockMarkupComplete\u0028\u0029",
             "name": "blockMarkupComplete",
             "summary": "",
             "url": "classes/ParsedownExtra.html#method_blockMarkupComplete"
+        },                {
+            "fqsen": "\\ParsedownExtra\u003A\u003AprocessTag\u0028\u0029",
+            "name": "processTag",
+            "summary": "",
+            "url": "classes/ParsedownExtra.html#method_processTag"
+        },                {
+            "fqsen": "\\ParsedownExtra\u003A\u003Atext\u0028\u0029",
+            "name": "text",
+            "summary": "",
+            "url": "classes/ParsedownExtra.html#method_text"
+        },                {
+            "fqsen": "\\ParsedownExtra\u003A\u003AbuildFootnoteElement\u0028\u0029",
+            "name": "buildFootnoteElement",
+            "summary": "",
+            "url": "classes/ParsedownExtra.html#method_buildFootnoteElement"
         },                {
             "fqsen": "\\ParsedownExtra\u003A\u003AblockSetextHeader\u0028\u0029",
             "name": "blockSetextHeader",
@@ -5281,26 +5321,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ParsedownExtra.html#method_unmarkedText"
         },                {
-            "fqsen": "\\ParsedownExtra\u003A\u003AaddDdElement\u0028\u0029",
-            "name": "addDdElement",
-            "summary": "",
-            "url": "classes/ParsedownExtra.html#method_addDdElement"
-        },                {
-            "fqsen": "\\ParsedownExtra\u003A\u003AbuildFootnoteElement\u0028\u0029",
-            "name": "buildFootnoteElement",
-            "summary": "",
-            "url": "classes/ParsedownExtra.html#method_buildFootnoteElement"
-        },                {
-            "fqsen": "\\ParsedownExtra\u003A\u003AparseAttributeData\u0028\u0029",
-            "name": "parseAttributeData",
-            "summary": "",
-            "url": "classes/ParsedownExtra.html#method_parseAttributeData"
-        },                {
-            "fqsen": "\\ParsedownExtra\u003A\u003AprocessTag\u0028\u0029",
-            "name": "processTag",
-            "summary": "",
-            "url": "classes/ParsedownExtra.html#method_processTag"
-        },                {
             "fqsen": "\\ParsedownExtra\u003A\u003AsortFootnotes\u0028\u0029",
             "name": "sortFootnotes",
             "summary": "",
@@ -5311,15 +5331,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ParsedownExtra.html#constant_version"
         },                {
-            "fqsen": "\\ParsedownExtra\u003A\u003A\u0024footnoteCount",
-            "name": "footnoteCount",
-            "summary": "",
-            "url": "classes/ParsedownExtra.html#property_footnoteCount"
-        },                {
             "fqsen": "\\ParsedownExtra\u003A\u003A\u0024regexAttribute",
             "name": "regexAttribute",
             "summary": "",
             "url": "classes/ParsedownExtra.html#property_regexAttribute"
+        },                {
+            "fqsen": "\\ParsedownExtra\u003A\u003A\u0024footnoteCount",
+            "name": "footnoteCount",
+            "summary": "",
+            "url": "classes/ParsedownExtra.html#property_footnoteCount"
         },                {
             "fqsen": "\\ParsedownExtraTest",
             "name": "ParsedownExtraTest",
@@ -5381,50 +5401,20 @@ Search.appendIndex(
             "summary": "Decodes\u0020a\u0020JWT\u0020string\u0020into\u0020a\u0020PHP\u0020object.",
             "url": "classes/Firebase-JWT-JWT.html#method_decode"
         },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "Converts\u0020and\u0020signs\u0020a\u0020PHP\u0020object\u0020or\u0020array\u0020into\u0020a\u0020JWT\u0020string.",
-            "url": "classes/Firebase-JWT-JWT.html#method_encode"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003Asign\u0028\u0029",
-            "name": "sign",
-            "summary": "Sign\u0020a\u0020string\u0020with\u0020a\u0020given\u0020key\u0020and\u0020algorithm.",
-            "url": "classes/Firebase-JWT-JWT.html#method_sign"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003Averify\u0028\u0029",
-            "name": "verify",
-            "summary": "Verify\u0020a\u0020signature\u0020with\u0020the\u0020message,\u0020key\u0020and\u0020method.\u0020Not\u0020all\u0020methods\nare\u0020symmetric,\u0020so\u0020we\u0020must\u0020have\u0020a\u0020separate\u0020verify\u0020and\u0020sign\u0020method.",
-            "url": "classes/Firebase-JWT-JWT.html#method_verify"
-        },                {
             "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AjsonDecode\u0028\u0029",
             "name": "jsonDecode",
             "summary": "Decode\u0020a\u0020JSON\u0020string\u0020into\u0020a\u0020PHP\u0020object.",
             "url": "classes/Firebase-JWT-JWT.html#method_jsonDecode"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AjsonEncode\u0028\u0029",
-            "name": "jsonEncode",
-            "summary": "Encode\u0020a\u0020PHP\u0020object\u0020into\u0020a\u0020JSON\u0020string.",
-            "url": "classes/Firebase-JWT-JWT.html#method_jsonEncode"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AurlsafeB64Decode\u0028\u0029",
-            "name": "urlsafeB64Decode",
-            "summary": "Decode\u0020a\u0020string\u0020with\u0020URL\u002Dsafe\u0020Base64.",
-            "url": "classes/Firebase-JWT-JWT.html#method_urlsafeB64Decode"
-        },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AurlsafeB64Encode\u0028\u0029",
-            "name": "urlsafeB64Encode",
-            "summary": "Encode\u0020a\u0020string\u0020with\u0020URL\u002Dsafe\u0020Base64.",
-            "url": "classes/Firebase-JWT-JWT.html#method_urlsafeB64Encode"
         },                {
             "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AhandleJsonError\u0028\u0029",
             "name": "handleJsonError",
             "summary": "Helper\u0020method\u0020to\u0020create\u0020a\u0020JSON\u0020error.",
             "url": "classes/Firebase-JWT-JWT.html#method_handleJsonError"
         },                {
-            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AsafeStrlen\u0028\u0029",
-            "name": "safeStrlen",
-            "summary": "Get\u0020the\u0020number\u0020of\u0020bytes\u0020in\u0020cryptographic\u0020strings.",
-            "url": "classes/Firebase-JWT-JWT.html#method_safeStrlen"
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AurlsafeB64Decode\u0028\u0029",
+            "name": "urlsafeB64Decode",
+            "summary": "Decode\u0020a\u0020string\u0020with\u0020URL\u002Dsafe\u0020Base64.",
+            "url": "classes/Firebase-JWT-JWT.html#method_urlsafeB64Decode"
         },                {
             "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AsignatureToDER\u0028\u0029",
             "name": "signatureToDER",
@@ -5435,6 +5425,36 @@ Search.appendIndex(
             "name": "encodeDER",
             "summary": "Encodes\u0020a\u0020value\u0020into\u0020a\u0020DER\u0020object.",
             "url": "classes/Firebase-JWT-JWT.html#method_encodeDER"
+        },                {
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003Averify\u0028\u0029",
+            "name": "verify",
+            "summary": "Verify\u0020a\u0020signature\u0020with\u0020the\u0020message,\u0020key\u0020and\u0020method.\u0020Not\u0020all\u0020methods\nare\u0020symmetric,\u0020so\u0020we\u0020must\u0020have\u0020a\u0020separate\u0020verify\u0020and\u0020sign\u0020method.",
+            "url": "classes/Firebase-JWT-JWT.html#method_verify"
+        },                {
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AsafeStrlen\u0028\u0029",
+            "name": "safeStrlen",
+            "summary": "Get\u0020the\u0020number\u0020of\u0020bytes\u0020in\u0020cryptographic\u0020strings.",
+            "url": "classes/Firebase-JWT-JWT.html#method_safeStrlen"
+        },                {
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "Converts\u0020and\u0020signs\u0020a\u0020PHP\u0020object\u0020or\u0020array\u0020into\u0020a\u0020JWT\u0020string.",
+            "url": "classes/Firebase-JWT-JWT.html#method_encode"
+        },                {
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AurlsafeB64Encode\u0028\u0029",
+            "name": "urlsafeB64Encode",
+            "summary": "Encode\u0020a\u0020string\u0020with\u0020URL\u002Dsafe\u0020Base64.",
+            "url": "classes/Firebase-JWT-JWT.html#method_urlsafeB64Encode"
+        },                {
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AjsonEncode\u0028\u0029",
+            "name": "jsonEncode",
+            "summary": "Encode\u0020a\u0020PHP\u0020object\u0020into\u0020a\u0020JSON\u0020string.",
+            "url": "classes/Firebase-JWT-JWT.html#method_jsonEncode"
+        },                {
+            "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003Asign\u0028\u0029",
+            "name": "sign",
+            "summary": "Sign\u0020a\u0020string\u0020with\u0020a\u0020given\u0020key\u0020and\u0020algorithm.",
+            "url": "classes/Firebase-JWT-JWT.html#method_sign"
         },                {
             "fqsen": "\\Firebase\\JWT\\JWT\u003A\u003AsignatureFromDER\u0028\u0029",
             "name": "signatureFromDER",
@@ -5486,11 +5506,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Jean85-PrettyVersions.html"
         },                {
-            "fqsen": "\\Jean85\\PrettyVersions\u003A\u003AgetVersion\u0028\u0029",
-            "name": "getVersion",
-            "summary": "",
-            "url": "classes/Jean85-PrettyVersions.html#method_getVersion"
-        },                {
             "fqsen": "\\Jean85\\PrettyVersions\u003A\u003AgetRootPackageName\u0028\u0029",
             "name": "getRootPackageName",
             "summary": "",
@@ -5500,6 +5515,11 @@ Search.appendIndex(
             "name": "getRootPackageVersion",
             "summary": "",
             "url": "classes/Jean85-PrettyVersions.html#method_getRootPackageVersion"
+        },                {
+            "fqsen": "\\Jean85\\PrettyVersions\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/Jean85-PrettyVersions.html#method_getVersion"
         },                {
             "fqsen": "\\Jean85\\PrettyVersions\u003A\u003ASHORT_COMMIT_LENGTH",
             "name": "SHORT_COMMIT_LENGTH",
@@ -5516,60 +5536,60 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Jean85-Version.html#method___construct"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetPrettyVersion\u0028\u0029",
-            "name": "getPrettyVersion",
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetShortVersion\u0028\u0029",
+            "name": "getShortVersion",
             "summary": "",
-            "url": "classes/Jean85-Version.html#method_getPrettyVersion"
+            "url": "classes/Jean85-Version.html#method_getShortVersion"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetFullVersion\u0028\u0029",
             "name": "getFullVersion",
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getFullVersion"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortReference\u0028\u0029",
-            "name": "getVersionWithShortReference",
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetCommitHash\u0028\u0029",
+            "name": "getCommitHash",
             "summary": "",
-            "url": "classes/Jean85-Version.html#method_getVersionWithShortReference"
-        },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortCommit\u0028\u0029",
-            "name": "getVersionWithShortCommit",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#method_getVersionWithShortCommit"
-        },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetPackageName\u0028\u0029",
-            "name": "getPackageName",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#method_getPackageName"
-        },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetShortVersion\u0028\u0029",
-            "name": "getShortVersion",
-            "summary": "",
-            "url": "classes/Jean85-Version.html#method_getShortVersion"
+            "url": "classes/Jean85-Version.html#method_getCommitHash"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetReference\u0028\u0029",
             "name": "getReference",
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getReference"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetCommitHash\u0028\u0029",
-            "name": "getCommitHash",
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetPackageName\u0028\u0029",
+            "name": "getPackageName",
             "summary": "",
-            "url": "classes/Jean85-Version.html#method_getCommitHash"
+            "url": "classes/Jean85-Version.html#method_getPackageName"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003AgetShortReference\u0028\u0029",
-            "name": "getShortReference",
+            "fqsen": "\\Jean85\\Version\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
             "summary": "",
-            "url": "classes/Jean85-Version.html#method_getShortReference"
+            "url": "classes/Jean85-Version.html#method___toString"
+        },                {
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetPrettyVersion\u0028\u0029",
+            "name": "getPrettyVersion",
+            "summary": "",
+            "url": "classes/Jean85-Version.html#method_getPrettyVersion"
+        },                {
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortCommit\u0028\u0029",
+            "name": "getVersionWithShortCommit",
+            "summary": "",
+            "url": "classes/Jean85-Version.html#method_getVersionWithShortCommit"
+        },                {
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetVersionWithShortReference\u0028\u0029",
+            "name": "getVersionWithShortReference",
+            "summary": "",
+            "url": "classes/Jean85-Version.html#method_getVersionWithShortReference"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003AgetShortCommitHash\u0028\u0029",
             "name": "getShortCommitHash",
             "summary": "",
             "url": "classes/Jean85-Version.html#method_getShortCommitHash"
         },                {
-            "fqsen": "\\Jean85\\Version\u003A\u003A__toString\u0028\u0029",
-            "name": "__toString",
+            "fqsen": "\\Jean85\\Version\u003A\u003AgetShortReference\u0028\u0029",
+            "name": "getShortReference",
             "summary": "",
-            "url": "classes/Jean85-Version.html#method___toString"
+            "url": "classes/Jean85-Version.html#method_getShortReference"
         },                {
             "fqsen": "\\Jean85\\Version\u003A\u003ASHORT_COMMIT_LENGTH",
             "name": "SHORT_COMMIT_LENGTH",
@@ -5646,21 +5666,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorIndex\u0028\u0029",
-            "name": "getColorIndex",
-            "summary": "Get\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029\u0020from\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020\u00280\u002D31\u0029.",
-            "url": "classes/ColorThief-ColorThief.html#method_getColorIndex"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorsFromIndex\u0028\u0029",
-            "name": "getColorsFromIndex",
-            "summary": "Get\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020from\u0020a\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029.",
-            "url": "classes/ColorThief-ColorThief.html#method_getColorsFromIndex"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AnaturalOrder\u0028\u0029",
-            "name": "naturalOrder",
-            "summary": "Natural\u0020sorting.",
-            "url": "classes/ColorThief-ColorThief.html#method_naturalOrder"
-        },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
             "summary": "Use\u0020the\u0020median\u0020cut\u0020algorithm\u0020to\u0020cluster\u0020similar\u0020colors.",
@@ -5676,15 +5681,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_loadImage"
         },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorIndex\u0028\u0029",
+            "name": "getColorIndex",
+            "summary": "Get\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029\u0020from\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020\u00280\u002D31\u0029.",
+            "url": "classes/ColorThief-ColorThief.html#method_getColorIndex"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003Aquantize\u0028\u0029",
+            "name": "quantize",
+            "summary": "",
+            "url": "classes/ColorThief-ColorThief.html#method_quantize"
+        },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AvboxFromHistogram\u0028\u0029",
             "name": "vboxFromHistogram",
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_vboxFromHistogram"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AdoCut\u0028\u0029",
-            "name": "doCut",
-            "summary": "",
-            "url": "classes/ColorThief-ColorThief.html#method_doCut"
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorsFromIndex\u0028\u0029",
+            "name": "getColorsFromIndex",
+            "summary": "Get\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020from\u0020a\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029.",
+            "url": "classes/ColorThief-ColorThief.html#method_getColorsFromIndex"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AnaturalOrder\u0028\u0029",
+            "name": "naturalOrder",
+            "summary": "Natural\u0020sorting.",
+            "url": "classes/ColorThief-ColorThief.html#method_naturalOrder"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AquantizeIter\u0028\u0029",
+            "name": "quantizeIter",
+            "summary": "Inner\u0020function\u0020to\u0020do\u0020the\u0020iteration.",
+            "url": "classes/ColorThief-ColorThief.html#method_quantizeIter"
         },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AmedianCutApply\u0028\u0029",
             "name": "medianCutApply",
@@ -5701,15 +5726,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_getVBoxColorRanges"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AquantizeIter\u0028\u0029",
-            "name": "quantizeIter",
-            "summary": "Inner\u0020function\u0020to\u0020do\u0020the\u0020iteration.",
-            "url": "classes/ColorThief-ColorThief.html#method_quantizeIter"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003Aquantize\u0028\u0029",
-            "name": "quantize",
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AdoCut\u0028\u0029",
+            "name": "doCut",
             "summary": "",
-            "url": "classes/ColorThief-ColorThief.html#method_quantize"
+            "url": "classes/ColorThief-ColorThief.html#method_doCut"
         },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003ASIGBITS",
             "name": "SIGBITS",
@@ -5786,20 +5806,20 @@ Search.appendIndex(
             "summary": "Base\u0020adapter\u0020implementation\u0020to\u0020handle\u0020image\u0020manipulation.",
             "url": "classes/ColorThief-Image-Adapter-GmagickImageAdapter.html"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickImageAdapter\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "Loads\u0020an\u0020image\u0020resource.",
-            "url": "classes/ColorThief-Image-Adapter-GmagickImageAdapter.html#method_load"
+            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickImageAdapter\u003A\u003AloadFile\u0028\u0029",
+            "name": "loadFile",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/ColorThief-Image-Adapter-GmagickImageAdapter.html#method_loadFile"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickImageAdapter\u003A\u003AloadBinaryString\u0028\u0029",
             "name": "loadBinaryString",
             "summary": "\u007B\u0040inheritdoc\u007D",
             "url": "classes/ColorThief-Image-Adapter-GmagickImageAdapter.html#method_loadBinaryString"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickImageAdapter\u003A\u003AloadFile\u0028\u0029",
-            "name": "loadFile",
-            "summary": "\u007B\u0040inheritdoc\u007D",
-            "url": "classes/ColorThief-Image-Adapter-GmagickImageAdapter.html#method_loadFile"
+            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickImageAdapter\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020an\u0020image\u0020resource.",
+            "url": "classes/ColorThief-Image-Adapter-GmagickImageAdapter.html#method_load"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickImageAdapter\u003A\u003Adestroy\u0028\u0029",
             "name": "destroy",
@@ -5896,15 +5916,15 @@ Search.appendIndex(
             "summary": "Base\u0020adapter\u0020implementation\u0020to\u0020handle\u0020image\u0020manipulation.",
             "url": "classes/ColorThief-Image-Adapter-ImagickImageAdapter.html"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickImageAdapter\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "Loads\u0020an\u0020image\u0020resource.",
-            "url": "classes/ColorThief-Image-Adapter-ImagickImageAdapter.html#method_load"
-        },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickImageAdapter\u003A\u003AloadBinaryString\u0028\u0029",
             "name": "loadBinaryString",
             "summary": "\u007B\u0040inheritdoc\u007D",
             "url": "classes/ColorThief-Image-Adapter-ImagickImageAdapter.html#method_loadBinaryString"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickImageAdapter\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020an\u0020image\u0020resource.",
+            "url": "classes/ColorThief-Image-Adapter-ImagickImageAdapter.html#method_load"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickImageAdapter\u003A\u003AloadFile\u0028\u0029",
             "name": "loadFile",
@@ -5946,15 +5966,15 @@ Search.appendIndex(
             "summary": "Checks\u0020if\u0020Imagick\u0020extension\u0020is\u0020loaded.",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_isImagickLoaded"
         },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisGmagickLoaded\u0028\u0029",
-            "name": "isGmagickLoaded",
-            "summary": "Checks\u0020if\u0020Gmagick\u0020extension\u0020is\u0020loaded.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_isGmagickLoaded"
-        },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AgetAdapter\u0028\u0029",
             "name": "getAdapter",
             "summary": "",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_getAdapter"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisGmagickLoaded\u0028\u0029",
+            "name": "isGmagickLoaded",
+            "summary": "Checks\u0020if\u0020Gmagick\u0020extension\u0020is\u0020loaded.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_isGmagickLoaded"
         },                {
             "fqsen": "\\ColorThief\\PQueue",
             "name": "PQueue",
@@ -5966,10 +5986,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method___construct"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003Asort\u0028\u0029",
-            "name": "sort",
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003AsetComparator\u0028\u0029",
+            "name": "setComparator",
             "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_sort"
+            "url": "classes/ColorThief-PQueue.html#method_setComparator"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Apush\u0028\u0029",
             "name": "push",
@@ -5981,25 +6001,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_peek"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003Apop\u0028\u0029",
-            "name": "pop",
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003Asort\u0028\u0029",
+            "name": "sort",
             "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_pop"
+            "url": "classes/ColorThief-PQueue.html#method_sort"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Asize\u0028\u0029",
             "name": "size",
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_size"
         },                {
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003Apop\u0028\u0029",
+            "name": "pop",
+            "summary": "",
+            "url": "classes/ColorThief-PQueue.html#method_pop"
+        },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Amap\u0028\u0029",
             "name": "map",
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_map"
-        },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003AsetComparator\u0028\u0029",
-            "name": "setComparator",
-            "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_setComparator"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Adebug\u0028\u0029",
             "name": "debug",
@@ -6031,15 +6051,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-VBox.html#method___construct"
         },                {
+            "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024count",
+            "name": "count",
+            "summary": "",
+            "url": "classes/ColorThief-VBox.html#property_count"
+        },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024volume",
             "name": "volume",
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_volume"
         },                {
-            "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024count",
-            "name": "count",
+            "fqsen": "\\ColorThief\\VBox\u003A\u003Acontains\u0028\u0029",
+            "name": "contains",
             "summary": "",
-            "url": "classes/ColorThief-VBox.html#property_count"
+            "url": "classes/ColorThief-VBox.html#method_contains"
         },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
@@ -6050,11 +6075,6 @@ Search.appendIndex(
             "name": "avg",
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_avg"
-        },                {
-            "fqsen": "\\ColorThief\\VBox\u003A\u003Acontains\u0028\u0029",
-            "name": "contains",
-            "summary": "",
-            "url": "classes/ColorThief-VBox.html#method_contains"
         },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003AlongestAxis\u0028\u0029",
             "name": "longestAxis",
@@ -6151,6 +6171,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-ColorExtractor-ColorExtractor.html#method_initialize"
         },                {
+            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AintColorToLab\u0028\u0029",
+            "name": "intColorToLab",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_intColorToLab"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AxyzToLab\u0028\u0029",
+            "name": "xyzToLab",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_xyzToLab"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AxyzToLabStep\u0028\u0029",
+            "name": "xyzToLabStep",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_xyzToLabStep"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AsrgbToXyz\u0028\u0029",
+            "name": "srgbToXyz",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_srgbToXyz"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003ArgbToSrgb\u0028\u0029",
+            "name": "rgbToSrgb",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_rgbToSrgb"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003ArgbToSrgbStep\u0028\u0029",
+            "name": "rgbToSrgbStep",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_rgbToSrgbStep"
+        },                {
             "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AmergeColors\u0028\u0029",
             "name": "mergeColors",
             "summary": "",
@@ -6160,36 +6210,6 @@ Search.appendIndex(
             "name": "ciede2000DeltaE",
             "summary": "",
             "url": "classes/League-ColorExtractor-ColorExtractor.html#method_ciede2000DeltaE"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AintColorToLab\u0028\u0029",
-            "name": "intColorToLab",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_intColorToLab"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003ArgbToSrgbStep\u0028\u0029",
-            "name": "rgbToSrgbStep",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_rgbToSrgbStep"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003ArgbToSrgb\u0028\u0029",
-            "name": "rgbToSrgb",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_rgbToSrgb"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AsrgbToXyz\u0028\u0029",
-            "name": "srgbToXyz",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_srgbToXyz"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AxyzToLabStep\u0028\u0029",
-            "name": "xyzToLabStep",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_xyzToLabStep"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003AxyzToLab\u0028\u0029",
-            "name": "xyzToLab",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-ColorExtractor.html#method_xyzToLab"
         },                {
             "fqsen": "\\League\\ColorExtractor\\ColorExtractor\u003A\u003A\u0024palette",
             "name": "palette",
@@ -6205,6 +6225,21 @@ Search.appendIndex(
             "name": "Palette",
             "summary": "",
             "url": "classes/League-ColorExtractor-Palette.html"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-Palette.html#method___construct"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003AfromFilename\u0028\u0029",
+            "name": "fromFilename",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-Palette.html#method_fromFilename"
+        },                {
+            "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003AfromGD\u0028\u0029",
+            "name": "fromGD",
+            "summary": "",
+            "url": "classes/League-ColorExtractor-Palette.html#method_fromGD"
         },                {
             "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003Acount\u0028\u0029",
             "name": "count",
@@ -6226,21 +6261,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-ColorExtractor-Palette.html#method_getMostUsedColors"
         },                {
-            "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003AfromFilename\u0028\u0029",
-            "name": "fromFilename",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-Palette.html#method_fromFilename"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003AfromGD\u0028\u0029",
-            "name": "fromGD",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-Palette.html#method_fromGD"
-        },                {
-            "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/League-ColorExtractor-Palette.html#method___construct"
-        },                {
             "fqsen": "\\League\\ColorExtractor\\Palette\u003A\u003A\u0024colors",
             "name": "colors",
             "summary": "",
@@ -6251,20 +6271,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-AbstractAdapter.html"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractAdapter\u003A\u003AsetPathPrefix\u0028\u0029",
-            "name": "setPathPrefix",
-            "summary": "Set\u0020the\u0020path\u0020prefix.",
-            "url": "classes/League-Flysystem-Adapter-AbstractAdapter.html#method_setPathPrefix"
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractAdapter\u003A\u003AapplyPathPrefix\u0028\u0029",
+            "name": "applyPathPrefix",
+            "summary": "Prefix\u0020a\u0020path.",
+            "url": "classes/League-Flysystem-Adapter-AbstractAdapter.html#method_applyPathPrefix"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractAdapter\u003A\u003AgetPathPrefix\u0028\u0029",
             "name": "getPathPrefix",
             "summary": "Get\u0020the\u0020path\u0020prefix.",
             "url": "classes/League-Flysystem-Adapter-AbstractAdapter.html#method_getPathPrefix"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractAdapter\u003A\u003AapplyPathPrefix\u0028\u0029",
-            "name": "applyPathPrefix",
-            "summary": "Prefix\u0020a\u0020path.",
-            "url": "classes/League-Flysystem-Adapter-AbstractAdapter.html#method_applyPathPrefix"
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractAdapter\u003A\u003AsetPathPrefix\u0028\u0029",
+            "name": "setPathPrefix",
+            "summary": "Set\u0020the\u0020path\u0020prefix.",
+            "url": "classes/League-Flysystem-Adapter-AbstractAdapter.html#method_setPathPrefix"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractAdapter\u003A\u003AremovePathPrefix\u0028\u0029",
             "name": "removePathPrefix",
@@ -6306,30 +6326,20 @@ Search.appendIndex(
             "summary": "Set\u0020the\u0020host.",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_setHost"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsetPermPublic\u0028\u0029",
-            "name": "setPermPublic",
-            "summary": "Set\u0020the\u0020public\u0020permission\u0020value.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_setPermPublic"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsetPermPrivate\u0028\u0029",
-            "name": "setPermPrivate",
-            "summary": "Set\u0020the\u0020private\u0020permission\u0020value.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_setPermPrivate"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetPort\u0028\u0029",
             "name": "getPort",
             "summary": "Returns\u0020the\u0020ftp\u0020port.",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getPort"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetRoot\u0028\u0029",
-            "name": "getRoot",
-            "summary": "Returns\u0020the\u0020root\u0020folder\u0020to\u0020work\u0020from.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getRoot"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsetPort\u0028\u0029",
             "name": "setPort",
             "summary": "Set\u0020the\u0020ftp\u0020port.",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_setPort"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetRoot\u0028\u0029",
+            "name": "getRoot",
+            "summary": "Returns\u0020the\u0020root\u0020folder\u0020to\u0020work\u0020from.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getRoot"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsetRoot\u0028\u0029",
             "name": "setRoot",
@@ -6391,61 +6401,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_listDirectoryContents"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeListing\u0028\u0029",
-            "name": "normalizeListing",
-            "summary": "Normalize\u0020a\u0020directory\u0020listing.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeListing"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsortListing\u0028\u0029",
-            "name": "sortListing",
-            "summary": "Sort\u0020a\u0020directory\u0020listing.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_sortListing"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeObject\u0028\u0029",
-            "name": "normalizeObject",
-            "summary": "Normalize\u0020a\u0020file\u0020entry.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeObject"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeUnixObject\u0028\u0029",
-            "name": "normalizeUnixObject",
-            "summary": "Normalize\u0020a\u0020Unix\u0020file\u0020entry.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeUnixObject"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeUnixTimestamp\u0028\u0029",
-            "name": "normalizeUnixTimestamp",
-            "summary": "Only\u0020accurate\u0020to\u0020the\u0020minute\u0020\u0028current\u0020year\u0029,\u0020or\u0020to\u0020the\u0020day.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeUnixTimestamp"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeWindowsObject\u0028\u0029",
-            "name": "normalizeWindowsObject",
-            "summary": "Normalize\u0020a\u0020Windows\/DOS\u0020file\u0020entry.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeWindowsObject"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AdetectSystemType\u0028\u0029",
-            "name": "detectSystemType",
-            "summary": "Get\u0020the\u0020system\u0020type\u0020from\u0020a\u0020listing\u0020item.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_detectSystemType"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AdetectType\u0028\u0029",
-            "name": "detectType",
-            "summary": "Get\u0020the\u0020file\u0020type\u0020from\u0020the\u0020permissions.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_detectType"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizePermissions\u0028\u0029",
-            "name": "normalizePermissions",
-            "summary": "Normalize\u0020a\u0020permissions\u0020string.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizePermissions"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AremoveDotDirectories\u0028\u0029",
-            "name": "removeDotDirectories",
-            "summary": "Filter\u0020out\u0020dot\u002Ddirectories.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_removeDotDirectories"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003Ahas\u0028\u0029",
-            "name": "has",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_has"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "",
@@ -6461,40 +6416,105 @@ Search.appendIndex(
             "summary": "Ensure\u0020a\u0020directory\u0020exists.",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_ensureDirectory"
         },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003Ahas\u0028\u0029",
+            "name": "has",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_has"
+        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetConnection\u0028\u0029",
             "name": "getConnection",
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getConnection"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetPermPublic\u0028\u0029",
-            "name": "getPermPublic",
-            "summary": "Get\u0020the\u0020public\u0020permission\u0020value.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getPermPublic"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetPermPrivate\u0028\u0029",
-            "name": "getPermPrivate",
-            "summary": "Get\u0020the\u0020private\u0020permission\u0020value.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getPermPrivate"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "Disconnect\u0020on\u0020destruction.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method___destruct"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003Aconnect\u0028\u0029",
-            "name": "connect",
-            "summary": "Establish\u0020a\u0020connection.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_connect"
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AisConnected\u0028\u0029",
+            "name": "isConnected",
+            "summary": "Check\u0020if\u0020a\u0020connection\u0020is\u0020active.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_isConnected"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003Adisconnect\u0028\u0029",
             "name": "disconnect",
             "summary": "Close\u0020the\u0020connection.",
             "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_disconnect"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AisConnected\u0028\u0029",
-            "name": "isConnected",
-            "summary": "Check\u0020if\u0020a\u0020connection\u0020is\u0020active.",
-            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_isConnected"
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003Aconnect\u0028\u0029",
+            "name": "connect",
+            "summary": "Establish\u0020a\u0020connection.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_connect"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetPermPublic\u0028\u0029",
+            "name": "getPermPublic",
+            "summary": "Get\u0020the\u0020public\u0020permission\u0020value.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getPermPublic"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsetPermPublic\u0028\u0029",
+            "name": "setPermPublic",
+            "summary": "Set\u0020the\u0020public\u0020permission\u0020value.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_setPermPublic"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AgetPermPrivate\u0028\u0029",
+            "name": "getPermPrivate",
+            "summary": "Get\u0020the\u0020private\u0020permission\u0020value.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_getPermPrivate"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsetPermPrivate\u0028\u0029",
+            "name": "setPermPrivate",
+            "summary": "Set\u0020the\u0020private\u0020permission\u0020value.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_setPermPrivate"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "Disconnect\u0020on\u0020destruction.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method___destruct"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeListing\u0028\u0029",
+            "name": "normalizeListing",
+            "summary": "Normalize\u0020a\u0020directory\u0020listing.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeListing"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AremoveDotDirectories\u0028\u0029",
+            "name": "removeDotDirectories",
+            "summary": "Filter\u0020out\u0020dot\u002Ddirectories.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_removeDotDirectories"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeObject\u0028\u0029",
+            "name": "normalizeObject",
+            "summary": "Normalize\u0020a\u0020file\u0020entry.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeObject"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AdetectSystemType\u0028\u0029",
+            "name": "detectSystemType",
+            "summary": "Get\u0020the\u0020system\u0020type\u0020from\u0020a\u0020listing\u0020item.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_detectSystemType"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeUnixObject\u0028\u0029",
+            "name": "normalizeUnixObject",
+            "summary": "Normalize\u0020a\u0020Unix\u0020file\u0020entry.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeUnixObject"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AdetectType\u0028\u0029",
+            "name": "detectType",
+            "summary": "Get\u0020the\u0020file\u0020type\u0020from\u0020the\u0020permissions.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_detectType"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeUnixTimestamp\u0028\u0029",
+            "name": "normalizeUnixTimestamp",
+            "summary": "Only\u0020accurate\u0020to\u0020the\u0020minute\u0020\u0028current\u0020year\u0029,\u0020or\u0020to\u0020the\u0020day.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeUnixTimestamp"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizePermissions\u0028\u0029",
+            "name": "normalizePermissions",
+            "summary": "Normalize\u0020a\u0020permissions\u0020string.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizePermissions"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AnormalizeWindowsObject\u0028\u0029",
+            "name": "normalizeWindowsObject",
+            "summary": "Normalize\u0020a\u0020Windows\/DOS\u0020file\u0020entry.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_normalizeWindowsObject"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AsortListing\u0028\u0029",
+            "name": "sortListing",
+            "summary": "Sort\u0020a\u0020directory\u0020listing.",
+            "url": "classes/League-Flysystem-Adapter-AbstractFtpAdapter.html#method_sortListing"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\AbstractFtpAdapter\u003A\u003AescapePath\u0028\u0029",
             "name": "escapePath",
@@ -6616,6 +6636,16 @@ Search.appendIndex(
             "summary": "Connect\u0020to\u0020the\u0020FTP\u0020server.",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_connect"
         },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "Login.",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_login"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Adisconnect\u0028\u0029",
+            "name": "disconnect",
+            "summary": "Disconnect\u0020from\u0020the\u0020FTP\u0020server.",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_disconnect"
+        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AsetUtf8Mode\u0028\u0029",
             "name": "setUtf8Mode",
             "summary": "Set\u0020the\u0020connection\u0020to\u0020UTF\u002D8\u0020mode.",
@@ -6631,15 +6661,15 @@ Search.appendIndex(
             "summary": "Set\u0020the\u0020connection\u0020root.",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_setConnectionRoot"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Alogin\u0028\u0029",
-            "name": "login",
-            "summary": "Login.",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_login"
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AisPureFtpdServer\u0028\u0029",
+            "name": "isPureFtpdServer",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_isPureFtpdServer"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Adisconnect\u0028\u0029",
-            "name": "disconnect",
-            "summary": "Disconnect\u0020from\u0020the\u0020FTP\u0020server.",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_disconnect"
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_update"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Awrite\u0028\u0029",
             "name": "write",
@@ -6651,10 +6681,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_writeStream"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AsetVisibility\u0028\u0029",
+            "name": "setVisibility",
             "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_update"
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_setVisibility"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AupdateStream\u0028\u0029",
             "name": "updateStream",
@@ -6676,6 +6706,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_deleteDir"
         },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AlistDirectoryContents\u0028\u0029",
+            "name": "listDirectoryContents",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_listDirectoryContents"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AlistDirectoryContentsRecursive\u0028\u0029",
+            "name": "listDirectoryContentsRecursive",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_listDirectoryContentsRecursive"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AftpRawlist\u0028\u0029",
+            "name": "ftpRawlist",
+            "summary": "The\u0020ftp_rawlist\u0020function\u0020with\u0020optional\u0020escaping.",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_ftpRawlist"
+        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AcreateDir\u0028\u0029",
             "name": "createDir",
             "summary": "",
@@ -6686,15 +6731,15 @@ Search.appendIndex(
             "summary": "Create\u0020a\u0020directory.",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_createActualDirectory"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AgetMetadata\u0028\u0029",
-            "name": "getMetadata",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_getMetadata"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AgetMimetype\u0028\u0029",
             "name": "getMimetype",
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_getMimetype"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AgetMetadata\u0028\u0029",
+            "name": "getMetadata",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_getMetadata"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AgetTimestamp\u0028\u0029",
             "name": "getTimestamp",
@@ -6711,35 +6756,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_readStream"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AsetVisibility\u0028\u0029",
-            "name": "setVisibility",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_setVisibility"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AlistDirectoryContents\u0028\u0029",
-            "name": "listDirectoryContents",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_listDirectoryContents"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AlistDirectoryContentsRecursive\u0028\u0029",
-            "name": "listDirectoryContentsRecursive",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_listDirectoryContentsRecursive"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AisConnected\u0028\u0029",
             "name": "isConnected",
             "summary": "Check\u0020if\u0020the\u0020connection\u0020is\u0020open.",
             "url": "classes/League-Flysystem-Adapter-Ftp.html#method_isConnected"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AisPureFtpdServer\u0028\u0029",
-            "name": "isPureFtpdServer",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_isPureFtpdServer"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AftpRawlist\u0028\u0029",
-            "name": "ftpRawlist",
-            "summary": "The\u0020ftp_rawlist\u0020function\u0020with\u0020optional\u0020escaping.",
-            "url": "classes/League-Flysystem-Adapter-Ftp.html#method_ftpRawlist"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Ftp\u003A\u003AgetRawExecResponseCode\u0028\u0029",
             "name": "getRawExecResponseCode",
@@ -6816,10 +6836,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_write"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AwriteStream\u0028\u0029",
-            "name": "writeStream",
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AsetVisibility\u0028\u0029",
+            "name": "setVisibility",
             "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_writeStream"
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_setVisibility"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AreadStream\u0028\u0029",
             "name": "readStream",
@@ -6830,6 +6850,11 @@ Search.appendIndex(
             "name": "updateStream",
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_updateStream"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AwriteStream\u0028\u0029",
+            "name": "writeStream",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_writeStream"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
@@ -6861,15 +6886,40 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_listContents"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetMetadata\u0028\u0029",
-            "name": "getMetadata",
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetRecursiveDirectoryIterator\u0028\u0029",
+            "name": "getRecursiveDirectoryIterator",
             "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_getMetadata"
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_getRecursiveDirectoryIterator"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetDirectoryIterator\u0028\u0029",
+            "name": "getDirectoryIterator",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_getDirectoryIterator"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetFilePath\u0028\u0029",
+            "name": "getFilePath",
+            "summary": "Get\u0020the\u0020normalized\u0020path\u0020from\u0020a\u0020SplFileInfo\u0020object.",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_getFilePath"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AnormalizeFileInfo\u0028\u0029",
+            "name": "normalizeFileInfo",
+            "summary": "Normalize\u0020the\u0020file\u0020info.",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_normalizeFileInfo"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AmapFileInfo\u0028\u0029",
+            "name": "mapFileInfo",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_mapFileInfo"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_getSize"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetMetadata\u0028\u0029",
+            "name": "getMetadata",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_getMetadata"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetMimetype\u0028\u0029",
             "name": "getMimetype",
@@ -6886,11 +6936,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_getVisibility"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AsetVisibility\u0028\u0029",
-            "name": "setVisibility",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_setVisibility"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AcreateDir\u0028\u0029",
             "name": "createDir",
             "summary": "",
@@ -6901,40 +6946,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_deleteDir"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AdeleteFileInfoObject\u0028\u0029",
-            "name": "deleteFileInfoObject",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_deleteFileInfoObject"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AnormalizeFileInfo\u0028\u0029",
-            "name": "normalizeFileInfo",
-            "summary": "Normalize\u0020the\u0020file\u0020info.",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_normalizeFileInfo"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetFilePath\u0028\u0029",
-            "name": "getFilePath",
-            "summary": "Get\u0020the\u0020normalized\u0020path\u0020from\u0020a\u0020SplFileInfo\u0020object.",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_getFilePath"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetRecursiveDirectoryIterator\u0028\u0029",
-            "name": "getRecursiveDirectoryIterator",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_getRecursiveDirectoryIterator"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AgetDirectoryIterator\u0028\u0029",
-            "name": "getDirectoryIterator",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_getDirectoryIterator"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AmapFileInfo\u0028\u0029",
-            "name": "mapFileInfo",
-            "summary": "",
-            "url": "classes/League-Flysystem-Adapter-Local.html#method_mapFileInfo"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AguardAgainstUnreadableFileInfo\u0028\u0029",
             "name": "guardAgainstUnreadableFileInfo",
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Local.html#method_guardAgainstUnreadableFileInfo"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003AdeleteFileInfoObject\u0028\u0029",
+            "name": "deleteFileInfoObject",
+            "summary": "",
+            "url": "classes/League-Flysystem-Adapter-Local.html#method_deleteFileInfoObject"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Local\u003A\u003ASKIP_LINKS",
             "name": "SKIP_LINKS",
@@ -7111,15 +7131,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-Adapter-Polyfill-StreamedWritingTrait.html"
         },                {
-            "fqsen": "\\League\\Flysystem\\Adapter\\Polyfill\\StreamedWritingTrait\u003A\u003Astream\u0028\u0029",
-            "name": "stream",
-            "summary": "Stream\u0020fallback\u0020delegator.",
-            "url": "classes/League-Flysystem-Adapter-Polyfill-StreamedWritingTrait.html#method_stream"
-        },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Polyfill\\StreamedWritingTrait\u003A\u003AwriteStream\u0028\u0029",
             "name": "writeStream",
             "summary": "Write\u0020using\u0020a\u0020stream.",
             "url": "classes/League-Flysystem-Adapter-Polyfill-StreamedWritingTrait.html#method_writeStream"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Adapter\\Polyfill\\StreamedWritingTrait\u003A\u003Astream\u0028\u0029",
+            "name": "stream",
+            "summary": "Stream\u0020fallback\u0020delegator.",
+            "url": "classes/League-Flysystem-Adapter-Polyfill-StreamedWritingTrait.html#method_stream"
         },                {
             "fqsen": "\\League\\Flysystem\\Adapter\\Polyfill\\StreamedWritingTrait\u003A\u003AupdateStream\u0028\u0029",
             "name": "updateStream",
@@ -7221,15 +7241,15 @@ Search.appendIndex(
             "summary": "Get\u0020a\u0020setting.",
             "url": "classes/League-Flysystem-Config.html#method_get"
         },                {
-            "fqsen": "\\League\\Flysystem\\Config\u003A\u003Ahas\u0028\u0029",
-            "name": "has",
-            "summary": "Check\u0020if\u0020an\u0020item\u0020exists\u0020by\u0020key.",
-            "url": "classes/League-Flysystem-Config.html#method_has"
-        },                {
             "fqsen": "\\League\\Flysystem\\Config\u003A\u003AgetDefault\u0028\u0029",
             "name": "getDefault",
             "summary": "Try\u0020to\u0020retrieve\u0020a\u0020default\u0020setting\u0020from\u0020a\u0020config\u0020fallback.",
             "url": "classes/League-Flysystem-Config.html#method_getDefault"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Config\u003A\u003Ahas\u0028\u0029",
+            "name": "has",
+            "summary": "Check\u0020if\u0020an\u0020item\u0020exists\u0020by\u0020key.",
+            "url": "classes/League-Flysystem-Config.html#method_has"
         },                {
             "fqsen": "\\League\\Flysystem\\Config\u003A\u003Aset\u0028\u0029",
             "name": "set",
@@ -7431,20 +7451,25 @@ Search.appendIndex(
             "summary": "Constructor.",
             "url": "classes/League-Flysystem-Filesystem.html#method___construct"
         },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AgetAdapter\u0028\u0029",
-            "name": "getAdapter",
-            "summary": "Get\u0020the\u0020Adapter.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_getAdapter"
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "Write\u0020a\u0020new\u0020file.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_write"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AassertAbsent\u0028\u0029",
+            "name": "assertAbsent",
+            "summary": "Assert\u0020a\u0020file\u0020is\u0020absent.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_assertAbsent"
         },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Ahas\u0028\u0029",
             "name": "has",
             "summary": "Check\u0020whether\u0020a\u0020file\u0020exists.",
             "url": "classes/League-Flysystem-Filesystem.html#method_has"
         },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "Write\u0020a\u0020new\u0020file.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_write"
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AgetAdapter\u0028\u0029",
+            "name": "getAdapter",
+            "summary": "Get\u0020the\u0020Adapter.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_getAdapter"
         },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AwriteStream\u0028\u0029",
             "name": "writeStream",
@@ -7466,6 +7491,21 @@ Search.appendIndex(
             "summary": "Read\u0020and\u0020delete\u0020a\u0020file.",
             "url": "classes/League-Flysystem-Filesystem.html#method_readAndDelete"
         },                {
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AassertPresent\u0028\u0029",
+            "name": "assertPresent",
+            "summary": "Assert\u0020a\u0020file\u0020is\u0020present.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_assertPresent"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "Read\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_read"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_delete"
+        },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "Update\u0020an\u0020existing\u0020file.",
@@ -7475,11 +7515,6 @@ Search.appendIndex(
             "name": "updateStream",
             "summary": "Update\u0020an\u0020existing\u0020file\u0020using\u0020a\u0020stream.",
             "url": "classes/League-Flysystem-Filesystem.html#method_updateStream"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Aread\u0028\u0029",
-            "name": "read",
-            "summary": "Read\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_read"
         },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AreadStream\u0028\u0029",
             "name": "readStream",
@@ -7495,11 +7530,6 @@ Search.appendIndex(
             "name": "copy",
             "summary": "Copy\u0020a\u0020file.",
             "url": "classes/League-Flysystem-Filesystem.html#method_copy"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_delete"
         },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AdeleteDir\u0028\u0029",
             "name": "deleteDir",
@@ -7541,25 +7571,15 @@ Search.appendIndex(
             "summary": "Set\u0020the\u0020visibility\u0020for\u0020a\u0020file.",
             "url": "classes/League-Flysystem-Filesystem.html#method_setVisibility"
         },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AgetMetadata\u0028\u0029",
-            "name": "getMetadata",
-            "summary": "Get\u0020a\u0020file\u0027s\u0020metadata.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_getMetadata"
-        },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Get\u0020a\u0020file\/directory\u0020handler.",
             "url": "classes/League-Flysystem-Filesystem.html#method_get"
         },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AassertPresent\u0028\u0029",
-            "name": "assertPresent",
-            "summary": "Assert\u0020a\u0020file\u0020is\u0020present.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_assertPresent"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AassertAbsent\u0028\u0029",
-            "name": "assertAbsent",
-            "summary": "Assert\u0020a\u0020file\u0020is\u0020absent.",
-            "url": "classes/League-Flysystem-Filesystem.html#method_assertAbsent"
+            "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003AgetMetadata\u0028\u0029",
+            "name": "getMetadata",
+            "summary": "Get\u0020a\u0020file\u0027s\u0020metadata.",
+            "url": "classes/League-Flysystem-Filesystem.html#method_getMetadata"
         },                {
             "fqsen": "\\League\\Flysystem\\Filesystem\u003A\u003A\u0024adapter",
             "name": "adapter",
@@ -7716,35 +7736,35 @@ Search.appendIndex(
             "summary": "Check\u0020whether\u0020the\u0020entree\u0020is\u0020a\u0020directory.",
             "url": "classes/League-Flysystem-Handler.html#method_isDir"
         },                {
-            "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AisFile\u0028\u0029",
-            "name": "isFile",
-            "summary": "Check\u0020whether\u0020the\u0020entree\u0020is\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-Handler.html#method_isFile"
-        },                {
             "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AgetType\u0028\u0029",
             "name": "getType",
             "summary": "Retrieve\u0020the\u0020entree\u0020type\u0020\u0028file\u007Cdir\u0029.",
             "url": "classes/League-Flysystem-Handler.html#method_getType"
         },                {
-            "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AsetFilesystem\u0028\u0029",
-            "name": "setFilesystem",
-            "summary": "Set\u0020the\u0020Filesystem\u0020object.",
-            "url": "classes/League-Flysystem-Handler.html#method_setFilesystem"
+            "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AisFile\u0028\u0029",
+            "name": "isFile",
+            "summary": "Check\u0020whether\u0020the\u0020entree\u0020is\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-Handler.html#method_isFile"
         },                {
             "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AgetFilesystem\u0028\u0029",
             "name": "getFilesystem",
             "summary": "Retrieve\u0020the\u0020Filesystem\u0020object.",
             "url": "classes/League-Flysystem-Handler.html#method_getFilesystem"
         },                {
-            "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AsetPath\u0028\u0029",
-            "name": "setPath",
-            "summary": "Set\u0020the\u0020entree\u0020path.",
-            "url": "classes/League-Flysystem-Handler.html#method_setPath"
+            "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AsetFilesystem\u0028\u0029",
+            "name": "setFilesystem",
+            "summary": "Set\u0020the\u0020Filesystem\u0020object.",
+            "url": "classes/League-Flysystem-Handler.html#method_setFilesystem"
         },                {
             "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AgetPath\u0028\u0029",
             "name": "getPath",
             "summary": "Retrieve\u0020the\u0020entree\u0020path.",
             "url": "classes/League-Flysystem-Handler.html#method_getPath"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Handler\u003A\u003AsetPath\u0028\u0029",
+            "name": "setPath",
+            "summary": "Set\u0020the\u0020entree\u0020path.",
+            "url": "classes/League-Flysystem-Handler.html#method_setPath"
         },                {
             "fqsen": "\\League\\Flysystem\\Handler\u003A\u003A__call\u0028\u0029",
             "name": "__call",
@@ -7786,30 +7806,35 @@ Search.appendIndex(
             "summary": "Mount\u0020filesystems.",
             "url": "classes/League-Flysystem-MountManager.html#method_mountFilesystem"
         },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AgetFilesystem\u0028\u0029",
-            "name": "getFilesystem",
-            "summary": "Get\u0020the\u0020filesystem\u0020with\u0020the\u0020corresponding\u0020prefix.",
-            "url": "classes/League-Flysystem-MountManager.html#method_getFilesystem"
-        },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AfilterPrefix\u0028\u0029",
-            "name": "filterPrefix",
-            "summary": "Retrieve\u0020the\u0020prefix\u0020from\u0020an\u0020arguments\u0020array.",
-            "url": "classes/League-Flysystem-MountManager.html#method_filterPrefix"
-        },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AlistContents\u0028\u0029",
             "name": "listContents",
             "summary": "List\u0020contents\u0020of\u0020a\u0020directory.",
             "url": "classes/League-Flysystem-MountManager.html#method_listContents"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AgetPrefixAndPath\u0028\u0029",
+            "name": "getPrefixAndPath",
+            "summary": "",
+            "url": "classes/League-Flysystem-MountManager.html#method_getPrefixAndPath"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AgetFilesystem\u0028\u0029",
+            "name": "getFilesystem",
+            "summary": "Get\u0020the\u0020filesystem\u0020with\u0020the\u0020corresponding\u0020prefix.",
+            "url": "classes/League-Flysystem-MountManager.html#method_getFilesystem"
         },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003A__call\u0028\u0029",
             "name": "__call",
             "summary": "Call\u0020forwarder.",
             "url": "classes/League-Flysystem-MountManager.html#method___call"
         },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Acopy\u0028\u0029",
-            "name": "copy",
-            "summary": "Copy\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-MountManager.html#method_copy"
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AfilterPrefix\u0028\u0029",
+            "name": "filterPrefix",
+            "summary": "Retrieve\u0020the\u0020prefix\u0020from\u0020an\u0020arguments\u0020array.",
+            "url": "classes/League-Flysystem-MountManager.html#method_filterPrefix"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AinvokePluginOnFilesystem\u0028\u0029",
+            "name": "invokePluginOnFilesystem",
+            "summary": "Invoke\u0020a\u0020plugin\u0020on\u0020a\u0020filesystem\u0020mounted\u0020on\u0020a\u0020given\u0020prefix.",
+            "url": "classes/League-Flysystem-MountManager.html#method_invokePluginOnFilesystem"
         },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AlistWith\u0028\u0029",
             "name": "listWith",
@@ -7821,15 +7846,35 @@ Search.appendIndex(
             "summary": "Move\u0020a\u0020file.",
             "url": "classes/League-Flysystem-MountManager.html#method_move"
         },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AinvokePluginOnFilesystem\u0028\u0029",
-            "name": "invokePluginOnFilesystem",
-            "summary": "Invoke\u0020a\u0020plugin\u0020on\u0020a\u0020filesystem\u0020mounted\u0020on\u0020a\u0020given\u0020prefix.",
-            "url": "classes/League-Flysystem-MountManager.html#method_invokePluginOnFilesystem"
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Arename\u0028\u0029",
+            "name": "rename",
+            "summary": "Rename\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-MountManager.html#method_rename"
         },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AgetPrefixAndPath\u0028\u0029",
-            "name": "getPrefixAndPath",
-            "summary": "",
-            "url": "classes/League-Flysystem-MountManager.html#method_getPrefixAndPath"
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AsetVisibility\u0028\u0029",
+            "name": "setVisibility",
+            "summary": "Set\u0020the\u0020visibility\u0020for\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-MountManager.html#method_setVisibility"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Acopy\u0028\u0029",
+            "name": "copy",
+            "summary": "Copy\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-MountManager.html#method_copy"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AreadStream\u0028\u0029",
+            "name": "readStream",
+            "summary": "Retrieves\u0020a\u0020read\u002Dstream\u0020for\u0020a\u0020path.",
+            "url": "classes/League-Flysystem-MountManager.html#method_readStream"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AwriteStream\u0028\u0029",
+            "name": "writeStream",
+            "summary": "Write\u0020a\u0020new\u0020file\u0020using\u0020a\u0020stream.",
+            "url": "classes/League-Flysystem-MountManager.html#method_writeStream"
+        },                {
+            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020a\u0020file.",
+            "url": "classes/League-Flysystem-MountManager.html#method_delete"
         },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Ahas\u0028\u0029",
             "name": "has",
@@ -7840,11 +7885,6 @@ Search.appendIndex(
             "name": "read",
             "summary": "Read\u0020a\u0020file.",
             "url": "classes/League-Flysystem-MountManager.html#method_read"
-        },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AreadStream\u0028\u0029",
-            "name": "readStream",
-            "summary": "Retrieves\u0020a\u0020read\u002Dstream\u0020for\u0020a\u0020path.",
-            "url": "classes/League-Flysystem-MountManager.html#method_readStream"
         },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AgetMetadata\u0028\u0029",
             "name": "getMetadata",
@@ -7876,11 +7916,6 @@ Search.appendIndex(
             "summary": "Write\u0020a\u0020new\u0020file.",
             "url": "classes/League-Flysystem-MountManager.html#method_write"
         },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AwriteStream\u0028\u0029",
-            "name": "writeStream",
-            "summary": "Write\u0020a\u0020new\u0020file\u0020using\u0020a\u0020stream.",
-            "url": "classes/League-Flysystem-MountManager.html#method_writeStream"
-        },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "Update\u0020an\u0020existing\u0020file.",
@@ -7891,16 +7926,6 @@ Search.appendIndex(
             "summary": "Update\u0020an\u0020existing\u0020file\u0020using\u0020a\u0020stream.",
             "url": "classes/League-Flysystem-MountManager.html#method_updateStream"
         },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Arename\u0028\u0029",
-            "name": "rename",
-            "summary": "Rename\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-MountManager.html#method_rename"
-        },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-MountManager.html#method_delete"
-        },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AdeleteDir\u0028\u0029",
             "name": "deleteDir",
             "summary": "Delete\u0020a\u0020directory.",
@@ -7910,11 +7935,6 @@ Search.appendIndex(
             "name": "createDir",
             "summary": "Create\u0020a\u0020directory.",
             "url": "classes/League-Flysystem-MountManager.html#method_createDir"
-        },                {
-            "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003AsetVisibility\u0028\u0029",
-            "name": "setVisibility",
-            "summary": "Set\u0020the\u0020visibility\u0020for\u0020a\u0020file.",
-            "url": "classes/League-Flysystem-MountManager.html#method_setVisibility"
         },                {
             "fqsen": "\\League\\Flysystem\\MountManager\u003A\u003Aput\u0028\u0029",
             "name": "put",
@@ -8091,6 +8111,11 @@ Search.appendIndex(
             "summary": "Register\u0020a\u0020plugin.",
             "url": "classes/League-Flysystem-Plugin-PluggableTrait.html#method_addPlugin"
         },                {
+            "fqsen": "\\League\\Flysystem\\Plugin\\PluggableTrait\u003A\u003A__call\u0028\u0029",
+            "name": "__call",
+            "summary": "Plugins\u0020pass\u002Dthrough.",
+            "url": "classes/League-Flysystem-Plugin-PluggableTrait.html#method___call"
+        },                {
             "fqsen": "\\League\\Flysystem\\Plugin\\PluggableTrait\u003A\u003AfindPlugin\u0028\u0029",
             "name": "findPlugin",
             "summary": "Find\u0020a\u0020specific\u0020plugin.",
@@ -8100,11 +8125,6 @@ Search.appendIndex(
             "name": "invokePlugin",
             "summary": "Invoke\u0020a\u0020plugin\u0020by\u0020method\u0020name.",
             "url": "classes/League-Flysystem-Plugin-PluggableTrait.html#method_invokePlugin"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Plugin\\PluggableTrait\u003A\u003A__call\u0028\u0029",
-            "name": "__call",
-            "summary": "Plugins\u0020pass\u002Dthrough.",
-            "url": "classes/League-Flysystem-Plugin-PluggableTrait.html#method___call"
         },                {
             "fqsen": "\\League\\Flysystem\\Plugin\\PluggableTrait\u003A\u003A\u0024plugins",
             "name": "plugins",
@@ -8211,15 +8231,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-Flysystem-SafeStorage.html#method___destruct"
         },                {
-            "fqsen": "\\League\\Flysystem\\SafeStorage\u003A\u003A\u0024hash",
-            "name": "hash",
-            "summary": "",
-            "url": "classes/League-Flysystem-SafeStorage.html#property_hash"
-        },                {
             "fqsen": "\\League\\Flysystem\\SafeStorage\u003A\u003A\u0024safeStorage",
             "name": "safeStorage",
             "summary": "",
             "url": "classes/League-Flysystem-SafeStorage.html#property_safeStorage"
+        },                {
+            "fqsen": "\\League\\Flysystem\\SafeStorage\u003A\u003A\u0024hash",
+            "name": "hash",
+            "summary": "",
+            "url": "classes/League-Flysystem-SafeStorage.html#property_hash"
         },                {
             "fqsen": "\\League\\Flysystem\\UnreadableFileException",
             "name": "UnreadableFileException",
@@ -8255,21 +8275,6 @@ Search.appendIndex(
             "name": "Util",
             "summary": "",
             "url": "classes/League-Flysystem-Util.html"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Util\u003A\u003Apathinfo\u0028\u0029",
-            "name": "pathinfo",
-            "summary": "Get\u0020normalized\u0020pathinfo.",
-            "url": "classes/League-Flysystem-Util.html#method_pathinfo"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Util\u003A\u003AnormalizeDirname\u0028\u0029",
-            "name": "normalizeDirname",
-            "summary": "Normalize\u0020a\u0020dirname\u0020return\u0020value.",
-            "url": "classes/League-Flysystem-Util.html#method_normalizeDirname"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Util\u003A\u003Adirname\u0028\u0029",
-            "name": "dirname",
-            "summary": "Get\u0020a\u0020normalized\u0020dirname\u0020from\u0020a\u0020path.",
-            "url": "classes/League-Flysystem-Util.html#method_dirname"
         },                {
             "fqsen": "\\League\\Flysystem\\Util\u003A\u003Amap\u0028\u0029",
             "name": "map",
@@ -8311,6 +8316,31 @@ Search.appendIndex(
             "summary": "Emulate\u0020directories.",
             "url": "classes/League-Flysystem-Util.html#method_emulateDirectories"
         },                {
+            "fqsen": "\\League\\Flysystem\\Util\u003A\u003AemulateObjectDirectories\u0028\u0029",
+            "name": "emulateObjectDirectories",
+            "summary": "Emulate\u0020the\u0020directories\u0020of\u0020a\u0020single\u0020object.",
+            "url": "classes/League-Flysystem-Util.html#method_emulateObjectDirectories"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Util\u003A\u003Adirname\u0028\u0029",
+            "name": "dirname",
+            "summary": "Get\u0020a\u0020normalized\u0020dirname\u0020from\u0020a\u0020path.",
+            "url": "classes/League-Flysystem-Util.html#method_dirname"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Util\u003A\u003AnormalizeDirname\u0028\u0029",
+            "name": "normalizeDirname",
+            "summary": "Normalize\u0020a\u0020dirname\u0020return\u0020value.",
+            "url": "classes/League-Flysystem-Util.html#method_normalizeDirname"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Util\u003A\u003Apathinfo\u0028\u0029",
+            "name": "pathinfo",
+            "summary": "Get\u0020normalized\u0020pathinfo.",
+            "url": "classes/League-Flysystem-Util.html#method_pathinfo"
+        },                {
+            "fqsen": "\\League\\Flysystem\\Util\u003A\u003Abasename\u0028\u0029",
+            "name": "basename",
+            "summary": "Returns\u0020the\u0020trailing\u0020name\u0020component\u0020of\u0020the\u0020path.",
+            "url": "classes/League-Flysystem-Util.html#method_basename"
+        },                {
             "fqsen": "\\League\\Flysystem\\Util\u003A\u003AensureConfig\u0028\u0029",
             "name": "ensureConfig",
             "summary": "Ensure\u0020a\u0020Config\u0020instance.",
@@ -8330,16 +8360,6 @@ Search.appendIndex(
             "name": "getStreamSize",
             "summary": "Get\u0020the\u0020size\u0020of\u0020a\u0020stream.",
             "url": "classes/League-Flysystem-Util.html#method_getStreamSize"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Util\u003A\u003AemulateObjectDirectories\u0028\u0029",
-            "name": "emulateObjectDirectories",
-            "summary": "Emulate\u0020the\u0020directories\u0020of\u0020a\u0020single\u0020object.",
-            "url": "classes/League-Flysystem-Util.html#method_emulateObjectDirectories"
-        },                {
-            "fqsen": "\\League\\Flysystem\\Util\u003A\u003Abasename\u0028\u0029",
-            "name": "basename",
-            "summary": "Returns\u0020the\u0020trailing\u0020name\u0020component\u0020of\u0020the\u0020path.",
-            "url": "classes/League-Flysystem-Util.html#method_basename"
         },                {
             "fqsen": "\\League\\MimeTypeDetection\\EmptyExtensionToMimeTypeMap",
             "name": "EmptyExtensionToMimeTypeMap",
@@ -8411,6 +8431,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/League-MimeTypeDetection-FinfoMimeTypeDetector.html#method_detectMimeType"
         },                {
+            "fqsen": "\\League\\MimeTypeDetection\\FinfoMimeTypeDetector\u003A\u003AtakeSample\u0028\u0029",
+            "name": "takeSample",
+            "summary": "",
+            "url": "classes/League-MimeTypeDetection-FinfoMimeTypeDetector.html#method_takeSample"
+        },                {
             "fqsen": "\\League\\MimeTypeDetection\\FinfoMimeTypeDetector\u003A\u003AdetectMimeTypeFromPath\u0028\u0029",
             "name": "detectMimeTypeFromPath",
             "summary": "",
@@ -8425,11 +8450,6 @@ Search.appendIndex(
             "name": "detectMimeTypeFromBuffer",
             "summary": "",
             "url": "classes/League-MimeTypeDetection-FinfoMimeTypeDetector.html#method_detectMimeTypeFromBuffer"
-        },                {
-            "fqsen": "\\League\\MimeTypeDetection\\FinfoMimeTypeDetector\u003A\u003AtakeSample\u0028\u0029",
-            "name": "takeSample",
-            "summary": "",
-            "url": "classes/League-MimeTypeDetection-FinfoMimeTypeDetector.html#method_takeSample"
         },                {
             "fqsen": "\\League\\MimeTypeDetection\\FinfoMimeTypeDetector\u003A\u003AINCONCLUSIVE_MIME_TYPES",
             "name": "INCONCLUSIVE_MIME_TYPES",
@@ -8791,55 +8811,55 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-ChangeStream.html#method_current"
         },                {
-            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AgetCursorId\u0028\u0029",
-            "name": "getCursorId",
-            "summary": "",
-            "url": "classes/MongoDB-ChangeStream.html#method_getCursorId"
-        },                {
-            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AgetResumeToken\u0028\u0029",
-            "name": "getResumeToken",
-            "summary": "Returns\u0020the\u0020resume\u0020token\u0020for\u0020the\u0020iterator\u0027s\u0020current\u0020position.",
-            "url": "classes/MongoDB-ChangeStream.html#method_getResumeToken"
-        },                {
             "fqsen": "\\MongoDB\\ChangeStream\u003A\u003A\u0024key",
             "name": "key",
             "summary": "",
             "url": "classes/MongoDB-ChangeStream.html#property_key"
-        },                {
-            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Anext\u0028\u0029",
-            "name": "next",
-            "summary": "",
-            "url": "classes/MongoDB-ChangeStream.html#method_next"
-        },                {
-            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "",
-            "url": "classes/MongoDB-ChangeStream.html#method_rewind"
         },                {
             "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Avalid\u0028\u0029",
             "name": "valid",
             "summary": "",
             "url": "classes/MongoDB-ChangeStream.html#method_valid"
         },                {
-            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AisResumableError\u0028\u0029",
-            "name": "isResumableError",
-            "summary": "Determines\u0020if\u0020an\u0020exception\u0020is\u0020a\u0020resumable\u0020error.",
-            "url": "classes/MongoDB-ChangeStream.html#method_isResumableError"
+            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Anext\u0028\u0029",
+            "name": "next",
+            "summary": "",
+            "url": "classes/MongoDB-ChangeStream.html#method_next"
         },                {
             "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AonIteration\u0028\u0029",
             "name": "onIteration",
             "summary": "Perform\u0020housekeeping\u0020after\u0020an\u0020iteration\u0020event.",
             "url": "classes/MongoDB-ChangeStream.html#method_onIteration"
         },                {
-            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Aresume\u0028\u0029",
-            "name": "resume",
-            "summary": "Recreates\u0020the\u0020ChangeStreamIterator\u0020after\u0020a\u0020resumable\u0020server\u0020error.",
-            "url": "classes/MongoDB-ChangeStream.html#method_resume"
+            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AgetCursorId\u0028\u0029",
+            "name": "getCursorId",
+            "summary": "",
+            "url": "classes/MongoDB-ChangeStream.html#method_getCursorId"
         },                {
             "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AresumeOrThrow\u0028\u0029",
             "name": "resumeOrThrow",
             "summary": "Either\u0020resumes\u0020after\u0020a\u0020resumable\u0020error\u0020or\u0020re\u002Dthrows\u0020the\u0020exception.",
             "url": "classes/MongoDB-ChangeStream.html#method_resumeOrThrow"
+        },                {
+            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AisResumableError\u0028\u0029",
+            "name": "isResumableError",
+            "summary": "Determines\u0020if\u0020an\u0020exception\u0020is\u0020a\u0020resumable\u0020error.",
+            "url": "classes/MongoDB-ChangeStream.html#method_isResumableError"
+        },                {
+            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Aresume\u0028\u0029",
+            "name": "resume",
+            "summary": "Recreates\u0020the\u0020ChangeStreamIterator\u0020after\u0020a\u0020resumable\u0020server\u0020error.",
+            "url": "classes/MongoDB-ChangeStream.html#method_resume"
+        },                {
+            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003AgetResumeToken\u0028\u0029",
+            "name": "getResumeToken",
+            "summary": "Returns\u0020the\u0020resume\u0020token\u0020for\u0020the\u0020iterator\u0027s\u0020current\u0020position.",
+            "url": "classes/MongoDB-ChangeStream.html#method_getResumeToken"
+        },                {
+            "fqsen": "\\MongoDB\\ChangeStream\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "",
+            "url": "classes/MongoDB-ChangeStream.html#method_rewind"
         },                {
             "fqsen": "\\MongoDB\\ChangeStream\u003A\u003ACURSOR_NOT_FOUND",
             "name": "CURSOR_NOT_FOUND",
@@ -8886,6 +8906,16 @@ Search.appendIndex(
             "summary": "Constructs\u0020a\u0020new\u0020Client\u0020instance.",
             "url": "classes/MongoDB-Client.html#method___construct"
         },                {
+            "fqsen": "\\MongoDB\\Client\u003A\u003AmergeDriverInfo\u0028\u0029",
+            "name": "mergeDriverInfo",
+            "summary": "",
+            "url": "classes/MongoDB-Client.html#method_mergeDriverInfo"
+        },                {
+            "fqsen": "\\MongoDB\\Client\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/MongoDB-Client.html#method_getVersion"
+        },                {
             "fqsen": "\\MongoDB\\Client\u003A\u003A__debugInfo\u0028\u0029",
             "name": "__debugInfo",
             "summary": "Return\u0020internal\u0020properties\u0020for\u0020debugging\u0020purposes.",
@@ -8895,6 +8925,11 @@ Search.appendIndex(
             "name": "__get",
             "summary": "Select\u0020a\u0020database.",
             "url": "classes/MongoDB-Client.html#method___get"
+        },                {
+            "fqsen": "\\MongoDB\\Client\u003A\u003AselectDatabase\u0028\u0029",
+            "name": "selectDatabase",
+            "summary": "Select\u0020a\u0020database.",
+            "url": "classes/MongoDB-Client.html#method_selectDatabase"
         },                {
             "fqsen": "\\MongoDB\\Client\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
@@ -8951,11 +8986,6 @@ Search.appendIndex(
             "summary": "Select\u0020a\u0020collection.",
             "url": "classes/MongoDB-Client.html#method_selectCollection"
         },                {
-            "fqsen": "\\MongoDB\\Client\u003A\u003AselectDatabase\u0028\u0029",
-            "name": "selectDatabase",
-            "summary": "Select\u0020a\u0020database.",
-            "url": "classes/MongoDB-Client.html#method_selectDatabase"
-        },                {
             "fqsen": "\\MongoDB\\Client\u003A\u003AstartSession\u0028\u0029",
             "name": "startSession",
             "summary": "Start\u0020a\u0020new\u0020client\u0020session.",
@@ -8965,16 +8995,6 @@ Search.appendIndex(
             "name": "watch",
             "summary": "Create\u0020a\u0020change\u0020stream\u0020for\u0020watching\u0020changes\u0020to\u0020the\u0020cluster.",
             "url": "classes/MongoDB-Client.html#method_watch"
-        },                {
-            "fqsen": "\\MongoDB\\Client\u003A\u003AgetVersion\u0028\u0029",
-            "name": "getVersion",
-            "summary": "",
-            "url": "classes/MongoDB-Client.html#method_getVersion"
-        },                {
-            "fqsen": "\\MongoDB\\Client\u003A\u003AmergeDriverInfo\u0028\u0029",
-            "name": "mergeDriverInfo",
-            "summary": "",
-            "url": "classes/MongoDB-Client.html#method_mergeDriverInfo"
         },                {
             "fqsen": "\\MongoDB\\Client\u003A\u003A\u0024defaultTypeMap",
             "name": "defaultTypeMap",
@@ -9311,6 +9331,11 @@ Search.appendIndex(
             "summary": "Select\u0020a\u0020collection\u0020within\u0020this\u0020database.",
             "url": "classes/MongoDB-Database.html#method___get"
         },                {
+            "fqsen": "\\MongoDB\\Database\u003A\u003AselectCollection\u0028\u0029",
+            "name": "selectCollection",
+            "summary": "Select\u0020a\u0020collection\u0020within\u0020this\u0020database.",
+            "url": "classes/MongoDB-Database.html#method_selectCollection"
+        },                {
             "fqsen": "\\MongoDB\\Database\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Return\u0020the\u0020database\u0020name.",
@@ -9385,11 +9410,6 @@ Search.appendIndex(
             "name": "modifyCollection",
             "summary": "Modifies\u0020a\u0020collection\u0020or\u0020view.",
             "url": "classes/MongoDB-Database.html#method_modifyCollection"
-        },                {
-            "fqsen": "\\MongoDB\\Database\u003A\u003AselectCollection\u0028\u0029",
-            "name": "selectCollection",
-            "summary": "Select\u0020a\u0020collection\u0020within\u0020this\u0020database.",
-            "url": "classes/MongoDB-Database.html#method_selectCollection"
         },                {
             "fqsen": "\\MongoDB\\Database\u003A\u003AselectGridFSBucket\u0028\u0029",
             "name": "selectGridFSBucket",
@@ -9611,6 +9631,11 @@ Search.appendIndex(
             "summary": "Constructs\u0020a\u0020GridFS\u0020bucket.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method___construct"
         },                {
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AregisterStreamWrapper\u0028\u0029",
+            "name": "registerStreamWrapper",
+            "summary": "Registers\u0020the\u0020GridFS\u0020stream\u0020wrapper\u0020if\u0020it\u0020is\u0020not\u0020already\u0020registered.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_registerStreamWrapper"
+        },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003A__debugInfo\u0028\u0029",
             "name": "__debugInfo",
             "summary": "Return\u0020internal\u0020properties\u0020for\u0020debugging\u0020purposes.",
@@ -9621,15 +9646,40 @@ Search.appendIndex(
             "summary": "Delete\u0020a\u0020file\u0020from\u0020the\u0020GridFS\u0020bucket.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_delete"
         },                {
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetFilesNamespace\u0028\u0029",
+            "name": "getFilesNamespace",
+            "summary": "Returns\u0020the\u0020names\u0020of\u0020the\u0020files\u0020collection.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_getFilesNamespace"
+        },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AdownloadToStream\u0028\u0029",
             "name": "downloadToStream",
             "summary": "Writes\u0020the\u0020contents\u0020of\u0020a\u0020GridFS\u0020file\u0020to\u0020a\u0020writable\u0020stream.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_downloadToStream"
         },                {
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenDownloadStream\u0028\u0029",
+            "name": "openDownloadStream",
+            "summary": "Opens\u0020a\u0020readable\u0020stream\u0020for\u0020reading\u0020a\u0020GridFS\u0020file.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_openDownloadStream"
+        },                {
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenDownloadStreamByFile\u0028\u0029",
+            "name": "openDownloadStreamByFile",
+            "summary": "Opens\u0020a\u0020readable\u0020stream\u0020for\u0020the\u0020GridFS\u0020file.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_openDownloadStreamByFile"
+        },                {
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AcreatePathForFile\u0028\u0029",
+            "name": "createPathForFile",
+            "summary": "Creates\u0020a\u0020path\u0020for\u0020an\u0020existing\u0020GridFS\u0020file.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_createPathForFile"
+        },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AdownloadToStreamByName\u0028\u0029",
             "name": "downloadToStreamByName",
             "summary": "Writes\u0020the\u0020contents\u0020of\u0020a\u0020GridFS\u0020file,\u0020which\u0020is\u0020selected\u0020by\u0020name\u0020and\nrevision,\u0020to\u0020a\u0020writable\u0020stream.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_downloadToStreamByName"
+        },                {
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenDownloadStreamByName\u0028\u0029",
+            "name": "openDownloadStreamByName",
+            "summary": "Opens\u0020a\u0020readable\u0020stream\u0020stream\u0020to\u0020read\u0020a\u0020GridFS\u0020file,\u0020which\u0020is\u0020selected\nby\u0020name\u0020and\u0020revision.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_openDownloadStreamByName"
         },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003Adrop\u0028\u0029",
             "name": "drop",
@@ -9671,10 +9721,10 @@ Search.appendIndex(
             "summary": "Gets\u0020the\u0020file\u0020document\u0020of\u0020the\u0020GridFS\u0020file\u0020associated\u0020with\u0020a\u0020stream.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_getFileDocumentForStream"
         },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetFileIdForStream\u0028\u0029",
-            "name": "getFileIdForStream",
-            "summary": "Gets\u0020the\u0020file\u0020document\u0027s\u0020ID\u0020of\u0020the\u0020GridFS\u0020file\u0020associated\u0020with\u0020a\u0020stream.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_getFileIdForStream"
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetRawFileDocumentForStream\u0028\u0029",
+            "name": "getRawFileDocumentForStream",
+            "summary": "Gets\u0020the\u0020file\u0020document\u0020of\u0020the\u0020GridFS\u0020file\u0020associated\u0020with\u0020a\u0020stream.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_getRawFileDocumentForStream"
         },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetFilesCollection\u0028\u0029",
             "name": "getFilesCollection",
@@ -9701,21 +9751,6 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020write\u0020concern\u0020for\u0020this\u0020GridFS\u0020bucket.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_getWriteConcern"
         },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenDownloadStream\u0028\u0029",
-            "name": "openDownloadStream",
-            "summary": "Opens\u0020a\u0020readable\u0020stream\u0020for\u0020reading\u0020a\u0020GridFS\u0020file.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_openDownloadStream"
-        },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenDownloadStreamByName\u0028\u0029",
-            "name": "openDownloadStreamByName",
-            "summary": "Opens\u0020a\u0020readable\u0020stream\u0020stream\u0020to\u0020read\u0020a\u0020GridFS\u0020file,\u0020which\u0020is\u0020selected\nby\u0020name\u0020and\u0020revision.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_openDownloadStreamByName"
-        },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenUploadStream\u0028\u0029",
-            "name": "openUploadStream",
-            "summary": "Opens\u0020a\u0020writable\u0020stream\u0020for\u0020writing\u0020a\u0020GridFS\u0020file.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_openUploadStream"
-        },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003Arename\u0028\u0029",
             "name": "rename",
             "summary": "Renames\u0020the\u0020GridFS\u0020file\u0020with\u0020the\u0020specified\u0020ID.",
@@ -9726,35 +9761,20 @@ Search.appendIndex(
             "summary": "Writes\u0020the\u0020contents\u0020of\u0020a\u0020readable\u0020stream\u0020to\u0020a\u0020GridFS\u0020file.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_uploadFromStream"
         },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AcreatePathForFile\u0028\u0029",
-            "name": "createPathForFile",
-            "summary": "Creates\u0020a\u0020path\u0020for\u0020an\u0020existing\u0020GridFS\u0020file.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_createPathForFile"
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenUploadStream\u0028\u0029",
+            "name": "openUploadStream",
+            "summary": "Opens\u0020a\u0020writable\u0020stream\u0020for\u0020writing\u0020a\u0020GridFS\u0020file.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_openUploadStream"
         },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AcreatePathForUpload\u0028\u0029",
             "name": "createPathForUpload",
             "summary": "Creates\u0020a\u0020path\u0020for\u0020a\u0020new\u0020GridFS\u0020file,\u0020which\u0020does\u0020not\u0020yet\u0020have\u0020an\u0020ID.",
             "url": "classes/MongoDB-GridFS-Bucket.html#method_createPathForUpload"
         },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetFilesNamespace\u0028\u0029",
-            "name": "getFilesNamespace",
-            "summary": "Returns\u0020the\u0020names\u0020of\u0020the\u0020files\u0020collection.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_getFilesNamespace"
-        },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetRawFileDocumentForStream\u0028\u0029",
-            "name": "getRawFileDocumentForStream",
-            "summary": "Gets\u0020the\u0020file\u0020document\u0020of\u0020the\u0020GridFS\u0020file\u0020associated\u0020with\u0020a\u0020stream.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_getRawFileDocumentForStream"
-        },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AopenDownloadStreamByFile\u0028\u0029",
-            "name": "openDownloadStreamByFile",
-            "summary": "Opens\u0020a\u0020readable\u0020stream\u0020for\u0020the\u0020GridFS\u0020file.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_openDownloadStreamByFile"
-        },                {
-            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AregisterStreamWrapper\u0028\u0029",
-            "name": "registerStreamWrapper",
-            "summary": "Registers\u0020the\u0020GridFS\u0020stream\u0020wrapper\u0020if\u0020it\u0020is\u0020not\u0020already\u0020registered.",
-            "url": "classes/MongoDB-GridFS-Bucket.html#method_registerStreamWrapper"
+            "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003AgetFileIdForStream\u0028\u0029",
+            "name": "getFileIdForStream",
+            "summary": "Gets\u0020the\u0020file\u0020document\u0027s\u0020ID\u0020of\u0020the\u0020GridFS\u0020file\u0020associated\u0020with\u0020a\u0020stream.",
+            "url": "classes/MongoDB-GridFS-Bucket.html#method_getFileIdForStream"
         },                {
             "fqsen": "\\MongoDB\\GridFS\\Bucket\u003A\u003A\u0024defaultBucketName",
             "name": "defaultBucketName",
@@ -9996,15 +10016,15 @@ Search.appendIndex(
             "summary": "Model\u0020class\u0020for\u0020a\u0020BSON\u0020array.",
             "url": "classes/MongoDB-Model-BSONArray.html"
         },                {
-            "fqsen": "\\MongoDB\\Model\\BSONArray\u003A\u003A__clone\u0028\u0029",
-            "name": "__clone",
-            "summary": "Clone\u0020this\u0020BSONArray.",
-            "url": "classes/MongoDB-Model-BSONArray.html#method___clone"
-        },                {
             "fqsen": "\\MongoDB\\Model\\BSONArray\u003A\u003A__set_state\u0028\u0029",
             "name": "__set_state",
             "summary": "Factory\u0020method\u0020for\u0020var_export\u0028\u0029.",
             "url": "classes/MongoDB-Model-BSONArray.html#method___set_state"
+        },                {
+            "fqsen": "\\MongoDB\\Model\\BSONArray\u003A\u003A__clone\u0028\u0029",
+            "name": "__clone",
+            "summary": "Clone\u0020this\u0020BSONArray.",
+            "url": "classes/MongoDB-Model-BSONArray.html#method___clone"
         },                {
             "fqsen": "\\MongoDB\\Model\\BSONArray\u003A\u003AbsonSerialize\u0028\u0029",
             "name": "bsonSerialize",
@@ -10026,11 +10046,6 @@ Search.appendIndex(
             "summary": "Model\u0020class\u0020for\u0020a\u0020BSON\u0020document.",
             "url": "classes/MongoDB-Model-BSONDocument.html"
         },                {
-            "fqsen": "\\MongoDB\\Model\\BSONDocument\u003A\u003A__clone\u0028\u0029",
-            "name": "__clone",
-            "summary": "Deep\u0020clone\u0020this\u0020BSONDocument.",
-            "url": "classes/MongoDB-Model-BSONDocument.html#method___clone"
-        },                {
             "fqsen": "\\MongoDB\\Model\\BSONDocument\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "This\u0020overrides\u0020the\u0020parent\u0020constructor\u0020to\u0020allow\u0020property\u0020access\u0020of\u0020entries\nby\u0020default.",
@@ -10040,6 +10055,11 @@ Search.appendIndex(
             "name": "__set_state",
             "summary": "Factory\u0020method\u0020for\u0020var_export\u0028\u0029.",
             "url": "classes/MongoDB-Model-BSONDocument.html#method___set_state"
+        },                {
+            "fqsen": "\\MongoDB\\Model\\BSONDocument\u003A\u003A__clone\u0028\u0029",
+            "name": "__clone",
+            "summary": "Deep\u0020clone\u0020this\u0020BSONDocument.",
+            "url": "classes/MongoDB-Model-BSONDocument.html#method___clone"
         },                {
             "fqsen": "\\MongoDB\\Model\\BSONDocument\u003A\u003AbsonSerialize\u0028\u0029",
             "name": "bsonSerialize",
@@ -10076,6 +10096,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Model-BSONIterator.html#method_next"
         },                {
+            "fqsen": "\\MongoDB\\Model\\BSONIterator\u003A\u003Aadvance\u0028\u0029",
+            "name": "advance",
+            "summary": "",
+            "url": "classes/MongoDB-Model-BSONIterator.html#method_advance"
+        },                {
             "fqsen": "\\MongoDB\\Model\\BSONIterator\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "",
@@ -10085,11 +10110,6 @@ Search.appendIndex(
             "name": "valid",
             "summary": "",
             "url": "classes/MongoDB-Model-BSONIterator.html#method_valid"
-        },                {
-            "fqsen": "\\MongoDB\\Model\\BSONIterator\u003A\u003Aadvance\u0028\u0029",
-            "name": "advance",
-            "summary": "",
-            "url": "classes/MongoDB-Model-BSONIterator.html#method_advance"
         },                {
             "fqsen": "\\MongoDB\\Model\\BSONIterator\u003A\u003A\u0024bsonSize",
             "name": "bsonSize",
@@ -10276,11 +10296,6 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020index\u0020name\u0020to\u0020allow\u0020casting\u0020IndexInfo\u0020to\u0020string.",
             "url": "classes/MongoDB-Model-IndexInfo.html#method___toString"
         },                {
-            "fqsen": "\\MongoDB\\Model\\IndexInfo\u003A\u003AgetKey\u0028\u0029",
-            "name": "getKey",
-            "summary": "Return\u0020the\u0020index\u0020key.",
-            "url": "classes/MongoDB-Model-IndexInfo.html#method_getKey"
-        },                {
             "fqsen": "\\MongoDB\\Model\\IndexInfo\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
             "summary": "Return\u0020the\u0020index\u0020name.",
@@ -10300,6 +10315,11 @@ Search.appendIndex(
             "name": "is2dSphere",
             "summary": "Return\u0020whether\u0020or\u0020not\u0020this\u0020index\u0020is\u0020of\u0020type\u00202dsphere.",
             "url": "classes/MongoDB-Model-IndexInfo.html#method_is2dSphere"
+        },                {
+            "fqsen": "\\MongoDB\\Model\\IndexInfo\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "Return\u0020the\u0020index\u0020key.",
+            "url": "classes/MongoDB-Model-IndexInfo.html#method_getKey"
         },                {
             "fqsen": "\\MongoDB\\Model\\IndexInfo\u003A\u003AisGeoHaystack\u0028\u0029",
             "name": "isGeoHaystack",
@@ -10376,10 +10396,10 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-Aggregate.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AgetCommandDocument\u0028\u0029",
-            "name": "getCommandDocument",
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AhasWriteStage\u0028\u0029",
+            "name": "hasWriteStage",
             "summary": "",
-            "url": "classes/MongoDB-Operation-Aggregate.html#method_getCommandDocument"
+            "url": "classes/MongoDB-Operation-Aggregate.html#method_hasWriteStage"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AcreateCommandDocument\u0028\u0029",
             "name": "createCommandDocument",
@@ -10396,10 +10416,10 @@ Search.appendIndex(
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-Aggregate.html#method_createOptions"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AhasWriteStage\u0028\u0029",
-            "name": "hasWriteStage",
+            "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003AgetCommandDocument\u0028\u0029",
+            "name": "getCommandDocument",
             "summary": "",
-            "url": "classes/MongoDB-Operation-Aggregate.html#method_hasWriteStage"
+            "url": "classes/MongoDB-Operation-Aggregate.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Aggregate\u003A\u003A\u0024wireVersionForCollation",
             "name": "wireVersionForCollation",
@@ -10551,11 +10571,6 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-Count.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003AgetCommandDocument\u0028\u0029",
-            "name": "getCommandDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-Count.html#method_getCommandDocument"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003AcreateCommandDocument\u0028\u0029",
             "name": "createCommandDocument",
             "summary": "Create\u0020the\u0020count\u0020command\u0020document.",
@@ -10565,6 +10580,11 @@ Search.appendIndex(
             "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-Count.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003AgetCommandDocument\u0028\u0029",
+            "name": "getCommandDocument",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Count.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Count\u003A\u003A\u0024wireVersionForCollation",
             "name": "wireVersionForCollation",
@@ -10606,15 +10626,15 @@ Search.appendIndex(
             "summary": "Constructs\u0020an\u0020aggregate\u0020command\u0020for\u0020counting\u0020documents",
             "url": "classes/MongoDB-Operation-CountDocuments.html#method___construct"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\CountDocuments\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "Execute\u0020the\u0020operation.",
-            "url": "classes/MongoDB-Operation-CountDocuments.html#method_execute"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\CountDocuments\u003A\u003AcreateAggregate\u0028\u0029",
             "name": "createAggregate",
             "summary": "",
             "url": "classes/MongoDB-Operation-CountDocuments.html#method_createAggregate"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\CountDocuments\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "Execute\u0020the\u0020operation.",
+            "url": "classes/MongoDB-Operation-CountDocuments.html#method_execute"
         },                {
             "fqsen": "\\MongoDB\\Operation\\CountDocuments\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -10721,15 +10741,15 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-CreateIndexes.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003AcreateOptions\u0028\u0029",
-            "name": "createOptions",
-            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
-            "url": "classes/MongoDB-Operation-CreateIndexes.html#method_createOptions"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003AexecuteCommand\u0028\u0029",
             "name": "executeCommand",
             "summary": "Create\u0020one\u0020or\u0020more\u0020indexes\u0020for\u0020the\u0020collection\u0020using\u0020the\u0020createIndexes\ncommand.",
             "url": "classes/MongoDB-Operation-CreateIndexes.html#method_executeCommand"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
+            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
+            "url": "classes/MongoDB-Operation-CreateIndexes.html#method_createOptions"
         },                {
             "fqsen": "\\MongoDB\\Operation\\CreateIndexes\u003A\u003A\u0024wireVersionForCollation",
             "name": "wireVersionForCollation",
@@ -10871,11 +10891,6 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-Distinct.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003AgetCommandDocument\u0028\u0029",
-            "name": "getCommandDocument",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-Distinct.html#method_getCommandDocument"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003AcreateCommandDocument\u0028\u0029",
             "name": "createCommandDocument",
             "summary": "Create\u0020the\u0020distinct\u0020command\u0020document.",
@@ -10885,6 +10900,11 @@ Search.appendIndex(
             "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-Distinct.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003AgetCommandDocument\u0028\u0029",
+            "name": "getCommandDocument",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-Distinct.html#method_getCommandDocument"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Distinct\u003A\u003A\u0024wireVersionForCollation",
             "name": "wireVersionForCollation",
@@ -11066,6 +11086,11 @@ Search.appendIndex(
             "summary": "Constructs\u0020a\u0020count\u0020command.",
             "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method___construct"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003AcreateCount\u0028\u0029",
+            "name": "createCount",
+            "summary": "",
+            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createCount"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "Execute\u0020the\u0020operation.",
@@ -11075,11 +11100,6 @@ Search.appendIndex(
             "name": "getCommandDocument",
             "summary": "",
             "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method_getCommandDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003AcreateCount\u0028\u0029",
-            "name": "createCount",
-            "summary": "",
-            "url": "classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createCount"
         },                {
             "fqsen": "\\MongoDB\\Operation\\EstimatedDocumentCount\u003A\u003A\u0024databaseName",
             "name": "databaseName",
@@ -11116,15 +11136,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoDB-Operation-Explain.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003AcreateOptions\u0028\u0029",
-            "name": "createOptions",
-            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
-            "url": "classes/MongoDB-Operation-Explain.html#method_createOptions"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003AisFindAndModify\u0028\u0029",
             "name": "isFindAndModify",
             "summary": "",
             "url": "classes/MongoDB-Operation-Explain.html#method_isFindAndModify"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
+            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
+            "url": "classes/MongoDB-Operation-Explain.html#method_createOptions"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Explain\u003A\u003AVERBOSITY_ALL_PLANS",
             "name": "VERBOSITY_ALL_PLANS",
@@ -11186,6 +11206,16 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-Find.html#method_execute"
         },                {
+            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AcreateQueryOptions\u0028\u0029",
+            "name": "createQueryOptions",
+            "summary": "Create\u0020options\u0020for\u0020the\u0020find\u0020query.",
+            "url": "classes/MongoDB-Operation-Find.html#method_createQueryOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AcreateExecuteOptions\u0028\u0029",
+            "name": "createExecuteOptions",
+            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
+            "url": "classes/MongoDB-Operation-Find.html#method_createExecuteOptions"
+        },                {
             "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AgetCommandDocument\u0028\u0029",
             "name": "getCommandDocument",
             "summary": "",
@@ -11195,16 +11225,6 @@ Search.appendIndex(
             "name": "createCommandDocument",
             "summary": "Construct\u0020a\u0020command\u0020document\u0020for\u0020Find",
             "url": "classes/MongoDB-Operation-Find.html#method_createCommandDocument"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AcreateExecuteOptions\u0028\u0029",
-            "name": "createExecuteOptions",
-            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
-            "url": "classes/MongoDB-Operation-Find.html#method_createExecuteOptions"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003AcreateQueryOptions\u0028\u0029",
-            "name": "createQueryOptions",
-            "summary": "Create\u0020options\u0020for\u0020the\u0020find\u0020query.",
-            "url": "classes/MongoDB-Operation-Find.html#method_createQueryOptions"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Find\u003A\u003ANON_TAILABLE",
             "name": "NON_TAILABLE",
@@ -11566,15 +11586,15 @@ Search.appendIndex(
             "summary": "Execute\u0020the\u0020operation.",
             "url": "classes/MongoDB-Operation-ListIndexes.html#method_execute"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\ListIndexes\u003A\u003AcreateOptions\u0028\u0029",
-            "name": "createOptions",
-            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
-            "url": "classes/MongoDB-Operation-ListIndexes.html#method_createOptions"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\ListIndexes\u003A\u003AexecuteCommand\u0028\u0029",
             "name": "executeCommand",
             "summary": "Returns\u0020information\u0020for\u0020all\u0020indexes\u0020for\u0020this\u0020collection\u0020using\u0020the\nlistIndexes\u0020command.",
             "url": "classes/MongoDB-Operation-ListIndexes.html#method_executeCommand"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\ListIndexes\u003A\u003AcreateOptions\u0028\u0029",
+            "name": "createOptions",
+            "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
+            "url": "classes/MongoDB-Operation-ListIndexes.html#method_createOptions"
         },                {
             "fqsen": "\\MongoDB\\Operation\\ListIndexes\u003A\u003A\u0024errorCodeDatabaseNotFound",
             "name": "errorCodeDatabaseNotFound",
@@ -11611,30 +11631,30 @@ Search.appendIndex(
             "summary": "Constructs\u0020a\u0020mapReduce\u0020command.",
             "url": "classes/MongoDB-Operation-MapReduce.html#method___construct"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "Execute\u0020the\u0020operation.",
-            "url": "classes/MongoDB-Operation-MapReduce.html#method_execute"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003AcheckOutDeprecations\u0028\u0029",
             "name": "checkOutDeprecations",
             "summary": "",
             "url": "classes/MongoDB-Operation-MapReduce.html#method_checkOutDeprecations"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "Execute\u0020the\u0020operation.",
+            "url": "classes/MongoDB-Operation-MapReduce.html#method_execute"
         },                {
             "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003AcreateCommand\u0028\u0029",
             "name": "createCommand",
             "summary": "Create\u0020the\u0020mapReduce\u0020command.",
             "url": "classes/MongoDB-Operation-MapReduce.html#method_createCommand"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003AcreateGetIteratorCallable\u0028\u0029",
-            "name": "createGetIteratorCallable",
-            "summary": "Creates\u0020a\u0020callable\u0020for\u0020MapReduceResult\u003A\u003AgetIterator\u0028\u0029.",
-            "url": "classes/MongoDB-Operation-MapReduce.html#method_createGetIteratorCallable"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003AcreateOptions\u0028\u0029",
             "name": "createOptions",
             "summary": "Create\u0020options\u0020for\u0020executing\u0020the\u0020command.",
             "url": "classes/MongoDB-Operation-MapReduce.html#method_createOptions"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003AcreateGetIteratorCallable\u0028\u0029",
+            "name": "createGetIteratorCallable",
+            "summary": "Creates\u0020a\u0020callable\u0020for\u0020MapReduceResult\u003A\u003AgetIterator\u0028\u0029.",
+            "url": "classes/MongoDB-Operation-MapReduce.html#method_createGetIteratorCallable"
         },                {
             "fqsen": "\\MongoDB\\Operation\\MapReduce\u003A\u003A\u0024wireVersionForCollation",
             "name": "wireVersionForCollation",
@@ -11806,15 +11826,20 @@ Search.appendIndex(
             "summary": "Constructs\u0020an\u0020aggregate\u0020command\u0020for\u0020creating\u0020a\u0020change\u0020stream.",
             "url": "classes/MongoDB-Operation-Watch.html#method___construct"
         },                {
-            "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "Execute\u0020the\u0020operation.",
-            "url": "classes/MongoDB-Operation-Watch.html#method_execute"
-        },                {
             "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003AcreateAggregate\u0028\u0029",
             "name": "createAggregate",
             "summary": "Create\u0020the\u0020aggregate\u0020command\u0020for\u0020a\u0020change\u0020stream.",
             "url": "classes/MongoDB-Operation-Watch.html#method_createAggregate"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003AshouldCaptureOperationTime\u0028\u0029",
+            "name": "shouldCaptureOperationTime",
+            "summary": "Determine\u0020whether\u0020to\u0020capture\u0020operation\u0020time\u0020from\u0020an\u0020aggregate\u0020response.",
+            "url": "classes/MongoDB-Operation-Watch.html#method_shouldCaptureOperationTime"
+        },                {
+            "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "Execute\u0020the\u0020operation.",
+            "url": "classes/MongoDB-Operation-Watch.html#method_execute"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003AcreateChangeStreamIterator\u0028\u0029",
             "name": "createChangeStreamIterator",
@@ -11835,11 +11860,6 @@ Search.appendIndex(
             "name": "resume",
             "summary": "Resumes\u0020a\u0020change\u0020stream.",
             "url": "classes/MongoDB-Operation-Watch.html#method_resume"
-        },                {
-            "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003AshouldCaptureOperationTime\u0028\u0029",
-            "name": "shouldCaptureOperationTime",
-            "summary": "Determine\u0020whether\u0020to\u0020capture\u0020operation\u0020time\u0020from\u0020an\u0020aggregate\u0020response.",
-            "url": "classes/MongoDB-Operation-Watch.html#method_shouldCaptureOperationTime"
         },                {
             "fqsen": "\\MongoDB\\Operation\\Watch\u003A\u003AFULL_DOCUMENT_DEFAULT",
             "name": "FULL_DOCUMENT_DEFAULT",
@@ -11971,20 +11991,20 @@ Search.appendIndex(
             "summary": "OAuth\u0020constructor.",
             "url": "classes/PHPMailer-PHPMailer-OAuth.html#method___construct"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\OAuth\u003A\u003AgetGrant\u0028\u0029",
-            "name": "getGrant",
-            "summary": "Get\u0020a\u0020new\u0020RefreshToken.",
-            "url": "classes/PHPMailer-PHPMailer-OAuth.html#method_getGrant"
+            "fqsen": "\\PHPMailer\\PHPMailer\\OAuth\u003A\u003AgetOauth64\u0028\u0029",
+            "name": "getOauth64",
+            "summary": "Generate\u0020a\u0020base64\u002Dencoded\u0020OAuth\u0020token.",
+            "url": "classes/PHPMailer-PHPMailer-OAuth.html#method_getOauth64"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\OAuth\u003A\u003AgetToken\u0028\u0029",
             "name": "getToken",
             "summary": "Get\u0020a\u0020new\u0020AccessToken.",
             "url": "classes/PHPMailer-PHPMailer-OAuth.html#method_getToken"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\OAuth\u003A\u003AgetOauth64\u0028\u0029",
-            "name": "getOauth64",
-            "summary": "Generate\u0020a\u0020base64\u002Dencoded\u0020OAuth\u0020token.",
-            "url": "classes/PHPMailer-PHPMailer-OAuth.html#method_getOauth64"
+            "fqsen": "\\PHPMailer\\PHPMailer\\OAuth\u003A\u003AgetGrant\u0028\u0029",
+            "name": "getGrant",
+            "summary": "Get\u0020a\u0020new\u0020RefreshToken.",
+            "url": "classes/PHPMailer-PHPMailer-OAuth.html#method_getGrant"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\OAuth\u003A\u003A\u0024provider",
             "name": "provider",
@@ -12026,25 +12046,25 @@ Search.appendIndex(
             "summary": "Constructor.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method___construct"
         },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetLE\u0028\u0029",
+            "name": "getLE",
+            "summary": "Return\u0020the\u0020current\u0020line\u0020break\u0020format\u0020string.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getLE"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetLE\u0028\u0029",
+            "name": "setLE",
+            "summary": "Set\u0020the\u0020line\u0020break\u0020format\u0020string,\u0020e.g.\u0020\u0022\\r\\n\u0022.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setLE"
+        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
             "summary": "Destructor.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method___destruct"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AmailPassthru\u0028\u0029",
-            "name": "mailPassthru",
-            "summary": "Call\u0020mail\u0028\u0029\u0020in\u0020a\u0020safe_mode\u002Daware\u0020fashion.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_mailPassthru"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Aedebug\u0028\u0029",
-            "name": "edebug",
-            "summary": "Output\u0020debugging\u0020info\u0020via\u0020a\u0020user\u002Ddefined\u0020method.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_edebug"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisHTML\u0028\u0029",
-            "name": "isHTML",
-            "summary": "Sets\u0020message\u0020type\u0020to\u0020HTML\u0020or\u0020plain.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isHTML"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsmtpClose\u0028\u0029",
+            "name": "smtpClose",
+            "summary": "Close\u0020the\u0020active\u0020SMTP\u0020session\u0020if\u0020one\u0020exists.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_smtpClose"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisSMTP\u0028\u0029",
             "name": "isSMTP",
@@ -12071,6 +12091,41 @@ Search.appendIndex(
             "summary": "Add\u0020a\u0020\u0022To\u0022\u0020address.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addAddress"
         },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddOrEnqueueAnAddress\u0028\u0029",
+            "name": "addOrEnqueueAnAddress",
+            "summary": "Add\u0020an\u0020address\u0020to\u0020one\u0020of\u0020the\u0020recipient\u0020arrays\u0020or\u0020to\u0020the\u0020ReplyTo\u0020array.\u0020Because\u0020PHPMailer\ncan\u0027t\u0020validate\u0020addresses\u0020with\u0020an\u0020IDN\u0020without\u0020knowing\u0020the\u0020PHPMailer\u003A\u003A\u0024CharSet\u0020\u0028that\u0020can\u0020still\nbe\u0020modified\u0020after\u0020calling\u0020this\u0020function\u0029,\u0020addition\u0020of\u0020such\u0020addresses\u0020is\u0020delayed\u0020until\u0020send\u0028\u0029.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addOrEnqueueAnAddress"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Alang\u0028\u0029",
+            "name": "lang",
+            "summary": "Get\u0020an\u0020error\u0020message\u0020in\u0020the\u0020current\u0020language.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_lang"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetLanguage\u0028\u0029",
+            "name": "setLanguage",
+            "summary": "Set\u0020the\u0020language\u0020for\u0020error\u0020messages.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setLanguage"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AfileIsAccessible\u0028\u0029",
+            "name": "fileIsAccessible",
+            "summary": "Check\u0020whether\u0020a\u0020file\u0020path\u0020is\u0020safe,\u0020accessible,\u0020and\u0020readable.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_fileIsAccessible"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisPermittedPath\u0028\u0029",
+            "name": "isPermittedPath",
+            "summary": "Check\u0020whether\u0020a\u0020file\u0020path\u0020is\u0020of\u0020a\u0020permitted\u0020type.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isPermittedPath"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetError\u0028\u0029",
+            "name": "setError",
+            "summary": "Add\u0020an\u0020error\u0020message\u0020to\u0020the\u0020error\u0020container.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setError"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AidnSupported\u0028\u0029",
+            "name": "idnSupported",
+            "summary": "Tells\u0020whether\u0020IDNs\u0020\u0028Internationalized\u0020Domain\u0020Names\u0029\u0020are\u0020supported\u0020or\u0020not.\u0020This\u0020requires\u0020the\n\u0060intl\u0060\u0020and\u0020\u0060mbstring\u0060\u0020PHP\u0020extensions.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_idnSupported"
+        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddCC\u0028\u0029",
             "name": "addCC",
             "summary": "Add\u0020a\u0020\u0022CC\u0022\u0020address.",
@@ -12086,21 +12141,6 @@ Search.appendIndex(
             "summary": "Add\u0020a\u0020\u0022Reply\u002DTo\u0022\u0020address.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addReplyTo"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddOrEnqueueAnAddress\u0028\u0029",
-            "name": "addOrEnqueueAnAddress",
-            "summary": "Add\u0020an\u0020address\u0020to\u0020one\u0020of\u0020the\u0020recipient\u0020arrays\u0020or\u0020to\u0020the\u0020ReplyTo\u0020array.\u0020Because\u0020PHPMailer\ncan\u0027t\u0020validate\u0020addresses\u0020with\u0020an\u0020IDN\u0020without\u0020knowing\u0020the\u0020PHPMailer\u003A\u003A\u0024CharSet\u0020\u0028that\u0020can\u0020still\nbe\u0020modified\u0020after\u0020calling\u0020this\u0020function\u0029,\u0020addition\u0020of\u0020such\u0020addresses\u0020is\u0020delayed\u0020until\u0020send\u0028\u0029.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addOrEnqueueAnAddress"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddAnAddress\u0028\u0029",
-            "name": "addAnAddress",
-            "summary": "Add\u0020an\u0020address\u0020to\u0020one\u0020of\u0020the\u0020recipient\u0020arrays\u0020or\u0020to\u0020the\u0020ReplyTo\u0020array.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addAnAddress"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AparseAddresses\u0028\u0029",
-            "name": "parseAddresses",
-            "summary": "Parse\u0020and\u0020validate\u0020a\u0020string\u0020containing\u0020one\u0020or\u0020more\u0020RFC822\u002Dstyle\u0020comma\u002Dseparated\u0020email\u0020addresses\nof\u0020the\u0020form\u0020\u0022display\u0020name\u0020\u003Caddress\u003E\u0022\u0020into\u0020an\u0020array\u0020of\u0020name\/address\u0020pairs.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_parseAddresses"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetFrom\u0028\u0029",
             "name": "setFrom",
             "summary": "Set\u0020the\u0020From\u0020and\u0020FromName\u0020properties.",
@@ -12111,21 +12151,6 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020Message\u002DID\u0020header\u0020of\u0020the\u0020last\u0020email.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getLastMessageID"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AvalidateAddress\u0028\u0029",
-            "name": "validateAddress",
-            "summary": "Check\u0020that\u0020a\u0020string\u0020looks\u0020like\u0020an\u0020email\u0020address.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_validateAddress"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AidnSupported\u0028\u0029",
-            "name": "idnSupported",
-            "summary": "Tells\u0020whether\u0020IDNs\u0020\u0028Internationalized\u0020Domain\u0020Names\u0029\u0020are\u0020supported\u0020or\u0020not.\u0020This\u0020requires\u0020the\n\u0060intl\u0060\u0020and\u0020\u0060mbstring\u0060\u0020PHP\u0020extensions.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_idnSupported"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ApunyencodeAddress\u0028\u0029",
-            "name": "punyencodeAddress",
-            "summary": "Converts\u0020IDN\u0020in\u0020given\u0020email\u0020address\u0020to\u0020its\u0020ASCII\u0020form,\u0020also\u0020known\u0020as\u0020punycode,\u0020if\u0020possible.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_punyencodeAddress"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Asend\u0028\u0029",
             "name": "send",
             "summary": "Create\u0020a\u0020message\u0020and\u0020send\u0020it.",
@@ -12135,6 +12160,166 @@ Search.appendIndex(
             "name": "preSend",
             "summary": "Prepare\u0020a\u0020message\u0020for\u0020sending.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_preSend"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ApunyencodeAddress\u0028\u0029",
+            "name": "punyencodeAddress",
+            "summary": "Converts\u0020IDN\u0020in\u0020given\u0020email\u0020address\u0020to\u0020its\u0020ASCII\u0020form,\u0020also\u0020known\u0020as\u0020punycode,\u0020if\u0020possible.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_punyencodeAddress"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AalternativeExists\u0028\u0029",
+            "name": "alternativeExists",
+            "summary": "Check\u0020if\u0020this\u0020message\u0020has\u0020an\u0020alternative\u0020body\u0020set.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_alternativeExists"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetMessageType\u0028\u0029",
+            "name": "setMessageType",
+            "summary": "Set\u0020the\u0020message\u0020type.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setMessageType"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AinlineImageExists\u0028\u0029",
+            "name": "inlineImageExists",
+            "summary": "Check\u0020if\u0020an\u0020inline\u0020attachment\u0020is\u0020present.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_inlineImageExists"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AattachmentExists\u0028\u0029",
+            "name": "attachmentExists",
+            "summary": "Check\u0020if\u0020an\u0020attachment\u0020\u0028non\u002Dinline\u0029\u0020is\u0020present.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_attachmentExists"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AcreateBody\u0028\u0029",
+            "name": "createBody",
+            "summary": "Assemble\u0020the\u0020message\u0020body.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_createBody"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgenerateId\u0028\u0029",
+            "name": "generateId",
+            "summary": "Create\u0020a\u0020unique\u0020ID\u0020to\u0020use\u0020for\u0020boundaries.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_generateId"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetMailMIME\u0028\u0029",
+            "name": "getMailMIME",
+            "summary": "Get\u0020the\u0020message\u0020MIME\u0020type\u0020headers.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getMailMIME"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AheaderLine\u0028\u0029",
+            "name": "headerLine",
+            "summary": "Format\u0020a\u0020header\u0020line.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_headerLine"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AtextLine\u0028\u0029",
+            "name": "textLine",
+            "summary": "Return\u0020a\u0020formatted\u0020mail\u0020line.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_textLine"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetWordWrap\u0028\u0029",
+            "name": "setWordWrap",
+            "summary": "Apply\u0020word\u0020wrapping\u0020to\u0020the\u0020message\u0020body.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setWordWrap"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AhasLineLongerThanMax\u0028\u0029",
+            "name": "hasLineLongerThanMax",
+            "summary": "Detect\u0020if\u0020a\u0020string\u0020contains\u0020a\u0020line\u0020longer\u0020than\u0020the\u0020maximum\u0020line\u0020length\nallowed\u0020by\u0020RFC\u00202822\u0020section\u00202.1.1.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_hasLineLongerThanMax"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetBoundary\u0028\u0029",
+            "name": "getBoundary",
+            "summary": "Return\u0020the\u0020start\u0020of\u0020a\u0020message\u0020boundary.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getBoundary"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeString\u0028\u0029",
+            "name": "encodeString",
+            "summary": "Encode\u0020a\u0020string\u0020in\u0020requested\u0020format.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeString"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeQP\u0028\u0029",
+            "name": "encodeQP",
+            "summary": "Encode\u0020a\u0020string\u0020in\u0020quoted\u002Dprintable\u0020format.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeQP"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AattachAll\u0028\u0029",
+            "name": "attachAll",
+            "summary": "Attach\u0020all\u0020file,\u0020string,\u0020and\u0020binary\u0020attachments\u0020to\u0020the\u0020message.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_attachAll"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AquotedString\u0028\u0029",
+            "name": "quotedString",
+            "summary": "If\u0020a\u0020string\u0020contains\u0020any\u0020\u0022special\u0022\u0020characters,\u0020double\u002Dquote\u0020the\u0020name,\nand\u0020escape\u0020any\u0020double\u0020quotes\u0020with\u0020a\u0020backslash.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_quotedString"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeFile\u0028\u0029",
+            "name": "encodeFile",
+            "summary": "Encode\u0020a\u0020file\u0020attachment\u0020in\u0020requested\u0020format.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeFile"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisError\u0028\u0029",
+            "name": "isError",
+            "summary": "Check\u0020if\u0020an\u0020error\u0020occurred.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isError"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AendBoundary\u0028\u0029",
+            "name": "endBoundary",
+            "summary": "Return\u0020the\u0020end\u0020of\u0020a\u0020message\u0020boundary.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_endBoundary"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AcreateHeader\u0028\u0029",
+            "name": "createHeader",
+            "summary": "Assemble\u0020message\u0020headers.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_createHeader"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ArfcDate\u0028\u0029",
+            "name": "rfcDate",
+            "summary": "Return\u0020an\u0020RFC\u0020822\u0020formatted\u0020date.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_rfcDate"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddrFormat\u0028\u0029",
+            "name": "addrFormat",
+            "summary": "Format\u0020an\u0020address\u0020for\u0020use\u0020in\u0020a\u0020message\u0020header.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addrFormat"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddrAppend\u0028\u0029",
+            "name": "addrAppend",
+            "summary": "Create\u0020recipient\u0020headers.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addrAppend"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AserverHostname\u0028\u0029",
+            "name": "serverHostname",
+            "summary": "Get\u0020the\u0020server\u0020hostname.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_serverHostname"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisValidHost\u0028\u0029",
+            "name": "isValidHost",
+            "summary": "Validate\u0020whether\u0020a\u0020string\u0020contains\u0020a\u0020valid\u0020value\u0020to\u0020use\u0020as\u0020a\u0020hostname\u0020or\u0020IP\u0020address.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isValidHost"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_Add\u0028\u0029",
+            "name": "DKIM_Add",
+            "summary": "Create\u0020the\u0020DKIM\u0020header\u0020and\u0020body\u0020in\u0020a\u0020new\u0020message\u0020header.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_Add"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_QP\u0028\u0029",
+            "name": "DKIM_QP",
+            "summary": "Quoted\u002DPrintable\u002Dencode\u0020a\u0020DKIM\u0020header.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_QP"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_BodyC\u0028\u0029",
+            "name": "DKIM_BodyC",
+            "summary": "Generate\u0020a\u0020DKIM\u0020canonicalization\u0020body.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_BodyC"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AstripTrailingWSP\u0028\u0029",
+            "name": "stripTrailingWSP",
+            "summary": "Remove\u0020trailing\u0020breaks\u0020from\u0020a\u0020string.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_stripTrailingWSP"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_HeaderC\u0028\u0029",
+            "name": "DKIM_HeaderC",
+            "summary": "Generate\u0020a\u0020DKIM\u0020canonicalization\u0020header.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_HeaderC"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_Sign\u0028\u0029",
+            "name": "DKIM_Sign",
+            "summary": "Generate\u0020a\u0020DKIM\u0020signature.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_Sign"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ApostSend\u0028\u0029",
             "name": "postSend",
@@ -12151,30 +12336,15 @@ Search.appendIndex(
             "summary": "Fix\u0020CVE\u002D2016\u002D10033\u0020and\u0020CVE\u002D2016\u002D10045\u0020by\u0020disallowing\u0020potentially\u0020unsafe\u0020shell\u0020characters.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isShellSafe"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisPermittedPath\u0028\u0029",
-            "name": "isPermittedPath",
-            "summary": "Check\u0020whether\u0020a\u0020file\u0020path\u0020is\u0020of\u0020a\u0020permitted\u0020type.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isPermittedPath"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AparseAddresses\u0028\u0029",
+            "name": "parseAddresses",
+            "summary": "Parse\u0020and\u0020validate\u0020a\u0020string\u0020containing\u0020one\u0020or\u0020more\u0020RFC822\u002Dstyle\u0020comma\u002Dseparated\u0020email\u0020addresses\nof\u0020the\u0020form\u0020\u0022display\u0020name\u0020\u003Caddress\u003E\u0022\u0020into\u0020an\u0020array\u0020of\u0020name\/address\u0020pairs.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_parseAddresses"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AfileIsAccessible\u0028\u0029",
-            "name": "fileIsAccessible",
-            "summary": "Check\u0020whether\u0020a\u0020file\u0020path\u0020is\u0020safe,\u0020accessible,\u0020and\u0020readable.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_fileIsAccessible"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AmailSend\u0028\u0029",
-            "name": "mailSend",
-            "summary": "Send\u0020mail\u0020using\u0020the\u0020PHP\u0020mail\u0028\u0029\u0020function.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_mailSend"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetSMTPInstance\u0028\u0029",
-            "name": "getSMTPInstance",
-            "summary": "Get\u0020an\u0020instance\u0020to\u0020use\u0020for\u0020SMTP\u0020operations.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSMTPInstance"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetSMTPInstance\u0028\u0029",
-            "name": "setSMTPInstance",
-            "summary": "Provide\u0020an\u0020instance\u0020to\u0020use\u0020for\u0020SMTP\u0020operations.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setSMTPInstance"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AdoCallback\u0028\u0029",
+            "name": "doCallback",
+            "summary": "Perform\u0020a\u0020callback.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_doCallback"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsmtpSend\u0028\u0029",
             "name": "smtpSend",
@@ -12186,200 +12356,130 @@ Search.appendIndex(
             "summary": "Initiate\u0020a\u0020connection\u0020to\u0020an\u0020SMTP\u0020server.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_smtpConnect"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsmtpClose\u0028\u0029",
-            "name": "smtpClose",
-            "summary": "Close\u0020the\u0020active\u0020SMTP\u0020session\u0020if\u0020one\u0020exists.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_smtpClose"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetSMTPInstance\u0028\u0029",
+            "name": "getSMTPInstance",
+            "summary": "Get\u0020an\u0020instance\u0020to\u0020use\u0020for\u0020SMTP\u0020operations.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSMTPInstance"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetLanguage\u0028\u0029",
-            "name": "setLanguage",
-            "summary": "Set\u0020the\u0020language\u0020for\u0020error\u0020messages.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setLanguage"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AmailSend\u0028\u0029",
+            "name": "mailSend",
+            "summary": "Send\u0020mail\u0020using\u0020the\u0020PHP\u0020mail\u0028\u0029\u0020function.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_mailSend"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetTranslations\u0028\u0029",
-            "name": "getTranslations",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020strings\u0020for\u0020the\u0020current\u0020language.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getTranslations"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AmailPassthru\u0028\u0029",
+            "name": "mailPassthru",
+            "summary": "Call\u0020mail\u0028\u0029\u0020in\u0020a\u0020safe_mode\u002Daware\u0020fashion.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_mailPassthru"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddrAppend\u0028\u0029",
-            "name": "addrAppend",
-            "summary": "Create\u0020recipient\u0020headers.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addrAppend"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddrFormat\u0028\u0029",
-            "name": "addrFormat",
-            "summary": "Format\u0020an\u0020address\u0020for\u0020use\u0020in\u0020a\u0020message\u0020header.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addrFormat"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AwrapText\u0028\u0029",
-            "name": "wrapText",
-            "summary": "Word\u002Dwrap\u0020message.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_wrapText"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Autf8CharBoundary\u0028\u0029",
-            "name": "utf8CharBoundary",
-            "summary": "Find\u0020the\u0020last\u0020character\u0020boundary\u0020prior\u0020to\u0020\u0024maxLength\u0020in\u0020a\u0020utf\u002D8\nquoted\u002Dprintable\u0020encoded\u0020string.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_utf8CharBoundary"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetWordWrap\u0028\u0029",
-            "name": "setWordWrap",
-            "summary": "Apply\u0020word\u0020wrapping\u0020to\u0020the\u0020message\u0020body.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setWordWrap"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AcreateHeader\u0028\u0029",
-            "name": "createHeader",
-            "summary": "Assemble\u0020message\u0020headers.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_createHeader"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetMailMIME\u0028\u0029",
-            "name": "getMailMIME",
-            "summary": "Get\u0020the\u0020message\u0020MIME\u0020type\u0020headers.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getMailMIME"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetSentMIMEMessage\u0028\u0029",
-            "name": "getSentMIMEMessage",
-            "summary": "Returns\u0020the\u0020whole\u0020MIME\u0020message.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSentMIMEMessage"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgenerateId\u0028\u0029",
-            "name": "generateId",
-            "summary": "Create\u0020a\u0020unique\u0020ID\u0020to\u0020use\u0020for\u0020boundaries.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_generateId"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AcreateBody\u0028\u0029",
-            "name": "createBody",
-            "summary": "Assemble\u0020the\u0020message\u0020body.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_createBody"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetBoundary\u0028\u0029",
-            "name": "getBoundary",
-            "summary": "Return\u0020the\u0020start\u0020of\u0020a\u0020message\u0020boundary.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getBoundary"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AendBoundary\u0028\u0029",
-            "name": "endBoundary",
-            "summary": "Return\u0020the\u0020end\u0020of\u0020a\u0020message\u0020boundary.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_endBoundary"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetMessageType\u0028\u0029",
-            "name": "setMessageType",
-            "summary": "Set\u0020the\u0020message\u0020type.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setMessageType"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AheaderLine\u0028\u0029",
-            "name": "headerLine",
-            "summary": "Format\u0020a\u0020header\u0020line.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_headerLine"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AtextLine\u0028\u0029",
-            "name": "textLine",
-            "summary": "Return\u0020a\u0020formatted\u0020mail\u0020line.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_textLine"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddAttachment\u0028\u0029",
-            "name": "addAttachment",
-            "summary": "Add\u0020an\u0020attachment\u0020from\u0020a\u0020path\u0020on\u0020the\u0020filesystem.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addAttachment"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetAttachments\u0028\u0029",
-            "name": "getAttachments",
-            "summary": "Return\u0020the\u0020array\u0020of\u0020attachments.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getAttachments"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AattachAll\u0028\u0029",
-            "name": "attachAll",
-            "summary": "Attach\u0020all\u0020file,\u0020string,\u0020and\u0020binary\u0020attachments\u0020to\u0020the\u0020message.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_attachAll"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeFile\u0028\u0029",
-            "name": "encodeFile",
-            "summary": "Encode\u0020a\u0020file\u0020attachment\u0020in\u0020requested\u0020format.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeFile"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeString\u0028\u0029",
-            "name": "encodeString",
-            "summary": "Encode\u0020a\u0020string\u0020in\u0020requested\u0020format.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeString"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsecureHeader\u0028\u0029",
+            "name": "secureHeader",
+            "summary": "Strip\u0020newlines\u0020to\u0020prevent\u0020header\u0020injection.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_secureHeader"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeHeader\u0028\u0029",
             "name": "encodeHeader",
             "summary": "Encode\u0020a\u0020header\u0020value\u0020\u0028not\u0020including\u0020its\u0020label\u0029\u0020optimally.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeHeader"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AhasMultiBytes\u0028\u0029",
-            "name": "hasMultiBytes",
-            "summary": "Check\u0020if\u0020a\u0020string\u0020contains\u0020multi\u002Dbyte\u0020characters.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_hasMultiBytes"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Ahas8bitChars\u0028\u0029",
             "name": "has8bitChars",
             "summary": "Does\u0020a\u0020string\u0020contain\u0020any\u00208\u002Dbit\u0020chars\u0020\u0028in\u0020any\u0020charset\u0029\u003F",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_has8bitChars"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AhasMultiBytes\u0028\u0029",
+            "name": "hasMultiBytes",
+            "summary": "Check\u0020if\u0020a\u0020string\u0020contains\u0020multi\u002Dbyte\u0020characters.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_hasMultiBytes"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Abase64EncodeWrapMB\u0028\u0029",
             "name": "base64EncodeWrapMB",
             "summary": "Encode\u0020and\u0020wrap\u0020long\u0020multibyte\u0020strings\u0020for\u0020mail\u0020headers\nwithout\u0020breaking\u0020lines\u0020within\u0020a\u0020character.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_base64EncodeWrapMB"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeQP\u0028\u0029",
-            "name": "encodeQP",
-            "summary": "Encode\u0020a\u0020string\u0020in\u0020quoted\u002Dprintable\u0020format.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeQP"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AencodeQ\u0028\u0029",
             "name": "encodeQ",
             "summary": "Encode\u0020a\u0020string\u0020using\u0020Q\u0020encoding.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_encodeQ"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddStringAttachment\u0028\u0029",
-            "name": "addStringAttachment",
-            "summary": "Add\u0020a\u0020string\u0020or\u0020binary\u0020attachment\u0020\u0028non\u002Dfilesystem\u0029.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addStringAttachment"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AwrapText\u0028\u0029",
+            "name": "wrapText",
+            "summary": "Word\u002Dwrap\u0020message.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_wrapText"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddEmbeddedImage\u0028\u0029",
-            "name": "addEmbeddedImage",
-            "summary": "Add\u0020an\u0020embedded\u0020\u0028inline\u0029\u0020attachment\u0020from\u0020a\u0020file.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addEmbeddedImage"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AnormalizeBreaks\u0028\u0029",
+            "name": "normalizeBreaks",
+            "summary": "Normalize\u0020line\u0020breaks\u0020in\u0020a\u0020string.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_normalizeBreaks"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddStringEmbeddedImage\u0028\u0029",
-            "name": "addStringEmbeddedImage",
-            "summary": "Add\u0020an\u0020embedded\u0020stringified\u0020attachment.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addStringEmbeddedImage"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Autf8CharBoundary\u0028\u0029",
+            "name": "utf8CharBoundary",
+            "summary": "Find\u0020the\u0020last\u0020character\u0020boundary\u0020prior\u0020to\u0020\u0024maxLength\u0020in\u0020a\u0020utf\u002D8\nquoted\u002Dprintable\u0020encoded\u0020string.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_utf8CharBoundary"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Aedebug\u0028\u0029",
+            "name": "edebug",
+            "summary": "Output\u0020debugging\u0020info\u0020via\u0020a\u0020user\u002Ddefined\u0020method.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_edebug"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetSMTPInstance\u0028\u0029",
+            "name": "setSMTPInstance",
+            "summary": "Provide\u0020an\u0020instance\u0020to\u0020use\u0020for\u0020SMTP\u0020operations.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setSMTPInstance"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetTranslations\u0028\u0029",
+            "name": "getTranslations",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020strings\u0020for\u0020the\u0020current\u0020language.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getTranslations"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetSentMIMEMessage\u0028\u0029",
+            "name": "getSentMIMEMessage",
+            "summary": "Returns\u0020the\u0020whole\u0020MIME\u0020message.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSentMIMEMessage"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddAttachment\u0028\u0029",
+            "name": "addAttachment",
+            "summary": "Add\u0020an\u0020attachment\u0020from\u0020a\u0020path\u0020on\u0020the\u0020filesystem.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addAttachment"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AfilenameToType\u0028\u0029",
+            "name": "filenameToType",
+            "summary": "Map\u0020a\u0020file\u0020name\u0020to\u0020a\u0020MIME\u0020type.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_filenameToType"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Amb_pathinfo\u0028\u0029",
+            "name": "mb_pathinfo",
+            "summary": "Multi\u002Dbyte\u002Dsafe\u0020pathinfo\u0020replacement.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_mb_pathinfo"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A_mime_types\u0028\u0029",
+            "name": "_mime_types",
+            "summary": "Get\u0020the\u0020MIME\u0020type\u0020for\u0020a\u0020file\u0020extension.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method__mime_types"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AvalidateEncoding\u0028\u0029",
             "name": "validateEncoding",
             "summary": "Validate\u0020encodings.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_validateEncoding"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AcidExists\u0028\u0029",
-            "name": "cidExists",
-            "summary": "Check\u0020if\u0020an\u0020embedded\u0020attachment\u0020is\u0020present\u0020with\u0020this\u0020cid.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_cidExists"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetAttachments\u0028\u0029",
+            "name": "getAttachments",
+            "summary": "Return\u0020the\u0020array\u0020of\u0020attachments.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getAttachments"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AinlineImageExists\u0028\u0029",
-            "name": "inlineImageExists",
-            "summary": "Check\u0020if\u0020an\u0020inline\u0020attachment\u0020is\u0020present.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_inlineImageExists"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AattachmentExists\u0028\u0029",
-            "name": "attachmentExists",
-            "summary": "Check\u0020if\u0020an\u0020attachment\u0020\u0028non\u002Dinline\u0029\u0020is\u0020present.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_attachmentExists"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AalternativeExists\u0028\u0029",
-            "name": "alternativeExists",
-            "summary": "Check\u0020if\u0020this\u0020message\u0020has\u0020an\u0020alternative\u0020body\u0020set.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_alternativeExists"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AclearQueuedAddresses\u0028\u0029",
-            "name": "clearQueuedAddresses",
-            "summary": "Clear\u0020queued\u0020addresses\u0020of\u0020given\u0020kind.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_clearQueuedAddresses"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddStringAttachment\u0028\u0029",
+            "name": "addStringAttachment",
+            "summary": "Add\u0020a\u0020string\u0020or\u0020binary\u0020attachment\u0020\u0028non\u002Dfilesystem\u0029.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addStringAttachment"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AclearAddresses\u0028\u0029",
             "name": "clearAddresses",
             "summary": "Clear\u0020all\u0020To\u0020recipients.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_clearAddresses"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AclearQueuedAddresses\u0028\u0029",
+            "name": "clearQueuedAddresses",
+            "summary": "Clear\u0020queued\u0020addresses\u0020of\u0020given\u0020kind.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_clearQueuedAddresses"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AclearCCs\u0028\u0029",
             "name": "clearCCs",
@@ -12411,36 +12511,6 @@ Search.appendIndex(
             "summary": "Clear\u0020all\u0020custom\u0020headers.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_clearCustomHeaders"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetError\u0028\u0029",
-            "name": "setError",
-            "summary": "Add\u0020an\u0020error\u0020message\u0020to\u0020the\u0020error\u0020container.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setError"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ArfcDate\u0028\u0029",
-            "name": "rfcDate",
-            "summary": "Return\u0020an\u0020RFC\u0020822\u0020formatted\u0020date.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_rfcDate"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AserverHostname\u0028\u0029",
-            "name": "serverHostname",
-            "summary": "Get\u0020the\u0020server\u0020hostname.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_serverHostname"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisValidHost\u0028\u0029",
-            "name": "isValidHost",
-            "summary": "Validate\u0020whether\u0020a\u0020string\u0020contains\u0020a\u0020valid\u0020value\u0020to\u0020use\u0020as\u0020a\u0020hostname\u0020or\u0020IP\u0020address.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isValidHost"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Alang\u0028\u0029",
-            "name": "lang",
-            "summary": "Get\u0020an\u0020error\u0020message\u0020in\u0020the\u0020current\u0020language.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_lang"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisError\u0028\u0029",
-            "name": "isError",
-            "summary": "Check\u0020if\u0020an\u0020error\u0020occurred.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isError"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddCustomHeader\u0028\u0029",
             "name": "addCustomHeader",
             "summary": "Add\u0020a\u0020custom\u0020header.",
@@ -12456,95 +12526,40 @@ Search.appendIndex(
             "summary": "Create\u0020a\u0020message\u0020body\u0020from\u0020an\u0020HTML\u0020string.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_msgHTML"
         },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AcidExists\u0028\u0029",
+            "name": "cidExists",
+            "summary": "Check\u0020if\u0020an\u0020embedded\u0020attachment\u0020is\u0020present\u0020with\u0020this\u0020cid.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_cidExists"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddStringEmbeddedImage\u0028\u0029",
+            "name": "addStringEmbeddedImage",
+            "summary": "Add\u0020an\u0020embedded\u0020stringified\u0020attachment.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addStringEmbeddedImage"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddEmbeddedImage\u0028\u0029",
+            "name": "addEmbeddedImage",
+            "summary": "Add\u0020an\u0020embedded\u0020\u0028inline\u0029\u0020attachment\u0020from\u0020a\u0020file.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addEmbeddedImage"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AisHTML\u0028\u0029",
+            "name": "isHTML",
+            "summary": "Sets\u0020message\u0020type\u0020to\u0020HTML\u0020or\u0020plain.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_isHTML"
+        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Ahtml2text\u0028\u0029",
             "name": "html2text",
             "summary": "Convert\u0020an\u0020HTML\u0020string\u0020into\u0020plain\u0020text.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_html2text"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A_mime_types\u0028\u0029",
-            "name": "_mime_types",
-            "summary": "Get\u0020the\u0020MIME\u0020type\u0020for\u0020a\u0020file\u0020extension.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method__mime_types"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AfilenameToType\u0028\u0029",
-            "name": "filenameToType",
-            "summary": "Map\u0020a\u0020file\u0020name\u0020to\u0020a\u0020MIME\u0020type.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_filenameToType"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Amb_pathinfo\u0028\u0029",
-            "name": "mb_pathinfo",
-            "summary": "Multi\u002Dbyte\u002Dsafe\u0020pathinfo\u0020replacement.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_mb_pathinfo"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Aset\u0028\u0029",
             "name": "set",
             "summary": "Set\u0020or\u0020reset\u0020instance\u0020properties.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_set"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsecureHeader\u0028\u0029",
-            "name": "secureHeader",
-            "summary": "Strip\u0020newlines\u0020to\u0020prevent\u0020header\u0020injection.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_secureHeader"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AnormalizeBreaks\u0028\u0029",
-            "name": "normalizeBreaks",
-            "summary": "Normalize\u0020line\u0020breaks\u0020in\u0020a\u0020string.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_normalizeBreaks"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AstripTrailingWSP\u0028\u0029",
-            "name": "stripTrailingWSP",
-            "summary": "Remove\u0020trailing\u0020breaks\u0020from\u0020a\u0020string.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_stripTrailingWSP"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetLE\u0028\u0029",
-            "name": "getLE",
-            "summary": "Return\u0020the\u0020current\u0020line\u0020break\u0020format\u0020string.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getLE"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AsetLE\u0028\u0029",
-            "name": "setLE",
-            "summary": "Set\u0020the\u0020line\u0020break\u0020format\u0020string,\u0020e.g.\u0020\u0022\\r\\n\u0022.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setLE"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003Asign\u0028\u0029",
             "name": "sign",
             "summary": "Set\u0020the\u0020public\u0020and\u0020private\u0020key\u0020files\u0020and\u0020password\u0020for\u0020S\/MIME\u0020signing.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_sign"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_QP\u0028\u0029",
-            "name": "DKIM_QP",
-            "summary": "Quoted\u002DPrintable\u002Dencode\u0020a\u0020DKIM\u0020header.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_QP"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_Sign\u0028\u0029",
-            "name": "DKIM_Sign",
-            "summary": "Generate\u0020a\u0020DKIM\u0020signature.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_Sign"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_HeaderC\u0028\u0029",
-            "name": "DKIM_HeaderC",
-            "summary": "Generate\u0020a\u0020DKIM\u0020canonicalization\u0020header.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_HeaderC"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_BodyC\u0028\u0029",
-            "name": "DKIM_BodyC",
-            "summary": "Generate\u0020a\u0020DKIM\u0020canonicalization\u0020body.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_BodyC"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ADKIM_Add\u0028\u0029",
-            "name": "DKIM_Add",
-            "summary": "Create\u0020the\u0020DKIM\u0020header\u0020and\u0020body\u0020in\u0020a\u0020new\u0020message\u0020header.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_DKIM_Add"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AhasLineLongerThanMax\u0028\u0029",
-            "name": "hasLineLongerThanMax",
-            "summary": "Detect\u0020if\u0020a\u0020string\u0020contains\u0020a\u0020line\u0020longer\u0020than\u0020the\u0020maximum\u0020line\u0020length\nallowed\u0020by\u0020RFC\u00202822\u0020section\u00202.1.1.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_hasLineLongerThanMax"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AquotedString\u0028\u0029",
-            "name": "quotedString",
-            "summary": "If\u0020a\u0020string\u0020contains\u0020any\u0020\u0022special\u0022\u0020characters,\u0020double\u002Dquote\u0020the\u0020name,\nand\u0020escape\u0020any\u0020double\u0020quotes\u0020with\u0020a\u0020backslash.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_quotedString"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetToAddresses\u0028\u0029",
             "name": "getToAddresses",
@@ -12571,11 +12586,6 @@ Search.appendIndex(
             "summary": "Allows\u0020for\u0020public\u0020read\u0020access\u0020to\u0020\u0027all_recipients\u0027\u0020property.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_getAllRecipientAddresses"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AdoCallback\u0028\u0029",
-            "name": "doCallback",
-            "summary": "Perform\u0020a\u0020callback.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_doCallback"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AgetOAuth\u0028\u0029",
             "name": "getOAuth",
             "summary": "Get\u0020the\u0020OAuth\u0020instance.",
@@ -12585,6 +12595,16 @@ Search.appendIndex(
             "name": "setOAuth",
             "summary": "Set\u0020an\u0020OAuth\u0020instance.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_setOAuth"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AaddAnAddress\u0028\u0029",
+            "name": "addAnAddress",
+            "summary": "Add\u0020an\u0020address\u0020to\u0020one\u0020of\u0020the\u0020recipient\u0020arrays\u0020or\u0020to\u0020the\u0020ReplyTo\u0020array.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_addAnAddress"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003AvalidateAddress\u0028\u0029",
+            "name": "validateAddress",
+            "summary": "Check\u0020that\u0020a\u0020string\u0020looks\u0020like\u0020an\u0020email\u0020address.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#method_validateAddress"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003ACHARSET_ASCII",
             "name": "CHARSET_ASCII",
@@ -12751,6 +12771,21 @@ Search.appendIndex(
             "summary": "The\u0020lower\u0020maximum\u0020line\u0020length\u0020allowed\u0020by\u0020RFC\u00202822\u0020section\u00202.1.1.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#constant_STD_LINE_LENGTH"
         },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024validator",
+            "name": "validator",
+            "summary": "Which\u0020validator\u0020to\u0020use\u0020by\u0020default\u0020when\u0020validating\u0020email\u0020addresses.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_validator"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024IcalMethods",
+            "name": "IcalMethods",
+            "summary": "Value\u002Darray\u0020of\u0020\u0022method\u0022\u0020in\u0020Contenttype\u0020header\u0020\u0022text\/calendar\u0022",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_IcalMethods"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024LE",
+            "name": "LE",
+            "summary": "SMTP\u0020RFC\u0020standard\u0020line\u0020ending\u003B\u0020Carriage\u0020Return,\u0020Line\u0020Feed.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_LE"
+        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024Priority",
             "name": "Priority",
             "summary": "Email\u0020priority.",
@@ -12810,26 +12845,6 @@ Search.appendIndex(
             "name": "Ical",
             "summary": "An\u0020iCal\u0020message\u0020part\u0020body.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_Ical"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024IcalMethods",
-            "name": "IcalMethods",
-            "summary": "Value\u002Darray\u0020of\u0020\u0022method\u0022\u0020in\u0020Contenttype\u0020header\u0020\u0022text\/calendar\u0022",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_IcalMethods"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024MIMEBody",
-            "name": "MIMEBody",
-            "summary": "The\u0020complete\u0020compiled\u0020MIME\u0020message\u0020body.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_MIMEBody"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024MIMEHeader",
-            "name": "MIMEHeader",
-            "summary": "The\u0020complete\u0020compiled\u0020MIME\u0020message\u0020headers.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_MIMEHeader"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024mailHeader",
-            "name": "mailHeader",
-            "summary": "Extra\u0020headers\u0020that\u0020createHeader\u0028\u0029\u0020doesn\u0027t\u0020fold\u0020in.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_mailHeader"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024WordWrap",
             "name": "WordWrap",
@@ -12921,11 +12936,6 @@ Search.appendIndex(
             "summary": "SMTP\u0020auth\u0020type.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_AuthType"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024oauth",
-            "name": "oauth",
-            "summary": "An\u0020instance\u0020of\u0020the\u0020PHPMailer\u0020OAuth\u0020class.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_oauth"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024Timeout",
             "name": "Timeout",
             "summary": "The\u0020SMTP\u0020server\u0020timeout\u0020in\u0020seconds.",
@@ -12955,11 +12965,6 @@ Search.appendIndex(
             "name": "SingleTo",
             "summary": "Whether\u0020to\u0020split\u0020multiple\u0020to\u0020addresses\u0020into\u0020multiple\u0020messages\nor\u0020send\u0020them\u0020all\u0020in\u0020one\u0020message.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_SingleTo"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024SingleToArray",
-            "name": "SingleToArray",
-            "summary": "Storage\u0020for\u0020addresses\u0020when\u0020SingleTo\u0020is\u0020enabled.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_SingleToArray"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024do_verp",
             "name": "do_verp",
@@ -13021,10 +13026,30 @@ Search.appendIndex(
             "summary": "What\u0020to\u0020put\u0020in\u0020the\u0020X\u002DMailer\u0020header.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_XMailer"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024validator",
-            "name": "validator",
-            "summary": "Which\u0020validator\u0020to\u0020use\u0020by\u0020default\u0020when\u0020validating\u0020email\u0020addresses.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_validator"
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024MIMEBody",
+            "name": "MIMEBody",
+            "summary": "The\u0020complete\u0020compiled\u0020MIME\u0020message\u0020body.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_MIMEBody"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024MIMEHeader",
+            "name": "MIMEHeader",
+            "summary": "The\u0020complete\u0020compiled\u0020MIME\u0020message\u0020headers.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_MIMEHeader"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024mailHeader",
+            "name": "mailHeader",
+            "summary": "Extra\u0020headers\u0020that\u0020createHeader\u0028\u0029\u0020doesn\u0027t\u0020fold\u0020in.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_mailHeader"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024oauth",
+            "name": "oauth",
+            "summary": "An\u0020instance\u0020of\u0020the\u0020PHPMailer\u0020OAuth\u0020class.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_oauth"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024SingleToArray",
+            "name": "SingleToArray",
+            "summary": "Storage\u0020for\u0020addresses\u0020when\u0020SingleTo\u0020is\u0020enabled.",
+            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_SingleToArray"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024smtp",
             "name": "smtp",
@@ -13131,11 +13156,6 @@ Search.appendIndex(
             "summary": "Unique\u0020ID\u0020used\u0020for\u0020message\u0020ID\u0020and\u0020boundaries.",
             "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_uniqueid"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\PHPMailer\u003A\u003A\u0024LE",
-            "name": "LE",
-            "summary": "SMTP\u0020RFC\u0020standard\u0020line\u0020ending\u003B\u0020Carriage\u0020Return,\u0020Line\u0020Feed.",
-            "url": "classes/PHPMailer-PHPMailer-PHPMailer.html#property_LE"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\POP3",
             "name": "POP3",
             "summary": "PHPMailer\u0020POP\u002DBefore\u002DSMTP\u0020Authentication\u0020Class.",
@@ -13156,35 +13176,35 @@ Search.appendIndex(
             "summary": "Connect\u0020to\u0020a\u0020POP3\u0020server.",
             "url": "classes/PHPMailer-PHPMailer-POP3.html#method_connect"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003Alogin\u0028\u0029",
-            "name": "login",
-            "summary": "Log\u0020in\u0020to\u0020the\u0020POP3\u0020server.",
-            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_login"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003Adisconnect\u0028\u0029",
-            "name": "disconnect",
-            "summary": "Disconnect\u0020from\u0020the\u0020POP3\u0020server.",
-            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_disconnect"
+            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AsetError\u0028\u0029",
+            "name": "setError",
+            "summary": "Add\u0020an\u0020error\u0020to\u0020the\u0020internal\u0020error\u0020store.",
+            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_setError"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AgetResponse\u0028\u0029",
             "name": "getResponse",
             "summary": "Get\u0020a\u0020response\u0020from\u0020the\u0020POP3\u0020server.",
             "url": "classes/PHPMailer-PHPMailer-POP3.html#method_getResponse"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AsendString\u0028\u0029",
-            "name": "sendString",
-            "summary": "Send\u0020raw\u0020data\u0020to\u0020the\u0020POP3\u0020server.",
-            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_sendString"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AcheckResponse\u0028\u0029",
             "name": "checkResponse",
             "summary": "Checks\u0020the\u0020POP3\u0020server\u0020response.",
             "url": "classes/PHPMailer-PHPMailer-POP3.html#method_checkResponse"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AsetError\u0028\u0029",
-            "name": "setError",
-            "summary": "Add\u0020an\u0020error\u0020to\u0020the\u0020internal\u0020error\u0020store.",
-            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_setError"
+            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "Log\u0020in\u0020to\u0020the\u0020POP3\u0020server.",
+            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_login"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AsendString\u0028\u0029",
+            "name": "sendString",
+            "summary": "Send\u0020raw\u0020data\u0020to\u0020the\u0020POP3\u0020server.",
+            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_sendString"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003Adisconnect\u0028\u0029",
+            "name": "disconnect",
+            "summary": "Disconnect\u0020from\u0020the\u0020POP3\u0020server.",
+            "url": "classes/PHPMailer-PHPMailer-POP3.html#method_disconnect"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\POP3\u003A\u003AgetErrors\u0028\u0029",
             "name": "getErrors",
@@ -13281,20 +13301,60 @@ Search.appendIndex(
             "summary": "PHPMailer\u0020RFC821\u0020SMTP\u0020email\u0020transport\u0020class.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aedebug\u0028\u0029",
-            "name": "edebug",
-            "summary": "Output\u0020debugging\u0020info\u0020via\u0020a\u0020user\u002Dselected\u0020method.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_edebug"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aconnect\u0028\u0029",
             "name": "connect",
             "summary": "Connect\u0020to\u0020an\u0020SMTP\u0020server.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_connect"
         },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aconnected\u0028\u0029",
+            "name": "connected",
+            "summary": "Check\u0020connection\u0020state.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_connected"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aedebug\u0028\u0029",
+            "name": "edebug",
+            "summary": "Output\u0020debugging\u0020info\u0020via\u0020a\u0020user\u002Dselected\u0020method.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_edebug"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "Close\u0020the\u0020socket\u0020and\u0020clean\u0020up\u0020the\u0020state\u0020of\u0020the\u0020class.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_close"
+        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetSMTPConnection\u0028\u0029",
             "name": "getSMTPConnection",
             "summary": "Create\u0020connection\u0020to\u0020the\u0020SMTP\u0020server.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getSMTPConnection"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aget_lines\u0028\u0029",
+            "name": "get_lines",
+            "summary": "Read\u0020the\u0020SMTP\u0020server\u0027s\u0020response.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_get_lines"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetError\u0028\u0029",
+            "name": "getError",
+            "summary": "Get\u0020the\u0020latest\u0020error.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getError"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetError\u0028\u0029",
+            "name": "setError",
+            "summary": "Set\u0020error\u0020messages\u0020and\u0020codes.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_setError"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aquit\u0028\u0029",
+            "name": "quit",
+            "summary": "Send\u0020an\u0020SMTP\u0020QUIT\u0020command.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_quit"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsendCommand\u0028\u0029",
+            "name": "sendCommand",
+            "summary": "Send\u0020a\u0020command\u0020to\u0020an\u0020SMTP\u0020server\u0020and\u0020check\u0020its\u0020return\u0020code.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_sendCommand"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aclient_send\u0028\u0029",
+            "name": "client_send",
+            "summary": "Send\u0020raw\u0020data\u0020to\u0020the\u0020server.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_client_send"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AstartTLS\u0028\u0029",
             "name": "startTLS",
@@ -13311,20 +13371,20 @@ Search.appendIndex(
             "summary": "Calculate\u0020an\u0020MD5\u0020HMAC\u0020hash.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_hmac"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aconnected\u0028\u0029",
-            "name": "connected",
-            "summary": "Check\u0020connection\u0020state.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_connected"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "Close\u0020the\u0020socket\u0020and\u0020clean\u0020up\u0020the\u0020state\u0020of\u0020the\u0020class.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_close"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Adata\u0028\u0029",
             "name": "data",
             "summary": "Send\u0020an\u0020SMTP\u0020DATA\u0020command.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_data"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003ArecordLastTransactionID\u0028\u0029",
+            "name": "recordLastTransactionID",
+            "summary": "Extract\u0020and\u0020return\u0020the\u0020ID\u0020of\u0020the\u0020last\u0020SMTP\u0020transaction\u0020based\u0020on\na\u0020list\u0020of\u0020patterns\u0020provided\u0020in\u0020SMTP\u003A\u003A\u0024smtp_transaction_id_patterns.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_recordLastTransactionID"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetLastReply\u0028\u0029",
+            "name": "getLastReply",
+            "summary": "Get\u0020the\u0020last\u0020reply\u0020from\u0020the\u0020server.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getLastReply"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Ahello\u0028\u0029",
             "name": "hello",
@@ -13346,11 +13406,6 @@ Search.appendIndex(
             "summary": "Send\u0020an\u0020SMTP\u0020MAIL\u0020command.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_mail"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aquit\u0028\u0029",
-            "name": "quit",
-            "summary": "Send\u0020an\u0020SMTP\u0020QUIT\u0020command.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_quit"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Arecipient\u0028\u0029",
             "name": "recipient",
             "summary": "Send\u0020an\u0020SMTP\u0020RCPT\u0020command.",
@@ -13360,11 +13415,6 @@ Search.appendIndex(
             "name": "reset",
             "summary": "Send\u0020an\u0020SMTP\u0020RSET\u0020command.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_reset"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsendCommand\u0028\u0029",
-            "name": "sendCommand",
-            "summary": "Send\u0020a\u0020command\u0020to\u0020an\u0020SMTP\u0020server\u0020and\u0020check\u0020its\u0020return\u0020code.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_sendCommand"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsendAndMail\u0028\u0029",
             "name": "sendAndMail",
@@ -13386,16 +13436,6 @@ Search.appendIndex(
             "summary": "Send\u0020an\u0020SMTP\u0020TURN\u0020command.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_turn"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aclient_send\u0028\u0029",
-            "name": "client_send",
-            "summary": "Send\u0020raw\u0020data\u0020to\u0020the\u0020server.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_client_send"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetError\u0028\u0029",
-            "name": "getError",
-            "summary": "Get\u0020the\u0020latest\u0020error.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getError"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetServerExtList\u0028\u0029",
             "name": "getServerExtList",
             "summary": "Get\u0020SMTP\u0020extensions\u0020available\u0020on\u0020the\u0020server.",
@@ -13405,16 +13445,6 @@ Search.appendIndex(
             "name": "getServerExt",
             "summary": "Get\u0020metadata\u0020about\u0020the\u0020SMTP\u0020server\u0020from\u0020its\u0020HELO\/EHLO\u0020response.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getServerExt"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetLastReply\u0028\u0029",
-            "name": "getLastReply",
-            "summary": "Get\u0020the\u0020last\u0020reply\u0020from\u0020the\u0020server.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getLastReply"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003Aget_lines\u0028\u0029",
-            "name": "get_lines",
-            "summary": "Read\u0020the\u0020SMTP\u0020server\u0027s\u0020response.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_get_lines"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetVerp\u0028\u0029",
             "name": "setVerp",
@@ -13426,20 +13456,15 @@ Search.appendIndex(
             "summary": "Get\u0020VERP\u0020address\u0020generation\u0020mode.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getVerp"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetError\u0028\u0029",
-            "name": "setError",
-            "summary": "Set\u0020error\u0020messages\u0020and\u0020codes.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_setError"
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetDebugOutput\u0028\u0029",
+            "name": "getDebugOutput",
+            "summary": "Get\u0020debug\u0020output\u0020method.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getDebugOutput"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetDebugOutput\u0028\u0029",
             "name": "setDebugOutput",
             "summary": "Set\u0020debug\u0020output\u0020method.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_setDebugOutput"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetDebugOutput\u0028\u0029",
-            "name": "getDebugOutput",
-            "summary": "Get\u0020debug\u0020output\u0020method.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getDebugOutput"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetDebugLevel\u0028\u0029",
             "name": "setDebugLevel",
@@ -13451,30 +13476,25 @@ Search.appendIndex(
             "summary": "Get\u0020debug\u0020output\u0020level.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getDebugLevel"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetTimeout\u0028\u0029",
-            "name": "setTimeout",
-            "summary": "Set\u0020SMTP\u0020timeout.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_setTimeout"
-        },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetTimeout\u0028\u0029",
             "name": "getTimeout",
             "summary": "Get\u0020SMTP\u0020timeout.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getTimeout"
         },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AerrorHandler\u0028\u0029",
-            "name": "errorHandler",
-            "summary": "Reports\u0020an\u0020error\u0020number\u0020and\u0020string.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_errorHandler"
-        },                {
-            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003ArecordLastTransactionID\u0028\u0029",
-            "name": "recordLastTransactionID",
-            "summary": "Extract\u0020and\u0020return\u0020the\u0020ID\u0020of\u0020the\u0020last\u0020SMTP\u0020transaction\u0020based\u0020on\na\u0020list\u0020of\u0020patterns\u0020provided\u0020in\u0020SMTP\u003A\u003A\u0024smtp_transaction_id_patterns.",
-            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_recordLastTransactionID"
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AsetTimeout\u0028\u0029",
+            "name": "setTimeout",
+            "summary": "Set\u0020SMTP\u0020timeout.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_setTimeout"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AgetLastTransactionID\u0028\u0029",
             "name": "getLastTransactionID",
             "summary": "Get\u0020the\u0020queue\/transaction\u0020ID\u0020of\u0020the\u0020last\u0020SMTP\u0020transaction\nIf\u0020no\u0020reply\u0020has\u0020been\u0020received\u0020yet,\u0020it\u0020will\u0020return\u0020null.",
             "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_getLastTransactionID"
+        },                {
+            "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AerrorHandler\u0028\u0029",
+            "name": "errorHandler",
+            "summary": "Reports\u0020an\u0020error\u0020number\u0020and\u0020string.",
+            "url": "classes/PHPMailer-PHPMailer-SMTP.html#method_errorHandler"
         },                {
             "fqsen": "\\PHPMailer\\PHPMailer\\SMTP\u003A\u003AVERSION",
             "name": "VERSION",
@@ -13736,6 +13756,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Controller-Accounts.html#method_account"
         },                {
+            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
+            "name": "getLanguages",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Accounts.html#method_getLanguages"
+        },                {
             "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
@@ -13755,11 +13780,6 @@ Search.appendIndex(
             "name": "find",
             "summary": "",
             "url": "classes/Cockpit-Controller-Accounts.html#method_find"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
-            "name": "getLanguages",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_getLanguages"
         },                {
             "fqsen": "\\Cockpit\\Controller\\Auth",
             "name": "Auth",
@@ -13836,15 +13856,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Controller-Media.html#method_api"
         },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
+            "name": "savebookmarks",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_savebookmarks"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
+            "name": "loadbookmarks",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method_loadbookmarks"
+        },                {
             "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Als\u0028\u0029",
             "name": "ls",
             "summary": "",
             "url": "classes/Cockpit-Controller-Media.html#method_ls"
         },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
+            "name": "_getPathParameter",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method__getPathParameter"
+        },                {
             "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
             "summary": "",
             "url": "classes/Cockpit-Controller-Media.html#method_upload"
+        },                {
+            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
+            "name": "_isFileTypeAllowed",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Media.html#method__isFileTypeAllowed"
         },                {
             "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
             "name": "uploadfolder",
@@ -13906,26 +13946,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Controller-Media.html#method_getfilelist"
         },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
-            "name": "savebookmarks",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_savebookmarks"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
-            "name": "loadbookmarks",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_loadbookmarks"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
-            "name": "_getPathParameter",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method__getPathParameter"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
-            "name": "_isFileTypeAllowed",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method__isFileTypeAllowed"
-        },                {
             "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A\u0024root",
             "name": "root",
             "summary": "",
@@ -13955,11 +13975,6 @@ Search.appendIndex(
             "name": "RestApi",
             "summary": "Class\u0020Controller",
             "url": "classes/Cockpit-Controller-RestApi.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_before"
         },                {
             "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
             "name": "authUser",
@@ -14011,6 +14026,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Controller-RestApi.html#method_removeAssets"
         },                {
+            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-RestApi.html#method_before"
+        },                {
             "fqsen": "\\Cockpit\\Controller\\Settings",
             "name": "Settings",
             "summary": "Class\u0020Controller",
@@ -14026,6 +14046,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Controller-Settings.html#method_info"
         },                {
+            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
+            "name": "getUptdateInfo",
+            "summary": "",
+            "url": "classes/Cockpit-Controller-Settings.html#method_getUptdateInfo"
+        },                {
             "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
             "summary": "",
@@ -14035,11 +14060,6 @@ Search.appendIndex(
             "name": "update",
             "summary": "",
             "url": "classes/Cockpit-Controller-Settings.html#method_update"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
-            "name": "getUptdateInfo",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Settings.html#method_getUptdateInfo"
         },                {
             "fqsen": "\\Cockpit\\Controller\\Utils",
             "name": "Utils",
@@ -14191,15 +14211,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Helper-Admin.html#method_setUserOption"
         },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_isResourceLocked"
-        },                {
             "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
             "name": "isResourceEditableByCurrentUser",
             "summary": "",
             "url": "classes/Cockpit-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Admin.html#method_isResourceLocked"
         },                {
             "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
@@ -14241,11 +14261,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Helper-Async.html#method_exec"
         },                {
-            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
-            "name": "finished",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Async.html#method_finished"
-        },                {
             "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
             "summary": "",
@@ -14255,6 +14270,11 @@ Search.appendIndex(
             "name": "isExecAvailable",
             "summary": "",
             "url": "classes/Cockpit-Helper-Async.html#method_isExecAvailable"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "name": "finished",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Async.html#method_finished"
         },                {
             "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
@@ -14271,15 +14291,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Helper-Csrf.html#method_initialize"
         },                {
-            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
-            "name": "generateToken",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Csrf.html#method_generateToken"
-        },                {
             "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
             "name": "token",
             "summary": "",
             "url": "classes/Cockpit-Helper-Csrf.html#method_token"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "name": "generateToken",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Csrf.html#method_generateToken"
         },                {
             "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
             "name": "isValid",
@@ -14296,30 +14316,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cockpit-Helper-Jobs.html#method_initialize"
         },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
-            "name": "getJob",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_getJob"
-        },                {
             "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
             "url": "classes/Cockpit-Helper-Jobs.html#method_add"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_remove"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
-            "name": "work",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_work"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_execute"
         },                {
             "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
             "name": "isRunnerActive",
@@ -14340,6 +14340,26 @@ Search.appendIndex(
             "name": "run",
             "summary": "",
             "url": "classes/Cockpit-Helper-Jobs.html#method_run"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
+            "name": "work",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_work"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
+            "name": "getJob",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_getJob"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_execute"
+        },                {
+            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/Cockpit-Helper-Jobs.html#method_remove"
         },                {
             "fqsen": "\\Cockpit\\Helper\\Revisions",
             "name": "Revisions",
@@ -14476,15 +14496,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Collections-Controller-Admin.html#method_find"
         },                {
-            "fqsen": "\\Collections\\Controller\\Admin\u003A\u003Arevisions\u0028\u0029",
-            "name": "revisions",
-            "summary": "",
-            "url": "classes/Collections-Controller-Admin.html#method_revisions"
-        },                {
             "fqsen": "\\Collections\\Controller\\Admin\u003A\u003A_filter\u0028\u0029",
             "name": "_filter",
             "summary": "",
             "url": "classes/Collections-Controller-Admin.html#method__filter"
+        },                {
+            "fqsen": "\\Collections\\Controller\\Admin\u003A\u003Arevisions\u0028\u0029",
+            "name": "revisions",
+            "summary": "",
+            "url": "classes/Collections-Controller-Admin.html#method_revisions"
         },                {
             "fqsen": "\\Collections\\Controller\\Import",
             "name": "Import",
@@ -14505,11 +14525,6 @@ Search.appendIndex(
             "name": "RestApi",
             "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-RestApi.html"
-        },                {
-            "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/Collections-Controller-RestApi.html#method_before"
         },                {
             "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
             "name": "get",
@@ -14555,6 +14570,11 @@ Search.appendIndex(
             "name": "listCollections",
             "summary": "",
             "url": "classes/Collections-Controller-RestApi.html#method_listCollections"
+        },                {
+            "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/Collections-Controller-RestApi.html#method_before"
         },                {
             "fqsen": "\\Collections\\Controller\\Trash",
             "name": "Trash",
@@ -14716,25 +14736,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-http-cache.html#method_isValid"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Agen\u0028\u0029",
+            "name": "gen",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-cache.html#method_gen"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Afetch\u0028\u0029",
             "name": "fetch",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-cache.html#method_fetch"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Astore\u0028\u0029",
-            "name": "store",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-cache.html#method_store"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Aset\u0028\u0029",
             "name": "set",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-cache.html#method_set"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Agen\u0028\u0029",
-            "name": "gen",
+            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Astore\u0028\u0029",
+            "name": "store",
             "summary": "",
-            "url": "classes/yxorP-app-lib-http-cache.html#method_gen"
+            "url": "classes/yxorP-app-lib-http-cache.html#method_store"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore",
             "name": "paramStore",
@@ -14761,6 +14781,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-http-paramStore.html#method_set"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003AnormalizeKey\u0028\u0029",
+            "name": "normalizeKey",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-paramStore.html#method_normalizeKey"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003Ahas\u0028\u0029",
             "name": "has",
             "summary": "",
@@ -14785,11 +14810,6 @@ Search.appendIndex(
             "name": "__toString",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-paramStore.html#method___toString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003AnormalizeKey\u0028\u0029",
-            "name": "normalizeKey",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-paramStore.html#method_normalizeKey"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003A\u0024data",
             "name": "data",
@@ -14931,71 +14951,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-http-request.html#property_prepared_body"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response",
-            "name": "response",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AsetStatusCode\u0028\u0029",
-            "name": "setStatusCode",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_setStatusCode"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AgetContent\u0028\u0029",
-            "name": "getContent",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_getContent"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AsetContent\u0028\u0029",
-            "name": "setContent",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_setContent"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AsendHeaders\u0028\u0029",
-            "name": "sendHeaders",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_sendHeaders"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AgetStatusText\u0028\u0029",
-            "name": "getStatusText",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_getStatusText"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AgetStatusCode\u0028\u0029",
-            "name": "getStatusCode",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_getStatusCode"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003AprintContent\u0028\u0029",
-            "name": "printContent",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#method_printContent"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003A\u0024status",
-            "name": "status",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#property_status"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003A\u0024headers",
-            "name": "headers",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#property_headers"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003A\u0024content",
-            "name": "content",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#property_content"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\response\u003A\u003A\u0024statusCodes",
-            "name": "statusCodes",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-response.html#property_statusCodes"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\state",
             "name": "state",
             "summary": "",
@@ -15020,6 +14975,11 @@ Search.appendIndex(
             "name": "subscribe",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-wrapper.html#method_subscribe"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-wrapper.html#method_route"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003AonCheck\u0028\u0029",
             "name": "onCheck",
@@ -15085,11 +15045,6 @@ Search.appendIndex(
             "name": "onBuildException",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-wrapper.html#method_onBuildException"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-wrapper.html#method_route"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -15266,6 +15221,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-parser-domain.html#method_domainToAscii"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\parser\\domain\u003A\u003Avalue\u0028\u0029",
+            "name": "value",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-parser-domain.html#method_value"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\parser\\domain\u003A\u003AtoUnicode\u0028\u0029",
+            "name": "toUnicode",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-parser-domain.html#method_toUnicode"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\parser\\domain\u003A\u003A__set_state\u0028\u0029",
             "name": "__set_state",
             "summary": "",
@@ -15280,16 +15245,6 @@ Search.appendIndex(
             "name": "fromIDNA2008",
             "summary": "",
             "url": "classes/yxorP-app-lib-parser-domain.html#method_fromIDNA2008"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\parser\\domain\u003A\u003Avalue\u0028\u0029",
-            "name": "value",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-parser-domain.html#method_value"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\parser\\domain\u003A\u003AtoUnicode\u0028\u0029",
-            "name": "toUnicode",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-parser-domain.html#method_toUnicode"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\parser\\domain\u003A\u003AgetIterator\u0028\u0029",
             "name": "getIterator",
@@ -15471,15 +15426,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-parser-idna.html#method_toAscii"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\parser\\idna\u003A\u003AtoUnicode\u0028\u0029",
-            "name": "toUnicode",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-parser-idna.html#method_toUnicode"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\parser\\idna\u003A\u003AsupportsIdna\u0028\u0029",
             "name": "supportsIdna",
             "summary": "",
             "url": "classes/yxorP-app-lib-parser-idna.html#method_supportsIdna"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\parser\\idna\u003A\u003AtoUnicode\u0028\u0029",
+            "name": "toUnicode",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-parser-idna.html#method_toUnicode"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\parser\\idna\u003A\u003AREGEXP_IDNA_PATTERN",
             "name": "REGEXP_IDNA_PATTERN",
@@ -16841,25 +16796,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-plugin-blockListPluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\app\\plugin\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
-            "name": "callable",
-            "summary": "",
-            "url": "classes/yxorP-app-plugin-blockListPluginAction.html#method_callable"
-        },                {
             "fqsen": "\\yxorP\\app\\plugin\\blockListPluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "",
             "url": "classes/yxorP-app-plugin-blockListPluginAction.html#method_onBeforeSend"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
+            "name": "callable",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-blockListPluginAction.html#method_callable"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction",
             "name": "cookiePluginAction",
             "summary": "",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html"
         },                {
+            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onBeforeSend"
+        },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AbeforeRequest\u0028\u0029",
             "name": "beforeRequest",
             "summary": "",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_beforeRequest"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onSent"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AheadersReceived\u0028\u0029",
             "name": "headersReceived",
@@ -16876,30 +16841,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_parse_cookie"
         },                {
-            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "",
-            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onBeforeSend"
-        },                {
-            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
-            "name": "onSent",
-            "summary": "",
-            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onSent"
-        },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003ACOOKIE_PREFIX",
             "name": "COOKIE_PREFIX",
             "summary": "",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html#constant_COOKIE_PREFIX"
         },                {
+            "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction",
+            "name": "dailyMotionPluginAction",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
+            "name": "completed",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html#method_completed"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003A\u0024url_pattern",
+            "name": "url_pattern",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html#property_url_pattern"
+        },                {
             "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction",
             "name": "headerRewritePluginAction",
             "summary": "",
             "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
-            "name": "headersReceived",
-            "summary": "",
-            "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html#method_headersReceived"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
@@ -16910,6 +16880,11 @@ Search.appendIndex(
             "name": "onSent",
             "summary": "",
             "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html#method_onSent"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
+            "name": "headersReceived",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html#method_headersReceived"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\logPluginAction",
             "name": "logPluginAction",
@@ -17015,6 +16990,41 @@ Search.appendIndex(
             "name": "max_content_length",
             "summary": "",
             "url": "classes/yxorP-app-plugin-streamPluginAction.html#property_max_content_length"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\twitterPluginAction",
+            "name": "twitterPluginAction",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-twitterPluginAction.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\twitterPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-twitterPluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\twitterPluginAction\u003A\u003A\u0024url_pattern",
+            "name": "url_pattern",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-twitterPluginAction.html#property_url_pattern"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\youtubePluginAction",
+            "name": "youtubePluginAction",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-youtubePluginAction.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\youtubePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-youtubePluginAction.html#method_onBeforeSend"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\youtubePluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-youtubePluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\youtubePluginAction\u003A\u003A\u0024url_pattern",
+            "name": "url_pattern",
+            "summary": "",
+            "url": "classes/yxorP-app-plugin-youtubePluginAction.html#property_url_pattern"
         },                {
             "fqsen": "\\DIR_ROOT",
             "name": "DIR_ROOT",

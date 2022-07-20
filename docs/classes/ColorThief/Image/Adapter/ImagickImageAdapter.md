@@ -15,32 +15,6 @@ Base adapter implementation to handle image manipulation.
 ## Methods
 
 
-### load
-
-Loads an image resource.
-
-```php
-public load(mixed $resource): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resource` | **mixed** |  |
-
-
-
-
-***
-
 ### loadBinaryString
 
 {@inheritdoc}
@@ -61,6 +35,32 @@ public loadBinaryString(mixed $data): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
+
+***
+
+### load
+
+Loads an image resource.
+
+```php
+public load(mixed $resource): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resource` | **mixed** |  |
 
 
 
@@ -252,4 +252,4 @@ public getResource(): resource
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

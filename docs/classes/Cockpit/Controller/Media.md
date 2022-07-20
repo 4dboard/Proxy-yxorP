@@ -52,12 +52,72 @@ public api(): mixed
 
 ***
 
+### savebookmarks
+
+
+
+```php
+public savebookmarks(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### loadbookmarks
+
+
+
+```php
+public loadbookmarks(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### ls
 
 
 
 ```php
 protected ls(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### _getPathParameter
+
+
+
+```php
+protected _getPathParameter(): mixed
 ```
 
 
@@ -86,6 +146,32 @@ protected upload(): mixed
 
 
 
+
+
+
+
+***
+
+### _isFileTypeAllowed
+
+
+
+```php
+protected _isFileTypeAllowed(mixed $file): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **mixed** |  |
 
 
 
@@ -338,92 +424,6 @@ protected getfilelist(): mixed
 
 ***
 
-### savebookmarks
-
-
-
-```php
-public savebookmarks(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### loadbookmarks
-
-
-
-```php
-public loadbookmarks(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### _getPathParameter
-
-
-
-```php
-protected _getPathParameter(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### _isFileTypeAllowed
-
-
-
-```php
-protected _isFileTypeAllowed(mixed $file): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **mixed** |  |
-
-
-
-
-***
-
 
 ## Inherited methods
 
@@ -454,12 +454,12 @@ public __construct(mixed $app): mixed
 
 ***
 
-### index
+### before
 
 
 
 ```php
-public index(): string
+protected before(): mixed
 ```
 
 
@@ -474,12 +474,12 @@ public index(): string
 
 ***
 
-### before
+### index
 
 
 
 ```php
-protected before(): mixed
+public index(): string
 ```
 
 
@@ -728,4 +728,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

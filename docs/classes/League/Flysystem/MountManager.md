@@ -112,6 +112,63 @@ public mountFilesystem(string $prefix, \League\Flysystem\FilesystemInterface $fi
 
 ***
 
+### listContents
+
+List contents of a directory.
+
+```php
+public listContents(string $directory = &#039;&#039;, bool $recursive = false): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$directory` | **string** |  |
+| `$recursive` | **bool** |  |
+
+
+
+
+***
+
+### getPrefixAndPath
+
+
+
+```php
+protected getPrefixAndPath(string $path): string[]
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+**Return Value:**
+
+[:prefix, :path]
+
+
+
+***
+
 ### getFilesystem
 
 Get the filesystem with the corresponding prefix.
@@ -132,6 +189,33 @@ public getFilesystem(string $prefix): \League\Flysystem\FilesystemInterface
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
+
+
+
+
+***
+
+### __call
+
+Call forwarder.
+
+```php
+public __call(string $method, array $arguments): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$method` | **string** |  |
+| `$arguments` | **array** |  |
 
 
 
@@ -168,39 +252,12 @@ public filterPrefix(array $arguments): array
 
 ***
 
-### listContents
+### invokePluginOnFilesystem
 
-List contents of a directory.
-
-```php
-public listContents(string $directory = &#039;&#039;, bool $recursive = false): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$directory` | **string** |  |
-| `$recursive` | **bool** |  |
-
-
-
-
-***
-
-### __call
-
-Call forwarder.
+Invoke a plugin on a filesystem mounted on a given prefix.
 
 ```php
-public __call(string $method, array $arguments): mixed
+public invokePluginOnFilesystem(string $method, array $arguments, string $prefix): mixed
 ```
 
 
@@ -216,34 +273,7 @@ public __call(string $method, array $arguments): mixed
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
-
-
-
-
-***
-
-### copy
-
-Copy a file.
-
-```php
-public copy(string $from, string $to, array $config = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$from` | **string** |  |
-| `$to` | **string** |  |
-| `$config` | **array** |  |
+| `$prefix` | **string** |  |
 
 
 
@@ -306,12 +336,12 @@ public move(string $from, string $to, array $config = []): bool
 
 ***
 
-### invokePluginOnFilesystem
+### rename
 
-Invoke a plugin on a filesystem mounted on a given prefix.
+Rename a file.
 
 ```php
-public invokePluginOnFilesystem(string $method, array $arguments, string $prefix): mixed
+public rename(string $path, string $newpath): bool
 ```
 
 
@@ -325,21 +355,145 @@ public invokePluginOnFilesystem(string $method, array $arguments, string $prefix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** |  |
-| `$arguments` | **array** |  |
-| `$prefix` | **string** |  |
+| `$path` | **string** | Path to the existing file. |
+| `$newpath` | **string** | The new path of the file. |
+
+
+**Return Value:**
+
+True on success, false on failure.
+
+
+
+***
+
+### setVisibility
+
+Set the visibility for a file.
+
+```php
+public setVisibility(string $path, string $visibility): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | The path to the file. |
+| `$visibility` | **string** | One of &#039;public&#039; or &#039;private&#039;. |
+
+
+**Return Value:**
+
+True on success, false on failure.
+
+
+
+***
+
+### copy
+
+Copy a file.
+
+```php
+public copy(string $from, string $to, array $config = []): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$from` | **string** |  |
+| `$to` | **string** |  |
+| `$config` | **array** |  |
 
 
 
 
 ***
 
-### getPrefixAndPath
+### readStream
 
-
+Retrieves a read-stream for a path.
 
 ```php
-protected getPrefixAndPath(string $path): string[]
+public readStream(string $path): resource|false
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | The path to the file. |
+
+
+**Return Value:**
+
+The path resource or false on failure.
+
+
+
+***
+
+### writeStream
+
+Write a new file using a stream.
+
+```php
+public writeStream(string $path, resource $resource, array $config = []): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | The path of the new file. |
+| `$resource` | **resource** | The file handle. |
+| `$config` | **array** | An optional configuration array. |
+
+
+**Return Value:**
+
+True on success, false on failure.
+
+
+
+***
+
+### delete
+
+Delete a file.
+
+```php
+public delete(string $path): bool
 ```
 
 
@@ -358,7 +512,7 @@ protected getPrefixAndPath(string $path): string[]
 
 **Return Value:**
 
-[:prefix, :path]
+True on success, false on failure.
 
 
 
@@ -415,36 +569,6 @@ public read(string $path): string|false
 **Return Value:**
 
 The file contents or false on failure.
-
-
-
-***
-
-### readStream
-
-Retrieves a read-stream for a path.
-
-```php
-public readStream(string $path): resource|false
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | The path to the file. |
-
-
-**Return Value:**
-
-The path resource or false on failure.
 
 
 
@@ -632,38 +756,6 @@ True on success, false on failure.
 
 ***
 
-### writeStream
-
-Write a new file using a stream.
-
-```php
-public writeStream(string $path, resource $resource, array $config = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | The path of the new file. |
-| `$resource` | **resource** | The file handle. |
-| `$config` | **array** | An optional configuration array. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
 ### update
 
 Update an existing file.
@@ -728,67 +820,6 @@ True on success, false on failure.
 
 ***
 
-### rename
-
-Rename a file.
-
-```php
-public rename(string $path, string $newpath): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | Path to the existing file. |
-| `$newpath` | **string** | The new path of the file. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### delete
-
-Delete a file.
-
-```php
-public delete(string $path): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
 ### deleteDir
 
 Delete a directory.
@@ -840,37 +871,6 @@ public createDir(string $dirname, array $config = []): bool
 |-----------|------|-------------|
 | `$dirname` | **string** | The name of the new directory. |
 | `$config` | **array** | An optional configuration array. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### setVisibility
-
-Set the visibility for a file.
-
-```php
-public setVisibility(string $path, string $visibility): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | The path to the file. |
-| `$visibility` | **string** | One of &#039;public&#039; or &#039;private&#039;. |
 
 
 **Return Value:**
@@ -1038,6 +1038,33 @@ public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 
 ***
 
+### __call
+
+Plugins pass-through.
+
+```php
+public __call(string $method, array $arguments): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$method` | **string** |  |
+| `$arguments` | **array** |  |
+
+
+
+
+***
+
 ### findPlugin
 
 Find a specific plugin.
@@ -1092,33 +1119,6 @@ protected invokePlugin(string $method, array $arguments, \League\Flysystem\Files
 
 ***
 
-### __call
-
-Plugins pass-through.
-
-```php
-public __call(string $method, array $arguments): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **string** |  |
-| `$arguments` | **array** |  |
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -325,33 +325,6 @@ public setUserOption(mixed $key, mixed $value): mixed
 
 ***
 
-### isResourceLocked
-
-
-
-```php
-public isResourceLocked(mixed $resourceId, mixed $ttl = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-| `$ttl` | **mixed** |  |
-
-
-
-
-***
-
 ### isResourceEditableByCurrentUser
 
 
@@ -373,6 +346,33 @@ public isResourceEditableByCurrentUser(mixed $resourceId, mixed& $meta = null): 
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
 | `$meta` | **mixed** |  |
+
+
+
+
+***
+
+### isResourceLocked
+
+
+
+```php
+public isResourceLocked(mixed $resourceId, mixed $ttl = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+| `$ttl` | **mixed** |  |
 
 
 
@@ -583,4 +583,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

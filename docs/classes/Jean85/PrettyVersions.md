@@ -19,32 +19,6 @@
 ## Methods
 
 
-### getVersion
-
-
-
-```php
-public static getVersion(string $packageName): \Jean85\Version
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$packageName` | **string** |  |
-
-
-
-
-***
-
 ### getRootPackageName
 
 
@@ -85,6 +59,32 @@ public static getRootPackageVersion(): \Jean85\Version
 
 ***
 
+### getVersion
+
+
+
+```php
+public static getVersion(string $packageName): \Jean85\Version
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$packageName` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

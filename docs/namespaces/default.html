@@ -404,6 +404,8 @@
             <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/Stringable.html"><abbr title="\Stringable">Stringable</abbr></a></dt>
         <dd></dd>
     
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/admin.html"><abbr title="\admin">admin</abbr></a></dt>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/onBuildContextAction.html"><abbr title="\onBuildContextAction">onBuildContextAction</abbr></a></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/onBuildExceptionAction.html"><abbr title="\onBuildExceptionAction">onBuildExceptionAction</abbr></a></dt>
@@ -421,6 +423,8 @@
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/onFinalAction.html"><abbr title="\onFinalAction">onFinalAction</abbr></a></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/onSendAction.html"><abbr title="\onSendAction">onSendAction</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/onSentAction.html"><abbr title="\onSentAction">onSentAction</abbr></a></dt>
         <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/onWriteAction.html"><abbr title="\onWriteAction">onWriteAction</abbr></a></dt>
         <dd></dd>
@@ -549,7 +553,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_COCKPIT_API_REQUEST">COCKPIT_API_REQUEST</a>
     <span>
-        &nbsp;= \str_contains($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0                            </span>
+        &nbsp;= str_contains($_SERVER[&#039;REQUEST_URI&#039;], COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0                            </span>
 </dt>
 <dd></dd>
 
@@ -570,7 +574,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_COCKPIT_BASE_ROUTE">COCKPIT_BASE_ROUTE</a>
     <span>
-        &nbsp;= \strlen($COCKPIT_BASE) ? &quot;/{$COCKPIT_BASE}&quot; : $COCKPIT_BASE                            </span>
+        &nbsp;= strlen($COCKPIT_BASE) ? &quot;/{$COCKPIT_BASE}&quot; : $COCKPIT_BASE                            </span>
 </dt>
 <dd></dd>
 
@@ -934,7 +938,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -963,7 +967,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
@@ -1139,9 +1143,9 @@ file that was distributed with this source code.</p>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/index.php"><a href="files/app-index.html"><abbr title="app/index.php">index.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/admin.php"><a href="files/app-admin.html"><abbr title="app/admin.php">admin.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -1197,9 +1201,9 @@ file that was distributed with this source code.</p>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/index.php"><a href="files/app-index.html"><abbr title="app/index.php">index.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/admin.php"><a href="files/app-admin.html"><abbr title="app/admin.php">admin.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -1208,7 +1212,7 @@ file that was distributed with this source code.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">COCKPIT_API_REQUEST</span>
-    = <span class="phpdocumentor-signature__default-value">\str_contains($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0</span>
+    = <span class="phpdocumentor-signature__default-value">str_contains($_SERVER[&#039;REQUEST_URI&#039;], COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0</span>
 </code>
 
 
@@ -1284,9 +1288,9 @@ file that was distributed with this source code.</p>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/index.php"><a href="files/app-index.html"><abbr title="app/index.php">index.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/admin.php"><a href="files/app-admin.html"><abbr title="app/admin.php">admin.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -1295,7 +1299,7 @@ file that was distributed with this source code.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">COCKPIT_BASE_ROUTE</span>
-    = <span class="phpdocumentor-signature__default-value">\strlen($COCKPIT_BASE) ? &quot;/{$COCKPIT_BASE}&quot; : $COCKPIT_BASE</span>
+    = <span class="phpdocumentor-signature__default-value">strlen($COCKPIT_BASE) ? &quot;/{$COCKPIT_BASE}&quot; : $COCKPIT_BASE</span>
 </code>
 
 
@@ -2040,7 +2044,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -2125,9 +2129,9 @@ file that was distributed with this source code.</p>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/action/onSentAction.php"><a href="files/app-lib-action-onsentaction.html"><abbr title="app/lib/action/onSentAction.php">onSentAction.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -2230,7 +2234,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/install/index.php"><a href="files/app-lib-cockpit-install-index.html"><abbr title="app/lib/cockpit/install/index.php">index.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -2269,7 +2273,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/Lexy.php"><a href="files/app-lib-cockpit-lib-lexy.html"><abbr title="app/lib/cockpit/lib/Lexy.php">Lexy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">434</span>
+    <span class="phpdocumentor-element-found-in__line">456</span>
 
     </aside>
 
@@ -2340,7 +2344,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/Lexy.php"><a href="files/app-lib-cockpit-lib-lexy.html"><abbr title="app/lib/cockpit/lib/Lexy.php">Lexy.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">440</span>
+    <span class="phpdocumentor-element-found-in__line">463</span>
 
     </aside>
 
@@ -2435,7 +2439,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/Spyc.php"><a href="files/app-lib-cockpit-lib-spyc.html"><abbr title="app/lib/cockpit/lib/Spyc.php">Spyc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -2475,7 +2479,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/Spyc.php"><a href="files/app-lib-cockpit-lib-spyc.html"><abbr title="app/lib/cockpit/lib/Spyc.php">Spyc.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -2679,7 +2683,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php"><a href="files/app-lib-cockpit-lib-vendor-symfony-polyfill-php80-bootstrap.html"><abbr title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -2707,7 +2711,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php"><a href="files/app-lib-cockpit-lib-vendor-symfony-polyfill-php80-bootstrap.html"><abbr title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -2754,7 +2758,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php"><a href="files/app-lib-cockpit-lib-vendor-symfony-polyfill-php80-bootstrap.html"><abbr title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -2801,7 +2805,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php"><a href="files/app-lib-cockpit-lib-vendor-symfony-polyfill-php80-bootstrap.html"><abbr title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -2848,7 +2852,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php"><a href="files/app-lib-cockpit-lib-vendor-symfony-polyfill-php80-bootstrap.html"><abbr title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -2887,7 +2891,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php"><a href="files/app-lib-cockpit-lib-vendor-symfony-polyfill-php80-bootstrap.html"><abbr title="app/lib/cockpit/lib/vendor/symfony/polyfill-php80/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -2989,7 +2993,7 @@ http://php.net/manual/en/function.json-decode.php for more information.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/modules/Collections/bootstrap.php"><a href="files/app-lib-cockpit-modules-collections-bootstrap.html"><abbr title="app/lib/cockpit/modules/Collections/bootstrap.php">bootstrap.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">659</span>
+    <span class="phpdocumentor-element-found-in__line">660</span>
 
     </aside>
 

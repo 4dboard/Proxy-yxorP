@@ -266,15 +266,15 @@ public connect(string $host, int|bool $port = false, int $tval = 30): bool
 
 ***
 
-### login
+### setError
 
-Log in to the POP3 server.
+Add an error to the internal error store.
 
 ```php
-public login(string $username = &#039;&#039;, string $password = &#039;&#039;): bool
+protected setError(string $error): mixed
 ```
 
-Does not support APOP (RFC 2828, 4949).
+Also display debug output if it's enabled.
 
 
 
@@ -285,28 +285,7 @@ Does not support APOP (RFC 2828, 4949).
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$username` | **string** |  |
-| `$password` | **string** |  |
-
-
-
-
-***
-
-### disconnect
-
-Disconnect from the POP3 server.
-
-```php
-public disconnect(): mixed
-```
-
-
-
-
-
-
-
+| `$error` | **string** |  |
 
 
 
@@ -339,32 +318,6 @@ protected getResponse(int $size = 128): string
 
 ***
 
-### sendString
-
-Send raw data to the POP3 server.
-
-```php
-protected sendString(string $string): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$string` | **string** |  |
-
-
-
-
-***
-
 ### checkResponse
 
 Checks the POP3 server response.
@@ -391,15 +344,15 @@ Looks for for +OK or -ERR.
 
 ***
 
-### setError
+### login
 
-Add an error to the internal error store.
+Log in to the POP3 server.
 
 ```php
-protected setError(string $error): mixed
+public login(string $username = &#039;&#039;, string $password = &#039;&#039;): bool
 ```
 
-Also display debug output if it's enabled.
+Does not support APOP (RFC 2828, 4949).
 
 
 
@@ -410,7 +363,54 @@ Also display debug output if it's enabled.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$error` | **string** |  |
+| `$username` | **string** |  |
+| `$password` | **string** |  |
+
+
+
+
+***
+
+### sendString
+
+Send raw data to the POP3 server.
+
+```php
+protected sendString(string $string): int
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$string` | **string** |  |
+
+
+
+
+***
+
+### disconnect
+
+Disconnect from the POP3 server.
+
+```php
+public disconnect(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -468,4 +468,4 @@ protected catchWarning(int $errno, string $errstr, string $errfile, int $errline
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

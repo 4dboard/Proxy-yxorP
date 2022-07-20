@@ -14,96 +14,6 @@
 ## Methods
 
 
-### pathinfo
-
-Get normalized pathinfo.
-
-```php
-public static pathinfo(string $path): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-
-
-**Return Value:**
-
-pathinfo
-
-
-
-***
-
-### normalizeDirname
-
-Normalize a dirname return value.
-
-```php
-public static normalizeDirname(string $dirname): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$dirname` | **string** |  |
-
-
-**Return Value:**
-
-normalized dirname
-
-
-
-***
-
-### dirname
-
-Get a normalized dirname from a path.
-
-```php
-public static dirname(string $path): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-
-
-**Return Value:**
-
-dirname
-
-
-
-***
-
 ### map
 
 Map result arrays.
@@ -339,6 +249,150 @@ listing with emulated directories
 
 ***
 
+### emulateObjectDirectories
+
+Emulate the directories of a single object.
+
+```php
+protected static emulateObjectDirectories(array $object, array $directories, array $listedDirectories): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$object` | **array** |  |
+| `$directories` | **array** |  |
+| `$listedDirectories` | **array** |  |
+
+
+
+
+***
+
+### dirname
+
+Get a normalized dirname from a path.
+
+```php
+public static dirname(string $path): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+**Return Value:**
+
+dirname
+
+
+
+***
+
+### normalizeDirname
+
+Normalize a dirname return value.
+
+```php
+public static normalizeDirname(string $dirname): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$dirname` | **string** |  |
+
+
+**Return Value:**
+
+normalized dirname
+
+
+
+***
+
+### pathinfo
+
+Get normalized pathinfo.
+
+```php
+public static pathinfo(string $path): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+**Return Value:**
+
+pathinfo
+
+
+
+***
+
+### basename
+
+Returns the trailing name component of the path.
+
+```php
+private static basename(string $path): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+
+
+***
+
 ### ensureConfig
 
 Ensure a Config instance.
@@ -451,60 +505,6 @@ stream size
 
 ***
 
-### emulateObjectDirectories
-
-Emulate the directories of a single object.
-
-```php
-protected static emulateObjectDirectories(array $object, array $directories, array $listedDirectories): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$object` | **array** |  |
-| `$directories` | **array** |  |
-| `$listedDirectories` | **array** |  |
-
-
-
 
 ***
-
-### basename
-
-Returns the trailing name component of the path.
-
-```php
-private static basename(string $path): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

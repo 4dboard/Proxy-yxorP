@@ -302,6 +302,26 @@ public each(mixed $callable): object
 
 ***
 
+### rewind
+
+Iterator implementation
+
+```php
+public rewind(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### toArray
 
 Get documents matching criteria
@@ -328,26 +348,6 @@ Get documents matching criteria
 
 ```php
 protected getData(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### rewind
-
-Iterator implementation
-
-```php
-public rewind(): mixed
 ```
 
 
@@ -444,4 +444,4 @@ public valid(): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

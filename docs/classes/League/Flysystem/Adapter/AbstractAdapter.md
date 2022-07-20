@@ -49,12 +49,12 @@ protected string $pathSeparator
 ## Methods
 
 
-### setPathPrefix
+### applyPathPrefix
 
-Set the path prefix.
+Prefix a path.
 
 ```php
-public setPathPrefix(string $prefix): void
+public applyPathPrefix(string $path): string
 ```
 
 
@@ -68,8 +68,12 @@ public setPathPrefix(string $prefix): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$prefix` | **string** |  |
+| `$path` | **string** |  |
 
+
+**Return Value:**
+
+prefixed path
 
 
 
@@ -99,12 +103,12 @@ path prefix or null if pathPrefix is empty
 
 ***
 
-### applyPathPrefix
+### setPathPrefix
 
-Prefix a path.
+Set the path prefix.
 
 ```php
-public applyPathPrefix(string $path): string
+public setPathPrefix(string $prefix): void
 ```
 
 
@@ -118,12 +122,8 @@ public applyPathPrefix(string $path): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** |  |
+| `$prefix` | **string** |  |
 
-
-**Return Value:**
-
-prefixed path
 
 
 
@@ -161,4 +161,4 @@ path without the prefix
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -263,12 +263,12 @@ public execute(\MongoDB\Driver\Server $server): \Traversable
 
 ***
 
-### getCommandDocument
+### hasWriteStage
 
 
 
 ```php
-public getCommandDocument(\MongoDB\Driver\Server $server): mixed
+private hasWriteStage(): bool
 ```
 
 
@@ -277,12 +277,6 @@ public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$server` | **\MongoDB\Driver\Server** |  |
 
 
 
@@ -366,12 +360,12 @@ private createOptions(bool $hasWriteStage, bool $hasExplain): array
 
 ***
 
-### hasWriteStage
+### getCommandDocument
 
 
 
 ```php
-private hasWriteStage(): bool
+public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 ```
 
 
@@ -381,6 +375,12 @@ private hasWriteStage(): bool
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$server` | **\MongoDB\Driver\Server** |  |
+
 
 
 
@@ -388,4 +388,4 @@ private hasWriteStage(): bool
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

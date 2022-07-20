@@ -265,6 +265,36 @@ be selected with complex syntax (e.g. $database->{"system.profile"}) or
 
 ***
 
+### selectCollection
+
+Select a collection within this database.
+
+```php
+public selectCollection(string $collectionName, array $options = []): \MongoDB\Collection
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collectionName` | **string** | Name of the collection to select |
+| `$options` | **array** | Collection constructor options |
+
+
+
+**See Also:**
+
+* \MongoDB\Collection::__construct() - for supported options
+
+***
+
 ### __toString
 
 Return the database name.
@@ -663,36 +693,6 @@ public modifyCollection(string $collectionName, array $collectionOptions, array 
 
 ***
 
-### selectCollection
-
-Select a collection within this database.
-
-```php
-public selectCollection(string $collectionName, array $options = []): \MongoDB\Collection
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collectionName` | **string** | Name of the collection to select |
-| `$options` | **array** | Collection constructor options |
-
-
-
-**See Also:**
-
-* \MongoDB\Collection::__construct() - for supported options
-
-***
-
 ### selectGridFSBucket
 
 Select a GridFS bucket within this database.
@@ -783,4 +783,4 @@ public withOptions(array $options = []): \MongoDB\Database
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

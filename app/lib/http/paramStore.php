@@ -63,14 +63,23 @@ class paramStore
 
     /* Normalizing the key. */
 
+    private function normalizeKey($key)
+    {
+        /* Checking if the `$case_sensitive` variable is true, and if it is, it will return the `$key` parameter. If it is
+        not, it will return the `$key` parameter in lowercase. */
+        return $this->case_sensitive ? $key : strtolower($key);
+    }
+
+
+    /* Checking if the `$key` parameter is in the `$data` variable. */
+
     #[Pure] public function has($key): bool
     {
         /* Checking if the `$key` parameter is in the `$data` variable. */
         return isset($this->data[$this->normalizeKey($key)]);
     }
 
-
-    /* Checking if the `$key` parameter is in the `$data` variable. */
+    /* Removing the `$key` parameter from the `$data` variable. */
 
     public function remove($key): void
     {
@@ -78,7 +87,8 @@ class paramStore
         unset($this->data[$this->normalizeKey($key)]);
     }
 
-    /* Removing the `$key` parameter from the `$data` variable. */
+    /* Getting the value of the `$key` parameter from the `$data` variable. If the `$key` parameter is not in the
+    `$data` variable, it will return the `$default` parameter. */
 
     #[Pure] public function get($key, $default = null)
     {
@@ -89,28 +99,18 @@ class paramStore
         return $this->has($key) ? $this->data[$key] : $default;
     }
 
-    /* Getting the value of the `$key` parameter from the `$data` variable. If the `$key` parameter is not in the
-    `$data` variable, it will return the `$default` parameter. */
+    /* Returning the `$data` variable. */
 
     public function all(): array
     {
         return $this->data;
     }
 
-    /* Returning the `$data` variable. */
+    /* Returning the `$data` variable as a JSON string. */
 
     public function __toString()
     {
         /* Returning the `$data` variable as a JSON string. */
         return json_encode($this->data);
-    }
-
-    /* Returning the `$data` variable as a JSON string. */
-
-    private function normalizeKey($key)
-    {
-        /* Checking if the `$case_sensitive` variable is true, and if it is, it will return the `$key` parameter. If it is
-        not, it will return the `$key` parameter in lowercase. */
-        return $this->case_sensitive ? $key : strtolower($key);
     }
 }

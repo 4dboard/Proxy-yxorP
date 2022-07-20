@@ -51,32 +51,6 @@ protected $items
 ## Methods
 
 
-### create
-
-
-
-```php
-public static create( $items): \DataCollection
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$items` | **** |  |
-
-
-
-
-***
-
 ### __construct
 
 
@@ -103,20 +77,26 @@ public __construct( $items): mixed
 
 ***
 
-### count
+### create
 
 
 
 ```php
-public count(): int
+public static create( $items): \DataCollection
 ```
 
 
 
+* This method is **static**.
 
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$items` | **** |  |
 
 
 
@@ -177,6 +157,32 @@ public reverse(): \DataCollection
 
 
 
+
+
+
+
+***
+
+### setItems
+
+
+
+```php
+protected setItems( $items): \DataCollection
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$items` | **** |  |
 
 
 
@@ -366,32 +372,6 @@ public eq( $index): bool
 
 ***
 
-### setItems
-
-
-
-```php
-protected setItems( $items): \DataCollection
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$items` | **** |  |
-
-
-
-
-***
-
 ### pagination
 
 
@@ -413,6 +393,26 @@ public pagination( $limit = 5,  $current = 1): \Pagination
 |-----------|------|-------------|
 | `$limit` | **** |  |
 | `$current` | **** |  |
+
+
+
+
+***
+
+### count
+
+
+
+```php
+public count(): int
+```
+
+
+
+
+
+
+
 
 
 
@@ -541,4 +541,4 @@ public valid(): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

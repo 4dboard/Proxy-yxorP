@@ -113,26 +113,6 @@ public __toString(): string
 
 ***
 
-### getKey
-
-Return the index key.
-
-```php
-public getKey(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getName
 
 Return the index name.
@@ -199,6 +179,26 @@ Return whether or not this index is of type 2dsphere.
 
 ```php
 public is2dSphere(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getKey
+
+Return the index key.
+
+```php
+public getKey(): array
 ```
 
 
@@ -443,4 +443,4 @@ public offsetUnset(mixed $key): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

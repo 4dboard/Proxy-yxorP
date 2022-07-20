@@ -207,12 +207,12 @@ public write(mixed $path, mixed $contents, \League\Flysystem\Config $config): mi
 
 ***
 
-### writeStream
+### setVisibility
 
 
 
 ```php
-public writeStream(mixed $path, mixed $resource, \League\Flysystem\Config $config): mixed
+public setVisibility(mixed $path, mixed $visibility): mixed
 ```
 
 
@@ -227,8 +227,7 @@ public writeStream(mixed $path, mixed $resource, \League\Flysystem\Config $confi
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-| `$resource` | **mixed** |  |
-| `$config` | **\League\Flysystem\Config** |  |
+| `$visibility` | **mixed** |  |
 
 
 
@@ -267,6 +266,34 @@ public readStream(mixed $path): mixed
 
 ```php
 public updateStream(mixed $path, mixed $resource, \League\Flysystem\Config $config): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** |  |
+| `$resource` | **mixed** |  |
+| `$config` | **\League\Flysystem\Config** |  |
+
+
+
+
+***
+
+### writeStream
+
+
+
+```php
+public writeStream(mixed $path, mixed $resource, \League\Flysystem\Config $config): mixed
 ```
 
 
@@ -450,12 +477,143 @@ public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): 
 
 ***
 
-### getMetadata
+### getRecursiveDirectoryIterator
 
 
 
 ```php
-public getMetadata(mixed $path): mixed
+protected getRecursiveDirectoryIterator(string $path, int $mode = RecursiveIteratorIterator::SELF_FIRST): \RecursiveIteratorIterator
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+| `$mode` | **int** |  |
+
+
+
+
+***
+
+### getDirectoryIterator
+
+
+
+```php
+protected getDirectoryIterator(string $path): \DirectoryIterator
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+
+
+***
+
+### getFilePath
+
+Get the normalized path from a SplFileInfo object.
+
+```php
+protected getFilePath(\SplFileInfo $file): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **\SplFileInfo** |  |
+
+
+
+
+***
+
+### normalizeFileInfo
+
+Normalize the file info.
+
+```php
+protected normalizeFileInfo(\SplFileInfo $file): array|void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **\SplFileInfo** |  |
+
+
+
+
+***
+
+### mapFileInfo
+
+
+
+```php
+protected mapFileInfo(\SplFileInfo $file): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **\SplFileInfo** |  |
+
+
+
+
+***
+
+### getSize
+
+
+
+```php
+public getSize(mixed $path): mixed
 ```
 
 
@@ -476,12 +634,12 @@ public getMetadata(mixed $path): mixed
 
 ***
 
-### getSize
+### getMetadata
 
 
 
 ```php
-public getSize(mixed $path): mixed
+public getMetadata(mixed $path): mixed
 ```
 
 
@@ -580,33 +738,6 @@ public getVisibility(mixed $path): mixed
 
 ***
 
-### setVisibility
-
-
-
-```php
-public setVisibility(mixed $path, mixed $visibility): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** |  |
-| `$visibility` | **mixed** |  |
-
-
-
-
-***
-
 ### createDir
 
 
@@ -660,163 +791,6 @@ public deleteDir(mixed $dirname): mixed
 
 ***
 
-### deleteFileInfoObject
-
-
-
-```php
-protected deleteFileInfoObject(\SplFileInfo $file): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **\SplFileInfo** |  |
-
-
-
-
-***
-
-### normalizeFileInfo
-
-Normalize the file info.
-
-```php
-protected normalizeFileInfo(\SplFileInfo $file): array|void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **\SplFileInfo** |  |
-
-
-
-
-***
-
-### getFilePath
-
-Get the normalized path from a SplFileInfo object.
-
-```php
-protected getFilePath(\SplFileInfo $file): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **\SplFileInfo** |  |
-
-
-
-
-***
-
-### getRecursiveDirectoryIterator
-
-
-
-```php
-protected getRecursiveDirectoryIterator(string $path, int $mode = RecursiveIteratorIterator::SELF_FIRST): \RecursiveIteratorIterator
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-| `$mode` | **int** |  |
-
-
-
-
-***
-
-### getDirectoryIterator
-
-
-
-```php
-protected getDirectoryIterator(string $path): \DirectoryIterator
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-
-
-
-
-***
-
-### mapFileInfo
-
-
-
-```php
-protected mapFileInfo(\SplFileInfo $file): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **\SplFileInfo** |  |
-
-
-
-
-***
-
 ### guardAgainstUnreadableFileInfo
 
 
@@ -843,16 +817,12 @@ protected guardAgainstUnreadableFileInfo(\SplFileInfo $file): mixed
 
 ***
 
+### deleteFileInfoObject
 
-## Inherited methods
 
-
-### setPathPrefix
-
-Set the path prefix.
 
 ```php
-public setPathPrefix(string $prefix): void
+protected deleteFileInfoObject(\SplFileInfo $file): mixed
 ```
 
 
@@ -866,8 +836,42 @@ public setPathPrefix(string $prefix): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$prefix` | **string** |  |
+| `$file` | **\SplFileInfo** |  |
 
+
+
+
+***
+
+
+## Inherited methods
+
+
+### applyPathPrefix
+
+Prefix a path.
+
+```php
+public applyPathPrefix(string $path): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+**Return Value:**
+
+prefixed path
 
 
 
@@ -897,12 +901,12 @@ path prefix or null if pathPrefix is empty
 
 ***
 
-### applyPathPrefix
+### setPathPrefix
 
-Prefix a path.
+Set the path prefix.
 
 ```php
-public applyPathPrefix(string $path): string
+public setPathPrefix(string $prefix): void
 ```
 
 
@@ -916,12 +920,8 @@ public applyPathPrefix(string $path): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** |  |
+| `$prefix` | **string** |  |
 
-
-**Return Value:**
-
-prefixed path
 
 
 
@@ -959,4 +959,4 @@ path without the prefix
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

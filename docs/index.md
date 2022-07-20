@@ -41,6 +41,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`Spyc`](./classes/Spyc.md) | The Simple PHP YAML Class.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
+| [`admin`](./classes/admin.md) | |
 | [`onBuildContextAction`](./classes/onBuildContextAction.md) | |
 | [`onBuildExceptionAction`](./classes/onBuildExceptionAction.md) | |
 | [`onBuildHeadersAction`](./classes/onBuildHeadersAction.md) | |
@@ -50,6 +51,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`onCompleteAction`](./classes/onCompleteAction.md) | |
 | [`onFinalAction`](./classes/onFinalAction.md) | |
 | [`onSendAction`](./classes/onSendAction.md) | |
+| [`onSentAction`](./classes/onSentAction.md) | |
 | [`onWriteAction`](./classes/onWriteAction.md) | |
 
 
@@ -782,7 +784,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`cache`](./classes/yxorP/app/lib/http/cache.md) | |
 | [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | |
 | [`request`](./classes/yxorP/app/lib/http/request.md) | |
-| [`response`](./classes/yxorP/app/lib/http/response.md) | |
 | [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | |
 
 
@@ -899,10 +900,13 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`blockListPluginAction`](./classes/yxorP/app/plugin/blockListPluginAction.md) | |
 | [`cookiePluginAction`](./classes/yxorP/app/plugin/cookiePluginAction.md) | |
+| [`dailyMotionPluginAction`](./classes/yxorP/app/plugin/dailyMotionPluginAction.md) | |
 | [`headerRewritePluginAction`](./classes/yxorP/app/plugin/headerRewritePluginAction.md) | |
 | [`logPluginAction`](./classes/yxorP/app/plugin/logPluginAction.md) | |
 | [`proxifyPluginAction`](./classes/yxorP/app/plugin/proxifyPluginAction.md) | |
 | [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | |
+| [`twitterPluginAction`](./classes/yxorP/app/plugin/twitterPluginAction.md) | |
+| [`youtubePluginAction`](./classes/yxorP/app/plugin/youtubePluginAction.md) | |
 
 
 
@@ -920,4 +924,4 @@ This is an automatically generated documentation for **Documentation**.
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

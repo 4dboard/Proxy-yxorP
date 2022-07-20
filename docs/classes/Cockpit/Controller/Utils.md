@@ -309,12 +309,12 @@ public __construct(mixed $app): mixed
 
 ***
 
-### index
+### before
 
 
 
 ```php
-public index(): string
+protected before(): mixed
 ```
 
 
@@ -329,12 +329,12 @@ public index(): string
 
 ***
 
-### before
+### index
 
 
 
 ```php
-protected before(): mixed
+public index(): string
 ```
 
 
@@ -583,4 +583,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

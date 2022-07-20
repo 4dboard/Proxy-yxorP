@@ -272,6 +272,26 @@ Supported options:
 
 ***
 
+### registerStreamWrapper
+
+Registers the GridFS stream wrapper if it is not already registered.
+
+```php
+private registerStreamWrapper(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### __debugInfo
 
 Return internal properties for debugging purposes.
@@ -322,6 +342,26 @@ attempt to delete orphaned chunks.
 
 ***
 
+### getFilesNamespace
+
+Returns the names of the files collection.
+
+```php
+private getFilesNamespace(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### downloadToStream
 
 Writes the contents of a GridFS file to a writable stream.
@@ -343,6 +383,84 @@ public downloadToStream(mixed $id, resource $destination): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** | File ID |
 | `$destination` | **resource** | Writable Stream |
+
+
+
+
+***
+
+### openDownloadStream
+
+Opens a readable stream for reading a GridFS file.
+
+```php
+public openDownloadStream(mixed $id): resource
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** | File ID |
+
+
+
+
+***
+
+### openDownloadStreamByFile
+
+Opens a readable stream for the GridFS file.
+
+```php
+private openDownloadStreamByFile(\stdClass $file): resource
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **\stdClass** | GridFS file document |
+
+
+
+
+***
+
+### createPathForFile
+
+Creates a path for an existing GridFS file.
+
+```php
+private createPathForFile(\stdClass $file): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **\stdClass** | GridFS file document |
 
 
 
@@ -384,6 +502,47 @@ Revision numbers are defined as follows:
 |-----------|------|-------------|
 | `$filename` | **string** | Filename |
 | `$destination` | **resource** | Writable Stream |
+| `$options` | **array** | Download options |
+
+
+
+
+***
+
+### openDownloadStreamByName
+
+Opens a readable stream stream to read a GridFS file, which is selected
+by name and revision.
+
+```php
+public openDownloadStreamByName(string $filename, array $options = []): resource
+```
+
+Supported options:
+
+ * revision (integer): Which revision (i.e. documents with the same
+   filename and different uploadDate) of the file to retrieve. Defaults
+   to -1 (i.e. the most recent revision).
+
+Revision numbers are defined as follows:
+
+ * 0 = the original stored file
+ * 1 = the first revision
+ * 2 = the second revision
+ * etc…
+ * -2 = the second most recent revision
+ * -1 = the most recent revision
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$filename` | **string** | Filename |
 | `$options` | **array** | Download options |
 
 
@@ -580,15 +739,16 @@ public getFileDocumentForStream(resource $stream): array|object
 
 ***
 
-### getFileIdForStream
+### getRawFileDocumentForStream
 
-Gets the file document's ID of the GridFS file associated with a stream.
+Gets the file document of the GridFS file associated with a stream.
 
 ```php
-public getFileIdForStream(resource $stream): mixed
+private getRawFileDocumentForStream(resource $stream): \stdClass
 ```
 
-
+This returns the raw document from the StreamWrapper, which does not
+respect the Bucket's type map.
 
 
 
@@ -712,111 +872,6 @@ public getWriteConcern(): \MongoDB\Driver\WriteConcern
 
 ***
 
-### openDownloadStream
-
-Opens a readable stream for reading a GridFS file.
-
-```php
-public openDownloadStream(mixed $id): resource
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$id` | **mixed** | File ID |
-
-
-
-
-***
-
-### openDownloadStreamByName
-
-Opens a readable stream stream to read a GridFS file, which is selected
-by name and revision.
-
-```php
-public openDownloadStreamByName(string $filename, array $options = []): resource
-```
-
-Supported options:
-
- * revision (integer): Which revision (i.e. documents with the same
-   filename and different uploadDate) of the file to retrieve. Defaults
-   to -1 (i.e. the most recent revision).
-
-Revision numbers are defined as follows:
-
- * 0 = the original stored file
- * 1 = the first revision
- * 2 = the second revision
- * etc…
- * -2 = the second most recent revision
- * -1 = the most recent revision
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$filename` | **string** | Filename |
-| `$options` | **array** | Download options |
-
-
-
-
-***
-
-### openUploadStream
-
-Opens a writable stream for writing a GridFS file.
-
-```php
-public openUploadStream(string $filename, array $options = []): resource
-```
-
-Supported options:
-
-* _id (mixed): File document identifier. Defaults to a new ObjectId.
-
-* chunkSizeBytes (integer): The chunk size in bytes. Defaults to the
-  bucket's chunk size.
-
-* disableMD5 (boolean): When true, no MD5 sum will be generated for
-  the stored file. Defaults to "false".
-
-* metadata (document): User data for the "metadata" field of the files
-  collection document.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$filename` | **string** | Filename |
-| `$options` | **array** | Upload options |
-
-
-
-
-***
-
 ### rename
 
 Renames the GridFS file with the specified ID.
@@ -887,15 +942,26 @@ ID of the newly created GridFS file
 
 ***
 
-### createPathForFile
+### openUploadStream
 
-Creates a path for an existing GridFS file.
+Opens a writable stream for writing a GridFS file.
 
 ```php
-private createPathForFile(\stdClass $file): string
+public openUploadStream(string $filename, array $options = []): resource
 ```
 
+Supported options:
 
+* _id (mixed): File document identifier. Defaults to a new ObjectId.
+
+* chunkSizeBytes (integer): The chunk size in bytes. Defaults to the
+  bucket's chunk size.
+
+* disableMD5 (boolean): When true, no MD5 sum will be generated for
+  the stored file. Defaults to "false".
+
+* metadata (document): User data for the "metadata" field of the files
+  collection document.
 
 
 
@@ -906,7 +972,8 @@ private createPathForFile(\stdClass $file): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$file` | **\stdClass** | GridFS file document |
+| `$filename` | **string** | Filename |
+| `$options` | **array** | Upload options |
 
 
 
@@ -933,36 +1000,15 @@ private createPathForUpload(): string
 
 ***
 
-### getFilesNamespace
+### getFileIdForStream
 
-Returns the names of the files collection.
+Gets the file document's ID of the GridFS file associated with a stream.
 
 ```php
-private getFilesNamespace(): string
+public getFileIdForStream(resource $stream): mixed
 ```
 
 
-
-
-
-
-
-
-
-
-
-***
-
-### getRawFileDocumentForStream
-
-Gets the file document of the GridFS file associated with a stream.
-
-```php
-private getRawFileDocumentForStream(resource $stream): \stdClass
-```
-
-This returns the raw document from the StreamWrapper, which does not
-respect the Bucket's type map.
 
 
 
@@ -980,52 +1026,6 @@ respect the Bucket's type map.
 
 ***
 
-### openDownloadStreamByFile
-
-Opens a readable stream for the GridFS file.
-
-```php
-private openDownloadStreamByFile(\stdClass $file): resource
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **\stdClass** | GridFS file document |
-
-
-
 
 ***
-
-### registerStreamWrapper
-
-Registers the GridFS stream wrapper if it is not already registered.
-
-```php
-private registerStreamWrapper(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

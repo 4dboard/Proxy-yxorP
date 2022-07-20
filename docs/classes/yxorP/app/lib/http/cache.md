@@ -66,6 +66,32 @@ public static isValid(?string $key = null): bool
 
 ***
 
+### gen
+
+
+
+```php
+private static gen(?string $key): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **?string** |  |
+
+
+
+
+***
+
 ### fetch
 
 
@@ -85,6 +111,34 @@ public static fetch(?string $key = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$key` | **?string** |  |
+
+
+
+
+***
+
+### set
+
+
+
+```php
+public static set(mixed $mime, mixed $content, ?string $key = null): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$mime` | **mixed** |  |
+| `$content` | **mixed** |  |
 | `$key` | **?string** |  |
 
 
@@ -119,59 +173,6 @@ public static store(mixed $val, ?string $key = null): void
 
 ***
 
-### set
-
-
-
-```php
-public static set(mixed $content, ?string $key = null): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$content` | **mixed** |  |
-| `$key` | **?string** |  |
-
-
-
 
 ***
-
-### gen
-
-
-
-```php
-private static gen(?string $key): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **?string** |  |
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

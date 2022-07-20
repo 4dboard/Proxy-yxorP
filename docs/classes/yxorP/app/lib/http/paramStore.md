@@ -147,6 +147,32 @@ public set(mixed $key, mixed $value, mixed $replace = true): void
 
 ***
 
+### normalizeKey
+
+
+
+```php
+private normalizeKey(mixed $key): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+
+
+
+
+***
+
 ### has
 
 
@@ -266,32 +292,6 @@ public __toString(): mixed
 
 ***
 
-### normalizeKey
-
-
-
-```php
-private normalizeKey(mixed $key): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **mixed** |  |
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

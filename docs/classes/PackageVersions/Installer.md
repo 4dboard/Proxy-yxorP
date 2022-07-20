@@ -35,87 +35,6 @@ private static $generatedClassTemplate
 ## Methods
 
 
-### activate
-
-
-
-```php
-public activate(\Composer\Composer $composer, \Composer\IO\IOInterface $io): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$composer` | **\Composer\Composer** |  |
-| `$io` | **\Composer\IO\IOInterface** |  |
-
-
-
-
-***
-
-### deactivate
-
-
-
-```php
-public deactivate(\Composer\Composer $composer, \Composer\IO\IOInterface $io): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$composer` | **\Composer\Composer** |  |
-| `$io` | **\Composer\IO\IOInterface** |  |
-
-
-
-
-***
-
-### uninstall
-
-
-
-```php
-public uninstall(\Composer\Composer $composer, \Composer\IO\IOInterface $io): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$composer` | **\Composer\Composer** |  |
-| `$io` | **\Composer\IO\IOInterface** |  |
-
-
-
-
-***
-
 ### getSubscribedEvents
 
 {@inheritDoc}
@@ -156,6 +75,33 @@ public static dumpVersionsClass(\Composer\Script\Event $composerEvent): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$composerEvent` | **\Composer\Script\Event** |  |
+
+
+
+
+***
+
+### getVersions
+
+
+
+```php
+private static getVersions(\Composer\Package\Locker $locker, \Composer\Package\RootPackageInterface $rootPackage): \Generator&amp;string[]
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$locker` | **\Composer\Package\Locker** |  |
+| `$rootPackage` | **\Composer\Package\RootPackageInterface** |  |
 
 
 
@@ -270,17 +216,17 @@ private static getRootPackageAlias(\Composer\Package\RootPackageInterface $rootP
 
 ***
 
-### getVersions
+### activate
 
 
 
 ```php
-private static getVersions(\Composer\Package\Locker $locker, \Composer\Package\RootPackageInterface $rootPackage): \Generator&amp;string[]
+public activate(\Composer\Composer $composer, \Composer\IO\IOInterface $io): mixed
 ```
 
 
 
-* This method is **static**.
+
 
 
 
@@ -289,8 +235,62 @@ private static getVersions(\Composer\Package\Locker $locker, \Composer\Package\R
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$locker` | **\Composer\Package\Locker** |  |
-| `$rootPackage` | **\Composer\Package\RootPackageInterface** |  |
+| `$composer` | **\Composer\Composer** |  |
+| `$io` | **\Composer\IO\IOInterface** |  |
+
+
+
+
+***
+
+### deactivate
+
+
+
+```php
+public deactivate(\Composer\Composer $composer, \Composer\IO\IOInterface $io): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$composer` | **\Composer\Composer** |  |
+| `$io` | **\Composer\IO\IOInterface** |  |
+
+
+
+
+***
+
+### uninstall
+
+
+
+```php
+public uninstall(\Composer\Composer $composer, \Composer\IO\IOInterface $io): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$composer` | **\Composer\Composer** |  |
+| `$io` | **\Composer\IO\IOInterface** |  |
 
 
 
@@ -299,4 +299,4 @@ private static getVersions(\Composer\Package\Locker $locker, \Composer\Package\R
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

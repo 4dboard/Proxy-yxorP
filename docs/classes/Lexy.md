@@ -120,60 +120,6 @@ public static render(mixed $content, mixed $params = array(), mixed $sandbox = f
 
 ***
 
-### render_file
-
-[render_file description]
-
-```php
-public static render_file(mixed $file, array $params = array(), bool $sandbox = false): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **mixed** |  |
-| `$params` | **array** | [description] |
-| `$sandbox` | **bool** | [description] |
-
-
-
-
-***
-
-### setCachePath
-
-[setcachePath description]
-
-```php
-public setCachePath(mixed $path): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** |  |
-
-
-
-
-***
-
 ### execute
 
 [execute description]
@@ -197,6 +143,34 @@ public execute(mixed $content, array $params = array(), bool $sandbox = false, m
 | `$params` | **array** | [description] |
 | `$sandbox` | **bool** | [description] |
 | `$srcinfo` | **mixed** |  |
+
+
+
+
+***
+
+### render_file
+
+[render_file description]
+
+```php
+public static render_file(mixed $file, array $params = array(), bool $sandbox = false): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **mixed** |  |
+| `$params` | **array** | [description] |
+| `$sandbox` | **bool** | [description] |
 
 
 
@@ -342,58 +316,6 @@ protected compile(mixed $text, bool $sandbox = false): mixed
 
 ***
 
-### allowCall
-
-
-
-```php
-public allowCall(mixed $call): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$call` | **mixed** |  |
-
-
-
-
-***
-
-### extend
-
-
-
-```php
-public extend(mixed $compiler): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$compiler` | **mixed** |  |
-
-
-
-
-***
-
 ### check_security
 
 [check_security description]
@@ -440,6 +362,84 @@ protected check_syntax(mixed $code): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
+
+
+
+
+***
+
+### setCachePath
+
+[setcachePath description]
+
+```php
+public setCachePath(mixed $path): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** |  |
+
+
+
+
+***
+
+### allowCall
+
+
+
+```php
+public allowCall(mixed $call): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$call` | **mixed** |  |
+
+
+
+
+***
+
+### extend
+
+
+
+```php
+public extend(mixed $compiler): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$compiler` | **mixed** |  |
 
 
 
@@ -656,4 +656,4 @@ protected compile_extensions(string $value): string
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

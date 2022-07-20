@@ -318,33 +318,6 @@ public find(): mixed
 
 ***
 
-### revisions
-
-
-
-```php
-public revisions(mixed $collection, mixed $id): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$id` | **mixed** |  |
-
-
-
-
-***
-
 ### _filter
 
 
@@ -367,6 +340,33 @@ protected _filter(mixed $filter, mixed $collection, mixed $lang = null): mixed
 | `$filter` | **mixed** |  |
 | `$collection` | **mixed** |  |
 | `$lang` | **mixed** |  |
+
+
+
+
+***
+
+### revisions
+
+
+
+```php
+public revisions(mixed $collection, mixed $id): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **mixed** |  |
+| `$id` | **mixed** |  |
 
 
 
@@ -403,12 +403,12 @@ public __construct(mixed $app): mixed
 
 ***
 
-### index
+### before
 
 
 
 ```php
-public index(): string
+protected before(): mixed
 ```
 
 
@@ -423,12 +423,12 @@ public index(): string
 
 ***
 
-### before
+### index
 
 
 
 ```php
-protected before(): mixed
+public index(): string
 ```
 
 
@@ -677,4 +677,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

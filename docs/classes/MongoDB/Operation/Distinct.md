@@ -208,32 +208,6 @@ public execute(\MongoDB\Driver\Server $server): array
 
 ***
 
-### getCommandDocument
-
-
-
-```php
-public getCommandDocument(\MongoDB\Driver\Server $server): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$server` | **\MongoDB\Driver\Server** |  |
-
-
-
-
-***
-
 ### createCommandDocument
 
 Create the distinct command document.
@@ -277,6 +251,32 @@ private createOptions(): array
 
 ***
 
+### getCommandDocument
+
+
+
+```php
+public getCommandDocument(\MongoDB\Driver\Server $server): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$server` | **\MongoDB\Driver\Server** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -78,53 +78,6 @@ public __construct(mixed $array = [], mixed $bindTo = null): mixed
 
 ***
 
-### extend
-
-
-
-```php
-public extend(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### get
-
-
-
-```php
-public get(mixed $key, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **mixed** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
 ### count
 
 
@@ -185,6 +138,32 @@ public getIterator(): mixed
 
 ***
 
+### __get
+
+
+
+```php
+public __get(mixed $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
 ### __set
 
 
@@ -212,12 +191,12 @@ public __set(mixed $name, mixed $value): mixed
 
 ***
 
-### __get
+### extend
 
 
 
 ```php
-public __get(mixed $name): mixed
+public extend(): mixed
 ```
 
 
@@ -226,12 +205,6 @@ public __get(mixed $name): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
 
 
 
@@ -370,6 +343,60 @@ public offsetGet(mixed $key): mixed
 
 ***
 
+### get
+
+
+
+```php
+public get(mixed $key, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
+### fetch_from_array
+
+
+
+```php
+protected fetch_from_array(mixed $index = null, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$index` | **mixed** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
 ### offsetExists
 
 
@@ -416,33 +443,6 @@ public offsetUnset(mixed $key): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
-
-***
-
-### fetch_from_array
-
-
-
-```php
-protected fetch_from_array(mixed $index = null, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$index` | **mixed** |  |
-| `$default` | **mixed** |  |
 
 
 
@@ -607,4 +607,4 @@ public jsonSerialize(): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

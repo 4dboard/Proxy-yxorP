@@ -66,6 +66,26 @@ public static rootPackageName(): string
 
 ***
 
+### composer2ApiUsable
+
+
+
+```php
+private static composer2ApiUsable(): bool
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### getVersion
 
 
@@ -92,26 +112,6 @@ public static getVersion(string $packageName): string
 
 ***
 
-### composer2ApiUsable
-
-
-
-```php
-private static composer2ApiUsable(): bool
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

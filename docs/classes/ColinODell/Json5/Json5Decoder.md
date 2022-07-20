@@ -197,6 +197,32 @@ private __construct(string $json, bool $associative = false, int $depth = 512, b
 
 ***
 
+### getByte
+
+
+
+```php
+private getByte(int $at): null
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$at` | **int** |  |
+
+
+
+
+***
+
 ### decode
 
 Takes a JSON encoded string and converts it into a PHP variable.
@@ -227,41 +253,16 @@ http://php.net/manual/en/function.json-decode.php for more information.
 
 ***
 
-### getByte
+### value
 
-
-
-```php
-private getByte(int $at): null
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$at` | **int** |  |
-
-
-
-
-***
-
-### currentChar
-
-
+Parse a JSON value.
 
 ```php
-private currentChar(): string|null
+private value(): mixed
 ```
 
-
+It could be an object, an array, a string, a number,
+or a word.
 
 
 
@@ -273,12 +274,34 @@ private currentChar(): string|null
 
 ***
 
-### next
+### white
 
-Parse the next character.
+Skip whitespace and comments.
 
 ```php
-private next(): null|string
+private white(): mixed
+```
+
+Note that we're detecting comments by only a single / character.
+This works since regular expressions are not valid JSON(5), but this will
+break if there are other valid values that begin with a / character!
+
+
+
+
+
+
+
+
+
+***
+
+### comment
+
+Skip a comment, whether inline or block-level, assuming this is one.
+
+```php
+private comment(): mixed
 ```
 
 
@@ -313,284 +336,6 @@ private nextOrFail(string $c): string|null
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$c` | **string** |  |
-
-
-
-
-***
-
-### peek
-
-Get the next character without consuming it or
-assigning it to the ch variable.
-
-```php
-private peek(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### match
-
-Attempt to match a regular expression at the current position on the current line.
-
-```php
-private match(string $regex): string|null
-```
-
-This function will not match across multiple lines.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$regex` | **string** |  |
-
-
-
-
-***
-
-### identifier
-
-Parse an identifier.
-
-```php
-private identifier(): mixed
-```
-
-Normally, reserved words are disallowed here, but we
-only use this for unquoted object keys, where reserved words are allowed,
-so we don't check for those here. References:
-- http://es5.github.com/#x7.6
-- https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Core_Language_Features#Variables
-- http://docstore.mik.ua/orelly/webprog/jscript/ch02_07.htm
-
-
-
-
-
-
-
-
-
-***
-
-### number
-
-
-
-```php
-private number(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### string
-
-
-
-```php
-private string(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### inlineComment
-
-Skip an inline comment, assuming this is one.
-
-```php
-private inlineComment(): mixed
-```
-
-The current character should be the second / character in the // pair that begins this inline comment.
-To finish the inline comment, we look for a newline or the end of the text.
-
-
-
-
-
-
-
-
-
-***
-
-### blockComment
-
-Skip a block comment, assuming this is one.
-
-```php
-private blockComment(): mixed
-```
-
-The current character should be the * character in the /* pair that begins this block comment.
-To finish the block comment, we look for an ending *​/ pair of characters,
-but we also watch for the end of text before the comment is terminated.
-
-
-
-
-
-
-
-
-
-***
-
-### comment
-
-Skip a comment, whether inline or block-level, assuming this is one.
-
-```php
-private comment(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### white
-
-Skip whitespace and comments.
-
-```php
-private white(): mixed
-```
-
-Note that we're detecting comments by only a single / character.
-This works since regular expressions are not valid JSON(5), but this will
-break if there are other valid values that begin with a / character!
-
-
-
-
-
-
-
-
-
-***
-
-### word
-
-Matches true, false, null, etc
-
-```php
-private word(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### arr
-
-
-
-```php
-private arr(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### obj
-
-Parse an object value
-
-```php
-private obj(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### value
-
-Parse a JSON value.
-
-```php
-private value(): mixed
-```
-
-It could be an object, an array, a string, a number,
-or a word.
-
-
-
-
-
 
 
 
@@ -649,6 +394,176 @@ private static renderChar(mixed $chr): mixed
 
 ***
 
+### currentChar
+
+
+
+```php
+private currentChar(): string|null
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### next
+
+Parse the next character.
+
+```php
+private next(): null|string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### peek
+
+Get the next character without consuming it or
+assigning it to the ch variable.
+
+```php
+private peek(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### inlineComment
+
+Skip an inline comment, assuming this is one.
+
+```php
+private inlineComment(): mixed
+```
+
+The current character should be the second / character in the // pair that begins this inline comment.
+To finish the inline comment, we look for a newline or the end of the text.
+
+
+
+
+
+
+
+
+
+***
+
+### blockComment
+
+Skip a block comment, assuming this is one.
+
+```php
+private blockComment(): mixed
+```
+
+The current character should be the * character in the /* pair that begins this block comment.
+To finish the block comment, we look for an ending *​/ pair of characters,
+but we also watch for the end of text before the comment is terminated.
+
+
+
+
+
+
+
+
+
+***
+
+### obj
+
+Parse an object value
+
+```php
+private obj(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### string
+
+
+
+```php
+private string(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### match
+
+Attempt to match a regular expression at the current position on the current line.
+
+```php
+private match(string $regex): string|null
+```
+
+This function will not match across multiple lines.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$regex` | **string** |  |
+
+
+
+
+***
+
 ### getEscapee
 
 
@@ -675,6 +590,91 @@ private static getEscapee(string $ch): string|null
 
 ***
 
+### identifier
+
+Parse an identifier.
+
+```php
+private identifier(): mixed
+```
+
+Normally, reserved words are disallowed here, but we
+only use this for unquoted object keys, where reserved words are allowed,
+so we don't check for those here. References:
+- http://es5.github.com/#x7.6
+- https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Core_Language_Features#Variables
+- http://docstore.mik.ua/orelly/webprog/jscript/ch02_07.htm
+
+
+
+
+
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+### arr
+
+
+
+```php
+private arr(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### number
+
+
+
+```php
+private number(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### word
+
+Matches true, false, null, etc
+
+```php
+private word(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

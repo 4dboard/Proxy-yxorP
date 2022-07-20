@@ -108,32 +108,6 @@ public __construct(string $path = self::DSN_PATH_MEMORY, array $options = []): m
 
 ***
 
-### registerCriteriaFunction
-
-Register Criteria function
-
-```php
-public registerCriteriaFunction(mixed $criteria): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$criteria` | **mixed** |  |
-
-
-
-
-***
-
 ### callCriteriaFunction
 
 Execute registred criteria function
@@ -155,6 +129,32 @@ public callCriteriaFunction(string $id, array $document): bool
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$document` | **array** |  |
+
+
+
+
+***
+
+### registerCriteriaFunction
+
+Register Criteria function
+
+```php
+public registerCriteriaFunction(mixed $criteria): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$criteria` | **mixed** |  |
 
 
 
@@ -201,32 +201,6 @@ public drop(): mixed
 
 ***
 
-### createCollection
-
-Create a collection
-
-```php
-public createCollection(string $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
 ### dropCollection
 
 Drop a collection
@@ -253,26 +227,6 @@ public dropCollection(string $name): mixed
 
 ***
 
-### getCollectionNames
-
-Get all collection names in the database
-
-```php
-public getCollectionNames(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### listCollections
 
 Get all collections in the database
@@ -293,12 +247,12 @@ public listCollections(): array
 
 ***
 
-### selectCollection
+### getCollectionNames
 
-Select collection
+Get all collection names in the database
 
 ```php
-public selectCollection(string $name): object
+public getCollectionNames(): array
 ```
 
 
@@ -307,12 +261,6 @@ public selectCollection(string $name): object
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
 
 
 
@@ -345,6 +293,58 @@ public __get(mixed $collection): mixed
 
 ***
 
+### selectCollection
+
+Select collection
+
+```php
+public selectCollection(string $name): object
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-16 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+### createCollection
+
+Create a collection
+
+```php
+public createCollection(string $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

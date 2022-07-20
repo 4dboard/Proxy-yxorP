@@ -737,7 +737,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -745,7 +745,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getColor</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sourceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quality</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$area</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getColor</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sourceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quality</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$area</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|bool</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -772,10 +772,17 @@ likelihood that colors will be missed.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$area</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>[x,y,w,h] It allows you to specify a rectangular area in the image in order to get
+colors only for this area. It needs to be an associative array with the
+following keys:
+$area['x']: The x-coordinate of the top left corner of the area. Default to 0.
+$area['y']: The y-coordinate of the top left corner of the area. Default to 0.
+$area['w']: The width of the area. Default to image width minus x-coordinate.
+$area['h']: The height of the area. Default to image height minus y-coordinate.</p>
+</section>
 
             </dd>
             </dl>
@@ -816,7 +823,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -880,7 +887,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">290</span>
 
     </aside>
 
@@ -930,7 +937,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -938,7 +945,7 @@ likelihood that colors will be missed.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getPalette</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sourceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$colorCount</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quality</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$area</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getPalette</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sourceImage</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$colorCount</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$quality</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">10</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$area</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -972,10 +979,11 @@ likelihood that colors will be missed.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$area</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>[x,y,w,h]</p>
+</section>
 
             </dd>
             </dl>
@@ -1016,7 +1024,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">309</span>
 
     </aside>
 
@@ -1066,7 +1074,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">269</span>
+    <span class="phpdocumentor-element-found-in__line">469</span>
 
     </aside>
 
@@ -1129,7 +1137,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">392</span>
+    <span class="phpdocumentor-element-found-in__line">446</span>
 
     </aside>
 
@@ -1178,7 +1186,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">162</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -1247,7 +1255,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">312</span>
+    <span class="phpdocumentor-element-found-in__line">366</span>
 
     </aside>
 
@@ -1296,7 +1304,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">460</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 
@@ -1356,7 +1364,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">414</span>
+    <span class="phpdocumentor-element-found-in__line">321</span>
 
     </aside>
 
@@ -1413,7 +1421,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">343</span>
+    <span class="phpdocumentor-element-found-in__line">397</span>
 
     </aside>
 
@@ -1474,7 +1482,7 @@ likelihood that colors will be missed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php"><a href="files/app-lib-cockpit-lib-vendor-ksubileau-color-thief-php-lib-colorthief-colorthief.html"><abbr title="app/lib/cockpit/lib/vendor/ksubileau/color-thief-php/lib/ColorThief/ColorThief.php">ColorThief.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">259</span>
 
     </aside>
 

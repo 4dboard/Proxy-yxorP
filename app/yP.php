@@ -19,7 +19,7 @@ include 'constants.php';
  */
 
 use Bugsnag\Client;
-use FileCookieJar;
+use GuzzleHttp\FileCookieJar;
 use RuntimeException;
 use yxorP\app\lib\http\cache;
 use yxorP\app\lib\http\helpers;
@@ -53,6 +53,8 @@ class yP
      */
     final public static function proxy(string $root, array|null $request = null): void
     {
+
+        define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
         /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `yP`
         class. */
@@ -100,7 +102,7 @@ class yP
         self::tmp(VAR_BUGSNAG, Client::make(self::get(ENV_BUGSNAG_KEY)));
 
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
-        self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOCKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOCKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
@@ -116,9 +118,8 @@ class yP
     {
         /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
-        foreach (['PATH_DIR_COCKPIT' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT, 'PATH_COCKPIT_LOCAL' => DIR_ROOT . DIR_INSTALL . DIR_COCKPIT, 'PATH_COCKPIT_INDEX' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX, 'PATH_REWRITE' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE, 'PATH_COCKPIT_BOOTSTRAP' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP, 'PATH_INC_WRAPPER' => DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER, 'PATH_TLDS_ALPHA_BY_DOMAIN' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN, 'PATH_PUBLIC_SUFFIX_LIST' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST, 'PATH_FILE_MIME_TYPES' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES, 'PATH_GUZZLE' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE, 'PATH_BUGSNAG' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG] as $key => $value) define($key, $value);
+        foreach (['PATH_COOCKIE_JAR' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOCKIE_JAR, 'PATH_DIR_COCKPIT' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT, 'PATH_COCKPIT_LOCAL' => DIR_ROOT . DIR_INSTALL . DIR_COCKPIT, 'PATH_COCKPIT_INDEX' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX, 'PATH_REWRITE' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE, 'PATH_COCKPIT_BOOTSTRAP' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP, 'PATH_INC_WRAPPER' => DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER, 'PATH_TLDS_ALPHA_BY_DOMAIN' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN, 'PATH_PUBLIC_SUFFIX_LIST' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST, 'PATH_FILE_MIME_TYPES' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES, 'PATH_GUZZLE' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE, 'PATH_BUGSNAG' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG] as $key => $value) define($key, $value);
 
         /* Checking if the files exist in the directory. */
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset . DIRECTORY_SEPARATOR);        // Reporting
