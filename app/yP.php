@@ -21,7 +21,6 @@ include 'constants.php';
 use Bugsnag\Client;
 use GuzzleHttp\FileCookieJar;
 use RuntimeException;
-use yxorP\app\lib\http\cache;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\parser\RulesParser;
 
