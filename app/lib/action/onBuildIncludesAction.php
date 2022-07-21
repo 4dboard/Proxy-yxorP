@@ -12,6 +12,7 @@ class onBuildIncludesAction extends wrapper
     public function onBuildIncludes(): void
     {
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
+        echo YXORP_DIR_FULL;
         yP::assetLoader(YXORP_DIR_FULL);
         /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
         recursive. */
