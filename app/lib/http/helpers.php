@@ -441,7 +441,6 @@ class helpers
             $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
             /* Checking if the file extension is in the array of mime types. If it is, it sets the mime type to the value
             of the array key. If it is not, it sets the mime type to text/html. */
-            echo $_ext;
             if (array_key_exists($_ext, $mimeTypes)) $mime = $mimeTypes[$_ext]; else $mime = 'text' . CHAR_SLASH . 'html';
         }
 
