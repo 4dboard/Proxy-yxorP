@@ -527,12 +527,9 @@ function checkFor(e, t, i, c, l) {
     if (l && typeof l === 'function' && document.querySelectorAll('#' + i).length) return l();
 }
 
-headxr = "<a href='/'><img height='20px' src='/don.png?ver=001' /></a> <n id='nav'><a class='g'  href='https://www.xn--gme-nnb.com/'>Game.com</a><a class='p'  href='https://www.xn--ply-onb.com/'>Play.com</a></n><m>You make the impossible possible on our site every day, no matter where you are!<m>";
-
 function onChangePlay() {
     if (document.querySelectorAll('img[alt="Error"]').length) window.location = window.location.href
     checkFor("canvas", "canvas", "octo", null, octo);
-    checkFor("header", "h", "headxr", headxr, null);
 }
 
 window.onpopstate = function (event) {
