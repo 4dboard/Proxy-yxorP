@@ -23,8 +23,5 @@ sudo touch -p ../app/lib/data/cookie_jar.txt
 sudo chown root: ../app/lib/data/cookie_jar.txt
 sudo chmod 777 ../app/lib/data/cookie_jar.txt
 
-sudo chown root: ../app/lib/data/cookie_jar.txt
-sudo chmod 777 ../app/lib/data/cookie_jar.txt
-/var/cache/pagespeed/
 sudo tail -f /var/log/apache2/error.log
 
