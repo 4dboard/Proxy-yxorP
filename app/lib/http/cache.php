@@ -45,7 +45,7 @@ class cache
 
     public static function set($mime, $content, ?string $key = null): void
     {
-        self::store($GLOBALS[$_SERVER['HTTP_HOST']], CACHE_KEY_CONTEXT);
+        self::store($GLOBALS[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
 
         file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . $mime . '");' . str_replace([' ', "\n"], '', <<<'EOF'
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 

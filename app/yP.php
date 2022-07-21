@@ -139,7 +139,7 @@ class yP
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return $GLOBALS[$_SERVER['HTTP_HOST']][$_name] = $_value;
+        return $GLOBALS[YXORP_HTTP_HOST][$_name] = $_value;
     }
 
     /**
@@ -152,7 +152,7 @@ class yP
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS[$_SERVER['HTTP_HOST']])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_SERVER['HTTP_HOST']][$_name] = $_value;
+        return (array_key_exists($_name, $GLOBALS[YXORP_HTTP_HOST])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[YXORP_HTTP_HOST][$_name] = $_value;
     }
 
     /**
@@ -198,7 +198,7 @@ class yP
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
-        return $GLOBALS[$_SERVER['HTTP_HOST']][$_name] ?: $GLOBALS[VAR_TMP_STORE][$_name];
+        return $GLOBALS[YXORP_HTTP_HOST][$_name] ?: $GLOBALS[VAR_TMP_STORE][$_name];
     }
 
     /**
