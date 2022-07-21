@@ -18,6 +18,13 @@ sudo mkdir -p /var/cache/pagespeed/
 sudo chown root: /var/cache/pagespeed/
 sudo chmod 777 /var/cache/pagespeed/
 
+
+sudo rm -r /var/cache/pagespeed_meta/
+sudo mkdir -p /var/cache/pagespeed_meta/
+sudo chown root: /var/cache/pagespeed_meta/
+sudo chmod 777 /var/cache/pagespeed_meta/
+
+
 sudo rm ../app/lib/data/cookie_jar.txt
 sudo touch -p ../app/lib/data/cookie_jar.txt
 sudo chown root: ../app/lib/data/cookie_jar.txt
