@@ -17,11 +17,11 @@ class admin
 
 
         define('COCKPIT_BASE_ROUTE', strlen($COCKPIT_BASE) ? "/{$COCKPIT_BASE}" : $COCKPIT_BASE);
-        define('COCKPIT_API_REQUEST', str_contains($_SERVER['REQUEST_URI'], COCKPIT_BASE_ROUTE . '/api/') ? 1 : 0);
+        define('COCKPIT_API_REQUEST', str_contains(YXORP_REQUEST_URI, COCKPIT_BASE_ROUTE . '/api/') ? 1 : 0);
 
 
         // define admin route
-        $route = preg_replace('#' . preg_quote(COCKPIT_BASE_ROUTE, '#') . '#', '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
+        $route = preg_replace('#' . preg_quote(COCKPIT_BASE_ROUTE, '#') . '#', '', parse_url(YXORP_REQUEST_URI, PHP_URL_PATH), 1);
         define('COCKPIT_ADMIN_ROUTE', $route == '' ? '/' : $route);
 
 
