@@ -450,4 +450,13 @@ class helpers
         header('Content-Type: ' . $mime . ';charset=UTF-8');
     }
 
+
+    private static function replace($content): string
+    {
+        /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class. */
+        return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
+            return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
+        }], $content) ?: $content;
+    }
+
 }
