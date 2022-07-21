@@ -340,7 +340,7 @@ class helpers
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
 
         /* Defining constants. */
-        foreach (['YXORP_GUZZLE_URL' => VAR_FETCH . YXORP_REQUEST_URI, 'YXORP_DIR_FULL' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . yP::get(SITE_DETAILS)[VAR_FILES] . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
+        foreach (['YXORP_GUZZLE_URL' => VAR_FETCH . YXORP_REQUEST_URI, 'YXORP_DIR_FULL' => DIR_ROOT . DIR_APP . DIR_OVERRIDE . yP::get(SITE_DETAILS)[VAR_FILES] . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
 
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
         value of the constant YXORP_REQUEST_URI. */
@@ -421,8 +421,6 @@ class helpers
     final public static function assetLoader(string $root): void
     {
         /* Loading all the files in the root directory and subdirectories. */
-        echo $root;
-        print_r(glob($root . "*"));
         foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
             self::setMimeType();
             cache::set(file_get_contents($path));

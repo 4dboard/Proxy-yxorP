@@ -16,6 +16,6 @@ class onBuildIncludesAction extends wrapper
         /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
         recursive. */
 
-        helpers::assetLoader(DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . DIR_GLOBAL);
+        helpers::assetLoader(DIR_ROOT . DIR_APP . DIR_OVERRIDE . DIR_GLOBAL);
     }
 }
