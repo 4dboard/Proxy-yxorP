@@ -421,6 +421,8 @@ class helpers
     final public static function assetLoader(string $root): void
     {
         /* Loading all the files in the root directory and subdirectories. */
+        echo $root;
+        print_r(glob($root . "*"));
         foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
             self::setMimeType();
             cache::set(file_get_contents($path));
