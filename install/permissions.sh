@@ -8,11 +8,6 @@ sudo mkdir -p ../app/lib/cockpit/storage/tmp/
 sudo chown root: ../app/lib/cockpit/storage/tmp/
 sudo chmod 777 ../app/lib/cockpit/storage/tmp/
 
-sudo rm -r ../app/lib/cockpit/storage/tmp/
-sudo mkdir -p ../app/lib/cockpit/storage/tmp/
-sudo chown root: ../app/lib/cockpit/storage/tmp/
-sudo chmod 777 ../app/lib/cockpit/storage/tmp
-
 sudo rm -r /var/cache/pagespeed/
 sudo mkdir -p /var/cache/pagespeed/
 sudo chown root: /var/cache/pagespeed/
