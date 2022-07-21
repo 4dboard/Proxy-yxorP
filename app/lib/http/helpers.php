@@ -418,7 +418,7 @@ class helpers
      * @return void
      */
 
-    final public static function assetLoader(string $root): void
+    public static function assetLoader(string $root): void
     {
         /* Loading all the files in the root directory and subdirectories. */
         foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
