@@ -8,6 +8,11 @@ sudo mkdir -p ../app/lib/cockpit/storage/tmp/
 sudo chown root: ../app/lib/cockpit/storage/tmp/
 sudo chmod 777 ../app/lib/cockpit/storage/tmp/
 
+sudo rm -r /var/log/pagespeed
+sudo mkdir -p /var/log/pagespeed
+sudo chown root: /var/log/pagespeed
+sudo chmod 777 /var/log/pagespeed
+
 sudo rm -r /var/cache/pagespeed/
 sudo mkdir -p /var/cache/pagespeed/
 sudo chown root: /var/cache/pagespeed/
@@ -17,6 +22,11 @@ sudo rm ../app/lib/data/cookie_jar.txt
 sudo touch -p ../app/lib/data/cookie_jar.txt
 sudo chown root: ../app/lib/data/cookie_jar.txt
 sudo chmod 777 ../app/lib/data/cookie_jar.txt
+
+sudo rm /var/log/apache2/error.log
+sudo touch -p /var/log/apache2/error.log
+sudo chown root: /var/log/apache2/error.log
+sudo chmod 777 /var/log/apache2/error.log
 
 sudo tail -f /var/log/apache2/error.log
 
