@@ -389,23 +389,6 @@ class helpers
     }
 
     /**
-     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-
-    final public static function assetLoader(string $root): void
-    {
-        /* Loading all the files in the root directory and subdirectories. */
-        foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
-            self::setMimeType();
-            cache::set(file_get_contents($path));
-        }
-    }
-
-    /**
      * @param string $domain
      * @return mixed
      * A function that returns the public suffix of a domain.
@@ -427,7 +410,25 @@ class helpers
         return json_decode(file_get_contents($file), true);
     }
 
+    /**
+     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+
+    final public static function assetLoader(string $root): void
+    {
+        /* Loading all the files in the root directory and subdirectories. */
+        foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
+            self::setMimeType();
+            cache::set(file_get_contents($path));
+        }
+    }
+
     /* Defining a static method called mime. */
+
     public static function setMimeType(): void
     {
 
