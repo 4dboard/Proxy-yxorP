@@ -228,9 +228,6 @@ img {
     border: 2px solid var(--theme-bg-color);
 }
 
-.light-mode .content-section ul {
-    background-color: var(--theme-bg-color);
-}
 
 .light-mode .pop-up__title {
     border-color: var(--theme-color);
