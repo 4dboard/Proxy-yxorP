@@ -126,7 +126,6 @@ class yP
     {
         $classes = [];
         foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
-        print_r($classes);
         foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
