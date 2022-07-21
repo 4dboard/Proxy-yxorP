@@ -104,7 +104,7 @@ class yP
 
         /* Loading the actions. */
         self::loadActions();
-        
+
         /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
         if (!CACHED_CONTEXT) if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
@@ -126,6 +126,7 @@ class yP
     {
         $classes = [];
         foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        print_r($classes);
         foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
