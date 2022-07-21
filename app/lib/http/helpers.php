@@ -310,17 +310,14 @@ class helpers
         /* Defining a constant called yP::get(YXORP_SERVER) and setting it to the value of $req. */
         yP::tmp(VAR_SERVER, $req);
 
-        /* Defining a constant called yP::get(YXORP_DOMAIN) and setting it to the value of $req. Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        foreach (['YXORP_SITE_URL' => YXORP_HTTP_HOST, 'YXORP_REQUEST_URI' => REQUEST_URI] as $key => $value) define($key, yP::get(VAR_SERVER)[$value]);
-
         /* Checking if the site url contains a period. If it does, it returns false. */
-        define('YXORP_IS_LOCALHOST', !str_contains(YXORP_SITE_URL, CHAR_PERIOD));
+        define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        if (!CACHED_CONTEXT) yP::set(SITE_DOMAIN, !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_SITE_URL ?: yP::get(ENV_DEFAULT_SITE))) : YXORP_SITE_URL);
+        if (!CACHED_CONTEXT) yP::set(SITE_DOMAIN, !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::get(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST);
 
         /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
-        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->domain()->toString() : YXORP_SITE_URL, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
+        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         if (!CACHED_CONTEXT) yP::set(SITE_DETAILS, yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]));
@@ -345,9 +342,9 @@ class helpers
         /* Defining constants. */
         foreach (['YXORP_GUZZLE_URL' => VAR_FETCH . YXORP_REQUEST_URI, 'YXORP_DIR_FULL' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . yP::get(SITE_DETAILS)[VAR_FILES] . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
 
-        /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
+        /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
         value of the constant YXORP_REQUEST_URI. */
-        define('YXORP_REQUEST_URI_FULL', YXORP_SITE_URL . YXORP_REQUEST_URI);
+        define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
 
         /* Setting the global variables for the application. */
         if (!CACHED_CONTEXT) foreach ([YXORP_GLOBAL_REPLACE => yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null, YXORP_REWRITE => helpers::JSON(PATH_REWRITE)] as $key => $value) yP::set($key, $value);
