@@ -3,7 +3,7 @@
 foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Methods: "POST,GET,OPTIONS" always', 'Access-Control-Allow-Credentials: true always', 'Access-Control-Allow-Headers: "Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials" always', 'Cache-Control: "max-age=36000000" always'] as $head) header($head);
 /* Initialise minimum definable varibles */
 if (!defined('CHAR_SLASH')) {
-    foreach (['CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'EXT_TEXT' => 'text', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
+    foreach (['CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'EXT_TEXT' => 'txt', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
     foreach (['FILE_TMP' => CHAR_PERIOD . VAR_TMP, 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'DIR_TMP' => VAR_TMP . DIRECTORY_SEPARATOR . urlencode($_SERVER['HTTP_HOST']) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
     foreach (['CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode($_SERVER['HTTP_HOST']), '+/=', '._-')), 'FILE_COOCKIE_JAR' => COOCKIE_JAR . EXT_TEXT, 'CACHE_KEY' => rtrim(strtr(base64_encode($_SERVER['REQUEST_URI']), '+/=', '._-')), 'PATH_TMP_DIR' => __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP] as $key => $value) define($key, $value);
     define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
