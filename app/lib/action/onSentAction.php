@@ -19,7 +19,7 @@ class onSentAction extends wrapper
         "application/wasm". */
         if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (yP::get(VAR_RESPONSE)) $mime = yP::get(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
             /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
-            $mimeTypes = json_decode(file_get_contents(DIR_ROOT . DIR_LIB . DIR_DATA . 'mime' . CHAR_PERIOD . 'json'), true);
+            $mimeTypes = json_decode(file_get_contents(DIR_ROOT . DIR_LIB . DIR_DATA . 'mime' . CHAR_PERIOD . EXT_JSON), true);
             /* Getting the file extension of the requested file. */
             $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
             /* Checking if the file extension is in the array of mime types. If it is, it sets the mime type to the value
