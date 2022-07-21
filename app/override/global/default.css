@@ -56,7 +56,7 @@ h ~ h {
 }
 
 #headxr a {
-    padding: 0.5rem 1.5rem !important;
+    padding: 10px !important;
     cursor: pointer !important;
     color: #ccc !important;
     text-decoration: none !important;
