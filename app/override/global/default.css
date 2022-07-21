@@ -79,12 +79,12 @@ h ~ h {
 
 #headxr m {
     position: absolute !important;
-    font-size: 9px !important;
+    font-size: 8px !important;
     color: #fff !important;
     text-shadow: -1px 0 12px #fff;
     font-style: italic !important;
-    bottom: 5px !important;
-    left: 38px !important;
+    bottom: -2px !important;
+    left: 32px !important;
 }
 
 #nav {
