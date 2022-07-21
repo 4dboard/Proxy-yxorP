@@ -15,6 +15,6 @@ class onFinalAction extends wrapper
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
         /* Getting the response object from the global variables. */
-        if (yP::get(VAR_RESPONSE)) cache::set(MIME, yP::get(VAR_RESPONSE)->getBody());
+        if (yP::get(VAR_RESPONSE)) cache::set(yP::get(VAR_RESPONSE)->getBody());
     }
 }
