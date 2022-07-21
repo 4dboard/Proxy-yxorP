@@ -1,6 +1,6 @@
 <div>
     <div class="uk-panel uk-panel-space uk-panel-box uk-panel-card">
-        <img src="@url('assets:app/media/icons/layout.svg')" width="50" height="50" alt="yxorP"/>
+        <img src="@url('assets:app/media/icons/globe.svg')" width="50" height="50" alt="yxorP"/>
 
         <div class="uk-text-truncate uk-margin">
             yxorP
