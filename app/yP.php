@@ -250,7 +250,8 @@ class yP
     {
         /* Loading all the files in the root directory and subdirectories. */
         foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
-            cache::set($content = file_get_contents($path));
+            helpers::setMimeType();
+            cache::set(file_get_contents($path));
         }
     }
 
