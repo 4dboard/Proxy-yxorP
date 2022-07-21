@@ -1,5 +1,5 @@
 yxorP:
-  logo: "/favicon.png"
+  logo: "/lib/cockpit/favicon.png"
   logoWidth: 8em    # optional, default: 30px
   logoHeight: 3em   # optional, default: 30px
   hideName: true    # hide app name
