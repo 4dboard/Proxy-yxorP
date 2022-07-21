@@ -340,7 +340,7 @@ class helpers
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
 
         /* Defining constants. */
-        foreach (['YXORP_GUZZLE_URL' => VAR_FETCH . YXORP_REQUEST_URI, 'YXORP_DIR_FULL' => DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('/', '', yP::get(SITE_DETAILS)[VAR_FILES]) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
+        foreach (['YXORP_GUZZLE_URL' => VAR_FETCH . YXORP_REQUEST_URI, 'YXORP_DIR_FULL' => DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\', '', yP::get(SITE_DETAILS)[VAR_FILES]) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
 
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
         value of the constant YXORP_REQUEST_URI. */
@@ -359,7 +359,7 @@ class helpers
      */
     public static function install(): void
     {
-        /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
+        /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true` . */
         define(YXORP_COCKPIT_INSTALL, true);
 
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
@@ -367,6 +367,17 @@ class helpers
 
         /* It's inserting a new user into the `COCKPIT_accounts` collection. */
         if (!yP::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+    }
+
+    /**
+     * @param string $domain
+     * @return mixed
+     * A function that returns the public suffix of a domain.
+     */
+    public static function publicSuffix(string $domain): mixed
+    {
+        /* Resolving the domain name to its public suffix. */
+        return rules::fromPath(PATH_PUBLIC_SUFFIX_LIST)->resolve(domain::fromIDNA2008($domain));
     }
 
     /**
@@ -386,17 +397,6 @@ class helpers
         /* Copying the contents of the source directory to the destination directory. */
         foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
         closedir($root);
-    }
-
-    /**
-     * @param string $domain
-     * @return mixed
-     * A function that returns the public suffix of a domain.
-     */
-    public static function publicSuffix(string $domain): mixed
-    {
-        /* Resolving the domain name to its public suffix. */
-        return rules::fromPath(PATH_PUBLIC_SUFFIX_LIST)->resolve(domain::fromIDNA2008($domain));
     }
 
     /**
