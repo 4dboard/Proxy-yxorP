@@ -3,7 +3,6 @@
 
 
 use yxorP\app\lib\http\wrapper;
-use yxorP\app\yP;
 
 /* Extending the `wrapper` class, which is a class that is used to wrap the `event` class. */
 
