@@ -13,10 +13,10 @@ sudo mkdir -p ../app/lib/cockpit/storage/tmp/
 sudo chown root: ../app/lib/cockpit/storage/tmp/
 sudo chmod 777 ../app/lib/cockpit/storage/tmp
 
-sudo rm ../app/lib/data/cookie_jar.txt
-sudo touch -p ../app/lib/data/cookie_jar.txt
-sudo chown root: ../app/lib/data/cookie_jar.txt
-sudo chmod 777 ../app/lib/data/cookie_jar.txt
+sudo rm -r ../app/lib/cockpit/storage/tmp/
+sudo mkdir -p ../app/lib/cockpit/storage/tmp/
+sudo chown root: ../app/lib/cockpit/storage/tmp/
+sudo chmod 777 ../app/lib/cockpit/storage/tmp
 
 sudo rm ../app/lib/data/cookie_jar.txt
 sudo touch -p ../app/lib/data/cookie_jar.txt
