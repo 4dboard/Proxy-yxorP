@@ -7,7 +7,6 @@ use yxorP;
 use yxorP\app\lib\minify\minify;
 
 /* A class that is used to cache data. */
-echo 123;
 
 class cache
 {
