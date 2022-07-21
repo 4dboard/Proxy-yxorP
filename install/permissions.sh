@@ -1,3 +1,4 @@
+sudo rm -r ../app/tmp/
 sudo mkdir -p ../app/tmp/
 sudo chown root: ../app/tmp/
 sudo chmod 777 ../app/tmp/
