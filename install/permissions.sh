@@ -26,12 +26,12 @@ sudo chmod 777 /var/cache/pagespeed_meta/
 
 
 sudo rm ../app/lib/data/cookie_jar.txt
-sudo touch -p ../app/lib/data/cookie_jar.txt
+sudo touch ../app/lib/data/cookie_jar.txt
 sudo chown root: ../app/lib/data/cookie_jar.txt
 sudo chmod 777 ../app/lib/data/cookie_jar.txt
 
 sudo rm /var/log/apache2/error.log
-sudo touch -p /var/log/apache2/error.log
+sudo touch /var/log/apache2/error.log
 sudo chown root: /var/log/apache2/error.log
 sudo chmod 777 /var/log/apache2/error.log
 
