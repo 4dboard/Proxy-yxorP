@@ -410,6 +410,7 @@ class helpers
         return json_decode(file_get_contents($file), true);
     }
 
+    /* Defining a static method called mime. */
     public static function mime(): void
     {
 
