@@ -2,6 +2,7 @@
 /* Importing the wrapper class from the yxorP\app\lib\http namespace. */
 
 
+use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\wrapper;
 
 /* Extending the `wrapper` class, which is a class that is used to wrap the `event` class. */
