@@ -6,3 +6,4 @@ sudo chown root: ../app/lib/cockpit/storage/tmp
 sudo chmod 777 ../app/lib/cockpit/storage/tmp
 sudo chown root: ../app/lib/data/cookie_jar.txt
 sudo chmod 777 ../app/lib/data/cookie_jar.txt
+sudo tail -f /var/log/apache2/error.log
