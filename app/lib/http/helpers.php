@@ -445,8 +445,7 @@ class helpers
         }
 
         /* Defining the MIME constant as the $mime variable. */
-        define('MIME', $mime);
-        echo MIME;
+        define('MIME', strtok($mime, ';'));
         /* Setting the content type of the response. */
         header('Content-Type: ' . $mime . ';charset=UTF-8');
     }
