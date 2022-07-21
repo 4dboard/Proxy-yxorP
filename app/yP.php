@@ -239,23 +239,6 @@ class yP
     }
 
     /**
-     *  It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-
-    final public static function assetLoader(string $root): void
-    {
-        /* Loading all the files in the root directory and subdirectories. */
-        foreach (glob($root . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
-            helpers::setMimeType();
-            cache::set(file_get_contents($path));
-        }
-    }
-
-    /**
      * > This function adds a listener to the listeners array
      *
      * @param string event The name of the event to listen for.
