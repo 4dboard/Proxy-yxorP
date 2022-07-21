@@ -451,7 +451,7 @@ class helpers
     }
 
 
-    private static function replace($content): string
+    public static function replace($content): string
     {
         /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class. */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
