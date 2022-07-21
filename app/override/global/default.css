@@ -46,7 +46,7 @@ h ~ h {
 
 #headxr {
     background: rgba(0, 0, 0, 0.8) !important;
-    padding: 10px !important;
+    padding: 15px !important;
     z-index: 9999999999999999999999 !important;
     position: fixed !important;
     width: 100% !important;
@@ -85,7 +85,7 @@ h ~ h {
     text-shadow: -1px 0 12px #fff;
     font-style: italic !important;
     bottom: -2px !important;
-    left: 20px !important;
+    left: 25px !important;
 }
 
 #nav {
