@@ -4,7 +4,8 @@ foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Metho
 /* Initialise minimum definable varibles */
 if (!defined('CHAR_SLASH')) {
     foreach (['YXORP_HTTP_HOST' => $_SERVER['HTTP_HOST'], 'YXORP_REQUEST_URI' => /*$_SERVER['REQUEST_URI']*/
-        'default.js', 'CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'EXT_TEXT' => 'txt', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR, 'FILE_TMP' => CHAR_PERIOD . VAR_TMP, 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'DIR_TMP' => VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
+        'default.js', 'CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'EXT_TEXT' => 'txt', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
+    foreach (['FILE_TMP' => CHAR_PERIOD . VAR_TMP, 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'DIR_TMP' => VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
     foreach (['CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')), 'FILE_COOCKIE_JAR' => COOCKIE_JAR . EXT_TEXT, 'CACHE_KEY' => rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')), 'PATH_TMP_DIR' => __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP] as $key => $value) define($key, $value);
     define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
 }
