@@ -411,7 +411,7 @@ class helpers
     }
 
     /* Defining a static method called mime. */
-    public static function mime(): void
+    public static function setMimeType(): void
     {
 
         /* Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
