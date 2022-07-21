@@ -49,8 +49,6 @@ class cache
 
         echo $content;
 
-        echo MIME;
-
         file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '");' . str_replace([' ', "\n"], '', <<<'EOF'
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
 EOF
