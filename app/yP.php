@@ -53,8 +53,14 @@ class yP
      */
     final public static function proxy(string $root, array|null $request = null): void
     {
-
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
+
+        /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
+        $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
+        /* Defining a constant. */
+
+        /* Creating a global variable called TMP_STORE and assigning it an array with the value 'Initialised' */
+        $GLOBALS['TMP_STORE'][] = 'Initialised';
 
         /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `yP`
         class. */
