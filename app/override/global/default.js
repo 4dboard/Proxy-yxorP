@@ -569,7 +569,7 @@ var GLOBAL = (function () {
     <input type="button" value="-" onclick="removeRow(this)" />
   `;
 
-        document.getElementById('content').appendChild(div);
+        document.querySelector('.content-section').appendChild(div);
     }
 
     return obj;
