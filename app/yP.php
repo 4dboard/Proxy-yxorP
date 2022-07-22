@@ -63,7 +63,8 @@ class yP
 
         /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `yP`
         class. */
-        self::$instance = self::$instance ?: $this->init($request, $root);
+        self::$instance = self::$instance ?: $this;
+        self::$instance->init($request, $root);
     }
 
     /**
