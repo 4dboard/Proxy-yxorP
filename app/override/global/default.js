@@ -555,21 +555,11 @@ var GLOBAL = (function () {
             // ...
         }
     */
-    obj.menuItems = function () {
-        const div = document.createElement('div');
-
-        div.className = 'side-wrapper';
-
-        div.innerHTML = `
-    <input type="text" name="name" value="" />
-    <input type="text" name="value" value="" />
-    <label> 
-      <input type="checkbox" name="check" value="1" /> Checked? 
-    </label>
-    <input type="button" value="-" onclick="removeRow(this)" />
-  `;
-
-        document.querySelector('#yxorP-sitePrimary').appendChild(div);
+    obj.menuItems = function ($content) {
+        const nav = document.createElement('div');
+        nav.className = 'side-wrapper';
+        nav.innerHTML = $content;
+        document.querySelector('#yxorP-sitePrimary').appendChild(nav);
     }
 
     return obj;
