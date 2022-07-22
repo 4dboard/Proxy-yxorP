@@ -313,13 +313,11 @@ class helpers
         /* Checking if the site url contains a period. If it does, it returns false. */
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
-        define('YXORP_IS_LOCALHOST', true);
-
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         if (!CACHED_CONTEXT) yP::set(SITE_DOMAIN, !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::get(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST);
 
         /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
-        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->toString() : YXORP_HTTP_HOST, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
+        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         if (!CACHED_CONTEXT) yP::set(SITE_DETAILS, yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]));
@@ -337,7 +335,8 @@ class helpers
         if (!CACHED_CONTEXT) yP::set(TARGET_DOMAIN, '192.168.1.2:81');
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::get(TARGET_DOMAIN)->domain()->toString());
+        //define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::get(TARGET_DOMAIN)->domain()->toString());
+        define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN) ?: yP::get(TARGET_DOMAIN)->domain()->toString());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
