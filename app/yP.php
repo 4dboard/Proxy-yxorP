@@ -63,7 +63,7 @@ class yP
 
         /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `yP`
         class. */
-        self::$instance = self::$instance ?: new yP();
+        self::$instance = self::$instance ?: $this;
 
         /* It's checking if the request URI contains the COCKPIT directory, and if it does, it requires the COCKPIT index
         file. */
