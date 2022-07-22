@@ -12,4 +12,4 @@ require __DIR__ . '/yP.php';
  *  Calling the `proxy()` method of the `yxorP` class.
  */
 
-app\yP::proxy(__DIR__);
+new app\yP(__DIR__);

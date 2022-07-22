@@ -51,7 +51,7 @@ class yP
      * @param array|null $request
      * @return void
      */
-    final public static function proxy(string $root, array|null $request = null): void
+    public function constructor(string $root, array|null $request = null): void
     {
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
