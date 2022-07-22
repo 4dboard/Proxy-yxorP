@@ -45,7 +45,7 @@ class yP
      * @param string $root
      * @param array|null $request
      */
-    public function constructor(string $root, array|null $request = null)
+    public function __constructor(string $root, array|null $request = null)
     {
         echo 1;
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
