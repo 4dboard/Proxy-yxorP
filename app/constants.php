@@ -26,7 +26,18 @@ if (!$GLOBALS[YXORP_HTTP_HOST]) {
     $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
     /* Defining a constant. */
 
-    foreach (['DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR, 'CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')), 'EXT_TEXT' => 'txt', 'CHAR_SLASH' => '/', 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'FILE_COOCKIE_JAR' => COOCKIE_JAR . EXT_TEXT, 'VAR_TMP_STORE' => 'TMP_STORE', 'CHAR_UNDER' => '_', 'VAR_TEXT' => 'text', 'VAR_HTML' => 'html', 'VAR_VAR' => 'VAR', 'CHAR_DASH' => '-'] as $key => $value) define($key, $value);
+    define('DIR_LIB', 'lib' . DIRECTORY_SEPARATOR);
+    define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
+    define('EXT_TEXT', 'txt');
+    define('CHAR_SLASH', '/');
+    define('COOCKIE_JAR', 'cookie_jar' . CHAR_PERIOD);
+    define('FILE_COOCKIE_JAR', COOCKIE_JAR . EXT_TEXT);
+    define('VAR_TMP_STORE', 'TMP_STORE');
+    define('CHAR_UNDER', '_');
+    define('VAR_TEXT', 'text');
+    define('VAR_HTML', 'html');
+    define('VAR_VAR', 'VAR');
+    define('CHAR_DASH', '-');
 
     /* Creating a global variable called TMP_STORE and assigning it an array with the value 'Initialised' */
     $GLOBALS['TMP_STORE'][] = 'Initialised';
