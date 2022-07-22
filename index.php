@@ -4,4 +4,4 @@ if ($cacheExits = file_exists($file = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DI
 if (isset($_GET["CLECHE"])) foreach (glob(__DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . urlencode($_SERVER['HTTP_HOST']) . DIRECTORY_SEPARATOR . '*') as $file) unlink($file);
 if ($cacheExits) exit(die());
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/app/bootstrap.php';
