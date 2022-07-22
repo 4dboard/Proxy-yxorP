@@ -18,6 +18,7 @@ if ($cacheExits) exit(die());
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants.  Defining a constant named `CHAR_SLASH` with the value `/`. */
 
 if (!$GLOBALS[YXORP_HTTP_HOST]) {
+    define('CHAR_SLASH', '/');
     /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
     $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
     /* Defining a constant. */
