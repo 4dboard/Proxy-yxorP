@@ -5,11 +5,3 @@ if (isset($_GET["CLECHE"])) foreach (glob(__DIR__ . DIRECTORY_SEPARATOR . 'tmp' 
 if ($cacheExits) exit(die());
 
 
-/**
- *  Proxy to the yxorP::proxy() method.
- *  A function that is called to start the proxy. // Returns true if the request was successful.
- *  Calling the `proxy()` method of the `yxorP` class.
- */
-
-
-app\yP::proxy(__DIR__);
