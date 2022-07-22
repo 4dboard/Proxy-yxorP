@@ -19,6 +19,7 @@ if ($cacheExits) exit(die());
 
 if (!$GLOBALS[YXORP_HTTP_HOST]) {
     define('CHAR_SLASH', '/');
+    define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
     define('EXT_TEXT', CHAR_PERIOD . 'txt');
     define('COOCKIE_JAR', 'cookie_jar');
     define('FILE_COOCKIE_JAR', COOCKIE_JAR . EXT_TEXT);
