@@ -558,7 +558,7 @@ var GLOBAL = (function () {
     obj.menuItems = function () {
         const div = document.createElement('div');
 
-        div.className = 'row';
+        div.className = 'side-wrapper';
 
         div.innerHTML = `
     <input type="text" name="name" value="" />
