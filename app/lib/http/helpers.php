@@ -313,6 +313,8 @@ class helpers
         /* Checking if the site url contains a period. If it does, it returns false. */
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
+        define('YXORP_IS_LOCALHOST', true);
+
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         if (!CACHED_CONTEXT) yP::set(SITE_DOMAIN, !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::get(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST);
 
