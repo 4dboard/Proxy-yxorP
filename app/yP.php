@@ -47,6 +47,7 @@ class yP
      */
     public function __construct(string $root, array|null $request = null)
     {
+
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
         /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
@@ -60,6 +61,7 @@ class yP
         class. */
         if (!self::$instance) (self::$instance = $this)->init($request, $root);
     }
+
 
     /**
      * @param ?array $request

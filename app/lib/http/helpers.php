@@ -331,12 +331,10 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        //if (!CACHED_CONTEXT) yP::set(TARGET_DOMAIN, self::publicSuffix(YXORP_TARGET_URL ?: yP::get(ENV_DEFAULT_TARGET)));
-        if (!CACHED_CONTEXT) yP::set(TARGET_DOMAIN, '192.168.1.7:7780/#/');
+        if (!CACHED_CONTEXT) yP::set(TARGET_DOMAIN, self::publicSuffix(YXORP_TARGET_URL ?: yP::get(ENV_DEFAULT_TARGET)));
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        //define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::get(TARGET_DOMAIN)->domain()->toString());
-        define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN) ?: yP::get(TARGET_DOMAIN)->domain()->toString());
+        define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::get(TARGET_DOMAIN)->domain()->toString());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);

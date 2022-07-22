@@ -546,7 +546,7 @@ window.onhashchange = function () {
 
 onChangePlay();
 
-var GLOBAL = (function () {
+const GLOBAL = (function () {
     var obj = {};
     /*
     var privateVariable = 1;

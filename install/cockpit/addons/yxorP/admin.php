@@ -29,8 +29,6 @@ $this->on('admin.init', function () use ($hardening) {
 
         echo '<style>';
 
-        echo '.login-image, .app-logo {background-image: url("' . $url . '");}';
-
         echo '.app-logo {background-position: left center;'
             . ($width ? 'width:' . $width . ';' : '')
             . ($height ? 'height:' . $height . ';' : '')

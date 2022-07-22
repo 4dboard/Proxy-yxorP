@@ -46,18 +46,14 @@ class cache
     public static function set($content, ?string $key = null): void
     {
         self::store($GLOBALS[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
-
         echo $content;
 
-        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '");' . str_replace([' ', "\n"], '', <<<'EOF'
-$f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
-EOF
-            ) . gzdeflate((new minify())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)))));
+        /*exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); exit(die(' . str_replace(CACHE_FIX, '(object)', var_export((minify::createDefault())->process((MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)), true)) . '));')));*/
     }
 
-    public static function store($val, ?string $key = null): void
+    public static function store($content, ?string $key = null): void
     {
         /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '<?php $GLOB=' . str_replace(CACHE_FIX, '(object)', var_export($val, true)) . '?>');
+        file_put_contents(self::gen($key)['path'], '<?php $GLOB=' . (minify::createDefault())->process(str_replace(CACHE_FIX, '(object)', var_export($content, true))) . '?>');
     }
 }

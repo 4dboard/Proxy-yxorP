@@ -27,6 +27,10 @@ body {
   background: url('/app/lib/cockpit/assets/app/media/wallpapper.gif') no-repeat center center fixed !important;
 }
 
+.login-image, .app-logo {
+  background: url('/app/lib/cockpit/favicon.png') !important;
+}
+
 .uk-button {
   background-color: $color-bg-light;
   color: $color-text-dark;
