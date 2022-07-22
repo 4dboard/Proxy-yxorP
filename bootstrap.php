@@ -11,4 +11,5 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'yP.php';
  *  A function that is called to start the proxy. // Returns true if the request was successful.
  *  Calling the `proxy()` method of the `yxorP` class.
  */
+echo 1;
 new app\yP(__DIR__);
