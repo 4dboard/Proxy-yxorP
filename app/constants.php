@@ -17,7 +17,6 @@ if (!defined('YXORP_HTTP_HOST')) {
 if (isset($_GET["CLECHE"])) foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
 /*  Set Header MimeType */
 
-
 try { /* Render Cache if Exits: Including the file `/tmp` + `base64_encode(YXORP_HTTP_HOST . YXORP_REQUEST_URI)` + `.tmp`. */
     @include PATH_TMP_FILE;
 } catch (Exception $e) { /* Catching an exception and swallowing it. */
