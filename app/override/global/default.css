@@ -253,8 +253,8 @@ body.light-mode .video-bg:before {
 .app {
     background-color: var(--theme-bg-color);
     max-width: 99%;
-    max-height: 99%;
-    height: 99vh;
+    max-height: 95%;
+    height: 95vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
