@@ -5,16 +5,14 @@ foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Metho
 if (!defined('CHAR_SLASH')) {
     define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']);
     define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
-    define('CHAR_SLASH', '/');
     define('CHAR_PERIOD', '.');
     define('EXT_TEXT', 'txt');
     define('VAR_TMP', 'tmp');
     define('DIR_LIB', 'lib' . DIRECTORY_SEPARATOR);
     define('FILE_TMP', CHAR_PERIOD . VAR_TMP);
-    define('COOCKIE_JAR', 'cookie_jar' . CHAR_PERIOD);
     define('DIR_TMP', VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR);
     define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
-    define('FILE_COOCKIE_JAR', COOCKIE_JAR . EXT_TEXT);
+
     define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
     define('PATH_TMP_DIR', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
     define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
@@ -39,7 +37,8 @@ if (!$GLOBALS[YXORP_HTTP_HOST]) {
     /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
     $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
     /* Defining a constant. */
-    foreach (['VAR_TMP_STORE' => 'TMP_STORE', 'CHAR_UNDER' => '_', 'VAR_TEXT' => 'text', 'VAR_HTML' => 'html', 'VAR_VAR' => 'VAR', 'CHAR_DASH' => '-'] as $key => $value) define($key, $value);
+
+    foreach (['CHAR_SLASH' => '/', 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'FILE_COOCKIE_JAR' => COOCKIE_JAR . EXT_TEXT, 'VAR_TMP_STORE' => 'TMP_STORE', 'CHAR_UNDER' => '_', 'VAR_TEXT' => 'text', 'VAR_HTML' => 'html', 'VAR_VAR' => 'VAR', 'CHAR_DASH' => '-'] as $key => $value) define($key, $value);
 
     /* Creating a global variable called TMP_STORE and assigning it an array with the value 'Initialised' */
     $GLOBALS['TMP_STORE'][] = 'Initialised';
