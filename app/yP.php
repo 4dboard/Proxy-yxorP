@@ -63,20 +63,7 @@ class yP
 
         /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `yP`
         class. */
-        if !self::$instance (self::$instance = $this)->init($request, $root);
-    }
-
-    /**
-     * > This function adds a listener to the listeners array
-     *
-     * @param string event The name of the event to listen for.
-     * @param object callback The callback function to be executed when the event is triggered.
-     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
-     */
-    final public function addListener(string $event, object $callback): void
-    {
-        /* It's adding a listener to the listeners array. */
-        self::$instance->listeners[$event][0][] = $callback;
+        if (!self::$instance) (self::$instance = $this)->init($request, $root);
     }
 
     /**
@@ -249,6 +236,19 @@ class yP
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
+    }
+
+    /**
+     * > This function adds a listener to the listeners array
+     *
+     * @param string event The name of the event to listen for.
+     * @param object callback The callback function to be executed when the event is triggered.
+     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    final public function addListener(string $event, object $callback): void
+    {
+        /* It's adding a listener to the listeners array. */
+        self::$instance->listeners[$event][0][] = $callback;
     }
 
     /**
