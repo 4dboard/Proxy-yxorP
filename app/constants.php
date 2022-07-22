@@ -20,10 +20,7 @@ if (isset($_GET["CLECHE"])) foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($
 
 try {
     /* Render Cache if Exits: Including the file `/tmp` + `base64_encode(YXORP_HTTP_HOST . YXORP_REQUEST_URI)` + `.tmp`. */
-    if (file_exists(PATH_TMP_FILE)) {
-        @include PATH_TMP_FILE;
-        exit;
-    }
+    @include PATH_TMP_FILE;
 } catch (Exception $e) { /* Catching an exception and swallowing it. */
 }
 
