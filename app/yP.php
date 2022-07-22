@@ -39,11 +39,6 @@ class yP
      */
     private array $listeners = [];
 
-    /* It's a private function that's used to dispatch events. */
-    final private function __construct()
-    {
-        // The expensive process (e.g.,db connection) goes here.
-    }
 
     /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
