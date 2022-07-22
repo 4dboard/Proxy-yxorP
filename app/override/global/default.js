@@ -550,7 +550,7 @@ var GLOBAL = (function () {
     var obj = {};
     /*
     var privateVariable = 1;
-    
+
         function privateMethod() {
             // ...
         }
