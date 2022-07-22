@@ -52,7 +52,7 @@ class cache
         file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '");' . str_replace([' ', "\n"], '', <<<'EOF'
 $f = fopen(__FILE__, 'r');fseek($f, __COMPILER_HALT_OFFSET__);$t = tmpfile();$u = stream_get_meta_data($t)['uri'];fwrite($t, gzinflate(stream_get_contents($f)));include($u);fclose($t); __halt_compiler(); 
 EOF
-            ) . gzdeflate((new minify())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)) . ';exit(die());');
+            ) . gzdeflate((new minify())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)));
         exit(die());
     }
 
