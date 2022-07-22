@@ -3,9 +3,20 @@
 foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Methods: "POST,GET,OPTIONS" always', 'Access-Control-Allow-Credentials: true always', 'Access-Control-Allow-Headers: "Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials" always', 'Cache-Control: "max-age=36000000" always'] as $head) header($head);
 /* Initialise minimum definable varibles */
 if (!defined('CHAR_SLASH')) {
-    foreach (['YXORP_HTTP_HOST' => $_SERVER['HTTP_HOST'], 'YXORP_REQUEST_URI' => $_SERVER['REQUEST_URI'], 'CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'EXT_TEXT' => 'txt', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
-    foreach (['FILE_TMP' => CHAR_PERIOD . VAR_TMP, 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'DIR_TMP' => VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
-    foreach (['CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')), 'FILE_COOCKIE_JAR' => COOCKIE_JAR . EXT_TEXT, 'CACHE_KEY' => rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')), 'PATH_TMP_DIR' => __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP] as $key => $value) define($key, $value);
+    define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']);
+    define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
+    define('CHAR_SLASH', '/');
+    define('CHAR_PERIOD', '.');
+    define('EXT_TEXT', 'txt');
+    define('VAR_TMP', 'tmp');
+    define('DIR_LIB', 'lib' . DIRECTORY_SEPARATOR);
+    define('FILE_TMP', CHAR_PERIOD . VAR_TMP);
+    define('COOCKIE_JAR', 'cookie_jar' . CHAR_PERIOD);
+    define('DIR_TMP', VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR);
+    define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
+    define('FILE_COOCKIE_JAR', COOCKIE_JAR . EXT_TEXT);
+    define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
+    define('PATH_TMP_DIR', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
     define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
 }
 /* Checking if we must clear the cache */
