@@ -4,4 +4,4 @@
 namespace yxorP;
 /* Including the file `yxorP.php` in the current file. */
 
-require __DIR__ . '/app/yP.php';
+require __DIR__ . '/yP.php';
