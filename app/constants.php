@@ -19,6 +19,7 @@ if ($cacheExits) exit(die());
 
 if (!$GLOBALS[YXORP_HTTP_HOST]) {
     define('CHAR_SLASH', '/');
+    define('COOCKIE_JAR', 'cookie_jar');
     /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
     $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
     /* Defining a constant. */
