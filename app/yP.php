@@ -49,9 +49,8 @@ class yP
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
      * @param string $root
      * @param array|null $request
-     * @return void
      */
-    public function constructor(string $root, array|null $request = null): void
+    public function constructor(string $root, array|null $request = null)
     {
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
