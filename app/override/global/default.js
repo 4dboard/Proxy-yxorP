@@ -558,6 +558,9 @@ var GLOBAL = (function () {
     obj.menuItems = function ($content) {
         const nav = document.createElement('div');
         nav.className = 'side-wrapper';
+        
+        let home = `<a href="/"><div class='side-title'>Home</div></a>`
+
         nav.innerHTML = $content;
         document.querySelector('#yxorP-sitePrimary').appendChild(nav);
     }
