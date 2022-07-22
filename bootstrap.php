@@ -14,7 +14,10 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'yP.php';
  *  Calling the `proxy()` method of the `yxorP` class.
  */
 
-if (!str_contains(YXORP_REQUEST_URI, '/app')) exit(die(new yP(__DIR__)));
+if (!str_contains(YXORP_REQUEST_URI, '/app')) {
+    new yP(__DIR__);
+    exit(die());
+}
 if (str_replace(['.js', '.css', '.png', '.svg', '.tag', '.woff', '.tff'], '', YXORP_REQUEST_URI) !== YXORP_REQUEST_URI) {
 
     /* Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
