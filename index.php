@@ -3,4 +3,5 @@ foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Metho
 if ($cacheExits = file_exists($file = __DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . urlencode($_SERVER['HTTP_HOST']) . DIRECTORY_SEPARATOR . rtrim(strtr(base64_encode($_SERVER['REQUEST_URI']), '+/=', '._-')) . '.tmp')) @include $file;
 if (isset($_GET["CLECHE"])) foreach (glob(__DIR__ . DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . urlencode($_SERVER['HTTP_HOST']) . DIRECTORY_SEPARATOR . '*') as $file) unlink($file);
 if ($cacheExits) exit(die());
+echo 1;
 require __DIR__ . '/app/bootstrap.php';
