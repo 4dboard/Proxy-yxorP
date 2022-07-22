@@ -45,9 +45,8 @@ class yP
      * @param string $root
      * @param array|null $request
      */
-    public function __constructor(string $root, array|null $request = null)
+    public function __construct(string $root, array|null $request = null)
     {
-        echo 1;
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
         /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
@@ -198,6 +197,40 @@ class yP
     }
 
     /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     * @param string $root
+     * @param string $action
+     * @return void
+     */
+    private function subscribe(string $root, string $action): void
+    {
+        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
+        if (strlen($action) < 3) return;
+        /* It's removing the `.php` extension from the `$action` variable. */
+        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
+        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
+        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
+        require(DIR_ROOT . $root . $action . EXT_PHP);
+        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
+        function. */
+        self::$instance->addSubscriber(new $action());
+    }
+
+    /**
+     * It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it, and
+     * passing the `self::$instance` object to it
+     * @param object $subscriber
+     * @return void
+     */
+    private function addSubscriber(object $subscriber): void
+    {
+        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
+        and  passing the `self::$instance` object to it. */
+        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe(self::$instance);
+    }
+
+    /**
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
@@ -234,18 +267,8 @@ class yP
         return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
     }
 
-    /**
-     * > This function adds a listener to the listeners array
-     *
-     * @param string event The name of the event to listen for.
-     * @param object callback The callback function to be executed when the event is triggered.
-     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
-     */
-    final public function addListener(string $event, object $callback): void
-    {
-        /* It's adding a listener to the listeners array. */
-        self::$instance->listeners[$event][0][] = $callback;
-    }
+
+    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
 
     /**
      *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
@@ -260,41 +283,17 @@ class yP
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
     }
 
-
-    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
-
     /**
-     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
-     * class exists in the yxorP namespace, if it does, it creates an instance of it
-     * @param string $root
-     * @param string $action
-     * @return void
+     * > This function adds a listener to the listeners array
+     *
+     * @param string event The name of the event to listen for.
+     * @param object callback The callback function to be executed when the event is triggered.
+     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
      */
-    private function subscribe(string $root, string $action): void
+    final public function addListener(string $event, object $callback): void
     {
-        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
-        if (strlen($action) < 3) return;
-        /* It's removing the `.php` extension from the `$action` variable. */
-        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
-        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
-        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        require(DIR_ROOT . $root . $action . EXT_PHP);
-        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
-        function. */
-        self::$instance->addSubscriber(new $action());
-    }
-
-    /**
-     * It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it, and
-     * passing the `self::$instance` object to it
-     * @param object $subscriber
-     * @return void
-     */
-    private function addSubscriber(object $subscriber): void
-    {
-        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
-        and  passing the `self::$instance` object to it. */
-        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe(self::$instance);
+        /* It's adding a listener to the listeners array. */
+        self::$instance->listeners[$event][0][] = $callback;
     }
 
 }
