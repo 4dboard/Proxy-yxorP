@@ -1,14 +1,5 @@
 <?php
-/* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
-$GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
-/* Defining a constant. */
-
-/* Creating a global variable called TMP_STORE and assigning it an array with the value 'Initialised' */
-$GLOBALS['TMP_STORE'][] = 'Initialised';
-
-/* Defining a constant called CACHE_FIX. */
 define('CACHE_FIX', ['GuzzleHttp\Psr7\Response::__set_state', 'ArrayObject::__set_state', 'Bugsnag\Breadcrumbs\Recorder::__set_state', 'Bugsnag\Callbacks\GlobalMetaData::__set_state', 'Bugsnag\Callbacks\RequestContext::__set_state', 'Bugsnag\Callbacks\RequestMetaData::__set_state', 'Bugsnag\Callbacks\RequestSession::__set_state', 'Bugsnag\Callbacks\RequestUser::__set_state', 'Bugsnag\Client::__set_state', 'Bugsnag\Configuration::__set_state', 'Bugsnag\HttpClient::__set_state', 'Bugsnag\Internal\FeatureFlagDelegate::__set_state', 'Bugsnag\Middleware\BreadcrumbData::__set_state', 'Bugsnag\Middleware\CallbackBridge::__set_state', 'Bugsnag\Middleware\DiscardClasses::__set_state', 'Bugsnag\Middleware\NotificationSkipper::__set_state', 'Bugsnag\Middleware\SessionData::__set_state', 'Bugsnag\Pipeline::__set_state', 'Bugsnag\Request\BasicResolver::__set_state', 'Bugsnag\SessionTracker::__set_state', 'Closure::__set_state', 'GuzzleHttp\Client::__set_state', 'GuzzleHttp\Cookie\CookieJar::__set_state', 'GuzzleHttp\HandlerStack::__set_state', 'GuzzleHttp\Psr7\Uri::__set_state', 'LimeExtra\App::__set_state', 'LimeExtra\Helper\I18n::__set_state', 'LimeExtra\Helper\SimpleAcl::__set_state', 'Lime\Helper\Cache::__set_state', 'Lime\Module::__set_state', 'Lime\Request::__set_state', 'stdClass::__set_state', 'yxorP\app\lib\http\paramStore::__set_state', 'yxorP\app\lib\http\request::__set_state', 'yxorP\app\lib\http\response::__set_state']);
-
 define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']);
 define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
 define('CHAR_PERIOD', '.');
