@@ -569,7 +569,7 @@ var GLOBAL = (function () {
     <input type="button" value="-" onclick="removeRow(this)" />
   `;
 
-        document.querySelector('.content-section').appendChild(div);
+        document.querySelector('#yxorP-sitePrimary').appendChild(div);
     }
 
     return obj;
