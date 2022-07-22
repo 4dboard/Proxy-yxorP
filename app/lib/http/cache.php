@@ -46,7 +46,7 @@ class cache
     public static function set($content, ?string $key = null): void
     {
         self::store($GLOBALS[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
-        
+
         echo $content;
 
         exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '");' . str_replace([' ', "\n"], '', <<<'EOF'
