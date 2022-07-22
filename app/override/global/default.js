@@ -547,20 +547,31 @@ window.onhashchange = function () {
 onChangePlay();
 
 var GLOBAL = (function () {
+    var obj = {};
     /*
-    var my = {},
-        privateVariable = 1;
-     */
-    /*
+    var privateVariable = 1;
+    
         function privateMethod() {
             // ...
         }
     */
-    my.moduleProperty = 1;
-    my.moduleMethod = function () {
-        // ...
-    };
+    obj.menuItems = function () {
+        const div = document.createElement('div');
 
-    return my;
+        div.className = 'row';
+
+        div.innerHTML = `
+    <input type="text" name="name" value="" />
+    <input type="text" name="value" value="" />
+    <label> 
+      <input type="checkbox" name="check" value="1" /> Checked? 
+    </label>
+    <input type="button" value="-" onclick="removeRow(this)" />
+  `;
+
+        document.getElementById('content').appendChild(div);
+    }
+
+    return obj;
 }());
 
