@@ -113,6 +113,8 @@ class yP
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
+
+        return self;
     }
 
     /**
