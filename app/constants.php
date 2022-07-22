@@ -17,12 +17,8 @@ if (!defined('YXORP_HTTP_HOST')) {
 if (isset($_GET["CLECHE"])) foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
 /*  Set Header MimeType */
 
-try { /* Render Cache if Exits: Including the file `/tmp` + `base64_encode(YXORP_HTTP_HOST . YXORP_REQUEST_URI)` + `.tmp`. */
-    @include PATH_TMP_FILE;
-    exit(die());
-} catch (Exception $e) { /* Catching an exception and swallowing it. */
-}
-
+/* Render Cache if Exits: Including the file `/tmp` + `base64_encode(YXORP_HTTP_HOST . YXORP_REQUEST_URI)` + `.tmp`. */
+if (file_exists(PATH_TMP_FILE)) exit(die(@include PATH_TMP_FILE));
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants.  Defining a constant named `CHAR_SLASH` with the value `/`. */
 
 if (!$GLOBALS[YXORP_HTTP_HOST]) {
