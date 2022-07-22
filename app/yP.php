@@ -73,7 +73,7 @@ class yP
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
-    public function init(?array $request, string $root): void
+    private function init(?array $request, string $root): void
     {
         /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
         appended to it. */
