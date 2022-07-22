@@ -1,31 +1,28 @@
 <?php
-
-/* Setting the headers for the response. */
-foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Methods: "POST,GET,OPTIONS" always', 'Access-Control-Allow-Credentials: true always', 'Access-Control-Allow-Headers: "Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials" always', 'Cache-Control: "max-age=36000000" always'] as $head) header($head);
-/* Initialise minimum definable varibles */
-if (!defined('CHAR_SLASH')) {
-    foreach (['YXORP_HTTP_HOST' => $_SERVER['HTTP_HOST'], 'YXORP_REQUEST_URI' => $_SERVER['REQUEST_URI'], 'CHAR_SLASH' => '/', 'CHAR_PERIOD' => '.', 'EXT_TEXT' => 'txt', 'VAR_TMP' => 'tmp', 'DIR_LIB' => 'lib' . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
-    foreach (['FILE_TMP' => CHAR_PERIOD . VAR_TMP, 'COOCKIE_JAR' => 'cookie_jar' . CHAR_PERIOD, 'DIR_TMP' => VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR] as $key => $value) define($key, $value);
-    foreach (['CACHE_KEY_CONTEXT' => rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')), 'FILE_COOCKIE_JAR' => COOCKIE_JAR . EXT_TEXT, 'CACHE_KEY' => rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')), 'PATH_TMP_DIR' => __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP] as $key => $value) define($key, $value);
+foreach (['Access-Control-Allow-Origin: "*" always', 'Access-Control-Allow-Methods: "POST,GET,OPTIONS" always', 'Access-Control-Allow-Credentials: true always', 'Access-Control-Allow-Headers: "Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials" always', 'Cache-Control: "max-age=36000000" always'] as $head) header($head);//Setting the headers for the response.
+if (!defined('YXORP_HTTP_HOST')) {//Initialise minimum definable varibles
+    define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']);
+    define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
+    define('CHAR_PERIOD', '.');
+    define('VAR_TMP', 'tmp');
+    define('FILE_TMP', CHAR_PERIOD . VAR_TMP);
+    define('DIR_TMP', VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR);
+    define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
+    define('PATH_TMP_DIR', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
     define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
+    if ($cacheExits = file_exists(PATH_TMP_FILE)) @include PATH_TMP_FILE; //Render Cache if Exits: Including the file `/tmp` + `base64_encode(YXORP_HTTP_HOST . YXORP_REQUEST_URI)` + `.tmp`.
 }
 /* Checking if we must clear the cache */
 if (isset($_GET["CLECHE"])) foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
-/*  Set Header MimeType */
-
-
-try {
-    /* Render Cache if Exits: Including the file `/tmp` + `base64_encode(YXORP_HTTP_HOST . YXORP_REQUEST_URI)` + `.tmp`. */
-    if (file_exists(PATH_TMP_FILE)) {
-        @include PATH_TMP_FILE;
-        exit;
-    }
-} catch (Exception $e) { /* Catching an exception and swallowing it. */
-}
-
+if ($cacheExits) exit(die());
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants.  Defining a constant named `CHAR_SLASH` with the value `/`. */
 
 if (!$GLOBALS[YXORP_HTTP_HOST]) {
+    define('CHAR_SLASH', '/');
+    define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
+    define('EXT_TEXT', CHAR_PERIOD . 'txt');
+    define('COOCKIE_JAR', 'cookie_jar');
+    define('FILE_COOCKIE_JAR', COOCKIE_JAR . EXT_TEXT);
     /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
     $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
     /* Defining a constant. */
