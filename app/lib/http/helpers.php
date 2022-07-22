@@ -319,7 +319,7 @@ class helpers
         if (!CACHED_CONTEXT) yP::set(SITE_DOMAIN, !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::get(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST);
 
         /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
-        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
+        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->toString() : YXORP_HTTP_HOST, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         if (!CACHED_CONTEXT) yP::set(SITE_DETAILS, yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]));
