@@ -47,6 +47,7 @@ class yP
      */
     public function constructor(string $root, array|null $request = null)
     {
+        echo 1;
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
         /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
