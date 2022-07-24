@@ -152,7 +152,33 @@ class yP
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_get($_SESSION, $name) ?: ($value ? self::store_set($_SESSION, $name, $value) : ($func ? self::store_set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
+        return self::store_session_get($name) ?: ($value ? self::store_session_set($name, $value) : ($func ? self::store_session_set($name, call_user_func_array($func, $varibles)) : null));
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @return mixed
+     */
+    private static function store_session_get(mixed $type, string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return $type[$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function store_session_set(mixed $type, string $name, mixed $value): mixed
+    {
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $type[$name] ?: $type[$name] = $value;
     }
 
     /**
@@ -287,32 +313,6 @@ class yP
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
-     */
-    public static function store_session_set(mixed $type, string $name, mixed $value): mixed
-    {
-        /* Setting the value of the variable $name to the value of the variable $value. */
-        return $type[$name] ?: $type[$name] = $value;
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
-     * @param string $name
-     * @return mixed
-     */
-    private static function store_session_get(mixed $type, string $name): mixed
-    {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return $type[$name];
     }
 
     /**
