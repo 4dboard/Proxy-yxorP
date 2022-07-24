@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\http;
 
-class defaults
+class publicSuffixHost
 {
     public function registrableDomain()
     {
