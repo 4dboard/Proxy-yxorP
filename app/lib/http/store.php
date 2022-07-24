@@ -15,6 +15,7 @@ class store
      */
     final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
+        echo 1;
         if ($session = self::session($name, $value, $func, $varibles)) return $session;
         elseif ($tmp = self::tmp($name)) return $tmp;
         else return null;
