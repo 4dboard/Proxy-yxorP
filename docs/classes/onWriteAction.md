@@ -35,32 +35,6 @@ public onWrite(): void
 
 ***
 
-### replace
-
-
-
-```php
-private static replace(mixed $content): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$content` | **mixed** |  |
-
-
-
-
-***
-
 
 ## Inherited methods
 
@@ -385,4 +359,4 @@ public onBuildException(\Exception $e): void
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

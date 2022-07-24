@@ -109,6 +109,102 @@ The JWT's payload as a PHP object
 
 ***
 
+### encode
+
+Converts and signs a PHP object or array into a JWT string.
+
+```php
+public static encode(object|array $payload, string|resource $key, string $alg = &#039;HS256&#039;, mixed $keyId = null, array $head = null): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$payload` | **object&#124;array** | PHP object or array |
+| `$key` | **string&#124;resource** | The secret key.<br />If the algorithm used is asymmetric, this is the private key |
+| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+| `$keyId` | **mixed** |  |
+| `$head` | **array** | An array with header elements to attach |
+
+
+**Return Value:**
+
+A signed JWT
+
+
+
+***
+
+### sign
+
+Sign a string with a given key and algorithm.
+
+```php
+public static sign(string $msg, string|resource $key, string $alg = &#039;HS256&#039;): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$msg` | **string** | The message to sign |
+| `$key` | **string&#124;resource** | The secret key |
+| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+
+
+**Return Value:**
+
+An encrypted message
+
+
+
+***
+
+### verify
+
+Verify a signature with the message, key and method. Not all methods
+are symmetric, so we must have a separate verify and sign method.
+
+```php
+private static verify(string $msg, string $signature, string|resource $key, string $alg): bool
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$msg` | **string** | The original message (header and body) |
+| `$signature` | **string** | The original signature |
+| `$key` | **string&#124;resource** | For HS*, a string key works. for RS*, must be a resource of an openssl public key |
+| `$alg` | **string** | The algorithm |
+
+
+
+
+***
+
 ### jsonDecode
 
 Decode a JSON string into a PHP object.
@@ -134,6 +230,96 @@ public static jsonDecode(string $input): object
 **Return Value:**
 
 Object representation of JSON string
+
+
+
+***
+
+### jsonEncode
+
+Encode a PHP object into a JSON string.
+
+```php
+public static jsonEncode(object|array $input): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$input` | **object&#124;array** | A PHP object or array |
+
+
+**Return Value:**
+
+JSON representation of the PHP object or array
+
+
+
+***
+
+### urlsafeB64Decode
+
+Decode a string with URL-safe Base64.
+
+```php
+public static urlsafeB64Decode(string $input): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$input` | **string** | A Base64 encoded string |
+
+
+**Return Value:**
+
+A decoded string
+
+
+
+***
+
+### urlsafeB64Encode
+
+Encode a string with URL-safe Base64.
+
+```php
+public static urlsafeB64Encode(string $input): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$input` | **string** | The string you want encoded |
+
+
+**Return Value:**
+
+The base64 encode of what you passed in
 
 
 
@@ -165,12 +351,12 @@ private static handleJsonError(int $errno): void
 
 ***
 
-### urlsafeB64Decode
+### safeStrlen
 
-Decode a string with URL-safe Base64.
+Get the number of bytes in cryptographic strings.
 
 ```php
-public static urlsafeB64Decode(string $input): string
+private static safeStrlen(string $str): int
 ```
 
 
@@ -184,12 +370,8 @@ public static urlsafeB64Decode(string $input): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$input` | **string** | A Base64 encoded string |
+| `$str` | **string** |  |
 
-
-**Return Value:**
-
-A decoded string
 
 
 
@@ -251,188 +433,6 @@ private static encodeDER(int $type, string $value): string
 **Return Value:**
 
 the encoded object
-
-
-
-***
-
-### verify
-
-Verify a signature with the message, key and method. Not all methods
-are symmetric, so we must have a separate verify and sign method.
-
-```php
-private static verify(string $msg, string $signature, string|resource $key, string $alg): bool
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$msg` | **string** | The original message (header and body) |
-| `$signature` | **string** | The original signature |
-| `$key` | **string&#124;resource** | For HS*, a string key works. for RS*, must be a resource of an openssl public key |
-| `$alg` | **string** | The algorithm |
-
-
-
-
-***
-
-### safeStrlen
-
-Get the number of bytes in cryptographic strings.
-
-```php
-private static safeStrlen(string $str): int
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** |  |
-
-
-
-
-***
-
-### encode
-
-Converts and signs a PHP object or array into a JWT string.
-
-```php
-public static encode(object|array $payload, string|resource $key, string $alg = &#039;HS256&#039;, mixed $keyId = null, array $head = null): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$payload` | **object&#124;array** | PHP object or array |
-| `$key` | **string&#124;resource** | The secret key.<br />If the algorithm used is asymmetric, this is the private key |
-| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
-| `$keyId` | **mixed** |  |
-| `$head` | **array** | An array with header elements to attach |
-
-
-**Return Value:**
-
-A signed JWT
-
-
-
-***
-
-### urlsafeB64Encode
-
-Encode a string with URL-safe Base64.
-
-```php
-public static urlsafeB64Encode(string $input): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$input` | **string** | The string you want encoded |
-
-
-**Return Value:**
-
-The base64 encode of what you passed in
-
-
-
-***
-
-### jsonEncode
-
-Encode a PHP object into a JSON string.
-
-```php
-public static jsonEncode(object|array $input): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$input` | **object&#124;array** | A PHP object or array |
-
-
-**Return Value:**
-
-JSON representation of the PHP object or array
-
-
-
-***
-
-### sign
-
-Sign a string with a given key and algorithm.
-
-```php
-public static sign(string $msg, string|resource $key, string $alg = &#039;HS256&#039;): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$msg` | **string** | The message to sign |
-| `$key` | **string&#124;resource** | The secret key |
-| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
-
-
-**Return Value:**
-
-An encrypted message
 
 
 
@@ -502,4 +502,4 @@ private static readDER(string $der, int $offset): array
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

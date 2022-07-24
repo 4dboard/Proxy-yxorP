@@ -108,6 +108,60 @@ protected createTable(): mixed
 
 ***
 
+### get
+
+Get value for specific key
+
+```php
+public get(string $key, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
+### set
+
+Set value for specific key
+
+```php
+public set(string $key, mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
 ### flushdb
 
 Clear database
@@ -122,6 +176,32 @@ public flushdb(): mixed
 
 
 
+
+
+
+
+***
+
+### exists
+
+Check if key exists
+
+```php
+public exists(string $key): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
 
 
 
@@ -206,60 +286,6 @@ public type(string $key): string
 
 ***
 
-### get
-
-Get value for specific key
-
-```php
-public get(string $key, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
-### decr
-
-Decrement value by x
-
-```php
-public decr(string $key, int $by = 1): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$by` | **int** |  |
-
-
-
-
-***
-
 ### incr
 
 Increment value by x
@@ -287,12 +313,12 @@ public incr(string $key, int $by = 1): int
 
 ***
 
-### set
+### decr
 
-Set value for specific key
+Decrement value by x
 
 ```php
-public set(string $key, mixed $value): mixed
+public decr(string $key, int $by = 1): int
 ```
 
 
@@ -307,33 +333,7 @@ public set(string $key, mixed $value): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### exists
-
-Check if key exists
-
-```php
-public exists(string $key): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
+| `$by` | **int** |  |
 
 
 
@@ -475,6 +475,62 @@ public lindex(string $key, int $index): mixed
 
 ***
 
+### hset
+
+Set the string value of a hash field
+
+```php
+public hset(string $key, string $field, mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+| `$field` | **string** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### hget
+
+Get the value of a hash field
+
+```php
+public hget(string $key, string $field, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+| `$field` | **string** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
 ### hgetall
 
 Get all the fields and values in a hash
@@ -528,6 +584,32 @@ public hexists(string $key, string $field): bool
 
 ***
 
+### hkeys
+
+Get all the fields in a hash
+
+```php
+public hkeys(string $key): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+
+
+
+
+***
+
 ### hvals
 
 Get all the values in a hash
@@ -560,32 +642,6 @@ Get the number of fields in a hash
 
 ```php
 public hlen(string $key): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-
-
-
-
-***
-
-### hkeys
-
-Get all the fields in a hash
-
-```php
-public hkeys(string $key): array
 ```
 
 
@@ -660,62 +716,6 @@ public hincrby(string $key, string $field, int $by = 1): int
 
 ***
 
-### hget
-
-Get the value of a hash field
-
-```php
-public hget(string $key, string $field, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
-### hset
-
-Set the string value of a hash field
-
-```php
-public hset(string $key, string $field, mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
 ### hmget
 
 Get the values of all the given hash fields
@@ -770,4 +770,4 @@ public hmset(string $key): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

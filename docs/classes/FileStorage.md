@@ -114,32 +114,6 @@ public addStorage(mixed $name, mixed $config): mixed
 
 ***
 
-### initStorage
-
-
-
-```php
-protected initStorage(mixed $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-
-
-
-
-***
-
 ### use
 
 
@@ -192,6 +166,32 @@ public getURL(mixed $file): mixed
 
 ***
 
+### initStorage
+
+
+
+```php
+protected initStorage(mixed $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
 ### __call
 
 
@@ -221,4 +221,4 @@ public __call(mixed $name, mixed $args): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -141,26 +141,6 @@ protected int $xmlOptions
 ## Methods
 
 
-### __construct
-
-
-
-```php
-public __construct(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### clean
 
 SVGSanitizer::clean('<svg ...>')
@@ -187,12 +167,12 @@ public static clean(mixed $svgText): mixed
 
 ***
 
-### sanitize
+### __construct
 
-Sanitize the passed string
+
 
 ```php
-public sanitize(string $dirty): string
+public __construct(): mixed
 ```
 
 
@@ -201,12 +181,6 @@ public sanitize(string $dirty): string
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$dirty` | **string** |  |
 
 
 
@@ -219,322 +193,6 @@ Set up the DOMDocument
 
 ```php
 protected resetInternal(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### setUpBefore
-
-Set up libXML before we start
-
-```php
-protected setUpBefore(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### resetAfter
-
-Reset the class after use
-
-```php
-protected resetAfter(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### removeDoctype
-
-Remove the XML Doctype
-It may be caught later on output but that seems to be buggy, so we need to make sure it's gone
-
-```php
-protected removeDoctype(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### startClean
-
-Start the cleaning with tags, then we move onto attributes and hrefs later
-
-```php
-protected startClean(\DOMNodeList $elements): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$elements` | **\DOMNodeList** |  |
-
-
-
-
-***
-
-### cleanAttributesOnWhitelist
-
-Only allow attributes that are on the whitelist
-
-```php
-protected cleanAttributesOnWhitelist(\DOMElement $element): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$element` | **\DOMElement** |  |
-
-
-
-
-***
-
-### isAriaAttribute
-
-Check to see if an attribute is an aria attribute or not
-
-```php
-protected isAriaAttribute( $attributeName): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$attributeName` | **** |  |
-
-
-
-
-***
-
-### isDataAttribute
-
-Check to see if an attribute is an data attribute or not
-
-```php
-protected isDataAttribute( $attributeName): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$attributeName` | **** |  |
-
-
-
-
-***
-
-### hasRemoteReference
-
-Does this attribute value have a remote reference?
-
-```php
-protected hasRemoteReference( $value): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **** |  |
-
-
-
-
-***
-
-### removeNonPrintableCharacters
-
-Removes non-printable ASCII characters from string & trims it
-
-```php
-protected removeNonPrintableCharacters(string $value): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **string** |  |
-
-
-
-
-***
-
-### cleanXlinkHrefs
-
-Clean the xlink:hrefs of script and data embeds
-
-```php
-protected cleanXlinkHrefs(\DOMElement $element): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$element` | **\DOMElement** |  |
-
-
-
-
-***
-
-### cleanHrefs
-
-Clean the hrefs of script and data embeds
-
-```php
-protected cleanHrefs(\DOMElement $element): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$element` | **\DOMElement** |  |
-
-
-
-
-***
-
-### isUseTagDirty
-
-Make sure our use tag is only referencing internal resources
-
-```php
-protected isUseTagDirty(\DOMElement $element): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$element` | **\DOMElement** |  |
-
-
-
-
-***
-
-### getXMLOptions
-
-Get XML options to use when saving XML
-See: DOMDocument::saveXML
-
-```php
-public getXMLOptions(): int
 ```
 
 
@@ -570,6 +228,27 @@ public setXMLOptions(int $xmlOptions): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$xmlOptions` | **int** |  |
+
+
+
+
+***
+
+### getXMLOptions
+
+Get XML options to use when saving XML
+See: DOMDocument::saveXML
+
+```php
+public getXMLOptions(): int
+```
+
+
+
+
+
+
+
 
 
 
@@ -694,6 +373,249 @@ public removeRemoteReferences(bool $removeRemoteRefs = false): mixed
 
 ***
 
+### sanitize
+
+Sanitize the passed string
+
+```php
+public sanitize(string $dirty): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$dirty` | **string** |  |
+
+
+
+
+***
+
+### setUpBefore
+
+Set up libXML before we start
+
+```php
+protected setUpBefore(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### resetAfter
+
+Reset the class after use
+
+```php
+protected resetAfter(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### removeDoctype
+
+Remove the XML Doctype
+It may be caught later on output but that seems to be buggy, so we need to make sure it's gone
+
+```php
+protected removeDoctype(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### startClean
+
+Start the cleaning with tags, then we move onto attributes and hrefs later
+
+```php
+protected startClean(\DOMNodeList $elements): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$elements` | **\DOMNodeList** |  |
+
+
+
+
+***
+
+### cleanAttributesOnWhitelist
+
+Only allow attributes that are on the whitelist
+
+```php
+protected cleanAttributesOnWhitelist(\DOMElement $element): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$element` | **\DOMElement** |  |
+
+
+
+
+***
+
+### cleanXlinkHrefs
+
+Clean the xlink:hrefs of script and data embeds
+
+```php
+protected cleanXlinkHrefs(\DOMElement $element): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$element` | **\DOMElement** |  |
+
+
+
+
+***
+
+### cleanHrefs
+
+Clean the hrefs of script and data embeds
+
+```php
+protected cleanHrefs(\DOMElement $element): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$element` | **\DOMElement** |  |
+
+
+
+
+***
+
+### removeNonPrintableCharacters
+
+Removes non-printable ASCII characters from string & trims it
+
+```php
+protected removeNonPrintableCharacters(string $value): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **string** |  |
+
+
+
+
+***
+
+### hasRemoteReference
+
+Does this attribute value have a remote reference?
+
+```php
+protected hasRemoteReference( $value): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **** |  |
+
+
+
+
+***
+
 ### minify
 
 Should we minify the output?
@@ -746,6 +668,84 @@ public removeXMLTag(bool $removeXMLTag = false): mixed
 
 ***
 
+### isAriaAttribute
+
+Check to see if an attribute is an aria attribute or not
+
+```php
+protected isAriaAttribute( $attributeName): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$attributeName` | **** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+### isDataAttribute
+
+Check to see if an attribute is an data attribute or not
+
+```php
+protected isDataAttribute( $attributeName): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$attributeName` | **** |  |
+
+
+
+
+***
+
+### isUseTagDirty
+
+Make sure our use tag is only referencing internal resources
+
+```php
+protected isUseTagDirty(\DOMElement $element): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$element` | **\DOMElement** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

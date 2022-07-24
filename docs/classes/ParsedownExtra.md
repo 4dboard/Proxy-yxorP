@@ -19,12 +19,12 @@
 ## Properties
 
 
-### regexAttribute
+### footnoteCount
 
 
 
 ```php
-protected $regexAttribute
+private $footnoteCount
 ```
 
 
@@ -34,12 +34,12 @@ protected $regexAttribute
 
 ***
 
-### footnoteCount
+### regexAttribute
 
 
 
 ```php
-private $footnoteCount
+protected $regexAttribute
 ```
 
 
@@ -66,6 +66,32 @@ public __construct(): mixed
 
 
 
+
+
+
+
+***
+
+### text
+
+
+
+```php
+public text(mixed $text): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$text` | **mixed** |  |
 
 
 
@@ -204,33 +230,6 @@ protected blockDefinitionList(mixed $Line, mixed $Block): mixed
 
 ***
 
-### addDdElement
-
-
-
-```php
-protected addDdElement(array $Line, array $Block): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$Line` | **array** |  |
-| `$Block` | **array** |  |
-
-
-
-
-***
-
 ### blockDefinitionListContinue
 
 
@@ -284,32 +283,6 @@ protected blockHeader(mixed $Line): mixed
 
 ***
 
-### parseAttributeData
-
-
-
-```php
-protected parseAttributeData(mixed $attributeString): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$attributeString` | **mixed** |  |
-
-
-
-
-***
-
 ### blockMarkupComplete
 
 
@@ -330,78 +303,6 @@ protected blockMarkupComplete(mixed $Block): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$Block` | **mixed** |  |
-
-
-
-
-***
-
-### processTag
-
-
-
-```php
-protected processTag(mixed $elementMarkup): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$elementMarkup` | **mixed** |  |
-
-
-
-
-***
-
-### text
-
-
-
-```php
-public text(mixed $text): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **mixed** |  |
-
-
-
-
-***
-
-### buildFootnoteElement
-
-
-
-```php
-protected buildFootnoteElement(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -513,6 +414,105 @@ protected unmarkedText(mixed $text): mixed
 
 ***
 
+### addDdElement
+
+
+
+```php
+protected addDdElement(array $Line, array $Block): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$Line` | **array** |  |
+| `$Block` | **array** |  |
+
+
+
+
+***
+
+### buildFootnoteElement
+
+
+
+```php
+protected buildFootnoteElement(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### parseAttributeData
+
+
+
+```php
+protected parseAttributeData(mixed $attributeString): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$attributeString` | **mixed** |  |
+
+
+
+
+***
+
+### processTag
+
+
+
+```php
+protected processTag(mixed $elementMarkup): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$elementMarkup` | **mixed** |  |
+
+
+
+
+***
+
 ### sortFootnotes
 
 
@@ -544,17 +544,17 @@ protected sortFootnotes(mixed $A, mixed $B): mixed
 ## Inherited methods
 
 
-### instance
+### text
 
 
 
 ```php
-public static instance(mixed $name = &#039;default&#039;): mixed
+public text(mixed $text): mixed
 ```
 
 
 
-* This method is **static**.
+
 
 
 
@@ -563,7 +563,7 @@ public static instance(mixed $name = &#039;default&#039;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$text` | **mixed** |  |
 
 
 
@@ -674,12 +674,12 @@ public setSafeMode(mixed $safeMode): mixed
 
 ***
 
-### line
+### lines
 
 
 
 ```php
-public line(mixed $text, mixed $nonNestables = array()): mixed
+protected lines(array $lines): mixed
 ```
 
 
@@ -693,20 +693,19 @@ public line(mixed $text, mixed $nonNestables = array()): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$text` | **mixed** |  |
-| `$nonNestables` | **mixed** |  |
+| `$lines` | **array** |  |
 
 
 
 
 ***
 
-### unmarkedText
+### isBlockContinuable
 
 
 
 ```php
-protected unmarkedText(mixed $text): mixed
+protected isBlockContinuable(mixed $Type): mixed
 ```
 
 
@@ -720,19 +719,19 @@ protected unmarkedText(mixed $text): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$text` | **mixed** |  |
+| `$Type` | **mixed** |  |
 
 
 
 
 ***
 
-### element
+### isBlockCompletable
 
 
 
 ```php
-protected element(array $Element): mixed
+protected isBlockCompletable(mixed $Type): mixed
 ```
 
 
@@ -746,166 +745,7 @@ protected element(array $Element): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$Element` | **array** |  |
-
-
-
-
-***
-
-### sanitiseElement
-
-
-
-```php
-protected sanitiseElement(array $Element): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$Element` | **array** |  |
-
-
-
-
-***
-
-### filterUnsafeUrlInAttribute
-
-
-
-```php
-protected filterUnsafeUrlInAttribute(array $Element, mixed $attribute): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$Element` | **array** |  |
-| `$attribute` | **mixed** |  |
-
-
-
-
-***
-
-### striAtStart
-
-
-
-```php
-protected static striAtStart(mixed $string, mixed $needle): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$string` | **mixed** |  |
-| `$needle` | **mixed** |  |
-
-
-
-
-***
-
-### escape
-
-
-
-```php
-protected static escape(mixed $text, mixed $allowQuotes = false): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **mixed** |  |
-| `$allowQuotes` | **mixed** |  |
-
-
-
-
-***
-
-### parse
-
-
-
-```php
-public parse(mixed $text): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **mixed** |  |
-
-
-
-
-***
-
-### text
-
-
-
-```php
-public text(mixed $text): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **mixed** |  |
+| `$Type` | **mixed** |  |
 
 
 
@@ -1203,32 +1043,6 @@ protected blockListContinue(mixed $Line, array $Block): mixed
 
 ***
 
-### blockReference
-
-
-
-```php
-protected blockReference(mixed $Line): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$Line` | **mixed** |  |
-
-
-
-
-***
-
 ### blockListComplete
 
 
@@ -1414,6 +1228,32 @@ protected blockMarkupContinue(mixed $Line, array $Block): mixed
 
 ***
 
+### blockReference
+
+
+
+```php
+protected blockReference(mixed $Line): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$Line` | **mixed** |  |
+
+
+
+
+***
+
 ### blockTable
 
 
@@ -1462,6 +1302,59 @@ protected blockTableContinue(mixed $Line, array $Block): mixed
 |-----------|------|-------------|
 | `$Line` | **mixed** |  |
 | `$Block` | **array** |  |
+
+
+
+
+***
+
+### paragraph
+
+
+
+```php
+protected paragraph(mixed $Line): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$Line` | **mixed** |  |
+
+
+
+
+***
+
+### line
+
+
+
+```php
+public line(mixed $text, mixed $nonNestables = array()): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$text` | **mixed** |  |
+| `$nonNestables` | **mixed** |  |
 
 
 
@@ -1754,6 +1647,58 @@ protected inlineUrlTag(mixed $Excerpt): mixed
 
 ***
 
+### unmarkedText
+
+
+
+```php
+protected unmarkedText(mixed $text): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$text` | **mixed** |  |
+
+
+
+
+***
+
+### element
+
+
+
+```php
+protected element(array $Element): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$Element` | **array** |  |
+
+
+
+
+***
+
 ### elements
 
 
@@ -1806,12 +1751,12 @@ protected li(mixed $lines): mixed
 
 ***
 
-### lines
+### parse
 
 
 
 ```php
-protected lines(array $lines): mixed
+public parse(mixed $text): mixed
 ```
 
 
@@ -1825,19 +1770,19 @@ protected lines(array $lines): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$lines` | **array** |  |
+| `$text` | **mixed** |  |
 
 
 
 
 ***
 
-### isBlockCompletable
+### sanitiseElement
 
 
 
 ```php
-protected isBlockCompletable(mixed $Type): mixed
+protected sanitiseElement(array $Element): mixed
 ```
 
 
@@ -1851,19 +1796,19 @@ protected isBlockCompletable(mixed $Type): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$Type` | **mixed** |  |
+| `$Element` | **array** |  |
 
 
 
 
 ***
 
-### isBlockContinuable
+### filterUnsafeUrlInAttribute
 
 
 
 ```php
-protected isBlockContinuable(mixed $Type): mixed
+protected filterUnsafeUrlInAttribute(array $Element, mixed $attribute): mixed
 ```
 
 
@@ -1877,24 +1822,25 @@ protected isBlockContinuable(mixed $Type): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$Type` | **mixed** |  |
+| `$Element` | **array** |  |
+| `$attribute` | **mixed** |  |
 
 
 
 
 ***
 
-### paragraph
+### escape
 
 
 
 ```php
-protected paragraph(mixed $Line): mixed
+protected static escape(mixed $text, mixed $allowQuotes = false): mixed
 ```
 
 
 
-
+* This method is **static**.
 
 
 
@@ -1903,7 +1849,61 @@ protected paragraph(mixed $Line): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$Line` | **mixed** |  |
+| `$text` | **mixed** |  |
+| `$allowQuotes` | **mixed** |  |
+
+
+
+
+***
+
+### striAtStart
+
+
+
+```php
+protected static striAtStart(mixed $string, mixed $needle): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$string` | **mixed** |  |
+| `$needle` | **mixed** |  |
+
+
+
+
+***
+
+### instance
+
+
+
+```php
+public static instance(mixed $name = &#039;default&#039;): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
 
 
 
@@ -1912,4 +1912,4 @@ protected paragraph(mixed $Line): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

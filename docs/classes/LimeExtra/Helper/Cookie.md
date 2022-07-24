@@ -47,12 +47,12 @@ protected array $_deleted_cookies
 ## Methods
 
 
-### getAndDelete
+### set
 
-gets a cookie and eats it
+sets a cookie
 
 ```php
-public getAndDelete(string $name, mixed $path = &#039;/&#039;, mixed $domain = &#039;&#039;, mixed $secure = false, mixed $http_only = false, mixed $same_site = null): mixed
+public set(string $name, string $value = &quot;&quot;, mixed $ttl = 86400, string $path = &#039;/&#039;, string $domain = &#039;&#039;, bool $secure = false, bool $http_only = false, (string|null) $same_site = null): bool
 ```
 
 
@@ -67,11 +67,13 @@ public getAndDelete(string $name, mixed $path = &#039;/&#039;, mixed $domain = &
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-| `$path` | **mixed** |  |
-| `$domain` | **mixed** |  |
-| `$secure` | **mixed** |  |
-| `$http_only` | **mixed** |  |
-| `$same_site` | **mixed** |  |
+| `$value` | **string** |  |
+| `$ttl` | **mixed** |  |
+| `$path` | **string** |  |
+| `$domain` | **string** |  |
+| `$secure` | **bool** |  |
+| `$http_only` | **bool** |  |
+| `$same_site` | **(string&#124;null)** |  |
 
 
 
@@ -135,12 +137,12 @@ public delete(string $name, mixed $path = &#039;/&#039;, mixed $domain = &#039;&
 
 ***
 
-### set
+### getAndDelete
 
-sets a cookie
+gets a cookie and eats it
 
 ```php
-public set(string $name, string $value = &quot;&quot;, mixed $ttl = 86400, string $path = &#039;/&#039;, string $domain = &#039;&#039;, bool $secure = false, bool $http_only = false, (string|null) $same_site = null): bool
+public getAndDelete(string $name, mixed $path = &#039;/&#039;, mixed $domain = &#039;&#039;, mixed $secure = false, mixed $http_only = false, mixed $same_site = null): mixed
 ```
 
 
@@ -155,13 +157,11 @@ public set(string $name, string $value = &quot;&quot;, mixed $ttl = 86400, strin
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-| `$value` | **string** |  |
-| `$ttl` | **mixed** |  |
-| `$path` | **string** |  |
-| `$domain` | **string** |  |
-| `$secure` | **bool** |  |
-| `$http_only` | **bool** |  |
-| `$same_site` | **(string&#124;null)** |  |
+| `$path` | **mixed** |  |
+| `$domain` | **mixed** |  |
+| `$secure` | **mixed** |  |
+| `$http_only` | **mixed** |  |
+| `$same_site` | **mixed** |  |
 
 
 
@@ -299,4 +299,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -15,12 +15,12 @@ Base adapter implementation to handle image manipulation.
 ## Methods
 
 
-### loadFile
+### load
 
-{@inheritdoc}
+Loads an image resource.
 
 ```php
-public loadFile(mixed $file): mixed
+public load(mixed $resource): mixed
 ```
 
 
@@ -34,7 +34,7 @@ public loadFile(mixed $file): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$file` | **mixed** |  |
+| `$resource` | **mixed** |  |
 
 
 
@@ -67,12 +67,12 @@ public loadBinaryString(mixed $data): mixed
 
 ***
 
-### load
+### loadFile
 
-Loads an image resource.
+{@inheritdoc}
 
 ```php
-public load(mixed $resource): mixed
+public loadFile(mixed $file): mixed
 ```
 
 
@@ -86,7 +86,7 @@ public load(mixed $resource): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$resource` | **mixed** |  |
+| `$file` | **mixed** |  |
 
 
 
@@ -252,4 +252,4 @@ public getResource(): resource
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -87,12 +87,12 @@ public __construct(mixed $comparator): mixed
 
 ***
 
-### setComparator
+### sort
 
 
 
 ```php
-public setComparator(mixed $function): mixed
+private sort(): mixed
 ```
 
 
@@ -101,12 +101,6 @@ public setComparator(mixed $function): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$function` | **mixed** |  |
 
 
 
@@ -165,12 +159,12 @@ public peek(mixed $index = null): mixed
 
 ***
 
-### sort
+### pop
 
 
 
 ```php
-private sort(): mixed
+public pop(): mixed
 ```
 
 
@@ -205,12 +199,12 @@ public size(): mixed
 
 ***
 
-### pop
+### map
 
 
 
 ```php
-public pop(): mixed
+public map(mixed $function): mixed
 ```
 
 
@@ -220,17 +214,23 @@ public pop(): mixed
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$function` | **mixed** |  |
+
 
 
 
 ***
 
-### map
+### setComparator
 
 
 
 ```php
-public map(mixed $function): mixed
+public setComparator(mixed $function): mixed
 ```
 
 
@@ -273,4 +273,4 @@ public debug(): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

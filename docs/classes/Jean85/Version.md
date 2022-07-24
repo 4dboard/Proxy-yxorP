@@ -108,12 +108,12 @@ public __construct(string $packageName, string $version): mixed
 
 ***
 
-### getShortVersion
+### getPrettyVersion
 
 
 
 ```php
-public getShortVersion(): string
+public getPrettyVersion(): string
 ```
 
 
@@ -148,94 +148,12 @@ public getFullVersion(): string
 
 ***
 
-### getCommitHash
+### getVersionWithShortReference
 
 
 
 ```php
-public getCommitHash(): string
-```
-
-
-
-
-
-
-* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
-
-***
-
-### getReference
-
-
-
-```php
-public getReference(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getPackageName
-
-
-
-```php
-public getPackageName(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### __toString
-
-
-
-```php
-public __toString(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getPrettyVersion
-
-
-
-```php
-public getPrettyVersion(): string
+public getVersionWithShortReference(): string
 ```
 
 
@@ -272,12 +190,12 @@ public getVersionWithShortCommit(): string
 
 ***
 
-### getVersionWithShortReference
+### getPackageName
 
 
 
 ```php
-public getVersionWithShortReference(): string
+public getPackageName(): string
 ```
 
 
@@ -292,12 +210,52 @@ public getVersionWithShortReference(): string
 
 ***
 
-### getShortCommitHash
+### getShortVersion
 
 
 
 ```php
-public getShortCommitHash(): string
+public getShortVersion(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getReference
+
+
+
+```php
+public getReference(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getCommitHash
+
+
+
+```php
+public getCommitHash(): string
 ```
 
 
@@ -334,6 +292,48 @@ public getShortReference(): string
 
 ***
 
+### getShortCommitHash
+
+
+
+```php
+public getShortCommitHash(): string
+```
+
+
+
+
+
+
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+### __toString
+
+
+
+```php
+public __toString(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

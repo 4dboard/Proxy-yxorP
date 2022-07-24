@@ -93,12 +93,12 @@ public __construct(): mixed
 
 ***
 
-### isEmpty
+### count
 
 
 
 ```php
-public isEmpty(): mixed
+public count(): mixed
 ```
 
 
@@ -113,12 +113,12 @@ public isEmpty(): mixed
 
 ***
 
-### count
+### isEmpty
 
 
 
 ```php
-public count(): mixed
+public isEmpty(): mixed
 ```
 
 
@@ -310,12 +310,12 @@ public top(): mixed
 
 ***
 
-### getIterator
+### extract
 
 
 
 ```php
-public getIterator(): mixed
+public extract(): mixed
 ```
 
 
@@ -330,12 +330,12 @@ public getIterator(): mixed
 
 ***
 
-### extract
+### getIterator
 
 
 
 ```php
-public extract(): mixed
+public getIterator(): mixed
 ```
 
 
@@ -372,4 +372,4 @@ public __clone(): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
