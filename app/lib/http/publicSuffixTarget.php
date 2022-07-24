@@ -7,7 +7,7 @@ class publicSuffixTarget
 
     public function registrableDomain(): registrableDomain
     {
-        return new(yP::store(ENV_DEFAULT_TARGET));
+        return new registrableDomain(yP::store(ENV_DEFAULT_TARGET));
     }
 
 }
