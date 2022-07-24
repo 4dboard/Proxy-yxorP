@@ -43,7 +43,7 @@ $this->module('cockpit')->extend([
                 'display_sortable_entries' => true,
             ],
             'helpers' => [
-                'locked_entries_disabled' => false,
+                'locked_entries_disabled' => 0,
             ],
         ];
 

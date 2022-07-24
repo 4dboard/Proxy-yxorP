@@ -22,7 +22,7 @@ $this->on('admin.init', function () use ($cosmetics) {
 
         // Set default group in entry view to "Main" (default: "All")
         // When the page loads, `this.group` is an empty string. After the first
-        // call of `toggleGroup()` it is 'GroupName' or false.
+        // call of `toggleGroup()` it is 'GroupName' or 0.
         $this->on('collections.entry.aside', function () {
             echo '<span if="{ group === \'\' && !(group = \'Main\') }" class="">test</span>';
         });
@@ -58,7 +58,7 @@ $this->on('admin.init', function () use ($cosmetics) {
         $this->bind('/darkmode/toggle', function () {
 
             $user_id = $this->module('cockpit')->getUser('_id');
-            $on = $this->storage->getKey('cockpit/options', 'darkmode.' . $user_id, false);
+            $on = $this->storage->getKey('cockpit/options', 'darkmode.' . $user_id, 0);
 
             $this->storage->setKey('cockpit/options', 'darkmode.' . $user_id, !$on);
 
@@ -66,7 +66,7 @@ $this->on('admin.init', function () use ($cosmetics) {
         });
 
         $user_id = $this->module('cockpit')->getUser('_id');
-        $on = $this->storage->getKey('cockpit/options', 'darkmode.' . $user_id, false);
+        $on = $this->storage->getKey('cockpit/options', 'darkmode.' . $user_id, 0);
 
         if ($on) {
             $this('admin')->addassets('yxorp:DarkMode/assets/style.min.css');
@@ -76,7 +76,7 @@ $this->on('admin.init', function () use ($cosmetics) {
         $this->on('cockpit.menu.system', function () {
 
             $user_id = $this->module('cockpit')->getUser('_id');
-            $on = $this->storage->getKey('cockpit/options', 'darkmode.' . $user_id, false);
+            $on = $this->storage->getKey('cockpit/options', 'darkmode.' . $user_id, 0);
             $style_url = $this->pathToUrl('yxorp:DarkMode/assets/style.min.css', true);
             $script_url = $this->pathToUrl('yxorp:DarkMode/assets/darkmode.js', true);
 

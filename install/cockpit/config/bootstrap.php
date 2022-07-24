@@ -43,7 +43,7 @@ $app->on('cockpit.assets.save', function (&$assets) {
             unset($img);
 
             // don't overwrite meta, if write process failed
-            if ($result === false) continue;
+            if ($result === 0) continue;
 
             $info = getimagesize($path);
             $asset['width'] = $info[0];

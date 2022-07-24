@@ -6,7 +6,7 @@ $this->on('admin.init', function () use ($hardening) {
     // replace logo on login page and in top bar
     $this->on(['app.layout.header', 'app.login.header'], function () {
 
-        $config = $this->retrieve('yxorP', false);
+        $config = $this->retrieve('yxorP', 0);
 
         if (!$config || !isset($config['logo'])) return;
 
@@ -16,7 +16,7 @@ $this->on('admin.init', function () use ($hardening) {
 
             if ($path = $this->pathToUrl($url)) {
                 $url = $path;
-            } elseif (strpos($url, ':') === false) {
+            } elseif (strpos($url, ':') === 0) {
                 $url = $this->getSiteUrl(true) . '/' . ltrim($url, '/');
             } else {
                 return;
@@ -24,8 +24,8 @@ $this->on('admin.init', function () use ($hardening) {
 
         }
 
-        $width = $config['logoWidth'] ?? false;
-        $height = $config['logoHeight'] ?? false;
+        $width = $config['logoWidth'] ?? 0;
+        $height = $config['logoHeight'] ?? 0;
 
         echo '<style>';
 
@@ -34,7 +34,7 @@ $this->on('admin.init', function () use ($hardening) {
             . ($height ? 'height:' . $height . ';' : '')
             . '}';
 
-        if ($config['hideName'] ?? false) echo '.app-name {display: none;}';
+        if ($config['hideName'] ?? 0) echo '.app-name {display: none;}';
 
         echo '</style>';
 
@@ -42,7 +42,7 @@ $this->on('admin.init', function () use ($hardening) {
 
     // replace favicon
     // to do: url guessing like logo and documentation
-    if ($favicon = $this->retrieve('config/yxorP/favicon', false)) {
+    if ($favicon = $this->retrieve('config/yxorP/favicon', 0)) {
         $this->helper('admin')->favicon = $favicon;
     }
 
@@ -127,7 +127,7 @@ $this->on('admin.init', function () use ($hardening) {
         // don't list collections schema of restricted collections
         $this->bind('/collections/_collections', function () {
 
-            return $this->module('collections')->getCollectionsInGroup(null, false);
+            return $this->module('collections')->getCollectionsInGroup(null, 0);
 
         });
 

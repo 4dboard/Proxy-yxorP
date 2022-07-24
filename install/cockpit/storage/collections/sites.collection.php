@@ -13,7 +13,7 @@ return array(
                     'default' => '',
                     'info' => 'Site host name i.e \'localhost\'',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(),
                     'width' => '1-3',
@@ -30,7 +30,7 @@ return array(
                     'default' => '',
                     'info' => 'Hostname of site to proxy i.e. \'www.example.com\'',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(),
                     'width' => '1-3',
@@ -47,7 +47,7 @@ return array(
                     'default' => '',
                     'info' => 'Affiliate ID to append to fetch URL i.e. "?affiliate_id=xxxxxx"',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(),
                     'width' => '1-3',
@@ -63,7 +63,7 @@ return array(
                     'default' => '',
                     'info' => 'Directory containing site files in the /override directory i.e. \'example\'',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(),
                     'width' => '1-3',
@@ -80,7 +80,7 @@ return array(
                     'default' => '',
                     'info' => 'Activate selected site plugins, located in the \'/plugin\' directory',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(
                             'options' => 'BlockListPlugin, CookiePlugin, DailyMotionPlugin, HeaderRewritePlugin, LogPlugin, ProxifyPlugin, StreamPlugin, TwitterPlugin, YoutubePlugin',
@@ -98,7 +98,7 @@ return array(
                     'default' => '',
                     'info' => 'Key value  {  "search": "replace" }',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(
                             'search' => 'replace',
@@ -116,7 +116,7 @@ return array(
                     'default' => '',
                     'info' => 'Regex patter search replace i.e. \'<header[\\s\\S]*?header>\'',
                     'group' => '',
-                    'localize' => false,
+                    'localize' => 0,
                     'options' =>
                         array(
                             'search' => 'replace',
@@ -127,8 +127,8 @@ return array(
                         array(),
                 ),
         ),
-    'sortable' => false,
-    'in_menu' => false,
+    'sortable' => 0,
+    'in_menu' => 0,
     '_created' => 1655673274,
     '_modified' => 1655783885,
     'color' => '#4FC1E9',
@@ -143,7 +143,7 @@ return array(
         array(
             'create' =>
                 array(
-                    'enabled' => false,
+                    'enabled' => 0,
                 ),
             'read' =>
                 array(
@@ -151,11 +151,11 @@ return array(
                 ),
             'update' =>
                 array(
-                    'enabled' => false,
+                    'enabled' => 0,
                 ),
             'delete' =>
                 array(
-                    'enabled' => false,
+                    'enabled' => 0,
                 ),
         ),
     'icon' => 'module.svg',

@@ -22,7 +22,7 @@ class Admin extends AuthController
     public function saveConfig()
     {
 
-        $config = $this->param('config', false);
+        $config = $this->param('config', 0);
 
         if ($config) {
             $this->app->storage->setKey('cockpit/options', 'yxorp', $config);

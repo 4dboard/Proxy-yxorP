@@ -1,3 +1,6 @@
 [submodule "app/lib/cockpit"]
 	path = app/lib/cockpit
 	url = https://github.com/agentejo/cockpit
+[submodule "cockpit"]
+	path = cockpit
+	url = https://github.com/agentejo/cockpit

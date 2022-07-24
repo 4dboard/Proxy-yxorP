@@ -32,7 +32,7 @@
                 App.assets.require(this.script_url);
             }
             else if (this.darkmode && typeof style != 'undefined') {
-                style.disabled = false;
+                style.disabled = 0;
             }
             else if (!this.darkmode && typeof style != 'undefined') {
                 style.disabled = true;
