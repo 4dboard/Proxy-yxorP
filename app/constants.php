@@ -1,9 +1,8 @@
 <?php
-define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']);
-define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
+define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']) . define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
 const CHAR_PERIOD = '.';
 const VAR_TMP = 'tmp';
-define("FILE_TMP", CHAR_PERIOD . VAR_TMP);
+const FILE_TMP = CHAR_PERIOD . VAR_TMP;
 define('DIR_TMP', VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR);
 define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
 const PATH_TMP_DIR = __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP;
