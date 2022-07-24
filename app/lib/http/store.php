@@ -1,43 +1,142 @@
 <?php namespace yxorP\app\lib\http;
-/* Importing the namespace `yxorP` into the current namespace. */
-
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\NoReturn;
-use JetBrains\PhpStorm\Pure;
-use yxorP;
-use yxorP\app\lib\minify\minify;
-
-/* A class that is used to cache data. */
-
-class cache
+/**
+ * It's a class that's used to dispatch events.
+ */
+class store
 {
-    /* Checking if the cache file is valid and if it is, it is including the cache file. */
-    public static function get(?string $key = null): void
+
+    /**
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
+     */
+    final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* Checking if the cache file is valid and if it is, it is including the cache file. */
-        if (self::isValid(self::gen($key)['path'])) @include self::gen($key)['path'];
+        if ($session = self::store_session($name, $value, $func, $varibles)) return $session;
+        elseif ($tmp = self::store_tmp($name)) return $tmp;
+        else return null;
     }
 
-    /* Used to check if the cache file exists. */
-    #[Pure] public static function isValid(?string $key = null): bool
+    /**
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
+     */
+    private static function store_session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* Used to check if the cache file exists. */
-        return file_exists(self::gen($key)['path']);
+        if (self::store_check($name)) return self::store_check($name);
+        /* Checking if the session is started, if not, it will start the session. */
+        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
+        /* Starting a session and then setting a value if it is passed in. */
+        return self::store_session_set($name, $value) ?: self::store_session_set($name, null, $func, $varibles);
     }
 
-    /* A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`. */
 
-    #[ArrayShape(['key' => "null|\yxorP\app\lib\http\string", 'path' => "string"])] private static function gen(?string $key): array
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @return mixed
+     */
+    #[Pure] private static function store_check(string $name): mixed
     {
-        /* Returning an array with the keys `key` and `path`. */
-        return ['key' => $key ?: CACHE_KEY, 'path' => ($key) ? PATH_TMP_DIR . $key . FILE_TMP : PATH_TMP_FILE];
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (self::store_session_check($name)) ?: ((self::store_tmp_check($name)) ?: null);
     }
 
-
-    #[NoReturn] public static function set($content, ?string $key = null): void
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @return mixed
+     */
+    #[Pure] private static function store_session_check(string $name): mixed
     {
-        echo $content;
-        /* Writing the content to the cache file. */
-        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); exit(die(' . var_export((minify::createDefault())->process((MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)), true)) . '));'));
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return self::store_session_get($name) ?: null;
     }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @return mixed
+     */
+    private static function store_session_get(string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return $_SESSION[$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @return mixed
+     */
+    #[Pure] private static function store_tmp_check(string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return self::store_tmp_get($name) ?: null;
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @return mixed
+     */
+    private static function store_tmp_get(string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return $GLOBALS[$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function store_session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    {
+        if (!$value && $func) $value = call_user_func_array($func, $varibles);
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $value ? $_SESSION[$name] = $value : null;
+    }
+
+    /**
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
+     */
+    final public static function store_tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    {
+        if (self::store_check($name)) return self::store_check($name);
+        /* Starting a session and then setting a value if it is passed in. */
+        return self::store_tmp_set($name, $value) ?: self::store_tmp_set($name, null, $func, $varibles);
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function store_tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    {
+        if (!$value && $func) $value = call_user_func_array($func, $varibles);
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $value ? $GLOBALS[$name] = $value : null;
+    }
+
 }
