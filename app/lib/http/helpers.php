@@ -322,6 +322,7 @@ class helpers
      */
     private static function domain(): ?string
     {
+        return 'data.plȧy.com';
         return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
     }
 
