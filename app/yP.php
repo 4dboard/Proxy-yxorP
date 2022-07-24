@@ -149,10 +149,9 @@ class yP
      */
     private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-
         /* Setting the variable $_ to the value of $type if it is set, otherwise it is setting it to the value of
         $_SESSION.  Checking if the session has already been started. If it has not been started, it will start it. */
-        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
+        if (session_status() === PHP_SESSION_NONE) session_start();
         /* Starting a session and then setting a value if it is passed in. */
         return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
     }
@@ -165,7 +164,6 @@ class yP
      */
     private static function get(mixed $type, string $name): mixed
     {
-        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return $type[$name];
