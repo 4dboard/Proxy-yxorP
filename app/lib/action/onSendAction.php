@@ -22,8 +22,8 @@ class onSendAction extends wrapper
         $getUrl = yP::store(VAR_REQUEST)->getUrl();
         $getMethod = yP::store(VAR_REQUEST)->getMethod();
         $getMethod = yP::store(VAR_GUZZLE)->request($getMethod);
-
+        echo 1;
         yP::store_tmp(VAR_RESPONSE, $getMethod, $getUrl, json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR));
-        
+
     }
 }
