@@ -181,13 +181,8 @@ class yP
      */
     public static function set(mixed $type, string $name, mixed $value): mixed
     {
-        if (ENV_DEFAULT_TARGET == $name) $type[$name] = $value;
-        if (ENV_DEFAULT_TARGET == $name) echo self::get($type, $name);
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        if (array_key_exists($name, $type)) return $type[$name];
         /* Setting the value of the variable $name to the value of the variable $value. */
-        return $type[$name] = $value;
+        return $type[$name] ?: $type[$name] = $value;
     }
 
     /**
