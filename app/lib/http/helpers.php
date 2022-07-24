@@ -202,19 +202,17 @@ class helpers
      * @return void
      * A function that takes a string as a parameter and returns nothing.
      */
-    public static function env(): void
+    public static function env($line): void
     {
-        foreach (file(DIR_ROOT . EXT_ENV) as $line) {
 
-            /* Checking if the line starts with a hash. If it does, it returns. */
-            if (trim((string)str_starts_with(trim($line), CHAR_HASH))) continue;
+        /* Checking if the line starts with a hash. If it does, it returns. */
+        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
 
-            /* Exploding the $line variable into an array of two elements. */
-            [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
+        /* Exploding the $line variable into an array of two elements. */
+        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
 
-            /* Replacing all the new lines with null. */
-            yP::store(($name . EXT_ENV), (str_replace("\r\n", CHAR_EMPTY_STRING, $value)));
-        }
+        /* Replacing all the new lines with null. */
+        yP::store(($name . EXT_ENV), (str_replace("\r\n", CHAR_EMPTY_STRING, $value)));
     }
 
 
