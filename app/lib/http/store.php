@@ -15,8 +15,8 @@ class store
      */
     final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        if ($session = self::store_session($name, $value, $func, $varibles)) return $session;
-        elseif ($tmp = self::store_tmp($name)) return $tmp;
+        if ($session = self::session($name, $value, $func, $varibles)) return $session;
+        elseif ($tmp = self::tmp($name)) return $tmp;
         else return null;
     }
 
@@ -28,13 +28,13 @@ class store
      * @param array $varibles
      * @return mixed
      */
-    private static function store_session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        if (self::store_check($name)) return self::store_check($name);
+        if (self::check($name)) return self::check($name);
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_session_set($name, $value) ?: self::store_session_set($name, null, $func, $varibles);
+        return self::session_set($name, $value) ?: self::session_set($name, null, $func, $varibles);
     }
 
 
@@ -43,11 +43,11 @@ class store
      * @param string $name
      * @return mixed
      */
-    #[Pure] private static function store_check(string $name): mixed
+    #[Pure] private static function check(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (self::store_session_check($name)) ?: ((self::store_tmp_check($name)) ?: null);
+        return (self::session_check($name)) ?: ((self::tmp_check($name)) ?: null);
     }
 
     /**
@@ -55,11 +55,11 @@ class store
      * @param string $name
      * @return mixed
      */
-    #[Pure] private static function store_session_check(string $name): mixed
+    #[Pure] private static function session_check(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return self::store_session_get($name) ?: null;
+        return self::session_get($name) ?: null;
     }
 
     /**
@@ -67,7 +67,7 @@ class store
      * @param string $name
      * @return mixed
      */
-    private static function store_session_get(string $name): mixed
+    private static function session_get(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
@@ -79,11 +79,11 @@ class store
      * @param string $name
      * @return mixed
      */
-    #[Pure] private static function store_tmp_check(string $name): mixed
+    #[Pure] private static function tmp_check(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return self::store_tmp_get($name) ?: null;
+        return self::tmp_get($name) ?: null;
     }
 
     /**
@@ -91,7 +91,7 @@ class store
      * @param string $name
      * @return mixed
      */
-    private static function store_tmp_get(string $name): mixed
+    private static function tmp_get(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
@@ -104,7 +104,7 @@ class store
      * @param mixed $value
      * @return mixed
      */
-    public static function store_session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    public static function session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
@@ -119,11 +119,11 @@ class store
      * @param array $varibles
      * @return mixed
      */
-    final public static function store_tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    final public static function tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        if (self::store_check($name)) return self::store_check($name);
+        if (self::check($name)) return self::check($name);
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_tmp_set($name, $value) ?: self::store_tmp_set($name, null, $func, $varibles);
+        return self::tmp_set($name, $value) ?: self::tmp_set($name, null, $func, $varibles);
     }
 
     /**
@@ -132,7 +132,7 @@ class store
      * @param mixed $value
      * @return mixed
      */
-    public static function store_tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    public static function tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
