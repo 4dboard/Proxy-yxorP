@@ -20,7 +20,7 @@ abstract class wrapper
     final public function subscribe(yp $dispatcher): void
     {
         /* Adding a listener to all the events. */
-        foreach (yP::try(YXORP_EVENT_LIST) as $event) {
+        foreach (yP::store(YXORP_EVENT_LIST) as $event) {
             /* Adding a listener to the event. */
             $dispatcher->addListener($event, function () use ($event) {
                 /* Calling the `route` method. */
@@ -30,6 +30,84 @@ abstract class wrapper
     }
 
     /* A method that is used to route the events to the appropriate methods. */
+
+    public function onCheck(): void
+    {
+    }
+
+    /* Used to check if the event should be executed. */
+
+    public function onBuildCache(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
+
+    public function onBuildContext(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
+
+    public function onBuildIncludes(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
+
+    public function onBuildHeaders(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
+
+    public function onBuildRequest(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
+
+    public function onBeforeSend(): void
+    {
+    }
+
+    /* Used to build the result. */
+
+    public function onSend(): void
+    {
+    }
+
+    /* Used to execute code when the request is sent. */
+
+    public function onSent(): void
+    {
+    }
+
+    /* Used to execute code before the request is sent. */
+
+    public function onWrite(): void
+    {
+    }
+
+    /* Used to execute code when the headers are received. */
+
+    public function onComplete(): void
+    {
+    }
+
+    /* Used to execute code when the headers are received. */
+
+    public function onFinal(): void
+    {
+    }
+
+    /* Used to execute code when the request is completed. */
+
+    public function onBuildException(Exception $e): void
+    {
+    }
+
+    /* Used to execute code when an exception is thrown. */
 
     private function route(string $event_name): void
     {
@@ -83,83 +161,5 @@ abstract class wrapper
             /* Calling the `onBuildException` method. */
             $this->onBuildException($e);
         }
-    }
-
-    /* Used to check if the event should be executed. */
-
-    public function onCheck(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
-
-    public function onBuildCache(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
-
-    public function onBuildContext(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
-
-    public function onBuildIncludes(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
-
-    public function onBuildHeaders(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
-
-    public function onBuildRequest(): void
-    {
-    }
-
-    /* Used to build the result. */
-
-    public function onBeforeSend(): void
-    {
-    }
-
-    /* Used to execute code when the request is sent. */
-
-    public function onSend(): void
-    {
-    }
-
-    /* Used to execute code before the request is sent. */
-
-    public function onSent(): void
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
-
-    public function onWrite(): void
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
-
-    public function onComplete(): void
-    {
-    }
-
-    /* Used to execute code when the request is completed. */
-
-    public function onFinal(): void
-    {
-    }
-
-    /* Used to execute code when an exception is thrown. */
-
-    public function onBuildException(Exception $e): void
-    {
     }
 }

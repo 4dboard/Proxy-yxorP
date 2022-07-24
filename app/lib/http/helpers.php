@@ -132,7 +132,7 @@ class helpers
         }
 
         /* Removing the "fetch" parameter from the URL. */
-        return str_replace(yP::try(VAR_FETCH), CHAR_EMPTY_STRING, $url);
+        return str_replace(yP::store(VAR_FETCH), CHAR_EMPTY_STRING, $url);
     }
 
     /**
@@ -204,7 +204,7 @@ class helpers
      */
     public static function env(): void
     {
-        yP::try(EXT_ENV, 1);
+        yP::store(EXT_ENV, 1);
 
         foreach (file(DIR_ROOT . EXT_ENV) as $line) {
 
@@ -215,7 +215,7 @@ class helpers
             [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
 
             /* Replacing all the new lines with null. */
-            yP::try(($name . EXT_ENV), (str_replace("\r\n", CHAR_EMPTY_STRING, $value)));
+            yP::store(($name . EXT_ENV), (str_replace("\r\n", CHAR_EMPTY_STRING, $value)));
         }
     }
 
@@ -229,50 +229,50 @@ class helpers
     {
         helpers::install();
 
-        /* Defining a constant called yP::try(YXORP_SERVER) and setting it to the value of $req. */
-        yP::try(VAR_SERVER, $req ?: $_SERVER);
+        /* Defining a constant called yP::store(YXORP_SERVER) and setting it to the value of $req. */
+        yP::store(VAR_SERVER, $req ?: $_SERVER);
 
         /* Checking if the site url contains a period. If it does, it returns 0. */
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        yP::try(SITE_DOMAIN, null, 'yxorP\app\lib\http\helpers::suffix');
+        yP::store(SITE_DOMAIN, null, 'yxorP\app\lib\http\helpers::suffix');
 
         /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
         define('YXORP_TARGET_DOMAIN', 'YXORP_TARGET_DOMAIN');
-        define('YXORP_SITE_DOMAIN', !YXORP_IS_LOCALHOST ? yP::try(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::try(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST);
-        define('YXORP_SITE_SUB_DOMAIN', !YXORP_IS_LOCALHOST ? (yP::try(SITE_DOMAIN)->subDomain()->toString() ? yP::try(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null);
+        define('YXORP_SITE_DOMAIN', !YXORP_IS_LOCALHOST ? yP::store(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::store(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST);
+        define('YXORP_SITE_SUB_DOMAIN', !YXORP_IS_LOCALHOST ? (yP::store(SITE_DOMAIN)->subDomain()->toString() ? yP::store(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null);
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        yP::try(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
+        yP::store(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
 
         /* Setting the pattern, replace, and plugins variables. */
         foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
-            yP::try($key, yP::try(SITE_DETAILS)[$value]);
+            yP::store($key, yP::store(SITE_DETAILS)[$value]);
 
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-        define('YXORP_TARGET_URL', (yP::try(SITE_DETAILS))[COCKPIT_TARGET]);
+        define('YXORP_TARGET_URL', (yP::store(SITE_DETAILS))[COCKPIT_TARGET]);
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        yP::try(TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
+        yP::store(TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        yP::try(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_domain');
+        yP::store(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_domain');
 
         /* Defining a constant. */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . yP::try(YXORP_TARGET_DOMAIN));
+        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . yP::store(YXORP_TARGET_DOMAIN));
 
         /* Defining constants. */
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', yP::try(SITE_DETAILS)[VAR_FILES]));
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', yP::store(SITE_DETAILS)[VAR_FILES]));
 
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
         value of the constant YXORP_REQUEST_URI. */
         define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
 
         /* Setting the global variables for the application. */
-        foreach ([YXORP_GLOBAL_REPLACE => yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null, YXORP_REWRITE => helpers::JSON(PATH_REWRITE)] as $key => $value) yP::try($key, $value);
+        foreach ([YXORP_GLOBAL_REPLACE => yP::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (yP::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => yP::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (yP::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null, YXORP_REWRITE => helpers::JSON(PATH_REWRITE)] as $key => $value) yP::store($key, $value);
 
     }
 
@@ -290,7 +290,7 @@ class helpers
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
         if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
         /* It's inserting a new user into the `COCKPIT_accounts` collection. */
-        if (!yP::try(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::try(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::try(ENV_ADMIN_USER), VAR_NAME => yP::try(ENV_ADMIN_NAME), VAR_EMAIL => yP::try(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::try(YXORP_COCKPIT_APP)->hash(yP::try(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::try(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!yP::store(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::store(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::store(ENV_ADMIN_USER), VAR_NAME => yP::store(ENV_ADMIN_NAME), VAR_EMAIL => yP::store(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::store(YXORP_COCKPIT_APP)->hash(yP::store(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::store(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
@@ -331,7 +331,7 @@ class helpers
      */
     public static function target_domain(): mixed
     {
-        return yP::try(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::try(TARGET_DOMAIN)->domain()->toString();
+        return yP::store(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::store(TARGET_DOMAIN)->domain()->toString();
     }
 
     /**
@@ -342,7 +342,7 @@ class helpers
      */
     public static function target_suffix(): mixed
     {
-        return self::publicSuffix(YXORP_TARGET_URL ?: yP::try(ENV_DEFAULT_TARGET));
+        return self::publicSuffix(YXORP_TARGET_URL ?: yP::store(ENV_DEFAULT_TARGET));
     }
 
     /**
@@ -364,7 +364,7 @@ class helpers
      */
     public static function suffix(): mixed
     {
-        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::try(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST;
+        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::store(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST;
     }
 
     /**
@@ -375,7 +375,7 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        return yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+        return yP::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
     }
 
     /**
@@ -402,7 +402,7 @@ class helpers
 
         /* Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
         "application/wasm". */
-        if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (yP::try(VAR_RESPONSE)) $mime = yP::try(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
+        if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (yP::store(VAR_RESPONSE)) $mime = yP::store(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
             /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
             $mimeTypes = json_decode(file_get_contents(DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . VAR_MIME . EXT_JSON), true);
             /* Getting the file extension of the requested file. */
@@ -430,7 +430,7 @@ class helpers
     {
         /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class. */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
-            return '<x' . str_replace(array_keys(yP::try(YXORP_REWRITE)), array_values(yP::try(YXORP_REWRITE)), $m[1]) . 'x>';
+            return '<x' . str_replace(array_keys(yP::store(YXORP_REWRITE)), array_values(yP::store(YXORP_REWRITE)), $m[1]) . 'x>';
         }], $content) ?: $content;
     }
 

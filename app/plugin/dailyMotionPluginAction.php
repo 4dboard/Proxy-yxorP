@@ -20,23 +20,6 @@ class dailyMotionPluginAction extends wrapper
 
     /* A method that is called when the request is completed. */
 
-    public function onComplete(): void
-    {
-        /* Getting the response object from the `constants` class. */
-        $response = yP::try(VAR_RESPONSE);
-        /* Getting the content of the response object. */
-        $content = $response->getContent();
-        /* Checking if the content of the response object contains a video URL. If it does, it calls the `completed`
-        method. */
-        if (preg_match('/"url":"([^"]+mp4[^"]*)"/m', $content, $matches)) self::completed($matches, $content);
-        /* It removes all the scripts from the content. */
-        $content = \Html::remove_scripts($content);
-        /* It sets the content of the response object to the `$content` variable. */
-        $response->setContent($content);
-    }
-
-    /* A method that is called when the request is completed. */
-
     public static function completed($matches, $content): void
     {
         /* The `stripslashes` function removes backslashes from a string. */
@@ -46,5 +29,22 @@ class dailyMotionPluginAction extends wrapper
         /* Replacing the content of the element with the id `player` with the `$player` variable. */
         $content = \Html::replace_inner("#player", $player, $content);
 
+    }
+
+    /* A method that is called when the request is completed. */
+
+    public function onComplete(): void
+    {
+        /* Getting the response object from the `constants` class. */
+        $response = yP::store(VAR_RESPONSE);
+        /* Getting the content of the response object. */
+        $content = $response->getContent();
+        /* Checking if the content of the response object contains a video URL. If it does, it calls the `completed`
+        method. */
+        if (preg_match('/"url":"([^"]+mp4[^"]*)"/m', $content, $matches)) self::completed($matches, $content);
+        /* It removes all the scripts from the content. */
+        $content = \Html::remove_scripts($content);
+        /* It sets the content of the response object to the `$content` variable. */
+        $response->setContent($content);
     }
 }

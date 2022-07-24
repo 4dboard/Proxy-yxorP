@@ -27,19 +27,19 @@ class streamPluginAction extends wrapper
     `$stream` variable to true. */
     public function onSent(): void
     {
-        $content_type = yP::try(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
+        $content_type = yP::store(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
         /* Getting the content length of the response. */
-        $content_length = yP::try(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);
+        $content_length = yP::store(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);
         /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
         `$stream` variable to true. */
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
             /* Setting the `$stream` variable to true. */
             $this->stream = true;
             /* Sending the headers of the response. */
-            yP::try(VAR_RESPONSE)->sendHeaders();
+            yP::store(VAR_RESPONSE)->sendHeaders();
             /* Checking if the request has a parameter called `force_buffering`. If it does, it will not disable the output
             buffering. */
-            if (!yP::try(VAR_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(0);
+            if (!yP::store(VAR_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(0);
         }
     }
 

@@ -20,37 +20,37 @@ use const YXORP_REMOTE_ADDR;
 class blockListPluginAction extends wrapper
 {
     /* A method that is called before the request is processed. */
+    public static function callable($fnc_custom, $url)
+    {
+        /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
+        if (!$fnc_custom(compact(VAR_USER_IP, VAR_USER_IP_LONG, VAR_URL, VAR_URL_HOST))) yP::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access Denied!"));
+        /* Checking if the `$url` variable contains any of the values of the `BLOCKLIST` constant. If it does, it throws an
+        exception. */
+        foreach ((array)yP::store('BLOCKLIST') as $ub) if (str_contains($url, $ub)) yP::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
+    }
+
+    /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
+
     public function onBeforeSend(): void
     {
         /* Getting the user's IP address. */
-        $user_ip = (yP::try(VAR_SERVER))[YXORP_REMOTE_ADDR];
+        $user_ip = (yP::store(VAR_SERVER))[YXORP_REMOTE_ADDR];
         /* It converts the IP address to an unsigned integer. */
         $user_ip_long = sprintf('%u', ip2long($user_ip));
         /* Getting the URL of the request. */
-        $url = yP::try(VAR_REQUEST)->getUrl();
+        $url = yP::store(VAR_REQUEST)->getUrl();
         /* Getting the value of the `BLOCKLIST` constant. */
-        $fnc_custom = yP::try('BLOCKLIST');
+        $fnc_custom = yP::store('BLOCKLIST');
         /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
         if (is_callable($fnc_custom, $url)) self::callable($fnc_custom);
         /* Setting the `$ip_match` variable to `0`. */
         $ip_match = 0;
         /* Checking if the `BLOCKLIST` constant is set and if it is, it sets the `$ip_match` variable to the value of the
         `BLOCKLIST` constant. */
-        if (yP::try('BLOCKLIST')) $ip_match = yP::try('BLOCKLIST');
+        if (yP::store('BLOCKLIST')) $ip_match = yP::store('BLOCKLIST');
         /* Checking if the `$ip_match` variable is set and if it is, it checks if the `$user_ip` variable matches the
         `$ip_match` variable. If it does not match, it throws an exception. */
-        if ($ip_match) if ((!helpers::re_match($ip_match, $user_ip))) yP::try(VAR_BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
-    }
-
-    /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
-
-    public static function callable($fnc_custom, $url)
-    {
-        /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
-        if (!$fnc_custom(compact(VAR_USER_IP, VAR_USER_IP_LONG, VAR_URL, VAR_URL_HOST))) yP::try(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access Denied!"));
-        /* Checking if the `$url` variable contains any of the values of the `BLOCKLIST` constant. If it does, it throws an
-        exception. */
-        foreach ((array)yP::try('BLOCKLIST') as $ub) if (str_contains($url, $ub)) yP::try(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
+        if ($ip_match) if ((!helpers::re_match($ip_match, $user_ip))) yP::store(VAR_BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
     }
 }
 

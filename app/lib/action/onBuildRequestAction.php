@@ -14,6 +14,6 @@ class onBuildRequestAction extends wrapper
     public function onBuildRequest(): void
     {
         /* Getting the request body from the input stream and setting it to the request object. */
-        if ($_body = file_get_contents('php:' . CHAR_SLASH . CHAR_SLASH . 'input')) yP::try(VAR_REQUEST)->setBody(json_decode($_body, true), MIME);
+        if ($_body = file_get_contents('php:' . CHAR_SLASH . CHAR_SLASH . 'input')) yP::store(VAR_REQUEST)->setBody(json_decode($_body, true), MIME);
     }
 }

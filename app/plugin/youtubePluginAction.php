@@ -25,18 +25,18 @@ class youtubePluginAction extends wrapper
     public function onBeforeSend(): void
     {
         /* Setting the cookie of the request. */
-        yP::try(VAR_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
+        yP::store(VAR_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
         /* Setting the user-agent of the request. */
-        yP::try(VAR_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
+        yP::store(VAR_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
     }
 
     /* A function that is called when the request is completed. */
     public function onComplete(): void
     {
         /* Getting the response object from the `constants` class. */
-        $response = yP::try(VAR_RESPONSE);
+        $response = yP::store(VAR_RESPONSE);
         /* Getting the url of the request. */
-        $url = yP::try(VAR_REQUEST)->getUrl();
+        $url = yP::store(VAR_REQUEST)->getUrl();
         /* Getting the content of the response. */
         $output = $response->getContent();
         /* Checking if the url is not a watch page, results page, feed page, channel page, oembed page or css page. */
