@@ -153,7 +153,7 @@ class yP
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_session_set($name, $value) ?: self::store_session_set($name, call_user_func_array($func, $varibles));
+        return self::store_session_set($name, $value) ?: self::store_session_set($name, $func, $varibles);
     }
 
 
@@ -166,7 +166,7 @@ class yP
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (self::store_session_check($name)) ? self::store_session_check($name) : ((self::store_tmp_check($name)) ? self::store_tmp_check($name) : null);
+        return (self::store_session_check($name)) ?: ((self::store_tmp_check($name)) ?: null);
     }
 
     /**
@@ -241,7 +241,7 @@ class yP
     {
         if (self::store_check($name)) return self::store_check($name);
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_tmp_set($name, $value) ?: self::store_tmp_set($name, call_user_func_array($func, $varibles));
+        return self::store_tmp_set($name, $value) ?: self::store_tmp_set($name, $func, $varibles);
     }
 
     /**
@@ -250,7 +250,7 @@ class yP
      * @param mixed $value
      * @return mixed
      */
-    public static function store_tmp_set(string $name, mixed $value): mixed
+    public static function store_tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $value ? $GLOBALS[$name] = $value : null;
