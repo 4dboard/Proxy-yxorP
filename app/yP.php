@@ -161,11 +161,11 @@ class yP
      * @param string $name
      * @return mixed
      */
-    private static function store_session_get(mixed $type, string $name): mixed
+    private static function store_session_get(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return $type[$name];
+        return $_SESSION[$name];
     }
 
     /**
@@ -175,10 +175,10 @@ class yP
      * @param mixed $value
      * @return mixed
      */
-    public static function store_session_set(mixed $type, string $name, mixed $value): mixed
+    public static function store_session_set(string $name, mixed $value): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
-        return $type[$name] ?: $type[$name] = $value;
+        return $_SESSION[$name] ?: $_SESSION[$name] = $value;
     }
 
     /**
