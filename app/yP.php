@@ -203,7 +203,7 @@ class yP
     {
         /* Requiring the COCKPIT library. */
         require PATH_COCKPIT_BOOTSTRAP;
-        $GLOBALS[YXORP_COCKPIT_APP] = cockpit();
+        self::store_tmp(YXORP_COCKPIT_APP, cockpit());
     }
 
     /**
