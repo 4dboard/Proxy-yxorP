@@ -230,15 +230,12 @@ class helpers
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        store::store(SITE_DOMAIN, null, 'yxorP\app\lib\http\helpers::suffix');
+        define('YXORP_SITE_DOMAIN', null, 'yxorP\app\lib\http\helpers::suffix');
 
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        store::store(SITE_DOMAIN_SUB, null, 'yxorP\app\lib\http\helpers::suffix_sub');
+        define('YXORP_SITE_SUB_DOMAIN', null, 'yxorP\app\lib\http\helpers::suffix_sub');
 
-        /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
-        define('YXORP_SITE_DOMAIN', !YXORP_IS_LOCALHOST ? store::store(SITE_DOMAIN) ?: store::store(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST);
-        define('YXORP_SITE_SUB_DOMAIN', store::store(SITE_DOMAIN_SUB));
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         store::store(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
