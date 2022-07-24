@@ -20,6 +20,7 @@ include 'constants.php';
 
 use Bugsnag\Client;
 use GuzzleHttp\FileCookieJar;
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\parser\RulesParser;
@@ -161,7 +162,7 @@ class yP
      * @param string $name
      * @return mixed
      */
-    private static function store_check(string $name): mixed
+    #[Pure] private static function store_check(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
@@ -173,7 +174,7 @@ class yP
      * @param string $name
      * @return mixed
      */
-    private static function store_session_check(string $name): mixed
+    #[Pure] private static function store_session_check(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
@@ -197,7 +198,7 @@ class yP
      * @param string $name
      * @return mixed
      */
-    private static function store_tmp_check(string $name): mixed
+    #[Pure] private static function store_tmp_check(string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
