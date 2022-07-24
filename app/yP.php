@@ -34,7 +34,7 @@ class yP
     /**
      * @var $instance
      */
-    private static $instance = null;
+    private static ?yP $instance = null;
     /**
      * @var array
      */

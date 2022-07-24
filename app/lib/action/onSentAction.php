@@ -11,7 +11,6 @@ class onSentAction extends wrapper
 {
     /* A method that is called before the request is sent. */
     /**
-     * @throws JsonException
      */
     public function onSent(): void
     {

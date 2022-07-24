@@ -2,6 +2,7 @@
 /* Importing the namespace `yxorP` into the current namespace. */
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
 use yxorP;
 
@@ -40,7 +41,7 @@ class cache
         return [];//(array)$_SESSION[self::gen($key)['key']];
     }
 
-    public static function set($content, ?string $key = null): void
+    #[NoReturn] public static function set($content, ?string $key = null): void
     {
         self::store($_SESSION[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
         echo $content;

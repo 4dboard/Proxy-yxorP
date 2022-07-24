@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\http;
 
 use yxorP\app\lib\parser\domain;
+use yxorP\app\lib\parser\resolvedDomainNameInterface;
 use yxorP\app\lib\parser\rules;
 use yxorP\app\yP;
 use function explode;
@@ -16,11 +17,11 @@ class helpers
      * @param $url
      * @param string $width
      * @param string $height
-     * @param bool $extension
+     * @param bool|int $extension
      * @return string A function that takes in a url, width, height, and extension and returns a string.
      * A function that takes in a url, width, height, and extension and returns a string.
      */
-    public static function vid_player($url, $width = '100%', $height = '100%', $extension = 0): string
+    public static function vid_player($url, string $width = '100%', string $height = '100%', bool|int $extension = 0): string
     {
         $html5 = 0;
 
@@ -72,7 +73,7 @@ class helpers
      * @return array
      * It's checking if the `$pattern` matches the `$string`.
      */
-    public static function array_merge_custom(string $line)
+    public static function array_merge_custom(string $line): array
     {
         /* Creating an empty array. */
         $arr = [];
@@ -107,7 +108,7 @@ class helpers
      * @return float
      * It's replacing the `{$var}` with the `$var` value.
      */
-    public static function time_ms(string $line)
+    public static function time_ms(string $line): float
     {
         /* Returning the current time in milliseconds. */
         return round(microtime(true) * 1000);
@@ -346,10 +347,10 @@ class helpers
 
     /**
      * @param string $domain
-     * @return mixed
+     * @return resolvedDomainNameInterface
      * A function that returns the public suffix of a domain.
      */
-    public static function publicSuffix(string $domain): mixed
+    public static function publicSuffix(string $domain): resolvedDomainNameInterface
     {
         /* Resolving the domain name to its public suffix. */
         return rules::fromPath(PATH_PUBLIC_SUFFIX_LIST)->resolve(domain::fromIDNA2008($domain));
@@ -419,7 +420,7 @@ class helpers
 
     /* Defining a static method called mime. */
 
-    public static function convert($size)
+    public static function convert($size): string
     {
         $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
         return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];

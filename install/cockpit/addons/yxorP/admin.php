@@ -16,7 +16,7 @@ $this->on('admin.init', function () use ($hardening) {
 
             if ($path = $this->pathToUrl($url)) {
                 $url = $path;
-            } elseif (strpos($url, ':') === 0) {
+            } elseif (str_starts_with($url, ':')) {
                 $url = $this->getSiteUrl(true) . '/' . ltrim($url, '/');
             } else {
                 return;
