@@ -361,7 +361,7 @@ class helpers
      */
     public static function suffix(): mixed
     {
-        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::store(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST;
+        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::store(ENV_DEFAULT_HOST))) : YXORP_HTTP_HOST;
     }
 
     /**
