@@ -22,7 +22,7 @@ class onSendAction extends wrapper
 
         //yP::store_tmp(VAR_RESPONSE,);
         echo 1;
-        echo (new Client())->request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl(), json_decode(json_encode(new GuzzleHttp\Psr7\Request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl())), true, 512, JSON_THROW_ON_ERROR));
+        echo (new Client())->request('GET', yP::store(VAR_REQUEST)->getUrl(), json_decode(json_encode(new GuzzleHttp\Psr7\Request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl())), true, 512, JSON_THROW_ON_ERROR));
         echo 2;
     }
 }
