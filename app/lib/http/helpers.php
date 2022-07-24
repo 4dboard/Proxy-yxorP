@@ -338,7 +338,7 @@ class helpers
      */
     public static function target_suffix(): mixed
     {
-        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : yP::store(ENV_DEFAULT_TARGET);
+        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : target_default();
     }
 
     /**
@@ -350,6 +350,19 @@ class helpers
     {
         /* Resolving the domain name to its public suffix. */
         return rules::fromPath(PATH_PUBLIC_SUFFIX_LIST)->resolve(domain::fromIDNA2008($domain));
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function target_default(): mixed
+    {
+        return new
+        ENV_DEFAULT_TARGET
+        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : yP::store(ENV_DEFAULT_TARGET);
     }
 
     /**
