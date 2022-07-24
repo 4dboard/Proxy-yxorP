@@ -295,27 +295,6 @@ body.light-mode .video-bg:before {
     border-bottom: 2px solid var(--theme-color);
 }
 
-.notify {
-    position: relative;
-}
-
-.notify:before {
-    content: "";
-    position: absolute;
-    background-color: #3a6df0;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    right: 20px;
-    top: 16px;
-}
-
-@media screen and (max-width: 1055px) {
-    .notify {
-        display: none;
-    }
-}
-
 .menu-circle {
     width: 15px;
     height: 15px;
