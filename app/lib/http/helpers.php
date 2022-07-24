@@ -254,7 +254,7 @@ class helpers
         yP::store(TARGET_DOMAIN, self::target_suffix());
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        yP::store(YXORP_TARGET_DOMAIN, self::target_domain(), );
+        yP::store(YXORP_TARGET_DOMAIN, self::target_domain());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . yP::store(YXORP_TARGET_DOMAIN));
@@ -331,17 +331,6 @@ class helpers
     }
 
     /**
-     * @param $file
-     * @return array A function that takes a file and returns an array.
-     * A function that takes a file and returns an array.
-     */
-    public static function JSON($file): array
-    {
-        /* Reading the contents of the file and decoding it into an array. */
-        return json_decode(file_get_contents($file), true);
-    }
-
-    /**
      * @return void
      *
      * It creates a new user with the credentials defined in the `.env` file
@@ -350,6 +339,17 @@ class helpers
     public static function target_domain(): mixed
     {
         return yP::store(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::store(TARGET_DOMAIN)->domain()->toString();
+    }
+
+    /**
+     * @param $file
+     * @return array A function that takes a file and returns an array.
+     * A function that takes a file and returns an array.
+     */
+    public static function JSON($file): array
+    {
+        /* Reading the contents of the file and decoding it into an array. */
+        return json_decode(file_get_contents($file), true);
     }
 
     /**
