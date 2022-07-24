@@ -242,7 +242,7 @@ class yP
     {
         if (self::store_check($name)) return self::store_check($name);
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_tmp_set($name, $value) ?: self::store_tmp_set($name, $func, $varibles);
+        return self::store_tmp_set($name, $value) ?: self::store_tmp_set($name, null, $func, $varibles);
     }
 
     /**
