@@ -2,6 +2,7 @@
 /* Importing the wrapper class from the yxorP\app\lib\http namespace. */
 
 
+use GuzzleHttp\Client;
 use yxorP\app\constants;
 use yxorP\app\lib\http\wrapper;
 use yxorP\app\yP;
@@ -21,7 +22,7 @@ class onSendAction extends wrapper
 
         //yP::store_tmp(VAR_RESPONSE,);
         echo 1;
-        echo yP::store(VAR_GUZZLE)->request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl(), json_decode(json_encode(new GuzzleHttp\Psr7\Request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl())), true, 512, JSON_THROW_ON_ERROR));
+        echo (new Client())->request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl(), json_decode(json_encode(new GuzzleHttp\Psr7\Request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl())), true, 512, JSON_THROW_ON_ERROR));
         echo 2;
     }
 }
