@@ -1,9 +1,7 @@
 <?php namespace yxorP\app\lib\http;
 
-use yxorP\app\lib\parser\domain;
 use yxorP\app\lib\parser\resolvedDomainNameInterface;
 use yxorP\app\lib\parser\rules;
-use yxorP\app\yP;
 use function explode;
 
 
@@ -234,10 +232,13 @@ class helpers
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         store::store(SITE_DOMAIN, null, 'yxorP\app\lib\http\helpers::suffix');
 
+
+        /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
+        store::store(SITE_DOMAIN_SUB, null, 'yxorP\app\lib\http\helpers::suffix_sub');
+
         /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
-        define('YXORP_TARGET_DOMAIN', 'YXORP_TARGET_DOMAIN');
-        define('YXORP_SITE_DOMAIN', !YXORP_IS_LOCALHOST ? store::store(SITE_DOMAIN)->registrableDomain()->toString() ?: store::store(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST);
-        define('YXORP_SITE_SUB_DOMAIN', !YXORP_IS_LOCALHOST ? (store::store(SITE_DOMAIN)->subDomain()->toString() ? store::store(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null);
+        define('YXORP_SITE_DOMAIN', !YXORP_IS_LOCALHOST ? store::store(SITE_DOMAIN) ?: store::store(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST);
+        define('YXORP_SITE_SUB_DOMAIN', store::store(SITE_DOMAIN_SUB));
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         store::store(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
@@ -251,10 +252,7 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        store::store(TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
-
-        /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        store::store(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_domain');
+        store::store(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . store::store(YXORP_TARGET_DOMAIN));
@@ -319,16 +317,6 @@ class helpers
         return json_decode(file_get_contents($file), true);
     }
 
-    /**
-     * @return void
-     *
-     * It creates a new user with the credentials defined in the `.env` file
-     * A static method that is being called.
-     */
-    public static function target_domain(): mixed
-    {
-        return store::store(TARGET_DOMAIN)->registrableDomain()->toString() ?: store::store(TARGET_DOMAIN)->domain()->toString();
-    }
 
     /**
      * @return void
@@ -338,30 +326,40 @@ class helpers
      */
     public static function target_suffix(): mixed
     {
-        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : new publicSuffixTarget();
-    }
-
-
-    /**
-     * @param string $domain
-     * @return resolvedDomainNameInterface
-     * A function that returns the public suffix of a domain.
-     */
-    public static function publicSuffix(string $domain): resolvedDomainNameInterface
-    {
-        /* Resolving the domain name to its public suffix. */
-        return rules::fromPath(PATH_PUBLIC_SUFFIX_LIST)->resolve(domain::fromIDNA2008($domain));
+        return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
 
     /**
-     * @return void
+     * @return string|null
      *
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function suffix(): mixed
+    public static function suffix(): ?string
     {
-        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST))) : new publicSuffixHost();
+        return trim(self::domain(), self::suffix_sub());
+    }
+
+    /**
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    private static function domain(): ?string
+    {
+        return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
+    }
+
+    /**
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function suffix_sub(): ?string
+    {
+        return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
     /**
