@@ -166,7 +166,7 @@ class yP
     {
 
         if (ENV_DEFAULT_TARGET == $name) echo 'get';
-        if (ENV_DEFAULT_TARGET == $name) echo self::get($type, $name);
+        if (ENV_DEFAULT_TARGET == $name) echo $type[$name];
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return $type[$name];
