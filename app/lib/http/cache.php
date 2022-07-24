@@ -43,16 +43,13 @@ class cache
 
     #[NoReturn] public static function set($content, ?string $key = null): void
     {
-        self::store($_SESSION[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
         echo $content;
-        exit;
-        /*exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); exit(die(' . str_replace(CACHE_FIX, '(object)', var_export((minify::createDefault())->process((MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)), true)) . '));')));*/
+        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); exit(die(' . str_replace(CACHE_FIX, '(object)', var_export((minify::createDefault())->process((MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)), true)) . '));')));
     }
 
     public static function store($content, ?string $key = null): void
     {
         session_start();
-
         $_SESSION[self::gen($key)['key']] = var_export($content, true);
     }
 }
