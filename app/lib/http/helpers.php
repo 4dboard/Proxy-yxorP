@@ -360,6 +360,17 @@ class helpers
     }
 
     /**
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function suffix_sub_target(): ?string
+    {
+        return (count(explode(CHAR_PERIOD, self::target_domain())) > 2) ? strtok(self::target_domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
+    }
+
+    /**
      * @param $file
      * @return array A function that takes a file and returns an array.
      * A function that takes a file and returns an array.
