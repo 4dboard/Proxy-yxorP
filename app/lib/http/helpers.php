@@ -338,7 +338,7 @@ class helpers
      */
     public static function target_suffix(): mixed
     {
-        return self::publicSuffix(YXORP_TARGET_URL ?: yP::store(ENV_DEFAULT_TARGET));
+        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : yP::store(ENV_DEFAULT_TARGET);
     }
 
     /**
