@@ -249,10 +249,10 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        define('YXORP_TARGET_DOMAIN', self::suffix_target());
+        define('YXORP_domain_target', self::suffix_target());
 
         /* Defining a constant. */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
+        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
         /* Defining constants. */
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
@@ -345,7 +345,7 @@ class helpers
     public static function suffix_target(): mixed
     {
 
-        return trim(self::target_domain(), self::suffix_sub_target());
+        return trim(self::domain_target(), self::suffix_sub_target());
     }
 
     /**
@@ -354,7 +354,7 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function target_domain(): mixed
+    public static function domain_target(): mixed
     {
         return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
@@ -367,7 +367,7 @@ class helpers
      */
     public static function suffix_sub_target(): ?string
     {
-        return (count(explode(CHAR_PERIOD, self::target_domain())) > 2) ? strtok(self::target_domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
+        return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
     /**
