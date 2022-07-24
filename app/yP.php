@@ -134,8 +134,8 @@ class yP
      */
     final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        if ($session = self::session($name, $value, $func, $varibles)) return $session;
-        elseif ($tmp = self::tmp($name)) return $tmp;
+        if ($session = self::store_session($name, $value, $func, $varibles)) return $session;
+        elseif ($tmp = self::store_tmp($name)) return $tmp;
         else return null;
     }
 
@@ -147,12 +147,12 @@ class yP
      * @param array $varibles
      * @return mixed
      */
-    private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    private static function store_session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Starting a session and then setting a value if it is passed in. */
-        return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
+        return self::store_get($_SESSION, $name) ?: ($value ? self::store_set($_SESSION, $name, $value) : ($func ? self::store_set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
     }
 
     /**
@@ -161,7 +161,7 @@ class yP
      * @param string $name
      * @return mixed
      */
-    private static function get(mixed $type, string $name): mixed
+    private static function store_get(mixed $type, string $name): mixed
     {
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
@@ -175,7 +175,7 @@ class yP
      * @param mixed $value
      * @return mixed
      */
-    public static function set(mixed $type, string $name, mixed $value): mixed
+    public static function store_set(mixed $type, string $name, mixed $value): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $type[$name] ?: $type[$name] = $value;
@@ -189,10 +189,10 @@ class yP
      * @param array $varibles
      * @return mixed
      */
-    final public static function tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    final public static function store_tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         /* Starting a session and then setting a value if it is passed in. */
-        return self::get($GLOBALS, $name) ?: ($value ? self::set($GLOBALS, $name, $value) : ($func ? self::set($GLOBALS, $name, (call_user_func_array($func, $varibles))) : null));
+        return self::store_get($GLOBALS, $name) ?: ($value ? self::store_set($GLOBALS, $name, $value) : ($func ? self::store_set($GLOBALS, $name, (call_user_func_array($func, $varibles))) : null));
     }
 
     /**
