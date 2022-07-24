@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\http;
 
-class defaults
+class publicSuffixTarget
 {
     public function registrableDomain()
     {
@@ -8,11 +8,3 @@ class defaults
     }
 }
 
-
-class defaults_target
-{
-    public function registrableDomain()
-    {
-        return ENV_DEFAULT_TARGET;
-    }
-}
