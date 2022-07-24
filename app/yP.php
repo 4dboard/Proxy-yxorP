@@ -148,7 +148,6 @@ class yP
      */
     private static function store_session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        echo $name;
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Starting a session and then setting a value if it is passed in. */
@@ -175,6 +174,7 @@ class yP
      */
     public static function store_session_set(string $name, mixed $value): mixed
     {
+        echo $name;
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $_SESSION[$name] ?: $_SESSION[$name] = $value;
     }
