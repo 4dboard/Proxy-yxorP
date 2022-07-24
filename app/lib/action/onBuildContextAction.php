@@ -16,5 +16,6 @@ class onBuildContextAction extends wrapper
     {
         /* Setting the request object to the key REQUEST. */
         yP::store_tmp(VAR_REQUEST, Request::createFromGlobals());
+        print_r(yP::store_tmp(VAR_REQUEST));
     }
 }
