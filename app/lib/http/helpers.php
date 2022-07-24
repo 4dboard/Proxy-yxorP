@@ -249,7 +249,7 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        define(YXORP_TARGET_DOMAIN, self::target_suffix());
+        define(YXORP_TARGET_DOMAIN, self::suffix_target());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
@@ -342,9 +342,10 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function target_suffix(): mixed
+    public static function suffix_target(): mixed
     {
-        return self::target_domain();
+
+        return trim(self::target_domain(), self::suffix_target_sub());
     }
 
     /**
