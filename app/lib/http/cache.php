@@ -34,13 +34,6 @@ class cache
         return ['key' => $key ?: CACHE_KEY, 'path' => ($key) ? PATH_TMP_DIR . $key . FILE_TMP : PATH_TMP_FILE];
     }
 
-    /* Used to get the data from the cache file. */
-
-    public static function fetch(?string $key = null): array
-    {
-        session_start();
-        return [];//(array)$_SESSION[self::gen($key)['key']];
-    }
 
     #[NoReturn] public static function set($content, ?string $key = null): void
     {
