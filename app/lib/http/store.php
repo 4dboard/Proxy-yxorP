@@ -16,7 +16,32 @@ class store
     final public static function print(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         echo $value;
-        $value = helpers::replace($value);
+        exit(die(self::session_set($name, $value)));
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    {
+        if (!$value && $func) $value = call_user_func_array($func, $varibles);
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $value ? $_SESSION[$name] = $value : null;
+    }
+
+    /**
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
+     */
+    final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    {
         if ($session = self::session($name, $value, $func, $varibles)) return $session;
         elseif ($tmp = self::tmp($name)) return $tmp;
         else return null;
@@ -100,19 +125,6 @@ class store
     }
 
     /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
-     */
-    public static function session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
-    {
-        if (!$value && $func) $value = call_user_func_array($func, $varibles);
-        /* Setting the value of the variable $name to the value of the variable $value. */
-        return $value ? $_SESSION[$name] = $value : null;
-    }
-
-    /**
      * Try get session else store value or execute function, set session and return values
      * @param string $name
      * @param mixed $value
@@ -138,21 +150,6 @@ class store
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $value ? $GLOBALS[$name] = $value : null;
-    }
-
-    /**
-     * Try get session else store value or execute function, set session and return values
-     * @param string $name
-     * @param mixed $value
-     * @param string|null $func
-     * @param array $varibles
-     * @return mixed
-     */
-    final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
-    {
-        if ($session = self::session($name, $value, $func, $varibles)) return $session;
-        elseif ($tmp = self::tmp($name)) return $tmp;
-        else return null;
     }
 
 }
