@@ -345,7 +345,7 @@ class helpers
     public static function suffix_target(): mixed
     {
 
-        return trim(self::target_domain(), self::suffix_target_sub());
+        return trim(self::target_domain(), self::suffix_sub_target());
     }
 
     /**
