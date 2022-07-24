@@ -254,7 +254,7 @@ class helpers
         yP::store(TARGET_DOMAIN, self::target_suffix());
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        yP::store(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_domain');
+        yP::store(YXORP_TARGET_DOMAIN, self::target_domain(), );
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . yP::store(YXORP_TARGET_DOMAIN));
