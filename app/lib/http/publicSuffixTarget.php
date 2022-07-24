@@ -28,6 +28,10 @@ class publicSuffixTarget
         return new publicSuffixTarget(yP::store(ENV_DEFAULT_TARGET));
     }
 
+    public function registrableDomain(): string
+    {
+        return new publicSuffixTarget(yP::store(ENV_DEFAULT_HOST));
+    }
     public function toString(): string
     {
         // TODO: Implement toString() method.

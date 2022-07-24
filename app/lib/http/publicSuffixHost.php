@@ -28,9 +28,9 @@ class publicSuffixHost
         return new publicSuffixTarget(yP::store(ENV_DEFAULT_HOST));
     }
 
-    public function toString(): string
+    public function registrableDomain(): string
     {
-        // TODO: Implement toString() method.
+        return new publicSuffixTarget(yP::store(ENV_DEFAULT_HOST));
     }
 
     public function withSecondLevelDomain(nameInterface $label): self
