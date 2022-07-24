@@ -38,6 +38,6 @@ class cache
     {
         echo $content;
         /* Writing the content to the cache file. */
-        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); echo ' . var_export((minify::createDefault())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content), true)) . ';'));
+        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); echo ' . var_export((minify::createDefault())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . ';exit(die());')));
     }
 }
