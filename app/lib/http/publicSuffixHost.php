@@ -1,8 +1,8 @@
 <?php namespace yxorP\app\lib\http;
 
+use resolvedDomainNameInterface;
 use yxorP\app\lib\parser\hostInterface;
 use yxorP\app\lib\parser\nameInterface;
-use yxorP\app\lib\parser\resolvedDomainNameInterface;
 use yxorP\app\lib\parser\topLevelDomainInterface;
 use yxorP\app\yP;
 
