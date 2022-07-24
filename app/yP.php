@@ -174,7 +174,6 @@ class yP
      */
     public static function store_session_set(string $name, mixed $value): mixed
     {
-        echo $name;
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $_SESSION[$name] ?: $_SESSION[$name] = $value;
     }
