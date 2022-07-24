@@ -26,7 +26,7 @@ trait state
 
 
     /* Setting the state of the object. */
-    public function toString(): void
+    public function toString(): string
     {
         /* Iterating over the array and setting the properties of the object. */
         foreach ($data as $k => $v) {
