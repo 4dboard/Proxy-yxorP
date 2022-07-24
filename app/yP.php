@@ -23,7 +23,6 @@ use GuzzleHttp\FileCookieJar;
 use RuntimeException;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\parser\RulesParser;
-use function session_name;
 use function session_start;
 
 /**
