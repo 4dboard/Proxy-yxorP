@@ -2,11 +2,10 @@
 
 use yxorP\app\lib\parser\hostInterface;
 use yxorP\app\lib\parser\nameInterface;
-use yxorP\app\lib\parser\resolvedDomainNameInterface;
 use yxorP\app\lib\parser\topLevelDomainInterface;
 use yxorP\app\yP;
 
-class publicSuffixTarget implements resolvedDomainNameInterface
+class publicSuffixTarget
 {
     public function suffix(): topLevelDomainInterface
     {
