@@ -23,7 +23,6 @@ use GuzzleHttp\FileCookieJar;
 use RuntimeException;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\parser\RulesParser;
-use function session_start;
 
 /**
  * It's a class that's used to dispatch events.
@@ -148,8 +147,6 @@ class yP
      */
     private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* Checking if the session has started. If it has not, it will start the session. */
-        if (session_status() === PHP_SESSION_NONE) session_start();
         /* A function that is used to set and get session variables. */
         return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
     }
