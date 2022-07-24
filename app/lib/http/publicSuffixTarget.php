@@ -30,7 +30,7 @@ class publicSuffixTarget
 
     public function registrableDomain(): string
     {
-        return new publicSuffixTarget(yP::store(ENV_DEFAULT_HOST));
+        return yP::store(ENV_DEFAULT_HOST);
     }
 
     public function withSecondLevelDomain(nameInterface $label): self
