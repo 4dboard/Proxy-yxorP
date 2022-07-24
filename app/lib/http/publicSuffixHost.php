@@ -33,6 +33,12 @@ class publicSuffixHost
         return yP::store(ENV_DEFAULT_HOST);
     }
 
+
+    public function toString(): string
+    {
+        return yP::store(ENV_DEFAULT_HOST);
+    }
+
     public function withSecondLevelDomain(nameInterface $label): self
     {
         // TODO: Implement toString() method.
