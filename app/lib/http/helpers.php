@@ -212,7 +212,7 @@ class helpers
         [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
 
         /* Replacing all the new lines with null. */
-        yP::store(($name . EXT_ENV), (str_replace("\r\n", CHAR_EMPTY_STRING, $value)));
+        yP::store(($name . EXT_ENV), $value);
     }
 
 
