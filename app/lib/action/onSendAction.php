@@ -20,6 +20,8 @@ class onSendAction extends wrapper
         with the `\yxorP\app\yP::store(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request. */
 
         //yP::store_tmp(VAR_RESPONSE,);
+        echo 1;
         echo yP::store(VAR_GUZZLE)->request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl(), json_decode(json_encode(new GuzzleHttp\Psr7\Request(yP::store(VAR_REQUEST)->getMethod(), yP::store(VAR_REQUEST)->getUrl())), true, 512, JSON_THROW_ON_ERROR));
+        echo 2;
     }
 }
