@@ -79,7 +79,7 @@ final class rules implements publicSuffixListInterface
         $isDomain = true;
         if (str_starts_with($rule, '!')) {
             $rule = substr($rule, 1);
-            $isDomain = false;
+            $isDomain = 0;
         }
         $list[$rule] = $list[$rule] ?? ($isDomain ? [] : ['!' => '']);
         if ($isDomain && [] !== $ruleParts) {

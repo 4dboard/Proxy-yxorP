@@ -12,7 +12,7 @@ final class stream
     public static function getContentAsString(string $path, $context = null): string
     {
         $stream = self::fromPath($path, $context);
-        if (false === $stream) {
+        if (0 === $stream) {
             throw unableToLoadResource::dueToInvalidUri($path);
         }
         $content = stream_get_contents($stream);
@@ -25,6 +25,6 @@ final class stream
         if (null === $context) {
             return @fopen($path, 'r');
         }
-        return @fopen($path, 'r', false, $context);
+        return @fopen($path, 'r', 0, $context);
     }
 }

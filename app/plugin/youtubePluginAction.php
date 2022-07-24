@@ -25,18 +25,18 @@ class youtubePluginAction extends wrapper
     public function onBeforeSend(): void
     {
         /* Setting the cookie of the request. */
-        yP::get(VAR_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
+        yP::try(VAR_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
         /* Setting the user-agent of the request. */
-        yP::get(VAR_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
+        yP::try(VAR_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
     }
 
     /* A function that is called when the request is completed. */
     public function onComplete(): void
     {
         /* Getting the response object from the `constants` class. */
-        $response = yP::get(VAR_RESPONSE);
+        $response = yP::try(VAR_RESPONSE);
         /* Getting the url of the request. */
-        $url = yP::get(VAR_REQUEST)->getUrl();
+        $url = yP::try(VAR_REQUEST)->getUrl();
         /* Getting the content of the response. */
         $output = $response->getContent();
         /* Checking if the url is not a watch page, results page, feed page, channel page, oembed page or css page. */
@@ -50,7 +50,7 @@ class youtubePluginAction extends wrapper
         $output = preg_replace_callback('/<img[^>]+data-thumb="(.*?)"[^>]*/is', static function ($matches) {
             /* Proxifying the url of the image. */
             $has_src = str_contains($matches[0], 'src="');
-            $thumb_url = proxify_url($matches[1], false);
+            $thumb_url = proxify_url($matches[1], 0);
             /* Checking if the `src` attribute is present in the `<img>` tag. */
             if (/* Removing the `data-thumb` attribute from the `<img>` tag. */
             $has_src) {

@@ -15,7 +15,7 @@ class paramStore
     private string|array|object|null $case_sensitive;
 
     /* A constructor. */
-    public function __construct($parameters = array(), $case_sensitive = false)
+    public function __construct($parameters = array(), $case_sensitive = 0)
     {
         /* Casting the `$parameters` variable to an array. */
         $this->data = (array)$parameters;

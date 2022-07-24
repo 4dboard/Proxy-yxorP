@@ -60,7 +60,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
             return $this->cache->set($this->cacheKey($uri), $publicSuffixList, $this->cacheTtl);
         } catch (Throwable $exception) {
             if ($exception instanceof CacheException) {
-                return false;
+                return 0;
             }
             throw $exception;
         }

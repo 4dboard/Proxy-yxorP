@@ -21,9 +21,10 @@ include 'constants.php';
 use Bugsnag\Client;
 use GuzzleHttp\FileCookieJar;
 use RuntimeException;
-use yxorP\app\lib\http\cache;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\parser\RulesParser;
+use function session_name;
+use function session_start;
 
 /**
  * It's a class that's used to dispatch events.
@@ -48,16 +49,10 @@ class yP
     public function __construct(string $root, array|null $request = null)
     {
 
+        /* Defining the root directory of the website. */
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
 
-        /* Creating a global variable with the name of the server host and adding the string 'Initialised' to it. */
-        $GLOBALS[YXORP_HTTP_HOST][] = 'Initialised';
-        /* Defining a constant. */
-
-        /* Creating a global variable called TMP_STORE and assigning it an array with the value 'Initialised' */
-        $GLOBALS['TMP_STORE'][] = 'Initialised';
-
-        /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `yP`
+        /* It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `self`
         class. */
         if (!self::$instance) (self::$instance = $this)->init($request, $root);
     }
@@ -74,42 +69,45 @@ class yP
         /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
         appended to it. */
 
-        foreach (['PATH_COOCKIE_JAR' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOCKIE_JAR, 'PATH_DIR_COCKPIT' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT, 'PATH_COCKPIT_LOCAL' => DIR_ROOT . DIR_INSTALL . DIR_COCKPIT, 'PATH_COCKPIT_INDEX' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX, 'PATH_REWRITE' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE, 'PATH_COCKPIT_BOOTSTRAP' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP, 'PATH_INC_WRAPPER' => DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER, 'PATH_TLDS_ALPHA_BY_DOMAIN' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN, 'PATH_PUBLIC_SUFFIX_LIST' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST, 'PATH_FILE_MIME_TYPES' => DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES, 'PATH_GUZZLE' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE, 'PATH_BUGSNAG' => DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG] as $key => $value) define($key, $value);
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
+        define('PATH_GUZZLE', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE);
+        define('PATH_BUGSNAG', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG);
+        define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
+        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT);
+        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INSTALL . DIR_COCKPIT);
+        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX);
+        define('PATH_REWRITE', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE);
+        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER);
+        define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
+        define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
+        define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
         /* Checking if the files exist in the directory. */
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
 
-        /* Loading the global variables from the cache. */
-        foreach ($cached = cache::fetch(CACHE_KEY_CONTEXT) as $key => $value) if ($key !== YXORP_COCKPIT_APP) yP::override($key, $value);
-
-        /* Defining a constant called CACHED_CONTEXT and setting it to the value of the $cached variable if it is set,
-        otherwise it is set to true. */
-        define('CACHED_CONTEXT', $cached ? 1 : 0);
-
-        // EVENTS
         /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
-        if (!CACHED_CONTEXT) yP::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+        self::try(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
         /* Loading the cockpit.php file. */
         self::loadCockpit();
 
         /* Reading the file and then calling the env function on each line. */
-        if (!CACHED_CONTEXT) foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
+        self::try(EXT_ENV, null, 'yxorP\app\lib\http\helpers::env');
 
         /* Setting the localisation of the server to the request. */
-        helpers::localise($request ?: $_SERVER);
+        helpers::localise($request);
 
         /* Loading the actions. */
         self::loadActions();
 
         /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
-        if (!CACHED_CONTEXT) if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
         /* Loading the Guzzle Snag class. */
         self::loadGuzzleSnag();
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::get(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
+        foreach (self::try(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
     }
 
     /**
@@ -127,29 +125,81 @@ class yP
     }
 
     /**
-     * It's setting the value of the variable $_name to the value of the variable $_value.
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
      */
-    final public static function override(string $_name, string|array|object|null $_value): string|array|object|null
+    final public static function try(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return $GLOBALS[YXORP_HTTP_HOST][$_name] = $_value;
+        if ($session = self::session($name, $value, $func, $varibles)) return $session;
+        elseif ($tmp = self::tmp($name)) return $tmp;
+        else return null;
     }
 
     /**
-     * It's setting the value of the variable $_name to the value of the variable $_value.
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
      */
-    final public static function set(string $_name, string|array|object|null $_value): string|array|object|null
+    private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+
+        /* Setting the variable $_ to the value of $type if it is set, otherwise it is setting it to the value of
+        $_SESSION.  Checking if the session has already been started. If it has not been started, it will start it. */
+        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
+        /* Checking if the session is started, if not, it will start the session. */
+        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
+        /* Starting a session and then setting a value if it is passed in. */
+        return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @return mixed
+     */
+    private static function get(mixed $type, string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS[YXORP_HTTP_HOST])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[YXORP_HTTP_HOST][$_name] = $_value;
+        return $type[$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function set(mixed $type, string $name, mixed $value): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        if (array_key_exists($name, $type)) return $type[$name];
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $type[$name] = $value;
+    }
+
+    /**
+     * Try get session else store value or execute function, set session and return values
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
+     */
+    final public static function tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    {
+        /* Starting a session and then setting a value if it is passed in. */
+        return self::get($GLOBALS, $name) ?: ($value ? self::set($GLOBALS, $name, $value) : ($func ? self::set($GLOBALS, $name, (call_user_func_array($func, $varibles))) : null));
     }
 
     /**
@@ -158,13 +208,9 @@ class yP
      */
     public static function loadCockpit(): void
     {
-
         /* Requiring the COCKPIT library. */
         require PATH_COCKPIT_BOOTSTRAP;
-
-        /* It's setting the `YXORP_COCKPIT_APP` constant to the `COCKPIT()` function. */
-        self::set(YXORP_COCKPIT_APP, cockpit());
-
+        $GLOBALS[YXORP_COCKPIT_APP] = cockpit();
     }
 
     /**
@@ -175,27 +221,11 @@ class yP
     {
 
         /* It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
-        directory. */
-        if (!CACHED_CONTEXT) self::set('YXORP_ACTIONS', scandir(DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION));
-
-        /* It's looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
+        directory, then looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
         directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it. If
         the file is a class, it's requiring it. */
-        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => self::get('YXORP_ACTIONS'), DIR_PLUGIN => self::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
+        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => self::try(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => self::try(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
 
-    }
-
-    /**
-     * It's checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-     * returns false.
-     * @param string $_name
-     * @return string|array|object|null
-     */
-    final public static function get(string $_name): string|array|object|null
-    {
-        /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-        returns false . */
-        return $GLOBALS[YXORP_HTTP_HOST][$_name] ?: $GLOBALS[VAR_TMP_STORE][$_name];
     }
 
     /**
@@ -246,31 +276,12 @@ class yP
         require PATH_BUGSNAG;
 
         /* It's setting the token to the snag key. */
-        self::tmp(VAR_BUGSNAG, Client::make(self::get(ENV_BUGSNAG_KEY)));
+        self::try(VAR_BUGSNAG, Client::make(self::try(ENV_BUGSNAG_KEY)));
 
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
-        self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOCKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::try(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => 0, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
     }
-
-    /**
-     * It's setting the value of the variable $_name to the value of the variable $_value.
-     * tmp is a temporary variable that's used to store the value of the variable $_name.
-     * Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
-     * Temporary variables are not stored in the persisted storage.
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
-     */
-    final public static function tmp(string $_name, string|array|object|null $_value): string|array|object|null
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS[VAR_TMP_STORE])) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[VAR_TMP_STORE][$_name] = $_value;
-    }
-
-
-    /* It's setting the value of the variable `$key` to the value of the variable `$value`. */
 
     /**
      *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
@@ -286,7 +297,7 @@ class yP
     }
 
     /**
-     * > This function adds a listener to the listeners array
+     * This function adds a listener to the listeners array
      *
      * @param string event The name of the event to listen for.
      * @param object callback The callback function to be executed when the event is triggered.

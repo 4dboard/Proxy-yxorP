@@ -4,7 +4,6 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use yxorP;
-use yxorP\app\lib\minify\minify;
 
 /* A class that is used to cache data. */
 
@@ -37,23 +36,22 @@ class cache
 
     public static function fetch(?string $key = null): array
     {
-        $GLOB = [];
-        /* Checking if the cache file is valid and if it is, it is getting the data from the cache file. */
-        include self::gen($key)['path'];
-        return $GLOB;
+        session_start();
+        return [];//(array)$_SESSION[self::gen($key)['key']];
     }
 
     public static function set($content, ?string $key = null): void
     {
-        self::store($GLOBALS[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
+        self::store($_SESSION[YXORP_HTTP_HOST], CACHE_KEY_CONTEXT);
         echo $content;
-
+        exit;
         /*exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); exit(die(' . str_replace(CACHE_FIX, '(object)', var_export((minify::createDefault())->process((MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content)), true)) . '));')));*/
     }
 
     public static function store($content, ?string $key = null): void
     {
-        /* Used to write the data to the cache file. */
-        file_put_contents(self::gen($key)['path'], '<?php $GLOB=' . (minify::createDefault())->process(str_replace(CACHE_FIX, '(object)', var_export($content, true))) . '?>');
+        session_start();
+
+        $_SESSION[self::gen($key)['key']] = var_export($content, true);
     }
 }

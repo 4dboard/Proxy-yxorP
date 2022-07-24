@@ -47,7 +47,7 @@ final class idna
     {
         $domain = rawurldecode($domain);
         if (1 !== preg_match(self::REGEXP_IDNA_PATTERN, $domain)) {
-            return idnaInfo::fromIntl(['result' => strtolower($domain), 'isTransitionalDifferent' => false, 'errors' => 0]);
+            return idnaInfo::fromIntl(['result' => strtolower($domain), 'isTransitionalDifferent' => 0, 'errors' => 0]);
         }
         self::supportsIdna();
         idn_to_ascii($domain, $options, INTL_IDNA_VARIANT_UTS46, $idnaInfo);
@@ -67,11 +67,11 @@ final class idna
 
     public static function toUnicode(string $domain, int $options): idnaInfo
     {
-        if (!str_contains($domain, 'xn--')) return idnaInfo::fromIntl(['result' => $domain, 'isTransitionalDifferent' => false, 'errors' => 0]);
+        if (!str_contains($domain, 'xn--')) return idnaInfo::fromIntl(['result' => $domain, 'isTransitionalDifferent' => 0, 'errors' => 0]);
         self::supportsIdna();
         idn_to_utf8($domain, $options, INTL_IDNA_VARIANT_UTS46, $idnaInfo);
         $info = idnaInfo::fromIntl($idnaInfo);
-        if (0 !== $info->errors()) return idnaInfo::fromIntl(['result' => $domain, 'isTransitionalDifferent' => false, 'errors' => 0]);
+        if (0 !== $info->errors()) return idnaInfo::fromIntl(['result' => $domain, 'isTransitionalDifferent' => 0, 'errors' => 0]);
         return $info;
     }
 }

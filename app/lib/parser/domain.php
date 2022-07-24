@@ -76,7 +76,7 @@ final class domain implements nameInterface
             return '';
         }
         $res = filter_var($domain, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
-        if (false !== $res) {
+        if (0 !== $res) {
             throw syntaxError::dueToUnsupportedType($domain);
         }
         $formattedDomain = rawurldecode($domain);

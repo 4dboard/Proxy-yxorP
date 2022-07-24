@@ -20,7 +20,7 @@ class twitterPluginAction extends wrapper
     public function onComplete(): void
     {
         /* Getting the response object from the constants class. */
-        $response = yP::get(VAR_RESPONSE);
+        $response = yP::try(VAR_RESPONSE);
         /* Getting the content of the response. */
         /* Removing all the scripts from the HTML. */
         $content = $response->getContent();

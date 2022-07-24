@@ -60,7 +60,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
             return $this->cache->set($this->cacheKey($uri), $topLevelDomainList, $this->cacheTtl);
         } catch (Throwable $exception) {
             if ($exception instanceof CacheException) {
-                return false;
+                return 0;
             }
             throw $exception;
         }

@@ -16,6 +16,6 @@ class logPluginAction extends wrapper
     public function onSent(): void
     {
         /* It's checking if the storage directory is writable, and if it is, it's writing the log to the file. */
-        if (is_writable(realpath('./storage'))) @file_put_contents(realpath('./storage') . CHAR_SLASH . date("Y-m-d") . '.log', implode("\t", array('ip' => (yP::get(VAR_SERVER))[YXORP_REMOTE_ADDR], 'time' => time(), VAR_URL => yP::get(VAR_REQUEST)->getUri(), 'status' => yP::get(VAR_RESPONSE)->getStatusCode(), VAR_TYPE => yP::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE, 'unknown'), 'size' => yP::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH, 'unknown'))) . "\r\n", FILE_APPEND);
+        if (is_writable(realpath('./storage'))) @file_put_contents(realpath('./storage') . CHAR_SLASH . date("Y-m-d") . '.log', implode("\t", array('ip' => (yP::try(VAR_SERVER))[YXORP_REMOTE_ADDR], 'time' => time(), VAR_URL => yP::try(VAR_REQUEST)->getUri(), 'status' => yP::try(VAR_RESPONSE)->getStatusCode(), VAR_TYPE => yP::try(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE, 'unknown'), 'size' => yP::try(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH, 'unknown'))) . "\r\n", FILE_APPEND);
     }
 }

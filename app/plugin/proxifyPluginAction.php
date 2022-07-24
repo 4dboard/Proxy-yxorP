@@ -24,7 +24,7 @@ class proxifyPluginAction extends wrapper
     public function onBeforeSend(): void
     {
         /* It's getting the request object from the constants class. */
-        $request = yP::get(VAR_REQUEST);
+        $request = yP::try(VAR_REQUEST);
         /* It's checking if the request has a post parameter called `convertGET`. */
         if ($request->post->has('convertGET')) {
             /* It's removing the `convertGET` post parameter. */
@@ -44,9 +44,9 @@ class proxifyPluginAction extends wrapper
     public function onComplete(): void
     {
         /* It's getting the base url of the request. */
-        $this->base_url = yP::get(VAR_REQUEST)->getUri();
+        $this->base_url = yP::try(VAR_REQUEST)->getUri();
         /* It's getting the response object from the constants class. */
-        $response = yP::get(VAR_RESPONSE);
+        $response = yP::try(VAR_RESPONSE);
         /* It's getting the response content. */
         $content_type = $this->clean_content_type($response->headers->get(VAR_CONTENT_TYPE));
         $str = $response->getContent();
@@ -73,8 +73,8 @@ class proxifyPluginAction extends wrapper
             foreach ($urls as $part) {
                 /* It's getting the position of the first space in the string. */
                 $pos = strpos($part, ' ');
-                /* It's checking if the position of the first space in the string is not equal to `false`. */
-                if ($pos !== false) {
+                /* It's checking if the position of the first space in the string is not equal to `0`. */
+                if ($pos !== 0) {
                     /* It's getting the url from the `srcset` attribute. */
                     $url = substr($part, 0, $pos);
                     /* It's replacing the `src` attribute with the proxified url. */

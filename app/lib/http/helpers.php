@@ -3,7 +3,6 @@
 use yxorP\app\lib\parser\domain;
 use yxorP\app\lib\parser\rules;
 use yxorP\app\yP;
-use function array_map;
 use function explode;
 
 
@@ -21,15 +20,15 @@ class helpers
      * @return string A function that takes in a url, width, height, and extension and returns a string.
      * A function that takes in a url, width, height, and extension and returns a string.
      */
-    public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
+    public static function vid_player($url, $width = '100%', $height = '100%', $extension = 0): string
     {
-        $html5 = false;
+        $html5 = 0;
 
         /* Checking if the path is set. */
-        if ($path = parse_url($url, PHP_URL_PATH)) if (($extension = @false ?: pathinfo($path, PATHINFO_EXTENSION)) === 'mp4' || $extension === 'webm' || $extension === 'ogg') $html5 = true;
+        if ($path = parse_url($url, PHP_URL_PATH)) if (($extension = @0 ?: pathinfo($path, PATHINFO_EXTENSION)) === 'mp4' || $extension === 'webm' || $extension === 'ogg') $html5 = true;
 
         /* Returning the HTML code for the video player. */
-        return ($html5) ? '<video width="' . $width . '" height="' . $height . '" controls autoplay><source src="' . proxify_url($url) . '" type="video/' . $extension . '">Your browser does not support the video tag.</video>' : '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="<param name="wmode" value="transparent" /><param name="flashvars" value=\'inc={"clip":"' . rawurlencode(proxify_url($url)) . '", "plugins": {"controls": {"autoHide" : false} }}\' /></object>';
+        return ($html5) ? '<video width="' . $width . '" height="' . $height . '" controls autoplay><source src="' . proxify_url($url) . '" type="video/' . $extension . '">Your browser does not support the video tag.</video>' : '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="<param name="wmode" value="transparent" /><param name="flashvars" value=\'inc={"clip":"' . rawurlencode(proxify_url($url)) . '", "plugins": {"controls": {"autoHide" : 0} }}\' /></object>';
     }
 
     /**
@@ -42,6 +41,7 @@ class helpers
     {
         /* Checking if the string starts with any of the needles. */
         foreach ((array)$needles as $n) if ($n !== CHAR_EMPTY_STRING && stripos($haystack, $n) === 0) return true;
+        return 0;
     }
 
     /**
@@ -54,26 +54,6 @@ class helpers
         return $search === CHAR_EMPTY_STRING ? $subject : explode($search, $subject)[0];
     }
 
-    /**
-     * @param string $line
-     * @return bool
-     * Returning the part of the string before the `$search` string.
-     */
-    public static function is_html(string $line)
-    {
-        /* Checking if the content type is HTML. */
-        return clean_content_type($content_type) === VAR_TEXT_HTML;
-    }
-
-    /**
-     * @return bool
-     * Checking if the `$content_type` is `text/html`.
-     */
-    public static function in_arrayi()
-    {
-        /* Checking if the `$content_type` is `text/html`. */
-        return in_array(strtolower($needle), array_map(VAR_STRTOLOWER, $haystack), true);
-    }
 
     /**
      * @param string $pattern
@@ -101,21 +81,6 @@ class helpers
         foreach (func_get_args() as $arg) foreach ((array)$arg as $key => $value) $arr[$key] = $value;
 
         return $arr;
-    }
-
-    /**
-     * @return string
-     * It's merging the arrays.
-     */
-    public static function str_rot_pass()
-    {
-        /* Creating a string of spaces that is the same length as the string passed in. */
-        $result = str_repeat(' ', strlen($str));
-
-        /* Looping through the string and checking each character. Taking the ASCII value of the character at the current position in the string and adding it to the ASCII value of the character at the current position in the key. */
-        for ($i = 0, $iMax = strlen($str); $i < $iMax; $i++) $result[$i] = chr(($decrypt) ? ord($str[$i]) - ord($key[$i % $key_len = strlen($key)]) : ord($str[$i]) + ord($key[$i % $key_len]));
-
-        return $result;
     }
 
     /**
@@ -149,28 +114,6 @@ class helpers
     }
 
     /**
-     * @param string $line
-     * @return string
-     * It's returning the current time in milliseconds.
-     */
-    public static function base64_url_encode(string $line)
-    {
-        /* Encoding a string using base64 and then replacing the characters +/= with ._- */
-        return rtrim(strtr(base64_encode($input), '+/=', '._-'));
-    }
-
-    /**
-     * @param string $line
-     * @return false|string
-     * It's encoding the `$input` with the base64.
-     */
-    public static function base64_url_decode(string $line)
-    {
-        /* Decoding a base64 string. */
-        return base64_decode(strtr($input, '._-', '+/='));
-    }
-
-    /**
      * @return void
      * It's decoding the `$input` with the base64.
      */
@@ -188,7 +131,7 @@ class helpers
         }
 
         /* Removing the "fetch" parameter from the URL. */
-        return str_replace(yP::get(VAR_FETCH), CHAR_EMPTY_STRING, $url);
+        return str_replace(yP::try(VAR_FETCH), CHAR_EMPTY_STRING, $url);
     }
 
     /**
@@ -253,101 +196,82 @@ class helpers
         return $mergedArrays;
     }
 
-    /**
-     * @param string $line
-     * @return string
-     * Extracting the subdomain from a domain.
-     */
-    public static function extractSubdomains(string $line)
-    {
-        /* Checking if the domain is set and if it contains a period. */
-        if ($domain && str_contains($domain, CHAR_PERIOD)) {
-
-            /* Setting the variable $subdomains to the value of $domain.   Extracting the domain from the subdomains.  Returning the subdomain of a domain. */
-            return rtrim(strstr($subdomains, self::extractDomain($domain), true), CHAR_PERIOD);
-
-        } else  return null;
-    }
 
     /**
-     * @param $domain
-     * @return void
-     * It's merging the arrays.
-     */
-    public static function extractDomain($domain)
-    {
-        /* Checking if the domain is valid. */
-        if ($domain && str_contains($domain, CHAR_PERIOD)) if (preg_match(REG_TWELVE, $domain, $matches)) return $matches[VAR_DOMAIN]; else   return $domain; else  return $domain;
-    }
-
-    /**
-     * @param string $line
      * @return void
      * A function that takes a string as a parameter and returns nothing.
      */
-    public static function env(string $line): void
+    public static function env(): void
     {
-        /* Checking if the line starts with a hash. If it does, it returns. */
-        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
+        yP::try(EXT_ENV, 1);
 
-        /* Exploding the $line variable into an array of two elements. */
-        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
+        foreach (file(DIR_ROOT . EXT_ENV) as $line) {
 
-        /* Replacing all the new lines with null. */
-        yP::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
+            /* Checking if the line starts with a hash. If it does, it returns. */
+            if (trim((string)str_starts_with(trim($line), CHAR_HASH))) continue;
+
+            /* Exploding the $line variable into an array of two elements. */
+            [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
+
+            /* Replacing all the new lines with null. */
+            yP::try(($name . EXT_ENV), (str_replace("\r\n", CHAR_EMPTY_STRING, $value)));
+        }
     }
 
 
     /**
-     * @param array $req
+     * @param array|null $req
      * @return void
      * It's checking if the file exists.
      */
-    public static function localise(array $req): void
+    public static function localise(?array $req): void
     {
         helpers::install();
 
-        /* Defining a constant called yP::get(YXORP_SERVER) and setting it to the value of $req. */
-        yP::tmp(VAR_SERVER, $req);
+        /* Defining a constant called yP::try(YXORP_SERVER) and setting it to the value of $req. */
+        yP::try(VAR_SERVER, $req ?: $_SERVER);
 
-        /* Checking if the site url contains a period. If it does, it returns false. */
+        /* Checking if the site url contains a period. If it does, it returns 0. */
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        if (!CACHED_CONTEXT) yP::set(SITE_DOMAIN, !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::get(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST);
+        yP::try(SITE_DOMAIN, null, 'yxorP\app\lib\http\helpers::suffix');
 
         /* Defining the constants YXORP_SITE_DOMAIN and YXORP_SITE_SUB_DOMAIN. */
-        foreach (['YXORP_SITE_DOMAIN' => !YXORP_IS_LOCALHOST ? yP::get(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::get(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST, 'YXORP_SITE_SUB_DOMAIN' => !YXORP_IS_LOCALHOST ? (yP::get(SITE_DOMAIN)->subDomain()->toString() ? yP::get(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null] as $key => $value) define($key, $value);
+        define('YXORP_TARGET_DOMAIN', 'YXORP_TARGET_DOMAIN');
+        define('YXORP_SITE_DOMAIN', !YXORP_IS_LOCALHOST ? yP::try(SITE_DOMAIN)->registrableDomain()->toString() ?: yP::try(SITE_DOMAIN)->domain()->toString() : YXORP_HTTP_HOST);
+        define('YXORP_SITE_SUB_DOMAIN', !YXORP_IS_LOCALHOST ? (yP::try(SITE_DOMAIN)->subDomain()->toString() ? yP::try(SITE_DOMAIN)->subDomain()->toString() . CHAR_PERIOD : null) : null);
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        if (!CACHED_CONTEXT) yP::set(SITE_DETAILS, yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]));
+        yP::try(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
 
         /* Setting the pattern, replace, and plugins variables. */
-        if (!CACHED_CONTEXT) foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
-            yP::set($key, yP::get(SITE_DETAILS)[$value]);
+        foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
+            yP::try($key, yP::try(SITE_DETAILS)[$value]);
 
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-        define('YXORP_TARGET_URL', (yP::get(SITE_DETAILS))[COCKPIT_TARGET]);
+        define('YXORP_TARGET_URL', (yP::try(SITE_DETAILS))[COCKPIT_TARGET]);
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        if (!CACHED_CONTEXT) yP::set(TARGET_DOMAIN, self::publicSuffix(YXORP_TARGET_URL ?: yP::get(ENV_DEFAULT_TARGET)));
+        yP::try(TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_TARGET_DOMAIN', yP::get(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::get(TARGET_DOMAIN)->domain()->toString());
+        yP::try(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_domain');
 
         /* Defining a constant. */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
+        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . yP::try(YXORP_TARGET_DOMAIN));
 
         /* Defining constants. */
-        foreach (['YXORP_GUZZLE_URL' => VAR_FETCH . YXORP_REQUEST_URI, 'YXORP_DIR_FULL' => DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', yP::get(SITE_DETAILS)[VAR_FILES])] as $key => $value) define($key, $value);
+        define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', yP::try(SITE_DETAILS)[VAR_FILES]));
 
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
         value of the constant YXORP_REQUEST_URI. */
         define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
 
         /* Setting the global variables for the application. */
-        if (!CACHED_CONTEXT) foreach ([YXORP_GLOBAL_REPLACE => yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (yP::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null, YXORP_REWRITE => helpers::JSON(PATH_REWRITE)] as $key => $value) yP::set($key, $value);
+        foreach ([YXORP_GLOBAL_REPLACE => yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null, YXORP_REWRITE => helpers::JSON(PATH_REWRITE)] as $key => $value) yP::try($key, $value);
 
     }
 
@@ -364,9 +288,8 @@ class helpers
 
         /* It's copying the files from the `local` directory to the `COCKPIT` directory. */
         if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
-
         /* It's inserting a new user into the `COCKPIT_accounts` collection. */
-        if (!yP::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::get(ENV_ADMIN_USER), VAR_NAME => yP::get(ENV_ADMIN_NAME), VAR_EMAIL => yP::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::get(YXORP_COCKPIT_APP)->hash(yP::get(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!yP::try(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) yP::try(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => yP::try(ENV_ADMIN_USER), VAR_NAME => yP::try(ENV_ADMIN_NAME), VAR_EMAIL => yP::try(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => yP::try(YXORP_COCKPIT_APP)->hash(yP::try(ENV_ADMIN_PASSWORD)), VAR_I18N => yP::try(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
@@ -389,6 +312,39 @@ class helpers
     }
 
     /**
+     * @param $file
+     * @return array A function that takes a file and returns an array.
+     * A function that takes a file and returns an array.
+     */
+    public static function JSON($file): array
+    {
+        /* Reading the contents of the file and decoding it into an array. */
+        return json_decode(file_get_contents($file), true);
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function target_domain(): mixed
+    {
+        return yP::try(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::try(TARGET_DOMAIN)->domain()->toString();
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function target_suffix(): mixed
+    {
+        return self::publicSuffix(YXORP_TARGET_URL ?: yP::try(ENV_DEFAULT_TARGET));
+    }
+
+    /**
      * @param string $domain
      * @return mixed
      * A function that returns the public suffix of a domain.
@@ -400,14 +356,25 @@ class helpers
     }
 
     /**
-     * @param $file
-     * @return array A function that takes a file and returns an array.
-     * A function that takes a file and returns an array.
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    public static function JSON($file): array
+    public static function suffix(): mixed
     {
-        /* Reading the contents of the file and decoding it into an array. */
-        return json_decode(file_get_contents($file), true);
+        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::try(ENV_DEFAULT_SITE))) : YXORP_HTTP_HOST;
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function cockpit_find(): mixed
+    {
+        return yP::try(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
     }
 
     /**
@@ -427,14 +394,14 @@ class helpers
         }
     }
 
-    /* Defining a static method called mime. */
+    /* A function that converts the size of a file into a more readable format. */
 
     public static function setMimeType(): void
     {
 
         /* Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
         "application/wasm". */
-        if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (yP::get(VAR_RESPONSE)) $mime = yP::get(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
+        if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (yP::try(VAR_RESPONSE)) $mime = yP::try(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
             /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
             $mimeTypes = json_decode(file_get_contents(DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . VAR_MIME . EXT_JSON), true);
             /* Getting the file extension of the requested file. */
@@ -450,12 +417,19 @@ class helpers
         header('Content-Type: ' . $mime . ';charset=UTF-8');
     }
 
+    /* Defining a static method called mime. */
+
+    public static function convert($size)
+    {
+        $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
+        return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
+    }
 
     public static function replace($content): string
     {
         /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class. */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
-            return '<x' . str_replace(array_keys(yP::get(YXORP_REWRITE)), array_values(yP::get(YXORP_REWRITE)), $m[1]) . 'x>';
+            return '<x' . str_replace(array_keys(yP::try(YXORP_REWRITE)), array_values(yP::try(YXORP_REWRITE)), $m[1]) . 'x>';
         }], $content) ?: $content;
     }
 

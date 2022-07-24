@@ -65,7 +65,7 @@ class request
 
     /* A method that is called by the wrapper class. */
 
-    public function setBody($body, $content_type = false): void
+    public function setBody($body, $content_type = 0): void
     {
         $this->post->clear();
         $this->files->clear();
@@ -162,18 +162,18 @@ class request
 
     public static function createFromGlobals(): request
     {
-        $method = (yP::get(VAR_SERVER))[YXORP_REQUEST_METHOD];
-        $scheme = (isset(yP::get(VAR_SERVER)[VAR_HTTPS]) && (yP::get(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
+        $method = (yP::try(VAR_SERVER))[YXORP_REQUEST_METHOD];
+        $scheme = (isset(yP::try(VAR_SERVER)[VAR_HTTPS]) && (yP::try(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
         $url = $scheme . ':' . YXORP_GUZZLE_URL;
         $request = new request($method, $url);
-        foreach (yP::get(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
+        foreach (yP::try(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
             $name = substr($name, 5);
             $name = str_replace(CHAR_UNDER, ' ', $name);
             $name = ucwords(strtolower($name));
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set(VAR_USER_IP, (yP::get(VAR_SERVER))[YXORP_REMOTE_ADDR]);
+        $request->params->set(VAR_USER_IP, (yP::try(VAR_SERVER))[YXORP_REMOTE_ADDR]);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);

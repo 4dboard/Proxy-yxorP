@@ -23,7 +23,7 @@ class dailyMotionPluginAction extends wrapper
     public function onComplete(): void
     {
         /* Getting the response object from the `constants` class. */
-        $response = yP::get(VAR_RESPONSE);
+        $response = yP::try(VAR_RESPONSE);
         /* Getting the content of the response object. */
         $content = $response->getContent();
         /* Checking if the content of the response object contains a video URL. If it does, it calls the `completed`

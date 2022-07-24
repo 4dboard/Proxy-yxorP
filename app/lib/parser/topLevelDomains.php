@@ -75,7 +75,7 @@ final class topLevelDomains implements topLevelDomainListInterface
         throw unableToLoadTopLevelDomainList::dueToFailedConversion();
     }
 
-    #[ArrayShape(['version' => "mixed", 'lastUpdated' => "\DateTimeImmutable|false"])] private static function extractHeader(string $content): array
+    #[ArrayShape(['version' => "mixed", 'lastUpdated' => "\DateTimeImmutable|0"])] private static function extractHeader(string $content): array
     {
         if (1 !== preg_match(self::REGEXP_HEADER_LINE, $content, $matches)) {
             throw unableToLoadTopLevelDomainList::dueToInvalidVersionLine($content);
