@@ -1,7 +1,9 @@
 <?php
 
 class default{
-    public function registrableDomain(){
+    public
+    function registrableDomain()
+    {
         
     }
 }
