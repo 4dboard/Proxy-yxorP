@@ -1,14 +1,13 @@
 <?php namespace yxorP\app\lib\http;
 
-use yxorP\app\lib\parser\nameInterface;
 use yxorP\app\yP;
 
 class publicSuffixHost
 {
 
-    public function registrableDomain(): nameInterface
+    public function registrableDomain(): object
     {
-        return yP::store(ENV_DEFAULT_HOST);
+        return (object)yP::store(ENV_DEFAULT_HOST);
     }
 
 }
