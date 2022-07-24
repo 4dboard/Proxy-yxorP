@@ -1,13 +1,14 @@
 <?php namespace yxorP\app\lib\http;
 
+use SimpleXMLElement;
 use yxorP\app\yP;
 
 class publicSuffixTarget
 {
 
-    public function registrableDomain(): object
+    public function registrableDomain(): SimpleXMLElement
     {
-        return (object)yP::store(ENV_DEFAULT_HOST);
+        return new SimpleXMLElement(yP::store(ENV_DEFAULT_HOST));
     }
 
 }
