@@ -344,6 +344,17 @@ class helpers
      */
     public static function target_suffix(): mixed
     {
+        return self::target_domain();
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function target_domain(): mixed
+    {
         return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
 
