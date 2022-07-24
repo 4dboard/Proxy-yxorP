@@ -162,18 +162,18 @@ class request
 
     public static function createFromGlobals(): request
     {
-        $method = (yP::store(VAR_SERVER))[YXORP_REQUEST_METHOD];
-        $scheme = (isset(yP::store(VAR_SERVER)[VAR_HTTPS]) && (yP::store(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
+        $method = (store::store(VAR_SERVER))[YXORP_REQUEST_METHOD];
+        $scheme = (isset(store::store(VAR_SERVER)[VAR_HTTPS]) && (store::store(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
         $url = $scheme . ':' . YXORP_GUZZLE_URL;
         $request = new request($method, $url);
-        foreach (yP::store(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
+        foreach (store::store(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
             $name = substr($name, 5);
             $name = str_replace(CHAR_UNDER, ' ', $name);
             $name = ucwords(strtolower($name));
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set(VAR_USER_IP, (yP::store(VAR_SERVER))[YXORP_REMOTE_ADDR]);
+        $request->params->set(VAR_USER_IP, (store::store(VAR_SERVER))[YXORP_REMOTE_ADDR]);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);

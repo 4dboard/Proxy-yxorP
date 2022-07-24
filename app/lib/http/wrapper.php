@@ -20,7 +20,7 @@ abstract class wrapper
     final public function subscribe(yp $dispatcher): void
     {
         /* Adding a listener to all the events. */
-        foreach (yP::store(YXORP_EVENT_LIST) as $event) {
+        foreach (store::store(YXORP_EVENT_LIST) as $event) {
             /* Adding a listener to the event. */
             $dispatcher->addListener($event, function () use ($event) {
                 /* Calling the `route` method. */

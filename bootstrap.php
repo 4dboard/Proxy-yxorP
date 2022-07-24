@@ -22,7 +22,7 @@ if (str_replace(['.js', '.css', '.png', '.svg', '.tag', '.woff', '.tff'], '', YX
 
     /* Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
     "application/wasm". */
-    if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (yP::store(VAR_RESPONSE)) $mime = yP::store(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
+    if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (store::store(VAR_RESPONSE)) $mime = store::store(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
         $mimeTypes = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . DIR_APP . DIR_LIB . DIR_DATA . VAR_MIME . EXT_JSON), true);
         /* Getting the file extension of the requested file. */

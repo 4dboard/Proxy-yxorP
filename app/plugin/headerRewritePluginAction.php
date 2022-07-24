@@ -30,9 +30,9 @@ class headerRewritePluginAction extends wrapper
     public function onBeforeSend(): void
     {
         /* It's setting the `accept-encoding` header to `identity`. */
-        yP::store(VAR_REQUEST)->headers->set('accept-encoding', 'identity');
+        store::store(VAR_REQUEST)->headers->set('accept-encoding', 'identity');
         /* It's removing the `referer` header from the request. */
-        yP::store(VAR_REQUEST)->headers->remove('referer');
+        store::store(VAR_REQUEST)->headers->remove('referer');
     }
 
     /* It's proxifying the URL of the `location` header. */
@@ -40,15 +40,15 @@ class headerRewritePluginAction extends wrapper
     public function onSent(): void
     {
         /* It's getting the response object from the `constants` class. */
-        $response = yP::store(VAR_RESPONSE);
+        $response = store::store(VAR_RESPONSE);
         /* It's getting the URL of the request. */
-        $request_url = yP::store(VAR_REQUEST)->getUri();
+        $request_url = store::store(VAR_REQUEST)->getUri();
         /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
         if ($response->headers->has('location')) self::headersReceived($response, $request_url);
         $code = $response->getStatusCode();
         /* It's checking if the status code of the response is between 400 and 600 and if it is, it's sending an error to
-        \yxorP\app\yP::store(VAR_BUGSNAG). */
-        if ($code >= 400 && $code <= 600) yP::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
+        \yxorP\app\store::store(VAR_BUGSNAG). */
+        if ($code >= 400 && $code <= 600) store::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /* It's an array of headers that should be forwarded to the client. */
         $forward_headers = array(VAR_CONTENT_TYPE, 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         /* It's removing all headers that aren't in the `$forward_headers` array. */

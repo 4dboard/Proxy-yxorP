@@ -7,7 +7,7 @@ class publicSuffixHost
 
     public function registrableDomain(): publicSuffixDomain
     {
-        return new publicSuffixDomain(yP::store(ENV_DEFAULT_HOST));
+        return new publicSuffixDomain(store::store(ENV_DEFAULT_HOST));
     }
 
 }

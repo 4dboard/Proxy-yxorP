@@ -24,7 +24,7 @@ class proxifyPluginAction extends wrapper
     public function onBeforeSend(): void
     {
         /* It's getting the request object from the constants class. */
-        $request = yP::store(VAR_REQUEST);
+        $request = store::store(VAR_REQUEST);
         /* It's checking if the request has a post parameter called `convertGET`. */
         if ($request->post->has('convertGET')) {
             /* It's removing the `convertGET` post parameter. */
@@ -44,9 +44,9 @@ class proxifyPluginAction extends wrapper
     public function onComplete(): void
     {
         /* It's getting the base url of the request. */
-        $this->base_url = yP::store(VAR_REQUEST)->getUri();
+        $this->base_url = store::store(VAR_REQUEST)->getUri();
         /* It's getting the response object from the constants class. */
-        $response = yP::store(VAR_RESPONSE);
+        $response = store::store(VAR_RESPONSE);
         /* It's getting the response content. */
         $content_type = $this->clean_content_type($response->headers->get(VAR_CONTENT_TYPE));
         $str = $response->getContent();
