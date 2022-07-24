@@ -1,9 +1,9 @@
 <?php
 
-class default{
-    public
-    function registrableDomain()
+class defaults
+{
+    public function registrableDomain()
     {
-        
+        return ENV_DEFAULT_TARGET;
     }
 }
