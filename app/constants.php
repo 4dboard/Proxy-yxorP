@@ -7,7 +7,8 @@ define("FILE_TMP", CHAR_PERIOD . VAR_TMP . define('DIR_TMP', VAR_TMP . DIRECTORY
 define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
 const PATH_TMP_DIR = __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP;
 const PATH_TMP_FILE = __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP;
-define("DIR_LIB", 'lib' . DIRECTORY_SEPARATOR . define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-'))));
+const DIR_LIB = 'lib' . DIRECTORY_SEPARATOR;
+define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
 const EXT_TEXT = 'txt';
 const CHAR_SLASH = '/';
 const COOKIE_JAR = 'cookie_jar' . CHAR_PERIOD;
