@@ -56,16 +56,6 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/yxorp.html" class="">yxorP</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-app.html" class="">app</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/lime.html" class="">Lime</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -268,6 +258,16 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/yxorp.html" class="">yxorp</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/yxorp-controller.html" class="">Controller</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/phpdocumentormarkdown.html" class="">PhpDocumentorMarkdown</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -403,6 +403,26 @@
         <dd>Result class for mapReduce command results.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-UpdateResult.html"><abbr title="\MongoDB\UpdateResult">UpdateResult</abbr></a></dt>
         <dd>Result class for an update operation.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-BulkWriteResult.html"><abbr title="\MongoDB\BulkWriteResult">BulkWriteResult</abbr></a></dt>
+        <dd>Result class for a bulk write operation.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-ChangeStream.html"><abbr title="\MongoDB\ChangeStream">ChangeStream</abbr></a></dt>
+        <dd>Iterator for a change stream.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-Client.html"><abbr title="\MongoDB\Client">Client</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-Collection.html"><abbr title="\MongoDB\Collection">Collection</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-Database.html"><abbr title="\MongoDB\Database">Database</abbr></a></dt>
+        <dd></dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-DeleteResult.html"><abbr title="\MongoDB\DeleteResult">DeleteResult</abbr></a></dt>
+        <dd>Result class for a delete operation.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-InsertManyResult.html"><abbr title="\MongoDB\InsertManyResult">InsertManyResult</abbr></a></dt>
+        <dd>Result class for a multi-document insert operation.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-InsertOneResult.html"><abbr title="\MongoDB\InsertOneResult">InsertOneResult</abbr></a></dt>
+        <dd>Result class for a single-document insert operation.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-MapReduceResult.html"><abbr title="\MongoDB\MapReduceResult">MapReduceResult</abbr></a></dt>
+        <dd>Result class for mapReduce command results.</dd>
+            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/MongoDB-UpdateResult.html"><abbr title="\MongoDB\UpdateResult">UpdateResult</abbr></a></dt>
+        <dd>Result class for an update operation.</dd>
     
     
     </dl>
@@ -415,6 +435,20 @@
 
 <dl class="phpdocumentor-table-of-contents">
                             <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/mongodb.html#function_is_string_array">is_string_array()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a href="namespaces/mongodb.html#function_with_transaction">with_transaction()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Execute a callback within a transaction in the given session</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/mongodb.html#function_is_string_array">is_string_array()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -544,6 +578,24 @@ the helper will throw the last exception received from the driver.</p>
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\MongoDB\Client::startSession">Client::startSession</abbr></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\MongoDB\Driver\Session::startTransaction">Session::startTransaction</abbr></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>for supported transaction options</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -563,7 +615,121 @@ the helper will throw the last exception received from the driver.</p>
 </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_is_string_array">
+        is_string_array()
+        <a href="namespaces/mongodb.html#function_is_string_array" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/functions.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-functions.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/functions.php">functions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">258</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">is_string_array</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$input</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$input</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_with_transaction">
+        with_transaction()
+        <a href="namespaces/mongodb.html#function_with_transaction" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/functions.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-functions.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/functions.php">functions.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">373</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Execute a callback within a transaction in the given session</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">with_transaction</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Session">Session</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$callback</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$transactionOptions</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"><p>This helper takes care of retrying the commit operation or the entire
+transaction if an error occurs.</p>
+<p>If the commit fails because of an UnknownTransactionCommitResult error, the
+commit is retried without re-invoking the callback.
+If the commit fails because of a TransientTransactionError, the entire
+transaction will be retried. In this case, the callback will be invoked
+again. It is important that the logic inside the callback is idempotent.</p>
+<p>In case of failures, the commit or transaction are retried until 120 seconds
+from the initial call have elapsed. After that, no retries will happen and
+the helper will throw the last exception received from the driver.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$session</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Session">Session</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A session object as retrieved by Client::startSession</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$callback</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A callback that will be invoked within the transaction</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$transactionOptions</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Additional options that are passed to Session::startTransaction</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -578,6 +744,26 @@ the helper will throw the last exception received from the driver.</p>
                                                                                     <span class="phpdocumentor-tag-link"><abbr title="\MongoDB\Driver\Session::startTransaction">Session::startTransaction</abbr></span>
                                         
                                                  <section class="phpdocumentor-description"><p>for supported transaction options</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/MongoDB-Exception-RuntimeException.html"><abbr title="\MongoDB\Exception\RuntimeException">RuntimeException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>for driver errors while committing the transaction</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>for any other errors, including those thrown in the callback</p>
 </section>
 
                                     </dd>
