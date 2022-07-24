@@ -175,7 +175,7 @@ class yP
     public static function store_session_set(string $name, mixed $value): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
-        return $_SESSION[$name] ?: $_SESSION[$name] = $value;
+        return $_SESSION[$name] = $value;
     }
 
     /**
@@ -213,7 +213,7 @@ class yP
     public static function store_tmp_set(string $name, mixed $value): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
-        return $GLOBALS[$name] ?: $GLOBALS[$name] = $value;
+        return $GLOBALS[$name] = $value;
     }
 
     /**
