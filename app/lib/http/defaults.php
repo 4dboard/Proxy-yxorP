@@ -1,4 +1,4 @@
-<?php
+<?php namespace yxorP\app\lib\http;
 
 class defaults
 {
