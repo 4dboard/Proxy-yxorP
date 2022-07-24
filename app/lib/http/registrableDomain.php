@@ -4,7 +4,7 @@ use yxorP\app\yP;
 
 class registrableDomain
 {
-    private string registrableDomain = null;
+string domain;
 
     public function __construct()
     {
