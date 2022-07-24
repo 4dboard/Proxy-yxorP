@@ -56,16 +56,6 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/yxorp.html" class="">yxorP</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-app.html" class="">app</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/lime.html" class="">Lime</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -268,6 +258,16 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/yxorp.html" class="">yxorp</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/yxorp-controller.html" class="">Controller</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/phpdocumentormarkdown.html" class="">PhpDocumentorMarkdown</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -391,16 +391,93 @@
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_CACHED_CONTEXT">CACHED_CONTEXT</a>
+    <a href="namespaces/default.html#constant_DIR_ROOT">DIR_ROOT</a>
     <span>
-        &nbsp;= $cached ? 1 : 0                            </span>
+        &nbsp;= $root . DIRECTORY_SEPARATOR                            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="namespaces/default.html#constant_DIR_ROOT">DIR_ROOT</a>
+    <a href="namespaces/default.html#constant_PATH_BUGSNAG">PATH_BUGSNAG</a>
     <span>
-        &nbsp;= $root . DIRECTORY_SEPARATOR                            </span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_COCKPIT_BOOTSTRAP">PATH_COCKPIT_BOOTSTRAP</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_COCKPIT_INDEX">PATH_COCKPIT_INDEX</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_COCKPIT_LOCAL">PATH_COCKPIT_LOCAL</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_INSTALL . DIR_COCKPIT                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_COOKIE_JAR">PATH_COOKIE_JAR</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_DIR_COCKPIT">PATH_DIR_COCKPIT</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_FILE_MIME_TYPES">PATH_FILE_MIME_TYPES</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_GUZZLE">PATH_GUZZLE</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_INC_WRAPPER">PATH_INC_WRAPPER</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_PUBLIC_SUFFIX_LIST">PATH_PUBLIC_SUFFIX_LIST</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_REWRITE">PATH_REWRITE</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_PATH_TLDS_ALPHA_BY_DOMAIN">PATH_TLDS_ALPHA_BY_DOMAIN</a>
+    <span>
+        &nbsp;= DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN                            </span>
 </dt>
 <dd></dd>
 
@@ -415,15 +492,15 @@
             <a href="files/app-yp.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_CACHED_CONTEXT">
-        CACHED_CONTEXT
-        <a href="namespaces/default.html#constant_CACHED_CONTEXT" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_DIR_ROOT">
+        DIR_ROOT
+        <a href="namespaces/default.html#constant_DIR_ROOT" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -431,8 +508,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">CACHED_CONTEXT</span>
-    = <span class="phpdocumentor-signature__default-value">$cached ? 1 : 0</span>
+    <span class="phpdocumentor-signature__name">DIR_ROOT</span>
+    = <span class="phpdocumentor-signature__default-value">$root . DIRECTORY_SEPARATOR</span>
 </code>
 
 
@@ -444,15 +521,15 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_DIR_ROOT">
-        DIR_ROOT
-        <a href="namespaces/default.html#constant_DIR_ROOT" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_BUGSNAG">
+        PATH_BUGSNAG
+        <a href="namespaces/default.html#constant_PATH_BUGSNAG" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -460,8 +537,327 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">DIR_ROOT</span>
-    = <span class="phpdocumentor-signature__default-value">$root . DIRECTORY_SEPARATOR</span>
+    <span class="phpdocumentor-signature__name">PATH_BUGSNAG</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_COCKPIT_BOOTSTRAP">
+        PATH_COCKPIT_BOOTSTRAP
+        <a href="namespaces/default.html#constant_PATH_COCKPIT_BOOTSTRAP" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_COCKPIT_BOOTSTRAP</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_COCKPIT_INDEX">
+        PATH_COCKPIT_INDEX
+        <a href="namespaces/default.html#constant_PATH_COCKPIT_INDEX" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">78</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_COCKPIT_INDEX</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_COCKPIT_LOCAL">
+        PATH_COCKPIT_LOCAL
+        <a href="namespaces/default.html#constant_PATH_COCKPIT_LOCAL" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">77</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_COCKPIT_LOCAL</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_INSTALL . DIR_COCKPIT</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_COOKIE_JAR">
+        PATH_COOKIE_JAR
+        <a href="namespaces/default.html#constant_PATH_COOKIE_JAR" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_COOKIE_JAR</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_DIR_COCKPIT">
+        PATH_DIR_COCKPIT
+        <a href="namespaces/default.html#constant_PATH_DIR_COCKPIT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_DIR_COCKPIT</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_FILE_MIME_TYPES">
+        PATH_FILE_MIME_TYPES
+        <a href="namespaces/default.html#constant_PATH_FILE_MIME_TYPES" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_FILE_MIME_TYPES</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_GUZZLE">
+        PATH_GUZZLE
+        <a href="namespaces/default.html#constant_PATH_GUZZLE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">73</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_GUZZLE</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_INC_WRAPPER">
+        PATH_INC_WRAPPER
+        <a href="namespaces/default.html#constant_PATH_INC_WRAPPER" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_INC_WRAPPER</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_PUBLIC_SUFFIX_LIST">
+        PATH_PUBLIC_SUFFIX_LIST
+        <a href="namespaces/default.html#constant_PATH_PUBLIC_SUFFIX_LIST" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">82</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_PUBLIC_SUFFIX_LIST</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_REWRITE">
+        PATH_REWRITE
+        <a href="namespaces/default.html#constant_PATH_REWRITE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">79</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_REWRITE</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH_TLDS_ALPHA_BY_DOMAIN">
+        PATH_TLDS_ALPHA_BY_DOMAIN
+        <a href="namespaces/default.html#constant_PATH_TLDS_ALPHA_BY_DOMAIN" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH_TLDS_ALPHA_BY_DOMAIN</span>
+    = <span class="phpdocumentor-signature__default-value">DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN</span>
 </code>
 
 
