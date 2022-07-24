@@ -283,50 +283,6 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\Driver\Cursor
 
 ***
 
-### createQueryOptions
-
-Create options for the find query.
-
-```php
-private createQueryOptions(): array
-```
-
-Note that these are separate from the options for executing the command,
-which are created in createExecuteOptions().
-
-
-
-
-
-
-
-
-
-***
-
-### createExecuteOptions
-
-Create options for executing the command.
-
-```php
-private createExecuteOptions(): array
-```
-
-
-
-
-
-
-
-
-
-
-**See Also:**
-
-* http://php.net/manual/en/mongodb-driver-server.executequery.php - 
-
-***
-
 ### getCommandDocument
 
 
@@ -373,6 +329,50 @@ private createCommandDocument(): mixed
 
 ***
 
+### createExecuteOptions
+
+Create options for executing the command.
+
+```php
+private createExecuteOptions(): array
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* http://php.net/manual/en/mongodb-driver-server.executequery.php - 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+### createQueryOptions
+
+Create options for the find query.
+
+```php
+private createQueryOptions(): array
+```
+
+Note that these are separate from the options for executing the command,
+which are created in createExecuteOptions().
+
+
+
+
+
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

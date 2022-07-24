@@ -50,55 +50,6 @@ PHPMailer - PHP email creation and transport class.
 ## Properties
 
 
-### validator
-
-Which validator to use by default when validating email addresses.
-
-```php
-public static string|callable $validator
-```
-
-May be a callable to inject your own validator, but there are several built-in validators.
-The default validator uses PHP's FILTER_VALIDATE_EMAIL filter_var option.
-
-* This property is **static**.
-
-**See Also:**
-
-* \PHPMailer\PHPMailer\PHPMailer::validateAddress() - 
-
-***
-
-### IcalMethods
-
-Value-array of "method" in Contenttype header "text/calendar"
-
-```php
-protected static string[] $IcalMethods
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### LE
-
-SMTP RFC standard line ending; Carriage Return, Line Feed.
-
-```php
-protected static string $LE
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ### Priority
 
 Email priority.
@@ -285,6 +236,66 @@ To generate iCal event structures, use classes like EasyPeasyICS or iCalcreator.
 **See Also:**
 
 * http://sprain.ch/blog/downloads/php-class-easypeasyics-create-ical-files-with-php/ - * http://kigkonsult.se/iCalcreator/ - 
+
+***
+
+### IcalMethods
+
+Value-array of "method" in Contenttype header "text/calendar"
+
+```php
+protected static string[] $IcalMethods
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### MIMEBody
+
+The complete compiled MIME message body.
+
+```php
+protected string $MIMEBody
+```
+
+
+
+
+
+
+***
+
+### MIMEHeader
+
+The complete compiled MIME message headers.
+
+```php
+protected string $MIMEHeader
+```
+
+
+
+
+
+
+***
+
+### mailHeader
+
+Extra headers that createHeader() doesn't fold in.
+
+```php
+protected string $mailHeader
+```
+
+
+
+
+
 
 ***
 
@@ -585,6 +596,21 @@ Options are CRAM-MD5, LOGIN, PLAIN, XOAUTH2, attempted in that order if not spec
 
 ***
 
+### oauth
+
+An instance of the PHPMailer OAuth class.
+
+```php
+protected \PHPMailer\PHPMailer\OAuth $oauth
+```
+
+
+
+
+
+
+***
+
 ### Timeout
 
 The SMTP server timeout in seconds.
@@ -707,6 +733,21 @@ Only supported in `mail` and `sendmail` transports, not in SMTP.
 
 
 * **Warning:** this property is **deprecated**. This means that this property will likely be removed in a future version.
+
+
+
+***
+
+### SingleToArray
+
+Storage for addresses when SingleTo is enabled.
+
+```php
+protected array $SingleToArray
+```
+
+
+
 
 
 
@@ -909,78 +950,22 @@ Options: An empty string for PHPMailer default, whitespace/null for none, or a s
 
 ***
 
-### MIMEBody
+### validator
 
-The complete compiled MIME message body.
-
-```php
-protected string $MIMEBody
-```
-
-
-
-
-
-
-***
-
-### MIMEHeader
-
-The complete compiled MIME message headers.
+Which validator to use by default when validating email addresses.
 
 ```php
-protected string $MIMEHeader
+public static string|callable $validator
 ```
 
+May be a callable to inject your own validator, but there are several built-in validators.
+The default validator uses PHP's FILTER_VALIDATE_EMAIL filter_var option.
 
+* This property is **static**.
 
+**See Also:**
 
-
-
-***
-
-### mailHeader
-
-Extra headers that createHeader() doesn't fold in.
-
-```php
-protected string $mailHeader
-```
-
-
-
-
-
-
-***
-
-### oauth
-
-An instance of the PHPMailer OAuth class.
-
-```php
-protected \PHPMailer\PHPMailer\OAuth $oauth
-```
-
-
-
-
-
-
-***
-
-### SingleToArray
-
-Storage for addresses when SingleTo is enabled.
-
-```php
-protected array $SingleToArray
-```
-
-
-
-
-
+* \PHPMailer\PHPMailer\PHPMailer::validateAddress() - 
 
 ***
 
@@ -1311,6 +1296,21 @@ protected string $uniqueid
 
 ***
 
+### LE
+
+SMTP RFC standard line ending; Carriage Return, Line Feed.
+
+```php
+protected static string $LE
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ## Methods
 
 
@@ -1340,52 +1340,6 @@ public __construct(bool $exceptions = null): mixed
 
 ***
 
-### getLE
-
-Return the current line break format string.
-
-```php
-public static getLE(): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### setLE
-
-Set the line break format string, e.g. "\r\n".
-
-```php
-protected static setLE(string $le): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$le` | **string** |  |
-
-
-
-
-***
-
 ### __destruct
 
 Destructor.
@@ -1406,12 +1360,73 @@ public __destruct(): mixed
 
 ***
 
-### smtpClose
+### mailPassthru
 
-Close the active SMTP session if one exists.
+Call mail() in a safe_mode-aware fashion.
 
 ```php
-public smtpClose(): mixed
+private mailPassthru(string $to, string $subject, string $body, string $header, string|null $params): bool
+```
+
+Also, unless sendmail_path points to sendmail (or something that
+claims to be sendmail), don't pass params (not a perfect fix,
+but it will do).
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$to` | **string** | To |
+| `$subject` | **string** | Subject |
+| `$body` | **string** | Message Body |
+| `$header` | **string** | Additional Header(s) |
+| `$params` | **string&#124;null** | Params |
+
+
+
+
+***
+
+### edebug
+
+Output debugging info via a user-defined method.
+
+```php
+protected edebug(string $str): mixed
+```
+
+Only generates output if debug output is enabled.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** |  |
+
+
+
+**See Also:**
+
+* \PHPMailer\PHPMailer\PHPMailer::$Debugoutput - * \PHPMailer\PHPMailer\PHPMailer::$SMTPDebug - 
+
+***
+
+### isHTML
+
+Sets message type to HTML or plain.
+
+```php
+public isHTML(bool $isHtml = true): mixed
 ```
 
 
@@ -1420,6 +1435,12 @@ public smtpClose(): mixed
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$isHtml` | **bool** | True for HTML mode |
 
 
 
@@ -1537,201 +1558,6 @@ true on success, false if address already used or invalid in some way
 
 ***
 
-### addOrEnqueueAnAddress
-
-Add an address to one of the recipient arrays or to the ReplyTo array. Because PHPMailer
-can't validate addresses with an IDN without knowing the PHPMailer::$CharSet (that can still
-be modified after calling this function), addition of such addresses is delayed until send().
-
-```php
-protected addOrEnqueueAnAddress(string $kind, string $address, string $name): bool
-```
-
-Addresses that have been added already return false, but do not throw exceptions.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$kind` | **string** | One of &#039;to&#039;, &#039;cc&#039;, &#039;bcc&#039;, or &#039;ReplyTo&#039; |
-| `$address` | **string** | The email address to send, resp. to reply to |
-| `$name` | **string** |  |
-
-
-**Return Value:**
-
-true on success, false if address already used or invalid in some way
-
-
-
-***
-
-### lang
-
-Get an error message in the current language.
-
-```php
-protected lang(string $key): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-
-
-
-
-***
-
-### setLanguage
-
-Set the language for error messages.
-
-```php
-public setLanguage(string $langcode = &#039;en&#039;, string $lang_path = &#039;&#039;): bool
-```
-
-The default language is English.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$langcode` | **string** | ISO 639-1 2-character language code (e.g. French is &quot;fr&quot;)<br />Optionally, the language code can be enhanced with a 4-character<br />script annotation and/or a 2-character country annotation. |
-| `$lang_path` | **string** | Path to the language file directory, with trailing separator (slash).D<br />Do not set this from user input! |
-
-
-**Return Value:**
-
-Returns true if the requested language was loaded, false otherwise.
-
-
-
-***
-
-### fileIsAccessible
-
-Check whether a file path is safe, accessible, and readable.
-
-```php
-protected static fileIsAccessible(string $path): bool
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | A relative or absolute path to a file |
-
-
-
-
-***
-
-### isPermittedPath
-
-Check whether a file path is of a permitted type.
-
-```php
-protected static isPermittedPath(string $path): bool
-```
-
-Used to reject URLs and phar files from functions that access local file paths,
-such as addAttachment.
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | A relative or absolute path to a file |
-
-
-
-
-***
-
-### setError
-
-Add an error message to the error container.
-
-```php
-protected setError(string $msg): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$msg` | **string** |  |
-
-
-
-
-***
-
-### idnSupported
-
-Tells whether IDNs (Internationalized Domain Names) are supported or not. This requires the
-`intl` and `mbstring` PHP extensions.
-
-```php
-public static idnSupported(): bool
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-`true` if required functions for IDN support are present
-
-
-
-***
-
 ### addCC
 
 Add a "CC" address.
@@ -1825,6 +1651,105 @@ true on success, false if address already used or invalid in some way
 
 ***
 
+### addOrEnqueueAnAddress
+
+Add an address to one of the recipient arrays or to the ReplyTo array. Because PHPMailer
+can't validate addresses with an IDN without knowing the PHPMailer::$CharSet (that can still
+be modified after calling this function), addition of such addresses is delayed until send().
+
+```php
+protected addOrEnqueueAnAddress(string $kind, string $address, string $name): bool
+```
+
+Addresses that have been added already return false, but do not throw exceptions.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$kind` | **string** | One of &#039;to&#039;, &#039;cc&#039;, &#039;bcc&#039;, or &#039;ReplyTo&#039; |
+| `$address` | **string** | The email address to send, resp. to reply to |
+| `$name` | **string** |  |
+
+
+**Return Value:**
+
+true on success, false if address already used or invalid in some way
+
+
+
+***
+
+### addAnAddress
+
+Add an address to one of the recipient arrays or to the ReplyTo array.
+
+```php
+protected addAnAddress(string $kind, string $address, string $name = &#039;&#039;): bool
+```
+
+Addresses that have been added already return false, but do not throw exceptions.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$kind` | **string** | One of &#039;to&#039;, &#039;cc&#039;, &#039;bcc&#039;, or &#039;ReplyTo&#039; |
+| `$address` | **string** | The email address to send, resp. to reply to |
+| `$name` | **string** |  |
+
+
+**Return Value:**
+
+true on success, false if address already used or invalid in some way
+
+
+
+***
+
+### parseAddresses
+
+Parse and validate a string containing one or more RFC822-style comma-separated email addresses
+of the form "display name <address>" into an array of name/address pairs.
+
+```php
+public static parseAddresses(string $addrstr, bool $useimap = true, mixed $charset = self::CHARSET_ISO88591): array
+```
+
+Uses the imap_rfc822_parse_adrlist function if the IMAP extension is available.
+Note that quotes in the name part are removed.
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$addrstr` | **string** | The address list string |
+| `$useimap` | **bool** | Whether to use the IMAP extension to parse the list |
+| `$charset` | **mixed** |  |
+
+
+
+**See Also:**
+
+* http://www.andrew.cmu.edu/user/agreen1/testing/mrbs/web/Mail/RFC822.php - A more careful implementation
+
+***
+
 ### setFrom
 
 Set the From and FromName properties.
@@ -1875,17 +1800,60 @@ pathological cases.
 
 ***
 
-### send
+### validateAddress
 
-Create a message and send it.
+Check that a string looks like an email address.
 
 ```php
-public send(): bool
+public static validateAddress(string $address, string|callable $patternselect = null): bool
 ```
 
-Uses the sending method specified by $Mailer.
+Validation patterns supported:
+* `auto` Pick best pattern automatically;
+* `pcre8` Use the squiloople.com pattern, requires PCRE > 8.0;
+* `pcre` Use old PCRE implementation;
+* `php` Use PHP built-in FILTER_VALIDATE_EMAIL;
+* `html5` Use the pattern given by the HTML5 spec for 'email' type form input elements.
+* `noregex` Don't use a regex: super fast, really dumb.
+Alternatively you may pass in a callable to inject your own validator, for example:
+
+```php
+PHPMailer::validateAddress('user@example.com', function($address) {
+    return (strpos($address, '@') !== false);
+});
+```
+
+You can also set the PHPMailer::$validator static to a callable, allowing built-in methods to use your validator.
+
+* This method is **static**.
 
 
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$address` | **string** | The email address to check |
+| `$patternselect` | **string&#124;callable** | Which pattern to use |
+
+
+
+
+***
+
+### idnSupported
+
+Tells whether IDNs (Internationalized Domain Names) are supported or not. This requires the
+`intl` and `mbstring` PHP extensions.
+
+```php
+public static idnSupported(): bool
+```
+
+
+
+* This method is **static**.
 
 
 
@@ -1893,27 +1861,7 @@ Uses the sending method specified by $Mailer.
 
 **Return Value:**
 
-false on error - See the ErrorInfo property for details of the error
-
-
-
-***
-
-### preSend
-
-Prepare a message for sending.
-
-```php
-public preSend(): bool
-```
-
-
-
-
-
-
-
-
+`true` if required functions for IDN support are present
 
 
 
@@ -1956,95 +1904,15 @@ The encoded address in ASCII form
 
 ***
 
-### alternativeExists
+### send
 
-Check if this message has an alternative body set.
-
-```php
-public alternativeExists(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### setMessageType
-
-Set the message type.
+Create a message and send it.
 
 ```php
-protected setMessageType(): mixed
+public send(): bool
 ```
 
-PHPMailer only supports some preset message types, not arbitrary MIME structures.
-
-
-
-
-
-
-
-
-
-***
-
-### inlineImageExists
-
-Check if an inline attachment is present.
-
-```php
-public inlineImageExists(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### attachmentExists
-
-Check if an attachment (non-inline) is present.
-
-```php
-public attachmentExists(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### createBody
-
-Assemble the message body.
-
-```php
-public createBody(): string
-```
-
-Returns an empty string on failure.
+Uses the sending method specified by $Mailer.
 
 
 
@@ -2054,18 +1922,18 @@ Returns an empty string on failure.
 
 **Return Value:**
 
-The assembled message body
+false on error - See the ErrorInfo property for details of the error
 
 
 
 ***
 
-### generateId
+### preSend
 
-Create a unique ID to use for boundaries.
+Prepare a message for sending.
 
 ```php
-protected generateId(): string
+public preSend(): bool
 ```
 
 
@@ -2075,661 +1943,6 @@ protected generateId(): string
 
 
 
-
-
-
-***
-
-### getMailMIME
-
-Get the message MIME type headers.
-
-```php
-public getMailMIME(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### headerLine
-
-Format a header line.
-
-```php
-public headerLine(string $name, string|int $value): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-| `$value` | **string&#124;int** |  |
-
-
-
-
-***
-
-### textLine
-
-Return a formatted mail line.
-
-```php
-public textLine(string $value): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **string** |  |
-
-
-
-
-***
-
-### setWordWrap
-
-Apply word wrapping to the message body.
-
-```php
-public setWordWrap(): mixed
-```
-
-Wraps the message body to the number of chars set in the WordWrap property.
-You should only do this to plain-text bodies as wrapping HTML tags may break them.
-This is called automatically by createBody(), so you don't need to call it yourself.
-
-
-
-
-
-
-
-
-
-***
-
-### hasLineLongerThanMax
-
-Detect if a string contains a line longer than the maximum line length
-allowed by RFC 2822 section 2.1.1.
-
-```php
-public static hasLineLongerThanMax(string $str): bool
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** |  |
-
-
-
-
-***
-
-### getBoundary
-
-Return the start of a message boundary.
-
-```php
-protected getBoundary(string $boundary, string $charSet, string $contentType, string $encoding): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$boundary` | **string** |  |
-| `$charSet` | **string** |  |
-| `$contentType` | **string** |  |
-| `$encoding` | **string** |  |
-
-
-
-
-***
-
-### encodeString
-
-Encode a string in requested format.
-
-```php
-public encodeString(string $str, string $encoding = self::ENCODING_BASE64): string
-```
-
-Returns an empty string on failure.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** | The text to encode |
-| `$encoding` | **string** | The encoding to use; one of &#039;base64&#039;, &#039;7bit&#039;, &#039;8bit&#039;, &#039;binary&#039;, &#039;quoted-printable&#039; |
-
-
-
-
-***
-
-### encodeQP
-
-Encode a string in quoted-printable format.
-
-```php
-public encodeQP(string $string): string
-```
-
-According to RFC2045 section 6.7.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$string` | **string** | The text to encode |
-
-
-
-
-***
-
-### attachAll
-
-Attach all file, string, and binary attachments to the message.
-
-```php
-protected attachAll(string $disposition_type, string $boundary): string
-```
-
-Returns an empty string on failure.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$disposition_type` | **string** |  |
-| `$boundary` | **string** |  |
-
-
-
-
-***
-
-### quotedString
-
-If a string contains any "special" characters, double-quote the name,
-and escape any double quotes with a backslash.
-
-```php
-public static quotedString(string $str): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** |  |
-
-
-
-**See Also:**
-
-* \PHPMailer\PHPMailer\RFC822 - 3.4.1
-
-***
-
-### encodeFile
-
-Encode a file attachment in requested format.
-
-```php
-protected encodeFile(string $path, string $encoding = self::ENCODING_BASE64): string
-```
-
-Returns an empty string on failure.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | The full path to the file |
-| `$encoding` | **string** | The encoding to use; one of &#039;base64&#039;, &#039;7bit&#039;, &#039;8bit&#039;, &#039;binary&#039;, &#039;quoted-printable&#039; |
-
-
-
-
-***
-
-### isError
-
-Check if an error occurred.
-
-```php
-public isError(): bool
-```
-
-
-
-
-
-
-
-
-
-**Return Value:**
-
-True if an error did occur
-
-
-
-***
-
-### endBoundary
-
-Return the end of a message boundary.
-
-```php
-protected endBoundary(string $boundary): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$boundary` | **string** |  |
-
-
-
-
-***
-
-### createHeader
-
-Assemble message headers.
-
-```php
-public createHeader(): string
-```
-
-
-
-
-
-
-
-
-
-**Return Value:**
-
-The assembled headers
-
-
-
-***
-
-### rfcDate
-
-Return an RFC 822 formatted date.
-
-```php
-public static rfcDate(): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### addrFormat
-
-Format an address for use in a message header.
-
-```php
-public addrFormat(array $addr): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$addr` | **array** | A 2-element indexed array, element 0 containing an address, element 1 containing a name like<br />[&#039;joe@example.com&#039;, &#039;Joe User&#039;] |
-
-
-
-
-***
-
-### addrAppend
-
-Create recipient headers.
-
-```php
-public addrAppend(string $type, array $addr): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$type` | **string** |  |
-| `$addr` | **array** | An array of recipients,<br />where each recipient is a 2-element indexed array with element 0 containing an address<br />and element 1 containing a name, like:<br />[[&#039;joe@example.com&#039;, &#039;Joe User&#039;], [&#039;zoe@example.com&#039;, &#039;Zoe User&#039;]] |
-
-
-
-
-***
-
-### serverHostname
-
-Get the server hostname.
-
-```php
-protected serverHostname(): string
-```
-
-Returns 'localhost.localdomain' if unknown.
-
-
-
-
-
-
-
-
-
-***
-
-### isValidHost
-
-Validate whether a string contains a valid value to use as a hostname or IP address.
-
-```php
-public static isValidHost(string $host): bool
-```
-
-IPv6 addresses must include [], e.g. `[::1]`, not just `::1`.
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$host` | **string** | The host name or IP address to check |
-
-
-
-
-***
-
-### DKIM_Add
-
-Create the DKIM header and body in a new message header.
-
-```php
-public DKIM_Add(string $headers_line, string $subject, string $body): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$headers_line` | **string** | Header lines |
-| `$subject` | **string** | Subject |
-| `$body` | **string** | Body |
-
-
-
-
-***
-
-### DKIM_QP
-
-Quoted-Printable-encode a DKIM header.
-
-```php
-public DKIM_QP(string $txt): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$txt` | **string** |  |
-
-
-
-
-***
-
-### DKIM_BodyC
-
-Generate a DKIM canonicalization body.
-
-```php
-public DKIM_BodyC(string $body): string
-```
-
-Uses the 'simple' algorithm from RFC6376 section 3.4.3.
-Canonicalized bodies should *always* use CRLF, regardless of mailer setting.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$body` | **string** | Message Body |
-
-
-
-**See Also:**
-
-* https://tools.ietf.org/html/rfc6376#section-3.4.3 - 
-
-***
-
-### stripTrailingWSP
-
-Remove trailing breaks from a string.
-
-```php
-public static stripTrailingWSP(string $text): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **string** |  |
-
-
-**Return Value:**
-
-The text to remove breaks from
-
-
-
-***
-
-### DKIM_HeaderC
-
-Generate a DKIM canonicalization header.
-
-```php
-public DKIM_HeaderC(string $signHeader): string
-```
-
-Uses the 'relaxed' algorithm from RFC6376 section 3.4.2.
-Canonicalized headers should *always* use CRLF, regardless of mailer setting.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$signHeader` | **string** | Header |
-
-
-
-**See Also:**
-
-* https://tools.ietf.org/html/rfc6376#section-3.4.2 - 
-
-***
-
-### DKIM_Sign
-
-Generate a DKIM signature.
-
-```php
-public DKIM_Sign(string $signHeader): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$signHeader` | **string** |  |
-
-
-**Return Value:**
-
-The DKIM signature value
 
 
 
@@ -2814,17 +2027,16 @@ Note that escapeshellarg and escapeshellcmd are inadequate for our purposes, esp
 
 ***
 
-### parseAddresses
+### isPermittedPath
 
-Parse and validate a string containing one or more RFC822-style comma-separated email addresses
-of the form "display name <address>" into an array of name/address pairs.
+Check whether a file path is of a permitted type.
 
 ```php
-public static parseAddresses(string $addrstr, bool $useimap = true, mixed $charset = self::CHARSET_ISO88591): array
+protected static isPermittedPath(string $path): bool
 ```
 
-Uses the imap_rfc822_parse_adrlist function if the IMAP extension is available.
-Note that quotes in the name part are removed.
+Used to reject URLs and phar files from functions that access local file paths,
+such as addAttachment.
 
 * This method is **static**.
 
@@ -2835,24 +2047,45 @@ Note that quotes in the name part are removed.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$addrstr` | **string** | The address list string |
-| `$useimap` | **bool** | Whether to use the IMAP extension to parse the list |
-| `$charset` | **mixed** |  |
+| `$path` | **string** | A relative or absolute path to a file |
 
 
 
-**See Also:**
-
-* http://www.andrew.cmu.edu/user/agreen1/testing/mrbs/web/Mail/RFC822.php - A more careful implementation
 
 ***
 
-### doCallback
+### fileIsAccessible
 
-Perform a callback.
+Check whether a file path is safe, accessible, and readable.
 
 ```php
-protected doCallback(bool $isSent, array $to, array $cc, array $bcc, string $subject, string $body, string $from, array $extra): mixed
+protected static fileIsAccessible(string $path): bool
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | A relative or absolute path to a file |
+
+
+
+
+***
+
+### mailSend
+
+Send mail using the PHP mail() function.
+
+```php
+protected mailSend(string $header, string $body): bool
 ```
 
 
@@ -2866,14 +2099,58 @@ protected doCallback(bool $isSent, array $to, array $cc, array $bcc, string $sub
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$isSent` | **bool** |  |
-| `$to` | **array** |  |
-| `$cc` | **array** |  |
-| `$bcc` | **array** |  |
-| `$subject` | **string** |  |
-| `$body` | **string** |  |
-| `$from` | **string** |  |
-| `$extra` | **array** |  |
+| `$header` | **string** | The message headers |
+| `$body` | **string** | The message body |
+
+
+
+**See Also:**
+
+* http://www.php.net/manual/en/book.mail.php - 
+
+***
+
+### getSMTPInstance
+
+Get an instance to use for SMTP operations.
+
+```php
+public getSMTPInstance(): \PHPMailer\PHPMailer\SMTP
+```
+
+Override this function to load your own SMTP implementation,
+or set one with setSMTPInstance.
+
+
+
+
+
+
+
+
+
+***
+
+### setSMTPInstance
+
+Provide an instance to use for SMTP operations.
+
+```php
+public setSMTPInstance(\PHPMailer\PHPMailer\SMTP $smtp): \PHPMailer\PHPMailer\SMTP
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$smtp` | **\PHPMailer\PHPMailer\SMTP** |  |
 
 
 
@@ -2936,16 +2213,15 @@ Returns false if the operation failed.
 
 ***
 
-### getSMTPInstance
+### smtpClose
 
-Get an instance to use for SMTP operations.
+Close the active SMTP session if one exists.
 
 ```php
-public getSMTPInstance(): \PHPMailer\PHPMailer\SMTP
+public smtpClose(): mixed
 ```
 
-Override this function to load your own SMTP implementation,
-or set one with setSMTPInstance.
+
 
 
 
@@ -2957,12 +2233,63 @@ or set one with setSMTPInstance.
 
 ***
 
-### mailSend
+### setLanguage
 
-Send mail using the PHP mail() function.
+Set the language for error messages.
 
 ```php
-protected mailSend(string $header, string $body): bool
+public setLanguage(string $langcode = &#039;en&#039;, string $lang_path = &#039;&#039;): bool
+```
+
+The default language is English.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$langcode` | **string** | ISO 639-1 2-character language code (e.g. French is &quot;fr&quot;)<br />Optionally, the language code can be enhanced with a 4-character<br />script annotation and/or a 2-character country annotation. |
+| `$lang_path` | **string** | Path to the language file directory, with trailing separator (slash).D<br />Do not set this from user input! |
+
+
+**Return Value:**
+
+Returns true if the requested language was loaded, false otherwise.
+
+
+
+***
+
+### getTranslations
+
+Get the array of strings for the current language.
+
+```php
+public getTranslations(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### addrAppend
+
+Create recipient headers.
+
+```php
+public addrAppend(string $type, array $addr): string
 ```
 
 
@@ -2976,55 +2303,20 @@ protected mailSend(string $header, string $body): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$header` | **string** | The message headers |
-| `$body` | **string** | The message body |
-
-
-
-**See Also:**
-
-* http://www.php.net/manual/en/book.mail.php - 
-
-***
-
-### mailPassthru
-
-Call mail() in a safe_mode-aware fashion.
-
-```php
-private mailPassthru(string $to, string $subject, string $body, string $header, string|null $params): bool
-```
-
-Also, unless sendmail_path points to sendmail (or something that
-claims to be sendmail), don't pass params (not a perfect fix,
-but it will do).
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$to` | **string** | To |
-| `$subject` | **string** | Subject |
-| `$body` | **string** | Message Body |
-| `$header` | **string** | Additional Header(s) |
-| `$params` | **string&#124;null** | Params |
+| `$type` | **string** |  |
+| `$addr` | **array** | An array of recipients,<br />where each recipient is a 2-element indexed array with element 0 containing an address<br />and element 1 containing a name, like:<br />[[&#039;joe@example.com&#039;, &#039;Joe User&#039;], [&#039;zoe@example.com&#039;, &#039;Zoe User&#039;]] |
 
 
 
 
 ***
 
-### secureHeader
+### addrFormat
 
-Strip newlines to prevent header injection.
+Format an address for use in a message header.
 
 ```php
-public secureHeader(string $str): string
+public addrFormat(array $addr): string
 ```
 
 
@@ -3038,151 +2330,10 @@ public secureHeader(string $str): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$str` | **string** |  |
+| `$addr` | **array** | A 2-element indexed array, element 0 containing an address, element 1 containing a name like<br />[&#039;joe@example.com&#039;, &#039;Joe User&#039;] |
 
 
 
-
-***
-
-### encodeHeader
-
-Encode a header value (not including its label) optimally.
-
-```php
-public encodeHeader(string $str, string $position = &#039;text&#039;): string
-```
-
-Picks shortest of Q, B, or none. Result includes folding if needed.
-See RFC822 definitions for phrase, comment and text positions.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** | The header value to encode |
-| `$position` | **string** | What context the string will be used in |
-
-
-
-
-***
-
-### has8bitChars
-
-Does a string contain any 8-bit chars (in any charset)?
-
-```php
-public has8bitChars(string $text): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **string** |  |
-
-
-
-
-***
-
-### hasMultiBytes
-
-Check if a string contains multi-byte characters.
-
-```php
-public hasMultiBytes(string $str): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** | multi-byte text to wrap encode |
-
-
-
-
-***
-
-### base64EncodeWrapMB
-
-Encode and wrap long multibyte strings for mail headers
-without breaking lines within a character.
-
-```php
-public base64EncodeWrapMB(string $str, string $linebreak = null): string
-```
-
-Adapted from a function by paravoid.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** | multi-byte text to wrap encode |
-| `$linebreak` | **string** | string to use as linefeed/end-of-line |
-
-
-
-**See Also:**
-
-* http://www.php.net/manual/en/function.mb-encode-mimeheader.php#60283 - 
-
-***
-
-### encodeQ
-
-Encode a string using Q encoding.
-
-```php
-public encodeQ(string $str, string $position = &#039;text&#039;): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** | the text to encode |
-| `$position` | **string** | Where the text is going to be used, see the RFC for what that means |
-
-
-
-**See Also:**
-
-* http://tools.ietf.org/html/rfc2047#section-4.2 - 
 
 ***
 
@@ -3210,34 +2361,6 @@ Original written by philippe.
 | `$message` | **string** | The message to wrap |
 | `$length` | **int** | The line length to wrap to |
 | `$qp_mode` | **bool** | Whether to run in Quoted-Printable mode |
-
-
-
-
-***
-
-### normalizeBreaks
-
-Normalize line breaks in a string.
-
-```php
-public static normalizeBreaks(string $text, string $breaktype = null): string
-```
-
-Converts UNIX LF, Mac CR and Windows CRLF line breaks into a single line break format.
-Defaults to CRLF (for message bodies) and preserves consecutive breaks.
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$text` | **string** |  |
-| `$breaktype` | **string** | What kind of line break to use; defaults to static::$LE |
 
 
 
@@ -3272,41 +2395,34 @@ Original written by Colin Brown.
 
 ***
 
-### edebug
+### setWordWrap
 
-Output debugging info via a user-defined method.
+Apply word wrapping to the message body.
 
 ```php
-protected edebug(string $str): mixed
+public setWordWrap(): mixed
 ```
 
-Only generates output if debug output is enabled.
+Wraps the message body to the number of chars set in the WordWrap property.
+You should only do this to plain-text bodies as wrapping HTML tags may break them.
+This is called automatically by createBody(), so you don't need to call it yourself.
 
 
 
 
 
 
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$str` | **string** |  |
 
 
-
-**See Also:**
-
-* \PHPMailer\PHPMailer\PHPMailer::$SMTPDebug - * \PHPMailer\PHPMailer\PHPMailer::$Debugoutput - 
 
 ***
 
-### setSMTPInstance
+### createHeader
 
-Provide an instance to use for SMTP operations.
+Assemble message headers.
 
 ```php
-public setSMTPInstance(\PHPMailer\PHPMailer\SMTP $smtp): \PHPMailer\PHPMailer\SMTP
+public createHeader(): string
 ```
 
 
@@ -3316,23 +2432,21 @@ public setSMTPInstance(\PHPMailer\PHPMailer\SMTP $smtp): \PHPMailer\PHPMailer\SM
 
 
 
-**Parameters:**
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$smtp` | **\PHPMailer\PHPMailer\SMTP** |  |
+**Return Value:**
 
+The assembled headers
 
 
 
 ***
 
-### getTranslations
+### getMailMIME
 
-Get the array of strings for the current language.
+Get the message MIME type headers.
 
 ```php
-public getTranslations(): array
+public getMailMIME(): string
 ```
 
 
@@ -3371,6 +2485,178 @@ Only valid post preSend().
 
 ***
 
+### generateId
+
+Create a unique ID to use for boundaries.
+
+```php
+protected generateId(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### createBody
+
+Assemble the message body.
+
+```php
+public createBody(): string
+```
+
+Returns an empty string on failure.
+
+
+
+
+
+
+
+**Return Value:**
+
+The assembled message body
+
+
+
+***
+
+### getBoundary
+
+Return the start of a message boundary.
+
+```php
+protected getBoundary(string $boundary, string $charSet, string $contentType, string $encoding): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$boundary` | **string** |  |
+| `$charSet` | **string** |  |
+| `$contentType` | **string** |  |
+| `$encoding` | **string** |  |
+
+
+
+
+***
+
+### endBoundary
+
+Return the end of a message boundary.
+
+```php
+protected endBoundary(string $boundary): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$boundary` | **string** |  |
+
+
+
+
+***
+
+### setMessageType
+
+Set the message type.
+
+```php
+protected setMessageType(): mixed
+```
+
+PHPMailer only supports some preset message types, not arbitrary MIME structures.
+
+
+
+
+
+
+
+
+
+***
+
+### headerLine
+
+Format a header line.
+
+```php
+public headerLine(string $name, string|int $value): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$value` | **string&#124;int** |  |
+
+
+
+
+***
+
+### textLine
+
+Return a formatted mail line.
+
+```php
+public textLine(string $value): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **string** |  |
+
+
+
+
+***
+
 ### addAttachment
 
 Add an attachment from a path on the filesystem.
@@ -3404,118 +2690,6 @@ If you need to do that, fetch the resource yourself and pass it in via a local f
 
 ***
 
-### filenameToType
-
-Map a file name to a MIME type.
-
-```php
-public static filenameToType(string $filename): string
-```
-
-Defaults to 'application/octet-stream', i.e.. arbitrary binary data.
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$filename` | **string** | A file name or full path, does not need to exist as a file |
-
-
-
-
-***
-
-### mb_pathinfo
-
-Multi-byte-safe pathinfo replacement.
-
-```php
-public static mb_pathinfo(string $path, int|string $options = null): string|array
-```
-
-Drop-in replacement for pathinfo(), but multibyte- and cross-platform-safe.
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | A filename or path, does not need to exist as a file |
-| `$options` | **int&#124;string** | Either a PATHINFO_* constant,<br />or a string name to return only the specified piece |
-
-
-
-**See Also:**
-
-* http://www.php.net/manual/en/function.pathinfo.php#107461 - 
-
-***
-
-### _mime_types
-
-Get the MIME type for a file extension.
-
-```php
-public static _mime_types(string $ext = &#039;&#039;): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$ext` | **string** | File extension |
-
-
-**Return Value:**
-
-MIME type of file
-
-
-
-***
-
-### validateEncoding
-
-Validate encodings.
-
-```php
-protected validateEncoding(string $encoding): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$encoding` | **string** |  |
-
-
-
-
-***
-
 ### getAttachments
 
 Return the array of attachments.
@@ -3533,6 +2707,254 @@ public getAttachments(): array
 
 
 
+
+***
+
+### attachAll
+
+Attach all file, string, and binary attachments to the message.
+
+```php
+protected attachAll(string $disposition_type, string $boundary): string
+```
+
+Returns an empty string on failure.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$disposition_type` | **string** |  |
+| `$boundary` | **string** |  |
+
+
+
+
+***
+
+### encodeFile
+
+Encode a file attachment in requested format.
+
+```php
+protected encodeFile(string $path, string $encoding = self::ENCODING_BASE64): string
+```
+
+Returns an empty string on failure.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | The full path to the file |
+| `$encoding` | **string** | The encoding to use; one of &#039;base64&#039;, &#039;7bit&#039;, &#039;8bit&#039;, &#039;binary&#039;, &#039;quoted-printable&#039; |
+
+
+
+
+***
+
+### encodeString
+
+Encode a string in requested format.
+
+```php
+public encodeString(string $str, string $encoding = self::ENCODING_BASE64): string
+```
+
+Returns an empty string on failure.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** | The text to encode |
+| `$encoding` | **string** | The encoding to use; one of &#039;base64&#039;, &#039;7bit&#039;, &#039;8bit&#039;, &#039;binary&#039;, &#039;quoted-printable&#039; |
+
+
+
+
+***
+
+### encodeHeader
+
+Encode a header value (not including its label) optimally.
+
+```php
+public encodeHeader(string $str, string $position = &#039;text&#039;): string
+```
+
+Picks shortest of Q, B, or none. Result includes folding if needed.
+See RFC822 definitions for phrase, comment and text positions.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** | The header value to encode |
+| `$position` | **string** | What context the string will be used in |
+
+
+
+
+***
+
+### hasMultiBytes
+
+Check if a string contains multi-byte characters.
+
+```php
+public hasMultiBytes(string $str): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** | multi-byte text to wrap encode |
+
+
+
+
+***
+
+### has8bitChars
+
+Does a string contain any 8-bit chars (in any charset)?
+
+```php
+public has8bitChars(string $text): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$text` | **string** |  |
+
+
+
+
+***
+
+### base64EncodeWrapMB
+
+Encode and wrap long multibyte strings for mail headers
+without breaking lines within a character.
+
+```php
+public base64EncodeWrapMB(string $str, string $linebreak = null): string
+```
+
+Adapted from a function by paravoid.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** | multi-byte text to wrap encode |
+| `$linebreak` | **string** | string to use as linefeed/end-of-line |
+
+
+
+**See Also:**
+
+* http://www.php.net/manual/en/function.mb-encode-mimeheader.php#60283 - 
+
+***
+
+### encodeQP
+
+Encode a string in quoted-printable format.
+
+```php
+public encodeQP(string $string): string
+```
+
+According to RFC2045 section 6.7.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$string` | **string** | The text to encode |
+
+
+
+
+***
+
+### encodeQ
+
+Encode a string using Q encoding.
+
+```php
+public encodeQ(string $str, string $position = &#039;text&#039;): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** | the text to encode |
+| `$position` | **string** | Where the text is going to be used, see the RFC for what that means |
+
+
+
+**See Also:**
+
+* http://tools.ietf.org/html/rfc2047#section-4.2 - 
 
 ***
 
@@ -3571,12 +2993,180 @@ True on successfully adding an attachment
 
 ***
 
-### clearAddresses
+### addEmbeddedImage
 
-Clear all To recipients.
+Add an embedded (inline) attachment from a file.
 
 ```php
-public clearAddresses(): mixed
+public addEmbeddedImage(string $path, string $cid, string $name = &#039;&#039;, string $encoding = self::ENCODING_BASE64, string $type = &#039;&#039;, string $disposition = &#039;inline&#039;): bool
+```
+
+This can include images, sounds, and just about any other document type.
+These differ from 'regular' attachments in that they are intended to be
+displayed inline with the message, not just attached for download.
+This is used in HTML messages that embed the images
+the HTML refers to using the $cid value.
+Never use a user-supplied path to a file!
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | Path to the attachment |
+| `$cid` | **string** | Content ID of the attachment; Use this to reference<br />the content when using an embedded image in HTML |
+| `$name` | **string** | Overrides the attachment name |
+| `$encoding` | **string** | File encoding (see $Encoding) |
+| `$type` | **string** | File MIME type |
+| `$disposition` | **string** | Disposition to use |
+
+
+**Return Value:**
+
+True on successfully adding an attachment
+
+
+
+***
+
+### addStringEmbeddedImage
+
+Add an embedded stringified attachment.
+
+```php
+public addStringEmbeddedImage(string $string, string $cid, string $name = &#039;&#039;, string $encoding = self::ENCODING_BASE64, string $type = &#039;&#039;, string $disposition = &#039;inline&#039;): bool
+```
+
+This can include images, sounds, and just about any other document type.
+If your filename doesn't contain an extension, be sure to set the $type to an appropriate MIME type.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$string` | **string** | The attachment binary data |
+| `$cid` | **string** | Content ID of the attachment; Use this to reference<br />the content when using an embedded image in HTML |
+| `$name` | **string** | A filename for the attachment. If this contains an extension,<br />PHPMailer will attempt to set a MIME type for the attachment.<br />For example &#039;file.jpg&#039; would get an &#039;image/jpeg&#039; MIME type. |
+| `$encoding` | **string** | File encoding (see $Encoding), defaults to &#039;base64&#039; |
+| `$type` | **string** | MIME type - will be used in preference to any automatically derived type |
+| `$disposition` | **string** | Disposition to use |
+
+
+**Return Value:**
+
+True on successfully adding an attachment
+
+
+
+***
+
+### validateEncoding
+
+Validate encodings.
+
+```php
+protected validateEncoding(string $encoding): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$encoding` | **string** |  |
+
+
+
+
+***
+
+### cidExists
+
+Check if an embedded attachment is present with this cid.
+
+```php
+protected cidExists(string $cid): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$cid` | **string** |  |
+
+
+
+
+***
+
+### inlineImageExists
+
+Check if an inline attachment is present.
+
+```php
+public inlineImageExists(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### attachmentExists
+
+Check if an attachment (non-inline) is present.
+
+```php
+public attachmentExists(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### alternativeExists
+
+Check if this message has an alternative body set.
+
+```php
+public alternativeExists(): bool
 ```
 
 
@@ -3611,6 +3201,26 @@ public clearQueuedAddresses(string $kind): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$kind` | **string** | &#039;to&#039;, &#039;cc&#039;, or &#039;bcc&#039; |
+
+
+
+
+***
+
+### clearAddresses
+
+Clear all To recipients.
+
+```php
+public clearAddresses(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -3737,6 +3347,148 @@ public clearCustomHeaders(): mixed
 
 ***
 
+### setError
+
+Add an error message to the error container.
+
+```php
+protected setError(string $msg): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$msg` | **string** |  |
+
+
+
+
+***
+
+### rfcDate
+
+Return an RFC 822 formatted date.
+
+```php
+public static rfcDate(): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### serverHostname
+
+Get the server hostname.
+
+```php
+protected serverHostname(): string
+```
+
+Returns 'localhost.localdomain' if unknown.
+
+
+
+
+
+
+
+
+
+***
+
+### isValidHost
+
+Validate whether a string contains a valid value to use as a hostname or IP address.
+
+```php
+public static isValidHost(string $host): bool
+```
+
+IPv6 addresses must include [], e.g. `[::1]`, not just `::1`.
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$host` | **string** | The host name or IP address to check |
+
+
+
+
+***
+
+### lang
+
+Get an error message in the current language.
+
+```php
+protected lang(string $key): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+
+
+
+
+***
+
+### isError
+
+Check if an error occurred.
+
+```php
+public isError(): bool
+```
+
+
+
+
+
+
+
+
+
+**Return Value:**
+
+True if an error did occur
+
+
+
+***
+
 ### addCustomHeader
 
 Add a custom header.
@@ -3827,134 +3579,6 @@ The transformed message body
 
 ***
 
-### cidExists
-
-Check if an embedded attachment is present with this cid.
-
-```php
-protected cidExists(string $cid): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$cid` | **string** |  |
-
-
-
-
-***
-
-### addStringEmbeddedImage
-
-Add an embedded stringified attachment.
-
-```php
-public addStringEmbeddedImage(string $string, string $cid, string $name = &#039;&#039;, string $encoding = self::ENCODING_BASE64, string $type = &#039;&#039;, string $disposition = &#039;inline&#039;): bool
-```
-
-This can include images, sounds, and just about any other document type.
-If your filename doesn't contain an extension, be sure to set the $type to an appropriate MIME type.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$string` | **string** | The attachment binary data |
-| `$cid` | **string** | Content ID of the attachment; Use this to reference<br />the content when using an embedded image in HTML |
-| `$name` | **string** | A filename for the attachment. If this contains an extension,<br />PHPMailer will attempt to set a MIME type for the attachment.<br />For example &#039;file.jpg&#039; would get an &#039;image/jpeg&#039; MIME type. |
-| `$encoding` | **string** | File encoding (see $Encoding), defaults to &#039;base64&#039; |
-| `$type` | **string** | MIME type - will be used in preference to any automatically derived type |
-| `$disposition` | **string** | Disposition to use |
-
-
-**Return Value:**
-
-True on successfully adding an attachment
-
-
-
-***
-
-### addEmbeddedImage
-
-Add an embedded (inline) attachment from a file.
-
-```php
-public addEmbeddedImage(string $path, string $cid, string $name = &#039;&#039;, string $encoding = self::ENCODING_BASE64, string $type = &#039;&#039;, string $disposition = &#039;inline&#039;): bool
-```
-
-This can include images, sounds, and just about any other document type.
-These differ from 'regular' attachments in that they are intended to be
-displayed inline with the message, not just attached for download.
-This is used in HTML messages that embed the images
-the HTML refers to using the $cid value.
-Never use a user-supplied path to a file!
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | Path to the attachment |
-| `$cid` | **string** | Content ID of the attachment; Use this to reference<br />the content when using an embedded image in HTML |
-| `$name` | **string** | Overrides the attachment name |
-| `$encoding` | **string** | File encoding (see $Encoding) |
-| `$type` | **string** | File MIME type |
-| `$disposition` | **string** | Disposition to use |
-
-
-**Return Value:**
-
-True on successfully adding an attachment
-
-
-
-***
-
-### isHTML
-
-Sets message type to HTML or plain.
-
-```php
-public isHTML(bool $isHtml = true): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$isHtml` | **bool** | True for HTML mode |
-
-
-
-
-***
-
 ### html2text
 
 Convert an HTML string into plain text.
@@ -3995,6 +3619,92 @@ $plain = $mail->html2text($html, function($html) {
 
 ***
 
+### _mime_types
+
+Get the MIME type for a file extension.
+
+```php
+public static _mime_types(string $ext = &#039;&#039;): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$ext` | **string** | File extension |
+
+
+**Return Value:**
+
+MIME type of file
+
+
+
+***
+
+### filenameToType
+
+Map a file name to a MIME type.
+
+```php
+public static filenameToType(string $filename): string
+```
+
+Defaults to 'application/octet-stream', i.e.. arbitrary binary data.
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$filename` | **string** | A file name or full path, does not need to exist as a file |
+
+
+
+
+***
+
+### mb_pathinfo
+
+Multi-byte-safe pathinfo replacement.
+
+```php
+public static mb_pathinfo(string $path, int|string $options = null): string|array
+```
+
+Drop-in replacement for pathinfo(), but multibyte- and cross-platform-safe.
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | A filename or path, does not need to exist as a file |
+| `$options` | **int&#124;string** | Either a PATHINFO_* constant,<br />or a string name to return only the specified piece |
+
+
+
+**See Also:**
+
+* http://www.php.net/manual/en/function.pathinfo.php#107461 - 
+
+***
+
 ### set
 
 Set or reset instance properties.
@@ -4027,6 +3737,136 @@ Usage Example:
 
 ***
 
+### secureHeader
+
+Strip newlines to prevent header injection.
+
+```php
+public secureHeader(string $str): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** |  |
+
+
+
+
+***
+
+### normalizeBreaks
+
+Normalize line breaks in a string.
+
+```php
+public static normalizeBreaks(string $text, string $breaktype = null): string
+```
+
+Converts UNIX LF, Mac CR and Windows CRLF line breaks into a single line break format.
+Defaults to CRLF (for message bodies) and preserves consecutive breaks.
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$text` | **string** |  |
+| `$breaktype` | **string** | What kind of line break to use; defaults to static::$LE |
+
+
+
+
+***
+
+### stripTrailingWSP
+
+Remove trailing breaks from a string.
+
+```php
+public static stripTrailingWSP(string $text): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$text` | **string** |  |
+
+
+**Return Value:**
+
+The text to remove breaks from
+
+
+
+***
+
+### getLE
+
+Return the current line break format string.
+
+```php
+public static getLE(): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### setLE
+
+Set the line break format string, e.g. "\r\n".
+
+```php
+protected static setLE(string $le): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$le` | **string** |  |
+
+
+
+
+***
+
 ### sign
 
 Set the public and private key files and password for S/MIME signing.
@@ -4053,6 +3893,207 @@ public sign(string $cert_filename, string $key_filename, string $key_pass, strin
 
 
 
+
+***
+
+### DKIM_QP
+
+Quoted-Printable-encode a DKIM header.
+
+```php
+public DKIM_QP(string $txt): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$txt` | **string** |  |
+
+
+
+
+***
+
+### DKIM_Sign
+
+Generate a DKIM signature.
+
+```php
+public DKIM_Sign(string $signHeader): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$signHeader` | **string** |  |
+
+
+**Return Value:**
+
+The DKIM signature value
+
+
+
+***
+
+### DKIM_HeaderC
+
+Generate a DKIM canonicalization header.
+
+```php
+public DKIM_HeaderC(string $signHeader): string
+```
+
+Uses the 'relaxed' algorithm from RFC6376 section 3.4.2.
+Canonicalized headers should *always* use CRLF, regardless of mailer setting.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$signHeader` | **string** | Header |
+
+
+
+**See Also:**
+
+* https://tools.ietf.org/html/rfc6376#section-3.4.2 - 
+
+***
+
+### DKIM_BodyC
+
+Generate a DKIM canonicalization body.
+
+```php
+public DKIM_BodyC(string $body): string
+```
+
+Uses the 'simple' algorithm from RFC6376 section 3.4.3.
+Canonicalized bodies should *always* use CRLF, regardless of mailer setting.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$body` | **string** | Message Body |
+
+
+
+**See Also:**
+
+* https://tools.ietf.org/html/rfc6376#section-3.4.3 - 
+
+***
+
+### DKIM_Add
+
+Create the DKIM header and body in a new message header.
+
+```php
+public DKIM_Add(string $headers_line, string $subject, string $body): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$headers_line` | **string** | Header lines |
+| `$subject` | **string** | Subject |
+| `$body` | **string** | Body |
+
+
+
+
+***
+
+### hasLineLongerThanMax
+
+Detect if a string contains a line longer than the maximum line length
+allowed by RFC 2822 section 2.1.1.
+
+```php
+public static hasLineLongerThanMax(string $str): bool
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** |  |
+
+
+
+
+***
+
+### quotedString
+
+If a string contains any "special" characters, double-quote the name,
+and escape any double quotes with a backslash.
+
+```php
+public static quotedString(string $str): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$str` | **string** |  |
+
+
+
+**See Also:**
+
+* \PHPMailer\PHPMailer\RFC822 - 3.4.1
 
 ***
 
@@ -4156,6 +4197,39 @@ Before the send() call, queued addresses (i.e. with IDN) are not yet included.
 
 ***
 
+### doCallback
+
+Perform a callback.
+
+```php
+protected doCallback(bool $isSent, array $to, array $cc, array $bcc, string $subject, string $body, string $from, array $extra): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$isSent` | **bool** |  |
+| `$to` | **array** |  |
+| `$cc` | **array** |  |
+| `$bcc` | **array** |  |
+| `$subject` | **string** |  |
+| `$body` | **string** |  |
+| `$from` | **string** |  |
+| `$extra` | **array** |  |
+
+
+
+
+***
+
 ### getOAuth
 
 Get the OAuth instance.
@@ -4202,80 +4276,6 @@ public setOAuth(\PHPMailer\PHPMailer\OAuth $oauth): mixed
 
 ***
 
-### addAnAddress
-
-Add an address to one of the recipient arrays or to the ReplyTo array.
-
-```php
-protected addAnAddress(string $kind, string $address, string $name = &#039;&#039;): bool
-```
-
-Addresses that have been added already return false, but do not throw exceptions.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$kind` | **string** | One of &#039;to&#039;, &#039;cc&#039;, &#039;bcc&#039;, or &#039;ReplyTo&#039; |
-| `$address` | **string** | The email address to send, resp. to reply to |
-| `$name` | **string** |  |
-
-
-**Return Value:**
-
-true on success, false if address already used or invalid in some way
-
-
 
 ***
-
-### validateAddress
-
-Check that a string looks like an email address.
-
-```php
-public static validateAddress(string $address, string|callable $patternselect = null): bool
-```
-
-Validation patterns supported:
-* `auto` Pick best pattern automatically;
-* `pcre8` Use the squiloople.com pattern, requires PCRE > 8.0;
-* `pcre` Use old PCRE implementation;
-* `php` Use PHP built-in FILTER_VALIDATE_EMAIL;
-* `html5` Use the pattern given by the HTML5 spec for 'email' type form input elements.
-* `noregex` Don't use a regex: super fast, really dumb.
-Alternatively you may pass in a callable to inject your own validator, for example:
-
-```php
-PHPMailer::validateAddress('user@example.com', function($address) {
-    return (strpos($address, '@') !== false);
-});
-```
-
-You can also set the PHPMailer::$validator static to a callable, allowing built-in methods to use your validator.
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$address` | **string** | The email address to check |
-| `$patternselect` | **string&#124;callable** | Which pattern to use |
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -67,6 +67,33 @@ public exec(mixed $script, mixed $params = null, mixed $maxTime = 60): mixed
 
 ***
 
+### finished
+
+
+
+```php
+public finished(mixed $processId, mixed& $error = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$processId` | **mixed** |  |
+| `$error` | **mixed** |  |
+
+
+
+
+***
+
 ### execInBackground
 
 
@@ -107,33 +134,6 @@ protected isExecAvailable(): mixed
 
 
 
-
-
-
-
-***
-
-### finished
-
-
-
-```php
-public finished(mixed $processId, mixed& $error = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$processId` | **mixed** |  |
-| `$error` | **mixed** |  |
 
 
 
@@ -271,4 +271,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

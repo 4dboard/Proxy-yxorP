@@ -301,55 +301,6 @@ specifying null for both the database and collection name.
 
 ***
 
-### createAggregate
-
-Create the aggregate command for a change stream.
-
-```php
-private createAggregate(): \MongoDB\Operation\Aggregate
-```
-
-This method is also used to recreate the aggregate command when resuming.
-
-
-
-
-
-
-
-
-
-***
-
-### shouldCaptureOperationTime
-
-Determine whether to capture operation time from an aggregate response.
-
-```php
-private shouldCaptureOperationTime(\MongoDB\Driver\Server $server): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$server` | **\MongoDB\Driver\Server** |  |
-
-
-
-**See Also:**
-
-* https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#startatoperationtime - 
-
-***
-
 ### execute
 
 Execute the operation.
@@ -376,6 +327,26 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\ChangeStream
 **See Also:**
 
 * \MongoDB\Operation\Executable::execute() - 
+
+***
+
+### createAggregate
+
+Create the aggregate command for a change stream.
+
+```php
+private createAggregate(): \MongoDB\Operation\Aggregate
+```
+
+This method is also used to recreate the aggregate command when resuming.
+
+
+
+
+
+
+
+
 
 ***
 
@@ -485,6 +456,35 @@ private resume(array|object|null $resumeToken = null, bool $hasAdvanced = false)
 
 ***
 
+### shouldCaptureOperationTime
+
+Determine whether to capture operation time from an aggregate response.
+
+```php
+private shouldCaptureOperationTime(\MongoDB\Driver\Server $server): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$server` | **\MongoDB\Driver\Server** |  |
+
+
+
+**See Also:**
+
+* https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#startatoperationtime - 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

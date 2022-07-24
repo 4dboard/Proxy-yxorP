@@ -183,6 +183,29 @@ public execute(\MongoDB\Driver\Server $server): mixed
 
 ***
 
+### createOptions
+
+Create options for executing the command.
+
+```php
+private createOptions(): array
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* http://php.net/manual/en/mongodb-driver-server.executecommand.php - 
+
+***
+
 ### isFindAndModify
 
 
@@ -209,29 +232,6 @@ private isFindAndModify(mixed $explainable): mixed
 
 ***
 
-### createOptions
-
-Create options for executing the command.
-
-```php
-private createOptions(): array
-```
-
-
-
-
-
-
-
-
-
-
-**See Also:**
-
-* http://php.net/manual/en/mongodb-driver-server.executecommand.php - 
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

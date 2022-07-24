@@ -35,6 +35,26 @@ public initialize(): mixed
 
 ***
 
+### getJob
+
+
+
+```php
+public getJob(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### add
 
 
@@ -57,6 +77,78 @@ public add(mixed $handle, mixed $payload = null, mixed $time): mixed
 | `$handle` | **mixed** |  |
 | `$payload` | **mixed** |  |
 | `$time` | **mixed** |  |
+
+
+
+
+***
+
+### remove
+
+
+
+```php
+public remove(mixed $id): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** |  |
+
+
+
+
+***
+
+### work
+
+
+
+```php
+public work(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### execute
+
+
+
+```php
+public execute(mixed $job): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$job` | **mixed** |  |
 
 
 
@@ -143,98 +235,6 @@ public run(mixed $runnerIdle = 2): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$runnerIdle` | **mixed** |  |
-
-
-
-
-***
-
-### work
-
-
-
-```php
-public work(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getJob
-
-
-
-```php
-public getJob(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### execute
-
-
-
-```php
-public execute(mixed $job): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$job` | **mixed** |  |
-
-
-
-
-***
-
-### remove
-
-
-
-```php
-public remove(mixed $id): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$id` | **mixed** |  |
 
 
 
@@ -372,4 +372,4 @@ public __get(mixed $name): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

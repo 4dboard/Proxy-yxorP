@@ -266,15 +266,15 @@ public connect(string $host, int|bool $port = false, int $tval = 30): bool
 
 ***
 
-### setError
+### login
 
-Add an error to the internal error store.
+Log in to the POP3 server.
 
 ```php
-protected setError(string $error): mixed
+public login(string $username = &#039;&#039;, string $password = &#039;&#039;): bool
 ```
 
-Also display debug output if it's enabled.
+Does not support APOP (RFC 2828, 4949).
 
 
 
@@ -285,7 +285,28 @@ Also display debug output if it's enabled.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$error` | **string** |  |
+| `$username` | **string** |  |
+| `$password` | **string** |  |
+
+
+
+
+***
+
+### disconnect
+
+Disconnect from the POP3 server.
+
+```php
+public disconnect(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -318,59 +339,6 @@ protected getResponse(int $size = 128): string
 
 ***
 
-### checkResponse
-
-Checks the POP3 server response.
-
-```php
-protected checkResponse(string $string): bool
-```
-
-Looks for for +OK or -ERR.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$string` | **string** |  |
-
-
-
-
-***
-
-### login
-
-Log in to the POP3 server.
-
-```php
-public login(string $username = &#039;&#039;, string $password = &#039;&#039;): bool
-```
-
-Does not support APOP (RFC 2828, 4949).
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$username` | **string** |  |
-| `$password` | **string** |  |
-
-
-
-
-***
-
 ### sendString
 
 Send raw data to the POP3 server.
@@ -397,20 +365,52 @@ protected sendString(string $string): int
 
 ***
 
-### disconnect
+### checkResponse
 
-Disconnect from the POP3 server.
+Checks the POP3 server response.
 
 ```php
-public disconnect(): mixed
+protected checkResponse(string $string): bool
 ```
 
+Looks for for +OK or -ERR.
 
 
 
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$string` | **string** |  |
+
+
+
+
+***
+
+### setError
+
+Add an error to the internal error store.
+
+```php
+protected setError(string $error): mixed
+```
+
+Also display debug output if it's enabled.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$error` | **string** |  |
 
 
 
@@ -468,4 +468,4 @@ protected catchWarning(int $errno, string $errstr, string $errfile, int $errline
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

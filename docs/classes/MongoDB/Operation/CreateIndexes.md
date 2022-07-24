@@ -222,6 +222,29 @@ The names of the created indexes
 
 ***
 
+### createOptions
+
+Create options for executing the command.
+
+```php
+private createOptions(): array
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php - 
+
+***
+
 ### executeCommand
 
 Create one or more indexes for the collection using the createIndexes
@@ -249,29 +272,6 @@ private executeCommand(\MongoDB\Driver\Server $server): mixed
 
 ***
 
-### createOptions
-
-Create options for executing the command.
-
-```php
-private createOptions(): array
-```
-
-
-
-
-
-
-
-
-
-
-**See Also:**
-
-* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php - 
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

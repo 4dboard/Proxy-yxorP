@@ -57,33 +57,6 @@ public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 
 ***
 
-### __call
-
-Plugins pass-through.
-
-```php
-public __call(string $method, array $arguments): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **string** |  |
-| `$arguments` | **array** |  |
-
-
-
-
-***
-
 ### findPlugin
 
 Find a specific plugin.
@@ -138,6 +111,33 @@ protected invokePlugin(string $method, array $arguments, \League\Flysystem\Files
 
 ***
 
+### __call
+
+Plugins pass-through.
+
+```php
+public __call(string $method, array $arguments): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$method` | **string** |  |
+| `$arguments` | **array** |  |
+
+
+
+
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
 

@@ -48,7 +48,7 @@ public static getContentAsString(string $path, mixed $context = null): string
 
 
 ```php
-private static fromPath(string $path, mixed $context = null): mixed
+private static fromPath(string $path, mixed $context = null): bool
 ```
 
 
@@ -72,4 +72,4 @@ private static fromPath(string $path, mixed $context = null): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

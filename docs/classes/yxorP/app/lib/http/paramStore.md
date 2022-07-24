@@ -51,7 +51,7 @@ private string|array|object|null $case_sensitive
 
 
 ```php
-public __construct(mixed $parameters = array(), mixed $case_sensitive = false): mixed
+public __construct(mixed $parameters = array(), mixed $case_sensitive): mixed
 ```
 
 
@@ -294,4 +294,4 @@ public __toString(): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

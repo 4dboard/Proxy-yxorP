@@ -18,7 +18,7 @@ It's a class that's used to dispatch events.
 
 
 ```php
-private static $instance
+private static ?\yxorP\app\yP $instance
 ```
 
 
@@ -48,37 +48,17 @@ private array $listeners
 
 ### __construct
 
-
-
-```php
-final private __construct(): mixed
-```
-
-
-
-
-
-* This method is **final**.
-
-
-
-
-
-***
-
-### proxy
-
 It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
 
 ```php
-final public static proxy(string $root, array|null $request = null): void
+public __construct(string $root, array|null $request = null): mixed
 ```
 
 
 
-* This method is **static**.
 
-* This method is **final**.
+
+
 
 
 **Parameters:**
@@ -98,12 +78,12 @@ final public static proxy(string $root, array|null $request = null): void
 
 
 ```php
-public static init(?array $request, string $root): void
+private init(?array $request, string $root): void
 ```
 
 
 
-* This method is **static**.
+
 
 
 
@@ -152,12 +132,12 @@ final protected static autoLoader(string $root): void
 
 ***
 
-### override
+### try
 
-It's setting the value of the variable $_name to the value of the variable $_value.
+Try get session else store value or execute function, set session and return values
 
 ```php
-final public static override(string $_name, string|array|object|null $_value): string|array|object|null
+final public static try(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
 ```
 
 
@@ -171,35 +151,39 @@ final public static override(string $_name, string|array|object|null $_value): s
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$_name` | **string** |  |
-| `$_value` | **string&#124;array&#124;object&#124;null** |  |
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+| `$func` | **string&#124;null** |  |
+| `$varibles` | **array** |  |
 
 
 
 
 ***
 
-### set
+### session
 
-It's setting the value of the variable $_name to the value of the variable $_value.
+Try get session else store value or execute function, set session and return values
 
 ```php
-final public static set(string $_name, string|array|object|null $_value): string|array|object|null
+private static session(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
 ```
 
 
 
 * This method is **static**.
 
-* This method is **final**.
+
 
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$_name` | **string** |  |
-| `$_value` | **string&#124;array&#124;object&#124;null** |  |
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+| `$func` | **string&#124;null** |  |
+| `$varibles` | **array** |  |
 
 
 
@@ -208,11 +192,65 @@ final public static set(string $_name, string|array|object|null $_value): string
 
 ### get
 
-It's checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-returns false.
+It's setting the value of the variable $name to the value of the variable $_value.
 
 ```php
-final public static get(string $_name): string|array|object|null
+private static get(mixed $type, string $name): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$type` | **mixed** |  |
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### set
+
+It's setting the value of the variable $name to the value of the variable $_value.
+
+```php
+public static set(mixed $type, string $name, mixed $value): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$type` | **mixed** |  |
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### tmp
+
+Try get session else store value or execute function, set session and return values
+
+```php
+final public static tmp(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
 ```
 
 
@@ -226,8 +264,59 @@ final public static get(string $_name): string|array|object|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$_name` | **string** |  |
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+| `$func` | **string&#124;null** |  |
+| `$varibles` | **array** |  |
 
+
+
+
+***
+
+### loadCockpit
+
+
+
+```php
+public static loadCockpit(): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+**Return Value:**
+
+A method that takes an array as a parameter and returns nothing.
+
+
+
+***
+
+### loadActions
+
+
+
+```php
+final public static loadActions(): void
+```
+
+
+
+* This method is **static**.
+
+* This method is **final**.
+
+
+
+**Return Value:**
+
+A method that takes an array as a parameter and returns nothing.
 
 
 
@@ -261,30 +350,52 @@ private subscribe(string $root, string $action): void
 
 ***
 
-### tmp
+### addSubscriber
 
-It's setting the value of the variable $_name to the value of the variable $_value.
+It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it, and
+passing the `self::$instance` object to it
 
 ```php
-final public static tmp(string $_name, string|array|object|null $_value): string|array|object|null
+private addSubscriber(object $subscriber): void
 ```
 
-tmp is a temporary variable that's used to store the value of the variable $_name.
-Temporary variables are stored in the `$GLOBALS[VAR_TMP_STORE]` array.
-Temporary variables are not stored in the persisted storage.
 
-* This method is **static**.
 
-* This method is **final**.
+
+
+
 
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$_name` | **string** |  |
-| `$_value` | **string&#124;array&#124;object&#124;null** |  |
+| `$subscriber` | **object** |  |
 
+
+
+
+***
+
+### loadGuzzleSnag
+
+
+
+```php
+public static loadGuzzleSnag(): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+**Return Value:**
+
+A method that takes an array as a parameter and returns nothing.
 
 
 
@@ -317,37 +428,9 @@ private dispatch(string $event_name): void
 
 ***
 
-### assetLoader
-
-It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-`assetLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-requiring it.
-
-```php
-final public static assetLoader(string $root): void
-```
-
-
-
-* This method is **static**.
-
-* This method is **final**.
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$root` | **string** |  |
-
-
-
-
-***
-
 ### addListener
 
-> This function adds a listener to the listeners array
+This function adds a listener to the listeners array
 
 ```php
 final public addListener(string $event, object $callback): void
@@ -376,33 +459,6 @@ The priority of the listener. Higher priority listeners are called before lower 
 
 ***
 
-### addSubscriber
-
-It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it, and
-passing the `self::$instance` object to it
-
-```php
-private addSubscriber(object $subscriber): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$subscriber` | **object** |  |
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

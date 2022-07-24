@@ -97,7 +97,7 @@ private static gen(?string $key): array
 
 
 ```php
-public static fetch(?string $key = null): mixed
+public static fetch(?string $key = null): array
 ```
 
 
@@ -123,7 +123,7 @@ public static fetch(?string $key = null): mixed
 
 
 ```php
-public static set(mixed $mime, mixed $content, ?string $key = null): void
+public static set(mixed $content, ?string $key = null): void
 ```
 
 
@@ -137,7 +137,6 @@ public static set(mixed $mime, mixed $content, ?string $key = null): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$mime` | **mixed** |  |
 | `$content` | **mixed** |  |
 | `$key` | **?string** |  |
 
@@ -151,7 +150,7 @@ public static set(mixed $mime, mixed $content, ?string $key = null): void
 
 
 ```php
-public static store(mixed $val, ?string $key = null): void
+public static store(mixed $content, ?string $key = null): void
 ```
 
 
@@ -165,7 +164,7 @@ public static store(mixed $val, ?string $key = null): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$val` | **mixed** |  |
+| `$content` | **mixed** |  |
 | `$key` | **?string** |  |
 
 
@@ -175,4 +174,4 @@ public static store(mixed $val, ?string $key = null): void
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
