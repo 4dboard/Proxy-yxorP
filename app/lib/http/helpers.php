@@ -253,7 +253,8 @@ class helpers
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
-
+        echo VAR_FETCH;
+        echo YXORP_REQUEST_URI;
         /* Defining constants. */
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::store(SITE_DETAILS)[VAR_FILES]));
