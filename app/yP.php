@@ -84,7 +84,7 @@ class yP
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
 
         /* It's setting the `YXORP_EVENT_LIST` constant to an array of events. */
-        self::store(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+        store::store(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
         /* Loading the cockpit.php file. */
         self::loadCockpit();
@@ -105,7 +105,7 @@ class yP
         self::loadGuzzleSnag();
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::store(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
+        foreach (store::store(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
     }
 
     /**
@@ -144,7 +144,7 @@ class yP
         directory, then looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
         directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it. If
         the file is a class, it's requiring it. */
-        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => self::store(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => self::store(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
+        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => store::store(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::store(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
 
     }
 
@@ -196,7 +196,7 @@ class yP
         require PATH_BUGSNAG;
 
         /* It's setting the token to the snag key. */
-        store::tmp(VAR_BUGSNAG, Client::make(self::store(ENV_BUGSNAG_KEY)));
+        store::tmp(VAR_BUGSNAG, Client::make(store::store(ENV_BUGSNAG_KEY)));
 
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
         store::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
