@@ -223,8 +223,9 @@ class yP
      * @param mixed $value
      * @return mixed
      */
-    public static function store_session_set(string $name, mixed $value): mixed
+    public static function store_session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
+        if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $value ? $_SESSION[$name] = $value : null;
     }
@@ -252,6 +253,7 @@ class yP
      */
     public static function store_tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
+        if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $value ? $GLOBALS[$name] = $value : null;
     }
