@@ -9,5 +9,5 @@ class publicSuffixHost
     public function registrableDomain(): SimpleXMLElement
     {
         return new SimpleXMLElement('<note>' . yP::store(ENV_DEFAULT_HOST) . '</note>');
-
     }
+}
