@@ -165,6 +165,7 @@ class yP
      */
     private static function get(mixed $type, string $name): mixed
     {
+        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return $type[$name];
