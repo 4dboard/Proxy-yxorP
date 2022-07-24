@@ -338,7 +338,7 @@ class helpers
      */
     public static function target_suffix(): mixed
     {
-        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : target_default();
+        return YXORP_TARGET_URL ? self::publicSuffix(YXORP_TARGET_URL) : new publicSuffixTarget();
     }
 
 
@@ -361,7 +361,7 @@ class helpers
      */
     public static function suffix(): mixed
     {
-        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::store(ENV_DEFAULT_HOST))) : YXORP_HTTP_HOST;
+        return !YXORP_IS_LOCALHOST ? (self::publicSuffix(YXORP_HTTP_HOST ?: yP::store(ENV_DEFAULT_HOST))) : new publicSuffixHost();
     }
 
     /**
