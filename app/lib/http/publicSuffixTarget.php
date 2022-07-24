@@ -2,12 +2,13 @@
 
 use yxorP\app\yP;
 
-class publicSuffixHost
+class publicSuffixTarget
 {
 
-    public function registrableDomain()
+    public function registrableDomain(): registrableDomain
     {
         return yP::store(ENV_DEFAULT_HOST);
     }
 
 }
+
