@@ -3,6 +3,7 @@
 
 namespace yxorP\app\plugin;
 
+use Nette\Utils\Html;
 use yorxP\debug\Utils\Html;
 use YouTubeDownloader;
 use yxorP\app\constants;

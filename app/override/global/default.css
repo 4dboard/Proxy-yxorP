@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 html {
     overflow: hidden !important;
     overflow-y: visible !important;
@@ -115,7 +117,6 @@ h ~ h {
     }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
     outline: none;
     box-sizing: border-box;
@@ -822,7 +823,7 @@ body.light-mode .video-bg:before {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: auto;
-    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
     transition: all 0.3s;
     z-index: 10;
     background-color: var(--popup-bg);
@@ -988,7 +989,7 @@ body.light-mode .video-bg:before {
 
     .app-card:last-child {
         margin-top: 20px;
-        margin-left: 0px;
+        margin-left: 0;
     }
 }
 

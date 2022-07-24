@@ -114,7 +114,7 @@ class helpers
     }
 
     /**
-     * @return void
+     * @return string|void
      * It's decoding the `$input` with the base64.
      */
     public static function proxify_url($url, $base_url = CHAR_EMPTY_STRING)

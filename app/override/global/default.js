@@ -313,7 +313,7 @@ function octo() {
     }
 }
 */
-if (typeof (Notyf) == "Undefined") {
+if (typeof (Notyf) == "undefined") {
     let Notyf = function () {
         "use strict";
         var e, o = function () {

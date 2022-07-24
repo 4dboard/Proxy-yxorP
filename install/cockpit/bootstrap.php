@@ -11,6 +11,9 @@
 /**
  * Cockpit start time
  */
+
+use Symfony\Component\Dotenv\Dotenv;
+
 define('COCKPIT_START_TIME', microtime(true));
 
 if (!defined('COCKPIT_CLI')) {

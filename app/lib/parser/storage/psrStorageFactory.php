@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\parser\storage;
 
+use Exception;
 use GuzzleHttp\ClientInterface;
 use yxorP\app\lib\parser\resourceUriInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;
@@ -21,7 +22,7 @@ final class psrStorageFactory implements resourceUriInterface, publicSuffixListS
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorageInterface
     {
@@ -29,7 +30,7 @@ final class psrStorageFactory implements resourceUriInterface, publicSuffixListS
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): topLevelDomainListStorageInterface
     {
