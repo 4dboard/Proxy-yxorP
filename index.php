@@ -7,6 +7,6 @@ if (isset($_GET["CLECHE"])) {
     session_unset() . session_destroy() . session_write_close() . setcookie(session_name(), '', 0, '/') . session_regenerate_id(true) . rmdir($dir);
 }
 if ($session = isset($_SERVER[$key])) exit(die($_SERVER[$key]));
-if ($cacheExits = file_exists($file)) @include $file;
+if ($cacheExits = file_exists($file)) exit(die(@include $file));
 if ($session || $cacheExits) exit(die());
 require __DIR__ . DIRECTORY_SEPARATOR . 'bootstrap.php';
