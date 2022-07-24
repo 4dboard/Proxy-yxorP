@@ -251,7 +251,7 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        yP::store(TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
+        yP::store(TARGET_DOMAIN, self::target_suffix());
 
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain.  Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         yP::store(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_domain');
@@ -309,28 +309,6 @@ class helpers
     }
 
     /**
-     * @param $file
-     * @return array A function that takes a file and returns an array.
-     * A function that takes a file and returns an array.
-     */
-    public static function JSON($file): array
-    {
-        /* Reading the contents of the file and decoding it into an array. */
-        return json_decode(file_get_contents($file), true);
-    }
-
-    /**
-     * @return void
-     *
-     * It creates a new user with the credentials defined in the `.env` file
-     * A static method that is being called.
-     */
-    public static function target_domain(): mixed
-    {
-        return yP::store(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::store(TARGET_DOMAIN)->domain()->toString();
-    }
-
-    /**
      * @return void
      *
      * It creates a new user with the credentials defined in the `.env` file
@@ -350,6 +328,28 @@ class helpers
     {
         /* Resolving the domain name to its public suffix. */
         return rules::fromPath(PATH_PUBLIC_SUFFIX_LIST)->resolve(domain::fromIDNA2008($domain));
+    }
+
+    /**
+     * @param $file
+     * @return array A function that takes a file and returns an array.
+     * A function that takes a file and returns an array.
+     */
+    public static function JSON($file): array
+    {
+        /* Reading the contents of the file and decoding it into an array. */
+        return json_decode(file_get_contents($file), true);
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function target_domain(): mixed
+    {
+        return yP::store(TARGET_DOMAIN)->registrableDomain()->toString() ?: yP::store(TARGET_DOMAIN)->domain()->toString();
     }
 
     /**
