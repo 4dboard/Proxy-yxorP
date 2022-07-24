@@ -69,7 +69,7 @@ class yP
         appended to it. */
 
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
-        echo FILE_COCKPIT_BOOTSTRAP;
+        echo DIR_LIB;
         define('PATH_GUZZLE', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE);
         define('PATH_BUGSNAG', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG);
         define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
