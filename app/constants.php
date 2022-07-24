@@ -228,4 +228,5 @@ const ENV_DEFAULT_SITE = 'DEFAULT_SITE' . EXT_ENV;
 const ENV_DEFAULT_TARGET = 'DEFAULT_TARGET' . EXT_ENV;
 const RUNTIME_EXCEPTION = 'Directory "%s" was not created';
 const ACCESS_DENIED_EXCEPTION = 'Error: Access denied!';
-define("ACCESS_ALREADY_DEFINED", 'Argument already exists and cannot be redefined!' . define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365)));
+define("ACCESS_ALREADY_DEFINED", 'Argument already exists and cannot be redefined!');
+define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
