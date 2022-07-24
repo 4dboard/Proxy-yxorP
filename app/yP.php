@@ -199,7 +199,6 @@ class yP
      */
     private static function store_tmp_get(string $name): mixed
     {
-        echo $name;
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return $GLOBALS[$name];
