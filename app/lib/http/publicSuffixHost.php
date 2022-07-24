@@ -17,10 +17,6 @@ class publicSuffixHost
         return new name(explode('.', yP::store(ENV_DEFAULT_HOST))[0]);
     }
 
-    public function registrableDomain(): nameInterface
-    {
-        return new name(explode('.', yP::store(ENV_DEFAULT_HOST))[0]);
-    }
 
     public function subDomain(): nameInterface
     {
