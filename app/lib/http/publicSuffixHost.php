@@ -7,12 +7,3 @@ class defaults
         return ENV_DEFAULT_TARGET;
     }
 }
-
-
-class defaults_target
-{
-    public function registrableDomain()
-    {
-        return ENV_DEFAULT_TARGET;
-    }
-}
