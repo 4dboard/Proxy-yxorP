@@ -17,10 +17,6 @@ class publicSuffixTarget
         return new name(explode('.', yP::store(ENV_DEFAULT_TARGET))[0]);
     }
 
-    public function registrableDomain(): nameInterface
-    {
-        return new name(explode('.', yP::store(ENV_DEFAULT_TARGET))[0]);
-    }
 
     public function subDomain(): nameInterface
     {
