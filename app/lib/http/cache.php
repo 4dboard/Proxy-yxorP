@@ -5,6 +5,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
 use yxorP;
+use yxorP\app\lib\minify\minify;
 
 /* A class that is used to cache data. */
 
