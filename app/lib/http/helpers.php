@@ -249,10 +249,10 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        store::store(YXORP_TARGET_DOMAIN, null, 'yxorP\app\lib\http\helpers::target_suffix');
+        define(YXORP_TARGET_DOMAIN, self::target_suffix());
 
         /* Defining a constant. */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . store::store(YXORP_TARGET_DOMAIN));
+        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
 
         /* Defining constants. */
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
@@ -337,17 +337,6 @@ class helpers
     }
 
     /**
-     * @param $file
-     * @return array A function that takes a file and returns an array.
-     * A function that takes a file and returns an array.
-     */
-    public static function JSON($file): array
-    {
-        /* Reading the contents of the file and decoding it into an array. */
-        return json_decode(file_get_contents($file), true);
-    }
-
-    /**
      * @return void
      *
      * It creates a new user with the credentials defined in the `.env` file
@@ -356,6 +345,17 @@ class helpers
     public static function target_suffix(): mixed
     {
         return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
+    }
+
+    /**
+     * @param $file
+     * @return array A function that takes a file and returns an array.
+     * A function that takes a file and returns an array.
+     */
+    public static function JSON($file): array
+    {
+        /* Reading the contents of the file and decoding it into an array. */
+        return json_decode(file_get_contents($file), true);
     }
 
     /**
