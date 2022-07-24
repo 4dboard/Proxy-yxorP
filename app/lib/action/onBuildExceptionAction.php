@@ -2,8 +2,8 @@
 /* Importing the wrapper class from the yxorP\app\lib\http namespace. */
 
 
+use yxorP\app\lib\http\store;
 use yxorP\app\lib\http\wrapper;
-use yxorP\app\yP;
 
 /* A class that extends the wrapper class. */
 

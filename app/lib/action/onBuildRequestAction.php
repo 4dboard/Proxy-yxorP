@@ -3,8 +3,8 @@
 
 
 use yxorP\app\constants;
+use yxorP\app\lib\http\store;
 use yxorP\app\lib\http\wrapper;
-use yxorP\app\yP;
 
 /* Extending the wrapper class. */
 
