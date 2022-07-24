@@ -230,11 +230,11 @@ class helpers
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_SITE_DOMAIN', self::suffix());
+        define('YXORP_SITE_DOMAIN', self::domain_host());
 
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_SITE_SUB_DOMAIN', self::suffix_sub());
+        define('YXORP_SITE_SUB_DOMAIN', self::domain_host_sub());
 
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
@@ -249,7 +249,7 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        define('YXORP_domain_target', self::suffix_target());
+        define('YXORP_domain_target', self::domain_host_target());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
@@ -309,9 +309,9 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function suffix(): ?string
+    public static function domain_host(): ?string
     {
-        return trim(self::domain(), self::suffix_sub());
+        return trim(self::domain(), self::domain_host_sub());
     }
 
     /**
@@ -331,7 +331,7 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function suffix_sub(): ?string
+    public static function domain_host_sub(): ?string
     {
         return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
@@ -342,10 +342,10 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function suffix_target(): mixed
+    public static function domain_host_target(): mixed
     {
 
-        return trim(self::domain_target(), self::suffix_sub_target());
+        return trim(self::domain_target(), self::domain_host_sub_target());
     }
 
     /**
@@ -365,7 +365,7 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function suffix_sub_target(): ?string
+    public static function domain_host_sub_target(): ?string
     {
         return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
