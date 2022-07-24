@@ -22,6 +22,7 @@ use Bugsnag\Client;
 use GuzzleHttp\FileCookieJar;
 use RuntimeException;
 use yxorP\app\lib\http\helpers;
+use yxorP\app\lib\http\store;
 use yxorP\app\lib\parser\RulesParser;
 
 /**
@@ -129,7 +130,7 @@ class yP
     {
         /* Requiring the COCKPIT library. */
         require PATH_COCKPIT_BOOTSTRAP;
-        \yxorP\app\lib\http\store::tmp(YXORP_COCKPIT_APP, cockpit());
+        store::tmp(YXORP_COCKPIT_APP, cockpit());
     }
 
     /**

@@ -226,7 +226,7 @@ class helpers
         helpers::install();
 
         /* Defining a constant called yP::store(YXORP_SERVER) and setting it to the value of $req. */
-        yP::store_tmp(VAR_SERVER, $req ?: $_SERVER);
+        store::tmp(VAR_SERVER, $req ?: $_SERVER);
 
         /* Checking if the site url contains a period. If it does, it returns 0. */
         define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
