@@ -152,7 +152,7 @@ class yP
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
         /* Starting a session and then setting a value if it is passed in. */
-        return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
+        return self::get($GLOBALS, $name) ?: ($value ? self::set($GLOBALS, $name, $value) : ($func ? self::set($GLOBALS, $name, call_user_func_array($func, $varibles)) : null));
     }
 
     /**
