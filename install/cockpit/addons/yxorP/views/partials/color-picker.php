@@ -5,8 +5,6 @@ $spectrum = [
     'preferredFormat' => 'hex',
     'showPaletteOnly' => true,
     'togglePaletteOnly' => true,
-    'togglePaletteMoreText' => $app('i18n')->get('more'),
-    'togglePaletteLessText' => $app('i18n')->get('less'),
     'palette' => !empty($colors) ? $colors : [
         '#D8334A',
         '#FFCE54',
