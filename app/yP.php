@@ -93,7 +93,7 @@ class yP
         /* Reading the file and then calling the env function on each line. */
 
         foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
-
+        echo self::store(ENV_DEFAULT_TARGET);
         /* Setting the localisation of the server to the request. */
         helpers::localise($request);
 
