@@ -204,8 +204,6 @@ class helpers
      */
     public static function env(): void
     {
-        yP::store(EXT_ENV, 1);
-
         foreach (file(DIR_ROOT . EXT_ENV) as $line) {
 
             /* Checking if the line starts with a hash. If it does, it returns. */

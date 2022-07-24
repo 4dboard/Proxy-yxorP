@@ -91,7 +91,7 @@ class yP
         self::loadCockpit();
 
         /* Reading the file and then calling the env function on each line. */
-        self::store(EXT_ENV, null, 'yxorP\app\lib\http\helpers::env');
+        helpers::env();
 
         /* Setting the localisation of the server to the request. */
         helpers::localise($request);
