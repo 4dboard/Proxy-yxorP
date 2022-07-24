@@ -249,7 +249,7 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        define(YXORP_TARGET_DOMAIN, self::suffix_target());
+        define('YXORP_TARGET_DOMAIN', self::suffix_target());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
