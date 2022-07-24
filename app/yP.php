@@ -252,7 +252,7 @@ class yP
     public static function store_tmp_set(string $name, mixed $value): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
-        return $GLOBALS[$name] = $value;
+        return $value ? $GLOBALS[$name] = $value : null;
     }
 
     /**
