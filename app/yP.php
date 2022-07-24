@@ -156,32 +156,6 @@ class yP
     }
 
     /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
-     * @param string $name
-     * @return mixed
-     */
-    private static function store_get(mixed $type, string $name): mixed
-    {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return $type[$name];
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
-     */
-    public static function store_set(mixed $type, string $name, mixed $value): mixed
-    {
-        /* Setting the value of the variable $name to the value of the variable $value. */
-        return $type[$name] ?: $type[$name] = $value;
-    }
-
-    /**
      * Try get session else store value or execute function, set session and return values
      * @param string $name
      * @param mixed $value
@@ -287,6 +261,58 @@ class yP
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function store_tmp_set(mixed $type, string $name, mixed $value): mixed
+    {
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $type[$name] ?: $type[$name] = $value;
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function store_session_set(mixed $type, string $name, mixed $value): mixed
+    {
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $type[$name] ?: $type[$name] = $value;
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @return mixed
+     */
+    private static function store_tmp_get(mixed $type, string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return $type[$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @return mixed
+     */
+    private static function store_session_get(mixed $type, string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return $type[$name];
     }
 
     /**
