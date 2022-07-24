@@ -5,9 +5,9 @@ use yxorP\app\yP;
 class publicSuffixHost
 {
 
-    public function registrableDomain(): registrable
+    public function registrableDomain(): publicSuffixDomain
     {
-        return new registrable(yP::store(ENV_DEFAULT_HOST));
+        return new publicSuffixDomain(yP::store(ENV_DEFAULT_HOST));
     }
 
 }

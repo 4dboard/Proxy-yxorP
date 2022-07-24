@@ -2,7 +2,7 @@
 
 use yxorP\app\yP;
 
-class registrableDomain
+class publicSuffixDomain
 {
     private ?string $domain = null;
 
