@@ -265,7 +265,7 @@ class helpers
         /* Setting the global variables for the application. */
         foreach ([YXORP_GLOBAL_REPLACE => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null] as $key => $value) store::store($key, $value);
 
-        store::store(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON', PATH_REWRITE)
+        store::store(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON', PATH_REWRITE);
 
     }
 
