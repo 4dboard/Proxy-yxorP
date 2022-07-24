@@ -291,10 +291,10 @@ class yP
         require PATH_BUGSNAG;
 
         /* It's setting the token to the snag key. */
-        self::tmp(VAR_BUGSNAG, Client::make(self::store(ENV_BUGSNAG_KEY)));
+        self::store_tmp(VAR_BUGSNAG, Client::make(self::store(ENV_BUGSNAG_KEY)));
 
         /* Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class. */
-        self::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => 0, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::store_tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => 0, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
     }
 
