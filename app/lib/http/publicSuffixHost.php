@@ -4,6 +4,6 @@ class publicSuffixHost
 {
     public function registrableDomain()
     {
-        return ENV_DEFAULT_TARGET;
+        return YXORP_HTTP_HOST;
     }
 }
