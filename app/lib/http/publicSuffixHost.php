@@ -5,9 +5,9 @@ use yxorP\app\yP;
 class publicSuffixHost
 {
 
-    public function registrableDomain(): object
+    public function registrableDomain(): SimpleXMLElement
     {
-        return (object)yP::store(ENV_DEFAULT_HOST);
+        return (SimpleXMLElement)yP::store(ENV_DEFAULT_HOST);
     }
 
 }
