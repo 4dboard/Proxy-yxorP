@@ -23,6 +23,8 @@ use GuzzleHttp\FileCookieJar;
 use RuntimeException;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\parser\RulesParser;
+use function session_name;
+use function session_start;
 
 /**
  * It's a class that's used to dispatch events.
@@ -147,7 +149,9 @@ class yP
      */
     private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* A function that is used to set and get session variables. */
+        /* Checking if the session is started, if not, it will start the session. */
+        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
+        /* Starting a session and then setting a value if it is passed in. */
         return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
     }
 
@@ -159,8 +163,6 @@ class yP
      */
     private static function get(mixed $type, string $name): mixed
     {
-        /* Checking if the session has started. If it has not, it will start the session. */
-        session_start();
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return $type[$name];
@@ -175,8 +177,6 @@ class yP
      */
     public static function set(mixed $type, string $name, mixed $value): mixed
     {
-        /* Checking if the session has started. If it has not, it will start the session. */
-        session_start();
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $type[$name] ?: $type[$name] = $value;
     }
