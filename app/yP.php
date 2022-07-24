@@ -166,7 +166,33 @@ class yP
     final public static function store_tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         /* Starting a session and then setting a value if it is passed in. */
-        return self::store_get($GLOBALS, $name) ?: ($value ? self::store_set($GLOBALS, $name, $value) : ($func ? self::store_set($GLOBALS, $name, (call_user_func_array($func, $varibles))) : null));
+        return self::store_tmp_get($name) ?: ($value ? self::store_tmp_set($name, $value) : ($func ? self::store_tmp_set($name, (call_user_func_array($func, $varibles))) : null));
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @return mixed
+     */
+    private static function store_tmp_get(string $name): mixed
+    {
+        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return $GLOBALS[$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param mixed $type
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public static function store_tmp_set(string $name, mixed $value): mixed
+    {
+        /* Setting the value of the variable $name to the value of the variable $value. */
+        return $GLOBALS[$name] ?: $GLOBALS[$name] = $value;
     }
 
     /**
@@ -270,36 +296,10 @@ class yP
      * @param mixed $value
      * @return mixed
      */
-    public static function store_tmp_set(mixed $type, string $name, mixed $value): mixed
-    {
-        /* Setting the value of the variable $name to the value of the variable $value. */
-        return $type[$name] ?: $type[$name] = $value;
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
-     */
     public static function store_session_set(mixed $type, string $name, mixed $value): mixed
     {
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $type[$name] ?: $type[$name] = $value;
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
-     * @param string $name
-     * @return mixed
-     */
-    private static function store_tmp_get(mixed $type, string $name): mixed
-    {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return $type[$name];
     }
 
     /**
