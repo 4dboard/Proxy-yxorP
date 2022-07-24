@@ -148,10 +148,9 @@ class yP
      */
     private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* Setting the variable $_ to the value of $type if it is set, otherwise it is setting it to the value of
-        $_SESSION.  Checking if the session has already been started. If it has not been started, it will start it. */
+        /* Checking if the session has started. If it has not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_start();
-        /* Starting a session and then setting a value if it is passed in. */
+        /* A function that is used to set and get session variables. */
         return self::get($_SESSION, $name) ?: ($value ? self::set($_SESSION, $name, $value) : ($func ? self::set($_SESSION, $name, call_user_func_array($func, $varibles)) : null));
     }
 
