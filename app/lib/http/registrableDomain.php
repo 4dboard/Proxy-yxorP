@@ -4,16 +4,16 @@ use yxorP\app\yP;
 
 class registrableDomain
 {
-    public string $domain = '';
+    private ?string $domain = null;
 
     public function __construct()
     {
         $this->domain = new(yP::store(ENV_DEFAULT_TARGET));
     }
 
-    public function registrableDomain(): toString
+    public function toString()
     {
-        return yP::store(ENV_DEFAULT_HOST);
+        return $this->domain;
     }
 
 }
