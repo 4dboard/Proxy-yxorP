@@ -23,4 +23,15 @@ trait state
             $this->{$k} = $v;
         }
     }
+
+
+    /* Setting the state of the object. */
+    public function toString(): void
+    {
+        /* Iterating over the array and setting the properties of the object. */
+        foreach ($data as $k => $v) {
+            /* Setting the property of the object. */
+            $this->{$k} = $v;
+        }
+    }
 }
