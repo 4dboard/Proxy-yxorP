@@ -4,32 +4,33 @@ use yxorP\app\lib\parser\hostInterface;
 use yxorP\app\lib\parser\nameInterface;
 use yxorP\app\lib\parser\resolvedDomainNameInterface;
 use yxorP\app\lib\parser\topLevelDomainInterface;
+use yxorP\app\yP;
 
 class publicSuffixHost implements resolvedDomainNameInterface
 {
     public function suffix(): topLevelDomainInterface
     {
-        return new topLevelDomain('com');
+        return new topLevelDomain(explode('.', yP::store(ENV_DEFAULT_HOST))[1]);
     }
 
     public function secondLevelDomain(): nameInterface
     {
-        return new name('example');
+        return new name(explode('.', yP::store(ENV_DEFAULT_HOST))[0]);
     }
 
     public function registrableDomain(): nameInterface
     {
-        return new name('example');
+        return new name(explode('.', yP::store(ENV_DEFAULT_HOST))[0]);
     }
 
     public function subDomain(): nameInterface
     {
-        return new name('example');
+        return new name(explode('.', yP::store(ENV_DEFAULT_HOST))[0]);
     }
 
     public function withSubDomain(nameInterface $subDomain): self
     {
-        return new publicSuffixHost($subDomain->toString());
+        return new publicSuffixTarget(yP::store(ENV_DEFAULT_HOST));
     }
 
     public function toString(): string
@@ -39,12 +40,12 @@ class publicSuffixHost implements resolvedDomainNameInterface
 
     public function withSecondLevelDomain(nameInterface $label): self
     {
-        return new publicSuffixHost($label->toString());
+        // TODO: Implement toString() method.
     }
 
     public function withSuffix(topLevelDomainInterface $suffix): self
     {
-        return new publicSuffixHost($suffix->toString());
+        // TODO: Implement toString() method.
     }
 
     public function domain(): nameInterface
