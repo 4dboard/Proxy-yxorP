@@ -157,7 +157,6 @@ class yP
 
     /**
      * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
      * @param string $name
      * @return mixed
      */
@@ -170,7 +169,6 @@ class yP
 
     /**
      * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
      * @param string $name
      * @param mixed $value
      * @return mixed
@@ -197,7 +195,6 @@ class yP
 
     /**
      * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
      * @param string $name
      * @return mixed
      */
@@ -210,7 +207,6 @@ class yP
 
     /**
      * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param mixed $type
      * @param string $name
      * @param mixed $value
      * @return mixed
