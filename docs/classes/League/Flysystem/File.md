@@ -519,30 +519,6 @@ public isDir(): bool
 
 ***
 
-### getType
-
-Retrieve the entree type (file|dir).
-
-```php
-public getType(): string
-```
-
-
-
-
-
-
-
-
-
-**Return Value:**
-
-file or dir
-
-
-
-***
-
 ### isFile
 
 Check whether the entree is a file.
@@ -563,12 +539,12 @@ public isFile(): bool
 
 ***
 
-### getFilesystem
+### getType
 
-Retrieve the Filesystem object.
+Retrieve the entree type (file|dir).
 
 ```php
-public getFilesystem(): \League\Flysystem\FilesystemInterface
+public getType(): string
 ```
 
 
@@ -578,6 +554,10 @@ public getFilesystem(): \League\Flysystem\FilesystemInterface
 
 
 
+
+**Return Value:**
+
+file or dir
 
 
 
@@ -609,12 +589,12 @@ public setFilesystem(\League\Flysystem\FilesystemInterface $filesystem): $this
 
 ***
 
-### getPath
+### getFilesystem
 
-Retrieve the entree path.
+Retrieve the Filesystem object.
 
 ```php
-public getPath(): string
+public getFilesystem(): \League\Flysystem\FilesystemInterface
 ```
 
 
@@ -624,10 +604,6 @@ public getPath(): string
 
 
 
-
-**Return Value:**
-
-path
 
 
 
@@ -654,6 +630,30 @@ public setPath(string $path): $this
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
+
+
+
+***
+
+### getPath
+
+Retrieve the entree path.
+
+```php
+public getPath(): string
+```
+
+
+
+
+
+
+
+
+
+**Return Value:**
+
+path
 
 
 
@@ -688,4 +688,4 @@ public __call(string $method, array $arguments): mixed
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

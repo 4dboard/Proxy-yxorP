@@ -123,32 +123,6 @@ public detectMimeType(string $path, mixed $contents): ?string
 
 ***
 
-### takeSample
-
-
-
-```php
-private takeSample(string $contents): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$contents` | **string** |  |
-
-
-
-
-***
-
 ### detectMimeTypeFromPath
 
 
@@ -227,6 +201,32 @@ public detectMimeTypeFromBuffer(string $contents): ?string
 
 ***
 
+### takeSample
+
+
+
+```php
+private takeSample(string $contents): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$contents` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

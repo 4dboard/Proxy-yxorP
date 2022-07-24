@@ -18,6 +18,26 @@ serialization to ensure that it becomes a BSON array.
 ## Methods
 
 
+### __clone
+
+Clone this BSONArray.
+
+```php
+public __clone(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### __set_state
 
 Factory method for var_export().
@@ -44,26 +64,6 @@ public static __set_state(array $properties): self
 **See Also:**
 
 * http://php.net/oop5.magic#object.set-state - * http://php.net/var-export - 
-
-***
-
-### __clone
-
-Clone this BSONArray.
-
-```php
-public __clone(): mixed
-```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -146,4 +146,4 @@ as a JSON array.
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

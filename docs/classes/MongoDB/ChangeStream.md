@@ -157,6 +157,48 @@ public current(): mixed
 
 ***
 
+### getCursorId
+
+
+
+```php
+public getCursorId(): \MongoDB\Driver\CursorId
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getResumeToken
+
+Returns the resume token for the iterator's current position.
+
+```php
+public getResumeToken(): array|object|null
+```
+
+Null may be returned if no change documents have been iterated and the
+server did not include a postBatchResumeToken in its aggregate or getMore
+command response.
+
+
+
+
+
+
+
+
+
+***
+
 ### key
 
 
@@ -177,6 +219,52 @@ public key(): mixed
 **See Also:**
 
 * http://php.net/iterator.key - 
+
+***
+
+### next
+
+
+
+```php
+public next(): void
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* http://php.net/iterator.next - 
+
+***
+
+### rewind
+
+
+
+```php
+public rewind(): void
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* http://php.net/iterator.rewind - 
 
 ***
 
@@ -203,12 +291,12 @@ public valid(): bool
 
 ***
 
-### next
+### isResumableError
 
-
+Determines if an exception is a resumable error.
 
 ```php
-public next(): void
+private isResumableError(\MongoDB\Driver\Exception\RuntimeException $exception): bool
 ```
 
 
@@ -218,11 +306,17 @@ public next(): void
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$exception` | **\MongoDB\Driver\Exception\RuntimeException** |  |
+
 
 
 **See Also:**
 
-* http://php.net/iterator.next - 
+* https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resumable-error - 
 
 ***
 
@@ -252,12 +346,12 @@ private onIteration(bool $incrementKey): mixed
 
 ***
 
-### getCursorId
+### resume
 
-
+Recreates the ChangeStreamIterator after a resumable server error.
 
 ```php
-public getCursorId(): \MongoDB\Driver\CursorId
+private resume(): void
 ```
 
 
@@ -298,100 +392,6 @@ private resumeOrThrow(\MongoDB\Driver\Exception\RuntimeException $exception): mi
 
 ***
 
-### isResumableError
-
-Determines if an exception is a resumable error.
-
-```php
-private isResumableError(\MongoDB\Driver\Exception\RuntimeException $exception): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$exception` | **\MongoDB\Driver\Exception\RuntimeException** |  |
-
-
-
-**See Also:**
-
-* https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resumable-error - 
 
 ***
-
-### resume
-
-Recreates the ChangeStreamIterator after a resumable server error.
-
-```php
-private resume(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getResumeToken
-
-Returns the resume token for the iterator's current position.
-
-```php
-public getResumeToken(): array|object|null
-```
-
-Null may be returned if no change documents have been iterated and the
-server did not include a postBatchResumeToken in its aggregate or getMore
-command response.
-
-
-
-
-
-
-
-
-
-***
-
-### rewind
-
-
-
-```php
-public rewind(): void
-```
-
-
-
-
-
-
-
-
-
-
-**See Also:**
-
-* http://php.net/iterator.rewind - 
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

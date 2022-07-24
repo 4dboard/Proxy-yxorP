@@ -18,6 +18,26 @@ ensure that it becomes a BSON document.
 ## Methods
 
 
+### __clone
+
+Deep clone this BSONDocument.
+
+```php
+public __clone(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### __construct
 
 This overrides the parent constructor to allow property access of entries
@@ -76,26 +96,6 @@ public static __set_state(array $properties): self
 **See Also:**
 
 * http://php.net/oop5.magic#object.set-state - * http://php.net/var-export - 
-
-***
-
-### __clone
-
-Deep clone this BSONDocument.
-
-```php
-public __clone(): mixed
-```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -176,4 +176,4 @@ public jsonSerialize(): object
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

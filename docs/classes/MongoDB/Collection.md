@@ -828,7 +828,7 @@ The document to return may be null if no document matched the filter.
 
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/findAndModify/ - * \MongoDB\Operation\FindOneAndDelete::__construct() - for supported options
+* \MongoDB\Operation\FindOneAndDelete::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/findAndModify/ - 
 
 ***
 
@@ -1097,7 +1097,7 @@ public insertMany(array[]|object[] $documents, array $options = []): \MongoDB\In
 
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/insert/ - * \MongoDB\Operation\InsertMany::__construct() - for supported options
+* \MongoDB\Operation\InsertMany::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/insert/ - 
 
 ***
 
@@ -1127,7 +1127,7 @@ public insertOne(array|object $document, array $options = []): \MongoDB\InsertOn
 
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/insert/ - * \MongoDB\Operation\InsertOne::__construct() - for supported options
+* \MongoDB\Operation\InsertOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/insert/ - 
 
 ***
 
@@ -1219,7 +1219,7 @@ public replaceOne(array|object $filter, array|object $replacement, array $option
 
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/update/ - * \MongoDB\Operation\ReplaceOne::__construct() - for supported options
+* \MongoDB\Operation\ReplaceOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/update/ - 
 
 ***
 
@@ -1250,7 +1250,7 @@ public updateMany(array|object $filter, array|object $update, array $options = [
 
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/update/ - * \MongoDB\Operation\UpdateMany::__construct() - for supported options
+* \MongoDB\Operation\UpdateMany::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/update/ - 
 
 ***
 
@@ -1281,7 +1281,7 @@ public updateOne(array|object $filter, array|object $update, array $options = []
 
 **See Also:**
 
-* http://docs.mongodb.org/manual/reference/command/update/ - * \MongoDB\Operation\UpdateOne::__construct() - for supported options
+* \MongoDB\Operation\UpdateOne::__construct() - for supported options* http://docs.mongodb.org/manual/reference/command/update/ - 
 
 ***
 
@@ -1346,4 +1346,4 @@ public withOptions(array $options = []): \MongoDB\Collection
 
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

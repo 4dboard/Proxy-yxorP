@@ -60,12 +60,12 @@ public __construct(\League\Flysystem\AdapterInterface $adapter, \League\Flysyste
 
 ***
 
-### write
+### getAdapter
 
-Write a new file.
+Get the Adapter.
 
 ```php
-public write(mixed $path, mixed $contents, array $config = []): bool
+public getAdapter(): \League\Flysystem\AdapterInterface
 ```
 
 
@@ -74,45 +74,11 @@ public write(mixed $path, mixed $contents, array $config = []): bool
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path of the new file. |
-| `$contents` | **mixed** | The file contents. |
-| `$config` | **array** | An optional configuration array. |
 
 
 **Return Value:**
 
-True on success, false on failure.
-
-
-
-***
-
-### assertAbsent
-
-Assert a file is absent.
-
-```php
-public assertAbsent(string $path): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | path to file |
-
+adapter
 
 
 
@@ -144,12 +110,12 @@ public has(mixed $path): bool
 
 ***
 
-### getAdapter
+### write
 
-Get the Adapter.
+Write a new file.
 
 ```php
-public getAdapter(): \League\Flysystem\AdapterInterface
+public write(mixed $path, mixed $contents, array $config = []): bool
 ```
 
 
@@ -159,10 +125,18 @@ public getAdapter(): \League\Flysystem\AdapterInterface
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** | The path of the new file. |
+| `$contents` | **mixed** | The file contents. |
+| `$config` | **array** | An optional configuration array. |
+
 
 **Return Value:**
 
-adapter
+True on success, false on failure.
 
 
 
@@ -294,92 +268,6 @@ The file contents, or false on failure.
 
 ***
 
-### assertPresent
-
-Assert a file is present.
-
-```php
-public assertPresent(string $path): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | path to file |
-
-
-
-
-***
-
-### read
-
-Read a file.
-
-```php
-public read(mixed $path): string|false
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-
-
-**Return Value:**
-
-The file contents or false on failure.
-
-
-
-***
-
-### delete
-
-Delete a file.
-
-```php
-public delete(mixed $path): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** |  |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
 ### update
 
 Update an existing file.
@@ -439,6 +327,36 @@ public updateStream(mixed $path, mixed $resource, array $config = []): bool
 **Return Value:**
 
 True on success, false on failure.
+
+
+
+***
+
+### read
+
+Read a file.
+
+```php
+public read(mixed $path): string|false
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** | The path to the file. |
+
+
+**Return Value:**
+
+The file contents or false on failure.
 
 
 
@@ -526,6 +444,36 @@ public copy(mixed $path, mixed $newpath): bool
 |-----------|------|-------------|
 | `$path` | **mixed** | Path to the existing file. |
 | `$newpath` | **mixed** | The new path of the file. |
+
+
+**Return Value:**
+
+True on success, false on failure.
+
+
+
+***
+
+### delete
+
+Delete a file.
+
+```php
+public delete(mixed $path): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** |  |
 
 
 **Return Value:**
@@ -779,6 +727,36 @@ True on success, false on failure.
 
 ***
 
+### getMetadata
+
+Get a file's metadata.
+
+```php
+public getMetadata(mixed $path): array|false
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** | The path to the file. |
+
+
+**Return Value:**
+
+The file metadata or false on failure.
+
+
+
+***
+
 ### get
 
 Get a file/directory handler.
@@ -810,12 +788,12 @@ Either a file or directory handler.
 
 ***
 
-### getMetadata
+### assertPresent
 
-Get a file's metadata.
+Assert a file is present.
 
 ```php
-public getMetadata(mixed $path): array|false
+public assertPresent(string $path): void
 ```
 
 
@@ -829,12 +807,34 @@ public getMetadata(mixed $path): array|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$path` | **string** | path to file |
 
 
-**Return Value:**
 
-The file metadata or false on failure.
+
+***
+
+### assertAbsent
+
+Assert a file is absent.
+
+```php
+public assertAbsent(string $path): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** | path to file |
+
 
 
 
@@ -864,33 +864,6 @@ public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\League\Flysystem\PluginInterface** |  |
-
-
-
-
-***
-
-### __call
-
-Plugins pass-through.
-
-```php
-public __call(string $method, array $arguments): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **string** |  |
-| `$arguments` | **array** |  |
 
 
 
@@ -951,6 +924,33 @@ protected invokePlugin(string $method, array $arguments, \League\Flysystem\Files
 
 ***
 
+### __call
+
+Plugins pass-through.
+
+```php
+public __call(string $method, array $arguments): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$method` | **string** |  |
+| `$arguments` | **array** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-20 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
