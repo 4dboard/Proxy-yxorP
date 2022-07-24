@@ -1,14 +1,12 @@
 <?php namespace yxorP\app\lib\http;
 
-use yxorP\app\yP;
-
 class publicSuffixDomain
 {
     private ?string $domain = null;
 
-    public function __construct()
+    public function __construct($domain)
     {
-        $this->domain = new(yP::store(ENV_DEFAULT_TARGET));
+        $this->domain = $domain;
     }
 
     public function toString()
