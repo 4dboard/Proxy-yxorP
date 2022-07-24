@@ -159,6 +159,8 @@ class yP
      */
     private static function get(mixed $type, string $name): mixed
     {
+        /* Checking if the session has started. If it has not, it will start the session. */
+        session_start();
         /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return $type[$name];
@@ -173,6 +175,8 @@ class yP
      */
     public static function set(mixed $type, string $name, mixed $value): mixed
     {
+        /* Checking if the session has started. If it has not, it will start the session. */
+        session_start();
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $type[$name] ?: $type[$name] = $value;
     }
