@@ -97,17 +97,40 @@ class yP
         /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
         appended to it. */
 
+        /* It's defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
+        `DIR_APP` and `DIR_LIB` and `DIR_COCKPIT` and `FILE_COCKPIT_BOOTSTRAP` appended to it. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
+        /* It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+        `DIR_VENDOR` and `FILE_GUZZLE` appended to it. */
         define('PATH_GUZZLE', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE);
+        /* It's defining a constant called `PATH_BUGSNAG` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+        `DIR_VENDOR` and `FILE_BUGSNAG` appended to it. */
         define('PATH_BUGSNAG', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG);
+        /* It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+        `DIR_LIB` and `DIR_DATA` and `FILE_COOKIE_JAR` appended to it. */
         define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
+        /* It's defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
+        and `DIR_LIB` and `DIR_COCKPIT` appended to it. */
         define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT);
+        /* It's defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a
+        `DIR_INSTALL` and `DIR_COCKPIT` appended to it. */
         define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INSTALL . DIR_COCKPIT);
+        /* It's defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
+        and `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it. */
         define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX);
+        /* It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+        `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it. */
         define('PATH_REWRITE', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE);
+        /* It's defining a constant called `PATH_INC_WRAPPER` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
+        and  `DIR_LIB` and `FILE_WRAPPER` appended to it. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER);
+        /* Defining a constant. */
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
+        /* Defining a constant called PATH_PUBLIC_SUFFIX_LIST. The value of the constant is the directory root, the
+        application directory, the library directory, the data directory, and the public suffix list file. */
         define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
+        /* Defining a constant called PATH_FILE_MIME_TYPES. The value of the constant is the directory root, the
+        application directory, the library directory, the data directory, and the file mime types. */
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
     }
 
