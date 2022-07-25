@@ -5,7 +5,7 @@
 <h3>Why has YXORP become the most popular web proxy script so rapidly?</h3>
 <i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
 <hr />
-It is event-driven and plugin-based, with a flat-file database, caching technologies, and a backend GUI for uncomplicated management.
+Flat-file Cache technology and database, with a backend graphical user interface are some of the characteristics that make this system so appealing. YXORP is event-driven and plugin-based with easy customising and extending capabilities, allowing you to really tailor it to your own unique needs.
 
 ![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
 
