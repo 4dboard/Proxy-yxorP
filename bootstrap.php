@@ -16,7 +16,7 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DI
  *  Calling the `proxy()` method of the `yxorP` class.
  */
 
-if (!str_contains(YXORP_REQUEST_URI, '/app')) {
+if (!str_contains(YXORP_REQUEST_URI, '/admin')) {
     new yP(__DIR__);
     exit(die());
 }
