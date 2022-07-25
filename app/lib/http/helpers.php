@@ -234,7 +234,7 @@ class helpers
 
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_SITE_SUB_DOMAIN', self::domain_host_sub());
+        define('YXORP_SITE_SUB_DOMAIN', self::domain_sub());
 
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
@@ -313,7 +313,7 @@ class helpers
      */
     public static function domain_host(): ?string
     {
-        return trim(self::domain(), self::domain_host_sub());
+        return trim(self::domain(), self::domain_sub());
     }
 
     /**
@@ -333,7 +333,7 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function domain_host_sub(): ?string
+    public static function domain_sub(): ?string
     {
         return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
@@ -347,7 +347,7 @@ class helpers
     public static function domain_host_target(): mixed
     {
 
-        return trim(self::domain_target(), self::domain_host_sub_target());
+        return trim(self::domain_target(), self::domain_sub_target());
     }
 
     /**
@@ -367,7 +367,7 @@ class helpers
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function domain_host_sub_target(): ?string
+    public static function domain_sub_target(): ?string
     {
         return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
