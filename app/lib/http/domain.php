@@ -2,166 +2,81 @@
 /**
  * It's a class that's used to dispatch events.
  */
-class store
+class domain
 {
 
     /**
-     * Try get session else store value or execute function, set session and return values
-     * @param string $name
-     * @param mixed $value
-     * @param string|null $func
-     * @param array $varibles
-     * @return mixed
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    final public static function print(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    public static function domain_host(): ?string
     {
-        /* It's printing the value of the variable $value. */
-        echo $value;
-        /* It's printing the value of the variable $value. */
-        exit(die(self::session_set($name, $value)));
+        return 'xn--gme-nnb.com';
+        return trim(self::domain(), self::domain_sub());
     }
 
     /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    public static function session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    private static function domain(): ?string
     {
-        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-        set the value to the return value of the function. */
-        if (!$value && $func) $value = call_user_func_array($func, $varibles);
-        /* Setting the value of the variable $name to the value of the variable $value. */
-        return $value ? $_SESSION[$name] = $value : null;
+        return 'xn--gme-nnb.com';
+        return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
     }
 
     /**
-     * Try get session else store value or execute function, set session and return values
-     * @param string $name
-     * @param mixed $value
-     * @param string|null $func
-     * @param array $varibles
-     * @return mixed
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    public static function domain_sub(): ?string
     {
-        /* It's checking if the session is set, if it is, it will return the session. */
-        if ($session = self::session($name, $value, $func, $varibles)) return $session;
-        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-        set the value to the return value of the function. */
-        elseif ($tmp = self::tmp($name)) return $tmp;
-        /* It's returning null if the session is not set. */
-        else return null;
+        return 'www.';
+        return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
     /**
-     * Try get session else store value or execute function, set session and return values
-     * @param string $name
-     * @param mixed $value
-     * @param string|null $func
-     * @param array $varibles
-     * @return mixed
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
+    public static function domain_host_target(): mixed
     {
-        /* It's checking if the session is set, if it is, it will return the session. */
-        if (self::check($name)) return self::check($name);
-        /* Checking if the session is started, if not, it will start the session. */
-        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
-        /* Starting a session and then setting a value if it is passed in. */
-        return self::session_set($name, $value) ?: self::session_set($name, null, $func, $varibles);
+
+        return 'crazeygames.com';
+        return trim(self::domain_target(), self::domain_sub_target());
     }
 
     /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @return mixed
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    #[Pure] private static function check(string $name): mixed
+    public static function domain_target(): mixed
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (self::session_check($name)) ?: ((self::tmp_check($name)) ?: null);
+        return 'crazeygames.com';
+        return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
 
     /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @return mixed
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
      */
-    #[Pure] private static function session_check(string $name): mixed
+    public static function domain_sub_target(): ?string
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return self::session_get($name) ?: null;
-    }
 
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @return mixed
-     */
-    private static function session_get(string $name): mixed
-    {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return $_SESSION[$name];
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @return mixed
-     */
-    #[Pure] private static function tmp_check(string $name): mixed
-    {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return self::tmp_get($name) ?: null;
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @return mixed
-     */
-    private static function tmp_get(string $name): mixed
-    {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return $GLOBALS[$name];
-    }
-
-    /**
-     * Try get session else store value or execute function, set session and return values
-     * @param string $name
-     * @param mixed $value
-     * @param string|null $func
-     * @param array $varibles
-     * @return mixed
-     */
-    final public static function tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
-    {
-        /* It's checking if the session is set, if it is, it will return the session. */
-        if (self::check($name)) return self::check($name);
-        /* Starting a session and then setting a value if it is passed in. */
-        return self::tmp_set($name, $value) ?: self::tmp_set($name, null, $func, $varibles);
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
-     */
-    public static function tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
-    {
-        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-              set the value to the return value of the function. */
-        if (!$value && $func) $value = call_user_func_array($func, $varibles);
-        /* Setting the value of the variable $name to the value of the variable $value. */
-        return $value ? $GLOBALS[$name] = $value : null;
+        return 'www.';
+        return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
 }
