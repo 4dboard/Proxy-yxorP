@@ -351,7 +351,7 @@ class helpers
      */
     public static function domain_sub(): ?string
     {
-        return 'www';
+        return 'www.';
         return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
@@ -389,7 +389,7 @@ class helpers
     public static function domain_sub_target(): ?string
     {
 
-        return 'www';
+        return 'www.';
         return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
