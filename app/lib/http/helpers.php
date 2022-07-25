@@ -195,25 +195,6 @@ class helpers
         return $mergedArrays;
     }
 
-
-    /**
-     * @return void
-     * A function that takes a string as a parameter and returns nothing.
-     */
-    public static function env($line): void
-    {
-
-        /* Checking if the line starts with a hash. If it does, it returns. */
-        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
-
-        /* Exploding the $line variable into an array of two elements. */
-        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
-
-        /* Replacing all the new lines with null. */
-        store::store(($name . EXT_ENV), $value);
-    }
-
-
     /**
      * @param array|null $req
      * @return void
@@ -221,6 +202,16 @@ class helpers
      */
     public static function localise(?array $req): void
     {
+
+        /* Checking if the files exist in the directory. */
+        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
+
+        /* Loading the cockpit.php file. */
+        self::loadCockpit();
+
+        /* Reading the file and then calling the env function on each line. */
+        foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
+
         helpers::install();
 
         /* Defining a constant called store::store(YXORP_SERVER) and setting it to the value of $req. */
@@ -267,6 +258,23 @@ class helpers
 
         store::store(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON', [PATH_REWRITE]);
 
+    }
+
+    /**
+     * @return void
+     * A function that takes a string as a parameter and returns nothing.
+     */
+    public static function env($line): void
+    {
+
+        /* Checking if the line starts with a hash. If it does, it returns. */
+        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
+
+        /* Exploding the $line variable into an array of two elements. */
+        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
+
+        /* Replacing all the new lines with null. */
+        store::store(($name . EXT_ENV), $value);
     }
 
     /**

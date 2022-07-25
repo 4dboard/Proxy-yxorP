@@ -66,15 +66,6 @@ class yP
         /* It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         self::define();
-        /* Checking if the files exist in the directory. */
-        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
-
-        /* Loading the cockpit.php file. */
-        self::loadCockpit();
-
-        /* Reading the file and then calling the env function on each line. */
-        foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
-
         /* Setting the localisation of the server to the request. */
         helpers::localise($request);
 
@@ -132,35 +123,6 @@ class yP
         /* Defining a constant called PATH_FILE_MIME_TYPES. The value of the constant is the directory root, the
         application directory, the library directory, the data directory, and the file mime types. */
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
-    }
-
-    /**
-     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-    final protected static function autoLoader(string $root): void
-    {
-        /* Creating an empty array. */
-        $classes = [];
-        /* Loading all the PHP files in the directory. */
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
-        /* Loading all the classes in the classes folder. */
-        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
-    }
-
-    /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     */
-    public static function loadCockpit(): void
-    {
-        /* Requiring the COCKPIT library. */
-        require PATH_COCKPIT_BOOTSTRAP;
-        /* Storing the cockpit object in the tmp store. */
-        store::tmp(YXORP_COCKPIT_APP, cockpit());
     }
 
     /**
@@ -246,6 +208,35 @@ class yP
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    public static function loadCockpit(): void
+    {
+        /* Requiring the COCKPIT library. */
+        require PATH_COCKPIT_BOOTSTRAP;
+        /* Storing the cockpit object in the tmp store. */
+        store::tmp(YXORP_COCKPIT_APP, cockpit());
+    }
+
+    /**
+     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+    final protected static function autoLoader(string $root): void
+    {
+        /* Creating an empty array. */
+        $classes = [];
+        /* Loading all the PHP files in the directory. */
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        /* Loading all the classes in the classes folder. */
+        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
     /**
