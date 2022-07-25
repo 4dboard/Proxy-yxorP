@@ -130,6 +130,23 @@ class yP
     }
 
     /**
+     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+    final protected static function autoLoader(string $root): void
+    {
+        /* Creating an empty array. */
+        $classes = [];
+        /* Loading all the PHP files in the directory. */
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        /* Loading all the classes in the classes folder. */
+        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
+    }
+
+    /**
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
