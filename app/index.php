@@ -6,8 +6,8 @@ namespace yxorP\app;
 
 use yxorP\app\lib\http\store;
 
-require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'yP.php';
-require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'http' . DIRECTORY_SEPARATOR . 'store.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'yP.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'http' . DIRECTORY_SEPARATOR . 'store.php';
 
 /**
  *  Proxy to the yxorP::proxy() method.
@@ -67,6 +67,6 @@ define('COCKPIT_ADMIN_ROUTE', $route == '' ? '/' : $route);
 // the original index.php into this file. Now include bootstrap.php instead.
 // After including bootstrap.php and before running the app, you can change any
 // settings with $cockpit->set('key', 'value');
-exit(die(require(__DIR__ . DIRECTORY_SEPARATOR . 'app' . '/lib/cockpit/index.php')));
+exit(die(require(__DIR__ . '/lib/cockpit/index.php')));
 
 
