@@ -386,6 +386,8 @@ class helpers
      */
     public static function domain_sub_target(): ?string
     {
+
+        return 'www';
         return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
