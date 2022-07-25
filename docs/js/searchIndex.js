@@ -15866,6 +15866,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-http-cache.html#method_set"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Afolder\u0028\u0029",
+            "name": "folder",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-cache.html#method_folder"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain",
+            "name": "domain",
+            "summary": "It\u0027s\u0020a\u0020class\u0020that\u0027s\u0020used\u0020to\u0020dispatch\u0020events.",
+            "url": "classes/yxorP-app-lib-http-domain.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_host\u0028\u0029",
+            "name": "domain_host",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_host"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain\u0028\u0029",
+            "name": "domain",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_sub\u0028\u0029",
+            "name": "domain_sub",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_sub"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_host_target\u0028\u0029",
+            "name": "domain_host_target",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_host_target"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_target\u0028\u0029",
+            "name": "domain_target",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_target"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_sub_target\u0028\u0029",
+            "name": "domain_sub_target",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_sub_target"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore",
             "name": "paramStore",
             "summary": "",
@@ -16676,15 +16716,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-yP.html#method_init"
         },                {
+            "fqsen": "\\yxorP\\app\\yP\u003A\u003Adefine\u0028\u0029",
+            "name": "define",
+            "summary": "",
+            "url": "classes/yxorP-app-yP.html#method_define"
+        },                {
             "fqsen": "\\yxorP\\app\\yP\u003A\u003AautoLoader\u0028\u0029",
             "name": "autoLoader",
             "summary": "It\u0027s\u0020looping\u0020through\u0020all\u0020the\u0020files\u0020in\u0020the\u0020\u0060\u0024root\u0060\u0020directory,\u0020and\u0020if\u0020the\u0020file\u0020is\u0020a\u0020directory,\u0020it\u0027s\u0020calling\u0020the\n\u0060autoLoader\u0028\u0029\u0060\u0020function\u0020on\u0020it.\u0020If\u0020the\u0020file\u0020is\u0020an\u0020interface,\u0020it\u0027s\u0020requiring\u0020it.\u0020If\u0020the\u0020file\u0020is\u0020a\u0020class,\u0020it\u0027s\nrequiring\u0020it.",
             "url": "classes/yxorP-app-yP.html#method_autoLoader"
-        },                {
-            "fqsen": "\\yxorP\\app\\yP\u003A\u003AloadCockpit\u0028\u0029",
-            "name": "loadCockpit",
-            "summary": "",
-            "url": "classes/yxorP-app-yP.html#method_loadCockpit"
         },                {
             "fqsen": "\\yxorP\\app\\yP\u003A\u003AloadActions\u0028\u0029",
             "name": "loadActions",
