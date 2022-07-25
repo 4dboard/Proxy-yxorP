@@ -327,6 +327,7 @@ class helpers
      */
     public static function domain_host(): ?string
     {
+        return 'xn--gme-nnb.com';
         return trim(self::domain(), self::domain_sub());
     }
 
@@ -363,6 +364,7 @@ class helpers
     public static function domain_host_target(): mixed
     {
 
+        return 'crazeygames.com';
         return trim(self::domain_target(), self::domain_sub_target());
     }
 
