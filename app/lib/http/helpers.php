@@ -338,7 +338,6 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        echo YXORP_SITE_DOMAIN;
         return store::tmp(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
     }
 
