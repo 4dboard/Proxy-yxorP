@@ -13,7 +13,6 @@ class domain
      */
     public static function domain_host(): ?string
     {
-        return 'localhost:81';
         return trim(self::domain(), self::domain_sub());
     }
 
@@ -25,7 +24,6 @@ class domain
      */
     private static function domain(): ?string
     {
-        return 'localhost:81';
         return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
     }
 
@@ -37,7 +35,6 @@ class domain
      */
     public static function domain_sub(): ?string
     {
-        return 'www.';
         return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
@@ -50,7 +47,6 @@ class domain
     public static function domain_host_target(): mixed
     {
 
-        return 'crazeygames.com';
         return trim(self::domain_target(), self::domain_sub_target());
     }
 
@@ -62,7 +58,6 @@ class domain
      */
     public static function domain_target(): mixed
     {
-        return 'crazeygames.com';
         return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
 
@@ -75,7 +70,6 @@ class domain
     public static function domain_sub_target(): ?string
     {
 
-        return 'www.';
         return (count(explode(CHAR_PERIOD, self::domain_target())) > 2) ? strtok(self::domain_target(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
