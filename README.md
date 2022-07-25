@@ -5,7 +5,8 @@
 <h3>Why has YXORP become the most popular web proxy script so rapidly?</h3>
 <i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
 <hr />
-With flat-file combo, caching engine as well as database, the system is very responsive and can handle high loads. The backend graphical user interface all add to the attractiveness of this system. YXORP is an event-driven and plugin-based framework with simple extension and modification options, giving you the freedom to customise it to your precise needs.
+
+> <i>The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]</i>
 
 ![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
 
@@ -20,22 +21,25 @@ facilitates rapid and simple customization through plugins and themes.
 🌈 [ [DOCUMENTATION](https://4dboard.github.io/Proxy-yxorP/docs/) ]
 🔥 [ [MAKING VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🌟 [ [WEBSITE](https://4dboard.github.io/) ] 🚀️
-
+<br/><br/><br/>
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/Proxy-yxorP/files/latest/download)
-
-[![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
-
+<br/>
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179232489-113ce332-b853-41f9-b32b-e61fef62c007.png)
+<br/><br/><br/>
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
+<hr />
 
 > 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) We have just launched the first working live demo / sneak preview via Gitpod`
+<hr />
 
 > 🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so.
+<hr />
 
 > ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
+<hr />
 
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 
