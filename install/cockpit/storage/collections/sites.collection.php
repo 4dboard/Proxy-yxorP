@@ -28,7 +28,7 @@ return array(
                     'label' => 'target',
                     'type' => 'text',
                     'default' => '',
-                    'info' => 'Hostname of site to proxy i.e. \'www.example.com\'',
+                    'info' => 'Hostname of site to proxy i.e. \'example.com\'',
                     'group' => '',
                     'localize' => 0,
                     'options' =>
