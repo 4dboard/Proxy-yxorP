@@ -13,7 +13,7 @@ class domain
      */
     public static function domain_host(): ?string
     {
-        return 'xn--gme-nnb.com';
+        return 'localhost:81';
         return trim(self::domain(), self::domain_sub());
     }
 
@@ -25,7 +25,7 @@ class domain
      */
     private static function domain(): ?string
     {
-        return 'xn--gme-nnb.com';
+        return 'localhost:81';
         return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
     }
 
