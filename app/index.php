@@ -1,34 +1,4 @@
 <?php
-/* Creating a namespace called `yxorP`. */
-
-namespace yxorP\app;
-/* Including the file `yxorP.php` in the current file. */
-
-use yxorP\app\lib\http\store;
-
-require __DIR__ . DIRECTORY_SEPARATOR . 'yP.php';
-require __DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'http' . DIRECTORY_SEPARATOR . 'store.php';
-
-if (str_replace(['.js', '.css', '.png', '.svg', '.tag', '.woff', '.tff'], '', YXORP_REQUEST_URI) !== YXORP_REQUEST_URI) {
-
-    /* Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
-    "application/wasm". */
-    if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (store::store(VAR_RESPONSE)) $mime = store::store(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
-        /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
-        $mimeTypes = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . DIR_LIB . DIR_DATA . VAR_MIME . EXT_JSON), true);
-        /* Getting the file extension of the requested file. */
-        $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
-        /* Checking if the file extension is in the array of mime types. If it is, it sets the mime type to the value
-        of the array key. If it is not, it sets the mime type to text/html. */
-        if (array_key_exists($_ext, $mimeTypes)) $mime = $mimeTypes[$_ext]; else $mime = 'text' . CHAR_SLASH . 'html';
-    }
-
-    /* Setting the content type of the response. */
-    header('Content-Type: ' . $mime . ';charset=UTF-8');
-    exit(die(file_get_contents(strtok(__DIR__ . str_replace('/', DIRECTORY_SEPARATOR, YXORP_REQUEST_URI), '?'))));
-}
-
-
 // define base route and url
 $COCKPIT_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
 $COCKPIT_DOCS_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__DIR__));
