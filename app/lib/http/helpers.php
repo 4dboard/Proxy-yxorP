@@ -207,12 +207,12 @@ class helpers
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
 
         /* Loading the cockpit.php file. */
-        self::loadCockpit();
+        yP::loadCockpit();
 
         /* Reading the file and then calling the env function on each line. */
-        foreach (file(DIR_ROOT . EXT_ENV) as $line) helpers::env($line);
+        foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
 
-        helpers::install();
+        self::install();
 
         /* Defining a constant called store::store(YXORP_SERVER) and setting it to the value of $req. */
         store::tmp(VAR_SERVER, $req ?: $_SERVER);
@@ -258,6 +258,23 @@ class helpers
 
         store::store(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON', [PATH_REWRITE]);
 
+    }
+
+    /**
+     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+    final protected static function autoLoader(string $root): void
+    {
+        /* Creating an empty array. */
+        $classes = [];
+        /* Loading all the PHP files in the directory. */
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        /* Loading all the classes in the classes folder. */
+        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
     /**
