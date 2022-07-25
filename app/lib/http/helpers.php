@@ -196,18 +196,6 @@ class helpers
     }
 
     /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     */
-    public static function loadCockpit(): void
-    {
-        /* Requiring the COCKPIT library. */
-        require PATH_COCKPIT_BOOTSTRAP;
-        /* Storing the cockpit object in the tmp store. */
-        store::tmp(YXORP_COCKPIT_APP, cockpit());
-    }
-
-    /**
      * @param array|null $req
      * @return void
      * It's checking if the file exists.
@@ -219,7 +207,7 @@ class helpers
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
 
         /* Loading the cockpit.php file. */
-        yP::loadCockpit();
+        self::loadCockpit();
 
         /* Reading the file and then calling the env function on each line. */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
@@ -287,6 +275,18 @@ class helpers
         foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
         /* Loading all the classes in the classes folder. */
         foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    public static function loadCockpit(): void
+    {
+        /* Requiring the COCKPIT library. */
+        require PATH_COCKPIT_BOOTSTRAP;
+        /* Storing the cockpit object in the tmp store. */
+        store::tmp(YXORP_COCKPIT_APP, cockpit());
     }
 
     /**
