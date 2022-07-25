@@ -203,9 +203,6 @@ class helpers
     public static function localise(?array $req): void
     {
 
-        /* Checking if the files exist in the directory. */
-        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
-
         /* Loading the cockpit.php file. */
         self::loadCockpit();
 
@@ -258,23 +255,6 @@ class helpers
 
         store::store(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON', [PATH_REWRITE]);
 
-    }
-
-    /**
-     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-    final protected static function autoLoader(string $root): void
-    {
-        /* Creating an empty array. */
-        $classes = [];
-        /* Loading all the PHP files in the directory. */
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
-        /* Loading all the classes in the classes folder. */
-        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
     /**
@@ -448,8 +428,6 @@ class helpers
         }
     }
 
-    /* A function that converts the size of a file into a more readable format. */
-
     public static function setMimeType(): void
     {
 
@@ -471,7 +449,7 @@ class helpers
         header('Content-Type: ' . $mime . ';charset=UTF-8');
     }
 
-    /* Defining a static method called mime. */
+    /* A function that converts the size of a file into a more readable format. */
 
     public static function convert($size): string
     {
@@ -479,12 +457,31 @@ class helpers
         return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
     }
 
+    /* Defining a static method called mime. */
+
     public static function replace($content): string
     {
         /* Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class. */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
             return '<x' . str_replace(array_keys(store::store(YXORP_REWRITE)), array_values(store::store(YXORP_REWRITE)), $m[1]) . 'x>';
         }], $content) ?: $content;
+    }
+
+    /**
+     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+    final protected static function autoLoader(string $root): void
+    {
+        /* Creating an empty array. */
+        $classes = [];
+        /* Loading all the PHP files in the directory. */
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        /* Loading all the classes in the classes folder. */
+        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
 }
