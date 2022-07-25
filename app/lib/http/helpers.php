@@ -196,6 +196,18 @@ class helpers
     }
 
     /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    public static function loadCockpit(): void
+    {
+        /* Requiring the COCKPIT library. */
+        require PATH_COCKPIT_BOOTSTRAP;
+        /* Storing the cockpit object in the tmp store. */
+        store::tmp(YXORP_COCKPIT_APP, cockpit());
+    }
+
+    /**
      * @param array|null $req
      * @return void
      * It's checking if the file exists.
