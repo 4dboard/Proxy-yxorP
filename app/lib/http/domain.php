@@ -12,9 +12,9 @@ class domain
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function domain_trim($domain, $subdomain): ?string
+    public static function domain_host(): ?string
     {
-        return (str_starts_with($domain, $subdomain)) ? substr($domain, strlen($subdomain)) : $domain;
+        return self::domain_trim(self::domain(), self::domain_sub());
     }
 
     /**
@@ -23,10 +23,9 @@ class domain
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
      */
-    public static function domain_host(): ?string
+    private static function domain_trim($domain, $subdomain): ?string
     {
-        if (strpos($str, $prefix) === 0) $str = substr($str, strlen($prefix))
-        return trim(self::domain(), self::domain_sub());
+        return (str_starts_with($domain, $subdomain)) ? substr($domain, strlen($subdomain)) : $domain;
     }
 
     /**
@@ -60,7 +59,7 @@ class domain
     public static function domain_host_target(): mixed
     {
 
-        return trim(self::domain_target(), self::domain_sub_target());
+        return self::domain_trim(self::domain_target(), self::domain_sub_target());
     }
 
     /**
