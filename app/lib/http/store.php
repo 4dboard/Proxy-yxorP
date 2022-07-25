@@ -15,7 +15,9 @@ class store
      */
     final public static function print(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
+        /* It's printing the value of the variable $value. */
         echo $value;
+        /* It's printing the value of the variable $value. */
         exit(die(self::session_set($name, $value)));
     }
 
@@ -27,6 +29,8 @@ class store
      */
     public static function session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
+        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+        set the value to the return value of the function. */
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $value ? $_SESSION[$name] = $value : null;
@@ -42,8 +46,12 @@ class store
      */
     final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
+        /* It's checking if the session is set, if it is, it will return the session. */
         if ($session = self::session($name, $value, $func, $varibles)) return $session;
+        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+        set the value to the return value of the function. */
         elseif ($tmp = self::tmp($name)) return $tmp;
+        /* It's returning null if the session is not set. */
         else return null;
     }
 
@@ -57,6 +65,7 @@ class store
      */
     private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
+        /* It's checking if the session is set, if it is, it will return the session. */
         if (self::check($name)) return self::check($name);
         /* Checking if the session is started, if not, it will start the session. */
         if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
@@ -134,6 +143,7 @@ class store
      */
     final public static function tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
+        /* It's checking if the session is set, if it is, it will return the session. */
         if (self::check($name)) return self::check($name);
         /* Starting a session and then setting a value if it is passed in. */
         return self::tmp_set($name, $value) ?: self::tmp_set($name, null, $func, $varibles);
@@ -147,6 +157,8 @@ class store
      */
     public static function tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
+        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+              set the value to the return value of the function. */
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
         /* Setting the value of the variable $name to the value of the variable $value. */
         return $value ? $GLOBALS[$name] = $value : null;
