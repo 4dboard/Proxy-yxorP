@@ -215,11 +215,11 @@ class helpers
         store::tmp(VAR_SERVER, $request ?: $_SERVER);
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_SITE_DOMAIN', self::domain_host());
+        define('YXORP_SITE_DOMAIN', domain::domain_host());
 
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        define('YXORP_SITE_SUB_DOMAIN', self::domain_sub());
+        define('YXORP_SITE_SUB_DOMAIN', domain::domain_sub());
 
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
@@ -234,7 +234,7 @@ class helpers
 
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        define('YXORP_domain_target', self::domain_host_target());
+        define('YXORP_domain_target', domain::domain_host_target());
 
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
