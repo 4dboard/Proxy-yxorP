@@ -20,7 +20,6 @@ include 'constants.php';
 
 use Bugsnag\Client;
 use GuzzleHttp\FileCookieJar;
-use RuntimeException;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;
 use yxorP\app\lib\parser\RulesParser;
@@ -82,9 +81,6 @@ class yP
 
         /* Loading the actions. */
         self::loadActions();
-
-        /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */
-        if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
         /* Loading the Guzzle Snag class. */
         self::loadGuzzleSnag();
