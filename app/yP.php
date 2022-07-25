@@ -143,8 +143,11 @@ class yP
      */
     final protected static function autoLoader(string $root): void
     {
+        /* Creating an empty array. */
         $classes = [];
+        /* Loading all the PHP files in the directory. */
         foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        /* Loading all the classes in the classes folder. */
         foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
     }
 
@@ -156,6 +159,7 @@ class yP
     {
         /* Requiring the COCKPIT library. */
         require PATH_COCKPIT_BOOTSTRAP;
+        /* Storing the cockpit object in the tmp store. */
         store::tmp(YXORP_COCKPIT_APP, cockpit());
     }
 
