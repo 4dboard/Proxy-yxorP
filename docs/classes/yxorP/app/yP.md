@@ -104,6 +104,30 @@ A method that takes an array as a parameter and returns nothing.
 
 ***
 
+### define
+
+
+
+```php
+private define(): void
+```
+
+
+
+
+
+
+
+
+
+**Return Value:**
+
+A method that takes an array as a parameter and returns nothing.
+
+
+
+***
+
 ### autoLoader
 
 It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
@@ -127,30 +151,6 @@ final protected static autoLoader(string $root): void
 |-----------|------|-------------|
 | `$root` | **string** |  |
 
-
-
-
-***
-
-### loadCockpit
-
-
-
-```php
-public static loadCockpit(): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-A method that takes an array as a parameter and returns nothing.
 
 
 
