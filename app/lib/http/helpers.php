@@ -374,6 +374,7 @@ class helpers
      */
     public static function domain_target(): mixed
     {
+        return 'crazeygames.com';
         return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
 
