@@ -1019,6 +1019,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`cache`](./classes/yxorP/app/lib/http/cache.md) | |
 | [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | |
 | [`request`](./classes/yxorP/app/lib/http/request.md) | |
+| [`store`](./classes/yxorP/app/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
 | [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | |
 
 
@@ -1056,77 +1057,6 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
-### \yxorP\app\lib\parser
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`domain`](./classes/yxorP/app/lib/parser/domain.md) | |
-| [`idna`](./classes/yxorP/app/lib/parser/idna.md) | |
-| [`idnaInfo`](./classes/yxorP/app/lib/parser/idnaInfo.md) | |
-| [`resolvedDomain`](./classes/yxorP/app/lib/parser/resolvedDomain.md) | |
-| [`rules`](./classes/yxorP/app/lib/parser/rules.md) | |
-| [`stream`](./classes/yxorP/app/lib/parser/stream.md) | |
-| [`suffix`](./classes/yxorP/app/lib/parser/suffix.md) | |
-| [`syntaxError`](./classes/yxorP/app/lib/parser/syntaxError.md) | |
-| [`topLevelDomains`](./classes/yxorP/app/lib/parser/topLevelDomains.md) | |
-| [`unableToLoadPublicSuffixList`](./classes/yxorP/app/lib/parser/unableToLoadPublicSuffixList.md) | |
-| [`unableToLoadResource`](./classes/yxorP/app/lib/parser/unableToLoadResource.md) | |
-| [`unableToLoadTopLevelDomainList`](./classes/yxorP/app/lib/parser/unableToLoadTopLevelDomainList.md) | |
-| [`unableToResolveDomain`](./classes/yxorP/app/lib/parser/unableToResolveDomain.md) | |
-
-
-
-#### Interfaces
-
-| Interface | Description |
-|-----------|-------------|
-| [`cannotProcessHostInterface`](./classes/yxorP/app/lib/parser/cannotProcessHostInterface.md) | |
-| [`domainNameProviderInterface`](./classes/yxorP/app/lib/parser/domainNameProviderInterface.md) | |
-| [`domainNameResolverInterface`](./classes/yxorP/app/lib/parser/domainNameResolverInterface.md) | |
-| [`hostInterface`](./classes/yxorP/app/lib/parser/hostInterface.md) | |
-| [`nameInterface`](./classes/yxorP/app/lib/parser/nameInterface.md) | |
-| [`publicSuffixListInterface`](./classes/yxorP/app/lib/parser/publicSuffixListInterface.md) | |
-| [`resolvedDomainNameInterface`](./classes/yxorP/app/lib/parser/resolvedDomainNameInterface.md) | |
-| [`resourceUriInterface`](./classes/yxorP/app/lib/parser/resourceUriInterface.md) | |
-| [`topLevelDomainInterface`](./classes/yxorP/app/lib/parser/topLevelDomainInterface.md) | |
-| [`topLevelDomainListInterface`](./classes/yxorP/app/lib/parser/topLevelDomainListInterface.md) | |
-
-
-
-### \yxorP\app\lib\parser\storage
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`psrStorageFactory`](./classes/yxorP/app/lib/parser/storage/psrStorageFactory.md) | |
-| [`publicSuffixListPsr16Cache`](./classes/yxorP/app/lib/parser/storage/publicSuffixListPsr16Cache.md) | |
-| [`publicSuffixListPsr18Client`](./classes/yxorP/app/lib/parser/storage/publicSuffixListPsr18Client.md) | |
-| [`rulesStorage`](./classes/yxorP/app/lib/parser/storage/rulesStorage.md) | |
-| [`timeToLive`](./classes/yxorP/app/lib/parser/storage/timeToLive.md) | |
-| [`topLevelDomainListPsr16Cache`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListPsr16Cache.md) | |
-| [`topLevelDomainListPsr18Client`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListPsr18Client.md) | |
-| [`topLevelDomainsStorage`](./classes/yxorP/app/lib/parser/storage/topLevelDomainsStorage.md) | |
-
-
-
-#### Interfaces
-
-| Interface | Description |
-|-----------|-------------|
-| [`publicSuffixListCacheInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListCacheInterface.md) | |
-| [`publicSuffixListClientInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListClientInterface.md) | |
-| [`publicSuffixListStorageFactoryInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListStorageFactoryInterface.md) | |
-| [`publicSuffixListStorageInterface`](./classes/yxorP/app/lib/parser/storage/publicSuffixListStorageInterface.md) | |
-| [`topLevelDomainListCacheInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListCacheInterface.md) | |
-| [`topLevelDomainListClientInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListClientInterface.md) | |
-| [`topLevelDomainListStorageFactoryInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListStorageFactoryInterface.md) | |
-| [`topLevelDomainListStorageInterface`](./classes/yxorP/app/lib/parser/storage/topLevelDomainListStorageInterface.md) | |
-
-
-
 ### \yxorP\app\plugin
 
 #### Classes
@@ -1141,6 +1071,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`proxifyPluginAction`](./classes/yxorP/app/plugin/proxifyPluginAction.md) | |
 | [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | |
 | [`twitterPluginAction`](./classes/yxorP/app/plugin/twitterPluginAction.md) | |
+| [`youtubePluginAction`](./classes/yxorP/app/plugin/youtubePluginAction.md) | |
 
 
 
@@ -1152,9 +1083,10 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Admin`](./classes/yxorp/Controller/Admin.md) | Class Controller|
+| [`Admin`](./classes/yxorp/Controller/Admin.md) | Class Controller|
 
 
 
 
 ***
-> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -15,6 +15,33 @@
 ## Methods
 
 
+### headersReceived
+
+
+
+```php
+public static headersReceived(mixed $response, mixed $request_url): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$response` | **mixed** |  |
+| `$request_url` | **mixed** |  |
+
+
+
+
+***
+
 ### onBeforeSend
 
 
@@ -55,33 +82,6 @@ public onSent(): void
 
 ***
 
-### headersReceived
-
-
-
-```php
-public static headersReceived(mixed $response, mixed $request_url): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$response` | **mixed** |  |
-| `$request_url` | **mixed** |  |
-
-
-
-
-***
-
 
 ## Inherited methods
 
@@ -106,32 +106,6 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
-
-
-
-
-***
-
-### route
-
-
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 
@@ -404,6 +378,32 @@ public onBuildException(\Exception $e): void
 
 ***
 
+### route
+
+
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

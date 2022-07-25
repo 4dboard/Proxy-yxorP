@@ -32,26 +32,6 @@ protected ?string $url_pattern
 ## Methods
 
 
-### onComplete
-
-
-
-```php
-public onComplete(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### completed
 
 
@@ -73,6 +53,26 @@ public static completed(mixed $matches, mixed $content): void
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
 | `$content` | **mixed** |  |
+
+
+
+
+***
+
+### onComplete
+
+
+
+```php
+public onComplete(): void
+```
+
+
+
+
+
+
+
 
 
 
@@ -103,32 +103,6 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
-
-
-
-
-***
-
-### route
-
-
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 
@@ -401,6 +375,32 @@ public onBuildException(\Exception $e): void
 
 ***
 
+### route
+
+
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

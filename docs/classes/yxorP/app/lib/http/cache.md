@@ -92,32 +92,6 @@ private static gen(?string $key): array
 
 ***
 
-### fetch
-
-
-
-```php
-public static fetch(?string $key = null): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **?string** |  |
-
-
-
-
-***
-
 ### set
 
 
@@ -145,33 +119,6 @@ public static set(mixed $content, ?string $key = null): void
 
 ***
 
-### store
-
-
-
-```php
-public static store(mixed $content, ?string $key = null): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$content` | **mixed** |  |
-| `$key` | **?string** |  |
-
-
-
 
 ***
-
-
-***
-> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

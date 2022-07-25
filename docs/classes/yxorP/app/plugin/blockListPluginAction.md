@@ -15,26 +15,6 @@
 ## Methods
 
 
-### onBeforeSend
-
-
-
-```php
-public onBeforeSend(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### callable
 
 
@@ -56,6 +36,26 @@ public static callable(mixed $fnc_custom, mixed $url): mixed
 |-----------|------|-------------|
 | `$fnc_custom` | **mixed** |  |
 | `$url` | **mixed** |  |
+
+
+
+
+***
+
+### onBeforeSend
+
+
+
+```php
+public onBeforeSend(): void
+```
+
+
+
+
+
+
+
 
 
 
@@ -86,32 +86,6 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
-
-
-
-
-***
-
-### route
-
-
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 
@@ -384,6 +358,32 @@ public onBuildException(\Exception $e): void
 
 ***
 
+### route
+
+
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-24 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
