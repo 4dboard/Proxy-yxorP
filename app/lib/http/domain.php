@@ -5,6 +5,18 @@
 class domain
 {
 
+
+    /**
+     * @return string|null
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     */
+    public static function domain_trim($domain, $subdomain): ?string
+    {
+        return (str_starts_with($domain, $subdomain)) ? substr($domain, strlen($subdomain)) : $domain;
+    }
+
     /**
      * @return string|null
      *
@@ -13,6 +25,7 @@ class domain
      */
     public static function domain_host(): ?string
     {
+        if (strpos($str, $prefix) === 0) $str = substr($str, strlen($prefix))
         return trim(self::domain(), self::domain_sub());
     }
 
