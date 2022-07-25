@@ -235,7 +235,6 @@ class helpers
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_domain_target', domain::domain_host_target());
-        echo YXORP_domain_target;
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
         /* Defining constants. */
