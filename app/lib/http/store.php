@@ -16,9 +16,9 @@ class store
     final public static function print(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         /* It's printing the value of the variable $value. */
-        echo $value;
+        self::session_set($name, $value);
         /* It's printing the value of the variable $value. */
-        exit(die(self::session_set($name, $value)));
+        exit(die($value));
     }
 
     /**
