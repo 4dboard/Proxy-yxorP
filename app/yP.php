@@ -69,7 +69,6 @@ class yP
         /* Checking if the files exist in the directory. */
         foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
 
-
         /* Loading the cockpit.php file. */
         self::loadCockpit();
 
