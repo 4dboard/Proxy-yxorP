@@ -123,6 +123,10 @@ class yP
         /* Defining a constant called PATH_FILE_MIME_TYPES. The value of the constant is the directory root, the
         application directory, the library directory, the data directory, and the file mime types. */
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
+
+        /* Checking if the files exist in the directory. */
+        foreach (array('http', 'minify', 'parser') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
+
     }
 
     /**
