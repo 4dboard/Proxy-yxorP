@@ -228,7 +228,7 @@ class helpers
         /* Setting the pattern, replace, and plugins variables. */
         foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
             store::store($key, store::store(SITE_DETAILS)[$value]);
-
+        print_r(store::store(SITE_DETAILS));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_TARGET_URL', (store::store(SITE_DETAILS))[COCKPIT_TARGET]);
 

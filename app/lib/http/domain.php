@@ -58,7 +58,6 @@ class domain
      */
     public static function domain_target(): mixed
     {
-        echo YXORP_TARGET_URL;
         return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
     }
 
