@@ -200,7 +200,7 @@ class helpers
      * @return void
      * It's checking if the file exists.
      */
-    public static function localise(?array $req): void
+    public static function localise(?array $request): void
     {
 
         /* Loading the cockpit.php file. */
@@ -212,10 +212,7 @@ class helpers
         self::install();
 
         /* Defining a constant called store::store(YXORP_SERVER) and setting it to the value of $req. */
-        store::tmp(VAR_SERVER, $req ?: $_SERVER);
-
-        /* Checking if the site url contains a period. If it does, it returns 0. */
-        define('YXORP_IS_LOCALHOST', !str_contains(YXORP_HTTP_HOST, CHAR_PERIOD));
+        store::tmp(VAR_SERVER, $request ?: $_SERVER);
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_SITE_DOMAIN', self::domain_host());
@@ -341,6 +338,7 @@ class helpers
      */
     private static function domain(): ?string
     {
+        return 'www.gȧme.com';
         return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
     }
 
