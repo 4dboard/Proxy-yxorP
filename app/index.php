@@ -27,6 +27,6 @@ define('COCKPIT_ADMIN_ROUTE', $route == '' ? '/' : $route);
 // the original index.php into this file. Now include bootstrap.php instead.
 // After including bootstrap.php and before running the app, you can change any
 // settings with $cockpit->set('key', 'value');
-exit(die(require(__DIR__ . '/lib/cockpit/index.php')));
+require(__DIR__ . '/lib/cockpit/index.php');
 
 
