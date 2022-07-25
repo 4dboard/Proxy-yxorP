@@ -2,7 +2,10 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
-YXORP is the fastest Web Proxy, includes a plugin marketplace and comes with a backend GUI for easy managemtn.
+<h3>Why has YXORP become the most popular web proxy script so rapidly?</h3>
+<i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
+<hr />
+It is event-driven and plugin-based, with a flat-file database, caching technologies, and a backend GUI for uncomplicated management.
 
 ![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
 
