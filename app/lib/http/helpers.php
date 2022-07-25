@@ -338,7 +338,7 @@ class helpers
      */
     private static function domain(): ?string
     {
-        return 'www.gȧme.com';
+        return 'xn--gme-nnb.com';
         return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
     }
 
@@ -350,6 +350,7 @@ class helpers
      */
     public static function domain_sub(): ?string
     {
+        return 'www';
         return (count(explode(CHAR_PERIOD, self::domain())) > 2) ? strtok(self::domain(), CHAR_PERIOD) . CHAR_PERIOD : null;
     }
 
