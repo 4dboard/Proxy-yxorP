@@ -235,11 +235,11 @@ class helpers
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_domain_target', domain::domain_host_target());
-
+        echo YXORP_domain_target;
         /* Defining a constant. */
         define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
         /* Defining constants. */
-        
+
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::store(SITE_DETAILS)[VAR_FILES]));
