@@ -14,12 +14,12 @@ It's a class that's used to dispatch events.
 ## Methods
 
 
-### handler
+### print
 
-Try get perm else store value or execute function, set perm and return values
+Try get session else store value or execute function, set session and return values
 
 ```php
-final public static handler(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
+final public static print(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
 ```
 
 
@@ -43,12 +43,99 @@ final public static handler(string $name, mixed $value = null, string|null $func
 
 ***
 
+### session_set
+
+It's setting the value of the variable $name to the value of the variable $_value.
+
+```php
+public static session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+| `$func` | **?string** |  |
+| `$varibles` | **array** |  |
+
+
+
+
+***
+
+### store
+
+Try get session else store value or execute function, set session and return values
+
+```php
+final public static store(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
+```
+
+
+
+* This method is **static**.
+
+* This method is **final**.
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+| `$func` | **string&#124;null** |  |
+| `$varibles` | **array** |  |
+
+
+
+
+***
+
+### session
+
+Try get session else store value or execute function, set session and return values
+
+```php
+private static session(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$value` | **mixed** |  |
+| `$func` | **string&#124;null** |  |
+| `$varibles` | **array** |  |
+
+
+
+
+***
+
 ### check
 
-Try get perm else store value or execute function, set perm and return values
+It's setting the value of the variable $name to the value of the variable $_value.
 
 ```php
-private static check(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
+private static check(string $name): mixed
 ```
 
 
@@ -56,6 +143,136 @@ private static check(string $name, mixed $value = null, string|null $func = null
 * This method is **static**.
 
 
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### session_check
+
+It's setting the value of the variable $name to the value of the variable $_value.
+
+```php
+private static session_check(string $name): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### session_get
+
+It's setting the value of the variable $name to the value of the variable $_value.
+
+```php
+private static session_get(string $name): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### tmp_check
+
+It's setting the value of the variable $name to the value of the variable $_value.
+
+```php
+private static tmp_check(string $name): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### tmp_get
+
+It's setting the value of the variable $name to the value of the variable $_value.
+
+```php
+private static tmp_get(string $name): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### tmp
+
+Try get session else store value or execute function, set session and return values
+
+```php
+final public static tmp(string $name, mixed $value = null, string|null $func = null, array $varibles = []): mixed
+```
+
+
+
+* This method is **static**.
+
+* This method is **final**.
 
 
 **Parameters:**
@@ -72,38 +289,12 @@ private static check(string $name, mixed $value = null, string|null $func = null
 
 ***
 
-### get
+### tmp_set
 
 It's setting the value of the variable $name to the value of the variable $_value.
 
 ```php
-private static get(string $name): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
-### set
-
-It's setting the value of the variable $name to the value of the variable $_value.
-
-```php
-public static set(string $name, mixed $value, string|null $func = null, array $varibles = []): mixed
+public static tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
 ```
 
 
@@ -119,7 +310,7 @@ public static set(string $name, mixed $value, string|null $func = null, array $v
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
-| `$func` | **string&#124;null** |  |
+| `$func` | **?string** |  |
 | `$varibles` | **array** |  |
 
 
@@ -129,4 +320,4 @@ public static set(string $name, mixed $value, string|null $func = null, array $v
 
 
 ***
-> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+

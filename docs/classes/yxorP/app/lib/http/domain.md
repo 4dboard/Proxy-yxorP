@@ -39,6 +39,86 @@ A static method that is being called.
 
 ***
 
+### domain_sub
+
+
+
+```php
+public static domain_sub(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_host_target
+
+
+
+```php
+public static domain_host_target(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_target
+
+
+
+```php
+public static domain_target(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_sub_target
+
+
+
+```php
+public static domain_sub_target(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### domain_trim
 
 
@@ -96,86 +176,6 @@ A static method that is being called.
 
 ***
 
-### domain_sub
-
-
-
-```php
-public static domain_sub(): ?string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
 
 ***
 
-### domain_host_target
-
-
-
-```php
-public static domain_host_target(): ?string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### domain_target
-
-
-
-```php
-public static domain_target(): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### domain_sub_target
-
-
-
-```php
-public static domain_sub_target(): ?string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

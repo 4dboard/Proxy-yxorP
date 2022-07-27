@@ -210,6 +210,30 @@ private addSubscriber(object $subscriber): void
 
 ***
 
+### loadGuzzleSnag
+
+
+
+```php
+public static loadGuzzleSnag(): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+**Return Value:**
+
+A method that takes an array as a parameter and returns nothing.
+
+
+
+***
+
 ### dispatch
 
 The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
@@ -270,4 +294,4 @@ The priority of the listener. Higher priority listeners are called before lower 
 
 
 ***
-> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
