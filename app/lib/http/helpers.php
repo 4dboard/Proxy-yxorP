@@ -1,5 +1,7 @@
 <?php namespace yxorP\app\lib\http;
 
+use Bugsnag\Client;
+use GuzzleHttp\Cookie\FileCookieJar;
 use yxorP\app\lib\parser\resolvedDomainNameInterface;
 use yxorP\app\lib\parser\rules;
 use function explode;
@@ -445,6 +447,36 @@ class helpers
          * Reading the contents of the file and decoding it into an array.
          */
         return json_decode(file_get_contents(PATH_REWRITE), true);
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     *
+     */
+    public static function loadGuzzleSnag(): void
+    {
+
+        /**
+         * It's requiring the Guzzle library.
+         */
+        require PATH_GUZZLE;
+
+        /**
+         * It's requiring the Bugsnag library.
+         */
+        require PATH_BUGSNAG;
+
+        /**
+         * It's setting the token to the snag key.
+         */
+        store::tmp(VAR_BUGSNAG, Client::make(store::store(ENV_BUGSNAG_KEY)));
+
+        /**
+         * Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class.
+         */
+        store::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+
     }
 
     /**
