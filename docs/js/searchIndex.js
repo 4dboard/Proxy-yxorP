@@ -51,6 +51,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_EXT_TEXT"
         },                {
+            "fqsen": "\\MIME",
+            "name": "MIME",
+            "summary": "",
+            "url": "namespaces/default.html#constant_MIME"
+        },                {
             "fqsen": "\\CHAR_SLASH",
             "name": "CHAR_SLASH",
             "summary": "",
@@ -471,6 +476,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_VAR_REPLACE"
         },                {
+            "fqsen": "\\VAR_CSS",
+            "name": "VAR_CSS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_CSS"
+        },                {
+            "fqsen": "\\VAR_JS",
+            "name": "VAR_JS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_JS"
+        },                {
             "fqsen": "\\VAR_SERVER",
             "name": "VAR_SERVER",
             "summary": "",
@@ -686,6 +701,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_SITE_DETAILS"
         },                {
+            "fqsen": "\\SITE_DETAILS_GLOBAL",
+            "name": "SITE_DETAILS_GLOBAL",
+            "summary": "",
+            "url": "namespaces/default.html#constant_SITE_DETAILS_GLOBAL"
+        },                {
             "fqsen": "\\SITE_DOMAIN",
             "name": "SITE_DOMAIN",
             "summary": "",
@@ -736,6 +756,26 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_COCKPIT_COLLECTIONS"
         },                {
+            "fqsen": "\\COCKPIT_SINGLETONS",
+            "name": "COCKPIT_SINGLETONS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_COCKPIT_SINGLETONS"
+        },                {
+            "fqsen": "\\COCKPIT_KEY",
+            "name": "COCKPIT_KEY",
+            "summary": "",
+            "url": "namespaces/default.html#constant_COCKPIT_KEY"
+        },                {
+            "fqsen": "\\COCKPIT_SETTINGS",
+            "name": "COCKPIT_SETTINGS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_COCKPIT_SETTINGS"
+        },                {
+            "fqsen": "\\COCKPIT_VAL",
+            "name": "COCKPIT_VAL",
+            "summary": "",
+            "url": "namespaces/default.html#constant_COCKPIT_VAL"
+        },                {
             "fqsen": "\\COCKPIT_SITES",
             "name": "COCKPIT_SITES",
             "summary": "",
@@ -745,6 +785,11 @@ Search.appendIndex(
             "name": "COCKPIT_HOST",
             "summary": "",
             "url": "namespaces/default.html#constant_COCKPIT_HOST"
+        },                {
+            "fqsen": "\\COCKPIT_NAME",
+            "name": "COCKPIT_NAME",
+            "summary": "",
+            "url": "namespaces/default.html#constant_COCKPIT_NAME"
         },                {
             "fqsen": "\\COCKPIT_TARGET",
             "name": "COCKPIT_TARGET",
@@ -1016,10 +1061,30 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_TARGET_PLUGINS"
         },                {
+            "fqsen": "\\YXORP_TARGET_JS",
+            "name": "YXORP_TARGET_JS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_TARGET_JS"
+        },                {
+            "fqsen": "\\YXORP_TARGET_CSS",
+            "name": "YXORP_TARGET_CSS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_TARGET_CSS"
+        },                {
             "fqsen": "\\YXORP_GLOBAL_REPLACE",
             "name": "YXORP_GLOBAL_REPLACE",
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_GLOBAL_REPLACE"
+        },                {
+            "fqsen": "\\YXORP_GLOBAL_CSS",
+            "name": "YXORP_GLOBAL_CSS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_GLOBAL_CSS"
+        },                {
+            "fqsen": "\\YXORP_GLOBAL_JS",
+            "name": "YXORP_GLOBAL_JS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_GLOBAL_JS"
         },                {
             "fqsen": "\\YXORP_GLOBAL_PATTERN",
             "name": "YXORP_GLOBAL_PATTERN",
@@ -1273,7 +1338,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\onWriteAction\u003A\u003AonWrite\u0028\u0029",
             "name": "onWrite",
-            "summary": "Used\u0020to\u0020execute\u0020code\u0020when\u0020the\u0020headers\u0020are\u0020received.",
+            "summary": "It\u0020checks\u0020if\u0020the\u0020response\u0020is\u0020not\u0020empty\u0020and\u0020if\u0020the\u0020MIME\u0020type\u0020is\u0020HTML,\u0020JavaScript,\u0020CSS,\u0020XML,\u0020text\u0020or\u0020HTML.\u0020If\u0020it\u0020is,\nit\u0020will\u0020cache\u0020the\u0020response",
             "url": "classes/onWriteAction.html#method_onWrite"
         },                {
             "fqsen": "\\yxorp\\Controller\\Admin",
@@ -15856,20 +15921,15 @@ Search.appendIndex(
             "summary": "Used\u0020to\u0020check\u0020if\u0020the\u0020cache\u0020file\u0020exists.",
             "url": "classes/yxorP-app-lib-http-cache.html#method_isValid"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "It\u0027s\u0020writing\u0020the\u0020content\u0020to\u0020the\u0020cache\u0020file.",
-            "url": "classes/yxorP-app-lib-http-cache.html#method_set"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Agen\u0028\u0029",
             "name": "gen",
             "summary": "A\u0020PHPDoc\u0020annotation\u0020that\u0020is\u0020used\u0020to\u0020tell\u0020the\u0020IDE\u0020that\u0020the\u0020function\u0020returns\u0020an\u0020array\u0020with\u0020the\u0020keys\u0020\u0060key\u0060\u0020and\u0020\u0060path\u0060.",
             "url": "classes/yxorP-app-lib-http-cache.html#method_gen"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Afolder\u0028\u0029",
-            "name": "folder",
-            "summary": "It\u0027s\u0020checking\u0020if\u0020the\u0020\u0060tmp\u0060\u0020directory\u0020exists,\u0020and\u0020if\u0020it\u0020doesn\u0027t,\u0020it\u0027s\u0020creating\u0020it.",
-            "url": "classes/yxorP-app-lib-http-cache.html#method_folder"
+            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "It\u0027s\u0020writing\u0020the\u0020content\u0020to\u0020the\u0020cache\u0020file.",
+            "url": "classes/yxorP-app-lib-http-cache.html#method_set"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\domain",
             "name": "domain",
@@ -15880,6 +15940,16 @@ Search.appendIndex(
             "name": "domain_host",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-domain.html#method_domain_host"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_trim\u0028\u0029",
+            "name": "domain_trim",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_trim"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain\u0028\u0029",
+            "name": "domain",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_sub\u0028\u0029",
             "name": "domain_sub",
@@ -15900,16 +15970,6 @@ Search.appendIndex(
             "name": "domain_sub_target",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-domain.html#method_domain_sub_target"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_trim\u0028\u0029",
-            "name": "domain_trim",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_trim"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain\u0028\u0029",
-            "name": "domain",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-domain.html#method_domain"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore",
             "name": "paramStore",
@@ -15936,6 +15996,11 @@ Search.appendIndex(
             "summary": "Setting\u0020the\u0020value\u0020of\u0020the\u0020\u0060\u0024key\u0060\u0020parameter\u0020to\u0020the\u0020\u0060\u0024value\u0060\u0020parameter.",
             "url": "classes/yxorP-app-lib-http-paramStore.html#method_set"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003AnormalizeKey\u0028\u0029",
+            "name": "normalizeKey",
+            "summary": "Normalizing\u0020the\u0020key.",
+            "url": "classes/yxorP-app-lib-http-paramStore.html#method_normalizeKey"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003Ahas\u0028\u0029",
             "name": "has",
             "summary": "Checking\u0020if\u0020the\u0020\u0060\u0024key\u0060\u0020parameter\u0020is\u0020in\u0020the\u0020\u0060\u0024data\u0060\u0020variable.",
@@ -15961,11 +16026,6 @@ Search.appendIndex(
             "summary": "Returning\u0020the\u0020\u0060\u0024data\u0060\u0020variable\u0020as\u0020a\u0020JSON\u0020string.",
             "url": "classes/yxorP-app-lib-http-paramStore.html#method___toString"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003AnormalizeKey\u0028\u0029",
-            "name": "normalizeKey",
-            "summary": "Normalizing\u0020the\u0020key.",
-            "url": "classes/yxorP-app-lib-http-paramStore.html#method_normalizeKey"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003A\u0024data",
             "name": "data",
             "summary": "Declaring\u0020a\u0020private\u0020variable\u0020called\u0020\u0060\u0024data\u0060\u0020that\u0020is\u0020an\u0020array.",
@@ -15986,30 +16046,15 @@ Search.appendIndex(
             "summary": "The\u0020constructor\u0020of\u0020the\u0020class.",
             "url": "classes/yxorP-app-lib-http-request.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AparseQuery\u0028\u0029",
-            "name": "parseQuery",
-            "summary": "Parsing\u0020a\u0020query\u0020string\u0020into\u0020an\u0020array.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_parseQuery"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AbuildPostBody\u0028\u0029",
-            "name": "buildPostBody",
-            "summary": "Generating\u0020a\u0020boundary\u0020for\u0020the\u0020multipart\/form\u002Ddata\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_buildPostBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AcreateFromGlobals\u0028\u0029",
-            "name": "createFromGlobals",
-            "summary": "Detecting\u0020the\u0020content\u0020type\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_createFromGlobals"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AgenerateBoundary\u0028\u0029",
-            "name": "generateBoundary",
-            "summary": "Preparing\u0020the\u0020body\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_generateBoundary"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AsetUrl\u0028\u0029",
             "name": "setUrl",
             "summary": "Setting\u0020the\u0020URL\u0020of\u0020the\u0020request.",
             "url": "classes/yxorP-app-lib-http-request.html#method_setUrl"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AparseQuery\u0028\u0029",
+            "name": "parseQuery",
+            "summary": "Parsing\u0020a\u0020query\u0020string\u0020into\u0020an\u0020array.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_parseQuery"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AsetBody\u0028\u0029",
             "name": "setBody",
@@ -16020,6 +16065,26 @@ Search.appendIndex(
             "name": "prepare",
             "summary": "Setting\u0020the\u0020body\u0020of\u0020the\u0020request.",
             "url": "classes/yxorP-app-lib-http-request.html#method_prepare"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AgenerateBoundary\u0028\u0029",
+            "name": "generateBoundary",
+            "summary": "Preparing\u0020the\u0020body\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_generateBoundary"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AbuildPostBody\u0028\u0029",
+            "name": "buildPostBody",
+            "summary": "Generating\u0020a\u0020boundary\u0020for\u0020the\u0020multipart\/form\u002Ddata\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_buildPostBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AdetectContentType\u0028\u0029",
+            "name": "detectContentType",
+            "summary": "Building\u0020the\u0020body\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_detectContentType"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AcreateFromGlobals\u0028\u0029",
+            "name": "createFromGlobals",
+            "summary": "Detecting\u0020the\u0020content\u0020type\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_createFromGlobals"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AgetMethod\u0028\u0029",
             "name": "getMethod",
@@ -16055,11 +16120,6 @@ Search.appendIndex(
             "name": "getUri",
             "summary": "An\u0020alias\u0020for\u0020\u0060public\u0020function\u0020getUrl\u0028\u0029\u0060.",
             "url": "classes/yxorP-app-lib-http-request.html#method_getUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AdetectContentType\u0028\u0029",
-            "name": "detectContentType",
-            "summary": "Building\u0020the\u0020body\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_detectContentType"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003A\u0024params",
             "name": "params",
@@ -16131,60 +16191,25 @@ Search.appendIndex(
             "summary": "It\u0027s\u0020a\u0020class\u0020that\u0027s\u0020used\u0020to\u0020dispatch\u0020events.",
             "url": "classes/yxorP-app-lib-http-store.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Aprint\u0028\u0029",
-            "name": "print",
-            "summary": "Try\u0020get\u0020session\u0020else\u0020store\u0020value\u0020or\u0020execute\u0020function,\u0020set\u0020session\u0020and\u0020return\u0020values",
-            "url": "classes/yxorP-app-lib-http-store.html#method_print"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Asession_set\u0028\u0029",
-            "name": "session_set",
-            "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
-            "url": "classes/yxorP-app-lib-http-store.html#method_session_set"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Astore\u0028\u0029",
-            "name": "store",
-            "summary": "Try\u0020get\u0020session\u0020else\u0020store\u0020value\u0020or\u0020execute\u0020function,\u0020set\u0020session\u0020and\u0020return\u0020values",
-            "url": "classes/yxorP-app-lib-http-store.html#method_store"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Asession\u0028\u0029",
-            "name": "session",
-            "summary": "Try\u0020get\u0020session\u0020else\u0020store\u0020value\u0020or\u0020execute\u0020function,\u0020set\u0020session\u0020and\u0020return\u0020values",
-            "url": "classes/yxorP-app-lib-http-store.html#method_session"
+            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Ahandler\u0028\u0029",
+            "name": "handler",
+            "summary": "Try\u0020get\u0020perm\u0020else\u0020store\u0020value\u0020or\u0020execute\u0020function,\u0020set\u0020perm\u0020and\u0020return\u0020values",
+            "url": "classes/yxorP-app-lib-http-store.html#method_handler"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Acheck\u0028\u0029",
             "name": "check",
-            "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
+            "summary": "Try\u0020get\u0020perm\u0020else\u0020store\u0020value\u0020or\u0020execute\u0020function,\u0020set\u0020perm\u0020and\u0020return\u0020values",
             "url": "classes/yxorP-app-lib-http-store.html#method_check"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Asession_check\u0028\u0029",
-            "name": "session_check",
+            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Aget\u0028\u0029",
+            "name": "get",
             "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
-            "url": "classes/yxorP-app-lib-http-store.html#method_session_check"
+            "url": "classes/yxorP-app-lib-http-store.html#method_get"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Asession_get\u0028\u0029",
-            "name": "session_get",
+            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Aset\u0028\u0029",
+            "name": "set",
             "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
-            "url": "classes/yxorP-app-lib-http-store.html#method_session_get"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Atmp_check\u0028\u0029",
-            "name": "tmp_check",
-            "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
-            "url": "classes/yxorP-app-lib-http-store.html#method_tmp_check"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Atmp_get\u0028\u0029",
-            "name": "tmp_get",
-            "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
-            "url": "classes/yxorP-app-lib-http-store.html#method_tmp_get"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Atmp\u0028\u0029",
-            "name": "tmp",
-            "summary": "Try\u0020get\u0020session\u0020else\u0020store\u0020value\u0020or\u0020execute\u0020function,\u0020set\u0020session\u0020and\u0020return\u0020values",
-            "url": "classes/yxorP-app-lib-http-store.html#method_tmp"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\store\u003A\u003Atmp_set\u0028\u0029",
-            "name": "tmp_set",
-            "summary": "It\u0027s\u0020setting\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024name\u0020to\u0020the\u0020value\u0020of\u0020the\u0020variable\u0020\u0024_value.",
-            "url": "classes/yxorP-app-lib-http-store.html#method_tmp_set"
+            "url": "classes/yxorP-app-lib-http-store.html#method_set"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper",
             "name": "wrapper",
@@ -16195,6 +16220,11 @@ Search.appendIndex(
             "name": "subscribe",
             "summary": "Subscribing\u0020to\u0020all\u0020the\u0020events.",
             "url": "classes/yxorP-app-lib-http-wrapper.html#method_subscribe"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "A\u0020method\u0020that\u0020is\u0020used\u0020to\u0020route\u0020the\u0020events\u0020to\u0020the\u0020appropriate\u0020methods.",
+            "url": "classes/yxorP-app-lib-http-wrapper.html#method_route"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003AonCheck\u0028\u0029",
             "name": "onCheck",
@@ -16260,11 +16290,6 @@ Search.appendIndex(
             "name": "onBuildException",
             "summary": "Used\u0020to\u0020execute\u0020code\u0020when\u0020an\u0020exception\u0020is\u0020thrown.",
             "url": "classes/yxorP-app-lib-http-wrapper.html#method_onBuildException"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "A\u0020method\u0020that\u0020is\u0020used\u0020to\u0020route\u0020the\u0020events\u0020to\u0020the\u0020appropriate\u0020methods.",
-            "url": "classes/yxorP-app-lib-http-wrapper.html#method_route"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -16411,25 +16436,35 @@ Search.appendIndex(
             "summary": "Extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-app-plugin-blockListPluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\app\\plugin\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
-            "name": "callable",
-            "summary": "Checking\u0020if\u0020the\u0020\u0060\u0024fnc_custom\u0060\u0020variable\u0020is\u0020callable\u0020and\u0020if\u0020it\u0020is,\u0020it\u0020calls\u0020the\u0020\u0060callable\u0060\u0020method.",
-            "url": "classes/yxorP-app-plugin-blockListPluginAction.html#method_callable"
-        },                {
             "fqsen": "\\yxorP\\app\\plugin\\blockListPluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020processed.",
             "url": "classes/yxorP-app-plugin-blockListPluginAction.html#method_onBeforeSend"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
+            "name": "callable",
+            "summary": "Checking\u0020if\u0020the\u0020\u0060\u0024fnc_custom\u0060\u0020variable\u0020is\u0020callable\u0020and\u0020if\u0020it\u0020is,\u0020it\u0020calls\u0020the\u0020\u0060callable\u0060\u0020method.",
+            "url": "classes/yxorP-app-plugin-blockListPluginAction.html#method_callable"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction",
             "name": "cookiePluginAction",
             "summary": "Extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html"
         },                {
+            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020sent\u0020to\u0020the\u0020server.",
+            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onBeforeSend"
+        },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AbeforeRequest\u0028\u0029",
             "name": "beforeRequest",
             "summary": "Parsing\u0020the\u0020cookie\u0020header\u0020and\u0020extracting\u0020the\u0020cookies\u0020that\u0020are\u0020prefixed\u0020with\u0020\u0060pc_\u0060.",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_beforeRequest"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
+            "summary": "Removing\u0020the\u0020\u0060set\u002Dcookie\u0060\u0020header\u0020from\u0020the\u0020response\u0020and\u0020adding\u0020a\u0020new\u0020one\u0020with\u0020the\u0020cookie\u0020name\u0020prefixed\u0020with\u0020\u0060pc_\u0060.",
+            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onSent"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AheadersReceived\u0028\u0029",
             "name": "headersReceived",
@@ -16446,16 +16481,6 @@ Search.appendIndex(
             "summary": "Parsing\u0020the\u0020cookie\u0020and\u0020then\u0020it\u0020is\u0020returning\u0020an\u0020array\u0020with\u0020the\u0020cookie\u0020data.",
             "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_parse_cookie"
         },                {
-            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020sent\u0020to\u0020the\u0020server.",
-            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onBeforeSend"
-        },                {
-            "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
-            "name": "onSent",
-            "summary": "Removing\u0020the\u0020\u0060set\u002Dcookie\u0060\u0020header\u0020from\u0020the\u0020response\u0020and\u0020adding\u0020a\u0020new\u0020one\u0020with\u0020the\u0020cookie\u0020name\u0020prefixed\u0020with\u0020\u0060pc_\u0060.",
-            "url": "classes/yxorP-app-plugin-cookiePluginAction.html#method_onSent"
-        },                {
             "fqsen": "\\yxorP\\app\\plugin\\cookiePluginAction\u003A\u003ACOOKIE_PREFIX",
             "name": "COOKIE_PREFIX",
             "summary": "A\u0020constant\u0020that\u0020is\u0020used\u0020to\u0020prefix\u0020the\u0020cookie\u0020name.",
@@ -16466,15 +16491,15 @@ Search.appendIndex(
             "summary": "Extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
-            "name": "completed",
-            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
-            "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html#method_completed"
-        },                {
             "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003AonComplete\u0028\u0029",
             "name": "onComplete",
             "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
             "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
+            "name": "completed",
+            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
+            "url": "classes/yxorP-app-plugin-dailyMotionPluginAction.html#method_completed"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\dailyMotionPluginAction\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -16486,11 +16511,6 @@ Search.appendIndex(
             "summary": "It\u0027s\u0020extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
-            "name": "headersReceived",
-            "summary": "It\u0027s\u0020proxifying\u0020the\u0020URL\u0020of\u0020the\u0020\u0060location\u0060\u0020header.",
-            "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html#method_headersReceived"
-        },                {
             "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "It\u0027s\u0020setting\u0020the\u0020\u0060accept\u002Dencoding\u0060\u0020header\u0020to\u0020\u0060identity\u0060\u0020and\u0020removing\u0020the\u0020\u0060referer\u0060\u0020header.",
@@ -16500,6 +16520,11 @@ Search.appendIndex(
             "name": "onSent",
             "summary": "It\u0027s\u0020checking\u0020if\u0020the\u0020response\u0020has\u0020a\u0020\u0060location\u0060\u0020header\u0020and\u0020if\u0020it\u0020does,\u0020it\u0027s\u0020proxifying\u0020the\u0020URL.",
             "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html#method_onSent"
+        },                {
+            "fqsen": "\\yxorP\\app\\plugin\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
+            "name": "headersReceived",
+            "summary": "It\u0027s\u0020proxifying\u0020the\u0020URL\u0020of\u0020the\u0020\u0060location\u0060\u0020header.",
+            "url": "classes/yxorP-app-plugin-headerRewritePluginAction.html#method_headersReceived"
         },                {
             "fqsen": "\\yxorP\\app\\plugin\\logPluginAction",
             "name": "logPluginAction",
@@ -16680,11 +16705,6 @@ Search.appendIndex(
             "name": "addSubscriber",
             "summary": "It\u0027s\u0020checking\u0020if\u0020the\u0020\u0060subscribe\u0028\u0029\u0060\u0020method\u0020exists\u0020in\u0020the\u0020\u0060\u0024subscriber\u0060\u0020object,\u0020and\u0020if\u0020it\u0020does,\u0020it\u0027s\u0020calling\u0020it,\u0020and\npassing\u0020the\u0020\u0060self\u003A\u003A\u0024instance\u0060\u0020object\u0020to\u0020it",
             "url": "classes/yxorP-app-yP.html#method_addSubscriber"
-        },                {
-            "fqsen": "\\yxorP\\app\\yP\u003A\u003AloadGuzzleSnag\u0028\u0029",
-            "name": "loadGuzzleSnag",
-            "summary": "",
-            "url": "classes/yxorP-app-yP.html#method_loadGuzzleSnag"
         },                {
             "fqsen": "\\yxorP\\app\\yP\u003A\u003Adispatch\u0028\u0029",
             "name": "dispatch",
