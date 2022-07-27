@@ -266,7 +266,7 @@ html {
 }
 
 
-footer, header, [class*=ad-], [class*=ads-] {
+footer, header, nav, [class*=ad-], [class*=ads-] {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
