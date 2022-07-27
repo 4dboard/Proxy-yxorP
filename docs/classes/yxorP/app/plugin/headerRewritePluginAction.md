@@ -15,33 +15,6 @@ It's extending the wrapper class.
 ## Methods
 
 
-### headersReceived
-
-It's proxifying the URL of the `location` header.
-
-```php
-public static headersReceived(mixed $response, mixed $request_url): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$response` | **mixed** |  |
-| `$request_url` | **mixed** |  |
-
-
-
-
-***
-
 ### onBeforeSend
 
 It's setting the `accept-encoding` header to `identity` and removing the `referer` header.
@@ -82,6 +55,33 @@ public onSent(): void
 
 ***
 
+### headersReceived
+
+It's proxifying the URL of the `location` header.
+
+```php
+public static headersReceived(mixed $response, mixed $request_url): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$response` | **mixed** |  |
+| `$request_url` | **mixed** |  |
+
+
+
+
+***
+
 
 ## Inherited methods
 
@@ -106,6 +106,32 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
+
+
+
+
+***
+
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
 
 
 
@@ -372,32 +398,6 @@ public onBuildException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 

@@ -66,33 +66,6 @@ public static isValid(?string $key = null): bool
 
 ***
 
-### set
-
-It's writing the content to the cache file.
-
-```php
-public static set(mixed $content, ?string $key = null): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$content` | **mixed** |  |
-| `$key` | **?string** |  |
-
-
-
-
-***
-
 ### gen
 
 A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
@@ -119,12 +92,12 @@ private static gen(?string $key): array
 
 ***
 
-### folder
+### set
 
-It's checking if the `tmp` directory exists, and if it doesn't, it's creating it.
+It's writing the content to the cache file.
 
 ```php
-private static folder(): void
+public static set(mixed $content, ?string $key = null): void
 ```
 
 
@@ -133,6 +106,13 @@ private static folder(): void
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$content` | **mixed** |  |
+| `$key` | **?string** |  |
 
 
 

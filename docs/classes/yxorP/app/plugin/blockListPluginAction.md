@@ -15,6 +15,26 @@ Extending the wrapper class.
 ## Methods
 
 
+### onBeforeSend
+
+A method that is called before the request is processed.
+
+```php
+public onBeforeSend(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### callable
 
 Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method.
@@ -36,26 +56,6 @@ public static callable(mixed $fnc_custom, mixed $url): mixed
 |-----------|------|-------------|
 | `$fnc_custom` | **mixed** |  |
 | `$url` | **mixed** |  |
-
-
-
-
-***
-
-### onBeforeSend
-
-A method that is called before the request is processed.
-
-```php
-public onBeforeSend(): void
-```
-
-
-
-
-
-
-
 
 
 
@@ -86,6 +86,32 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
+
+
+
+
+***
+
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
 
 
 
@@ -352,32 +378,6 @@ public onBuildException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 

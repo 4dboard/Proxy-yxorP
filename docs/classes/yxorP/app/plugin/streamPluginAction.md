@@ -153,6 +153,32 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 
 ***
 
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
+
+
+
+
+***
+
 ### onCheck
 
 Used to check if the event should be executed.
@@ -413,32 +439,6 @@ public onBuildException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 

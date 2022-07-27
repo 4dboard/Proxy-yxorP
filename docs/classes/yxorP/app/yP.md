@@ -210,30 +210,6 @@ private addSubscriber(object $subscriber): void
 
 ***
 
-### loadGuzzleSnag
-
-
-
-```php
-public static loadGuzzleSnag(): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-A method that takes an array as a parameter and returns nothing.
-
-
-
-***
-
 ### dispatch
 
 The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling

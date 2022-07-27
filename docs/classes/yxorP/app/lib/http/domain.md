@@ -39,86 +39,6 @@ A static method that is being called.
 
 ***
 
-### domain_sub
-
-
-
-```php
-public static domain_sub(): ?string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### domain_host_target
-
-
-
-```php
-public static domain_host_target(): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### domain_target
-
-
-
-```php
-public static domain_target(): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### domain_sub_target
-
-
-
-```php
-public static domain_sub_target(): ?string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
 ### domain_trim
 
 
@@ -171,6 +91,86 @@ private static domain(): string|null
 
 It creates a new user with the credentials defined in the `.env` file
 A static method that is being called.
+
+
+
+***
+
+### domain_sub
+
+
+
+```php
+public static domain_sub(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_host_target
+
+
+
+```php
+public static domain_host_target(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_target
+
+
+
+```php
+public static domain_target(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_sub_target
+
+
+
+```php
+public static domain_sub_target(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
 
 
 
