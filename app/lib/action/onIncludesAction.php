@@ -10,7 +10,7 @@ use yxorP\app\lib\http\wrapper;
 /**
  * Extending the wrapper class.
  */
-class onBuildIncludesAction extends wrapper
+class onIncludesAction extends wrapper
 {
     /**
      *

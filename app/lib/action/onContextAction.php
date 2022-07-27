@@ -12,7 +12,7 @@ use yxorP\app\lib\http\wrapper;
 /**
  * Extending the wrapper class, which is a class that is used to wrap the request and response objects.
  */
-class onBuildContextAction extends wrapper
+class onContextAction extends wrapper
 {
     /**
      * This function is used to build the request and response objects.

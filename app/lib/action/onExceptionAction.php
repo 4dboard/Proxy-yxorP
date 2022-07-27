@@ -10,7 +10,7 @@ use yxorP\app\lib\http\wrapper;
 /**
  * A class that extends the wrapper class.
  */
-class onBuildExceptionAction extends wrapper
+class onExceptionAction extends wrapper
 {
     /**
      * A method that is called when an exception is thrown.

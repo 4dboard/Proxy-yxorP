@@ -12,7 +12,7 @@ use yxorP\app\lib\http\wrapper;
 /**
  * Extending the wrapper class.
  */
-class onBuildRequestAction extends wrapper
+class onRequestAction extends wrapper
 {
     /**
      * A method that is called by the wrapper class.

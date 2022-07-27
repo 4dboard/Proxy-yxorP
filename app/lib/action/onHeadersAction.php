@@ -10,7 +10,7 @@ use yxorP\app\lib\http\wrapper;
 /**
  * Extending the wrapper class.
  */
-class onBuildHeadersAction extends wrapper
+class onHeadersAction extends wrapper
 {
     /**
      * Setting the headers for the request.
