@@ -1,6 +1,4 @@
 [submodule "app/lib/cockpit"]
+	url = https://github.com/Cockpit-HQ/Cockpit
+	active = true
 	path = app/lib/cockpit
-	url = https://github.com/agentejo/cockpit
-[submodule "cockpit"]
-	path = cockpit
-	url = https://github.com/agentejo/cockpit
