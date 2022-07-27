@@ -397,10 +397,11 @@ class helpers
     }
 
     /**
+     * @param array|null $req
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
-    public static function define(): void
+    public static function define(?array $request): void
     {
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
@@ -467,7 +468,7 @@ class helpers
         /**
          * Setting the localisation of the server to the request.
          */
-        helpers::localise();
+        helpers::localise($request);
 
     }
 
