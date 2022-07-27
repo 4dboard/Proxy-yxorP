@@ -508,7 +508,7 @@ class helpers
 
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
         /**
          * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the

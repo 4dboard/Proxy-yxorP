@@ -26,6 +26,6 @@ class onBuildIncludesAction extends wrapper
          * recursive.
          */
 
-        helpers::assetLoader(DIR_ROOT . DIR_APP . DIR_OVERRIDE . DIR_GLOBAL);
+        helpers::assetLoader(DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . DIR_GLOBAL);
     }
 }
