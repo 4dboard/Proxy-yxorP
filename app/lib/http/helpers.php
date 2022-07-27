@@ -555,9 +555,9 @@ class helpers
     }
 
     /**
+     * @param $line
      * @return void
      * A function that takes a string as a parameter and returns nothing.
-     *
      */
     public static function env($line): void
     {
