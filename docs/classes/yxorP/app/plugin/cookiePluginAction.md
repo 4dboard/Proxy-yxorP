@@ -20,26 +20,6 @@ Extending the wrapper class.
 ## Methods
 
 
-### onBeforeSend
-
-A method that is called before the request is sent to the server.
-
-```php
-public onBeforeSend(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### beforeRequest
 
 Parsing the cookie header and extracting the cookies that are prefixed with `pc_`.
@@ -60,26 +40,6 @@ public static beforeRequest(mixed $match): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$match` | **mixed** |  |
-
-
-
-
-***
-
-### onSent
-
-Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`.
-
-```php
-public onSent(): void
-```
-
-
-
-
-
-
-
 
 
 
@@ -166,6 +126,46 @@ private static parse_cookie(mixed $line, mixed $url): array
 
 ***
 
+### onBeforeSend
+
+A method that is called before the request is sent to the server.
+
+```php
+public onBeforeSend(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### onSent
+
+Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`.
+
+```php
+public onSent(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 
 ## Inherited methods
 
@@ -190,32 +190,6 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 
@@ -488,6 +462,32 @@ public onBuildException(\Exception $e): void
 
 ***
 
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+

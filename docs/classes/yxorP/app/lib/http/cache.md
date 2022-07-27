@@ -66,32 +66,6 @@ public static isValid(?string $key = null): bool
 
 ***
 
-### gen
-
-A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
-
-```php
-private static gen(?string $key): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **?string** |  |
-
-
-
-
-***
-
 ### set
 
 It's writing the content to the cache file.
@@ -119,6 +93,52 @@ public static set(mixed $content, ?string $key = null): void
 
 ***
 
+### gen
+
+A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
+
+```php
+private static gen(?string $key): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **?string** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+### folder
+
+It's checking if the `tmp` directory exists, and if it doesn't, it's creating it.
+
+```php
+private static folder(): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+
+***
+
