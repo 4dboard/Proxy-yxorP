@@ -32,6 +32,26 @@ protected ?string $url_pattern
 ## Methods
 
 
+### onComplete
+
+A method that is called when the request is completed.
+
+```php
+public onComplete(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### completed
 
 A method that is called when the request is completed.
@@ -53,26 +73,6 @@ public static completed(mixed $matches, mixed $content): void
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
 | `$content` | **mixed** |  |
-
-
-
-
-***
-
-### onComplete
-
-A method that is called when the request is completed.
-
-```php
-public onComplete(): void
-```
-
-
-
-
-
-
-
 
 
 
@@ -103,6 +103,32 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
+
+
+
+
+***
+
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
 
 
 
@@ -369,32 +395,6 @@ public onBuildException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 

@@ -17,7 +17,8 @@ Importing the `response` class from the `http` namespace.
 
 ### onWrite
 
-Used to execute code when the headers are received.
+It checks if the response is not empty and if the MIME type is HTML, JavaScript, CSS, XML, text or HTML. If it is,
+it will cache the response
 
 ```php
 public onWrite(): void
@@ -59,6 +60,32 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\yxorP\app\yP** |  |
+
+
+
+
+***
+
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
 
 
 
@@ -325,32 +352,6 @@ public onBuildException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 
