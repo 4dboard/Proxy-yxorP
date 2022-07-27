@@ -1,4 +1,3 @@
-[submodule "app/lib/cockpit"]
+[submodule "app"]
+	path = app
 	url = https://github.com/Cockpit-HQ/Cockpit
-	active = true
-	path = app/lib/cockpit
