@@ -5,7 +5,6 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
-use JetBrains\PhpStorm\Pure;
 use yxorP;
 use yxorP\app\lib\minify\minify;
 
@@ -29,7 +28,7 @@ class cache
     /**
      * Used to check if the cache file exists.
      */
-    #[Pure] public static function isValid(?string $key = null): bool
+    public static function isValid(?string $key = null): bool
     {
         /**
          * Used to check if the cache file exists.

@@ -248,10 +248,8 @@ class helpers
     }
 
     /**
-     * @param $file
      * @return array A function that takes a file and returns an array.
      * A function that takes a file and returns an array.
-     *
      */
     public static function JSON(): array
     {
@@ -364,7 +362,7 @@ class helpers
     }
 
     /**
-     * @param array|null $req
+     * @param array|null $request
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
@@ -440,10 +438,9 @@ class helpers
     }
 
     /**
-     * @param array|null $req
+     * @param array|null $request
      * @return void
      * It's checking if the file exists.
-     *
      */
     public static function localise(?array $request): void
     {

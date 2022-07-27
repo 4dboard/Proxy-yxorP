@@ -1,4 +1,7 @@
 <?php namespace yxorP\app\lib\http;
+
+use JetBrains\PhpStorm\Pure;
+
 /**
  * It's a class that's used to dispatch events.
  */
@@ -20,26 +23,6 @@ class store
          * It's returning null if the perm is not set.
          */
         return self::check($name, $value, $func, $varibles);
-    }
-
-    /**
-     * It's setting the value of the variable $name to the value of the variable $_value.
-     * @param string $name
-     * @param mixed $value
-     * @return mixed
-     *
-     */
-    public static function set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
-    {
-        /**
-         * It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-         * set the value to the return value of the function.
-         */
-        if (!$value && $func) $value = call_user_func_array($func, $varibles);
-        /**
-         * Setting the value of the variable $name to the value of the variable $value.
-         */
-        return $GLOBALS[CACHE_KEY][$name] = $value;
     }
 
     /**
@@ -74,6 +57,27 @@ class store
          * doesn't, it adds the argument to the global scope .
          */
         return $GLOBALS[CACHE_KEY][$name];
+    }
+
+    /**
+     * It's setting the value of the variable $name to the value of the variable $_value.
+     * @param string $name
+     * @param mixed $value
+     * @param string|null $func
+     * @param array $varibles
+     * @return mixed
+     */
+    public static function set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    {
+        /**
+         * It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+         * set the value to the return value of the function.
+         */
+        if (!$value && $func) $value = call_user_func_array($func, $varibles);
+        /**
+         * Setting the value of the variable $name to the value of the variable $value.
+         */
+        return $GLOBALS[CACHE_KEY][$name] = $value;
     }
 
 }

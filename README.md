@@ -417,10 +417,10 @@ balancer or a Web proxy server is required when implementing in-memory replicati
 options cannot be used together. This is done so that all domain-based applications may be accessed through a single URL
 for external clients.
 
-<center>
+<div style="text-align: center;">
 
 ![image](https://user-images.githubusercontent.com/6468571/178639159-0556cdfa-b102-4e7b-bda7-7b79d91342ca.png)
-</center>
+</div>
 The installation of cloned copies of your website on several additional servers, each of which is connected to a
 load-balancing system, is one method for achieving this objective. There are several other approaches that might
 possibly be used in this operation. Using a cluster of servers is a potential alternative method that might be utilized
@@ -438,10 +438,10 @@ failure. Due to their incapacity to communicate, proxy servers and peer masters 
 they are unaware of one another. Peer masters are in communication with and converse with one another. In contrast, peer
 masters are familiar with one another and maintain open communication lines. Various properties of peer masters and
 proxy servers must be accounted for.
-<center>
+<div style="text-align: center;">
 
 ![image](https://user-images.githubusercontent.com/6468571/178639215-2ed92212-1f09-46de-bb24-5287862c72c2.png)
-</center>
+</div>
 By keeping a proxy version of your website and switching to it whenever the actual website is unavailable for
 maintenance or changes, you can ensure that your online resources remain accessible at a high level and continuously.
 This will guarantee that your online material is constantly accessible to users. This will help you to guarantee that
@@ -451,10 +451,10 @@ your consumers always have access to your online resources.
 
 The applications outlined in this page are only a sampling of the many ways in which this proxy may be implemented;
 further information is accessible in our discussion forum.
-<center>
+<div style="text-align: center;">
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logosnag.png)
-</center>
+</div>
 By using a technique that is simple to put into action, BugSnag is able to assist in the simplification of the process
 of error monitoring in addition to the management of application stability. This is made possible via the use of an easy
 to implement approach. Because of this, BugSnag is able to maintain application stability in a more efficient manner. In
@@ -477,10 +477,10 @@ brand-new features. It offers a full operating system environment, allowing prog
 to use the operating system environment and run effectively. This is possible because these apps may misuse the
 operating system environment. As a result, apps may now use the operating system environment. Previously, this was
 impossible. During the creation of these apps, the extensive capabilities of the platform were meticulously evaluated.
-<center>
+<div style="text-align: center;">
 
 [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
-</center>
+</div>
 Visit their website to learn more about Gitpod and how the platform's capabilities are always expanding. These two
 topics are discussed on their website. Gitpods, on the other hand, are containers managed by Docker and running Ubuntu
 20.04 Focal Focal. The software installation process is hindered because the user gitpod is not on the list of users
@@ -494,10 +494,10 @@ Gitpod has a user account and home directory named gitpod and located at /home/g
 Docker container is preserved in the shared and shareable workspace. When a repository is cloned or rolled back, only
 the modifications performed in the workspace of a Gitpod are kept. "workspace" refers to the directory structure
 available through the route /workspace/your-workspace-name, and "workspace" refers to the directory structure.
-<center>
+<div style="text-align: center;">
 
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png)
-</center>
+</div>
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
 

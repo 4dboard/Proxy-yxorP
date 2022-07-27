@@ -29,7 +29,7 @@ use yxorP\app\lib\parser\RulesParser;
 class yP
 {
     /**
-     * @var $instance
+     * @var yP|null $instance
      */
     private static ?yP $instance = null;
     /**
@@ -61,7 +61,6 @@ class yP
 
     /**
      * @param ?array $request
-     * @param string $root
      * @return void
      * A method that takes an array as a parameter and returns nothing.
      */
