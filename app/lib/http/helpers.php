@@ -261,181 +261,6 @@ class helpers
     }
 
     /**
-     * @param array|null $req
-     * @return void
-     * It's checking if the file exists.
-     *
-     */
-    public static function localise(?array $request): void
-    {
-
-        /**
-         * Loading the cockpit.php file.
-         */
-        self::loadCockpit();
-
-        /**
-         * Reading the file and then calling the env function on each line.
-         */
-        foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
-
-        self::install();
-
-        /**
-         * Defining a constant called store::store(YXORP_SERVER) and setting it to the value of $req.
-         */
-        store::tmp(VAR_SERVER, $request ?: $_SERVER);
-
-        /**
-         * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
-         */
-        define('YXORP_SITE_DOMAIN', domain::domain_host());
-
-
-        /**
-         * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
-         */
-        define('YXORP_SITE_SUB_DOMAIN', domain::domain_sub());
-
-
-        /**
-         * Setting the `TARGET` variable to the result of the `findOne` method.
-         */
-        store::store(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
-
-        /**
-         * Setting the pattern, replace, and plugins variables.
-         */
-        foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
-            store::store($key, store::store(SITE_DETAILS)[$value]);
-
-        /**
-         * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
-         */
-        define('YXORP_TARGET_URL', (store::store(SITE_DETAILS))[COCKPIT_TARGET]);
-
-
-        /**
-         * Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array.
-         */
-        define('YXORP_domain_target', domain::domain_host_target());
-        /**
-         * Defining a constant.
-         */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
-        /**
-         * Defining constants.
-         */
-
-        define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
-
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::store(SITE_DETAILS)[VAR_FILES]));
-
-        /**
-         * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
-         * value of the constant YXORP_REQUEST_URI.
-         */
-        define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
-
-        /**
-         * Setting the global variables for the application.
-         */
-        foreach ([YXORP_GLOBAL_REPLACE => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null] as $key => $value) store::store($key, $value);
-
-    }
-
-    /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     *
-     */
-    public static function loadCockpit(): void
-    {
-        /**
-         * Requiring the COCKPIT library.
-         */
-        require PATH_COCKPIT_BOOTSTRAP;
-        /**
-         * Storing the cockpit object in the tmp store.
-         */
-        store::tmp(YXORP_COCKPIT_APP, cockpit());
-    }
-
-    /**
-     * @return void
-     * A function that takes a string as a parameter and returns nothing.
-     *
-     */
-    public static function env($line): void
-    {
-
-        /**
-         * Checking if the line starts with a hash. If it does, it returns.
-         */
-        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
-
-        /**
-         * Exploding the $line variable into an array of two elements.
-         */
-        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
-
-        /**
-         * Replacing all the new lines with null.
-         */
-        store::store(($name . EXT_ENV), $value);
-    }
-
-    /**
-     * @return void
-     *
-     * It creates a new user with the credentials defined in the `.env` file
-     * A static method that is being called.
-     *
-     */
-    public static function install(): void
-    {
-        /**
-         * It's defining the `YXORP_COCKPIT_INSTALL` constant as `true` .
-         */
-        define(YXORP_COCKPIT_INSTALL, true);
-
-        /**
-         * It's copying the files from the `local` directory to the `COCKPIT` directory.
-         */
-        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
-        /**
-         * It's inserting a new user into the `COCKPIT_accounts` collection.
-         */
-        if (!store::store(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) store::store(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => store::store(ENV_ADMIN_USER), VAR_NAME => store::store(ENV_ADMIN_NAME), VAR_EMAIL => store::store(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::store(YXORP_COCKPIT_APP)->hash(store::store(ENV_ADMIN_PASSWORD)), VAR_I18N => store::store(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
-    }
-
-    /**
-     * "It's copying the files from the `local` directory to the `COCKPIT` directory."
-     * @param string $src
-     * @param string $dst
-     * @return void
-     *
-     */
-    public static function migrate(string $src, string $dst): void
-    {
-        /**
-         * Opening the directory and assigning it to the variable $root.
-         */
-        $root = opendir($src);
-
-        /**
-         * Creating a directory called "dst" with permissions of 0744.
-         */
-        @mkdir($dst, 0744);
-
-        /**
-         * Copying the contents of the source directory to the destination directory.
-         */
-        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
-        closedir($root);
-    }
-
-    /**
      * @param $file
      * @return array A function that takes a file and returns an array.
      * A function that takes a file and returns an array.
@@ -639,6 +464,186 @@ class helpers
          */
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
+        /**
+         * Setting the localisation of the server to the request.
+         */
+        helpers::localise();
+
+    }
+
+    /**
+     * @param array|null $req
+     * @return void
+     * It's checking if the file exists.
+     *
+     */
+    public static function localise(?array $request): void
+    {
+
+        /**
+         * Loading the cockpit.php file.
+         */
+        self::loadCockpit();
+
+        /**
+         * Reading the file and then calling the env function on each line.
+         */
+        foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
+
+        self::install();
+
+        /**
+         * Defining a constant called store::store(YXORP_SERVER) and setting it to the value of $req.
+         */
+        store::tmp(VAR_SERVER, $request ?: $_SERVER);
+
+        /**
+         * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
+         */
+        define('YXORP_SITE_DOMAIN', domain::domain_host());
+
+
+        /**
+         * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
+         */
+        define('YXORP_SITE_SUB_DOMAIN', domain::domain_sub());
+
+
+        /**
+         * Setting the `TARGET` variable to the result of the `findOne` method.
+         */
+        store::store(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
+
+        /**
+         * Setting the pattern, replace, and plugins variables.
+         */
+        foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
+            store::store($key, store::store(SITE_DETAILS)[$value]);
+
+        /**
+         * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
+         */
+        define('YXORP_TARGET_URL', (store::store(SITE_DETAILS))[COCKPIT_TARGET]);
+
+
+        /**
+         * Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array.
+         */
+        define('YXORP_domain_target', domain::domain_host_target());
+        /**
+         * Defining a constant.
+         */
+        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_domain_target);
+        /**
+         * Defining constants.
+         */
+
+        define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
+
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::store(SITE_DETAILS)[VAR_FILES]));
+
+        /**
+         * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
+         * value of the constant YXORP_REQUEST_URI.
+         */
+        define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
+
+        /**
+         * Setting the global variables for the application.
+         */
+        foreach ([YXORP_GLOBAL_REPLACE => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null] as $key => $value) store::store($key, $value);
+
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     *
+     */
+    public static function loadCockpit(): void
+    {
+        /**
+         * Requiring the COCKPIT library.
+         */
+        require PATH_COCKPIT_BOOTSTRAP;
+        /**
+         * Storing the cockpit object in the tmp store.
+         */
+        store::tmp(YXORP_COCKPIT_APP, cockpit());
+    }
+
+    /**
+     * @return void
+     * A function that takes a string as a parameter and returns nothing.
+     *
+     */
+    public static function env($line): void
+    {
+
+        /**
+         * Checking if the line starts with a hash. If it does, it returns.
+         */
+        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
+
+        /**
+         * Exploding the $line variable into an array of two elements.
+         */
+        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
+
+        /**
+         * Replacing all the new lines with null.
+         */
+        store::store(($name . EXT_ENV), $value);
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     *
+     */
+    public static function install(): void
+    {
+        /**
+         * It's defining the `YXORP_COCKPIT_INSTALL` constant as `true` .
+         */
+        define(YXORP_COCKPIT_INSTALL, true);
+
+        /**
+         * It's copying the files from the `local` directory to the `COCKPIT` directory.
+         */
+        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        /**
+         * It's inserting a new user into the `COCKPIT_accounts` collection.
+         */
+        if (!store::store(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) store::store(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => store::store(ENV_ADMIN_USER), VAR_NAME => store::store(ENV_ADMIN_NAME), VAR_EMAIL => store::store(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::store(YXORP_COCKPIT_APP)->hash(store::store(ENV_ADMIN_PASSWORD)), VAR_I18N => store::store(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+    }
+
+    /**
+     * "It's copying the files from the `local` directory to the `COCKPIT` directory."
+     * @param string $src
+     * @param string $dst
+     * @return void
+     *
+     */
+    public static function migrate(string $src, string $dst): void
+    {
+        /**
+         * Opening the directory and assigning it to the variable $root.
+         */
+        $root = opendir($src);
+
+        /**
+         * Creating a directory called "dst" with permissions of 0744.
+         */
+        @mkdir($dst, 0744);
+
+        /**
+         * Copying the contents of the source directory to the destination directory.
+         */
+        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
+        closedir($root);
     }
 
 
