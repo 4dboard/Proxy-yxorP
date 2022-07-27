@@ -817,7 +817,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_COCKPIT_API_REQUEST">COCKPIT_API_REQUEST</a>
     <span>
-        &nbsp;= \strpos($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) !== \false ? 1 : 0                            </span>
+        &nbsp;= \str_contains($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0                            </span>
 </dt>
 <dd></dd>
 
@@ -913,9 +913,37 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_COCKPIT_KEY">COCKPIT_KEY</a>
+    <span>
+        &nbsp;= &#039;key&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_COCKPIT_NAME">COCKPIT_NAME</a>
+    <span>
+        &nbsp;= &#039;name&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_COCKPIT_PUBLIC_STORAGE_FOLDER">COCKPIT_PUBLIC_STORAGE_FOLDER</a>
     <span>
         &nbsp;= \COCKPIT_ENV_ROOT . &#039;/storage&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_COCKPIT_SETTINGS">COCKPIT_SETTINGS</a>
+    <span>
+        &nbsp;= &#039;Settings&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_COCKPIT_SINGLETONS">COCKPIT_SINGLETONS</a>
+    <span>
+        &nbsp;= &#039;singletons&#039;                            </span>
 </dt>
 <dd></dd>
 
@@ -951,6 +979,13 @@
     <a href="namespaces/default.html#constant_COCKPIT_TARGET">COCKPIT_TARGET</a>
     <span>
         &nbsp;= &#039;target&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_COCKPIT_VAL">COCKPIT_VAL</a>
+    <span>
+        &nbsp;= &#039;val&#039;                            </span>
 </dt>
 <dd></dd>
 
@@ -1396,6 +1431,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_MIME">MIME</a>
+    <span>
+        &nbsp;= &#039;MIME&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_NUM_ENV_LIMIT">NUM_ENV_LIMIT</a>
     <span>
         &nbsp;= 2                            </span>
@@ -1515,6 +1557,13 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_SITE_DETAILS_GLOBAL">SITE_DETAILS_GLOBAL</a>
+    <span>
+        &nbsp;= &#039;SITE_DETAILS_GLOBAL&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_SITE_DOMAIN">SITE_DOMAIN</a>
     <span>
         &nbsp;= &#039;SITE_DOMAIN&#039;                            </span>
@@ -1623,6 +1672,13 @@
     <a href="namespaces/default.html#constant_VAR_CREATED">VAR_CREATED</a>
     <span>
         &nbsp;= &#039;_created&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_VAR_CSS">VAR_CSS</a>
+    <span>
+        &nbsp;= &#039;css&#039;                            </span>
 </dt>
 <dd></dd>
 
@@ -1833,6 +1889,13 @@
     <a href="namespaces/default.html#constant_VAR_INTERFACE">VAR_INTERFACE</a>
     <span>
         &nbsp;= &#039;Interface&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_VAR_JS">VAR_JS</a>
+    <span>
+        &nbsp;= &#039;js&#039;                            </span>
 </dt>
 <dd></dd>
 
@@ -2201,6 +2264,20 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_YXORP_GLOBAL_CSS">YXORP_GLOBAL_CSS</a>
+    <span>
+        &nbsp;= \VAR_GLOBAL_UP . \CHAR_UNDER . \VAR_CSS                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_YXORP_GLOBAL_JS">YXORP_GLOBAL_JS</a>
+    <span>
+        &nbsp;= \VAR_GLOBAL_UP . \CHAR_UNDER . \VAR_JS                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_YXORP_GLOBAL_PATTERN">YXORP_GLOBAL_PATTERN</a>
     <span>
         &nbsp;= \VAR_GLOBAL_UP . \CHAR_UNDER . \VAR_PATTERN                            </span>
@@ -2253,6 +2330,20 @@
     <a href="namespaces/default.html#constant_YXORP_REWRITE">YXORP_REWRITE</a>
     <span>
         &nbsp;= \VAR_INC . \CHAR_UNDER . \VAR_REWRITE                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_YXORP_TARGET_CSS">YXORP_TARGET_CSS</a>
+    <span>
+        &nbsp;= &#039;TARGET_CSS&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="namespaces/default.html#constant_YXORP_TARGET_JS">YXORP_TARGET_JS</a>
+    <span>
+        &nbsp;= &#039;TARGET_JS&#039;                            </span>
 </dt>
 <dd></dd>
 
@@ -2406,7 +2497,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 
     </aside>
 
@@ -2435,7 +2526,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">230</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 
     </aside>
 
@@ -2464,7 +2555,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">232</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -2551,7 +2642,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -2580,7 +2671,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -2609,7 +2700,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -2638,7 +2729,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -2667,7 +2758,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -2696,7 +2787,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -2725,7 +2816,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -2754,7 +2845,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -2783,7 +2874,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -2812,7 +2903,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -2841,7 +2932,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -2870,7 +2961,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -2899,7 +2990,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -2928,7 +3019,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -2957,7 +3048,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -2986,7 +3077,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -3015,7 +3106,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -3044,7 +3135,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -3073,7 +3164,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -3102,7 +3193,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -3131,7 +3222,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -3160,7 +3251,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -3189,7 +3280,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -3218,7 +3309,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -3276,7 +3367,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -3305,7 +3396,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -3334,7 +3425,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -3363,7 +3454,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">14</span>
 
     </aside>
 
@@ -3392,7 +3483,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -3421,7 +3512,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -3450,7 +3541,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -3479,7 +3570,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
@@ -3508,7 +3599,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -3537,7 +3628,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -3566,7 +3657,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -3595,7 +3686,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -3782,7 +3873,7 @@ file that was distributed with this source code.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">COCKPIT_API_REQUEST</span>
-    = <span class="phpdocumentor-signature__default-value">\strpos($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) !== \false ? 1 : 0</span>
+    = <span class="phpdocumentor-signature__default-value">\str_contains($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0</span>
 </code>
 
 
@@ -3947,7 +4038,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
@@ -4121,7 +4212,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 
     </aside>
 
@@ -4171,6 +4262,64 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_KEY">
+        COCKPIT_KEY
+        <a href="namespaces/default.html#constant_COCKPIT_KEY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">155</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COCKPIT_KEY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;key&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_NAME">
+        COCKPIT_NAME
+        <a href="namespaces/default.html#constant_COCKPIT_NAME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COCKPIT_NAME</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;name&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_PUBLIC_STORAGE_FOLDER">
         COCKPIT_PUBLIC_STORAGE_FOLDER
         <a href="namespaces/default.html#constant_COCKPIT_PUBLIC_STORAGE_FOLDER" class="headerlink"><i class="fas fa-link"></i></a>
@@ -4189,6 +4338,64 @@ file that was distributed with this source code.</p>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">COCKPIT_PUBLIC_STORAGE_FOLDER</span>
     = <span class="phpdocumentor-signature__default-value">\COCKPIT_ENV_ROOT . &#039;/storage&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_SETTINGS">
+        COCKPIT_SETTINGS
+        <a href="namespaces/default.html#constant_COCKPIT_SETTINGS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">156</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COCKPIT_SETTINGS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;Settings&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_SINGLETONS">
+        COCKPIT_SINGLETONS
+        <a href="namespaces/default.html#constant_COCKPIT_SINGLETONS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">154</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COCKPIT_SINGLETONS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;singletons&#039;</span>
 </code>
 
 
@@ -4237,7 +4444,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -4324,7 +4531,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
     </aside>
 
@@ -4345,6 +4552,35 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_VAL">
+        COCKPIT_VAL
+        <a href="namespaces/default.html#constant_COCKPIT_VAL" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">157</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COCKPIT_VAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;val&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_COCKPIT_YXORP">
         COCKPIT_YXORP
         <a href="namespaces/default.html#constant_COCKPIT_YXORP" class="headerlink"><i class="fas fa-link"></i></a>
@@ -4353,7 +4589,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
     </aside>
 
@@ -4382,7 +4618,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -4411,7 +4647,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">161</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 
     </aside>
 
@@ -4440,7 +4676,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">162</span>
 
     </aside>
 
@@ -4469,7 +4705,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
@@ -4498,7 +4734,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">168</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 
     </aside>
 
@@ -4527,7 +4763,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">160</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 
     </aside>
 
@@ -4556,7 +4792,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">173</span>
 
     </aside>
 
@@ -4585,7 +4821,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">180</span>
 
     </aside>
 
@@ -4614,7 +4850,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
     </aside>
 
@@ -4643,7 +4879,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -4672,7 +4908,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">175</span>
 
     </aside>
 
@@ -4701,7 +4937,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
     </aside>
 
@@ -4759,7 +4995,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">158</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
@@ -4788,7 +5024,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">167</span>
+    <span class="phpdocumentor-element-found-in__line">176</span>
 
     </aside>
 
@@ -4817,7 +5053,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 
     </aside>
 
@@ -4846,7 +5082,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">163</span>
 
     </aside>
 
@@ -4875,7 +5111,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">164</span>
 
     </aside>
 
@@ -4904,7 +5140,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
     </aside>
 
@@ -4933,7 +5169,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/yP.php"><a href="files/app-yp.html"><abbr title="app/yP.php">yP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -4962,7 +5198,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 
     </aside>
 
@@ -5020,7 +5256,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">162</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
     </aside>
 
@@ -5049,7 +5285,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">235</span>
 
     </aside>
 
@@ -5078,7 +5314,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">221</span>
+    <span class="phpdocumentor-element-found-in__line">234</span>
 
     </aside>
 
@@ -5107,7 +5343,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">223</span>
+    <span class="phpdocumentor-element-found-in__line">236</span>
 
     </aside>
 
@@ -5136,7 +5372,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">220</span>
+    <span class="phpdocumentor-element-found-in__line">233</span>
 
     </aside>
 
@@ -5165,7 +5401,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">225</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
     </aside>
 
@@ -5194,7 +5430,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">239</span>
 
     </aside>
 
@@ -5223,7 +5459,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">240</span>
 
     </aside>
 
@@ -5252,7 +5488,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">228</span>
+    <span class="phpdocumentor-element-found-in__line">241</span>
 
     </aside>
 
@@ -5281,7 +5517,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">224</span>
+    <span class="phpdocumentor-element-found-in__line">237</span>
 
     </aside>
 
@@ -5310,7 +5546,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">186</span>
 
     </aside>
 
@@ -5339,7 +5575,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 
     </aside>
 
@@ -5368,7 +5604,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
     </aside>
 
@@ -5397,7 +5633,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
@@ -5426,7 +5662,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 
     </aside>
 
@@ -5455,7 +5691,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 
     </aside>
 
@@ -5484,7 +5720,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">180</span>
+    <span class="phpdocumentor-element-found-in__line">189</span>
 
     </aside>
 
@@ -5513,7 +5749,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">191</span>
 
     </aside>
 
@@ -5542,7 +5778,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">181</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
@@ -5571,7 +5807,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">187</span>
 
     </aside>
 
@@ -5600,7 +5836,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
@@ -5629,7 +5865,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
@@ -5658,7 +5894,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -5687,7 +5923,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -5716,7 +5952,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -5745,7 +5981,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -5803,7 +6039,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">199</span>
 
     </aside>
 
@@ -5832,7 +6068,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -5861,7 +6097,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
@@ -5890,7 +6126,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">198</span>
 
     </aside>
 
@@ -5919,7 +6155,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">194</span>
 
     </aside>
 
@@ -5948,7 +6184,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">188</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
@@ -5977,7 +6213,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">192</span>
+    <span class="phpdocumentor-element-found-in__line">201</span>
 
     </aside>
 
@@ -6006,7 +6242,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">184</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 
     </aside>
 
@@ -6035,7 +6271,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">191</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -6093,7 +6329,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 
     </aside>
 
@@ -6172,6 +6408,35 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIME">
+        MIME
+        <a href="namespaces/default.html#constant_MIME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIME</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;MIME&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_NUM_ENV_LIMIT">
         NUM_ENV_LIMIT
         <a href="namespaces/default.html#constant_NUM_ENV_LIMIT" class="headerlink"><i class="fas fa-link"></i></a>
@@ -6180,7 +6445,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -6267,7 +6532,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">228</span>
 
     </aside>
 
@@ -6296,7 +6561,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">218</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 
     </aside>
 
@@ -6325,7 +6590,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">212</span>
+    <span class="phpdocumentor-element-found-in__line">225</span>
 
     </aside>
 
@@ -6354,7 +6619,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">211</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
     </aside>
 
@@ -6383,7 +6648,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">216</span>
+    <span class="phpdocumentor-element-found-in__line">229</span>
 
     </aside>
 
@@ -6412,7 +6677,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">221</span>
 
     </aside>
 
@@ -6441,7 +6706,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">214</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 
     </aside>
 
@@ -6470,7 +6735,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">213</span>
+    <span class="phpdocumentor-element-found-in__line">226</span>
 
     </aside>
 
@@ -6499,7 +6764,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
@@ -6528,7 +6793,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">223</span>
 
     </aside>
 
@@ -6557,7 +6822,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">219</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
@@ -6586,7 +6851,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">209</span>
+    <span class="phpdocumentor-element-found-in__line">222</span>
 
     </aside>
 
@@ -6615,7 +6880,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">242</span>
 
     </aside>
 
@@ -6644,7 +6909,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
@@ -6665,6 +6930,35 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SITE_DETAILS_GLOBAL">
+        SITE_DETAILS_GLOBAL
+        <a href="namespaces/default.html#constant_SITE_DETAILS_GLOBAL" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">143</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SITE_DETAILS_GLOBAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;SITE_DETAILS_GLOBAL&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SITE_DOMAIN">
         SITE_DOMAIN
         <a href="namespaces/default.html#constant_SITE_DOMAIN" class="headerlink"><i class="fas fa-link"></i></a>
@@ -6673,7 +6967,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">140</span>
+    <span class="phpdocumentor-element-found-in__line">144</span>
 
     </aside>
 
@@ -6702,7 +6996,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 
     </aside>
 
@@ -6731,7 +7025,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">193</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
     </aside>
 
@@ -6760,7 +7054,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
     </aside>
 
@@ -6789,7 +7083,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -6818,7 +7112,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
@@ -6847,7 +7141,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -6876,7 +7170,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
@@ -6905,7 +7199,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -6934,7 +7228,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
@@ -6963,7 +7257,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -6992,7 +7286,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -7021,7 +7315,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -7050,7 +7344,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -7079,7 +7373,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -7108,7 +7402,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -7129,6 +7423,35 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VAR_CSS">
+        VAR_CSS
+        <a href="namespaces/default.html#constant_VAR_CSS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">98</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VAR_CSS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;css&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_VAR_DASH_LOWER">
         VAR_DASH_LOWER
         <a href="namespaces/default.html#constant_VAR_DASH_LOWER" class="headerlink"><i class="fas fa-link"></i></a>
@@ -7137,7 +7460,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
@@ -7166,7 +7489,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -7195,7 +7518,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
@@ -7224,7 +7547,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -7253,7 +7576,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -7282,7 +7605,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -7311,7 +7634,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -7340,7 +7663,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
@@ -7369,7 +7692,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -7398,7 +7721,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 
     </aside>
 
@@ -7427,7 +7750,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -7456,7 +7779,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -7485,7 +7808,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
@@ -7514,7 +7837,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">135</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
@@ -7543,7 +7866,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
@@ -7572,7 +7895,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -7601,7 +7924,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -7630,7 +7953,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -7659,7 +7982,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -7688,7 +8011,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -7717,7 +8040,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
@@ -7746,7 +8069,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -7775,7 +8098,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -7804,7 +8127,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -7833,7 +8156,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
@@ -7862,7 +8185,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -7891,7 +8214,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -7920,7 +8243,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -7949,7 +8272,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
     </aside>
 
@@ -7978,7 +8301,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -7999,6 +8322,35 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VAR_JS">
+        VAR_JS
+        <a href="namespaces/default.html#constant_VAR_JS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VAR_JS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;js&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_VAR_LIST">
         VAR_LIST
         <a href="namespaces/default.html#constant_VAR_LIST" class="headerlink"><i class="fas fa-link"></i></a>
@@ -8007,7 +8359,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">137</span>
 
     </aside>
 
@@ -8036,7 +8388,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -8065,7 +8417,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -8094,7 +8446,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -8123,7 +8475,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -8152,7 +8504,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -8181,7 +8533,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -8210,7 +8562,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -8239,7 +8591,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
@@ -8268,7 +8620,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
@@ -8297,7 +8649,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
@@ -8326,7 +8678,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -8355,7 +8707,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
@@ -8384,7 +8736,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -8413,7 +8765,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -8442,7 +8794,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -8471,7 +8823,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -8500,7 +8852,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -8529,7 +8881,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -8558,7 +8910,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">116</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -8587,7 +8939,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -8616,7 +8968,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
@@ -8645,7 +8997,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -8674,7 +9026,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
@@ -8703,7 +9055,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
@@ -8732,7 +9084,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 
     </aside>
 
@@ -8761,7 +9113,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -8790,7 +9142,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -8819,7 +9171,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
@@ -8877,7 +9229,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -8906,7 +9258,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -8935,7 +9287,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -8964,7 +9316,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -8993,7 +9345,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -9022,7 +9374,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 
     </aside>
 
@@ -9051,7 +9403,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -9080,7 +9432,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -9109,7 +9461,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -9138,7 +9490,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -9167,7 +9519,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -9196,7 +9548,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -9225,7 +9577,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -9254,7 +9606,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -9283,7 +9635,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
     </aside>
 
@@ -9312,7 +9664,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">150</span>
 
     </aside>
 
@@ -9341,7 +9693,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
@@ -9370,7 +9722,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">203</span>
 
     </aside>
 
@@ -9399,7 +9751,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">195</span>
+    <span class="phpdocumentor-element-found-in__line">204</span>
 
     </aside>
 
@@ -9428,7 +9780,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">200</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 
     </aside>
 
@@ -9457,7 +9809,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 
@@ -9486,7 +9838,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
     </aside>
 
@@ -9507,6 +9859,64 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YXORP_GLOBAL_CSS">
+        YXORP_GLOBAL_CSS
+        <a href="namespaces/default.html#constant_YXORP_GLOBAL_CSS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">218</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YXORP_GLOBAL_CSS</span>
+    = <span class="phpdocumentor-signature__default-value">\VAR_GLOBAL_UP . \CHAR_UNDER . \VAR_CSS</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YXORP_GLOBAL_JS">
+        YXORP_GLOBAL_JS
+        <a href="namespaces/default.html#constant_YXORP_GLOBAL_JS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">219</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YXORP_GLOBAL_JS</span>
+    = <span class="phpdocumentor-signature__default-value">\VAR_GLOBAL_UP . \CHAR_UNDER . \VAR_JS</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_YXORP_GLOBAL_PATTERN">
         YXORP_GLOBAL_PATTERN
         <a href="namespaces/default.html#constant_YXORP_GLOBAL_PATTERN" class="headerlink"><i class="fas fa-link"></i></a>
@@ -9515,7 +9925,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">207</span>
+    <span class="phpdocumentor-element-found-in__line">220</span>
 
     </aside>
 
@@ -9544,7 +9954,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">217</span>
 
     </aside>
 
@@ -9573,7 +9983,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">212</span>
 
     </aside>
 
@@ -9602,7 +10012,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">197</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
@@ -9631,7 +10041,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">201</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
@@ -9660,7 +10070,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">204</span>
+    <span class="phpdocumentor-element-found-in__line">213</span>
 
     </aside>
 
@@ -9689,7 +10099,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
 
     </aside>
 
@@ -9718,7 +10128,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 
     </aside>
 
@@ -9739,6 +10149,64 @@ file that was distributed with this source code.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YXORP_TARGET_CSS">
+        YXORP_TARGET_CSS
+        <a href="namespaces/default.html#constant_YXORP_TARGET_CSS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">216</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YXORP_TARGET_CSS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;TARGET_CSS&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_YXORP_TARGET_JS">
+        YXORP_TARGET_JS
+        <a href="namespaces/default.html#constant_YXORP_TARGET_JS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">215</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">YXORP_TARGET_JS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;TARGET_JS&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_YXORP_TARGET_PLUGINS">
         YXORP_TARGET_PLUGINS
         <a href="namespaces/default.html#constant_YXORP_TARGET_PLUGINS" class="headerlink"><i class="fas fa-link"></i></a>
@@ -9747,7 +10215,7 @@ file that was distributed with this source code.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="app/constants.php"><a href="files/app-constants.html"><abbr title="app/constants.php">constants.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 
     </aside>
 
