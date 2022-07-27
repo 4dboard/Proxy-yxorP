@@ -18,7 +18,7 @@
 
 
 ```php
-public $r1
+public int $r1
 ```
 
 
@@ -33,7 +33,7 @@ public $r1
 
 
 ```php
-public $r2
+public int $r2
 ```
 
 
@@ -48,7 +48,7 @@ public $r2
 
 
 ```php
-public $g1
+public int $g1
 ```
 
 
@@ -63,7 +63,7 @@ public $g1
 
 
 ```php
-public $g2
+public int $g2
 ```
 
 
@@ -78,7 +78,7 @@ public $g2
 
 
 ```php
-public $b1
+public int $b1
 ```
 
 
@@ -93,7 +93,7 @@ public $b1
 
 
 ```php
-public $b2
+public int $b2
 ```
 
 
@@ -108,7 +108,7 @@ public $b2
 
 
 ```php
-public $histo
+public array&lt;int,int&gt; $histo
 ```
 
 
@@ -123,7 +123,22 @@ public $histo
 
 
 ```php
-private $volume
+private int $volume
+```
+
+
+
+
+
+
+***
+
+### volume_set
+
+
+
+```php
+private bool $volume_set
 ```
 
 
@@ -138,7 +153,7 @@ private $volume
 
 
 ```php
-private $count
+private int $count
 ```
 
 
@@ -153,7 +168,7 @@ private $count
 
 
 ```php
-private $count_set
+private bool $count_set
 ```
 
 
@@ -168,7 +183,22 @@ private $count_set
 
 
 ```php
-private $avg
+private array $avg
+```
+
+
+
+
+
+
+***
+
+### avg_set
+
+
+
+```php
+private bool $avg_set
 ```
 
 
@@ -183,10 +213,10 @@ private $avg
 
 ### __construct
 
-
+VBox constructor.
 
 ```php
-public __construct(mixed $r1, mixed $r2, mixed $g1, mixed $g2, mixed $b1, mixed $b2, mixed $histo): mixed
+public __construct(int $r1, int $r2, int $g1, int $g2, int $b1, int $b2, array&lt;int,int&gt; $histo): mixed
 ```
 
 
@@ -200,13 +230,13 @@ public __construct(mixed $r1, mixed $r2, mixed $g1, mixed $g2, mixed $b1, mixed 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$r1` | **mixed** |  |
-| `$r2` | **mixed** |  |
-| `$g1` | **mixed** |  |
-| `$g2` | **mixed** |  |
-| `$b1` | **mixed** |  |
-| `$b2` | **mixed** |  |
-| `$histo` | **mixed** |  |
+| `$r1` | **int** |  |
+| `$r2` | **int** |  |
+| `$g1` | **int** |  |
+| `$g2` | **int** |  |
+| `$b1` | **int** |  |
+| `$b2` | **int** |  |
+| `$histo` | **array<int,int>** |  |
 
 
 
@@ -218,7 +248,7 @@ public __construct(mixed $r1, mixed $r2, mixed $g1, mixed $g2, mixed $b1, mixed 
 
 
 ```php
-public volume(mixed $force = false): mixed
+public volume(bool $force = false): int
 ```
 
 
@@ -232,7 +262,7 @@ public volume(mixed $force = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$force` | **mixed** |  |
+| `$force` | **bool** |  |
 
 
 
@@ -244,7 +274,7 @@ public volume(mixed $force = false): mixed
 
 
 ```php
-public count(mixed $force = false): mixed
+public count(bool $force = false): int
 ```
 
 
@@ -258,7 +288,7 @@ public count(mixed $force = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$force` | **mixed** |  |
+| `$force` | **bool** |  |
 
 
 
@@ -270,7 +300,7 @@ public count(mixed $force = false): mixed
 
 
 ```php
-public copy(): mixed
+public copy(): self
 ```
 
 
@@ -290,7 +320,7 @@ public copy(): mixed
 Calculates the average color represented by this VBox.
 
 ```php
-public avg(bool $force = false): array|bool
+public avg(bool $force = false): array
 ```
 
 
@@ -316,7 +346,7 @@ public avg(bool $force = false): array|bool
 
 
 ```php
-public contains(array $rgbValue, mixed $rshift = ColorThief::RSHIFT): mixed
+public contains(array $rgbValue, int $rshift = ColorThief::RSHIFT): bool
 ```
 
 
@@ -331,7 +361,7 @@ public contains(array $rgbValue, mixed $rshift = ColorThief::RSHIFT): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rgbValue` | **array** |  |
-| `$rshift` | **mixed** |  |
+| `$rshift` | **int** |  |
 
 
 

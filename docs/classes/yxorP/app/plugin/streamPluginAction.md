@@ -199,12 +199,12 @@ public onCheck(): void
 
 ***
 
-### onBuildCache
+### onCache
 
 A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
 
 ```php
-public onBuildCache(): void
+public onCache(): void
 ```
 
 
@@ -219,12 +219,12 @@ public onBuildCache(): void
 
 ***
 
-### onBuildContext
+### onContext
 
 A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
 
 ```php
-public onBuildContext(): void
+public onContext(): void
 ```
 
 
@@ -239,12 +239,12 @@ public onBuildContext(): void
 
 ***
 
-### onBuildIncludes
+### onIncludes
 
 A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
 
 ```php
-public onBuildIncludes(): void
+public onIncludes(): void
 ```
 
 
@@ -259,12 +259,12 @@ public onBuildIncludes(): void
 
 ***
 
-### onBuildHeaders
+### onHeaders
 
 A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
 
 ```php
-public onBuildHeaders(): void
+public onHeaders(): void
 ```
 
 
@@ -279,12 +279,12 @@ public onBuildHeaders(): void
 
 ***
 
-### onBuildRequest
+### onRequest
 
 A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
 
 ```php
-public onBuildRequest(): void
+public onRequest(): void
 ```
 
 
@@ -419,12 +419,12 @@ public onFinal(): void
 
 ***
 
-### onBuildException
+### onException
 
 Used to execute code when an exception is thrown.
 
 ```php
-public onBuildException(\Exception $e): void
+public onException(\Exception $e): void
 ```
 
 

@@ -9,31 +9,22 @@
 * Full name: `\League\Flysystem\Config`
 
 
+## Constants
+
+| Constant | Visibility | Type | Value |
+|:---------|:-----------|:-----|:------|
+|`OPTION_VISIBILITY`|public| |&#039;visibility&#039;|
+|`OPTION_DIRECTORY_VISIBILITY`|public| |&#039;directory_visibility&#039;|
 
 ## Properties
 
 
-### settings
+### options
 
 
 
 ```php
-protected array $settings
-```
-
-
-
-
-
-
-***
-
-### fallback
-
-
-
-```php
-protected \League\Flysystem\Config|null $fallback
+private array $options
 ```
 
 
@@ -48,10 +39,10 @@ protected \League\Flysystem\Config|null $fallback
 
 ### __construct
 
-Constructor.
+
 
 ```php
-public __construct(array $settings = []): mixed
+public __construct(array $options = []): mixed
 ```
 
 
@@ -65,7 +56,7 @@ public __construct(array $settings = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$settings` | **array** |  |
+| `$options` | **array** |  |
 
 
 
@@ -74,10 +65,10 @@ public __construct(array $settings = []): mixed
 
 ### get
 
-Get a setting.
+
 
 ```php
-public get(string $key, mixed $default = null): mixed
+public get(string $property, mixed $default = null): mixed
 ```
 
 
@@ -91,24 +82,20 @@ public get(string $key, mixed $default = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$property` | **string** |  |
 | `$default` | **mixed** |  |
 
 
-**Return Value:**
-
-config setting or default when not found
-
 
 
 ***
 
-### has
+### extend
 
-Check if an item exists by key.
+
 
 ```php
-public has(string $key): bool
+public extend(array $options): \League\Flysystem\Config
 ```
 
 
@@ -122,19 +109,19 @@ public has(string $key): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$options` | **array** |  |
 
 
 
 
 ***
 
-### getDefault
+### withDefaults
 
-Try to retrieve a default setting from a config fallback.
+
 
 ```php
-protected getDefault(string $key, mixed $default): mixed
+public withDefaults(array $defaults): \League\Flysystem\Config
 ```
 
 
@@ -148,65 +135,7 @@ protected getDefault(string $key, mixed $default): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$default` | **mixed** |  |
-
-
-**Return Value:**
-
-config setting or default when not found
-
-
-
-***
-
-### set
-
-Set a setting.
-
-```php
-public set(string $key, mixed $value): $this
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### setFallback
-
-Set the fallback.
-
-```php
-public setFallback(\League\Flysystem\Config $fallback): $this
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$fallback` | **\League\Flysystem\Config** |  |
+| `$defaults` | **array** |  |
 
 
 

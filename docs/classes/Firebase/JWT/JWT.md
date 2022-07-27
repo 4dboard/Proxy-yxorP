@@ -18,9 +18,9 @@ PHP version 5
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`ASN1_INTEGER`|public| |0x2|
-|`ASN1_SEQUENCE`|public| |0x10|
-|`ASN1_BIT_STRING`|public| |0x3|
+|`ASN1_INTEGER`|private| |0x2|
+|`ASN1_SEQUENCE`|private| |0x10|
+|`ASN1_BIT_STRING`|private| |0x3|
 
 ## Properties
 
@@ -32,7 +32,7 @@ we want to provide some extra leeway time to
 account for clock skew.
 
 ```php
-public static $leeway
+public static int $leeway
 ```
 
 
@@ -47,11 +47,10 @@ public static $leeway
 Allow the current timestamp to be specified.
 
 ```php
-public static $timestamp
+public static ?int $timestamp
 ```
 
 Useful for fixing a value within unit testing.
-
 Will default to PHP time() value if null.
 
 * This property is **static**.
@@ -64,7 +63,7 @@ Will default to PHP time() value if null.
 
 
 ```php
-public static $supported_algs
+public static array&lt;string,string[]&gt; $supported_algs
 ```
 
 
@@ -82,7 +81,7 @@ public static $supported_algs
 Decodes a JWT string into a PHP object.
 
 ```php
-public static decode(string $jwt, string|array|resource $key, array $allowed_algs = array()): object
+public static decode(string $jwt, \Firebase\JWT\Key|array&lt;string,\Firebase\JWT\Key&gt; $keyOrKeyArray): \stdClass
 ```
 
 
@@ -97,8 +96,7 @@ public static decode(string $jwt, string|array|resource $key, array $allowed_alg
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwt` | **string** | The JWT |
-| `$key` | **string&#124;array&#124;resource** | The key, or map of keys.<br />If the algorithm used is asymmetric, this is the public key |
-| `$allowed_algs` | **array** | List of supported verification algorithms<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+| `$keyOrKeyArray` | **\Firebase\JWT\Key&#124;array<string,\Firebase\JWT\Key>** | The Key or associative array of key IDs (kid) to Key objects.<br />If the algorithm used is asymmetric, this is the public key<br />Each Key object contains an algorithm and matching key.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 
 
 **Return Value:**
@@ -114,7 +112,7 @@ The JWT's payload as a PHP object
 Converts and signs a PHP object or array into a JWT string.
 
 ```php
-public static encode(object|array $payload, string|resource $key, string $alg = &#039;HS256&#039;, mixed $keyId = null, array $head = null): string
+public static encode(array $payload, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $key, string $alg, string $keyId = null, array&lt;string,string&gt; $head = null): string
 ```
 
 
@@ -128,11 +126,11 @@ public static encode(object|array $payload, string|resource $key, string $alg = 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$payload` | **object&#124;array** | PHP object or array |
-| `$key` | **string&#124;resource** | The secret key.<br />If the algorithm used is asymmetric, this is the private key |
-| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
-| `$keyId` | **mixed** |  |
-| `$head` | **array** | An array with header elements to attach |
+| `$payload` | **array** | PHP array |
+| `$key` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** | The secret key. |
+| `$alg` | **string** | Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+| `$keyId` | **string** |  |
+| `$head` | **array<string,string>** | An array with header elements to attach |
 
 
 **Return Value:**
@@ -148,7 +146,7 @@ A signed JWT
 Sign a string with a given key and algorithm.
 
 ```php
-public static sign(string $msg, string|resource $key, string $alg = &#039;HS256&#039;): string
+public static sign(string $msg, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $key, string $alg): string
 ```
 
 
@@ -163,8 +161,8 @@ public static sign(string $msg, string|resource $key, string $alg = &#039;HS256&
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$msg` | **string** | The message to sign |
-| `$key` | **string&#124;resource** | The secret key |
-| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+| `$key` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** | The secret key. |
+| `$alg` | **string** | Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 
 
 **Return Value:**
@@ -181,7 +179,7 @@ Verify a signature with the message, key and method. Not all methods
 are symmetric, so we must have a separate verify and sign method.
 
 ```php
-private static verify(string $msg, string $signature, string|resource $key, string $alg): bool
+private static verify(string $msg, string $signature, string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $keyMaterial, string $alg): bool
 ```
 
 
@@ -197,7 +195,7 @@ private static verify(string $msg, string $signature, string|resource $key, stri
 |-----------|------|-------------|
 | `$msg` | **string** | The original message (header and body) |
 | `$signature` | **string** | The original signature |
-| `$key` | **string&#124;resource** | For HS*, a string key works. for RS*, must be a resource of an openssl public key |
+| `$keyMaterial` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** | For HS*, a string key works. for RS*, must be an instance of OpenSSLAsymmetricKey |
 | `$alg` | **string** | The algorithm |
 
 
@@ -210,7 +208,7 @@ private static verify(string $msg, string $signature, string|resource $key, stri
 Decode a JSON string into a PHP object.
 
 ```php
-public static jsonDecode(string $input): object
+public static jsonDecode(string $input): mixed
 ```
 
 
@@ -229,7 +227,7 @@ public static jsonDecode(string $input): object
 
 **Return Value:**
 
-Object representation of JSON string
+The decoded JSON string
 
 
 
@@ -237,10 +235,10 @@ Object representation of JSON string
 
 ### jsonEncode
 
-Encode a PHP object into a JSON string.
+Encode a PHP array into a JSON string.
 
 ```php
-public static jsonEncode(object|array $input): string
+public static jsonEncode(array $input): string
 ```
 
 
@@ -254,12 +252,12 @@ public static jsonEncode(object|array $input): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$input` | **object&#124;array** | A PHP object or array |
+| `$input` | **array** | A PHP array |
 
 
 **Return Value:**
 
-JSON representation of the PHP object or array
+JSON representation of the PHP array
 
 
 
@@ -320,6 +318,60 @@ public static urlsafeB64Encode(string $input): string
 **Return Value:**
 
 The base64 encode of what you passed in
+
+
+
+***
+
+### getKey
+
+Determine if an algorithm has been provided for each Key
+
+```php
+private static getKey(\Firebase\JWT\Key|\ArrayAccess&lt;string,\Firebase\JWT\Key&gt;|array&lt;string,\Firebase\JWT\Key&gt; $keyOrKeyArray, string|null $kid): \Firebase\JWT\Key
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$keyOrKeyArray` | **\Firebase\JWT\Key&#124;\ArrayAccess<string,\Firebase\JWT\Key>&#124;array<string,\Firebase\JWT\Key>** |  |
+| `$kid` | **string&#124;null** |  |
+
+
+
+
+***
+
+### constantTimeEquals
+
+
+
+```php
+public static constantTimeEquals(string $left, string $right): bool
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$left` | **string** | The string of known length to compare against |
+| `$right` | **string** | The user-supplied string |
+
 
 
 
@@ -491,10 +543,6 @@ private static readDER(string $der, int $offset): array
 | `$der` | **string** | the binary data in DER format |
 | `$offset` | **int** | the offset of the data stream containing the object<br />to decode |
 
-
-**Return Value:**
-
-[$offset, $data] the new offset and the decoded object
 
 
 

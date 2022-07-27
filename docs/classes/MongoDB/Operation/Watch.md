@@ -252,8 +252,6 @@ Supported options:
 
  * session (MongoDB\Driver\Session): Client session.
 
-   Sessions are not supported for server versions < 3.6.
-
  * startAfter (document): Specifies the logical starting point for the
    new change stream. Unlike "resumeAfter", this option can be used with
    a resume token from an "invalidate" event.

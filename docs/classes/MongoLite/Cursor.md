@@ -65,7 +65,7 @@ protected \MongoLite\Collection $collection
 
 
 ```php
-protected string|null $criteria
+protected ?string $criteria
 ```
 
 
@@ -80,7 +80,7 @@ protected string|null $criteria
 
 
 ```php
-protected array|null $projection
+protected ?array $projection
 ```
 
 
@@ -95,7 +95,7 @@ protected array|null $projection
 
 
 ```php
-protected null|int $limit
+protected ?int $limit
 ```
 
 
@@ -110,7 +110,7 @@ protected null|int $limit
 
 
 ```php
-protected null|int $skip
+protected ?int $skip
 ```
 
 
@@ -125,7 +125,7 @@ protected null|int $skip
 
 
 ```php
-protected null|array $sort
+protected ?array $sort
 ```
 
 
@@ -143,7 +143,7 @@ protected null|array $sort
 Constructor
 
 ```php
-public __construct(object $collection, mixed $criteria, mixed $projection = null): mixed
+public __construct(object $collection, mixed $criteria, ?array $projection = null): mixed
 ```
 
 
@@ -159,7 +159,7 @@ public __construct(object $collection, mixed $criteria, mixed $projection = null
 |-----------|------|-------------|
 | `$collection` | **object** |  |
 | `$criteria` | **mixed** |  |
-| `$projection` | **mixed** |  |
+| `$projection` | **?array** |  |
 
 
 
@@ -191,7 +191,7 @@ public count(): int
 Set limit
 
 ```php
-public limit(mixed $limit): object
+public limit(int $limit): object
 ```
 
 
@@ -205,7 +205,7 @@ public limit(mixed $limit): object
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$limit` | **mixed** |  |
+| `$limit` | **int** |  |
 
 
 **Return Value:**
@@ -251,7 +251,7 @@ Cursor
 Set skip
 
 ```php
-public skip(mixed $skip): object
+public skip(int $skip): object
 ```
 
 
@@ -265,7 +265,7 @@ public skip(mixed $skip): object
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$skip` | **mixed** |  |
+| `$skip` | **int** |  |
 
 
 **Return Value:**
@@ -347,7 +347,7 @@ protected getData(): array
 Iterator implementation
 
 ```php
-public rewind(): mixed
+public rewind(): void
 ```
 
 
@@ -367,7 +367,7 @@ public rewind(): mixed
 
 
 ```php
-public current(): mixed
+public current(): array
 ```
 
 
@@ -387,7 +387,7 @@ public current(): mixed
 
 
 ```php
-public key(): mixed
+public key(): int
 ```
 
 
@@ -407,7 +407,7 @@ public key(): mixed
 
 
 ```php
-public next(): mixed
+public next(): void
 ```
 
 
@@ -427,7 +427,7 @@ public next(): mixed
 
 
 ```php
-public valid(): mixed
+public valid(): bool
 ```
 
 

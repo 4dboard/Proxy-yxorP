@@ -80,39 +80,12 @@ public static getColorsFromIndex(int $index, int $sigBits = 8): array
 
 ***
 
-### naturalOrder
-
-Natural sorting.
-
-```php
-public static naturalOrder(int $a, int $b): int
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$a` | **int** |  |
-| `$b` | **int** |  |
-
-
-
-
-***
-
 ### getColor
 
-Use the median cut algorithm to cluster similar colors.
+Gets the dominant color from the image using the median cut algorithm to cluster similar colors.
 
 ```php
-public static getColor(mixed $sourceImage, int $quality = 10, array $area = null): array|bool
+public static getColor(mixed $sourceImage, int $quality = 10, array|null $area = null, string $outputFormat = &#039;array&#039;, \ColorThief\Image\Adapter\AdapterInterface|string|null $adapter = null): mixed
 ```
 
 
@@ -126,9 +99,11 @@ public static getColor(mixed $sourceImage, int $quality = 10, array $area = null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
-| `$quality` | **int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
-| `$area` | **array** |  |
+| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick/Gmagick instance, or image as binary string |
+| `$quality` | **int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />It determines how many pixels are skipped before the next one is sampled.<br />We rarely need to sample every single pixel in the image to get good results.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
+| `$area` | **array&#124;null** | It allows you to specify a rectangular area in the image in order to get<br />colors only for this area. It needs to be an associative array with the<br />following keys:<br />$area[&#039;x&#039;]: The x-coordinate of the top left corner of the area. Default to 0.<br />$area[&#039;y&#039;]: The y-coordinate of the top left corner of the area. Default to 0.<br />$area[&#039;w&#039;]: The width of the area. Default to image width minus x-coordinate.<br />$area[&#039;h&#039;]: The height of the area. Default to image height minus y-coordinate. |
+| `$outputFormat` | **string** | By default, color is returned as an array of three integers representing<br />red, green, and blue values.<br />You can choose another output format by passing one of the following values:<br />&#039;rgb&#039;   : RGB string notation (ex: rgb(253, 42, 152)).<br />&#039;hex&#039;   : String of the hexadecimal representation (ex: #fd2a98).<br />&#039;int&#039;   : Integer color value (ex: 16591512).<br />&#039;array&#039; : Default format (ex: [253, 42, 152]).<br />&#039;obj&#039;   : Instance of ColorThief\Color, for custom processing. |
+| `$adapter` | **\ColorThief\Image\Adapter\AdapterInterface&#124;string&#124;null** | Optional argument to choose a preferred image adapter to use for loading the image.<br />By default, the adapter is automatically chosen depending on the available extensions<br />and the type of $sourceImage (for example Imagick is used if $sourceImage is an Imagick instance).<br />You can pass one of the &#039;Imagick&#039;, &#039;Gmagick&#039; or &#039;Gd&#039; string to use the corresponding<br />underlying image extension, or you can pass an instance of any class implementing<br />the AdapterInterface interface to use a custom image loader. |
 
 
 
@@ -137,10 +112,10 @@ public static getColor(mixed $sourceImage, int $quality = 10, array $area = null
 
 ### getPalette
 
-Use the median cut algorithm to cluster similar colors.
+Gets a palette of dominant colors from the image using the median cut algorithm to cluster similar colors.
 
 ```php
-public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality = 10, array $area = null): array
+public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality = 10, array|null $area = null, string $outputFormat = &#039;array&#039;, \ColorThief\Image\Adapter\AdapterInterface|string|null $adapter = null): array
 ```
 
 
@@ -154,10 +129,12 @@ public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
+| `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick/Gmagick instance, or image as binary string |
 | `$colorCount` | **int** | it determines the size of the palette; the number of colors returned |
-| `$quality` | **int** | 1 is the highest quality |
-| `$area` | **array** |  |
+| `$quality` | **int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />It determines how many pixels are skipped before the next one is sampled.<br />We rarely need to sample every single pixel in the image to get good results.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
+| `$area` | **array&#124;null** | It allows you to specify a rectangular area in the image in order to get<br />colors only for this area. It needs to be an associative array with the<br />following keys:<br />$area[&#039;x&#039;]: The x-coordinate of the top left corner of the area. Default to 0.<br />$area[&#039;y&#039;]: The y-coordinate of the top left corner of the area. Default to 0.<br />$area[&#039;w&#039;]: The width of the area. Default to image width minus x-coordinate.<br />$area[&#039;h&#039;]: The height of the area. Default to image height minus y-coordinate. |
+| `$outputFormat` | **string** | By default, colors are returned as an array of three integers representing<br />red, green, and blue values.<br />You can choose another output format by passing one of the following values:<br />&#039;rgb&#039;   : RGB string notation (ex: rgb(253, 42, 152)).<br />&#039;hex&#039;   : String of the hexadecimal representation (ex: #fd2a98).<br />&#039;int&#039;   : Integer color value (ex: 16591512).<br />&#039;array&#039; : Default format (ex: [253, 42, 152]).<br />&#039;obj&#039;   : Instance of ColorThief\Color, for custom processing. |
+| `$adapter` | **\ColorThief\Image\Adapter\AdapterInterface&#124;string&#124;null** | Optional argument to choose a preferred image adapter to use for loading the image.<br />By default, the adapter is automatically chosen depending on the available extensions<br />and the type of $sourceImage (e.g. Imagick is used if $sourceImage is an Imagick instance).<br />You can pass one of the &#039;Imagick&#039;, &#039;Gmagick&#039; or &#039;Gd&#039; string to use the corresponding<br />underlying image extension, or you can pass an instance of any class implementing<br />the AdapterInterface interface to use a custom image loader. |
 
 
 
@@ -169,7 +146,7 @@ public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality 
 
 
 ```php
-private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|null $area = null): int
+private static loadImage(mixed $sourceImage, int $quality, array&lt;int,int&gt;& $histo, array $area = null, \ColorThief\Image\Adapter\AdapterInterface|string|null $adapter = null): int
 ```
 
 
@@ -185,8 +162,9 @@ private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|
 |-----------|------|-------------|
 | `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
 | `$quality` | **int** | Analyze every $quality pixels |
-| `$histo` | **array** | Histogram |
-| `$area` | **array&#124;null** |  |
+| `$histo` | **array<int,int>** | Histogram |
+| `$area` | **array** |  |
+| `$adapter` | **\ColorThief\Image\Adapter\AdapterInterface&#124;string&#124;null** | Image adapter to use for loading the image |
 
 
 
@@ -198,7 +176,7 @@ private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|
 
 
 ```php
-private static vboxFromHistogram(array $histo): \ColorThief\VBox
+private static vboxFromHistogram(array&lt;int,int&gt; $histo): \ColorThief\VBox
 ```
 
 
@@ -212,7 +190,7 @@ private static vboxFromHistogram(array $histo): \ColorThief\VBox
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$histo` | **array** |  |
+| `$histo` | **array<int,int>** |  |
 
 
 
@@ -224,7 +202,7 @@ private static vboxFromHistogram(array $histo): \ColorThief\VBox
 
 
 ```php
-private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, int $total): array|void
+private static doCut(string $color, \ColorThief\VBox $vBox, int[] $partialSum, int $total): ?array
 ```
 
 
@@ -240,7 +218,7 @@ private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, i
 |-----------|------|-------------|
 | `$color` | **string** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
-| `$partialSum` | **array** |  |
+| `$partialSum` | **int[]** |  |
 | `$total` | **int** |  |
 
 
@@ -253,7 +231,7 @@ private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, i
 
 
 ```php
-private static medianCutApply(array $histo, \ColorThief\VBox $vBox): array|void
+private static medianCutApply(array&lt;int,int&gt; $histo, \ColorThief\VBox $vBox): \ColorThief\VBox[]|null
 ```
 
 
@@ -267,7 +245,7 @@ private static medianCutApply(array $histo, \ColorThief\VBox $vBox): array|void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$histo` | **array** |  |
+| `$histo` | **array<int,int>** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
 
 
@@ -280,7 +258,7 @@ private static medianCutApply(array $histo, \ColorThief\VBox $vBox): array|void
 Find the partial sum arrays along the selected axis.
 
 ```php
-private static sumColors(string $axis, array $histo, \ColorThief\VBox $vBox): array
+private static sumColors(string $axis, array&lt;int,int&gt; $histo, \ColorThief\VBox $vBox): array
 ```
 
 
@@ -295,13 +273,9 @@ private static sumColors(string $axis, array $histo, \ColorThief\VBox $vBox): ar
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$axis` | **string** | r&amp;#124;g&amp;#124;b |
-| `$histo` | **array** |  |
+| `$histo` | **array<int,int>** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
 
-
-**Return Value:**
-
-[$total, $partialSum]
 
 
 
@@ -312,7 +286,7 @@ private static sumColors(string $axis, array $histo, \ColorThief\VBox $vBox): ar
 
 
 ```php
-private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): array
+private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): int[][]
 ```
 
 
@@ -339,7 +313,7 @@ private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): array
 Inner function to do the iteration.
 
 ```php
-private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, array $histo): mixed
+private static quantizeIter(\ColorThief\PQueue&lt;\ColorThief\VBox&gt;& $priorityQueue, float $target, array&lt;int,int&gt; $histo): void
 ```
 
 
@@ -353,9 +327,9 @@ private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, a
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$priorityQueue` | **\ColorThief\PQueue** |  |
+| `$priorityQueue` | **\ColorThief\PQueue<\ColorThief\VBox>** |  |
 | `$target` | **float** |  |
-| `$histo` | **array** |  |
+| `$histo` | **array<int,int>** |  |
 
 
 
@@ -367,7 +341,7 @@ private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, a
 
 
 ```php
-private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThief\CMap
+private static quantize(int $numPixels, int $maxColors, array&lt;int,int&gt;& $histo): \ColorThief\Color[]
 ```
 
 
@@ -381,9 +355,9 @@ private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThi
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$numPixels` | **** | Number of image pixels analyzed |
-| `$maxColors` | **** |  |
-| `$histo` | **array** | Histogram |
+| `$numPixels` | **int** | Number of image pixels analyzed |
+| `$maxColors` | **int** |  |
+| `$histo` | **array<int,int>** | Histogram |
 
 
 

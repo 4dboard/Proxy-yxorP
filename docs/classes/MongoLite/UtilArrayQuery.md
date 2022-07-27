@@ -36,7 +36,7 @@ protected static $closures
 
 
 ```php
-public static closureCall(mixed $uid, mixed $doc): mixed
+public static closureCall(string $uid, mixed $doc): mixed
 ```
 
 
@@ -50,7 +50,7 @@ public static closureCall(mixed $uid, mixed $doc): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uid` | **mixed** |  |
+| `$uid` | **string** |  |
 | `$doc` | **mixed** |  |
 
 
@@ -63,7 +63,7 @@ public static closureCall(mixed $uid, mixed $doc): mixed
 
 
 ```php
-public static buildCondition(mixed $criteria, mixed $concat = &#039; &amp;&amp; &#039;): mixed
+public static buildCondition(mixed $criteria, string $concat = &#039; &amp;&amp; &#039;): string
 ```
 
 
@@ -78,7 +78,7 @@ public static buildCondition(mixed $criteria, mixed $concat = &#039; &amp;&amp; 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-| `$concat` | **mixed** |  |
+| `$concat` | **string** |  |
 
 
 
@@ -90,7 +90,7 @@ public static buildCondition(mixed $criteria, mixed $concat = &#039; &amp;&amp; 
 
 
 ```php
-public static check(mixed $value, mixed $condition): mixed
+public static check(mixed $value, array $condition): bool
 ```
 
 
@@ -105,7 +105,7 @@ public static check(mixed $value, mixed $condition): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-| `$condition` | **mixed** |  |
+| `$condition` | **array** |  |
 
 
 
@@ -117,7 +117,7 @@ public static check(mixed $value, mixed $condition): mixed
 
 
 ```php
-private static evaluate(mixed $func, mixed $a, mixed $b): mixed
+private static evaluate(string $func, mixed $a, mixed $b): mixed
 ```
 
 
@@ -131,7 +131,7 @@ private static evaluate(mixed $func, mixed $a, mixed $b): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$func` | **mixed** |  |
+| `$func` | **string** |  |
 | `$a` | **mixed** |  |
 | `$b` | **mixed** |  |
 

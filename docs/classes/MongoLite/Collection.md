@@ -18,7 +18,7 @@ Collection object.
 
 
 ```php
-public object $database
+public \MongoLite\Database $database
 ```
 
 
@@ -51,7 +51,7 @@ public string $name
 Constructor
 
 ```php
-public __construct(string $name, object $database): mixed
+public __construct(string $name, \MongoLite\Database $database): mixed
 ```
 
 
@@ -66,7 +66,7 @@ public __construct(string $name, object $database): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-| `$database` | **object** |  |
+| `$database` | **\MongoLite\Database** |  |
 
 
 
@@ -78,7 +78,7 @@ public __construct(string $name, object $database): mixed
 Drop collection
 
 ```php
-public drop(): mixed
+public drop(): void
 ```
 
 
@@ -185,7 +185,7 @@ protected _insert(array& $document): mixed
 Save document
 
 ```php
-public save(array& $document, mixed $create = false): mixed
+public save(array& $document, bool $create = false): mixed
 ```
 
 
@@ -200,7 +200,7 @@ public save(array& $document, mixed $create = false): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **array** |  |
-| `$create` | **mixed** |  |
+| `$create` | **bool** |  |
 
 
 
@@ -212,7 +212,7 @@ public save(array& $document, mixed $create = false): mixed
 Update documents
 
 ```php
-public update(mixed $criteria, array $data, mixed $merge = true): int
+public update(mixed $criteria, array $data, bool $merge = true): int
 ```
 
 
@@ -228,7 +228,7 @@ public update(mixed $criteria, array $data, mixed $merge = true): int
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
 | `$data` | **array** |  |
-| `$merge` | **mixed** |  |
+| `$merge` | **bool** |  |
 
 
 
@@ -292,7 +292,7 @@ public count(mixed $criteria = null): int
 Find documents
 
 ```php
-public find(mixed $criteria = null, mixed $projection = null): object
+public find(mixed $criteria = null, ?array $projection = null): \MongoLite\Cursor
 ```
 
 
@@ -307,7 +307,7 @@ public find(mixed $criteria = null, mixed $projection = null): object
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-| `$projection` | **mixed** |  |
+| `$projection` | **?array** |  |
 
 
 **Return Value:**
@@ -323,7 +323,7 @@ Cursor
 Find one document
 
 ```php
-public findOne(mixed $criteria = null, mixed $projection = null): array
+public findOne(mixed $criteria = null, ?array $projection = null): array
 ```
 
 
@@ -338,7 +338,33 @@ public findOne(mixed $criteria = null, mixed $projection = null): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **mixed** |  |
-| `$projection` | **mixed** |  |
+| `$projection` | **?array** |  |
+
+
+
+
+***
+
+### aggregate
+
+Data aggregation
+
+```php
+public aggregate(array $pipeline): \MongoLite\Aggregation\Cursor
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$pipeline` | **array** |  |
 
 
 

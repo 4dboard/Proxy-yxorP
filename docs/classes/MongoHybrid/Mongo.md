@@ -18,7 +18,7 @@
 
 
 ```php
-protected $client
+protected \MongoDB\Client $client
 ```
 
 
@@ -33,7 +33,7 @@ protected $client
 
 
 ```php
-protected $db
+protected \MongoDB\Database $db
 ```
 
 
@@ -48,7 +48,7 @@ protected $db
 
 
 ```php
-protected $options
+protected array $options
 ```
 
 
@@ -66,7 +66,7 @@ protected $options
 
 
 ```php
-public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []): mixed
+public __construct(string $server, array $options = [], array $driverOptions = []): mixed
 ```
 
 
@@ -80,9 +80,29 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$server` | **mixed** |  |
-| `$options` | **mixed** |  |
-| `$driverOptions` | **mixed** |  |
+| `$server` | **string** |  |
+| `$options` | **array** |  |
+| `$driverOptions` | **array** |  |
+
+
+
+
+***
+
+### lstCollections
+
+
+
+```php
+public lstCollections(): array
+```
+
+
+
+
+
+
+
 
 
 
@@ -94,7 +114,7 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 
 
 ```php
-public getCollection(mixed $name, mixed $db = null): mixed
+public getCollection(string $name, ?string $db = null): \MongoDB\Collection
 ```
 
 
@@ -108,8 +128,8 @@ public getCollection(mixed $name, mixed $db = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$db` | **mixed** |  |
+| `$name` | **string** |  |
+| `$db` | **?string** |  |
 
 
 
@@ -121,7 +141,7 @@ public getCollection(mixed $name, mixed $db = null): mixed
 
 
 ```php
-public dropCollection(mixed $name, mixed $db = null): mixed
+public dropCollection(string $name, ?string $db = null): array|object
 ```
 
 
@@ -135,8 +155,8 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$db` | **mixed** |  |
+| `$name` | **string** |  |
+| `$db` | **?string** |  |
 
 
 
@@ -148,7 +168,7 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 
 
 ```php
-public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
+public renameCollection(string $name, string $newname, ?string $db = null): bool
 ```
 
 
@@ -162,9 +182,9 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$newname` | **mixed** |  |
-| `$db` | **mixed** |  |
+| `$name` | **string** |  |
+| `$newname` | **string** |  |
+| `$db` | **?string** |  |
 
 
 
@@ -176,7 +196,7 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 
 
 ```php
-public findOneById(mixed $collection, mixed $id): mixed
+public findOneById(string $collection, mixed $id): ?array
 ```
 
 
@@ -190,7 +210,7 @@ public findOneById(mixed $collection, mixed $id): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
+| `$collection` | **string** |  |
 | `$id` | **mixed** |  |
 
 
@@ -203,7 +223,7 @@ public findOneById(mixed $collection, mixed $id): mixed
 
 
 ```php
-public findOne(mixed $collection, mixed $filter = [], mixed $projection = []): mixed
+public findOne(string $collection, ?array $filter = null, ?array $projection = null): ?array
 ```
 
 
@@ -217,9 +237,9 @@ public findOne(mixed $collection, mixed $filter = [], mixed $projection = []): m
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$filter` | **mixed** |  |
-| `$projection` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$filter` | **?array** |  |
+| `$projection` | **?array** |  |
 
 
 
@@ -231,7 +251,7 @@ public findOne(mixed $collection, mixed $filter = [], mixed $projection = []): m
 
 
 ```php
-public find(mixed $collection, mixed $options = []): mixed
+public find(string $collection, array $options = []): \MongoHybrid\ResultSet
 ```
 
 
@@ -245,8 +265,61 @@ public find(mixed $collection, mixed $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$options` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$options` | **array** |  |
+
+
+
+
+***
+
+### aggregate
+
+
+
+```php
+public aggregate(string $collection, array $pipeline): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$pipeline` | **array** |  |
+
+
+
+
+***
+
+### getFindTermFilter
+
+
+
+```php
+public getFindTermFilter(mixed $term): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$term` | **mixed** |  |
 
 
 
@@ -258,7 +331,7 @@ public find(mixed $collection, mixed $options = []): mixed
 
 
 ```php
-public insert(mixed $collection, mixed& $doc): mixed
+public insert(string $collection, array& $doc): mixed
 ```
 
 
@@ -272,8 +345,8 @@ public insert(mixed $collection, mixed& $doc): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$doc` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$doc` | **array** |  |
 
 
 
@@ -285,7 +358,7 @@ public insert(mixed $collection, mixed& $doc): mixed
 
 
 ```php
-public save(mixed $collection, mixed& $data, mixed $create = false): mixed
+public save(string $collection, array& $data, bool $create = false): mixed
 ```
 
 
@@ -299,9 +372,9 @@ public save(mixed $collection, mixed& $data, mixed $create = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$data` | **mixed** |  |
-| `$create` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$data` | **array** |  |
+| `$create` | **bool** |  |
 
 
 
@@ -313,7 +386,7 @@ public save(mixed $collection, mixed& $data, mixed $create = false): mixed
 
 
 ```php
-public update(mixed $collection, mixed $criteria, mixed $data): mixed
+public update(string $collection, mixed $criteria, array $data): mixed
 ```
 
 
@@ -327,9 +400,9 @@ public update(mixed $collection, mixed $criteria, mixed $data): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
+| `$collection` | **string** |  |
 | `$criteria` | **mixed** |  |
-| `$data` | **mixed** |  |
+| `$data` | **array** |  |
 
 
 
@@ -341,7 +414,7 @@ public update(mixed $collection, mixed $criteria, mixed $data): mixed
 
 
 ```php
-public remove(mixed $collection, mixed $filter = []): mixed
+public remove(string $collection, array $filter = []): mixed
 ```
 
 
@@ -355,8 +428,8 @@ public remove(mixed $collection, mixed $filter = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$filter` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$filter` | **array** |  |
 
 
 
@@ -368,7 +441,7 @@ public remove(mixed $collection, mixed $filter = []): mixed
 
 
 ```php
-public removeField(mixed $collection, mixed $field, mixed $filter = []): mixed
+public removeField(string $collection, string $field, array $filter = []): mixed
 ```
 
 
@@ -382,9 +455,9 @@ public removeField(mixed $collection, mixed $field, mixed $filter = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$field` | **mixed** |  |
-| `$filter` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$field` | **string** |  |
+| `$filter` | **array** |  |
 
 
 
@@ -396,7 +469,7 @@ public removeField(mixed $collection, mixed $field, mixed $filter = []): mixed
 
 
 ```php
-public renameField(mixed $collection, mixed $field, mixed $newfield, mixed $filter = []): mixed
+public renameField(string $collection, string $field, string $newfield, array $filter = []): mixed
 ```
 
 
@@ -410,10 +483,10 @@ public renameField(mixed $collection, mixed $field, mixed $newfield, mixed $filt
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$field` | **mixed** |  |
-| `$newfield` | **mixed** |  |
-| `$filter` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$field` | **string** |  |
+| `$newfield` | **string** |  |
+| `$filter` | **array** |  |
 
 
 
@@ -425,7 +498,7 @@ public renameField(mixed $collection, mixed $field, mixed $newfield, mixed $filt
 
 
 ```php
-public count(mixed $collection, mixed $filter = [], mixed $options = []): mixed
+public count(string $collection, ?array $filter = null, array $options = []): mixed
 ```
 
 
@@ -439,21 +512,21 @@ public count(mixed $collection, mixed $filter = [], mixed $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$filter` | **mixed** |  |
-| `$options` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$filter` | **?array** |  |
+| `$options` | **array** |  |
 
 
 
 
 ***
 
-### _fixMongoIds
+### _fixForMongo
 
 
 
 ```php
-protected _fixMongoIds(mixed& $data, mixed $infinite = false, mixed $_level): mixed
+protected _fixForMongo(mixed& $data, bool $infinite = false, int $_level): mixed
 ```
 
 
@@ -468,8 +541,34 @@ protected _fixMongoIds(mixed& $data, mixed $infinite = false, mixed $_level): mi
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-| `$infinite` | **mixed** |  |
-| `$_level` | **mixed** |  |
+| `$infinite` | **bool** |  |
+| `$_level` | **int** |  |
+
+
+
+
+***
+
+### getObjectID
+
+
+
+```php
+protected getObjectID(mixed $v): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$v` | **mixed** |  |
 
 
 

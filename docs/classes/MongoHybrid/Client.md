@@ -18,7 +18,7 @@
 
 
 ```php
-protected $driver
+protected \MongoHybrid\Mongo|\MongoHybrid\MongoLite $driver
 ```
 
 
@@ -33,7 +33,7 @@ protected $driver
 
 
 ```php
-public $type
+public ?string $type
 ```
 
 
@@ -51,7 +51,7 @@ public $type
 
 
 ```php
-public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []): mixed
+public __construct(string $server, array $options = [], array $driverOptions = []): mixed
 ```
 
 
@@ -65,9 +65,9 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$server` | **mixed** |  |
-| `$options` | **mixed** |  |
-| `$driverOptions` | **mixed** |  |
+| `$server` | **string** |  |
+| `$options` | **array** |  |
+| `$driverOptions` | **array** |  |
 
 
 
@@ -79,7 +79,7 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 
 
 ```php
-public dropCollection(mixed $name, mixed $db = null): mixed
+public dropCollection(string $name, ?string $db = null): mixed
 ```
 
 
@@ -93,8 +93,8 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$db` | **mixed** |  |
+| `$name` | **string** |  |
+| `$db` | **?string** |  |
 
 
 
@@ -106,7 +106,7 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 
 
 ```php
-public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
+public renameCollection(string $name, string $newname, ?string $db = null): mixed
 ```
 
 
@@ -120,9 +120,9 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$newname` | **mixed** |  |
-| `$db` | **mixed** |  |
+| `$name` | **string** |  |
+| `$newname` | **string** |  |
+| `$db` | **?string** |  |
 
 
 
@@ -134,7 +134,7 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 
 
 ```php
-public save(mixed $collection, mixed& $data): mixed
+public save(string $collection, array& $data): mixed
 ```
 
 
@@ -148,8 +148,8 @@ public save(mixed $collection, mixed& $data): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$data` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$data` | **array** |  |
 
 
 
@@ -161,7 +161,7 @@ public save(mixed $collection, mixed& $data): mixed
 
 
 ```php
-public insert(mixed $collection, mixed& $doc): mixed
+public insert(string $collection, array& $doc): mixed
 ```
 
 
@@ -175,8 +175,36 @@ public insert(mixed $collection, mixed& $doc): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$doc` | **mixed** |  |
+| `$collection` | **string** |  |
+| `$doc` | **array** |  |
+
+
+
+
+***
+
+### findTerm
+
+
+
+```php
+public findTerm(string $collection, string $term, array $options = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$term` | **string** |  |
+| `$options` | **array** |  |
 
 
 
@@ -467,7 +495,7 @@ public lindex(string $collection, string $key, int $index): mixed
 Set the string value of a hash field
 
 ```php
-public hset(string $collection, string $key, string $field, mixed $value): mixed
+public hset(string $collection, string $key, string $field, mixed $value): void
 ```
 
 
@@ -525,7 +553,7 @@ public hget(string $collection, string $key, string $field, mixed $default = nul
 Get all the fields and values in a hash
 
 ```php
-public hgetall(string $key): array
+public hgetall(string $collection, string $key): array
 ```
 
 
@@ -539,6 +567,7 @@ public hgetall(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 
@@ -579,7 +608,7 @@ public hexists(string $collection, string $key, string $field): bool
 Get all the fields in a hash
 
 ```php
-public hkeys(string $key): array
+public hkeys(string $collection, string $key): array
 ```
 
 
@@ -593,6 +622,7 @@ public hkeys(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 
@@ -605,7 +635,7 @@ public hkeys(string $key): array
 Get all the values in a hash
 
 ```php
-public hvals(string $key): array
+public hvals(string $collection, string $key): array
 ```
 
 
@@ -619,6 +649,7 @@ public hvals(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 
@@ -631,7 +662,7 @@ public hvals(string $key): array
 Get the number of fields in a hash
 
 ```php
-public hlen(string $key): int
+public hlen(string $collection, string $key): int
 ```
 
 
@@ -645,6 +676,7 @@ public hlen(string $key): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 
@@ -657,7 +689,7 @@ public hlen(string $key): int
 Delete one or more hash fields
 
 ```php
-public hdel(string $key): int
+public hdel(string $collection, string $key): int
 ```
 
 
@@ -671,6 +703,7 @@ public hdel(string $key): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 
@@ -683,7 +716,7 @@ public hdel(string $key): int
 Increment the integer value of a hash field by the given number
 
 ```php
-public hincrby(mixed $collection, string $key, string $field, int $by = 1): int
+public hincrby(string $collection, string $key, string $field, int $by = 1): int
 ```
 
 
@@ -697,7 +730,7 @@ public hincrby(mixed $collection, string $key, string $field, int $by = 1): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$by` | **int** |  |
@@ -712,7 +745,7 @@ public hincrby(mixed $collection, string $key, string $field, int $by = 1): int
 Get the values of all the given hash fields
 
 ```php
-public hmget(string $key): array
+public hmget(string $collection, string $key): array
 ```
 
 
@@ -726,6 +759,7 @@ public hmget(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 
@@ -738,7 +772,7 @@ public hmget(string $key): array
 Set multiple hash fields to multiple values
 
 ```php
-public hmset(string $key): mixed
+public hmset(string $collection, string $key): void
 ```
 
 
@@ -752,6 +786,7 @@ public hmset(string $key): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `$collection` | **string** |  |
 | `$key` | **string** |  |
 
 

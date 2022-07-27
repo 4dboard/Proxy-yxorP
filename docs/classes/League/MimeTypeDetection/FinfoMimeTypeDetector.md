@@ -15,7 +15,7 @@
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`INCONCLUSIVE_MIME_TYPES`|private| |[&#039;application/x-empty&#039;, &#039;text/plain&#039;, &#039;text/x-asm&#039;]|
+|`INCONCLUSIVE_MIME_TYPES`|private| |[&#039;application/x-empty&#039;, &#039;text/plain&#039;, &#039;text/x-asm&#039;, &#039;application/octet-stream&#039;, &#039;inode/x-empty&#039;]|
 
 ## Properties
 
@@ -65,6 +65,21 @@ private int|null $bufferSampleSize
 
 ***
 
+### inconclusiveMimetypes
+
+
+
+```php
+private string[] $inconclusiveMimetypes
+```
+
+
+
+
+
+
+***
+
 ## Methods
 
 
@@ -73,7 +88,7 @@ private int|null $bufferSampleSize
 
 
 ```php
-public __construct(string $magicFile = &#039;&#039;, \League\MimeTypeDetection\ExtensionToMimeTypeMap $extensionMap = null, ?int $bufferSampleSize = null): mixed
+public __construct(string $magicFile = &#039;&#039;, \League\MimeTypeDetection\ExtensionToMimeTypeMap $extensionMap = null, ?int $bufferSampleSize = null, array $inconclusiveMimetypes = self::INCONCLUSIVE_MIME_TYPES): mixed
 ```
 
 
@@ -90,6 +105,7 @@ public __construct(string $magicFile = &#039;&#039;, \League\MimeTypeDetection\E
 | `$magicFile` | **string** |  |
 | `$extensionMap` | **\League\MimeTypeDetection\ExtensionToMimeTypeMap** |  |
 | `$bufferSampleSize` | **?int** |  |
+| `$inconclusiveMimetypes` | **array** |  |
 
 
 

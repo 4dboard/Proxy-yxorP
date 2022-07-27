@@ -23,7 +23,7 @@ Database object.
 
 
 ```php
-public \MongoLite\PDO $connection
+public \PDO $connection
 ```
 
 
@@ -166,7 +166,7 @@ public callCriteriaFunction(string $id, array $document): bool
 Vacuum database
 
 ```php
-public vacuum(): mixed
+public vacuum(): void
 ```
 
 
@@ -186,7 +186,7 @@ public vacuum(): mixed
 Drop database
 
 ```php
-public drop(): mixed
+public drop(): void
 ```
 
 
@@ -206,7 +206,7 @@ public drop(): mixed
 Create a collection
 
 ```php
-public createCollection(string $name): mixed
+public createCollection(string $name): void
 ```
 
 
@@ -232,7 +232,7 @@ public createCollection(string $name): mixed
 Drop a collection
 
 ```php
-public dropCollection(string $name): mixed
+public dropCollection(string $name): void
 ```
 
 

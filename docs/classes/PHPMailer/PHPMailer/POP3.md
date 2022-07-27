@@ -22,7 +22,7 @@ Specifically for PHPMailer to use for RFC1939 POP-before-SMTP authentication.
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`VERSION`|public|string|&#039;6.5.1&#039;|
+|`VERSION`|public|string|&#039;6.6.3&#039;|
 |`DEFAULT_PORT`|public|int|110|
 |`DEFAULT_TIMEOUT`|public|int|30|
 |`LE`|public| |&quot;\r\n&quot;|

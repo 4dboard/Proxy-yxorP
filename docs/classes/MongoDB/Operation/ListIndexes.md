@@ -113,8 +113,6 @@ Supported options:
 
 * session (MongoDB\Driver\Session): Client session.
 
-  Sessions are not supported for server versions < 3.6.
-
 
 
 

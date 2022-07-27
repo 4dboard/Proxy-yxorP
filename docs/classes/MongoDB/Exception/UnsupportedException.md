@@ -48,6 +48,8 @@ public static arrayFiltersNotSupported(): self
 * This method is **static**.
 
 
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
 
 
 
@@ -67,6 +69,8 @@ public static collationNotSupported(): self
 
 * This method is **static**.
 
+
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
 
 

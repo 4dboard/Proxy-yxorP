@@ -28,36 +28,6 @@ private static array $defaultTypeMap
 
 ***
 
-### wireVersionForReadConcern
-
-
-
-```php
-private static int $wireVersionForReadConcern
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### wireVersionForWritableCommandWriteConcern
-
-
-
-```php
-private static int $wireVersionForWritableCommandWriteConcern
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ### handshakeSeparator
 
 

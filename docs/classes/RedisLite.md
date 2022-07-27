@@ -66,7 +66,7 @@ protected string $table
 Constructor
 
 ```php
-public __construct(string $path = &quot;:memory:&quot;, array $options = array()): mixed
+public __construct(string $path = &#039;:memory:&#039;, array $options = []): mixed
 ```
 
 
@@ -113,7 +113,7 @@ protected createTable(): mixed
 Get value for specific key
 
 ```php
-public get(string $key, mixed $default = null): mixed
+public get(string $key, mixed $default = false): mixed
 ```
 
 
@@ -140,7 +140,7 @@ public get(string $key, mixed $default = null): mixed
 Set value for specific key
 
 ```php
-public set(string $key, mixed $value): mixed
+public set(string $key, mixed $value): void
 ```
 
 
@@ -167,7 +167,7 @@ public set(string $key, mixed $value): mixed
 Clear database
 
 ```php
-public flushdb(): mixed
+public flushdb(): void
 ```
 
 
@@ -187,7 +187,7 @@ public flushdb(): mixed
 Check if key exists
 
 ```php
-public exists(string $key): mixed
+public exists(string $key): bool
 ```
 
 
@@ -480,7 +480,7 @@ public lindex(string $key, int $index): mixed
 Set the string value of a hash field
 
 ```php
-public hset(string $key, string $field, mixed $value): mixed
+public hset(string $key, string $field, mixed $value): void
 ```
 
 

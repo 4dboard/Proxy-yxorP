@@ -211,7 +211,7 @@ public offsetGet(mixed $key): mixed
 Not supported.
 
 ```php
-public offsetSet(mixed $key, mixed $value): mixed
+public offsetSet(mixed $key, mixed $value): void
 ```
 
 
@@ -241,7 +241,7 @@ public offsetSet(mixed $key, mixed $value): mixed
 Not supported.
 
 ```php
-public offsetUnset(mixed $key): mixed
+public offsetUnset(mixed $key): void
 ```
 
 

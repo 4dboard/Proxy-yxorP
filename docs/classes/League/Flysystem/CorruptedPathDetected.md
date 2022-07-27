@@ -7,9 +7,11 @@
 
 
 * Full name: `\League\Flysystem\CorruptedPathDetected`
-* Parent class: [`LogicException`](../../LogicException.md)
+* Parent class: [`RuntimeException`](../../RuntimeException.md)
+* This class is marked as **final** and can't be subclassed
 * This class implements:
 [`\League\Flysystem\FilesystemException`](./FilesystemException.md)
+* This class is a **Final class**
 
 
 

@@ -24,7 +24,7 @@ PHP version 5
 Parse a set of JWK keys
 
 ```php
-public static parseKeySet(array $jwks): array
+public static parseKeySet(array $jwks, string $defaultAlg = null): array&lt;string,\Firebase\JWT\Key&gt;
 ```
 
 
@@ -39,11 +39,12 @@ public static parseKeySet(array $jwks): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwks` | **array** | The JSON Web Key Set as an associative array |
+| `$defaultAlg` | **string** | The algorithm for the Key object if &quot;alg&quot; is not set in the<br />JSON Web Key Set |
 
 
 **Return Value:**
 
-An associative array that represents the set of keys
+An associative array of key IDs (kid) to Key objects
 
 
 
@@ -54,7 +55,7 @@ An associative array that represents the set of keys
 Parse a JWK key
 
 ```php
-public static parseKey(array $jwk): resource|array
+public static parseKey(array $jwk, string $defaultAlg = null): \Firebase\JWT\Key
 ```
 
 
@@ -69,11 +70,12 @@ public static parseKey(array $jwk): resource|array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwk` | **array** | An individual JWK |
+| `$defaultAlg` | **string** | The algorithm for the Key object if &quot;alg&quot; is not set in the<br />JSON Web Key Set |
 
 
 **Return Value:**
 
-An associative array that represents the key
+The key object for the JWK
 
 
 

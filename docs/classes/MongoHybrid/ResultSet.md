@@ -19,7 +19,7 @@
 Driver
 
 ```php
-protected $driver
+protected \MongoHybrid\Mongo|\MongoHybrid\MongoLite $driver
 ```
 
 
@@ -79,7 +79,7 @@ public __construct( $driver, iterable& $documents): mixed
 
 
 ```php
-public hasOne(mixed $collections): mixed
+public hasOne(array $collections): void
 ```
 
 
@@ -93,7 +93,7 @@ public hasOne(mixed $collections): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collections` | **mixed** |  |
+| `$collections` | **array** |  |
 
 
 
@@ -105,7 +105,7 @@ public hasOne(mixed $collections): mixed
 
 
 ```php
-public hasMany(mixed $collections): mixed
+public hasMany(array $collections): void
 ```
 
 
@@ -119,7 +119,7 @@ public hasMany(mixed $collections): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collections` | **mixed** |  |
+| `$collections` | **array** |  |
 
 
 
@@ -131,7 +131,7 @@ public hasMany(mixed $collections): mixed
 
 
 ```php
-public toArray(): mixed
+public toArray(): array
 ```
 
 
@@ -151,7 +151,7 @@ public toArray(): mixed
 
 
 ```php
-public __toString(): mixed
+public __toString(): string
 ```
 
 

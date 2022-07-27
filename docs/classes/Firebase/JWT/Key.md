@@ -13,12 +13,12 @@
 ## Properties
 
 
-### algorithm
+### keyMaterial
 
 
 
 ```php
-private string $algorithm
+private string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $keyMaterial
 ```
 
 
@@ -28,12 +28,12 @@ private string $algorithm
 
 ***
 
-### keyMaterial
+### algorithm
 
 
 
 ```php
-private string|resource|\OpenSSLAsymmetricKey $keyMaterial
+private string $algorithm
 ```
 
 
@@ -51,7 +51,7 @@ private string|resource|\OpenSSLAsymmetricKey $keyMaterial
 
 
 ```php
-public __construct(string|resource|\OpenSSLAsymmetricKey $keyMaterial, string $algorithm): mixed
+public __construct(string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate $keyMaterial, string $algorithm): mixed
 ```
 
 
@@ -65,7 +65,7 @@ public __construct(string|resource|\OpenSSLAsymmetricKey $keyMaterial, string $a
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$keyMaterial` | **string&#124;resource&#124;\OpenSSLAsymmetricKey** |  |
+| `$keyMaterial` | **string&#124;resource&#124;\OpenSSLAsymmetricKey&#124;\OpenSSLCertificate** |  |
 | `$algorithm` | **string** |  |
 
 
@@ -98,7 +98,7 @@ public getAlgorithm(): string
 
 
 ```php
-public getKeyMaterial(): string|resource|\OpenSSLAsymmetricKey
+public getKeyMaterial(): string|resource|\OpenSSLAsymmetricKey|\OpenSSLCertificate
 ```
 
 

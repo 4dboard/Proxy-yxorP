@@ -8,7 +8,7 @@
 
 * Full name: `\League\Flysystem\Filesystem`
 * This class implements:
-[`\League\Flysystem\FilesystemInterface`](./FilesystemInterface.md)
+[`\League\Flysystem\FilesystemOperator`](./FilesystemOperator.md)
 
 
 
@@ -20,7 +20,37 @@
 
 
 ```php
-protected \League\Flysystem\AdapterInterface $adapter
+private \League\Flysystem\FilesystemAdapter $adapter
+```
+
+
+
+
+
+
+***
+
+### config
+
+
+
+```php
+private \League\Flysystem\Config $config
+```
+
+
+
+
+
+
+***
+
+### pathNormalizer
+
+
+
+```php
+private \League\Flysystem\PathNormalizer $pathNormalizer
 ```
 
 
@@ -35,10 +65,10 @@ protected \League\Flysystem\AdapterInterface $adapter
 
 ### __construct
 
-Constructor.
+
 
 ```php
-public __construct(\League\Flysystem\AdapterInterface $adapter, \League\Flysystem\Config|array $config = null): mixed
+public __construct(\League\Flysystem\FilesystemAdapter $adapter, array $config = [], \League\Flysystem\PathNormalizer $pathNormalizer = null): mixed
 ```
 
 
@@ -52,20 +82,21 @@ public __construct(\League\Flysystem\AdapterInterface $adapter, \League\Flysyste
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$adapter` | **\League\Flysystem\AdapterInterface** |  |
-| `$config` | **\League\Flysystem\Config&#124;array** |  |
+| `$adapter` | **\League\Flysystem\FilesystemAdapter** |  |
+| `$config` | **array** |  |
+| `$pathNormalizer` | **\League\Flysystem\PathNormalizer** |  |
 
 
 
 
 ***
 
-### getAdapter
+### fileExists
 
-Get the Adapter.
+
 
 ```php
-public getAdapter(): \League\Flysystem\AdapterInterface
+public fileExists(string $location): bool
 ```
 
 
@@ -75,10 +106,38 @@ public getAdapter(): \League\Flysystem\AdapterInterface
 
 
 
+**Parameters:**
 
-**Return Value:**
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$location` | **string** |  |
 
-adapter
+
+
+
+***
+
+### directoryExists
+
+
+
+```php
+public directoryExists(string $location): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$location` | **string** |  |
+
 
 
 
@@ -86,10 +145,10 @@ adapter
 
 ### has
 
-Check whether a file exists.
+
 
 ```php
-public has(mixed $path): bool
+public has(string $location): bool
 ```
 
 
@@ -103,7 +162,7 @@ public has(mixed $path): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** |  |
+| `$location` | **string** |  |
 
 
 
@@ -112,10 +171,10 @@ public has(mixed $path): bool
 
 ### write
 
-Write a new file.
+
 
 ```php
-public write(mixed $path, mixed $contents, array $config = []): bool
+public write(string $location, string $contents, array $config = []): void
 ```
 
 
@@ -129,14 +188,10 @@ public write(mixed $path, mixed $contents, array $config = []): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path of the new file. |
-| `$contents` | **mixed** | The file contents. |
-| `$config` | **array** | An optional configuration array. |
+| `$location` | **string** |  |
+| `$contents` | **string** |  |
+| `$config` | **array** |  |
 
-
-**Return Value:**
-
-True on success, false on failure.
 
 
 
@@ -144,10 +199,10 @@ True on success, false on failure.
 
 ### writeStream
 
-Write a new file using a stream.
+
 
 ```php
-public writeStream(mixed $path, mixed $resource, array $config = []): bool
+public writeStream(string $location, mixed $contents, array $config = []): void
 ```
 
 
@@ -161,172 +216,10 @@ public writeStream(mixed $path, mixed $resource, array $config = []): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path of the new file. |
-| `$resource` | **mixed** | The file handle. |
-| `$config` | **array** | An optional configuration array. |
+| `$location` | **string** |  |
+| `$contents` | **mixed** |  |
+| `$config` | **array** |  |
 
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### put
-
-Create a file or update if exists.
-
-```php
-public put(mixed $path, mixed $contents, array $config = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-| `$contents` | **mixed** | The file contents. |
-| `$config` | **array** | An optional configuration array. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### putStream
-
-Create a file or update if exists.
-
-```php
-public putStream(mixed $path, mixed $resource, array $config = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-| `$resource` | **mixed** | The file handle. |
-| `$config` | **array** | An optional configuration array. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### readAndDelete
-
-Read and delete a file.
-
-```php
-public readAndDelete(mixed $path): string|false
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-
-
-**Return Value:**
-
-The file contents, or false on failure.
-
-
-
-***
-
-### update
-
-Update an existing file.
-
-```php
-public update(mixed $path, mixed $contents, array $config = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path of the existing file. |
-| `$contents` | **mixed** | The file contents. |
-| `$config` | **array** | An optional configuration array. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### updateStream
-
-Update an existing file using a stream.
-
-```php
-public updateStream(mixed $path, mixed $resource, array $config = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path of the existing file. |
-| `$resource` | **mixed** | The file handle. |
-| `$config` | **array** | An optional configuration array. |
-
-
-**Return Value:**
-
-True on success, false on failure.
 
 
 
@@ -334,10 +227,10 @@ True on success, false on failure.
 
 ### read
 
-Read a file.
+
 
 ```php
-public read(mixed $path): string|false
+public read(string $location): string
 ```
 
 
@@ -351,12 +244,8 @@ public read(mixed $path): string|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$location` | **string** |  |
 
-
-**Return Value:**
-
-The file contents or false on failure.
 
 
 
@@ -364,10 +253,10 @@ The file contents or false on failure.
 
 ### readStream
 
-Retrieves a read-stream for a path.
+
 
 ```php
-public readStream(mixed $path): resource|false
+public readStream(string $location): mixed
 ```
 
 
@@ -381,74 +270,8 @@ public readStream(mixed $path): resource|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$location` | **string** |  |
 
-
-**Return Value:**
-
-The path resource or false on failure.
-
-
-
-***
-
-### rename
-
-Rename a file.
-
-```php
-public rename(mixed $path, mixed $newpath): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | Path to the existing file. |
-| `$newpath` | **mixed** | The new path of the file. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### copy
-
-Copy a file.
-
-```php
-public copy(mixed $path, mixed $newpath): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | Path to the existing file. |
-| `$newpath` | **mixed** | The new path of the file. |
-
-
-**Return Value:**
-
-True on success, false on failure.
 
 
 
@@ -456,10 +279,10 @@ True on success, false on failure.
 
 ### delete
 
-Delete a file.
+
 
 ```php
-public delete(mixed $path): bool
+public delete(string $location): void
 ```
 
 
@@ -473,23 +296,19 @@ public delete(mixed $path): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** |  |
+| `$location` | **string** |  |
 
-
-**Return Value:**
-
-True on success, false on failure.
 
 
 
 ***
 
-### deleteDir
+### deleteDirectory
 
-Delete a directory.
+
 
 ```php
-public deleteDir(mixed $dirname): bool
+public deleteDirectory(string $location): void
 ```
 
 
@@ -503,23 +322,19 @@ public deleteDir(mixed $dirname): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dirname` | **mixed** |  |
+| `$location` | **string** |  |
 
-
-**Return Value:**
-
-True on success, false on failure.
 
 
 
 ***
 
-### createDir
+### createDirectory
 
-Create a directory.
+
 
 ```php
-public createDir(mixed $dirname, array $config = []): bool
+public createDirectory(string $location, array $config = []): void
 ```
 
 
@@ -533,13 +348,9 @@ public createDir(mixed $dirname, array $config = []): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dirname` | **mixed** | The name of the new directory. |
-| `$config` | **array** | An optional configuration array. |
+| `$location` | **string** |  |
+| `$config` | **array** |  |
 
-
-**Return Value:**
-
-True on success, false on failure.
 
 
 
@@ -547,10 +358,10 @@ True on success, false on failure.
 
 ### listContents
 
-List contents of a directory.
+
 
 ```php
-public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): array
+public listContents(string $location, bool $deep = self::LIST_SHALLOW): \League\Flysystem\DirectoryListing
 ```
 
 
@@ -564,24 +375,20 @@ public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$directory` | **mixed** | The directory to list. |
-| `$recursive` | **mixed** | Whether to list recursively. |
+| `$location` | **string** |  |
+| `$deep` | **bool** |  |
 
-
-**Return Value:**
-
-A list of file metadata.
 
 
 
 ***
 
-### getMimetype
+### move
 
-Get a file's mime-type.
+
 
 ```php
-public getMimetype(mixed $path): string|false
+public move(string $source, string $destination, array $config = []): void
 ```
 
 
@@ -595,23 +402,21 @@ public getMimetype(mixed $path): string|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$source` | **string** |  |
+| `$destination` | **string** |  |
+| `$config` | **array** |  |
 
-
-**Return Value:**
-
-The file mime-type or false on failure.
 
 
 
 ***
 
-### getTimestamp
+### copy
 
-Get a file's timestamp.
+
 
 ```php
-public getTimestamp(mixed $path): int|false
+public copy(string $source, string $destination, array $config = []): void
 ```
 
 
@@ -625,23 +430,21 @@ public getTimestamp(mixed $path): int|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$source` | **string** |  |
+| `$destination` | **string** |  |
+| `$config` | **array** |  |
 
-
-**Return Value:**
-
-The timestamp or false on failure.
 
 
 
 ***
 
-### getVisibility
+### lastModified
 
-Get a file's visibility.
+
 
 ```php
-public getVisibility(mixed $path): string|false
+public lastModified(string $path): int
 ```
 
 
@@ -655,23 +458,19 @@ public getVisibility(mixed $path): string|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$path` | **string** |  |
 
-
-**Return Value:**
-
-The visibility (public|private) or false on failure.
 
 
 
 ***
 
-### getSize
+### fileSize
 
-Get a file's size.
+
 
 ```php
-public getSize(mixed $path): int|false
+public fileSize(string $path): int
 ```
 
 
@@ -685,12 +484,34 @@ public getSize(mixed $path): int|false
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
+| `$path` | **string** |  |
 
 
-**Return Value:**
 
-The file size or false on failure.
+
+***
+
+### mimeType
+
+
+
+```php
+public mimeType(string $path): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
 
 
 
@@ -698,10 +519,10 @@ The file size or false on failure.
 
 ### setVisibility
 
-Set the visibility for a file.
+
 
 ```php
-public setVisibility(mixed $path, mixed $visibility): bool
+public setVisibility(string $path, string $visibility): void
 ```
 
 
@@ -715,111 +536,20 @@ public setVisibility(mixed $path, mixed $visibility): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-| `$visibility` | **mixed** | One of &#039;public&#039; or &#039;private&#039;. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### getMetadata
-
-Get a file's metadata.
-
-```php
-public getMetadata(mixed $path): array|false
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-
-
-**Return Value:**
-
-The file metadata or false on failure.
-
-
-
-***
-
-### get
-
-Get a file/directory handler.
-
-```php
-public get(mixed $path, \League\Flysystem\Handler $handler = null): \League\Flysystem\Handler
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** | The path to the file. |
-| `$handler` | **\League\Flysystem\Handler** | An optional existing handler to populate. |
-
-
-**Return Value:**
-
-Either a file or directory handler.
-
-
-
-***
-
-### assertPresent
-
-Assert a file is present.
-
-```php
-public assertPresent(string $path): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** | path to file |
+| `$path` | **string** |  |
+| `$visibility` | **string** |  |
 
 
 
 
 ***
 
-### assertAbsent
+### visibility
 
-Assert a file is absent.
+
 
 ```php
-public assertAbsent(string $path): void
+public visibility(string $path): string
 ```
 
 
@@ -833,23 +563,19 @@ public assertAbsent(string $path): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** | path to file |
+| `$path` | **string** |  |
 
 
 
 
 ***
 
+### assertIsResource
 
-## Inherited methods
 
-
-### addPlugin
-
-Register a plugin.
 
 ```php
-public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
+private assertIsResource(mixed $contents): void
 ```
 
 
@@ -863,19 +589,19 @@ public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$plugin` | **\League\Flysystem\PluginInterface** |  |
+| `$contents` | **mixed** |  |
 
 
 
 
 ***
 
-### findPlugin
+### rewindStream
 
-Find a specific plugin.
+
 
 ```php
-protected findPlugin(string $method): \League\Flysystem\PluginInterface
+private rewindStream(resource $resource): void
 ```
 
 
@@ -889,62 +615,7 @@ protected findPlugin(string $method): \League\Flysystem\PluginInterface
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** |  |
-
-
-
-
-***
-
-### invokePlugin
-
-Invoke a plugin by method name.
-
-```php
-protected invokePlugin(string $method, array $arguments, \League\Flysystem\FilesystemInterface $filesystem): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **string** |  |
-| `$arguments` | **array** |  |
-| `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
-
-
-
-
-***
-
-### __call
-
-Plugins pass-through.
-
-```php
-public __call(string $method, array $arguments): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **string** |  |
-| `$arguments` | **array** |  |
+| `$resource` | **resource** |  |
 
 
 

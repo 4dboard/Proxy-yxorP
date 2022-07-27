@@ -2,7 +2,7 @@
 
 # PQueue
 
-
+Simple priority queue.
 
 
 
@@ -18,7 +18,7 @@
 
 
 ```php
-private $contents
+private array $contents
 ```
 
 
@@ -33,7 +33,7 @@ private $contents
 
 
 ```php
-private $sorted
+private bool $sorted
 ```
 
 
@@ -48,7 +48,7 @@ private $sorted
 
 
 ```php
-private $comparator
+private callable $comparator
 ```
 
 
@@ -66,7 +66,7 @@ private $comparator
 
 
 ```php
-public __construct(mixed $comparator): mixed
+public __construct(callable $comparator): mixed
 ```
 
 
@@ -80,7 +80,7 @@ public __construct(mixed $comparator): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$comparator` | **mixed** |  |
+| `$comparator` | **callable** |  |
 
 
 
@@ -92,7 +92,7 @@ public __construct(mixed $comparator): mixed
 
 
 ```php
-private sort(): mixed
+private sort(): void
 ```
 
 
@@ -112,7 +112,7 @@ private sort(): mixed
 
 
 ```php
-public push(mixed $object): mixed
+public push(mixed $object): void
 ```
 
 
@@ -138,7 +138,7 @@ public push(mixed $object): mixed
 
 
 ```php
-public peek(mixed $index = null): mixed
+public peek(?int $index = null): mixed
 ```
 
 
@@ -152,7 +152,7 @@ public peek(mixed $index = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$index` | **mixed** |  |
+| `$index` | **?int** |  |
 
 
 
@@ -164,7 +164,7 @@ public peek(mixed $index = null): mixed
 
 
 ```php
-public pop(): mixed
+public pop(): mixed|null
 ```
 
 
@@ -184,7 +184,7 @@ public pop(): mixed
 
 
 ```php
-public size(): mixed
+public size(): int
 ```
 
 
@@ -204,7 +204,7 @@ public size(): mixed
 
 
 ```php
-public map(mixed $function): mixed
+public map(callable $function, bool $sorted = true): array
 ```
 
 
@@ -218,7 +218,8 @@ public map(mixed $function): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$function` | **mixed** |  |
+| `$function` | **callable** |  |
+| `$sorted` | **bool** |  |
 
 
 
@@ -230,7 +231,7 @@ public map(mixed $function): mixed
 
 
 ```php
-public setComparator(mixed $function): mixed
+public setComparator(callable $function): void
 ```
 
 
@@ -244,19 +245,19 @@ public setComparator(mixed $function): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$function` | **mixed** |  |
+| `$function` | **callable** |  |
 
 
 
 
 ***
 
-### debug
+### getContent
 
 
 
 ```php
-public debug(): mixed
+public getContent(bool $sorted = true): \ColorThief\T[]
 ```
 
 
@@ -265,6 +266,12 @@ public debug(): mixed
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sorted` | **bool** |  |
 
 
 
