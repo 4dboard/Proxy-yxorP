@@ -52,7 +52,7 @@ $this->on('admin.init', function () use ($hardening) {
         $colors = $this->retrieve('config/yxorP/colors', []);
         $bind = 'collection';
 
-        $this->renderView('yxorP:views/partials/color-picker.php', compact('colors', 'bind'));
+        $this->renderView('yxorp:views/partials/color-picker.php', compact('colors', 'bind'));
 
     });
 
@@ -61,7 +61,7 @@ $this->on('admin.init', function () use ($hardening) {
         $colors = $this->retrieve('config/yxorP/colors', []);
         $bind = 'singleton';
 
-        $this->renderView('yxorP:views/partials/color-picker.php', compact('colors', 'bind'));
+        $this->renderView('yxorp:views/partials/color-picker.php', compact('colors', 'bind'));
 
     });
 
@@ -70,7 +70,7 @@ $this->on('admin.init', function () use ($hardening) {
         $colors = $this->retrieve('config/yxorP/colors', []);
         $bind = 'form';
 
-        $this->renderView('yxorP:views/partials/color-picker.php', compact('colors', 'bind'));
+        $this->renderView('yxorp:views/partials/color-picker.php', compact('colors', 'bind'));
 
     });
 
