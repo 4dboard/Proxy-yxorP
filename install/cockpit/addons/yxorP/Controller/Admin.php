@@ -9,7 +9,9 @@ use Cockpit\AuthController;
  */
 class Admin extends AuthController
 {
-
+    /**
+     *
+     */
     public function index()
     {
 
@@ -19,6 +21,9 @@ class Admin extends AuthController
 
     }
 
+    /**
+     *
+     */
     public function saveConfig()
     {
 
