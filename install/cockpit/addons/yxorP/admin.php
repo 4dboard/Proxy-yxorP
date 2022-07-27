@@ -6,13 +6,13 @@ $this->on('admin.init', function () use ($hardening) {
     // bind dashboard routes
     $this->bind('/', function () {
 
-        return $this->invoke('DashboardGrid\\Controller\\Dashboard', 'dashboard');
+        return $this->invoke('yxorP\\Controller\\Dashboard', 'dashboard');
 
     });
 
     $this->bind('/cockpit/dashboard', function () {
 
-        return $this->invoke('DashboardGrid\\Controller\\Dashboard', 'dashboard');
+        return $this->invoke('yxorP\\Controller\\Dashboard', 'dashboard');
 
     });
 

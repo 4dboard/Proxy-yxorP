@@ -1,6 +1,6 @@
 <?php
 
-namespace DashboardGrid\Controller;
+namespace yxorP\Controller;
 
 use ArrayObject;
 use Cockpit\AuthController;
