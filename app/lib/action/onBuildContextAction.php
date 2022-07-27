@@ -1,5 +1,7 @@
 <?php
-/* Importing the wrapper class from the yxorP\app\lib\http namespace. */
+/**
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
+ */
 
 
 use yxorP\app\constants;
@@ -7,14 +9,20 @@ use yxorP\app\lib\http\request;
 use yxorP\app\lib\http\store;
 use yxorP\app\lib\http\wrapper;
 
-/* Extending the wrapper class, which is a class that is used to wrap the request and response objects. */
-
+/**
+ * Extending the wrapper class, which is a class that is used to wrap the request and response objects.
+ */
 class onBuildContextAction extends wrapper
 {
-    /* This function is used to build the request and response objects. */
+    /**
+     * This function is used to build the request and response objects.
+     *
+     */
     public function onBuildContext(): void
     {
-        /* Setting the request object to the key REQUEST. */
+        /**
+         * Setting the request object to the key REQUEST.
+         */
         store::tmp(VAR_REQUEST, Request::createFromGlobals());
     }
 }

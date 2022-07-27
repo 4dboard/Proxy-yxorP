@@ -153,7 +153,7 @@ private $prepared_body
 
 ### __construct
 
-
+The constructor of the class.
 
 ```php
 public __construct(mixed $method, mixed $url, mixed $body = null): mixed
@@ -181,7 +181,7 @@ public __construct(mixed $method, mixed $url, mixed $body = null): mixed
 
 ### parseQuery
 
-
+Parsing a query string into an array.
 
 ```php
 public static parseQuery(mixed $query): array
@@ -207,7 +207,7 @@ public static parseQuery(mixed $query): array
 
 ### buildPostBody
 
-
+Generating a boundary for the multipart/form-data request.
 
 ```php
 public static buildPostBody(mixed $fields, mixed $files, mixed $boundary = null): string
@@ -235,7 +235,7 @@ public static buildPostBody(mixed $fields, mixed $files, mixed $boundary = null)
 
 ### createFromGlobals
 
-
+Detecting the content type of the request.
 
 ```php
 public static createFromGlobals(): \yxorP\app\lib\http\request
@@ -255,7 +255,7 @@ public static createFromGlobals(): \yxorP\app\lib\http\request
 
 ### generateBoundary
 
-
+Preparing the body of the request.
 
 ```php
 private static generateBoundary(): string
@@ -275,7 +275,7 @@ private static generateBoundary(): string
 
 ### setUrl
 
-
+Setting the URL of the request.
 
 ```php
 public setUrl(mixed $url): void
@@ -301,7 +301,7 @@ public setUrl(mixed $url): void
 
 ### setBody
 
-
+A method that is called by the wrapper class.
 
 ```php
 public setBody(mixed $body, mixed $content_type): void
@@ -328,7 +328,7 @@ public setBody(mixed $body, mixed $content_type): void
 
 ### prepare
 
-
+Setting the body of the request.
 
 ```php
 public prepare(): void
@@ -348,7 +348,7 @@ public prepare(): void
 
 ### getMethod
 
-
+A getter method for the `$method` property.
 
 ```php
 public getMethod(): string
@@ -368,7 +368,7 @@ public getMethod(): string
 
 ### setMethod
 
-
+Setting the method of the request.
 
 ```php
 public setMethod(mixed $method): void
@@ -394,7 +394,7 @@ public setMethod(mixed $method): void
 
 ### getUrl
 
-
+A getter method for the `$url` property.
 
 ```php
 public getUrl(): string
@@ -414,7 +414,7 @@ public getUrl(): string
 
 ### getProtocolVersion
 
-
+A getter method for the `$protocol_version` property.
 
 ```php
 public getProtocolVersion(): string
@@ -434,7 +434,7 @@ public getProtocolVersion(): string
 
 ### getRawHeaders
 
-
+Getting the raw headers of the request.
 
 ```php
 public getRawHeaders(): string
@@ -454,7 +454,7 @@ public getRawHeaders(): string
 
 ### getRawBody
 
-
+Returning the prepared body of the request.
 
 ```php
 public getRawBody(): string
@@ -474,7 +474,7 @@ public getRawBody(): string
 
 ### getUri
 
-
+An alias for `public function getUrl()`.
 
 ```php
 public getUri(): mixed
@@ -494,7 +494,7 @@ public getUri(): mixed
 
 ### detectContentType
 
-
+Building the body of the request.
 
 ```php
 private detectContentType(mixed $data): string
@@ -520,4 +520,4 @@ private detectContentType(mixed $data): string
 
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

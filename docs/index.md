@@ -41,17 +41,17 @@ This is an automatically generated documentation for **Documentation**.
 | [`Spyc`](./classes/Spyc.md) | The Simple PHP YAML Class.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
-| [`onBuildContextAction`](./classes/onBuildContextAction.md) | |
-| [`onBuildExceptionAction`](./classes/onBuildExceptionAction.md) | |
-| [`onBuildHeadersAction`](./classes/onBuildHeadersAction.md) | |
-| [`onBuildIncludesAction`](./classes/onBuildIncludesAction.md) | |
-| [`onBuildRequestAction`](./classes/onBuildRequestAction.md) | |
-| [`onCheckAction`](./classes/onCheckAction.md) | |
-| [`onCompleteAction`](./classes/onCompleteAction.md) | |
-| [`onFinalAction`](./classes/onFinalAction.md) | |
-| [`onSendAction`](./classes/onSendAction.md) | |
-| [`onSentAction`](./classes/onSentAction.md) | |
-| [`onWriteAction`](./classes/onWriteAction.md) | |
+| [`onBuildContextAction`](./classes/onBuildContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
+| [`onBuildExceptionAction`](./classes/onBuildExceptionAction.md) | A class that extends the wrapper class.|
+| [`onBuildHeadersAction`](./classes/onBuildHeadersAction.md) | Extending the wrapper class.|
+| [`onBuildIncludesAction`](./classes/onBuildIncludesAction.md) | Extending the wrapper class.|
+| [`onBuildRequestAction`](./classes/onBuildRequestAction.md) | Extending the wrapper class.|
+| [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
+| [`onCompleteAction`](./classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
+| [`onFinalAction`](./classes/onFinalAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
+| [`onSendAction`](./classes/onSendAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
+| [`onSentAction`](./classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
+| [`onWriteAction`](./classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
 
 
 
@@ -780,19 +780,19 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`cache`](./classes/yxorP/app/lib/http/cache.md) | |
+| [`cache`](./classes/yxorP/app/lib/http/cache.md) | A class that is used to cache data.|
 | [`domain`](./classes/yxorP/app/lib/http/domain.md) | It&#039;s a class that&#039;s used to dispatch events.|
-| [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | |
+| [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | A class that stores parameters.|
 | [`request`](./classes/yxorP/app/lib/http/request.md) | |
 | [`store`](./classes/yxorP/app/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
-| [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | |
+| [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | Importing the `response` class from the `http` namespace.|
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`state`](./classes/yxorP/app/lib/http/state.md) | |
+| [`state`](./classes/yxorP/app/lib/http/state.md) | A trait that allows the class to be serialized and unserialized.|
 
 
 
@@ -828,15 +828,15 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`blockListPluginAction`](./classes/yxorP/app/plugin/blockListPluginAction.md) | |
-| [`cookiePluginAction`](./classes/yxorP/app/plugin/cookiePluginAction.md) | |
-| [`dailyMotionPluginAction`](./classes/yxorP/app/plugin/dailyMotionPluginAction.md) | |
-| [`headerRewritePluginAction`](./classes/yxorP/app/plugin/headerRewritePluginAction.md) | |
-| [`logPluginAction`](./classes/yxorP/app/plugin/logPluginAction.md) | |
-| [`proxifyPluginAction`](./classes/yxorP/app/plugin/proxifyPluginAction.md) | |
-| [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | |
-| [`twitterPluginAction`](./classes/yxorP/app/plugin/twitterPluginAction.md) | |
-| [`youtubePluginAction`](./classes/yxorP/app/plugin/youtubePluginAction.md) | |
+| [`blockListPluginAction`](./classes/yxorP/app/plugin/blockListPluginAction.md) | Extending the wrapper class.|
+| [`cookiePluginAction`](./classes/yxorP/app/plugin/cookiePluginAction.md) | Extending the wrapper class.|
+| [`dailyMotionPluginAction`](./classes/yxorP/app/plugin/dailyMotionPluginAction.md) | Extending the wrapper class.|
+| [`headerRewritePluginAction`](./classes/yxorP/app/plugin/headerRewritePluginAction.md) | It&#039;s extending the wrapper class.|
+| [`logPluginAction`](./classes/yxorP/app/plugin/logPluginAction.md) | It&#039;s extending the wrapper class.|
+| [`proxifyPluginAction`](./classes/yxorP/app/plugin/proxifyPluginAction.md) | Extending the wrapper class.|
+| [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | Extending the wrapper class, which is a class that allows you to listen to events.|
+| [`twitterPluginAction`](./classes/yxorP/app/plugin/twitterPluginAction.md) | Extending the wrapper class, which is a class that is used to create plugins.|
+| [`youtubePluginAction`](./classes/yxorP/app/plugin/youtubePluginAction.md) | Extending the wrapper class.|
 
 
 
@@ -854,4 +854,4 @@ This is an automatically generated documentation for **Documentation**.
 
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

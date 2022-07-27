@@ -2,7 +2,7 @@
 
 # cache
 
-
+A class that is used to cache data.
 
 
 
@@ -16,7 +16,7 @@
 
 ### get
 
-
+Checking if the cache file is valid and if it is, it is including the cache file.
 
 ```php
 public static get(?string $key = null): void
@@ -42,7 +42,7 @@ public static get(?string $key = null): void
 
 ### isValid
 
-
+Used to check if the cache file exists.
 
 ```php
 public static isValid(?string $key = null): bool
@@ -66,35 +66,9 @@ public static isValid(?string $key = null): bool
 
 ***
 
-### gen
-
-
-
-```php
-private static gen(?string $key): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **?string** |  |
-
-
-
-
-***
-
 ### set
 
-
+It's writing the content to the cache file.
 
 ```php
 public static set(mixed $content, ?string $key = null): void
@@ -119,9 +93,35 @@ public static set(mixed $content, ?string $key = null): void
 
 ***
 
+### gen
+
+A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
+
+```php
+private static gen(?string $key): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **?string** |  |
+
+
+
+
+***
+
 ### folder
 
-
+It's checking if the `tmp` directory exists, and if it doesn't, it's creating it.
 
 ```php
 private static folder(): void
@@ -141,4 +141,4 @@ private static folder(): void
 
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

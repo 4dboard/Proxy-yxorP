@@ -78,7 +78,7 @@ public __construct(string $root, array|null $request = null): mixed
 
 
 ```php
-private init(?array $request, string $root): void
+private init(?array $request): void
 ```
 
 
@@ -93,31 +93,6 @@ private init(?array $request, string $root): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **?array** |  |
-| `$root` | **string** |  |
-
-
-**Return Value:**
-
-A method that takes an array as a parameter and returns nothing.
-
-
-
-***
-
-### define
-
-
-
-```php
-private define(): void
-```
-
-
-
-
-
-
-
 
 
 **Return Value:**
@@ -319,4 +294,4 @@ The priority of the listener. Higher priority listeners are called before lower 
 
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -1,30 +1,51 @@
 <?php namespace yxorP\app\lib\http;
 
-/* Importing the namespace `yxorP` into the current namespace. */
+/**
+ * Importing the namespace `yxorP` into the current namespace.
+ */
 
 use JetBrains\PhpStorm\Pure;
 use yxorP;
 use yxorP\app\constants;
-use yxorP\app\yP;
 
-/* A class that represents an HTTP request. */
+/**
+ * A class that represents an HTTP request.
+ */
 
 /**
  * @property array|string|string[]|null $url
  */
 class request
 {
+    /**
+     *
+     */
     public ParamStore $params;
+    /**
+     *
+     */
     public ParamStore $headers;
+    /**
+     *
+     */
     public ParamStore $post;
+    /**
+     *
+     */
     public ParamStore $get;
+    /**
+     *
+     */
     public ParamStore $files;
     private string $method;
     private string $protocol_version = '1.1';
     private $body;
     private $prepared_body;
 
-    /* The constructor of the class. */
+    /**
+     * The constructor of the class.
+     *
+     */
     public function __construct($method, $url, $body = null)
     {
         $this->params = new ParamStore();
@@ -38,8 +59,10 @@ class request
         $this->prepare();
     }
 
-    /* Setting the URL of the request. */
-
+    /**
+     * Parsing a query string into an array.
+     *
+     */
     public static function parseQuery($query): array
     {
         $result = array();
@@ -47,8 +70,10 @@ class request
         return $result;
     }
 
-    /* Parsing a query string into an array. */
-
+    /**
+     * Generating a boundary for the multipart/form-data request.
+     *
+     */
     public static function buildPostBody($fields, $files, $boundary = null): string
     {
         $part_field = "--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n";
@@ -87,9 +112,10 @@ class request
         return $body;
     }
 
-
-    /* A method that is called by the wrapper class. */
-
+    /**
+     * Detecting the content type of the request.
+     *
+     */
     public static function createFromGlobals(): request
     {
         $method = (store::store(VAR_SERVER))[YXORP_REQUEST_METHOD];
@@ -112,15 +138,19 @@ class request
         return $request;
     }
 
-    /* Setting the body of the request. */
+    /**
+     * Preparing the body of the request.
+     */
 
     private static function generateBoundary(): string
     {
         return '-----' . md5(microtime() . mt_rand());
     }
 
-    /* Preparing the body of the request. */
-
+    /**
+     * Setting the URL of the request.
+     *
+     */
     public function setUrl($url): void
     {
         $query = parse_url($url, PHP_URL_QUERY);
@@ -134,8 +164,10 @@ class request
         $this->headers->set('host', parse_url($url, PHP_URL_HOST));
     }
 
-    /* Generating a boundary for the multipart/form-data request. */
-
+    /**
+     * A method that is called by the wrapper class.
+     *
+     */
     public function setBody($body, $content_type = 0): void
     {
         $this->post->clear();
@@ -146,8 +178,10 @@ class request
         $this->prepare();
     }
 
-    /* Building the body of the request. */
-
+    /**
+     * Setting the body of the request.
+     *
+     */
     public function prepare(): void
     {
         if ($this->files->all()) {
@@ -170,37 +204,46 @@ class request
         }
     }
 
-    /* Detecting the content type of the request. */
-
+    /**
+     * A getter method for the `$method` property.
+     *
+     */
     public function getMethod(): string
     {
         return $this->method;
     }
 
-
-    /* A getter method for the `$method` property. */
-
+    /**
+     * Setting the method of the request.
+     *
+     */
     public function setMethod($method): void
     {
         $this->method = strtoupper($method);
     }
 
-    /* Setting the method of the request. */
+    /**
+     * A getter method for the `$url` property.
+     */
 
     #[Pure] public function getUrl(): string
     {
         return YXORP_GUZZLE_URL;
     }
 
-    /* A getter method for the `$url` property. */
-
+    /**
+     * A getter method for the `$protocol_version` property.
+     *
+     */
     public function getProtocolVersion(): string
     {
         return $this->protocol_version;
     }
 
-    /* A getter method for the `$protocol_version` property. */
-
+    /**
+     * Getting the raw headers of the request.
+     *
+     */
     public function getRawHeaders(): string
     {
         $result = array();
@@ -213,21 +256,27 @@ class request
         return implode("\r\n", $result);
     }
 
-    /* Getting the raw headers of the request. */
-
+    /**
+     * Returning the prepared body of the request.
+     *
+     */
     public function getRawBody(): string
     {
         return $this->prepared_body;
     }
 
-    /* Returning the prepared body of the request. */
-
+    /**
+     * An alias for `public function getUrl()`.
+     *
+     */
     public function getUri()
     {
         return call_user_func_array(array($this, "getUrl"), func_get_args());
     }
 
-    /* An alias for `public function getUrl()`. */
+    /**
+     * Building the body of the request.
+     */
 
     private function detectContentType($data): string
     {

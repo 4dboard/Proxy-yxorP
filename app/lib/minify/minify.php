@@ -8,6 +8,9 @@ class minify implements minfyInterface
 {
     private array $processors;
 
+    /**
+     *
+     */
     public function __construct(minfyInterface ...$processors)
     {
         $this->processors = $processors;
@@ -23,6 +26,9 @@ class minify implements minfyInterface
         );
     }
 
+    /**
+     *
+     */
     public function process(string $buffer): string
     {
         foreach ($this->processors as $processor) {
@@ -32,6 +38,9 @@ class minify implements minfyInterface
         return $buffer;
     }
 
+    /**
+     *
+     */
     public function addProcessor(minfyInterface $processor): self
     {
         $this->processors[] = $processor;

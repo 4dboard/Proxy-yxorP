@@ -2,7 +2,7 @@
 
 # state
 
-
+A trait that allows the class to be serialized and unserialized.
 
 
 
@@ -16,7 +16,7 @@
 
 ### __set_state
 
-
+A magic method that allows the class to be serialized and unserialized.
 
 ```php
 public static __set_state(mixed $data): mixed
@@ -42,7 +42,7 @@ public static __set_state(mixed $data): mixed
 
 ### setState
 
-
+Setting the state of the object.
 
 ```php
 public setState(mixed $data): void
@@ -68,7 +68,7 @@ public setState(mixed $data): void
 
 ### toString
 
-
+Setting the state of the object.
 
 ```php
 public toString(): string
@@ -87,5 +87,5 @@ public toString(): string
 ***
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
 

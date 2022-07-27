@@ -1,8 +1,12 @@
 <?php
-/* Creating a namespace called `yxorP`. */
+/**
+ * Creating a namespace called `yxorP`.
+ */
 
 namespace yxorP;
-/* Including the file `yxorP.php` in the current file. */
+/**
+ * Including the file `yxorP.php` in the current file.
+ */
 
 use yxorP\app\yP;
 

@@ -19,6 +19,9 @@ use const PREG_OFFSET_CAPTURE;
 
 class inlineJavascriptMinifier implements minfyInterface
 {
+    /**
+     *
+     */
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {

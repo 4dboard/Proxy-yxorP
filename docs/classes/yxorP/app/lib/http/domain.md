@@ -39,6 +39,118 @@ A static method that is being called.
 
 ***
 
+### domain_sub
+
+
+
+```php
+public static domain_sub(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_host_target
+
+
+
+```php
+public static domain_host_target(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_target
+
+
+
+```php
+public static domain_target(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_sub_target
+
+
+
+```php
+public static domain_sub_target(): ?string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
+### domain_trim
+
+
+
+```php
+private static domain_trim(mixed $domain, mixed $subdomain): string|null
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$domain` | **mixed** |  |
+| `$subdomain` | **mixed** |  |
+
+
+**Return Value:**
+
+It creates a new user with the credentials defined in the `.env` file
+A static method that is being called.
+
+
+
+***
+
 ### domain
 
 
@@ -64,106 +176,6 @@ A static method that is being called.
 
 ***
 
-### domain_sub
-
-
-
-```php
-public static domain_sub(): string|null
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-It creates a new user with the credentials defined in the `.env` file
-A static method that is being called.
-
-
 
 ***
-
-### domain_host_target
-
-
-
-```php
-public static domain_host_target(): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-It creates a new user with the credentials defined in the `.env` file
-A static method that is being called.
-
-
-
-***
-
-### domain_target
-
-
-
-```php
-public static domain_target(): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-It creates a new user with the credentials defined in the `.env` file
-A static method that is being called.
-
-
-
-***
-
-### domain_sub_target
-
-
-
-```php
-public static domain_sub_target(): string|null
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-**Return Value:**
-
-It creates a new user with the credentials defined in the `.env` file
-A static method that is being called.
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

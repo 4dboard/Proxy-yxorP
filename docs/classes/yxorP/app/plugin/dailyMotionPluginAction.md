@@ -2,7 +2,7 @@
 
 # dailyMotionPluginAction
 
-
+Extending the wrapper class.
 
 
 
@@ -16,7 +16,7 @@
 
 ### url_pattern
 
-
+Defining the URL pattern that the plugin will be applied to.
 
 ```php
 protected ?string $url_pattern
@@ -34,7 +34,7 @@ protected ?string $url_pattern
 
 ### completed
 
-
+A method that is called when the request is completed.
 
 ```php
 public static completed(mixed $matches, mixed $content): void
@@ -61,7 +61,7 @@ public static completed(mixed $matches, mixed $content): void
 
 ### onComplete
 
-
+A method that is called when the request is completed.
 
 ```php
 public onComplete(): void
@@ -85,7 +85,7 @@ public onComplete(): void
 
 ### subscribe
 
-
+Subscribing to all the events.
 
 ```php
 final public subscribe(\yxorP\app\yP $dispatcher): void
@@ -111,7 +111,7 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 
 ### onCheck
 
-
+Used to check if the event should be executed.
 
 ```php
 public onCheck(): void
@@ -131,7 +131,7 @@ public onCheck(): void
 
 ### onBuildCache
 
-
+A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
 
 ```php
 public onBuildCache(): void
@@ -151,7 +151,7 @@ public onBuildCache(): void
 
 ### onBuildContext
 
-
+A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
 
 ```php
 public onBuildContext(): void
@@ -171,7 +171,7 @@ public onBuildContext(): void
 
 ### onBuildIncludes
 
-
+A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
 
 ```php
 public onBuildIncludes(): void
@@ -191,7 +191,7 @@ public onBuildIncludes(): void
 
 ### onBuildHeaders
 
-
+A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
 
 ```php
 public onBuildHeaders(): void
@@ -211,7 +211,7 @@ public onBuildHeaders(): void
 
 ### onBuildRequest
 
-
+A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
 
 ```php
 public onBuildRequest(): void
@@ -231,7 +231,7 @@ public onBuildRequest(): void
 
 ### onBeforeSend
 
-
+Used to build the result.
 
 ```php
 public onBeforeSend(): void
@@ -251,7 +251,7 @@ public onBeforeSend(): void
 
 ### onSend
 
-
+Used to execute code when the request is sent.
 
 ```php
 public onSend(): void
@@ -271,7 +271,7 @@ public onSend(): void
 
 ### onSent
 
-
+Used to execute code before the request is sent.
 
 ```php
 public onSent(): void
@@ -291,7 +291,7 @@ public onSent(): void
 
 ### onWrite
 
-
+Used to execute code when the headers are received.
 
 ```php
 public onWrite(): void
@@ -311,7 +311,7 @@ public onWrite(): void
 
 ### onComplete
 
-
+Used to execute code when the headers are received.
 
 ```php
 public onComplete(): void
@@ -331,7 +331,7 @@ public onComplete(): void
 
 ### onFinal
 
-
+Used to execute code when the request is completed.
 
 ```php
 public onFinal(): void
@@ -351,7 +351,7 @@ public onFinal(): void
 
 ### onBuildException
 
-
+Used to execute code when an exception is thrown.
 
 ```php
 public onBuildException(\Exception $e): void
@@ -377,7 +377,7 @@ public onBuildException(\Exception $e): void
 
 ### route
 
-
+A method that is used to route the events to the appropriate methods.
 
 ```php
 private route(string $event_name): void
@@ -403,4 +403,4 @@ private route(string $event_name): void
 
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -2,7 +2,7 @@
 
 # streamPluginAction
 
-
+Extending the wrapper class, which is a class that allows you to listen to events.
 
 
 
@@ -16,7 +16,7 @@
 
 ### output_buffer_types
 
-
+An array of content types that will be streamed.
 
 ```php
 private array $output_buffer_types
@@ -31,7 +31,7 @@ private array $output_buffer_types
 
 ### stream
 
-
+A variable that is used to determine if the response should be streamed or not.
 
 ```php
 private bool $stream
@@ -46,7 +46,7 @@ private bool $stream
 
 ### max_content_length
 
-
+Used to determine if the response should be streamed or not.
 
 ```php
 private int $max_content_length
@@ -64,7 +64,8 @@ private int $max_content_length
 
 ### onSent
 
-
+Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
+`$stream` variable to true.
 
 ```php
 public onSent(): void
@@ -84,7 +85,7 @@ public onSent(): void
 
 ### onWrite
 
-
+A function that is called when the proxy receives data from the server.
 
 ```php
 public onWrite(): void
@@ -104,7 +105,7 @@ public onWrite(): void
 
 ### onComplete
 
-
+Used to exit the script when the response is streamed.
 
 ```php
 public onComplete(): void
@@ -128,7 +129,7 @@ public onComplete(): void
 
 ### subscribe
 
-
+Subscribing to all the events.
 
 ```php
 final public subscribe(\yxorP\app\yP $dispatcher): void
@@ -154,7 +155,7 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 
 ### onCheck
 
-
+Used to check if the event should be executed.
 
 ```php
 public onCheck(): void
@@ -174,7 +175,7 @@ public onCheck(): void
 
 ### onBuildCache
 
-
+A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
 
 ```php
 public onBuildCache(): void
@@ -194,7 +195,7 @@ public onBuildCache(): void
 
 ### onBuildContext
 
-
+A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
 
 ```php
 public onBuildContext(): void
@@ -214,7 +215,7 @@ public onBuildContext(): void
 
 ### onBuildIncludes
 
-
+A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
 
 ```php
 public onBuildIncludes(): void
@@ -234,7 +235,7 @@ public onBuildIncludes(): void
 
 ### onBuildHeaders
 
-
+A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
 
 ```php
 public onBuildHeaders(): void
@@ -254,7 +255,7 @@ public onBuildHeaders(): void
 
 ### onBuildRequest
 
-
+A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
 
 ```php
 public onBuildRequest(): void
@@ -274,7 +275,7 @@ public onBuildRequest(): void
 
 ### onBeforeSend
 
-
+Used to build the result.
 
 ```php
 public onBeforeSend(): void
@@ -294,7 +295,7 @@ public onBeforeSend(): void
 
 ### onSend
 
-
+Used to execute code when the request is sent.
 
 ```php
 public onSend(): void
@@ -314,7 +315,7 @@ public onSend(): void
 
 ### onSent
 
-
+Used to execute code before the request is sent.
 
 ```php
 public onSent(): void
@@ -334,7 +335,7 @@ public onSent(): void
 
 ### onWrite
 
-
+Used to execute code when the headers are received.
 
 ```php
 public onWrite(): void
@@ -354,7 +355,7 @@ public onWrite(): void
 
 ### onComplete
 
-
+Used to execute code when the headers are received.
 
 ```php
 public onComplete(): void
@@ -374,7 +375,7 @@ public onComplete(): void
 
 ### onFinal
 
-
+Used to execute code when the request is completed.
 
 ```php
 public onFinal(): void
@@ -394,7 +395,7 @@ public onFinal(): void
 
 ### onBuildException
 
-
+Used to execute code when an exception is thrown.
 
 ```php
 public onBuildException(\Exception $e): void
@@ -420,7 +421,7 @@ public onBuildException(\Exception $e): void
 
 ### route
 
-
+A method that is used to route the events to the appropriate methods.
 
 ```php
 private route(string $event_name): void
@@ -446,4 +447,4 @@ private route(string $event_name): void
 
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

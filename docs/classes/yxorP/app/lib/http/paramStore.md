@@ -2,7 +2,7 @@
 
 # paramStore
 
-
+A class that stores parameters.
 
 
 
@@ -15,7 +15,7 @@
 
 ### data
 
-
+Declaring a private variable called `$data` that is an array.
 
 ```php
 private array $data
@@ -30,7 +30,7 @@ private array $data
 
 ### case_sensitive
 
-
+Declaring a private variable called `$case_sensitive` that can be of any type.
 
 ```php
 private string|array|object|null $case_sensitive
@@ -48,7 +48,7 @@ private string|array|object|null $case_sensitive
 
 ### __construct
 
-
+A constructor.
 
 ```php
 public __construct(mixed $parameters = array(), mixed $case_sensitive): mixed
@@ -75,7 +75,7 @@ public __construct(mixed $parameters = array(), mixed $case_sensitive): mixed
 
 ### replace
 
-
+Replacing the data in the `$data` variable with the data in the `$data` parameter.
 
 ```php
 public replace(array $data): void
@@ -101,7 +101,7 @@ public replace(array $data): void
 
 ### clear
 
-
+Clearing the data in the `$data` variable.
 
 ```php
 public clear(): void
@@ -121,7 +121,7 @@ public clear(): void
 
 ### set
 
-
+Setting the value of the `$key` parameter to the `$value` parameter.
 
 ```php
 public set(mixed $key, mixed $value, mixed $replace = true): void
@@ -147,35 +147,9 @@ public set(mixed $key, mixed $value, mixed $replace = true): void
 
 ***
 
-### normalizeKey
-
-
-
-```php
-private normalizeKey(mixed $key): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **mixed** |  |
-
-
-
-
-***
-
 ### has
 
-
+Checking if the `$key` parameter is in the `$data` variable.
 
 ```php
 public has(mixed $key): bool
@@ -201,7 +175,7 @@ public has(mixed $key): bool
 
 ### remove
 
-
+Removing the `$key` parameter from the `$data` variable.
 
 ```php
 public remove(mixed $key): void
@@ -227,7 +201,8 @@ public remove(mixed $key): void
 
 ### get
 
-
+Getting the value of the `$key` parameter from the `$data` variable. If the `$key` parameter is not in the
+`$data` variable, it will return the `$default` parameter.
 
 ```php
 public get(mixed $key, mixed $default = null): mixed
@@ -254,7 +229,7 @@ public get(mixed $key, mixed $default = null): mixed
 
 ### all
 
-
+Returning the `$data` variable.
 
 ```php
 public all(): array
@@ -274,7 +249,7 @@ public all(): array
 
 ### __toString
 
-
+Returning the `$data` variable as a JSON string.
 
 ```php
 public __toString(): mixed
@@ -292,6 +267,32 @@ public __toString(): mixed
 
 ***
 
+### normalizeKey
+
+Normalizing the key.
+
+```php
+private normalizeKey(mixed $key): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+
+
+
 
 ***
-> Automatically generated from source code comments on 2022-07-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
+
+***
+> Automatically generated from source code comments on 2022-07-27 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

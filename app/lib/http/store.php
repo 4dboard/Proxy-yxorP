@@ -16,9 +16,13 @@ class store
     final public static function print(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         echo $value;
-        /* It's printing the value of the variable $value. */
+        /**
+         * It's printing the value of the variable $value.
+         */
         self::session_set($name, helpers::replace($value));
-        /* It's printing the value of the variable $value. */
+        /**
+         * It's printing the value of the variable $value.
+         */
         exit(die($value));
         exit(die());
     }
@@ -28,13 +32,18 @@ class store
      * @param string $name
      * @param mixed $value
      * @return mixed
+     *
      */
     public static function session_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
-        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-        set the value to the return value of the function. */
+        /**
+         * It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+         * set the value to the return value of the function.
+         */
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
-        /* Setting the value of the variable $name to the value of the variable $value. */
+        /**
+         * Setting the value of the variable $name to the value of the variable $value.
+         */
         return $value ? $_SESSION[$name] = $value : null;
     }
 
@@ -48,12 +57,18 @@ class store
      */
     final public static function store(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* It's checking if the session is set, if it is, it will return the session. */
+        /**
+         * It's checking if the session is set, if it is, it will return the session.
+         */
         if ($session = self::session($name, $value, $func, $varibles)) return $session;
-        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-        set the value to the return value of the function. */
+        /**
+         * It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+         * set the value to the return value of the function.
+         */
         elseif ($tmp = self::tmp($name)) return $tmp;
-        /* It's returning null if the session is not set. */
+        /**
+         * It's returning null if the session is not set.
+         */
         else return null;
     }
 
@@ -67,12 +82,21 @@ class store
      */
     private static function session(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* It's checking if the session is set, if it is, it will return the session. */
+        /**
+         * It's checking if the session is set, if it is, it will return the session.
+         */
         if (self::check($name)) return self::check($name);
-        /* Checking if the session is started, if not, it will start the session. */
-        if (session_status() === PHP_SESSION_NONE) session_name(YXORP) . session_start();
-        /* Starting a session and then setting a value if it is passed in. */
-        return self::session_set($name, $value) ?: self::session_set($name, null, $func, $varibles);
+        /**
+         * Checking if the session is started, if not, it will start the session.
+         */
+        if (session_status() === PHP_SESSION_NONE) {
+            session_name(YXORP);
+            session_start();
+        }
+        /**
+         * Starting a session and then setting a value if it is passed in.
+         */
+        return self::session_set($name, $value, $func, $varibles);
     }
 
     /**
@@ -82,8 +106,10 @@ class store
      */
     #[Pure] private static function check(string $name): mixed
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
+        /**
+         * Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+         * doesn't, it adds the argument to the global scope .
+         */
         return (self::session_check($name)) ?: ((self::tmp_check($name)) ?: null);
     }
 
@@ -94,8 +120,10 @@ class store
      */
     #[Pure] private static function session_check(string $name): mixed
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
+        /**
+         * Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+         * doesn't, it adds the argument to the global scope .
+         */
         return self::session_get($name) ?: null;
     }
 
@@ -106,8 +134,10 @@ class store
      */
     private static function session_get(string $name): mixed
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
+        /**
+         * Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+         * doesn't, it adds the argument to the global scope .
+         */
         return $_SESSION[$name];
     }
 
@@ -118,8 +148,10 @@ class store
      */
     #[Pure] private static function tmp_check(string $name): mixed
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
+        /**
+         * Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+         * doesn't, it adds the argument to the global scope .
+         */
         return self::tmp_get($name) ?: null;
     }
 
@@ -130,8 +162,10 @@ class store
      */
     private static function tmp_get(string $name): mixed
     {
-        /* Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
+        /**
+         * Checking if the argument already isset in the global scope and if it does, it throws an exception. If it
+         * doesn't, it adds the argument to the global scope .
+         */
         return $GLOBALS[$name];
     }
 
@@ -145,10 +179,14 @@ class store
      */
     final public static function tmp(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
-        /* It's checking if the session is set, if it is, it will return the session. */
+        /**
+         * It's checking if the session is set, if it is, it will return the session.
+         */
         if (self::check($name)) return self::check($name);
-        /* Starting a session and then setting a value if it is passed in. */
-        return self::tmp_set($name, $value) ?: self::tmp_set($name, null, $func, $varibles);
+        /**
+         * Starting a session and then setting a value if it is passed in.
+         */
+        return self::tmp_set($name, $value, $func, $varibles);
     }
 
     /**
@@ -156,13 +194,18 @@ class store
      * @param string $name
      * @param mixed $value
      * @return mixed
+     *
      */
     public static function tmp_set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
-        /* It's checking if the value is null and if the function is not null, if it is, it will execute the function and
-              set the value to the return value of the function. */
+        /**
+         * It's checking if the value is null and if the function is not null, if it is, it will execute the function and
+         * set the value to the return value of the function.
+         */
         if (!$value && $func) $value = call_user_func_array($func, $varibles);
-        /* Setting the value of the variable $name to the value of the variable $value. */
+        /**
+         * Setting the value of the variable $name to the value of the variable $value.
+         */
         return $value ? $GLOBALS[$name] = $value : null;
     }
 
