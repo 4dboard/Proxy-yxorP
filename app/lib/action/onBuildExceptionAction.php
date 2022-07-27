@@ -22,7 +22,7 @@ class onBuildExceptionAction extends wrapper
          * Checking if the `DEBUG` constant is set to `true` or if the server name does not contain a dot. If either of
          * these conditions are met, the exception is printed.
          */
-        if (MIME === 'text' . CHAR_SLASH . 'html' && defined(YXORP_GUZZLE_URL)) header("Location: " . YXORP_GUZZLE_URL); else if (ENV_DEBUG) var_dump($e);
+        if (helpers::MIME() === 'text' . CHAR_SLASH . 'html' && defined(YXORP_GUZZLE_URL)) header("Location: " . YXORP_GUZZLE_URL); else if (ENV_DEBUG) var_dump($e);
         store::store(VAR_BUGSNAG)?->notifyException($e);
     }
 }

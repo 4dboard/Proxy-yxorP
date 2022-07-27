@@ -66,7 +66,7 @@ class cache
         /**
          * Writing the content to the cache file.
          */
-        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));')));
+        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));')));
         exit(die());
     }
 

@@ -10,6 +10,7 @@ const PATH_TMP_FILE = __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE
 const DIR_LIB = 'lib' . DIRECTORY_SEPARATOR;
 define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
 const EXT_TEXT = 'txt';
+const MIME = 'MIME';
 const CHAR_SLASH = '/';
 const COOKIE_JAR = 'cookie_jar' . CHAR_PERIOD;
 const FILE_COOKIE_JAR = COOKIE_JAR . EXT_TEXT;

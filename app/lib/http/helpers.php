@@ -294,7 +294,7 @@ class helpers
      */
     public static function MIME(): string
     {
-        if (MIME) return MIME;
+        if (store::store(MIME)) return store::store(MIME);
         /**
          * Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
          * "application/wasm".
@@ -318,7 +318,7 @@ class helpers
         /**
          * Defining the MIME constant as the $mime variable.
          */
-        define('MIME', strtok($mime, ';'));
+        store::tmp(MIME, strtok($mime, ';'));
         /**
          * Setting the content type of the response.
          */
