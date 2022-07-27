@@ -13,7 +13,7 @@ return array(
                     'default' => '',
                     'info' => 'Name of collection',
                     'group' => '',
-                    'localize' => 0,
+                    'localize' => false,
                     'options' =>
                         array(),
                     'width' => '1-1',
@@ -29,7 +29,7 @@ return array(
                     'default' => '',
                     'info' => 'Search Replace "key":"value" json collection i.e. {"search":"replace"}',
                     'group' => '',
-                    'localize' => 0,
+                    'localize' => false,
                     'options' =>
                         array(),
                     'width' => '1-1',
@@ -38,8 +38,8 @@ return array(
                         array(),
                 ),
         ),
-    'sortable' => 0,
-    'in_menu' => 0,
+    'sortable' => false,
+    'in_menu' => false,
     '_created' => 1655773950,
     '_modified' => 1655778790,
     'color' => '#AC92EC',
@@ -54,19 +54,19 @@ return array(
         array(
             'create' =>
                 array(
-                    'enabled' => 0,
+                    'enabled' => false,
                 ),
             'read' =>
                 array(
-                    'enabled' => 0,
+                    'enabled' => false,
                 ),
             'update' =>
                 array(
-                    'enabled' => 0,
+                    'enabled' => false,
                 ),
             'delete' =>
                 array(
-                    'enabled' => 0,
+                    'enabled' => false,
                 ),
         ),
     'group' => 'core',
