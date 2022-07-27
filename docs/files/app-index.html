@@ -388,7 +388,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="namespaces/default.html#constant_COCKPIT_API_REQUEST">COCKPIT_API_REQUEST</a>
     <span>
-        &nbsp;= \strpos($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) !== \false ? 1 : 0                            </span>
+        &nbsp;= \str_contains($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0                            </span>
 </dt>
 <dd></dd>
 
@@ -456,7 +456,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">COCKPIT_API_REQUEST</span>
-    = <span class="phpdocumentor-signature__default-value">\strpos($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) !== \false ? 1 : 0</span>
+    = <span class="phpdocumentor-signature__default-value">\str_contains($_SERVER[&#039;REQUEST_URI&#039;], \COCKPIT_BASE_ROUTE . &#039;/api/&#039;) ? 1 : 0</span>
 </code>
 
 
