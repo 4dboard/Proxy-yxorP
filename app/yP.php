@@ -87,10 +87,6 @@ class yP
          */
         self::loadActions();
 
-        /**
-         * Loading the Guzzle Snag class.
-         */
-        helpers::loadGuzzleSnag();
 
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
