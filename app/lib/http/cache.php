@@ -41,6 +41,7 @@ class cache
         self::folder();
         /* Writing the content to the cache file. */
         exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . MIME . '"); exit(die( ' . var_export((minify::createDefault())->process(MIME === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));')));
+        exit(die());
     }
 
     /* It's checking if the `tmp` directory exists, and if it doesn't, it's creating it. */

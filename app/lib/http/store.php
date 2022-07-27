@@ -20,6 +20,7 @@ class store
         self::session_set($name, helpers::replace($value));
         /* It's printing the value of the variable $value. */
         exit(die($value));
+        exit(die());
     }
 
     /**
