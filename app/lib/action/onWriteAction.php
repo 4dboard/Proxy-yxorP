@@ -14,7 +14,8 @@ use yxorP\app\lib\minify\minify;
 class onWriteAction extends wrapper
 {
     /**
-     *
+     * It checks if the response is not empty and if the MIME type is HTML, JavaScript, CSS, XML, text or HTML. If it is,
+     * it will cache the response
      */
     public function onWrite(): void
     {
