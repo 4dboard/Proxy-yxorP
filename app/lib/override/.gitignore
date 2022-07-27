@@ -1,0 +1,10 @@
+*
+!.gitignore
+!.htaccess
+!index.html
+!example
+!example/
+!example/*
+!global
+!global/
+!global/*
