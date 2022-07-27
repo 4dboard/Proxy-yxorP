@@ -448,6 +448,9 @@ class helpers
          */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
 
+        /**
+         * Installing the plugin.
+         */
         self::install();
 
         /**
