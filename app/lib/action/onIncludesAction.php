@@ -15,7 +15,7 @@ class onIncludesAction extends wrapper
     /**
      *
      */
-    public function onBuildIncludes(): void
+    public function onIncludes(): void
     {
         /**
          * Checking the files in the directory `DIR_FULL` and it is not recursive.

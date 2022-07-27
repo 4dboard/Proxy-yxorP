@@ -18,7 +18,7 @@ class onContextAction extends wrapper
      * This function is used to build the request and response objects.
      *
      */
-    public function onBuildContext(): void
+    public function onContext(): void
     {
         /**
          * Setting the request object to the key REQUEST.

@@ -18,7 +18,7 @@ class onRequestAction extends wrapper
      * A method that is called by the wrapper class.
      *
      */
-    public function onBuildRequest(): void
+    public function onRequest(): void
     {
         /**
          * Getting the request body from the input stream and setting it to the request object.

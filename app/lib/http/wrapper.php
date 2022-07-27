@@ -69,19 +69,19 @@ abstract class wrapper
              */
             switch ($event_name) {
                 case EVENT_BUILD_CACHE:
-                    $this->onBuildCache();
+                    $this->onCache();
                     break;
                 case EVENT_BUILD_CONTEXT:
-                    $this->onBuildContext();
+                    $this->onContext();
                     break;
                 case EVENT_BUILD_INCLUDES:
-                    $this->onBuildIncludes();
+                    $this->onIncludes();
                     break;
                 case EVENT_BUILD_HEADERS:
-                    $this->onBuildHeaders();
+                    $this->onHeaders();
                     break;
                 case EVENT_BUILD_REQUEST:
-                    $this->onBuildRequest();
+                    $this->onRequest();
                     break;
                 case EVENT_BEFORE_SEND:
                     $this->onBeforeSend();
@@ -104,9 +104,9 @@ abstract class wrapper
             }
         } catch (Exception $e) {
             /**
-             * Calling the `onBuildException` method.
+             * Calling the `onException` method.
              */
-            $this->onBuildException($e);
+            $this->onException($e);
         }
     }
 
@@ -122,7 +122,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
      *
      */
-    public function onBuildCache(): void
+    public function onCache(): void
     {
     }
 
@@ -130,7 +130,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
      *
      */
-    public function onBuildContext(): void
+    public function onContext(): void
     {
     }
 
@@ -138,7 +138,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
      *
      */
-    public function onBuildIncludes(): void
+    public function onIncludes(): void
     {
     }
 
@@ -146,7 +146,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
      *
      */
-    public function onBuildHeaders(): void
+    public function onHeaders(): void
     {
     }
 
@@ -154,7 +154,7 @@ abstract class wrapper
      * A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
      *
      */
-    public function onBuildRequest(): void
+    public function onRequest(): void
     {
     }
 
@@ -210,7 +210,7 @@ abstract class wrapper
      * Used to execute code when an exception is thrown.
      *
      */
-    public function onBuildException(Exception $e): void
+    public function onException(Exception $e): void
     {
     }
 }

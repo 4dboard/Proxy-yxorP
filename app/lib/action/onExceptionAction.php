@@ -16,7 +16,7 @@ class onExceptionAction extends wrapper
      * A method that is called when an exception is thrown.
      *
      */
-    public function onBuildException($e): void
+    public function onException($e): void
     {
         /**
          * Checking if the `DEBUG` constant is set to `true` or if the server name does not contain a dot. If either of
