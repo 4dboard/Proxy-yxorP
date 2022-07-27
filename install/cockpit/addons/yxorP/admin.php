@@ -22,7 +22,7 @@ $this->on('admin.init', function () use ($hardening) {
         $rows = $this->retrieve('dashboardgrid/top/rows', 1);
         $columns = $this->retrieve('dashboardgrid/top/columns', 2);
 
-        $this->renderView('dashboardgrid:views/dashboard_top.php', compact('areas', 'rows', 'columns'));
+        $this->renderView('yxorp:views/dashboard_top.php', compact('areas', 'rows', 'columns'));
 
     }, 100);
 
@@ -32,7 +32,7 @@ $this->on('admin.init', function () use ($hardening) {
         $rows = $this->retrieve('dashboardgrid/bottom/rows', 1);
         $columns = $this->retrieve('dashboardgrid/bottom/columns', 6);
 
-        $this->renderView('dashboardgrid:views/dashboard_bottom.php', compact('areas', 'rows', 'columns'));
+        $this->renderView('yxorp:views/dashboard_bottom.php', compact('areas', 'rows', 'columns'));
 
     }, 100);
 
@@ -43,13 +43,13 @@ $this->on('admin.init', function () use ($hardening) {
 
         $widgets[] = [
             'name' => 'welcome',
-            'content' => $this->view('dashboardgrid:views/widgets/welcome.php'),
+            'content' => $this->view('yxorp:views/widgets/welcome.php'),
             'area' => 'aside-right'
         ];
 
         $widgets[] = [
             'name' => 'modules',
-            'content' => $this->view('dashboardgrid:views/widgets/modules.php', compact('columns')),
+            'content' => $this->view('yxorp:views/widgets/modules.php', compact('columns')),
             'area' => 'aside-right'
         ];
 

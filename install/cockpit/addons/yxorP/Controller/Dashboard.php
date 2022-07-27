@@ -2,33 +2,40 @@
 
 namespace DashboardGrid\Controller;
 
-class Dashboard extends \Cockpit\AuthController {
+use ArrayObject;
+use Cockpit\AuthController;
+use SplPriorityQueue;
+use function Lime\fetch_from_array;
 
-    public function dashboard() {
+class Dashboard extends AuthController
+{
 
-        $settings = $this->app->storage->getKey('cockpit/options', 'dashboard.widgets.'.$this->user["_id"], []);
+    public function dashboard()
+    {
 
-        $widgets  = new \ArrayObject([]);
+        $settings = $this->app->storage->getKey('cockpit/options', 'dashboard.widgets.' . $this->user["_id"], []);
+
+        $widgets = new ArrayObject([]);
 
         $this->app->trigger('admin.dashboard.widgets', [$widgets]);
 
         $areas = [];
 
-        foreach($widgets as &$widget) {
+        foreach ($widgets as &$widget) {
 
             $name = $widget['name'];
             $area = isset($widget['area']) && in_array($widget['area'], ['main', 'aside-left', 'aside-right']) ? $widget['area'] : 'main';
 
-            $area = \Lime\fetch_from_array($settings, "{$name}/area", $area);
-            $prio = \Lime\fetch_from_array($settings, "{$name}/prio", 0);
+            $area = fetch_from_array($settings, "{$name}/area", $area);
+            $prio = fetch_from_array($settings, "{$name}/prio", 0);
 
             if (!isset($areas[$area])) {
-                $areas[$area] = new \SplPriorityQueue();
+                $areas[$area] = new SplPriorityQueue();
             }
             $areas[$area]->insert($widget, -1 * $prio);
         }
 
-        return $this->render('dashboardgrid:views/dashboard.php', compact('areas', 'widgets'));
+        return $this->render('yxorp:views/dashboard.php', compact('areas', 'widgets'));
     }
 
 }
