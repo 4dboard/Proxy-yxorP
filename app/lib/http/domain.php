@@ -47,7 +47,7 @@ class domain
      */
     public static function domain_target(): mixed
     {
-        return YXORP_TARGET_URL ?: store::store(ENV_DEFAULT_TARGET);
+        return YXORP_TARGET_URL ?: store::handler(ENV_DEFAULT_TARGET);
     }
 
     /**
@@ -99,7 +99,7 @@ class domain
      */
     private static function domain(): ?string
     {
-        return YXORP_HTTP_HOST ?: store::store(ENV_DEFAULT_HOST);
+        return YXORP_HTTP_HOST ?: store::handler(ENV_DEFAULT_HOST);
     }
 
 }

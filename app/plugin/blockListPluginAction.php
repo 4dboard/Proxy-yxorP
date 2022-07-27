@@ -30,12 +30,12 @@ class blockListPluginAction extends wrapper
         /**
          * Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method.
          */
-        if (!$fnc_custom(compact(VAR_USER_IP, VAR_USER_IP_LONG, VAR_URL, VAR_URL_HOST))) store::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access Denied!"));
+        if (!$fnc_custom(compact(VAR_USER_IP, VAR_USER_IP_LONG, VAR_URL, VAR_URL_HOST))) store::handler(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access Denied!"));
         /**
          * Checking if the `$url` variable contains any of the values of the `BLOCKLIST` constant. If it does, it throws an
          * exception.
          */
-        foreach ((array)store::store('BLOCKLIST') as $ub) if (str_contains($url, $ub)) store::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
+        foreach ((array)store::handler('BLOCKLIST') as $ub) if (str_contains($url, $ub)) store::handler(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
     }
 
     /**
@@ -47,7 +47,7 @@ class blockListPluginAction extends wrapper
         /**
          * Getting the user's IP address.
          */
-        $user_ip = (store::store(VAR_SERVER))[YXORP_REMOTE_ADDR];
+        $user_ip = (store::handler(VAR_SERVER))[YXORP_REMOTE_ADDR];
         /**
          * It converts the IP address to an unsigned integer.
          */
@@ -55,11 +55,11 @@ class blockListPluginAction extends wrapper
         /**
          * Getting the URL of the request.
          */
-        $url = store::store(VAR_REQUEST)->getUrl();
+        $url = store::handler(VAR_REQUEST)->getUrl();
         /**
          * Getting the value of the `BLOCKLIST` constant.
          */
-        $fnc_custom = store::store('BLOCKLIST');
+        $fnc_custom = store::handler('BLOCKLIST');
         /**
          * Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method.
          */
@@ -72,12 +72,12 @@ class blockListPluginAction extends wrapper
          * Checking if the `BLOCKLIST` constant is set and if it is, it sets the `$ip_match` variable to the value of the
          * `BLOCKLIST` constant.
          */
-        if (store::store('BLOCKLIST')) $ip_match = store::store('BLOCKLIST');
+        if (store::handler('BLOCKLIST')) $ip_match = store::handler('BLOCKLIST');
         /**
          * Checking if the `$ip_match` variable is set and if it is, it checks if the `$user_ip` variable matches the
          * `$ip_match` variable. If it does not match, it throws an exception.
          */
-        if ($ip_match) if ((!helpers::re_match($ip_match, $user_ip))) store::store(VAR_BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
+        if ($ip_match) if ((!helpers::re_match($ip_match, $user_ip))) store::handler(VAR_BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
     }
 }
 

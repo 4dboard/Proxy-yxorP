@@ -33,7 +33,7 @@ class proxifyPluginAction extends wrapper
         /**
          * It's getting the request object from the constants class.
          */
-        $request = store::store(VAR_REQUEST);
+        $request = store::handler(VAR_REQUEST);
         /**
          * It's checking if the request has a post parameter called `convertGET`.
          */
@@ -70,11 +70,11 @@ class proxifyPluginAction extends wrapper
         /**
          * It's getting the base url of the request.
          */
-        $this->base_url = store::store(VAR_REQUEST)->getUri();
+        $this->base_url = store::handler(VAR_REQUEST)->getUri();
         /**
          * It's getting the response object from the constants class.
          */
-        $response = store::store(VAR_RESPONSE);
+        $response = store::handler(VAR_RESPONSE);
         /**
          * It's getting the response content.
          */

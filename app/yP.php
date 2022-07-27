@@ -85,7 +85,7 @@ class yP
 
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (store::store(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
+        foreach (store::handler(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
     }
 
     /**
@@ -120,15 +120,15 @@ class yP
         /**
          * It's setting the `YXORP_EVENT_LIST` constant to an array of events.
          */
-        store::store(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+        store::handler(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
         /**
          * It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION`
          * directory, then looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
-         * directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it. If
-         * the file is a class, it's requiring it.
+         * directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it in the first loop. If
+         * the file is a class, it's requiring it in the second loop. If the file is a function, it's calling it in the third loop.
          */
-        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => store::store(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::store(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
+        foreach ([DIR_APP . DIR_LIB . DIR_ACTION => store::handler(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::handler(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
 
     }
 
@@ -174,7 +174,6 @@ class yP
          */
         if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe(self::$instance);
     }
-
 
     /**
      *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling

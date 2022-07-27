@@ -23,6 +23,6 @@ class onBuildContextAction extends wrapper
         /**
          * Setting the request object to the key REQUEST.
          */
-        store::tmp(VAR_REQUEST, Request::createFromGlobals());
+        store::handler(VAR_REQUEST, Request::createFromGlobals());
     }
 }

@@ -155,7 +155,7 @@ class helpers
         /**
          * Removing the "fetch" parameter from the URL.
          */
-        return str_replace(store::store(VAR_FETCH), CHAR_EMPTY_STRING, $url);
+        return str_replace(store::handler(VAR_FETCH), CHAR_EMPTY_STRING, $url);
     }
 
     /**
@@ -270,7 +270,19 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        return store::tmp(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+        return store::handler(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     *
+     */
+    public static function cockpit_global(): mixed
+    {
+        return store::handler(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_SINGLETONS, [COCKPIT_KEY => COCKPIT_SETTINGS]);
     }
 
     /**
@@ -294,12 +306,12 @@ class helpers
      */
     public static function MIME(): string
     {
-        if (store::store(MIME)) return store::store(MIME);
+        if (store::handler(MIME)) return store::handler(MIME);
         /**
          * Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
          * "application/wasm".
          */
-        if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (store::store(VAR_RESPONSE)) $mime = store::store(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
+        if (str_contains(YXORP_REQUEST_URI, 'bundle.js')) $mime = 'application' . CHAR_SLASH . 'wasm'; else if (str_contains(YXORP_REQUEST_URI, 'sitemap')) $mime = 'application' . CHAR_SLASH . 'xml'; else if (str_contains(YXORP_REQUEST_URI, 'crop')) $mime = 'image' . CHAR_SLASH . 'png'; else if (str_contains(YXORP_REQUEST_URI, 'format')) $mime = 'image' . CHAR_SLASH . 'png'; else if (store::handler(VAR_RESPONSE)) $mime = store::handler(VAR_RESPONSE)->getHeaderLine('Content-Type'); else {
             /**
              * Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`.
              */
@@ -318,7 +330,7 @@ class helpers
         /**
          * Defining the MIME constant as the $mime variable.
          */
-        store::tmp(MIME, strtok($mime, ';'));
+        store::handler(MIME, strtok($mime, ';'));
         /**
          * Setting the content type of the response.
          */
@@ -342,12 +354,12 @@ class helpers
      */
     public static function replace($content): string
     {
-        store::store(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON');
+        store::handler(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON');
         /**
          * Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class.
          */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
-            return '<x' . str_replace(array_keys(store::store(YXORP_REWRITE)), array_values(store::store(YXORP_REWRITE)), $m[1]) . 'x>';
+            return '<x' . str_replace(array_keys(store::handler(YXORP_REWRITE)), array_values(store::handler(YXORP_REWRITE)), $m[1]) . 'x>';
         }], $content) ?: $content;
     }
 
@@ -452,9 +464,9 @@ class helpers
         self::install();
 
         /**
-         * Defining a constant called store::store(YXORP_SERVER) and setting it to the value of $req.
+         * Defining a constant called store::handler(YXORP_SERVER) and setting it to the value of $req.
          */
-        store::tmp(VAR_SERVER, $request ?: $_SERVER);
+        store::handler(VAR_SERVER, $request ?: $_SERVER);
 
         /**
          * Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method.
@@ -471,18 +483,18 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::store(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
+        store::handler(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
 
         /**
          * Setting the pattern, replace, and plugins variables.
          */
-        foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS] as $key => $value)
-            store::store($key, store::store(SITE_DETAILS)[$value]);
+        foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS, YXORP_TARGET_CSS => VAR_CSS, YXORP_TARGET_JS => VAR_JS] as $key => $value)
+            store::handler($key, store::handler(SITE_DETAILS)[$value]);
 
         /**
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
          */
-        define('YXORP_TARGET_URL', (store::store(SITE_DETAILS))[COCKPIT_TARGET]);
+        define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[COCKPIT_TARGET]);
 
 
         /**
@@ -499,7 +511,7 @@ class helpers
 
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::store(SITE_DETAILS)[VAR_FILES]));
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
         /**
          * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
@@ -508,9 +520,15 @@ class helpers
         define('YXORP_REQUEST_URI_FULL', YXORP_HTTP_HOST . YXORP_REQUEST_URI);
 
         /**
-         * Setting the global variables for the application.
+         * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        foreach ([YXORP_GLOBAL_REPLACE => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null] as $key => $value) store::store($key, $value);
+        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\app\lib\http\helpers::cockpit_global');
+
+        /**
+         * Setting the pattern, replace, and plugins variables.
+         */
+        foreach ([YXORP_GLOBAL_PATTERN => VAR_PATTERN, YXORP_GLOBAL_REPLACE => VAR_REPLACE, YXORP_GLOBAL_CSS => VAR_CSS, YXORP_GLOBAL_JS => VAR_JS] as $key => $value)
+            store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[COCKPIT_VAL][$value]);
 
         /**
          * Loading the Guzzle Snag class.
@@ -533,7 +551,7 @@ class helpers
         /**
          * Storing the cockpit object in the tmp store.
          */
-        store::tmp(YXORP_COCKPIT_APP, cockpit());
+        store::handler(YXORP_COCKPIT_APP, cockpit());
     }
 
     /**
@@ -557,7 +575,7 @@ class helpers
         /**
          * Replacing all the new lines with null.
          */
-        store::store(($name . EXT_ENV), $value);
+        store::handler(($name . EXT_ENV), $value);
     }
 
     /**
@@ -581,7 +599,7 @@ class helpers
         /**
          * It's inserting a new user into the `COCKPIT_accounts` collection.
          */
-        if (!store::store(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) store::store(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => store::store(ENV_ADMIN_USER), VAR_NAME => store::store(ENV_ADMIN_NAME), VAR_EMAIL => store::store(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::store(YXORP_COCKPIT_APP)->hash(store::store(ENV_ADMIN_PASSWORD)), VAR_I18N => store::store(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!store::handler(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) store::handler(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_COCKPIT_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => store::handler(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
@@ -631,12 +649,12 @@ class helpers
         /**
          * It's setting the token to the snag key.
          */
-        store::tmp(VAR_BUGSNAG, Client::make(store::store(ENV_BUGSNAG_KEY)));
+        store::handler(VAR_BUGSNAG, Client::make(store::handler(ENV_BUGSNAG_KEY)));
 
         /**
          * Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class.
          */
-        store::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
     }
 

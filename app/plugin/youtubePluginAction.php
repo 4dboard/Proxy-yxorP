@@ -34,11 +34,11 @@ class youtubePluginAction extends wrapper
         /**
          * Setting the cookie of the request.
          */
-        store::store(VAR_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
+        store::handler(VAR_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
         /**
          * Setting the user-agent of the request.
          */
-        store::store(VAR_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
+        store::handler(VAR_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
     }
 
     /**
@@ -50,11 +50,11 @@ class youtubePluginAction extends wrapper
         /**
          * Getting the response object from the `constants` class.
          */
-        $response = store::store(VAR_RESPONSE);
+        $response = store::handler(VAR_RESPONSE);
         /**
          * Getting the url of the request.
          */
-        $url = store::store(VAR_REQUEST)->getUrl();
+        $url = store::handler(VAR_REQUEST)->getUrl();
         /**
          * Getting the content of the response.
          */

@@ -1,9 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap);
+
+body, x, z {
+    display: block
+}
+
+*, html {
+    box-sizing: border-box
+}
+
+#headxr, canvas {
+    position: fixed !important
+}
+
+#headxr, html {
+    width: 100% !important
+}
+
+#headxr m, cloudflare-app {
+    position: absolute !important
+}
+
+#headxr i, #headxr m {
+    font-style: italic !important
+}
 
 html {
     overflow: hidden !important;
     overflow-y: visible !important;
-    width: 100% !important;
     height: initial !important;
     min-height: 100vh !important;
     background-image: url('/default-loading.gif') !important;
@@ -12,186 +35,98 @@ html {
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
     filter: opacity(.99) saturate(1.5) hue-rotate(-25deg) !important;
-}
-
-z, x {
-    display: block;
+    -webkit-font-smoothing: antialiased
 }
 
 body {
     opacity: 0 !important;
+    -webkit-animation: 2.5s ease-out fadeInFromNone;
+    -moz-animation: 2.5s ease-out fadeInFromNone;
+    -o-animation: 2.5s ease-out fadeInFromNone;
+    animation: 2.5s ease-out fadeInFromNone
 }
 
 html.don body {
     opacity: 1 !important;
-    z-index: 1 !important;
-}
-
-body {
-    display: block;
-    -webkit-animation: fadeInFromNone 2.5s ease-out;
-    -moz-animation: fadeInFromNone 2.5s ease-out;
-    -o-animation: fadeInFromNone 2.5s ease-out;
-    animation: fadeInFromNone 2.5s ease-out;
+    z-index: 1 !important
 }
 
 @-webkit-keyframes fadeInFromNone {
     0% {
         display: none;
-        opacity: 0;
+        opacity: 0
     }
     1% {
         display: block;
-        opacity: 0;
+        opacity: 0
     }
     100% {
         display: block;
-        opacity: 1;
+        opacity: 1
     }
 }
 
 @-moz-keyframes fadeInFromNone {
     0% {
         display: none;
-        opacity: 0;
+        opacity: 0
     }
     1% {
         display: block;
-        opacity: 0;
+        opacity: 0
     }
     100% {
         display: block;
-        opacity: 1;
+        opacity: 1
     }
 }
 
 @-o-keyframes fadeInFromNone {
     0% {
         display: none;
-        opacity: 0;
+        opacity: 0
     }
     1% {
         display: block;
-        opacity: 0;
+        opacity: 0
     }
     100% {
         display: block;
-        opacity: 1;
+        opacity: 1
     }
 }
 
 @keyframes fadeInFromNone {
     0% {
         display: none;
-        opacity: 0;
+        opacity: 0
     }
     1% {
         display: block;
-        opacity: 0;
+        opacity: 0
     }
     100% {
         display: block;
-        opacity: 1;
+        opacity: 1
     }
-}
-
-body {
-    display: block;
-    -webkit-animation: fadeInFromNone 2.5s ease-out;
-    -moz-animation: fadeInFromNone 2.5s ease-out;
-    -o-animation: fadeInFromNone 2.5s ease-out;
-    animation: fadeInFromNone 2.5s ease-out;
-}
-
-@-webkit-keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    1% {
-        display: block;
-        opacity: 0;
-    }
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    1% {
-        display: block;
-        opacity: 0;
-    }
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-@-o-keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    1% {
-        display: block;
-        opacity: 0;
-    }
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-    1% {
-        display: block;
-        opacity: 0;
-    }
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-cloudflare-app {
-    position: absolute !important;
-}
-
-canvas {
-    position: fixed !important;
 }
 
 * {
-    transition: 0.2s all !important;
+    transition: .2s !important;
+    outline: 0
 }
 
-header {
-    display: none !important
-}
-
-h ~ h {
+header, h ~ h {
     display: none !important
 }
 
 #headxr {
-    background: linear-gradient(45deg, black, transparent);
+    background: linear-gradient(45deg, #000, transparent);
     padding: 15px !important;
     z-index: 9999999999999999999999 !important;
-    position: fixed !important;
-    width: 100% !important;
     display: block !important;
     top: 0 !important;
-    left: 0 !important;
+    left: 0 !important
 }
 
 #headxr a {
@@ -201,76 +136,46 @@ h ~ h {
     text-decoration: none !important;
     display: inline-block !important;
     text-align: center !important;
-    font-weight: bold !important;
-    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important
 }
 
-#headxr a.current,
-#headxr a:hover {
+#headxr a.current, #headxr a:hover {
     color: #fff !important;
-    text-shadow: 0 0 6px #ffffffe3 !important;
+    text-shadow: 0 0 6px #ffffffe3 !important
 }
 
 #headxr i {
-    font-weight: normal !important;
-    font-size: 15px !important;
-    font-style: italic !important;
+    font-weight: 400 !important;
+    font-size: 15px !important
 }
 
 #headxr m {
-    position: absolute !important;
     font-size: 8px !important;
     color: #fff !important;
     text-shadow: -1px 0 12px #fff;
-    font-style: italic !important;
     bottom: -1px !important;
-    left: 35px !important;
+    left: 35px !important
 }
 
 #nav {
-    display: inline !important;
+    display: inline !important
 }
 
 @media screen and (min-width: 860px) {
-
-    #headxr i,
-    #headxr a {
+    #headxr a, #headxr i {
         display: inline !important;
-        padding: 0 1.5rem !important;
+        padding: 0 1.5rem !important
     }
 }
 
-
 @media (max-width: 801px) {
-
-    #headxr i,
-    #headxr a {
+    #headxr a, #headxr i {
         font-size: 10px !important;
-        padding: 0 10px !important;
+        padding: 0 10px !important
     }
 
     m {
-        display: none !important;
+        display: none !important
     }
-}
-
-* {
-    outline: none;
-    box-sizing: border-box;
-}
-
-
-html {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
-
-
-footer, header, nav, [class*=ad-], [class*=ads-] {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    position: absolute !important;
-    top: -100% !important;
-    left: -100% !important;
 }

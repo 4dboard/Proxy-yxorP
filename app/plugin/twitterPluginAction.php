@@ -29,7 +29,7 @@ class twitterPluginAction extends wrapper
         /**
          * Getting the response object from the constants class.
          */
-        $response = store::store(VAR_RESPONSE);
+        $response = store::handler(VAR_RESPONSE);
         /**
          * Getting the content of the response.
          * Removing all the scripts from the HTML.

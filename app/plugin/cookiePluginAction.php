@@ -43,7 +43,7 @@ class cookiePluginAction extends wrapper
         /**
          * Getting the host from the request url.
          */
-        $host = parse_url(store::store(VAR_REQUEST)->getUri(), PHP_URL_HOST);
+        $host = parse_url(store::handler(VAR_REQUEST)->getUri(), PHP_URL_HOST);
         /**
          * Checking if the host contains the cookie domain.
          */
@@ -76,7 +76,7 @@ class cookiePluginAction extends wrapper
         /**
          * Parsing the cookie and then it is setting the cookie header.
          */
-        $cookie = self::parse_cookie($line, store::store(VAR_REQUEST)->getUri());
+        $cookie = self::parse_cookie($line, store::handler(VAR_REQUEST)->getUri());
         /**
          * Creating the cookie name.
          */
@@ -84,7 +84,7 @@ class cookiePluginAction extends wrapper
         /**
          * Setting the cookie header.
          */
-        store::store(VAR_RESPONSE)->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], 0);
+        store::handler(VAR_RESPONSE)->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], 0);
     }
 
     /**
@@ -160,11 +160,11 @@ class cookiePluginAction extends wrapper
         /**
          * Parsing the cookie header and extracting the cookies that are prefixed with `pc_`.
          */
-        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', store::store(VAR_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
+        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', store::handler(VAR_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
         /**
          * Setting the cookie header.
          */
-        if (!empty($send_cookies)) store::store(VAR_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
+        if (!empty($send_cookies)) store::handler(VAR_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
     }
 
     /**
@@ -176,7 +176,7 @@ class cookiePluginAction extends wrapper
         /**
          * Getting the response object from the constants class.
          */
-        $response = store::store(VAR_RESPONSE);
+        $response = store::handler(VAR_RESPONSE);
         /**
          * Getting the `set-cookie` header from the response.
          */

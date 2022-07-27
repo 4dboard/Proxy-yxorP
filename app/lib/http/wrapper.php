@@ -31,7 +31,7 @@ abstract class wrapper
         /**
          * Adding a listener to all the events.
          */
-        foreach (store::store(YXORP_EVENT_LIST) as $event) {
+        foreach (store::handler(YXORP_EVENT_LIST) as $event) {
             /**
              * Adding a listener to the event.
              */

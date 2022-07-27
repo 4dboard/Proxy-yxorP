@@ -43,11 +43,11 @@ class headerRewritePluginAction extends wrapper
         /**
          * It's setting the `accept-encoding` header to `identity`.
          */
-        store::store(VAR_REQUEST)->headers->set('accept-encoding', 'identity');
+        store::handler(VAR_REQUEST)->headers->set('accept-encoding', 'identity');
         /**
          * It's removing the `referer` header from the request.
          */
-        store::store(VAR_REQUEST)->headers->remove('referer');
+        store::handler(VAR_REQUEST)->headers->remove('referer');
     }
 
     /**
@@ -59,11 +59,11 @@ class headerRewritePluginAction extends wrapper
         /**
          * It's getting the response object from the `constants` class.
          */
-        $response = store::store(VAR_RESPONSE);
+        $response = store::handler(VAR_RESPONSE);
         /**
          * It's getting the URL of the request.
          */
-        $request_url = store::store(VAR_REQUEST)->getUri();
+        $request_url = store::handler(VAR_REQUEST)->getUri();
         /**
          * It's checking if the response has a `location` header and if it does, it's proxifying the URL.
          */
@@ -71,9 +71,9 @@ class headerRewritePluginAction extends wrapper
         $code = $response->getStatusCode();
         /**
          * It's checking if the status code of the response is between 400 and 600 and if it is, it's sending an error to
-         * \yxorP\app\store::store(VAR_BUGSNAG).
+         * \yxorP\app\store::handler(VAR_BUGSNAG).
          */
-        if ($code >= 400 && $code <= 600) store::store(VAR_BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
+        if ($code >= 400 && $code <= 600) store::handler(VAR_BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /**
          * It's an array of headers that should be forwarded to the client.
          */

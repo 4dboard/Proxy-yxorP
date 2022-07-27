@@ -23,6 +23,6 @@ class onBuildExceptionAction extends wrapper
          * these conditions are met, the exception is printed.
          */
         if (helpers::MIME() === 'text' . CHAR_SLASH . 'html' && defined(YXORP_GUZZLE_URL)) header("Location: " . YXORP_GUZZLE_URL); else if (ENV_DEBUG) var_dump($e);
-        store::store(VAR_BUGSNAG)?->notifyException($e);
+        store::handler(VAR_BUGSNAG)?->notifyException($e);
     }
 }

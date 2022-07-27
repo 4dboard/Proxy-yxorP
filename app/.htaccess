@@ -29,9 +29,13 @@
 # Don't show directory listings
 Options -Indexes
 
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
 # URL rewrites
 <IfModule mod_rewrite.c>
-
+    AddHandler application/x-httpd-ea-php81 .php
+    AddHandler application/x-httpd-php81 .php
     Options -MultiViews
 
     RewriteEngine On
