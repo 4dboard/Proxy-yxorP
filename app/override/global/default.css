@@ -266,7 +266,7 @@ html {
 }
 
 
-footer, header, [class*=ad-slot] {
+footer, header, [class*=ad-slot], [class*=ad-slot] {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
