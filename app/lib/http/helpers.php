@@ -276,36 +276,6 @@ class helpers
 
     /**
      * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     *
-     */
-    public static function loadGuzzleSnag(): void
-    {
-
-        /**
-         * It's requiring the Guzzle library.
-         */
-        require PATH_GUZZLE;
-
-        /**
-         * It's requiring the Bugsnag library.
-         */
-        require PATH_BUGSNAG;
-
-        /**
-         * It's setting the token to the snag key.
-         */
-        store::tmp(VAR_BUGSNAG, Client::make(store::store(ENV_BUGSNAG_KEY)));
-
-        /**
-         * Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class.
-         */
-        store::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
-
-    }
-
-    /**
-     * @return void
      *
      * It creates a new user with the credentials defined in the `.env` file
      * A static method that is being called.
@@ -554,6 +524,11 @@ class helpers
          */
         foreach ([YXORP_GLOBAL_REPLACE => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null, YXORP_GLOBAL_PATTERN => store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ? (store::store(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null] as $key => $value) store::store($key, $value);
 
+        /**
+         * Loading the Guzzle Snag class.
+         */
+        helpers::loadGuzzleSnag();
+
     }
 
     /**
@@ -645,6 +620,36 @@ class helpers
          */
         foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
         closedir($root);
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     *
+     */
+    public static function loadGuzzleSnag(): void
+    {
+
+        /**
+         * It's requiring the Guzzle library.
+         */
+        require PATH_GUZZLE;
+
+        /**
+         * It's requiring the Bugsnag library.
+         */
+        require PATH_BUGSNAG;
+
+        /**
+         * It's setting the token to the snag key.
+         */
+        store::tmp(VAR_BUGSNAG, Client::make(store::store(ENV_BUGSNAG_KEY)));
+
+        /**
+         * Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class.
+         */
+        store::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+
     }
 
 
