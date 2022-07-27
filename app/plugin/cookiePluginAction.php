@@ -27,6 +27,26 @@ class cookiePluginAction extends wrapper
     public const COOKIE_PREFIX = 'pc';
 
     /**
+     * A method that is called before the request is sent to the server.
+     *
+     */
+    public function onBeforeSend(): void
+    {
+        /**
+         * Creating an empty array.
+         */
+        $send_cookies = [];
+        /**
+         * Parsing the cookie header and extracting the cookies that are prefixed with `pc_`.
+         */
+        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', store::handler(VAR_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
+        /**
+         * Setting the cookie header.
+         */
+        if (!empty($send_cookies)) store::handler(VAR_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
+    }
+
+    /**
      * Parsing the cookie header and extracting the cookies that are prefixed with `pc_`.
      *
      */
@@ -48,6 +68,26 @@ class cookiePluginAction extends wrapper
          * Checking if the host contains the cookie domain.
          */
         if (str_contains($host, $cookie->cookie_domain)) return $cookie->cookie_name . '=' . $cookie->cookie_value;
+    }
+
+    /**
+     * Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`.
+     *
+     */
+    public function onSent(): void
+    {
+        /**
+         * Getting the response object from the constants class.
+         */
+        $response = store::handler(VAR_RESPONSE);
+        /**
+         * Getting the `set-cookie` header from the response.
+         */
+        $set_cookie = $response->headers->get('set-cookie');
+        /**
+         * Checking if the `set-cookie` header is set and if it is, it calls the `headersReceived` method.
+         */
+        if ($set_cookie) self::headersReceived($response, $set_cookie);
     }
 
     /**
@@ -145,45 +185,5 @@ class cookiePluginAction extends wrapper
          * Returning the cookie data.
          */
         return $data;
-    }
-
-    /**
-     * A method that is called before the request is sent to the server.
-     *
-     */
-    public function onBeforeSend(): void
-    {
-        /**
-         * Creating an empty array.
-         */
-        $send_cookies = [];
-        /**
-         * Parsing the cookie header and extracting the cookies that are prefixed with `pc_`.
-         */
-        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', store::handler(VAR_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
-        /**
-         * Setting the cookie header.
-         */
-        if (!empty($send_cookies)) store::handler(VAR_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
-    }
-
-    /**
-     * Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`.
-     *
-     */
-    public function onSent(): void
-    {
-        /**
-         * Getting the response object from the constants class.
-         */
-        $response = store::handler(VAR_RESPONSE);
-        /**
-         * Getting the `set-cookie` header from the response.
-         */
-        $set_cookie = $response->headers->get('set-cookie');
-        /**
-         * Checking if the `set-cookie` header is set and if it is, it calls the `headersReceived` method.
-         */
-        if ($set_cookie) self::headersReceived($response, $set_cookie);
     }
 }
