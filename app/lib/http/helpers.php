@@ -293,9 +293,9 @@ class helpers
     }
 
     /**
-     *
+     * @return string
      */
-    public static function setMimeType(): void
+    public static function setMimeType(): string
     {
         if (MIME) return MIME;
         /**
