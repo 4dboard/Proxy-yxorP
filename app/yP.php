@@ -22,7 +22,6 @@ include 'constants.php';
  * It's importing the `RulesParser` class from the `parser` namespace.
  */
 
-use Bugsnag\Client;
 use GuzzleHttp\FileCookieJar;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;
@@ -95,7 +94,7 @@ class yP
         /**
          * Loading the Guzzle Snag class.
          */
-        self::loadGuzzleSnag();
+        helpers::loadGuzzleSnag();
 
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
@@ -189,35 +188,6 @@ class yP
         if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe(self::$instance);
     }
 
-    /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     *
-     */
-    public static function loadGuzzleSnag(): void
-    {
-
-        /**
-         * It's requiring the Guzzle library.
-         */
-        require PATH_GUZZLE;
-
-        /**
-         * It's requiring the Bugsnag library.
-         */
-        require PATH_BUGSNAG;
-
-        /**
-         * It's setting the token to the snag key.
-         */
-        store::tmp(VAR_BUGSNAG, Client::make(store::store(ENV_BUGSNAG_KEY)));
-
-        /**
-         * Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class.
-         */
-        store::tmp(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new \GuzzleHttp\Cookie\FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
-
-    }
 
     /**
      *  The function is checking if there are any listeners for the event, and if there are, it's looping through them and calling
