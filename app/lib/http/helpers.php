@@ -444,9 +444,6 @@ class helpers
         /**
          * Reading the contents of the file and decoding it into an array.
          */
-        echo 2;
-        echo PATH_REWRITE;
-        print_r(json_decode(file_get_contents(PATH_REWRITE), true));
         return json_decode(file_get_contents(PATH_REWRITE), true);
     }
 
