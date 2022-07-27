@@ -54,19 +54,6 @@ class helpers
         return 0;
     }
 
-    /**
-     * @return string
-     * Checking if the `$haystack` starts with the `$needles`.
-     *
-     */
-    public static function str_before($subject, $search): string
-    {
-        /**
-         * Returning the first part of a string before the first occurrence of a given character.
-         */
-        return $search === CHAR_EMPTY_STRING ? $subject : explode($search, $subject)[0];
-    }
-
 
     /**
      * @param string $pattern
