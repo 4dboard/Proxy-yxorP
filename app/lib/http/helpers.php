@@ -326,6 +326,7 @@ class helpers
          * Setting the content type of the response.
          */
         header('Content-Type: ' . $mime . ';charset=UTF-8');
+        return $mime;
     }
 
     /**
