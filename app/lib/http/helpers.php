@@ -286,16 +286,13 @@ class helpers
         /**
          * Loading all the files in the root directory and subdirectories.
          */
-        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) {
-            self::setMimeType();
-            cache::set(file_get_contents($path));
-        }
+        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) cache::set(file_get_contents($path));
     }
 
     /**
      * @return string
      */
-    public static function setMimeType(): string
+    public static function MIME(): string
     {
         if (MIME) return MIME;
         /**
