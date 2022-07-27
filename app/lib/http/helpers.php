@@ -297,7 +297,7 @@ class helpers
      */
     public static function setMimeType(): void
     {
-
+        if (MIME) return MIME;
         /**
          * Checking if the request URI contains the string "bundle.js" and if it does, it sets the mime type to
          * "application/wasm".
