@@ -1,0 +1,23 @@
+{
+    "name": "raffaelj/cockpit-dashboardgrid",
+    "type": "cockpit-module",
+    "description": "Custom dashboard grid for Cockpit CMS",
+    "keywords": ["cockpit", "dashboard"],
+    "homepage": "https://github.com/raffaelj/cockpit_DashboardGrid",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raffael Jesche",
+            "homepage": "https://www.rlj.me"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.9"
+    },
+    "config": {
+        "vendor-dir": "lib/vendor"
+    },
+    "extra": {
+        "installer-name": "DashboardGrid"
+    }
+}
