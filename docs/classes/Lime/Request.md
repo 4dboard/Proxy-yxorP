@@ -18,7 +18,7 @@
 
 
 ```php
-public $request
+public array $request
 ```
 
 
@@ -33,7 +33,7 @@ public $request
 
 
 ```php
-public $post
+public array $post
 ```
 
 
@@ -48,7 +48,7 @@ public $post
 
 
 ```php
-public $query
+public array $query
 ```
 
 
@@ -63,7 +63,7 @@ public $query
 
 
 ```php
-public $files
+public array $files
 ```
 
 
@@ -78,7 +78,7 @@ public $files
 
 
 ```php
-public $cookies
+public array $cookies
 ```
 
 
@@ -93,7 +93,7 @@ public $cookies
 
 
 ```php
-public $headers
+public array $headers
 ```
 
 
@@ -108,7 +108,7 @@ public $headers
 
 
 ```php
-public $server
+public array $server
 ```
 
 
@@ -123,7 +123,7 @@ public $server
 
 
 ```php
-public $body
+public array $body
 ```
 
 
@@ -138,7 +138,7 @@ public $body
 
 
 ```php
-public $site_url
+public string $site_url
 ```
 
 
@@ -153,7 +153,7 @@ public $site_url
 
 
 ```php
-public $base_url
+public string $base_url
 ```
 
 
@@ -168,7 +168,7 @@ public $base_url
 
 
 ```php
-public $base_route
+public string $base_route
 ```
 
 
@@ -183,7 +183,37 @@ public $base_route
 
 
 ```php
-public $route
+public string $route
+```
+
+
+
+
+
+
+***
+
+### method
+
+
+
+```php
+public string $method
+```
+
+
+
+
+
+
+***
+
+### stopped
+
+
+
+```php
+public bool $stopped
 ```
 
 
@@ -201,7 +231,7 @@ public $route
 
 
 ```php
-public static fromGlobalRequest(mixed $config = []): mixed
+public static fromGlobalRequest(array $config = []): self
 ```
 
 
@@ -215,7 +245,7 @@ public static fromGlobalRequest(mixed $config = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$config` | **mixed** |  |
+| `$config` | **array** |  |
 
 
 
@@ -227,7 +257,7 @@ public static fromGlobalRequest(mixed $config = []): mixed
 
 
 ```php
-public __construct(mixed $config = []): mixed
+public __construct(array $config = []): mixed
 ```
 
 
@@ -241,7 +271,7 @@ public __construct(mixed $config = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$config` | **mixed** |  |
+| `$config` | **array** |  |
 
 
 
@@ -253,7 +283,7 @@ public __construct(mixed $config = []): mixed
 
 
 ```php
-public param(mixed $index = null, mixed $default = null, mixed $source = null): mixed
+public param(?string $index = null, mixed $default = null, mixed $source = null): mixed
 ```
 
 
@@ -267,7 +297,7 @@ public param(mixed $index = null, mixed $default = null, mixed $source = null): 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$index` | **mixed** |  |
+| `$index` | **?string** |  |
 | `$default` | **mixed** |  |
 | `$source` | **mixed** |  |
 
@@ -281,7 +311,7 @@ public param(mixed $index = null, mixed $default = null, mixed $source = null): 
 
 
 ```php
-public getClientIp(): mixed
+public getClientIp(): ?string
 ```
 
 
@@ -301,7 +331,7 @@ public getClientIp(): mixed
 
 
 ```php
-public getClientLang(mixed $default = &quot;en&quot;): mixed
+public getClientLang(string $default = &#039;en&#039;): string
 ```
 
 
@@ -315,7 +345,7 @@ public getClientLang(mixed $default = &quot;en&quot;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$default` | **mixed** |  |
+| `$default` | **string** |  |
 
 
 
@@ -327,7 +357,7 @@ public getClientLang(mixed $default = &quot;en&quot;): mixed
 
 
 ```php
-public getSiteUrl(mixed $withpath = false): mixed
+public getSiteUrl(bool $withpath = false): string
 ```
 
 
@@ -341,7 +371,7 @@ public getSiteUrl(mixed $withpath = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$withpath` | **mixed** |  |
+| `$withpath` | **bool** |  |
 
 
 
@@ -353,7 +383,7 @@ public getSiteUrl(mixed $withpath = false): mixed
 
 
 ```php
-public is(mixed $type): mixed
+public is(string $type): bool
 ```
 
 
@@ -367,7 +397,27 @@ public is(mixed $type): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$type` | **mixed** |  |
+| `$type` | **string** |  |
+
+
+
+
+***
+
+### getBearerToken
+
+
+
+```php
+public getBearerToken(): ?string
+```
+
+
+
+
+
+
+
 
 
 
@@ -379,7 +429,7 @@ public is(mixed $type): mixed
 
 
 ```php
-public static getAllHeaders(mixed $server): mixed
+public static getAllHeaders(array $server): array
 ```
 
 
@@ -393,7 +443,7 @@ public static getAllHeaders(mixed $server): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$server` | **mixed** |  |
+| `$server` | **array** |  |
 
 
 

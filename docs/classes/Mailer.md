@@ -13,27 +13,12 @@
 ## Properties
 
 
-### mailer
-
-
-
-```php
-protected $mailer
-```
-
-
-
-
-
-
-***
-
 ### transport
 
 
 
 ```php
-protected $transport
+protected string $transport
 ```
 
 
@@ -48,7 +33,7 @@ protected $transport
 
 
 ```php
-protected $options
+protected array $options
 ```
 
 
@@ -66,7 +51,7 @@ protected $options
 
 
 ```php
-public __construct(mixed $transport = &#039;mail&#039;, mixed $options = array()): mixed
+public __construct(string $transport = &#039;mail&#039;, array $options = []): mixed
 ```
 
 
@@ -80,8 +65,8 @@ public __construct(mixed $transport = &#039;mail&#039;, mixed $options = array()
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$transport` | **mixed** |  |
-| `$options` | **mixed** |  |
+| `$transport` | **string** |  |
+| `$options` | **array** |  |
 
 
 
@@ -93,7 +78,7 @@ public __construct(mixed $transport = &#039;mail&#039;, mixed $options = array()
 
 
 ```php
-public mail(mixed $to, mixed $subject, mixed $message, mixed $options = []): mixed
+public mail(mixed $to, string $subject, string $message, array $options = []): mixed
 ```
 
 
@@ -108,9 +93,9 @@ public mail(mixed $to, mixed $subject, mixed $message, mixed $options = []): mix
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$to` | **mixed** |  |
-| `$subject` | **mixed** |  |
-| `$message` | **mixed** |  |
-| `$options` | **mixed** |  |
+| `$subject` | **string** |  |
+| `$message` | **string** |  |
+| `$options` | **array** |  |
 
 
 
@@ -122,7 +107,7 @@ public mail(mixed $to, mixed $subject, mixed $message, mixed $options = []): mix
 
 
 ```php
-public createMessage(mixed $to, mixed $subject, mixed $message, mixed $options = []): mixed
+public createMessage(mixed $to, string $subject, string $message, array $options = []): mixed
 ```
 
 
@@ -137,9 +122,9 @@ public createMessage(mixed $to, mixed $subject, mixed $message, mixed $options =
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$to` | **mixed** |  |
-| `$subject` | **mixed** |  |
-| `$message` | **mixed** |  |
-| `$options` | **mixed** |  |
+| `$subject` | **string** |  |
+| `$message` | **string** |  |
+| `$options` | **array** |  |
 
 
 

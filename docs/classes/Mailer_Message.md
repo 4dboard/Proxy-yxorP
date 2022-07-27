@@ -36,7 +36,7 @@ public $mail
 
 
 ```php
-public __construct(mixed $mail): mixed
+public __construct(\PHPMailer\PHPMailer\PHPMailer $mail): mixed
 ```
 
 
@@ -50,7 +50,7 @@ public __construct(mixed $mail): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$mail` | **mixed** |  |
+| `$mail` | **\PHPMailer\PHPMailer\PHPMailer** |  |
 
 
 
@@ -62,7 +62,7 @@ public __construct(mixed $mail): mixed
 
 
 ```php
-public setCharset(mixed $charset): mixed
+public setCharset(string $charset): void
 ```
 
 
@@ -76,7 +76,7 @@ public setCharset(mixed $charset): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$charset` | **mixed** |  |
+| `$charset` | **string** |  |
 
 
 
@@ -88,7 +88,7 @@ public setCharset(mixed $charset): mixed
 
 
 ```php
-public setSubject(mixed $subject): mixed
+public setSubject(string $subject): void
 ```
 
 
@@ -102,7 +102,7 @@ public setSubject(mixed $subject): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$subject` | **mixed** |  |
+| `$subject` | **string** |  |
 
 
 
@@ -114,7 +114,7 @@ public setSubject(mixed $subject): mixed
 
 
 ```php
-public setFrom(mixed $email, mixed $name = false): mixed
+public setFrom(string $email, ?string $name = null): void
 ```
 
 
@@ -128,8 +128,8 @@ public setFrom(mixed $email, mixed $name = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$email` | **mixed** |  |
-| `$name` | **mixed** |  |
+| `$email` | **string** |  |
+| `$name` | **?string** |  |
 
 
 
@@ -141,7 +141,7 @@ public setFrom(mixed $email, mixed $name = false): mixed
 
 
 ```php
-public addReplyTo(mixed $email, mixed $name = &#039;&#039;): mixed
+public addReplyTo(string $email, string $name = &#039;&#039;): void
 ```
 
 
@@ -155,8 +155,8 @@ public addReplyTo(mixed $email, mixed $name = &#039;&#039;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$email` | **mixed** |  |
-| `$name` | **mixed** |  |
+| `$email` | **string** |  |
+| `$name` | **string** |  |
 
 
 
@@ -168,7 +168,7 @@ public addReplyTo(mixed $email, mixed $name = &#039;&#039;): mixed
 
 
 ```php
-public addTo(mixed $email, mixed $name = &#039;&#039;): mixed
+public addTo(string $email, string $name = &#039;&#039;): void
 ```
 
 
@@ -182,8 +182,8 @@ public addTo(mixed $email, mixed $name = &#039;&#039;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$email` | **mixed** |  |
-| `$name` | **mixed** |  |
+| `$email` | **string** |  |
+| `$name` | **string** |  |
 
 
 
@@ -195,7 +195,7 @@ public addTo(mixed $email, mixed $name = &#039;&#039;): mixed
 
 
 ```php
-public addCC(mixed $email, mixed $name = &#039;&#039;): mixed
+public addCC(string $email, string $name = &#039;&#039;): void
 ```
 
 
@@ -209,8 +209,8 @@ public addCC(mixed $email, mixed $name = &#039;&#039;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$email` | **mixed** |  |
-| `$name` | **mixed** |  |
+| `$email` | **string** |  |
+| `$name` | **string** |  |
 
 
 
@@ -242,7 +242,7 @@ public send(): mixed
 
 
 ```php
-public attach(mixed $file, mixed $alias = &#039;&#039;): mixed
+public attach(mixed $file, string $alias = &#039;&#039;): mixed
 ```
 
 
@@ -257,7 +257,7 @@ public attach(mixed $file, mixed $alias = &#039;&#039;): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **mixed** |  |
-| `$alias` | **mixed** |  |
+| `$alias` | **string** |  |
 
 
 

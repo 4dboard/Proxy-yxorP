@@ -18,7 +18,7 @@
 
 
 ```php
-public $body
+public mixed $body
 ```
 
 
@@ -33,7 +33,7 @@ public $body
 
 
 ```php
-public $status
+public int $status
 ```
 
 
@@ -48,7 +48,7 @@ public $status
 
 
 ```php
-public $mime
+public string $mime
 ```
 
 
@@ -63,7 +63,7 @@ public $mime
 
 
 ```php
-public $gzip
+public bool $gzip
 ```
 
 
@@ -78,7 +78,7 @@ public $gzip
 
 
 ```php
-public $nocache
+public bool $nocache
 ```
 
 
@@ -93,7 +93,7 @@ public $nocache
 
 
 ```php
-public $etag
+public bool $etag
 ```
 
 
@@ -108,7 +108,7 @@ public $etag
 
 
 ```php
-public $headers
+public array $headers
 ```
 
 
@@ -123,7 +123,7 @@ public $headers
 
 
 ```php
-public static $statusCodes
+public static array $statusCodes
 ```
 
 
@@ -138,7 +138,7 @@ public static $statusCodes
 
 
 ```php
-public static $mimeTypes
+public static array $mimeTypes
 ```
 
 
@@ -151,32 +151,12 @@ public static $mimeTypes
 ## Methods
 
 
-### __construct
-
-
-
-```php
-public __construct(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### flush
 
 
 
 ```php
-public flush(): mixed
+public flush(): void
 ```
 
 

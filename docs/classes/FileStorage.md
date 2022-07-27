@@ -18,7 +18,7 @@
 
 
 ```php
-protected $config
+protected array $config
 ```
 
 
@@ -33,7 +33,7 @@ protected $config
 
 
 ```php
-protected $storages
+protected array $storages
 ```
 
 
@@ -48,7 +48,7 @@ protected $storages
 
 
 ```php
-protected $manager
+protected \League\Flysystem\MountManager $manager
 ```
 
 
@@ -66,7 +66,7 @@ protected $manager
 
 
 ```php
-public __construct(mixed $config = []): mixed
+public __construct(array $config = []): mixed
 ```
 
 
@@ -80,7 +80,7 @@ public __construct(mixed $config = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$config` | **mixed** |  |
+| `$config` | **array** |  |
 
 
 
@@ -92,7 +92,7 @@ public __construct(mixed $config = []): mixed
 
 
 ```php
-public addStorage(mixed $name, mixed $config): mixed
+public addStorage(string $name, array $config): self
 ```
 
 
@@ -106,8 +106,8 @@ public addStorage(mixed $name, mixed $config): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$config` | **mixed** |  |
+| `$name` | **string** |  |
+| `$config` | **array** |  |
 
 
 
@@ -119,7 +119,7 @@ public addStorage(mixed $name, mixed $config): mixed
 
 
 ```php
-public use(mixed $name): mixed
+public use(string $name): ?\League\Flysystem\Filesystem
 ```
 
 
@@ -133,7 +133,7 @@ public use(mixed $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$name` | **string** |  |
 
 
 
@@ -145,7 +145,7 @@ public use(mixed $name): mixed
 
 
 ```php
-public getURL(mixed $file): mixed
+public getURL(string $file): ?string
 ```
 
 
@@ -159,7 +159,7 @@ public getURL(mixed $file): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$file` | **mixed** |  |
+| `$file` | **string** |  |
 
 
 
@@ -171,7 +171,7 @@ public getURL(mixed $file): mixed
 
 
 ```php
-protected initStorage(mixed $name): mixed
+protected initStorage(string $name): \League\Flysystem\Filesystem
 ```
 
 
@@ -185,7 +185,7 @@ protected initStorage(mixed $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$name` | **string** |  |
 
 
 

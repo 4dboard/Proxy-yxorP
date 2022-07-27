@@ -19,7 +19,7 @@
 
 
 ```php
-protected $initialized
+protected bool $initialized
 ```
 
 
@@ -34,7 +34,7 @@ protected $initialized
 
 
 ```php
-public $name
+public string $name
 ```
 
 
@@ -52,7 +52,7 @@ public $name
 
 
 ```php
-public init(mixed $sessionname = null): mixed
+public init(?string $name = null): mixed
 ```
 
 
@@ -66,7 +66,7 @@ public init(mixed $sessionname = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$sessionname` | **mixed** |  |
+| `$name` | **?string** |  |
 
 
 
@@ -78,7 +78,7 @@ public init(mixed $sessionname = null): mixed
 
 
 ```php
-public write(mixed $key, mixed $value): mixed
+public write(string $key, mixed $value): void
 ```
 
 
@@ -92,7 +92,7 @@ public write(mixed $key, mixed $value): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
+| `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
 
@@ -105,7 +105,7 @@ public write(mixed $key, mixed $value): mixed
 
 
 ```php
-public read(mixed $key, mixed $default = null): mixed
+public read(string $key, mixed $default = null): mixed
 ```
 
 
@@ -119,7 +119,7 @@ public read(mixed $key, mixed $default = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
+| `$key` | **string** |  |
 | `$default` | **mixed** |  |
 
 
@@ -132,7 +132,7 @@ public read(mixed $key, mixed $default = null): mixed
 
 
 ```php
-public delete(mixed $key): mixed
+public delete(string $key): void
 ```
 
 
@@ -146,7 +146,7 @@ public delete(mixed $key): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
+| `$key` | **string** |  |
 
 
 
@@ -158,7 +158,7 @@ public delete(mixed $key): mixed
 
 
 ```php
-public destroy(): mixed
+public destroy(): void
 ```
 
 
@@ -167,6 +167,52 @@ public destroy(): mixed
 
 
 
+
+
+
+
+***
+
+### close
+
+
+
+```php
+public close(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### regenerateId
+
+
+
+```php
+public regenerateId(bool $delete_old_session = false): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$delete_old_session` | **bool** |  |
 
 
 
@@ -182,7 +228,7 @@ public destroy(): mixed
 
 
 ```php
-public __construct(mixed $app): mixed
+public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
 
 
@@ -196,7 +242,8 @@ public __construct(mixed $app): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$app` | **mixed** |  |
+| `$app` | **\Lime\App** |  |
+| `$context` | **mixed** |  |
 
 
 
@@ -208,7 +255,7 @@ public __construct(mixed $app): mixed
 
 
 ```php
-public initialize(): mixed
+protected initialize(): mixed
 ```
 
 

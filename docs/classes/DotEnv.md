@@ -2,12 +2,9 @@
 
 # DotEnv
 
-This file is part of the Cockpit project.
 
-(c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+
 
 * Full name: `\DotEnv`
 
@@ -22,7 +19,7 @@ file that was distributed with this source code.
 
 
 ```php
-public static load(mixed $dir = &#039;.&#039;): mixed
+public static load(string $dir = &#039;.&#039;): bool
 ```
 
 
@@ -36,7 +33,7 @@ public static load(mixed $dir = &#039;.&#039;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dir` | **mixed** |  |
+| `$dir` | **string** |  |
 
 
 
@@ -48,7 +45,7 @@ public static load(mixed $dir = &#039;.&#039;): mixed
 
 
 ```php
-public static parse(mixed $str, mixed $expand = true): mixed
+public static parse(string $str, bool $expand = true): array
 ```
 
 
@@ -62,8 +59,8 @@ public static parse(mixed $str, mixed $expand = true): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$str` | **mixed** |  |
-| `$expand` | **mixed** |  |
+| `$str` | **string** |  |
+| `$expand` | **bool** |  |
 
 
 

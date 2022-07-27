@@ -28,6 +28,21 @@ public \Lime\App $app
 
 ***
 
+### context
+
+
+
+```php
+public mixed $context
+```
+
+
+
+
+
+
+***
+
 ## Methods
 
 
@@ -36,7 +51,7 @@ public \Lime\App $app
 
 
 ```php
-public __construct(mixed $app): mixed
+public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
 
 
@@ -50,7 +65,8 @@ public __construct(mixed $app): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$app` | **mixed** |  |
+| `$app` | **\Lime\App** |  |
+| `$context` | **mixed** |  |
 
 
 
@@ -62,7 +78,7 @@ public __construct(mixed $app): mixed
 
 
 ```php
-public initialize(): mixed
+protected initialize(): mixed
 ```
 
 

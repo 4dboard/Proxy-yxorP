@@ -19,7 +19,7 @@
 
 
 ```php
-public $prefix
+public ?string $prefix
 ```
 
 
@@ -34,7 +34,7 @@ public $prefix
 
 
 ```php
-protected $cachePath
+protected ?string $cachePath
 ```
 
 
@@ -52,7 +52,7 @@ protected $cachePath
 
 
 ```php
-public initialize(): mixed
+protected initialize(): mixed
 ```
 
 
@@ -72,7 +72,7 @@ public initialize(): mixed
 
 
 ```php
-public setCachePath(mixed $path): mixed
+public setCachePath(string $path): void
 ```
 
 
@@ -86,7 +86,7 @@ public setCachePath(mixed $path): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** |  |
+| `$path` | **string** |  |
 
 
 
@@ -118,7 +118,7 @@ public getCachePath(): mixed
 
 
 ```php
-public write(mixed $key, mixed $value, mixed $duration = -1): mixed
+public write(string $key, mixed $value, int $duration = -1, bool $encrypt = false): void
 ```
 
 
@@ -132,9 +132,10 @@ public write(mixed $key, mixed $value, mixed $duration = -1): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
+| `$key` | **string** |  |
 | `$value` | **mixed** |  |
-| `$duration` | **mixed** |  |
+| `$duration` | **int** |  |
+| `$encrypt` | **bool** |  |
 
 
 
@@ -146,7 +147,7 @@ public write(mixed $key, mixed $value, mixed $duration = -1): mixed
 
 
 ```php
-public read(mixed $key, mixed $default = null): mixed
+public read(string $key, mixed $default = null, mixed $decrypt = false): mixed
 ```
 
 
@@ -160,8 +161,9 @@ public read(mixed $key, mixed $default = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
+| `$key` | **string** |  |
 | `$default` | **mixed** |  |
+| `$decrypt` | **mixed** |  |
 
 
 
@@ -173,7 +175,7 @@ public read(mixed $key, mixed $default = null): mixed
 
 
 ```php
-public delete(mixed $key): mixed
+public delete(string $key): void
 ```
 
 
@@ -187,7 +189,7 @@ public delete(mixed $key): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **mixed** |  |
+| `$key` | **string** |  |
 
 
 
@@ -199,7 +201,7 @@ public delete(mixed $key): mixed
 
 
 ```php
-public clear(): mixed
+public clear(): void
 ```
 
 
@@ -223,7 +225,7 @@ public clear(): mixed
 
 
 ```php
-public __construct(mixed $app): mixed
+public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
 
 
@@ -237,7 +239,8 @@ public __construct(mixed $app): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$app` | **mixed** |  |
+| `$app` | **\Lime\App** |  |
+| `$context` | **mixed** |  |
 
 
 
@@ -249,7 +252,7 @@ public __construct(mixed $app): mixed
 
 
 ```php
-public initialize(): mixed
+protected initialize(): mixed
 ```
 
 

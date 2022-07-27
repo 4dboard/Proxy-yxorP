@@ -29,6 +29,36 @@ protected $apis
 
 ***
 
+### _dir
+
+
+
+```php
+public ?string $_dir
+```
+
+
+
+
+
+
+***
+
+### _bootfile
+
+
+
+```php
+public ?string $_bootfile
+```
+
+
+
+
+
+
+***
+
 ## Methods
 
 
@@ -37,7 +67,7 @@ protected $apis
 
 
 ```php
-public extend(mixed $api): mixed
+public extend(array $api): mixed
 ```
 
 
@@ -51,7 +81,33 @@ public extend(mixed $api): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$api` | **mixed** |  |
+| `$api` | **array** |  |
+
+
+
+
+***
+
+### bindApp
+
+
+
+```php
+public bindApp(\Lime\App $app): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$app` | **\Lime\App** |  |
 
 
 
@@ -199,7 +255,7 @@ public __call(mixed $name, mixed $arguments): mixed
 
 
 ```php
-public __construct(mixed $app): mixed
+public __construct(\Lime\App $app, mixed $context = null): mixed
 ```
 
 
@@ -213,7 +269,8 @@ public __construct(mixed $app): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$app` | **mixed** |  |
+| `$app` | **\Lime\App** |  |
+| `$context` | **mixed** |  |
 
 
 
@@ -225,7 +282,7 @@ public __construct(mixed $app): mixed
 
 
 ```php
-public initialize(): mixed
+protected initialize(): mixed
 ```
 
 

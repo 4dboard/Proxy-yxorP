@@ -35,7 +35,7 @@ protected static $apps
 
 
 ```php
-protected $registry
+protected array $registry
 ```
 
 
@@ -50,7 +50,7 @@ protected $registry
 
 
 ```php
-protected $routes
+protected array $routes
 ```
 
 
@@ -65,7 +65,7 @@ protected $routes
 
 
 ```php
-protected $paths
+protected array $paths
 ```
 
 
@@ -80,7 +80,7 @@ protected $paths
 
 
 ```php
-protected $events
+protected array $events
 ```
 
 
@@ -95,22 +95,7 @@ protected $events
 
 
 ```php
-protected $blocks
-```
-
-
-
-
-
-
-***
-
-### exit
-
-
-
-```php
-protected $exit
+protected array $blocks
 ```
 
 
@@ -125,7 +110,7 @@ protected $exit
 
 
 ```php
-public \Lime\Response|null $response
+public ?\Lime\Response $response
 ```
 
 
@@ -140,7 +125,7 @@ public \Lime\Response|null $response
 
 
 ```php
-public \Lime\Request|null $request
+public ?\Lime\Request $request
 ```
 
 
@@ -155,7 +140,7 @@ public \Lime\Request|null $request
 
 
 ```php
-public $helpers
+public \ArrayObject $helpers
 ```
 
 
@@ -170,22 +155,7 @@ public $helpers
 
 
 ```php
-public $layout
-```
-
-
-
-
-
-
-***
-
-### viewvars
-
-
-
-```php
-public $viewvars
+public mixed $layout
 ```
 
 
@@ -224,12 +194,32 @@ public __construct(array $settings = []): mixed
 
 ***
 
+### __clone
+
+Object behavior on clone
+
+```php
+public __clone(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### instance
 
 Get App instance
 
 ```php
-public static instance(string $name): object
+public static instance(string $name, bool $clone = false): object
 ```
 
 
@@ -244,6 +234,7 @@ public static instance(string $name): object
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Lime app name |
+| `$clone` | **bool** |  |
 
 
 **Return Value:**
@@ -286,7 +277,7 @@ public service(string $name, \Closure $callable): object
 stop application (exit)
 
 ```php
-public stop(mixed $data = false, mixed $status = null): mixed
+public stop(mixed $data = null, ?int $status = null): void
 ```
 
 
@@ -301,27 +292,7 @@ public stop(mixed $data = false, mixed $status = null): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-| `$status` | **mixed** |  |
-
-
-
-
-***
-
-### isExit
-
-Is application stopped?
-
-```php
-public isExit(): bool
-```
-
-
-
-
-
-
-
+| `$status` | **?int** |  |
 
 
 
@@ -363,7 +334,7 @@ Link
 
 
 ```php
-public base(mixed $path): mixed
+public base(string $path): void
 ```
 
 
@@ -377,7 +348,7 @@ public base(mixed $path): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **mixed** |  |
+| `$path` | **string** |  |
 
 
 
@@ -419,7 +390,7 @@ Link
 
 
 ```php
-public route(): mixed
+public route(): void
 ```
 
 
@@ -465,7 +436,7 @@ public reroute(string $path): void
 Put a value in the Lime registry
 
 ```php
-public set(string $key, mixed $value): mixed
+public set(string $key, mixed $value): self
 ```
 
 
@@ -565,7 +536,7 @@ public paths( $namespace = null): array
 
 
 ```php
-public pathToUrl( $path, mixed $full = false): bool|string
+public pathToUrl( $path, bool $full = false): bool|string
 ```
 
 
@@ -580,7 +551,7 @@ public pathToUrl( $path, mixed $full = false): bool|string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **** |  |
-| `$full` | **mixed** |  |
+| `$full` | **bool** |  |
 
 
 
@@ -612,7 +583,7 @@ public cache(): mixed
 Bind an event to closure
 
 ```php
-public on(string $event, \Closure $callback, int $priority): void
+public on(string $event, \Closure $callback, int $priority): \Lime\App
 ```
 
 
@@ -804,7 +775,7 @@ public escape(string $string, string $charset = null): string
 Get style inc. markup
 
 ```php
-public style(string $href, mixed $version = false): string
+public style(mixed $href, ?string $version = null): string
 ```
 
 
@@ -818,8 +789,8 @@ public style(string $href, mixed $version = false): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$href` | **string** |  |
-| `$version` | **mixed** |  |
+| `$href` | **mixed** |  |
+| `$version` | **?string** |  |
 
 
 
@@ -831,34 +802,7 @@ public style(string $href, mixed $version = false): string
 Get script inc. markup
 
 ```php
-public script(string $src, mixed $version = false): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$src` | **string** |  |
-| `$version` | **mixed** |  |
-
-
-
-
-***
-
-### assets
-
-
-
-```php
-public assets(mixed $src, mixed $version = false): mixed
+public script(mixed $src, ?string $version = null): string
 ```
 
 
@@ -873,6 +817,33 @@ public assets(mixed $src, mixed $version = false): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$src` | **mixed** |  |
+| `$version` | **?string** |  |
+
+
+
+
+***
+
+### assets
+
+Get assets inc. markup
+
+```php
+public assets(array|string $src, mixed $version = null): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$src` | **array&#124;string** |  |
 | `$version` | **mixed** |  |
 
 
@@ -941,7 +912,7 @@ public post(string $path, \Closure $callback, bool $condition = true): void
 Bind Class to routes
 
 ```php
-public bindClass(string $class, mixed $alias = false): void
+public bindClass(string $class, ?string $alias = null): void
 ```
 
 
@@ -956,7 +927,7 @@ public bindClass(string $class, mixed $alias = false): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** |  |
-| `$alias` | **mixed** |  |
+| `$alias` | **?string** |  |
 
 
 
@@ -968,7 +939,7 @@ public bindClass(string $class, mixed $alias = false): void
 Bind namespace to routes
 
 ```php
-public bindNamespace(string $namespace, mixed $alias): void
+public bindNamespace(string $namespace, ?string $alias = null): void
 ```
 
 
@@ -983,7 +954,7 @@ public bindNamespace(string $namespace, mixed $alias): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-| `$alias` | **mixed** |  |
+| `$alias` | **?string** |  |
 
 
 
@@ -1020,10 +991,10 @@ public bind(string $path, \Closure $callback, bool $condition = true): void
 
 ### run
 
-Run Application
+Run Application request
 
 ```php
-public run(string $route = null, mixed $request = null, mixed $flush = true): void
+public run(string $route = null, ?\Lime\Request $request = null, bool $flush = true): void
 ```
 
 
@@ -1038,8 +1009,8 @@ public run(string $route = null, mixed $request = null, mixed $flush = true): vo
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$route` | **string** | Route to parse |
-| `$request` | **mixed** |  |
-| `$flush` | **mixed** |  |
+| `$request` | **?\Lime\Request** |  |
+| `$flush` | **bool** |  |
 
 
 
@@ -1077,7 +1048,7 @@ public dispatch(string $path): mixed
 Render dispatched route
 
 ```php
-protected render_route(mixed $route, array $params = []): string
+protected render_route(string $route, array $params = []): string
 ```
 
 
@@ -1091,7 +1062,7 @@ protected render_route(mixed $route, array $params = []): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$route` | **mixed** |  |
+| `$route` | **string** |  |
 | `$params` | **array** |  |
 
 
@@ -1104,7 +1075,7 @@ protected render_route(mixed $route, array $params = []): string
 Invoke Class as controller
 
 ```php
-public invoke(string $class, string $action = &quot;index&quot;, array $params = []): mixed
+public invoke(string $class, string $action = &#039;index&#039;, array $params = []): mixed
 ```
 
 
@@ -1206,7 +1177,7 @@ public getClientIp(): string
 Get client language
 
 ```php
-public getClientLang(mixed $default = &quot;en&quot;): string
+public getClientLang(string $default = &quot;en&quot;): string
 ```
 
 
@@ -1220,7 +1191,7 @@ public getClientLang(mixed $default = &quot;en&quot;): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$default` | **mixed** |  |
+| `$default` | **string** |  |
 
 
 
@@ -1232,7 +1203,7 @@ public getClientLang(mixed $default = &quot;en&quot;): string
 Get site url
 
 ```php
-public getSiteUrl(mixed $withpath = false): string
+public getSiteUrl(bool $withpath = false): string
 ```
 
 
@@ -1246,7 +1217,7 @@ public getSiteUrl(mixed $withpath = false): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$withpath` | **mixed** |  |
+| `$withpath` | **bool** |  |
 
 
 
@@ -1258,7 +1229,7 @@ public getSiteUrl(mixed $withpath = false): string
 Create Hash
 
 ```php
-public hash(mixed $text, mixed $algo = PASSWORD_BCRYPT): string
+public hash(string $text, mixed $algo = PASSWORD_BCRYPT): string
 ```
 
 
@@ -1272,7 +1243,7 @@ public hash(mixed $text, mixed $algo = PASSWORD_BCRYPT): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$text` | **mixed** |  |
+| `$text` | **string** |  |
 | `$algo` | **mixed** |  |
 
 
@@ -1285,7 +1256,7 @@ public hash(mixed $text, mixed $algo = PASSWORD_BCRYPT): string
 RC4 encryption
 
 ```php
-public encode(mixed $data, mixed $pwd, bool $base64encoded = false): mixed
+public encode(string $data, string $pwd, bool $base64encoded = false): string
 ```
 
 
@@ -1299,9 +1270,9 @@ public encode(mixed $data, mixed $pwd, bool $base64encoded = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$data` | **mixed** |  |
-| `$pwd` | **mixed** |  |
-| `$base64encoded` | **bool** | [description] |
+| `$data` | **string** |  |
+| `$pwd` | **string** |  |
+| `$base64encoded` | **bool** |  |
 
 
 
@@ -1313,7 +1284,7 @@ public encode(mixed $data, mixed $pwd, bool $base64encoded = false): mixed
 Decode RC4 encrypted text
 
 ```php
-public decode(mixed $data, mixed $pwd): mixed
+public decode(string $data, string $pwd): string
 ```
 
 
@@ -1327,8 +1298,8 @@ public decode(mixed $data, mixed $pwd): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$data` | **mixed** |  |
-| `$pwd` | **mixed** |  |
+| `$data` | **string** |  |
+| `$pwd` | **string** |  |
 
 
 
@@ -1340,7 +1311,7 @@ public decode(mixed $data, mixed $pwd): mixed
 
 
 ```php
-public helper(mixed $helper): mixed
+public helper(string $helper): \Lime\Helper
 ```
 
 
@@ -1354,7 +1325,7 @@ public helper(mixed $helper): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$helper` | **mixed** |  |
+| `$helper` | **string** |  |
 
 
 
@@ -1366,7 +1337,86 @@ public helper(mixed $helper): mixed
 
 
 ```php
-public isAbsolutePath(mixed $path): mixed
+public isAbsolutePath(string $path): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+
+
+
+
+***
+
+### module
+
+
+
+```php
+public module(string $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### registerModule
+
+
+
+```php
+public registerModule(string $name, string $dir): \Lime\Module
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$dir` | **string** |  |
+
+
+
+
+***
+
+### loadModule
+
+
+
+```php
+public loadModule(mixed $path, mixed $prefix = null): mixed
 ```
 
 
@@ -1381,59 +1431,7 @@ public isAbsolutePath(mixed $path): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-
-
-
-
-***
-
-### module
-
-
-
-```php
-public module(mixed $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-
-
-
-
-***
-
-### registerModule
-
-
-
-```php
-public registerModule(mixed $name, mixed $dir): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-| `$dir` | **mixed** |  |
+| `$prefix` | **mixed** |  |
 
 
 
@@ -1445,7 +1443,7 @@ public registerModule(mixed $name, mixed $dir): mixed
 
 
 ```php
-public loadModules(mixed $dirs, mixed $autoload = true, mixed $prefix = false): mixed
+public loadModules(mixed $dirs, bool $autoload = true, mixed $prefix = null): array
 ```
 
 
@@ -1460,7 +1458,7 @@ public loadModules(mixed $dirs, mixed $autoload = true, mixed $prefix = false): 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirs` | **mixed** |  |
-| `$autoload` | **mixed** |  |
+| `$autoload` | **bool** |  |
 | `$prefix` | **mixed** |  |
 
 
@@ -1473,7 +1471,7 @@ public loadModules(mixed $dirs, mixed $autoload = true, mixed $prefix = false): 
 
 
 ```php
-protected bootModule(mixed $module): mixed
+protected bootModule(\Lime\Module $module): void
 ```
 
 
@@ -1487,7 +1485,7 @@ protected bootModule(mixed $module): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$module` | **mixed** |  |
+| `$module` | **\Lime\Module** |  |
 
 
 
@@ -1525,7 +1523,7 @@ public __get(mixed $name): mixed
 
 
 ```php
-public offsetSet(mixed $key, mixed $value): mixed
+public offsetSet(mixed $key, mixed $value): void
 ```
 
 
@@ -1578,7 +1576,7 @@ public offsetGet(mixed $key): mixed
 
 
 ```php
-public offsetExists(mixed $key): mixed
+public offsetExists(mixed $key): bool
 ```
 
 
@@ -1604,7 +1602,7 @@ public offsetExists(mixed $key): mixed
 
 
 ```php
-public offsetUnset(mixed $key): mixed
+public offsetUnset(mixed $key): void
 ```
 
 
@@ -1656,7 +1654,7 @@ public __invoke(mixed $helper): mixed
 
 
 ```php
-protected getRequestfromGlobals(): mixed
+protected getRequestfromGlobals(): \Lime\Request
 ```
 
 

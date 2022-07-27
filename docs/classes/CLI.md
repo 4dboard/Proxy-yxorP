@@ -2,12 +2,9 @@
 
 # CLI
 
-This file is part of the Cockpit project.
 
-(c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+
 
 * Full name: `\CLI`
 
@@ -22,7 +19,7 @@ file that was distributed with this source code.
 
 
 ```php
-public static beep(): mixed
+public static beep(): void
 ```
 
 
@@ -42,7 +39,7 @@ public static beep(): mixed
 
 
 ```php
-public static opts(mixed $name = null, mixed $default = null): mixed
+public static opts(?string $name = null, mixed $default = null): mixed
 ```
 
 
@@ -56,7 +53,7 @@ public static opts(mixed $name = null, mixed $default = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$name` | **?string** |  |
 | `$default` | **mixed** |  |
 
 
@@ -69,7 +66,7 @@ public static opts(mixed $name = null, mixed $default = null): mixed
 
 
 ```php
-public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
+public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
 
@@ -83,9 +80,9 @@ public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): m
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$out` | **mixed** |  |
-| `$fgcolor` | **mixed** |  |
-| `$bgcolor` | **mixed** |  |
+| `$out` | **string** |  |
+| `$fgcolor` | **?string** |  |
+| `$bgcolor` | **?string** |  |
 
 
 
@@ -97,7 +94,7 @@ public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): m
 
 
 ```php
-public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
+public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
 
@@ -111,9 +108,9 @@ public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null):
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$out` | **mixed** |  |
-| `$fgcolor` | **mixed** |  |
-| `$bgcolor` | **mixed** |  |
+| `$out` | **string** |  |
+| `$fgcolor` | **?string** |  |
+| `$bgcolor` | **?string** |  |
 
 
 
@@ -125,7 +122,7 @@ public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null):
 
 
 ```php
-public static progress(mixed $percent, mixed $dec): mixed
+public static progress(mixed $percent = false, mixed $dec): void
 ```
 
 
