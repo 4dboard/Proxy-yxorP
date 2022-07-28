@@ -313,7 +313,7 @@ class helpers
             /**
              * Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`.
              */
-            $mimeTypes = json_decode(file_get_contents(DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . VAR_MIME . EXT_JSON), true);
+            $mimeTypes = json_decode(file_get_contents(DIR_ROOT . DIR_LIB . DIR_DATA . VAR_MIME . EXT_JSON), true);
             /**
              * Getting the file extension of the requested file.
              */
@@ -389,7 +389,7 @@ class helpers
          * It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_LIB` and `DIR_DATA` and `FILE_COOKIE_JAR` appended to it.
          */
-        define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
+        define('PATH_COOKIE_JAR', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
         /**
          * It's defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
          * and `DIR_LIB` and `DIR_COCKPIT` appended to it.
@@ -409,7 +409,7 @@ class helpers
          * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
          */
-        define('PATH_REWRITE', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE);
+        define('PATH_REWRITE', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_REWRITE);
         /**
          * It's defining a constant called `PATH_INC_WRAPPER` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
          * and  `DIR_LIB` and `FILE_WRAPPER` appended to it.
@@ -418,17 +418,17 @@ class helpers
         /**
          * Defining a constant.
          */
-        define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
+        define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
         /**
          * Defining a constant called PATH_PUBLIC_SUFFIX_LIST. The value of the constant is the directory root, the
          * application directory, the library directory, the data directory, and the public suffix list file.
          */
-        define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
+        define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
         /**
          * Defining a constant called PATH_FILE_MIME_TYPES. The value of the constant is the directory root, the
          * application directory, the library directory, the data directory, and the file mime types.
          */
-        define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
+        define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
         /**
          * Setting the localisation of the server to the request.

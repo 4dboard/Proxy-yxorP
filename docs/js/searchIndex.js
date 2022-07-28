@@ -46326,31 +46326,6 @@ Search.appendIndex(
             "summary": "A\u0020property\u0020that\u0020is\u0020used\u0020to\u0020filter\u0020the\u0020events.",
             "url": "classes/yxorP-app-lib-http-wrapper.html#property_url_pattern"
         },                {
-            "fqsen": "\\yxorp\\Controller\\Admin",
-            "name": "Admin",
-            "summary": "",
-            "url": "classes/yxorp-Controller-Admin.html"
-        },                {
-            "fqsen": "\\yxorp\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/yxorp-Controller-Admin.html#method_index"
-        },                {
-            "fqsen": "\\yxorp\\Controller\\Admin\u003A\u003AsaveConfig\u0028\u0029",
-            "name": "saveConfig",
-            "summary": "",
-            "url": "classes/yxorp-Controller-Admin.html#method_saveConfig"
-        },                {
-            "fqsen": "\\yxorP\\Controller\\Dashboard",
-            "name": "Dashboard",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Dashboard.html"
-        },                {
-            "fqsen": "\\yxorP\\Controller\\Dashboard\u003A\u003Adashboard\u0028\u0029",
-            "name": "dashboard",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Dashboard.html#method_dashboard"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\minify\\areplacerInterface",
             "name": "areplacerInterface",
             "summary": "",
@@ -47725,21 +47700,6 @@ Search.appendIndex(
             "name": "lib",
             "summary": "",
             "url": "namespaces/yxorp-app-lib.html"
-        },                {
-            "fqsen": "\\yxorp\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/yxorp-controller.html"
-        },                {
-            "fqsen": "\\yxorp",
-            "name": "yxorp",
-            "summary": "",
-            "url": "namespaces/yxorp.html"
-        },                {
-            "fqsen": "\\yxorP\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/yxorp-controller.html"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\minify",
             "name": "minify",
