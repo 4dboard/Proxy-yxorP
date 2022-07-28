@@ -6,7 +6,7 @@
 
 namespace yxorP\plugin;
 
-use yxorP\app\constants;
+use yxorP\lib\constants;
 use yxorP\app\lib\http\wrapper;
 use function str_contains;
 use const CHAR_EMPTY_STRING;

@@ -4,7 +4,7 @@
  */
 
 
-use yxorP\app\constants;
+use yxorP\lib\constants;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;
 use yxorP\app\lib\http\wrapper;

@@ -5,7 +5,7 @@
 
 namespace yxorP\plugin;
 
-use yxorP\app\constants;
+use yxorP\lib\constants;
 use yxorP\app\lib\http\wrapper;
 use function proxify_url;
 use const VAR_BUGSNAG;

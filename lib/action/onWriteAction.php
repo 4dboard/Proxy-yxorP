@@ -3,7 +3,7 @@
  * Importing the `wrapper` class from the `yxorP\app\lib\http` namespace.
  */
 
-use yxorP\app\constants;
+use yxorP\lib\constants;
 use yxorP\app\lib\http\cache;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;

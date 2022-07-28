@@ -7,7 +7,7 @@
 namespace yxorP\plugin;
 
 use str;
-use yxorP\app\constants;
+use yxorP\lib\constants;
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\wrapper;
 use const VAR_CONTENT_TYPE;
