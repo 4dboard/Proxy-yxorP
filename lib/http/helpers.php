@@ -583,11 +583,8 @@ class helpers
          * It's copying the files from the `local` directory to the `COCKPIT` directory.
          */
 
-        if (!is_dir(PATH_DIR_APP . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_APP);
-        /**
-         * It's inserting a new user into the `APP_accounts` collection.
-         */
-        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_SYSTEM_USERS)->count()) store::handler(YXORP_APP)->dataStorage->save(YXORP_APP_SYSTEM_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_APP);
+
     }
 
     /**
