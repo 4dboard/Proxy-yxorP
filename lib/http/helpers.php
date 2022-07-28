@@ -484,7 +484,6 @@ class helpers
          */
         define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[APP_TARGET]);
 
-
         /**
          * Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array.
          */
