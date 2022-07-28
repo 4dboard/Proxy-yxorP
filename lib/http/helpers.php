@@ -516,7 +516,7 @@ class helpers
          * Setting the pattern, replace, and plugins variables.
          */
         foreach ([YXORP_GLOBAL_PATTERN => VAR_PATTERN, YXORP_GLOBAL_REPLACE => VAR_REPLACE, YXORP_GLOBAL_CSS => VAR_CSS, YXORP_GLOBAL_JS => VAR_JS] as $key => $value)
-            store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[APP_VAL][$value]);
+            store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[$value]);
 
 
         /**
