@@ -13,6 +13,8 @@ use yxorP\lib\minify\minify;
  */
 class cache
 {
+    private static string $cache;
+
     /**
      * Checking if the cache file is valid and if it is, it is including the cache file.
      *
@@ -61,11 +63,11 @@ class cache
         /**
          * It's printing the content to the screen.
          */
-        echo $content;
+        echo self::$cache = $content;
         /**
          * Writing the content to the cache file.
          */
-        file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));');
+        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));')));
     }
 
 }
