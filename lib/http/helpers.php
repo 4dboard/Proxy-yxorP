@@ -624,12 +624,12 @@ class helpers
         /**
          * It's requiring the Guzzle library.
          */
-        include PATH_GUZZLE;
+        include_once PATH_GUZZLE;
         echo 1;
         /**
          * It's requiring the Bugsnag library.
          */
-        require PATH_BUGSNAG;
+        include PATH_BUGSNAG;
 
         /**
          * It's setting the token to the snag key.
