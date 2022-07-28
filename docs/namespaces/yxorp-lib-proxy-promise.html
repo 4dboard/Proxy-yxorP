@@ -590,32 +590,30 @@
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></dt>
-        <dd>A promise represents the eventual result of an asynchronous operation.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/yxorP-lib-proxy-Promise-PromisorInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromisorInterface">PromisorInterface</abbr></a></dt>
-        <dd>Interface used with classes that return a promise.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a></dt>
         <dd></dd>
     
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-AggregateExceptionA.html"><abbr title="\yxorP\lib\proxy\Promise\AggregateExceptionA">AggregateExceptionA</abbr></a></dt>
-        <dd>Exception thrown when too many errors occur in the some() or any() methods.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-ARejectionException.html"><abbr title="\yxorP\lib\proxy\Promise\ARejectionException">ARejectionException</abbr></a></dt>
-        <dd>A special exception that is thrown when waiting on a rejected promise.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-CancellationExceptionA.html"><abbr title="\yxorP\lib\proxy\Promise\CancellationExceptionA">CancellationExceptionA</abbr></a></dt>
-        <dd>Exception that is set as the reason for a promise that has been cancelled.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-Coroutine.html"><abbr title="\yxorP\lib\proxy\Promise\Coroutine">Coroutine</abbr></a></dt>
-        <dd>Creates a promise that is resolved using a generator that yields values or
-promises (somewhat similar to C#&#039;s async keyword).</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-EachPromise.html"><abbr title="\yxorP\lib\proxy\Promise\EachPromise">EachPromise</abbr></a></dt>
-        <dd>Represents a promise that iterates over many promises and invokes
-side-effect functions in the process.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-FulfilledPromise.html"><abbr title="\yxorP\lib\proxy\Promise\FulfilledPromise">FulfilledPromise</abbr></a></dt>
-        <dd>A promise that has been fulfilled.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-Promise.html"><abbr title="\yxorP\lib\proxy\Promise\Promise">Promise</abbr></a></dt>
-        <dd>Promises/A+ implementation that avoids recursion when possible.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-RejectedPromise.html"><abbr title="\yxorP\lib\proxy\Promise\RejectedPromise">RejectedPromise</abbr></a></dt>
-        <dd>A promise that has been rejected.</dd>
+        <dd></dd>
             <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/yxorP-lib-proxy-Promise-TaskQueue.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueue">TaskQueue</abbr></a></dt>
-        <dd>A task queue that executes tasks in a FIFO order.</dd>
+        <dd></dd>
     
     
     </dl>
@@ -630,153 +628,140 @@ side-effect functions in the process.</dd>
                             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_queue">queue()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Get the global task queue used for promise resolution.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_task">task()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Adds a function to run in the task queue when it is next `run()` and returns
-a promise that is fulfilled or rejected with the result.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_promise_for">promise_for()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a promise for a value if the value is not a promise.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_rejection_for">rejection_for()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a rejected promise for a reason if the reason is not a promise. If
-the provided reason is a promise, then it is returned as-is.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_exception_for">exception_for()</a>
     <span>
-                                &nbsp;: <abbr title="\Exception">Exception</abbr>|<abbr title="\Throwable">Throwable</abbr>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Create an exception for a rejected promise value.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_iter_for">iter_for()</a>
     <span>
-                                &nbsp;: <abbr title="\Iterator">Iterator</abbr>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns an iterator for the given value.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_inspect">inspect()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Synchronously waits on a promise to resolve and returns an inspection state
-array.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_inspect_all">inspect_all()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Waits on all of the provided promises, but does not unwrap rejected promises
-as thrown exception.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_unwrap">unwrap()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Waits on all of the provided promises and returns the fulfilled values.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_all">all()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Given an array of promises, return a promise that is fulfilled when all the
-items in the array are fulfilled.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_some">some()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Initiate a competitive race between multiple promises or values (values will
-become immediately fulfilled promises).</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_any">any()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Like some(), with 1 as count. However, if the promise fulfills, the
-fulfillment value is not an array of 1 but the value directly.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_settle">settle()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns a promise that is fulfilled when all of the provided promises have
-been fulfilled or rejected.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_each">each()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Given an iterator that yields promises or values, returns a promise that is
-fulfilled with a null value when the iterator has been consumed or the
-aggregate promise has been fulfilled or rejected.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_each_limit">each_limit()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Like each, but only allows a certain number of outstanding promises at any
-given time.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_each_limit_all">each_limit_all()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Like each_limit, but ensures that no promise in the given $iterable argument
-is rejected. If any promise is rejected, then the aggregate promise is
-rejected with the encountered rejection.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_is_fulfilled">is_fulfilled()</a>
     <span>
-                                &nbsp;: bool    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns true if a promise is fulfilled.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_is_rejected">is_rejected()</a>
     <span>
-                                &nbsp;: bool    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns true if a promise is rejected.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_is_settled">is_settled()</a>
     <span>
-                                &nbsp;: bool    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns true if a promise is fulfilled or rejected.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/yxorp-lib-proxy-promise.html#function_coroutine">coroutine()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
@@ -797,25 +782,16 @@ rejected with the encountered rejection.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the global task queue used for promise resolution.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">queue</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$assign</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">queue</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$assign</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>This task queue MUST be run in an event loop in order for promises to be
-settled asynchronously. It will be automatically run when synchronously
-waiting on a promise.</p>
-<code class="prettyprint">
-while ($eventLoop->isRunning()) {
-    yxorP\lib\proxy\Promise\queue()->run();
-}
-</code>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -824,8 +800,7 @@ while ($eventLoop->isRunning()) {
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a></span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optionally specify a new queue instance.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -833,7 +808,7 @@ while ($eventLoop->isRunning()) {
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-TaskQueueInterface.html"><abbr title="\yxorP\lib\proxy\Promise\TaskQueueInterface">TaskQueueInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -846,18 +821,17 @@ while ($eventLoop->isRunning()) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Adds a function to run in the task queue when it is next `run()` and returns
-a promise that is fulfilled or rejected with the result.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">task</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">task</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -865,8 +839,7 @@ a promise that is fulfilled or rejected with the result.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Task function to run.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -874,7 +847,7 @@ a promise that is fulfilled or rejected with the result.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -887,17 +860,17 @@ a promise that is fulfilled or rejected with the result.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a promise for a value if the value is not a promise.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">promise_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">promise_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -905,8 +878,7 @@ a promise that is fulfilled or rejected with the result.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promise or value.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -914,7 +886,7 @@ a promise that is fulfilled or rejected with the result.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -927,18 +899,17 @@ a promise that is fulfilled or rejected with the result.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a rejected promise for a reason if the reason is not a promise. If
-the provided reason is a promise, then it is returned as-is.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">rejection_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reason</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">rejection_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reason</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -946,8 +917,7 @@ the provided reason is a promise, then it is returned as-is.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promise or reason.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -955,7 +925,7 @@ the provided reason is a promise, then it is returned as-is.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -968,17 +938,17 @@ the provided reason is a promise, then it is returned as-is.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Create an exception for a rejected promise value.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">exception_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reason</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Exception">Exception</abbr>|<abbr title="\Throwable">Throwable</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">exception_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reason</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -986,14 +956,15 @@ the provided reason is a promise, then it is returned as-is.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Exception">Exception</abbr>|<abbr title="\Throwable">Throwable</abbr></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1006,17 +977,17 @@ the provided reason is a promise, then it is returned as-is.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns an iterator for the given value.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">iter_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Iterator">Iterator</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">iter_for</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1024,14 +995,15 @@ the provided reason is a promise, then it is returned as-is.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Iterator">Iterator</abbr></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1044,23 +1016,16 @@ the provided reason is a promise, then it is returned as-is.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Synchronously waits on a promise to resolve and returns an inspection state
-array.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">inspect</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">inspect</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>Returns a state associative array containing a &quot;state&quot; key mapping to a
-valid promise state. If the state of the promise is &quot;fulfilled&quot;, the array
-will contain a &quot;value&quot; key mapping to the fulfilled value of the promise. If
-the promise is rejected, the array will contain a &quot;reason&quot; key mapping to
-the rejection reason of the promise.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1069,8 +1034,7 @@ the rejection reason of the promise.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promise or value.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1078,7 +1042,7 @@ the rejection reason of the promise.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1091,53 +1055,33 @@ the rejection reason of the promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">180</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Waits on all of the provided promises, but does not unwrap rejected promises
-as thrown exception.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">inspect_all</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">inspect_all</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>Returns an array of inspection state arrays.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$promises</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Traversable of promises to wait upon.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\yxorP\lib\proxy\Promise\yxorP\lib\proxy\Promise\inspect">inspect</abbr></span>
-                                        
-                                                 <section class="phpdocumentor-description"><p>for the inspection state array format.</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1150,20 +1094,16 @@ as thrown exception.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Waits on all of the provided promises and returns the fulfilled values.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">unwrap</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">unwrap</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>Returns an array that contains the value of each promise (in the same order
-the promises were provided). An exception is thrown if any of the promises
-are rejected.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1172,42 +1112,15 @@ are rejected.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Iterable of PromiseInterface objects to wait on.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>on error</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Throwable">Throwable</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>on error in PHP &gt;=7</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1220,21 +1133,16 @@ are rejected.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">225</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Given an array of promises, return a promise that is fulfilled when all the
-items in the array are fulfilled.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">all</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">all</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>The promise's fulfillment value is an array with fulfillment values at
-respective positions to the original array. If any promise in the array
-rejects, the returned promise is rejected with the rejection reason.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1243,8 +1151,7 @@ rejects, the returned promise is rejected with the rejection reason.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promises or values.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1252,7 +1159,7 @@ rejects, the returned promise is rejected with the rejection reason.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1265,33 +1172,25 @@ rejects, the returned promise is rejected with the rejection reason.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">258</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initiate a competitive race between multiple promises or values (values will
-become immediately fulfilled promises).</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">some</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$count</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">some</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$count</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>When count amount of promises have been fulfilled, the returned promise is
-fulfilled with an array that contains the fulfillment values of the winners
-in order of resolution.</p>
-<p>This prommise is rejected with a <abbr title="\yxorP\lib\proxy\Promise\yxorP\lib\proxy\Promise\AggregateException">AggregateException</abbr>
-if the number of fulfilled promises is less than the desired $count.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$count</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Total number of promises.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1299,8 +1198,7 @@ if the number of fulfilled promises is less than the desired $count.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promises or values.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1308,7 +1206,7 @@ if the number of fulfilled promises is less than the desired $count.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1321,18 +1219,17 @@ if the number of fulfilled promises is less than the desired $count.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">299</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Like some(), with 1 as count. However, if the promise fulfills, the
-fulfillment value is not an array of 1 but the value directly.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">any</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">any</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1340,8 +1237,7 @@ fulfillment value is not an array of 1 but the value directly.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promises or values.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1349,7 +1245,7 @@ fulfillment value is not an array of 1 but the value directly.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1362,19 +1258,16 @@ fulfillment value is not an array of 1 but the value directly.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">317</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns a promise that is fulfilled when all of the provided promises have
-been fulfilled or rejected.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">settle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">settle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promises</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>The returned promise is fulfilled with an array of inspection state arrays.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1383,32 +1276,15 @@ been fulfilled or rejected.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Promises or values.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\yxorP\lib\proxy\Promise\yxorP\lib\proxy\Promise\inspect">inspect</abbr></span>
-                                        
-                                                 <section class="phpdocumentor-description"><p>for the inspection state array format.</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1421,25 +1297,16 @@ been fulfilled or rejected.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">354</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Given an iterator that yields promises or values, returns a promise that is
-fulfilled with a null value when the iterator has been consumed or the
-aggregate promise has been fulfilled or rejected.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">each</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">each</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>$onFulfilled is a function that accepts the fulfilled value, iterator
-index, and the aggregate promise. The callback can invoke any necessary side
-effects and choose to resolve or reject the aggregate promise if needed.</p>
-<p>$onRejected is a function that accepts the rejection reason, iterator
-index, and the aggregate promise. The callback can invoke any necessary side
-effects and choose to resolve or reject the aggregate promise if needed.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1448,8 +1315,7 @@ effects and choose to resolve or reject the aggregate promise if needed.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Iterator or array to iterate over.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1457,21 +1323,23 @@ effects and choose to resolve or reject the aggregate promise if needed.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onRejected</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1484,21 +1352,16 @@ effects and choose to resolve or reject the aggregate promise if needed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">381</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Like each, but only allows a certain number of outstanding promises at any
-given time.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">each_limit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">each_limit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>$concurrency may be an integer or a function that accepts the number of
-pending promises and returns a numeric concurrency limit value to allow for
-dynamic a concurrency size.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1507,35 +1370,39 @@ dynamic a concurrency size.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$concurrency</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onFulfilled</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onRejected</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1548,19 +1415,17 @@ dynamic a concurrency size.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">406</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Like each_limit, but ensures that no promise in the given $iterable argument
-is rejected. If any promise is rejected, then the aggregate promise is
-rejected with the encountered rejection.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">each_limit_all</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">each_limit_all</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1568,28 +1433,31 @@ rejected with the encountered rejection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$concurrency</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onFulfilled</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1602,17 +1470,17 @@ rejected with the encountered rejection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">429</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns true if a promise is fulfilled.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">is_fulfilled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">is_fulfilled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1620,14 +1488,15 @@ rejected with the encountered rejection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1640,17 +1509,17 @@ rejected with the encountered rejection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">441</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns true if a promise is rejected.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">is_rejected</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">is_rejected</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1658,14 +1527,15 @@ rejected with the encountered rejection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1678,17 +1548,17 @@ rejected with the encountered rejection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">453</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns true if a promise is fulfilled or rejected.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">is_settled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">is_settled</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$promise</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1696,14 +1566,15 @@ rejected with the encountered rejection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1716,16 +1587,17 @@ rejected with the encountered rejection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/functions.php"><a href="files/lib-proxy-promise-functions.html"><abbr title="lib/proxy/Promise/functions.php">functions.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">465</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">coroutine</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$generatorFn</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">coroutine</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$generatorFn</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1733,28 +1605,15 @@ rejected with the encountered rejection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/yxorP-lib-proxy-Promise-Coroutine.html"><abbr title="\yxorP\lib\proxy\Promise\Coroutine">Coroutine</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
