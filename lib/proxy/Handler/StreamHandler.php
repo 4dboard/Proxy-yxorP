@@ -8,7 +8,7 @@ use RuntimeException;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
-use yxorP\lib\proxy\Exception\ARequestException;
+use yxorP\lib\proxy\Exception\ARequestExceptionAA;
 use yxorP\lib\proxy\Exception\ConnectException;
 use yxorP\lib\proxy\Promise\FulfilledPromise;
 use yxorP\lib\proxy\Promise\PromiseInterface;
@@ -75,7 +75,7 @@ class StreamHandler
             ) {
                 $e = new ConnectException($e->getMessage(), $request, $e);
             }
-            $e = ARequestException::wrapException($request, $e);
+            $e = ARequestExceptionAA::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
 
             return rejection_for($e);
@@ -111,7 +111,7 @@ class StreamHandler
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new ARequestException($msg, $request, $response, $e);
+                $ex = new ARequestExceptionAA($msg, $request, $response, $e);
                 return rejection_for($ex);
             }
         }

@@ -10,7 +10,7 @@ use yxorP\inc\Psr\Http\Message\RequestInterface;
  *
  * Note that no response is present for a ConnectException
  */
-class ConnectException extends ARequestException
+class ConnectException extends ARequestExceptionAA
 {
     public function __construct(
         $message,

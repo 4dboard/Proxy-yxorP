@@ -9,7 +9,7 @@ use OutOfBoundsException;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
-use yxorP\lib\proxy\Exception\ARequestException;
+use yxorP\lib\proxy\Exception\ARequestExceptionAA;
 use yxorP\lib\proxy\HandlerStack;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\TransferStats;
@@ -92,7 +92,7 @@ class MockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new ARequestException($msg, $request, $response, $e);
+                $response = new ARequestExceptionAA($msg, $request, $response, $e);
             }
         }
 

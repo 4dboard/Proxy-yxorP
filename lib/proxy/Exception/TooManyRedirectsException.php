@@ -2,6 +2,6 @@
 
 namespace yxorP\lib\proxy\Exception;
 
-class TooManyRedirectsException extends ARequestException
+class TooManyRedirectsException extends ARequestExceptionAA
 {
 }
