@@ -471,7 +471,7 @@ class helpers
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
         store::handler(SITE_DETAILS, null, 'yxorP\lib\http\helpers::cockpit_find');
-        echo 1;
+        echo YXORP_SITE_DOMAIN;
         print_r(store::handler(SITE_DETAILS));
         /**
          * Setting the pattern, replace, and plugins variables.
