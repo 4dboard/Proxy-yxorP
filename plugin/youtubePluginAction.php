@@ -5,15 +5,8 @@
 
 namespace yxorP\plugin;
 
-use yorxP\debug\Utils\Html;
-use YouTubeDownloader;
-use yxorP\lib\constants;
+use yxorP\lib\http\store;
 use yxorP\lib\http\wrapper;
-use function proxify_url;
-use function vid_player;
-use const VAR_REQUEST;
-use const VAR_RESPONSE;
-use const VAR_URL;
 
 /**
  * Extending the wrapper class.
@@ -69,7 +62,7 @@ class youtubePluginAction extends wrapper
             /**
              * Returning the function.
              */
-            $response->headers->set('location', proxify_url("https:www.youtube.com/feed/trending", $url));
+            $response->headers->set('location', "https:www.youtube.com/feed/trending", $url);
             return;
         }
         /**
@@ -80,7 +73,7 @@ class youtubePluginAction extends wrapper
              * Proxifying the url of the image.
              */
             $has_src = str_contains($matches[0], 'src="');
-            $thumb_url = proxify_url($matches[1], 0);
+            $thumb_url = $matches[1];
             /**
              * Checking if the `src` attribute is present in the `<img>` tag.
              */
@@ -104,38 +97,12 @@ class youtubePluginAction extends wrapper
             /**
              * Creating a new instance of the YouTubeDownloader class.
              */
-        }, preg_replace('@masthead-positioner">@', 'masthead-positioner" style="position:static;">', Html::remove("#header", $output), 1));
-        $youtube = new YouTubeDownloader();
-        /**
-         * Getting the download links of the video.
-         */
-        $links = $youtube->getDownloadLinks($url, "mp4 360, mp4");
-        /**
-         * Checking if the `$links` variable is not empty.
-         */
-        if ($links) {
-            /**
-             * Getting the url of the video.
-             */
-            $url = current($links)[VAR_URL];
-            /**
-             * Creating a video player with the url of the video, width, height and the video format.
-             */
-            $player = vid_player($url, 640, 390, 'mp4');
-            /**
-             * Removing the `#theater-background` element from the page.
-             */
-            $output = \Html::remove("#theater-background", $output);
-            /**
-             * Replacing the inner html of the `#player-api` element with the `$player` variable.
-             */
-            $output = \Html::replace_inner("#player-api", $player, $output);
-        }
+        }, preg_replace('@masthead-positioner">@', 'masthead-positioner" style="position:static;">', $output, 1));
+
         /**
          * Setting the content of the response to the `$output` variable.
          * Removing all the `<script>` tags from the page.
          */
-        $output = \Html::remove_scripts($output);
         $response->setContent($output);
     }
 }

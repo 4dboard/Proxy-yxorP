@@ -82,8 +82,6 @@ class Promise implements PromiseInterface
             }
         } catch (Throwable $reason) {
             $promise->reject($reason);
-        } catch (Exception $reason) {
-            $promise->reject($reason);
         }
     }
 
@@ -194,8 +192,6 @@ class Promise implements PromiseInterface
             try {
                 $fn();
             } catch (Throwable $e) {
-                $this->reject($e);
-            } catch (Exception $e) {
                 $this->reject($e);
             }
         }

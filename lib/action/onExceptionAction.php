@@ -4,11 +4,13 @@
  */
 
 
+use yxorP\lib\http\helpers;
 use yxorP\lib\http\store;
 use yxorP\lib\http\wrapper;
 
 /**
  * A class that extends the wrapper class.
+ * @property $name
  */
 class onExceptionAction extends wrapper
 {

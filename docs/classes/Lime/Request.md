@@ -226,6 +226,32 @@ public bool $stopped
 ## Methods
 
 
+### __construct
+
+
+
+```php
+public __construct(array $config = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$config` | **array** |  |
+
+
+
+
+***
+
 ### fromGlobalRequest
 
 
@@ -252,17 +278,17 @@ public static fromGlobalRequest(array $config = []): self
 
 ***
 
-### __construct
+### getAllHeaders
 
 
 
 ```php
-public __construct(array $config = []): mixed
+public static getAllHeaders(array $server): array
 ```
 
 
 
-
+* This method is **static**.
 
 
 
@@ -271,7 +297,7 @@ public __construct(array $config = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$config` | **array** |  |
+| `$server` | **array** |  |
 
 
 
@@ -352,32 +378,6 @@ public getClientLang(string $default = &#039;en&#039;): string
 
 ***
 
-### getSiteUrl
-
-
-
-```php
-public getSiteUrl(bool $withpath = false): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$withpath` | **bool** |  |
-
-
-
-
-***
-
 ### is
 
 
@@ -404,6 +404,32 @@ public is(string $type): bool
 
 ***
 
+### getSiteUrl
+
+
+
+```php
+public getSiteUrl(bool $withpath = false): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$withpath` | **bool** |  |
+
+
+
+
+***
+
 ### getBearerToken
 
 
@@ -418,32 +444,6 @@ public getBearerToken(): ?string
 
 
 
-
-
-
-
-***
-
-### getAllHeaders
-
-
-
-```php
-public static getAllHeaders(array $server): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$server` | **array** |  |
 
 
 

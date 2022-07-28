@@ -145,6 +145,32 @@ protected getData(): array
 
 ***
 
+### make_cmp
+
+
+
+```php
+protected make_cmp(array $sortValues): \Closure
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sortValues` | **array** |  |
+
+
+
+
+***
+
 ### rewind
 
 Iterator implementation
@@ -239,32 +265,6 @@ public valid(): bool
 
 
 
-
-
-
-
-***
-
-### make_cmp
-
-
-
-```php
-protected make_cmp(array $sortValues): \Closure
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$sortValues` | **array** |  |
 
 
 

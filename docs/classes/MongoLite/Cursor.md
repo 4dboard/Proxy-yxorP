@@ -302,6 +302,26 @@ public each(mixed $callable): object
 
 ***
 
+### current
+
+
+
+```php
+public current(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### toArray
 
 Get documents matching criteria
@@ -322,52 +342,12 @@ public toArray(): array
 
 ***
 
-### getData
-
-Get documents matching criteria
-
-```php
-protected getData(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### rewind
 
 Iterator implementation
 
 ```php
 public rewind(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### current
-
-
-
-```php
-public current(): array
 ```
 
 
@@ -428,6 +408,26 @@ public next(): void
 
 ```php
 public valid(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getData
+
+Get documents matching criteria
+
+```php
+protected getData(): array
 ```
 
 

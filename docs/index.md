@@ -17,9 +17,9 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
+| [`App`](./classes/App.md) | |
 | [`Attribute`](./classes/Attribute.md) | |
 | [`CLI`](./classes/CLI.md) | |
-| [`Cockpit`](./classes/Cockpit.md) | |
 | [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](./classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
 | [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](./classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
@@ -31,7 +31,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`Mailer_Message`](./classes/Mailer_Message.md) | |
 | [`Normalizer`](./classes/Normalizer.md) | |
 | [`PhpToken`](./classes/PhpToken.md) | |
-| [`RedisLite`](./classes/RedisLite.md) | RedisLite class.|
+| [`RedisLite`](./classes/RedisLite.md) | |
 | [`ReturnTypeWillChange`](./classes/ReturnTypeWillChange.md) | |
 | [`SVGSanitizer`](./classes/SVGSanitizer.md) | Class SVGSanitizer|
 | [`SimpleImageLib`](./classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
@@ -150,8 +150,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`ResponseCache`](./classes/App/Helper/ResponseCache.md) | |
 | [`ResponseCacheFileHandler`](./classes/App/Helper/ResponseCacheFileHandler.md) | |
 | [`ResponseCacheMemoryeHandler`](./classes/App/Helper/ResponseCacheMemoryeHandler.md) | |
-| [`TWFA`](./classes/App/Helper/TWFA.md) | |
-| [`TWFAQRCodeRenderer`](./classes/App/Helper/TWFAQRCodeRenderer.md) | |
 | [`Theme`](./classes/App/Helper/Theme.md) | |
 | [`i18n`](./classes/App/Helper/i18n.md) | I18n class. Manage translations|
 
@@ -510,7 +508,6 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
 
@@ -2954,9 +2951,9 @@ This is an automatically generated documentation for **Documentation**.
 | [`headerRewritePluginAction`](./classes/yxorP/plugin/headerRewritePluginAction.md) | It&#039;s extending the wrapper class.|
 | [`logPluginAction`](./classes/yxorP/plugin/logPluginAction.md) | It&#039;s extending the wrapper class.|
 | [`proxifyPluginAction`](./classes/yxorP/plugin/proxifyPluginAction.md) | Extending the wrapper class.|
+| [`spinPluginAction`](./classes/yxorP/plugin/spinPluginAction.md) | Extending the wrapper class.|
 | [`streamPluginAction`](./classes/yxorP/plugin/streamPluginAction.md) | Extending the wrapper class, which is a class that allows you to listen to events.|
 | [`twitterPluginAction`](./classes/yxorP/plugin/twitterPluginAction.md) | Extending the wrapper class, which is a class that is used to create plugins.|
-| [`youtubePluginAction`](./classes/yxorP/plugin/youtubePluginAction.md) | Extending the wrapper class.|
 
 
 

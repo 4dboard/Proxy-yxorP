@@ -1,9 +1,9 @@
 <?php namespace yxorP\lib\proxy;
 
 use Exception;
-use yxorP\inc\Psr\Http\Message\MessageInterface;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\lib\Psr\Http\Message\MessageInterface;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
+use yxorP\lib\Psr\Http\Message\ResponseInterface;
 
 class MessageFormatter
 {

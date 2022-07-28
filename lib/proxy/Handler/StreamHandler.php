@@ -3,9 +3,9 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
-use yxorP\inc\Psr\Http\Message\StreamInterface;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
+use yxorP\lib\Psr\Http\Message\ResponseInterface;
+use yxorP\lib\Psr\Http\Message\StreamInterface;
 use yxorP\lib\proxy\Exception\ARequestExceptionAA;
 use yxorP\lib\proxy\Exception\ConnectException;
 use yxorP\lib\proxy\Promise\FulfilledPromise;

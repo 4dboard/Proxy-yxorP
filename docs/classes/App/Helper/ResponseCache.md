@@ -32,12 +32,12 @@ protected $cacheHandler
 ## Methods
 
 
-### initialize
+### handle
 
 
 
 ```php
-protected initialize(): mixed
+public handle(mixed $request): mixed
 ```
 
 
@@ -47,17 +47,23 @@ protected initialize(): mixed
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$request` | **mixed** |  |
+
 
 
 
 ***
 
-### handle
+### getCache
 
 
 
 ```php
-public handle(mixed $request): mixed
+protected getCache(mixed $request): mixed
 ```
 
 
@@ -104,12 +110,12 @@ protected cache(mixed $request): mixed
 
 ***
 
-### getCache
+### initialize
 
 
 
 ```php
-protected getCache(mixed $request): mixed
+protected initialize(): mixed
 ```
 
 
@@ -118,12 +124,6 @@ protected getCache(mixed $request): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **mixed** |  |
 
 
 

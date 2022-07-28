@@ -61,12 +61,12 @@ public static opts(?string $name = null, mixed $default = null): mixed
 
 ***
 
-### write
+### writeln
 
 
 
 ```php
-public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
+public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
 
@@ -89,12 +89,12 @@ public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = nul
 
 ***
 
-### writeln
+### write
 
 
 
 ```php
-public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
+public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
 

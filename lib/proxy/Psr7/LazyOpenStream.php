@@ -1,6 +1,6 @@
 <?php namespace yxorP\lib\proxy\Psr7;
 
-use yxorP\inc\Psr\Http\Message\StreamInterface;
+use yxorP\lib\Psr\Http\Message\StreamInterface;
 
 class LazyOpenStream implements StreamInterface
 {

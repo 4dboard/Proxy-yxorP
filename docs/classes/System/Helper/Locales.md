@@ -32,12 +32,12 @@ protected array $locales
 ## Methods
 
 
-### initialize
+### applyLocales
 
 
 
 ```php
-protected initialize(): mixed
+public applyLocales(mixed $obj, mixed $locale = &#039;default&#039;): mixed
 ```
 
 
@@ -46,6 +46,13 @@ protected initialize(): mixed
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$obj` | **mixed** |  |
+| `$locale` | **mixed** |  |
 
 
 
@@ -78,33 +85,6 @@ public locales(bool $assoc = false): array
 
 ***
 
-### applyLocales
-
-
-
-```php
-public applyLocales(mixed $obj, mixed $locale = &#039;default&#039;): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$obj` | **mixed** |  |
-| `$locale` | **mixed** |  |
-
-
-
-
-***
-
 ### cache
 
 
@@ -125,6 +105,26 @@ public cache(bool $persistent = true): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
+
+
+
+
+***
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
 
 
 

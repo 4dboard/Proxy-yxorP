@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\inc\Psr\Http\Message;
+namespace yxorP\lib\Psr\Http\Message;
 
 use InvalidArgumentException;
 
@@ -128,7 +128,7 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieve normalized file upload data.
      *
      * This method returns upload metadata in a normalized tree, with each leaf
-     * an instance of yxorP\inc\Psr\Http\Message\UploadedFileInterface.
+     * an instance of yxorP\lib\Psr\Http\Message\UploadedFileInterface.
      *
      * These values MAY be prepared from $_FILES or the message body during
      * instantiation, or MAY be injected via withUploadedFiles().

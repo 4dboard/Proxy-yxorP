@@ -1,10 +1,10 @@
 <?php namespace yxorP\lib\proxy\Handler;
 
 use BadMethodCallException;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise as P;
 use yxorP\lib\proxy\Promise\Promise;
 use yxorP\lib\proxy\Utils;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
 
 class CurlMultiHandler
 {

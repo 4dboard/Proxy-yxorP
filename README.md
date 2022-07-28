@@ -1,7 +1,7 @@
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png" /></p>
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png" />
 <p align="center">📢  [ <a href="https://github.com/4dboard/Proxy-yxorP/wiki">ARCHITECTURE</a> ]  ⚡  [ <a href="https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md">DEVELOPERS</a> ]  🌈  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/">DOCUMENTATION</a> ]  🔥  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4">CREATION VIDEO</a> ]  🚀️  [ <a href="https://4dboard.github.io/">WEBSITE</a> ]</p>
-<p align="center">Web Proxy <b>🦄<b> yxorP: SAAS(y) Guzzler + Cockpit (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</p>
+<p align="center">Web Proxy <b>🦄</b> yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</p>
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png" /></p>
 <p align="center"><a href="https://sourceforge.net/projects/Proxy-yxorP/files/latest/download"><img align="center" src="https://a.fsdn.com/con/app/sf-download-button" /></a></p>
 
@@ -217,25 +217,9 @@ cp ./example.env ./.env
 Modify the settings included inside the ".env" file as necessary. The program is configured to respond to queries from
 any domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the.env
 file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
-domain, go to http://localhost/cockpit and enter the login username 'yxorP' and the password 'yxorP'. This will allow
-you to configure the application to direct traffic from a given domain to a specific website. After gaining access to
-the admin, choose "sites" and clone the example website so that its settings may be modified.
-
-After cloning the repository, you need to pull the Cockpit submodule as well, like this:
-
-```bash
-
-  //Clone the repository
-  git clone https://github.com/4dboard/proxy-yxorp
-  
-  //Pull the Cockpit submodule  
-  git submodule init
-  
-  //If still not working you can try this:
-  git submodule add  https://github.com/Cockpit-HQ/Cockpit cockpit
-
-  
-```
+domain, go to http://localhost/app and enter the login username 'yxorP' and the password 'yxorP'. This will allow you to
+configure the application to direct traffic from a given domain to a specific website. After gaining access to the
+admin, choose "sites" and clone the example website so that its settings may be modified.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -253,13 +237,13 @@ After cloning the repository, you need to pull the Cockpit submodule as well, li
     - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
       with IDN.
 
-- You need to check that the "./cockpit" submodule was properly retrieved; the directory should already be present at
-  the top level of the project and have some information. If the directory is not there, you may quickly initialize the
+- You need to check that the "./app" submodule was properly retrieved; the directory should already be present at the
+  top level of the project and have some information. If the directory is not there, you may quickly initialize the
   submodule by entering "git submodule init" into the terminal.
 
-- Ensure that the x cache folders that can be found in "./cockpit/storage/tmp" and "./inc/tmp." are able to have their
-  contents written to. Either the command "chmod 775./cockpit/storage/tmp" or the command "chown root:
-  ./cockpit/storage/tmp" may be used to make the files readable again.
+- Ensure that the x cache folders that can be found in "./app/storage/tmp" and "./inc/tmp." are able to have their
+  contents written to. Either the command "chmod 775./app/storage/tmp" or the command "chown root:
+  ./app/storage/tmp" may be used to make the files readable again.
 
 If you have completed all of these steps, you should be experiencing no difficulty.
 
@@ -716,24 +700,24 @@ us.
 | Class | Description |
 |-------|-------------|
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
-| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the Cockpit project.|
+| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the App project.|
 | [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
 | [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
-| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the Cockpit project.|
-| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the Cockpit project.|
-| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the Cockpit project.|
+| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the App project.|
+| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the App project.|
+| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the App project.|
 | [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
 | [`Lexy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
-| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the Cockpit project.|
+| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the App project.|
 | [`LiteDBQuery`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDBQuery.md) | |
 | [`Mailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer.md) | |
 | [`Mailer_Message`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer_Message.md) | |
-| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the Cockpit project.|
+| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the App project.|
 | [`Parsedown`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Parsedown.md) | |
 | [`ParsedownExtra`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtra.md) | |
 | [`ParsedownExtraTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtraTest.md) | |
-| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Cockpit project.|
+| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the App project.|
 | [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
 | [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
 | [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|

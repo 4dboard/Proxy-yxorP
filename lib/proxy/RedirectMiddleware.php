@@ -1,8 +1,8 @@
 <?php namespace yxorP\lib\proxy;
 
 use InvalidArgumentException;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
+use yxorP\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\lib\proxy\Exception\BadResponseException;
 use yxorP\lib\proxy\Exception\TooManyRedirectsException;
 use yxorP\lib\proxy\Promise\PromiseInterface;
@@ -58,16 +58,6 @@ class RedirectMiddleware
         return $promise;
     }
 
-    private function guardMax(RequestInterface $request, array &$options)
-    {
-        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-        if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsException("Will not follow more than {$max} redirects", $request);
-        }
-    }
-
     public function modifyRequest(RequestInterface $request, array $options, ResponseInterface $response)
     {
         $modify = [];
@@ -94,6 +84,16 @@ class RedirectMiddleware
             $modify['remove_headers'][] = 'Authorization';
         }
         return Psr7\modify_request($request, $modify);
+    }
+
+    private function guardMax(RequestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+        if ($options['__redirect_count'] > $max) {
+            throw new TooManyRedirectsException("Will not follow more than {$max} redirects", $request);
+        }
     }
 
     private function redirectUri(RequestInterface $request, ResponseInterface $response, array $protocols)

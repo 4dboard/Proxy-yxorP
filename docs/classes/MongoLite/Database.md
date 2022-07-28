@@ -108,32 +108,6 @@ public __construct(string $path = self::DSN_PATH_MEMORY, array $options = []): m
 
 ***
 
-### registerCriteriaFunction
-
-Register Criteria function
-
-```php
-public registerCriteriaFunction(mixed $criteria): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$criteria` | **mixed** |  |
-
-
-
-
-***
-
 ### callCriteriaFunction
 
 Execute registred criteria function
@@ -155,6 +129,32 @@ public callCriteriaFunction(string $id, array $document): bool
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$document` | **array** |  |
+
+
+
+
+***
+
+### registerCriteriaFunction
+
+Register Criteria function
+
+```php
+public registerCriteriaFunction(mixed $criteria): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$criteria` | **mixed** |  |
 
 
 
@@ -201,32 +201,6 @@ public drop(): void
 
 ***
 
-### createCollection
-
-Create a collection
-
-```php
-public createCollection(string $name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
 ### dropCollection
 
 Drop a collection
@@ -253,6 +227,26 @@ public dropCollection(string $name): void
 
 ***
 
+### listCollections
+
+Get all collections in the database
+
+```php
+public listCollections(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### getCollectionNames
 
 Get all collection names in the database
@@ -273,12 +267,12 @@ public getCollectionNames(): array
 
 ***
 
-### listCollections
+### __get
 
-Get all collections in the database
+
 
 ```php
-public listCollections(): array
+public __get(mixed $collection): mixed
 ```
 
 
@@ -287,6 +281,12 @@ public listCollections(): array
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **mixed** |  |
 
 
 
@@ -319,12 +319,12 @@ public selectCollection(string $name): object
 
 ***
 
-### __get
+### createCollection
 
-
+Create a collection
 
 ```php
-public __get(mixed $collection): mixed
+public createCollection(string $name): void
 ```
 
 
@@ -338,7 +338,7 @@ public __get(mixed $collection): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **mixed** |  |
+| `$name` | **string** |  |
 
 
 

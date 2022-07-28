@@ -14,21 +14,6 @@
 ## Properties
 
 
-### apis
-
-
-
-```php
-protected $apis
-```
-
-
-
-
-
-
-***
-
 ### _dir
 
 
@@ -59,15 +44,12 @@ public ?string $_bootfile
 
 ***
 
-## Methods
-
-
-### extend
+### apis
 
 
 
 ```php
-public extend(array $api): mixed
+protected $apis
 ```
 
 
@@ -75,18 +57,10 @@ public extend(array $api): mixed
 
 
 
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$api` | **array** |  |
-
-
-
-
 ***
+
+## Methods
+
 
 ### bindApp
 
@@ -108,6 +82,32 @@ public bindApp(\Lime\App $app): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Lime\App** |  |
+
+
+
+
+***
+
+### __get
+
+
+
+```php
+public __get(mixed $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
 
 
 
@@ -141,12 +141,12 @@ public __set(mixed $name, mixed $value): mixed
 
 ***
 
-### __get
+### extend
 
 
 
 ```php
-public __get(mixed $name): mixed
+public extend(array $api): mixed
 ```
 
 
@@ -160,7 +160,7 @@ public __get(mixed $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **mixed** |  |
+| `$api` | **array** |  |
 
 
 

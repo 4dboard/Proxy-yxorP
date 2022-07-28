@@ -15,26 +15,6 @@ Class Controller
 ## Methods
 
 
-### before
-
-
-
-```php
-protected before(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### index
 
 
@@ -61,6 +41,26 @@ public index(): mixed
 
 ```php
 public load(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### before
+
+
+
+```php
+protected before(): mixed
 ```
 
 
@@ -106,12 +106,12 @@ protected render( $view, array $params = []): mixed
 
 ***
 
-### initialize
+### unlockResource
 
 
 
 ```php
-protected initialize(): mixed
+public unlockResource(mixed $resourceId): mixed
 ```
 
 
@@ -120,6 +120,12 @@ protected initialize(): mixed
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
 
 
 
@@ -152,12 +158,12 @@ protected isAllowed(string $permission): bool
 
 ***
 
-### checkAndLockResource
+### initialize
 
 
 
 ```php
-protected checkAndLockResource(mixed $resourceId): mixed
+protected initialize(): mixed
 ```
 
 
@@ -167,23 +173,17 @@ protected checkAndLockResource(mixed $resourceId): mixed
 
 
 
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-
 
 
 
 ***
 
-### unlockResource
+### checkAndLockResource
 
 
 
 ```php
-public unlockResource(mixed $resourceId): mixed
+protected checkAndLockResource(mixed $resourceId): mixed
 ```
 
 

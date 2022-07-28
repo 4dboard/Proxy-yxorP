@@ -87,12 +87,12 @@ public __construct(callable $comparator): mixed
 
 ***
 
-### sort
+### setComparator
 
 
 
 ```php
-private sort(): void
+public setComparator(callable $function): void
 ```
 
 
@@ -101,6 +101,12 @@ private sort(): void
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$function` | **callable** |  |
 
 
 
@@ -159,12 +165,12 @@ public peek(?int $index = null): mixed
 
 ***
 
-### pop
+### sort
 
 
 
 ```php
-public pop(): mixed|null
+private sort(): void
 ```
 
 
@@ -185,6 +191,26 @@ public pop(): mixed|null
 
 ```php
 public size(): int
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### pop
+
+
+
+```php
+public pop(): mixed|null
 ```
 
 
@@ -220,32 +246,6 @@ public map(callable $function, bool $sorted = true): array
 |-----------|------|-------------|
 | `$function` | **callable** |  |
 | `$sorted` | **bool** |  |
-
-
-
-
-***
-
-### setComparator
-
-
-
-```php
-public setComparator(callable $function): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$function` | **callable** |  |
 
 
 

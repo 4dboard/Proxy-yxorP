@@ -8,9 +8,9 @@ Use only if you know what you're doing!!!
 
 Usage:
 
-Cockpit::instance()->helper('async')->exec('
+App::instance()->helper('async')->exec('
    sleep(10);
-   file_put_contents(COCKPIT_DIR."/debug.txt", $test);
+   file_put_contents(APP_DIR."/debug.txt", $test);
 ', ['test' => 222]);
 
 * Full name: `\App\Helper\Async`
@@ -38,26 +38,6 @@ public $phpPath
 
 ## Methods
 
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
 
 ### exec
 
@@ -114,6 +94,26 @@ public finished(mixed $processId, mixed& $error = null): mixed
 
 ***
 
+### possible
+
+
+
+```php
+public possible(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### execInBackground
 
 
@@ -160,12 +160,12 @@ protected isExecAvailable(): mixed
 
 ***
 
-### possible
+### initialize
 
 
 
 ```php
-public possible(): mixed
+protected initialize(): mixed
 ```
 
 

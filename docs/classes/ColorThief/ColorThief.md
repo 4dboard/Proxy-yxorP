@@ -24,62 +24,6 @@
 ## Methods
 
 
-### getColorIndex
-
-Get combined color index (3 colors as one integer) from RGB values (0-255) or RGB Histogram Buckets (0-31).
-
-```php
-public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self::SIGBITS): int
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$red` | **int** |  |
-| `$green` | **int** |  |
-| `$blue` | **int** |  |
-| `$sigBits` | **int** |  |
-
-
-
-
-***
-
-### getColorsFromIndex
-
-Get RGB values (0-255) or RGB Histogram Buckets from a combined color index (3 colors as one integer).
-
-```php
-public static getColorsFromIndex(int $index, int $sigBits = 8): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$index` | **int** |  |
-| `$sigBits` | **int** |  |
-
-
-
-
-***
-
 ### getColor
 
 Gets the dominant color from the image using the median cut algorithm to cluster similar colors.
@@ -171,6 +115,63 @@ private static loadImage(mixed $sourceImage, int $quality, array&lt;int,int&gt;&
 
 ***
 
+### getColorIndex
+
+Get combined color index (3 colors as one integer) from RGB values (0-255) or RGB Histogram Buckets (0-31).
+
+```php
+public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self::SIGBITS): int
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$red` | **int** |  |
+| `$green` | **int** |  |
+| `$blue` | **int** |  |
+| `$sigBits` | **int** |  |
+
+
+
+
+***
+
+### quantize
+
+
+
+```php
+private static quantize(int $numPixels, int $maxColors, array&lt;int,int&gt;& $histo): \ColorThief\Color[]
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$numPixels` | **int** | Number of image pixels analyzed |
+| `$maxColors` | **int** |  |
+| `$histo` | **array<int,int>** | Histogram |
+
+
+
+
+***
+
 ### vboxFromHistogram
 
 
@@ -197,12 +198,12 @@ private static vboxFromHistogram(array&lt;int,int&gt; $histo): \ColorThief\VBox
 
 ***
 
-### doCut
+### getColorsFromIndex
 
-
+Get RGB values (0-255) or RGB Histogram Buckets from a combined color index (3 colors as one integer).
 
 ```php
-private static doCut(string $color, \ColorThief\VBox $vBox, int[] $partialSum, int $total): ?array
+public static getColorsFromIndex(int $index, int $sigBits = 8): array
 ```
 
 
@@ -216,10 +217,36 @@ private static doCut(string $color, \ColorThief\VBox $vBox, int[] $partialSum, i
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$color` | **string** |  |
-| `$vBox` | **\ColorThief\VBox** |  |
-| `$partialSum` | **int[]** |  |
-| `$total` | **int** |  |
+| `$index` | **int** |  |
+| `$sigBits` | **int** |  |
+
+
+
+
+***
+
+### quantizeIter
+
+Inner function to do the iteration.
+
+```php
+private static quantizeIter(\ColorThief\PQueue&lt;\ColorThief\VBox&gt;& $priorityQueue, float $target, array&lt;int,int&gt; $histo): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$priorityQueue` | **\ColorThief\PQueue<\ColorThief\VBox>** |  |
+| `$target` | **float** |  |
+| `$histo` | **array<int,int>** |  |
 
 
 
@@ -308,12 +335,12 @@ private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): int[][]
 
 ***
 
-### quantizeIter
+### doCut
 
-Inner function to do the iteration.
+
 
 ```php
-private static quantizeIter(\ColorThief\PQueue&lt;\ColorThief\VBox&gt;& $priorityQueue, float $target, array&lt;int,int&gt; $histo): void
+private static doCut(string $color, \ColorThief\VBox $vBox, int[] $partialSum, int $total): ?array
 ```
 
 
@@ -327,37 +354,10 @@ private static quantizeIter(\ColorThief\PQueue&lt;\ColorThief\VBox&gt;& $priorit
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$priorityQueue` | **\ColorThief\PQueue<\ColorThief\VBox>** |  |
-| `$target` | **float** |  |
-| `$histo` | **array<int,int>** |  |
-
-
-
-
-***
-
-### quantize
-
-
-
-```php
-private static quantize(int $numPixels, int $maxColors, array&lt;int,int&gt;& $histo): \ColorThief\Color[]
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$numPixels` | **int** | Number of image pixels analyzed |
-| `$maxColors` | **int** |  |
-| `$histo` | **array<int,int>** | Histogram |
+| `$color` | **string** |  |
+| `$vBox` | **\ColorThief\VBox** |  |
+| `$partialSum` | **int[]** |  |
+| `$total` | **int** |  |
 
 
 

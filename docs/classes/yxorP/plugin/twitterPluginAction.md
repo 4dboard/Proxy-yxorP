@@ -108,12 +108,12 @@ private route(string $event_name): void
 
 ***
 
-### onCheck
+### onCache
 
-Used to check if the event should be executed.
+A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
 
 ```php
-public onCheck(): void
+public onCache(): void
 ```
 
 
@@ -128,12 +128,12 @@ public onCheck(): void
 
 ***
 
-### onCache
+### onCheck
 
-A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
+Used to check if the event should be executed.
 
 ```php
-public onCache(): void
+public onCheck(): self
 ```
 
 

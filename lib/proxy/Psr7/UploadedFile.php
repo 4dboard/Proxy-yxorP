@@ -2,8 +2,8 @@
 
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\inc\Psr\Http\Message\StreamInterface;
-use yxorP\inc\Psr\Http\Message\UploadedFileInterface;
+use yxorP\lib\Psr\Http\Message\StreamInterface;
+use yxorP\lib\Psr\Http\Message\UploadedFileInterface;
 
 class UploadedFile implements UploadedFileInterface
 {
@@ -25,6 +25,57 @@ class UploadedFile implements UploadedFileInterface
         if ($this->isOk()) {
             $this->setStreamOrFile($streamOrFile);
         }
+    }
+
+    public function moveTo($targetPath)
+    {
+        $this->validateActive();
+        if (false === $this->isStringNotEmpty($targetPath)) {
+            throw new InvalidArgumentException('Invalid path provided for move operation; must be a non-empty string');
+        }
+        if ($this->file) {
+            $this->moved = php_sapi_name() == 'cli' ? rename($this->file, $targetPath) : move_uploaded_file($this->file, $targetPath);
+        } else {
+            copy_to_stream($this->getStream(), new LazyOpenStream($targetPath, 'w'));
+            $this->moved = true;
+        }
+        if (false === $this->moved) {
+            throw new RuntimeException(sprintf('Uploaded file could not be moved to %s', $targetPath));
+        }
+    }
+
+    public function isMoved()
+    {
+        return $this->moved;
+    }
+
+    public function getStream()
+    {
+        $this->validateActive();
+        if ($this->stream instanceof StreamInterface) {
+            return $this->stream;
+        }
+        return new LazyOpenStream($this->file, 'r+');
+    }
+
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    public function getClientFilename()
+    {
+        return $this->clientFilename;
+    }
+
+    public function getClientMediaType()
+    {
+        return $this->clientMediaType;
     }
 
     private function setError($error)
@@ -85,23 +136,6 @@ class UploadedFile implements UploadedFileInterface
         }
     }
 
-    public function moveTo($targetPath)
-    {
-        $this->validateActive();
-        if (false === $this->isStringNotEmpty($targetPath)) {
-            throw new InvalidArgumentException('Invalid path provided for move operation; must be a non-empty string');
-        }
-        if ($this->file) {
-            $this->moved = php_sapi_name() == 'cli' ? rename($this->file, $targetPath) : move_uploaded_file($this->file, $targetPath);
-        } else {
-            copy_to_stream($this->getStream(), new LazyOpenStream($targetPath, 'w'));
-            $this->moved = true;
-        }
-        if (false === $this->moved) {
-            throw new RuntimeException(sprintf('Uploaded file could not be moved to %s', $targetPath));
-        }
-    }
-
     private function validateActive()
     {
         if (false === $this->isOk()) {
@@ -112,42 +146,8 @@ class UploadedFile implements UploadedFileInterface
         }
     }
 
-    public function isMoved()
-    {
-        return $this->moved;
-    }
-
     private function isStringNotEmpty($param)
     {
         return is_string($param) && false === empty($param);
-    }
-
-    public function getStream()
-    {
-        $this->validateActive();
-        if ($this->stream instanceof StreamInterface) {
-            return $this->stream;
-        }
-        return new LazyOpenStream($this->file, 'r+');
-    }
-
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    public function getError()
-    {
-        return $this->error;
-    }
-
-    public function getClientFilename()
-    {
-        return $this->clientFilename;
-    }
-
-    public function getClientMediaType()
-    {
-        return $this->clientMediaType;
     }
 }

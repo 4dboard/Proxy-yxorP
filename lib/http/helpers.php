@@ -1,6 +1,6 @@
 <?php namespace yxorP\lib\http;
 
-use Cockpit;
+use App;
 use yxorP\lib\proxy\Client;
 use yxorP\lib\proxy\Cookie\FileCookieJar;
 
@@ -33,7 +33,7 @@ class helpers
         /**
          * Returning the HTML code for the video player.
          */
-        return ($html5) ? '<video width="' . $width . '" height="' . $height . '" controls autoplay><source src="' . proxify_url($url) . '" type="video/' . $extension . '">Your browser does not support the video tag.</video>' : '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="<param name="wmode" value="transparent" /><param name="flashvars" value=\'inc={"clip":"' . rawurlencode(proxify_url($url)) . '", "plugins": {"controls": {"autoHide" : 0} }}\' /></object>';
+        return ($html5) ? '<video width="' . $width . '" height="' . $height . '" controls autoplay><source src="' . $url . '" type="video/' . $extension . '">Your browser does not support the video tag.</video>' : '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="<param name=\"wmode\" value=\"transparent\" /><param name="flashvars" value=\'inc={"clip":"' . rawurlencode($url) . '", "plugins": {"controls": {"autoHide" : 0} }}\' /></object>';
     }
 
     /**
@@ -264,7 +264,7 @@ class helpers
      * A static method that is being called.
      *
      */
-    public static function cockpit_find(): mixed
+    public static function app_find(): mixed
     {
         return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_COLLECTIONS . CHAR_SLASH . APP_SITES, [APP_HOST => strtok(YXORP_SITE_DOMAIN, CHAR_COLON)]);
     }
@@ -276,7 +276,7 @@ class helpers
      * A static method that is being called.
      *
      */
-    public static function cockpit_global(): mixed
+    public static function app_global(): mixed
     {
         return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SINGLETONS, [APP_MODULE => APP_SETTINGS]);
     }
@@ -422,9 +422,9 @@ class helpers
     {
 
         /**
-         * Loading the cockpit.php file.
+         * Loading the app.php file.
          */
-        self::loadCockpit();
+        self::loadApp();
 
         /**
          * Reading the file and then calling the env function on each line.
@@ -456,7 +456,7 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::handler(SITE_DETAILS, null, 'yxorP\lib\http\helpers::cockpit_find');
+        store::handler(SITE_DETAILS, null, 'yxorP\lib\http\helpers::app_find');
 
         /**
          * Setting the pattern, replace, and plugins variables.
@@ -495,7 +495,7 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\lib\http\helpers::cockpit_global');
+        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\lib\http\helpers::app_global');
 
         /**
          * Setting the pattern, replace, and plugins variables.
@@ -516,16 +516,16 @@ class helpers
      * A method that takes an array as a parameter and returns nothing.
      *
      */
-    public static function loadCockpit(): void
+    public static function loadApp(): void
     {
         /**
-         * Requiring the COCKPIT library.
+         * Requiring the APP library.
          */
         require PATH_APP_BOOTSTRAP;
         /**
-         * Storing the cockpit object in the tmp store.
+         * Storing the app object in the tmp store.
          */
-        store::handler(YXORP_APP, Cockpit::instance());
+        store::handler(YXORP_APP, App::instance());
     }
 
     /**
@@ -567,7 +567,7 @@ class helpers
         define(YXORP_APP_SYSTEM_INSTALL, true);
 
         /**
-         * It's copying the files from the `local` directory to the `COCKPIT` directory.
+         * It's copying the files from the `local` directory to the `APP` directory.
          */
 
         if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_APP);
@@ -575,7 +575,7 @@ class helpers
     }
 
     /**
-     * "It's copying the files from the `local` directory to the `COCKPIT` directory."
+     * "It's copying the files from the `local` directory to the `APP` directory."
      * @param string $src
      * @param string $dst
      * @return void
@@ -610,7 +610,7 @@ class helpers
         /**
          * Setting the token PROXY to a new instance of the \yxorP\lib\proxy\Client class.
          */
-        store::handler(VAR_PROXY, new Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_PROXY, new Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
     }
 

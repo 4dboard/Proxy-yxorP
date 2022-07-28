@@ -78,33 +78,6 @@ public lstCollections(): array
 
 ***
 
-### getCollection
-
-
-
-```php
-public getCollection(string $name, ?string $db = null): \MongoLite\Collection
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-| `$db` | **?string** |  |
-
-
-
-
-***
-
 ### dropCollection
 
 
@@ -182,6 +155,33 @@ public findOne(string $collection, ?array $filter = null, ?array $projection = n
 | `$collection` | **string** |  |
 | `$filter` | **?array** |  |
 | `$projection` | **?array** |  |
+
+
+
+
+***
+
+### getCollection
+
+
+
+```php
+public getCollection(string $name, ?string $db = null): \MongoLite\Collection
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$db` | **?string** |  |
 
 
 

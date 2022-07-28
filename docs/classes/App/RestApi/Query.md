@@ -47,26 +47,6 @@ protected bool $initialized
 ## Methods
 
 
-### init
-
-
-
-```php
-public init(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### process
 
 
@@ -89,6 +69,26 @@ public process(string $path, string $method = &#039;GET&#039;, ?string $apiKey =
 | `$path` | **string** |  |
 | `$method` | **string** |  |
 | `$apiKey` | **?string** |  |
+
+
+
+
+***
+
+### init
+
+
+
+```php
+public init(): mixed
+```
+
+
+
+
+
+
+
 
 
 

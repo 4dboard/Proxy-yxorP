@@ -98,12 +98,12 @@ public push(mixed $item): void
 
 ***
 
-### close
+### __destruct
 
 
 
 ```php
-public close(): void
+public __destruct(): mixed
 ```
 
 
@@ -118,12 +118,12 @@ public close(): void
 
 ***
 
-### __destruct
+### close
 
 
 
 ```php
-public __destruct(): mixed
+public close(): void
 ```
 
 

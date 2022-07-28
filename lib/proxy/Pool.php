@@ -1,7 +1,7 @@
 <?php namespace yxorP\lib\proxy;
 
 use InvalidArgumentException;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise\EachPromise;
 use yxorP\lib\proxy\Promise\PromisorInterface;
 use function yxorP\lib\proxy\Promise\iter_for;

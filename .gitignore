@@ -1,11 +1,8 @@
 .idea
 .env
-/tmp/*
-!/tmp/.gitignore
-!/tmp/.htaccess
-/cockpit
-/cockpit/
-/cockpit/*
+/lib/tmp/*
+!/lib/tmp/.gitignore
+!/lib/tmp/.htaccess
 /override/*
 !/override/.gitignore
 !/override/.htaccess

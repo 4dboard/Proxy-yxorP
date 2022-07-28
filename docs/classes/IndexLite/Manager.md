@@ -58,32 +58,6 @@ public __construct(string $path, array $options = []): mixed
 
 ***
 
-### index
-
-
-
-```php
-public index(string $name): \IndexLite\Index
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
 ### createIndex
 
 
@@ -111,12 +85,12 @@ public createIndex(string $name, array $options): mixed
 
 ***
 
-### removeIndex
+### exists
 
 
 
 ```php
-public removeIndex(string $name): mixed
+public exists(string $name): bool
 ```
 
 
@@ -137,12 +111,38 @@ public removeIndex(string $name): mixed
 
 ***
 
-### exists
+### index
 
 
 
 ```php
-public exists(string $name): bool
+public index(string $name): \IndexLite\Index
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+
+
+
+
+***
+
+### removeIndex
+
+
+
+```php
+public removeIndex(string $name): mixed
 ```
 
 

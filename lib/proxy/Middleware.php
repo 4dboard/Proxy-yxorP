@@ -2,10 +2,9 @@
 
 use ArrayAccess;
 use InvalidArgumentException;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
-use yxorP\inc\Psr\Log\LoggerInterface;
 use yxorP\lib\proxy\Cookie\CookieJarInterface;
 use yxorP\lib\proxy\Exception\ARequestExceptionAA;
+use yxorP\lib\Psr\Http\Message\ResponseInterface;
 use function yxorP\lib\proxy\Promise\rejection_for;
 
 final class Middleware
@@ -95,23 +94,6 @@ final class Middleware
         };
     }
 
-    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info')
-    {
-        return function (callable $handler) use ($logger, $formatter, $logLevel) {
-            return function ($request, array $options) use ($handler, $logger, $formatter, $logLevel) {
-                return $handler($request, $options)->then(function ($response) use ($logger, $request, $formatter, $logLevel) {
-                    $message = $formatter->format($request, $response);
-                    $logger->log($logLevel, $message);
-                    return $response;
-                }, function ($reason) use ($logger, $request, $formatter) {
-                    $response = $reason instanceof ARequestExceptionAA ? $reason->getResponse() : null;
-                    $message = $formatter->format($request, $response, $reason);
-                    $logger->notice($message);
-                    return rejection_for($reason);
-                });
-            };
-        };
-    }
 
     public static function prepareBody()
     {

@@ -1,9 +1,9 @@
 <?php namespace yxorP\lib\proxy\Exception;
 
 use Exception;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
-use yxorP\inc\Psr\Http\Message\UriInterface;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
+use yxorP\lib\Psr\Http\Message\ResponseInterface;
+use yxorP\lib\Psr\Http\Message\UriInterface;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use function yxorP\lib\proxy\Psr7\get_message_body_summary;
 
@@ -53,6 +53,11 @@ class ARequestExceptionAA extends AATransferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return get_message_body_summary($response);
+    }
+
     private static function obfuscateUri(UriInterface $uri)
     {
         $userInfo = $uri->getUserInfo();
@@ -60,11 +65,6 @@ class ARequestExceptionAA extends AATransferException
             return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
         }
         return $uri;
-    }
-
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return get_message_body_summary($response);
     }
 
     public function getRequest()

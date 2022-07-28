@@ -5,11 +5,12 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
+use RuntimeException;
 use yxorP;
-use yxorP\lib\minify\minify;
 
 /**
  * A class that is used to cache data.
+ * @property $cache
  */
 class cache
 {
@@ -62,14 +63,5 @@ class cache
         file_put_contents(self::gen($key)['path'], sprintf("<?php header('Content-type: %s'); exit(die(%s)); ?>", helpers::MIME(), var_export($content, true)));
     }
 
-
-    /**
-     * It's writing the content to the cache file.
-     */
-
-    #[NoReturn] public static function write(?string $key = null): void
-    {
-        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace(self::$cache) : self::$cache), true) . '));')));
-    }
 
 }

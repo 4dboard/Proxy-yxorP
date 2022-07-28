@@ -1,6 +1,5 @@
 <?php namespace yxorP\lib\proxy\Promise;
 
-use Exception;
 use InvalidArgumentException;
 use LogicException;
 use Throwable;
@@ -35,8 +34,6 @@ class FulfilledPromise implements PromiseInterface
                 try {
                     $p->resolve($onFulfilled($value));
                 } catch (Throwable $e) {
-                    $p->reject($e);
-                } catch (Exception $e) {
                     $p->reject($e);
                 }
             }

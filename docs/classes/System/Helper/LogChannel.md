@@ -73,34 +73,6 @@ public __construct(string $name, mixed $app): mixed
 
 ***
 
-### addRecord
-
-
-
-```php
-protected addRecord(string $message, mixed $type = &#039;info&#039;, ?array $context = null): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$message` | **string** |  |
-| `$type` | **mixed** |  |
-| `$context` | **?array** |  |
-
-
-
-
-***
-
 ### info
 
 
@@ -256,6 +228,34 @@ public error(string $message, ?array $context = null): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
+| `$context` | **?array** |  |
+
+
+
+
+***
+
+### addRecord
+
+
+
+```php
+protected addRecord(string $message, mixed $type = &#039;info&#039;, ?array $context = null): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$message` | **string** |  |
+| `$type` | **mixed** |  |
 | `$context` | **?array** |  |
 
 

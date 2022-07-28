@@ -86,12 +86,58 @@ public __construct(string $name = null): mixed
 
 ***
 
+### instance
+
+
+
+```php
+public static instance(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### parseValue
 
 
 
 ```php
 public parseValue(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### identity
+
+
+
+```php
+private identity(mixed $value): mixed
 ```
 
 
@@ -159,52 +205,6 @@ public parseLiteral(mixed $valueNode, array $variables = null): mixed
 |-----------|------|-------------|
 | `$valueNode` | **mixed** |  |
 | `$variables` | **array** |  |
-
-
-
-
-***
-
-### identity
-
-
-
-```php
-private identity(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### instance
-
-
-
-```php
-public static instance(): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
 
 
 

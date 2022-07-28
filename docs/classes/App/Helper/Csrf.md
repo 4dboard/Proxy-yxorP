@@ -15,33 +15,6 @@
 ## Methods
 
 
-### generateToken
-
-
-
-```php
-public generateToken(string $key, ?int $expire = null): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$expire` | **?int** |  |
-
-
-
-
-***
-
 ### token
 
 
@@ -63,6 +36,33 @@ public token(string $key, bool $generate = false, ?int $expire = null): string
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$generate` | **bool** |  |
+| `$expire` | **?int** |  |
+
+
+
+
+***
+
+### generateToken
+
+
+
+```php
+public generateToken(string $key, ?int $expire = null): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
 | `$expire` | **?int** |  |
 
 

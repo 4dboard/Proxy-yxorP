@@ -58,33 +58,6 @@ public authenticate(array $data): mixed
 
 ***
 
-### getUser
-
-
-
-```php
-public getUser(?string $prop = null, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$prop` | **?string** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
 ### setUser
 
 
@@ -126,6 +99,33 @@ public logout(): void
 
 
 
+
+
+
+
+***
+
+### getUser
+
+
+
+```php
+public getUser(?string $prop = null, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$prop` | **?string** |  |
+| `$default` | **mixed** |  |
 
 
 

@@ -119,6 +119,32 @@ public static set(mixed $content, ?string $key = null): void
 
 ***
 
+### write
+
+It's writing the content to the cache file.
+
+```php
+public static write(?string $key = null): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **?string** |  |
+
+
+
+
+***
+
 
 ***
 

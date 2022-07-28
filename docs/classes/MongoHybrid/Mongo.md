@@ -109,33 +109,6 @@ public lstCollections(): array
 
 ***
 
-### getCollection
-
-
-
-```php
-public getCollection(string $name, ?string $db = null): \MongoDB\Collection
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-| `$db` | **?string** |  |
-
-
-
-
-***
-
 ### dropCollection
 
 
@@ -218,6 +191,33 @@ public findOneById(string $collection, mixed $id): ?array
 
 ***
 
+### getCollection
+
+
+
+```php
+public getCollection(string $name, ?string $db = null): \MongoDB\Collection
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$db` | **?string** |  |
+
+
+
+
+***
+
 ### findOne
 
 
@@ -240,6 +240,60 @@ public findOne(string $collection, ?array $filter = null, ?array $projection = n
 | `$collection` | **string** |  |
 | `$filter` | **?array** |  |
 | `$projection` | **?array** |  |
+
+
+
+
+***
+
+### _fixForMongo
+
+
+
+```php
+protected _fixForMongo(mixed& $data, bool $infinite = false, int $_level): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$data` | **mixed** |  |
+| `$infinite` | **bool** |  |
+| `$_level` | **int** |  |
+
+
+
+
+***
+
+### getObjectID
+
+
+
+```php
+protected getObjectID(mixed $v): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$v` | **mixed** |  |
 
 
 
@@ -515,60 +569,6 @@ public count(string $collection, ?array $filter = null, array $options = []): mi
 | `$collection` | **string** |  |
 | `$filter` | **?array** |  |
 | `$options` | **array** |  |
-
-
-
-
-***
-
-### _fixForMongo
-
-
-
-```php
-protected _fixForMongo(mixed& $data, bool $infinite = false, int $_level): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$data` | **mixed** |  |
-| `$infinite` | **bool** |  |
-| `$_level` | **int** |  |
-
-
-
-
-***
-
-### getObjectID
-
-
-
-```php
-protected getObjectID(mixed $v): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$v` | **mixed** |  |
 
 
 

@@ -26,20 +26,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_APP_DIR"
         },                {
-            "fqsen": "\\Cockpit",
-            "name": "Cockpit",
+            "fqsen": "\\App",
+            "name": "App",
             "summary": "",
-            "url": "classes/Cockpit.html"
+            "url": "classes/App.html"
         },                {
-            "fqsen": "\\Cockpit\u003A\u003A\u0024instance",
+            "fqsen": "\\App\u003A\u003A\u0024instance",
             "name": "instance",
             "summary": "",
-            "url": "classes/Cockpit.html#property_instance"
+            "url": "classes/App.html#property_instance"
         },                {
-            "fqsen": "\\Cockpit\u003A\u003Ainit\u0028\u0029",
+            "fqsen": "\\App\u003A\u003Ainit\u0028\u0029",
             "name": "init",
             "summary": "",
-            "url": "classes/Cockpit.html#method_init"
+            "url": "classes/App.html#method_init"
         },                {
             "fqsen": "\\APP_DOCUMENT_ROOT",
             "name": "APP_DOCUMENT_ROOT",
@@ -56,16 +56,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_APP_API_REQUEST"
         },                {
-            "fqsen": "\\hasSQLiteSupport\u0028\u0029",
-            "name": "hasSQLiteSupport",
-            "summary": "",
-            "url": "namespaces/default.html#function_hasSQLiteSupport"
-        },                {
-            "fqsen": "\\ensureWritableStorageFolder\u0028\u0029",
-            "name": "ensureWritableStorageFolder",
-            "summary": "",
-            "url": "namespaces/default.html#function_ensureWritableStorageFolder"
-        },                {
             "fqsen": "\\CLI",
             "name": "CLI",
             "summary": "",
@@ -81,15 +71,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/CLI.html#method_opts"
         },                {
-            "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "",
-            "url": "classes/CLI.html#method_write"
-        },                {
             "fqsen": "\\CLI\u003A\u003Awriteln\u0028\u0029",
             "name": "writeln",
             "summary": "",
             "url": "classes/CLI.html#method_writeln"
+        },                {
+            "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "",
+            "url": "classes/CLI.html#method_write"
         },                {
             "fqsen": "\\CLI\u003A\u003Aprogress\u0028\u0029",
             "name": "progress",
@@ -126,6 +116,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/FileStorage.html#method_addStorage"
         },                {
+            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
+            "name": "initStorage",
+            "summary": "",
+            "url": "classes/FileStorage.html#method_initStorage"
+        },                {
             "fqsen": "\\FileStorage\u003A\u003Ause\u0028\u0029",
             "name": "use",
             "summary": "",
@@ -135,11 +130,6 @@ Search.appendIndex(
             "name": "getURL",
             "summary": "",
             "url": "classes/FileStorage.html#method_getURL"
-        },                {
-            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
-            "name": "initStorage",
-            "summary": "",
-            "url": "classes/FileStorage.html#method_initStorage"
         },                {
             "fqsen": "\\FileStorage\u003A\u003A__call\u0028\u0029",
             "name": "__call",
@@ -181,15 +171,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IndexLite-Index.html#method_remove"
         },                {
-            "fqsen": "\\IndexLite\\Index\u003A\u003Asearch\u0028\u0029",
-            "name": "search",
-            "summary": "",
-            "url": "classes/IndexLite-Index.html#method_search"
-        },                {
             "fqsen": "\\IndexLite\\Index\u003A\u003Astringify\u0028\u0029",
             "name": "stringify",
             "summary": "",
             "url": "classes/IndexLite-Index.html#method_stringify"
+        },                {
+            "fqsen": "\\IndexLite\\Index\u003A\u003Asearch\u0028\u0029",
+            "name": "search",
+            "summary": "",
+            "url": "classes/IndexLite-Index.html#method_search"
         },                {
             "fqsen": "\\IndexLite\\Index\u003A\u003A\u0024path",
             "name": "path",
@@ -211,25 +201,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/IndexLite-Manager.html#method___construct"
         },                {
-            "fqsen": "\\IndexLite\\Manager\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/IndexLite-Manager.html#method_index"
-        },                {
             "fqsen": "\\IndexLite\\Manager\u003A\u003AcreateIndex\u0028\u0029",
             "name": "createIndex",
             "summary": "",
             "url": "classes/IndexLite-Manager.html#method_createIndex"
         },                {
-            "fqsen": "\\IndexLite\\Manager\u003A\u003AremoveIndex\u0028\u0029",
-            "name": "removeIndex",
-            "summary": "",
-            "url": "classes/IndexLite-Manager.html#method_removeIndex"
-        },                {
             "fqsen": "\\IndexLite\\Manager\u003A\u003Aexists\u0028\u0029",
             "name": "exists",
             "summary": "",
             "url": "classes/IndexLite-Manager.html#method_exists"
+        },                {
+            "fqsen": "\\IndexLite\\Manager\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/IndexLite-Manager.html#method_index"
+        },                {
+            "fqsen": "\\IndexLite\\Manager\u003A\u003AremoveIndex\u0028\u0029",
+            "name": "removeIndex",
+            "summary": "",
+            "url": "classes/IndexLite-Manager.html#method_removeIndex"
         },                {
             "fqsen": "\\IndexLite\\Manager\u003A\u003A\u0024path",
             "name": "path",
@@ -246,11 +236,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/JSONStream-CollectionReader.html#method___construct"
         },                {
-            "fqsen": "\\JSONStream\\CollectionReader\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "",
-            "url": "classes/JSONStream-CollectionReader.html#method_close"
-        },                {
             "fqsen": "\\JSONStream\\CollectionReader\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "",
@@ -265,6 +250,11 @@ Search.appendIndex(
             "name": "__destruct",
             "summary": "",
             "url": "classes/JSONStream-CollectionReader.html#method___destruct"
+        },                {
+            "fqsen": "\\JSONStream\\CollectionReader\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "",
+            "url": "classes/JSONStream-CollectionReader.html#method_close"
         },                {
             "fqsen": "\\JSONStream\\CollectionReader\u003A\u003ACHUNK_SIZE",
             "name": "CHUNK_SIZE",
@@ -306,15 +296,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/JSONStream-CollectionWriter.html#method_push"
         },                {
-            "fqsen": "\\JSONStream\\CollectionWriter\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "",
-            "url": "classes/JSONStream-CollectionWriter.html#method_close"
-        },                {
             "fqsen": "\\JSONStream\\CollectionWriter\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
             "summary": "",
             "url": "classes/JSONStream-CollectionWriter.html#method___destruct"
+        },                {
+            "fqsen": "\\JSONStream\\CollectionWriter\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "",
+            "url": "classes/JSONStream-CollectionWriter.html#method_close"
         },                {
             "fqsen": "\\JSONStream\\CollectionWriter\u003A\u003A\u0024resource",
             "name": "resource",
@@ -341,90 +331,100 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/Lime-App.html#method___construct"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003A__clone\u0028\u0029",
-            "name": "__clone",
-            "summary": "Object\u0020behavior\u0020on\u0020clone",
-            "url": "classes/Lime-App.html#method___clone"
+            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
+            "name": "retrieve",
+            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_retrieve"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
             "summary": "Get\u0020App\u0020instance",
             "url": "classes/Lime-App.html#method_instance"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003A__clone\u0028\u0029",
+            "name": "__clone",
+            "summary": "Object\u0020behavior\u0020on\u0020clone",
+            "url": "classes/Lime-App.html#method___clone"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Aservice\u0028\u0029",
             "name": "service",
             "summary": "Returns\u0020a\u0020closure\u0020that\u0020stores\u0020the\u0020result\u0020of\u0020the\u0020given\u0020closure",
             "url": "classes/Lime-App.html#method_service"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "stop\u0020application\u0020\u0028exit\u0029",
-            "url": "classes/Lime-App.html#method_stop"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
-            "name": "baseUrl",
-            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
-            "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Abase\u0028\u0029",
             "name": "base",
             "summary": "",
             "url": "classes/Lime-App.html#method_base"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
-            "name": "routeUrl",
-            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
-            "url": "classes/Lime-App.html#method_routeUrl"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_route"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
-            "name": "reroute",
-            "summary": "Redirect\u0020to\u0020path.",
-            "url": "classes/Lime-App.html#method_reroute"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_set"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
-            "name": "retrieve",
-            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_retrieve"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
-            "name": "path",
-            "summary": "Path\u0020helper\u0020method",
-            "url": "classes/Lime-App.html#method_path"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
-            "name": "paths",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_paths"
+            "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
+            "name": "baseUrl",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
+            "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003ApathToUrl\u0028\u0029",
             "name": "pathToUrl",
             "summary": "",
             "url": "classes/Lime-App.html#method_pathToUrl"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
-            "summary": "Cache\u0020helper\u0020method",
-            "url": "classes/Lime-App.html#method_cache"
+            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
+            "name": "path",
+            "summary": "Path\u0020helper\u0020method",
+            "url": "classes/Lime-App.html#method_path"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aon\u0028\u0029",
-            "name": "on",
-            "summary": "Bind\u0020an\u0020event\u0020to\u0020closure",
-            "url": "classes/Lime-App.html#method_on"
+            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
+            "name": "isAbsolutePath",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_isAbsolutePath"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_route"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
+            "name": "routeUrl",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
+            "url": "classes/Lime-App.html#method_routeUrl"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
+            "name": "reroute",
+            "summary": "Redirect\u0020to\u0020path.",
+            "url": "classes/Lime-App.html#method_reroute"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "stop\u0020application\u0020\u0028exit\u0029",
+            "url": "classes/Lime-App.html#method_stop"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
             "name": "trigger",
             "summary": "Trigger\u0020event.",
             "url": "classes/Lime-App.html#method_trigger"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_set"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
+            "name": "paths",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_paths"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
+            "summary": "Cache\u0020helper\u0020method",
+            "url": "classes/Lime-App.html#method_cache"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
+            "name": "helper",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_helper"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aon\u0028\u0029",
+            "name": "on",
+            "summary": "Bind\u0020an\u0020event\u0020to\u0020closure",
+            "url": "classes/Lime-App.html#method_on"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arender\u0028\u0029",
             "name": "render",
@@ -451,25 +451,30 @@ Search.appendIndex(
             "summary": "Escape\u0020string.",
             "url": "classes/Lime-App.html#method_escape"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Get\u0020style\u0020inc.\u0020markup",
-            "url": "classes/Lime-App.html#method_style"
+            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
+            "name": "assets",
+            "summary": "Get\u0020assets\u0020inc.\u0020markup",
+            "url": "classes/Lime-App.html#method_assets"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Get\u0020script\u0020inc.\u0020markup",
             "url": "classes/Lime-App.html#method_script"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
-            "name": "assets",
-            "summary": "Get\u0020assets\u0020inc.\u0020markup",
-            "url": "classes/Lime-App.html#method_assets"
+            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Get\u0020style\u0020inc.\u0020markup",
+            "url": "classes/Lime-App.html#method_style"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Bind\u0020GET\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_get"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
+            "name": "bind",
+            "summary": "Bind\u0020request\u0020to\u0020route",
+            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Apost\u0028\u0029",
             "name": "post",
@@ -481,20 +486,25 @@ Search.appendIndex(
             "summary": "Bind\u0020Class\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindClass"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
+            "name": "invoke",
+            "summary": "Invoke\u0020Class\u0020as\u0020controller",
+            "url": "classes/Lime-App.html#method_invoke"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003AbindNamespace\u0028\u0029",
             "name": "bindNamespace",
             "summary": "Bind\u0020namespace\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindNamespace"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
-            "name": "bind",
-            "summary": "Bind\u0020request\u0020to\u0020route",
-            "url": "classes/Lime-App.html#method_bind"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Arun\u0028\u0029",
             "name": "run",
             "summary": "Run\u0020Application\u0020request",
             "url": "classes/Lime-App.html#method_run"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
+            "name": "getRequestfromGlobals",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Adispatch\u0028\u0029",
             "name": "dispatch",
@@ -505,11 +515,6 @@ Search.appendIndex(
             "name": "render_route",
             "summary": "Render\u0020dispatched\u0020route",
             "url": "classes/Lime-App.html#method_render_route"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
-            "name": "invoke",
-            "summary": "Invoke\u0020Class\u0020as\u0020controller",
-            "url": "classes/Lime-App.html#method_invoke"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -541,45 +546,35 @@ Search.appendIndex(
             "summary": "Create\u0020Hash",
             "url": "classes/Lime-App.html#method_hash"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "RC4\u0020encryption",
-            "url": "classes/Lime-App.html#method_encode"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
             "summary": "Decode\u0020RC4\u0020encrypted\u0020text",
             "url": "classes/Lime-App.html#method_decode"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
-            "name": "helper",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_helper"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
-            "name": "isAbsolutePath",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_isAbsolutePath"
+            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "RC4\u0020encryption",
+            "url": "classes/Lime-App.html#method_encode"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Amodule\u0028\u0029",
             "name": "module",
             "summary": "",
             "url": "classes/Lime-App.html#method_module"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
-            "name": "registerModule",
+            "fqsen": "\\Lime\\App\u003A\u003AloadModules\u0028\u0029",
+            "name": "loadModules",
             "summary": "",
-            "url": "classes/Lime-App.html#method_registerModule"
+            "url": "classes/Lime-App.html#method_loadModules"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AloadModule\u0028\u0029",
             "name": "loadModule",
             "summary": "",
             "url": "classes/Lime-App.html#method_loadModule"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AloadModules\u0028\u0029",
-            "name": "loadModules",
+            "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
+            "name": "registerModule",
             "summary": "",
-            "url": "classes/Lime-App.html#method_loadModules"
+            "url": "classes/Lime-App.html#method_registerModule"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbootModule\u0028\u0029",
             "name": "bootModule",
@@ -616,35 +611,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-App.html#method___invoke"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
-            "name": "getRequestfromGlobals",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024apps",
             "name": "apps",
             "summary": "",
             "url": "classes/Lime-App.html#property_apps"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
-            "name": "registry",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_registry"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024routes",
-            "name": "routes",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_routes"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024events",
-            "name": "events",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_events"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024blocks",
-            "name": "blocks",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_blocks"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024response",
             "name": "response",
@@ -665,6 +635,26 @@ Search.appendIndex(
             "name": "layout",
             "summary": "",
             "url": "classes/Lime-App.html#property_layout"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
+            "name": "registry",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_registry"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024routes",
+            "name": "routes",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_routes"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024events",
+            "name": "events",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_events"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024blocks",
+            "name": "blocks",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_blocks"
         },                {
             "fqsen": "\\Lime\\AppAware",
             "name": "AppAware",
@@ -711,25 +701,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Module.html"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
-            "summary": "",
-            "url": "classes/Lime-Module.html#method_extend"
-        },                {
             "fqsen": "\\Lime\\Module\u003A\u003AbindApp\u0028\u0029",
             "name": "bindApp",
             "summary": "",
             "url": "classes/Lime-Module.html#method_bindApp"
+        },                {
+            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/Lime-Module.html#method___get"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/Lime-Module.html#method___set"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
+            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
             "summary": "",
-            "url": "classes/Lime-Module.html#method___get"
+            "url": "classes/Lime-Module.html#method_extend"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -746,11 +736,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Module.html#method___call"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003A\u0024apis",
-            "name": "apis",
-            "summary": "",
-            "url": "classes/Lime-Module.html#property_apis"
-        },                {
             "fqsen": "\\Lime\\Module\u003A\u003A\u0024_dir",
             "name": "_dir",
             "summary": "",
@@ -760,6 +745,11 @@ Search.appendIndex(
             "name": "_bootfile",
             "summary": "",
             "url": "classes/Lime-Module.html#property__bootfile"
+        },                {
+            "fqsen": "\\Lime\\Module\u003A\u003A\u0024apis",
+            "name": "apis",
+            "summary": "",
+            "url": "classes/Lime-Module.html#property_apis"
         },                {
             "fqsen": "\\Lime\\Helper",
             "name": "Helper",
@@ -771,20 +761,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html"
         },                {
-            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AgetCachePath\u0028\u0029",
+            "name": "getCachePath",
             "summary": "",
-            "url": "classes/Lime-Helper-Cache.html#method_initialize"
+            "url": "classes/Lime-Helper-Cache.html#method_getCachePath"
         },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AsetCachePath\u0028\u0029",
             "name": "setCachePath",
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_setCachePath"
-        },                {
-            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AgetCachePath\u0028\u0029",
-            "name": "getCachePath",
-            "summary": "",
-            "url": "classes/Lime-Helper-Cache.html#method_getCachePath"
         },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003Awrite\u0028\u0029",
             "name": "write",
@@ -805,6 +790,11 @@ Search.appendIndex(
             "name": "clear",
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_clear"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/Lime-Helper-Cache.html#method_initialize"
         },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003A\u0024prefix",
             "name": "prefix",
@@ -851,11 +841,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Filesystem.html#method_mkdir"
         },                {
-            "fqsen": "\\Lime\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/Lime-Helper-Filesystem.html#method_delete"
-        },                {
             "fqsen": "\\Lime\\Helper\\Filesystem\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
             "summary": "",
@@ -865,6 +850,11 @@ Search.appendIndex(
             "name": "rename",
             "summary": "",
             "url": "classes/Lime-Helper-Filesystem.html#method_rename"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/Lime-Helper-Filesystem.html#method_delete"
         },                {
             "fqsen": "\\Lime\\Helper\\Filesystem\u003A\u003AgetDirSize\u0028\u0029",
             "name": "getDirSize",
@@ -966,15 +956,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#method_regenerateId"
         },                {
-            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
-            "name": "initialized",
-            "summary": "",
-            "url": "classes/Lime-Helper-Session.html#property_initialized"
-        },                {
             "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#property_name"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
+            "name": "initialized",
+            "summary": "",
+            "url": "classes/Lime-Helper-Session.html#property_initialized"
         },                {
             "fqsen": "\\Lime\\Helper\\Utils",
             "name": "Utils",
@@ -1066,15 +1056,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Request.html"
         },                {
+            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Lime-Request.html#method___construct"
+        },                {
             "fqsen": "\\Lime\\Request\u003A\u003AfromGlobalRequest\u0028\u0029",
             "name": "fromGlobalRequest",
             "summary": "",
             "url": "classes/Lime-Request.html#method_fromGlobalRequest"
         },                {
-            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
+            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
+            "name": "getAllHeaders",
             "summary": "",
-            "url": "classes/Lime-Request.html#method___construct"
+            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -1091,25 +1086,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Request.html#method_getClientLang"
         },                {
-            "fqsen": "\\Lime\\Request\u003A\u003AgetSiteUrl\u0028\u0029",
-            "name": "getSiteUrl",
-            "summary": "",
-            "url": "classes/Lime-Request.html#method_getSiteUrl"
-        },                {
             "fqsen": "\\Lime\\Request\u003A\u003Ais\u0028\u0029",
             "name": "is",
             "summary": "",
             "url": "classes/Lime-Request.html#method_is"
         },                {
+            "fqsen": "\\Lime\\Request\u003A\u003AgetSiteUrl\u0028\u0029",
+            "name": "getSiteUrl",
+            "summary": "",
+            "url": "classes/Lime-Request.html#method_getSiteUrl"
+        },                {
             "fqsen": "\\Lime\\Request\u003A\u003AgetBearerToken\u0028\u0029",
             "name": "getBearerToken",
             "summary": "",
             "url": "classes/Lime-Request.html#method_getBearerToken"
-        },                {
-            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
-            "name": "getAllHeaders",
-            "summary": "",
-            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003A\u0024request",
             "name": "request",
@@ -1191,6 +1181,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#method_flush"
         },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
+            "name": "statusCodes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_statusCodes"
+        },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
+            "name": "mimeTypes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_mimeTypes"
+        },                {
             "fqsen": "\\Lime\\Response\u003A\u003A\u0024body",
             "name": "body",
             "summary": "",
@@ -1225,16 +1225,6 @@ Search.appendIndex(
             "name": "headers",
             "summary": "",
             "url": "classes/Lime-Response.html#property_headers"
-        },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
-            "name": "statusCodes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_statusCodes"
-        },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
-            "name": "mimeTypes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_mimeTypes"
         },                {
             "fqsen": "\\Mailer",
             "name": "Mailer",
@@ -1341,6 +1331,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MemoryStorage-Client.html#method_get"
         },                {
+            "fqsen": "\\MemoryStorage\\Client\u003A\u003Adecrypt\u0028\u0029",
+            "name": "decrypt",
+            "summary": "",
+            "url": "classes/MemoryStorage-Client.html#method_decrypt"
+        },                {
             "fqsen": "\\MemoryStorage\\Client\u003A\u003Aset\u0028\u0029",
             "name": "set",
             "summary": "",
@@ -1350,11 +1345,6 @@ Search.appendIndex(
             "name": "encrypt",
             "summary": "",
             "url": "classes/MemoryStorage-Client.html#method_encrypt"
-        },                {
-            "fqsen": "\\MemoryStorage\\Client\u003A\u003Adecrypt\u0028\u0029",
-            "name": "decrypt",
-            "summary": "",
-            "url": "classes/MemoryStorage-Client.html#method_decrypt"
         },                {
             "fqsen": "\\MemoryStorage\\Client\u003A\u003A__call\u0028\u0029",
             "name": "__call",
@@ -1406,16 +1396,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method_findTerm"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
-            "name": "getKey",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_getKey"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
-            "name": "setKey",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_setKey"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AremoveKey\u0028\u0029",
             "name": "removeKey",
             "summary": "Delete\u0020Key\u0028s\u0029",
@@ -1430,6 +1410,16 @@ Search.appendIndex(
             "name": "incrKey",
             "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/MongoHybrid-Client.html#method_incrKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_getKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
+            "name": "setKey",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_setKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AdecrKey\u0028\u0029",
             "name": "decrKey",
@@ -1456,16 +1446,6 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/MongoHybrid-Client.html#method_lindex"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hset"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hget"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -1475,11 +1455,6 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/MongoHybrid-Client.html#method_hexists"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/MongoHybrid-Client.html#method_hkeys"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -1491,6 +1466,11 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hlen"
         },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/MongoHybrid-Client.html#method_hkeys"
+        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -1500,6 +1480,16 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/MongoHybrid-Client.html#method_hincrby"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hget"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -1516,15 +1506,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method___call"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
-            "name": "driver",
-            "summary": "",
-            "url": "classes/MongoHybrid-Client.html#property_driver"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024type",
             "name": "type",
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#property_type"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
+            "name": "driver",
+            "summary": "",
+            "url": "classes/MongoHybrid-Client.html#property_driver"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo",
             "name": "Mongo",
@@ -1541,11 +1531,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_lstCollections"
         },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
-        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "",
@@ -1561,10 +1546,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOneById"
         },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
+        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AfindOne\u0028\u0029",
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOne"
+        },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixForMongo\u0028\u0029",
+            "name": "_fixForMongo",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method__fixForMongo"
+        },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetObjectID\u0028\u0029",
+            "name": "getObjectID",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method_getObjectID"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003Afind\u0028\u0029",
             "name": "find",
@@ -1616,16 +1616,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_count"
         },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixForMongo\u0028\u0029",
-            "name": "_fixForMongo",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method__fixForMongo"
-        },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetObjectID\u0028\u0029",
-            "name": "getObjectID",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method_getObjectID"
-        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A\u0024client",
             "name": "client",
             "summary": "",
@@ -1656,11 +1646,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method_lstCollections"
         },                {
-            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
-        },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "",
@@ -1675,6 +1660,11 @@ Search.appendIndex(
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method_findOne"
+        },                {
+            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
@@ -1796,6 +1786,11 @@ Search.appendIndex(
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Aggregation-Cursor.html#method_getData"
         },                {
+            "fqsen": "\\MongoLite\\Aggregation\\Cursor\u003A\u003Amake_cmp\u0028\u0029",
+            "name": "make_cmp",
+            "summary": "",
+            "url": "classes/MongoLite-Aggregation-Cursor.html#method_make_cmp"
+        },                {
             "fqsen": "\\MongoLite\\Aggregation\\Cursor\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "Iterator\u0020implementation",
@@ -1820,11 +1815,6 @@ Search.appendIndex(
             "name": "valid",
             "summary": "",
             "url": "classes/MongoLite-Aggregation-Cursor.html#method_valid"
-        },                {
-            "fqsen": "\\MongoLite\\Aggregation\\Cursor\u003A\u003Amake_cmp\u0028\u0029",
-            "name": "make_cmp",
-            "summary": "",
-            "url": "classes/MongoLite-Aggregation-Cursor.html#method_make_cmp"
         },                {
             "fqsen": "\\MongoLite\\Aggregation\\Cursor\u003A\u003A\u0024position",
             "name": "position",
@@ -2011,25 +2001,20 @@ Search.appendIndex(
             "summary": "Loop\u0020through\u0020result\u0020set",
             "url": "classes/MongoLite-Cursor.html#method_each"
         },                {
+            "fqsen": "\\MongoLite\\Cursor\u003A\u003Acurrent\u0028\u0029",
+            "name": "current",
+            "summary": "",
+            "url": "classes/MongoLite-Cursor.html#method_current"
+        },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Cursor.html#method_toArray"
         },                {
-            "fqsen": "\\MongoLite\\Cursor\u003A\u003AgetData\u0028\u0029",
-            "name": "getData",
-            "summary": "Get\u0020documents\u0020matching\u0020criteria",
-            "url": "classes/MongoLite-Cursor.html#method_getData"
-        },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "Iterator\u0020implementation",
             "url": "classes/MongoLite-Cursor.html#method_rewind"
-        },                {
-            "fqsen": "\\MongoLite\\Cursor\u003A\u003Acurrent\u0028\u0029",
-            "name": "current",
-            "summary": "",
-            "url": "classes/MongoLite-Cursor.html#method_current"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Akey\u0028\u0029",
             "name": "key",
@@ -2045,6 +2030,11 @@ Search.appendIndex(
             "name": "valid",
             "summary": "",
             "url": "classes/MongoLite-Cursor.html#method_valid"
+        },                {
+            "fqsen": "\\MongoLite\\Cursor\u003A\u003AgetData\u0028\u0029",
+            "name": "getData",
+            "summary": "Get\u0020documents\u0020matching\u0020criteria",
+            "url": "classes/MongoLite-Cursor.html#method_getData"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003A\u0024position",
             "name": "position",
@@ -2096,15 +2086,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/MongoLite-Database.html#method___construct"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
-            "name": "registerCriteriaFunction",
-            "summary": "Register\u0020Criteria\u0020function",
-            "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AcallCriteriaFunction\u0028\u0029",
             "name": "callCriteriaFunction",
             "summary": "Execute\u0020registred\u0020criteria\u0020function",
             "url": "classes/MongoLite-Database.html#method_callCriteriaFunction"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
+            "name": "registerCriteriaFunction",
+            "summary": "Register\u0020Criteria\u0020function",
+            "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003Avacuum\u0028\u0029",
             "name": "vacuum",
@@ -2116,35 +2106,35 @@ Search.appendIndex(
             "summary": "Drop\u0020database",
             "url": "classes/MongoLite-Database.html#method_drop"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
-            "name": "createCollection",
-            "summary": "Create\u0020a\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_createCollection"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "Drop\u0020a\u0020collection",
             "url": "classes/MongoLite-Database.html#method_dropCollection"
-        },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
-            "name": "getCollectionNames",
-            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
-            "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AlistCollections\u0028\u0029",
             "name": "listCollections",
             "summary": "Get\u0020all\u0020collections\u0020in\u0020the\u0020database",
             "url": "classes/MongoLite-Database.html#method_listCollections"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
-            "name": "selectCollection",
-            "summary": "Select\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_selectCollection"
+            "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
+            "name": "getCollectionNames",
+            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
+            "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
             "url": "classes/MongoLite-Database.html#method___get"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
+            "name": "selectCollection",
+            "summary": "Select\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_selectCollection"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
+            "name": "createCollection",
+            "summary": "Create\u0020a\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_createCollection"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003ADSN_PATH_MEMORY",
             "name": "DSN_PATH_MEMORY",
@@ -2203,12 +2193,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\RedisLite",
             "name": "RedisLite",
-            "summary": "RedisLite\u0020class.",
+            "summary": "",
             "url": "classes/RedisLite.html"
         },                {
             "fqsen": "\\RedisLite\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor",
+            "summary": "",
             "url": "classes/RedisLite.html#method___construct"
         },                {
             "fqsen": "\\RedisLite\u003A\u003AcreateTable\u0028\u0029",
@@ -2216,129 +2206,129 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/RedisLite.html#method_createTable"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_get"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_set"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Aflushdb\u0028\u0029",
             "name": "flushdb",
-            "summary": "Clear\u0020database",
+            "summary": "",
             "url": "classes/RedisLite.html#method_flushdb"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
-            "name": "exists",
-            "summary": "Check\u0020if\u0020key\u0020exists",
-            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Akeys\u0028\u0029",
             "name": "keys",
-            "summary": "Get\u0020all\u0020keys\u0020matching\u0020a\u0020pattern",
+            "summary": "",
             "url": "classes/RedisLite.html#method_keys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Adel\u0028\u0029",
             "name": "del",
-            "summary": "Delete\u0020Key\u0028s\u0029",
+            "summary": "",
             "url": "classes/RedisLite.html#method_del"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Atype\u0028\u0029",
             "name": "type",
-            "summary": "Get\u0020value\u0020type",
+            "summary": "",
             "url": "classes/RedisLite.html#method_type"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
-            "name": "incr",
-            "summary": "Increment\u0020value\u0020by\u0020x",
-            "url": "classes/RedisLite.html#method_incr"
+            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_get"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Adecr\u0028\u0029",
             "name": "decr",
-            "summary": "Decrement\u0020value\u0020by\u0020x",
+            "summary": "",
             "url": "classes/RedisLite.html#method_decr"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
+            "name": "incr",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_incr"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_set"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
+            "name": "exists",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Allen\u0028\u0029",
             "name": "llen",
-            "summary": "Count\u0020\u0024value\u0020items",
+            "summary": "",
             "url": "classes/RedisLite.html#method_llen"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Arpush\u0028\u0029",
             "name": "rpush",
-            "summary": "Add\u0020item\u0020to\u0020a\u0020value\u0020\u0028right\u0029",
+            "summary": "",
             "url": "classes/RedisLite.html#method_rpush"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Alpush\u0028\u0029",
             "name": "lpush",
-            "summary": "Add\u0020item\u0020to\u0020a\u0020value\u0020\u0028left\u0029",
+            "summary": "",
             "url": "classes/RedisLite.html#method_lpush"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Alset\u0028\u0029",
             "name": "lset",
-            "summary": "Set\u0020the\u0020value\u0020of\u0020an\u0020element\u0020in\u0020a\u0020list\u0020by\u0020its\u0020index",
+            "summary": "",
             "url": "classes/RedisLite.html#method_lset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Alindex\u0028\u0029",
             "name": "lindex",
-            "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
+            "summary": "",
             "url": "classes/RedisLite.html#method_lindex"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hset"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hget"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hgetall"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahexists\u0028\u0029",
             "name": "hexists",
-            "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hexists"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/RedisLite.html#method_hkeys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
-            "summary": "Get\u0020all\u0020the\u0020values\u0020in\u0020a\u0020hash",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hvals"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahlen\u0028\u0029",
             "name": "hlen",
-            "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hlen"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_hkeys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
-            "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hdel"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahincrby\u0028\u0029",
             "name": "hincrby",
-            "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hincrby"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_hget"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "",
+            "url": "classes/RedisLite.html#method_hset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
-            "summary": "Get\u0020the\u0020values\u0020of\u0020all\u0020the\u0020given\u0020hash\u0020fields",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hmget"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmset\u0028\u0029",
             "name": "hmset",
-            "summary": "Set\u0020multiple\u0020hash\u0020fields\u0020to\u0020multiple\u0020values",
+            "summary": "",
             "url": "classes/RedisLite.html#method_hmset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003A\u0024path",
@@ -42111,25 +42101,25 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/App-Controller-Authenticated.html"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AunlockResource\u0028\u0029",
+            "name": "unlockResource",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_initialize"
+            "url": "classes/App-Controller-Authenticated.html#method_unlockResource"
         },                {
             "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AisAllowed\u0028\u0029",
             "name": "isAllowed",
             "summary": "",
             "url": "classes/App-Controller-Authenticated.html#method_isAllowed"
         },                {
+            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Controller-Authenticated.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AcheckAndLockResource\u0028\u0029",
             "name": "checkAndLockResource",
             "summary": "",
             "url": "classes/App-Controller-Authenticated.html#method_checkAndLockResource"
-        },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AunlockResource\u0028\u0029",
-            "name": "unlockResource",
-            "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_unlockResource"
         },                {
             "fqsen": "\\App\\Controller\\Authenticated\u003A\u003A\u0024user",
             "name": "user",
@@ -42141,15 +42131,15 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/App-Controller-Base.html"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Controller-Base.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Controller\\Base\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
             "url": "classes/App-Controller-Base.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\Base\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Controller-Base.html#method_initialize"
         },                {
             "fqsen": "\\App\\Controller\\Base\u003A\u003Abefore\u0028\u0029",
             "name": "before",
@@ -42241,20 +42231,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Query.html"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
-            "summary": "",
-            "url": "classes/App-GraphQL-Query.html#method_init"
-        },                {
             "fqsen": "\\App\\GraphQL\\Query\u003A\u003Aprocess\u0028\u0029",
             "name": "process",
             "summary": "",
             "url": "classes/App-GraphQL-Query.html#method_process"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
-            "name": "initialized",
+            "fqsen": "\\App\\GraphQL\\Query\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_initialized"
+            "url": "classes/App-GraphQL-Query.html#method_init"
         },                {
             "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024queries",
             "name": "queries",
@@ -42276,15 +42261,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Query.html#property_directives"
         },                {
+            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
+            "name": "initialized",
+            "summary": "",
+            "url": "classes/App-GraphQL-Query.html#property_initialized"
+        },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes",
             "name": "FieldTypes",
             "summary": "",
             "url": "classes/App-GraphQL-Types-FieldTypes.html"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AgetName\u0028\u0029",
-            "name": "getName",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getName"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AbuildFieldsDefinitions\u0028\u0029",
             "name": "buildFieldsDefinitions",
@@ -42295,6 +42280,11 @@ Search.appendIndex(
             "name": "getType",
             "summary": "",
             "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getType"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getName"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
@@ -42321,10 +42311,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Types-JsonType.html#method___construct"
         },                {
+            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-JsonType.html#method_instance"
+        },                {
             "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003AparseValue\u0028\u0029",
             "name": "parseValue",
             "summary": "",
             "url": "classes/App-GraphQL-Types-JsonType.html#method_parseValue"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aidentity\u0028\u0029",
+            "name": "identity",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-JsonType.html#method_identity"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aserialize\u0028\u0029",
             "name": "serialize",
@@ -42335,16 +42335,6 @@ Search.appendIndex(
             "name": "parseLiteral",
             "summary": "",
             "url": "classes/App-GraphQL-Types-JsonType.html#method_parseLiteral"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aidentity\u0028\u0029",
-            "name": "identity",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_identity"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_instance"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003A\u0024name",
             "name": "name",
@@ -42361,6 +42351,11 @@ Search.appendIndex(
             "summary": "Scalar\u0020Type\u0020Definition",
             "url": "classes/App-GraphQL-Types-UploadType.html"
         },                {
+            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-UploadType.html#method_instance"
+        },                {
             "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Aserialize\u0028\u0029",
             "name": "serialize",
             "summary": "Serializes\u0020an\u0020internal\u0020value\u0020to\u0020include\u0020in\u0020a\u0020response.",
@@ -42376,11 +42371,6 @@ Search.appendIndex(
             "summary": "Parses\u0020an\u0020externally\u0020provided\u0020literal\u0020value\u0020\u0028hardcoded\u0020in\u0020GraphQL\u0020query\u0029\u0020to\u0020use\u0020as\u0020an\u0020input",
             "url": "classes/App-GraphQL-Types-UploadType.html#method_parseLiteral"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-UploadType.html#method_instance"
-        },                {
             "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
@@ -42395,11 +42385,6 @@ Search.appendIndex(
             "name": "Acl",
             "summary": "",
             "url": "classes/App-Helper-Acl.html"
-        },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-Acl.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\Acl\u003A\u003A\u0024roles",
             "name": "roles",
@@ -42421,20 +42406,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Acl.html#method_cache"
         },                {
+            "fqsen": "\\App\\Helper\\Acl\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-Acl.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Helper\\Admin",
             "name": "Admin",
             "summary": "",
             "url": "classes/App-Helper-Admin.html"
-        },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_isResourceLocked"
-        },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
-            "name": "isResourceEditableByCurrentUser",
-            "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_isResourceEditableByCurrentUser"
         },                {
             "fqsen": "\\App\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
@@ -42445,6 +42425,16 @@ Search.appendIndex(
             "name": "updateLockedResourceId",
             "summary": "",
             "url": "classes/App-Helper-Admin.html#method_updateLockedResourceId"
+        },                {
+            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
+            "name": "isResourceEditableByCurrentUser",
+            "summary": "",
+            "url": "classes/App-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+        },                {
+            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/App-Helper-Admin.html#method_isResourceLocked"
         },                {
             "fqsen": "\\App\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
             "name": "unlockResourceId",
@@ -42461,11 +42451,6 @@ Search.appendIndex(
             "summary": "Async\u0020Helper\u0020class.",
             "url": "classes/App-Helper-Async.html"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-Async.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
             "name": "exec",
             "summary": "",
@@ -42475,6 +42460,11 @@ Search.appendIndex(
             "name": "finished",
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_finished"
+        },                {
+            "fqsen": "\\App\\Helper\\Async\u003A\u003Apossible\u0028\u0029",
+            "name": "possible",
+            "summary": "",
+            "url": "classes/App-Helper-Async.html#method_possible"
         },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
@@ -42486,10 +42476,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_isExecAvailable"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Apossible\u0028\u0029",
-            "name": "possible",
+            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_possible"
+            "url": "classes/App-Helper-Async.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
@@ -42506,11 +42496,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Auth.html#method_authenticate"
         },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003AgetUser\u0028\u0029",
-            "name": "getUser",
-            "summary": "",
-            "url": "classes/App-Helper-Auth.html#method_getUser"
-        },                {
             "fqsen": "\\App\\Helper\\Auth\u003A\u003AsetUser\u0028\u0029",
             "name": "setUser",
             "summary": "",
@@ -42520,6 +42505,11 @@ Search.appendIndex(
             "name": "logout",
             "summary": "",
             "url": "classes/App-Helper-Auth.html#method_logout"
+        },                {
+            "fqsen": "\\App\\Helper\\Auth\u003A\u003AgetUser\u0028\u0029",
+            "name": "getUser",
+            "summary": "",
+            "url": "classes/App-Helper-Auth.html#method_getUser"
         },                {
             "fqsen": "\\App\\Helper\\Auth\u003A\u003A\u0024sessionKey",
             "name": "sessionKey",
@@ -42531,15 +42521,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Csrf.html"
         },                {
-            "fqsen": "\\App\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
-            "name": "generateToken",
-            "summary": "",
-            "url": "classes/App-Helper-Csrf.html#method_generateToken"
-        },                {
             "fqsen": "\\App\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
             "name": "token",
             "summary": "",
             "url": "classes/App-Helper-Csrf.html#method_token"
+        },                {
+            "fqsen": "\\App\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "name": "generateToken",
+            "summary": "",
+            "url": "classes/App-Helper-Csrf.html#method_generateToken"
         },                {
             "fqsen": "\\App\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
             "name": "isValid",
@@ -42571,11 +42561,6 @@ Search.appendIndex(
             "summary": "I18n\u0020class.\u0020Manage\u0020translations",
             "url": "classes/App-Helper-i18n.html"
         },                {
-            "fqsen": "\\App\\Helper\\i18n\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-i18n.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\i18n\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Get\u0020translated\u0020string\u0020by\u0020key",
@@ -42596,15 +42581,10 @@ Search.appendIndex(
             "summary": "Get\u0020language\u0020data",
             "url": "classes/App-Helper-i18n.html#method_data"
         },                {
-            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024locale",
-            "name": "locale",
+            "fqsen": "\\App\\Helper\\i18n\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-i18n.html#property_locale"
-        },                {
-            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024_languages",
-            "name": "_languages",
-            "summary": "",
-            "url": "classes/App-Helper-i18n.html#property__languages"
+            "url": "classes/App-Helper-i18n.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024locales",
             "name": "locales",
@@ -42621,20 +42601,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-i18n.html#property_currencies"
         },                {
+            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024locale",
+            "name": "locale",
+            "summary": "",
+            "url": "classes/App-Helper-i18n.html#property_locale"
+        },                {
+            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024_languages",
+            "name": "_languages",
+            "summary": "",
+            "url": "classes/App-Helper-i18n.html#property__languages"
+        },                {
             "fqsen": "\\App\\Helper\\JWT",
             "name": "JWT",
             "summary": "",
             "url": "classes/App-Helper-JWT.html"
         },                {
-            "fqsen": "\\App\\Helper\\JWT\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/App-Helper-JWT.html#method_create"
-        },                {
             "fqsen": "\\App\\Helper\\JWT\u003A\u003Aencode\u0028\u0029",
             "name": "encode",
             "summary": "alias\u0020for\u0020create",
             "url": "classes/App-Helper-JWT.html#method_encode"
+        },                {
+            "fqsen": "\\App\\Helper\\JWT\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/App-Helper-JWT.html#method_create"
         },                {
             "fqsen": "\\App\\Helper\\JWT\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
@@ -42666,25 +42656,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html"
         },                {
-            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-ResponseCache.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html#method_handle"
+        },                {
+            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003AgetCache\u0028\u0029",
+            "name": "getCache",
+            "summary": "",
+            "url": "classes/App-Helper-ResponseCache.html#method_getCache"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html#method_cache"
         },                {
-            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003AgetCache\u0028\u0029",
-            "name": "getCache",
+            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-ResponseCache.html#method_getCache"
+            "url": "classes/App-Helper-ResponseCache.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003A\u0024cacheHandler",
             "name": "cacheHandler",
@@ -42726,11 +42716,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Theme.html"
         },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-Theme.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024title",
             "name": "title",
             "summary": "",
@@ -42766,70 +42751,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Theme.html#property_vars"
         },                {
-            "fqsen": "\\App\\Helper\\TWFA",
-            "name": "TWFA",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\App\\Helper\\Theme\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-TWFA.html#method_initialize"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003AcreateSecret\u0028\u0029",
-            "name": "createSecret",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html#method_createSecret"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003AgetQRCodeImageAsDataUri\u0028\u0029",
-            "name": "getQRCodeImageAsDataUri",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html#method_getQRCodeImageAsDataUri"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003AgetQRCodeImage\u0028\u0029",
-            "name": "getQRCodeImage",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html#method_getQRCodeImage"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003AverifyCode\u0028\u0029",
-            "name": "verifyCode",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html#method_verifyCode"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003A\u0024tfa",
-            "name": "tfa",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html#property_tfa"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFAQRCodeRenderer",
-            "name": "TWFAQRCodeRenderer",
-            "summary": "",
-            "url": "classes/App-Helper-TWFAQRCodeRenderer.html"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFAQRCodeRenderer\u003A\u003AgetMimeType\u0028\u0029",
-            "name": "getMimeType",
-            "summary": "Returns\u0020the\u0020appropriate\u0020mime\u0020type\u0020for\u0020the\u0020QR\u0020code\nthat\u0020will\u0020be\u0020generated",
-            "url": "classes/App-Helper-TWFAQRCodeRenderer.html#method_getMimeType"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFAQRCodeRenderer\u003A\u003AgetQRCodeImage\u0028\u0029",
-            "name": "getQRCodeImage",
-            "summary": "Generate\u0020and\u0020return\u0020the\u0020QR\u0020code\u0020to\u0020embed\u0020in\u0020a\u0020web\u0020page",
-            "url": "classes/App-Helper-TWFAQRCodeRenderer.html#method_getQRCodeImage"
+            "url": "classes/App-Helper-Theme.html#method_initialize"
         },                {
             "fqsen": "\\App\\RestApi\\Query",
             "name": "Query",
             "summary": "",
             "url": "classes/App-RestApi-Query.html"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
-            "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_init"
-        },                {
             "fqsen": "\\App\\RestApi\\Query\u003A\u003Aprocess\u0028\u0029",
             "name": "process",
             "summary": "",
             "url": "classes/App-RestApi-Query.html#method_process"
+        },                {
+            "fqsen": "\\App\\RestApi\\Query\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/App-RestApi-Query.html#method_init"
         },                {
             "fqsen": "\\App\\RestApi\\Query\u003A\u003AaddEndPoint\u0028\u0029",
             "name": "addEndPoint",
@@ -42981,60 +42921,25 @@ Search.appendIndex(
             "summary": "Class\u0020SVGSanitizer",
             "url": "classes/SVGSanitizer.html"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
-            "name": "clean",
-            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
-            "url": "classes/SVGSanitizer.html#method_clean"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/SVGSanitizer.html#method___construct"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
-            "name": "resetInternal",
-            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
-            "url": "classes/SVGSanitizer.html#method_resetInternal"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
-            "name": "setXMLOptions",
-            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
-            "name": "getXMLOptions",
-            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
-            "name": "getAllowedTags",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
-            "name": "setAllowedTags",
-            "summary": "Set\u0020custom\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
-            "name": "getAllowedAttrs",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
-            "name": "setAllowedAttrs",
-            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
-            "name": "removeRemoteReferences",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
+            "name": "clean",
+            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
+            "url": "classes/SVGSanitizer.html#method_clean"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
             "name": "sanitize",
             "summary": "Sanitize\u0020the\u0020passed\u0020string",
             "url": "classes/SVGSanitizer.html#method_sanitize"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
+            "name": "resetInternal",
+            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
+            "url": "classes/SVGSanitizer.html#method_resetInternal"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
             "name": "setUpBefore",
@@ -43061,36 +42966,6 @@ Search.appendIndex(
             "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
             "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
-            "name": "cleanXlinkHrefs",
-            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
-            "name": "cleanHrefs",
-            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
-            "name": "removeNonPrintableCharacters",
-            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
-            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
-            "name": "hasRemoteReference",
-            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
-            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
-            "name": "minify",
-            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
-            "url": "classes/SVGSanitizer.html#method_minify"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
-            "name": "removeXMLTag",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
             "name": "isAriaAttribute",
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
@@ -43101,10 +42976,75 @@ Search.appendIndex(
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
             "url": "classes/SVGSanitizer.html#method_isDataAttribute"
         },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
+            "name": "hasRemoteReference",
+            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
+            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
+            "name": "removeNonPrintableCharacters",
+            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
+            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
+            "name": "cleanXlinkHrefs",
+            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
+            "name": "cleanHrefs",
+            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
+        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
             "name": "isUseTagDirty",
             "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
             "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
+            "name": "getXMLOptions",
+            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
+            "name": "setXMLOptions",
+            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
+            "name": "getAllowedTags",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
+            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
+            "name": "setAllowedTags",
+            "summary": "Set\u0020custom\u0020allowed\u0020tags",
+            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
+            "name": "getAllowedAttrs",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
+            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
+            "name": "setAllowedAttrs",
+            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
+            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
+            "name": "removeRemoteReferences",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
+            "name": "minify",
+            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
+            "url": "classes/SVGSanitizer.html#method_minify"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
+            "name": "removeXMLTag",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
@@ -43196,30 +43136,15 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020indexed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
-            "name": "vendorDir",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
-        },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024registeredLoaders",
             "name": "registeredLoaders",
             "summary": "",
             "url": "classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders"
         },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
-            "name": "getInstalled",
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
+            "name": "vendorDir",
             "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
-            "name": "canGetVendors",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
-            "name": "installedByVendor",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
         },                {
             "fqsen": "\\ColorThief\\Color",
             "name": "Color",
@@ -43246,30 +43171,30 @@ Search.appendIndex(
             "summary": "Get\u0020blue\u0020value.",
             "url": "classes/ColorThief-Color.html#method_getBlue"
         },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003AgetInt\u0028\u0029",
-            "name": "getInt",
-            "summary": "Calculates\u0020integer\u0020value\u0020of\u0020current\u0020color\u0020instance.",
-            "url": "classes/ColorThief-Color.html#method_getInt"
-        },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003AgetHex\u0028\u0029",
-            "name": "getHex",
-            "summary": "Calculates\u0020hexadecimal\u0020value\u0020of\u0020current\u0020color\u0020instance.",
-            "url": "classes/ColorThief-Color.html#method_getHex"
-        },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003AgetArray\u0028\u0029",
-            "name": "getArray",
-            "summary": "Calculates\u0020RGB\u0020in\u0020array\u0020format\u0020of\u0020current\u0020color\u0020instance.",
-            "url": "classes/ColorThief-Color.html#method_getArray"
+            "fqsen": "\\ColorThief\\Color\u003A\u003Aformat\u0028\u0029",
+            "name": "format",
+            "summary": "Formats\u0020current\u0020color\u0020instance\u0020into\u0020given\u0020format.",
+            "url": "classes/ColorThief-Color.html#method_format"
         },                {
             "fqsen": "\\ColorThief\\Color\u003A\u003AgetRgb\u0028\u0029",
             "name": "getRgb",
             "summary": "Calculates\u0020RGB\u0020in\u0020string\u0020format\u0020of\u0020current\u0020color\u0020instance.",
             "url": "classes/ColorThief-Color.html#method_getRgb"
         },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003Aformat\u0028\u0029",
-            "name": "format",
-            "summary": "Formats\u0020current\u0020color\u0020instance\u0020into\u0020given\u0020format.",
-            "url": "classes/ColorThief-Color.html#method_format"
+            "fqsen": "\\ColorThief\\Color\u003A\u003AgetHex\u0028\u0029",
+            "name": "getHex",
+            "summary": "Calculates\u0020hexadecimal\u0020value\u0020of\u0020current\u0020color\u0020instance.",
+            "url": "classes/ColorThief-Color.html#method_getHex"
+        },                {
+            "fqsen": "\\ColorThief\\Color\u003A\u003AgetInt\u0028\u0029",
+            "name": "getInt",
+            "summary": "Calculates\u0020integer\u0020value\u0020of\u0020current\u0020color\u0020instance.",
+            "url": "classes/ColorThief-Color.html#method_getInt"
+        },                {
+            "fqsen": "\\ColorThief\\Color\u003A\u003AgetArray\u0028\u0029",
+            "name": "getArray",
+            "summary": "Calculates\u0020RGB\u0020in\u0020array\u0020format\u0020of\u0020current\u0020color\u0020instance.",
+            "url": "classes/ColorThief-Color.html#method_getArray"
         },                {
             "fqsen": "\\ColorThief\\Color\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
@@ -43296,16 +43221,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorIndex\u0028\u0029",
-            "name": "getColorIndex",
-            "summary": "Get\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029\u0020from\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020\u00280\u002D31\u0029.",
-            "url": "classes/ColorThief-ColorThief.html#method_getColorIndex"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorsFromIndex\u0028\u0029",
-            "name": "getColorsFromIndex",
-            "summary": "Get\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020from\u0020a\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029.",
-            "url": "classes/ColorThief-ColorThief.html#method_getColorsFromIndex"
-        },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
             "summary": "Gets\u0020the\u0020dominant\u0020color\u0020from\u0020the\u0020image\u0020using\u0020the\u0020median\u0020cut\u0020algorithm\u0020to\u0020cluster\u0020similar\u0020colors.",
@@ -43321,15 +43236,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_loadImage"
         },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorIndex\u0028\u0029",
+            "name": "getColorIndex",
+            "summary": "Get\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029\u0020from\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020\u00280\u002D31\u0029.",
+            "url": "classes/ColorThief-ColorThief.html#method_getColorIndex"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003Aquantize\u0028\u0029",
+            "name": "quantize",
+            "summary": "",
+            "url": "classes/ColorThief-ColorThief.html#method_quantize"
+        },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AvboxFromHistogram\u0028\u0029",
             "name": "vboxFromHistogram",
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_vboxFromHistogram"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AdoCut\u0028\u0029",
-            "name": "doCut",
-            "summary": "",
-            "url": "classes/ColorThief-ColorThief.html#method_doCut"
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorsFromIndex\u0028\u0029",
+            "name": "getColorsFromIndex",
+            "summary": "Get\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020from\u0020a\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029.",
+            "url": "classes/ColorThief-ColorThief.html#method_getColorsFromIndex"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AquantizeIter\u0028\u0029",
+            "name": "quantizeIter",
+            "summary": "Inner\u0020function\u0020to\u0020do\u0020the\u0020iteration.",
+            "url": "classes/ColorThief-ColorThief.html#method_quantizeIter"
         },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AmedianCutApply\u0028\u0029",
             "name": "medianCutApply",
@@ -43346,15 +43276,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_getVBoxColorRanges"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AquantizeIter\u0028\u0029",
-            "name": "quantizeIter",
-            "summary": "Inner\u0020function\u0020to\u0020do\u0020the\u0020iteration.",
-            "url": "classes/ColorThief-ColorThief.html#method_quantizeIter"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003Aquantize\u0028\u0029",
-            "name": "quantize",
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AdoCut\u0028\u0029",
+            "name": "doCut",
             "summary": "",
-            "url": "classes/ColorThief-ColorThief.html#method_quantize"
+            "url": "classes/ColorThief-ColorThief.html#method_doCut"
         },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003ASIGBITS",
             "name": "SIGBITS",
@@ -43556,15 +43481,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_isAvailable"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "Loads\u0020an\u0020image\u0020resource.",
-            "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_load"
-        },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003AloadFromBinary\u0028\u0029",
             "name": "loadFromBinary",
             "summary": "",
             "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_loadFromBinary"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020an\u0020image\u0020resource.",
+            "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_load"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003AloadFromPath\u0028\u0029",
             "name": "loadFromPath",
@@ -43601,15 +43526,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_isAvailable"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "Loads\u0020an\u0020image\u0020resource.",
-            "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_load"
-        },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003AloadFromBinary\u0028\u0029",
             "name": "loadFromBinary",
             "summary": "",
             "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_loadFromBinary"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "Loads\u0020an\u0020image\u0020resource.",
+            "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_load"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003AloadFromPath\u0028\u0029",
             "name": "loadFromPath",
@@ -43651,11 +43576,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_load"
         },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AcreateAdapter\u0028\u0029",
-            "name": "createAdapter",
-            "summary": "Creates\u0020an\u0020adapter\u0020instance\u0020according\u0020to\u0020config\u0020settings.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_createAdapter"
-        },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisGdImage\u0028\u0029",
             "name": "isGdImage",
             "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020a\u0020GD\u0020image.",
@@ -43671,20 +43591,25 @@ Search.appendIndex(
             "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020a\u0020Gmagick\u0020object.",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_isGmagick"
         },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisFilePath\u0028\u0029",
-            "name": "isFilePath",
-            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020file\u0020path.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_isFilePath"
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AcreateAdapter\u0028\u0029",
+            "name": "createAdapter",
+            "summary": "Creates\u0020an\u0020adapter\u0020instance\u0020according\u0020to\u0020config\u0020settings.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_createAdapter"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisBinary\u0028\u0029",
+            "name": "isBinary",
+            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020binary\u0020data.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_isBinary"
         },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisUrl\u0028\u0029",
             "name": "isUrl",
             "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020url.",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_isUrl"
         },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisBinary\u0028\u0029",
-            "name": "isBinary",
-            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020binary\u0020data.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_isBinary"
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisFilePath\u0028\u0029",
+            "name": "isFilePath",
+            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020file\u0020path.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_isFilePath"
         },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003A\u0024preferredAdapter",
             "name": "preferredAdapter",
@@ -43701,10 +43626,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method___construct"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003Asort\u0028\u0029",
-            "name": "sort",
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003AsetComparator\u0028\u0029",
+            "name": "setComparator",
             "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_sort"
+            "url": "classes/ColorThief-PQueue.html#method_setComparator"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Apush\u0028\u0029",
             "name": "push",
@@ -43716,25 +43641,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_peek"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003Apop\u0028\u0029",
-            "name": "pop",
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003Asort\u0028\u0029",
+            "name": "sort",
             "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_pop"
+            "url": "classes/ColorThief-PQueue.html#method_sort"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Asize\u0028\u0029",
             "name": "size",
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_size"
         },                {
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003Apop\u0028\u0029",
+            "name": "pop",
+            "summary": "",
+            "url": "classes/ColorThief-PQueue.html#method_pop"
+        },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Amap\u0028\u0029",
             "name": "map",
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_map"
-        },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003AsetComparator\u0028\u0029",
-            "name": "setComparator",
-            "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_setComparator"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003AgetContent\u0028\u0029",
             "name": "getContent",
@@ -43766,15 +43691,20 @@ Search.appendIndex(
             "summary": "VBox\u0020constructor.",
             "url": "classes/ColorThief-VBox.html#method___construct"
         },                {
+            "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024count",
+            "name": "count",
+            "summary": "",
+            "url": "classes/ColorThief-VBox.html#property_count"
+        },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024volume",
             "name": "volume",
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_volume"
         },                {
-            "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024count",
-            "name": "count",
+            "fqsen": "\\ColorThief\\VBox\u003A\u003Acontains\u0028\u0029",
+            "name": "contains",
             "summary": "",
-            "url": "classes/ColorThief-VBox.html#property_count"
+            "url": "classes/ColorThief-VBox.html#method_contains"
         },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
@@ -43785,11 +43715,6 @@ Search.appendIndex(
             "name": "avg",
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_avg"
-        },                {
-            "fqsen": "\\ColorThief\\VBox\u003A\u003Acontains\u0028\u0029",
-            "name": "contains",
-            "summary": "",
-            "url": "classes/ColorThief-VBox.html#method_contains"
         },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003AlongestAxis\u0028\u0029",
             "name": "longestAxis",
@@ -43951,11 +43876,6 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Api.html"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Api.html#method_before"
-        },                {
             "fqsen": "\\System\\Controller\\Api\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
@@ -44011,15 +43931,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Api.html#method_cache"
         },                {
+            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Api.html#method_before"
+        },                {
             "fqsen": "\\System\\Controller\\Locales",
             "name": "Locales",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Locales.html"
-        },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Locales\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -44056,15 +43976,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Locales.html#method_cache"
         },                {
+            "fqsen": "\\System\\Controller\\Locales\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Locales.html#method_before"
+        },                {
             "fqsen": "\\System\\Controller\\Logs",
             "name": "Logs",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Logs.html"
-        },                {
-            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Logs.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Logs\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -44075,6 +43995,11 @@ Search.appendIndex(
             "name": "load",
             "summary": "",
             "url": "classes/System-Controller-Logs.html#method_load"
+        },                {
+            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Logs.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Settings",
             "name": "Settings",
@@ -44095,11 +44020,6 @@ Search.appendIndex(
             "name": "Roles",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Users-Roles.html"
-        },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -44136,15 +44056,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Users-Roles.html#method_cache"
         },                {
+            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Users-Roles.html#method_before"
+        },                {
             "fqsen": "\\System\\Controller\\Users",
             "name": "Users",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Users.html"
-        },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Users.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Users\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -44186,6 +44106,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Users.html#method_geti18n"
         },                {
+            "fqsen": "\\System\\Controller\\Users\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Users.html#method_before"
+        },                {
             "fqsen": "\\System\\Controller\\Utils",
             "name": "Utils",
             "summary": "Class\u0020Controller",
@@ -44211,11 +44136,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Helper-Api.html"
         },                {
-            "fqsen": "\\System\\Helper\\Api\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/System-Helper-Api.html#method_initialize"
-        },                {
             "fqsen": "\\System\\Helper\\Api\u003A\u003AgetKey\u0028\u0029",
             "name": "getKey",
             "summary": "",
@@ -44231,30 +44151,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Helper-Api.html#method_cache"
         },                {
+            "fqsen": "\\System\\Helper\\Api\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/System-Helper-Api.html#method_initialize"
+        },                {
             "fqsen": "\\System\\Helper\\Locales",
             "name": "Locales",
             "summary": "",
             "url": "classes/System-Helper-Locales.html"
-        },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/System-Helper-Locales.html#method_initialize"
-        },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003A\u0024locales",
-            "name": "locales",
-            "summary": "",
-            "url": "classes/System-Helper-Locales.html#property_locales"
         },                {
             "fqsen": "\\System\\Helper\\Locales\u003A\u003AapplyLocales\u0028\u0029",
             "name": "applyLocales",
             "summary": "",
             "url": "classes/System-Helper-Locales.html#method_applyLocales"
         },                {
+            "fqsen": "\\System\\Helper\\Locales\u003A\u003A\u0024locales",
+            "name": "locales",
+            "summary": "",
+            "url": "classes/System-Helper-Locales.html#property_locales"
+        },                {
             "fqsen": "\\System\\Helper\\Locales\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
             "url": "classes/System-Helper-Locales.html#method_cache"
+        },                {
+            "fqsen": "\\System\\Helper\\Locales\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/System-Helper-Locales.html#method_initialize"
         },                {
             "fqsen": "\\System\\Helper\\Log",
             "name": "Log",
@@ -44280,11 +44205,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/System-Helper-LogChannel.html#method___construct"
-        },                {
-            "fqsen": "\\System\\Helper\\LogChannel\u003A\u003AaddRecord\u0028\u0029",
-            "name": "addRecord",
-            "summary": "",
-            "url": "classes/System-Helper-LogChannel.html#method_addRecord"
         },                {
             "fqsen": "\\System\\Helper\\LogChannel\u003A\u003Ainfo\u0028\u0029",
             "name": "info",
@@ -44315,6 +44235,11 @@ Search.appendIndex(
             "name": "error",
             "summary": "",
             "url": "classes/System-Helper-LogChannel.html#method_error"
+        },                {
+            "fqsen": "\\System\\Helper\\LogChannel\u003A\u003AaddRecord\u0028\u0029",
+            "name": "addRecord",
+            "summary": "",
+            "url": "classes/System-Helper-LogChannel.html#method_addRecord"
         },                {
             "fqsen": "\\System\\Helper\\LogChannel\u003A\u003A\u0024app",
             "name": "app",
@@ -45166,10 +45091,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_VAR_ACTIVE"
         },                {
-            "fqsen": "\\VAR_COCKPIT",
-            "name": "VAR_COCKPIT",
+            "fqsen": "\\VAR_APP",
+            "name": "VAR_APP",
             "summary": "",
-            "url": "namespaces/default.html#constant_VAR_COCKPIT"
+            "url": "namespaces/default.html#constant_VAR_APP"
         },                {
             "fqsen": "\\VAR_I18N",
             "name": "VAR_I18N",
@@ -45451,11 +45376,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_VAR_SELF"
         },                {
-            "fqsen": "\\VAR_APP",
-            "name": "VAR_APP",
-            "summary": "",
-            "url": "namespaces/default.html#constant_VAR_APP"
-        },                {
             "fqsen": "\\VAR_NAME_UP",
             "name": "VAR_NAME_UP",
             "summary": "",
@@ -45586,6 +45506,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_SUFFIX_LIST"
         },                {
+            "fqsen": "\\VAR_CONTENT",
+            "name": "VAR_CONTENT",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_CONTENT"
+        },                {
             "fqsen": "\\VAR_DASH_LOWER",
             "name": "VAR_DASH_LOWER",
             "summary": "",
@@ -45615,6 +45540,11 @@ Search.appendIndex(
             "name": "YXORP_APP_SYSTEM",
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_APP_SYSTEM"
+        },                {
+            "fqsen": "\\YXORP_CONTENT",
+            "name": "YXORP_CONTENT",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_CONTENT"
         },                {
             "fqsen": "\\YXORP_APP_SYSTEM_LOGS",
             "name": "YXORP_APP_SYSTEM_LOGS",
@@ -46106,6 +46036,11 @@ Search.appendIndex(
             "summary": "It\u0027s\u0020writing\u0020the\u0020content\u0020to\u0020the\u0020cache\u0020file.",
             "url": "classes/yxorP-lib-http-cache.html#method_set"
         },                {
+            "fqsen": "\\yxorP\\lib\\http\\cache\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "It\u0027s\u0020writing\u0020the\u0020content\u0020to\u0020the\u0020cache\u0020file.",
+            "url": "classes/yxorP-lib-http-cache.html#method_write"
+        },                {
             "fqsen": "\\yxorP\\lib\\http\\domain",
             "name": "domain",
             "summary": "It\u0027s\u0020a\u0020class\u0020that\u0027s\u0020used\u0020to\u0020dispatch\u0020events.",
@@ -46401,15 +46336,15 @@ Search.appendIndex(
             "summary": "A\u0020method\u0020that\u0020is\u0020used\u0020to\u0020route\u0020the\u0020events\u0020to\u0020the\u0020appropriate\u0020methods.",
             "url": "classes/yxorP-lib-http-wrapper.html#method_route"
         },                {
-            "fqsen": "\\yxorP\\lib\\http\\wrapper\u003A\u003AonCheck\u0028\u0029",
-            "name": "onCheck",
-            "summary": "Used\u0020to\u0020check\u0020if\u0020the\u0020event\u0020should\u0020be\u0020executed.",
-            "url": "classes/yxorP-lib-http-wrapper.html#method_onCheck"
-        },                {
             "fqsen": "\\yxorP\\lib\\http\\wrapper\u003A\u003AonCache\u0028\u0029",
             "name": "onCache",
             "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020event\u0020\u0060EVENT_BUILD_CACHE\u0060\u0020is\u0020triggered.",
             "url": "classes/yxorP-lib-http-wrapper.html#method_onCache"
+        },                {
+            "fqsen": "\\yxorP\\lib\\http\\wrapper\u003A\u003AonCheck\u0028\u0029",
+            "name": "onCheck",
+            "summary": "Used\u0020to\u0020check\u0020if\u0020the\u0020event\u0020should\u0020be\u0020executed.",
+            "url": "classes/yxorP-lib-http-wrapper.html#method_onCheck"
         },                {
             "fqsen": "\\yxorP\\lib\\http\\wrapper\u003A\u003AonContext\u0028\u0029",
             "name": "onContext",
@@ -47200,6 +47135,61 @@ Search.appendIndex(
             "name": "TooManyRedirectsException",
             "summary": "",
             "url": "classes/yxorP-lib-proxy-Exception-TooManyRedirectsException.html"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\uri_template\u0028\u0029",
+            "name": "uri_template",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_uri_template"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\describe_type\u0028\u0029",
+            "name": "describe_type",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_describe_type"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\headers_from_lines\u0028\u0029",
+            "name": "headers_from_lines",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_headers_from_lines"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\debug_resource\u0028\u0029",
+            "name": "debug_resource",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_debug_resource"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\choose_handler\u0028\u0029",
+            "name": "choose_handler",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_choose_handler"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\default_user_agent\u0028\u0029",
+            "name": "default_user_agent",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_default_user_agent"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\default_ca_bundle\u0028\u0029",
+            "name": "default_ca_bundle",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_default_ca_bundle"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\normalize_header_keys\u0028\u0029",
+            "name": "normalize_header_keys",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_normalize_header_keys"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\is_host_in_noproxy\u0028\u0029",
+            "name": "is_host_in_noproxy",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_is_host_in_noproxy"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\json_decode\u0028\u0029",
+            "name": "json_decode",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_json_decode"
+        },                {
+            "fqsen": "\\yxorP\\lib\\proxy\\json_encode\u0028\u0029",
+            "name": "json_encode",
+            "summary": "",
+            "url": "namespaces/yxorp-lib-proxy.html#function_json_encode"
         },                {
             "fqsen": "\\yxorP\\lib\\proxy\\Handler\\CurlFactory",
             "name": "CurlFactory",
@@ -51526,6 +51516,21 @@ Search.appendIndex(
             "summary": "It\u0027s\u0020a\u0020private\u0020variable\u0020that\u0020is\u0020used\u0020to\u0020store\u0020the\u0020base\u0020url\u0020of\u0020the\u0020request.",
             "url": "classes/yxorP-plugin-proxifyPluginAction.html#property_base_url"
         },                {
+            "fqsen": "\\yxorP\\plugin\\spinPluginAction",
+            "name": "spinPluginAction",
+            "summary": "Extending\u0020the\u0020wrapper\u0020class.",
+            "url": "classes/yxorP-plugin-spinPluginAction.html"
+        },                {
+            "fqsen": "\\yxorP\\plugin\\spinPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
+            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020processed.",
+            "url": "classes/yxorP-plugin-spinPluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\plugin\\spinPluginAction\u003A\u003Areplace\u0028\u0029",
+            "name": "replace",
+            "summary": "Defining\u0020a\u0020static\u0020method\u0020called\u0020mime.",
+            "url": "classes/yxorP-plugin-spinPluginAction.html#method_replace"
+        },                {
             "fqsen": "\\yxorP\\plugin\\streamPluginAction",
             "name": "streamPluginAction",
             "summary": "Extending\u0020the\u0020wrapper\u0020class,\u0020which\u0020is\u0020a\u0020class\u0020that\u0020allows\u0020you\u0020to\u0020listen\u0020to\u0020events.",
@@ -51575,26 +51580,6 @@ Search.appendIndex(
             "name": "url_pattern",
             "summary": "A\u0020regular\u0020expression\u0020that\u0020will\u0020be\u0020used\u0020to\u0020match\u0020the\u0020URL.",
             "url": "classes/yxorP-plugin-twitterPluginAction.html#property_url_pattern"
-        },                {
-            "fqsen": "\\yxorP\\plugin\\youtubePluginAction",
-            "name": "youtubePluginAction",
-            "summary": "Extending\u0020the\u0020wrapper\u0020class.",
-            "url": "classes/yxorP-plugin-youtubePluginAction.html"
-        },                {
-            "fqsen": "\\yxorP\\plugin\\youtubePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "Setting\u0020the\u0020cookie\u0020and\u0020user\u002Dagent\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-plugin-youtubePluginAction.html#method_onBeforeSend"
-        },                {
-            "fqsen": "\\yxorP\\plugin\\youtubePluginAction\u003A\u003AonComplete\u0028\u0029",
-            "name": "onComplete",
-            "summary": "A\u0020function\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
-            "url": "classes/yxorP-plugin-youtubePluginAction.html#method_onComplete"
-        },                {
-            "fqsen": "\\yxorP\\plugin\\youtubePluginAction\u003A\u003A\u0024url_pattern",
-            "name": "url_pattern",
-            "summary": "A\u0020regex\u0020pattern\u0020that\u0020will\u0020be\u0020used\u0020to\u0020match\u0020the\u0020url\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-plugin-youtubePluginAction.html#property_url_pattern"
         },                {
             "fqsen": "\\ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862",
             "name": "ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862",
@@ -51656,15 +51641,25 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020raw\u0020data\u0020of\u0020all\u0020installed.php\u0020which\u0020are\u0020currently\u0020loaded\u0020for\u0020custom\u0020implementations",
             "url": "classes/Composer-InstalledVersions.html#method_getAllRawData"
         },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
+            "name": "getInstalled",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
+            "name": "canGetVendors",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
+            "name": "installedByVendor",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
-        },                {
-            "fqsen": "\\yxorP",
-            "name": "yxorP",
-            "summary": "",
-            "url": "namespaces/yxorp.html"
         },                {
             "fqsen": "\\IndexLite",
             "name": "IndexLite",
@@ -52510,6 +52505,11 @@ Search.appendIndex(
             "name": "Helper",
             "summary": "",
             "url": "namespaces/system-helper.html"
+        },                {
+            "fqsen": "\\yxorP",
+            "name": "yxorP",
+            "summary": "",
+            "url": "namespaces/yxorp.html"
         },                {
             "fqsen": "\\PhpDocumentorMarkdown\\Example",
             "name": "Example",

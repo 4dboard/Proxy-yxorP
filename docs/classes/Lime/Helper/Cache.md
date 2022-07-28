@@ -47,12 +47,12 @@ protected ?string $cachePath
 ## Methods
 
 
-### initialize
+### getCachePath
 
 
 
 ```php
-protected initialize(): mixed
+public getCachePath(): mixed
 ```
 
 
@@ -87,26 +87,6 @@ public setCachePath(string $path): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
-
-***
-
-### getCachePath
-
-
-
-```php
-public getCachePath(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -202,6 +182,26 @@ public delete(string $key): void
 
 ```php
 public clear(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
 ```
 
 

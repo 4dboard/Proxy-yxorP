@@ -4,9 +4,10 @@ use Countable;
 use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
-use yxorP\inc\Psr\Http\Message\StreamInterface;
+use ReturnTypeWillChange;
+use yxorP\lib\Psr\Http\Message\RequestInterface;
+use yxorP\lib\Psr\Http\Message\ResponseInterface;
+use yxorP\lib\Psr\Http\Message\StreamInterface;
 use yxorP\lib\proxy\Exception\ARequestExceptionAA;
 use yxorP\lib\proxy\HandlerStack;
 use yxorP\lib\proxy\Promise\PromiseInterface;
@@ -89,15 +90,6 @@ class MockHandler implements Countable
         });
     }
 
-    private function invokeStats(RequestInterface $request, array $options, ResponseInterface $response = null, $reason = null)
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new TransferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
-    }
-
     public function append()
     {
         foreach (func_get_args() as $value) {
@@ -119,7 +111,7 @@ class MockHandler implements Countable
         return $this->lastOptions;
     }
 
-    public function count()
+    #[ReturnTypeWillChange] public function count()
     {
         return count($this->queue);
     }
@@ -127,5 +119,14 @@ class MockHandler implements Countable
     public function reset()
     {
         $this->queue = [];
+    }
+
+    private function invokeStats(RequestInterface $request, array $options, ResponseInterface $response = null, $reason = null)
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new TransferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
     }
 }

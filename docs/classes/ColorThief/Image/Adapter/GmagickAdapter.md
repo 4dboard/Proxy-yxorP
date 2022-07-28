@@ -35,32 +35,6 @@ public static isAvailable(): bool
 
 ***
 
-### load
-
-Loads an image resource.
-
-```php
-public load(mixed $resource): \ColorThief\Image\Adapter\AdapterInterface
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resource` | **mixed** |  |
-
-
-
-
-***
-
 ### loadFromBinary
 
 
@@ -81,6 +55,32 @@ public loadFromBinary(string $data): \ColorThief\Image\Adapter\AdapterInterface
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
+
+
+
+
+***
+
+### load
+
+Loads an image resource.
+
+```php
+public load(mixed $resource): \ColorThief\Image\Adapter\AdapterInterface
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resource` | **mixed** |  |
 
 
 

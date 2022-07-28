@@ -14,12 +14,12 @@
 ## Properties
 
 
-### initialized
+### name
 
 
 
 ```php
-protected bool $initialized
+public string $name
 ```
 
 
@@ -29,12 +29,12 @@ protected bool $initialized
 
 ***
 
-### name
+### initialized
 
 
 
 ```php
-public string $name
+protected bool $initialized
 ```
 
 

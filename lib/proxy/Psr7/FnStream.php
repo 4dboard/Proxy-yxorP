@@ -2,12 +2,28 @@
 
 use BadMethodCallException;
 use LogicException;
-use yxorP\inc\Psr\Http\Message\StreamInterface;
+use yxorP\lib\Psr\Http\Message\StreamInterface;
 
+/**
+ * @property $_fn_getMetadata
+ * @property $_fn_getContents
+ * @property $_fn_read
+ * @property $_fn_isReadable
+ * @property $_fn_write
+ * @property $_fn_isWritable
+ * @property $_fn_seek
+ * @property $_fn_rewind
+ * @property $_fn_isSeekable
+ * @property $_fn_eof
+ * @property $_fn_tell
+ * @property $_fn_getSize
+ * @property $_fn_detach
+ * @property $_fn_close
+ * @property $_fn___toString
+ */
 class FnStream implements StreamInterface
 {
     private static $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
-    private $methods;
 
     public function __construct(array $methods)
     {

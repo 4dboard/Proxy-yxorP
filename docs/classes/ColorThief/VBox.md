@@ -243,6 +243,32 @@ public __construct(int $r1, int $r2, int $g1, int $g2, int $b1, int $b2, array&l
 
 ***
 
+### count
+
+
+
+```php
+public count(bool $force = false): int
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$force` | **bool** |  |
+
+
+
+
+***
+
 ### volume
 
 
@@ -269,12 +295,12 @@ public volume(bool $force = false): int
 
 ***
 
-### count
+### contains
 
 
 
 ```php
-public count(bool $force = false): int
+public contains(array $rgbValue, int $rshift = ColorThief::RSHIFT): bool
 ```
 
 
@@ -288,7 +314,8 @@ public count(bool $force = false): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$force` | **bool** |  |
+| `$rgbValue` | **array** |  |
+| `$rshift` | **int** |  |
 
 
 
@@ -335,33 +362,6 @@ public avg(bool $force = false): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$force` | **bool** |  |
-
-
-
-
-***
-
-### contains
-
-
-
-```php
-public contains(array $rgbValue, int $rshift = ColorThief::RSHIFT): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$rgbValue` | **array** |  |
-| `$rshift` | **int** |  |
 
 
 

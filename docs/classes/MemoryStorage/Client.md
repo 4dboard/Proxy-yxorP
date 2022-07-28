@@ -121,6 +121,32 @@ public get(string $key, mixed $default = null, bool $decrypt = false): mixed
 
 ***
 
+### decrypt
+
+
+
+```php
+protected decrypt(string $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **string** |  |
+
+
+
+
+***
+
 ### set
 
 
@@ -169,32 +195,6 @@ protected encrypt(mixed $value): string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
-
-***
-
-### decrypt
-
-
-
-```php
-protected decrypt(string $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **string** |  |
 
 
 

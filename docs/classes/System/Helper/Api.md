@@ -32,26 +32,6 @@ protected array $keys
 ## Methods
 
 
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getKey
 
 
@@ -118,6 +98,26 @@ public cache(bool $persistent = true): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
+
+
+
+
+***
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
 
 
 
