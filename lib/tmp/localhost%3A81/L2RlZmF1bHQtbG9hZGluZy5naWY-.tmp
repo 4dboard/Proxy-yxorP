@@ -1,1 +1,1 @@
-<?php header("Content-type: image/gif"); exit(die( 
+<?php header("Content-type: image/gif"); echo 

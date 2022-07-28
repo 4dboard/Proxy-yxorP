@@ -1,1 +1,1 @@
-<?php header("Content-type: text/css"); exit(die( 
+<?php header("Content-type: text/css"); echo 
