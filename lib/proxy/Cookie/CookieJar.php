@@ -1,5 +1,7 @@
 <?php namespace yxorP\lib\proxy\Cookie;
 
+use ArrayIterator;
+use RuntimeException;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 
@@ -28,7 +30,7 @@ class CookieJar implements CookieJarInterface
         $result = $cookie->validate();
         if ($result !== true) {
             if ($this->strictMode) {
-                throw new \RuntimeException('Invalid cookie: ' . $result);
+                throw new RuntimeException('Invalid cookie: ' . $result);
             } else {
                 $this->removeCookieIfEmpty($cookie);
                 return false;
@@ -130,7 +132,7 @@ class CookieJar implements CookieJarInterface
 
     public function getIterator()
     {
-        return new \ArrayIterator(array_values($this->cookies));
+        return new ArrayIterator(array_values($this->cookies));
     }
 
     public function clearSessionCookies()

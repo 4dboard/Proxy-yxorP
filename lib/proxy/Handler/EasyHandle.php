@@ -1,6 +1,10 @@
 <?php namespace yxorP\lib\proxy\Handler;
 
+use BadMethodCallException;
+use RuntimeException;
 use yxorP\lib\proxy\Psr7\Response;
+use function yxorP\lib\proxy\headers_from_lines;
+use function yxorP\lib\proxy\normalize_header_keys;
 
 final class EasyHandle
 {
@@ -16,11 +20,11 @@ final class EasyHandle
     public function createResponse()
     {
         if (empty($this->headers)) {
-            throw new \RuntimeException('No headers have been received');
+            throw new RuntimeException('No headers have been received');
         }
         $startLine = explode(' ', array_shift($this->headers), 3);
-        $headers = \yxorP\lib\proxy\headers_from_lines($this->headers);
-        $normalizedKeys = \yxorP\lib\proxy\normalize_header_keys($headers);
+        $headers = headers_from_lines($this->headers);
+        $normalizedKeys = normalize_header_keys($headers);
         if (!empty($this->options['decode_content']) && isset($normalizedKeys['content-encoding'])) {
             $headers['x-encoded-content-encoding'] = $headers[$normalizedKeys['content-encoding']];
             unset($headers[$normalizedKeys['content-encoding']]);
@@ -40,6 +44,6 @@ final class EasyHandle
     public function __get($name)
     {
         $msg = $name === 'handle' ? 'The EasyHandle has been released' : 'Invalid property: ' . $name;
-        throw new \BadMethodCallException($msg);
+        throw new BadMethodCallException($msg);
     }
 }

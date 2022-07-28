@@ -1,5 +1,6 @@
 <?php namespace yxorP\lib\proxy\Psr7;
 
+use InvalidArgumentException;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 class StreamWrapper
@@ -16,7 +17,7 @@ class StreamWrapper
         } elseif ($stream->isWritable()) {
             $mode = 'w';
         } else {
-            throw new \InvalidArgumentException('The stream must be readable, ' . 'writable, or both.');
+            throw new InvalidArgumentException('The stream must be readable, ' . 'writable, or both.');
         }
         return fopen('proxy://stream', $mode, null, self::createStreamContext($stream));
     }

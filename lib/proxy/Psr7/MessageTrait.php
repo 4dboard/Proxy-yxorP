@@ -1,5 +1,6 @@
 <?php namespace yxorP\lib\proxy\Psr7;
 
+use InvalidArgumentException;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 trait MessageTrait
@@ -66,10 +67,10 @@ trait MessageTrait
     private function assertHeader($header)
     {
         if (!is_string($header)) {
-            throw new \InvalidArgumentException(sprintf('Header name must be a string but %s provided.', is_object($header) ? get_class($header) : gettype($header)));
+            throw new InvalidArgumentException(sprintf('Header name must be a string but %s provided.', is_object($header) ? get_class($header) : gettype($header)));
         }
         if ($header === '') {
-            throw new \InvalidArgumentException('Header name can not be empty.');
+            throw new InvalidArgumentException('Header name can not be empty.');
         }
     }
 
@@ -79,7 +80,7 @@ trait MessageTrait
             return $this->trimHeaderValues([$value]);
         }
         if (count($value) === 0) {
-            throw new \InvalidArgumentException('Header value can not be an empty array.');
+            throw new InvalidArgumentException('Header value can not be an empty array.');
         }
         return $this->trimHeaderValues($value);
     }
@@ -88,7 +89,7 @@ trait MessageTrait
     {
         return array_map(function ($value) {
             if (!is_scalar($value) && null !== $value) {
-                throw new \InvalidArgumentException(sprintf('Header value must be scalar or null but %s provided.', is_object($value) ? get_class($value) : gettype($value)));
+                throw new InvalidArgumentException(sprintf('Header value must be scalar or null but %s provided.', is_object($value) ? get_class($value) : gettype($value)));
             }
             return trim((string)$value, " \t");
         }, $values);

@@ -1,9 +1,11 @@
 <?php namespace yxorP\lib\proxy\Cookie;
 
+use Countable;
+use IteratorAggregate;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 
-interface CookieJarInterface extends \Countable, \IteratorAggregate
+interface CookieJarInterface extends Countable, IteratorAggregate
 {
     public function withCookieHeader(RequestInterface $request);
 

@@ -1,5 +1,6 @@
 <?php namespace yxorP\lib\proxy\Psr7;
 
+use RuntimeException;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 class BufferStream implements StreamInterface
@@ -61,7 +62,7 @@ class BufferStream implements StreamInterface
 
     public function seek($offset, $whence = SEEK_SET)
     {
-        throw new \RuntimeException('Cannot seek a BufferStream');
+        throw new RuntimeException('Cannot seek a BufferStream');
     }
 
     public function eof()
@@ -71,7 +72,7 @@ class BufferStream implements StreamInterface
 
     public function tell()
     {
-        throw new \RuntimeException('Cannot determine the position of a BufferStream');
+        throw new RuntimeException('Cannot determine the position of a BufferStream');
     }
 
     public function read($length)

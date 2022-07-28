@@ -1,5 +1,6 @@
 <?php namespace yxorP\lib\proxy\Handler;
 
+use BadMethodCallException;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise as P;
 use yxorP\lib\proxy\Promise\Promise;
@@ -36,7 +37,7 @@ class CurlMultiHandler
             }
             return $this->_mh;
         }
-        throw new \BadMethodCallException();
+        throw new BadMethodCallException();
     }
 
     public function __destruct()
