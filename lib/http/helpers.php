@@ -2,8 +2,6 @@
 
 use Bugsnag\Client;
 use GuzzleHttp\Cookie\FileCookieJar;
-use yxorP\app\lib\parser\resolvedDomainNameInterface;
-use yxorP\app\lib\parser\rules;
 use function explode;
 
 
@@ -641,7 +639,7 @@ class helpers
         store::handler(VAR_BUGSNAG, Client::make(store::handler(ENV_BUGSNAG_KEY)));
 
         /**
-         * Setting the token GUZZLE to a new instance of the \yxorP\app\lib\proxy class.
+         * Setting the token GUZZLE to a new instance of the \GuzzleHttp\Client class.
          */
         store::handler(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
