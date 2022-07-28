@@ -534,13 +534,11 @@ class helpers
         /**
          * Requiring the COCKPIT library.
          */
-
-        echo PATH_COCKPIT_BOOTSTRAP;
         require PATH_COCKPIT_BOOTSTRAP;
         /**
          * Storing the cockpit object in the tmp store.
          */
-        store::handler(YXORP_COCKPIT_APP, Cockpit());
+        store::handler(YXORP_COCKPIT_APP, \Cockpit());
     }
 
     /**
