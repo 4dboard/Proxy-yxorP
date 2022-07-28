@@ -59,7 +59,7 @@ class cache
 
     #[NoReturn] public static function set($content, ?string $key = null): void
     {
-        file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); echo ' . var_export($content), true) . ';';
+        file_put_contents(self::gen($key)['path'], sprintf("<?php header('Content-type: %s'); exit(die(%s)); ?>", helpers::MIME(), var_export($content), true));
         exit(die());
     }
 
