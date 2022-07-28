@@ -266,7 +266,7 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        return store::handler(YXORP_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
     }
 
     /**
@@ -278,7 +278,7 @@ class helpers
      */
     public static function cockpit_global(): mixed
     {
-        return store::handler(YXORP_APP)->storage->findOne(COCKPIT_SINGLETONS, [COCKPIT_KEY => COCKPIT_SETTINGS]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(COCKPIT_SINGLETONS, [COCKPIT_KEY => COCKPIT_SETTINGS]);
     }
 
     /**
@@ -587,7 +587,8 @@ class helpers
         /**
          * It's inserting a new user into the `COCKPIT_accounts` collection.
          */
-        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_USERS)->count()) store::handler(YXORP_APP)->storage->insert(YXORP_APP_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        $app->dataStorage->save('system/users', $user);
+        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_USERS)->count()) store::handler(YXORP_APP)->dataStorage->insert(YXORP_APP_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
