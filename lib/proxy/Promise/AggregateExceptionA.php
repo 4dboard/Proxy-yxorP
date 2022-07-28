@@ -5,7 +5,7 @@ namespace yxorP\lib\proxy\Promise;
 /**
  * Exception thrown when too many errors occur in the some() or any() methods.
  */
-class AggregateException extends RejectionException
+class AggregateExceptionA extends ARejectionException
 {
     public function __construct($msg, array $reasons)
     {

@@ -2,6 +2,11 @@
 
 namespace yxorP\lib\proxy\Promise;
 
+use ArrayIterator;
+use Exception;
+use Iterator;
+use Throwable;
+
 /**
  * Get the global task queue used for promise resolution.
  *
@@ -47,9 +52,9 @@ function task(callable $task)
     $queue->add(function () use ($task, $promise) {
         try {
             $promise->resolve($task());
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $promise->reject($e);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $promise->reject($e);
         }
     });
@@ -104,13 +109,13 @@ function rejection_for($reason)
  *
  * @param mixed $reason
  *
- * @return \Exception|\Throwable
+ * @return Exception|Throwable
  */
 function exception_for($reason)
 {
-    return $reason instanceof \Exception || $reason instanceof \Throwable
+    return $reason instanceof Exception || $reason instanceof Throwable
         ? $reason
-        : new RejectionException($reason);
+        : new ARejectionException($reason);
 }
 
 /**
@@ -118,16 +123,16 @@ function exception_for($reason)
  *
  * @param mixed $value
  *
- * @return \Iterator
+ * @return Iterator
  */
 function iter_for($value)
 {
-    if ($value instanceof \Iterator) {
+    if ($value instanceof Iterator) {
         return $value;
     } elseif (is_array($value)) {
-        return new \ArrayIterator($value);
+        return new ArrayIterator($value);
     } else {
-        return new \ArrayIterator([$value]);
+        return new ArrayIterator([$value]);
     }
 }
 
@@ -152,11 +157,11 @@ function inspect(PromiseInterface $promise)
             'state' => PromiseInterface::FULFILLED,
             'value' => $promise->wait()
         ];
-    } catch (RejectionException $e) {
+    } catch (ARejectionException $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
     }
 }
@@ -192,8 +197,8 @@ function inspect_all($promises)
  * @param mixed $promises Iterable of PromiseInterface objects to wait on.
  *
  * @return array
- * @throws \Exception on error
- * @throws \Throwable on error in PHP >=7
+ * @throws Exception on error
+ * @throws Throwable on error in PHP >=7
  */
 function unwrap($promises)
 {
@@ -272,7 +277,7 @@ function some($count, $promises)
     )->then(
         function () use (&$results, &$rejections, $count) {
             if (count($results) !== $count) {
-                throw new AggregateException(
+                throw new AggregateExceptionA(
                     'Not enough promises to fulfill count',
                     $rejections
                 );
