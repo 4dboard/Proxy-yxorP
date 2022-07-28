@@ -25,10 +25,10 @@ sudo chown root: /var/cache/pagespeed_meta/
 sudo chmod 777 /var/cache/pagespeed_meta/
 
 
-sudo rm ../app/lib/data/cookie_jar.txt
-sudo touch ../app/lib/data/cookie_jar.txt
-sudo chown root: ../app/lib/data/cookie_jar.txt
-sudo chmod 777 ../app/lib/data/cookie_jar.txt
+sudo rm ../app/data/cookie_jar.txt
+sudo touch ../app/data/cookie_jar.txt
+sudo chown root: ../app/data/cookie_jar.txt
+sudo chmod 777 ../app/data/cookie_jar.txt
 
 sudo tail -f /var/log/apache2/error.log
 
