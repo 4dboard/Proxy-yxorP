@@ -587,8 +587,7 @@ class helpers
         /**
          * It's inserting a new user into the `COCKPIT_accounts` collection.
          */
-        $app->dataStorage->save('system/users', $user);
-        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_USERS)->count()) store::handler(YXORP_APP)->dataStorage->insert(YXORP_APP_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_USERS)->count()) store::handler(YXORP_APP)->dataStorage->save(YXORP_APP_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
