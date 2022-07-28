@@ -1,17 +1,13 @@
-![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
+<p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png" />
+<p align="center">📢  [ <a href="https://github.com/4dboard/Proxy-yxorP/wiki">ARCHITECTURE</a> ]  ⚡  [ <a href="https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md">DEVELOPERS</a> ]  🌈  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/">DOCUMENTATION</a> ]  🔥  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4">CREATION VIDEO</a> ]  🚀️  [ <a href="https://4dboard.github.io/">WEBSITE</a> ]</p>
+<p align="center">Web Proxy <b>🦄<b> yxorP: SAAS(y) Guzzler + Cockpit (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.
 
-![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
-<h3>Why has YXORP become the most popular web proxy script so rapidly?</h3>
-<i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
-
-<hr />
-
-> <i>The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]</i>
+<p align="center">
 
 ![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
 
-![image](https://user-images.githubusercontent.com/6468571/180673648-2cc86c0c-6e7d-435d-a2da-129e0b536b41.png)
+</p>
 
 ## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
 
@@ -19,15 +15,18 @@ yxorP is a PHP-based proxy application that is very lightweight and easily custo
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
 facilitates rapid and simple customization through plugins and themes.
 
-📢 [ [ ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
-⚡ [ [ DEVELOPERS](https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md) ]
-🌈 [ [DOCUMENTATION](https://4dboard.github.io/Proxy-yxorP/docs/) ]
-🔥 [ [MAKING VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
-🌟 [ [WEBSITE](https://4dboard.github.io/) ] 🚀️
+<h3><b><i>Q</i></b>: <i>"Why has YXORP become the most popular web proxy script so rapidly?"</i></h3>
+<h4><i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.</h4>
+
+> <i>The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]</i>
+
 <br/><br/><br/>
+
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/Proxy-yxorP/files/latest/download)
 <br/>
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
+![image](https://user-images.githubusercontent.com/6468571/181399379-3996858c-4a4c-4407-bb33-0649bf89b973.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179232489-113ce332-b853-41f9-b32b-e61fef62c007.png)
 <br/><br/><br/>
@@ -47,6 +46,8 @@ facilitates rapid and simple customization through plugins and themes.
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
+![image](https://user-images.githubusercontent.com/6468571/181399467-1878166c-d1e5-4a1a-8155-e880aac4c6e0.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179232649-2da011cc-1d8a-4e20-ab01-632d05e56e4c.png)
 
@@ -97,6 +98,8 @@ non-blocking I/O." This is evident from the description.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
+![image](https://user-images.githubusercontent.com/6468571/181399560-6c5fc08e-9d8c-46ec-99bf-a9f06f931213.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179233034-8e2e3fa1-9c10-4e7b-9a26-34037073fd0d.png)
 
 PHP, unlike other programming languages, is by default staeless much like HTML or CSS. This aspect of the protocol is
@@ -141,6 +144,8 @@ server {
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
+![image](https://user-images.githubusercontent.com/6468571/181399606-bfae14ee-be77-4a32-beae-c57360bf74dc.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179234087-4dd7f698-11fd-4c52-9c2d-a6efbc3df620.png)
 
 Both the Swoole and the RoadRunner servers, which are well-known for their speed and dependability, are capable of
@@ -160,6 +165,8 @@ php ./server.php
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
+![image](https://user-images.githubusercontent.com/6468571/181399692-77ff0ca0-c5bd-42d2-b341-eed79d9194f2.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179234312-0c76a89f-0600-4725-8e70-1089e34b6cf8.png)
 
 Docker Compose is a tool that enables developers to build and deploy applications that are comprised of several
@@ -174,6 +181,9 @@ docker-composer up -d
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
+![image](https://user-images.githubusercontent.com/6468571/181399730-de888b39-c72a-46ee-9fdd-76466864022c.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179234530-dd41bd2f-839d-4b5e-8926-cdc4e59647ce.png)
 
 Docker gives its customers the capacity to manage containers in a way that is comparable to managing virtual machines.
@@ -228,6 +238,8 @@ After cloning the repository, you need to pull the Cockpit submodule as well, li
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
+![image](https://user-images.githubusercontent.com/6468571/181399824-25abab85-0533-4c8f-9b28-5df8bcbca515.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179234863-ce04a562-df34-40f6-9919-043de73b76fe.png)
 
@@ -302,9 +314,9 @@ interface, as opposed to depending on the transmission of data through individua
 
 ![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
-![image](https://user-images.githubusercontent.com/6468571/179238514-b5df4a1f-a5cd-44d8-a3a5-fa59a2d5b34c.png)
+![image](https://user-images.githubusercontent.com/6468571/181399920-b5125e96-f7d6-481b-8a87-25eb482c98fd.png)
 
-## Key features:
+![image](https://user-images.githubusercontent.com/6468571/179238514-b5df4a1f-a5cd-44d8-a3a5-fa59a2d5b34c.png)
 
 Manage flexible content models. Despite the existence of accessible content models, none have been developed before. You
 will be solely responsible for developing the content model required for this method. A user interface free of
@@ -318,9 +330,9 @@ API).
 <hr />
 <br/>
 
-![image](https://user-images.githubusercontent.com/6468571/179238576-4f1e7050-7f2a-4384-8cd8-9b9a092693fb.png)
+![image](https://user-images.githubusercontent.com/6468571/181399970-68a109ad-2ec9-4f25-bad7-0276f6fa9af3.png)
 
-#### The Advantages Of Going Headless
+![image](https://user-images.githubusercontent.com/6468571/179238576-4f1e7050-7f2a-4384-8cd8-9b9a092693fb.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/178638648-57afc681-e222-4401-a1c6-a6c8812dd624.png)
 
@@ -353,6 +365,8 @@ flat file variants of your original webpages. This is feasible by using yxorP to
 
 # 🔥 Cache
 
+![image](https://user-images.githubusercontent.com/6468571/181400170-4d132264-d331-4342-8a8a-8c7f1fd66d62.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179238649-d6a11606-e6b2-4137-b67c-332497969087.png)
 
 The cached information is made accessible to customers through a Web proxy. These items may include anything that is
@@ -369,6 +383,8 @@ will decrease with time.
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 📛 Firewall
+
+![image](https://user-images.githubusercontent.com/6468571/181400140-a1dde886-c186-4fbc-bd70-31d6af46baa7.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179238707-e5082057-6373-4ccf-8cff-7a2b3acb8799.png)
 
@@ -392,6 +408,8 @@ follow these steps to their logical conclusion.
 
 # 🔳 iFrame
 
+![image](https://user-images.githubusercontent.com/6468571/181400194-5e6aec69-5d77-4808-bd81-d5388774e1f2.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179238874-b179f501-5270-448f-8b9a-7b79d5627a2a.png)
 
 The CORS Proxy API will use many backend technologies to fulfill all of your requests for third-party-controlled
@@ -407,6 +425,8 @@ behavior in question, although being plausible and "not suggested but attainable
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔱 Load-balancing
+
+![image](https://user-images.githubusercontent.com/6468571/181400239-a063fac7-7204-453f-b1b2-1c66fda109b8.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179238923-a6e8d869-8c73-4f45-be4d-866c18002269.png)
 
@@ -429,6 +449,8 @@ to execute this assignment effectively.
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # ⌛ Allways-online
+
+![image](https://user-images.githubusercontent.com/6468571/181400284-7da9dab5-6953-4f6d-a119-348c2b962ebc.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179239125-b7142619-a9ae-4ae0-b258-a845f53b4515.png)
 
@@ -454,6 +476,7 @@ further information is accessible in our discussion forum.
 <div style="text-align: center;">
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logosnag.png)
+
 </div>
 By using a technique that is simple to put into action, BugSnag is able to assist in the simplification of the process
 of error monitoring in addition to the management of application stability. This is made possible via the use of an easy
