@@ -79,7 +79,7 @@ abstract class wrapper
                 case EVENT_BUILD_REQUEST: /* Calling the `onCheck` method and then the `onRequest` method. */
                     $this->onCheck()->onRequest();
                     break;
-                case EVENT_BEFORE_SEND:
+                case EVENT_BEFORE_SEND: /* Calling the `onCheck` method and then the `onBeforeSend` method. */
                     $this->onCheck()->onBeforeSend();
                     break;
                 case EVENT_SEND: /* Calling the `onCheck` method and then the `onSend` method. */
