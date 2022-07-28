@@ -1,4 +1,5 @@
 <?php namespace yxorP\lib\proxy\Cookie;
+
 use RuntimeException;
 
 class FileCookieJar extends CookieJar
