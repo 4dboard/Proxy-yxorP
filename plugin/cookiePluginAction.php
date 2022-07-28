@@ -6,8 +6,8 @@
 
 namespace yxorP\plugin;
 
-use yxorP\lib\constants;
 use yxorP\app\lib\http\wrapper;
+use yxorP\lib\constants;
 use function str_contains;
 use const CHAR_EMPTY_STRING;
 use const CHAR_SLASH;
