@@ -697,44 +697,41 @@ us.
 
 ![image](https://user-images.githubusercontent.com/6468571/179241342-da132147-a8fa-4d44-9131-7fcb1d873b57.png)
 
+#### Classes
+
 | Class | Description |
 |-------|-------------|
+| [`App`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/App.md) | |
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
-| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the App project.|
-| [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
+| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | |
+| [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
+| [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
 | [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
-| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the App project.|
-| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the App project.|
-| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the App project.|
+| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | |
 | [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
-| [`Lexy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
-| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the App project.|
-| [`LiteDBQuery`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDBQuery.md) | |
+| [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
 | [`Mailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer.md) | |
 | [`Mailer_Message`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer_Message.md) | |
-| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the App project.|
-| [`Parsedown`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Parsedown.md) | |
-| [`ParsedownExtra`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtra.md) | |
-| [`ParsedownExtraTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtraTest.md) | |
-| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the App project.|
-| [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
+| [`Normalizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Normalizer.md) | |
+| [`PhpToken`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PhpToken.md) | |
+| [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | |
+| [`ReturnTypeWillChange`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ReturnTypeWillChange.md) | |
 | [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
-| [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
+| [`SimpleImageLib`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 | [`UnhandledMatchError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/UnhandledMatchError.md) | |
 | [`ValueError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ValueError.md) | |
-| [`admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/admin.md) | |
-| [`onBuildContextAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildContextAction.md) | |
-| [`onBuildExceptionAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildExceptionAction.md) | |
-| [`onBuildHeadersAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildHeadersAction.md) | |
-| [`onBuildIncludesAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildIncludesAction.md) | |
-| [`onBuildRequestAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onBuildRequestAction.md) | |
-| [`onCheckAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCheckAction.md) | |
-| [`onCompleteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCompleteAction.md) | |
-| [`onFinalAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onFinalAction.md) | |
-| [`onSendAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSendAction.md) | |
-| [`onSentAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSentAction.md) | |
-| [`onWriteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onWriteAction.md) | |
+| [`onCheckAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
+| [`onCompleteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
+| [`onContextAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
+| [`onExceptionAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onExceptionAction.md) | A class that extends the wrapper class.|
+| [`onFinalAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onFinalAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
+| [`onHeadersAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onHeadersAction.md) | Extending the wrapper class.|
+| [`onIncludesAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onIncludesAction.md) | Extending the wrapper class.|
+| [`onRequestAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onRequestAction.md) | Extending the wrapper class.|
+| [`onSendAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSendAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
+| [`onSentAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
+| [`onWriteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
