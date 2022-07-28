@@ -12,4 +12,4 @@ f1() {
 }
 
 
-f1 './lib/proxy/*'
+#f1 './lib/Psr/*'
