@@ -518,9 +518,6 @@ class helpers
             store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[$value]);
 
 
-        print_r(store::handler(YXORP_GLOBAL_PATTERN));
-
-
         /**
          * Loading the Guzzle Snag class.
          */
