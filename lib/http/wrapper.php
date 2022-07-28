@@ -6,7 +6,7 @@
 
 
 use Exception;
-use yxorP\app\yP;
+use yxorP\lib\yP;
 
 /**
  * Importing the class `request` from the namespace `yxorP\app\lib\http`.

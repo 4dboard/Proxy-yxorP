@@ -8,7 +8,7 @@ namespace yxorP;
  * Including the file `yxorP.php` in the current file.
  */
 
-use yxorP\app\yP;
+use yxorP\lib\yP;
 
 require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'yP.php';
 require __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'http' . DIRECTORY_SEPARATOR . 'store.php';
