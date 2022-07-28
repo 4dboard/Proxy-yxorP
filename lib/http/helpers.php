@@ -372,27 +372,26 @@ class helpers
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
          * It's defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
-         * `DIR_APP` and `DIR_LIB` and `DIR_COCKPIT` and `FILE_COCKPIT_BOOTSTRAP` appended to it.
+         * `DIR_LIB` and `DIR_COCKPIT` and `FILE_COCKPIT_BOOTSTRAP` appended to it.
          */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
         /**
-         * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+         * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a
          * `DIR_VENDOR` and `FILE_GUZZLE` appended to it.
          */
         define('PATH_GUZZLE', DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_GUZZLE);
         /**
-         * It's defining a constant called `PATH_BUGSNAG` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+         * It's defining a constant called `PATH_BUGSNAG` and setting it to the value of `DIR_ROOT` with a
          * `DIR_VENDOR` and `FILE_BUGSNAG` appended to it.
          */
         define('PATH_BUGSNAG', DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_BUGSNAG);
         /**
-         * It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
+         * It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a
          * `DIR_LIB` and `DIR_DATA` and `FILE_COOKIE_JAR` appended to it.
          */
         define('PATH_COOKIE_JAR', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
         /**
-         * It's defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
-         * and `DIR_LIB` and `DIR_COCKPIT` appended to it.
+         * It's defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` appended to it.
          */
         define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT);
         /**
@@ -401,20 +400,13 @@ class helpers
          */
         define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INSTALL . DIR_COCKPIT);
         /**
-         * It's defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
-         * and `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
+         * It's defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
          */
         define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
         /**
-         * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
-         * `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
+         * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a  `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
          */
         define('PATH_REWRITE', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_REWRITE);
-        /**
-         * It's defining a constant called `PATH_INC_WRAPPER` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
-         * and  `DIR_LIB` and `FILE_WRAPPER` appended to it.
-         */
-        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_APP . DIR_LIB . FILE_WRAPPER);
         /**
          * Defining a constant.
          */
@@ -508,7 +500,7 @@ class helpers
 
         define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
         /**
          * Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_HTTP_HOST plus the
