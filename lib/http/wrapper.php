@@ -76,9 +76,7 @@ abstract class wrapper
                 EVENT_BUILD_INCLUDES:
                     $this->onCheck()->onIncludes();
                     break;
-                case
-                    /* Calling the `onCheck` method and then the `onHeaders` method. */
-                EVENT_BUILD_HEADERS:
+                case EVENT_BUILD_HEADERS: /* Calling the `onCheck` method and then the `onHeaders` method. */
                     $this->onCheck()->onHeaders();
                     break;
                 case EVENT_BUILD_REQUEST: /* Calling the `onCheck` method and then the `onRequest` method. */
