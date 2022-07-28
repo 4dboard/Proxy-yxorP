@@ -582,6 +582,7 @@ class helpers
         /**
          * It's copying the files from the `local` directory to the `COCKPIT` directory.
          */
+        echo PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS;
         if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
         /**
          * It's inserting a new user into the `COCKPIT_accounts` collection.
