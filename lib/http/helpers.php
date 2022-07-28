@@ -523,7 +523,6 @@ class helpers
         helpers::loadProxySnag();
 
 
-
     }
 
     /**
