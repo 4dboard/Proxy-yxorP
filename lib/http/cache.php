@@ -70,4 +70,14 @@ class cache
         exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));')));
     }
 
+
+    /**
+     * It's writing the content to the cache file.
+     */
+
+    #[NoReturn] public static function write(?string $key = null): void
+    {
+        exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace(self::$cache) : self::$cache), true) . '));')));
+    }
+
 }
