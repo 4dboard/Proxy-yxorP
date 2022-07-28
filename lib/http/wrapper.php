@@ -58,8 +58,7 @@ abstract class wrapper
             if ($this->url_pattern && helpers::starts_with($this->url_pattern, CHAR_SLASH)
                 && preg_match($this->url_pattern, YXORP_REQUEST_URI_FULL) !== 1
                 && stripos(YXORP_REQUEST_URI_FULL, $this->url_pattern) === 0) return;
-
-
+            
             /**
              * Used to route the events to the appropriate methods.
              */
