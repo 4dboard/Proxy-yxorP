@@ -1,4 +1,9 @@
 <?php namespace yxorP\lib\proxy\Promise;
+use Exception;
+use InvalidArgumentException;
+use LogicException;
+use Throwable;
+
 class RejectedPromise implements PromiseInterface
 {
     private $reason;
@@ -6,7 +11,7 @@ class RejectedPromise implements PromiseInterface
     public function __construct($reason)
     {
         if (method_exists($reason, 'then')) {
-            throw new \InvalidArgumentException('You cannot create a RejectedPromise with a promise.');
+            throw new InvalidArgumentException('You cannot create a RejectedPromise with a promise.');
         }
         $this->reason = $reason;
     }
@@ -28,9 +33,9 @@ class RejectedPromise implements PromiseInterface
             if ($p->getState() === self::PENDING) {
                 try {
                     $p->resolve($onRejected($reason));
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     $p->reject($e);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     $p->reject($e);
                 }
             }
@@ -52,13 +57,13 @@ class RejectedPromise implements PromiseInterface
 
     public function resolve($value)
     {
-        throw new \LogicException("Cannot resolve a rejected promise");
+        throw new LogicException("Cannot resolve a rejected promise");
     }
 
     public function reject($reason)
     {
         if ($reason !== $this->reason) {
-            throw new \LogicException("Cannot reject a rejected promise");
+            throw new LogicException("Cannot reject a rejected promise");
         }
     }
 

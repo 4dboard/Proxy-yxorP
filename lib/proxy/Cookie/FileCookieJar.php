@@ -1,4 +1,6 @@
 <?php namespace yxorP\lib\proxy\Cookie;
+use RuntimeException;
+
 class FileCookieJar extends CookieJar
 {
     private $filename;
@@ -18,7 +20,7 @@ class FileCookieJar extends CookieJar
     {
         $json = file_get_contents($filename);
         if (false === $json) {
-            throw new \RuntimeException("Unable to load file {$filename}");
+            throw new RuntimeException("Unable to load file {$filename}");
         } elseif ($json === '') {
             return;
         }
@@ -28,7 +30,7 @@ class FileCookieJar extends CookieJar
                 $this->setCookie(new SetCookie($cookie));
             }
         } elseif (strlen($data)) {
-            throw new \RuntimeException("Invalid cookie file: {$filename}");
+            throw new RuntimeException("Invalid cookie file: {$filename}");
         }
     }
 
@@ -47,7 +49,7 @@ class FileCookieJar extends CookieJar
         }
         $jsonStr = \yxorP\lib\proxy\json_encode($json);
         if (false === file_put_contents($filename, $jsonStr, LOCK_EX)) {
-            throw new \RuntimeException("Unable to save file {$filename}");
+            throw new RuntimeException("Unable to save file {$filename}");
         }
     }
 }

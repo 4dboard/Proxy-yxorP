@@ -1,4 +1,7 @@
 <?php namespace yxorP\lib\proxy\Promise;
+use Exception;
+use Throwable;
+
 class EachPromise implements PromisorInterface
 {
     private $pending = [];
@@ -32,9 +35,9 @@ class EachPromise implements PromisorInterface
             $this->createPromise();
             $this->iterable->rewind();
             $this->refillPending();
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->aggregate->reject($e);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->aggregate->reject($e);
         }
         return $this->aggregate;
@@ -121,11 +124,11 @@ class EachPromise implements PromisorInterface
             $this->iterable->next();
             $this->mutex = false;
             return true;
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->aggregate->reject($e);
             $this->mutex = false;
             return false;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->aggregate->reject($e);
             $this->mutex = false;
             return false;
