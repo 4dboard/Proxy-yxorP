@@ -539,7 +539,7 @@ class helpers
         /**
          * Storing the cockpit object in the tmp store.
          */
-        store::handler(YXORP_COCKPIT_APP, Cockpit());
+        store::handler(YXORP_COCKPIT_APP, new Cockpit());
     }
 
     /**
