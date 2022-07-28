@@ -1,7 +1,1 @@
-<?php
-
-namespace yxorP\lib\proxy\Exception;
-
-final class InvalidArgumentException extends \InvalidArgumentException implements ProxyException
-{
-}
+<?php namespace yxorP\lib\proxy\Exception;final class InvalidArgumentException extends \InvalidArgumentException implements ProxyException{}

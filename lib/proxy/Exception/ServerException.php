@@ -1,10 +1,1 @@
-<?php
-
-namespace yxorP\lib\proxy\Exception;
-
-/**
- * Exception when a server error is encountered (5xx codes)
- */
-class ServerException extends BadResponseException
-{
-}
+<?php namespace yxorP\lib\proxy\Exception;class ServerException extends BadResponseException{}
