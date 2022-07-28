@@ -3,10 +3,10 @@ sudo mkdir -p ../tmp/
 sudo chown root: ../tmp/
 sudo chmod 777 ../tmp/
 
-sudo rm -r ../app/lib/cockpit/storage/tmp/
-sudo mkdir -p ../app/lib/cockpit/storage/tmp/
-sudo chown root: ../app/lib/cockpit/storage/tmp/
-sudo chmod 777 ../app/lib/cockpit/storage/tmp/
+sudo rm -r ../cockpit/storage/tmp/
+sudo mkdir -p ../cockpit/storage/tmp/
+sudo chown root: ../cockpit/storage/tmp/
+sudo chmod 777 ../cockpit/storage/tmp/
 
 sudo rm -r /var/log/pagespeed
 sudo mkdir -p /var/log/pagespeed

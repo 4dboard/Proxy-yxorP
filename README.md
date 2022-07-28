@@ -222,7 +222,7 @@ After cloning the repository, you need to pull the Cockpit submodule as well, li
   git submodule init
   
   //If still not working you can try this:
-  git submodule add  https://github.com/agentejo/cockpit app/lib/cockpit
+  git submodule add  https://github.com/agentejo/cockpit cockpit
 
   
 ```
@@ -241,12 +241,12 @@ After cloning the repository, you need to pull the Cockpit submodule as well, li
     - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
       with IDN.
 
-- You need to check that the "./app/lib/cockpit" submodule was properly retrieved; the directory should already be
-  present at the top level of the project and have some information. If the directory is not there, you may quickly
-  initialize the submodule by entering "git submodule init" into the terminal.
+- You need to check that the "./cockpit" submodule was properly retrieved; the directory should already be present at
+  the top level of the project and have some information. If the directory is not there, you may quickly initialize the
+  submodule by entering "git submodule init" into the terminal.
 
-- Ensure that the x cache folders that can be found in "./app/lib/cockpit/storage/tmp" and "./inc/tmp." are able to have
-  their contents written to. Either the command "chmod 775./app/lib/cockpit/storage/tmp" or the command "chown root:
+- Ensure that the x cache folders that can be found in "./cockpit/storage/tmp" and "./inc/tmp." are able to have their
+  contents written to. Either the command "chmod 775./cockpit/storage/tmp" or the command "chown root:
   ./cockpit/storage/tmp" may be used to make the files readable again.
 
 If you have completed all of these steps, you should be experiencing no difficulty.
