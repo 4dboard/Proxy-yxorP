@@ -538,7 +538,6 @@ class helpers
         /**
          * Storing the cockpit object in the tmp store.
          */
-        print_r(new Cockpit());
         store::handler(YXORP_COCKPIT_APP, Cockpit::instance());
     }
 
