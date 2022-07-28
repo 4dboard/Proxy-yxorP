@@ -8,7 +8,7 @@ define('DIR_TMP', VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . D
 define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
 const DIR_LIB = 'lib' . DIRECTORY_SEPARATOR;
 const PATH_TMP_DIR = __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP;
-const PATH_TMP_FILE = __DIR__ . DIRECTORY_SEPARATOR . DIR_LIB . DIR_TMP . CACHE_KEY . FILE_TMP;
+const PATH_TMP_FILE = __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP;
 define('CACHE_KEY_CONTEXT', rtrim(strtr(base64_encode(YXORP_HTTP_HOST), '+/=', '._-')));
 const EXT_TEXT = 'txt';
 const MIME = 'MIME';
