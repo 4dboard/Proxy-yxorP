@@ -16,11 +16,11 @@ class onCheckAction extends wrapper
      * A function that is called when the event is checked.
      *
      */
-    public function onCheck(): void
+    public function onCheck(): self
     {
         /**
          * Checking if the cache is valid, and if it is, it returns the cached data.
          */
-        if (cache::isValid()) cache::get();
+        return (cache::isValid()) ? cache::get() : $this;
     }
 }

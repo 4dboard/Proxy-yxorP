@@ -69,6 +69,7 @@ abstract class wrapper
              */
             switch ($event_name) {
                 case EVENT_BUILD_CACHE:
+                    $this->onCheck()
                     $this->onCache();
                     break;
                 case EVENT_BUILD_CONTEXT:
@@ -114,7 +115,7 @@ abstract class wrapper
      * Used to check if the event should be executed.
      *
      */
-    public function onCheck(): void
+    public function onCheck(): self
     {
     }
 
