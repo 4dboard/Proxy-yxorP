@@ -24,7 +24,6 @@ class onExceptionAction extends wrapper
          */
         if (helpers::MIME() === 'text' . CHAR_SLASH . 'html' && defined(YXORP_PROXY_URL)) header("Location: " . YXORP_PROXY_URL); else if (ENV_DEBUG) var_dump($e);
 
-
         store::handler(YXORP_APP)->dataStorage->save('system/log', [
             'message' => $e->getMessage(),
             'type' => 'error',
