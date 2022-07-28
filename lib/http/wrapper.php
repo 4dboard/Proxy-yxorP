@@ -64,16 +64,13 @@ abstract class wrapper
              * Used to route the events to the appropriate methods.
              */
             switch ($event_name) {
-                case EVENT_BUILD_CACHE:
-                    /* Calling the `onCheck` method and then the `onCache` method. */
+                case EVENT_BUILD_CACHE: /* Calling the `onCheck` method and then the `onCache` method. */
                     $this->onCheck()->onCache();
                     break;
-                case/* Calling the `onCheck` method and then the `onContext` method. */
-                EVENT_BUILD_CONTEXT:
+                case EVENT_BUILD_CONTEXT: /* Calling the `onCheck` method and then the `onContext` method. */
                     $this->onCheck()->onContext();
                     break;
-                case/* Calling the `onCheck` method and then the `onIncludes` method. */
-                EVENT_BUILD_INCLUDES:
+                case EVENT_BUILD_INCLUDES: /* Calling the `onCheck` method and then the `onIncludes` method. */
                     $this->onCheck()->onIncludes();
                     break;
                 case EVENT_BUILD_HEADERS: /* Calling the `onCheck` method and then the `onHeaders` method. */
