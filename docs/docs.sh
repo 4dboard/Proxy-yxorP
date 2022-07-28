@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd ../
-php ./lib/vendor/phpDocumentor.phar --directory './'  -t './docs' --force
-php ./lib/vendor/phpDocumentor.phar --directory './'  -t './docs' --template="./docs/markdown/themes/markdown" --force
+php ./lib/data/phpDocumentor.phar --directory './'  -t './docs' --force
+php ./lib/data/phpDocumentor.phar --directory './'  -t './docs' --template="./docs/markdown/themes/markdown" --force
