@@ -59,10 +59,6 @@ abstract class wrapper
                 && preg_match($this->url_pattern, YXORP_REQUEST_URI_FULL) !== 1
                 && stripos(YXORP_REQUEST_URI_FULL, $this->url_pattern) === 0) return;
 
-            /**
-             * Used to check if the event should be executed.
-             */
-            $this->onCheck();
 
             /**
              * Used to route the events to the appropriate methods.
@@ -111,20 +107,20 @@ abstract class wrapper
     }
 
     /**
+     * A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
+     *
+     */
+    public function onCache(): void
+    {
+    }
+
+    /**
      * Used to check if the event should be executed.
      *
      */
     public function onCheck(): self
     {
         return $this;
-    }
-
-    /**
-     * A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
-     *
-     */
-    public function onCache(): void
-    {
     }
 
     /**
