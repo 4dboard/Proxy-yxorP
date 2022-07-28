@@ -22,6 +22,6 @@ class onFinalAction extends wrapper
          * Checking if the cache is valid, and if it is not, it is setting the cache to the response content.
          * Getting the response object from the global variables.
          */
-        if (store::handler(VAR_RESPONSE)) store::handler(YXORP_CONTENT);
+        if (store::handler(VAR_RESPONSE)) cache::set(store::handler(YXORP_CONTENT));
     }
 }
