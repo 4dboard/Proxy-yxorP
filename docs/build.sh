@@ -2,7 +2,7 @@
 f1() {
     for file in `ls ${1}*.php 2>/dev/null`
     do
-        php inc/build.php ${file}
+        php inc/install/build.php ${file}
     done
 
     for dir in `ls -d ${1}*/ 2>/dev/null`
