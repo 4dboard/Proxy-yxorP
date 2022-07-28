@@ -1,30 +1,29 @@
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png" /></p>
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png" />
 <p align="center">📢  [ <a href="https://github.com/4dboard/Proxy-yxorP/wiki">ARCHITECTURE</a> ]  ⚡  [ <a href="https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md">DEVELOPERS</a> ]  🌈  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/">DOCUMENTATION</a> ]  🔥  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4">CREATION VIDEO</a> ]  🚀️  [ <a href="https://4dboard.github.io/">WEBSITE</a> ]</p>
-<p align="center">Web Proxy <b>🦄<b> yxorP: SAAS(y) Guzzler + Cockpit (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.
+<p align="center">Web Proxy <b>🦄<b> yxorP: SAAS(y) Guzzler + Cockpit (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</p>
+<p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png" /></p>
+<p align="center"><a href="https://sourceforge.net/projects/Proxy-yxorP/files/latest/download"><img align="center" src="https://a.fsdn.com/con/app/sf-download-button" /></a></p>
 
-
-<p align="center">
-
-![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
-
-</p>
+<br/>
 
 ## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
+
+<br/>
 
 yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
 facilitates rapid and simple customization through plugins and themes.
+
+<br/>
 
 <h3><b><i>Q</i></b>: <i>"Why has YXORP become the most popular web proxy script so rapidly?"</i></h3>
 <h4><i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.</h4>
 
 > <i>The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]</i>
 
-<br/><br/><br/>
-
-[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/Proxy-yxorP/files/latest/download)
 <br/>
+
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399379-3996858c-4a4c-4407-bb33-0649bf89b973.png)
