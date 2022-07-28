@@ -266,7 +266,7 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        return store::handler(YXORP_ZZZZ)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SITES, [APP_HOST => YXORP_SITE_DOMAIN]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SITES, [APP_HOST => YXORP_SITE_DOMAIN]);
     }
 
     /**
@@ -278,7 +278,7 @@ class helpers
      */
     public static function cockpit_global(): mixed
     {
-        return store::handler(YXORP_ZZZZ)->dataStorage->findOne(APP_SINGLETONS, [APP_KEY => APP_SETTINGS]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(APP_SINGLETONS, [APP_KEY => APP_SETTINGS]);
     }
 
     /**
@@ -538,7 +538,7 @@ class helpers
         /**
          * Storing the cockpit object in the tmp store.
          */
-        store::handler(YXORP_ZZZZ, Cockpit::instance());
+        store::handler(YXORP_APP, Cockpit::instance());
     }
 
     /**
@@ -587,7 +587,7 @@ class helpers
         /**
          * It's inserting a new user into the `APP_accounts` collection.
          */
-        if (!store::handler(YXORP_ZZZZ)->dataStorage->getCollection(YXORP_APP_SYSTEM_USERS)->count()) store::handler(YXORP_ZZZZ)->dataStorage->save(YXORP_APP_SYSTEM_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_ZZZZ)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_SYSTEM_USERS)->count()) store::handler(YXORP_APP)->dataStorage->save(YXORP_APP_SYSTEM_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
