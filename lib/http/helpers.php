@@ -1,6 +1,7 @@
 <?php namespace yxorP\lib\http;
 
 use Bugsnag\Client;
+use Cockpit;
 use GuzzleHttp\Cookie\FileCookieJar;
 
 
