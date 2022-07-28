@@ -480,7 +480,7 @@ class helpers
 
         print_r(store::handler(SITE_DETAILS));
         echo VAR_PATTERN;
-        print_r(store::handler(SITE_DETAILS)[VAR_PATTERN]);
+        print_r(store::handler(SITE_DETAILS)[VAR_REPLACE]);
 
         /**
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
