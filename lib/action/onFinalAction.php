@@ -3,10 +3,10 @@
  * Importing the wrapper class from the yxorP\lib\http namespace.
  */
 
+use yxorP\lib\constants;
 use yxorP\lib\http\cache;
 use yxorP\lib\http\store;
 use yxorP\lib\http\wrapper;
-use yxorP\lib\constants;
 
 /**
  * Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.

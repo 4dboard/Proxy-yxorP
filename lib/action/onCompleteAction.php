@@ -4,8 +4,8 @@
  */
 
 
-use yxorP\lib\http\wrapper;
 use yxorP\lib\constants;
+use yxorP\lib\http\wrapper;
 
 /**
  * Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.

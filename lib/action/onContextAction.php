@@ -4,10 +4,10 @@
  */
 
 
+use yxorP\lib\constants;
 use yxorP\lib\http\request;
 use yxorP\lib\http\store;
 use yxorP\lib\http\wrapper;
-use yxorP\lib\constants;
 
 /**
  * Extending the wrapper class, which is a class that is used to wrap the request and response objects.

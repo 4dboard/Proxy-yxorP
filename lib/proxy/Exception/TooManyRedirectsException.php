@@ -1,1 +1,4 @@
-<?php namespace yxorP\lib\proxy\Exception;class TooManyRedirectsException extends ARequestExceptionAA{}
+<?php namespace yxorP\lib\proxy\Exception;
+class TooManyRedirectsException extends ARequestExceptionAA
+{
+}

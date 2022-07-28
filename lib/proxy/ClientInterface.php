@@ -1,1 +1,18 @@
-<?php namespace yxorP\lib\proxy;use yxorP\inc\Psr\Http\Message\RequestInterface;use yxorP\inc\Psr\Http\Message\ResponseInterface;use yxorP\inc\Psr\Http\Message\UriInterface;use yxorP\lib\proxy\Exception\ProxyException;use yxorP\lib\proxy\Promise\PromiseInterface;interface ClientInterface{const VERSION='6.5.5';public function send(RequestInterface $request,array $options=[]);public function sendAsync(RequestInterface $request,array $options=[]);public function request($method,$uri,array $options=[]);public function requestAsync($method,$uri,array $options=[]);public function getConfig($option=null);}
+<?php namespace yxorP\lib\proxy;
+
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+
+interface ClientInterface
+{
+    const VERSION = '6.5.5';
+
+    public function send(RequestInterface $request, array $options = []);
+
+    public function sendAsync(RequestInterface $request, array $options = []);
+
+    public function request($method, $uri, array $options = []);
+
+    public function requestAsync($method, $uri, array $options = []);
+
+    public function getConfig($option = null);
+}

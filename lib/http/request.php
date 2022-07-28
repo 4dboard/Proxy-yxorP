@@ -60,6 +60,23 @@ class request
     }
 
     /**
+     * Setting the URL of the request.
+     *
+     */
+    public function setUrl($url): void
+    {
+        $query = parse_url($url, PHP_URL_QUERY);
+        if ($query) {
+            $url = str_replace('?' . $query, CHAR_EMPTY_STRING, $url);
+            $url = preg_replace(REG_ONE, CHAR_EMPTY_STRING, $url);
+            $result = self::parseQuery($query);
+            $this->get->replace($result);
+        }
+        $this->url = $url;
+        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
+    }
+
+    /**
      * Parsing a query string into an array.
      *
      */
@@ -68,6 +85,55 @@ class request
         $result = array();
         parse_str($query, $result);
         return $result;
+    }
+
+    /**
+     * A method that is called by the wrapper class.
+     *
+     */
+    public function setBody($body, $content_type = 0): void
+    {
+        $this->post->clear();
+        $this->files->clear();
+        if (is_array($body)) $body = http_build_query($body);
+        $this->body = (string)$body;
+        if ($content_type) $this->headers->set(VAR_CONTENT_TYPE, $content_type);
+        $this->prepare();
+    }
+
+    /**
+     * Setting the body of the request.
+     *
+     */
+    public function prepare(): void
+    {
+        if ($this->files->all()) {
+            $boundary = self::generateBoundary();
+            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
+            $this->headers->set(VAR_CONTENT_TYPE, 'multipart/form-data; boundary=' . $boundary);
+        } else if ($this->post->all()) {
+            $this->prepared_body = http_build_query($this->post->all());
+            $this->headers->set(VAR_CONTENT_TYPE, VAR_APPLICATION_URLENCODED);
+        } else {
+            $this->headers->set(VAR_CONTENT_TYPE, $this->detectContentType($this->body));
+            $this->prepared_body = $this->body;
+        }
+
+        $len = strlen($this->prepared_body);
+
+        if ($len > 0) $this->headers->set(VAR_CONTENT_LENGTH, $len); else {
+            $this->headers->remove(VAR_CONTENT_LENGTH);
+            $this->headers->remove(VAR_CONTENT_TYPE);
+        }
+    }
+
+    /**
+     * Preparing the body of the request.
+     */
+
+    private static function generateBoundary(): string
+    {
+        return '-----' . md5(microtime() . mt_rand());
     }
 
     /**
@@ -113,6 +179,20 @@ class request
     }
 
     /**
+     * Building the body of the request.
+     */
+
+    private function detectContentType($data): string
+    {
+        $content_type = 'application/octet-stream';
+        if (preg_match('/^{\s*"[^"]+"\s*:/', $data))
+            $content_type = 'application/json'; else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data))
+            $content_type = 'application/xml'; else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data))
+            $content_type = VAR_APPLICATION_URLENCODED;
+        return $content_type;
+    }
+
+    /**
      * Detecting the content type of the request.
      *
      */
@@ -136,72 +216,6 @@ class request
         } else if (count($_POST) > 0) $request->post->replace($_POST);
         $request->prepare();
         return $request;
-    }
-
-    /**
-     * Preparing the body of the request.
-     */
-
-    private static function generateBoundary(): string
-    {
-        return '-----' . md5(microtime() . mt_rand());
-    }
-
-    /**
-     * Setting the URL of the request.
-     *
-     */
-    public function setUrl($url): void
-    {
-        $query = parse_url($url, PHP_URL_QUERY);
-        if ($query) {
-            $url = str_replace('?' . $query, CHAR_EMPTY_STRING, $url);
-            $url = preg_replace(REG_ONE, CHAR_EMPTY_STRING, $url);
-            $result = self::parseQuery($query);
-            $this->get->replace($result);
-        }
-        $this->url = $url;
-        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
-    }
-
-    /**
-     * A method that is called by the wrapper class.
-     *
-     */
-    public function setBody($body, $content_type = 0): void
-    {
-        $this->post->clear();
-        $this->files->clear();
-        if (is_array($body)) $body = http_build_query($body);
-        $this->body = (string)$body;
-        if ($content_type) $this->headers->set(VAR_CONTENT_TYPE, $content_type);
-        $this->prepare();
-    }
-
-    /**
-     * Setting the body of the request.
-     *
-     */
-    public function prepare(): void
-    {
-        if ($this->files->all()) {
-            $boundary = self::generateBoundary();
-            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
-            $this->headers->set(VAR_CONTENT_TYPE, 'multipart/form-data; boundary=' . $boundary);
-        } else if ($this->post->all()) {
-            $this->prepared_body = http_build_query($this->post->all());
-            $this->headers->set(VAR_CONTENT_TYPE, VAR_APPLICATION_URLENCODED);
-        } else {
-            $this->headers->set(VAR_CONTENT_TYPE, $this->detectContentType($this->body));
-            $this->prepared_body = $this->body;
-        }
-
-        $len = strlen($this->prepared_body);
-
-        if ($len > 0) $this->headers->set(VAR_CONTENT_LENGTH, $len); else {
-            $this->headers->remove(VAR_CONTENT_LENGTH);
-            $this->headers->remove(VAR_CONTENT_TYPE);
-        }
     }
 
     /**
@@ -272,19 +286,5 @@ class request
     public function getUri()
     {
         return call_user_func_array(array($this, "getUrl"), func_get_args());
-    }
-
-    /**
-     * Building the body of the request.
-     */
-
-    private function detectContentType($data): string
-    {
-        $content_type = 'application/octet-stream';
-        if (preg_match('/^{\s*"[^"]+"\s*:/', $data))
-            $content_type = 'application/json'; else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data))
-            $content_type = 'application/xml'; else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data))
-            $content_type = VAR_APPLICATION_URLENCODED;
-        return $content_type;
     }
 }

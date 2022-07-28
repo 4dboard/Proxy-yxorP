@@ -1,1 +1,4 @@
-<?php namespace yxorP\lib\proxy\Exception;class ClientException extends BadResponseException{}
+<?php namespace yxorP\lib\proxy\Exception;
+class ClientException extends BadResponseException
+{
+}
