@@ -472,7 +472,7 @@ class helpers
          */
         store::handler(SITE_DETAILS, null, 'yxorP\lib\http\helpers::cockpit_find');
 
-        print_r(store::handler(SITE_DETAILS)[VAR_TARGET_PATTERN]);
+        print_r(store::handler(SITE_DETAILS));
         /**
          * Setting the pattern, replace, and plugins variables.
          */
