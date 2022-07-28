@@ -85,10 +85,10 @@ abstract class wrapper
                     $this->onCheck()->onSend();
                     break;
                 case EVENT_SENT: /* Calling the `onCheck` method and then the `onSent` method. */
-                    $this->onSent();
+                    $this->onCheck()->onSent();
                     break;
                 case EVENT_WRITE: /* Calling the `onCheck` method and then the `onWrite` method. */
-                    $this->onWrite();
+                    $this->onCheck()->onWrite();
                     break;
                 case EVENT_COMPLETE: /* Calling the `onComplete` method. */
                     $this->onComplete();
