@@ -66,6 +66,7 @@ class yP
     private function init(?array $request): void
     {
 
+        exit('1');
         /**
          * Checking if the files exist in the directory.
          */
