@@ -1,8 +1,0 @@
-yxorP:
-  logoWidth: 8em    # optional, default: 30px
-  logoHeight: 3em   # optional, default: 30px
-  hideName: true    # hide app name
-  colors:
-    - #ff0000
-    - #00ff00
-    - #0000ff
