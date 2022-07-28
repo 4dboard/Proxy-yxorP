@@ -266,7 +266,7 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SITES, [APP_HOST => YXORP_SITE_DOMAIN]);
     }
 
     /**
@@ -278,7 +278,7 @@ class helpers
      */
     public static function cockpit_global(): mixed
     {
-        return store::handler(YXORP_APP)->dataStorage->findOne(COCKPIT_SINGLETONS, [COCKPIT_KEY => COCKPIT_SETTINGS]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(APP_SINGLETONS, [APP_KEY => APP_SETTINGS]);
     }
 
     /**
@@ -369,10 +369,10 @@ class helpers
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
-         * It's defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
-         * `DIR_LIB` and `DIR_COCKPIT` and `FILE_COCKPIT_BOOTSTRAP` appended to it.
+         * It's defining a constant called `PATH_APP_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
+         * `DIR_LIB` and `DIR_COCKPIT` and `FILE_APP_BOOTSTRAP` appended to it.
          */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
+        define('PATH_APP_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_APP_BOOTSTRAP);
         /**
          * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a
          * `DIR_VENDOR` and `FILE_GUZZLE` appended to it.
@@ -393,14 +393,14 @@ class helpers
          */
         define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT);
         /**
-         * It's defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a
+         * It's defining a constant called `PATH_APP_LOCAL` and setting it to the value of `DIR_ROOT` with a
          * `DIR_INSTALL` and `DIR_COCKPIT` appended to it.
          */
-        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_LIB . DIR_INSTALL . DIR_COCKPIT);
+        define('PATH_APP_LOCAL', DIR_ROOT . DIR_LIB . DIR_INSTALL . DIR_COCKPIT);
         /**
-         * It's defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
+         * It's defining a constant called `PATH_APP_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
          */
-        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
+        define('PATH_APP_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
         /**
          * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a  `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
          */
@@ -481,7 +481,7 @@ class helpers
         /**
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
          */
-        define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[COCKPIT_TARGET]);
+        define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[APP_TARGET]);
 
 
         /**
@@ -515,7 +515,7 @@ class helpers
          * Setting the pattern, replace, and plugins variables.
          */
         foreach ([YXORP_GLOBAL_PATTERN => VAR_PATTERN, YXORP_GLOBAL_REPLACE => VAR_REPLACE, YXORP_GLOBAL_CSS => VAR_CSS, YXORP_GLOBAL_JS => VAR_JS] as $key => $value)
-            store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[COCKPIT_VAL][$value]);
+            store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[APP_VAL][$value]);
 
         /**
          * Loading the Guzzle Snag class.
@@ -534,7 +534,7 @@ class helpers
         /**
          * Requiring the COCKPIT library.
          */
-        require PATH_COCKPIT_BOOTSTRAP;
+        require PATH_APP_BOOTSTRAP;
         /**
          * Storing the cockpit object in the tmp store.
          */
@@ -575,17 +575,17 @@ class helpers
     public static function install(): void
     {
         /**
-         * It's defining the `YXORP_COCKPIT_INSTALL` constant as `true` .
+         * It's defining the `YXORP_APP_INSTALL` constant as `true` .
          */
-        define(YXORP_COCKPIT_INSTALL, true);
+        define(YXORP_APP_INSTALL, true);
 
         /**
          * It's copying the files from the `local` directory to the `COCKPIT` directory.
          */
 
-        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_COCKPIT);
         /**
-         * It's inserting a new user into the `COCKPIT_accounts` collection.
+         * It's inserting a new user into the `APP_accounts` collection.
          */
         if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_USERS)->count()) store::handler(YXORP_APP)->dataStorage->save(YXORP_APP_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => 'en', VAR_ROLE => VAR_ADMIN, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
