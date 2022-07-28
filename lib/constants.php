@@ -2,6 +2,7 @@
 define('YXORP_HTTP_HOST', $_SERVER['HTTP_HOST']) . define('YXORP_REQUEST_URI', $_SERVER['REQUEST_URI']);
 const CHAR_PERIOD = '.';
 const VAR_TMP = 'tmp';
+const YXORP = 'yxorP';
 const FILE_TMP = CHAR_PERIOD . VAR_TMP;
 define('DIR_TMP', VAR_TMP . DIRECTORY_SEPARATOR . urlencode(YXORP_HTTP_HOST) . DIRECTORY_SEPARATOR);
 define('CACHE_KEY', rtrim(strtr(base64_encode(YXORP_REQUEST_URI), '+/=', '._-')));
@@ -204,7 +205,6 @@ const FILE_BUGSNAG = VAR_BUGSNAG . EXT_PHAR;
 const FILE_TLDS_ALPHA_BY_DOMAIN = 'tlds-alpha-by-domain.txt';
 const FILE_PUBLIC_SUFFIX_LIST = 'public_suffix_list.dat';
 const SUBSCRIBE_METHOD = 'subscribe';
-const YXORP = 'yxorP';
 const YXORP_ACTIONS = 'YXORP_ACTIONS';
 const YXORP_EVENT_LIST = VAR_EVENT . CHAR_UNDER . VAR_LIST;
 const YXORP_MIME_TYPES = VAR_MIME . CHAR_UNDER . VAR_TYPES;
