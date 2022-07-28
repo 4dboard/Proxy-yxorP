@@ -2,6 +2,7 @@
 
 namespace yxorP\lib\proxy\Exception;
 
+use Exception;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 
 /**
@@ -14,7 +15,7 @@ class ConnectException extends ARequestException
     public function __construct(
         $message,
         RequestInterface $request,
-        \Exception $previous = null,
+        Exception $previous = null,
         array $handlerContext = []
     )
     {

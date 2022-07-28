@@ -2,18 +2,25 @@
 
 namespace yxorP\lib\proxy\Handler;
 
+use Countable;
+use Exception;
+use InvalidArgumentException;
+use OutOfBoundsException;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 use yxorP\lib\proxy\Exception\ARequestException;
 use yxorP\lib\proxy\HandlerStack;
 use yxorP\lib\proxy\Promise\PromiseInterface;
-use yxorP\lib\proxy\Promise\RejectedPromise;
 use yxorP\lib\proxy\TransferStats;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
-use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use function yxorP\lib\proxy\describe_type;
+use function yxorP\lib\proxy\Promise\promise_for;
+use function yxorP\lib\proxy\Promise\rejection_for;
 
 /**
  * Handler that returns responses or throw exceptions from a queue.
  */
-class MockHandler implements \Countable
+class MockHandler implements Countable
 {
     private $queue = [];
     private $lastRequest;
@@ -66,7 +73,7 @@ class MockHandler implements \Countable
     public function __invoke(RequestInterface $request, array $options)
     {
         if (!$this->queue) {
-            throw new \OutOfBoundsException('Mock queue is empty');
+            throw new OutOfBoundsException('Mock queue is empty');
         }
 
         if (isset($options['delay']) && is_numeric($options['delay'])) {
@@ -79,11 +86,11 @@ class MockHandler implements \Countable
 
         if (isset($options['on_headers'])) {
             if (!is_callable($options['on_headers'])) {
-                throw new \InvalidArgumentException('on_headers must be callable');
+                throw new InvalidArgumentException('on_headers must be callable');
             }
             try {
                 $options['on_headers']($response);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
                 $response = new ARequestException($msg, $request, $response, $e);
             }
@@ -93,9 +100,9 @@ class MockHandler implements \Countable
             $response = call_user_func($response, $request, $options);
         }
 
-        $response = $response instanceof \Exception
-            ? \yxorP\lib\proxy\Promise\rejection_for($response)
-            : \yxorP\lib\proxy\Promise\promise_for($response);
+        $response = $response instanceof Exception
+            ? rejection_for($response)
+            : promise_for($response);
 
         return $response->then(
             function ($value) use ($request, $options) {
@@ -111,7 +118,7 @@ class MockHandler implements \Countable
                         fwrite($sink, $contents);
                     } elseif (is_string($sink)) {
                         file_put_contents($sink, $contents);
-                    } elseif ($sink instanceof \yxorP\inc\Psr\Http\Message\StreamInterface) {
+                    } elseif ($sink instanceof StreamInterface) {
                         $sink->write($contents);
                     }
                 }
@@ -123,9 +130,23 @@ class MockHandler implements \Countable
                 if ($this->onRejected) {
                     call_user_func($this->onRejected, $reason);
                 }
-                return \yxorP\lib\proxy\Promise\rejection_for($reason);
+                return rejection_for($reason);
             }
         );
+    }
+
+    private function invokeStats(
+        RequestInterface  $request,
+        array             $options,
+        ResponseInterface $response = null,
+                          $reason = null
+    )
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new TransferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
     }
 
     /**
@@ -136,14 +157,14 @@ class MockHandler implements \Countable
     {
         foreach (func_get_args() as $value) {
             if ($value instanceof ResponseInterface
-                || $value instanceof \Exception
+                || $value instanceof Exception
                 || $value instanceof PromiseInterface
                 || is_callable($value)
             ) {
                 $this->queue[] = $value;
             } else {
-                throw new \InvalidArgumentException('Expected a response or '
-                    . 'exception. Found ' . \yxorP\lib\proxy\describe_type($value));
+                throw new InvalidArgumentException('Expected a response or '
+                    . 'exception. Found ' . describe_type($value));
             }
         }
     }
@@ -181,19 +202,5 @@ class MockHandler implements \Countable
     public function reset()
     {
         $this->queue = [];
-    }
-
-    private function invokeStats(
-        RequestInterface  $request,
-        array             $options,
-        ResponseInterface $response = null,
-                          $reason = null
-    )
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new TransferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
     }
 }

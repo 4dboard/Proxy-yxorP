@@ -2,13 +2,21 @@
 
 namespace yxorP\lib\proxy\Handler;
 
-use yxorP\lib\proxy\Exception\ConnectException;
+use Exception;
+use InvalidArgumentException;
+use RuntimeException;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Exception\ARequestException;
+use yxorP\lib\proxy\Exception\ConnectException;
 use yxorP\lib\proxy\Promise\FulfilledPromise;
+use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Psr7;
 use yxorP\lib\proxy\Psr7\LazyOpenStream;
 use yxorP\lib\proxy\TransferStats;
-use yxorP\inc\Psr\Http\Message\RequestInterface;
+use function yxorP\lib\proxy\debug_resource;
+use function yxorP\lib\proxy\is_host_in_noproxy;
+use function yxorP\lib\proxy\Promise\rejection_for;
+use function yxorP\lib\proxy\Psr7\stream_for;
 
 /**
  * Creates curl resources from a request
@@ -40,7 +48,7 @@ class CurlFactory implements CurlFactoryInterface
      * @param EasyHandle $easy
      * @param CurlFactoryInterface $factory Dictates how the handle is released
      *
-     * @return \yxorP\lib\proxy\Promise\PromiseInterface
+     * @return PromiseInterface
      */
     public static function finish(
         callable             $handler,
@@ -107,6 +115,74 @@ class CurlFactory implements CurlFactoryInterface
         return self::createRejection($easy, $ctx);
     }
 
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            // Remove all callback functions as they can hold onto references
+            // and are not cleaned up by curl_reset. Using curl_setopt_array
+            // does not work for some reason, so removing each one
+            // individually.
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
+    }
+
+    /**
+     * This function ensures that a response was set on a transaction. If one
+     * was not set, then the request is retried if possible. This error
+     * typically means you are sending a payload, curl encountered a
+     * "Connection died, retrying a fresh connect" error, tried to rewind the
+     * stream, and then encountered a "necessary data rewind wasn't possible"
+     * error, causing the request to be sent through curl_multi_info_read()
+     * without an error status.
+     */
+    private static function retryFailedRewind(
+        callable   $handler,
+        EasyHandle $easy,
+        array      $ctx
+    )
+    {
+        try {
+            // Only rewind if the body has been read from.
+            $body = $easy->request->getBody();
+            if ($body->tell() > 0) {
+                $body->rewind();
+            }
+        } catch (RuntimeException $e) {
+            $ctx['error'] = 'The connection unexpectedly failed without '
+                . 'providing an error. The request would have been retried, '
+                . 'but attempting to rewind the request body failed. '
+                . 'Exception: ' . $e;
+            return self::createRejection($easy, $ctx);
+        }
+
+        // Retry no more than 3 times before giving up.
+        if (!isset($easy->options['_curl_retries'])) {
+            $easy->options['_curl_retries'] = 1;
+        } elseif ($easy->options['_curl_retries'] == 2) {
+            $ctx['error'] = 'The cURL request was retried 3 times '
+                . 'and did not succeed. The most likely reason for the failure '
+                . 'is that cURL was unable to rewind the body of the request '
+                . 'and subsequent retries resulted in the same error. Turn on '
+                . 'the debug option to see what went wrong. See '
+                . 'https://bugs.php.net/bug.php?id=47204 for more information.';
+            return self::createRejection($easy, $ctx);
+        } else {
+            $easy->options['_curl_retries']++;
+        }
+
+        return $handler($easy->request, $easy->options);
+    }
+
     private static function createRejection(EasyHandle $easy, array $ctx)
     {
         static $connectionErrors = [
@@ -120,7 +196,7 @@ class CurlFactory implements CurlFactoryInterface
         // If an exception was encountered during the onHeaders event, then
         // return a rejected promise that wraps that exception.
         if ($easy->onHeadersException) {
-            return \yxorP\lib\proxy\Promise\rejection_for(
+            return rejection_for(
                 new ARequestException(
                     'An error was encountered during the on_headers event',
                     $easy->request,
@@ -152,54 +228,7 @@ class CurlFactory implements CurlFactoryInterface
             ? new ConnectException($message, $easy->request, null, $ctx)
             : new ARequestException($message, $easy->request, $easy->response, null, $ctx);
 
-        return \yxorP\lib\proxy\Promise\rejection_for($error);
-    }
-
-    /**
-     * This function ensures that a response was set on a transaction. If one
-     * was not set, then the request is retried if possible. This error
-     * typically means you are sending a payload, curl encountered a
-     * "Connection died, retrying a fresh connect" error, tried to rewind the
-     * stream, and then encountered a "necessary data rewind wasn't possible"
-     * error, causing the request to be sent through curl_multi_info_read()
-     * without an error status.
-     */
-    private static function retryFailedRewind(
-        callable   $handler,
-        EasyHandle $easy,
-        array      $ctx
-    )
-    {
-        try {
-            // Only rewind if the body has been read from.
-            $body = $easy->request->getBody();
-            if ($body->tell() > 0) {
-                $body->rewind();
-            }
-        } catch (\RuntimeException $e) {
-            $ctx['error'] = 'The connection unexpectedly failed without '
-                . 'providing an error. The request would have been retried, '
-                . 'but attempting to rewind the request body failed. '
-                . 'Exception: ' . $e;
-            return self::createRejection($easy, $ctx);
-        }
-
-        // Retry no more than 3 times before giving up.
-        if (!isset($easy->options['_curl_retries'])) {
-            $easy->options['_curl_retries'] = 1;
-        } elseif ($easy->options['_curl_retries'] == 2) {
-            $ctx['error'] = 'The cURL request was retried 3 times '
-                . 'and did not succeed. The most likely reason for the failure '
-                . 'is that cURL was unable to rewind the body of the request '
-                . 'and subsequent retries resulted in the same error. Turn on '
-                . 'the debug option to see what went wrong. See '
-                . 'https://bugs.php.net/bug.php?id=47204 for more information.';
-            return self::createRejection($easy, $ctx);
-        } else {
-            $easy->options['_curl_retries']++;
-        }
-
-        return $handler($easy->request, $easy->options);
+        return rejection_for($error);
     }
 
     public function create(RequestInterface $request, array $options)
@@ -230,27 +259,6 @@ class CurlFactory implements CurlFactoryInterface
         curl_setopt_array($easy->handle, $conf);
 
         return $easy;
-    }
-
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            // Remove all callback functions as they can hold onto references
-            // and are not cleaned up by curl_reset. Using curl_setopt_array
-            // does not work for some reason, so removing each one
-            // individually.
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
     }
 
     private function getDefaultConf(EasyHandle $easy)
@@ -348,27 +356,6 @@ class CurlFactory implements CurlFactoryInterface
         }
     }
 
-    private function applyHeaders(EasyHandle $easy, array &$conf)
-    {
-        foreach ($conf['_headers'] as $name => $values) {
-            foreach ($values as $value) {
-                $value = (string)$value;
-                if ($value === '') {
-                    // cURL requires a special format for empty headers.
-                    // See https://github.com/proxy/proxy/issues/1882 for more details.
-                    $conf[CURLOPT_HTTPHEADER][] = "$name;";
-                } else {
-                    $conf[CURLOPT_HTTPHEADER][] = "$name: $value";
-                }
-            }
-        }
-
-        // Remove the Accept header if one was not set
-        if (!$easy->request->hasHeader('Accept')) {
-            $conf[CURLOPT_HTTPHEADER][] = 'Accept:';
-        }
-    }
-
     /**
      * Remove a header from the options array.
      *
@@ -399,7 +386,7 @@ class CurlFactory implements CurlFactoryInterface
                 if (is_string($options['verify'])) {
                     // Throw an error if the file/folder/link path is not valid or doesn't exist.
                     if (!file_exists($options['verify'])) {
-                        throw new \InvalidArgumentException(
+                        throw new InvalidArgumentException(
                             "SSL CA bundle not found: {$options['verify']}"
                         );
                     }
@@ -429,10 +416,10 @@ class CurlFactory implements CurlFactoryInterface
         if (isset($options['sink'])) {
             $sink = $options['sink'];
             if (!is_string($sink)) {
-                $sink = \yxorP\lib\proxy\Psr7\stream_for($sink);
+                $sink = stream_for($sink);
             } elseif (!is_dir(dirname($sink))) {
                 // Ensure that the directory exists before failing in curl.
-                throw new \RuntimeException(sprintf(
+                throw new RuntimeException(sprintf(
                     'Directory %s does not exist for sink value of %s',
                     dirname($sink),
                     $sink
@@ -447,7 +434,7 @@ class CurlFactory implements CurlFactoryInterface
         } else {
             // Use a default temp stream if no sink was set.
             $conf[CURLOPT_FILE] = fopen('php://temp', 'w+');
-            $easy->sink = Psr7\stream_for($conf[CURLOPT_FILE]);
+            $easy->sink = stream_for($conf[CURLOPT_FILE]);
         }
         $timeoutRequiresNoSignal = false;
         if (isset($options['timeout'])) {
@@ -481,7 +468,7 @@ class CurlFactory implements CurlFactoryInterface
                 if (isset($options['proxy'][$scheme])) {
                     $host = $easy->request->getUri()->getHost();
                     if (!isset($options['proxy']['no']) ||
-                        !\yxorP\lib\proxy\is_host_in_noproxy($host, $options['proxy']['no'])
+                        !is_host_in_noproxy($host, $options['proxy']['no'])
                     ) {
                         $conf[CURLOPT_PROXY] = $options['proxy'][$scheme];
                     }
@@ -496,7 +483,7 @@ class CurlFactory implements CurlFactoryInterface
                 $cert = $cert[0];
             }
             if (!file_exists($cert)) {
-                throw new \InvalidArgumentException(
+                throw new InvalidArgumentException(
                     "SSL certificate not found: {$cert}"
                 );
             }
@@ -515,7 +502,7 @@ class CurlFactory implements CurlFactoryInterface
             $sslKey = isset($sslKey) ? $sslKey : $options['ssl_key'];
 
             if (!file_exists($sslKey)) {
-                throw new \InvalidArgumentException(
+                throw new InvalidArgumentException(
                     "SSL private key not found: {$sslKey}"
                 );
             }
@@ -525,7 +512,7 @@ class CurlFactory implements CurlFactoryInterface
         if (isset($options['progress'])) {
             $progress = $options['progress'];
             if (!is_callable($progress)) {
-                throw new \InvalidArgumentException(
+                throw new InvalidArgumentException(
                     'progress client option must be callable'
                 );
             }
@@ -541,8 +528,29 @@ class CurlFactory implements CurlFactoryInterface
         }
 
         if (!empty($options['debug'])) {
-            $conf[CURLOPT_STDERR] = \yxorP\lib\proxy\debug_resource($options['debug']);
+            $conf[CURLOPT_STDERR] = debug_resource($options['debug']);
             $conf[CURLOPT_VERBOSE] = true;
+        }
+    }
+
+    private function applyHeaders(EasyHandle $easy, array &$conf)
+    {
+        foreach ($conf['_headers'] as $name => $values) {
+            foreach ($values as $value) {
+                $value = (string)$value;
+                if ($value === '') {
+                    // cURL requires a special format for empty headers.
+                    // See https://github.com/proxy/proxy/issues/1882 for more details.
+                    $conf[CURLOPT_HTTPHEADER][] = "$name;";
+                } else {
+                    $conf[CURLOPT_HTTPHEADER][] = "$name: $value";
+                }
+            }
+        }
+
+        // Remove the Accept header if one was not set
+        if (!$easy->request->hasHeader('Accept')) {
+            $conf[CURLOPT_HTTPHEADER][] = 'Accept:';
         }
     }
 
@@ -552,7 +560,7 @@ class CurlFactory implements CurlFactoryInterface
             $onHeaders = $easy->options['on_headers'];
 
             if (!is_callable($onHeaders)) {
-                throw new \InvalidArgumentException('on_headers must be callable');
+                throw new InvalidArgumentException('on_headers must be callable');
             }
         } else {
             $onHeaders = null;
@@ -570,7 +578,7 @@ class CurlFactory implements CurlFactoryInterface
                 if ($onHeaders !== null) {
                     try {
                         $onHeaders($easy->response);
-                    } catch (\Exception $e) {
+                    } catch (Exception $e) {
                         // Associate the exception with the handle and trigger
                         // a curl header write error by returning 0.
                         $easy->onHeadersException = $e;

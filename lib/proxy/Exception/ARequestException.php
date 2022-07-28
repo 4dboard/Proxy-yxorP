@@ -2,10 +2,12 @@
 
 namespace yxorP\lib\proxy\Exception;
 
-use yxorP\lib\proxy\Promise\PromiseInterface;
+use Exception;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\inc\Psr\Http\Message\UriInterface;
+use yxorP\lib\proxy\Promise\PromiseInterface;
+use function yxorP\lib\proxy\Psr7\get_message_body_summary;
 
 /**
  * HTTP Request exception
@@ -25,7 +27,7 @@ class ARequestException extends TransferException
         $message,
         RequestInterface $request,
         ResponseInterface $response = null,
-        \Exception $previous = null,
+        Exception $previous = null,
         array $handlerContext = []
     )
     {
@@ -43,11 +45,11 @@ class ARequestException extends TransferException
      * Wrap non-RequestExceptions with a RequestException
      *
      * @param RequestInterface $request
-     * @param \Exception $e
+     * @param Exception $e
      *
      * @return ARequestException
      */
-    public static function wrapException(RequestInterface $request, \Exception $e)
+    public static function wrapException(RequestInterface $request, Exception $e)
     {
         return $e instanceof ARequestException
             ? $e
@@ -59,7 +61,7 @@ class ARequestException extends TransferException
      *
      * @param RequestInterface $request Request
      * @param ResponseInterface $response Response received
-     * @param \Exception $previous Previous exception
+     * @param Exception $previous Previous exception
      * @param array $ctx Optional handler context.
      *
      * @return self
@@ -67,7 +69,7 @@ class ARequestException extends TransferException
     public static function create(
         RequestInterface  $request,
         ResponseInterface $response = null,
-        \Exception        $previous = null,
+        Exception        $previous = null,
         array             $ctx = []
     )
     {
@@ -117,20 +119,6 @@ class ARequestException extends TransferException
     }
 
     /**
-     * Get a short summary of the response
-     *
-     * Will return `null` if the response is not printable.
-     *
-     * @param ResponseInterface $response
-     *
-     * @return string|null
-     */
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return \yxorP\lib\proxy\Psr7\get_message_body_summary($response);
-    }
-
-    /**
      * Obfuscates URI if there is a username and a password present
      *
      * @param UriInterface $uri
@@ -146,6 +134,20 @@ class ARequestException extends TransferException
         }
 
         return $uri;
+    }
+
+    /**
+     * Get a short summary of the response
+     *
+     * Will return `null` if the response is not printable.
+     *
+     * @param ResponseInterface $response
+     *
+     * @return string|null
+     */
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return get_message_body_summary($response);
     }
 
     /**
