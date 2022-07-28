@@ -2,7 +2,7 @@
 
 # MessageTrait
 
-Trait implementing functionality common to requests and responses.
+
 
 
 
@@ -18,7 +18,7 @@ Trait implementing functionality common to requests and responses.
 
 
 ```php
-private array $headers
+private $headers
 ```
 
 
@@ -33,7 +33,7 @@ private array $headers
 
 
 ```php
-private array $headerNames
+private $headerNames
 ```
 
 
@@ -48,7 +48,7 @@ private array $headerNames
 
 
 ```php
-private string $protocol
+private $protocol
 ```
 
 
@@ -63,7 +63,7 @@ private string $protocol
 
 
 ```php
-private \yxorP\inc\Psr\Http\Message\StreamInterface $stream
+private $stream
 ```
 
 
@@ -168,12 +168,12 @@ public hasHeader(mixed $header): mixed
 
 ***
 
-### getHeader
+### getHeaderLine
 
 
 
 ```php
-public getHeader(mixed $header): mixed
+public getHeaderLine(mixed $header): mixed
 ```
 
 
@@ -194,12 +194,12 @@ public getHeader(mixed $header): mixed
 
 ***
 
-### getHeaderLine
+### getHeader
 
 
 
 ```php
-public getHeaderLine(mixed $header): mixed
+public getHeader(mixed $header): mixed
 ```
 
 
@@ -241,6 +241,84 @@ public withHeader(mixed $header, mixed $value): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
+
+***
+
+### assertHeader
+
+
+
+```php
+private assertHeader(mixed $header): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$header` | **mixed** |  |
+
+
+
+
+***
+
+### normalizeHeaderValue
+
+
+
+```php
+private normalizeHeaderValue(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### trimHeaderValues
+
+
+
+```php
+private trimHeaderValues(array $values): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$values` | **array** |  |
 
 
 
@@ -366,94 +444,6 @@ private setHeaders(array $headers): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
-
-
-
-
-***
-
-### normalizeHeaderValue
-
-
-
-```php
-private normalizeHeaderValue(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### trimHeaderValues
-
-Trims whitespace from the header values.
-
-```php
-private trimHeaderValues(string[] $values): string[]
-```
-
-Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.
-
-header-field = field-name ":" OWS field-value OWS
-OWS          = *( SP / HTAB )
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$values` | **string[]** | Header values |
-
-
-**Return Value:**
-
-Trimmed header values
-
-
-**See Also:**
-
-* https://tools.ietf.org/html/rfc7230#section-3.2.4 - 
-
-***
-
-### assertHeader
-
-
-
-```php
-private assertHeader(mixed $header): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$header` | **mixed** |  |
 
 
 

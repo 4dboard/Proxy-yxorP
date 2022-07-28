@@ -2,7 +2,7 @@
 
 # AStreamDecoratorTrait
 
-Stream decorator trait
+
 
 
 
@@ -33,7 +33,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to decorate |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 
@@ -42,11 +42,10 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 ### __get
 
-Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).
+
 
 ```php
-public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
+public __get(mixed $name): mixed
 ```
 
 
@@ -60,7 +59,7 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | Name of the property (allows &quot;stream&quot; only). |
+| `$name` | **mixed** |  |
 
 
 
@@ -69,10 +68,10 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 ### createStream
 
-Implement in subclasses to dynamically create streams when requested.
+
 
 ```php
-protected createStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
+protected createStream(): mixed
 ```
 
 
@@ -176,10 +175,10 @@ public getContents(): mixed
 
 ### __call
 
-Allow decorators to implement custom methods
+
 
 ```php
-public __call(string $method, array $args): mixed
+public __call(mixed $method, array $args): mixed
 ```
 
 
@@ -193,8 +192,8 @@ public __call(string $method, array $args): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** | Missing method name |
-| `$args` | **array** | Method arguments |
+| `$method` | **mixed** |  |
+| `$args` | **array** |  |
 
 
 
