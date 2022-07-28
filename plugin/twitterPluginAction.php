@@ -1,14 +1,13 @@
 <?php
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yorxP\debug\Utils\Html;
-use yxorP\lib\constants;
-use yxorP\lib\http\wrapper;
-use const VAR_RESPONSE;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
+
 
 /**
  * Extending the wrapper class, which is a class that is used to create plugins.
@@ -38,7 +37,7 @@ class twitterPluginAction extends wrapper
         /**
          * Setting the content of the response to the content that we have modified.
          */
-        $content = \Html::remove_scripts($content);
+        $content = Html::remove_scripts($content);
         $response->setContent($content);
     }
 }

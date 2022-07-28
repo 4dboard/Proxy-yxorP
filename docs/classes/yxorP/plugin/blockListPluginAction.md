@@ -7,33 +7,13 @@ Extending the wrapper class.
 
 
 * Full name: `\yxorP\plugin\blockListPluginAction`
-* Parent class: [`\yxorP\lib\http\wrapper`](../lib/http/wrapper.md)
+* Parent class: [`\yxorP\app\lib\http\wrapper`](../app/lib/http/wrapper.md)
 
 
 
 
 ## Methods
 
-
-### onBeforeSend
-
-A method that is called before the request is processed.
-
-```php
-public onBeforeSend(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
 
 ### callable
 
@@ -62,6 +42,26 @@ public static callable(mixed $fnc_custom, mixed $url): mixed
 
 ***
 
+### onBeforeSend
+
+A method that is called before the request is processed.
+
+```php
+public onBeforeSend(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 
 ## Inherited methods
 
@@ -71,7 +71,7 @@ public static callable(mixed $fnc_custom, mixed $url): mixed
 Subscribing to all the events.
 
 ```php
-final public subscribe(\yxorP\lib\yP $dispatcher): void
+final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 ```
 
 
@@ -85,33 +85,7 @@ final public subscribe(\yxorP\lib\yP $dispatcher): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dispatcher` | **\yxorP\lib\yP** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
+| `$dispatcher` | **\yxorP\app\lib\yP** |  |
 
 
 
@@ -378,6 +352,32 @@ public onException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
+
+
+
+
+***
+
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
 
 
 

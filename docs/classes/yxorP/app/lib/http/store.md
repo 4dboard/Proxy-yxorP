@@ -103,7 +103,7 @@ private static get(string $name): mixed
 It's setting the value of the variable $name to the value of the variable $_value.
 
 ```php
-public static set(string $name, mixed $value, string|null $func = null, array $varibles = []): mixed
+private static set(string $name, mixed $value, string|null $func = null, array $varibles = []): mixed
 ```
 
 

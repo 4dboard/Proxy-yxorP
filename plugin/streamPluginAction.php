@@ -1,17 +1,15 @@
 <?php
 
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\lib\constants;
-use yxorP\lib\http\wrapper;
-use const VAR_CONTENT_LENGTH;
-use const VAR_CONTENT_TYPE;
-use const VAR_REQUEST;
-use const VAR_RESPONSE;
+
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
+
 
 /**
  * Extending the wrapper class, which is a class that allows you to listen to events.
@@ -60,7 +58,7 @@ class streamPluginAction extends wrapper
              * Checking if the request has a parameter called `force_buffering`. If it does, it will not disable the output
              * buffering.
              */
-            if (!store::handler(VAR_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(0);
+            //if (!store::handler(VAR_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(0);
         }
     }
 

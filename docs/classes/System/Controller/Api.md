@@ -121,6 +121,26 @@ public remove(): mixed
 
 ***
 
+### cache
+
+
+
+```php
+protected cache(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### save
 
 
@@ -207,26 +227,6 @@ public restApiViewer(): mixed
 
 ```php
 public graphqlViewer(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### cache
-
-
-
-```php
-protected cache(): mixed
 ```
 
 

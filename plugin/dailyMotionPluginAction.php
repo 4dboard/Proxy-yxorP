@@ -1,16 +1,15 @@
 <?php
 
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yorxP\debug\Utils\Html;
-use yxorP\lib\constants;
-use yxorP\lib\http\helpers;
-use yxorP\lib\http\wrapper;
-use const VAR_RESPONSE;
+use yxorP\app\lib\http\helpers;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
+
 
 /**
  * Extending the wrapper class.
@@ -44,7 +43,7 @@ class dailyMotionPluginAction extends wrapper
         /**
          * It removes all the scripts from the content.
          */
-        $content = \Html::remove_scripts($content);
+        $content = Html::remove_scripts($content);
         /**
          * It sets the content of the response object to the `$content` variable.
          */
@@ -68,7 +67,7 @@ class dailyMotionPluginAction extends wrapper
         /**
          * Replacing the content of the element with the id `player` with the `$player` variable.
          */
-        $content = \Html::replace_inner("#player", $player, $content);
+        $content = Html::replace_inner("#player", $player, $content);
 
     }
 }

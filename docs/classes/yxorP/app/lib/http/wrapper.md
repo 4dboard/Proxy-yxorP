@@ -37,7 +37,7 @@ protected ?string $url_pattern
 Subscribing to all the events.
 
 ```php
-final public subscribe(\yxorP\app\yP $dispatcher): void
+final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 ```
 
 
@@ -51,53 +51,7 @@ final public subscribe(\yxorP\app\yP $dispatcher): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dispatcher` | **\yxorP\app\yP** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
-
-
-
-
-***
-
-### onCheck
-
-Used to check if the event should be executed.
-
-```php
-public onCheck(): void
-```
-
-
-
-
-
-
-
+| `$dispatcher` | **\yxorP\app\lib\yP** |  |
 
 
 
@@ -110,6 +64,26 @@ A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
 
 ```php
 public onCache(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### onCheck
+
+Used to check if the event should be executed.
+
+```php
+public onCheck(): self
 ```
 
 
@@ -344,6 +318,32 @@ public onException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
+
+
+
+
+***
+
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
 
 
 

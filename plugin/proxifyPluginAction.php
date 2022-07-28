@@ -1,18 +1,15 @@
 <?php
 
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use str;
-use yxorP\lib\constants;
-use yxorP\lib\http\helpers;
-use yxorP\lib\http\wrapper;
-use const VAR_CONTENT_TYPE;
-use const VAR_REQUEST;
-use const VAR_RESPONSE;
+use yxorP\app\lib\http\helpers;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
+
 
 /**
  * Extending the wrapper class.

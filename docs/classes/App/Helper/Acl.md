@@ -105,12 +105,12 @@ public isSuperAdmin(mixed $role = null): mixed
 
 ***
 
-### cache
+### initialize
 
 
 
 ```php
-public cache(): array
+protected initialize(): mixed
 ```
 
 
@@ -125,12 +125,12 @@ public cache(): array
 
 ***
 
-### initialize
+### cache
 
 
 
 ```php
-protected initialize(): mixed
+public cache(): array
 ```
 
 

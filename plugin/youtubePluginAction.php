@@ -1,12 +1,12 @@
 <?php
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\lib\http\store;
-use yxorP\lib\http\wrapper;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
 
 /**
  * Extending the wrapper class.

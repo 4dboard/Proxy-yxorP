@@ -101,6 +101,26 @@ public remove(): mixed
 
 ***
 
+### cache
+
+
+
+```php
+protected cache(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### save
 
 
@@ -127,26 +147,6 @@ public save(): mixed
 
 ```php
 public load(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### cache
-
-
-
-```php
-protected cache(): mixed
 ```
 
 

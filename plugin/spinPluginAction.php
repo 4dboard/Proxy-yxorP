@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\lib\constants;
-use yxorP\lib\http\helpers;
-use yxorP\lib\http\store;
-use yxorP\lib\http\wrapper;
+
+use yxorP\app\lib\http\helpers;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
 
 /**
  * Extending the wrapper class.
@@ -31,9 +31,9 @@ class spinPluginAction extends wrapper
      */
     private static function replace($content): string
     {
-        store::handler(YXORP_REWRITE, null, 'yxorP\lib\http\helpers::JSON');
+        store::handler(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON');
         /**
-         * Importing the `generalHelper` class from the `yxorP\lib\http` namespace. Importing the `minify` class from the `yxorP\lib\minify` namespace.   Extending the `wrapper` class.
+         * Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class.
          */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
             return '<x' . str_replace(array_keys(store::handler(YXORP_REWRITE)), array_values(store::handler(YXORP_REWRITE)), $m[1]) . 'x>';

@@ -78,6 +78,26 @@ public keys(): array
 
 ***
 
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### cache
 
 
@@ -98,26 +118,6 @@ public cache(bool $persistent = true): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
 
 
 

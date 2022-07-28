@@ -1,19 +1,14 @@
 <?php
 
 /**
- * Importing the wrapper class from the yxorP\lib\http namespace.
+ * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\lib\constants;
-use yxorP\lib\http\wrapper;
-use function str_contains;
-use const CHAR_EMPTY_STRING;
-use const CHAR_SLASH;
-use const VAR_DOMAIN;
-use const VAR_REQUEST;
-use const VAR_RESPONSE;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
+
 
 /**
  * Extending the wrapper class.
@@ -60,14 +55,6 @@ class cookiePluginAction extends wrapper
          * Creating an array with the cookie domain, name and value.
          */
         $cookie = ["cookie_domain" => $_cookieDomain, "cookie_name" => $match[2], "cookie_value" => $match[3]];
-        /**
-         * Getting the host from the request url.
-         */
-        $host = parse_url(store::handler(VAR_REQUEST)->getUri(), PHP_URL_HOST);
-        /**
-         * Checking if the host contains the cookie domain.
-         */
-        if (str_contains($host, $cookie->cookie_domain)) return $cookie->cookie_name . '=' . $cookie->cookie_value;
     }
 
     /**

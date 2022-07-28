@@ -241,9 +241,9 @@ admin, choose "sites" and clone the example website so that its settings may be 
   top level of the project and have some information. If the directory is not there, you may quickly initialize the
   submodule by entering "git submodule init" into the terminal.
 
-- Ensure that the x cache folders that can be found in "./app/storage/tmp" and "./inc/tmp." are able to have their
-  contents written to. Either the command "chmod 775./app/storage/tmp" or the command "chown root:
-  ./app/storage/tmp" may be used to make the files readable again.
+- Ensure that the x cache folders that can be found in "./app/storage/cache" and "./inc/cache." are able to have their
+  contents written to. Either the command "chmod 775./app/storage/cache" or the command "chown root:
+  ./app/storage/cache" may be used to make the files readable again.
 
 If you have completed all of these steps, you should be experiencing no difficulty.
 

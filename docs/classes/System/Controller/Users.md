@@ -61,6 +61,26 @@ public user(mixed $id = null): mixed
 
 ***
 
+### geti18n
+
+
+
+```php
+protected geti18n(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### create
 
 
@@ -162,26 +182,6 @@ public getSecretQRCode(mixed $secret = null, mixed $size = 150): mixed
 |-----------|------|-------------|
 | `$secret` | **mixed** |  |
 | `$size` | **mixed** |  |
-
-
-
-
-***
-
-### geti18n
-
-
-
-```php
-protected geti18n(): mixed
-```
-
-
-
-
-
-
-
 
 
 

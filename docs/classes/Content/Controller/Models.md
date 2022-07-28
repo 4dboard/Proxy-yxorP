@@ -35,6 +35,26 @@ public create(): mixed
 
 ***
 
+### getGroups
+
+
+
+```php
+protected getGroups(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### edit
 
 
@@ -173,26 +193,6 @@ public clone(mixed $model = null): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$model` | **mixed** |  |
-
-
-
-
-***
-
-### getGroups
-
-
-
-```php
-protected getGroups(): mixed
-```
-
-
-
-
-
-
-
 
 
 

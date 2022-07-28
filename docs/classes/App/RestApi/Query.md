@@ -95,33 +95,6 @@ public init(): mixed
 
 ***
 
-### addEndPoint
-
-
-
-```php
-public addEndPoint(string $path, array $methods = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-| `$methods` | **array** |  |
-
-
-
-
-***
-
 ### isPathMatching
 
 
@@ -170,6 +143,33 @@ protected getRegex(mixed $pattern): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pattern` | **mixed** |  |
+
+
+
+
+***
+
+### addEndPoint
+
+
+
+```php
+public addEndPoint(string $path, array $methods = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+| `$methods` | **array** |  |
 
 
 

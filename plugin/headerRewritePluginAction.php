@@ -1,17 +1,14 @@
 <?php
 /**
- * It's importing the wrapper class from the yxorP\lib\http namespace.
+ * It's importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\lib\constants;
-use yxorP\lib\http\wrapper;
-use function proxify_url;
-use const VAR_BUGSNAG;
-use const VAR_CONTENT_TYPE;
-use const VAR_REQUEST;
-use const VAR_RESPONSE;
+use RuntimeException;
+use yxorP\app\lib\http\store;
+use yxorP\app\lib\http\wrapper;
+
 
 /**
  * It's extending the wrapper class.
@@ -55,7 +52,7 @@ class headerRewritePluginAction extends wrapper
         $code = $response->getStatusCode();
         /**
          * It's checking if the status code of the response is between 400 and 600 and if it is, it's sending an error to
-         * \yxorP\lib\http\store::handler(VAR_BUGSNAG).
+         * \yxorP\app\lib\http\store::handler(VAR_BUGSNAG).
          */
         if ($code >= 400 && $code <= 600) store::handler(VAR_BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /**

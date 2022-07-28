@@ -100,6 +100,34 @@ public info(string $message, ?array $context = null): void
 
 ***
 
+### addRecord
+
+
+
+```php
+protected addRecord(string $message, mixed $type = &#039;info&#039;, ?array $context = null): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$message` | **string** |  |
+| `$type` | **mixed** |  |
+| `$context` | **?array** |  |
+
+
+
+
+***
+
 ### debug
 
 
@@ -228,34 +256,6 @@ public error(string $message, ?array $context = null): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
-| `$context` | **?array** |  |
-
-
-
-
-***
-
-### addRecord
-
-
-
-```php
-protected addRecord(string $message, mixed $type = &#039;info&#039;, ?array $context = null): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$message` | **string** |  |
-| `$type` | **mixed** |  |
 | `$context` | **?array** |  |
 
 

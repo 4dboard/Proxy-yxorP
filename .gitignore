@@ -1,8 +1,5 @@
 .idea
 .env
-/lib/tmp/*
-!/lib/tmp/.gitignore
-!/lib/tmp/.htaccess
 /override/*
 !/override/.gitignore
 !/override/.htaccess

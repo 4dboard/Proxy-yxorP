@@ -563,7 +563,7 @@ public trigger(string $event, array $params = []): bool
 Put a value in the Lime registry
 
 ```php
-public set(string $key, mixed $value): bool
+public set(string $key, mixed $value): \Lime\App
 ```
 
 
