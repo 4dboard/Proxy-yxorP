@@ -625,7 +625,7 @@ class helpers
          * It's requiring the Guzzle library.
          */
         require PATH_GUZZLE;
-
+        echo 1;
         /**
          * It's requiring the Bugsnag library.
          */
