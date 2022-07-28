@@ -13,7 +13,6 @@ use yxorP\lib\minify\minify;
  */
 class cache
 {
-    private static string $cache;
 
     /**
      * Checking if the cache file is valid and if it is, it is including the cache file.
