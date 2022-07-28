@@ -374,7 +374,7 @@ class helpers
          * It's defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
          * `DIR_APP` and `DIR_LIB` and `DIR_COCKPIT` and `FILE_COCKPIT_BOOTSTRAP` appended to it.
          */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
         /**
          * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_VENDOR` and `FILE_GUZZLE` appended to it.
@@ -394,7 +394,7 @@ class helpers
          * It's defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
          * and `DIR_LIB` and `DIR_COCKPIT` appended to it.
          */
-        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT);
+        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT);
         /**
          * It's defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a
          * `DIR_INSTALL` and `DIR_COCKPIT` appended to it.
@@ -404,7 +404,7 @@ class helpers
          * It's defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_APP`
          * and `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
          */
-        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_APP . DIR_LIB . DIR_COCKPIT . FILE_INDEX);
+        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
         /**
          * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.

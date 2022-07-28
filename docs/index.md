@@ -2697,17 +2697,6 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
-### \yxorP\Controller
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`Dashboard`](./classes/yxorP/Controller/Dashboard.md) | |
-
-
-
-
 ### \yxorP\app
 
 #### Classes
@@ -2782,17 +2771,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | Extending the wrapper class, which is a class that allows you to listen to events.|
 | [`twitterPluginAction`](./classes/yxorP/app/plugin/twitterPluginAction.md) | Extending the wrapper class, which is a class that is used to create plugins.|
 | [`youtubePluginAction`](./classes/yxorP/app/plugin/youtubePluginAction.md) | Extending the wrapper class.|
-
-
-
-
-### \yxorp\Controller
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`Admin`](./classes/yxorp/Controller/Admin.md) | |
 
 
 
