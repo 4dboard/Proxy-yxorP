@@ -18,7 +18,8 @@ facilitates rapid and simple customization through plugins and themes.
 <br/>
 
 <h3><b><i>Q</i></b>: <i>"Why has YXORP become the most popular web proxy script so rapidly?"</i></h3>
-<h4><i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.</h4>
+<h4><i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and
+User-friendly.</h4>
 
 > <i>The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]</i>
 
@@ -216,10 +217,9 @@ cp ./example.env ./.env
 Modify the settings included inside the ".env" file as necessary. The program is configured to respond to queries from
 any domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the.env
 file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
-domain, go to http://localhost/admin and enter the login yxorP and the password you established. In addition, you may
-use the credentials provided in the '.env' file. This will allow you to configure the application to direct traffic from
-a given domain to a specific website. After gaining access to the admin, choose "sites" and clone the example website so
-that its settings may be modified.
+domain, go to http://localhost/cockpit and enter the login username 'yxorP' and the password 'yxorP'. This will allow
+you to configure the application to direct traffic from a given domain to a specific website. After gaining access to
+the admin, choose "sites" and clone the example website so that its settings may be modified.
 
 After cloning the repository, you need to pull the Cockpit submodule as well, like this:
 
