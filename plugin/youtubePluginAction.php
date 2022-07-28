@@ -7,8 +7,8 @@ namespace yxorP\plugin;
 
 use yorxP\debug\Utils\Html;
 use YouTubeDownloader;
-use yxorP\lib\http\wrapper;
 use yxorP\lib\constants;
+use yxorP\lib\http\wrapper;
 use function proxify_url;
 use function vid_player;
 use const VAR_REQUEST;

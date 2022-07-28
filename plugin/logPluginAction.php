@@ -6,8 +6,8 @@
 
 namespace yxorP\plugin;
 
-use yxorP\lib\http\wrapper;
 use yxorP\lib\constants;
+use yxorP\lib\http\wrapper;
 
 /**
  * It's extending the wrapper class.
