@@ -600,54 +600,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">6</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Creates a promise that is resolved using a generator that yields values or
-promises (somewhat similar to C#&#039;s async keyword).</p>
-
-    <section class="phpdocumentor-description"><p>When called, the coroutine function will start an instance of the generator
-and returns a promise that is fulfilled with its final yielded value.</p>
-<p>Control is returned back to the generator when the yielded promise settles.
-This can lead to less verbose code when doing lots of sequential async calls
-with minimal processing in between.</p>
-<pre class="prettyprint"><code class="prettyprint">use yxorP\lib\proxy\Promise;
-
-function createPromise($value) {
-    return new Promise\FulfilledPromise($value);
-}
-
-$promise = Promise\coroutine(function () {
-    $value = (yield createPromise('a'));
-    try {
-        $value = (yield createPromise($value . 'b'));
-    } catch (\Exception $e) {
-        // The promise was rejected.
-    }
-    yield $value . 'c';
-});
-
-// Outputs &quot;abc&quot;
-$promise-&gt;then(function ($v) { echo $v; });
-</code></pre>
-</section>
+        
+    <section class="phpdocumentor-description"></section>
 
 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">link</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                                        <a class="phpdocumentor-tag-link" href="https://github.com/petkaantonov/bluebird/blob/master/API.md#generators"> <p>inspiration</p>
- </a>
-                    
-                                    </dd>
-                        </dl>
 
 
 
@@ -659,7 +619,7 @@ $promise-&gt;then(function ($v) { echo $v; });
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></dt>
-        <dd>A promise represents the eventual result of an asynchronous operation.</dd>
+        <dd></dd>
     
     
     
@@ -675,21 +635,21 @@ $promise-&gt;then(function ($v) { echo $v; });
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#property_currentPromise">$currentPromise</a>
     <span>
-                        &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>|null            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#property_generator">$generator</a>
     <span>
-                        &nbsp;: <abbr title="\Generator">Generator</abbr>            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#property_result">$result</a>
     <span>
-                        &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-Promise.html"><abbr title="\yxorP\lib\proxy\Promise\Promise">Promise</abbr></a>            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
@@ -701,57 +661,67 @@ $promise-&gt;then(function ($v) { echo $v; });
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method__handleFailure">_handleFailure()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method__handleSuccess">_handleSuccess()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_cancel">cancel()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Cancels the promise if possible.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_getState">getState()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Get the state of the promise (&quot;pending&quot;, &quot;rejected&quot;, or &quot;fulfilled&quot;).</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_otherwise">otherwise()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Appends a rejection handler callback to the promise, and returns a new
-promise resolving to the return value of the callback if it is called,
-or to its original fulfillment value if the promise is instead
-fulfilled.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_reject">reject()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Reject the promise with the given reason.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_resolve">resolve()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Resolve the promise with the given value.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_then">then()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Appends fulfillment and rejection handlers to the promise, and returns
-a new promise resolving to the return value of the called handler.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_wait">wait()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Waits until the promise completes if possible.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_nextCoroutine">nextCoroutine()</a>
@@ -788,19 +758,21 @@ a new promise resolving to the return value of the called handler.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>|null</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$currentPromise</span>
     </code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -820,19 +792,21 @@ a new promise resolving to the return value of the called handler.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\Generator">Generator</abbr></span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$generator</span>
     </code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -852,19 +826,21 @@ a new promise resolving to the return value of the called handler.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/yxorP-lib-proxy-Promise-Promise.html"><abbr title="\yxorP\lib\proxy\Promise\Promise">Promise</abbr></a></span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$result</span>
     </code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -888,7 +864,7 @@ a new promise resolving to the return value of the called handler.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -925,6 +901,94 @@ a new promise resolving to the return value of the called handler.</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method__handleFailure">
+        _handleFailure()
+        <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method__handleFailure" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">_handleFailure</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reason</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$reason</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method__handleSuccess">
+        _handleSuccess()
+        <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method__handleSuccess" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">_handleSuccess</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_cancel">
         cancel()
         <a href="classes/yxorP-lib-proxy-Promise-Coroutine.html#method_cancel" class="headerlink"><i class="fas fa-link"></i></a>
@@ -932,17 +996,17 @@ a new promise resolving to the return value of the called handler.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Cancels the promise if possible.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">cancel</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
@@ -965,25 +1029,22 @@ a new promise resolving to the return value of the called handler.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the state of the promise (&quot;pending&quot;, &quot;rejected&quot;, or &quot;fulfilled&quot;).</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getState</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">getState</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>The three states can be checked against the constants defined on
-PromiseInterface: PENDING, FULFILLED, and REJECTED.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1001,20 +1062,17 @@ PromiseInterface: PENDING, FULFILLED, and REJECTED.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Appends a rejection handler callback to the promise, and returns a new
-promise resolving to the return value of the callback if it is called,
-or to its original fulfillment value if the promise is instead
-fulfilled.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">otherwise</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">otherwise</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1022,8 +1080,7 @@ fulfilled.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Invoked when the promise is rejected.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1031,7 +1088,7 @@ fulfilled.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1049,17 +1106,17 @@ fulfilled.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Reject the promise with the given reason.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">reject</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reason</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1067,7 +1124,8 @@ fulfilled.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -1092,17 +1150,17 @@ fulfilled.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Resolve the promise with the given value.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">resolve</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1110,7 +1168,8 @@ fulfilled.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -1135,18 +1194,17 @@ fulfilled.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Appends fulfillment and rejection handlers to the promise, and returns
-a new promise resolving to the return value of the called handler.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">then</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">then</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1154,8 +1212,7 @@ a new promise resolving to the return value of the called handler.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Invoked when the promise fulfills.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1163,8 +1220,7 @@ a new promise resolving to the return value of the called handler.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Invoked when the promise is rejected.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1172,7 +1228,7 @@ a new promise resolving to the return value of the called handler.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1190,20 +1246,16 @@ a new promise resolving to the return value of the called handler.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Waits until the promise completes if possible.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">wait</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$unwrap</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>Pass $unwrap as true to unwrap the result of the promise, either
-returning the resolved value or throwing the rejected exception.</p>
-<p>If the promise cannot be waited on, then the promise will be rejected.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1212,7 +1264,8 @@ returning the resolved value or throwing the rejected exception.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -1237,7 +1290,7 @@ returning the resolved value or throwing the rejected exception.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/Coroutine.php"><a href="files/lib-proxy-promise-coroutine.html"><abbr title="lib/proxy/Promise/Coroutine.php">Coroutine.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 

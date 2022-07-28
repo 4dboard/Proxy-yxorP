@@ -596,13 +596,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/PrepareBodyMiddleware.php"><a href="files/lib-proxy-preparebodymiddleware.html"><abbr title="lib/proxy/PrepareBodyMiddleware.php">PrepareBodyMiddleware.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">6</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Prepares requests that contain a body, adding the Content-Length,
-Content-Type, and Expect headers.</p>
-
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -620,7 +619,7 @@ Content-Type, and Expect headers.</p>
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-PrepareBodyMiddleware.html#property_nextHandler">$nextHandler</a>
     <span>
-                        &nbsp;: callable            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
@@ -634,16 +633,16 @@ Content-Type, and Expect headers.</p>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-PrepareBodyMiddleware.html#method___invoke">__invoke()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/yxorP-lib-proxy-PrepareBodyMiddleware.html#method_addExpectHeader">addExpectHeader()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Add expect header</dd>
+<dd></dd>
 
         </dl>
 
@@ -673,19 +672,21 @@ Content-Type, and Expect headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/PrepareBodyMiddleware.php"><a href="files/lib-proxy-preparebodymiddleware.html"><abbr title="lib/proxy/PrepareBodyMiddleware.php">PrepareBodyMiddleware.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">callable</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$nextHandler</span>
     </code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -709,7 +710,7 @@ Content-Type, and Expect headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/PrepareBodyMiddleware.php"><a href="files/lib-proxy-preparebodymiddleware.html"><abbr title="lib/proxy/PrepareBodyMiddleware.php">PrepareBodyMiddleware.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
@@ -718,7 +719,8 @@ Content-Type, and Expect headers.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nextHandler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -726,8 +728,7 @@ Content-Type, and Expect headers.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Next handler to invoke.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -753,16 +754,17 @@ Content-Type, and Expect headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/PrepareBodyMiddleware.php"><a href="files/lib-proxy-preparebodymiddleware.html"><abbr title="lib/proxy/PrepareBodyMiddleware.php">PrepareBodyMiddleware.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__invoke</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">__invoke</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -770,21 +772,23 @@ Content-Type, and Expect headers.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -802,17 +806,17 @@ Content-Type, and Expect headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/PrepareBodyMiddleware.php"><a href="files/lib-proxy-preparebodymiddleware.html"><abbr title="lib/proxy/PrepareBodyMiddleware.php">PrepareBodyMiddleware.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Add expect header</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">addExpectHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modify</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">addExpectHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modify</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -844,7 +848,7 @@ Content-Type, and Expect headers.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     

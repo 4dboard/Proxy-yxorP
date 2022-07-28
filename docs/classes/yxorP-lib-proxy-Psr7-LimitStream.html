@@ -603,12 +603,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">6</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Decorator used to return only a subset of a stream</p>
-
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -638,14 +638,14 @@
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Psr7-LimitStream.html#property_limit">$limit</a>
     <span>
-                        &nbsp;: int            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Psr7-LimitStream.html#property_offset">$offset</a>
     <span>
-                        &nbsp;: int            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
@@ -654,7 +654,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Allow decorators to implement custom methods</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-LimitStream.html#method___construct">__construct()</a>
@@ -666,10 +666,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AStreamDecoratorTrait.html#method___get">__get()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AStreamDecoratorTrait.html#method___toString">__toString()</a>
@@ -718,8 +717,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
-<dd>Returns the size of the limited subset of data
-{@inheritdoc}</dd>
+<dd>Get the size of the stream if known.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_isReadable">isReadable()</a>
@@ -761,31 +759,28 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Allow for a bounded seek on the read limited stream
-{@inheritdoc}</dd>
+<dd>Seek to a position in the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-LimitStream.html#method_setLimit">setLimit()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Set the limit of bytes that the decorator allows to be read from the
-stream.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-LimitStream.html#method_setOffset">setOffset()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Set the offset to start limiting from</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-LimitStream.html#method_tell">tell()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Give a relative tell()
-{@inheritdoc}</dd>
+<dd>Returns the current position of the file read/write pointer</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_write">write()</a>
@@ -797,9 +792,9 @@ stream.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/yxorP-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_createStream">createStream()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Implement in subclasses to dynamically create streams when requested.</dd>
+<dd></dd>
 
         </dl>
 
@@ -829,20 +824,20 @@ stream.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$limit</span>
     </code>
 
-    
-        <section class="phpdocumentor-description"><p>Limit the number of bytes that can be read</p>
-</section>
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
 
     
 
@@ -863,20 +858,20 @@ stream.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$offset</span>
     </code>
 
-    
-        <section class="phpdocumentor-description"><p>Offset to start reading from</p>
-</section>
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
 
     
 
@@ -901,26 +896,25 @@ stream.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Allow decorators to implement custom methods</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__call</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__call</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$method</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Missing method name</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -928,8 +922,7 @@ stream.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Method arguments</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -955,16 +948,17 @@ stream.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stream</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stream</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-1</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -972,28 +966,23 @@ stream.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Stream to wrap</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$limit</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">-1</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Total number of bytes to allow to be read
-from the stream. Pass -1 for no limit.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$offset</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Position to seek to before reading (only
-works on seekable streams).</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1019,27 +1008,25 @@ works on seekable streams).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Name of the property (allows &quot;stream&quot; only).</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1047,7 +1034,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1065,7 +1052,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -1098,7 +1085,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -1131,7 +1118,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -1164,7 +1151,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -1197,7 +1184,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -1230,7 +1217,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -1274,12 +1261,11 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">148</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the size of the limited subset of data
-{@inheritdoc}</p>
+        <p class="phpdocumentor-summary">Get the size of the stream if known.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1310,7 +1296,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -1343,7 +1329,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -1376,7 +1362,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -1409,7 +1395,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -1459,7 +1445,7 @@ if no bytes are available.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -1492,12 +1478,11 @@ if no bytes are available.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Allow for a bounded seek on the read limited stream
-{@inheritdoc}</p>
+        <p class="phpdocumentor-summary">Seek to a position in the stream.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1551,28 +1536,25 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the limit of bytes that the decorator allows to be read from the
-stream.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setLimit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setLimit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$limit</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Number of bytes to allow to be read from the stream.
-Use -1 for no limit.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1598,47 +1580,30 @@ Use -1 for no limit.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set the offset to start limiting from</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setOffset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setOffset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$offset</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Offset to seek to and begin byte limiting from</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>if the stream cannot be seeked.</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -1659,12 +1624,11 @@ Use -1 for no limit.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/LimitStream.php"><a href="files/lib-proxy-psr7-limitstream.html"><abbr title="lib/proxy/Psr7/LimitStream.php">LimitStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Give a relative tell()
-{@inheritdoc}</p>
+        <p class="phpdocumentor-summary">Returns the current position of the file read/write pointer</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1695,7 +1659,7 @@ Use -1 for no limit.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -1739,36 +1703,22 @@ Use -1 for no limit.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AStreamDecoratorTrait.php"><a href="files/lib-proxy-psr7-astreamdecoratortrait.html"><abbr title="lib/proxy/Psr7/AStreamDecoratorTrait.php">AStreamDecoratorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Implement in subclasses to dynamically create streams when requested.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">createStream</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">createStream</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
 
     
     
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\BadMethodCallException">BadMethodCallException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     

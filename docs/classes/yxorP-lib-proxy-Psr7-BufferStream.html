@@ -600,17 +600,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">6</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides a buffer stream that can be written to to fill a buffer, and read
-from to remove bytes from the buffer.</p>
-
-    <section class="phpdocumentor-description"><p>This stream returns a &quot;hwm&quot; metadata value that tells upstream consumers
-what the configured high water mark of the stream is, or the maximum
-preferred size of the buffer.</p>
-</section>
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -733,7 +728,7 @@ preferred size of the buffer.</p>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Reads data from the buffer.</dd>
+<dd>Read data from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-BufferStream.html#method_rewind">rewind()</a>
@@ -761,7 +756,7 @@ preferred size of the buffer.</p>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Writes data to the buffer.</dd>
+<dd>Write data to the stream.</dd>
 
         </dl>
 
@@ -791,7 +786,7 @@ preferred size of the buffer.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 
     </aside>
 
@@ -825,7 +820,7 @@ preferred size of the buffer.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
@@ -863,29 +858,25 @@ preferred size of the buffer.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hwm</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">16384</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hwm</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">16384</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$hwm</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">16384</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>High water mark, representing the preferred maximum
-buffer size. If the size of the buffer exceeds the high
-water mark, then calls to write will continue to succeed
-but will return false to inform writers to slow down
-until the buffer has been drained by reading from it.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -911,7 +902,7 @@ until the buffer has been drained by reading from it.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
@@ -950,7 +941,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -983,7 +974,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -1020,7 +1011,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -1053,7 +1044,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -1086,7 +1077,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -1138,7 +1129,7 @@ value is found, or null if the key is not found.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1173,7 +1164,7 @@ value is found, or null if the key is not found.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -1206,7 +1197,7 @@ value is found, or null if the key is not found.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -1239,7 +1230,7 @@ value is found, or null if the key is not found.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -1272,11 +1263,11 @@ value is found, or null if the key is not found.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Reads data from the buffer.</p>
+        <p class="phpdocumentor-summary">Read data from the stream.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1322,7 +1313,7 @@ if no bytes are available.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -1358,7 +1349,7 @@ otherwise, it will perform a seek(0).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -1416,7 +1407,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -1451,11 +1442,11 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/BufferStream.php"><a href="files/lib-proxy-psr7-bufferstream.html"><abbr title="lib/proxy/Psr7/BufferStream.php">BufferStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Writes data to the buffer.</p>
+        <p class="phpdocumentor-summary">Write data to the stream.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>

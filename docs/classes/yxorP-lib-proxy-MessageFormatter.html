@@ -596,37 +596,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Formats log messages using variable substitutions for requests, responses,
-and other transactional data.</p>
-
-    <section class="phpdocumentor-description"><p>The following variable substitutions are supported:</p>
-<ul>
-<li>{request}:        Full HTTP request message</li>
-<li>{response}:       Full HTTP response message</li>
-<li>{ts}:             ISO 8601 date in GMT</li>
-<li>{date_iso_8601}   ISO 8601 date in GMT</li>
-<li>{date_common_log} Apache common log date using the configured timezone.</li>
-<li>{host}:           Host of the request</li>
-<li>{method}:         Method of the request</li>
-<li>{uri}:            URI of the request</li>
-<li>{version}:        Protocol version</li>
-<li>{target}:         Request target of the request (path + query + fragment)</li>
-<li>{hostname}:       Hostname of the machine that sent the request</li>
-<li>{code}:           Status code of the response (if available)</li>
-<li>{phrase}:         Reason phrase of the response  (if available)</li>
-<li>{error}:          Any error messages (if available)</li>
-<li>{req_header_*}:   Replace <code class="prettyprint">*</code> with the lowercased name of a request header to add to the message</li>
-<li>{res_header_*}:   Replace <code class="prettyprint">*</code> with the lowercased name of a response header to add to the message</li>
-<li>{req_headers}:    Request headers</li>
-<li>{res_headers}:    Response headers</li>
-<li>{req_body}:       Request body</li>
-<li>{res_body}:       Response body</li>
-</ul>
-</section>
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -646,7 +621,7 @@ and other transactional data.</p>
     <span>
         &nbsp;= &quot;{hostname} {req_header_User-Agent} - [{date_common_log}] \&quot;{method} {target} HTTP/{version}\&quot; {code} {res_header_Content-Length}&quot;                            </span>
 </dt>
-<dd>Apache Common Log Format.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/yxorP-lib-proxy-MessageFormatter.html#constant_DEBUG">DEBUG</a>
@@ -665,7 +640,7 @@ and other transactional data.</p>
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-MessageFormatter.html#property_template">$template</a>
     <span>
-                        &nbsp;: string            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
@@ -679,16 +654,16 @@ and other transactional data.</p>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-MessageFormatter.html#method_format">format()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns a formatted message string.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/yxorP-lib-proxy-MessageFormatter.html#method_headers">headers()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Get headers from message as string</dd>
+<dd></dd>
 
         </dl>
 
@@ -709,36 +684,24 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Apache Common Log Format.</p>
-
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">CLF</span>
     = <span class="phpdocumentor-signature__default-value">&quot;{hostname} {req_header_User-Agent} - [{date_common_log}] \&quot;{method} {target} HTTP/{version}\&quot; {code} {res_header_Content-Length}&quot;</span>
 </code>
 
 
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
     
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">link</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                                        <a class="phpdocumentor-tag-link" href="http://httpd.apache.org/docs/2.4/logs.html#common"> http://httpd.apache.org/docs/2.4/logs.html#common </a>
-                    
-                                    </dd>
-                        </dl>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -750,7 +713,7 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
@@ -779,7 +742,7 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -823,20 +786,20 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">string</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$template</span>
     </code>
 
-    
-        <section class="phpdocumentor-description"><p>Template used to format log messages</p>
-</section>
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
 
     
 
@@ -861,25 +824,25 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::CLF</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::CLF</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$template</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                  = <span class="phpdocumentor-signature__argument__default-value">self::CLF</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Log message template</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -905,17 +868,17 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns a formatted message string.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">format</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-ResponseInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Exception">Exception</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$error</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">format</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-ResponseInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Exception">Exception</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$error</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -923,8 +886,7 @@ and other transactional data.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Request that was sent</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -932,8 +894,7 @@ and other transactional data.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-ResponseInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Response that was received</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -941,8 +902,7 @@ and other transactional data.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Exception">Exception</abbr></span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Exception that was received</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -950,7 +910,7 @@ and other transactional data.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -968,17 +928,17 @@ and other transactional data.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/MessageFormatter.php"><a href="files/lib-proxy-messageformatter.html"><abbr title="lib/proxy/MessageFormatter.php">MessageFormatter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get headers from message as string</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">headers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-MessageInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">headers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-MessageInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -994,7 +954,7 @@ and other transactional data.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     

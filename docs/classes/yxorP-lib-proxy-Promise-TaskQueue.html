@@ -600,18 +600,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">2</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">A task queue that executes tasks in a FIFO order.</p>
-
-    <section class="phpdocumentor-description"><p>This task queue class is used to settle promises asynchronously and
-maintains a constant stack size. You can use the task queue asynchronously
-by calling the <code class="prettyprint">run()</code> function of the global task queue in an event loop.</p>
-<pre class="prettyprint"><code class="prettyprint">yxorP\lib\proxy\Promise\queue()-&gt;run();
-</code></pre>
-</section>
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -664,30 +658,28 @@ by calling the <code class="prettyprint">run()</code> function of the global tas
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Adds a task to the queue that will be executed the next time run is
-called.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-TaskQueue.html#method_disableShutdown">disableShutdown()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>The task queue will be run and exhausted by default when the process
-exits IFF the exit is not the result of a PHP E_ERROR error.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-TaskQueue.html#method_isEmpty">isEmpty()</a>
     <span>
-                                &nbsp;: bool    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Returns true if the queue is empty.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Promise-TaskQueue.html#method_run">run()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Execute all of the pending task in the queue.</dd>
+<dd></dd>
 
         </dl>
 
@@ -717,7 +709,7 @@ exits IFF the exit is not the result of a PHP E_ERROR error.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">4</span>
 
     </aside>
 
@@ -751,7 +743,7 @@ exits IFF the exit is not the result of a PHP E_ERROR error.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">5</span>
 
     </aside>
 
@@ -789,7 +781,7 @@ exits IFF the exit is not the result of a PHP E_ERROR error.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">7</span>
 
     </aside>
 
@@ -833,18 +825,17 @@ exits IFF the exit is not the result of a PHP E_ERROR error.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Adds a task to the queue that will be executed the next time run is
-called.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">add</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -852,7 +843,8 @@ called.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -877,23 +869,16 @@ called.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The task queue will be run and exhausted by default when the process
-exits IFF the exit is not the result of a PHP E_ERROR error.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">disableShutdown</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>You can disable running the automatic shutdown of the queue by calling
-this function. If you disable the task queue shutdown process, then you
-MUST either run the task queue (as a result of running your event loop
-or manually using the run() method) or wait on each outstanding promise.</p>
-<p>Note: This shutdown will occur before any destructors are triggered.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
     
     
@@ -917,22 +902,22 @@ or manually using the run() method) or wait on each outstanding promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns true if the queue is empty.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isEmpty</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">isEmpty</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -950,17 +935,17 @@ or manually using the run() method) or wait on each outstanding promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Promise/TaskQueue.php"><a href="files/lib-proxy-promise-taskqueue.html"><abbr title="lib/proxy/Promise/TaskQueue.php">TaskQueue.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Execute all of the pending task in the queue.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">run</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 

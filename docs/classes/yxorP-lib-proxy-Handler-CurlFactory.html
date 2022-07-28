@@ -600,12 +600,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Creates curl resources from a request</p>
-
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -649,14 +649,14 @@
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#property_handles">$handles</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#property_maxHandles">$maxHandles</a>
     <span>
-                        &nbsp;: int            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
@@ -670,24 +670,23 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#method_create">create()</a>
     <span>
-                                &nbsp;: <abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a cURL handle resource.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#method_finish">finish()</a>
     <span>
-                                &nbsp;: <a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Completes a cURL transaction, either returning a response promise or a
-rejected promise.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#method_release">release()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Release an easy handle, allowing it to be reused or closed.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#method_applyBody">applyBody()</a>
@@ -757,20 +756,14 @@ rejected promise.</dd>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Remove a header from the options array.</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/yxorP-lib-proxy-Handler-CurlFactory.html#method_retryFailedRewind">retryFailedRewind()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>This function ensures that a response was set on a transaction. If one
-was not set, then the request is retried if possible. This error
-typically means you are sending a payload, curl encountered a
-&quot;Connection died, retrying a fresh connect&quot; error, tried to rewind the
-stream, and then encountered a &quot;necessary data rewind wasn&#039;t possible&quot;
-error, causing the request to be sent through curl_multi_info_read()
-without an error status.</dd>
+<dd></dd>
 
         </dl>
 
@@ -791,7 +784,7 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -820,7 +813,7 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -864,19 +857,21 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$handles</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-    
-    
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
     
 
 </article>
@@ -896,20 +891,20 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$maxHandles</span>
     </code>
 
-    
-        <section class="phpdocumentor-description"><p>Total number of idle handles to keep in cache</p>
-</section>
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
 
     
 
@@ -934,25 +929,25 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxHandles</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxHandles</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$maxHandles</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Maximum number of idle handles.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -978,17 +973,17 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">233</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a cURL handle resource.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -996,8 +991,7 @@ without an error status.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-RequestInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Request</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1005,8 +999,7 @@ without an error status.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Transfer options</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1014,7 +1007,7 @@ without an error status.</dd>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1032,18 +1025,17 @@ without an error status.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Completes a cURL transaction, either returning a response promise or a
-rejected promise.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">finish</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-CurlFactoryInterface.html"><abbr title="\yxorP\lib\proxy\Handler\CurlFactoryInterface">CurlFactoryInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$factory</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">finish</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-CurlFactoryInterface.html"><abbr title="\yxorP\lib\proxy\Handler\CurlFactoryInterface">CurlFactoryInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$factory</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1051,22 +1043,23 @@ rejected promise.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$factory</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-CurlFactoryInterface.html"><abbr title="\yxorP\lib\proxy\Handler\CurlFactoryInterface">CurlFactoryInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Dictates how the handle is released</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1074,7 +1067,7 @@ rejected promise.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/yxorP-lib-proxy-Promise-PromiseInterface.html"><abbr title="\yxorP\lib\proxy\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -1092,27 +1085,26 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Release an easy handle, allowing it to be reused or closed.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">release</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">release</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>This function must call unset on the easy handle's &quot;handle&quot; property.</p>
-</section>
+        <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -1137,7 +1129,7 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">317</span>
+    <span class="phpdocumentor-element-found-in__line">176</span>
 
     </aside>
 
@@ -1197,14 +1189,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">374</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">applyHandlerOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$conf</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">applyHandlerOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$conf</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1212,7 +1204,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1249,14 +1241,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">535</span>
+    <span class="phpdocumentor-element-found-in__line">341</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">applyHeaders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$conf</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">applyHeaders</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$conf</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1264,7 +1256,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1301,14 +1293,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">290</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">applyMethod</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$conf</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">applyMethod</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$conf</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1316,7 +1308,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1353,14 +1345,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">556</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">createHeaderFn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">createHeaderFn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1368,7 +1360,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1397,14 +1389,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">createRejection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ctx</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">createRejection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ctx</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1412,7 +1404,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1449,14 +1441,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">finishError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-CurlFactoryInterface.html"><abbr title="\yxorP\lib\proxy\Handler\CurlFactoryInterface">CurlFactoryInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$factory</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">finishError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-CurlFactoryInterface.html"><abbr title="\yxorP\lib\proxy\Handler\CurlFactoryInterface">CurlFactoryInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$factory</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1472,7 +1464,7 @@ rejected promise.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1509,14 +1501,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">getDefaultConf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getDefaultConf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1524,7 +1516,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1553,14 +1545,14 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">invokeStats</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">invokeStats</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1568,7 +1560,7 @@ rejected promise.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1597,26 +1589,25 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">364</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Remove a header from the options array.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">removeHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">removeHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Case-insensitive header to remove</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1624,8 +1615,7 @@ rejected promise.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Array of options to modify</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -1651,23 +1641,17 @@ rejected promise.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Handler/CurlFactory.php"><a href="files/lib-proxy-handler-curlfactory.html"><abbr title="lib/proxy/Handler/CurlFactory.php">CurlFactory.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">This function ensures that a response was set on a transaction. If one
-was not set, then the request is retried if possible. This error
-typically means you are sending a payload, curl encountered a
-&quot;Connection died, retrying a fresh connect&quot; error, tried to rewind the
-stream, and then encountered a &quot;necessary data rewind wasn&#039;t possible&quot;
-error, causing the request to be sent through curl_multi_info_read()
-without an error status.</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">retryFailedRewind</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ctx</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">retryFailedRewind</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$easy</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ctx</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1680,7 +1664,7 @@ without an error status.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$easy</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-lib-proxy-Handler-EasyHandle.html"><abbr title="\yxorP\lib\proxy\Handler\EasyHandle">EasyHandle</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>

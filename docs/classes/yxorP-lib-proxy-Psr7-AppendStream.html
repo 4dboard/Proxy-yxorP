@@ -600,14 +600,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Reads from multiple streams, one after the other.</p>
-
-    <section class="phpdocumentor-description"><p>This is a read-only stream decorator.</p>
-</section>
+        
+    <section class="phpdocumentor-description"></section>
 
 
 
@@ -658,7 +656,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#property_streams">$streams</a>
     <span>
-                        &nbsp;: array&lt;string|int, <a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&gt;            </span>
+                        &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
@@ -681,21 +679,21 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Add a stream to the AppendStream</dd>
+<dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#method_close">close()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Closes each attached stream.</dd>
+<dd>Closes the stream and any underlying resources.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#method_detach">detach()</a>
     <span>
                                 &nbsp;: resource|null    </span>
 </dt>
-<dd>Detaches each attached stream.</dd>
+<dd>Separates any underlying resources from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#method_eof">eof()</a>
@@ -723,7 +721,7 @@
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
-<dd>Tries to calculate the size by adding the size of each stream.</dd>
+<dd>Get the size of the stream if known.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#method_isReadable">isReadable()</a>
@@ -751,7 +749,7 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Reads from all of the appended streams until the length is met or EOF.</dd>
+<dd>Read data from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#method_rewind">rewind()</a>
@@ -765,7 +763,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Attempts to seek to the given position. Only supports SEEK_SET.</dd>
+<dd>Seek to a position in the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/yxorP-lib-proxy-Psr7-AppendStream.html#method_tell">tell()</a>
@@ -809,7 +807,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -843,7 +841,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -877,7 +875,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
@@ -911,20 +909,20 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&gt;</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">$streams</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-    
-        <section class="phpdocumentor-description"><p>Streams being decorated</p>
-</section>
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
 
     
 
@@ -949,26 +947,25 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$streams</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$streams</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$streams</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Streams to decorate. Each stream must
-be readable.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
@@ -994,7 +991,7 @@ be readable.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -1033,17 +1030,17 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Add a stream to the AppendStream</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">addStream</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$stream</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1051,29 +1048,12 @@ string casting operations.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-inc-Psr-Http-Message-StreamInterface.html"><abbr title="\yxorP\inc\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Stream to append. Must be readable.</p>
-</section>
+                    <section class="phpdocumentor-description"></section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>if the stream is not readable</p>
-</section>
-
-                                    </dd>
-                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -1094,18 +1074,17 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Closes each attached stream.</p>
+        <p class="phpdocumentor-summary">Closes the stream and any underlying resources.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">close</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
     
     
 
@@ -1128,17 +1107,17 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Detaches each attached stream.</p>
+        <p class="phpdocumentor-summary">Separates any underlying resources from the stream.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">detach</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">resource|null</span></code>
 
-        <section class="phpdocumentor-description"><p>Returns null as it's not clear which underlying stream resource to return.</p>
+        <section class="phpdocumentor-description"><p>After the stream has been detached, the stream is in an unusable state.</p>
 </section>
 
     
@@ -1165,7 +1144,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -1198,7 +1177,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
     </aside>
 
@@ -1231,7 +1210,7 @@ string casting operations.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 
     </aside>
 
@@ -1283,20 +1262,17 @@ value is found, or null if the key is not found.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Tries to calculate the size by adding the size of each stream.</p>
+        <p class="phpdocumentor-summary">Get the size of the stream if known.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
 
-        <section class="phpdocumentor-description"><p>If any of the streams do not return a valid number, then the size of the
-append stream cannot be determined and null is returned.</p>
-</section>
-
+    
     
     
 
@@ -1321,7 +1297,7 @@ append stream cannot be determined and null is returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">218</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -1354,7 +1330,7 @@ append stream cannot be determined and null is returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">228</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1387,7 +1363,7 @@ append stream cannot be determined and null is returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">223</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
@@ -1420,18 +1396,17 @@ append stream cannot be determined and null is returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Reads from all of the appended streams until the length is met or EOF.</p>
+        <p class="phpdocumentor-summary">Read data from the stream.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">read</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1471,7 +1446,7 @@ if no bytes are available.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -1507,18 +1482,17 @@ otherwise, it will perform a seek(0).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Attempts to seek to the given position. Only supports SEEK_SET.</p>
+        <p class="phpdocumentor-summary">Seek to a position in the stream.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">seek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$whence</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">SEEK_SET</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1566,7 +1540,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">137</span>
 
     </aside>
 
@@ -1601,7 +1575,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/proxy/Psr7/AppendStream.php"><a href="files/lib-proxy-psr7-appendstream.html"><abbr title="lib/proxy/Psr7/AppendStream.php">AppendStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">233</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
