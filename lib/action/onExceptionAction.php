@@ -23,7 +23,15 @@ class onExceptionAction extends wrapper
          * these conditions are met, the exception is printed.
          */
         if (helpers::MIME() === 'text' . CHAR_SLASH . 'html' && defined(YXORP_PROXY_URL)) header("Location: " . YXORP_PROXY_URL); else if (ENV_DEBUG) var_dump($e);
-        store::handler(YXORP_APP)->dataStorage->insert(YXORP_APP_SYSTEM_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => store::handler(YXORP_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
-        store::handler(VAR_BUGSNAG)?->notifyException($e);
+
+
+        store::handler(YXORP_APP)->dataStorage->save('system/log', [
+            'message' => $e->getMessage(),
+            'type' => 'error',
+            'channel' => $this->name,
+            'context' => null,
+            'timestamp' => time(),
+            'datetime' => date('Y-m-d G:i:s T', time())
+        ]);
     }
 }
