@@ -1,10 +1,10 @@
 <?php
 
-namespace GuzzleHttp;
+namespace yxorP\lib\proxy;
 
+use Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Psr7;
-use Psr\Http\Message\RequestInterface;
 
 /**
  * Prepares requests that contain a body, adding the Content-Length,

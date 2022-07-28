@@ -1,11 +1,14 @@
 <?php
 
-namespace GuzzleHttp;
+namespace yxorP\lib\proxy;
 
+use InvalidArgumentException;
+use RuntimeException;
 use yxorP\lib\proxy\Handler\CurlHandler;
 use yxorP\lib\proxy\Handler\CurlMultiHandler;
 use yxorP\lib\proxy\Handler\Proxy;
 use yxorP\lib\proxy\Handler\StreamHandler;
+use function curl_version;
 
 /**
  * Expands a URI template
@@ -99,7 +102,7 @@ function debug_resource($value = null)
  * The returned handler is not wrapped by any default middlewares.
  *
  * @return callable Returns the best handler for the given system.
- * @throws \RuntimeException if no viable Handler is available.
+ * @throws RuntimeException if no viable Handler is available.
  */
 function choose_handler()
 {
@@ -117,7 +120,7 @@ function choose_handler()
             ? Proxy::wrapStreaming($handler, new StreamHandler())
             : new StreamHandler();
     } elseif (!$handler) {
-        throw new \RuntimeException('GuzzleHttp requires cURL, the '
+        throw new RuntimeException('GuzzleHttp requires cURL, the '
             . 'allow_url_fopen ini setting, or a custom HTTP handler.');
     }
 
@@ -136,7 +139,7 @@ function default_user_agent()
     if (!$defaultAgent) {
         $defaultAgent = 'GuzzleHttp/' . Client::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
-            $defaultAgent .= ' curl/' . \curl_version()['version'];
+            $defaultAgent .= ' curl/' . curl_version()['version'];
         }
         $defaultAgent .= ' PHP/' . PHP_VERSION;
     }
@@ -156,7 +159,7 @@ function default_user_agent()
  * Note: the result of this function is cached for subsequent calls.
  *
  * @return string
- * @throws \RuntimeException if no bundle can be found.
+ * @throws RuntimeException if no bundle can be found.
  */
 function default_ca_bundle()
 {
@@ -197,7 +200,7 @@ function default_ca_bundle()
         }
     }
 
-    throw new \RuntimeException(
+    throw new RuntimeException(
         <<< EOT
 No system CA bundle could be found in any of the the common system locations.
 PHP versions earlier than 5.6 are not properly configured to use the system's
@@ -255,7 +258,7 @@ function normalize_header_keys(array $headers)
 function is_host_in_noproxy($host, array $noProxyArray)
 {
     if (strlen($host) === 0) {
-        throw new \InvalidArgumentException('Empty host provided');
+        throw new InvalidArgumentException('Empty host provided');
     }
 
     // Strip port if present.

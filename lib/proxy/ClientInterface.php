@@ -1,12 +1,12 @@
 <?php
 
-namespace GuzzleHttp;
+namespace yxorP\lib\proxy;
 
-use yxorP\lib\proxy\Exception\GuzzleException;
-use yxorP\lib\proxy\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use yxorP\lib\proxy\Exception\GuzzleException;
+use yxorP\lib\proxy\Promise\PromiseInterface;
 
 /**
  * Client interface for sending HTTP requests.

@@ -1,12 +1,11 @@
 <?php
 
-namespace GuzzleHttp;
+namespace yxorP\lib\proxy;
 
-use yxorP\lib\proxy\Promise\PromiseInterface;
-use yxorP\lib\proxy\Promise\RejectedPromise;
-use yxorP\lib\proxy\Psr7;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use yxorP\lib\proxy\Promise\PromiseInterface;
+use function yxorP\lib\proxy\Promise\rejection_for;
 
 /**
  * Middleware that retries requests based on the boolean result of
@@ -98,6 +97,16 @@ class RetryMiddleware
     }
 
     /**
+     * @return self
+     */
+    private function doRetry(RequestInterface $request, array $options, ResponseInterface $response = null)
+    {
+        $options['delay'] = call_user_func($this->delay, ++$options['retries'], $response);
+
+        return $this($request, $options);
+    }
+
+    /**
      * Execute rejected closure
      *
      * @return callable
@@ -112,19 +121,9 @@ class RetryMiddleware
                 null,
                 $reason
             )) {
-                return \yxorP\lib\proxy\Promise\rejection_for($reason);
+                return rejection_for($reason);
             }
             return $this->doRetry($req, $options);
         };
-    }
-
-    /**
-     * @return self
-     */
-    private function doRetry(RequestInterface $request, array $options, ResponseInterface $response = null)
-    {
-        $options['delay'] = call_user_func($this->delay, ++$options['retries'], $response);
-
-        return $this($request, $options);
     }
 }

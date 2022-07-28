@@ -1,11 +1,14 @@
 <?php
 
-namespace GuzzleHttp;
+namespace yxorP\lib\proxy;
 
+use InvalidArgumentException;
+use Iterator;
+use Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise\EachPromise;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Promise\PromisorInterface;
-use Psr\Http\Message\RequestInterface;
+use function yxorP\lib\proxy\Promise\iter_for;
 
 /**
  * Sends an iterator of requests concurrently using a capped pool size.
@@ -25,7 +28,7 @@ class Pool implements PromisorInterface
 
     /**
      * @param ClientInterface $client Client used to send the requests.
-     * @param array|\Iterator $requests Requests or functions that return
+     * @param array|Iterator $requests Requests or functions that return
      *                                  requests to send concurrently.
      * @param array $config Associative array of options
      *     - concurrency: (int) Maximum number of requests to send concurrently
@@ -53,7 +56,7 @@ class Pool implements PromisorInterface
             $opts = [];
         }
 
-        $iterable = \yxorP\lib\proxy\Promise\iter_for($requests);
+        $iterable = iter_for($requests);
         $requests = function () use ($iterable, $client, $opts) {
             foreach ($iterable as $key => $rfn) {
                 if ($rfn instanceof RequestInterface) {
@@ -61,7 +64,7 @@ class Pool implements PromisorInterface
                 } elseif (is_callable($rfn)) {
                     yield $key => $rfn($opts);
                 } else {
-                    throw new \InvalidArgumentException('Each value yielded by '
+                    throw new InvalidArgumentException('Each value yielded by '
                         . 'the iterator must be a Psr7\Http\Message\RequestInterface '
                         . 'or a callable that returns a promise that fulfills '
                         . 'with a Psr7\Message\Http\ResponseInterface object.');
@@ -81,13 +84,13 @@ class Pool implements PromisorInterface
      * indeterminate number of requests concurrently.
      *
      * @param ClientInterface $client Client used to send the requests
-     * @param array|\Iterator $requests Requests to send concurrently.
+     * @param array|Iterator $requests Requests to send concurrently.
      * @param array $options Passes through the options available in
      *                                  {@see yxorP\lib\proxy\Pool::__construct}
      *
      * @return array Returns an array containing the response or an exception
      *               in the same order that the requests were sent.
-     * @throws \InvalidArgumentException if the event format is incorrect.
+     * @throws InvalidArgumentException if the event format is incorrect.
      */
     public static function batch(
         ClientInterface $client,

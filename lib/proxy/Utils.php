@@ -1,10 +1,14 @@
 <?php
 
-namespace GuzzleHttp;
+namespace yxorP\lib\proxy;
 
-use yxorP\lib\proxy\Exception\InvalidArgumentException;
 use Psr\Http\Message\UriInterface;
+use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
+use yxorP\lib\proxy\Exception\InvalidArgumentException;
+use function extension_loaded;
+use function idn_to_ascii;
+use function preg_match;
 
 final class Utils
 {
@@ -73,12 +77,12 @@ final class Utils
      */
     private static function idnToAsci($domain, $options, &$info = [])
     {
-        if (\preg_match('%^[ -~]+$%', $domain) === 1) {
+        if (preg_match('%^[ -~]+$%', $domain) === 1) {
             return $domain;
         }
 
-        if (\extension_loaded('intl') && defined('INTL_IDNA_VARIANT_UTS46')) {
-            return \idn_to_ascii($domain, $options, INTL_IDNA_VARIANT_UTS46, $info);
+        if (extension_loaded('intl') && defined('INTL_IDNA_VARIANT_UTS46')) {
+            return idn_to_ascii($domain, $options, INTL_IDNA_VARIANT_UTS46, $info);
         }
 
         /*
@@ -88,6 +92,6 @@ final class Utils
             return Idn::idn_to_ascii($domain, $options, Idn::INTL_IDNA_VARIANT_UTS46, $info);
         }
 
-        throw new \RuntimeException('ext-intl or symfony/polyfill-intl-idn not loaded or too old');
+        throw new RuntimeException('ext-intl or symfony/polyfill-intl-idn not loaded or too old');
     }
 }
