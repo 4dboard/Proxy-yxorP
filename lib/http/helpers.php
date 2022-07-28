@@ -478,6 +478,8 @@ class helpers
         foreach ([VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS, YXORP_TARGET_CSS => VAR_CSS, YXORP_TARGET_JS => VAR_JS] as $key => $value)
             store::handler($key, store::handler(SITE_DETAILS)[$value]);
 
+        echo store::handler(SITE_DETAILS)[VAR_TARGET_PATTERN];
+
         /**
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
          */
