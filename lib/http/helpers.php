@@ -620,16 +620,6 @@ class helpers
      */
     public static function loadGuzzleSnag(): void
     {
-        echo DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_GUZZLE;
-        /**
-         * It's requiring the Guzzle library.
-         */
-        include_once PATH_GUZZLE;
-        echo 1;
-        /**
-         * It's requiring the Bugsnag library.
-         */
-        include PATH_BUGSNAG;
 
         /**
          * It's setting the token to the snag key.
