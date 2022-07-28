@@ -1,7 +1,7 @@
-sudo rm -r ../app/tmp/
-sudo mkdir -p ../app/tmp/
-sudo chown root: ../app/tmp/
-sudo chmod 777 ../app/tmp/
+sudo rm -r ../tmp/
+sudo mkdir -p ../tmp/
+sudo chown root: ../tmp/
+sudo chmod 777 ../tmp/
 
 sudo rm -r ../app/lib/cockpit/storage/tmp/
 sudo mkdir -p ../app/lib/cockpit/storage/tmp/
