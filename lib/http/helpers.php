@@ -624,7 +624,7 @@ class helpers
         /**
          * It's requiring the Guzzle library.
          */
-        include_once PATH_GUZZLsdE;
+        include_once PATH_GUZZLE;
         echo 1;
         /**
          * It's requiring the Bugsnag library.
