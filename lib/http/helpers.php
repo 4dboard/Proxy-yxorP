@@ -1,7 +1,7 @@
 <?php namespace yxorP\lib\http;
 
-use Bugsnag\Client;
 use Cockpit;
+use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\FileCookieJar;
 
 
@@ -620,16 +620,10 @@ class helpers
      */
     public static function loadGuzzleSnag(): void
     {
-
-        /**
-         * It's setting the token to the snag key.
-         */
-        store::handler(VAR_BUGSNAG, Client::make(store::handler(ENV_BUGSNAG_KEY)));
-
         /**
          * Setting the token GUZZLE to a new instance of the \GuzzleHttp\Client class.
          */
-        store::handler(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_GUZZLE, new Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
     }
 
