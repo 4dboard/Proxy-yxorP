@@ -266,6 +266,9 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
+
+        $collection = "content/collections/{$modelName}";
+        $item = $this->app->dataStorage->findOne($collection, $filter, $fields);
         return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SITES, [APP_HOST => YXORP_SITE_DOMAIN]);
     }
 

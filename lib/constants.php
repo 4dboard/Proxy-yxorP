@@ -162,6 +162,7 @@ const APP_KEY = 'key';
 const APP_SETTINGS = 'Settings';
 const APP_VAL = 'val';
 const APP_SITES = 'sites';
+const APP_COLLECTIONS = 'collections';
 const APP_HOST = 'host';
 const APP_NAME = 'name';
 const APP_TARGET = 'target';
