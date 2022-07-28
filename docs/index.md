@@ -37,7 +37,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`SimpleImageLib`](./classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
-| [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
+| [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
 | [`onCompleteAction`](./classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
 | [`onContextAction`](./classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
 | [`onExceptionAction`](./classes/onExceptionAction.md) | A class that extends the wrapper class.|
@@ -2697,54 +2697,8 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
-### \yxorP\app
+### \yxorP\inc\Psr\Http\Message
 
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`yP`](./classes/yxorP/app/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
-
-
-
-
-### \yxorP\app\lib\http
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`cache`](./classes/yxorP/app/lib/http/cache.md) | A class that is used to cache data.|
-| [`domain`](./classes/yxorP/app/lib/http/domain.md) | It&#039;s a class that&#039;s used to dispatch events.|
-| [`paramStore`](./classes/yxorP/app/lib/http/paramStore.md) | A class that stores parameters.|
-| [`request`](./classes/yxorP/app/lib/http/request.md) | |
-| [`store`](./classes/yxorP/app/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
-| [`wrapper`](./classes/yxorP/app/lib/http/wrapper.md) | Importing the `response` class from the `http` namespace.|
-
-
-#### Traits
-
-| Trait | Description |
-|-------|-------------|
-| [`state`](./classes/yxorP/app/lib/http/state.md) | A trait that allows the class to be serialized and unserialized.|
-
-
-
-
-### \yxorP\app\lib\minify
-
-#### Classes
-
-| Class | Description |
-|-------|-------------|
-| [`areplacerInterface`](./classes/yxorP/app/lib/minify/areplacerInterface.md) | |
-| [`attributesSimplifier`](./classes/yxorP/app/lib/minify/attributesSimplifier.md) | |
-| [`htmlCommentsRemover`](./classes/yxorP/app/lib/minify/htmlCommentsRemover.md) | |
-| [`inlineCssMinifier`](./classes/yxorP/app/lib/minify/inlineCssMinifier.md) | |
-| [`inlineJavascriptMinifier`](./classes/yxorP/app/lib/minify/inlineJavascriptMinifier.md) | |
-| [`minify`](./classes/yxorP/app/lib/minify/minify.md) | |
-| [`quotesRemover`](./classes/yxorP/app/lib/minify/quotesRemover.md) | |
-| [`whitespacesRemover`](./classes/yxorP/app/lib/minify/whitespacesRemover.md) | |
 
 
 
@@ -2752,25 +2706,256 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`minfyInterface`](./classes/yxorP/app/lib/minify/minfyInterface.md) | |
+| [`MessageInterface`](./classes/yxorP/inc/Psr/Http/Message/MessageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
+| [`RequestInterface`](./classes/yxorP/inc/Psr/Http/Message/RequestInterface.md) | Representation of an outgoing, client-side request.|
+| [`ResponseInterface`](./classes/yxorP/inc/Psr/Http/Message/ResponseInterface.md) | Representation of an outgoing, server-side response.|
+| [`ServerRequestInterface`](./classes/yxorP/inc/Psr/Http/Message/ServerRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
+| [`StreamInterface`](./classes/yxorP/inc/Psr/Http/Message/StreamInterface.md) | Describes a data stream.|
+| [`UploadedFileInterface`](./classes/yxorP/inc/Psr/Http/Message/UploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
+| [`UriInterface`](./classes/yxorP/inc/Psr/Http/Message/UriInterface.md) | Value object representing a URI.|
 
 
 
-### \yxorP\app\plugin
+### \yxorP\lib
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`blockListPluginAction`](./classes/yxorP/app/plugin/blockListPluginAction.md) | Extending the wrapper class.|
-| [`cookiePluginAction`](./classes/yxorP/app/plugin/cookiePluginAction.md) | Extending the wrapper class.|
-| [`dailyMotionPluginAction`](./classes/yxorP/app/plugin/dailyMotionPluginAction.md) | Extending the wrapper class.|
-| [`headerRewritePluginAction`](./classes/yxorP/app/plugin/headerRewritePluginAction.md) | It&#039;s extending the wrapper class.|
-| [`logPluginAction`](./classes/yxorP/app/plugin/logPluginAction.md) | It&#039;s extending the wrapper class.|
-| [`proxifyPluginAction`](./classes/yxorP/app/plugin/proxifyPluginAction.md) | Extending the wrapper class.|
-| [`streamPluginAction`](./classes/yxorP/app/plugin/streamPluginAction.md) | Extending the wrapper class, which is a class that allows you to listen to events.|
-| [`twitterPluginAction`](./classes/yxorP/app/plugin/twitterPluginAction.md) | Extending the wrapper class, which is a class that is used to create plugins.|
-| [`youtubePluginAction`](./classes/yxorP/app/plugin/youtubePluginAction.md) | Extending the wrapper class.|
+| [`yP`](./classes/yxorP/lib/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
+
+
+
+
+### \yxorP\lib\http
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`cache`](./classes/yxorP/lib/http/cache.md) | A class that is used to cache data.|
+| [`domain`](./classes/yxorP/lib/http/domain.md) | It&#039;s a class that&#039;s used to dispatch events.|
+| [`paramStore`](./classes/yxorP/lib/http/paramStore.md) | A class that stores parameters.|
+| [`request`](./classes/yxorP/lib/http/request.md) | |
+| [`store`](./classes/yxorP/lib/http/store.md) | It&#039;s a class that&#039;s used to dispatch events.|
+| [`wrapper`](./classes/yxorP/lib/http/wrapper.md) | Importing the `response` class from the `http` namespace.|
+
+
+#### Traits
+
+| Trait | Description |
+|-------|-------------|
+| [`state`](./classes/yxorP/lib/http/state.md) | A trait that allows the class to be serialized and unserialized.|
+
+
+
+
+### \yxorP\lib\minify
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`areplacerInterface`](./classes/yxorP/lib/minify/areplacerInterface.md) | |
+| [`attributesSimplifier`](./classes/yxorP/lib/minify/attributesSimplifier.md) | |
+| [`htmlCommentsRemover`](./classes/yxorP/lib/minify/htmlCommentsRemover.md) | |
+| [`inlineCssMinifier`](./classes/yxorP/lib/minify/inlineCssMinifier.md) | |
+| [`inlineJavascriptMinifier`](./classes/yxorP/lib/minify/inlineJavascriptMinifier.md) | |
+| [`minify`](./classes/yxorP/lib/minify/minify.md) | |
+| [`quotesRemover`](./classes/yxorP/lib/minify/quotesRemover.md) | |
+| [`whitespacesRemover`](./classes/yxorP/lib/minify/whitespacesRemover.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`minfyInterface`](./classes/yxorP/lib/minify/minfyInterface.md) | |
+
+
+
+### \yxorP\lib\proxy
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Client`](./classes/yxorP/lib/proxy/Client.md) | |
+| [`HandlerStack`](./classes/yxorP/lib/proxy/HandlerStack.md) | Creates a composed Proxy handler function by stacking middlewares on top of<br />an HTTP handler function.|
+| [`MessageFormatter`](./classes/yxorP/lib/proxy/MessageFormatter.md) | Formats log messages using variable substitutions for requests, responses,<br />and other transactional data.|
+| [`Middleware`](./classes/yxorP/lib/proxy/Middleware.md) | Functions used to create and wrap handlers with handler middleware.|
+| [`Pool`](./classes/yxorP/lib/proxy/Pool.md) | Sends an iterator of requests concurrently using a capped pool size.|
+| [`PrepareBodyMiddleware`](./classes/yxorP/lib/proxy/PrepareBodyMiddleware.md) | Prepares requests that contain a body, adding the Content-Length,<br />Content-Type, and Expect headers.|
+| [`RedirectMiddleware`](./classes/yxorP/lib/proxy/RedirectMiddleware.md) | Request redirect middleware.|
+| [`RequestOptions`](./classes/yxorP/lib/proxy/RequestOptions.md) | This class contains a list of built-in Proxy request options.|
+| [`RetryMiddleware`](./classes/yxorP/lib/proxy/RetryMiddleware.md) | Middleware that retries requests based on the boolean result of<br />invoking the provided &quot;decider&quot; function.|
+| [`TransferStats`](./classes/yxorP/lib/proxy/TransferStats.md) | Represents data at the point after it was transferred either successfully<br />or after a network error.|
+| [`UriTemplate`](./classes/yxorP/lib/proxy/UriTemplate.md) | Expands URI templates. Userland implementation of PECL uri_template.|
+| [`Utils`](./classes/yxorP/lib/proxy/Utils.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`ClientInterface`](./classes/yxorP/lib/proxy/ClientInterface.md) | Client interface for sending HTTP requests.|
+
+
+
+### \yxorP\lib\proxy\Cookie
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`CookieJar`](./classes/yxorP/lib/proxy/Cookie/CookieJar.md) | Cookie jar that stores cookies as an array|
+| [`FileCookieJar`](./classes/yxorP/lib/proxy/Cookie/FileCookieJar.md) | Persists non-session cookies using a JSON formatted file|
+| [`SessionCookieJar`](./classes/yxorP/lib/proxy/Cookie/SessionCookieJar.md) | Persists cookies in the client session|
+| [`SetCookie`](./classes/yxorP/lib/proxy/Cookie/SetCookie.md) | Set-Cookie object|
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`CookieJarInterface`](./classes/yxorP/lib/proxy/Cookie/CookieJarInterface.md) | Stores HTTP cookies.|
+
+
+
+### \yxorP\lib\proxy\Exception
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`AATransferException`](./classes/yxorP/lib/proxy/Exception/AATransferException.md) | |
+| [`ARequestExceptionAA`](./classes/yxorP/lib/proxy/Exception/ARequestExceptionAA.md) | HTTP Request exception|
+| [`BadResponseException`](./classes/yxorP/lib/proxy/Exception/BadResponseException.md) | Exception when an HTTP error occurs (4xx or 5xx error)|
+| [`ClientException`](./classes/yxorP/lib/proxy/Exception/ClientException.md) | Exception when a client error is encountered (4xx codes)|
+| [`ConnectException`](./classes/yxorP/lib/proxy/Exception/ConnectException.md) | Exception thrown when a connection cannot be established.|
+| [`InvalidArgumentException`](./classes/yxorP/lib/proxy/Exception/InvalidArgumentException.md) | |
+| [`SeekException`](./classes/yxorP/lib/proxy/Exception/SeekException.md) | Exception thrown when a seek fails on a stream.|
+| [`ServerException`](./classes/yxorP/lib/proxy/Exception/ServerException.md) | Exception when a server error is encountered (5xx codes)|
+| [`TooManyRedirectsException`](./classes/yxorP/lib/proxy/Exception/TooManyRedirectsException.md) | HTTP Request exception|
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`ProxyException`](./classes/yxorP/lib/proxy/Exception/ProxyException.md) | |
+
+
+
+### \yxorP\lib\proxy\Handler
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`CurlFactory`](./classes/yxorP/lib/proxy/Handler/CurlFactory.md) | Creates curl resources from a request|
+| [`CurlHandler`](./classes/yxorP/lib/proxy/Handler/CurlHandler.md) | HTTP handler that uses cURL easy handles as a transport layer.|
+| [`CurlMultiHandler`](./classes/yxorP/lib/proxy/Handler/CurlMultiHandler.md) | Returns an asynchronous response using curl_multi_* functions.|
+| [`MockHandler`](./classes/yxorP/lib/proxy/Handler/MockHandler.md) | Handler that returns responses or throw exceptions from a queue.|
+| [`Proxy`](./classes/yxorP/lib/proxy/Handler/Proxy.md) | Provides basic proxies for handlers.|
+| [`StreamHandler`](./classes/yxorP/lib/proxy/Handler/StreamHandler.md) | HTTP handler that uses PHP&#039;s HTTP stream wrapper.|
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`CurlFactoryInterface`](./classes/yxorP/lib/proxy/Handler/CurlFactoryInterface.md) | |
+
+
+
+### \yxorP\lib\proxy\Promise
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`ARejectionException`](./classes/yxorP/lib/proxy/Promise/ARejectionException.md) | A special exception that is thrown when waiting on a rejected promise.|
+| [`AggregateExceptionA`](./classes/yxorP/lib/proxy/Promise/AggregateExceptionA.md) | Exception thrown when too many errors occur in the some() or any() methods.|
+| [`CancellationExceptionA`](./classes/yxorP/lib/proxy/Promise/CancellationExceptionA.md) | Exception that is set as the reason for a promise that has been cancelled.|
+| [`Coroutine`](./classes/yxorP/lib/proxy/Promise/Coroutine.md) | Creates a promise that is resolved using a generator that yields values or<br />promises (somewhat similar to C#&#039;s async keyword).|
+| [`EachPromise`](./classes/yxorP/lib/proxy/Promise/EachPromise.md) | Represents a promise that iterates over many promises and invokes<br />side-effect functions in the process.|
+| [`FulfilledPromise`](./classes/yxorP/lib/proxy/Promise/FulfilledPromise.md) | A promise that has been fulfilled.|
+| [`Promise`](./classes/yxorP/lib/proxy/Promise/Promise.md) | Promises/A+ implementation that avoids recursion when possible.|
+| [`RejectedPromise`](./classes/yxorP/lib/proxy/Promise/RejectedPromise.md) | A promise that has been rejected.|
+| [`TaskQueue`](./classes/yxorP/lib/proxy/Promise/TaskQueue.md) | A task queue that executes tasks in a FIFO order.|
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`PromiseInterface`](./classes/yxorP/lib/proxy/Promise/PromiseInterface.md) | A promise represents the eventual result of an asynchronous operation.|
+| [`PromisorInterface`](./classes/yxorP/lib/proxy/Promise/PromisorInterface.md) | Interface used with classes that return a promise.|
+| [`TaskQueueInterface`](./classes/yxorP/lib/proxy/Promise/TaskQueueInterface.md) | |
+
+
+
+### \yxorP\lib\proxy\Psr7
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`AppendStream`](./classes/yxorP/lib/proxy/Psr7/AppendStream.md) | Reads from multiple streams, one after the other.|
+| [`BufferStream`](./classes/yxorP/lib/proxy/Psr7/BufferStream.md) | Provides a buffer stream that can be written to to fill a buffer, and read<br />from to remove bytes from the buffer.|
+| [`CachingStream`](./classes/yxorP/lib/proxy/Psr7/CachingStream.md) | Stream decorator that can cache previously read bytes from a sequentially<br />read stream.|
+| [`DroppingStream`](./classes/yxorP/lib/proxy/Psr7/DroppingStream.md) | Stream decorator that begins dropping data once the size of the underlying<br />stream becomes too full.|
+| [`FnStream`](./classes/yxorP/lib/proxy/Psr7/FnStream.md) | Compose stream implementations based on a hash of functions.|
+| [`InflateStream`](./classes/yxorP/lib/proxy/Psr7/InflateStream.md) | Uses PHP&#039;s zlib.inflate filter to inflate deflate or gzipped content.|
+| [`LazyOpenStream`](./classes/yxorP/lib/proxy/Psr7/LazyOpenStream.md) | Lazily reads or writes to a file that is opened only after an IO operation<br />take place on the stream.|
+| [`LimitStream`](./classes/yxorP/lib/proxy/Psr7/LimitStream.md) | Decorator used to return only a subset of a stream|
+| [`MultipartStream`](./classes/yxorP/lib/proxy/Psr7/MultipartStream.md) | Stream that when read returns bytes for a streaming multipart or<br />multipart/form-data stream.|
+| [`NoSeekStream`](./classes/yxorP/lib/proxy/Psr7/NoSeekStream.md) | Stream decorator that prevents a stream from being seeked|
+| [`PumpStream`](./classes/yxorP/lib/proxy/Psr7/PumpStream.md) | Provides a read only stream that pumps data from a PHP callable.|
+| [`Request`](./classes/yxorP/lib/proxy/Psr7/Request.md) | PSR-7 request implementation.|
+| [`Response`](./classes/yxorP/lib/proxy/Psr7/Response.md) | PSR-7 response implementation.|
+| [`Rfc7230`](./classes/yxorP/lib/proxy/Psr7/Rfc7230.md) | |
+| [`ServerRequest`](./classes/yxorP/lib/proxy/Psr7/ServerRequest.md) | Server-side HTTP request|
+| [`Stream`](./classes/yxorP/lib/proxy/Psr7/Stream.md) | PHP stream implementation.|
+| [`StreamWrapper`](./classes/yxorP/lib/proxy/Psr7/StreamWrapper.md) | Converts Proxy streams into PHP stream resources.|
+| [`UploadedFile`](./classes/yxorP/lib/proxy/Psr7/UploadedFile.md) | |
+| [`Uri`](./classes/yxorP/lib/proxy/Psr7/Uri.md) | PSR-7 URI implementation.|
+| [`UriNormalizer`](./classes/yxorP/lib/proxy/Psr7/UriNormalizer.md) | Provides methods to normalize and compare URIs.|
+| [`UriResolver`](./classes/yxorP/lib/proxy/Psr7/UriResolver.md) | Resolves a URI reference in the context of a base URI and the opposite way.|
+
+
+#### Traits
+
+| Trait | Description |
+|-------|-------------|
+| [`AStreamDecoratorTrait`](./classes/yxorP/lib/proxy/Psr7/AStreamDecoratorTrait.md) | Stream decorator trait|
+| [`MessageTrait`](./classes/yxorP/lib/proxy/Psr7/MessageTrait.md) | Trait implementing functionality common to requests and responses.|
+
+
+
+
+### \yxorP\plugin
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`blockListPluginAction`](./classes/yxorP/plugin/blockListPluginAction.md) | Extending the wrapper class.|
+| [`cookiePluginAction`](./classes/yxorP/plugin/cookiePluginAction.md) | Extending the wrapper class.|
+| [`dailyMotionPluginAction`](./classes/yxorP/plugin/dailyMotionPluginAction.md) | Extending the wrapper class.|
+| [`headerRewritePluginAction`](./classes/yxorP/plugin/headerRewritePluginAction.md) | It&#039;s extending the wrapper class.|
+| [`logPluginAction`](./classes/yxorP/plugin/logPluginAction.md) | It&#039;s extending the wrapper class.|
+| [`proxifyPluginAction`](./classes/yxorP/plugin/proxifyPluginAction.md) | Extending the wrapper class.|
+| [`streamPluginAction`](./classes/yxorP/plugin/streamPluginAction.md) | Extending the wrapper class, which is a class that allows you to listen to events.|
+| [`twitterPluginAction`](./classes/yxorP/plugin/twitterPluginAction.md) | Extending the wrapper class, which is a class that is used to create plugins.|
+| [`youtubePluginAction`](./classes/yxorP/plugin/youtubePluginAction.md) | Extending the wrapper class.|
 
 
 
