@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Promise;
+namespace yxorP\lib\proxy\Promise;
 
 use Exception;
 use Generator;
@@ -16,7 +16,7 @@ use Throwable;
  * This can lead to less verbose code when doing lots of sequential async calls
  * with minimal processing in between.
  *
- *     use GuzzleHttp\Promise;
+ *     use yxorP\lib\proxy\Promise;
  *
  *     function createPromise($value) {
  *         return new Promise\FulfilledPromise($value);

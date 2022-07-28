@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Promise;
+namespace yxorP\lib\proxy\Promise;
 
 /**
  * Exception thrown when too many errors occur in the some() or any() methods.

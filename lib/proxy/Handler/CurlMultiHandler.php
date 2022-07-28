@@ -1,9 +1,9 @@
 <?php
-namespace GuzzleHttp\Handler;
+namespace yxorP\lib\proxy\Handler;
 
-use GuzzleHttp\Promise as P;
-use GuzzleHttp\Promise\Promise;
-use GuzzleHttp\Utils;
+use yxorP\lib\proxy\Promise as P;
+use yxorP\lib\proxy\Promise\Promise;
+use yxorP\lib\proxy\Utils;
 use Psr\Http\Message\RequestInterface;
 
 /**

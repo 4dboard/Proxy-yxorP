@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Promise;
+namespace yxorP\lib\proxy\Promise;
 
 /**
  * A promise represents the eventual result of an asynchronous operation.

@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Exception;
+namespace yxorP\lib\proxy\Exception;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

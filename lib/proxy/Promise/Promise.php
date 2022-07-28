@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Promise;
+namespace yxorP\lib\proxy\Promise;
 
 /**
  * Promises/A+ implementation that avoids recursion when possible.

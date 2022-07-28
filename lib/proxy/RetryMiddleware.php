@@ -1,9 +1,9 @@
 <?php
 namespace GuzzleHttp;
 
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\RejectedPromise;
-use GuzzleHttp\Psr7;
+use yxorP\lib\proxy\Promise\PromiseInterface;
+use yxorP\lib\proxy\Promise\RejectedPromise;
+use yxorP\lib\proxy\Psr7;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -110,7 +110,7 @@ class RetryMiddleware
                 null,
                 $reason
             )) {
-                return \GuzzleHttp\Promise\rejection_for($reason);
+                return \yxorP\lib\proxy\Promise\rejection_for($reason);
             }
             return $this->doRetry($req, $options);
         };

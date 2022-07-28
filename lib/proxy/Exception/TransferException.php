@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Exception;
+namespace yxorP\lib\proxy\Exception;
 
 class TransferException extends \RuntimeException implements GuzzleException
 {

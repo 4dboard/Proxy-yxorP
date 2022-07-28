@@ -1,8 +1,8 @@
 <?php
 namespace GuzzleHttp;
 
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Promise\PromiseInterface;
+use yxorP\lib\proxy\Exception\GuzzleException;
+use yxorP\lib\proxy\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;

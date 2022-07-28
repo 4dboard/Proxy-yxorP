@@ -1,9 +1,9 @@
 <?php
 namespace GuzzleHttp;
 
-use GuzzleHttp\Promise\EachPromise;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\PromisorInterface;
+use yxorP\lib\proxy\Promise\EachPromise;
+use yxorP\lib\proxy\Promise\PromiseInterface;
+use yxorP\lib\proxy\Promise\PromisorInterface;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -51,7 +51,7 @@ class Pool implements PromisorInterface
             $opts = [];
         }
 
-        $iterable = \GuzzleHttp\Promise\iter_for($requests);
+        $iterable = \yxorP\lib\proxy\Promise\iter_for($requests);
         $requests = function () use ($iterable, $client, $opts) {
             foreach ($iterable as $key => $rfn) {
                 if ($rfn instanceof RequestInterface) {
@@ -91,7 +91,7 @@ class Pool implements PromisorInterface
      * @param ClientInterface $client   Client used to send the requests
      * @param array|\Iterator $requests Requests to send concurrently.
      * @param array           $options  Passes through the options available in
-     *                                  {@see GuzzleHttp\Pool::__construct}
+     *                                  {@see yxorP\lib\proxy\Pool::__construct}
      *
      * @return array Returns an array containing the response or an exception
      *               in the same order that the requests were sent.
