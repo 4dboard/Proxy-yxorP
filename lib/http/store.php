@@ -67,7 +67,7 @@ class store
      * @param array $varibles
      * @return mixed
      */
-    public static function set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
+    private static function set(string $name, mixed $value, ?string $func = null, array $varibles = []): mixed
     {
         /**
          * It's checking if the value is null and if the function is not null, if it is, it will execute the function and
