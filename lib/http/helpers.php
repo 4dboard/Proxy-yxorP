@@ -370,9 +370,9 @@ class helpers
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
          * It's defining a constant called `PATH_APP_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
-         * `DIR_LIB` and `DIR_COCKPIT` and `FILE_APP_BOOTSTRAP` appended to it.
+         * `DIR_LIB` and `DIR_APP` and `FILE_APP_BOOTSTRAP` appended to it.
          */
-        define('PATH_APP_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_APP_BOOTSTRAP);
+        define('PATH_APP_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_APP_BOOTSTRAP);
         /**
          * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a
          * `DIR_VENDOR` and `FILE_GUZZLE` appended to it.
@@ -389,18 +389,18 @@ class helpers
          */
         define('PATH_COOKIE_JAR', DIR_ROOT . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
         /**
-         * It's defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` appended to it.
+         * It's defining a constant called `PATH_DIR_APP` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_APP` appended to it.
          */
-        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT);
+        define('PATH_DIR_APP', DIR_ROOT . DIR_APP);
         /**
          * It's defining a constant called `PATH_APP_LOCAL` and setting it to the value of `DIR_ROOT` with a
-         * `DIR_INSTALL` and `DIR_COCKPIT` appended to it.
+         * `DIR_INSTALL` and `DIR_APP` appended to it.
          */
-        define('PATH_APP_LOCAL', DIR_ROOT . DIR_LIB . DIR_INSTALL . DIR_COCKPIT);
+        define('PATH_APP_LOCAL', DIR_ROOT . DIR_LIB . DIR_INSTALL . DIR_APP);
         /**
-         * It's defining a constant called `PATH_APP_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
+         * It's defining a constant called `PATH_APP_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_APP` and `FILE_INDEX` appended to it.
          */
-        define('PATH_APP_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
+        define('PATH_APP_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
         /**
          * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a  `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
          */
@@ -583,7 +583,7 @@ class helpers
          * It's copying the files from the `local` directory to the `COCKPIT` directory.
          */
 
-        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_COCKPIT);
+        if (!is_dir(PATH_DIR_APP . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_APP);
         /**
          * It's inserting a new user into the `APP_accounts` collection.
          */
