@@ -2,8 +2,6 @@
 
 use Bugsnag\Client;
 use GuzzleHttp\Cookie\FileCookieJar;
-use function Cockpit;
-use function explode;
 
 
 /**
