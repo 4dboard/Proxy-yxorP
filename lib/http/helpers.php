@@ -626,11 +626,13 @@ class helpers
          */
         require PATH_GUZZLE;
 
+        echo 1;
         /**
          * It's requiring the Bugsnag library.
          */
         require PATH_BUGSNAG;
 
+        echo 1;
         /**
          * It's setting the token to the snag key.
          */
