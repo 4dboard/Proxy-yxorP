@@ -20,7 +20,6 @@ class onSendAction extends wrapper
      */
     public function onSend(): void
     {
-        echo 1;
         /**
          * Creating a new `\GuzzleHttp\Client` object, and then it is sending a request to the `\yxorP\lib\http\store::handler(YXORP_FETCH)` URL,
          * with the `\yxorP\lib\http\store::handler(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request.
