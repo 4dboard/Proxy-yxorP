@@ -117,6 +117,7 @@ abstract class wrapper
      */
     public function onCheck(): self
     {
+        return $this;
     }
 
     /**
