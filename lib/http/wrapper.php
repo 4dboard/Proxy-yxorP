@@ -93,7 +93,7 @@ abstract class wrapper
                     $this->onCheck()->onSent();
                     break;
                 case EVENT_WRITE:
-                    $this->onWrite();
+                    $this->onCheck()->onWrite();
                     break;
                 case EVENT_COMPLETE:
                     $this->onComplete();
