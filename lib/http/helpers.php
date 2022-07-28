@@ -396,7 +396,7 @@ class helpers
          * It's defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a
          * `DIR_INSTALL` and `DIR_COCKPIT` appended to it.
          */
-        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INSTALL . DIR_COCKPIT);
+        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_LIB . DIR_INSTALL . DIR_COCKPIT);
         /**
          * It's defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_COCKPIT` and `FILE_INDEX` appended to it.
          */
