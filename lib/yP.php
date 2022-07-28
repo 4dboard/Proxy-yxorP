@@ -19,8 +19,8 @@ include 'constants.php';
  */
 
 use GuzzleHttp\FileCookieJar;
-use yxorP\app\lib\http\helpers;
-use yxorP\app\lib\http\store;
+use yxorP\lib\http\helpers;
+use yxorP\lib\http\store;
 use yxorP\app\lib\parser\RulesParser;
 
 /**

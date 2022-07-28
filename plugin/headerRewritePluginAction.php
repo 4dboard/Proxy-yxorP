@@ -1,11 +1,11 @@
 <?php
 /**
- * It's importing the wrapper class from the yxorP\app\lib\http namespace.
+ * It's importing the wrapper class from the yxorP\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
-use yxorP\app\lib\http\wrapper;
+use yxorP\lib\http\wrapper;
 use yxorP\lib\constants;
 use function proxify_url;
 use const VAR_BUGSNAG;

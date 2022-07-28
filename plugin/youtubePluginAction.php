@@ -1,13 +1,13 @@
 <?php
 /**
- * Importing the wrapper class from the yxorP\app\lib\http namespace.
+ * Importing the wrapper class from the yxorP\lib\http namespace.
  */
 
 namespace yxorP\plugin;
 
 use yorxP\debug\Utils\Html;
 use YouTubeDownloader;
-use yxorP\app\lib\http\wrapper;
+use yxorP\lib\http\wrapper;
 use yxorP\lib\constants;
 use function proxify_url;
 use function vid_player;

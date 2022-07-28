@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 
 /**
  * A hint for the IDE to tell it that the function is pure.

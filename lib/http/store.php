@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 
 use JetBrains\PhpStorm\Pure;
 

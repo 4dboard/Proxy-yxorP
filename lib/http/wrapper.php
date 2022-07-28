@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 
 /**
  * Importing the namespace `yxorP` into the current namespace.
@@ -9,7 +9,7 @@ use Exception;
 use yxorP\lib\yP;
 
 /**
- * Importing the class `request` from the namespace `yxorP\app\lib\http`.
+ * Importing the class `request` from the namespace `yxorP\lib\http`.
  */
 
 /**

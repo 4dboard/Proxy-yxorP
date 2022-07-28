@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 /**
  * It's a class that's used to dispatch events.
  */

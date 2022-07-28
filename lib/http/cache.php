@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 /**
  * Importing the namespace `yxorP` into the current namespace.
  */
@@ -40,7 +40,7 @@ class cache
      * A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
      */
 
-    #[ArrayShape(['key' => "null|\yxorP\app\lib\http\string", 'path' => "string"])] private static function gen(?string $key): array
+    #[ArrayShape(['key' => "null|\yxorP\lib\http\string", 'path' => "string"])] private static function gen(?string $key): array
     {
         /**
          * It's checking if the `tmp` directory exists, and if it doesn't, it's creating it.

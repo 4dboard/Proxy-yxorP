@@ -4,11 +4,11 @@
  */
 
 
-use yxorP\app\lib\http\cache;
-use yxorP\app\lib\http\wrapper;
+use yxorP\lib\http\cache;
+use yxorP\lib\http\wrapper;
 
 /**
- * Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.
+ * Importing the wrapper class from the yxorP\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.
  */
 class onCheckAction extends wrapper
 {

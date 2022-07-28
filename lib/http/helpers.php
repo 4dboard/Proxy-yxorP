@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 
 use Bugsnag\Client;
 use GuzzleHttp\Cookie\FileCookieJar;
@@ -352,9 +352,9 @@ class helpers
      */
     public static function replace($content): string
     {
-        store::handler(YXORP_REWRITE, null, 'yxorP\app\lib\http\helpers::JSON');
+        store::handler(YXORP_REWRITE, null, 'yxorP\lib\http\helpers::JSON');
         /**
-         * Importing the `generalHelper` class from the `yxorP\app\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class.
+         * Importing the `generalHelper` class from the `yxorP\lib\http` namespace. Importing the `minify` class from the `yxorP\app\lib\minify` namespace.   Extending the `wrapper` class.
          */
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
             return '<x' . str_replace(array_keys(store::handler(YXORP_REWRITE)), array_values(store::handler(YXORP_REWRITE)), $m[1]) . 'x>';
@@ -472,7 +472,7 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::handler(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::cockpit_find');
+        store::handler(SITE_DETAILS, null, 'yxorP\lib\http\helpers::cockpit_find');
 
         /**
          * Setting the pattern, replace, and plugins variables.
@@ -511,7 +511,7 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\app\lib\http\helpers::cockpit_global');
+        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\lib\http\helpers::cockpit_global');
 
         /**
          * Setting the pattern, replace, and plugins variables.

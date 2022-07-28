@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\lib\http;
 /**
  * A trait that allows the class to be serialized and unserialized.
  */
