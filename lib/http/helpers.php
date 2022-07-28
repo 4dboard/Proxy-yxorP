@@ -266,7 +266,8 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-
+        echo 1;
+        print_r(store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_COLLECTIONS, [APP_HOST => YXORP_SITE_DOMAIN]));
         return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_COLLECTIONS, [APP_HOST => YXORP_SITE_DOMAIN]);
     }
 
