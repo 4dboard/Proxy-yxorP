@@ -17,6 +17,15 @@ use yxorP\lib\http\wrapper;
 class spinPluginAction extends wrapper
 {
     /**
+     * A method that is called before the request is processed.
+     *
+     */
+    public function onComplete(): void
+    {
+        if (helpers::MIME() === VAR_TEXT_HTML) store::handler(YXORP_CONTENT, self::replace(store::handler(YXORP_CONTENT)));
+    }
+
+    /**
      * Defining a static method called mime.
      *
      */
@@ -29,15 +38,6 @@ class spinPluginAction extends wrapper
         return preg_replace_callback_array(['~\<x(.*?)x\>~is' => function ($m) {
             return '<x' . str_replace(array_keys(store::handler(YXORP_REWRITE)), array_values(store::handler(YXORP_REWRITE)), $m[1]) . 'x>';
         }], $content) ?: $content;
-    }
-
-    /**
-     * A method that is called before the request is processed.
-     *
-     */
-    public function onComplete(): void
-    {
-        if (helpers::MIME() === VAR_TEXT_HTML) store::handler(YXORP_CONTENT, helpers::replace(store::handler(YXORP_CONTENT)));
     }
 
 }
