@@ -3,7 +3,7 @@
  * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
-namespace yxorP\app\plugin;
+namespace yxorP\plugin;
 
 use yorxP\debug\Utils\Html;
 use YouTubeDownloader;

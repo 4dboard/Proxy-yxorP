@@ -4,7 +4,7 @@
  * Importing the wrapper class from the yxorP\app\lib\http namespace.
  */
 
-namespace yxorP\app\plugin;
+namespace yxorP\plugin;
 
 use str;
 use yxorP\app\constants;
