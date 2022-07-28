@@ -587,7 +587,8 @@ class helpers
         /**
          * It's inserting a new user into the `COCKPIT_accounts` collection.
          */
-        if (!store::handler(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) store::handler(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_COCKPIT_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => store::handler(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        $app->dataStorage->getCollection('system/users')->count()
+        if (!store::handler(YXORP_COCKPIT_APP)->dataStorage->getCollection(SYSTEM_USERS)->count()) store::handler(YXORP_COCKPIT_APP)->storage->insert(SYSTEM_USERS, [VAR_USER => store::handler(ENV_ADMIN_USER), VAR_NAME => store::handler(ENV_ADMIN_NAME), VAR_EMAIL => store::handler(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_COCKPIT, VAR_PASSWORD => store::handler(YXORP_COCKPIT_APP)->hash(store::handler(ENV_ADMIN_PASSWORD)), VAR_I18N => store::handler(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
     /**
