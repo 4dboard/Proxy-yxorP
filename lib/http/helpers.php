@@ -266,7 +266,7 @@ class helpers
      */
     public static function cockpit_find(): mixed
     {
-        return store::handler(YXORP_APP)->dataStorage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
     }
 
     /**
@@ -583,7 +583,7 @@ class helpers
          * It's copying the files from the `local` directory to the `COCKPIT` directory.
          */
 
-        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . COCKPIT_COLLECTIONS)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        if (!is_dir(PATH_DIR_COCKPIT . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
         /**
          * It's inserting a new user into the `COCKPIT_accounts` collection.
          */
