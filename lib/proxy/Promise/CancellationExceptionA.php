@@ -1,10 +1,1 @@
-<?php
-
-namespace yxorP\lib\proxy\Promise;
-
-/**
- * Exception that is set as the reason for a promise that has been cancelled.
- */
-class CancellationExceptionA extends ARejectionException
-{
-}
+<?php namespace yxorP\lib\proxy\Promise;class CancellationExceptionA extends ARejectionException{}
