@@ -2,6 +2,7 @@
 
 use Bugsnag\Client;
 use GuzzleHttp\Cookie\FileCookieJar;
+use function Cockpit;
 use function explode;
 
 
@@ -538,7 +539,7 @@ class helpers
         /**
          * Storing the cockpit object in the tmp store.
          */
-        store::handler(YXORP_COCKPIT_APP, \Cockpit());
+        store::handler(YXORP_COCKPIT_APP, Cockpit());
     }
 
     /**
