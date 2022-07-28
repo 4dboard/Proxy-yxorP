@@ -2,7 +2,7 @@
 
 # CurlFactory
 
-Creates curl resources from a request
+
 
 
 
@@ -26,7 +26,7 @@ Creates curl resources from a request
 
 
 ```php
-private array $handles
+private $handles
 ```
 
 
@@ -41,7 +41,7 @@ private array $handles
 
 
 ```php
-private int $maxHandles
+private $maxHandles
 ```
 
 
@@ -59,7 +59,7 @@ private int $maxHandles
 
 
 ```php
-public __construct(int $maxHandles): mixed
+public __construct(mixed $maxHandles): mixed
 ```
 
 
@@ -73,7 +73,7 @@ public __construct(int $maxHandles): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$maxHandles` | **int** | Maximum number of idle handles. |
+| `$maxHandles` | **mixed** |  |
 
 
 
@@ -82,11 +82,10 @@ public __construct(int $maxHandles): mixed
 
 ### finish
 
-Completes a cURL transaction, either returning a response promise or a
-rejected promise.
+
 
 ```php
-public static finish(callable $handler, \yxorP\lib\proxy\Handler\EasyHandle $easy, \yxorP\lib\proxy\Handler\CurlFactoryInterface $factory): \yxorP\lib\proxy\Promise\PromiseInterface
+public static finish(callable $handler, \yxorP\lib\proxy\Handler\EasyHandle $easy, \yxorP\lib\proxy\Handler\CurlFactoryInterface $factory): mixed
 ```
 
 
@@ -102,7 +101,7 @@ public static finish(callable $handler, \yxorP\lib\proxy\Handler\EasyHandle $eas
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
 | `$easy` | **\yxorP\lib\proxy\Handler\EasyHandle** |  |
-| `$factory` | **\yxorP\lib\proxy\Handler\CurlFactoryInterface** | Dictates how the handle is released |
+| `$factory` | **\yxorP\lib\proxy\Handler\CurlFactoryInterface** |  |
 
 
 
@@ -165,13 +164,13 @@ private static finishError(callable $handler, \yxorP\lib\proxy\Handler\EasyHandl
 
 ### release
 
-Release an easy handle, allowing it to be reused or closed.
+
 
 ```php
 public release(\yxorP\lib\proxy\Handler\EasyHandle $easy): mixed
 ```
 
-This function must call unset on the easy handle's "handle" property.
+
 
 
 
@@ -191,13 +190,7 @@ This function must call unset on the easy handle's "handle" property.
 
 ### retryFailedRewind
 
-This function ensures that a response was set on a transaction. If one
-was not set, then the request is retried if possible. This error
-typically means you are sending a payload, curl encountered a
-"Connection died, retrying a fresh connect" error, tried to rewind the
-stream, and then encountered a "necessary data rewind wasn't possible"
-error, causing the request to be sent through curl_multi_info_read()
-without an error status.
+
 
 ```php
 private static retryFailedRewind(callable $handler, \yxorP\lib\proxy\Handler\EasyHandle $easy, array $ctx): mixed
@@ -252,10 +245,10 @@ private static createRejection(\yxorP\lib\proxy\Handler\EasyHandle $easy, array 
 
 ### create
 
-Creates a cURL handle resource.
+
 
 ```php
-public create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): \yxorP\lib\proxy\Handler\EasyHandle
+public create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): mixed
 ```
 
 
@@ -269,8 +262,8 @@ public create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $opti
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** | Request |
-| `$options` | **array** | Transfer options |
+| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** |  |
+| `$options` | **array** |  |
 
 
 
@@ -360,10 +353,10 @@ private applyBody(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $
 
 ### removeHeader
 
-Remove a header from the options array.
+
 
 ```php
-private removeHeader(string $name, array& $options): mixed
+private removeHeader(mixed $name, array& $options): mixed
 ```
 
 
@@ -377,8 +370,8 @@ private removeHeader(string $name, array& $options): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | Case-insensitive header to remove |
-| `$options` | **array** | Array of options to modify |
+| `$name` | **mixed** |  |
+| `$options` | **array** |  |
 
 
 

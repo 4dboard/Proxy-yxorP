@@ -2,7 +2,7 @@
 
 # Stream
 
-PHP stream implementation.
+
 
 
 
@@ -15,7 +15,7 @@ PHP stream implementation.
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`READABLE_MODES`|public|string|&#039;/r|a\\+|ab\\+|w\\+|wb\\+|x\\+|xb\\+|c\\+|cb\\+/&#039;|
+|`READABLE_MODES`|public| |&#039;/r|a\\+|ab\\+|w\\+|wb\\+|x\\+|xb\\+|c\\+|cb\\+/&#039;|
 |`WRITABLE_MODES`|public| |&#039;/a|w|r\\+|rb\\+|rw|x|c/&#039;|
 
 ## Properties
@@ -131,17 +131,13 @@ private $customMetadata
 
 ### __construct
 
-This constructor accepts an associative array of options.
+
 
 ```php
-public __construct(resource $stream, array $options = []): mixed
+public __construct(mixed $stream, mixed $options = []): mixed
 ```
 
-- size: (int) If a read stream would otherwise have an indeterminate
-  size, but the size is known due to foreknowledge, then you can
-  provide that size, in bytes.
-- metadata: (array) Any additional metadata to return when the metadata
-  of the stream is accessed.
+
 
 
 
@@ -152,9 +148,42 @@ public __construct(resource $stream, array $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **resource** | Stream resource to wrap. |
-| `$options` | **array** | Associative array of options. |
+| `$stream` | **mixed** |  |
+| `$options` | **mixed** |  |
 
+
+
+
+***
+
+### getMetadata
+
+Get stream metadata as an associative array or retrieve a specific key.
+
+```php
+public getMetadata(mixed $key = null): array|mixed|null
+```
+
+The keys returned are identical to the keys returned from PHP's
+stream_get_meta_data() function.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** | Specific metadata to retrieve. |
+
+
+**Return Value:**
+
+Returns an associative array if no key is
+provided. Returns a specific key value if a key is provided and the
+value is found, or null if the key is not found.
 
 
 
@@ -162,56 +191,10 @@ public __construct(resource $stream, array $options = []): mixed
 
 ### __destruct
 
-Closes the stream when the destructed
+
 
 ```php
 public __destruct(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### __toString
-
-Reads all data from the stream into a string, from the beginning to end.
-
-```php
-public __toString(): string
-```
-
-This method MUST attempt to seek to the beginning of the stream before
-reading data and read the stream until the end is reached.
-
-Warning: This could attempt to load a large amount of data into memory.
-
-This method MUST NOT raise an exception in order to conform with PHP's
-string casting operations.
-
-
-
-
-
-
-
-
-
-***
-
-### getContents
-
-Returns the remaining contents in a string
-
-```php
-public getContents(): string
 ```
 
 
@@ -265,6 +248,79 @@ After the stream has been detached, the stream is in an unusable state.
 **Return Value:**
 
 Underlying PHP stream, if any
+
+
+
+***
+
+### __toString
+
+Reads all data from the stream into a string, from the beginning to end.
+
+```php
+public __toString(): string
+```
+
+This method MUST attempt to seek to the beginning of the stream before
+reading data and read the stream until the end is reached.
+
+Warning: This could attempt to load a large amount of data into memory.
+
+This method MUST NOT raise an exception in order to conform with PHP's
+string casting operations.
+
+
+
+
+
+
+
+
+
+***
+
+### seek
+
+Seek to a position in the stream.
+
+```php
+public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$offset` | **mixed** | Stream offset |
+| `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
+
+
+
+
+***
+
+### getContents
+
+Returns the remaining contents in a string
+
+```php
+public getContents(): string
+```
+
+
+
+
+
+
+
+
 
 
 
@@ -419,33 +475,6 @@ otherwise, it will perform a seek(0).
 
 ***
 
-### seek
-
-Seek to a position in the stream.
-
-```php
-public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$offset` | **mixed** | Stream offset |
-| `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
-
-
-
-
-***
-
 ### read
 
 Read data from the stream.
@@ -502,39 +531,6 @@ public write(mixed $string): int
 **Return Value:**
 
 Returns the number of bytes written to the stream.
-
-
-
-***
-
-### getMetadata
-
-Get stream metadata as an associative array or retrieve a specific key.
-
-```php
-public getMetadata(mixed $key = null): array|mixed|null
-```
-
-The keys returned are identical to the keys returned from PHP's
-stream_get_meta_data() function.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **mixed** | Specific metadata to retrieve. |
-
-
-**Return Value:**
-
-Returns an associative array if no key is
-provided. Returns a specific key value if a key is provided and the
-value is found, or null if the key is not found.
 
 
 

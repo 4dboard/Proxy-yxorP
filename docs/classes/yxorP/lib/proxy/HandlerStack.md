@@ -2,8 +2,7 @@
 
 # HandlerStack
 
-Creates a composed Proxy handler function by stacking middlewares on top of
-an HTTP handler function.
+
 
 
 
@@ -19,7 +18,7 @@ an HTTP handler function.
 
 
 ```php
-private callable|null $handler
+private $handler
 ```
 
 
@@ -34,7 +33,7 @@ private callable|null $handler
 
 
 ```php
-private array $stack
+private $stack
 ```
 
 
@@ -49,7 +48,7 @@ private array $stack
 
 
 ```php
-private callable|null $cached
+private $cached
 ```
 
 
@@ -81,7 +80,7 @@ public __construct(callable $handler = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$handler` | **callable** | Underlying HTTP handler. |
+| `$handler` | **callable** |  |
 
 
 
@@ -90,19 +89,13 @@ public __construct(callable $handler = null): mixed
 
 ### create
 
-Creates a default handler stack that can be used by clients.
+
 
 ```php
-public static create(callable $handler = null): \yxorP\lib\proxy\HandlerStack
+public static create(callable $handler = null): mixed
 ```
 
-The returned handler will wrap the provided handler or use the most
-appropriate default handler for your system. The returned HandlerStack has
-support for cookies, redirects, HTTP error exceptions, and preparing a body
-before sending.
 
-The returned handler stack can be passed to a client in the "handler"
-option.
 
 * This method is **static**.
 
@@ -113,7 +106,7 @@ option.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$handler` | **callable** | HTTP handler function to use with the stack. If no<br />handler is provided, the best handler for your<br />system will be utilized. |
+| `$handler` | **callable** |  |
 
 
 
@@ -122,10 +115,10 @@ option.
 
 ### push
 
-Push a middleware to the top of the stack.
+
 
 ```php
-public push(callable $middleware, string $name = &#039;&#039;): mixed
+public push(callable $middleware, mixed $name = &#039;&#039;): mixed
 ```
 
 
@@ -139,8 +132,8 @@ public push(callable $middleware, string $name = &#039;&#039;): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$middleware` | **callable** | Middleware function |
-| `$name` | **string** | Name to register for this middleware. |
+| `$middleware` | **callable** |  |
+| `$name` | **mixed** |  |
 
 
 
@@ -149,10 +142,10 @@ public push(callable $middleware, string $name = &#039;&#039;): mixed
 
 ### __invoke
 
-Invokes the handler stack as a composed handler
+
 
 ```php
-public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): \yxorP\inc\Psr\Http\Message\ResponseInterface|\yxorP\lib\proxy\Promise\PromiseInterface
+public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): mixed
 ```
 
 
@@ -176,10 +169,10 @@ public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 ### resolve
 
-Compose the middleware and handler into a single callable function.
+
 
 ```php
-public resolve(): callable
+public resolve(): mixed
 ```
 
 
@@ -196,10 +189,10 @@ public resolve(): callable
 
 ### __toString
 
-Dumps a string representation of the stack.
+
 
 ```php
-public __toString(): string
+public __toString(): mixed
 ```
 
 
@@ -214,9 +207,35 @@ public __toString(): string
 
 ***
 
+### debugCallable
+
+
+
+```php
+private debugCallable(mixed $fn): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$fn` | **mixed** |  |
+
+
+
+
+***
+
 ### setHandler
 
-Set the HTTP handler that actually returns a promise.
+
 
 ```php
 public setHandler(callable $handler): mixed
@@ -233,7 +252,7 @@ public setHandler(callable $handler): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$handler` | **callable** | Accepts a request and array of options and<br />returns a Promise. |
+| `$handler` | **callable** |  |
 
 
 
@@ -242,10 +261,10 @@ public setHandler(callable $handler): mixed
 
 ### hasHandler
 
-Returns true if the builder has a handler.
+
 
 ```php
-public hasHandler(): bool
+public hasHandler(): mixed
 ```
 
 
@@ -262,10 +281,10 @@ public hasHandler(): bool
 
 ### unshift
 
-Unshift a middleware to the bottom of the stack.
+
 
 ```php
-public unshift(callable $middleware, string $name = null): mixed
+public unshift(callable $middleware, mixed $name = null): mixed
 ```
 
 
@@ -279,8 +298,8 @@ public unshift(callable $middleware, string $name = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$middleware` | **callable** | Middleware function |
-| `$name` | **string** | Name to register for this middleware. |
+| `$middleware` | **callable** |  |
+| `$name` | **mixed** |  |
 
 
 
@@ -289,10 +308,10 @@ public unshift(callable $middleware, string $name = null): mixed
 
 ### before
 
-Add a middleware before another middleware by name.
+
 
 ```php
-public before(string $findName, callable $middleware, string $withName = &#039;&#039;): mixed
+public before(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
 ```
 
 
@@ -306,89 +325,9 @@ public before(string $findName, callable $middleware, string $withName = &#039;&
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$findName` | **string** | Middleware to find |
-| `$middleware` | **callable** | Middleware function |
-| `$withName` | **string** | Name to register for this middleware. |
-
-
-
-
-***
-
-### after
-
-Add a middleware after another middleware by name.
-
-```php
-public after(string $findName, callable $middleware, string $withName = &#039;&#039;): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$findName` | **string** | Middleware to find |
-| `$middleware` | **callable** | Middleware function |
-| `$withName` | **string** | Name to register for this middleware. |
-
-
-
-
-***
-
-### remove
-
-Remove a middleware by instance or name from the stack.
-
-```php
-public remove(callable|string $remove): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$remove` | **callable&#124;string** | Middleware to remove by instance or name. |
-
-
-
-
-***
-
-### debugCallable
-
-Provides a debug string for a given callable.
-
-```php
-private debugCallable(array|callable $fn): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$fn` | **array&#124;callable** | Function to write as a string. |
+| `$findName` | **mixed** |  |
+| `$middleware` | **callable** |  |
+| `$withName` | **mixed** |  |
 
 
 
@@ -397,10 +336,10 @@ private debugCallable(array|callable $fn): string
 
 ### splice
 
-Splices a function into the middleware list at a specific position.
+
 
 ```php
-private splice(string $findName, string $withName, callable $middleware, bool $before): mixed
+private splice(mixed $findName, mixed $withName, callable $middleware, mixed $before): mixed
 ```
 
 
@@ -414,10 +353,10 @@ private splice(string $findName, string $withName, callable $middleware, bool $b
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$findName` | **string** |  |
-| `$withName` | **string** |  |
+| `$findName` | **mixed** |  |
+| `$withName` | **mixed** |  |
 | `$middleware` | **callable** |  |
-| `$before` | **bool** |  |
+| `$before` | **mixed** |  |
 
 
 
@@ -429,7 +368,7 @@ private splice(string $findName, string $withName, callable $middleware, bool $b
 
 
 ```php
-private findByName(string $name): int
+private findByName(mixed $name): mixed
 ```
 
 
@@ -443,7 +382,61 @@ private findByName(string $name): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** |  |
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
+### after
+
+
+
+```php
+public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$findName` | **mixed** |  |
+| `$middleware` | **callable** |  |
+| `$withName` | **mixed** |  |
+
+
+
+
+***
+
+### remove
+
+
+
+```php
+public remove(mixed $remove): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$remove` | **mixed** |  |
 
 
 

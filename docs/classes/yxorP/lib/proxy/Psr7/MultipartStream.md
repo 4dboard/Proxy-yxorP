@@ -2,8 +2,7 @@
 
 # MultipartStream
 
-Stream that when read returns bytes for a streaming multipart or
-multipart/form-data stream.
+
 
 
 
@@ -39,7 +38,7 @@ private $boundary
 
 
 ```php
-public __construct(array $elements = [], string $boundary = null): mixed
+public __construct(array $elements = [], mixed $boundary = null): mixed
 ```
 
 
@@ -53,8 +52,8 @@ public __construct(array $elements = [], string $boundary = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$elements` | **array** | Array of associative arrays, each containing a<br />required &quot;name&quot; key mapping to the form field,<br />name, a required &quot;contents&quot; key mapping to a<br />StreamInterface/resource/string, an optional<br />&quot;headers&quot; associative array of custom headers,<br />and an optional &quot;filename&quot; key mapping to a<br />string to send as the filename in the part. |
-| `$boundary` | **string** | You can optionally provide a specific boundary |
+| `$elements` | **array** |  |
+| `$boundary` | **mixed** |  |
 
 
 
@@ -63,7 +62,7 @@ public __construct(array $elements = [], string $boundary = null): mixed
 
 ### createStream
 
-Create the aggregate stream that will be used to upload the POST data
+
 
 ```php
 protected createStream(array $elements): mixed
@@ -119,7 +118,7 @@ private addElement(\yxorP\lib\proxy\Psr7\AppendStream $stream, array $element): 
 
 
 ```php
-private createElement(mixed $name, \yxorP\inc\Psr\Http\Message\StreamInterface $stream, mixed $filename, array $headers): array
+private createElement(mixed $name, \yxorP\inc\Psr\Http\Message\StreamInterface $stream, mixed $filename, array $headers): mixed
 ```
 
 
@@ -172,7 +171,7 @@ private getHeader(array $headers, mixed $key): mixed
 
 ### getHeaders
 
-Get the headers needed before transferring the content of a POST file
+
 
 ```php
 private getHeaders(array $headers): mixed
@@ -198,10 +197,10 @@ private getHeaders(array $headers): mixed
 
 ### getBoundary
 
-Get the boundary
+
 
 ```php
-public getBoundary(): string
+public getBoundary(): mixed
 ```
 
 
@@ -259,7 +258,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to decorate |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 
@@ -268,11 +267,10 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 ### __get
 
-Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).
+
 
 ```php
-public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
+public __get(mixed $name): mixed
 ```
 
 
@@ -286,7 +284,7 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | Name of the property (allows &quot;stream&quot; only). |
+| `$name` | **mixed** |  |
 
 
 
@@ -295,10 +293,10 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 ### createStream
 
-Implement in subclasses to dynamically create streams when requested.
+
 
 ```php
-protected createStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
+protected createStream(): mixed
 ```
 
 
@@ -402,10 +400,10 @@ public getContents(): mixed
 
 ### __call
 
-Allow decorators to implement custom methods
+
 
 ```php
-public __call(string $method, array $args): mixed
+public __call(mixed $method, array $args): mixed
 ```
 
 
@@ -419,8 +417,8 @@ public __call(string $method, array $args): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** | Missing method name |
-| `$args` | **array** | Method arguments |
+| `$method` | **mixed** |  |
+| `$args` | **array** |  |
 
 
 

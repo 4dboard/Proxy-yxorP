@@ -2,10 +2,9 @@
 
 # RedirectMiddleware
 
-Request redirect middleware.
 
-Apply this middleware like other middleware using
-{@see}.
+
+
 
 * Full name: `\yxorP\lib\proxy\RedirectMiddleware`
 
@@ -40,7 +39,7 @@ public static $defaultSettings
 
 
 ```php
-private callable $nextHandler
+private $nextHandler
 ```
 
 
@@ -72,7 +71,7 @@ public __construct(callable $nextHandler): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$nextHandler` | **callable** | Next handler to invoke. |
+| `$nextHandler` | **callable** |  |
 
 
 
@@ -84,7 +83,7 @@ public __construct(callable $nextHandler): mixed
 
 
 ```php
-public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): \yxorP\lib\proxy\Promise\PromiseInterface
+public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): mixed
 ```
 
 
@@ -111,7 +110,7 @@ public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 
 ```php
-public checkRedirect(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\inc\Psr\Http\Message\ResponseInterface $response): \yxorP\inc\Psr\Http\Message\ResponseInterface|\yxorP\lib\proxy\Promise\PromiseInterface
+public checkRedirect(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\inc\Psr\Http\Message\ResponseInterface $response): mixed
 ```
 
 
@@ -136,10 +135,10 @@ public checkRedirect(\yxorP\inc\Psr\Http\Message\RequestInterface $request, arra
 
 ### guardMax
 
-Check for too many redirects
+
 
 ```php
-private guardMax(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array& $options): void
+private guardMax(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array& $options): mixed
 ```
 
 
@@ -166,7 +165,7 @@ private guardMax(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array& $
 
 
 ```php
-public modifyRequest(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\inc\Psr\Http\Message\ResponseInterface $response): \yxorP\inc\Psr\Http\Message\RequestInterface
+public modifyRequest(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\inc\Psr\Http\Message\ResponseInterface $response): mixed
 ```
 
 
@@ -191,10 +190,10 @@ public modifyRequest(\yxorP\inc\Psr\Http\Message\RequestInterface $request, arra
 
 ### redirectUri
 
-Set the appropriate URL on the request based on the location header
+
 
 ```php
-private redirectUri(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface $response, array $protocols): \yxorP\inc\Psr\Http\Message\UriInterface
+private redirectUri(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface $response, array $protocols): mixed
 ```
 
 
@@ -219,10 +218,10 @@ private redirectUri(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxor
 
 ### withTracking
 
-Enable tracking on promise.
+
 
 ```php
-private withTracking(\yxorP\lib\proxy\Promise\PromiseInterface $promise, mixed $uri, mixed $statusCode): \yxorP\lib\proxy\Promise\PromiseInterface
+private withTracking(\yxorP\lib\proxy\Promise\PromiseInterface $promise, mixed $uri, mixed $statusCode): mixed
 ```
 
 

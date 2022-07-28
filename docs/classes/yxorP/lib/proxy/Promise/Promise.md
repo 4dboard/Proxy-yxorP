@@ -2,17 +2,13 @@
 
 # Promise
 
-Promises/A+ implementation that avoids recursion when possible.
+
 
 
 
 * Full name: `\yxorP\lib\proxy\Promise\Promise`
 * This class implements:
 [`\yxorP\lib\proxy\Promise\PromiseInterface`](./PromiseInterface.md)
-
-**See Also:**
-
-* https://promisesaplus.com/ - 
 
 
 
@@ -131,61 +127,8 @@ public __construct(callable $waitFn = null, callable $cancelFn = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$waitFn` | **callable** | Fn that when invoked resolves the promise. |
-| `$cancelFn` | **callable** | Fn that when invoked cancels the promise. |
-
-
-
-
-***
-
-### callHandler
-
-Call a stack of handlers using a specific callback index and value.
-
-```php
-private static callHandler(int $index, mixed $value, array $handler): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$index` | **int** | 1 (resolve) or 2 (reject). |
-| `$value` | **mixed** | Value to pass to the callback. |
-| `$handler` | **array** | Array of handler data (promise and callbacks). |
-
-
-**Return Value:**
-
-Returns the next group to resolve.
-
-
-
-***
-
-### getState
-
-Get the state of the promise ("pending", "rejected", or "fulfilled").
-
-```php
-public getState(): string
-```
-
-The three states can be checked against the constants defined on
-PromiseInterface: PENDING, FULFILLED, and REJECTED.
-
-
-
-
-
+| `$waitFn` | **callable** |  |
+| `$cancelFn` | **callable** |  |
 
 
 
@@ -194,7 +137,7 @@ PromiseInterface: PENDING, FULFILLED, and REJECTED.
 
 ### resolve
 
-Resolve the promise with the given value.
+
 
 ```php
 public resolve(mixed $value): mixed
@@ -245,17 +188,17 @@ private settle(mixed $state, mixed $value): mixed
 
 ***
 
-### reject
+### callHandler
 
-Reject the promise with the given reason.
+
 
 ```php
-public reject(mixed $reason): mixed
+private static callHandler(mixed $index, mixed $value, array $handler): mixed
 ```
 
 
 
-
+* This method is **static**.
 
 
 
@@ -264,7 +207,29 @@ public reject(mixed $reason): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$reason` | **mixed** |  |
+| `$index` | **mixed** |  |
+| `$value` | **mixed** |  |
+| `$handler` | **array** |  |
+
+
+
+
+***
+
+### getState
+
+
+
+```php
+public getState(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -273,13 +238,10 @@ public reject(mixed $reason): mixed
 
 ### otherwise
 
-Appends a rejection handler callback to the promise, and returns a new
-promise resolving to the return value of the callback if it is called,
-or to its original fulfillment value if the promise is instead
-fulfilled.
+
 
 ```php
-public otherwise(callable $onRejected): \yxorP\lib\proxy\Promise\PromiseInterface
+public otherwise(callable $onRejected): mixed
 ```
 
 
@@ -293,7 +255,7 @@ public otherwise(callable $onRejected): \yxorP\lib\proxy\Promise\PromiseInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$onRejected` | **callable** | Invoked when the promise is rejected. |
+| `$onRejected` | **callable** |  |
 
 
 
@@ -302,11 +264,10 @@ public otherwise(callable $onRejected): \yxorP\lib\proxy\Promise\PromiseInterfac
 
 ### then
 
-Appends fulfillment and rejection handlers to the promise, and returns
-a new promise resolving to the return value of the called handler.
+
 
 ```php
-public then(callable $onFulfilled = null, callable $onRejected = null): \yxorP\lib\proxy\Promise\PromiseInterface
+public then(callable $onFulfilled = null, callable $onRejected = null): mixed
 ```
 
 
@@ -320,8 +281,8 @@ public then(callable $onFulfilled = null, callable $onRejected = null): \yxorP\l
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$onFulfilled` | **callable** | Invoked when the promise fulfills. |
-| `$onRejected` | **callable** | Invoked when the promise is rejected. |
+| `$onFulfilled` | **callable** |  |
+| `$onRejected` | **callable** |  |
 
 
 
@@ -330,16 +291,13 @@ public then(callable $onFulfilled = null, callable $onRejected = null): \yxorP\l
 
 ### wait
 
-Waits until the promise completes if possible.
+
 
 ```php
 public wait(mixed $unwrap = true): mixed
 ```
 
-Pass $unwrap as true to unwrap the result of the promise, either
-returning the resolved value or throwing the rejected exception.
 
-If the promise cannot be waited on, then the promise will be rejected.
 
 
 
@@ -397,6 +355,32 @@ private invokeWaitFn(): mixed
 
 ***
 
+### reject
+
+
+
+```php
+public reject(mixed $reason): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$reason` | **mixed** |  |
+
+
+
+
+***
+
 ### invokeWaitList
 
 
@@ -419,7 +403,7 @@ private invokeWaitList(): mixed
 
 ### cancel
 
-Cancels the promise if possible.
+
 
 ```php
 public cancel(): mixed

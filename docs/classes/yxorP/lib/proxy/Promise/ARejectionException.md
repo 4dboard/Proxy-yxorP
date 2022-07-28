@@ -2,9 +2,9 @@
 
 # ARejectionException
 
-A special exception that is thrown when waiting on a rejected promise.
 
-The reason value is available via the getReason() method.
+
+
 
 * Full name: `\yxorP\lib\proxy\Promise\ARejectionException`
 * Parent class: [`RuntimeException`](../../../../RuntimeException.md)
@@ -19,7 +19,7 @@ The reason value is available via the getReason() method.
 
 
 ```php
-private mixed $reason
+private $reason
 ```
 
 
@@ -37,7 +37,7 @@ private mixed $reason
 
 
 ```php
-public __construct(mixed $reason, string $description = null): mixed
+public __construct(mixed $reason, mixed $description = null): mixed
 ```
 
 
@@ -51,8 +51,8 @@ public __construct(mixed $reason, string $description = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$reason` | **mixed** | Rejection reason. |
-| `$description` | **string** | Optional description |
+| `$reason` | **mixed** |  |
+| `$description` | **mixed** |  |
 
 
 
@@ -61,7 +61,7 @@ public __construct(mixed $reason, string $description = null): mixed
 
 ### getReason
 
-Returns the rejection reason.
+
 
 ```php
 public getReason(): mixed

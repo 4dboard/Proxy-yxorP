@@ -20,7 +20,7 @@
 
 
 ```php
-private static int[] $errors
+private static $errors
 ```
 
 
@@ -35,7 +35,7 @@ private static int[] $errors
 
 
 ```php
-private string $clientFilename
+private $clientFilename
 ```
 
 
@@ -50,7 +50,7 @@ private string $clientFilename
 
 
 ```php
-private string $clientMediaType
+private $clientMediaType
 ```
 
 
@@ -65,7 +65,7 @@ private string $clientMediaType
 
 
 ```php
-private int $error
+private $error
 ```
 
 
@@ -80,7 +80,7 @@ private int $error
 
 
 ```php
-private null|string $file
+private $file
 ```
 
 
@@ -95,7 +95,7 @@ private null|string $file
 
 
 ```php
-private bool $moved
+private $moved
 ```
 
 
@@ -110,7 +110,7 @@ private bool $moved
 
 
 ```php
-private int $size
+private $size
 ```
 
 
@@ -125,7 +125,7 @@ private int $size
 
 
 ```php
-private \yxorP\inc\Psr\Http\Message\StreamInterface|null $stream
+private $stream
 ```
 
 
@@ -143,7 +143,7 @@ private \yxorP\inc\Psr\Http\Message\StreamInterface|null $stream
 
 
 ```php
-public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface|string|resource $streamOrFile, int $size, int $errorStatus, string|null $clientFilename = null, string|null $clientMediaType = null): mixed
+public __construct(mixed $streamOrFile, mixed $size, mixed $errorStatus, mixed $clientFilename = null, mixed $clientMediaType = null): mixed
 ```
 
 
@@ -157,11 +157,253 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface|string|resource $
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$streamOrFile` | **\yxorP\inc\Psr\Http\Message\StreamInterface&#124;string&#124;resource** |  |
-| `$size` | **int** |  |
-| `$errorStatus` | **int** |  |
-| `$clientFilename` | **string&#124;null** |  |
-| `$clientMediaType` | **string&#124;null** |  |
+| `$streamOrFile` | **mixed** |  |
+| `$size` | **mixed** |  |
+| `$errorStatus` | **mixed** |  |
+| `$clientFilename` | **mixed** |  |
+| `$clientMediaType` | **mixed** |  |
+
+
+
+
+***
+
+### setError
+
+
+
+```php
+private setError(mixed $error): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$error` | **mixed** |  |
+
+
+
+
+***
+
+### setSize
+
+
+
+```php
+private setSize(mixed $size): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$size` | **mixed** |  |
+
+
+
+
+***
+
+### setClientFilename
+
+
+
+```php
+private setClientFilename(mixed $clientFilename): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$clientFilename` | **mixed** |  |
+
+
+
+
+***
+
+### isStringOrNull
+
+
+
+```php
+private isStringOrNull(mixed $param): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$param` | **mixed** |  |
+
+
+
+
+***
+
+### setClientMediaType
+
+
+
+```php
+private setClientMediaType(mixed $clientMediaType): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$clientMediaType` | **mixed** |  |
+
+
+
+
+***
+
+### isOk
+
+
+
+```php
+private isOk(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setStreamOrFile
+
+
+
+```php
+private setStreamOrFile(mixed $streamOrFile): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$streamOrFile` | **mixed** |  |
+
+
+
+
+***
+
+### moveTo
+
+Move the uploaded file to a new location.
+
+```php
+public moveTo(mixed $targetPath): mixed
+```
+
+Use this method as an alternative to move_uploaded_file(). This method is
+guaranteed to work in both SAPI and non-SAPI environments.
+Implementations must determine which environment they are in, and use the
+appropriate method (move_uploaded_file(), rename(), or a stream
+operation) to perform the operation.
+
+$targetPath may be an absolute path, or a relative path. If it is a
+relative path, resolution should be the same as used by PHP's rename()
+function.
+
+The original file or stream MUST be removed on completion.
+
+If this method is called more than once, any subsequent calls MUST raise
+an exception.
+
+When used in an SAPI environment where $_FILES is populated, when writing
+files via moveTo(), is_uploaded_file() and move_uploaded_file() SHOULD be
+used to ensure permissions and upload status are verified correctly.
+
+If you wish to move to a stream, use getStream(), as SAPI operations
+cannot guarantee writing to stream destinations.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$targetPath` | **mixed** | Path to which to move the uploaded file. |
+
+
+
+
+***
+
+### validateActive
+
+
+
+```php
+private validateActive(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -173,7 +415,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface|string|resource $
 
 
 ```php
-public isMoved(): bool
+public isMoved(): mixed
 ```
 
 
@@ -182,6 +424,32 @@ public isMoved(): bool
 
 
 
+
+
+
+
+***
+
+### isStringNotEmpty
+
+
+
+```php
+private isStringNotEmpty(mixed $param): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$param` | **mixed** |  |
 
 
 
@@ -196,7 +464,14 @@ Retrieve a stream representing the uploaded file.
 public getStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
 ```
 
+This method MUST return a StreamInterface instance, representing the
+uploaded file. The purpose of this method is to allow utilizing native PHP
+stream functionality to manipulate the file upload, such as
+stream_copy_to_stream() (though the result will need to be decorated in a
+native PHP stream wrapper to work with such functions).
 
+If the moveTo() method has been called previously, this method MUST raise
+an exception.
 
 
 
@@ -212,35 +487,6 @@ Stream representation of the uploaded file.
 
 ***
 
-### moveTo
-
-Move the uploaded file to a new location.
-
-```php
-public moveTo(string $targetPath): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$targetPath` | **string** | Path to which to move the uploaded file. |
-
-
-
-**See Also:**
-
-* http://php.net/is_uploaded_file - * http://php.net/move_uploaded_file - 
-
-***
-
 ### getSize
 
 Retrieve the file size.
@@ -249,7 +495,9 @@ Retrieve the file size.
 public getSize(): int|null
 ```
 
-
+Implementations SHOULD return the value stored in the "size" key of
+the file in the $_FILES array if available, as PHP calculates this based
+on the actual size transmitted.
 
 
 
@@ -273,7 +521,13 @@ Retrieve the error associated with the uploaded file.
 public getError(): int
 ```
 
+The return value MUST be one of PHP's UPLOAD_ERR_XXX constants.
 
+If the file was uploaded successfully, this method MUST return
+UPLOAD_ERR_OK.
+
+Implementations SHOULD return the value stored in the "error" key of
+the file in the $_FILES array.
 
 
 
@@ -286,9 +540,6 @@ public getError(): int
 One of PHP's UPLOAD_ERR_XXX constants.
 
 
-**See Also:**
-
-* http://php.net/manual/en/features.file-upload.errors.php - 
 
 ***
 
@@ -300,7 +551,12 @@ Retrieve the filename sent by the client.
 public getClientFilename(): string|null
 ```
 
+Do not trust the value returned by this method. A client could send
+a malicious filename with the intention to corrupt or hack your
+application.
 
+Implementations SHOULD return the value stored in the "name" key of
+the file in the $_FILES array.
 
 
 
@@ -325,7 +581,12 @@ Retrieve the media type sent by the client.
 public getClientMediaType(): string|null
 ```
 
+Do not trust the value returned by this method. A client could send
+a malicious media type with the intention to corrupt or hack your
+application.
 
+Implementations SHOULD return the value stored in the "type" key of
+the file in the $_FILES array.
 
 
 
@@ -337,228 +598,6 @@ public getClientMediaType(): string|null
 
 The media type sent by the client or null if none
 was provided.
-
-
-
-***
-
-### setStreamOrFile
-
-Depending on the value set file or stream variable
-
-```php
-private setStreamOrFile(mixed $streamOrFile): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$streamOrFile` | **mixed** |  |
-
-
-
-
-***
-
-### setError
-
-
-
-```php
-private setError(int $error): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$error` | **int** |  |
-
-
-
-
-***
-
-### setSize
-
-
-
-```php
-private setSize(int $size): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$size` | **int** |  |
-
-
-
-
-***
-
-### isStringOrNull
-
-
-
-```php
-private isStringOrNull(mixed $param): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$param` | **mixed** |  |
-
-
-
-
-***
-
-### isStringNotEmpty
-
-
-
-```php
-private isStringNotEmpty(mixed $param): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$param` | **mixed** |  |
-
-
-
-
-***
-
-### setClientFilename
-
-
-
-```php
-private setClientFilename(string|null $clientFilename): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$clientFilename` | **string&#124;null** |  |
-
-
-
-
-***
-
-### setClientMediaType
-
-
-
-```php
-private setClientMediaType(string|null $clientMediaType): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$clientMediaType` | **string&#124;null** |  |
-
-
-
-
-***
-
-### isOk
-
-Return true if there is no upload error
-
-```php
-private isOk(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### validateActive
-
-
-
-```php
-private validateActive(): mixed
-```
-
-
-
-
-
-
-
-
 
 
 

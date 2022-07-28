@@ -2,11 +2,9 @@
 
 # CurlMultiHandler
 
-Returns an asynchronous response using curl_multi_* functions.
 
-When using the CurlMultiHandler, custom curl options can be specified as an
-associative array of curl option constants mapping to values in the
-**curl** key of the provided request options.
+
+
 
 * Full name: `\yxorP\lib\proxy\Handler\CurlMultiHandler`
 
@@ -20,7 +18,7 @@ associative array of curl option constants mapping to values in the
 
 
 ```php
-private \yxorP\lib\proxy\Handler\CurlFactoryInterface $factory
+private $factory
 ```
 
 
@@ -110,17 +108,13 @@ private $options
 
 ### __construct
 
-This handler accepts the following options:
+
 
 ```php
 public __construct(array $options = []): mixed
 ```
 
-- handle_factory: An optional factory  used to create curl handles
-- select_timeout: Optional timeout (in seconds) to block before timing
-  out while selecting curl handles. Defaults to 1 second.
-- options: An associative array of CURLMOPT_* options and
-  corresponding values for curl_multi_setopt()
+
 
 
 
@@ -211,12 +205,12 @@ public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 ***
 
-### tick
+### cancel
 
-Ticks the curl event loop.
+
 
 ```php
-public tick(): mixed
+private cancel(mixed $id): mixed
 ```
 
 
@@ -226,25 +220,11 @@ public tick(): mixed
 
 
 
+**Parameters:**
 
-
-
-***
-
-### execute
-
-Runs until all outstanding connections have completed.
-
-```php
-public execute(): mixed
-```
-
-
-
-
-
-
-
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** |  |
 
 
 
@@ -277,42 +257,12 @@ private addRequest(array $entry): mixed
 
 ***
 
-### cancel
-
-Cancels a handle from sending and removes references to it.
-
-```php
-private cancel(int $id): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$id` | **int** | Handle ID to cancel and remove. |
-
-
-**Return Value:**
-
-True on success, false on failure.
-
-
-
-***
-
-### processMessages
+### execute
 
 
 
 ```php
-private processMessages(): mixed
+public execute(): mixed
 ```
 
 
@@ -333,6 +283,46 @@ private processMessages(): mixed
 
 ```php
 private timeToNext(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### tick
+
+
+
+```php
+public tick(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### processMessages
+
+
+
+```php
+private processMessages(): mixed
 ```
 
 

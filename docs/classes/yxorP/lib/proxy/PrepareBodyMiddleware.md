@@ -2,8 +2,7 @@
 
 # PrepareBodyMiddleware
 
-Prepares requests that contain a body, adding the Content-Length,
-Content-Type, and Expect headers.
+
 
 
 
@@ -19,7 +18,7 @@ Content-Type, and Expect headers.
 
 
 ```php
-private callable $nextHandler
+private $nextHandler
 ```
 
 
@@ -51,7 +50,7 @@ public __construct(callable $nextHandler): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$nextHandler` | **callable** | Next handler to invoke. |
+| `$nextHandler` | **callable** |  |
 
 
 
@@ -63,7 +62,7 @@ public __construct(callable $nextHandler): mixed
 
 
 ```php
-public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): \yxorP\lib\proxy\Promise\PromiseInterface
+public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): mixed
 ```
 
 
@@ -87,10 +86,10 @@ public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 ### addExpectHeader
 
-Add expect header
+
 
 ```php
-private addExpectHeader(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, array& $modify): void
+private addExpectHeader(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, array& $modify): mixed
 ```
 
 

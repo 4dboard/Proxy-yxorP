@@ -2,7 +2,7 @@
 
 # LimitStream
 
-Decorator used to return only a subset of a stream
+
 
 
 
@@ -20,7 +20,7 @@ Decorator used to return only a subset of a stream
 
 
 ```php
-private int $offset
+private $offset
 ```
 
 
@@ -35,7 +35,7 @@ private int $offset
 
 
 ```php
-private int $limit
+private $limit
 ```
 
 
@@ -53,7 +53,7 @@ private int $limit
 
 
 ```php
-public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, int $limit = -1, int $offset): mixed
+public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, mixed $limit = -1, mixed $offset): mixed
 ```
 
 
@@ -67,9 +67,9 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, int $lim
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to wrap |
-| `$limit` | **int** | Total number of bytes to allow to be read<br />from the stream. Pass -1 for no limit. |
-| `$offset` | **int** | Position to seek to before reading (only<br />works on seekable streams). |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
+| `$limit` | **mixed** |  |
+| `$offset` | **mixed** |  |
 
 
 
@@ -78,11 +78,10 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, int $lim
 
 ### setLimit
 
-Set the limit of bytes that the decorator allows to be read from the
-stream.
+
 
 ```php
-public setLimit(int $limit): mixed
+public setLimit(mixed $limit): mixed
 ```
 
 
@@ -96,7 +95,7 @@ public setLimit(int $limit): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$limit` | **int** | Number of bytes to allow to be read from the stream.<br />Use -1 for no limit. |
+| `$limit` | **mixed** |  |
 
 
 
@@ -105,10 +104,10 @@ public setLimit(int $limit): mixed
 
 ### setOffset
 
-Set the offset to start limiting from
+
 
 ```php
-public setOffset(int $offset): mixed
+public setOffset(mixed $offset): mixed
 ```
 
 
@@ -122,7 +121,7 @@ public setOffset(int $offset): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$offset` | **int** | Offset to seek to and begin byte limiting from |
+| `$offset` | **mixed** |  |
 
 
 
@@ -131,8 +130,7 @@ public setOffset(int $offset): mixed
 
 ### tell
 
-Give a relative tell()
-{@inheritdoc}
+Returns the current position of the file read/write pointer
 
 ```php
 public tell(): int
@@ -156,8 +154,7 @@ Position of the file pointer
 
 ### seek
 
-Allow for a bounded seek on the read limited stream
-{@inheritdoc}
+Seek to a position in the stream.
 
 ```php
 public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
@@ -235,8 +232,7 @@ public eof(): bool
 
 ### getSize
 
-Returns the size of the limited subset of data
-{@inheritdoc}
+Get the size of the stream if known.
 
 ```php
 public getSize(): int|null
@@ -281,7 +277,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to decorate |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 
@@ -290,11 +286,10 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 ### __get
 
-Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).
+
 
 ```php
-public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
+public __get(mixed $name): mixed
 ```
 
 
@@ -308,7 +303,7 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | Name of the property (allows &quot;stream&quot; only). |
+| `$name` | **mixed** |  |
 
 
 
@@ -317,10 +312,10 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 ### createStream
 
-Implement in subclasses to dynamically create streams when requested.
+
 
 ```php
-protected createStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
+protected createStream(): mixed
 ```
 
 
@@ -424,10 +419,10 @@ public getContents(): mixed
 
 ### __call
 
-Allow decorators to implement custom methods
+
 
 ```php
-public __call(string $method, array $args): mixed
+public __call(mixed $method, array $args): mixed
 ```
 
 
@@ -441,8 +436,8 @@ public __call(string $method, array $args): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** | Missing method name |
-| `$args` | **array** | Method arguments |
+| `$method` | **mixed** |  |
+| `$args` | **array** |  |
 
 
 

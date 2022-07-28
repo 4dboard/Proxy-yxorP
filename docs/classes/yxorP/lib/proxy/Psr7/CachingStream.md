@@ -2,8 +2,7 @@
 
 # CachingStream
 
-Stream decorator that can cache previously read bytes from a sequentially
-read stream.
+
 
 
 
@@ -21,7 +20,7 @@ read stream.
 
 
 ```php
-private \yxorP\inc\Psr\Http\Message\StreamInterface $remoteStream
+private $remoteStream
 ```
 
 
@@ -36,7 +35,7 @@ private \yxorP\inc\Psr\Http\Message\StreamInterface $remoteStream
 
 
 ```php
-private int $skipReadBytes
+private $skipReadBytes
 ```
 
 
@@ -51,7 +50,7 @@ private int $skipReadBytes
 
 ### __construct
 
-We will treat the buffer object as the body of the stream
+
 
 ```php
 public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, \yxorP\inc\Psr\Http\Message\StreamInterface $target = null): mixed
@@ -68,8 +67,8 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, \yxorP\i
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to cache |
-| `$target` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Optionally specify where data is cached |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
+| `$target` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 
@@ -251,7 +250,7 @@ Returns the number of bytes written to the stream.
 
 ### close
 
-Close both the remote stream and buffer stream
+Closes the stream and any underlying resources.
 
 ```php
 public close(): void
@@ -292,7 +291,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to decorate |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 
@@ -301,11 +300,10 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 ### __get
 
-Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).
+
 
 ```php
-public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
+public __get(mixed $name): mixed
 ```
 
 
@@ -319,7 +317,7 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | Name of the property (allows &quot;stream&quot; only). |
+| `$name` | **mixed** |  |
 
 
 
@@ -328,10 +326,10 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 ### createStream
 
-Implement in subclasses to dynamically create streams when requested.
+
 
 ```php
-protected createStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
+protected createStream(): mixed
 ```
 
 
@@ -435,10 +433,10 @@ public getContents(): mixed
 
 ### __call
 
-Allow decorators to implement custom methods
+
 
 ```php
-public __call(string $method, array $args): mixed
+public __call(mixed $method, array $args): mixed
 ```
 
 
@@ -452,8 +450,8 @@ public __call(string $method, array $args): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** | Missing method name |
-| `$args` | **array** | Method arguments |
+| `$method` | **mixed** |  |
+| `$args` | **array** |  |
 
 
 

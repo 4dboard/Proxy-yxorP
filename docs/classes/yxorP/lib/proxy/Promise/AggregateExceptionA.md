@@ -2,7 +2,7 @@
 
 # AggregateExceptionA
 
-Exception thrown when too many errors occur in the some() or any() methods.
+
 
 
 
@@ -51,7 +51,7 @@ public __construct(mixed $msg, array $reasons): mixed
 
 
 ```php
-public __construct(mixed $reason, string $description = null): mixed
+public __construct(mixed $reason, mixed $description = null): mixed
 ```
 
 
@@ -65,8 +65,8 @@ public __construct(mixed $reason, string $description = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$reason` | **mixed** | Rejection reason. |
-| `$description` | **string** | Optional description |
+| `$reason` | **mixed** |  |
+| `$description` | **mixed** |  |
 
 
 
@@ -75,7 +75,7 @@ public __construct(mixed $reason, string $description = null): mixed
 
 ### getReason
 
-Returns the rejection reason.
+
 
 ```php
 public getReason(): mixed

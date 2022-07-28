@@ -2,10 +2,9 @@
 
 # FnStream
 
-Compose stream implementations based on a hash of functions.
 
-Allows for easy testing and extension of a provided stream without needing
-to create a concrete class for a simple extension point.
+
+
 
 * Full name: `\yxorP\lib\proxy\Psr7\FnStream`
 * This class implements:
@@ -21,7 +20,7 @@ to create a concrete class for a simple extension point.
 
 
 ```php
-private static array $slots
+private static $slots
 ```
 
 
@@ -36,7 +35,7 @@ private static array $slots
 
 
 ```php
-private array $methods
+private $methods
 ```
 
 
@@ -68,7 +67,7 @@ public __construct(array $methods): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$methods` | **array** | Hash of method name to a callable. |
+| `$methods` | **array** |  |
 
 
 
@@ -77,11 +76,10 @@ public __construct(array $methods): mixed
 
 ### decorate
 
-Adds custom functionality to an underlying stream by intercepting
-specific method calls.
+
 
 ```php
-public static decorate(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, array $methods): \yxorP\lib\proxy\Psr7\FnStream
+public static decorate(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, array $methods): mixed
 ```
 
 
@@ -95,8 +93,8 @@ public static decorate(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to decorate |
-| `$methods` | **array** | Hash of method name to a closure |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
+| `$methods` | **array** |  |
 
 
 
@@ -105,7 +103,7 @@ public static decorate(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, arra
 
 ### __get
 
-Lazily determine which methods are not implemented.
+
 
 ```php
 public __get(mixed $name): mixed
@@ -131,7 +129,7 @@ public __get(mixed $name): mixed
 
 ### __destruct
 
-The close method is called on the underlying stream only if possible.
+
 
 ```php
 public __destruct(): mixed
@@ -151,7 +149,7 @@ public __destruct(): mixed
 
 ### __wakeup
 
-An unserialize would allow the __destruct to run when the unserialized value goes out of scope.
+
 
 ```php
 public __wakeup(): mixed

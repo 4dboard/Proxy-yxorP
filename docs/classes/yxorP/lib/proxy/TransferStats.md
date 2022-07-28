@@ -2,8 +2,7 @@
 
 # TransferStats
 
-Represents data at the point after it was transferred either successfully
-or after a network error.
+
 
 
 
@@ -99,7 +98,7 @@ private $handlerErrorData
 
 
 ```php
-public __construct(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface|null $response = null, float|null $transferTime = null, mixed $handlerErrorData = null, array $handlerStats = []): mixed
+public __construct(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface $response = null, mixed $transferTime = null, mixed $handlerErrorData = null, mixed $handlerStats = []): mixed
 ```
 
 
@@ -113,11 +112,11 @@ public __construct(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** | Request that was sent. |
-| `$response` | **\yxorP\inc\Psr\Http\Message\ResponseInterface&#124;null** | Response received (if any) |
-| `$transferTime` | **float&#124;null** | Total handler transfer time. |
-| `$handlerErrorData` | **mixed** | Handler error data. |
-| `$handlerStats` | **array** | Handler specific stats. |
+| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** |  |
+| `$response` | **\yxorP\inc\Psr\Http\Message\ResponseInterface** |  |
+| `$transferTime` | **mixed** |  |
+| `$handlerErrorData` | **mixed** |  |
+| `$handlerStats` | **mixed** |  |
 
 
 
@@ -129,7 +128,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP
 
 
 ```php
-public getRequest(): \yxorP\inc\Psr\Http\Message\RequestInterface
+public getRequest(): mixed
 ```
 
 
@@ -146,10 +145,10 @@ public getRequest(): \yxorP\inc\Psr\Http\Message\RequestInterface
 
 ### getResponse
 
-Returns the response that was received (if any).
+
 
 ```php
-public getResponse(): \yxorP\inc\Psr\Http\Message\ResponseInterface|null
+public getResponse(): mixed
 ```
 
 
@@ -166,10 +165,10 @@ public getResponse(): \yxorP\inc\Psr\Http\Message\ResponseInterface|null
 
 ### hasResponse
 
-Returns true if a response was received.
+
 
 ```php
-public hasResponse(): bool
+public hasResponse(): mixed
 ```
 
 
@@ -186,15 +185,13 @@ public hasResponse(): bool
 
 ### getHandlerErrorData
 
-Gets handler specific error data.
+
 
 ```php
 public getHandlerErrorData(): mixed
 ```
 
-This might be an exception, a integer representing an error code, or
-anything else. Relying on this value assumes that you know what handler
-you are using.
+
 
 
 
@@ -208,10 +205,10 @@ you are using.
 
 ### getEffectiveUri
 
-Get the effective URI the request was sent to.
+
 
 ```php
-public getEffectiveUri(): \yxorP\inc\Psr\Http\Message\UriInterface
+public getEffectiveUri(): mixed
 ```
 
 
@@ -228,10 +225,10 @@ public getEffectiveUri(): \yxorP\inc\Psr\Http\Message\UriInterface
 
 ### getTransferTime
 
-Get the estimated time the request was being transferred by the handler.
+
 
 ```php
-public getTransferTime(): float|null
+public getTransferTime(): mixed
 ```
 
 
@@ -242,20 +239,16 @@ public getTransferTime(): float|null
 
 
 
-**Return Value:**
-
-Time in seconds.
-
 
 
 ***
 
 ### getHandlerStats
 
-Gets an array of all of the handler specific transfer data.
+
 
 ```php
-public getHandlerStats(): array
+public getHandlerStats(): mixed
 ```
 
 
@@ -272,10 +265,10 @@ public getHandlerStats(): array
 
 ### getHandlerStat
 
-Get a specific handler statistic from the handler by name.
+
 
 ```php
-public getHandlerStat(string $stat): mixed|null
+public getHandlerStat(mixed $stat): mixed
 ```
 
 
@@ -289,7 +282,7 @@ public getHandlerStat(string $stat): mixed|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stat` | **string** | Handler specific transfer stat to retrieve. |
+| `$stat` | **mixed** |  |
 
 
 

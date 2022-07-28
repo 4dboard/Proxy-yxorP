@@ -147,6 +147,32 @@ public set(mixed $key, mixed $value, mixed $replace = true): void
 
 ***
 
+### normalizeKey
+
+Normalizing the key.
+
+```php
+private normalizeKey(mixed $key): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+
+
+
+
+***
+
 ### has
 
 Checking if the `$key` parameter is in the `$data` variable.
@@ -261,32 +287,6 @@ public __toString(): mixed
 
 
 
-
-
-
-
-***
-
-### normalizeKey
-
-Normalizing the key.
-
-```php
-private normalizeKey(mixed $key): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **mixed** |  |
 
 
 

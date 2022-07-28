@@ -2,8 +2,7 @@
 
 # EachPromise
 
-Represents a promise that iterates over many promises and invokes
-side-effect functions in the process.
+
 
 
 
@@ -36,7 +35,7 @@ private $pending
 
 
 ```php
-private \Iterator $iterable
+private $iterable
 ```
 
 
@@ -51,7 +50,7 @@ private \Iterator $iterable
 
 
 ```php
-private callable|int $concurrency
+private $concurrency
 ```
 
 
@@ -66,7 +65,7 @@ private callable|int $concurrency
 
 
 ```php
-private callable $onFulfilled
+private $onFulfilled
 ```
 
 
@@ -81,7 +80,7 @@ private callable $onFulfilled
 
 
 ```php
-private callable $onRejected
+private $onRejected
 ```
 
 
@@ -96,7 +95,7 @@ private callable $onRejected
 
 
 ```php
-private \yxorP\lib\proxy\Promise\Promise $aggregate
+private $aggregate
 ```
 
 
@@ -111,7 +110,7 @@ private \yxorP\lib\proxy\Promise\Promise $aggregate
 
 
 ```php
-private bool $mutex
+private $mutex
 ```
 
 
@@ -126,26 +125,13 @@ private bool $mutex
 
 ### __construct
 
-Configuration hash can include the following key value pairs:
+
 
 ```php
 public __construct(mixed $iterable, array $config = []): mixed
 ```
 
-- fulfilled: (callable) Invoked when a promise fulfills. The function
-  is invoked with three arguments: the fulfillment value, the index
-  position from the iterable list of the promise, and the aggregate
-  promise that manages all of the promises. The aggregate promise may
-  be resolved from within the callback to short-circuit the promise.
-- rejected: (callable) Invoked when a promise is rejected. The
-  function is invoked with three arguments: the rejection reason, the
-  index position from the iterable list of the promise, and the
-  aggregate promise that manages all of the promises. The aggregate
-  promise may be resolved from within the callback to short-circuit
-  the promise.
-- concurrency: (integer) Pass this configuration option to limit the
-  allowed number of outstanding concurrently executing promises,
-  creating a capped pool of promises. There is no limit by default.
+
 
 
 
@@ -156,8 +142,8 @@ public __construct(mixed $iterable, array $config = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$iterable` | **mixed** | Promises or values to iterate. |
-| `$config` | **array** | Configuration options |
+| `$iterable` | **mixed** |  |
+| `$config` | **array** |  |
 
 
 
@@ -166,10 +152,10 @@ public __construct(mixed $iterable, array $config = []): mixed
 
 ### promise
 
-Returns a promise.
+
 
 ```php
-public promise(): \yxorP\lib\proxy\Promise\PromiseInterface
+public promise(): mixed
 ```
 
 
@@ -244,26 +230,6 @@ private addPending(): mixed
 
 ***
 
-### advanceIterator
-
-
-
-```php
-private advanceIterator(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### step
 
 
@@ -284,6 +250,26 @@ private step(mixed $idx): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$idx` | **mixed** |  |
+
+
+
+
+***
+
+### advanceIterator
+
+
+
+```php
+private advanceIterator(): mixed
+```
+
+
+
+
+
+
+
 
 
 

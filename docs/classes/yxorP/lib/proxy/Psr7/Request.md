@@ -2,7 +2,7 @@
 
 # Request
 
-PSR-7 request implementation.
+
 
 
 
@@ -20,7 +20,7 @@ PSR-7 request implementation.
 
 
 ```php
-private string $method
+private $method
 ```
 
 
@@ -35,7 +35,7 @@ private string $method
 
 
 ```php
-private null|string $requestTarget
+private $requestTarget
 ```
 
 
@@ -50,7 +50,7 @@ private null|string $requestTarget
 
 
 ```php
-private \yxorP\inc\Psr\Http\Message\UriInterface $uri
+private $uri
 ```
 
 
@@ -68,7 +68,7 @@ private \yxorP\inc\Psr\Http\Message\UriInterface $uri
 
 
 ```php
-public __construct(string $method, string|\yxorP\inc\Psr\Http\Message\UriInterface $uri, array $headers = [], string|null|resource|\yxorP\inc\Psr\Http\Message\StreamInterface $body = null, string $version = &#039;1.1&#039;): mixed
+public __construct(mixed $method, mixed $uri, array $headers = [], mixed $body = null, mixed $version = &#039;1.1&#039;): mixed
 ```
 
 
@@ -82,11 +82,57 @@ public __construct(string $method, string|\yxorP\inc\Psr\Http\Message\UriInterfa
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** | HTTP method |
-| `$uri` | **string&#124;\yxorP\inc\Psr\Http\Message\UriInterface** | URI |
-| `$headers` | **array** | Request headers |
-| `$body` | **string&#124;null&#124;resource&#124;\yxorP\inc\Psr\Http\Message\StreamInterface** | Request body |
-| `$version` | **string** | Protocol version |
+| `$method` | **mixed** |  |
+| `$uri` | **mixed** |  |
+| `$headers` | **array** |  |
+| `$body` | **mixed** |  |
+| `$version` | **mixed** |  |
+
+
+
+
+***
+
+### assertMethod
+
+
+
+```php
+private assertMethod(mixed $method): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$method` | **mixed** |  |
+
+
+
+
+***
+
+### updateHostFromUri
+
+
+
+```php
+private updateHostFromUri(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -283,52 +329,6 @@ new UriInterface instance.
 
 ***
 
-### updateHostFromUri
-
-
-
-```php
-private updateHostFromUri(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### assertMethod
-
-
-
-```php
-private assertMethod(mixed $method): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **mixed** |  |
-
-
-
-
-***
-
 
 ## Inherited methods
 
@@ -425,12 +425,12 @@ public hasHeader(mixed $header): mixed
 
 ***
 
-### getHeader
+### getHeaderLine
 
 
 
 ```php
-public getHeader(mixed $header): mixed
+public getHeaderLine(mixed $header): mixed
 ```
 
 
@@ -451,12 +451,12 @@ public getHeader(mixed $header): mixed
 
 ***
 
-### getHeaderLine
+### getHeader
 
 
 
 ```php
-public getHeaderLine(mixed $header): mixed
+public getHeader(mixed $header): mixed
 ```
 
 
@@ -498,6 +498,84 @@ public withHeader(mixed $header, mixed $value): mixed
 |-----------|------|-------------|
 | `$header` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
+
+***
+
+### assertHeader
+
+
+
+```php
+private assertHeader(mixed $header): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$header` | **mixed** |  |
+
+
+
+
+***
+
+### normalizeHeaderValue
+
+
+
+```php
+private normalizeHeaderValue(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### trimHeaderValues
+
+
+
+```php
+private trimHeaderValues(array $values): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$values` | **array** |  |
 
 
 
@@ -623,94 +701,6 @@ private setHeaders(array $headers): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$headers` | **array** |  |
-
-
-
-
-***
-
-### normalizeHeaderValue
-
-
-
-```php
-private normalizeHeaderValue(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### trimHeaderValues
-
-Trims whitespace from the header values.
-
-```php
-private trimHeaderValues(string[] $values): string[]
-```
-
-Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.
-
-header-field = field-name ":" OWS field-value OWS
-OWS          = *( SP / HTAB )
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$values` | **string[]** | Header values |
-
-
-**Return Value:**
-
-Trimmed header values
-
-
-**See Also:**
-
-* https://tools.ietf.org/html/rfc7230#section-3.2.4 - 
-
-***
-
-### assertHeader
-
-
-
-```php
-private assertHeader(mixed $header): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$header` | **mixed** |  |
 
 
 

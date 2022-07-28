@@ -2782,16 +2782,16 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Client`](./classes/yxorP/lib/proxy/Client.md) | |
-| [`HandlerStack`](./classes/yxorP/lib/proxy/HandlerStack.md) | Creates a composed Proxy handler function by stacking middlewares on top of<br />an HTTP handler function.|
-| [`MessageFormatter`](./classes/yxorP/lib/proxy/MessageFormatter.md) | Formats log messages using variable substitutions for requests, responses,<br />and other transactional data.|
-| [`Middleware`](./classes/yxorP/lib/proxy/Middleware.md) | Functions used to create and wrap handlers with handler middleware.|
-| [`Pool`](./classes/yxorP/lib/proxy/Pool.md) | Sends an iterator of requests concurrently using a capped pool size.|
-| [`PrepareBodyMiddleware`](./classes/yxorP/lib/proxy/PrepareBodyMiddleware.md) | Prepares requests that contain a body, adding the Content-Length,<br />Content-Type, and Expect headers.|
-| [`RedirectMiddleware`](./classes/yxorP/lib/proxy/RedirectMiddleware.md) | Request redirect middleware.|
-| [`RequestOptions`](./classes/yxorP/lib/proxy/RequestOptions.md) | This class contains a list of built-in Proxy request options.|
-| [`RetryMiddleware`](./classes/yxorP/lib/proxy/RetryMiddleware.md) | Middleware that retries requests based on the boolean result of<br />invoking the provided &quot;decider&quot; function.|
-| [`TransferStats`](./classes/yxorP/lib/proxy/TransferStats.md) | Represents data at the point after it was transferred either successfully<br />or after a network error.|
-| [`UriTemplate`](./classes/yxorP/lib/proxy/UriTemplate.md) | Expands URI templates. Userland implementation of PECL uri_template.|
+| [`HandlerStack`](./classes/yxorP/lib/proxy/HandlerStack.md) | |
+| [`MessageFormatter`](./classes/yxorP/lib/proxy/MessageFormatter.md) | |
+| [`Middleware`](./classes/yxorP/lib/proxy/Middleware.md) | |
+| [`Pool`](./classes/yxorP/lib/proxy/Pool.md) | |
+| [`PrepareBodyMiddleware`](./classes/yxorP/lib/proxy/PrepareBodyMiddleware.md) | |
+| [`RedirectMiddleware`](./classes/yxorP/lib/proxy/RedirectMiddleware.md) | |
+| [`RequestOptions`](./classes/yxorP/lib/proxy/RequestOptions.md) | |
+| [`RetryMiddleware`](./classes/yxorP/lib/proxy/RetryMiddleware.md) | |
+| [`TransferStats`](./classes/yxorP/lib/proxy/TransferStats.md) | |
+| [`UriTemplate`](./classes/yxorP/lib/proxy/UriTemplate.md) | |
 | [`Utils`](./classes/yxorP/lib/proxy/Utils.md) | |
 
 
@@ -2800,7 +2800,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`ClientInterface`](./classes/yxorP/lib/proxy/ClientInterface.md) | Client interface for sending HTTP requests.|
+| [`ClientInterface`](./classes/yxorP/lib/proxy/ClientInterface.md) | |
 
 
 
@@ -2810,10 +2810,10 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`CookieJar`](./classes/yxorP/lib/proxy/Cookie/CookieJar.md) | Cookie jar that stores cookies as an array|
-| [`FileCookieJar`](./classes/yxorP/lib/proxy/Cookie/FileCookieJar.md) | Persists non-session cookies using a JSON formatted file|
-| [`SessionCookieJar`](./classes/yxorP/lib/proxy/Cookie/SessionCookieJar.md) | Persists cookies in the client session|
-| [`SetCookie`](./classes/yxorP/lib/proxy/Cookie/SetCookie.md) | Set-Cookie object|
+| [`CookieJar`](./classes/yxorP/lib/proxy/Cookie/CookieJar.md) | |
+| [`FileCookieJar`](./classes/yxorP/lib/proxy/Cookie/FileCookieJar.md) | |
+| [`SessionCookieJar`](./classes/yxorP/lib/proxy/Cookie/SessionCookieJar.md) | |
+| [`SetCookie`](./classes/yxorP/lib/proxy/Cookie/SetCookie.md) | |
 
 
 
@@ -2821,7 +2821,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`CookieJarInterface`](./classes/yxorP/lib/proxy/Cookie/CookieJarInterface.md) | Stores HTTP cookies.|
+| [`CookieJarInterface`](./classes/yxorP/lib/proxy/Cookie/CookieJarInterface.md) | |
 
 
 
@@ -2832,14 +2832,14 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`AATransferException`](./classes/yxorP/lib/proxy/Exception/AATransferException.md) | |
-| [`ARequestExceptionAA`](./classes/yxorP/lib/proxy/Exception/ARequestExceptionAA.md) | HTTP Request exception|
-| [`BadResponseException`](./classes/yxorP/lib/proxy/Exception/BadResponseException.md) | Exception when an HTTP error occurs (4xx or 5xx error)|
-| [`ClientException`](./classes/yxorP/lib/proxy/Exception/ClientException.md) | Exception when a client error is encountered (4xx codes)|
-| [`ConnectException`](./classes/yxorP/lib/proxy/Exception/ConnectException.md) | Exception thrown when a connection cannot be established.|
+| [`ARequestExceptionAA`](./classes/yxorP/lib/proxy/Exception/ARequestExceptionAA.md) | |
+| [`BadResponseException`](./classes/yxorP/lib/proxy/Exception/BadResponseException.md) | |
+| [`ClientException`](./classes/yxorP/lib/proxy/Exception/ClientException.md) | |
+| [`ConnectException`](./classes/yxorP/lib/proxy/Exception/ConnectException.md) | |
 | [`InvalidArgumentException`](./classes/yxorP/lib/proxy/Exception/InvalidArgumentException.md) | |
-| [`SeekException`](./classes/yxorP/lib/proxy/Exception/SeekException.md) | Exception thrown when a seek fails on a stream.|
-| [`ServerException`](./classes/yxorP/lib/proxy/Exception/ServerException.md) | Exception when a server error is encountered (5xx codes)|
-| [`TooManyRedirectsException`](./classes/yxorP/lib/proxy/Exception/TooManyRedirectsException.md) | HTTP Request exception|
+| [`SeekException`](./classes/yxorP/lib/proxy/Exception/SeekException.md) | |
+| [`ServerException`](./classes/yxorP/lib/proxy/Exception/ServerException.md) | |
+| [`TooManyRedirectsException`](./classes/yxorP/lib/proxy/Exception/TooManyRedirectsException.md) | |
 
 
 
@@ -2857,12 +2857,13 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`CurlFactory`](./classes/yxorP/lib/proxy/Handler/CurlFactory.md) | Creates curl resources from a request|
-| [`CurlHandler`](./classes/yxorP/lib/proxy/Handler/CurlHandler.md) | HTTP handler that uses cURL easy handles as a transport layer.|
-| [`CurlMultiHandler`](./classes/yxorP/lib/proxy/Handler/CurlMultiHandler.md) | Returns an asynchronous response using curl_multi_* functions.|
-| [`MockHandler`](./classes/yxorP/lib/proxy/Handler/MockHandler.md) | Handler that returns responses or throw exceptions from a queue.|
-| [`Proxy`](./classes/yxorP/lib/proxy/Handler/Proxy.md) | Provides basic proxies for handlers.|
-| [`StreamHandler`](./classes/yxorP/lib/proxy/Handler/StreamHandler.md) | HTTP handler that uses PHP&#039;s HTTP stream wrapper.|
+| [`CurlFactory`](./classes/yxorP/lib/proxy/Handler/CurlFactory.md) | |
+| [`CurlHandler`](./classes/yxorP/lib/proxy/Handler/CurlHandler.md) | |
+| [`CurlMultiHandler`](./classes/yxorP/lib/proxy/Handler/CurlMultiHandler.md) | |
+| [`EasyHandle`](./classes/yxorP/lib/proxy/Handler/EasyHandle.md) | |
+| [`MockHandler`](./classes/yxorP/lib/proxy/Handler/MockHandler.md) | |
+| [`Proxy`](./classes/yxorP/lib/proxy/Handler/Proxy.md) | |
+| [`StreamHandler`](./classes/yxorP/lib/proxy/Handler/StreamHandler.md) | |
 
 
 
@@ -2880,15 +2881,15 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`ARejectionException`](./classes/yxorP/lib/proxy/Promise/ARejectionException.md) | A special exception that is thrown when waiting on a rejected promise.|
-| [`AggregateExceptionA`](./classes/yxorP/lib/proxy/Promise/AggregateExceptionA.md) | Exception thrown when too many errors occur in the some() or any() methods.|
-| [`CancellationExceptionA`](./classes/yxorP/lib/proxy/Promise/CancellationExceptionA.md) | Exception that is set as the reason for a promise that has been cancelled.|
-| [`Coroutine`](./classes/yxorP/lib/proxy/Promise/Coroutine.md) | Creates a promise that is resolved using a generator that yields values or<br />promises (somewhat similar to C#&#039;s async keyword).|
-| [`EachPromise`](./classes/yxorP/lib/proxy/Promise/EachPromise.md) | Represents a promise that iterates over many promises and invokes<br />side-effect functions in the process.|
-| [`FulfilledPromise`](./classes/yxorP/lib/proxy/Promise/FulfilledPromise.md) | A promise that has been fulfilled.|
-| [`Promise`](./classes/yxorP/lib/proxy/Promise/Promise.md) | Promises/A+ implementation that avoids recursion when possible.|
-| [`RejectedPromise`](./classes/yxorP/lib/proxy/Promise/RejectedPromise.md) | A promise that has been rejected.|
-| [`TaskQueue`](./classes/yxorP/lib/proxy/Promise/TaskQueue.md) | A task queue that executes tasks in a FIFO order.|
+| [`ARejectionException`](./classes/yxorP/lib/proxy/Promise/ARejectionException.md) | |
+| [`AggregateExceptionA`](./classes/yxorP/lib/proxy/Promise/AggregateExceptionA.md) | |
+| [`CancellationExceptionA`](./classes/yxorP/lib/proxy/Promise/CancellationExceptionA.md) | |
+| [`Coroutine`](./classes/yxorP/lib/proxy/Promise/Coroutine.md) | |
+| [`EachPromise`](./classes/yxorP/lib/proxy/Promise/EachPromise.md) | |
+| [`FulfilledPromise`](./classes/yxorP/lib/proxy/Promise/FulfilledPromise.md) | |
+| [`Promise`](./classes/yxorP/lib/proxy/Promise/Promise.md) | |
+| [`RejectedPromise`](./classes/yxorP/lib/proxy/Promise/RejectedPromise.md) | |
+| [`TaskQueue`](./classes/yxorP/lib/proxy/Promise/TaskQueue.md) | |
 
 
 
@@ -2896,8 +2897,8 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`PromiseInterface`](./classes/yxorP/lib/proxy/Promise/PromiseInterface.md) | A promise represents the eventual result of an asynchronous operation.|
-| [`PromisorInterface`](./classes/yxorP/lib/proxy/Promise/PromisorInterface.md) | Interface used with classes that return a promise.|
+| [`PromiseInterface`](./classes/yxorP/lib/proxy/Promise/PromiseInterface.md) | |
+| [`PromisorInterface`](./classes/yxorP/lib/proxy/Promise/PromisorInterface.md) | |
 | [`TaskQueueInterface`](./classes/yxorP/lib/proxy/Promise/TaskQueueInterface.md) | |
 
 
@@ -2908,35 +2909,35 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`AppendStream`](./classes/yxorP/lib/proxy/Psr7/AppendStream.md) | Reads from multiple streams, one after the other.|
-| [`BufferStream`](./classes/yxorP/lib/proxy/Psr7/BufferStream.md) | Provides a buffer stream that can be written to to fill a buffer, and read<br />from to remove bytes from the buffer.|
-| [`CachingStream`](./classes/yxorP/lib/proxy/Psr7/CachingStream.md) | Stream decorator that can cache previously read bytes from a sequentially<br />read stream.|
-| [`DroppingStream`](./classes/yxorP/lib/proxy/Psr7/DroppingStream.md) | Stream decorator that begins dropping data once the size of the underlying<br />stream becomes too full.|
-| [`FnStream`](./classes/yxorP/lib/proxy/Psr7/FnStream.md) | Compose stream implementations based on a hash of functions.|
-| [`InflateStream`](./classes/yxorP/lib/proxy/Psr7/InflateStream.md) | Uses PHP&#039;s zlib.inflate filter to inflate deflate or gzipped content.|
-| [`LazyOpenStream`](./classes/yxorP/lib/proxy/Psr7/LazyOpenStream.md) | Lazily reads or writes to a file that is opened only after an IO operation<br />take place on the stream.|
-| [`LimitStream`](./classes/yxorP/lib/proxy/Psr7/LimitStream.md) | Decorator used to return only a subset of a stream|
-| [`MultipartStream`](./classes/yxorP/lib/proxy/Psr7/MultipartStream.md) | Stream that when read returns bytes for a streaming multipart or<br />multipart/form-data stream.|
-| [`NoSeekStream`](./classes/yxorP/lib/proxy/Psr7/NoSeekStream.md) | Stream decorator that prevents a stream from being seeked|
-| [`PumpStream`](./classes/yxorP/lib/proxy/Psr7/PumpStream.md) | Provides a read only stream that pumps data from a PHP callable.|
-| [`Request`](./classes/yxorP/lib/proxy/Psr7/Request.md) | PSR-7 request implementation.|
-| [`Response`](./classes/yxorP/lib/proxy/Psr7/Response.md) | PSR-7 response implementation.|
+| [`AppendStream`](./classes/yxorP/lib/proxy/Psr7/AppendStream.md) | |
+| [`BufferStream`](./classes/yxorP/lib/proxy/Psr7/BufferStream.md) | |
+| [`CachingStream`](./classes/yxorP/lib/proxy/Psr7/CachingStream.md) | |
+| [`DroppingStream`](./classes/yxorP/lib/proxy/Psr7/DroppingStream.md) | |
+| [`FnStream`](./classes/yxorP/lib/proxy/Psr7/FnStream.md) | |
+| [`InflateStream`](./classes/yxorP/lib/proxy/Psr7/InflateStream.md) | |
+| [`LazyOpenStream`](./classes/yxorP/lib/proxy/Psr7/LazyOpenStream.md) | |
+| [`LimitStream`](./classes/yxorP/lib/proxy/Psr7/LimitStream.md) | |
+| [`MultipartStream`](./classes/yxorP/lib/proxy/Psr7/MultipartStream.md) | |
+| [`NoSeekStream`](./classes/yxorP/lib/proxy/Psr7/NoSeekStream.md) | |
+| [`PumpStream`](./classes/yxorP/lib/proxy/Psr7/PumpStream.md) | |
+| [`Request`](./classes/yxorP/lib/proxy/Psr7/Request.md) | |
+| [`Response`](./classes/yxorP/lib/proxy/Psr7/Response.md) | |
 | [`Rfc7230`](./classes/yxorP/lib/proxy/Psr7/Rfc7230.md) | |
-| [`ServerRequest`](./classes/yxorP/lib/proxy/Psr7/ServerRequest.md) | Server-side HTTP request|
-| [`Stream`](./classes/yxorP/lib/proxy/Psr7/Stream.md) | PHP stream implementation.|
-| [`StreamWrapper`](./classes/yxorP/lib/proxy/Psr7/StreamWrapper.md) | Converts Proxy streams into PHP stream resources.|
+| [`ServerRequest`](./classes/yxorP/lib/proxy/Psr7/ServerRequest.md) | |
+| [`Stream`](./classes/yxorP/lib/proxy/Psr7/Stream.md) | |
+| [`StreamWrapper`](./classes/yxorP/lib/proxy/Psr7/StreamWrapper.md) | |
 | [`UploadedFile`](./classes/yxorP/lib/proxy/Psr7/UploadedFile.md) | |
-| [`Uri`](./classes/yxorP/lib/proxy/Psr7/Uri.md) | PSR-7 URI implementation.|
-| [`UriNormalizer`](./classes/yxorP/lib/proxy/Psr7/UriNormalizer.md) | Provides methods to normalize and compare URIs.|
-| [`UriResolver`](./classes/yxorP/lib/proxy/Psr7/UriResolver.md) | Resolves a URI reference in the context of a base URI and the opposite way.|
+| [`Uri`](./classes/yxorP/lib/proxy/Psr7/Uri.md) | |
+| [`UriNormalizer`](./classes/yxorP/lib/proxy/Psr7/UriNormalizer.md) | |
+| [`UriResolver`](./classes/yxorP/lib/proxy/Psr7/UriResolver.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`AStreamDecoratorTrait`](./classes/yxorP/lib/proxy/Psr7/AStreamDecoratorTrait.md) | Stream decorator trait|
-| [`MessageTrait`](./classes/yxorP/lib/proxy/Psr7/MessageTrait.md) | Trait implementing functionality common to requests and responses.|
+| [`AStreamDecoratorTrait`](./classes/yxorP/lib/proxy/Psr7/AStreamDecoratorTrait.md) | |
+| [`MessageTrait`](./classes/yxorP/lib/proxy/Psr7/MessageTrait.md) | |
 
 
 

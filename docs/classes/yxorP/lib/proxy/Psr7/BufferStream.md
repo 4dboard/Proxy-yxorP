@@ -2,12 +2,9 @@
 
 # BufferStream
 
-Provides a buffer stream that can be written to to fill a buffer, and read
-from to remove bytes from the buffer.
 
-This stream returns a "hwm" metadata value that tells upstream consumers
-what the configured high water mark of the stream is, or the maximum
-preferred size of the buffer.
+
+
 
 * Full name: `\yxorP\lib\proxy\Psr7\BufferStream`
 * This class implements:
@@ -56,7 +53,7 @@ private $buffer
 
 
 ```php
-public __construct(int $hwm = 16384): mixed
+public __construct(mixed $hwm = 16384): mixed
 ```
 
 
@@ -70,7 +67,7 @@ public __construct(int $hwm = 16384): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$hwm` | **int** | High water mark, representing the preferred maximum<br />buffer size. If the size of the buffer exceeds the high<br />water mark, then calls to write will continue to succeed<br />but will return false to inform writers to slow down<br />until the buffer has been drained by reading from it. |
+| `$hwm` | **mixed** |  |
 
 
 
@@ -123,26 +120,6 @@ public getContents(): string
 
 ***
 
-### close
-
-Closes the stream and any underlying resources.
-
-```php
-public close(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### detach
 
 Separates any underlying resources from the stream.
@@ -162,6 +139,26 @@ After the stream has been detached, the stream is in an unusable state.
 **Return Value:**
 
 Underlying PHP stream, if any
+
+
+
+***
+
+### close
+
+Closes the stream and any underlying resources.
+
+```php
+public close(): void
+```
+
+
+
+
+
+
+
+
 
 
 
@@ -345,7 +342,7 @@ Position of the file pointer
 
 ### read
 
-Reads data from the buffer.
+Read data from the stream.
 
 ```php
 public read(mixed $length): string
@@ -376,7 +373,7 @@ if no bytes are available.
 
 ### write
 
-Writes data to the buffer.
+Write data to the stream.
 
 ```php
 public write(mixed $string): int

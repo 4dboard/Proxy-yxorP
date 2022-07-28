@@ -2,7 +2,7 @@
 
 # CancellationExceptionA
 
-Exception that is set as the reason for a promise that has been cancelled.
+
 
 
 
@@ -22,7 +22,7 @@ Exception that is set as the reason for a promise that has been cancelled.
 
 
 ```php
-public __construct(mixed $reason, string $description = null): mixed
+public __construct(mixed $reason, mixed $description = null): mixed
 ```
 
 
@@ -36,8 +36,8 @@ public __construct(mixed $reason, string $description = null): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$reason` | **mixed** | Rejection reason. |
-| `$description` | **string** | Optional description |
+| `$reason` | **mixed** |  |
+| `$description` | **mixed** |  |
 
 
 
@@ -46,7 +46,7 @@ public __construct(mixed $reason, string $description = null): mixed
 
 ### getReason
 
-Returns the rejection reason.
+
 
 ```php
 public getReason(): mixed

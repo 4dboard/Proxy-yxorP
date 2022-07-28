@@ -2,14 +2,9 @@
 
 # PumpStream
 
-Provides a read only stream that pumps data from a PHP callable.
 
-When invoking the provided callable, the PumpStream will pass the amount of
-data requested to read to the callable. The callable can choose to ignore
-this value and return fewer or more bytes than requested. Any extra data
-returned by the provided callable is buffered internally until drained using
-the read() function of the PumpStream. The provided callable MUST return
-false when there is no more data to read.
+
+
 
 * Full name: `\yxorP\lib\proxy\Psr7\PumpStream`
 * This class implements:
@@ -25,7 +20,7 @@ false when there is no more data to read.
 
 
 ```php
-private callable $source
+private $source
 ```
 
 
@@ -40,7 +35,7 @@ private callable $source
 
 
 ```php
-private int $size
+private $size
 ```
 
 
@@ -55,7 +50,7 @@ private int $size
 
 
 ```php
-private int $tellPos
+private $tellPos
 ```
 
 
@@ -70,7 +65,7 @@ private int $tellPos
 
 
 ```php
-private array $metadata
+private $metadata
 ```
 
 
@@ -85,7 +80,7 @@ private array $metadata
 
 
 ```php
-private \yxorP\lib\proxy\Psr7\BufferStream $buffer
+private $buffer
 ```
 
 
@@ -117,8 +112,8 @@ public __construct(callable $source, array $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$source` | **callable** | Source of the stream data. The callable MAY<br />accept an integer argument used to control the<br />amount of data to return. The callable MUST<br />return a string when called, or false on error<br />or EOF. |
-| `$options` | **array** | Stream options:<br />- metadata: Hash of metadata to use with stream.<br />- size: Size of the stream, if known. |
+| `$source` | **callable** |  |
+| `$options` | **array** |  |
 
 
 
@@ -238,26 +233,6 @@ public tell(): int
 **Return Value:**
 
 Position of the file pointer
-
-
-
-***
-
-### eof
-
-Returns true if the stream is at the end of the stream.
-
-```php
-public eof(): bool
-```
-
-
-
-
-
-
-
-
 
 
 
@@ -401,6 +376,46 @@ public isReadable(): bool
 
 ***
 
+### getContents
+
+Returns the remaining contents in a string
+
+```php
+public getContents(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### eof
+
+Returns true if the stream is at the end of the stream.
+
+```php
+public eof(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### read
 
 Read data from the stream.
@@ -432,12 +447,12 @@ if no bytes are available.
 
 ***
 
-### getContents
+### pump
 
-Returns the remaining contents in a string
+
 
 ```php
-public getContents(): string
+private pump(mixed $length): mixed
 ```
 
 
@@ -446,6 +461,12 @@ public getContents(): string
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$length` | **mixed** |  |
 
 
 
@@ -480,32 +501,6 @@ stream_get_meta_data() function.
 Returns an associative array if no key is
 provided. Returns a specific key value if a key is provided and the
 value is found, or null if the key is not found.
-
-
-
-***
-
-### pump
-
-
-
-```php
-private pump(mixed $length): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$length` | **mixed** |  |
-
 
 
 

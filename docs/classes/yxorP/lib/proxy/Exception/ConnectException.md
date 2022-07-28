@@ -2,9 +2,9 @@
 
 # ConnectException
 
-Exception thrown when a connection cannot be established.
 
-Note that no response is present for a ConnectException
+
+
 
 * Full name: `\yxorP\lib\proxy\Exception\ConnectException`
 * Parent class: [`\yxorP\lib\proxy\Exception\ARequestExceptionAA`](./ARequestExceptionAA.md)
@@ -46,10 +46,10 @@ public __construct(mixed $message, \yxorP\inc\Psr\Http\Message\RequestInterface 
 
 ### getResponse
 
-Get the associated response
+
 
 ```php
-public getResponse(): null
+public getResponse(): mixed
 ```
 
 
@@ -66,10 +66,10 @@ public getResponse(): null
 
 ### hasResponse
 
-Check if a response was received
+
 
 ```php
-public hasResponse(): bool
+public hasResponse(): mixed
 ```
 
 
@@ -120,10 +120,10 @@ public __construct(mixed $message, \yxorP\inc\Psr\Http\Message\RequestInterface 
 
 ### wrapException
 
-Wrap non-RequestExceptions with a RequestException
+
 
 ```php
-public static wrapException(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \Exception $e): \yxorP\lib\proxy\Exception\ARequestExceptionAA
+public static wrapException(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \Exception $e): mixed
 ```
 
 
@@ -147,10 +147,10 @@ public static wrapException(\yxorP\inc\Psr\Http\Message\RequestInterface $reques
 
 ### create
 
-Factory method to create a new exception with a normalized error message
+
 
 ```php
-public static create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface $response = null, \Exception $previous = null, array $ctx = []): self
+public static create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface $response = null, \Exception $previous = null, array $ctx = []): mixed
 ```
 
 
@@ -164,10 +164,10 @@ public static create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxo
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** | Request |
-| `$response` | **\yxorP\inc\Psr\Http\Message\ResponseInterface** | Response received |
-| `$previous` | **\Exception** | Previous exception |
-| `$ctx` | **array** | Optional handler context. |
+| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** |  |
+| `$response` | **\yxorP\inc\Psr\Http\Message\ResponseInterface** |  |
+| `$previous` | **\Exception** |  |
+| `$ctx` | **array** |  |
 
 
 
@@ -176,10 +176,10 @@ public static create(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxo
 
 ### obfuscateUri
 
-Obfuscates URI if there is a username and a password present
+
 
 ```php
-private static obfuscateUri(\yxorP\inc\Psr\Http\Message\UriInterface $uri): \yxorP\inc\Psr\Http\Message\UriInterface
+private static obfuscateUri(\yxorP\inc\Psr\Http\Message\UriInterface $uri): mixed
 ```
 
 
@@ -202,13 +202,13 @@ private static obfuscateUri(\yxorP\inc\Psr\Http\Message\UriInterface $uri): \yxo
 
 ### getResponseBodySummary
 
-Get a short summary of the response
+
 
 ```php
-public static getResponseBodySummary(\yxorP\inc\Psr\Http\Message\ResponseInterface $response): string|null
+public static getResponseBodySummary(\yxorP\inc\Psr\Http\Message\ResponseInterface $response): mixed
 ```
 
-Will return `null` if the response is not printable.
+
 
 * This method is **static**.
 
@@ -228,10 +228,10 @@ Will return `null` if the response is not printable.
 
 ### getRequest
 
-Get the request that caused the exception
+
 
 ```php
-public getRequest(): \yxorP\inc\Psr\Http\Message\RequestInterface
+public getRequest(): mixed
 ```
 
 
@@ -248,10 +248,10 @@ public getRequest(): \yxorP\inc\Psr\Http\Message\RequestInterface
 
 ### getResponse
 
-Get the associated response
+
 
 ```php
-public getResponse(): \yxorP\inc\Psr\Http\Message\ResponseInterface|null
+public getResponse(): mixed
 ```
 
 
@@ -268,10 +268,10 @@ public getResponse(): \yxorP\inc\Psr\Http\Message\ResponseInterface|null
 
 ### hasResponse
 
-Check if a response was received
+
 
 ```php
-public hasResponse(): bool
+public hasResponse(): mixed
 ```
 
 
@@ -288,16 +288,13 @@ public hasResponse(): bool
 
 ### getHandlerContext
 
-Get contextual information about the error from the underlying handler.
+
 
 ```php
-public getHandlerContext(): array
+public getHandlerContext(): mixed
 ```
 
-The contents of this array will vary depending on which handler you are
-using. It may also be just an empty array. Relying on this data will
-couple you to a specific handler, but can give more debug information
-when needed.
+
 
 
 

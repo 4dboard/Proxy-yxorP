@@ -2,8 +2,7 @@
 
 # RetryMiddleware
 
-Middleware that retries requests based on the boolean result of
-invoking the provided "decider" function.
+
 
 
 
@@ -19,7 +18,7 @@ invoking the provided "decider" function.
 
 
 ```php
-private callable $nextHandler
+private $nextHandler
 ```
 
 
@@ -34,7 +33,7 @@ private callable $nextHandler
 
 
 ```php
-private callable $decider
+private $decider
 ```
 
 
@@ -49,7 +48,7 @@ private callable $decider
 
 
 ```php
-private callable $delay
+private $delay
 ```
 
 
@@ -81,9 +80,9 @@ public __construct(callable $decider, callable $nextHandler, callable $delay = n
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$decider` | **callable** | Function that accepts the number of retries,<br />a request, [response], and [exception] and<br />returns true if the request is to be<br />retried. |
-| `$nextHandler` | **callable** | Next handler to invoke. |
-| `$delay` | **callable** | Function that accepts the number of retries<br />and [response] and returns the number of<br />milliseconds to delay. |
+| `$decider` | **callable** |  |
+| `$nextHandler` | **callable** |  |
+| `$delay` | **callable** |  |
 
 
 
@@ -92,10 +91,10 @@ public __construct(callable $decider, callable $nextHandler, callable $delay = n
 
 ### exponentialDelay
 
-Default exponential backoff delay function.
+
 
 ```php
-public static exponentialDelay(int $retries): int
+public static exponentialDelay(mixed $retries): mixed
 ```
 
 
@@ -109,12 +108,8 @@ public static exponentialDelay(int $retries): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$retries` | **int** |  |
+| `$retries` | **mixed** |  |
 
-
-**Return Value:**
-
-milliseconds.
 
 
 
@@ -125,7 +120,7 @@ milliseconds.
 
 
 ```php
-public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): \yxorP\lib\proxy\Promise\PromiseInterface
+public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): mixed
 ```
 
 
@@ -149,7 +144,7 @@ public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 ### onFulfilled
 
-Execute fulfilled closure
+
 
 ```php
 private onFulfilled(\yxorP\inc\Psr\Http\Message\RequestInterface $req, array $options): mixed
@@ -179,7 +174,7 @@ private onFulfilled(\yxorP\inc\Psr\Http\Message\RequestInterface $req, array $op
 
 
 ```php
-private doRetry(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\inc\Psr\Http\Message\ResponseInterface $response = null): self
+private doRetry(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\inc\Psr\Http\Message\ResponseInterface $response = null): mixed
 ```
 
 
@@ -204,10 +199,10 @@ private doRetry(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 ### onRejected
 
-Execute rejected closure
+
 
 ```php
-private onRejected(\yxorP\inc\Psr\Http\Message\RequestInterface $req, array $options): callable
+private onRejected(\yxorP\inc\Psr\Http\Message\RequestInterface $req, array $options): mixed
 ```
 
 

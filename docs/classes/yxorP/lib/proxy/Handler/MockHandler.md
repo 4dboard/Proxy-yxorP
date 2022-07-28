@@ -2,7 +2,7 @@
 
 # MockHandler
 
-Handler that returns responses or throw exceptions from a queue.
+
 
 
 
@@ -95,9 +95,7 @@ private $onRejected
 
 ### __construct
 
-The passed in value must be an array of
-{@see Psr7\Http\Message\ResponseInterface} objects, Exceptions,
-callables, or Promises.
+
 
 ```php
 public __construct(array $queue = null, callable $onFulfilled = null, callable $onRejected = null): mixed
@@ -115,8 +113,8 @@ public __construct(array $queue = null, callable $onFulfilled = null, callable $
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$queue` | **array** |  |
-| `$onFulfilled` | **callable** | Callback to invoke when the return value is fulfilled. |
-| `$onRejected` | **callable** | Callback to invoke when the return value is rejected. |
+| `$onFulfilled` | **callable** |  |
+| `$onRejected` | **callable** |  |
 
 
 
@@ -125,11 +123,10 @@ public __construct(array $queue = null, callable $onFulfilled = null, callable $
 
 ### createWithMiddleware
 
-Creates a new MockHandler that uses the default handler stack list of
-middlewares.
+
 
 ```php
-public static createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null): \yxorP\lib\proxy\HandlerStack
+public static createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null): mixed
 ```
 
 
@@ -143,9 +140,9 @@ public static createWithMiddleware(array $queue = null, callable $onFulfilled = 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$queue` | **array** | Array of responses, callables, or exceptions. |
-| `$onFulfilled` | **callable** | Callback to invoke when the return value is fulfilled. |
-| `$onRejected` | **callable** | Callback to invoke when the return value is rejected. |
+| `$queue` | **array** |  |
+| `$onFulfilled` | **callable** |  |
+| `$onRejected` | **callable** |  |
 
 
 
@@ -210,8 +207,7 @@ private invokeStats(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array
 
 ### append
 
-Adds one or more variadic requests, exceptions, callables, or promises
-to the queue.
+
 
 ```php
 public append(): mixed
@@ -231,10 +227,10 @@ public append(): mixed
 
 ### getLastRequest
 
-Get the last received request.
+
 
 ```php
-public getLastRequest(): \yxorP\inc\Psr\Http\Message\RequestInterface
+public getLastRequest(): mixed
 ```
 
 
@@ -251,10 +247,10 @@ public getLastRequest(): \yxorP\inc\Psr\Http\Message\RequestInterface
 
 ### getLastOptions
 
-Get the last received request options.
+
 
 ```php
-public getLastOptions(): array
+public getLastOptions(): mixed
 ```
 
 
@@ -271,10 +267,10 @@ public getLastOptions(): array
 
 ### count
 
-Returns the number of remaining items in the queue.
+
 
 ```php
-public count(): int
+public count(): mixed
 ```
 
 

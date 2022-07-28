@@ -2,44 +2,15 @@
 
 # Coroutine
 
-Creates a promise that is resolved using a generator that yields values or
-promises (somewhat similar to C#'s async keyword).
 
-When called, the coroutine function will start an instance of the generator
-and returns a promise that is fulfilled with its final yielded value.
 
-Control is returned back to the generator when the yielded promise settles.
-This can lead to less verbose code when doing lots of sequential async calls
-with minimal processing in between.
 
-    use yxorP\lib\proxy\Promise;
-
-    function createPromise($value) {
-        return new Promise\FulfilledPromise($value);
-    }
-
-    $promise = Promise\coroutine(function () {
-        $value = (yield createPromise('a'));
-        try {
-            $value = (yield createPromise($value . 'b'));
-        } catch (\Exception $e) {
-            // The promise was rejected.
-        }
-        yield $value . 'c';
-    });
-
-    // Outputs "abc"
-    $promise->then(function ($v) { echo $v; });
 
 * Full name: `\yxorP\lib\proxy\Promise\Coroutine`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
 [`\yxorP\lib\proxy\Promise\PromiseInterface`](./PromiseInterface.md)
 * This class is a **Final class**
-
-**See Also:**
-
-* https://github.com/petkaantonov/bluebird/blob/master/API.md#generators - inspiration
 
 
 
@@ -51,7 +22,7 @@ with minimal processing in between.
 
 
 ```php
-private \yxorP\lib\proxy\Promise\PromiseInterface|null $currentPromise
+private $currentPromise
 ```
 
 
@@ -66,7 +37,7 @@ private \yxorP\lib\proxy\Promise\PromiseInterface|null $currentPromise
 
 
 ```php
-private \Generator $generator
+private $generator
 ```
 
 
@@ -81,7 +52,7 @@ private \Generator $generator
 
 
 ```php
-private \yxorP\lib\proxy\Promise\Promise $result
+private $result
 ```
 
 
@@ -120,13 +91,12 @@ public __construct(callable $generatorFn): mixed
 
 ***
 
-### then
+### nextCoroutine
 
-Appends fulfillment and rejection handlers to the promise, and returns
-a new promise resolving to the return value of the called handler.
+
 
 ```php
-public then(callable $onFulfilled = null, callable $onRejected = null): \yxorP\lib\proxy\Promise\PromiseInterface
+private nextCoroutine(mixed $yielded): mixed
 ```
 
 
@@ -140,8 +110,34 @@ public then(callable $onFulfilled = null, callable $onRejected = null): \yxorP\l
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$onFulfilled` | **callable** | Invoked when the promise fulfills. |
-| `$onRejected` | **callable** | Invoked when the promise is rejected. |
+| `$yielded` | **mixed** |  |
+
+
+
+
+***
+
+### then
+
+
+
+```php
+public then(callable $onFulfilled = null, callable $onRejected = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$onFulfilled` | **callable** |  |
+| `$onRejected` | **callable** |  |
 
 
 
@@ -150,13 +146,10 @@ public then(callable $onFulfilled = null, callable $onRejected = null): \yxorP\l
 
 ### otherwise
 
-Appends a rejection handler callback to the promise, and returns a new
-promise resolving to the return value of the callback if it is called,
-or to its original fulfillment value if the promise is instead
-fulfilled.
+
 
 ```php
-public otherwise(callable $onRejected): \yxorP\lib\proxy\Promise\PromiseInterface
+public otherwise(callable $onRejected): mixed
 ```
 
 
@@ -170,7 +163,7 @@ public otherwise(callable $onRejected): \yxorP\lib\proxy\Promise\PromiseInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$onRejected` | **callable** | Invoked when the promise is rejected. |
+| `$onRejected` | **callable** |  |
 
 
 
@@ -179,16 +172,13 @@ public otherwise(callable $onRejected): \yxorP\lib\proxy\Promise\PromiseInterfac
 
 ### wait
 
-Waits until the promise completes if possible.
+
 
 ```php
 public wait(mixed $unwrap = true): mixed
 ```
 
-Pass $unwrap as true to unwrap the result of the promise, either
-returning the resolved value or throwing the rejected exception.
 
-If the promise cannot be waited on, then the promise will be rejected.
 
 
 
@@ -208,14 +198,13 @@ If the promise cannot be waited on, then the promise will be rejected.
 
 ### getState
 
-Get the state of the promise ("pending", "rejected", or "fulfilled").
+
 
 ```php
-public getState(): string
+public getState(): mixed
 ```
 
-The three states can be checked against the constants defined on
-PromiseInterface: PENDING, FULFILLED, and REJECTED.
+
 
 
 
@@ -229,7 +218,7 @@ PromiseInterface: PENDING, FULFILLED, and REJECTED.
 
 ### resolve
 
-Resolve the promise with the given value.
+
 
 ```php
 public resolve(mixed $value): mixed
@@ -255,7 +244,7 @@ public resolve(mixed $value): mixed
 
 ### reject
 
-Reject the promise with the given reason.
+
 
 ```php
 public reject(mixed $reason): mixed
@@ -281,7 +270,7 @@ public reject(mixed $reason): mixed
 
 ### cancel
 
-Cancels the promise if possible.
+
 
 ```php
 public cancel(): mixed
@@ -299,12 +288,12 @@ public cancel(): mixed
 
 ***
 
-### nextCoroutine
+### _handleSuccess
 
 
 
 ```php
-private nextCoroutine(mixed $yielded): mixed
+public _handleSuccess(mixed $value): mixed
 ```
 
 
@@ -318,7 +307,33 @@ private nextCoroutine(mixed $yielded): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$yielded` | **mixed** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### _handleFailure
+
+
+
+```php
+public _handleFailure(mixed $reason): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$reason` | **mixed** |  |
 
 
 

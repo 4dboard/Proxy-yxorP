@@ -2,21 +2,13 @@
 
 # InflateStream
 
-Uses PHP's zlib.inflate filter to inflate deflate or gzipped content.
 
-This stream decorator skips the first 10 bytes of the given stream to remove
-the gzip header, converts the provided stream to a PHP stream resource,
-then appends the zlib.inflate filter. The stream is then converted back
-to a Proxy stream resource to be used as a Proxy stream.
+
+
 
 * Full name: `\yxorP\lib\proxy\Psr7\InflateStream`
 * This class implements:
 [`\yxorP\inc\Psr\Http\Message\StreamInterface`](../../../inc/Psr/Http/Message/StreamInterface.md)
-
-**See Also:**
-
-* http://tools.ietf.org/html/rfc1952 - 
-* http://php.net/manual/en/filters.compression.php - 
 
 
 
@@ -55,7 +47,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 
 ```php
-private getLengthOfPossibleFilenameHeader(\yxorP\inc\Psr\Http\Message\StreamInterface $stream,  $header): int
+private getLengthOfPossibleFilenameHeader(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, mixed $header): mixed
 ```
 
 
@@ -70,7 +62,7 @@ private getLengthOfPossibleFilenameHeader(\yxorP\inc\Psr\Http\Message\StreamInte
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
-| `$header` | **** |  |
+| `$header` | **mixed** |  |
 
 
 
@@ -100,7 +92,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to decorate |
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 
@@ -109,11 +101,10 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 ### __get
 
-Magic method used to create a new stream if streams are not added in
-the constructor of a decorator (e.g., LazyOpenStream).
+
 
 ```php
-public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
+public __get(mixed $name): mixed
 ```
 
 
@@ -127,7 +118,7 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | Name of the property (allows &quot;stream&quot; only). |
+| `$name` | **mixed** |  |
 
 
 
@@ -136,10 +127,10 @@ public __get(string $name): \yxorP\inc\Psr\Http\Message\StreamInterface
 
 ### createStream
 
-Implement in subclasses to dynamically create streams when requested.
+
 
 ```php
-protected createStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
+protected createStream(): mixed
 ```
 
 
@@ -243,10 +234,10 @@ public getContents(): mixed
 
 ### __call
 
-Allow decorators to implement custom methods
+
 
 ```php
-public __call(string $method, array $args): mixed
+public __call(mixed $method, array $args): mixed
 ```
 
 
@@ -260,8 +251,8 @@ public __call(string $method, array $args): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **string** | Missing method name |
-| `$args` | **array** | Method arguments |
+| `$method` | **mixed** |  |
+| `$args` | **array** |  |
 
 
 

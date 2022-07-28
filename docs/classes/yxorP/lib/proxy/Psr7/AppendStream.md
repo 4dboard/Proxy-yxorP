@@ -2,9 +2,9 @@
 
 # AppendStream
 
-Reads from multiple streams, one after the other.
 
-This is a read-only stream decorator.
+
+
 
 * Full name: `\yxorP\lib\proxy\Psr7\AppendStream`
 * This class implements:
@@ -20,7 +20,7 @@ This is a read-only stream decorator.
 
 
 ```php
-private \yxorP\inc\Psr\Http\Message\StreamInterface[] $streams
+private $streams
 ```
 
 
@@ -83,7 +83,7 @@ private $pos
 
 
 ```php
-public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface[] $streams = []): mixed
+public __construct(array $streams = []): mixed
 ```
 
 
@@ -97,7 +97,73 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface[] $streams = []):
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$streams` | **\yxorP\inc\Psr\Http\Message\StreamInterface[]** | Streams to decorate. Each stream must<br />be readable. |
+| `$streams` | **array** |  |
+
+
+
+
+***
+
+### addStream
+
+
+
+```php
+public addStream(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
+
+
+
+
+***
+
+### isReadable
+
+Returns whether or not the stream is readable.
+
+```php
+public isReadable(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### isSeekable
+
+Returns whether or not the stream is seekable.
+
+```php
+public isSeekable(): bool
+```
+
+
+
+
+
+
+
 
 
 
@@ -130,12 +196,33 @@ string casting operations.
 
 ***
 
-### addStream
+### rewind
 
-Add a stream to the AppendStream
+Seek to the beginning of the stream.
 
 ```php
-public addStream(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
+public rewind(): mixed
+```
+
+If the stream is not seekable, this method will raise an exception;
+otherwise, it will perform a seek(0).
+
+
+
+
+
+
+
+
+
+***
+
+### seek
+
+Seek to a position in the stream.
+
+```php
+public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
 ```
 
 
@@ -149,8 +236,60 @@ public addStream(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | Stream to append. Must be readable. |
+| `$offset` | **mixed** | Stream offset |
+| `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
 
+
+
+
+***
+
+### eof
+
+Returns true if the stream is at the end of the stream.
+
+```php
+public eof(): bool
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### read
+
+Read data from the stream.
+
+```php
+public read(mixed $length): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
+
+
+**Return Value:**
+
+Returns the data read from the stream, or an empty string
+if no bytes are available.
 
 
 
@@ -178,13 +317,13 @@ public getContents(): string
 
 ### close
 
-Closes each attached stream.
+Closes the stream and any underlying resources.
 
 ```php
 public close(): void
 ```
 
-{@inheritdoc}
+
 
 
 
@@ -198,15 +337,13 @@ public close(): void
 
 ### detach
 
-Detaches each attached stream.
+Separates any underlying resources from the stream.
 
 ```php
 public detach(): resource|null
 ```
 
-Returns null as it's not clear which underlying stream resource to return.
-
-{@inheritdoc}
+After the stream has been detached, the stream is in an unusable state.
 
 
 
@@ -248,16 +385,13 @@ Position of the file pointer
 
 ### getSize
 
-Tries to calculate the size by adding the size of each stream.
+Get the size of the stream if known.
 
 ```php
 public getSize(): int|null
 ```
 
-If any of the streams do not return a valid number, then the size of the
-append stream cannot be determined and null is returned.
 
-{@inheritdoc}
 
 
 
@@ -273,151 +407,12 @@ Returns the size in bytes if known, or null if unknown.
 
 ***
 
-### eof
-
-Returns true if the stream is at the end of the stream.
-
-```php
-public eof(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### rewind
-
-Seek to the beginning of the stream.
-
-```php
-public rewind(): mixed
-```
-
-If the stream is not seekable, this method will raise an exception;
-otherwise, it will perform a seek(0).
-
-
-
-
-
-
-
-
-
-***
-
-### seek
-
-Attempts to seek to the given position. Only supports SEEK_SET.
-
-```php
-public seek(mixed $offset, mixed $whence = SEEK_SET): mixed
-```
-
-{@inheritdoc}
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$offset` | **mixed** | Stream offset |
-| `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
-
-
-
-
-***
-
-### read
-
-Reads from all of the appended streams until the length is met or EOF.
-
-```php
-public read(mixed $length): string
-```
-
-{@inheritdoc}
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
-
-
-**Return Value:**
-
-Returns the data read from the stream, or an empty string
-if no bytes are available.
-
-
-
-***
-
-### isReadable
-
-Returns whether or not the stream is readable.
-
-```php
-public isReadable(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### isWritable
 
 Returns whether or not the stream is writable.
 
 ```php
 public isWritable(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### isSeekable
-
-Returns whether or not the stream is seekable.
-
-```php
-public isSeekable(): bool
 ```
 
 

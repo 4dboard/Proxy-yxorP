@@ -2,17 +2,13 @@
 
 # RequestOptions
 
-This class contains a list of built-in Proxy request options.
 
-More documentation for each option can be found at http://proxyphp.org/.
+
+
 
 * Full name: `\yxorP\lib\proxy\RequestOptions`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
-**See Also:**
-
-* http://docs.proxyphp.org/en/v6/request-options.html - 
 
 
 ## Constants

@@ -2,7 +2,7 @@
 
 # StreamWrapper
 
-Converts Proxy streams into PHP stream resources.
+
 
 
 
@@ -18,7 +18,7 @@ Converts Proxy streams into PHP stream resources.
 
 
 ```php
-public resource $context
+public $context
 ```
 
 
@@ -33,7 +33,7 @@ public resource $context
 
 
 ```php
-private \yxorP\inc\Psr\Http\Message\StreamInterface $stream
+private $stream
 ```
 
 
@@ -48,7 +48,7 @@ private \yxorP\inc\Psr\Http\Message\StreamInterface $stream
 
 
 ```php
-private string $mode
+private $mode
 ```
 
 
@@ -63,36 +63,10 @@ private string $mode
 
 ### getResource
 
-Returns a resource representing the stream.
+
 
 ```php
-public static getResource(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): resource
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** | The stream to get a resource for |
-
-
-
-
-***
-
-### createStreamContext
-
-Creates a stream context that can be used to open a stream as a php stream resource.
-
-```php
-public static createStreamContext(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): resource
+public static getResource(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
 ```
 
 
@@ -115,7 +89,7 @@ public static createStreamContext(\yxorP\inc\Psr\Http\Message\StreamInterface $s
 
 ### register
 
-Registers the stream wrapper if needed
+
 
 ```php
 public static register(): mixed
@@ -127,6 +101,32 @@ public static register(): mixed
 
 
 
+
+
+
+
+***
+
+### createStreamContext
+
+
+
+```php
+public static createStreamContext(\yxorP\inc\Psr\Http\Message\StreamInterface $stream): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$stream` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 
 
 

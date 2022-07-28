@@ -2,11 +2,9 @@
 
 # CurlHandler
 
-HTTP handler that uses cURL easy handles as a transport layer.
 
-When using the CurlHandler, custom curl options can be specified as an
-associative array of curl option constants mapping to values in the
-**curl** key of the "client" key of the request.
+
+
 
 * Full name: `\yxorP\lib\proxy\Handler\CurlHandler`
 
@@ -20,7 +18,7 @@ associative array of curl option constants mapping to values in the
 
 
 ```php
-private \yxorP\lib\proxy\Handler\CurlFactoryInterface $factory
+private $factory
 ```
 
 
@@ -35,13 +33,13 @@ private \yxorP\lib\proxy\Handler\CurlFactoryInterface $factory
 
 ### __construct
 
-Accepts an associative array of options:
+
 
 ```php
 public __construct(array $options = []): mixed
 ```
 
-- factory: Optional curl factory used to create cURL handles.
+
 
 
 
@@ -52,7 +50,7 @@ public __construct(array $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$options` | **array** | Array of options to use with the handler |
+| `$options` | **array** |  |
 
 
 

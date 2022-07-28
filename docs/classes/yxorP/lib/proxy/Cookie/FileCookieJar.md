@@ -2,7 +2,7 @@
 
 # FileCookieJar
 
-Persists non-session cookies using a JSON formatted file
+
 
 
 
@@ -19,7 +19,7 @@ Persists non-session cookies using a JSON formatted file
 
 
 ```php
-private string $filename
+private $filename
 ```
 
 
@@ -34,7 +34,7 @@ private string $filename
 
 
 ```php
-private bool $storeSessionCookies
+private $storeSessionCookies
 ```
 
 
@@ -49,10 +49,10 @@ private bool $storeSessionCookies
 
 ### __construct
 
-Create a new FileCookieJar object
+
 
 ```php
-public __construct(string $cookieFile, bool $storeSessionCookies = false): mixed
+public __construct(mixed $cookieFile, mixed $storeSessionCookies = false): mixed
 ```
 
 
@@ -66,8 +66,34 @@ public __construct(string $cookieFile, bool $storeSessionCookies = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookieFile` | **string** | File to store the cookie data |
-| `$storeSessionCookies` | **bool** | Set to true to store session cookies<br />in the cookie jar. |
+| `$cookieFile` | **mixed** |  |
+| `$storeSessionCookies` | **mixed** |  |
+
+
+
+
+***
+
+### load
+
+
+
+```php
+public load(mixed $filename): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$filename` | **mixed** |  |
 
 
 
@@ -76,7 +102,7 @@ public __construct(string $cookieFile, bool $storeSessionCookies = false): mixed
 
 ### __destruct
 
-Saves the file when shutting down
+
 
 ```php
 public __destruct(): mixed
@@ -96,10 +122,10 @@ public __destruct(): mixed
 
 ### save
 
-Saves the cookies to a file.
+
 
 ```php
-public save(string $filename): mixed
+public save(mixed $filename): mixed
 ```
 
 
@@ -113,33 +139,7 @@ public save(string $filename): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$filename` | **string** | File to save |
-
-
-
-
-***
-
-### load
-
-Load cookies from a JSON formatted file.
-
-```php
-public load(string $filename): mixed
-```
-
-Old cookies are kept unless overwritten by newly loaded ones.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$filename` | **string** | Cookie file to load. |
+| `$filename` | **mixed** |  |
 
 
 
@@ -155,7 +155,7 @@ Old cookies are kept unless overwritten by newly loaded ones.
 
 
 ```php
-public __construct(bool $strictMode = false, array $cookieArray = []): mixed
+public __construct(mixed $strictMode = false, mixed $cookieArray = []): mixed
 ```
 
 
@@ -169,8 +169,88 @@ public __construct(bool $strictMode = false, array $cookieArray = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$strictMode` | **bool** | Set to true to throw exceptions when invalid<br />cookies are added to the cookie jar. |
-| `$cookieArray` | **array** | Array of SetCookie objects or a hash of<br />arrays that can be used with the SetCookie<br />constructor |
+| `$strictMode` | **mixed** |  |
+| `$cookieArray` | **mixed** |  |
+
+
+
+
+***
+
+### setCookie
+
+
+
+```php
+public setCookie(\yxorP\lib\proxy\Cookie\SetCookie $cookie): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$cookie` | **\yxorP\lib\proxy\Cookie\SetCookie** |  |
+
+
+
+
+***
+
+### removeCookieIfEmpty
+
+
+
+```php
+private removeCookieIfEmpty(\yxorP\lib\proxy\Cookie\SetCookie $cookie): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$cookie` | **\yxorP\lib\proxy\Cookie\SetCookie** |  |
+
+
+
+
+***
+
+### clear
+
+
+
+```php
+public clear(mixed $domain = null, mixed $path = null, mixed $name = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$domain` | **mixed** |  |
+| `$path` | **mixed** |  |
+| `$name` | **mixed** |  |
 
 
 
@@ -179,10 +259,10 @@ public __construct(bool $strictMode = false, array $cookieArray = []): mixed
 
 ### fromArray
 
-Create a new Cookie jar from an associative array and domain.
+
 
 ```php
-public static fromArray(array $cookies, string $domain): self
+public static fromArray(array $cookies, mixed $domain): mixed
 ```
 
 
@@ -196,8 +276,8 @@ public static fromArray(array $cookies, string $domain): self
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookies` | **array** | Cookies to create the jar from |
-| `$domain` | **string** | Domain to set the cookies to |
+| `$cookies` | **array** |  |
+| `$domain` | **mixed** |  |
 
 
 
@@ -217,8 +297,6 @@ public static getCookieValue(mixed $value): mixed
 * This method is **static**.
 
 
-* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
 
 
 **Parameters:**
@@ -234,11 +312,10 @@ public static getCookieValue(mixed $value): mixed
 
 ### shouldPersist
 
-Evaluate if this cookie should be persisted to storage
-that survives between requests.
+
 
 ```php
-public static shouldPersist(\yxorP\lib\proxy\Cookie\SetCookie $cookie, bool $allowSessionCookies = false): bool
+public static shouldPersist(\yxorP\lib\proxy\Cookie\SetCookie $cookie, mixed $allowSessionCookies = false): mixed
 ```
 
 
@@ -252,8 +329,8 @@ public static shouldPersist(\yxorP\lib\proxy\Cookie\SetCookie $cookie, bool $all
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\lib\proxy\Cookie\SetCookie** | Being evaluated. |
-| `$allowSessionCookies` | **bool** | If we should persist session cookies |
+| `$cookie` | **\yxorP\lib\proxy\Cookie\SetCookie** |  |
+| `$allowSessionCookies` | **mixed** |  |
 
 
 
@@ -262,10 +339,10 @@ public static shouldPersist(\yxorP\lib\proxy\Cookie\SetCookie $cookie, bool $all
 
 ### getCookieByName
 
-Finds and returns the cookie based on the name
+
 
 ```php
-public getCookieByName(string $name): \yxorP\lib\proxy\Cookie\SetCookie|null
+public getCookieByName(mixed $name): mixed
 ```
 
 
@@ -279,12 +356,8 @@ public getCookieByName(string $name): \yxorP\lib\proxy\Cookie\SetCookie|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** | cookie name to search for |
+| `$name` | **mixed** |  |
 
-
-**Return Value:**
-
-cookie that was found or null if not found
 
 
 
@@ -292,115 +365,10 @@ cookie that was found or null if not found
 
 ### toArray
 
-Converts the cookie jar to an array.
-
-```php
-public toArray(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### clear
-
-Remove cookies currently held in the cookie jar.
-
-```php
-public clear(mixed $domain = null, mixed $path = null, mixed $name = null): \yxorP\lib\proxy\Cookie\CookieJarInterface
-```
-
-Invoking this method without arguments will empty the whole cookie jar.
-If given a $domain argument only cookies belonging to that domain will
-be removed. If given a $domain and $path argument, cookies belonging to
-the specified path within that domain are removed. If given all three
-arguments, then the cookie with the specified name, path and domain is
-removed.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$domain` | **mixed** | Clears cookies matching a domain |
-| `$path` | **mixed** | Clears cookies matching a domain and path |
-| `$name` | **mixed** | Clears cookies matching a domain, path, and name |
-
-
-
-
-***
-
-### clearSessionCookies
-
-Discard all sessions cookies.
-
-```php
-public clearSessionCookies(): mixed
-```
-
-Removes cookies that don't have an expire field or a have a discard
-field set to true. To be called when the user agent shuts down according
-to RFC 2965.
-
-
-
-
-
-
-
-
-
-***
-
-### setCookie
-
-Sets a cookie in the cookie jar.
-
-```php
-public setCookie(\yxorP\lib\proxy\Cookie\SetCookie $cookie): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$cookie` | **\yxorP\lib\proxy\Cookie\SetCookie** | Cookie to set. |
-
-
-**Return Value:**
-
-Returns true on success or false on failure
-
-
-
-***
-
-### count
-
 
 
 ```php
-public count(): mixed
+public toArray(): mixed
 ```
 
 
@@ -435,9 +403,49 @@ public getIterator(): mixed
 
 ***
 
+### clearSessionCookies
+
+
+
+```php
+public clearSessionCookies(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### count
+
+
+
+```php
+public count(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### extractCookies
 
-Extract cookies from an HTTP response and store them in the CookieJar.
+
 
 ```php
 public extractCookies(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yxorP\inc\Psr\Http\Message\ResponseInterface $response): mixed
@@ -454,40 +462,9 @@ public extractCookies(\yxorP\inc\Psr\Http\Message\RequestInterface $request, \yx
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** | Request that was sent |
-| `$response` | **\yxorP\inc\Psr\Http\Message\ResponseInterface** | Response that was received |
+| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** |  |
+| `$response` | **\yxorP\inc\Psr\Http\Message\ResponseInterface** |  |
 
-
-
-
-***
-
-### withCookieHeader
-
-Create a request with added cookie headers.
-
-```php
-public withCookieHeader(\yxorP\inc\Psr\Http\Message\RequestInterface $request): \yxorP\inc\Psr\Http\Message\RequestInterface
-```
-
-If no matching cookies are found in the cookie jar, then no Cookie
-header is added to the request and the same request is returned.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** | Request object to modify. |
-
-
-**Return Value:**
-
-returns the modified request.
 
 
 
@@ -495,10 +472,10 @@ returns the modified request.
 
 ### getCookiePathFromRequest
 
-Computes cookie path following RFC 6265 section 5.1.4
+
 
 ```php
-private getCookiePathFromRequest(\yxorP\inc\Psr\Http\Message\RequestInterface $request): string
+private getCookiePathFromRequest(\yxorP\inc\Psr\Http\Message\RequestInterface $request): mixed
 ```
 
 
@@ -516,19 +493,15 @@ private getCookiePathFromRequest(\yxorP\inc\Psr\Http\Message\RequestInterface $r
 
 
 
-**See Also:**
-
-* https://tools.ietf.org/html/rfc6265#section-5.1.4 - 
 
 ***
 
-### removeCookieIfEmpty
+### withCookieHeader
 
-If a cookie already exists and the server asks to set it again with a
-null value, the cookie must be deleted.
+
 
 ```php
-private removeCookieIfEmpty(\yxorP\lib\proxy\Cookie\SetCookie $cookie): mixed
+public withCookieHeader(\yxorP\inc\Psr\Http\Message\RequestInterface $request): mixed
 ```
 
 
@@ -542,7 +515,7 @@ private removeCookieIfEmpty(\yxorP\lib\proxy\Cookie\SetCookie $cookie): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\lib\proxy\Cookie\SetCookie** |  |
+| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** |  |
 
 
 

@@ -2,7 +2,7 @@
 
 # StreamHandler
 
-HTTP handler that uses PHP's HTTP stream wrapper.
+
 
 
 
@@ -33,10 +33,10 @@ private $lastHeaders
 
 ### __invoke
 
-Sends an HTTP request.
+
 
 ```php
-public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): \yxorP\lib\proxy\Promise\PromiseInterface
+public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $options): mixed
 ```
 
 
@@ -50,8 +50,8 @@ public __invoke(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array $op
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** | Request to send. |
-| `$options` | **array** | Request transfer options. |
+| `$request` | **\yxorP\inc\Psr\Http\Message\RequestInterface** |  |
+| `$options` | **array** |  |
 
 
 
@@ -144,10 +144,10 @@ private createSink(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, array $o
 
 ### drain
 
-Drains the source stream into the "sink" client option.
+
 
 ```php
-private drain(\yxorP\inc\Psr\Http\Message\StreamInterface $source, \yxorP\inc\Psr\Http\Message\StreamInterface $sink, string $contentLength): \yxorP\inc\Psr\Http\Message\StreamInterface
+private drain(\yxorP\inc\Psr\Http\Message\StreamInterface $source, \yxorP\inc\Psr\Http\Message\StreamInterface $sink, mixed $contentLength): mixed
 ```
 
 
@@ -163,7 +163,7 @@ private drain(\yxorP\inc\Psr\Http\Message\StreamInterface $source, \yxorP\inc\Ps
 |-----------|------|-------------|
 | `$source` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
 | `$sink` | **\yxorP\inc\Psr\Http\Message\StreamInterface** |  |
-| `$contentLength` | **string** | Header specifying the amount of<br />data to read. |
+| `$contentLength` | **mixed** |  |
 
 
 
@@ -282,10 +282,10 @@ private resolveHost(\yxorP\inc\Psr\Http\Message\RequestInterface $request, array
 
 ### createResource
 
-Create a resource and check to ensure it was created successfully
+
 
 ```php
-private createResource(callable $callback): resource
+private createResource(callable $callback): mixed
 ```
 
 
@@ -299,7 +299,7 @@ private createResource(callable $callback): resource
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$callback` | **callable** | Callable that returns stream resource |
+| `$callback` | **callable** |  |
 
 
 

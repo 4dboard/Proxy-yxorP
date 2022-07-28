@@ -2,7 +2,7 @@
 
 # SeekException
 
-Exception thrown when a seek fails on a stream.
+
 
 
 
@@ -67,7 +67,7 @@ public __construct(\yxorP\inc\Psr\Http\Message\StreamInterface $stream, mixed $p
 
 
 ```php
-public getStream(): \yxorP\inc\Psr\Http\Message\StreamInterface
+public getStream(): mixed
 ```
 
 
