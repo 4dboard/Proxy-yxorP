@@ -37,22 +37,6 @@ class cache
     }
 
     /**
-     * A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
-     */
-
-    #[ArrayShape(['key' => "null|\yxorP\lib\http\string", 'path' => "string"])] private static function gen(?string $key): array
-    {
-        /**
-         * It's checking if the `tmp` directory exists, and if it doesn't, it's creating it.
-         */
-        if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-        /**
-         * Returning an array with the keys `key` and `path`.
-         */
-        return ['key' => $key ?: CACHE_KEY, 'path' => ($key) ? PATH_TMP_DIR . $key . FILE_TMP : PATH_TMP_FILE];
-    }
-
-    /**
      * It's writing the content to the cache file.
      */
 
@@ -66,6 +50,22 @@ class cache
          * Writing the content to the cache file.
          */
         exit(die(file_put_contents(self::gen($key)['path'], '<?php header("Content-type: ' . helpers::MIME() . '"); exit(die( ' . var_export((minify::createDefault())->process(helpers::MIME() === VAR_TEXT_HTML ? helpers::replace($content) : $content), true) . '));')));
+    }
+
+    /**
+     * A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
+     */
+
+    #[ArrayShape(['key' => "null|\yxorP\lib\http\string", 'path' => "string"])] private static function gen(?string $key): array
+    {
+        /**
+         * It's checking if the `tmp` directory exists, and if it doesn't, it's creating it.
+         */
+        if (!is_dir(PATH_TMP_DIR)) if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        /**
+         * Returning an array with the keys `key` and `path`.
+         */
+        return ['key' => $key ?: CACHE_KEY, 'path' => ($key) ? PATH_TMP_DIR . $key . FILE_TMP : PATH_TMP_FILE];
     }
 
 }

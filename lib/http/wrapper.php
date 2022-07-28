@@ -45,72 +45,6 @@ abstract class wrapper
     }
 
     /**
-     * A method that is used to route the events to the appropriate methods.
-     */
-
-    private function route(string $event_name): void
-    {
-        /**
-         * Used to catch exceptions.
-         */
-        try {
-
-            if ($this->url_pattern && helpers::starts_with($this->url_pattern, CHAR_SLASH)
-                && preg_match($this->url_pattern, YXORP_REQUEST_URI_FULL) !== 1
-                && stripos(YXORP_REQUEST_URI_FULL, $this->url_pattern) === 0) return;
-
-            /**
-             * Used to check if the event should be executed.
-             */
-            $this->onCheck();
-
-            /**
-             * Used to route the events to the appropriate methods.
-             */
-            switch ($event_name) {
-                case EVENT_BUILD_CACHE:
-                    $this->onCache();
-                    break;
-                case EVENT_BUILD_CONTEXT:
-                    $this->onContext();
-                    break;
-                case EVENT_BUILD_INCLUDES:
-                    $this->onIncludes();
-                    break;
-                case EVENT_BUILD_HEADERS:
-                    $this->onHeaders();
-                    break;
-                case EVENT_BUILD_REQUEST:
-                    $this->onRequest();
-                    break;
-                case EVENT_BEFORE_SEND:
-                    $this->onBeforeSend();
-                    break;
-                case EVENT_SEND:
-                    $this->onSend();
-                    break;
-                case EVENT_SENT:
-                    $this->onSent();
-                    break;
-                case EVENT_WRITE:
-                    $this->onWrite();
-                    break;
-                case EVENT_COMPLETE:
-                    $this->onComplete();
-                    break;
-                case EVENT_FINAL:
-                    $this->onFinal();
-                    break;
-            }
-        } catch (Exception $e) {
-            /**
-             * Calling the `onException` method.
-             */
-            $this->onException($e);
-        }
-    }
-
-    /**
      * Used to check if the event should be executed.
      *
      */
@@ -212,5 +146,71 @@ abstract class wrapper
      */
     public function onException(Exception $e): void
     {
+    }
+
+    /**
+     * A method that is used to route the events to the appropriate methods.
+     */
+
+    private function route(string $event_name): void
+    {
+        /**
+         * Used to catch exceptions.
+         */
+        try {
+
+            if ($this->url_pattern && helpers::starts_with($this->url_pattern, CHAR_SLASH)
+                && preg_match($this->url_pattern, YXORP_REQUEST_URI_FULL) !== 1
+                && stripos(YXORP_REQUEST_URI_FULL, $this->url_pattern) === 0) return;
+
+            /**
+             * Used to check if the event should be executed.
+             */
+            $this->onCheck();
+
+            /**
+             * Used to route the events to the appropriate methods.
+             */
+            switch ($event_name) {
+                case EVENT_BUILD_CACHE:
+                    $this->onCache();
+                    break;
+                case EVENT_BUILD_CONTEXT:
+                    $this->onContext();
+                    break;
+                case EVENT_BUILD_INCLUDES:
+                    $this->onIncludes();
+                    break;
+                case EVENT_BUILD_HEADERS:
+                    $this->onHeaders();
+                    break;
+                case EVENT_BUILD_REQUEST:
+                    $this->onRequest();
+                    break;
+                case EVENT_BEFORE_SEND:
+                    $this->onBeforeSend();
+                    break;
+                case EVENT_SEND:
+                    $this->onSend();
+                    break;
+                case EVENT_SENT:
+                    $this->onSent();
+                    break;
+                case EVENT_WRITE:
+                    $this->onWrite();
+                    break;
+                case EVENT_COMPLETE:
+                    $this->onComplete();
+                    break;
+                case EVENT_FINAL:
+                    $this->onFinal();
+                    break;
+            }
+        } catch (Exception $e) {
+            /**
+             * Calling the `onException` method.
+             */
+            $this->onException($e);
+        }
     }
 }
