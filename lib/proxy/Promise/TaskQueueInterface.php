@@ -1,4 +1,5 @@
 <?php
+
 namespace yxorP\lib\proxy\Promise;
 
 interface TaskQueueInterface

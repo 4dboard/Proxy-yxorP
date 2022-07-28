@@ -1,4 +1,5 @@
 <?php
+
 namespace yxorP\lib\proxy\Exception;
 
 use Psr\Http\Message\StreamInterface;

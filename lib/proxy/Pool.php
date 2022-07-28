@@ -1,4 +1,5 @@
 <?php
+
 namespace GuzzleHttp;
 
 use yxorP\lib\proxy\Promise\EachPromise;
@@ -23,10 +24,10 @@ class Pool implements PromisorInterface
     private $each;
 
     /**
-     * @param ClientInterface $client   Client used to send the requests.
+     * @param ClientInterface $client Client used to send the requests.
      * @param array|\Iterator $requests Requests or functions that return
      *                                  requests to send concurrently.
-     * @param array           $config   Associative array of options
+     * @param array $config Associative array of options
      *     - concurrency: (int) Maximum number of requests to send concurrently
      *     - options: Array of request options to apply to each request.
      *     - fulfilled: (callable) Function to invoke when a request completes.
@@ -34,9 +35,10 @@ class Pool implements PromisorInterface
      */
     public function __construct(
         ClientInterface $client,
-        $requests,
-        array $config = []
-    ) {
+                        $requests,
+        array           $config = []
+    )
+    {
         // Backwards compatibility.
         if (isset($config['pool_size'])) {
             $config['concurrency'] = $config['pool_size'];
@@ -71,16 +73,6 @@ class Pool implements PromisorInterface
     }
 
     /**
-     * Get promise
-     *
-     * @return PromiseInterface
-     */
-    public function promise()
-    {
-        return $this->each->promise();
-    }
-
-    /**
      * Sends multiple requests concurrently and returns an array of responses
      * and exceptions that uses the same ordering as the provided requests.
      *
@@ -88,9 +80,9 @@ class Pool implements PromisorInterface
      * as such, is NOT recommended when sending a large number or an
      * indeterminate number of requests concurrently.
      *
-     * @param ClientInterface $client   Client used to send the requests
+     * @param ClientInterface $client Client used to send the requests
      * @param array|\Iterator $requests Requests to send concurrently.
-     * @param array           $options  Passes through the options available in
+     * @param array $options Passes through the options available in
      *                                  {@see yxorP\lib\proxy\Pool::__construct}
      *
      * @return array Returns an array containing the response or an exception
@@ -99,9 +91,10 @@ class Pool implements PromisorInterface
      */
     public static function batch(
         ClientInterface $client,
-        $requests,
-        array $options = []
-    ) {
+                        $requests,
+        array           $options = []
+    )
+    {
         $res = [];
         self::cmpCallback($options, 'fulfilled', $res);
         self::cmpCallback($options, 'rejected', $res);
@@ -130,5 +123,15 @@ class Pool implements PromisorInterface
                 $results[$k] = $v;
             };
         }
+    }
+
+    /**
+     * Get promise
+     *
+     * @return PromiseInterface
+     */
+    public function promise()
+    {
+        return $this->each->promise();
     }
 }

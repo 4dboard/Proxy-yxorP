@@ -1,4 +1,5 @@
 <?php
+
 namespace yxorP\lib\proxy\Psr7;
 
 use Psr\Http\Message\StreamInterface;
