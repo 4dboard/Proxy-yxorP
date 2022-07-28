@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Exception;
 
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 
 /**
  * Exception thrown when a connection cannot be established.

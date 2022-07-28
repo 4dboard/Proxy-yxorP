@@ -3,9 +3,9 @@
 namespace yxorP\lib\proxy\Exception;
 
 use yxorP\lib\proxy\Promise\PromiseInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
 
 /**
  * HTTP Request exception

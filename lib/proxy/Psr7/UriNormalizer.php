@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
 
 /**
  * Provides methods to normalize and compare URIs.

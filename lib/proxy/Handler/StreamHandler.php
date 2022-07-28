@@ -9,9 +9,9 @@ use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Psr7;
 use yxorP\lib\proxy\TransferStats;
 use yxorP\lib\proxy\Utils;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
  * HTTP handler that uses PHP's HTTP stream wrapper.

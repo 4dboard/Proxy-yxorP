@@ -4,8 +4,8 @@ namespace yxorP\lib\proxy;
 
 use ArrayAccess;
 use InvalidArgumentException;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Log\LoggerInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Log\LoggerInterface;
 use yxorP\lib\proxy\Cookie\CookieJarInterface;
 use yxorP\lib\proxy\Exception\RequestException;
 use function yxorP\lib\proxy\Promise\rejection_for;
@@ -184,7 +184,7 @@ final class Middleware
      *
      * @return callable Returns a function that accepts the next handler.
      */
-    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info' /* \Psr\Log\LogLevel::INFO */)
+    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info' /* \yxorP\inc\Psr\Log\LogLevel::INFO */)
     {
         return function (callable $handler) use ($logger, $formatter, $logLevel) {
             return function ($request, array $options) use ($handler, $logger, $formatter, $logLevel) {

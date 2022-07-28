@@ -4,7 +4,7 @@ namespace yxorP\lib\proxy;
 
 use InvalidArgumentException;
 use Iterator;
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise\EachPromise;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Promise\PromisorInterface;

@@ -8,7 +8,7 @@ use yxorP\lib\proxy\Promise\FulfilledPromise;
 use yxorP\lib\proxy\Psr7;
 use yxorP\lib\proxy\Psr7\LazyOpenStream;
 use yxorP\lib\proxy\TransferStats;
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 
 /**
  * Creates curl resources from a request

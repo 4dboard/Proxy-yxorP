@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy;
 
-use Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
 use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
 use yxorP\lib\proxy\Exception\InvalidArgumentException;

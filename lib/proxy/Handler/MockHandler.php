@@ -7,8 +7,8 @@ use yxorP\lib\proxy\HandlerStack;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Promise\RejectedPromise;
 use yxorP\lib\proxy\TransferStats;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
 
 /**
  * Handler that returns responses or throw exceptions from a queue.
@@ -111,7 +111,7 @@ class MockHandler implements \Countable
                         fwrite($sink, $contents);
                     } elseif (is_string($sink)) {
                         file_put_contents($sink, $contents);
-                    } elseif ($sink instanceof \Psr\Http\Message\StreamInterface) {
+                    } elseif ($sink instanceof \yxorP\inc\Psr\Http\Message\StreamInterface) {
                         $sink->write($contents);
                     }
                 }

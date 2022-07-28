@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
  * Stream decorator that can cache previously read bytes from a sequentially

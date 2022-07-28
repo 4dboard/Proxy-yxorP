@@ -2,8 +2,8 @@
 
 namespace yxorP\lib\proxy;
 
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use function yxorP\lib\proxy\Promise\rejection_for;
 

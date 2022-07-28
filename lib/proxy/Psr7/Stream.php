@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
  * PHP stream implementation.

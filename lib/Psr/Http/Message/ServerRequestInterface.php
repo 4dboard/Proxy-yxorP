@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace yxorP\inc\Psr\Http\Message;
 
 /**
  * Representation of an incoming, server-side HTTP request.
@@ -126,7 +126,7 @@ interface ServerRequestInterface extends RequestInterface
      * Retrieve normalized file upload data.
      *
      * This method returns upload metadata in a normalized tree, with each leaf
-     * an instance of Psr\Http\Message\UploadedFileInterface.
+     * an instance of yxorP\inc\Psr\Http\Message\UploadedFileInterface.
      *
      * These values MAY be prepared from $_FILES or the message body during
      * instantiation, or MAY be injected via withUploadedFiles().
@@ -219,10 +219,10 @@ interface ServerRequestInterface extends RequestInterface
      * This method obviates the need for a hasAttribute() method, as it allows
      * specifying a default value to return if the attribute is not found.
      *
-     * @see getAttributes()
      * @param string $name The attribute name.
      * @param mixed $default Default value to return if the attribute does not exist.
      * @return mixed
+     * @see getAttributes()
      */
     public function getAttribute($name, $default = null);
 
@@ -236,10 +236,10 @@ interface ServerRequestInterface extends RequestInterface
      * immutability of the message, and MUST return an instance that has the
      * updated attribute.
      *
-     * @see getAttributes()
      * @param string $name The attribute name.
      * @param mixed $value The value of the attribute.
      * @return static
+     * @see getAttributes()
      */
     public function withAttribute($name, $value);
 
@@ -253,9 +253,9 @@ interface ServerRequestInterface extends RequestInterface
      * immutability of the message, and MUST return an instance that removes
      * the attribute.
      *
-     * @see getAttributes()
      * @param string $name The attribute name.
      * @return static
+     * @see getAttributes()
      */
     public function withoutAttribute($name);
 }

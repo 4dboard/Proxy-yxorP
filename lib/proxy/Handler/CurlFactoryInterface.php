@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Handler;
 
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 
 interface CurlFactoryInterface
 {

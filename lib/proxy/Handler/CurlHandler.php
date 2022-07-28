@@ -3,7 +3,7 @@
 namespace yxorP\lib\proxy\Handler;
 
 use yxorP\lib\proxy\Psr7;
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 
 /**
  * HTTP handler that uses cURL easy handles as a transport layer.

@@ -3,9 +3,9 @@
 namespace yxorP\lib\proxy;
 
 use Exception;
-use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\MessageInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
 
 /**
  * Formats log messages using variable substitutions for requests, responses,
@@ -68,7 +68,7 @@ class MessageFormatter
     public function format(
         RequestInterface  $request,
         ResponseInterface $response = null,
-        Exception        $error = null
+        Exception         $error = null
     )
     {
         $cache = [];

@@ -2,8 +2,8 @@
 
 namespace yxorP\lib\proxy\Cookie;
 
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
 
 /**
  * Stores HTTP cookies.

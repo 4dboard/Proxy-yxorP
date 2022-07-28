@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Exception;
 
-use Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
  * Exception thrown when a seek fails on a stream.

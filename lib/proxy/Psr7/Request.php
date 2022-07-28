@@ -3,9 +3,9 @@
 namespace yxorP\lib\proxy\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
 
 /**
  * PSR-7 request implementation.

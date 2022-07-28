@@ -5,7 +5,7 @@ namespace yxorP\lib\proxy\Handler;
 use yxorP\lib\proxy\Promise as P;
 use yxorP\lib\proxy\Promise\Promise;
 use yxorP\lib\proxy\Utils;
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 
 /**
  * Returns an asynchronous response using curl_multi_* functions.

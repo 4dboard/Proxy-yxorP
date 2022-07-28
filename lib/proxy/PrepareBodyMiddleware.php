@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy;
 
-use Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Psr7;
 

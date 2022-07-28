@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
 
 /**
  * Resolves a URI reference in the context of a base URI and the opposite way.

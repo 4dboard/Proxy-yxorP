@@ -2,7 +2,7 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
  * Lazily reads or writes to a file that is opened only after an IO operation

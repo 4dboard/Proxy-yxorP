@@ -2,12 +2,12 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\MessageInterface;
+use yxorP\inc\Psr\Http\Message\RequestInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\ServerRequestInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
 
 /**
  * Returns the string representation of an HTTP message.
@@ -43,7 +43,7 @@ function str(MessageInterface $message)
 /**
  * Returns a UriInterface for the given value.
  *
- * This function accepts a string or {@see Psr\Http\Message\UriInterface} and
+ * This function accepts a string or {@see yxorP\inc\Psr\Http\Message\UriInterface} and
  * returns a UriInterface for the given value. If the value is already a
  * `UriInterface`, it is returned as-is.
  *

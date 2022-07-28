@@ -3,10 +3,10 @@
 namespace yxorP\lib\proxy\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\UriInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
+use yxorP\inc\Psr\Http\Message\ServerRequestInterface;
+use yxorP\inc\Psr\Http\Message\UriInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\UploadedFileInterface;
 
 /**
  * Server-side HTTP request

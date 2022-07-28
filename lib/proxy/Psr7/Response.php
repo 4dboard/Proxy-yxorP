@@ -2,8 +2,8 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
+use yxorP\inc\Psr\Http\Message\ResponseInterface;
+use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
  * PSR-7 response implementation.
