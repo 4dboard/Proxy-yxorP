@@ -74,7 +74,6 @@ class yP
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
          */
-        exit('1');
         helpers::define($request);
 
         /**
