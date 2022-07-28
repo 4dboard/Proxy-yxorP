@@ -81,19 +81,16 @@ abstract class wrapper
                 EVENT_BUILD_HEADERS:
                     $this->onCheck()->onHeaders();
                     break;
-                case EVENT_BUILD_REQUEST:
-                    /* Calling the `onCheck` method and then the `onRequest` method. */
+                case EVENT_BUILD_REQUEST: /* Calling the `onCheck` method and then the `onRequest` method. */
                     $this->onCheck()->onRequest();
                     break;
                 case EVENT_BEFORE_SEND:
                     $this->onCheck()->onBeforeSend();
                     break;
-                case EVENT_SEND:
-                    /* Calling the `onCheck` method and then the `onSend` method. */
+                case EVENT_SEND: /* Calling the `onCheck` method and then the `onSend` method. */
                     $this->onCheck()->onSend();
                     break;
-                case EVENT_SENT:
-                    /* Calling the `onCheck` method and then the `onSent` method. */
+                case EVENT_SENT: /* Calling the `onCheck` method and then the `onSent` method. */
                     $this->onCheck()->onSent();
                     break;
                 case EVENT_WRITE:
