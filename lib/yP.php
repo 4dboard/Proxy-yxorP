@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app;
+namespace yxorP\lib;
 /**
  * Setting the memory limit to unlimited.
  */
