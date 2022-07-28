@@ -10,7 +10,7 @@ use yxorP\inc\Psr\Http\Message\StreamInterface;
  */
 class LazyOpenStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     /** @var string File to open */
     private $filename;

@@ -2,6 +2,7 @@
 
 namespace yxorP\lib\proxy\Psr7;
 
+use InvalidArgumentException;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
@@ -10,7 +11,7 @@ use yxorP\inc\Psr\Http\Message\StreamInterface;
  */
 class CachingStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     /** @var StreamInterface Stream being wrapped */
     private $remoteStream;
@@ -33,11 +34,6 @@ class CachingStream implements StreamInterface
         $this->stream = $target ?: new Stream(fopen('php://temp', 'r+'));
     }
 
-    public function getSize()
-    {
-        return max($this->stream->getSize(), $this->remoteStream->getSize());
-    }
-
     public function rewind()
     {
         $this->seek(0);
@@ -56,7 +52,7 @@ class CachingStream implements StreamInterface
             }
             $byte = $size + $offset;
         } else {
-            throw new \InvalidArgumentException('Invalid whence');
+            throw new InvalidArgumentException('Invalid whence');
         }
 
         $diff = $byte - $this->stream->getSize();
@@ -72,6 +68,24 @@ class CachingStream implements StreamInterface
             // We can just do a normal seek since we've already seen this byte.
             $this->stream->seek($byte);
         }
+    }
+
+    public function getSize()
+    {
+        return max($this->stream->getSize(), $this->remoteStream->getSize());
+    }
+
+    private function cacheEntireStream()
+    {
+        $target = new FnStream(['write' => 'strlen']);
+        copy_to_stream($this, $target);
+
+        return $this->tell();
+    }
+
+    public function eof()
+    {
+        return $this->stream->eof() && $this->remoteStream->eof();
     }
 
     public function read($length)
@@ -117,24 +131,11 @@ class CachingStream implements StreamInterface
         return $this->stream->write($string);
     }
 
-    public function eof()
-    {
-        return $this->stream->eof() && $this->remoteStream->eof();
-    }
-
     /**
      * Close both the remote stream and buffer stream
      */
     public function close()
     {
         $this->remoteStream->close() && $this->stream->close();
-    }
-
-    private function cacheEntireStream()
-    {
-        $target = new FnStream(['write' => 'strlen']);
-        copy_to_stream($this, $target);
-
-        return $this->tell();
     }
 }
