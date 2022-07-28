@@ -5,7 +5,7 @@ namespace yxorP\lib\proxy;
 use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\inc\Psr\Http\Message\UriInterface;
-use yxorP\lib\proxy\Exception\GuzzleException;
+use yxorP\lib\proxy\Exception\ProxyException;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 
 /**
@@ -14,7 +14,7 @@ use yxorP\lib\proxy\Promise\PromiseInterface;
 interface ClientInterface
 {
     /**
-     * @deprecated Will be removed in Guzzle 7.0.0
+     * @deprecated Will be removed in Proxy 7.0.0
      */
     const VERSION = '6.5.5';
 
@@ -26,7 +26,7 @@ interface ClientInterface
      *                                  request and to the transfer.
      *
      * @return ResponseInterface
-     * @throws GuzzleException
+     * @throws ProxyException
      */
     public function send(RequestInterface $request, array $options = []);
 
@@ -53,7 +53,7 @@ interface ClientInterface
      * @param array $options Request options to apply.
      *
      * @return ResponseInterface
-     * @throws GuzzleException
+     * @throws ProxyException
      */
     public function request($method, $uri, array $options = []);
 

@@ -3,11 +3,11 @@
 namespace yxorP\lib\proxy;
 
 /**
- * This class contains a list of built-in Guzzle request options.
+ * This class contains a list of built-in Proxy request options.
  *
- * More documentation for each option can be found at http://guzzlephp.org/.
+ * More documentation for each option can be found at http://proxyphp.org/.
  *
- * @link http://docs.guzzlephp.org/en/v6/request-options.html
+ * @link http://docs.proxyphp.org/en/v6/request-options.html
  */
 final class RequestOptions
 {
@@ -105,7 +105,7 @@ final class RequestOptions
      * all requests in which the size of the payload cannot be determined or
      * where the body is not rewindable.
      *
-     * By default, Guzzle will add the "Expect: 100-Continue" header when the
+     * By default, Proxy will add the "Expect: 100-Continue" header when the
      * size of the body of a request is greater than 1 MB and a request is
      * using HTTP/1.1.
      */

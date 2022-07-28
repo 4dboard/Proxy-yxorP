@@ -9,7 +9,7 @@ use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 
 /**
- * Creates a composed Guzzle handler function by stacking middlewares on top of
+ * Creates a composed Proxy handler function by stacking middlewares on top of
  * an HTTP handler function.
  */
 class HandlerStack

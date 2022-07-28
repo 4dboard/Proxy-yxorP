@@ -19,9 +19,9 @@ use yxorP\lib\proxy\Psr7;
  */
 class RedirectMiddleware
 {
-    const HISTORY_HEADER = 'X-Guzzle-Redirect-History';
+    const HISTORY_HEADER = 'X-Proxy-Redirect-History';
 
-    const STATUS_HISTORY_HEADER = 'X-Guzzle-Redirect-Status-History';
+    const STATUS_HISTORY_HEADER = 'X-Proxy-Redirect-Status-History';
 
     public static $defaultSettings = [
         'max' => 5,

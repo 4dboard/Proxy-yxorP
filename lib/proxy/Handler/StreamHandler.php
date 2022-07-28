@@ -439,7 +439,7 @@ class StreamHandler
     {
         if ($value === true) {
             // PHP 5.6 or greater will find the system cert by default. When
-            // < 5.6, use the Guzzle bundled cacert.
+            // < 5.6, use the Proxy bundled cacert.
             if (PHP_VERSION_ID < 50600) {
                 $options['ssl']['cafile'] = \yxorP\lib\proxy\default_ca_bundle();
             }

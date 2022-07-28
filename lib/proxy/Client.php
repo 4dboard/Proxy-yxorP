@@ -8,7 +8,7 @@ use yxorP\inc\Psr\Http\Message\RequestInterface;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\inc\Psr\Http\Message\UriInterface;
 use yxorP\lib\proxy\Cookie\CookieJar;
-use yxorP\lib\proxy\Exception\GuzzleException;
+use yxorP\lib\proxy\Exception\ProxyException;
 use yxorP\lib\proxy\Promise;
 use yxorP\lib\proxy\Psr7;
 
@@ -143,7 +143,7 @@ class Client implements ClientInterface
      * @param array $options Request options to apply. See \yxorP\lib\proxy\RequestOptions.
      *
      * @return ResponseInterface
-     * @throws GuzzleException
+     * @throws ProxyException
      */
     public function request($method, $uri = '', array $options = [])
     {
@@ -158,7 +158,7 @@ class Client implements ClientInterface
      *                       request and to the transfer. See \yxorP\lib\proxy\RequestOptions.
      *
      * @return ResponseInterface
-     * @throws GuzzleException
+     * @throws ProxyException
      */
     public function send(RequestInterface $request, array $options = [])
     {

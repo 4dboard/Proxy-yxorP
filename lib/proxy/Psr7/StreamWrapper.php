@@ -5,7 +5,7 @@ namespace yxorP\lib\proxy\Psr7;
 use yxorP\inc\Psr\Http\Message\StreamInterface;
 
 /**
- * Converts Guzzle streams into PHP stream resources.
+ * Converts Proxy streams into PHP stream resources.
  */
 class StreamWrapper
 {
@@ -39,7 +39,7 @@ class StreamWrapper
                 . 'writable, or both.');
         }
 
-        return fopen('guzzle://stream', $mode, null, self::createStreamContext($stream));
+        return fopen('proxy://stream', $mode, null, self::createStreamContext($stream));
     }
 
     /**
@@ -52,7 +52,7 @@ class StreamWrapper
     public static function createStreamContext(StreamInterface $stream)
     {
         return stream_context_create([
-            'guzzle' => ['stream' => $stream]
+            'proxy' => ['stream' => $stream]
         ]);
     }
 
@@ -61,8 +61,8 @@ class StreamWrapper
      */
     public static function register()
     {
-        if (!in_array('guzzle', stream_get_wrappers())) {
-            stream_wrapper_register('guzzle', __CLASS__);
+        if (!in_array('proxy', stream_get_wrappers())) {
+            stream_wrapper_register('proxy', __CLASS__);
         }
     }
 
@@ -70,12 +70,12 @@ class StreamWrapper
     {
         $options = stream_context_get_options($this->context);
 
-        if (!isset($options['guzzle']['stream'])) {
+        if (!isset($options['proxy']['stream'])) {
             return false;
         }
 
         $this->mode = $mode;
-        $this->stream = $options['guzzle']['stream'];
+        $this->stream = $options['proxy']['stream'];
 
         return true;
     }

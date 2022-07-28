@@ -374,10 +374,10 @@ class helpers
          */
         define('PATH_APP_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_APP_BOOTSTRAP);
         /**
-         * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a
-         * `DIR_VENDOR` and `FILE_GUZZLE` appended to it.
+         * It's defining a constant called `PATH_PROXY` and setting it to the value of `DIR_ROOT` with a
+         * `DIR_VENDOR` and `FILE_PROXY` appended to it.
          */
-        define('PATH_GUZZLE', DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_GUZZLE);
+        define('PATH_PROXY', DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_PROXY);
         /**
          * It's defining a constant called `PATH_BUGSNAG` and setting it to the value of `DIR_ROOT` with a
          * `DIR_VENDOR` and `FILE_BUGSNAG` appended to it.
@@ -496,7 +496,7 @@ class helpers
          * Defining constants.
          */
 
-        define('YXORP_GUZZLE_URL', VAR_FETCH . YXORP_REQUEST_URI);
+        define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
 
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . str_replace('\\', '', store::handler(SITE_DETAILS)[VAR_FILES]));
 
@@ -518,9 +518,9 @@ class helpers
             store::handler($key, store::handler(SITE_DETAILS_GLOBAL)[$value]);
 
         /**
-         * Loading the Guzzle Snag class.
+         * Loading the Proxy Snag class.
          */
-        helpers::loadGuzzleSnag();
+        helpers::loadProxySnag();
 
     }
 
@@ -618,12 +618,12 @@ class helpers
      * A method that takes an array as a parameter and returns nothing.
      *
      */
-    public static function loadGuzzleSnag(): void
+    public static function loadProxySnag(): void
     {
         /**
-         * Setting the token GUZZLE to a new instance of the \yxorP\lib\proxy\Client class.
+         * Setting the token PROXY to a new instance of the \yxorP\lib\proxy\Client class.
          */
-        store::handler(VAR_GUZZLE, new Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_PROXY, new Client([VAR_COOKIES => new FileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
     }
 

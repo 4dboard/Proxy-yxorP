@@ -5,7 +5,7 @@ namespace yxorP\lib\proxy\Exception;
 use Throwable;
 
 if (interface_exists(Throwable::class)) {
-    interface GuzzleException extends Throwable
+    interface ProxyException extends Throwable
     {
     }
 } else {
@@ -18,7 +18,7 @@ if (interface_exists(Throwable::class)) {
      * @method array getTrace()
      * @method string getTraceAsString()
      */
-    interface GuzzleException
+    interface ProxyException
     {
     }
 }

@@ -120,7 +120,7 @@ class request
     {
         $method = (store::handler(VAR_SERVER))[YXORP_REQUEST_METHOD];
         $scheme = (isset(store::handler(VAR_SERVER)[VAR_HTTPS]) && (store::handler(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
-        $url = $scheme . ':' . YXORP_GUZZLE_URL;
+        $url = $scheme . ':' . YXORP_PROXY_URL;
         $request = new request($method, $url);
         foreach (store::handler(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
             $name = substr($name, 5);
@@ -228,7 +228,7 @@ class request
 
     #[Pure] public function getUrl(): string
     {
-        return YXORP_GUZZLE_URL;
+        return YXORP_PROXY_URL;
     }
 
     /**

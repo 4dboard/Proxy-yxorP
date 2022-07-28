@@ -120,7 +120,7 @@ function choose_handler()
             ? Proxy::wrapStreaming($handler, new StreamHandler())
             : new StreamHandler();
     } elseif (!$handler) {
-        throw new RuntimeException('GuzzleHttp requires cURL, the '
+        throw new RuntimeException('ProxyHttp requires cURL, the '
             . 'allow_url_fopen ini setting, or a custom HTTP handler.');
     }
 
@@ -128,7 +128,7 @@ function choose_handler()
 }
 
 /**
- * Get the default User-Agent string to use with Guzzle
+ * Get the default User-Agent string to use with Proxy
  *
  * @return string
  */
@@ -137,7 +137,7 @@ function default_user_agent()
     static $defaultAgent = '';
 
     if (!$defaultAgent) {
-        $defaultAgent = 'GuzzleHttp/' . Client::VERSION;
+        $defaultAgent = 'ProxyHttp/' . Client::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }
@@ -206,7 +206,7 @@ No system CA bundle could be found in any of the the common system locations.
 PHP versions earlier than 5.6 are not properly configured to use the system's
 CA bundle by default. In order to verify peer certificates, you will need to
 supply the path on disk to a certificate bundle to the 'verify' request
-option: http://docs.guzzlephp.org/en/latest/clients.html#verify. If you do not
+option: http://docs.proxyphp.org/en/latest/clients.html#verify. If you do not
 need a specific certificate bundle, then Mozilla provides a commonly used CA
 bundle which can be downloaded here (provided by the maintainer of cURL):
 https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt. Once

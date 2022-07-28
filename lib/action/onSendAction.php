@@ -24,6 +24,6 @@ class onSendAction extends wrapper
          * Creating a new `\yxorP\lib\proxy\Client` object, and then it is sending a request to the `\yxorP\lib\http\store::handler(YXORP_FETCH)` URL,
          * with the `\yxorP\lib\http\store::handler(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request.
          */
-        store::handler(VAR_RESPONSE, store::handler(VAR_GUZZLE)->request(store::handler(VAR_REQUEST)->getMethod(), YXORP_GUZZLE_URL, json_decode(json_encode(store::handler(VAR_REQUEST)), true, 512, JSON_THROW_ON_ERROR)));
+        store::handler(VAR_RESPONSE, store::handler(VAR_PROXY)->request(store::handler(VAR_REQUEST)->getMethod(), YXORP_PROXY_URL, json_decode(json_encode(store::handler(VAR_REQUEST)), true, 512, JSON_THROW_ON_ERROR)));
     }
 }
