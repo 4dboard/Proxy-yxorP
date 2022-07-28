@@ -232,7 +232,7 @@ After cloning the repository, you need to pull the Cockpit submodule as well, li
   git submodule init
   
   //If still not working you can try this:
-  git submodule add  https://github.com/agentejo/cockpit cockpit
+  git submodule add  https://github.com/Cockpit-HQ/Cockpit cockpit
 
   
 ```
