@@ -69,29 +69,28 @@ abstract class wrapper
              */
             switch ($event_name) {
                 case EVENT_BUILD_CACHE:
-                    $this->onCheck()
-                    $this->onCache();
+                    $this->onCheck()->onCache();
                     break;
                 case EVENT_BUILD_CONTEXT:
-                    $this->onContext();
+                    $this->onCheck()->onContext();
                     break;
                 case EVENT_BUILD_INCLUDES:
-                    $this->onIncludes();
+                    $this->onCheck()->onIncludes();
                     break;
                 case EVENT_BUILD_HEADERS:
-                    $this->onHeaders();
+                    $this->onCheck()->onHeaders();
                     break;
                 case EVENT_BUILD_REQUEST:
-                    $this->onRequest();
+                    $this->onCheck()->onRequest();
                     break;
                 case EVENT_BEFORE_SEND:
-                    $this->onBeforeSend();
+                    $this->onCheck()->onBeforeSend();
                     break;
                 case EVENT_SEND:
-                    $this->onSend();
+                    $this->onCheck()->onSend();
                     break;
                 case EVENT_SENT:
-                    $this->onSent();
+                    $this->onCheck()->onSent();
                     break;
                 case EVENT_WRITE:
                     $this->onWrite();
