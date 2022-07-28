@@ -18,9 +18,10 @@ class onCheckAction extends wrapper
      */
     public function onCheck(): self
     {
+        if (cache::isValid()) ? cache::get();
         /**
          * Checking if the cache is valid, and if it is, it returns the cached data.
          */
-        return (cache::isValid()) ? cache::get() : $this;
+        return : $this;
     }
 }
