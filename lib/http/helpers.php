@@ -278,7 +278,7 @@ class helpers
      */
     public static function cockpit_global(): mixed
     {
-        return store::handler(YXORP_APP)->dataStorage->findOne(APP_SINGLETONS, [APP_KEY => APP_SETTINGS]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SINGLETONS, [APP_KEY => APP_SETTINGS]);
     }
 
     /**
