@@ -379,12 +379,12 @@ class helpers
          * It's defining a constant called `PATH_GUZZLE` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_VENDOR` and `FILE_GUZZLE` appended to it.
          */
-        define('PATH_GUZZLE', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_GUZZLE);
+        define('PATH_GUZZLE', DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_GUZZLE);
         /**
          * It's defining a constant called `PATH_BUGSNAG` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_VENDOR` and `FILE_BUGSNAG` appended to it.
          */
-        define('PATH_BUGSNAG', DIR_ROOT . DIR_APP . DIR_VENDOR . FILE_BUGSNAG);
+        define('PATH_BUGSNAG', DIR_ROOT . DIR_LIB . DIR_VENDOR . FILE_BUGSNAG);
         /**
          * It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a `DIR_APP` and
          * `DIR_LIB` and `DIR_DATA` and `FILE_COOKIE_JAR` appended to it.
