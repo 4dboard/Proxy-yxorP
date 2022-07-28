@@ -7,7 +7,7 @@ use InvalidArgumentException;
 use yxorP\inc\Psr\Http\Message\ResponseInterface;
 use yxorP\inc\Psr\Log\LoggerInterface;
 use yxorP\lib\proxy\Cookie\CookieJarInterface;
-use yxorP\lib\proxy\Exception\RequestException;
+use yxorP\lib\proxy\Exception\ARequestException;
 use function yxorP\lib\proxy\Promise\rejection_for;
 
 /**
@@ -64,7 +64,7 @@ final class Middleware
                         if ($code < 400) {
                             return $response;
                         }
-                        throw RequestException::create($request, $response);
+                        throw ARequestException::create($request, $response);
                     }
                 );
             };
@@ -195,7 +195,7 @@ final class Middleware
                         return $response;
                     },
                     function ($reason) use ($logger, $request, $formatter) {
-                        $response = $reason instanceof RequestException
+                        $response = $reason instanceof ARequestException
                             ? $reason->getResponse()
                             : null;
                         $message = $formatter->format($request, $response, $reason);

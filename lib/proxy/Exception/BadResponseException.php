@@ -8,7 +8,7 @@ use yxorP\inc\Psr\Http\Message\ResponseInterface;
 /**
  * Exception when an HTTP error occurs (4xx or 5xx error)
  */
-class BadResponseException extends RequestException
+class BadResponseException extends ARequestException
 {
     public function __construct(
         $message,

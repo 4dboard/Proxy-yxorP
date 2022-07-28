@@ -3,7 +3,7 @@
 namespace yxorP\lib\proxy\Handler;
 
 use yxorP\lib\proxy\Exception\ConnectException;
-use yxorP\lib\proxy\Exception\RequestException;
+use yxorP\lib\proxy\Exception\ARequestException;
 use yxorP\lib\proxy\Promise\FulfilledPromise;
 use yxorP\lib\proxy\Promise\PromiseInterface;
 use yxorP\lib\proxy\Psr7;
@@ -66,7 +66,7 @@ class StreamHandler
             ) {
                 $e = new ConnectException($e->getMessage(), $request, $e);
             }
-            $e = RequestException::wrapException($request, $e);
+            $e = ARequestException::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
 
             return \yxorP\lib\proxy\Promise\rejection_for($e);
@@ -122,7 +122,7 @@ class StreamHandler
                 $options['on_headers']($response);
             } catch (\Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new RequestException($msg, $request, $response, $e);
+                $ex = new ARequestException($msg, $request, $response, $e);
                 return \yxorP\lib\proxy\Promise\rejection_for($ex);
             }
         }

@@ -3,7 +3,7 @@
 namespace yxorP\lib\proxy\Handler;
 
 use yxorP\lib\proxy\Exception\ConnectException;
-use yxorP\lib\proxy\Exception\RequestException;
+use yxorP\lib\proxy\Exception\ARequestException;
 use yxorP\lib\proxy\Promise\FulfilledPromise;
 use yxorP\lib\proxy\Psr7;
 use yxorP\lib\proxy\Psr7\LazyOpenStream;
@@ -121,7 +121,7 @@ class CurlFactory implements CurlFactoryInterface
         // return a rejected promise that wraps that exception.
         if ($easy->onHeadersException) {
             return \yxorP\lib\proxy\Promise\rejection_for(
-                new RequestException(
+                new ARequestException(
                     'An error was encountered during the on_headers event',
                     $easy->request,
                     $easy->response,
@@ -150,7 +150,7 @@ class CurlFactory implements CurlFactoryInterface
         // Create a connection exception if it was a specific error code.
         $error = isset($connectionErrors[$easy->errno])
             ? new ConnectException($message, $easy->request, null, $ctx)
-            : new RequestException($message, $easy->request, $easy->response, null, $ctx);
+            : new ARequestException($message, $easy->request, $easy->response, null, $ctx);
 
         return \yxorP\lib\proxy\Promise\rejection_for($error);
     }
