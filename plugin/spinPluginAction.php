@@ -21,7 +21,7 @@ class spinPluginAction extends wrapper
      */
     public function onComplete(): void
     {
-        if (store::handler(YXORP_CONTENT)) helpers::MIME() === VAR_TEXT_HTML ? helpers::replace(store::handler(YXORP_CONTENT));
+        if (helpers::MIME() === VAR_TEXT_HTML) helpers::replace(store::handler(YXORP_CONTENT));
     }
 
 }
