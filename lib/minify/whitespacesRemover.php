@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\minify;
+<?php namespace yxorP\lib\minify;
 
 use function implode;
 use function preg_match_all;

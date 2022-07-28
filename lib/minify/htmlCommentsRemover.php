@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\minify;
+namespace yxorP\lib\minify;
 
 use JetBrains\PhpStorm\ArrayShape;
 

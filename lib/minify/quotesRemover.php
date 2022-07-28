@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\minify;
+<?php namespace yxorP\lib\minify;
 class quotesRemover extends areplacerInterface implements minfyInterface
 {
     /**

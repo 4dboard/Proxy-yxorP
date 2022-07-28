@@ -3,12 +3,12 @@
  * Importing the `wrapper` class from the `yxorP\lib\http` namespace.
  */
 
+use yxorP\lib\constants;
 use yxorP\lib\http\cache;
 use yxorP\lib\http\helpers;
 use yxorP\lib\http\store;
 use yxorP\lib\http\wrapper;
-use yxorP\app\lib\minify\minify;
-use yxorP\lib\constants;
+use yxorP\lib\minify\minify;
 
 
 class onWriteAction extends wrapper

@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\minify;
+<?php namespace yxorP\lib\minify;
 
 use function array_keys;
 use function array_values;
