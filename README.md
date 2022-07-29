@@ -1,52 +1,64 @@
-<p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png" /></p>
-<p align="center"><img align="center" src="https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png" /></p>
-<p align="center">📢  [ <a href="https://github.com/4dboard/Proxy-yxorP/wiki">ARCHITECTURE</a> ]  ⚡  [ <a href="https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md">DEVELOPERS</a> ]  🌈  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/">DOCUMENTATION</a> ]  🔥  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4">CREATION VIDEO</a> ]  🚀️  [ <a href="https://4dboard.github.io/">WEBSITE</a> ]</p>
-<p align="center">Web Proxy <b>🦄</b> yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</p>
-<p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png" /></p>
-<p align="center"><a href="https://sourceforge.net/projects/Proxy-yxorP/files/latest/download"><img align="center" src="https://a.fsdn.com/con/app/sf-download-button" /></a></p>
+![image](https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png)
 
-<br/>
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
+
+📢  [ [ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
+⚡  [ [DEVELOPERS](https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md) ]
+🌈  [ [DOCUMENTATION](https://4dboard.github.io/Proxy-yxorP/docs/) ]
+🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
+🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
+
+Web Proxy *🦄* yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play,
+Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to
+provide multi-tenancy, multiple threads, caching, and an article spinner service.
+
+![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
+
+[!![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/Proxy-yxorP/files/latest/download)
 
 ## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
-
-<br/>
 
 yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
 facilitates rapid and simple customization through plugins and themes.
 
-<br/>
+### *Q*: "Why has YXORP become the most popular web proxy script so rapidly?"
 
-<h3><b><i>Q</i></b>: <i>"Why has YXORP become the most popular web proxy script so rapidly?"</i></h3>
-<h4><i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and
-User-friendly.</h4>
+#### *Short Answer:* YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and
 
-> <i>The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]</i>
+User-friendly.
 
-<br/>
+> The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
+
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399379-3996858c-4a4c-4407-bb33-0649bf89b973.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179232489-113ce332-b853-41f9-b32b-e61fef62c007.png)
-<br/><br/><br/>
+
+
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
+
 <hr />
 
 > 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) We have just launched the first working live demo / sneak preview via Gitpod`
+
 <hr />
 
 > 🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so.
+
 <hr />
 
 > ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
+
 <hr />
 
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399467-1878166c-d1e5-4a1a-8155-e880aac4c6e0.png)
 
@@ -55,37 +67,32 @@ User-friendly.</h4>
 Files (Flat-File) are used to hold the information created by the plug-and-play application yxorP. Since they are not
 necessary, Composer, PHP CURL, and databases are optional for the execution of this application. yxorP was created to
 function as a proxy and is capable of altering the contents of several websites. This was the original aim behind its
-creation. The Admin, the system's principal backend, controls this component (GUI).
-
-It is common knowledge that yxorP is one of the web proxy systems that, compared to other web proxy systems now
-available on the market, enables users to tailor their surfing experience in the most ways. yxorP is among the most
-flexible web proxy solutions in terms of browsing capabilities. Moreover, yxorP is one of the first web proxy systems
-ever created. This is due to its event-driven architecture and emphasis on its plugin-based design, rather than its
-built-in features, which are the most essential and defining components that enable customization and extension of its
-capabilities. Due to its versatility and scalability, this is the case.
-
-Because they provide customization and expansion of a product's capabilities, the built-in features are the most
-distinguishing and significant aspects. This is due to its adaptable and expandable qualities, which has led to the
-current circumstance. This is due to the fact that the inherent characteristics are the most fundamental and distinctive
-characteristics, allowing for the change and expansion of its capabilities. This is the reason behind the present
-situation. In addition to a graphical user interface (GUI) and a back-end content management system (CMS), yxorP has a
-number of additional distinguishing features. These qualities include a number of additional characteristics that
-separate it in a variety of ways from its competitors. These distinctive characteristics, such as the product's quality,
-set it apart from its rivals.
-
-Currently, the hostname of the request being processed is utilized to search the backend for website-specific
-requirements. Then, using these criteria, the best website is selected and any required revisions are made. The user may
-spin the website's content using the pre-integrated article-spinning engine of the application. The user has access to
-this option. This activity is undertaken in accordance with the user's preferences. Flat-file caching solutions are
-about 500 times faster than memory-based caching systems such as Memcache or Redis. This is accomplished by reducing the
-overall number of serialization and deserialization operations, which results in a cache that operates much faster.
-
-Due to a recent update, the most thorough version of yxorP may now be examined by the BugSnag error reporting and
-warning system. Recent adjustments have been made. This function was designed to determine whether Snag is compatible
-with a previously issued update. Changing the default logging system might take as little as two minutes due to the
-program's interoperability with the great majority of industry-standard error tracking solutions. This is the situation
-due to the interoperability capabilities of the bulk of these systems. This conclusion was attainable due to the
-software's capacity to monitor the system and report any vulnerabilities it detects.
+creation. The Admin, the system's principal backend, controls this component (GUI). It is common knowledge that yxorP is
+one of the web proxy systems that, compared to other web proxy systems now available on the market, enables users to
+tailor their surfing experience in the most ways. yxorP is among the most flexible web proxy solutions in terms of
+browsing capabilities. Moreover, yxorP is one of the first web proxy systems ever created. This is due to its
+event-driven architecture and emphasis on its plugin-based design, rather than its built-in features, which are the most
+essential and defining components that enable customization and extension of its capabilities. Due to its versatility
+and scalability, this is the case. Because they provide customization and expansion of a product's capabilities, the
+built-in features are the most distinguishing and significant aspects. This is due to its adaptable and expandable
+qualities, which has led to the current circumstance. This is due to the fact that the inherent characteristics are the
+most fundamental and distinctive characteristics, allowing for the change and expansion of its capabilities. This is the
+reason behind the present situation. In addition to a graphical user interface (GUI) and a back-end content management
+system (CMS), yxorP has a number of additional distinguishing features. These qualities include a number of additional
+characteristics that separate it in a variety of ways from its competitors. These distinctive characteristics, such as
+the product's quality, set it apart from its rivals. Currently, the hostname of the request being processed is utilized
+to search the backend for website-specific requirements. Then, using these criteria, the best website is selected and
+any required revisions are made. The user may spin the website's content using the pre-integrated article-spinning
+engine of the application. The user has access to this option. This activity is undertaken in accordance with the user's
+preferences. Flat-file caching solutions are about 500 times faster than memory-based caching systems such as Memcache
+or Redis. This is accomplished by reducing the overall number of serialization and deserialization operations, which
+results in a cache that operates much faster. Due to a recent update, the most thorough version of yxorP may now be
+examined by the BugSnag error reporting and warning system. Recent adjustments have been made. This function was
+designed to determine whether Snag is compatible with a previously issued update. Changing the default logging system
+might take as little as two minutes due to the program's interoperability with the great majority of industry-standard
+error tracking solutions. This is the situation due to the interoperability capabilities of the bulk of these systems.
+This conclusion was attainable due to the software's capacity to monitor the system and report any vulnerabilities it
+detects.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
@@ -97,7 +104,7 @@ describe both of these servers, which are networking frameworks. These two serve
 frameworks. According to the description, each of these servers is designed with "event-driven, asynchronous, and
 non-blocking I/O." This is evident from the description.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399560-6c5fc08e-9d8c-46ec-99bf-a9f06f931213.png)
 
@@ -106,25 +113,31 @@ non-blocking I/O." This is evident from the description.
 PHP, unlike other programming languages, is by default staeless much like HTML or CSS. This aspect of the protocol is
 reminiscent of the first stages of the HyperText Transfer Protocol (HTTP) (HTTP). Sstate can be implemented however
 using sessions, databases, shared memory, files, or any other technology that is capable of keeping state in some
-capacity in some form or another.
-
-A typlical setup for this type of PHP application would be using Apache or for example Nginx with php-fpm. NGINX web
-server (as reverse proxy) serves PHP applications through the FastCGI protocol (as a backend application server). NGINX
-employs PHP-FPM (FastCGI Process Manager), an alternative PHP FastCGI implementation that runs in the background as a
-daemon, listening for CGI requests i.e.
+capacity in some form or another. A typlical setup for this type of PHP application would be using Apache or for example
+Nginx with php-fpm. NGINX web server (as reverse proxy) serves PHP applications through the FastCGI protocol (as a
+backend application server). NGINX employs PHP-FPM (FastCGI Process Manager), an alternative PHP FastCGI implementation
+that runs in the background as a daemon, listening for CGI requests i.e.
 
 ``` 
 
 server {
 
         listen 80 default_server;
+
         listen [::]:80 default_server;
+
        
+
         listen 443 ssl default_server;
+
         listen [::]:443 ssl default_server;
+
         
+
         error_log /var/www/yxorP/logs;
+
         
+
         root /var/www/yxorP;
 
         index index.php;
@@ -132,18 +145,22 @@ server {
         server_name _;
 
         location ~ / {
+
                 if (!-e $request_filename){
+
                         rewrite ^.* /index.php break;
+
                 }
+
                 include snippets/fastcgi-php.conf; fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+
         }
 
 }
 
-
 ``` 
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399606-bfae14ee-be77-4a32-beae-c57360bf74dc.png)
 
@@ -164,7 +181,7 @@ php ./server.php
 
 ```
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399692-77ff0ca0-c5bd-42d2-b341-eed79d9194f2.png)
 
@@ -181,7 +198,7 @@ docker-composer up -d
 
 ```
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399730-de888b39-c72a-46ee-9fdd-76466864022c.png)
 
@@ -201,7 +218,8 @@ docker run
 
 ```
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
@@ -221,7 +239,7 @@ domain, go to http://localhost/app and enter the login username 'yxorP' and the 
 configure the application to direct traffic from a given domain to a specific website. After gaining access to the
 admin, choose "sites" and clone the example website so that its settings may be modified.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399824-25abab85-0533-4c8f-9b28-5df8bcbca515.png)
 
@@ -234,6 +252,7 @@ admin, choose "sites" and clone the example website so that its settings may be 
 - Verify that the computer has been outfitted with all of the necessary PHP extensions, such as the following:
 
     - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
+
     - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
       with IDN.
 
@@ -245,16 +264,16 @@ admin, choose "sites" and clone the example website so that its settings may be 
   contents written to. Either the command "chmod 775./app/storage/cache" or the command "chown root:
   ./app/storage/cache" may be used to make the files readable again.
 
-If you have completed all of these steps, you should be experiencing no difficulty.
-
-However if you are still experiencing problems, you will likely need to contact a developer or file a request for help
-on github's issue tracker for this project.
+If you have completed all of these steps, you should be experiencing no difficulty. However if you are still
+experiencing problems, you will likely need to contact a developer or file a request for help on github's issue tracker
+for this project.
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/diagrams.png)
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177685870-385a203b-9654-4c7b-b3e7-00c725d3fa51.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179236073-ffd7da37-258d-4cb5-bd6d-2bb975cd6e3b.png)
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
@@ -273,9 +292,11 @@ content spinning engine, the system is able to "enhance" (or "spin") information
 thesaurus/dictionary items) and without sacrificing quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/Idna.png)
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/179237789-b543c7c4-929a-47d4-93cf-eb11a16d5faf.png)
 
 ### If you want a versatile management interface that isn't flexible and replaceable, the admin back-end is fantastic.
@@ -283,17 +304,25 @@ thesaurus/dictionary items) and without sacrificing quality.
 ![image](https://user-images.githubusercontent.com/6468571/179237020-fda021a1-5554-4fc6-8f28-5f09d3d5cb19.png)
 
 Implementation is the most efficient approach to use the offered information. Admin is a good option to investigate if
+
 you need to manage a large number of devices or require a content management interface for static site builders. Both of
+
 these scenarios need cautious admin operation. If any of these apply to your situation, you should give them special
+
 consideration. Each of these occurrences happens sometimes. Construct whole new apps, then provide Admin access to them
+
 so it can feed them content.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
 The headless admin is displayed with an API-first layout that prioritizes and hierarchically arranges data. This
+
 separation between client-side consumption and management of information and server-side administration of material
+
 should simplify the publishing process. The admin is limited to the tasks required to maintain back-end content. Its
+
 fundamental objective is to distribute structured content across several media via a simple application programming
+
 interface, as opposed to depending on the transmission of data through individual web pages.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
@@ -308,11 +337,13 @@ extraneous elements and clutter. Admin provides not just an easy user interface,
 updated.
 
 You may use the system in any way you see appropriate, so long as you adhere to the set requirements. There is just one
-system in place. Utilize a straightforward application programming interface to get access to your content (
-API).
-<br/><br/>
+system in place. Utilize a straightforward application programming interface to get access to your content (API).
+
+
+
 <hr />
-<br/>
+
+
 
 ![image](https://user-images.githubusercontent.com/6468571/181399970-68a109ad-2ec9-4f25-bad7-0276f6fa9af3.png)
 
@@ -345,7 +376,7 @@ You may build static flat file versions of your original webpages by utilizing y
 mirrored or cloned copies of those websites, and then giving the mirrored or cloned copies of those websites as static
 flat file variants of your original webpages. This is feasible by using yxorP to mirror your websites.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔥 Cache
 
@@ -360,11 +391,11 @@ bandwidth.
 
 ![image](https://user-images.githubusercontent.com/6468571/178638714-b7a75c9d-eec0-4831-aced-45a3da6424a2.png)
 
-When you load your websites utilizing caching, you not only reduce the likelihood that the loading time will increase,
-but you also reduce the server strain caused by your actions. Consequently, the time required for online pages to load
-will decrease with time.
+When you load your websites utilizing caching, you not only reduce the likelihood that the loading time will
+increase,but you also reduce the server strain caused by your actions. Consequently, the time required for online pages
+to load will decrease with time.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 📛 Firewall
 
@@ -388,7 +419,7 @@ To defend your websites against distributed denial of service attacks and other 
 virtual firewall behind your proxy server. You will be safeguarded against website-based assaults in general if you
 follow these steps to their logical conclusion.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔳 iFrame
 
@@ -406,7 +437,7 @@ request, CORS Proxy will promptly return it to you using an efficient and effect
 Although it is feasible to use iframing services without CORS, doing so is discouraged. It has been said that the
 behavior in question, although being plausible and "not suggested but attainable," it is "not advised but possible."
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # 🔱 Load-balancing
 
@@ -424,13 +455,15 @@ for external clients.
 <div style="text-align: center;">
 
 ![image](https://user-images.githubusercontent.com/6468571/178639159-0556cdfa-b102-4e7b-bda7-7b79d91342ca.png)
+
 </div>
+
 The installation of cloned copies of your website on several additional servers, each of which is connected to a
 load-balancing system, is one method for achieving this objective. There are several other approaches that might
 possibly be used in this operation. Using a cluster of servers is a potential alternative method that might be utilized
 to execute this assignment effectively.
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # ⌛ Allways-online
 
@@ -444,10 +477,13 @@ failure. Due to their incapacity to communicate, proxy servers and peer masters 
 they are unaware of one another. Peer masters are in communication with and converse with one another. In contrast, peer
 masters are familiar with one another and maintain open communication lines. Various properties of peer masters and
 proxy servers must be accounted for.
+
 <div style="text-align: center;">
 
 ![image](https://user-images.githubusercontent.com/6468571/178639215-2ed92212-1f09-46de-bb24-5287862c72c2.png)
+
 </div>
+
 By keeping a proxy version of your website and switching to it whenever the actual website is unavailable for
 maintenance or changes, you can ensure that your online resources remain accessible at a high level and continuously.
 This will guarantee that your online material is constantly accessible to users. This will help you to guarantee that
@@ -457,11 +493,13 @@ your consumers always have access to your online resources.
 
 The applications outlined in this page are only a sampling of the many ways in which this proxy may be implemented;
 further information is accessible in our discussion forum.
+
 <div style="text-align: center;">
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logosnag.png)
 
 </div>
+
 By using a technique that is simple to put into action, BugSnag is able to assist in the simplification of the process
 of error monitoring in addition to the management of application stability. This is made possible via the use of an easy
 to implement approach. Because of this, BugSnag is able to maintain application stability in a more efficient manner. In
@@ -484,10 +522,13 @@ brand-new features. It offers a full operating system environment, allowing prog
 to use the operating system environment and run effectively. This is possible because these apps may misuse the
 operating system environment. As a result, apps may now use the operating system environment. Previously, this was
 impossible. During the creation of these apps, the extensive capabilities of the platform were meticulously evaluated.
+
 <div style="text-align: center;">
 
 [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
+
 </div>
+
 Visit their website to learn more about Gitpod and how the platform's capabilities are always expanding. These two
 topics are discussed on their website. Gitpods, on the other hand, are containers managed by Docker and running Ubuntu
 20.04 Focal Focal. The software installation process is hindered because the user gitpod is not on the list of users
@@ -501,9 +542,11 @@ Gitpod has a user account and home directory named gitpod and located at /home/g
 Docker container is preserved in the shared and shareable workspace. When a repository is cloned or rolled back, only
 the modifications performed in the workspace of a Gitpod are kept. "workspace" refers to the directory structure
 available through the route /workspace/your-workspace-name, and "workspace" refers to the directory structure.
+
 <div style="text-align: center;">
 
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png)
+
 </div>
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
@@ -599,8 +642,8 @@ the php-proxy package rather than to the program itself.
 
 #### .env
 
-This file will be loaded into the Config /\*\* \* {@inlinetag} \* this is @not a standardtag - must begin a line. \*
-this is a valid {@inlinetag} also \* @standardtag \*/ class at the global level.
+This file will be loaded into the Config /\*\* \* {@inlinetag} \* this is @not a standardtag - must begin a line. \*this
+is a valid {@inlinetag} also \* @standardtag \*/ class at the global level.
 
 #### /plugins/
 
@@ -644,54 +687,89 @@ up-to-date so the results may be interpreted as precisely as possible. We cannot
 your assistance and support. We are really appreciative. Please accept our profound gratitude for all you've done for
 us.
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)  
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png) ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675430-db10d3c6-ca87-47e6-8327-8f9723a2d2ab.png)
 
 - [x] Front-end
+
 - [x] Combine Proxy Engines
+
 - [x] Allow Multi-tent rendering
+
 - [x] Build Caching
 
 ## Layer
 
 - [x] Develop Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon)
+
 - [x] Foundation
+
 - [x] API Service
+
 - [x] TxT DB
+
 - [x] Login
+
 - [x] Registration
+
 - [x] Admin
+
 - [x] Who is Online
+
 - [x] Documentation
+
 - [ ] Tables
+
 - [x] Users
+
 - [x] Notes
+
 - [x] Tasks
+
 - [ ] Chat
+
 - [ ] Notes
+
 - [x] Data Scheme
+
 - [x] API Endpoints
+
 - [x] Functions
+
 - [ ] UI
+
 - [ ] Tasks
+
 - [x] Data Scheme
+
 - [x] API Endpoints
+
 - [x] Functions
+
 - [ ] UI
+
 - [ ] Chat
+
 - [ ] Data Scheme
+
 - [x] API Endpoints
+
 - [x] Functions
+
 - [ ] UI
+
 - [ ] Testing
 
 - [x] Versions
+
 - [x] Owners
+
 - [ ] Crate details
 
-![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # yxorP Documentation
 
@@ -700,38 +778,86 @@ us.
 #### Classes
 
 | Class | Description |
+
 |-------|-------------|
+
 | [`App`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/App.md) | |
+
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
+
 | [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | |
-| [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
-| [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
-| [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
+
+| [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md)
+| |
+
+| [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md)
+| |
+
+| [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md)
+| |
+
 | [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | |
+
 | [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
+
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
+
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
+
 | [`Mailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer.md) | |
+
 | [`Mailer_Message`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer_Message.md) | |
+
 | [`Normalizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Normalizer.md) | |
+
 | [`PhpToken`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PhpToken.md) | |
+
 | [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | |
+
 | [`ReturnTypeWillChange`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ReturnTypeWillChange.md) | |
+
 | [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
-| [`SimpleImageLib`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
+
+| [`SimpleImageLib`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SimpleImageLib.md) | A PHP class that
+makes working with images as simple as possible.|
+
 | [`UnhandledMatchError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/UnhandledMatchError.md) | |
+
 | [`ValueError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ValueError.md) | |
-| [`onCheckAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
-| [`onCompleteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
-| [`onContextAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
-| [`onExceptionAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onExceptionAction.md) | A class that extends the wrapper class.|
-| [`onFinalAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onFinalAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
-| [`onHeadersAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onHeadersAction.md) | Extending the wrapper class.|
-| [`onIncludesAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onIncludesAction.md) | Extending the wrapper class.|
-| [`onRequestAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onRequestAction.md) | Extending the wrapper class.|
-| [`onSendAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSendAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
-| [`onSentAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
-| [`onWriteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
+
+| [`onCheckAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCheckAction.md) | Importing the
+wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap
+events.|
+
+| [`onCompleteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onCompleteAction.md) | Extending
+the wrapper class, which is a class that allows you to hook into the request lifecycle.|
+
+| [`onContextAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onContextAction.md) | Extending the
+wrapper class, which is a class that is used to wrap the request and response objects.|
+
+| [`onExceptionAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onExceptionAction.md) | A class
+that extends the wrapper class.|
+
+| [`onFinalAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onFinalAction.md) | Extending the
+wrapper class, which is a class that allows you to hook into the request lifecycle.|
+
+| [`onHeadersAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onHeadersAction.md) | Extending the
+wrapper class.|
+
+| [`onIncludesAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onIncludesAction.md) | Extending
+the wrapper class.|
+
+| [`onRequestAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onRequestAction.md) | Extending the
+wrapper class.|
+
+| [`onSendAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSendAction.md) | Extending
+the `wrapper` class, which is a class that is used to wrap the `event` class.|
+
+| [`onSentAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSentAction.md) | Extending
+the `wrapper` class, which is a class that is used to wrap the `event` class.|
+
+| [`onWriteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onWriteAction.md) | Importing
+the `response` class from the `http` namespace.|
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
@@ -739,22 +865,32 @@ us.
 
 - [PHP Curl Class](https://github.com/php-curl-class/php-curl-class)      HTTP requests made easy PHP Curl Class makes
   it easy to send HTTP requests and integrate with web APIs.
+
 - [pminiProxy](https://github.com/joshdick/miniProxy) miniProxy is a simple web proxy written in PHP that can allow you
   to bypass Internet content filters, or to browse the internet anonymously. miniProxy is licensed under the GNU GPL v3.
   miniProxy is the successor to PageForward.
+
 - [php-proxy-app](https://github.com/Athlon1600/php-proxy-app)  Web Proxy Application built on php-proxy library ready
   to be installed on your server
+
 - [php-proxy](https://github.com/Athlon1600/php-proxy)   A web proxy script written in PHP and built as an alternative
   to Glype.
+
 - [KnProxy](https://github.com/jabbany/KnProxy) Lightweight, PHP-based Web Proxy that can utilize whatever remote
   connecting ablities your server has to offer. It should work out of the box. No configuration needed. For educational
   purposes.
+
 - [PHProxy](https://github.com/PHProxy/phproxy) PHP based web proxy. Initially developed by whitefyre
+
 - [Glype](https://github.com/k1995/glype)     A copy of glype,web-based proxy script written in PHP
+
 - [PHP Online Web Proxy](https://github.com/NicheOffice/php-web-proxy)  Online Web Proxy Website Script Written in PHP
+
 - [web-proxy-script](https://github.com/heiswayi/web-proxy-script)      Minimalist web proxy script
+
 - [Glype Official](https://github.com/vincentclee/glype)        About Glype proxy is a free, web-based proxy script
   written in PHP
+
 - [Censor Dodge Web Proxy](https://github.com/ryanmab/CensorDodge)      Censor Dodge is a lightweight and customisable
   proxy script built on PHP. The standalone library is intended to act as an extensible system that is easily
   customisable with plugins and themes.
@@ -763,7 +899,8 @@ us.
 
 ![image](https://user-images.githubusercontent.com/6468571/177675374-f3d170e8-fd9a-4e76-a9bf-5805bc2ce504.png)
 
-[MIT Software License for .yxorP The PHP Web-Proxy by don Pablo](https://choosealicense.com/licenses/mit/) The
+[Massachusetts Institute of Technology (MIT)](https://choosealicense.com/licenses/mit/)
+
 Massachusetts Institute of Technology (MIT) License is a permissive free software license developed in the late 1980s by
 the Massachusetts Institute of Technology. The MIT License was named after Cambridge, Massachusetts's Massachusetts
 Institute of Technology. This software license's moniker was conceived at the Massachusetts Institute of Technology in
