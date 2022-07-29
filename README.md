@@ -1,5 +1,3 @@
-![image](https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png)
-
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
 📢  [ [ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]

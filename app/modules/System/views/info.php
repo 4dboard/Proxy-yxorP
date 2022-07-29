@@ -79,13 +79,7 @@
                     <kiss-card class="kiss-padding kiss-bgcolor-contrast">
                         <div class="kiss-text-monospace kiss-size-small kiss-color-muted"
                              style="max-height:600px;overflow:auto;">
-                            <article class="markdown-body entry-content container-lg" itemprop="text"><p align="center"
-                                                                                                         dir="auto"><a
-                                        target="_blank" rel="noopener noreferrer"
-                                        href="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png"><img
-                                            align="center"
-                                            src="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png"
-                                            style="max-width: 100%;"></a></p>
+                            <article class="markdown-body entry-content container-lg" itemprop="text">
                                 <p align="center"><img align="center"
                                                        src="https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png"/>
                                 </p>
