@@ -46,6 +46,32 @@ protected static $names
 ## Methods
 
 
+### getName
+
+
+
+```php
+private static getName(mixed $name): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
 ### buildFieldsDefinitions
 
 
@@ -92,32 +118,6 @@ protected static getType(mixed $field): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$field` | **mixed** |  |
-
-
-
-
-***
-
-### getName
-
-
-
-```php
-private static getName(mixed $name): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
 
 
 

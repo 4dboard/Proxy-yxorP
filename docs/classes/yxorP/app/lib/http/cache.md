@@ -66,6 +66,32 @@ public static isValid(?string $key = null): bool
 
 ***
 
+### gen
+
+A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
+
+```php
+private static gen(?string $key): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **?string** |  |
+
+
+
+
+***
+
 ### set
 
 It's writing the content to the cache file.
@@ -86,32 +112,6 @@ public static set(mixed $content, ?string $key = null): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
-| `$key` | **?string** |  |
-
-
-
-
-***
-
-### gen
-
-A PHPDoc annotation that is used to tell the IDE that the function returns an array with the keys `key` and `path`.
-
-```php
-private static gen(?string $key): array
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
 | `$key` | **?string** |  |
 
 

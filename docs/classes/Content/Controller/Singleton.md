@@ -72,12 +72,12 @@ protected render( $view, array $params = []): mixed
 
 ***
 
-### unlockResource
+### initialize
 
 
 
 ```php
-public unlockResource(mixed $resourceId): mixed
+protected initialize(): mixed
 ```
 
 
@@ -86,12 +86,6 @@ public unlockResource(mixed $resourceId): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
 
 
 
@@ -124,12 +118,12 @@ protected isAllowed(string $permission): bool
 
 ***
 
-### initialize
+### checkAndLockResource
 
 
 
 ```php
-protected initialize(): mixed
+protected checkAndLockResource(mixed $resourceId): mixed
 ```
 
 
@@ -139,17 +133,23 @@ protected initialize(): mixed
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
 
 
 
 ***
 
-### checkAndLockResource
+### unlockResource
 
 
 
 ```php
-protected checkAndLockResource(mixed $resourceId): mixed
+public unlockResource(mixed $resourceId): mixed
 ```
 
 

@@ -149,38 +149,12 @@ public getBlue(): int
 
 ***
 
-### format
+### getInt
 
-Formats current color instance into given format.
-
-```php
-public format(string $type): string|int|array|self
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$type` | **string** |  |
-
-
-
-
-***
-
-### getRgb
-
-Calculates RGB in string format of current color instance.
+Calculates integer value of current color instance.
 
 ```php
-public getRgb(): string
+public getInt(): int
 ```
 
 
@@ -221,26 +195,6 @@ public getHex(string $prefix = &#039;&#039;): string
 
 ***
 
-### getInt
-
-Calculates integer value of current color instance.
-
-```php
-public getInt(): int
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getArray
 
 Calculates RGB in array format of current color instance.
@@ -255,6 +209,52 @@ public getArray(): array
 
 
 
+
+
+
+
+***
+
+### getRgb
+
+Calculates RGB in string format of current color instance.
+
+```php
+public getRgb(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### format
+
+Formats current color instance into given format.
+
+```php
+public format(string $type): string|int|array|self
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$type` | **string** |  |
 
 
 

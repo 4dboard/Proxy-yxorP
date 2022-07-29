@@ -32,6 +32,26 @@ protected array $keys
 ## Methods
 
 
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### getKey
 
 
@@ -64,26 +84,6 @@ public getKey(string $key): mixed
 
 ```php
 public keys(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
 ```
 
 

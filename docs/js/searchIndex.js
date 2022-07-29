@@ -1511,15 +1511,15 @@ Search.appendIndex(
             "summary": "Used\u0020to\u0020check\u0020if\u0020the\u0020cache\u0020file\u0020exists.",
             "url": "classes/yxorP-app-lib-http-cache.html#method_isValid"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "It\u0027s\u0020writing\u0020the\u0020content\u0020to\u0020the\u0020cache\u0020file.",
-            "url": "classes/yxorP-app-lib-http-cache.html#method_set"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Agen\u0028\u0029",
             "name": "gen",
             "summary": "A\u0020PHPDoc\u0020annotation\u0020that\u0020is\u0020used\u0020to\u0020tell\u0020the\u0020IDE\u0020that\u0020the\u0020function\u0020returns\u0020an\u0020array\u0020with\u0020the\u0020keys\u0020\u0060key\u0060\u0020and\u0020\u0060path\u0060.",
             "url": "classes/yxorP-app-lib-http-cache.html#method_gen"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\cache\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "It\u0027s\u0020writing\u0020the\u0020content\u0020to\u0020the\u0020cache\u0020file.",
+            "url": "classes/yxorP-app-lib-http-cache.html#method_set"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\domain",
             "name": "domain",
@@ -1636,30 +1636,15 @@ Search.appendIndex(
             "summary": "The\u0020constructor\u0020of\u0020the\u0020class.",
             "url": "classes/yxorP-app-lib-http-request.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AparseQuery\u0028\u0029",
-            "name": "parseQuery",
-            "summary": "Parsing\u0020a\u0020query\u0020string\u0020into\u0020an\u0020array.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_parseQuery"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AbuildPostBody\u0028\u0029",
-            "name": "buildPostBody",
-            "summary": "Generating\u0020a\u0020boundary\u0020for\u0020the\u0020multipart\/form\u002Ddata\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_buildPostBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AcreateFromGlobals\u0028\u0029",
-            "name": "createFromGlobals",
-            "summary": "Detecting\u0020the\u0020content\u0020type\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_createFromGlobals"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AgenerateBoundary\u0028\u0029",
-            "name": "generateBoundary",
-            "summary": "Preparing\u0020the\u0020body\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_generateBoundary"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AsetUrl\u0028\u0029",
             "name": "setUrl",
             "summary": "Setting\u0020the\u0020URL\u0020of\u0020the\u0020request.",
             "url": "classes/yxorP-app-lib-http-request.html#method_setUrl"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AparseQuery\u0028\u0029",
+            "name": "parseQuery",
+            "summary": "Parsing\u0020a\u0020query\u0020string\u0020into\u0020an\u0020array.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_parseQuery"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AsetBody\u0028\u0029",
             "name": "setBody",
@@ -1670,6 +1655,26 @@ Search.appendIndex(
             "name": "prepare",
             "summary": "Setting\u0020the\u0020body\u0020of\u0020the\u0020request.",
             "url": "classes/yxorP-app-lib-http-request.html#method_prepare"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AgenerateBoundary\u0028\u0029",
+            "name": "generateBoundary",
+            "summary": "Preparing\u0020the\u0020body\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_generateBoundary"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AbuildPostBody\u0028\u0029",
+            "name": "buildPostBody",
+            "summary": "Generating\u0020a\u0020boundary\u0020for\u0020the\u0020multipart\/form\u002Ddata\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_buildPostBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AdetectContentType\u0028\u0029",
+            "name": "detectContentType",
+            "summary": "Building\u0020the\u0020body\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_detectContentType"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AcreateFromGlobals\u0028\u0029",
+            "name": "createFromGlobals",
+            "summary": "Detecting\u0020the\u0020content\u0020type\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-http-request.html#method_createFromGlobals"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AgetMethod\u0028\u0029",
             "name": "getMethod",
@@ -1705,11 +1710,6 @@ Search.appendIndex(
             "name": "getUri",
             "summary": "An\u0020alias\u0020for\u0020\u0060public\u0020function\u0020getUrl\u0028\u0029\u0060.",
             "url": "classes/yxorP-app-lib-http-request.html#method_getUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003AdetectContentType\u0028\u0029",
-            "name": "detectContentType",
-            "summary": "Building\u0020the\u0020body\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-http-request.html#method_detectContentType"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\request\u003A\u003A\u0024params",
             "name": "params",
@@ -48711,25 +48711,25 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/App-Controller-Authenticated.html"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AunlockResource\u0028\u0029",
-            "name": "unlockResource",
+            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_unlockResource"
+            "url": "classes/App-Controller-Authenticated.html#method_initialize"
         },                {
             "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AisAllowed\u0028\u0029",
             "name": "isAllowed",
             "summary": "",
             "url": "classes/App-Controller-Authenticated.html#method_isAllowed"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AcheckAndLockResource\u0028\u0029",
             "name": "checkAndLockResource",
             "summary": "",
             "url": "classes/App-Controller-Authenticated.html#method_checkAndLockResource"
+        },                {
+            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AunlockResource\u0028\u0029",
+            "name": "unlockResource",
+            "summary": "",
+            "url": "classes/App-Controller-Authenticated.html#method_unlockResource"
         },                {
             "fqsen": "\\App\\Controller\\Authenticated\u003A\u003A\u0024user",
             "name": "user",
@@ -48741,15 +48741,15 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/App-Controller-Base.html"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controller-Base.html#method_index"
-        },                {
             "fqsen": "\\App\\Controller\\Base\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
             "url": "classes/App-Controller-Base.html#method_initialize"
+        },                {
+            "fqsen": "\\App\\Controller\\Base\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-Base.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\Base\u003A\u003Abefore\u0028\u0029",
             "name": "before",
@@ -48841,15 +48841,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Query.html"
         },                {
+            "fqsen": "\\App\\GraphQL\\Query\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/App-GraphQL-Query.html#method_init"
+        },                {
             "fqsen": "\\App\\GraphQL\\Query\u003A\u003Aprocess\u0028\u0029",
             "name": "process",
             "summary": "",
             "url": "classes/App-GraphQL-Query.html#method_process"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
+            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
+            "name": "initialized",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#method_init"
+            "url": "classes/App-GraphQL-Query.html#property_initialized"
         },                {
             "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024queries",
             "name": "queries",
@@ -48871,15 +48876,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Query.html#property_directives"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
-            "name": "initialized",
-            "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_initialized"
-        },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes",
             "name": "FieldTypes",
             "summary": "",
             "url": "classes/App-GraphQL-Types-FieldTypes.html"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getName"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AbuildFieldsDefinitions\u0028\u0029",
             "name": "buildFieldsDefinitions",
@@ -48890,11 +48895,6 @@ Search.appendIndex(
             "name": "getType",
             "summary": "",
             "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getType"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AgetName\u0028\u0029",
-            "name": "getName",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getName"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
@@ -48921,20 +48921,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Types-JsonType.html#method___construct"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_instance"
-        },                {
             "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003AparseValue\u0028\u0029",
             "name": "parseValue",
             "summary": "",
             "url": "classes/App-GraphQL-Types-JsonType.html#method_parseValue"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aidentity\u0028\u0029",
-            "name": "identity",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_identity"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aserialize\u0028\u0029",
             "name": "serialize",
@@ -48945,6 +48935,16 @@ Search.appendIndex(
             "name": "parseLiteral",
             "summary": "",
             "url": "classes/App-GraphQL-Types-JsonType.html#method_parseLiteral"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aidentity\u0028\u0029",
+            "name": "identity",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-JsonType.html#method_identity"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-JsonType.html#method_instance"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003A\u0024name",
             "name": "name",
@@ -48961,11 +48961,6 @@ Search.appendIndex(
             "summary": "Scalar\u0020Type\u0020Definition",
             "url": "classes/App-GraphQL-Types-UploadType.html"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-UploadType.html#method_instance"
-        },                {
             "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Aserialize\u0028\u0029",
             "name": "serialize",
             "summary": "Serializes\u0020an\u0020internal\u0020value\u0020to\u0020include\u0020in\u0020a\u0020response.",
@@ -48980,6 +48975,11 @@ Search.appendIndex(
             "name": "parseLiteral",
             "summary": "Parses\u0020an\u0020externally\u0020provided\u0020literal\u0020value\u0020\u0028hardcoded\u0020in\u0020GraphQL\u0020query\u0029\u0020to\u0020use\u0020as\u0020an\u0020input",
             "url": "classes/App-GraphQL-Types-UploadType.html#method_parseLiteral"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-UploadType.html#method_instance"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003A\u0024name",
             "name": "name",
@@ -48996,6 +48996,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Acl.html"
         },                {
+            "fqsen": "\\App\\Helper\\Acl\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-Acl.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Helper\\Acl\u003A\u003A\u0024roles",
             "name": "roles",
             "summary": "",
@@ -49011,11 +49016,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Acl.html#method_isSuperAdmin"
         },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-Acl.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\Acl\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
@@ -49026,6 +49026,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Admin.html"
         },                {
+            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/App-Helper-Admin.html#method_isResourceLocked"
+        },                {
+            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
+            "name": "isResourceEditableByCurrentUser",
+            "summary": "",
+            "url": "classes/App-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+        },                {
             "fqsen": "\\App\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
             "summary": "",
@@ -49035,16 +49045,6 @@ Search.appendIndex(
             "name": "updateLockedResourceId",
             "summary": "",
             "url": "classes/App-Helper-Admin.html#method_updateLockedResourceId"
-        },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
-            "name": "isResourceEditableByCurrentUser",
-            "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_isResourceEditableByCurrentUser"
-        },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_isResourceLocked"
         },                {
             "fqsen": "\\App\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
             "name": "unlockResourceId",
@@ -49061,6 +49061,11 @@ Search.appendIndex(
             "summary": "Async\u0020Helper\u0020class.",
             "url": "classes/App-Helper-Async.html"
         },                {
+            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-Async.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
             "name": "exec",
             "summary": "",
@@ -49070,11 +49075,6 @@ Search.appendIndex(
             "name": "finished",
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_finished"
-        },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Apossible\u0028\u0029",
-            "name": "possible",
-            "summary": "",
-            "url": "classes/App-Helper-Async.html#method_possible"
         },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
@@ -49086,10 +49086,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_isExecAvailable"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\App\\Helper\\Async\u003A\u003Apossible\u0028\u0029",
+            "name": "possible",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_initialize"
+            "url": "classes/App-Helper-Async.html#method_possible"
         },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
@@ -49106,6 +49106,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Auth.html#method_authenticate"
         },                {
+            "fqsen": "\\App\\Helper\\Auth\u003A\u003AgetUser\u0028\u0029",
+            "name": "getUser",
+            "summary": "",
+            "url": "classes/App-Helper-Auth.html#method_getUser"
+        },                {
             "fqsen": "\\App\\Helper\\Auth\u003A\u003AsetUser\u0028\u0029",
             "name": "setUser",
             "summary": "",
@@ -49115,11 +49120,6 @@ Search.appendIndex(
             "name": "logout",
             "summary": "",
             "url": "classes/App-Helper-Auth.html#method_logout"
-        },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003AgetUser\u0028\u0029",
-            "name": "getUser",
-            "summary": "",
-            "url": "classes/App-Helper-Auth.html#method_getUser"
         },                {
             "fqsen": "\\App\\Helper\\Auth\u003A\u003A\u0024sessionKey",
             "name": "sessionKey",
@@ -49131,15 +49131,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Csrf.html"
         },                {
-            "fqsen": "\\App\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
-            "name": "token",
-            "summary": "",
-            "url": "classes/App-Helper-Csrf.html#method_token"
-        },                {
             "fqsen": "\\App\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
             "name": "generateToken",
             "summary": "",
             "url": "classes/App-Helper-Csrf.html#method_generateToken"
+        },                {
+            "fqsen": "\\App\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
+            "name": "token",
+            "summary": "",
+            "url": "classes/App-Helper-Csrf.html#method_token"
         },                {
             "fqsen": "\\App\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
             "name": "isValid",
@@ -49171,6 +49171,11 @@ Search.appendIndex(
             "summary": "I18n\u0020class.\u0020Manage\u0020translations",
             "url": "classes/App-Helper-i18n.html"
         },                {
+            "fqsen": "\\App\\Helper\\i18n\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-i18n.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Helper\\i18n\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Get\u0020translated\u0020string\u0020by\u0020key",
@@ -49191,10 +49196,15 @@ Search.appendIndex(
             "summary": "Get\u0020language\u0020data",
             "url": "classes/App-Helper-i18n.html#method_data"
         },                {
-            "fqsen": "\\App\\Helper\\i18n\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024locale",
+            "name": "locale",
             "summary": "",
-            "url": "classes/App-Helper-i18n.html#method_initialize"
+            "url": "classes/App-Helper-i18n.html#property_locale"
+        },                {
+            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024_languages",
+            "name": "_languages",
+            "summary": "",
+            "url": "classes/App-Helper-i18n.html#property__languages"
         },                {
             "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024locales",
             "name": "locales",
@@ -49211,30 +49221,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-i18n.html#property_currencies"
         },                {
-            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024locale",
-            "name": "locale",
-            "summary": "",
-            "url": "classes/App-Helper-i18n.html#property_locale"
-        },                {
-            "fqsen": "\\App\\Helper\\i18n\u003A\u003A\u0024_languages",
-            "name": "_languages",
-            "summary": "",
-            "url": "classes/App-Helper-i18n.html#property__languages"
-        },                {
             "fqsen": "\\App\\Helper\\JWT",
             "name": "JWT",
             "summary": "",
             "url": "classes/App-Helper-JWT.html"
         },                {
-            "fqsen": "\\App\\Helper\\JWT\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "alias\u0020for\u0020create",
-            "url": "classes/App-Helper-JWT.html#method_encode"
-        },                {
             "fqsen": "\\App\\Helper\\JWT\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
             "url": "classes/App-Helper-JWT.html#method_create"
+        },                {
+            "fqsen": "\\App\\Helper\\JWT\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "alias\u0020for\u0020create",
+            "url": "classes/App-Helper-JWT.html#method_encode"
         },                {
             "fqsen": "\\App\\Helper\\JWT\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
@@ -49266,25 +49266,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html"
         },                {
+            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-ResponseCache.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html#method_handle"
-        },                {
-            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003AgetCache\u0028\u0029",
-            "name": "getCache",
-            "summary": "",
-            "url": "classes/App-Helper-ResponseCache.html#method_getCache"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html#method_cache"
         },                {
-            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003AgetCache\u0028\u0029",
+            "name": "getCache",
             "summary": "",
-            "url": "classes/App-Helper-ResponseCache.html#method_initialize"
+            "url": "classes/App-Helper-ResponseCache.html#method_getCache"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003A\u0024cacheHandler",
             "name": "cacheHandler",
@@ -49326,6 +49326,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Theme.html"
         },                {
+            "fqsen": "\\App\\Helper\\Theme\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-Theme.html#method_initialize"
+        },                {
             "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024title",
             "name": "title",
             "summary": "",
@@ -49361,15 +49366,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Theme.html#property_vars"
         },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-Theme.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\TWFA",
             "name": "TWFA",
             "summary": "",
             "url": "classes/App-Helper-TWFA.html"
+        },                {
+            "fqsen": "\\App\\Helper\\TWFA\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-TWFA.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\TWFA\u003A\u003AcreateSecret\u0028\u0029",
             "name": "createSecret",
@@ -49390,11 +49395,6 @@ Search.appendIndex(
             "name": "verifyCode",
             "summary": "",
             "url": "classes/App-Helper-TWFA.html#method_verifyCode"
-        },                {
-            "fqsen": "\\App\\Helper\\TWFA\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-TWFA.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\TWFA\u003A\u003A\u0024tfa",
             "name": "tfa",
@@ -49421,15 +49421,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-RestApi-Query.html"
         },                {
+            "fqsen": "\\App\\RestApi\\Query\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/App-RestApi-Query.html#method_init"
+        },                {
             "fqsen": "\\App\\RestApi\\Query\u003A\u003Aprocess\u0028\u0029",
             "name": "process",
             "summary": "",
             "url": "classes/App-RestApi-Query.html#method_process"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
+            "fqsen": "\\App\\RestApi\\Query\u003A\u003AaddEndPoint\u0028\u0029",
+            "name": "addEndPoint",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_init"
+            "url": "classes/App-RestApi-Query.html#method_addEndPoint"
         },                {
             "fqsen": "\\App\\RestApi\\Query\u003A\u003AisPathMatching\u0028\u0029",
             "name": "isPathMatching",
@@ -49440,11 +49445,6 @@ Search.appendIndex(
             "name": "getRegex",
             "summary": "",
             "url": "classes/App-RestApi-Query.html#method_getRegex"
-        },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003AaddEndPoint\u0028\u0029",
-            "name": "addEndPoint",
-            "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_addEndPoint"
         },                {
             "fqsen": "\\App\\RestApi\\Query\u003A\u003A\u0024endpoints",
             "name": "endpoints",
@@ -49581,95 +49581,30 @@ Search.appendIndex(
             "summary": "Class\u0020SVGSanitizer",
             "url": "classes/SVGSanitizer.html"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#method___construct"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
             "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
             "url": "classes/SVGSanitizer.html#method_clean"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
-            "name": "sanitize",
-            "summary": "Sanitize\u0020the\u0020passed\u0020string",
-            "url": "classes/SVGSanitizer.html#method_sanitize"
+            "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#method___construct"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
             "name": "resetInternal",
             "summary": "Set\u0020up\u0020the\u0020DOMDocument",
             "url": "classes/SVGSanitizer.html#method_resetInternal"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
-            "name": "setUpBefore",
-            "summary": "Set\u0020up\u0020libXML\u0020before\u0020we\u0020start",
-            "url": "classes/SVGSanitizer.html#method_setUpBefore"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
-            "name": "resetAfter",
-            "summary": "Reset\u0020the\u0020class\u0020after\u0020use",
-            "url": "classes/SVGSanitizer.html#method_resetAfter"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
-            "name": "removeDoctype",
-            "summary": "Remove\u0020the\u0020XML\u0020Doctype\nIt\u0020may\u0020be\u0020caught\u0020later\u0020on\u0020output\u0020but\u0020that\u0020seems\u0020to\u0020be\u0020buggy,\u0020so\u0020we\u0020need\u0020to\u0020make\u0020sure\u0020it\u0027s\u0020gone",
-            "url": "classes/SVGSanitizer.html#method_removeDoctype"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AstartClean\u0028\u0029",
-            "name": "startClean",
-            "summary": "Start\u0020the\u0020cleaning\u0020with\u0020tags,\u0020then\u0020we\u0020move\u0020onto\u0020attributes\u0020and\u0020hrefs\u0020later",
-            "url": "classes/SVGSanitizer.html#method_startClean"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
-            "name": "cleanAttributesOnWhitelist",
-            "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
-            "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
-            "name": "isAriaAttribute",
-            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
-            "url": "classes/SVGSanitizer.html#method_isAriaAttribute"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
-            "name": "isDataAttribute",
-            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
-            "url": "classes/SVGSanitizer.html#method_isDataAttribute"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
-            "name": "hasRemoteReference",
-            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
-            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
-            "name": "removeNonPrintableCharacters",
-            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
-            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
-            "name": "cleanXlinkHrefs",
-            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
-            "name": "cleanHrefs",
-            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
-            "name": "isUseTagDirty",
-            "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
-            "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
+            "name": "setXMLOptions",
+            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
             "name": "getXMLOptions",
             "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
             "url": "classes/SVGSanitizer.html#method_getXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
-            "name": "setXMLOptions",
-            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
             "name": "getAllowedTags",
@@ -49696,6 +49631,56 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
         },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
+            "name": "sanitize",
+            "summary": "Sanitize\u0020the\u0020passed\u0020string",
+            "url": "classes/SVGSanitizer.html#method_sanitize"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
+            "name": "setUpBefore",
+            "summary": "Set\u0020up\u0020libXML\u0020before\u0020we\u0020start",
+            "url": "classes/SVGSanitizer.html#method_setUpBefore"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
+            "name": "resetAfter",
+            "summary": "Reset\u0020the\u0020class\u0020after\u0020use",
+            "url": "classes/SVGSanitizer.html#method_resetAfter"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
+            "name": "removeDoctype",
+            "summary": "Remove\u0020the\u0020XML\u0020Doctype\nIt\u0020may\u0020be\u0020caught\u0020later\u0020on\u0020output\u0020but\u0020that\u0020seems\u0020to\u0020be\u0020buggy,\u0020so\u0020we\u0020need\u0020to\u0020make\u0020sure\u0020it\u0027s\u0020gone",
+            "url": "classes/SVGSanitizer.html#method_removeDoctype"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AstartClean\u0028\u0029",
+            "name": "startClean",
+            "summary": "Start\u0020the\u0020cleaning\u0020with\u0020tags,\u0020then\u0020we\u0020move\u0020onto\u0020attributes\u0020and\u0020hrefs\u0020later",
+            "url": "classes/SVGSanitizer.html#method_startClean"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
+            "name": "cleanAttributesOnWhitelist",
+            "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
+            "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
+            "name": "cleanXlinkHrefs",
+            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
+            "name": "cleanHrefs",
+            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
+            "name": "removeNonPrintableCharacters",
+            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
+            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
+            "name": "hasRemoteReference",
+            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
+            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
+        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
             "name": "minify",
             "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
@@ -49705,6 +49690,21 @@ Search.appendIndex(
             "name": "removeXMLTag",
             "summary": "",
             "url": "classes/SVGSanitizer.html#property_removeXMLTag"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
+            "name": "isAriaAttribute",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
+            "url": "classes/SVGSanitizer.html#method_isAriaAttribute"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
+            "name": "isDataAttribute",
+            "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
+            "url": "classes/SVGSanitizer.html#method_isDataAttribute"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
+            "name": "isUseTagDirty",
+            "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
+            "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
@@ -49796,15 +49796,30 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020indexed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
             "url": "classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders"
         },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
+            "name": "vendorDir",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
+        },                {
             "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024registeredLoaders",
             "name": "registeredLoaders",
             "summary": "",
             "url": "classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
-            "name": "vendorDir",
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
+            "name": "getInstalled",
             "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
+            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
+            "name": "canGetVendors",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
+            "name": "installedByVendor",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
         },                {
             "fqsen": "\\ColorThief\\Color",
             "name": "Color",
@@ -49831,30 +49846,30 @@ Search.appendIndex(
             "summary": "Get\u0020blue\u0020value.",
             "url": "classes/ColorThief-Color.html#method_getBlue"
         },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003Aformat\u0028\u0029",
-            "name": "format",
-            "summary": "Formats\u0020current\u0020color\u0020instance\u0020into\u0020given\u0020format.",
-            "url": "classes/ColorThief-Color.html#method_format"
-        },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003AgetRgb\u0028\u0029",
-            "name": "getRgb",
-            "summary": "Calculates\u0020RGB\u0020in\u0020string\u0020format\u0020of\u0020current\u0020color\u0020instance.",
-            "url": "classes/ColorThief-Color.html#method_getRgb"
+            "fqsen": "\\ColorThief\\Color\u003A\u003AgetInt\u0028\u0029",
+            "name": "getInt",
+            "summary": "Calculates\u0020integer\u0020value\u0020of\u0020current\u0020color\u0020instance.",
+            "url": "classes/ColorThief-Color.html#method_getInt"
         },                {
             "fqsen": "\\ColorThief\\Color\u003A\u003AgetHex\u0028\u0029",
             "name": "getHex",
             "summary": "Calculates\u0020hexadecimal\u0020value\u0020of\u0020current\u0020color\u0020instance.",
             "url": "classes/ColorThief-Color.html#method_getHex"
         },                {
-            "fqsen": "\\ColorThief\\Color\u003A\u003AgetInt\u0028\u0029",
-            "name": "getInt",
-            "summary": "Calculates\u0020integer\u0020value\u0020of\u0020current\u0020color\u0020instance.",
-            "url": "classes/ColorThief-Color.html#method_getInt"
-        },                {
             "fqsen": "\\ColorThief\\Color\u003A\u003AgetArray\u0028\u0029",
             "name": "getArray",
             "summary": "Calculates\u0020RGB\u0020in\u0020array\u0020format\u0020of\u0020current\u0020color\u0020instance.",
             "url": "classes/ColorThief-Color.html#method_getArray"
+        },                {
+            "fqsen": "\\ColorThief\\Color\u003A\u003AgetRgb\u0028\u0029",
+            "name": "getRgb",
+            "summary": "Calculates\u0020RGB\u0020in\u0020string\u0020format\u0020of\u0020current\u0020color\u0020instance.",
+            "url": "classes/ColorThief-Color.html#method_getRgb"
+        },                {
+            "fqsen": "\\ColorThief\\Color\u003A\u003Aformat\u0028\u0029",
+            "name": "format",
+            "summary": "Formats\u0020current\u0020color\u0020instance\u0020into\u0020given\u0020format.",
+            "url": "classes/ColorThief-Color.html#method_format"
         },                {
             "fqsen": "\\ColorThief\\Color\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
@@ -49881,6 +49896,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html"
         },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorIndex\u0028\u0029",
+            "name": "getColorIndex",
+            "summary": "Get\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029\u0020from\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020\u00280\u002D31\u0029.",
+            "url": "classes/ColorThief-ColorThief.html#method_getColorIndex"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorsFromIndex\u0028\u0029",
+            "name": "getColorsFromIndex",
+            "summary": "Get\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020from\u0020a\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029.",
+            "url": "classes/ColorThief-ColorThief.html#method_getColorsFromIndex"
+        },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
             "summary": "Gets\u0020the\u0020dominant\u0020color\u0020from\u0020the\u0020image\u0020using\u0020the\u0020median\u0020cut\u0020algorithm\u0020to\u0020cluster\u0020similar\u0020colors.",
@@ -49896,30 +49921,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_loadImage"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorIndex\u0028\u0029",
-            "name": "getColorIndex",
-            "summary": "Get\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029\u0020from\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020\u00280\u002D31\u0029.",
-            "url": "classes/ColorThief-ColorThief.html#method_getColorIndex"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003Aquantize\u0028\u0029",
-            "name": "quantize",
-            "summary": "",
-            "url": "classes/ColorThief-ColorThief.html#method_quantize"
-        },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AvboxFromHistogram\u0028\u0029",
             "name": "vboxFromHistogram",
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_vboxFromHistogram"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AgetColorsFromIndex\u0028\u0029",
-            "name": "getColorsFromIndex",
-            "summary": "Get\u0020RGB\u0020values\u0020\u00280\u002D255\u0029\u0020or\u0020RGB\u0020Histogram\u0020Buckets\u0020from\u0020a\u0020combined\u0020color\u0020index\u0020\u00283\u0020colors\u0020as\u0020one\u0020integer\u0029.",
-            "url": "classes/ColorThief-ColorThief.html#method_getColorsFromIndex"
-        },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AquantizeIter\u0028\u0029",
-            "name": "quantizeIter",
-            "summary": "Inner\u0020function\u0020to\u0020do\u0020the\u0020iteration.",
-            "url": "classes/ColorThief-ColorThief.html#method_quantizeIter"
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AdoCut\u0028\u0029",
+            "name": "doCut",
+            "summary": "",
+            "url": "classes/ColorThief-ColorThief.html#method_doCut"
         },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003AmedianCutApply\u0028\u0029",
             "name": "medianCutApply",
@@ -49936,10 +49946,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-ColorThief.html#method_getVBoxColorRanges"
         },                {
-            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AdoCut\u0028\u0029",
-            "name": "doCut",
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003AquantizeIter\u0028\u0029",
+            "name": "quantizeIter",
+            "summary": "Inner\u0020function\u0020to\u0020do\u0020the\u0020iteration.",
+            "url": "classes/ColorThief-ColorThief.html#method_quantizeIter"
+        },                {
+            "fqsen": "\\ColorThief\\ColorThief\u003A\u003Aquantize\u0028\u0029",
+            "name": "quantize",
             "summary": "",
-            "url": "classes/ColorThief-ColorThief.html#method_doCut"
+            "url": "classes/ColorThief-ColorThief.html#method_quantize"
         },                {
             "fqsen": "\\ColorThief\\ColorThief\u003A\u003ASIGBITS",
             "name": "SIGBITS",
@@ -50141,15 +50156,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_isAvailable"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003AloadFromBinary\u0028\u0029",
-            "name": "loadFromBinary",
-            "summary": "",
-            "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_loadFromBinary"
-        },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "Loads\u0020an\u0020image\u0020resource.",
             "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_load"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003AloadFromBinary\u0028\u0029",
+            "name": "loadFromBinary",
+            "summary": "",
+            "url": "classes/ColorThief-Image-Adapter-GmagickAdapter.html#method_loadFromBinary"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\GmagickAdapter\u003A\u003AloadFromPath\u0028\u0029",
             "name": "loadFromPath",
@@ -50186,15 +50201,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_isAvailable"
         },                {
-            "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003AloadFromBinary\u0028\u0029",
-            "name": "loadFromBinary",
-            "summary": "",
-            "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_loadFromBinary"
-        },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "Loads\u0020an\u0020image\u0020resource.",
             "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_load"
+        },                {
+            "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003AloadFromBinary\u0028\u0029",
+            "name": "loadFromBinary",
+            "summary": "",
+            "url": "classes/ColorThief-Image-Adapter-ImagickAdapter.html#method_loadFromBinary"
         },                {
             "fqsen": "\\ColorThief\\Image\\Adapter\\ImagickAdapter\u003A\u003AloadFromPath\u0028\u0029",
             "name": "loadFromPath",
@@ -50236,6 +50251,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_load"
         },                {
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AcreateAdapter\u0028\u0029",
+            "name": "createAdapter",
+            "summary": "Creates\u0020an\u0020adapter\u0020instance\u0020according\u0020to\u0020config\u0020settings.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_createAdapter"
+        },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisGdImage\u0028\u0029",
             "name": "isGdImage",
             "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020a\u0020GD\u0020image.",
@@ -50251,25 +50271,20 @@ Search.appendIndex(
             "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020a\u0020Gmagick\u0020object.",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_isGmagick"
         },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AcreateAdapter\u0028\u0029",
-            "name": "createAdapter",
-            "summary": "Creates\u0020an\u0020adapter\u0020instance\u0020according\u0020to\u0020config\u0020settings.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_createAdapter"
-        },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisBinary\u0028\u0029",
-            "name": "isBinary",
-            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020binary\u0020data.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_isBinary"
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisFilePath\u0028\u0029",
+            "name": "isFilePath",
+            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020file\u0020path.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_isFilePath"
         },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisUrl\u0028\u0029",
             "name": "isUrl",
             "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020url.",
             "url": "classes/ColorThief-Image-ImageLoader.html#method_isUrl"
         },                {
-            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisFilePath\u0028\u0029",
-            "name": "isFilePath",
-            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020file\u0020path.",
-            "url": "classes/ColorThief-Image-ImageLoader.html#method_isFilePath"
+            "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003AisBinary\u0028\u0029",
+            "name": "isBinary",
+            "summary": "Determines\u0020if\u0020given\u0020source\u0020data\u0020is\u0020binary\u0020data.",
+            "url": "classes/ColorThief-Image-ImageLoader.html#method_isBinary"
         },                {
             "fqsen": "\\ColorThief\\Image\\ImageLoader\u003A\u003A\u0024preferredAdapter",
             "name": "preferredAdapter",
@@ -50286,10 +50301,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method___construct"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003AsetComparator\u0028\u0029",
-            "name": "setComparator",
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003Asort\u0028\u0029",
+            "name": "sort",
             "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_setComparator"
+            "url": "classes/ColorThief-PQueue.html#method_sort"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Apush\u0028\u0029",
             "name": "push",
@@ -50301,25 +50316,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_peek"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003Asort\u0028\u0029",
-            "name": "sort",
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003Apop\u0028\u0029",
+            "name": "pop",
             "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_sort"
+            "url": "classes/ColorThief-PQueue.html#method_pop"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Asize\u0028\u0029",
             "name": "size",
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_size"
         },                {
-            "fqsen": "\\ColorThief\\PQueue\u003A\u003Apop\u0028\u0029",
-            "name": "pop",
-            "summary": "",
-            "url": "classes/ColorThief-PQueue.html#method_pop"
-        },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003Amap\u0028\u0029",
             "name": "map",
             "summary": "",
             "url": "classes/ColorThief-PQueue.html#method_map"
+        },                {
+            "fqsen": "\\ColorThief\\PQueue\u003A\u003AsetComparator\u0028\u0029",
+            "name": "setComparator",
+            "summary": "",
+            "url": "classes/ColorThief-PQueue.html#method_setComparator"
         },                {
             "fqsen": "\\ColorThief\\PQueue\u003A\u003AgetContent\u0028\u0029",
             "name": "getContent",
@@ -50351,20 +50366,15 @@ Search.appendIndex(
             "summary": "VBox\u0020constructor.",
             "url": "classes/ColorThief-VBox.html#method___construct"
         },                {
-            "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024count",
-            "name": "count",
-            "summary": "",
-            "url": "classes/ColorThief-VBox.html#property_count"
-        },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024volume",
             "name": "volume",
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_volume"
         },                {
-            "fqsen": "\\ColorThief\\VBox\u003A\u003Acontains\u0028\u0029",
-            "name": "contains",
+            "fqsen": "\\ColorThief\\VBox\u003A\u003A\u0024count",
+            "name": "count",
             "summary": "",
-            "url": "classes/ColorThief-VBox.html#method_contains"
+            "url": "classes/ColorThief-VBox.html#property_count"
         },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
@@ -50375,6 +50385,11 @@ Search.appendIndex(
             "name": "avg",
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_avg"
+        },                {
+            "fqsen": "\\ColorThief\\VBox\u003A\u003Acontains\u0028\u0029",
+            "name": "contains",
+            "summary": "",
+            "url": "classes/ColorThief-VBox.html#method_contains"
         },                {
             "fqsen": "\\ColorThief\\VBox\u003A\u003AlongestAxis\u0028\u0029",
             "name": "longestAxis",
@@ -50476,11 +50491,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Content-Controller-Models.html#method_create"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003AgetGroups\u0028\u0029",
-            "name": "getGroups",
-            "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_getGroups"
-        },                {
             "fqsen": "\\Content\\Controller\\Models\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
             "summary": "",
@@ -50511,6 +50521,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Content-Controller-Models.html#method_clone"
         },                {
+            "fqsen": "\\Content\\Controller\\Models\u003A\u003AgetGroups\u0028\u0029",
+            "name": "getGroups",
+            "summary": "",
+            "url": "classes/Content-Controller-Models.html#method_getGroups"
+        },                {
             "fqsen": "\\Content\\Controller\\Singleton",
             "name": "Singleton",
             "summary": "Class\u0020Controller",
@@ -50535,6 +50550,11 @@ Search.appendIndex(
             "name": "Api",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Api.html"
+        },                {
+            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Api.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Api\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -50561,11 +50581,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Api.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
-            "summary": "",
-            "url": "classes/System-Controller-Api.html#method_cache"
-        },                {
             "fqsen": "\\System\\Controller\\Api\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
@@ -50591,15 +50606,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Api.html#method_graphqlViewer"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
+            "fqsen": "\\System\\Controller\\Api\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_before"
+            "url": "classes/System-Controller-Api.html#method_cache"
         },                {
             "fqsen": "\\System\\Controller\\Locales",
             "name": "Locales",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Locales.html"
+        },                {
+            "fqsen": "\\System\\Controller\\Locales\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Locales.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Locales\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -50621,11 +50641,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Locales.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
-            "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_cache"
-        },                {
             "fqsen": "\\System\\Controller\\Locales\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
@@ -50636,15 +50651,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Locales.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
+            "fqsen": "\\System\\Controller\\Locales\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_before"
+            "url": "classes/System-Controller-Locales.html#method_cache"
         },                {
             "fqsen": "\\System\\Controller\\Logs",
             "name": "Logs",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Logs.html"
+        },                {
+            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Logs.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Logs\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -50655,11 +50675,6 @@ Search.appendIndex(
             "name": "load",
             "summary": "",
             "url": "classes/System-Controller-Logs.html#method_load"
-        },                {
-            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Logs.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Settings",
             "name": "Settings",
@@ -50681,6 +50696,11 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Users-Roles.html"
         },                {
+            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Users-Roles.html#method_before"
+        },                {
             "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
@@ -50701,11 +50721,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Users-Roles.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
-            "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_cache"
-        },                {
             "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
@@ -50716,15 +50731,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Users-Roles.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
+            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_before"
+            "url": "classes/System-Controller-Users-Roles.html#method_cache"
         },                {
             "fqsen": "\\System\\Controller\\Users",
             "name": "Users",
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Users.html"
+        },                {
+            "fqsen": "\\System\\Controller\\Users\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Users.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Users\u003A\u003Aindex\u0028\u0029",
             "name": "index",
@@ -50735,11 +50755,6 @@ Search.appendIndex(
             "name": "user",
             "summary": "",
             "url": "classes/System-Controller-Users.html#method_user"
-        },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Ageti18n\u0028\u0029",
-            "name": "geti18n",
-            "summary": "",
-            "url": "classes/System-Controller-Users.html#method_geti18n"
         },                {
             "fqsen": "\\System\\Controller\\Users\u003A\u003Acreate\u0028\u0029",
             "name": "create",
@@ -50766,10 +50781,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Users.html#method_getSecretQRCode"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
+            "fqsen": "\\System\\Controller\\Users\u003A\u003Ageti18n\u0028\u0029",
+            "name": "geti18n",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_before"
+            "url": "classes/System-Controller-Users.html#method_geti18n"
         },                {
             "fqsen": "\\System\\Controller\\Utils",
             "name": "Utils",
@@ -50796,6 +50811,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Helper-Api.html"
         },                {
+            "fqsen": "\\System\\Helper\\Api\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/System-Helper-Api.html#method_initialize"
+        },                {
             "fqsen": "\\System\\Helper\\Api\u003A\u003AgetKey\u0028\u0029",
             "name": "getKey",
             "summary": "",
@@ -50805,11 +50825,6 @@ Search.appendIndex(
             "name": "keys",
             "summary": "",
             "url": "classes/System-Helper-Api.html#property_keys"
-        },                {
-            "fqsen": "\\System\\Helper\\Api\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/System-Helper-Api.html#method_initialize"
         },                {
             "fqsen": "\\System\\Helper\\Api\u003A\u003Acache\u0028\u0029",
             "name": "cache",
@@ -50821,20 +50836,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Helper-Locales.html"
         },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003AapplyLocales\u0028\u0029",
-            "name": "applyLocales",
+            "fqsen": "\\System\\Helper\\Locales\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
             "summary": "",
-            "url": "classes/System-Helper-Locales.html#method_applyLocales"
+            "url": "classes/System-Helper-Locales.html#method_initialize"
         },                {
             "fqsen": "\\System\\Helper\\Locales\u003A\u003A\u0024locales",
             "name": "locales",
             "summary": "",
             "url": "classes/System-Helper-Locales.html#property_locales"
         },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
+            "fqsen": "\\System\\Helper\\Locales\u003A\u003AapplyLocales\u0028\u0029",
+            "name": "applyLocales",
             "summary": "",
-            "url": "classes/System-Helper-Locales.html#method_initialize"
+            "url": "classes/System-Helper-Locales.html#method_applyLocales"
         },                {
             "fqsen": "\\System\\Helper\\Locales\u003A\u003Acache\u0028\u0029",
             "name": "cache",
@@ -50866,15 +50881,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Helper-LogChannel.html#method___construct"
         },                {
-            "fqsen": "\\System\\Helper\\LogChannel\u003A\u003Ainfo\u0028\u0029",
-            "name": "info",
-            "summary": "",
-            "url": "classes/System-Helper-LogChannel.html#method_info"
-        },                {
             "fqsen": "\\System\\Helper\\LogChannel\u003A\u003AaddRecord\u0028\u0029",
             "name": "addRecord",
             "summary": "",
             "url": "classes/System-Helper-LogChannel.html#method_addRecord"
+        },                {
+            "fqsen": "\\System\\Helper\\LogChannel\u003A\u003Ainfo\u0028\u0029",
+            "name": "info",
+            "summary": "",
+            "url": "classes/System-Helper-LogChannel.html#method_info"
         },                {
             "fqsen": "\\System\\Helper\\LogChannel\u003A\u003Adebug\u0028\u0029",
             "name": "debug",
@@ -51401,10 +51416,20 @@ Search.appendIndex(
             "summary": "Extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-plugin-cookiePluginAction.html"
         },                {
+            "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020sent\u0020to\u0020the\u0020server.",
+            "url": "classes/yxorP-plugin-cookiePluginAction.html#method_onBeforeSend"
+        },                {
             "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003AbeforeRequest\u0028\u0029",
             "name": "beforeRequest",
             "summary": "Parsing\u0020the\u0020cookie\u0020header\u0020and\u0020extracting\u0020the\u0020cookies\u0020that\u0020are\u0020prefixed\u0020with\u0020\u0060pc_\u0060.",
             "url": "classes/yxorP-plugin-cookiePluginAction.html#method_beforeRequest"
+        },                {
+            "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
+            "summary": "Removing\u0020the\u0020\u0060set\u002Dcookie\u0060\u0020header\u0020from\u0020the\u0020response\u0020and\u0020adding\u0020a\u0020new\u0020one\u0020with\u0020the\u0020cookie\u0020name\u0020prefixed\u0020with\u0020\u0060pc_\u0060.",
+            "url": "classes/yxorP-plugin-cookiePluginAction.html#method_onSent"
         },                {
             "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003AheadersReceived\u0028\u0029",
             "name": "headersReceived",
@@ -51421,16 +51446,6 @@ Search.appendIndex(
             "summary": "Parsing\u0020the\u0020cookie\u0020and\u0020then\u0020it\u0020is\u0020returning\u0020an\u0020array\u0020with\u0020the\u0020cookie\u0020data.",
             "url": "classes/yxorP-plugin-cookiePluginAction.html#method_parse_cookie"
         },                {
-            "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020sent\u0020to\u0020the\u0020server.",
-            "url": "classes/yxorP-plugin-cookiePluginAction.html#method_onBeforeSend"
-        },                {
-            "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
-            "name": "onSent",
-            "summary": "Removing\u0020the\u0020\u0060set\u002Dcookie\u0060\u0020header\u0020from\u0020the\u0020response\u0020and\u0020adding\u0020a\u0020new\u0020one\u0020with\u0020the\u0020cookie\u0020name\u0020prefixed\u0020with\u0020\u0060pc_\u0060.",
-            "url": "classes/yxorP-plugin-cookiePluginAction.html#method_onSent"
-        },                {
             "fqsen": "\\yxorP\\plugin\\cookiePluginAction\u003A\u003ACOOKIE_PREFIX",
             "name": "COOKIE_PREFIX",
             "summary": "A\u0020constant\u0020that\u0020is\u0020used\u0020to\u0020prefix\u0020the\u0020cookie\u0020name.",
@@ -51441,15 +51456,15 @@ Search.appendIndex(
             "summary": "Extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-plugin-dailyMotionPluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\plugin\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
-            "name": "completed",
-            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
-            "url": "classes/yxorP-plugin-dailyMotionPluginAction.html#method_completed"
-        },                {
             "fqsen": "\\yxorP\\plugin\\dailyMotionPluginAction\u003A\u003AonComplete\u0028\u0029",
             "name": "onComplete",
             "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
             "url": "classes/yxorP-plugin-dailyMotionPluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\plugin\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
+            "name": "completed",
+            "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020request\u0020is\u0020completed.",
+            "url": "classes/yxorP-plugin-dailyMotionPluginAction.html#method_completed"
         },                {
             "fqsen": "\\yxorP\\plugin\\dailyMotionPluginAction\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -51461,11 +51476,6 @@ Search.appendIndex(
             "summary": "It\u0027s\u0020extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-plugin-headerRewritePluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\plugin\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
-            "name": "headersReceived",
-            "summary": "It\u0027s\u0020proxifying\u0020the\u0020URL\u0020of\u0020the\u0020\u0060location\u0060\u0020header.",
-            "url": "classes/yxorP-plugin-headerRewritePluginAction.html#method_headersReceived"
-        },                {
             "fqsen": "\\yxorP\\plugin\\headerRewritePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "It\u0027s\u0020setting\u0020the\u0020\u0060accept\u002Dencoding\u0060\u0020header\u0020to\u0020\u0060identity\u0060\u0020and\u0020removing\u0020the\u0020\u0060referer\u0060\u0020header.",
@@ -51475,6 +51485,11 @@ Search.appendIndex(
             "name": "onSent",
             "summary": "It\u0027s\u0020checking\u0020if\u0020the\u0020response\u0020has\u0020a\u0020\u0060location\u0060\u0020header\u0020and\u0020if\u0020it\u0020does,\u0020it\u0027s\u0020proxifying\u0020the\u0020URL.",
             "url": "classes/yxorP-plugin-headerRewritePluginAction.html#method_onSent"
+        },                {
+            "fqsen": "\\yxorP\\plugin\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
+            "name": "headersReceived",
+            "summary": "It\u0027s\u0020proxifying\u0020the\u0020URL\u0020of\u0020the\u0020\u0060location\u0060\u0020header.",
+            "url": "classes/yxorP-plugin-headerRewritePluginAction.html#method_headersReceived"
         },                {
             "fqsen": "\\yxorP\\plugin\\logPluginAction",
             "name": "logPluginAction",
@@ -51551,15 +51566,15 @@ Search.appendIndex(
             "summary": "Extending\u0020the\u0020wrapper\u0020class.",
             "url": "classes/yxorP-plugin-spinPluginAction.html"
         },                {
-            "fqsen": "\\yxorP\\plugin\\spinPluginAction\u003A\u003Areplace\u0028\u0029",
-            "name": "replace",
-            "summary": "Defining\u0020a\u0020static\u0020method\u0020called\u0020mime.",
-            "url": "classes/yxorP-plugin-spinPluginAction.html#method_replace"
-        },                {
             "fqsen": "\\yxorP\\plugin\\spinPluginAction\u003A\u003AonComplete\u0028\u0029",
             "name": "onComplete",
             "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020before\u0020the\u0020request\u0020is\u0020processed.",
             "url": "classes/yxorP-plugin-spinPluginAction.html#method_onComplete"
+        },                {
+            "fqsen": "\\yxorP\\plugin\\spinPluginAction\u003A\u003Areplace\u0028\u0029",
+            "name": "replace",
+            "summary": "Defining\u0020a\u0020static\u0020method\u0020called\u0020mime.",
+            "url": "classes/yxorP-plugin-spinPluginAction.html#method_replace"
         },                {
             "fqsen": "\\yxorP\\plugin\\streamPluginAction",
             "name": "streamPluginAction",
@@ -51690,21 +51705,6 @@ Search.appendIndex(
             "name": "getAllRawData",
             "summary": "Returns\u0020the\u0020raw\u0020data\u0020of\u0020all\u0020installed.php\u0020which\u0020are\u0020currently\u0020loaded\u0020for\u0020custom\u0020implementations",
             "url": "classes/Composer-InstalledVersions.html#method_getAllRawData"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
-            "name": "getInstalled",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
-            "name": "canGetVendors",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
-            "name": "installedByVendor",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
         },                {
             "fqsen": "\\",
             "name": "\\",

@@ -32,6 +32,26 @@ protected ?string $url_pattern
 ## Methods
 
 
+### onComplete
+
+A method that is called when the request is completed.
+
+```php
+public onComplete(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### completed
 
 A method that is called when the request is completed.
@@ -53,26 +73,6 @@ public static completed(mixed $matches, mixed $content): void
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
 | `$content` | **mixed** |  |
-
-
-
-
-***
-
-### onComplete
-
-A method that is called when the request is completed.
-
-```php
-public onComplete(): void
-```
-
-
-
-
-
-
-
 
 
 

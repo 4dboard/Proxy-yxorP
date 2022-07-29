@@ -62,7 +62,7 @@ public static loadClassLoader(mixed $class): mixed
 
 
 ```php
-public static getLoader(): \ClassLoader
+public static getLoader(): \Composer\Autoload\ClassLoader
 ```
 
 

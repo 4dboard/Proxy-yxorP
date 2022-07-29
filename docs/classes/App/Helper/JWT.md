@@ -15,12 +15,12 @@
 ## Methods
 
 
-### encode
+### create
 
-alias for create
+
 
 ```php
-public encode(array $payload, ?string $key = null): mixed
+public create(array $payload, ?string $key = null): mixed
 ```
 
 
@@ -42,12 +42,12 @@ public encode(array $payload, ?string $key = null): mixed
 
 ***
 
-### create
+### encode
 
-
+alias for create
 
 ```php
-public create(array $payload, ?string $key = null): mixed
+public encode(array $payload, ?string $key = null): mixed
 ```
 
 

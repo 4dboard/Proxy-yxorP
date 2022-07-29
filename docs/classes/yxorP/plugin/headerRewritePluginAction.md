@@ -15,33 +15,6 @@ It's extending the wrapper class.
 ## Methods
 
 
-### headersReceived
-
-It's proxifying the URL of the `location` header.
-
-```php
-public static headersReceived(mixed $response, mixed $request_url): void
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$response` | **mixed** |  |
-| `$request_url` | **mixed** |  |
-
-
-
-
-***
-
 ### onBeforeSend
 
 It's setting the `accept-encoding` header to `identity` and removing the `referer` header.
@@ -76,6 +49,33 @@ public onSent(): void
 
 
 
+
+
+
+
+***
+
+### headersReceived
+
+It's proxifying the URL of the `location` header.
+
+```php
+public static headersReceived(mixed $response, mixed $request_url): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$response` | **mixed** |  |
+| `$request_url` | **mixed** |  |
 
 
 

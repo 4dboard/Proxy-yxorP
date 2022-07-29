@@ -15,6 +15,26 @@ Extending the wrapper class.
 ## Methods
 
 
+### onComplete
+
+A method that is called before the request is processed.
+
+```php
+public onComplete(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### replace
 
 Defining a static method called mime.
@@ -35,26 +55,6 @@ private static replace(mixed $content): string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
-
-
-
-
-***
-
-### onComplete
-
-A method that is called before the request is processed.
-
-```php
-public onComplete(): void
-```
-
-
-
-
-
-
-
 
 
 

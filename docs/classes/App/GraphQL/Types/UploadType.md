@@ -60,26 +60,6 @@ public string $description
 ## Methods
 
 
-### instance
-
-
-
-```php
-public static instance(): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
 ### serialize
 
 Serializes an internal value to include in a response.
@@ -153,6 +133,26 @@ public parseLiteral(\GraphQL\Language\AST\Node $valueNode, null|array $variables
 |-----------|------|-------------|
 | `$valueNode` | **\GraphQL\Language\AST\Node** |  |
 | `$variables` | **null&#124;array** |  |
+
+
+
+
+***
+
+### instance
+
+
+
+```php
+public static instance(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
 
 
 

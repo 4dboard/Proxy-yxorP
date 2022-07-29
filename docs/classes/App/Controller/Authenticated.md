@@ -32,12 +32,12 @@ protected $user
 ## Methods
 
 
-### unlockResource
+### initialize
 
 
 
 ```php
-public unlockResource(mixed $resourceId): mixed
+protected initialize(): mixed
 ```
 
 
@@ -46,12 +46,6 @@ public unlockResource(mixed $resourceId): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
 
 
 
@@ -84,26 +78,6 @@ protected isAllowed(string $permission): bool
 
 ***
 
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### checkAndLockResource
 
 
@@ -130,16 +104,42 @@ protected checkAndLockResource(mixed $resourceId): mixed
 
 ***
 
-
-## Inherited methods
-
-
-### index
+### unlockResource
 
 
 
 ```php
-public index(): string
+public unlockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
+
+## Inherited methods
+
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
 ```
 
 
@@ -154,12 +154,12 @@ public index(): string
 
 ***
 
-### initialize
+### index
 
 
 
 ```php
-protected initialize(): mixed
+public index(): string
 ```
 
 

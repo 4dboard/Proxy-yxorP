@@ -15,6 +15,60 @@
 ## Methods
 
 
+### isResourceLocked
+
+
+
+```php
+public isResourceLocked(mixed $resourceId, mixed $ttl = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+| `$ttl` | **mixed** |  |
+
+
+
+
+***
+
+### isResourceEditableByCurrentUser
+
+
+
+```php
+public isResourceEditableByCurrentUser(mixed $resourceId, mixed& $meta = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+| `$meta` | **mixed** |  |
+
+
+
+
+***
+
 ### lockResourceId
 
 
@@ -62,60 +116,6 @@ public updateLockedResourceId(mixed $resourceId): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
-
-
-
-
-***
-
-### isResourceEditableByCurrentUser
-
-
-
-```php
-public isResourceEditableByCurrentUser(mixed $resourceId, mixed& $meta = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-| `$meta` | **mixed** |  |
-
-
-
-
-***
-
-### isResourceLocked
-
-
-
-```php
-public isResourceLocked(mixed $resourceId, mixed $ttl = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-| `$ttl` | **mixed** |  |
 
 
 

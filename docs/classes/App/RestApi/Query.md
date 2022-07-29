@@ -47,6 +47,26 @@ protected bool $initialized
 ## Methods
 
 
+### init
+
+
+
+```php
+public init(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### process
 
 
@@ -75,12 +95,12 @@ public process(string $path, string $method = &#039;GET&#039;, ?string $apiKey =
 
 ***
 
-### init
+### addEndPoint
 
 
 
 ```php
-public init(): mixed
+public addEndPoint(string $path, array $methods = []): mixed
 ```
 
 
@@ -89,6 +109,13 @@ public init(): mixed
 
 
 
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+| `$methods` | **array** |  |
 
 
 
@@ -143,33 +170,6 @@ protected getRegex(mixed $pattern): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pattern` | **mixed** |  |
-
-
-
-
-***
-
-### addEndPoint
-
-
-
-```php
-public addEndPoint(string $path, array $methods = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-| `$methods` | **array** |  |
 
 
 

@@ -92,6 +92,26 @@ protected ?string $pageClass
 ## Methods
 
 
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### title
 
 
@@ -264,26 +284,6 @@ public vars(mixed $args): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **mixed** |  |
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
 
 
 

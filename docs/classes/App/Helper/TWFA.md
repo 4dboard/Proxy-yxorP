@@ -32,6 +32,26 @@ protected \RobThree\Auth\TwoFactorAuth $tfa
 ## Methods
 
 
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### createSecret
 
 
@@ -133,26 +153,6 @@ public verifyCode(string $secret, string $code): bool
 |-----------|------|-------------|
 | `$secret` | **string** |  |
 | `$code` | **string** |  |
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
 
 
 

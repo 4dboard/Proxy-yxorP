@@ -14,6 +14,21 @@
 ## Properties
 
 
+### initialized
+
+
+
+```php
+protected $initialized
+```
+
+
+
+
+
+
+***
+
 ### queries
 
 
@@ -74,12 +89,15 @@ public $directives
 
 ***
 
-### initialized
+## Methods
+
+
+### init
 
 
 
 ```php
-protected $initialized
+public init(): mixed
 ```
 
 
@@ -87,10 +105,12 @@ protected $initialized
 
 
 
+
+
+
+
+
 ***
-
-## Methods
-
 
 ### process
 
@@ -113,26 +133,6 @@ public process(mixed $query = &#039;{}&#039;, mixed $variables = null): mixed
 |-----------|------|-------------|
 | `$query` | **mixed** |  |
 | `$variables` | **mixed** |  |
-
-
-
-
-***
-
-### init
-
-
-
-```php
-public init(): mixed
-```
-
-
-
-
-
-
-
 
 
 

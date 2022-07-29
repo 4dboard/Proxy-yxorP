@@ -83,6 +83,32 @@ public load(mixed $source): \ColorThief\Image\Adapter\AdapterInterface
 
 ***
 
+### createAdapter
+
+Creates an adapter instance according to config settings.
+
+```php
+public createAdapter(string|\ColorThief\Image\Adapter\AdapterInterface|null $preferredAdapter = null): \ColorThief\Image\Adapter\AdapterInterface
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$preferredAdapter` | **string&#124;\ColorThief\Image\Adapter\AdapterInterface&#124;null** |  |
+
+
+
+
+***
+
 ### isGdImage
 
 Determines if given source data is a GD image.
@@ -161,38 +187,12 @@ public isGmagick(mixed $data): bool
 
 ***
 
-### createAdapter
+### isFilePath
 
-Creates an adapter instance according to config settings.
-
-```php
-public createAdapter(string|\ColorThief\Image\Adapter\AdapterInterface|null $preferredAdapter = null): \ColorThief\Image\Adapter\AdapterInterface
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$preferredAdapter` | **string&#124;\ColorThief\Image\Adapter\AdapterInterface&#124;null** |  |
-
-
-
-
-***
-
-### isBinary
-
-Determines if given source data is binary data.
+Determines if given source data is file path.
 
 ```php
-public isBinary(mixed $data): bool
+public isFilePath(mixed $data): bool
 ```
 
 
@@ -239,12 +239,12 @@ public isUrl(mixed $data): bool
 
 ***
 
-### isFilePath
+### isBinary
 
-Determines if given source data is file path.
+Determines if given source data is binary data.
 
 ```php
-public isFilePath(mixed $data): bool
+public isBinary(mixed $data): bool
 ```
 
 

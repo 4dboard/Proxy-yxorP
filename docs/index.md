@@ -511,6 +511,7 @@ This is an automatically generated documentation for **Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
+| [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
 
 

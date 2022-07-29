@@ -116,12 +116,12 @@ public validate2FA(): mixed
 ## Inherited methods
 
 
-### index
+### initialize
 
 
 
 ```php
-public index(): string
+protected initialize(): mixed
 ```
 
 
@@ -136,12 +136,12 @@ public index(): string
 
 ***
 
-### initialize
+### index
 
 
 
 ```php
-protected initialize(): mixed
+public index(): string
 ```
 
 
