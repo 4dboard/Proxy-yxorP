@@ -28,7 +28,7 @@ facilitates rapid and simple customization through plugins and themes.
 
 User-friendly.
 
-> The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project ]
+> The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project
 
 
 
@@ -40,7 +40,7 @@ User-friendly.
 
 
 
-> ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
+> ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you like the project. Assuming there is at least some enthusiasm for the idea, development will proceed.
 
 <hr />
 
@@ -52,7 +52,7 @@ User-friendly.
 
 <hr />
 
-> ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
+> ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via GitHub (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), PayPal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
 
 <hr />
 
@@ -189,7 +189,7 @@ php ./server.php
 
 Docker Compose is a tool that enables developers to build and deploy applications that are comprised of several
 containers at the same time. You are free to create and launch apps with the assistance of this tool. Compose gives us
-the ability to declare our services inside of a YAML file, which afterwards gives us the ability to deploy, expand, or
+the ability to declare our services inside a YAML file, which afterwards gives us the ability to deploy, expand, or
 destroy our infrastructure with a single command.
 
 ``` 
@@ -232,8 +232,8 @@ cp ./example.env ./.env
 
 ```
 
-Modify the settings included inside the ".env" file as necessary. The program is configured to respond to queries from
-any domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the.env
+Modify the settings included inside the ".env" file as necessary. The program is configured to respond to query from any
+domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the ".env"
 file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
 domain, go to http://localhost/app and enter the login username 'yxorP' and the password 'yxorP'. This will allow you to
 configure the application to direct traffic from a given domain to a specific website. After gaining access to the
@@ -249,7 +249,7 @@ admin, choose "sites" and clone the example website so that its settings may be 
 
 ### The program is "plug and play" and works properly out of the box; the following issues have been noted with the application could be:
 
-- Verify that the computer has been outfitted with all of the necessary PHP extensions, such as the following:
+- Verify that the computer has been outfitted with all the necessary PHP extensions, such as the following:
 
     - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
 
@@ -264,8 +264,8 @@ admin, choose "sites" and clone the example website so that its settings may be 
   contents written to. Either the command "chmod 775./app/storage/cache" or the command "chown root:
   ./app/storage/cache" may be used to make the files readable again.
 
-If you have completed all of these steps, you should be experiencing no difficulty. However if you are still
-experiencing problems, you will likely need to contact a developer or file a request for help on github's issue tracker
+If you have completed all of these steps, you should be experiencing no difficulty. However, if you are still
+experiencing problems, you will likely need to contact a developer or file a request for help on GitHub's issue tracker
 for this project.
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/diagrams.png)
@@ -285,8 +285,8 @@ Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files, CouchBasev3, Mem
 Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Sssb, and Zend Disk Cache are among the available cache drivers.
 Integrating the two most efficient web proxy applications enhances performance. This self-service proxy engine supports
 several tenants with little performance loss by combining an attractive flat-file web interface with a bespoke
-multi-threaded caching layer and a very effective thesaurus article spinner with a minimum vocabulary of 10,000 words.
-In addition to an integrated cache management system and a web-based cache management system, the proxy is modular or
+multithreaded caching layer and a very effective thesaurus article spinner with a minimum vocabulary of 10,000 words. In
+addition to an integrated cache management system and a web-based cache management system, the proxy is modular or
 plugin-based. Internet-based graphical user interface (GUI) monitoring and analytics (GUI). By using a custom-built
 content spinning engine, the system is able to "enhance" (or "spin") information with little performance loss (10,000+
 thesaurus/dictionary items) and without sacrificing quality.
@@ -361,7 +361,7 @@ system in place. Utilize a straightforward application programming interface to 
 - Content that can be easily resized to suit numerous screen sizes without suffering a degradation in quality and that
   can be rapidly changed to match a number of screen sizes
 
-- Capable of functioning appropriately on all of the various devices that you use, in addition to the microsites, in the
+- Capable of functioning appropriately on all the various devices that you use, in addition to the microsites, in the
   event that you make use of them.
 
 - The basic minimal amount of knowledge and experience that is necessary to be considered qualified for the position
@@ -446,7 +446,7 @@ behavior in question, although being plausible and "not suggested but attainable
 ![image](https://user-images.githubusercontent.com/6468571/179238923-a6e8d869-8c73-4f45-be4d-866c18002269.png)
 
 TCP Proxy Load Balancing is a method that allows users from many regions of the world to share a single IP address. The
-TCP proxy load balancer is accountable for automatically routing traffic to the geographically nearest backends. TCP
+TCP proxy load balancer is accountable for automatically routing traffic to geographically the nearest backends. TCP
 Proxy Load Balancing may operate as a global load balancing service when the Premium Tier is applied. Either a load
 balancer or a Web proxy server is required when implementing in-memory replication of client session information. Both
 options cannot be used together. This is done so that all domain-based applications may be accessed through a single URL
@@ -459,9 +459,9 @@ for external clients.
 </div>
 
 The installation of cloned copies of your website on several additional servers, each of which is connected to a
-load-balancing system, is one method for achieving this objective. There are several other approaches that might
-possibly be used in this operation. Using a cluster of servers is a potential alternative method that might be utilized
-to execute this assignment effectively.
+load-balancing system, is one method for achieving this objective. There are several other approaches that might be used
+in this operation. Using a cluster of servers is a potential alternative method that might be utilized to execute this
+assignment effectively.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -489,7 +489,7 @@ maintenance or changes, you can ensure that your online resources remain accessi
 This will guarantee that your online material is constantly accessible to users. This will help you to guarantee that
 your consumers always have access to your online resources.
 
-##### + many more..
+##### + many more.
 
 The applications outlined in this page are only a sampling of the many ways in which this proxy may be implemented;
 further information is accessible in our discussion forum.
@@ -531,9 +531,9 @@ impossible. During the creation of these apps, the extensive capabilities of the
 
 Visit their website to learn more about Gitpod and how the platform's capabilities are always expanding. These two
 topics are discussed on their website. Gitpods, on the other hand, are containers managed by Docker and running Ubuntu
-20.04 Focal Focal. The software installation process is hindered because the user gitpod is not on the list of users
-having sudo privileges. This raises the procedure's complexity. It is not impossible for installation components that
-need root privileges to alter the Dockerfile associated with a running instance of Docker. The optimum place for various
+20.04 Focal. The software installation process is hindered because the user gitpod is not on the list of users having
+sudo privileges. This raises the procedure's complexity. It is not impossible for installation components that need root
+privileges to alter the Dockerfile associated with a running instance of Docker. The optimum place for various
 activities may be the Dockerfile, the command line, or the code, depending on the circumstances of the situation. As
 Dockerfiles are only configuration files for containers, they do not need to be very complicated for the vast majority
 of operations.
@@ -592,7 +592,7 @@ technical advances. Even when there are insufficient resources available to aid 
 feasible to surpass the conceptual limitations imposed by the current state of affairs. This is the case despite the
 availability of insufficient instruments to aid in the growing process. If you can prioritize the most essential tasks,
 you will be able to do more while spending less time, money, and experiencing less long-term aggravation. To ease some
-of the stress you are now experiencing, it may be beneficial to prioritize the most essential chores.
+stress you are now experiencing, it may be beneficial to prioritize the most essential chores.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
 
