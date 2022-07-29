@@ -176,11 +176,11 @@ $this->on('after', function () {
          * some system info
          */
 
-        $DURATION_TIME = microtime(true) - APP_START_TIME;
+        $DURATION_TIME = microtime(true) - SITE_START_TIME;
         $MEMORY_USAGE = memory_get_peak_usage(false) / 1024 / 1024;
 
-        $this->response->headers["APP_DURATION_TIME"] = "{$DURATION_TIME}SEC";
-        $this->response->headers["APP_MEMORY_USAGE"] = "{$MEMORY_USAGE}MB";
-        $this->response->headers["APP_LOADED_FILES"] = count(get_included_files());
+        $this->response->headers["SITE_DURATION_TIME"] = "{$DURATION_TIME}SEC";
+        $this->response->headers["SITE_MEMORY_USAGE"] = "{$MEMORY_USAGE}MB";
+        $this->response->headers["SITE_LOADED_FILES"] = count(get_included_files());
     }
 });

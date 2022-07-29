@@ -42,7 +42,7 @@
                         <tbody>
                         <tr>
                             <td width="30%" class="kiss-size-xsmall">Version</td>
-                            <td class="kiss-size-small kiss-color-muted"><?= APP_VERSION ?></td>
+                            <td class="kiss-size-small kiss-color-muted"><?= SITE_VERSION ?></td>
                         </tr>
                         <tr>
                             <td width="30%" class="kiss-size-xsmall">Debug mode</td>
@@ -86,11 +86,8 @@
                                             align="center"
                                             src="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png"
                                             style="max-width: 100%;"></a></p>
-                                <p align="center" dir="auto"><a target="_blank" rel="noopener noreferrer"
-                                                                href="https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png"><img
-                                            align="center"
-                                            src="https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png"
-                                            style="max-width: 100%;"></a>
+                                <p align="center"><img align="center"
+                                                       src="https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png"/>
                                 </p>
                                 <p align="center" dir="auto">
                                     <g-emoji class="g-emoji" alias="loudspeaker"
@@ -144,49 +141,6 @@
                                                             data-canonical-src="https://a.fsdn.com/con/app/sf-download-button"
                                                             style="max-width: 100%;"></a></p>
                                 <br>
-                                <h2 dir="auto"><a
-                                        id="user-content-yxorp-headless-saasy-multi-tenancy-proxy--backend-gui-included-php-curlcomposer-are-optional"
-                                        class="anchor" aria-hidden="true"
-                                        href="#yxorp-headless-saasy-multi-tenancy-proxy--backend-gui-included-php-curlcomposer-are-optional">
-                                        <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
-                                             height="16" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                  d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-                                        </svg>
-                                    </a>yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP
-                                    CURL+Composer are Optional
-                                </h2>
-                                <br>
-                                <p dir="auto">yxorP is a PHP-based proxy application that is very lightweight and easily
-                                    customizable per user needs. The standalone
-                                    library was designed with the intention of providing a system that is not only easy
-                                    to extend and alter, but also
-                                    facilitates rapid and simple customization through plugins and themes.</p>
-                                <br>
-                                <h3 dir="auto"><a
-                                        id="user-content-q-why-has-yxorp-become-the-most-popular-web-proxy-script-so-rapidly"
-                                        class="anchor" aria-hidden="true"
-                                        href="#q-why-has-yxorp-become-the-most-popular-web-proxy-script-so-rapidly">
-                                        <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
-                                             height="16" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                  d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-                                        </svg>
-                                    </a><b><i>Q</i></b>: <i>"Why has YXORP become the most popular web proxy script so
-                                        rapidly?"</i></h3>
-                                <h4 dir="auto"><a
-                                        id="user-content-short-answer-yxorp-web-proxy-is-very-fast-powerful-customizable-extensible-anduser-friendly"
-                                        class="anchor" aria-hidden="true"
-                                        href="#short-answer-yxorp-web-proxy-is-very-fast-powerful-customizable-extensible-anduser-friendly">
-                                        <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
-                                             height="16" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                  d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path>
-                                        </svg>
-                                    </a><i><b>Short Answer:</b></i> YXORP Web Proxy is very Fast, Powerful,
-                                    Customizable, Extensible, and
-                                    User-friendly.
-                                </h4>
                                 <blockquote>
                                     <p dir="auto"><i>The combination of a flat-file and caching engine, in addition to a
                                             database, makes the system exceptionally responsive and able to deal with

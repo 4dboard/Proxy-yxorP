@@ -1,10 +1,10 @@
-<?php define('APP_VERSION', '2.0.2');
-if (!defined('APP_START_TIME')) define('APP_START_TIME', microtime(true));
-if (!defined('APP_CLI')) define('APP_CLI', PHP_SAPI === 'cli');
-if (!defined('APP_ADMIN')) define('APP_ADMIN', false);
-define('APP_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
+<?php define('SITE_VERSION', '2.0.2');
+if (!defined('SITE_START_TIME')) define('SITE_START_TIME', microtime(true));
+if (!defined('SITE_CLI')) define('SITE_CLI', PHP_SAPI === 'cli');
+if (!defined('SITE_ADMIN')) define('SITE_ADMIN', false);
+define('SITE_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 include_once(__DIR__ . '/lib/_autoload.php');
-DotEnv::load(APP_DIR);
+DotEnv::load(SITE_DIR);
 spl_autoload_register(function ($class) {
     $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
@@ -17,7 +17,7 @@ class App
     public static function instance(?string $envDir = null, array $config = []): Lime\App
     {
         if (!$envDir) {
-            $envDir = APP_DIR;
+            $envDir = SITE_DIR;
         }
         if (!isset(static::$instance[$envDir])) {
             static::$instance[$envDir] = static::init($envDir, $config);
@@ -27,7 +27,7 @@ class App
 
     protected static function init(?string $envDir = null, array $config = []): Lime\App
     {
-        $appDir = APP_DIR;
+        $appDir = SITE_DIR;
         $app = null;
         $cfg = null;
         if (!$envDir) {
@@ -39,7 +39,7 @@ class App
         if (file_exists("{$envDir}/config/config.php")) {
             $cfg = include("{$envDir}/config/config.php");
         }
-        $config = array_replace_recursive(['docs_root' => defined('APP_DOCUMENT_ROOT') ? APP_DOCUMENT_ROOT : null, 'debug' => APP_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''), 'app.name' => 'App', 'app.version' => APP_VERSION, 'session.name' => md5($envDir), 'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', 'i18n' => 'en', 'database' => ['server' => "mongolite://{$envDir}/storage/data", 'options' => ['db' => 'app'], 'driverOptions' => []], 'memory' => ['server' => "redislite://{$envDir}/storage/data/app.memory.sqlite", 'options' => []], 'paths' => ['#app' => __DIR__, '#root' => $envDir, '#config' => $envDir . '/config', '#modules' => $envDir . '/modules', '#addons' => $envDir . '/addons', '#storage' => $envDir . '/storage', '#cache' => $envDir . '/storage/cache', '#cache' => $envDir . '/storage/cache', '#uploads' => $envDir . '/storage/uploads',], 'response' => ['cache' => ['handler' => 'memory', 'duration' => 600,]]], $cfg ?? [], $config);
+        $config = array_replace_recursive(['docs_root' => defined('SITE_DOCUMENT_ROOT') ? SITE_DOCUMENT_ROOT : null, 'debug' => SITE_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''), 'app.name' => 'App', 'app.version' => SITE_VERSION, 'session.name' => md5($envDir), 'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', 'i18n' => 'en', 'database' => ['server' => "mongolite://{$envDir}/storage/data", 'options' => ['db' => 'app'], 'driverOptions' => []], 'memory' => ['server' => "redislite://{$envDir}/storage/data/app.memory.sqlite", 'options' => []], 'paths' => ['#app' => __DIR__, '#root' => $envDir, '#config' => $envDir . '/config', '#modules' => $envDir . '/modules', '#addons' => $envDir . '/addons', '#storage' => $envDir . '/storage', '#cache' => $envDir . '/storage/cache', '#cache' => $envDir . '/storage/cache', '#uploads' => $envDir . '/storage/uploads',], 'response' => ['cache' => ['handler' => 'memory', 'duration' => 600,]]], $cfg ?? [], $config);
         if ($config['debug']) {
             $config['app.version'] .= '-' . time();
         }
@@ -76,7 +76,7 @@ class App
             $modulesPaths[] = $config['paths']['#addons'];
         }
         $app->loadModules($modulesPaths);
-        if (APP_CLI || APP_ADMIN) {
+        if (SITE_CLI || SITE_ADMIN) {
             set_exception_handler(function ($exception) use ($app) {
                 $error = ['message' => $exception->getMessage(), 'file' => $exception->getFile(), 'line' => $exception->getLine(), 'trace' => array_slice($exception->getTrace(), 0, 4),];
                 $app->trigger('error', [$error, $exception]);

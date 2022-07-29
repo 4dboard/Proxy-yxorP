@@ -264,9 +264,9 @@ class helpers
      * A static method that is being called.
      *
      */
-    public static function app_find(): mixed
+    public static function site_find(): mixed
     {
-        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_COLLECTIONS . CHAR_SLASH . APP_SITES, [APP_HOST => strtok(YXORP_SITE_DOMAIN, CHAR_COLON)]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_COLLECTIONS . CHAR_SLASH . SITE_SITES, [SITE_HOST => strtok(YXORP_SITE_DOMAIN, CHAR_COLON)]);
     }
 
     /**
@@ -276,9 +276,9 @@ class helpers
      * A static method that is being called.
      *
      */
-    public static function app_global(): mixed
+    public static function site_global(): mixed
     {
-        return store::handler(YXORP_APP)->dataStorage->findOne(APP_CONTENT . CHAR_SLASH . APP_SINGLETONS, [APP_MODULE => APP_SETTINGS]);
+        return store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_SINGLETONS, [SITE_MODULE => SITE_SETTINGS]);
     }
 
     /**
@@ -355,10 +355,10 @@ class helpers
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
-         * It's defining a constant called `PATH_APP_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
-         * `DIR_LIB` and `DIR_APP` and `FILE_APP_BOOTSTRAP` appended to it.
+         * It's defining a constant called `PATH_SITE_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
+         * `DIR_LIB` and `DIR_APP` and `FILE_SITE_BOOTSTRAP` appended to it.
          */
-        define('PATH_APP_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_APP_BOOTSTRAP);
+        define('PATH_SITE_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP);
         /**
          * It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a
          * `DIR_LIB` and `DIR_DATA` and `FILE_COOKIE_JAR` appended to it.
@@ -369,14 +369,14 @@ class helpers
          */
         define('PATH_DIR_APP', DIR_ROOT . DIR_APP);
         /**
-         * It's defining a constant called `PATH_APP_LOCAL` and setting it to the value of `DIR_ROOT` with a
+         * It's defining a constant called `PATH_SITE_LOCAL` and setting it to the value of `DIR_ROOT` with a
          * `DIR_INSTALL` and `DIR_APP` appended to it.
          */
-        define('PATH_APP_LOCAL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP);
+        define('PATH_SITE_LOCAL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP);
         /**
-         * It's defining a constant called `PATH_APP_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_APP` and `FILE_INDEX` appended to it.
+         * It's defining a constant called `PATH_SITE_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_APP` and `FILE_INDEX` appended to it.
          */
-        define('PATH_APP_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
+        define('PATH_SITE_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
         /**
          * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a  `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
          */
@@ -446,7 +446,7 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::handler(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::app_find');
+        store::handler(SITE_DETAILS, null, 'yxorP\app\lib\http\helpers::site_find');
 
         /**
          * Setting the pattern, replace, and plugins variables.
@@ -454,11 +454,13 @@ class helpers
         foreach ([TARGET_BUTTON_HOVER => VAR_BUTTON_HOVER, TARGET_BUTTON => VAR_BUTTON, TARGET_LINK_HOVER => VAR_LINK_HOVER, TARGET_LINK_VISITED => VAR_LINK_VISITED, TARGET_LINK => VAR_LINK, TARGET_HTML_MENU => VAR_HTML_MENU, TARGET_MENU => VAR_MENU, TARGET_FOOT_HTML => VAR_FOOT_HTML, TARGET_FOOT => VAR_FOOT, TARGET_HEAD => VAR_HEAD, TARGET_HEAD_HTML => VAR_HEAD_HTML, TARGET_MENU => VAR_MENU, TARGET_MENU_HTML => VAR_MENU_HTML, TARGET_BG_COLOR => VAR_BG_COLOR, TARGET_BG_IMG => VAR_BG_IMG, TARGET_JS => VAR_JS, TARGET_CSS => VAR_CSS, VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS, YXORP_TARGET_CSS => VAR_CSS, YXORP_TARGET_JS => VAR_JS] as $key => $value)
             store::handler($key, store::handler(SITE_DETAILS)[$value]);
 
+        print_r(store::handler(SITE_DETAILS));
+
 
         /**
          * Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array.
          */
-        define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[APP_TARGET]);
+        define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[SITE_TARGET]);
 
         /**
          * Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array.
@@ -485,7 +487,7 @@ class helpers
         /**
          * Setting the `TARGET` variable to the result of the `findOne` method.
          */
-        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\app\lib\http\helpers::app_global');
+        store::handler(SITE_DETAILS_GLOBAL, null, 'yxorP\app\lib\http\helpers::site_global');
 
         /**
          * Setting the pattern, replace, and plugins variables.
@@ -511,7 +513,7 @@ class helpers
         /**
          * Requiring the APP library.
          */
-        require PATH_APP_BOOTSTRAP;
+        require PATH_SITE_BOOTSTRAP;
         /**
          * Storing the app object in the cache store.
          */
@@ -552,15 +554,15 @@ class helpers
     public static function install(): void
     {
         /**
-         * It's defining the `YXORP_APP_SYSTEM_INSTALL` constant as `true` .
+         * It's defining the `YXORP_SITE_SYSTEM_INSTALL` constant as `true` .
          */
-        define(YXORP_APP_SYSTEM_INSTALL, true);
+        define(YXORP_SITE_SYSTEM_INSTALL, true);
 
         /**
          * It's copying the files from the `local` directory to the `APP` directory.
          */
 
-        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_APP_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . APP_CONTENT)) self::migrate(PATH_APP_LOCAL, PATH_DIR_APP);
+        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . SITE_CONTENT)) self::migrate(PATH_SITE_LOCAL, PATH_DIR_APP);
 
     }
 

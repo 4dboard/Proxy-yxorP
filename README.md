@@ -1,6 +1,5 @@
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/181400623-94780ea7-31f7-4570-9d5f-ca18b3054e43.png" /></p>
 <p align="center"><img align="center" src="https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png" /></p>
-<p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png" />
 <p align="center">📢  [ <a href="https://github.com/4dboard/Proxy-yxorP/wiki">ARCHITECTURE</a> ]  ⚡  [ <a href="https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md">DEVELOPERS</a> ]  🌈  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/">DOCUMENTATION</a> ]  🔥  [ <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4">CREATION VIDEO</a> ]  🚀️  [ <a href="https://4dboard.github.io/">WEBSITE</a> ]</p>
 <p align="center">Web Proxy <b>🦄</b> yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.</p>
 <p align="center"><img align="center" src="https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png" /></p>

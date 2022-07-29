@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @OA\Server(url=APP_DIR)
+ * @OA\Server(url=SITE_DIR)
  *
  * @OA\Info(title="{{ app.name }}", version="{{ app.version }}")
  *
