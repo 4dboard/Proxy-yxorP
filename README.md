@@ -6,19 +6,21 @@
 🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
 
-### yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
+### _yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional_
 
 Web Proxy *🐮* yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play,
 Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to
 provide multi-tenancy, multiple threads, caching, and an article spinner service.
 
+### _What is yxorP and what can it do for you?_
+
 yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
 facilitates rapid and simple customization through plugins and themes.
 
-### *Q*: "Why has YXORP become the most popular web proxy script so rapidly?"
+### _Why has YXORP become the most popular web proxy script so rapidly?_
 
-#### *Short Answer:* YXORP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
+Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
 
 > The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project
 
