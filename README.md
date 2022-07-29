@@ -6,11 +6,11 @@
 🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
 
-Web Proxy *🦄* yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play,
+### yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
+
+Web Proxy *🐮* yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play,
 Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to
 provide multi-tenancy, multiple threads, caching, and an article spinner service.
-
-## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
 
 yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
