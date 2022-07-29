@@ -12,8 +12,6 @@ provide multi-tenancy, multiple threads, caching, and an article spinner service
 
 ![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
 
-[!![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/Proxy-yxorP/files/latest/download)
-
 ## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
 
 yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
