@@ -1,30 +1,30 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\APP_VERSION",
-            "name": "APP_VERSION",
+            "fqsen": "\\SITE_VERSION",
+            "name": "SITE_VERSION",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_VERSION"
+            "url": "namespaces/default.html#constant_SITE_VERSION"
         },                {
-            "fqsen": "\\APP_START_TIME",
-            "name": "APP_START_TIME",
+            "fqsen": "\\SITE_START_TIME",
+            "name": "SITE_START_TIME",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_START_TIME"
+            "url": "namespaces/default.html#constant_SITE_START_TIME"
         },                {
-            "fqsen": "\\APP_CLI",
-            "name": "APP_CLI",
+            "fqsen": "\\SITE_CLI",
+            "name": "SITE_CLI",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_CLI"
+            "url": "namespaces/default.html#constant_SITE_CLI"
         },                {
-            "fqsen": "\\APP_ADMIN",
-            "name": "APP_ADMIN",
+            "fqsen": "\\SITE_ADMIN",
+            "name": "SITE_ADMIN",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_ADMIN"
+            "url": "namespaces/default.html#constant_SITE_ADMIN"
         },                {
-            "fqsen": "\\APP_DIR",
-            "name": "APP_DIR",
+            "fqsen": "\\SITE_DIR",
+            "name": "SITE_DIR",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_DIR"
+            "url": "namespaces/default.html#constant_SITE_DIR"
         },                {
             "fqsen": "\\App",
             "name": "App",
@@ -576,10 +576,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_VAR_REQUEST"
         },                {
-            "fqsen": "\\VAR_APP_LOGS",
-            "name": "VAR_APP_LOGS",
+            "fqsen": "\\VAR_SITE_LOGS",
+            "name": "VAR_SITE_LOGS",
             "summary": "",
-            "url": "namespaces/default.html#constant_VAR_APP_LOGS"
+            "url": "namespaces/default.html#constant_VAR_SITE_LOGS"
         },                {
             "fqsen": "\\VAR_USERS",
             "name": "VAR_USERS",
@@ -590,6 +590,76 @@ Search.appendIndex(
             "name": "VAR_PLUGINS",
             "summary": "",
             "url": "namespaces/default.html#constant_VAR_PLUGINS"
+        },                {
+            "fqsen": "\\VAR_BUTTON_HOVER",
+            "name": "VAR_BUTTON_HOVER",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_BUTTON_HOVER"
+        },                {
+            "fqsen": "\\VAR_BUTTON",
+            "name": "VAR_BUTTON",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_BUTTON"
+        },                {
+            "fqsen": "\\VAR_LINK_HOVER",
+            "name": "VAR_LINK_HOVER",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_LINK_HOVER"
+        },                {
+            "fqsen": "\\VAR_LINK_VISITED",
+            "name": "VAR_LINK_VISITED",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_LINK_VISITED"
+        },                {
+            "fqsen": "\\VAR_LINK",
+            "name": "VAR_LINK",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_LINK"
+        },                {
+            "fqsen": "\\VAR_HTML_MENU",
+            "name": "VAR_HTML_MENU",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_HTML_MENU"
+        },                {
+            "fqsen": "\\VAR_MENU",
+            "name": "VAR_MENU",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_MENU"
+        },                {
+            "fqsen": "\\VAR_FOOT_HTML",
+            "name": "VAR_FOOT_HTML",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_FOOT_HTML"
+        },                {
+            "fqsen": "\\VAR_FOOT",
+            "name": "VAR_FOOT",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_FOOT"
+        },                {
+            "fqsen": "\\VAR_HEAD",
+            "name": "VAR_HEAD",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_HEAD"
+        },                {
+            "fqsen": "\\VAR_HEAD_HTML",
+            "name": "VAR_HEAD_HTML",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_HEAD_HTML"
+        },                {
+            "fqsen": "\\VAR_MENU_HTML",
+            "name": "VAR_MENU_HTML",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_MENU_HTML"
+        },                {
+            "fqsen": "\\VAR_BG_COLOR",
+            "name": "VAR_BG_COLOR",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_BG_COLOR"
+        },                {
+            "fqsen": "\\VAR_BG_IMG",
+            "name": "VAR_BG_IMG",
+            "summary": "",
+            "url": "namespaces/default.html#constant_VAR_BG_IMG"
         },                {
             "fqsen": "\\VAR_TARGET",
             "name": "VAR_TARGET",
@@ -605,6 +675,86 @@ Search.appendIndex(
             "name": "VAR_TARGET_REPLACE",
             "summary": "",
             "url": "namespaces/default.html#constant_VAR_TARGET_REPLACE"
+        },                {
+            "fqsen": "\\TARGET_BUTTON_HOVER",
+            "name": "TARGET_BUTTON_HOVER",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_BUTTON_HOVER"
+        },                {
+            "fqsen": "\\TARGET_BUTTON",
+            "name": "TARGET_BUTTON",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_BUTTON"
+        },                {
+            "fqsen": "\\TARGET_LINK_HOVER",
+            "name": "TARGET_LINK_HOVER",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_LINK_HOVER"
+        },                {
+            "fqsen": "\\TARGET_LINK_VISITED",
+            "name": "TARGET_LINK_VISITED",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_LINK_VISITED"
+        },                {
+            "fqsen": "\\TARGET_LINK",
+            "name": "TARGET_LINK",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_LINK"
+        },                {
+            "fqsen": "\\TARGET_HTML_MENU",
+            "name": "TARGET_HTML_MENU",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_HTML_MENU"
+        },                {
+            "fqsen": "\\TARGET_MENU",
+            "name": "TARGET_MENU",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_MENU"
+        },                {
+            "fqsen": "\\TARGET_FOOT_HTML",
+            "name": "TARGET_FOOT_HTML",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_FOOT_HTML"
+        },                {
+            "fqsen": "\\TARGET_FOOT",
+            "name": "TARGET_FOOT",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_FOOT"
+        },                {
+            "fqsen": "\\TARGET_HEAD",
+            "name": "TARGET_HEAD",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_HEAD"
+        },                {
+            "fqsen": "\\TARGET_HEAD_HTML",
+            "name": "TARGET_HEAD_HTML",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_HEAD_HTML"
+        },                {
+            "fqsen": "\\TARGET_MENU_HTML",
+            "name": "TARGET_MENU_HTML",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_MENU_HTML"
+        },                {
+            "fqsen": "\\TARGET_BG_COLOR",
+            "name": "TARGET_BG_COLOR",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_BG_COLOR"
+        },                {
+            "fqsen": "\\TARGET_BG_IMG",
+            "name": "TARGET_BG_IMG",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_BG_IMG"
+        },                {
+            "fqsen": "\\TARGET_JS",
+            "name": "TARGET_JS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_JS"
+        },                {
+            "fqsen": "\\TARGET_CSS",
+            "name": "TARGET_CSS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_TARGET_CSS"
         },                {
             "fqsen": "\\VAR_SITE",
             "name": "VAR_SITE",
@@ -816,75 +966,75 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_APP"
         },                {
-            "fqsen": "\\YXORP_APP_SYSTEM",
-            "name": "YXORP_APP_SYSTEM",
+            "fqsen": "\\YXORP_SITE_SYSTEM",
+            "name": "YXORP_SITE_SYSTEM",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_APP_SYSTEM"
+            "url": "namespaces/default.html#constant_YXORP_SITE_SYSTEM"
         },                {
             "fqsen": "\\YXORP_CONTENT",
             "name": "YXORP_CONTENT",
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_CONTENT"
         },                {
-            "fqsen": "\\YXORP_APP_SYSTEM_LOGS",
-            "name": "YXORP_APP_SYSTEM_LOGS",
+            "fqsen": "\\YXORP_SITE_SYSTEM_LOGS",
+            "name": "YXORP_SITE_SYSTEM_LOGS",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_APP_SYSTEM_LOGS"
+            "url": "namespaces/default.html#constant_YXORP_SITE_SYSTEM_LOGS"
         },                {
-            "fqsen": "\\YXORP_APP_SYSTEM_USERS",
-            "name": "YXORP_APP_SYSTEM_USERS",
+            "fqsen": "\\YXORP_SITE_SYSTEM_USERS",
+            "name": "YXORP_SITE_SYSTEM_USERS",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_APP_SYSTEM_USERS"
+            "url": "namespaces/default.html#constant_YXORP_SITE_SYSTEM_USERS"
         },                {
-            "fqsen": "\\APP_CONTENT",
-            "name": "APP_CONTENT",
+            "fqsen": "\\SITE_CONTENT",
+            "name": "SITE_CONTENT",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_CONTENT"
+            "url": "namespaces/default.html#constant_SITE_CONTENT"
         },                {
-            "fqsen": "\\APP_SINGLETONS",
-            "name": "APP_SINGLETONS",
+            "fqsen": "\\SITE_SINGLETONS",
+            "name": "SITE_SINGLETONS",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_SINGLETONS"
+            "url": "namespaces/default.html#constant_SITE_SINGLETONS"
         },                {
-            "fqsen": "\\APP_MODULE",
-            "name": "APP_MODULE",
+            "fqsen": "\\SITE_MODULE",
+            "name": "SITE_MODULE",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_MODULE"
+            "url": "namespaces/default.html#constant_SITE_MODULE"
         },                {
-            "fqsen": "\\APP_SETTINGS",
-            "name": "APP_SETTINGS",
+            "fqsen": "\\SITE_SETTINGS",
+            "name": "SITE_SETTINGS",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_SETTINGS"
+            "url": "namespaces/default.html#constant_SITE_SETTINGS"
         },                {
-            "fqsen": "\\APP_VAL",
-            "name": "APP_VAL",
+            "fqsen": "\\SITE_VAL",
+            "name": "SITE_VAL",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_VAL"
+            "url": "namespaces/default.html#constant_SITE_VAL"
         },                {
-            "fqsen": "\\APP_SITES",
-            "name": "APP_SITES",
+            "fqsen": "\\SITE_SITES",
+            "name": "SITE_SITES",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_SITES"
+            "url": "namespaces/default.html#constant_SITE_SITES"
         },                {
-            "fqsen": "\\APP_COLLECTIONS",
-            "name": "APP_COLLECTIONS",
+            "fqsen": "\\SITE_COLLECTIONS",
+            "name": "SITE_COLLECTIONS",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_COLLECTIONS"
+            "url": "namespaces/default.html#constant_SITE_COLLECTIONS"
         },                {
-            "fqsen": "\\APP_HOST",
-            "name": "APP_HOST",
+            "fqsen": "\\SITE_HOST",
+            "name": "SITE_HOST",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_HOST"
+            "url": "namespaces/default.html#constant_SITE_HOST"
         },                {
-            "fqsen": "\\APP_NAME",
-            "name": "APP_NAME",
+            "fqsen": "\\SITE_NAME",
+            "name": "SITE_NAME",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_NAME"
+            "url": "namespaces/default.html#constant_SITE_NAME"
         },                {
-            "fqsen": "\\APP_TARGET",
-            "name": "APP_TARGET",
+            "fqsen": "\\SITE_TARGET",
+            "name": "SITE_TARGET",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_TARGET"
+            "url": "namespaces/default.html#constant_SITE_TARGET"
         },                {
             "fqsen": "\\DIR_ACTION",
             "name": "DIR_ACTION",
@@ -1036,10 +1186,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_FILE_WRAPPER"
         },                {
-            "fqsen": "\\FILE_APP_BOOTSTRAP",
-            "name": "FILE_APP_BOOTSTRAP",
+            "fqsen": "\\FILE_SITE_BOOTSTRAP",
+            "name": "FILE_SITE_BOOTSTRAP",
             "summary": "",
-            "url": "namespaces/default.html#constant_FILE_APP_BOOTSTRAP"
+            "url": "namespaces/default.html#constant_FILE_SITE_BOOTSTRAP"
         },                {
             "fqsen": "\\FILE_MIME_TYPES",
             "name": "FILE_MIME_TYPES",
@@ -1091,10 +1241,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_YXORP_REWRITE"
         },                {
-            "fqsen": "\\YXORP_APP_SYSTEM_INSTALL",
-            "name": "YXORP_APP_SYSTEM_INSTALL",
+            "fqsen": "\\YXORP_SITE_SYSTEM_INSTALL",
+            "name": "YXORP_SITE_SYSTEM_INSTALL",
             "summary": "",
-            "url": "namespaces/default.html#constant_YXORP_APP_SYSTEM_INSTALL"
+            "url": "namespaces/default.html#constant_YXORP_SITE_SYSTEM_INSTALL"
         },                {
             "fqsen": "\\YXORP_PHP_SELF",
             "name": "YXORP_PHP_SELF",
@@ -1276,20 +1426,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#constant_CACHE_EXPIRATION"
         },                {
-            "fqsen": "\\APP_DOCUMENT_ROOT",
-            "name": "APP_DOCUMENT_ROOT",
+            "fqsen": "\\SITE_DOCUMENT_ROOT",
+            "name": "SITE_DOCUMENT_ROOT",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_DOCUMENT_ROOT"
+            "url": "namespaces/default.html#constant_SITE_DOCUMENT_ROOT"
         },                {
-            "fqsen": "\\APP_BASE_URL",
-            "name": "APP_BASE_URL",
+            "fqsen": "\\SITE_BASE_URL",
+            "name": "SITE_BASE_URL",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_BASE_URL"
+            "url": "namespaces/default.html#constant_SITE_BASE_URL"
         },                {
-            "fqsen": "\\APP_API_REQUEST",
-            "name": "APP_API_REQUEST",
+            "fqsen": "\\SITE_API_REQUEST",
+            "name": "SITE_API_REQUEST",
             "summary": "",
-            "url": "namespaces/default.html#constant_APP_API_REQUEST"
+            "url": "namespaces/default.html#constant_SITE_API_REQUEST"
         },                {
             "fqsen": "\\onCheckAction",
             "name": "onCheckAction",
@@ -48851,11 +49001,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-GraphQL-Query.html#method_process"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
-            "name": "initialized",
-            "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_initialized"
-        },                {
             "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024queries",
             "name": "queries",
             "summary": "",
@@ -48875,6 +49020,11 @@ Search.appendIndex(
             "name": "directives",
             "summary": "",
             "url": "classes/App-GraphQL-Query.html#property_directives"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
+            "name": "initialized",
+            "summary": "",
+            "url": "classes/App-GraphQL-Query.html#property_initialized"
         },                {
             "fqsen": "\\App\\GraphQL\\Types\\FieldTypes",
             "name": "FieldTypes",
@@ -49061,20 +49211,10 @@ Search.appendIndex(
             "summary": "Async\u0020Helper\u0020class.",
             "url": "classes/App-Helper-Async.html"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-Async.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
             "name": "exec",
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_exec"
-        },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
-            "name": "finished",
-            "summary": "",
-            "url": "classes/App-Helper-Async.html#method_finished"
         },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
@@ -49086,10 +49226,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_isExecAvailable"
         },                {
+            "fqsen": "\\App\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "name": "finished",
+            "summary": "",
+            "url": "classes/App-Helper-Async.html#method_finished"
+        },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003Apossible\u0028\u0029",
             "name": "possible",
             "summary": "",
             "url": "classes/App-Helper-Async.html#method_possible"
+        },                {
+            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/App-Helper-Async.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\Async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
@@ -49266,25 +49416,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html"
         },                {
-            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/App-Helper-ResponseCache.html#method_initialize"
-        },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html#method_handle"
+        },                {
+            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003AgetCache\u0028\u0029",
+            "name": "getCache",
+            "summary": "",
+            "url": "classes/App-Helper-ResponseCache.html#method_getCache"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
             "url": "classes/App-Helper-ResponseCache.html#method_cache"
         },                {
-            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003AgetCache\u0028\u0029",
-            "name": "getCache",
+            "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-ResponseCache.html#method_getCache"
+            "url": "classes/App-Helper-ResponseCache.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache\u003A\u003A\u0024cacheHandler",
             "name": "cacheHandler",
@@ -50551,11 +50701,6 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Api.html"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Api.html#method_before"
-        },                {
             "fqsen": "\\System\\Controller\\Api\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
@@ -50580,6 +50725,11 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/System-Controller-Api.html#method_remove"
+        },                {
+            "fqsen": "\\System\\Controller\\Api\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
+            "summary": "",
+            "url": "classes/System-Controller-Api.html#method_cache"
         },                {
             "fqsen": "\\System\\Controller\\Api\u003A\u003Asave\u0028\u0029",
             "name": "save",
@@ -50606,10 +50756,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Controller-Api.html#method_graphqlViewer"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
+            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_cache"
+            "url": "classes/System-Controller-Api.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Locales",
             "name": "Locales",
@@ -50661,11 +50811,6 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/System-Controller-Logs.html"
         },                {
-            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/System-Controller-Logs.html#method_before"
-        },                {
             "fqsen": "\\System\\Controller\\Logs\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
@@ -50675,6 +50820,11 @@ Search.appendIndex(
             "name": "load",
             "summary": "",
             "url": "classes/System-Controller-Logs.html#method_load"
+        },                {
+            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/System-Controller-Logs.html#method_before"
         },                {
             "fqsen": "\\System\\Controller\\Settings",
             "name": "Settings",
