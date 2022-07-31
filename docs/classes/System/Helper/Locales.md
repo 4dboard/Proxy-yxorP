@@ -32,26 +32,6 @@ protected array $locales
 ## Methods
 
 
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### locales
 
 
@@ -125,6 +105,26 @@ public cache(bool $persistent = true): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
+
+
+
+
+***
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
 
 
 

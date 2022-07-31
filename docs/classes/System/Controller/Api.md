@@ -15,26 +15,6 @@ Class Controller
 ## Methods
 
 
-### before
-
-
-
-```php
-protected before(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### index
 
 
@@ -127,6 +107,26 @@ public create(): mixed
 
 ```php
 public remove(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### cache
+
+
+
+```php
+protected cache(): mixed
 ```
 
 
@@ -241,12 +241,12 @@ public graphqlViewer(): mixed
 
 ***
 
-### cache
+### before
 
 
 
 ```php
-protected cache(): mixed
+protected before(): mixed
 ```
 
 
@@ -286,6 +286,32 @@ protected render( $view, array $params = []): mixed
 |-----------|------|-------------|
 | `$view` | **** |  |
 | `$params` | **array** |  |
+
+
+
+
+***
+
+### unlockResource
+
+
+
+```php
+public unlockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
 
 
 
@@ -344,32 +370,6 @@ protected isAllowed(string $permission): bool
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-
-
-
-
-***
-
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
 ```
 
 

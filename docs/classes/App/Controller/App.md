@@ -63,6 +63,32 @@ protected render(string $view, array $params = []): mixed
 ## Inherited methods
 
 
+### unlockResource
+
+
+
+```php
+public unlockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
 ### initialize
 
 
@@ -115,32 +141,6 @@ protected isAllowed(string $permission): bool
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-
-
-
-
-***
-
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
 ```
 
 

@@ -14,21 +14,6 @@
 ## Properties
 
 
-### initialized
-
-
-
-```php
-protected $initialized
-```
-
-
-
-
-
-
-***
-
 ### queries
 
 
@@ -80,6 +65,21 @@ public $types
 
 ```php
 public $directives
+```
+
+
+
+
+
+
+***
+
+### initialized
+
+
+
+```php
+protected $initialized
 ```
 
 

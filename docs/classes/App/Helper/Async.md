@@ -39,26 +39,6 @@ public $phpPath
 ## Methods
 
 
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### exec
 
 
@@ -114,6 +94,26 @@ public finished(mixed $processId, mixed& $error = null): mixed
 
 ***
 
+### possible
+
+
+
+```php
+public possible(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### execInBackground
 
 
@@ -160,12 +160,12 @@ protected isExecAvailable(): mixed
 
 ***
 
-### possible
+### initialize
 
 
 
 ```php
-public possible(): mixed
+protected initialize(): mixed
 ```
 
 

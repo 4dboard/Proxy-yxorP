@@ -32,26 +32,6 @@ protected array $roles
 ## Methods
 
 
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### roles
 
 
@@ -131,6 +111,26 @@ public isSuperAdmin(mixed $role = null): mixed
 
 ```php
 public cache(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
 ```
 
 
