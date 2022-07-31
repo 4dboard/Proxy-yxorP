@@ -8,15 +8,17 @@ use GraphQL\Type\Schema;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
-class Query extends \Lime\AppAware {
+class Query extends \Lime\AppAware
+{
 
-    protected $initialized = false;
     public $queries;
     public $mutations;
     public $types;
     public $directives;
+    protected $initialized = false;
 
-    public function init() {
+    public function init()
+    {
 
         if ($this->initialized) return;
 
@@ -28,7 +30,8 @@ class Query extends \Lime\AppAware {
         $this->initialized = true;
     }
 
-    public function process($query = '{}', $variables = null) {
+    public function process($query = '{}', $variables = null)
+    {
 
         if (!$this->initialized) {
             $this->init();
@@ -54,12 +57,12 @@ class Query extends \Lime\AppAware {
 
                 if ($value && is_string($value)) {
 
-                    $start = substr($value,0,1);
-                    $end   = substr($value,-1,1);
+                    $start = substr($value, 0, 1);
+                    $end = substr($value, -1, 1);
 
-                    if (($start == '[' && $end == ']') || ($start == '{' && $end == '}')) {
+                    if (($start === '[' && $end === ']') || ($start === '{' && $end === '}')) {
                         $result['data'][$key] = json_decode($value);
-                    } elseif ($value == 'null') {
+                    } elseif ($value === 'null') {
                         $result['data'][$key] = null;
                     }
                 }

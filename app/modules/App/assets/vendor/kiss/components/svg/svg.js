@@ -1,4 +1,3 @@
-
 customElements.define('kiss-svg', class extends HTMLElement {
 
     static get observedAttributes() {
@@ -10,7 +9,7 @@ customElements.define('kiss-svg', class extends HTMLElement {
     }
 
     attributeChangedCallback(attrName, oldVal, newVal) {
-        if (attrName == 'src') this.update();
+        if (attrName === 'src') this.update();
     }
 
     update() {

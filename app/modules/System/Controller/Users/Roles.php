@@ -5,20 +5,16 @@ namespace System\Controller\Users;
 use App\Controller\App;
 use ArrayObject;
 
-class Roles extends App {
+class Roles extends App
+{
 
-    protected function before() {
-
-        if (!$this->isAllowed('app/roles/manage')) {
-            $this->stop(401);
-        }
-    }
-
-    public function index() {
+    public function index()
+    {
         return $this->render('system:views/users/roles/index.php');
     }
 
-    public function role($id = null) {
+    public function role($id = null)
+    {
 
         if (!$id) {
             return $this->stop(['error' => 'Role id is missing'], 412);
@@ -37,19 +33,21 @@ class Roles extends App {
         return $this->render('system:views/users/roles/role.php', compact('role'));
     }
 
-    public function create() {
+    public function create()
+    {
 
         $role = [
             'appid' => '',
-            'name'  => '',
-            'info'  => '',
+            'name' => '',
+            'info' => '',
             'permissions' => new ArrayObject([])
         ];
 
         return $this->render('system:views/users/roles/role.php', compact('role'));
     }
 
-    public function remove() {
+    public function remove()
+    {
 
         $role = $this->param('role');
 
@@ -65,7 +63,8 @@ class Roles extends App {
         return ['success' => true];
     }
 
-    public function save() {
+    public function save()
+    {
 
         $role = $this->param('role');
 
@@ -98,7 +97,7 @@ class Roles extends App {
         }
 
         // admin role is protected (superadmin)
-        if ($role['appid'] == 'admin') {
+        if ($role['appid'] === 'admin') {
             return $this->app->stop(['error' => 'appid is already used!'], 412);
         }
 
@@ -118,15 +117,15 @@ class Roles extends App {
 
         $role = $this->app->dataStorage->findOne('system/roles', ['_id' => $role['_id']]);
 
-        $role['permissions'] = new ArrayObject( $role['permissions']);
+        $role['permissions'] = new ArrayObject($role['permissions']);
 
         $this->cache();
 
         return $role;
     }
 
-
-    public function load() {
+    public function load()
+    {
 
         $this->helper('session')->close();
 
@@ -137,7 +136,16 @@ class Roles extends App {
         return $roles;
     }
 
-    protected function cache() {
+    protected function before()
+    {
+
+        if (!$this->isAllowed('app/roles/manage')) {
+            $this->stop(401);
+        }
+    }
+
+    protected function cache()
+    {
         $this->helper('acl')->cache();
     }
 

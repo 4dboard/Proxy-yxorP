@@ -20,7 +20,7 @@
  * @version 1.6.5
  * @url craig.is/killing/mice
  */
- (function(window, document, undefined) {
+(function (window, document, undefined) {
 
     // Check if mousetrap is used inside browser, if not, return
     if (!window) {
@@ -74,7 +74,7 @@
         107: '+',
         109: '-',
         110: '.',
-        111 : '/',
+        111: '/',
         186: ';',
         187: '=',
         188: ',',
@@ -191,7 +191,7 @@
     function _characterFromEvent(e) {
 
         // for keypress events we should return the character as is
-        if (e.type == 'keypress') {
+        if (e.type === 'keypress') {
             var character = String.fromCharCode(e.which);
 
             // if the shift key is not pressed then it is safe to assume
@@ -303,7 +303,7 @@
      * @returns {boolean}
      */
     function _isModifier(key) {
-        return key == 'shift' || key == 'ctrl' || key == 'alt' || key == 'meta';
+        return key === 'shift' || key === 'ctrl' || key === 'alt' || key === 'meta';
     }
 
     /**
@@ -348,7 +348,7 @@
 
         // modifier keys don't work as expected with keypress,
         // switch to keydown
-        if (action == 'keypress' && modifiers.length) {
+        if (action === 'keypress' && modifiers.length) {
             action = 'keydown';
         }
 
@@ -548,7 +548,7 @@
             }
 
             // if a modifier key is coming up on its own we should allow it
-            if (action == 'keyup' && _isModifier(character)) {
+            if (action === 'keyup' && _isModifier(character)) {
                 modifiers = [character];
             }
 
@@ -576,15 +576,15 @@
                 // chrome will not fire a keypress if meta or control is down
                 // safari will fire a keypress if meta or meta+shift is down
                 // firefox will fire a keypress if meta or control is down
-                if ((action == 'keypress' && !e.metaKey && !e.ctrlKey) || _modifiersMatch(modifiers, callback.modifiers)) {
+                if ((action === 'keypress' && !e.metaKey && !e.ctrlKey) || _modifiersMatch(modifiers, callback.modifiers)) {
 
                     // when you bind a combination or sequence a second time it
                     // should overwrite the first one.  if a sequenceName or
                     // combination is specified in this call it does just that
                     //
                     // @todo make deleting its own method?
-                    var deleteCombo = !sequenceName && callback.combo == combination;
-                    var deleteSequence = sequenceName && callback.seq == sequenceName && callback.level == level;
+                    var deleteCombo = !sequenceName && callback.combo === combination;
+                    var deleteSequence = sequenceName && callback.seq === sequenceName && callback.level === level;
                     if (deleteCombo || deleteSequence) {
                         self._callbacks[character].splice(i, 1);
                     }
@@ -627,7 +627,7 @@
          * @param {Event} e
          * @returns void
          */
-        self._handleKey = function(character, modifiers, e) {
+        self._handleKey = function (character, modifiers, e) {
             var callbacks = _getMatches(character, modifiers, e);
             var i;
             var doNotReset = {};
@@ -699,12 +699,12 @@
             //
             // we ignore keypresses in a sequence that directly follow a keydown
             // for the same character
-            var ignoreThisKeypress = e.type == 'keypress' && _ignoreNextKeypress;
-            if (e.type == _nextExpectedAction && !_isModifier(character) && !ignoreThisKeypress) {
+            var ignoreThisKeypress = e.type === 'keypress' && _ignoreNextKeypress;
+            if (e.type === _nextExpectedAction && !_isModifier(character) && !ignoreThisKeypress) {
                 _resetSequences(doNotReset);
             }
 
-            _ignoreNextKeypress = processedSequenceCallback && e.type == 'keydown';
+            _ignoreNextKeypress = processedSequenceCallback && e.type === 'keydown';
         };
 
         /**
@@ -729,7 +729,7 @@
             }
 
             // need to use === for the character check because the character can be 0
-            if (e.type == 'keyup' && _ignoreNextKeyup === character) {
+            if (e.type === 'keyup' && _ignoreNextKeyup === character) {
                 _ignoreNextKeyup = false;
                 return;
             }
@@ -773,7 +773,7 @@
              * @returns {Function}
              */
             function _increaseSequence(nextAction) {
-                return function() {
+                return function () {
                     _nextExpectedAction = nextAction;
                     ++_sequenceLevels[combo];
                     _resetSequenceTimer();
@@ -879,7 +879,7 @@
          * @param {string|undefined} action
          * @returns void
          */
-        self._bindMultiple = function(combinations, callback, action) {
+        self._bindMultiple = function (combinations, callback, action) {
             for (var i = 0; i < combinations.length; ++i) {
                 _bindSingle(combinations[i], callback, action);
             }
@@ -905,7 +905,7 @@
      * @param {string=} action - 'keypress', 'keydown', or 'keyup'
      * @returns void
      */
-    Mousetrap.prototype.bind = function(keys, callback, action) {
+    Mousetrap.prototype.bind = function (keys, callback, action) {
         var self = this;
         keys = keys instanceof Array ? keys : [keys];
         self._bindMultiple.call(self, keys, callback, action);
@@ -929,9 +929,10 @@
      * @param {string} action
      * @returns void
      */
-    Mousetrap.prototype.unbind = function(keys, action) {
+    Mousetrap.prototype.unbind = function (keys, action) {
         var self = this;
-        return self.bind.call(self, keys, function() {}, action);
+        return self.bind.call(self, keys, function () {
+        }, action);
     };
 
     /**
@@ -941,7 +942,7 @@
      * @param {string=} action
      * @returns void
      */
-    Mousetrap.prototype.trigger = function(keys, action) {
+    Mousetrap.prototype.trigger = function (keys, action) {
         var self = this;
         if (self._directMap[keys + ':' + action]) {
             self._directMap[keys + ':' + action]({}, keys);
@@ -956,7 +957,7 @@
      *
      * @returns void
      */
-    Mousetrap.prototype.reset = function() {
+    Mousetrap.prototype.reset = function () {
         var self = this;
         self._callbacks = {};
         self._directMap = {};
@@ -970,7 +971,7 @@
      * @param {Element} element
      * @return {boolean}
      */
-    Mousetrap.prototype.stopCallback = function(e, element) {
+    Mousetrap.prototype.stopCallback = function (e, element) {
         var self = this;
 
         // if the element has the class "mousetrap" then no need to stop
@@ -997,13 +998,13 @@
         }
 
         // stop for input, select, and textarea
-        return element.tagName == 'INPUT' || element.tagName == 'SELECT' || element.tagName == 'TEXTAREA' || element.isContentEditable;
+        return element.tagName === 'INPUT' || element.tagName === 'SELECT' || element.tagName === 'TEXTAREA' || element.isContentEditable;
     };
 
     /**
      * exposes _handleKey publicly so it can be overwritten by extensions
      */
-    Mousetrap.prototype.handleKey = function() {
+    Mousetrap.prototype.handleKey = function () {
         var self = this;
         return self._handleKey.apply(self, arguments);
     };
@@ -1011,7 +1012,7 @@
     /**
      * allow custom key mappings
      */
-    Mousetrap.addKeycodes = function(object) {
+    Mousetrap.addKeycodes = function (object) {
         for (var key in object) {
             if (object.hasOwnProperty(key)) {
                 _MAP[key] = object[key];
@@ -1026,15 +1027,15 @@
      * This method is needed to allow the global mousetrap functions to work
      * now that mousetrap is a constructor function.
      */
-    Mousetrap.init = function() {
+    Mousetrap.init = function () {
         var documentMousetrap = Mousetrap(document);
         for (var method in documentMousetrap) {
             if (method.charAt(0) !== '_') {
-                Mousetrap[method] = (function(method) {
-                    return function() {
+                Mousetrap[method] = (function (method) {
+                    return function () {
                         return documentMousetrap[method].apply(documentMousetrap, arguments);
                     };
-                } (method));
+                }(method));
             }
         }
     };
@@ -1051,8 +1052,8 @@
 
     // expose mousetrap as an AMD module
     if (typeof define === 'function' && define.amd) {
-        define(function() {
+        define(function () {
             return Mousetrap;
         });
     }
-}) (typeof window !== 'undefined' ? window : null, typeof  window !== 'undefined' ? document : null);
+})(typeof window !== 'undefined' ? window : null, typeof window !== 'undefined' ? document : null);

@@ -6,11 +6,13 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class Auth extends Base {
+class Auth extends Base
+{
 
     protected $layout = 'app:layouts/canvas.php';
 
-    public function login() {
+    public function login()
+    {
 
         if ($this->helper('auth')->getUser()) {
             $this->app->reroute('/');
@@ -31,7 +33,8 @@ class Auth extends Base {
         return $this->render('app:views/auth/login.php', \compact('redirectTo'));
     }
 
-    public function logout() {
+    public function logout()
+    {
 
         $this->helper('auth')->logout();
 
@@ -42,7 +45,8 @@ class Auth extends Base {
         }
     }
 
-    public function check() {
+    public function check()
+    {
 
         if ($this->helper('auth')->getUser()) {
             return false;
@@ -65,12 +69,12 @@ class Auth extends Base {
 
         if (isset($auth['user']) && $this->helper('utils')->isEmail($auth['user'])) {
             $auth['email'] = $auth['user'];
-            $auth['user']  = '';
+            $auth['user'] = '';
         }
 
         $user = $this->helper('auth')->authenticate($auth);
 
-        if ($user && $user['role'] == 'public') {
+        if ($user && $user['role'] === 'public') {
             return $this->stop(412);
         }
 
@@ -106,14 +110,15 @@ class Auth extends Base {
         return ['success' => false];
     }
 
-    public function validate2FA() {
+    public function validate2FA()
+    {
 
         $code = $this->param('code', null);
         $token = $this->param('token', null);
 
         try {
-            $user = (array) $this->app->helper('jwt')->decode($token);
-        } catch(\Exception $e) {
+            $user = (array)$this->app->helper('jwt')->decode($token);
+        } catch (\Exception $e) {
             return $this->stop(412);
         }
 

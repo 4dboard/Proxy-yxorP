@@ -35,7 +35,8 @@
     Store.prototype.store = function () {
         try {
             this.adapter.store(this.name, this.data);
-        } catch (e) { }
+        } catch (e) {
+        }
     };
 
     Store.prototype.toString = function () {
@@ -319,7 +320,7 @@
     var JSONStorage = {
 
         select: function (name, adapter) {
-            return (new Store(name, typeof (adapter) == 'object' ? adapter : (this.adapters[adapter] || this.adapters['memory'])));
+            return (new Store(name, typeof (adapter) === 'object' ? adapter : (this.adapters[adapter] || this.adapters['memory'])));
         },
 
         adapters: {

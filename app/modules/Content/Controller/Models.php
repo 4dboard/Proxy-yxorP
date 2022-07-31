@@ -5,9 +5,11 @@ namespace Content\Controller;
 use App\Controller\App;
 use ArrayObject;
 
-class Models extends App {
+class Models extends App
+{
 
-    public function create() {
+    public function create()
+    {
 
         if (!$this->isAllowed("content/models/manage")) {
             return $this->stop(401);
@@ -38,7 +40,8 @@ class Models extends App {
         return $this->render('content:views/models/model.php', compact('model', 'isUpdate', 'groups'));
     }
 
-    public function edit($name = null) {
+    public function edit($name = null)
+    {
 
         if (!$name) {
             return $this->stop(412);
@@ -67,7 +70,8 @@ class Models extends App {
         return $this->render('content:views/models/model.php', compact('model', 'isUpdate', 'groups'));
     }
 
-    public function remove($name = null) {
+    public function remove($name = null)
+    {
 
         if (!$name) {
             return $this->stop(412);
@@ -88,7 +92,8 @@ class Models extends App {
         return ['success' => true];
     }
 
-    public function save() {
+    public function save()
+    {
 
         $model = $this->param('model');
         $isUpdate = $this->param('isUpdate', false);
@@ -110,14 +115,16 @@ class Models extends App {
         return $model;
     }
 
-    public function load() {
+    public function load()
+    {
 
         $models = array_values($this->module('content')->models());
 
         return $models;
     }
 
-    public function saveItem($model = null) {
+    public function saveItem($model = null)
+    {
 
         $item = $this->param('item');
 
@@ -125,8 +132,8 @@ class Models extends App {
             return $this->stop(['error' => 'Model unknown'], 404);
         }
 
-        $state    = $item['_state'] ?? null;
-        $model    = $this->module('content')->model($model);
+        $state = $item['_state'] ?? null;
+        $model = $this->module('content')->model($model);
         $isUpdate = isset($item['_id']) && $item['_id'];
 
         if ($isUpdate && !$this->isAllowed("content/{$model['name']}/update")) {
@@ -149,7 +156,7 @@ class Models extends App {
 
             $current = null;
 
-            if ($model['type'] == 'collection') {
+            if ($model['type'] === 'collection') {
                 $current = $this->module('content')->item($model['name'], ['_id' => $item['_id']]);
             } else {
                 $current = $this->module('content')->item($model['name']);
@@ -173,7 +180,8 @@ class Models extends App {
         return $item;
     }
 
-    public function clone($model = null) {
+    public function clone($model = null)
+    {
 
         $name = str_replace(' ', '', trim($this->param('name', '')));
 
@@ -197,7 +205,7 @@ class Models extends App {
         $time = time();
 
         $model['name'] = $name;
-        $model['label'] = $model['label'] ? $model['label'].' Copy' : '';
+        $model['label'] = $model['label'] ? $model['label'] . ' Copy' : '';
         $model['_created'] = $time;
         $model['_modified'] = $time;
 
@@ -206,7 +214,8 @@ class Models extends App {
         return $model;
     }
 
-    protected function getGroups() {
+    protected function getGroups()
+    {
 
         $groups = [];
 

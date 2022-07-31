@@ -6,11 +6,36 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class Authenticated extends Base {
+class Authenticated extends Base
+{
 
     protected $user;
 
-    protected function initialize() {
+    public function unlockResource($resourceId)
+    {
+
+        $meta = $this->helper('admin')->isResourceLocked($resourceId);
+        $success = false;
+
+        if ($meta) {
+
+            $canUnlock = $this->isAllowed('app/resources/unlock');
+
+            if (!$canUnlock) {
+                $canUnlock = $meta['sid'] === md5(session_id());
+            }
+
+            if ($canUnlock) {
+                $this->helper('admin')->unlockResourceId($resourceId);
+                $success = true;
+            }
+        }
+
+        return ['success' => $success];
+    }
+
+    protected function initialize()
+    {
 
         $user = $this->app->helper('auth')->getUser();
 
@@ -25,11 +50,13 @@ class Authenticated extends Base {
         parent::initialize();
     }
 
-    protected function isAllowed(string $permission): bool {
+    protected function isAllowed(string $permission): bool
+    {
         return $this->helper('acl')->isAllowed($permission);
     }
 
-    protected function checkAndLockResource($resourceId) {
+    protected function checkAndLockResource($resourceId)
+    {
 
         $meta = null;
 
@@ -38,27 +65,5 @@ class Authenticated extends Base {
         }
 
         $this->helper('admin')->lockResourceId($resourceId);
-    }
-
-    public function unlockResource($resourceId) {
-
-        $meta = $this->helper('admin')->isResourceLocked($resourceId);
-        $success = false;
-
-        if ($meta) {
-
-            $canUnlock = $this->isAllowed('app/resources/unlock');
-
-            if (!$canUnlock) {
-                $canUnlock = $meta['sid'] == md5(session_id());
-            }
-
-            if ($canUnlock) {
-                $this->helper('admin')->unlockResourceId($resourceId);
-                $success = true;
-            }
-        }
-
-        return ['success' => $success];
     }
 }

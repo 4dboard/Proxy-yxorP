@@ -1,17 +1,17 @@
-function sortObject(object){
+function sortObject(object) {
     var sortedObj = {},
         keys = Object.keys(object);
 
-    keys.sort(function(key1, key2){
+    keys.sort(function (key1, key2) {
         key1 = key1.toLowerCase(), key2 = key2.toLowerCase();
-        if(key1 < key2) return -1;
-        if(key1 > key2) return 1;
+        if (key1 < key2) return -1;
+        if (key1 > key2) return 1;
         return 0;
     });
 
-    for(var index in keys){
+    for (var index in keys) {
         var key = keys[index];
-        if(typeof object[key] == 'object' && !(object[key] instanceof Array)){
+        if (typeof object[key] === 'object' && !(object[key] instanceof Array)) {
             sortedObj[key] = sortObject(object[key]);
         } else {
             sortedObj[key] = object[key];
@@ -67,7 +67,7 @@ export default {
     methods: {
 
         copy() {
-            App.utils.copyText(JSON.stringify(this.data, undefined, 2), () =>  App.ui.notify('JSON copied!'));
+            App.utils.copyText(JSON.stringify(this.data, undefined, 2), () => App.ui.notify('JSON copied!'));
         },
 
         syntaxHighlight(json) {
@@ -92,7 +92,7 @@ export default {
                     cls = 'kiss-color-muted';
                 }
 
-                return '<span class="'+cls+'">'+match+'</span>';
+                return '<span class="' + cls + '">' + match + '</span>';
             });
         }
     }

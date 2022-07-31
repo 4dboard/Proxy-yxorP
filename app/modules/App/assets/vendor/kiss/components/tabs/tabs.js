@@ -10,7 +10,7 @@ customElements.define('kiss-tabs', class extends HTMLElement {
 
     connectedCallback() {
 
-        if (this.getAttribute('static') == 'true') {
+        if (this.getAttribute('static') === 'true') {
             return;
         }
 
@@ -40,14 +40,14 @@ customElements.define('kiss-tabs', class extends HTMLElement {
 
         this.tabs.forEach((tab, idx) => {
 
-            this.nav.children[idx].setAttribute('active', this.activeIndex == idx ? 'true' : 'false');
-            tab.setAttribute('active', this.activeIndex == idx ? 'true' : 'false');
+            this.nav.children[idx].setAttribute('active', this.activeIndex === idx ? 'true' : 'false');
+            tab.setAttribute('active', this.activeIndex === idx ? 'true' : 'false');
         })
     }
 
     render() {
 
-        if (this.getAttribute('static') == 'true') {
+        if (this.getAttribute('static') === 'true') {
             return;
         }
 
@@ -59,7 +59,7 @@ customElements.define('kiss-tabs', class extends HTMLElement {
 
         for (let i = 0; i < this.children.length; i++) {
 
-            if (this.children[i].tagName.toLowerCase() == 'tab') {
+            if (this.children[i].tagName.toLowerCase() === 'tab') {
 
                 item = document.createElement("li");
                 item.innerHTML = `<a class="kiss-tabs-nav-link" index="${this.tabs.length}">${this.children[i].getAttribute('caption') || 'Tab'}</a>`

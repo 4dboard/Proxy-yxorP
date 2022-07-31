@@ -16,7 +16,7 @@ customElements.define('app-frame', class extends HTMLElement {
 
             this.iframe = this.querySelector('iframe');
 
-            if (this.getAttribute('seamless') == 'true') {
+            if (this.getAttribute('seamless') === 'true') {
                 this.iframe.style.height = '0px';
                 setInterval(() => this.resize(), 150);
             }
@@ -49,13 +49,13 @@ customElements.define('app-frame', class extends HTMLElement {
             return;
         }
 
-        if (this._offsetHeight == this.iframe.contentDocument.body.offsetHeight) {
+        if (this._offsetHeight === this.iframe.contentDocument.body.offsetHeight) {
             return;
         }
 
         this._offsetHeight = this.iframe.contentDocument.body.offsetHeight;
 
-        this.iframe.style.height = this._offsetHeight+'px';
+        this.iframe.style.height = this._offsetHeight + 'px';
 
     }
 });

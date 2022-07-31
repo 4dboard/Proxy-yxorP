@@ -1,4 +1,3 @@
-
 <vue-view class="kiss-margin-small">
 
     <template>
@@ -6,27 +5,31 @@
         <kiss-container>
 
             <ul class="kiss-breadcrumbs">
-                <li><a href="<?=$this->route('/content')?>"><?=t('Content')?></a></li>
+                <li><a href="<?= $this->route('/content') ?>"><?= t('Content') ?></a></li>
             </ul>
 
             <div class="kiss-flex kiss-flex-middle">
                 <div class="kiss-flex kiss-position-relative">
-                    <span class="kiss-badge" style="<?=($model['color'] ? "background:{$model['color']};border-color:{$model['color']}":"")?>"><?=$this->escape($model['label'] ? $model['label'] : $model['name'])?></span>
-                    <a class="kiss-cover" href="<?=$this->route("/content/collection/items/{$model['name']}")?>"></a>
+                    <span class="kiss-badge"
+                          style="<?= ($model['color'] ? "background:{$model['color']};border-color:{$model['color']}" : "") ?>"><?= $this->escape($model['label'] ? $model['label'] : $model['name']) ?></span>
+                    <a class="kiss-cover" href="<?= $this->route("/content/collection/items/{$model['name']}") ?>"></a>
                 </div>
                 <div class="kiss-margin-small-left kiss-size-5 kiss-text-bold">
-                    <span v-if="!item._id"><?=t('New Item')?></span>
-                    <span v-if="item._id"><?=t('Edit Item')?></span>
+                    <span v-if="!item._id"><?= t('New Item') ?></span>
+                    <span v-if="item._id"><?= t('Edit Item') ?></span>
                 </div>
-                <a class="kiss-size-large kiss-margin-small-left" kiss-popoutmenu="#model-item-menu-actions"><icon>more_horiz</icon></a>
+                <a class="kiss-size-large kiss-margin-small-left" kiss-popoutmenu="#model-item-menu-actions">
+                    <icon>more_horiz</icon>
+                </a>
             </div>
         </kiss-container>
 
         <kiss-container class="kiss-margin-large">
 
-            <div class="kiss-height-50vh kiss-flex kiss-flex-middle kiss-flex-center kiss-align-center" v-if="!fields.length">
+            <div class="kiss-height-50vh kiss-flex kiss-flex-middle kiss-flex-center kiss-align-center"
+                 v-if="!fields.length">
                 <div class="animated fadeInUp kiss-size-large kiss-color-muted">
-                    <?=t('No fields defined')?>
+                    <?= t('No fields defined') ?>
                 </div>
             </div>
 
@@ -46,25 +49,48 @@
 
                             <div class="kiss-margin-xsmall">
                                 <div class="kiss-flex kiss-flex-middle">
-                                    <div class="kiss-size-4 kiss-margin-small-right kiss-flex" title="ID"><icon>adjust</icon></div>
-                                    <div class="kiss-text-truncate kiss-text-bold kiss-text-monospace kiss-size-small kiss-flex-1">{{ item._id }}</div>
-                                    <a :title="t('Copy')" @click="copyID()"><icon>copy</icon></a>
+                                    <div class="kiss-size-4 kiss-margin-small-right kiss-flex" title="ID">
+                                        <icon>adjust</icon>
+                                    </div>
+                                    <div
+                                        class="kiss-text-truncate kiss-text-bold kiss-text-monospace kiss-size-small kiss-flex-1">
+                                        {{ item._id }}
+                                    </div>
+                                    <a :title="t('Copy')" @click="copyID()">
+                                        <icon>copy</icon>
+                                    </a>
                                 </div>
                             </div>
 
                             <div class="kiss-margin-xsmall">
                                 <div class="kiss-flex kiss-flex-middle">
-                                    <div class="kiss-size-4 kiss-margin-small-right kiss-flex kiss-color-muted" :title="t('Created at')"><icon>more_time</icon></div>
-                                    <div class="kiss-text-truncate kiss-size-small kiss-text-monospace kiss-color-muted kiss-flex-1">{{ (new Date(item._created * 1000).toLocaleString()) }}</div>
-                                    <div><icon>account_circle</icon></div>
+                                    <div class="kiss-size-4 kiss-margin-small-right kiss-flex kiss-color-muted"
+                                         :title="t('Created at')">
+                                        <icon>more_time</icon>
+                                    </div>
+                                    <div
+                                        class="kiss-text-truncate kiss-size-small kiss-text-monospace kiss-color-muted kiss-flex-1">
+                                        {{ (new Date(item._created * 1000).toLocaleString()) }}
+                                    </div>
+                                    <div>
+                                        <icon>account_circle</icon>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="kiss-margin-xsmall" v-if="item._created != item._modified">
                                 <div class="kiss-flex kiss-flex-middle">
-                                    <div class="kiss-size-4 kiss-margin-small-right kiss-flex kiss-color-muted" :title="t('Modified at')"><icon>history</icon></div>
-                                    <div class="kiss-text-truncate kiss-size-small kiss-text-monospace kiss-color-muted kiss-flex-1">{{ (new Date(item._modified * 1000).toLocaleString()) }}</div>
-                                    <div><icon>account_circle</icon></div>
+                                    <div class="kiss-size-4 kiss-margin-small-right kiss-flex kiss-color-muted"
+                                         :title="t('Modified at')">
+                                        <icon>history</icon>
+                                    </div>
+                                    <div
+                                        class="kiss-text-truncate kiss-size-small kiss-text-monospace kiss-color-muted kiss-flex-1">
+                                        {{ (new Date(item._modified * 1000).toLocaleString()) }}
+                                    </div>
+                                    <div>
+                                        <icon>account_circle</icon>
+                                    </div>
                                 </div>
                             </div>
 
@@ -76,10 +102,13 @@
                         <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold">{{ t('State') }}</div>
 
                         <div class="kiss-margin-small">
-                            <button type="button" class="kiss-button kiss-flex kiss-flex-middle kiss-width-expand kiss-align-left" :class="{'kiss-bgcolor-danger': !item._state, 'kiss-bgcolor-success': item._state == 1}" kiss-popoutmenu="#model-item-menu-state">
-                                <span class="kiss-flex-1" v-if="item._state == 1">{{ t('Published') }}</span>
+                            <button type="button"
+                                    class="kiss-button kiss-flex kiss-flex-middle kiss-width-expand kiss-align-left"
+                                    :class="{'kiss-bgcolor-danger': !item._state, 'kiss-bgcolor-success': item._state === 1}"
+                                    kiss-popoutmenu="#model-item-menu-state">
+                                <span class="kiss-flex-1" v-if="item._state === 1">{{ t('Published') }}</span>
                                 <span class="kiss-flex-1" v-if="!item._state">{{ t('Unpublished') }}</span>
-                                <span class="kiss-flex-1" v-if="item._state == -1">{{ t('Archive') }}</span>
+                                <span class="kiss-flex-1" v-if="item._state === -1">{{ t('Archive') }}</span>
                                 <icon>expand_more</icon>
                             </button>
                         </div>
@@ -90,17 +119,25 @@
 
                         <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold">{{ t('Translation') }}</div>
 
-                        <kiss-card class="kiss-padding-small kiss-margin-small kiss-text-muted kiss-size-small kiss-color-muted kiss-flex kiss-flex-middle" theme="bordered" v-if="!locales.length">
+                        <kiss-card
+                            class="kiss-padding-small kiss-margin-small kiss-text-muted kiss-size-small kiss-color-muted kiss-flex kiss-flex-middle"
+                            theme="bordered" v-if="!locales.length">
                             <span class="kiss-flex-1 kiss-margin-small-right">{{ t('No locales.') }}</span>
-                            <a class="kiss-size-xsmall  kiss-text-bolder" href="<?=$this->route('/system/locales')?>">{{ t('Manage') }}</a>
+                            <a class="kiss-size-xsmall  kiss-text-bolder" href="<?= $this->route('/system/locales') ?>">{{
+                                t('Manage') }}</a>
                         </kiss-card>
 
                         <div class="kiss-margin-small" v-if="locales.length">
 
-                            <kiss-card class="kiss-position-relative kiss-padding-small kiss-margin-small kiss-text-bolder kiss-flex kiss-flex-middle" :class="{'kiss-color-muted': !loc.visible}" :theme="!loc.visible ? 'bordered':'bordered contrast'" v-for="loc in locales">
-                                <icon class="kiss-margin-small-right" :class="{'kiss-color-primary': loc.visible}">{{ loc.visible ? 'visibility' : 'visibility_off' }}</icon>
+                            <kiss-card
+                                class="kiss-position-relative kiss-padding-small kiss-margin-small kiss-text-bolder kiss-flex kiss-flex-middle"
+                                :class="{'kiss-color-muted': !loc.visible}"
+                                :theme="!loc.visible ? 'bordered':'bordered contrast'" v-for="loc in locales">
+                                <icon class="kiss-margin-small-right" :class="{'kiss-color-primary': loc.visible}">{{
+                                    loc.visible ? 'visibility' : 'visibility_off' }}
+                                </icon>
                                 <span class="kiss-size-small kiss-flex-1">{{ loc.name }}</span>
-                                <span class="kiss-color-muted kiss-size-xsmall" v-if="loc.i18n == 'default'">{{ t('Default') }}</span>
+                                <span class="kiss-color-muted kiss-size-xsmall" v-if="loc.i18n === 'default'">{{ t('Default') }}</span>
                                 <a class="kiss-cover" @click="loc.visible = !loc.visible"></a>
                             </kiss-card>
                         </div>
@@ -109,15 +146,22 @@
 
                     <div class="kiss-margin kiss-visible@m" v-if="model.preview && model.preview.length">
 
-                        <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold kiss-margin-small-bottom">{{ t('Content preview') }}</div>
+                        <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold kiss-margin-small-bottom">{{
+                            t('Content preview') }}
+                        </div>
 
-                        <a class="kiss-button kiss-width-1-1" kiss-popoutmenu="#model-item-preview-links" v-if="model.preview.length > 1">{{ t('Open preview') }}</a>
-                        <a class="kiss-button kiss-width-1-1" @click="showPreviewUri(model.preview[0].uri)" v-if="model.preview.length == 1">{{ t('Open preview') }}</a>
+                        <a class="kiss-button kiss-width-1-1" kiss-popoutmenu="#model-item-preview-links"
+                           v-if="model.preview.length > 1">{{ t('Open preview') }}</a>
+                        <a class="kiss-button kiss-width-1-1" @click="showPreviewUri(model.preview[0].uri)"
+                           v-if="model.preview.length === 1">{{ t('Open preview') }}</a>
                     </div>
 
-                    <kiss-card class="kiss-margin kiss-padding kiss-visible@m" theme="contrast bordered" hover="shadow" v-if="model.revisions && item._id">
+                    <kiss-card class="kiss-margin kiss-padding kiss-visible@m" theme="contrast bordered" hover="shadow"
+                               v-if="model.revisions && item._id">
 
-                        <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold kiss-margin-small-bottom">{{ t('Revisions') }}</div>
+                        <div class="kiss-text-caption kiss-size-xsmall kiss-text-bold kiss-margin-small-bottom">{{
+                            t('Revisions') }}
+                        </div>
                         <revisions-widget :oid="item._id" :current="item"></revisions-widget>
 
                     </kiss-card>
@@ -131,19 +175,20 @@
             <kiss-container>
                 <div class="kiss-flex kiss-flex-middle">
                     <div class="kiss-button-group" v-if="item._id">
-                        <a class="kiss-button" href="<?=$this->route("/content/collection/item/{$model['name']}")?>">
-                            <?=t('Create new item')?>
+                        <a class="kiss-button" href="<?= $this->route("/content/collection/item/{$model['name']}") ?>">
+                            <?= t('Create new item') ?>
                         </a>
                     </div>
                     <div class="kiss-flex-1"></div>
                     <div class="kiss-button-group">
-                        <a class="kiss-button" href="<?=$this->route("/content/collection/items/{$model['name']}")?>">
-                            <span v-if="!item._id"><?=t('Cancel')?></span>
-                            <span v-if="item._id"><?=t('Close')?></span>
+                        <a class="kiss-button" href="<?= $this->route("/content/collection/items/{$model['name']}") ?>">
+                            <span v-if="!item._id"><?= t('Cancel') ?></span>
+                            <span v-if="item._id"><?= t('Close') ?></span>
                         </a>
-                        <a class="kiss-button kiss-button-primary" :class="{'kiss-disabled': item._id && !isModified}" @click="save()">
-                            <span v-if="!item._id"><?=t('Create item')?></span>
-                            <span v-if="item._id"><?=t('Update item')?></span>
+                        <a class="kiss-button kiss-button-primary" :class="{'kiss-disabled': item._id && !isModified}"
+                           @click="save()">
+                            <span v-if="!item._id"><?= t('Create item') ?></span>
+                            <span v-if="item._id"><?= t('Update item') ?></span>
                         </a>
                     </div>
                 </div>
@@ -156,25 +201,37 @@
 
                 <kiss-navlist class="kiss-margin-small">
 
-                    <strong class="kiss-text-bold kiss-text-caption"><?=t('State')?></strong>
+                    <strong class="kiss-text-bold kiss-text-caption"><?= t('State') ?></strong>
 
                     <ul class="app-list-items kiss-margin-small-top">
                         <li>
-                            <a class="kiss-flex kiss-flex-middle" :class="{'kiss-color-muted': item._state != 1, 'kiss-text-bold': item._state == 1}" @click="item._state=1">
-                                <icon class="kiss-margin-small-right">{{ item._state != 1 ? 'radio_button_unchecked' : 'radio_button_checked'}}</icon>
-                                <?=t('Published')?>
+                            <a class="kiss-flex kiss-flex-middle"
+                               :class="{'kiss-color-muted': item._state != 1, 'kiss-text-bold': item._state === 1}"
+                               @click="item._state=1">
+                                <icon class="kiss-margin-small-right">{{ item._state != 1 ? 'radio_button_unchecked' :
+                                    'radio_button_checked'}}
+                                </icon>
+                                <?= t('Published') ?>
                             </a>
                         </li>
                         <li>
-                            <a class="kiss-flex kiss-flex-middle" :class="{'kiss-color-muted': item._state != 0, 'kiss-text-bold': item._state == 0}" @click="item._state=0">
-                                <icon class="kiss-margin-small-right">{{ item._state != 0 ? 'radio_button_unchecked' : 'radio_button_checked'}}</icon>
-                                <?=t('Unpublished')?>
+                            <a class="kiss-flex kiss-flex-middle"
+                               :class="{'kiss-color-muted': item._state != 0, 'kiss-text-bold': item._state === 0}"
+                               @click="item._state=0">
+                                <icon class="kiss-margin-small-right">{{ item._state != 0 ? 'radio_button_unchecked' :
+                                    'radio_button_checked'}}
+                                </icon>
+                                <?= t('Unpublished') ?>
                             </a>
                         </li>
                         <li v-if="item._id">
-                            <a class="kiss-flex kiss-flex-middle" :class="{'kiss-color-muted': item._state != -1, 'kiss-text-bold': item._state == -1}" @click="item._state=-1">
-                                <icon class="kiss-margin-small-right">{{ item._state != -1 ? 'radio_button_unchecked' : 'radio_button_checked'}}</icon>
-                                <?=t('Archive')?>
+                            <a class="kiss-flex kiss-flex-middle"
+                               :class="{'kiss-color-muted': item._state != -1, 'kiss-text-bold': item._state === -1}"
+                               @click="item._state=-1">
+                                <icon class="kiss-margin-small-right">{{ item._state != -1 ? 'radio_button_unchecked' :
+                                    'radio_button_checked'}}
+                                </icon>
+                                <?= t('Archive') ?>
                             </a>
                         </li>
                     </ul>
@@ -186,24 +243,26 @@
             <kiss-content>
                 <kiss-navlist class="kiss-margin">
                     <ul>
-                        <li class="kiss-nav-header"><?=t('Actions')?></li>
+                        <li class="kiss-nav-header"><?= t('Actions') ?></li>
                         <li>
                             <a class="kiss-flex kiss-flex-middle" @click="showJSON()">
                                 <icon class="kiss-margin-small-right">manage_search</icon>
-                                <?=t('Json Object')?>
+                                <?= t('Json Object') ?>
                             </a>
                         </li>
                         <li v-if="item._id">
-                            <a class="kiss-flex kiss-flex-middle" href="<?=$this->route("/content/collection/item/{$model['name']}")?>">
+                            <a class="kiss-flex kiss-flex-middle"
+                               href="<?= $this->route("/content/collection/item/{$model['name']}") ?>">
                                 <icon class="kiss-margin-small-right">add_circle_outline</icon>
-                                <?=t('Create new item')?>
+                                <?= t('Create new item') ?>
                             </a>
                         </li>
                         <li class="kiss-nav-divider"></li>
                         <li>
-                            <a class="kiss-flex kiss-flex-middle" href="<?=$this->route("/content/models/edit/{$model['name']}")?>">
+                            <a class="kiss-flex kiss-flex-middle"
+                               href="<?= $this->route("/content/models/edit/{$model['name']}") ?>">
                                 <icon class="kiss-margin-small-right">create</icon>
-                                <?=t('Edit model')?>
+                                <?= t('Edit model') ?>
                             </a>
                         </li>
                     </ul>
@@ -215,7 +274,7 @@
             <kiss-content>
                 <kiss-navlist class="kiss-margin">
                     <ul>
-                        <li class="kiss-nav-header"><?=t('Open preview')?></li>
+                        <li class="kiss-nav-header"><?= t('Open preview') ?></li>
                         <li v-for="preview in model.preview">
                             <a class="kiss-flex kiss-flex-middle" @click="showPreviewUri(preview.uri)">
                                 <icon class="kiss-margin-small-right">travel_explore</icon>
@@ -251,7 +310,7 @@
 
                 hasLocales() {
 
-                    for (let i=0;i<this.fields.length;i++) {
+                    for (let i = 0; i < this.fields.length; i++) {
                         if (this.fields[i].i18n) return true;
                     }
                     return false;
@@ -304,11 +363,14 @@
                 },
 
                 copyID() {
-                    App.utils.copyText(this.item._id, () =>  App.ui.notify('ID copied!'));
+                    App.utils.copyText(this.item._id, () => App.ui.notify('ID copied!'));
                 },
 
                 showJSON() {
-                    VueView.ui.offcanvas('system:assets/dialogs/json-viewer.js', {data: this.item}, {}, {flip: true, size: 'large'})
+                    VueView.ui.offcanvas('system:assets/dialogs/json-viewer.js', {data: this.item}, {}, {
+                        flip: true,
+                        size: 'large'
+                    })
                 },
 
                 showPreviewUri(uri) {

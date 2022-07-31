@@ -6,11 +6,11 @@ export default {
         icon: 'assets:icon.svg',
         render(value, field, context) {
 
-            if (value.type == 'image') {
+            if (value.type === 'image') {
 
-                let height = context == 'table-cell' ? 20 : 50;
+                let height = context === 'table-cell' ? 20 : 50;
 
-                return '<img class="kiss-responsive-height" src="'+App.route(`/assets/thumbnail/${value._id}?m=bestFit&mime=auto&h=${height}&t=${value._modified}`)+'" style="height:'+height+'px">'
+                return '<img class="kiss-responsive-height" src="' + App.route(`/assets/thumbnail/${value._id}?m=bestFit&mime=auto&h=${height}&t=${value._modified}`) + '" style="height:' + height + 'px">'
             }
 
             return value.type;
@@ -49,7 +49,7 @@ export default {
 
         pickAsset() {
 
-            VueView.ui.modal('assets:assets/dialogs/asset-picker.js', {filter:this.filter}, {
+            VueView.ui.modal('assets:assets/dialogs/asset-picker.js', {filter: this.filter}, {
                 selectAsset: (asset) => {
 
                     this.val = asset;
@@ -86,7 +86,7 @@ export default {
 
             <div class="kiss-margin-small" v-if="val">
 
-                <div class="kiss-bgcolor-contrast kiss-position-relative kiss-padding" :class="{'kiss-bgcolor-transparentimage': val.type == 'image'}">
+                <div class="kiss-bgcolor-contrast kiss-position-relative kiss-padding" :class="{'kiss-bgcolor-transparentimage': val.type === 'image'}">
                     <canvas width="400" height="150"></canvas>
                     <div class="kiss-cover kiss-align-center kiss-flex kiss-flex-middle kiss-flex-center"><asset-preview :asset="val"></asset-preview></div>
                     <a class="kiss-cover" :href="$base('#uploads:'+val.path)" target="_blank" rel="noopener"></a>

@@ -1,4 +1,4 @@
-import { on, onMutation } from '../../js/events.js';
+import {on, onMutation} from '../../js/events.js';
 
 on(document.documentElement, 'click', '[kiss-offcanvas]', function (e) {
 
@@ -20,7 +20,7 @@ customElements.define('kiss-offcanvas', class extends HTMLElement {
         on(this, 'pointerdown', e => pointerStart = e.target);
         on(this, 'pointerup', e => {
 
-            if (e.target == this && pointerStart == this) {
+            if (e.target === this && pointerStart === this) {
 
                 e.preventDefault();
 
@@ -31,7 +31,7 @@ customElements.define('kiss-offcanvas', class extends HTMLElement {
         });
 
 
-        on(this, 'click', '[kiss-offcanvas-close]', function(e){
+        on(this, 'click', '[kiss-offcanvas-close]', function (e) {
 
             if (this.getAttribute('kiss-offcanvas-close') != 'no-prevent') {
                 e.preventDefault();

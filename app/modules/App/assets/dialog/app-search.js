@@ -1,7 +1,7 @@
 export default {
 
     data() {
-        return  {
+        return {
             search: '',
             loading: false,
             findings: null,
@@ -53,14 +53,14 @@ export default {
 
                     event.preventDefault();
 
-                    if (this.selected == null) {
-                        this.selected = event.keyCode == 38 ? this.findings.length - 1 : 0;
+                    if (this.selected === null) {
+                        this.selected = event.keyCode === 38 ? this.findings.length - 1 : 0;
                     } else {
 
-                        if (event.keyCode == 38) {
-                            this.selected = this.findings[this.selected - 1] ? this.selected - 1 : this.findings.length - 1 ;
+                        if (event.keyCode === 38) {
+                            this.selected = this.findings[this.selected - 1] ? this.selected - 1 : this.findings.length - 1;
                         } else {
-                            this.selected = this.findings[this.selected + 1] ? this.selected + 1 : 0 ;
+                            this.selected = this.findings[this.selected + 1] ? this.selected + 1 : 0;
                         }
                     }
                     break;
@@ -132,7 +132,7 @@ export default {
                 <div class="kiss-text-caption kiss-color-muted kiss-margin-small">{{ t('Findings') }}</div>
 
                 <div style="max-height:50vh;overflow:auto;">
-                    <kiss-card class="kiss-padding-small kiss-flex kiss-flex-middle" :class="{'kiss-color-primary': idx == this.selected, 'kiss-color-muted': idx != this.selected}" :theme="idx == this.selected && 'contrast'" v-for="finding, idx in findings" @click="goto(finding)">
+                    <kiss-card class="kiss-padding-small kiss-flex kiss-flex-middle" :class="{'kiss-color-primary': idx === this.selected, 'kiss-color-muted': idx != this.selected}" :theme="idx === this.selected && 'contrast'" v-for="finding, idx in findings" @click="goto(finding)">
                         <div class="kiss-margin-small-right">
                             <kiss-svg :src="$base(finding.icon || 'system:assets/icons/link.svg')" width="20" height="20"></kiss-svg>
                         </div>

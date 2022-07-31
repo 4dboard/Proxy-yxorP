@@ -1,9 +1,9 @@
-let ready = new Promise(function(resolve) {
+let ready = new Promise(function (resolve) {
 
     App.assets.require([
         'app:assets/vendor/codemirror/lib/codemirror.js',
         'app:assets/css/vendor/codemirror.css',
-    ], function() {
+    ], function () {
 
         App.assets.require([
             // Modes
@@ -29,7 +29,7 @@ let ready = new Promise(function(resolve) {
             'app:assets/vendor/codemirror/addon/fold/indent-fold.js',
             'app:assets/vendor/codemirror/addon/fold/xml-fold.js',
 
-        ], function() {
+        ], function () {
             resolve(window.CodeMirror);
         });
     });
@@ -42,18 +42,20 @@ export default {
         info: 'Code input',
         icon: 'system:assets/icons/code.svg',
         settings: [
-            {name: 'mode', type: 'select', opts: {options: ['css', 'html', 'json', 'javascript', 'markdown', 'php', 'yaml', 'xml']}},
+            {
+                name: 'mode',
+                type: 'select',
+                opts: {options: ['css', 'html', 'json', 'javascript', 'markdown', 'php', 'yaml', 'xml']}
+            },
             {name: 'height', type: 'number'},
         ],
         render(value, field, context) {
-            return App.utils.truncate(App.utils.stripTags(value), context == 'table-cell' ? 20 : 50);
+            return App.utils.truncate(App.utils.stripTags(value), context === 'table-cell' ? 20 : 50);
         }
     },
 
     data() {
-        return {
-
-        }
+        return {}
     },
 
     props: {
@@ -109,8 +111,8 @@ export default {
                 mode = 'text/x-csrc';
             }
 
-            if (mode == 'html') {
-                mode = { name: 'htmlmixed' };
+            if (mode === 'html') {
+                mode = {name: 'htmlmixed'};
             }
 
             wrapper.innerHTML = '';
@@ -120,7 +122,7 @@ export default {
                 lineNumbers: true,
                 mode: null,
                 height: this.height,
-                foldGutter: mode ? true:false,
+                foldGutter: mode ? true : false,
                 gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
                 mode,
             }, this.codemirror || {}));
@@ -136,11 +138,11 @@ export default {
             });
 
             this.editor.on('focus', () => {
-                this.$el.dispatchEvent(new Event('focusin', { bubbles: true, cancelable: true }));
+                this.$el.dispatchEvent(new Event('focusin', {bubbles: true, cancelable: true}));
             });
 
             this.editor.on('blur', () => {
-                this.$el.dispatchEvent(new Event('focusout', { bubbles: true, cancelable: true }));
+                this.$el.dispatchEvent(new Event('focusout', {bubbles: true, cancelable: true}));
             });
         })
     },

@@ -14,14 +14,19 @@
 @import "../vendor/kiss/lib.css";
 @import "./vendor/kiss.css";
 
-vue-view { display: block; }
-vue-view:not([init="true"]) { display: none; }
+vue-view {
+    display: block;
+}
+
+vue-view:not([init="true"]) {
+    display: none;
+}
 
 :root {
 
     --app-header-background: #131720f0;
     --app-border-radius: 3px;
-    --app-shadow-color: rgba(0,0,0,0.12);
+    --app-shadow-color: rgba(0, 0, 0, 0.12);
 
     --app-actionbar-bgcolor: #131720e6;
 
@@ -37,7 +42,7 @@ vue-view:not([init="true"]) { display: none; }
 html[data-theme='light'] {
     --kiss-base-background-color: #f6f8fa;
     --kiss-base-text-color: #121212;
-    --kiss-hr-color: rgba(0,0,0,.1);
+    --kiss-hr-color: rgba(0, 0, 0, .1);
     --kiss-link-hover-color: #1994ff;
     --kiss-button-default-background: #e0dee6;
     --kiss-button-default-color: #000;
@@ -47,14 +52,14 @@ html[data-theme='light'] {
     --kiss-color-success: #4caf50;
     --kiss-color-warning: orange;
     --kiss-color-danger: #f91941;
-    --kiss-color-muted: rgba(0,0,0,.55);
-    --kiss-color-overlay: rgba(255,255,255, .8);
+    --kiss-color-muted: rgba(0, 0, 0, .55);
+    --kiss-color-overlay: rgba(255, 255, 255, .8);
 
-    --kiss-input-border-color: rgba(0,0,0,.1);
-    --kiss-input-background: rgba(255,255,255,.5);
-    --kiss-input-placeholder-color: rgba(0,0,0,.3);
+    --kiss-input-border-color: rgba(0, 0, 0, .1);
+    --kiss-input-background: rgba(255, 255, 255, .5);
+    --kiss-input-placeholder-color: rgba(0, 0, 0, .3);
 
-    --kiss-dropdown-background: rgba(255,255,255,.95);
+    --kiss-dropdown-background: rgba(255, 255, 255, .95);
 
     --kiss-card-theme-contrast-color: #fff;
     --kiss-card-shadowed-color: rgba(0, 0, 0, 0.15);
@@ -64,16 +69,16 @@ html[data-theme='light'] {
     --kiss-table-heading-background-color: #fff;
     --kiss-table-row-hover-color: #efefef;
 
-    --app-shadow-color: rgba(0,0,0,0.12);
+    --app-shadow-color: rgba(0, 0, 0, 0.12);
     --app-header-background: #eff7f7f0;
     --app-actionbar-bgcolor: #eff7f7e8;
     --app-loader-color2: #333;
-    --app-fieldcontainer-border-color-inactive: rgba(0,0,0, .1);
+    --app-fieldcontainer-border-color-inactive: rgba(0, 0, 0, .1);
     --app-scrollbar-color: var(--kiss-color-muted);
 }
 
 html[data-theme='light'] .kiss-bgcolor-transparentimage {
-    background-image: linear-gradient(45deg, rgba(0,0,0, .15) 25%, transparent 25%), linear-gradient(-45deg, rgba(0,0,0, .15) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0,0,0, .15) 75%), linear-gradient(-45deg, transparent 75%, rgba(0,0,0, .15) 75%);
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, .15) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, .15) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, .15) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, .15) 75%);
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
@@ -82,6 +87,7 @@ html[data-theme='light'] [active="true"] .kiss-tabs-nav-link:after {
     border-color: var(--kiss-color-primary);
     border-width: 2px;
 }
+
 html[data-theme='light'] .kiss-bgcolor-success,
 html[data-theme='light'] .kiss-bgcolor-danger {
     color: #fff;
@@ -109,11 +115,15 @@ html[data-theme='light'].login-page {
 }
 
 @media (prefers-color-scheme: light) {
-    html { --app-auto-theme: light; }
+    html {
+        --app-auto-theme: light;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-    html { --app-auto-theme: dark; }
+    html {
+        --app-auto-theme: dark;
+    }
 }
 
 
@@ -148,8 +158,13 @@ ins, del {
     text-decoration: none;
 }
 
-ins { background: #249924 }
-del { background: #c92a2a }
+ins {
+    background: #249924
+}
+
+del {
+    background: #c92a2a
+}
 
 .app-container {
     display: flex;
@@ -194,7 +209,7 @@ del { background: #c92a2a }
     transition: all 250ms;
 }
 
-.app-container-aside kiss-navlist ul > li > a:hover{
+.app-container-aside kiss-navlist ul > li > a:hover {
     color: inherit;
     opacity: 1;
 }
@@ -266,7 +281,7 @@ label {
 
 .login-wrapper {
     position: relative;
-    width:400px;
+    width: 400px;
     max-width: 90%;
     margin-top: 20vh;
     padding: 30px;
@@ -276,7 +291,7 @@ label {
 .login-wrapper::before {
     content: "";
     display: block;
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -286,13 +301,12 @@ label {
     z-index: -1;
     opacity: .8;
 
-    box-shadow:
-        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-        0 12.5px 10px rgba(0, 0, 0, 0.06),
-        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-        0 100px 80px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 app-fieldcontainer label {
@@ -380,13 +394,26 @@ app-fieldcontainer app-fieldcontainer {
     z-index: 1;
 }
 
-.table-scroll [fixed="top"] { top: 0; }
-.table-scroll [fixed="left"] { left: 0; }
-.table-scroll [fixed="right"] { right: 0; }
+.table-scroll [fixed="top"] {
+    top: 0;
+}
+
+.table-scroll [fixed="left"] {
+    left: 0;
+}
+
+.table-scroll [fixed="right"] {
+    right: 0;
+}
 
 
-.table-scroll th[fixed] {background-color: var(--kiss-table-heading-background-color);}
-.table-scroll td[fixed] {background: var(--kiss-color-contrast);}
+.table-scroll th[fixed] {
+    background-color: var(--kiss-table-heading-background-color);
+}
+
+.table-scroll td[fixed] {
+    background: var(--kiss-color-contrast);
+}
 
 @media (min-width: 768px) {
 
@@ -404,4 +431,8 @@ app-fieldcontainer app-fieldcontainer {
         display: block;
     }
 
+}
+
+.dashboard-page body {
+    background: bottom right no-repeat url('/asset/wallpapper.gif') !important;
 }

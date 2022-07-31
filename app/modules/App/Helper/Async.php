@@ -96,51 +96,6 @@ unlink(__FILE__);
         return $processId;
     }
 
-    protected function execInBackground($scriptfile)
-    {
-
-        if (!$this->isExecAvailable()) {
-
-            // fire and forget calling script
-            $url = $this->app->pathToUrl($scriptfile, true) . '?async=true';
-            $parts = parse_url($url);
-            $fp = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
-
-            if ($fp) {
-                $out = "POST " . $parts['path'] . " HTTP/1.1\r\n";
-                $out .= "Host: " . $parts['host'] . "\r\n";
-                $out .= "Content-Type: application/x-www-form-urlencoded\r\n";
-                $out .= "Content-Length: " . strlen($parts['query']) . "\r\n";
-                $out .= "Connection: Close\r\n\r\n";
-                if (isset($parts['query'])) $out .= $parts['query'];
-            }
-
-            fwrite($fp, $out);
-            fclose($fp);
-            return;
-        }
-
-        $cmd = $this->phpPath . " -f $scriptfile";
-
-        if (substr(php_uname(), 0, 7) == "Windows") {
-            pclose(popen("start /B " . $cmd, "r"));
-        } else {
-            exec($cmd . " > /dev/null &");
-        }
-    }
-
-    protected function isExecAvailable()
-    {
-
-        if (!$this->phpPath || in_array(strtolower(ini_get('safe_mode')), ['on', '1'], true) || (!function_exists('exec'))) {
-            return false;
-        }
-
-        $disabled_functions = explode(',', ini_get('disable_functions'));
-
-        return !in_array('exec', $disabled_functions) && strlen(trim(exec($this->phpPath . ' -v')));
-    }
-
     public function finished($processId, &$error = null)
     {
 
@@ -167,6 +122,51 @@ unlink(__FILE__);
     public function possible()
     {
         return $this->isExecAvailable() || function_exists('fsockopen');
+    }
+
+    protected function execInBackground($scriptfile)
+    {
+
+        if (!$this->isExecAvailable()) {
+
+            // fire and forget calling script
+            $url = $this->app->pathToUrl($scriptfile, true) . '?async=true';
+            $parts = parse_url($url);
+            $fp = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
+
+            if ($fp) {
+                $out = "POST " . $parts['path'] . " HTTP/1.1\r\n";
+                $out .= "Host: " . $parts['host'] . "\r\n";
+                $out .= "Content-Type: application/x-www-form-urlencoded\r\n";
+                $out .= "Content-Length: " . strlen($parts['query']) . "\r\n";
+                $out .= "Connection: Close\r\n\r\n";
+                if (isset($parts['query'])) $out .= $parts['query'];
+            }
+
+            fwrite($fp, $out);
+            fclose($fp);
+            return;
+        }
+
+        $cmd = $this->phpPath . " -f $scriptfile";
+
+        if (substr(php_uname(), 0, 7) === "Windows") {
+            pclose(popen("start /B " . $cmd, "r"));
+        } else {
+            exec($cmd . " > /dev/null &");
+        }
+    }
+
+    protected function isExecAvailable()
+    {
+
+        if (!$this->phpPath || in_array(strtolower(ini_get('safe_mode')), ['on', '1'], true) || (!function_exists('exec'))) {
+            return false;
+        }
+
+        $disabled_functions = explode(',', ini_get('disable_functions'));
+
+        return !in_array('exec', $disabled_functions) && strlen(trim(exec($this->phpPath . ' -v')));
     }
 
     protected function initialize()

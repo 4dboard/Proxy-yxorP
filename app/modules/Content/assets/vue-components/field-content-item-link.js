@@ -1,4 +1,3 @@
-
 let instanceCount = 0;
 
 export default {
@@ -31,8 +30,8 @@ export default {
 
                 App.request(`/content/collection/find/${field.opts.link}`, {
                     options: {
-                        filter:{_id:value._id},
-                        limit:1
+                        filter: {_id: value._id},
+                        limit: 1
                     }
                 }).then(resp => resolve(resp.items[0] || null));
             }))
@@ -43,8 +42,9 @@ export default {
 
                 if (item) {
                     try {
-                        html = App.utils.interpolate(field.opts.display, {item, data:item});
-                    } catch(e) {}
+                        html = App.utils.interpolate(field.opts.display, {item, data: item});
+                    } catch (e) {
+                    }
                 }
 
                 ele = document.querySelector(`#${id}`);
@@ -100,7 +100,7 @@ export default {
             this.model = false;
 
             models.forEach(m => {
-                if (m.name == this.link) this.model = m;
+                if (m.name === this.link) this.model = m;
             });
         });
     },
@@ -109,7 +109,10 @@ export default {
 
         pickItem() {
 
-            VueView.ui.modal('content:assets/dialogs/select-content-item.js', {model: this.model, filter: this.filter}, {
+            VueView.ui.modal('content:assets/dialogs/select-content-item.js', {
+                model: this.model,
+                filter: this.filter
+            }, {
                 pickItem: (item) => {
 
                     this.val = {
@@ -132,8 +135,8 @@ export default {
 
                     this.$request(`/content/collection/find/${this.model.name}`, {
                         options: {
-                            filter:{_id:this.val._id},
-                            limit:1
+                            filter: {_id: this.val._id},
+                            limit: 1
                         }
                     }).then(resp => {
                         this.item = resp.items[0] || null;
@@ -146,10 +149,10 @@ export default {
 
                 let html = '';
 
-                    if (item) {
+                if (item) {
                     try {
-                        html = App.utils.interpolate(this.display, { /* deprecated */ item, data:item});
-                    } catch(e) {
+                        html = App.utils.interpolate(this.display, { /* deprecated */ item, data: item});
+                    } catch (e) {
                         html = 'ERROR';
                     }
 

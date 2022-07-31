@@ -2,33 +2,39 @@
 
 <title>CodeMirror: Ruby mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="ruby.js"></script>
 <style>
-      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
-      .cm-s-default span.cm-arrow { color: red; }
-    </style>
-<div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    .CodeMirror {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
 
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Ruby</a>
-  </ul>
+    .cm-s-default span.cm-arrow {
+        color: red;
+    }
+</style>
+<div id=nav>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
+
+    <ul>
+        <li><a href="../../index.html">Home</a>
+        <li><a href="../../doc/manual.html">Manual</a>
+        <li><a href="https://github.com/codemirror/codemirror">Code</a>
+    </ul>
+    <ul>
+        <li><a href="../index.html">Language modes</a>
+        <li><a class=active href="#">Ruby</a>
+    </ul>
 </div>
 
 <article>
-<h2>Ruby mode</h2>
-<form><textarea id="code" name="code">
+    <h2>Ruby mode</h2>
+    <form><textarea id="code" name="code">
 # Code from http://sandbox.mc.edu/~bennet/ruby/code/poly_rb.html
 #
 # This program evaluates polynomials.  It first asks for the coefficients
@@ -62,7 +68,7 @@ def readints(prompt)
     # Read a line
     print prompt
     line = readline.chomp
-    raise EOFError.new if line == 'quit' # You can also use a real EOF.
+    raise EOFError.new if line === 'quit' # You can also use a real EOF.
             
     # Go through each item on the line, converting each one and adding it
     # to retval.
@@ -86,7 +92,7 @@ def term_to_str(coef, exp)
 
     # Show coeff, unless it's 1 or at the right
     coef = coef.abs
-    ret = coef.to_s     unless coef == 1 && exp > 0
+    ret = coef.to_s     unless coef === 1 && exp > 0
     ret += "x" if exp > 0                               # x if exponent not 0
     ret += "^" + exp.to_s if exp > 1                    # ^exponent, if > 1.
 
@@ -144,8 +150,8 @@ begin
             # Request an integer.
             print "Enter x value or blank line: "
             x = readline.chomp
-            break if x == ''
-            raise EOFError.new if x == 'quit'
+            break if x === ''
+            raise EOFError.new if x === 'quit'
 
             # If it looks bad, let's try again.
             if x !~ /^\-?\d+$/
@@ -168,16 +174,16 @@ else
 end
 </textarea></form>
     <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: "text/x-ruby",
-        matchBrackets: true,
-        indentUnit: 4
-      });
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            mode: "text/x-ruby",
+            matchBrackets: true,
+            indentUnit: 4
+        });
     </script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-ruby</code>.</p>
 
     <p>Development of the CodeMirror Ruby mode was kindly sponsored
-    by <a href="http://ubalo.com/">Ubalo</a>.</p>
+        by <a href="http://ubalo.com/">Ubalo</a>.</p>
 
-  </article>
+</article>

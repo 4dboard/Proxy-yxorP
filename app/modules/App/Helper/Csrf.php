@@ -2,9 +2,11 @@
 
 namespace App\Helper;
 
-class Csrf extends \Lime\Helper {
+class Csrf extends \Lime\Helper
+{
 
-    public function generateToken(string $key, ?int $expire = null): string {
+    public function generateToken(string $key, ?int $expire = null): string
+    {
 
         $payload = ['csrf' => $key];
 
@@ -19,7 +21,8 @@ class Csrf extends \Lime\Helper {
         return $token;
     }
 
-    public function token(string $key, bool $generate = false, ?int $expire = null): string {
+    public function token(string $key, bool $generate = false, ?int $expire = null): string
+    {
 
         $token = $this->app->helper('session')->read("app.csrf.token.{$key}", null);
 
@@ -30,7 +33,8 @@ class Csrf extends \Lime\Helper {
         return $token;
     }
 
-    public function isValid(string $key, string $token, bool $checkpayload = false): bool {
+    public function isValid(string $key, string $token, bool $checkpayload = false): bool
+    {
 
         if (!$token) {
             return false;
@@ -39,8 +43,8 @@ class Csrf extends \Lime\Helper {
         if ($checkpayload) {
             try {
                 $payload = $this->app->helper('jwt')->decode($token);
-                return isset($payload->csrf) && $payload->csrf == $key;
-            } catch(\Exception $e) {
+                return isset($payload->csrf) && $payload->csrf === $key;
+            } catch (\Exception $e) {
                 return false;
             }
         }
@@ -53,7 +57,7 @@ class Csrf extends \Lime\Helper {
 
         try {
             $token = $this->app->helper('jwt')->decode($token);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return false;
         }
 

@@ -9,17 +9,17 @@ $gql->queries['fields']['content'] = [
     'type' => Type::listOf(JsonType::instance()),
 
     'args' => [
-        'model'  => Type::nonNull(Type::string()),
+        'model' => Type::nonNull(Type::string()),
         'limit' => Type::int(),
-        'skip'  => Type::int(),
-        'sort'  => JsonType::instance(),
-        'locale'  => ['type' => Type::string(), 'defaultValue' => 'default'],
-        'populate'   => ['type' => Type::int(), 'defaultValue' => 0],
+        'skip' => Type::int(),
+        'sort' => JsonType::instance(),
+        'locale' => ['type' => Type::string(), 'defaultValue' => 'default'],
+        'populate' => ['type' => Type::int(), 'defaultValue' => 0],
         'projection' => ['type' => Type::string(), 'defaultValue' => ''],
-        'filter'   => ['type' => JsonType::instance(), 'defaultValue' => []]
+        'filter' => ['type' => JsonType::instance(), 'defaultValue' => []]
     ],
 
-    'resolve' => function ($root, $args) use($app) {
+    'resolve' => function ($root, $args) use ($app) {
 
         $model = $args['model'];
 
@@ -34,12 +34,12 @@ $gql->queries['fields']['content'] = [
 
         $meta = $app->module('content')->model($model);
 
-        if ($meta['type'] == 'singleton') {
+        if ($meta['type'] === 'singleton') {
             return [$app->module('content')->item($model)];
         }
 
-        $process  = ['locale' => $args['locale']];
-        $options  = [];
+        $process = ['locale' => $args['locale']];
+        $options = [];
 
         if ($args['populate']) {
             $process['populate'] = $args['populate'];

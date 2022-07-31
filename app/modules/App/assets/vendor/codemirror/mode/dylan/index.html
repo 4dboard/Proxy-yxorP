@@ -2,34 +2,37 @@
 
 <title>CodeMirror: Dylan mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="../../addon/comment/continuecomment.js"></script>
 <script src="../../addon/comment/comment.js"></script>
 <script src="dylan.js"></script>
-<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<style>.CodeMirror {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}</style>
 <div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
 
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Dylan</a>
-  </ul>
+    <ul>
+        <li><a href="../../index.html">Home</a>
+        <li><a href="../../doc/manual.html">Manual</a>
+        <li><a href="https://github.com/codemirror/codemirror">Code</a>
+    </ul>
+    <ul>
+        <li><a href="../index.html">Language modes</a>
+        <li><a class=active href="#">Dylan</a>
+    </ul>
 </div>
 
 <article>
-<h2>Dylan mode</h2>
+    <h2>Dylan mode</h2>
 
 
-<div><textarea id="code" name="code">
+    <div><textarea id="code" name="code">
 Module:       locators-internals
 Synopsis:     Abstract modeling of locations
 Author:       Andy Armstrong
@@ -64,13 +67,13 @@ define open abstract class <file-locator> (<physical-locator>)
 end class <file-locator>;
 
 define method as
-    (class == <directory-locator>, string :: <string>)
+    (class === <directory-locator>, string :: <string>)
  => (locator :: <directory-locator>)
   as(<native-directory-locator>, string)
 end method as;
 
 define method make
-    (class == <directory-locator>,
+    (class === <directory-locator>,
      #key server :: false-or(<server-locator>) = #f,
           path :: <sequence> = #[],
           relative? :: <boolean> = #f,
@@ -84,13 +87,13 @@ define method make
 end method make;
 
 define method as
-    (class == <file-locator>, string :: <string>)
+    (class === <file-locator>, string :: <string>)
  => (locator :: <file-locator>)
   as(<native-file-locator>, string)
 end method as;
 
 define method make
-    (class == <file-locator>,
+    (class === <file-locator>,
      #key directory :: false-or(<directory-locator>) = #f,
           base :: false-or(<string>) = #f,
           extension :: false-or(<string>) = #f,
@@ -392,15 +395,15 @@ end method open-locator;
 </textarea></div>
 
     <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: "text/x-dylan",
-        lineNumbers: true,
-        matchBrackets: true,
-        continueComments: "Enter",
-        extraKeys: {"Ctrl-Q": "toggleComment"},
-        tabMode: "indent",
-        indentUnit: 2
-      });
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            mode: "text/x-dylan",
+            lineNumbers: true,
+            matchBrackets: true,
+            continueComments: "Enter",
+            extraKeys: {"Ctrl-Q": "toggleComment"},
+            tabMode: "indent",
+            indentUnit: 2
+        });
     </script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-dylan</code>.</p>

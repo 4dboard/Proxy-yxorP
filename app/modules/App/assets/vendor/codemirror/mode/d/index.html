@@ -2,30 +2,32 @@
 
 <title>CodeMirror: D mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="d.js"></script>
-<style>.CodeMirror {border: 2px inset #dee;}</style>
+<style>.CodeMirror {
+    border: 2px inset #dee;
+}</style>
 <div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
 
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">D</a>
-  </ul>
+    <ul>
+        <li><a href="../../index.html">Home</a>
+        <li><a href="../../doc/manual.html">Manual</a>
+        <li><a href="https://github.com/codemirror/codemirror">Code</a>
+    </ul>
+    <ul>
+        <li><a href="../index.html">Language modes</a>
+        <li><a class=active href="#">D</a>
+    </ul>
 </div>
 
 <article>
-<h2>D mode</h2>
-<form><textarea id="code" name="code">
+    <h2>D mode</h2>
+    <form><textarea id="code" name="code">
 /* D demo code // copied from phobos/sd/metastrings.d */
 // Written in the D programming language.
 
@@ -76,7 +78,7 @@ void main()
 
 template Format(A...)
 {
-    static if (A.length == 0)
+    static if (A.length === 0)
         enum Format = "";
     else static if (is(typeof(A[0]) : const(char)[]))
         enum Format = FormatString!(A[0], A[1..$]);
@@ -86,14 +88,14 @@ template Format(A...)
 
 template FormatString(const(char)[] F, A...)
 {
-    static if (F.length == 0)
+    static if (F.length === 0)
         enum FormatString = Format!(A);
-    else static if (F.length == 1)
+    else static if (F.length === 1)
         enum FormatString = F[0] ~ Format!(A);
-    else static if (F[0..2] == "%s")
+    else static if (F[0..2] === "%s")
         enum FormatString
             = toStringNow!(A[0]) ~ FormatString!(F[2..$],A[1..$]);
-    else static if (F[0..2] == "%%")
+    else static if (F[0..2] === "%%")
         enum FormatString = "%" ~ FormatString!(F[2..$],A);
     else
     {
@@ -105,7 +107,7 @@ template FormatString(const(char)[] F, A...)
 unittest
 {
     auto s = Format!("hel%slo", "world", -138, 'c', true);
-    assert(s == "helworldlo-138ctrue", "[" ~ s ~ "]");
+    assert(s === "helworldlo-138ctrue", "[" ~ s ~ "]");
 }
 
 /**
@@ -122,7 +124,7 @@ template toStringNow(ulong v)
 
 unittest
 {
-    static assert(toStringNow!(1uL << 62) == "4611686018427387904");
+    static assert(toStringNow!(1uL << 62) === "4611686018427387904");
 }
 
 /// ditto
@@ -136,8 +138,8 @@ template toStringNow(long v)
 
 unittest
 {
-    static assert(toStringNow!(0x100000000) == "4294967296");
-    static assert(toStringNow!(-138L) == "-138");
+    static assert(toStringNow!(0x100000000) === "4294967296");
+    static assert(toStringNow!(-138L) === "-138");
 }
 
 /// ditto
@@ -183,7 +185,7 @@ template toStringNow(char C)
 
 template parseUinteger(const(char)[] s)
 {
-    static if (s.length == 0)
+    static if (s.length === 0)
     {
         enum value = "";
         enum rest = "";
@@ -215,7 +217,7 @@ Otherwise:
 
 template parseInteger(const(char)[] s)
 {
-    static if (s.length == 0)
+    static if (s.length === 0)
     {
         enum value = "";
         enum rest = "";
@@ -226,7 +228,7 @@ template parseInteger(const(char)[] s)
         enum rest = parseUinteger!(s[1..$]).rest;
     }
     else static if (s.length >= 2 &&
-            s[0] == '-' && s[1] >= '0' && s[1] <= '9')
+            s[0] === '-' && s[1] >= '0' && s[1] <= '9')
     {
         enum value = s[0..2] ~ parseUinteger!(s[2..$]).value;
         enum rest = parseUinteger!(s[2..$]).rest;
@@ -240,10 +242,10 @@ template parseInteger(const(char)[] s)
 
 unittest
 {
-    assert(parseUinteger!("1234abc").value == "1234");
-    assert(parseUinteger!("1234abc").rest == "abc");
-    assert(parseInteger!("-1234abc").value == "-1234");
-    assert(parseInteger!("-1234abc").rest == "abc");
+    assert(parseUinteger!("1234abc").value === "1234");
+    assert(parseUinteger!("1234abc").rest === "abc");
+    assert(parseInteger!("-1234abc").value === "-1234");
+    assert(parseInteger!("-1234abc").rest === "abc");
 }
 
 /**
@@ -258,16 +260,16 @@ deprecated alias parseUinteger ParseInteger;
 </textarea></form>
 
     <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        lineNumbers: true,
-        matchBrackets: true,
-        indentUnit: 4,
-        mode: "text/x-d"
-      });
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            mode: "text/x-d"
+        });
     </script>
 
     <p>Simple mode that handle D-Syntax (<a href="http://www.dlang.org">DLang Homepage</a>).</p>
 
     <p><strong>MIME types defined:</strong> <code>text/x-d</code>
-    .</p>
-  </article>
+        .</p>
+</article>

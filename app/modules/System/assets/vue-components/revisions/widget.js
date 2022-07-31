@@ -1,6 +1,6 @@
 export default {
 
-    data()  {
+    data() {
         return {
             loading: true,
             revisions: []
@@ -21,7 +21,7 @@ export default {
     mounted() {
         this.load();
 
-        this.$watch('current._modified', (nVal, oVal) => this.current._state == 1 && this.load());
+        this.$watch('current._modified', (nVal, oVal) => this.current._state === 1 && this.load());
     },
 
     computed: {

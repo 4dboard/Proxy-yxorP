@@ -6,7 +6,7 @@ customElements.define('kiss-parallax', class extends HTMLElement {
 
         this.speed = .3
         this.mobilePx = 450
-        this.mobileDisable = this.getAttribute('mobile') == 'false';
+        this.mobileDisable = this.getAttribute('mobile') === 'false';
         this.conditions = []
         this.active = true
 
@@ -17,15 +17,15 @@ customElements.define('kiss-parallax', class extends HTMLElement {
         this.getRect()
 
         this.startScroll = this.targetR.top - this.winHeight > 0
-          ? this.targetR.top - this.winHeight
-          : 0
+            ? this.targetR.top - this.winHeight
+            : 0
 
         window.addEventListener('scroll', event => {
             requestAnimationFrame(() => {
                 if ($this.mobileDisable && window.innerWidth < this.mobilePx) return
 
                 if ($this.active) {
-                  $this.update()
+                    $this.update()
                 }
             })
         })
@@ -63,12 +63,12 @@ customElements.define('kiss-parallax', class extends HTMLElement {
         }
 
         let translate = this.getTranslation();
-        let percent = ((translate / this.speed)/this.winHeight) * 100;
+        let percent = ((translate / this.speed) / this.winHeight) * 100;
 
         if (percent < 0) percent = 0;
         if (percent > 100) percent = 100;
 
-        let style = {transform : '', filter: ''}, mod;
+        let style = {transform: '', filter: ''}, mod;
 
         this.transform.split(' ').forEach(prop => {
 
@@ -89,7 +89,7 @@ customElements.define('kiss-parallax', class extends HTMLElement {
                     break;
 
                 case 'opacity':
-                    style.opacity = (mod < 0 ?  (percent/100) : 1 - (percent/100)) * Math.abs(mod);
+                    style.opacity = (mod < 0 ? (percent / 100) : 1 - (percent / 100)) * Math.abs(mod);
                     break;
             }
         });
