@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use appAware;
 use function get_class;
 use function str_replace;
 use function strtolower;
@@ -11,13 +12,13 @@ use const yxorP\app\lib\lime\appAware;
  * Class Controller
  * @package App
  */
-class base extends \
+class base extends
 
-appAware
+    appAware
 {
 
     protected
-    $layout = false;
+        $layout = false;
 
     /**
      * @return string

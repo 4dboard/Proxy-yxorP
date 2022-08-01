@@ -2,9 +2,11 @@
 
 namespace App\Helper;
 
+use const yxorP\app\lib\lime\helper;
+
 class auth extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     public

@@ -93,7 +93,8 @@
         }
 
         const lastLine = cm.lastLine();
-        if (cm.display.barWidth) let i = 0, nextTop; for (; i < anns.length; i++) {
+        if (cm.display.barWidth) let i = 0, nextTop;
+        for (; i < anns.length; i++) {
             let ann = anns[i];
             if (ann.to.line > lastLine) continue;
             var top = nextTop || getY(ann.from, true) * hScale;

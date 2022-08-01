@@ -3,6 +3,9 @@
 namespace Content\Controller;
 
 use App\Controller\app;
+use Exception;
+use function in_array;
+use function preg_match;
 
 class collection extends app
 {
@@ -108,11 +111,11 @@ class collection extends app
 
             $filter = null;
 
-            if (\preg_match('/^{(.*)}$/', $options['filter'])) {
+            if (preg_match('/^{(.*)}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                 }
             }
 
@@ -128,7 +131,7 @@ class collection extends app
 
                     foreach ($fields as $field) {
 
-                        if (!\in_array($field['type'], ['code', 'color', 'text', 'wysiwyg'])) continue;
+                        if (!in_array($field['type'], ['code', 'color', 'text', 'wysiwyg'])) continue;
 
                         foreach ($terms as $term) {
                             $f = [];

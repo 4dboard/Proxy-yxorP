@@ -2,6 +2,11 @@
 
 namespace App\Controller;
 
+use Exception;
+use function compact;
+use function is_string;
+use function substr;
+
 /**
  * Class Controller
  * @package App
@@ -22,7 +27,7 @@ class auth extends base
 
         $redirectTo = $this->param('to', '/');
 
-        if (\substr($redirectTo, 0, 1) !== '/') {
+        if (substr($redirectTo, 0, 1) !== '/') {
             $redirectTo = '/';
         }
 
@@ -30,7 +35,7 @@ class auth extends base
 
         $this->helper('theme')->pageClass('login-page');
 
-        return $this->render('app:views/auth/login.php', \compact('redirectTo'));
+        return $this->render('app:views/auth/login.php', compact('redirectTo'));
     }
 
     public function logout()
@@ -54,7 +59,7 @@ class auth extends base
 
         $auth = $this->param('auth');
 
-        if (!$auth || !isset($auth['user'], $auth['password']) || !\is_string($auth['user']) || !\is_string($auth['password'])) {
+        if (!$auth || !isset($auth['user'], $auth['password']) || !is_string($auth['user']) || !is_string($auth['password'])) {
             return $this->stop(412);
         }
 
@@ -118,7 +123,7 @@ class auth extends base
 
         try {
             $user = (array)$this->app->helper('jwt')->decode($token);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return $this->stop(412);
         }
 

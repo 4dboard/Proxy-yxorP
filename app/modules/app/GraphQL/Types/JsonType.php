@@ -6,7 +6,6 @@ use graphQL\Language\AST\BooleanValueNode;
 use graphQL\Language\AST\FloatValueNode;
 use graphQL\Language\AST\IntValueNode;
 use graphQL\Language\AST\ListValueNode;
-use graphQL\Language\AST\Node;
 use graphQL\Language\AST\ObjectValueNode;
 use graphQL\Language\AST\StringValueNode;
 use graphQL\Type\Definition\ScalarType;

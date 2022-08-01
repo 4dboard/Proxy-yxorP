@@ -2,9 +2,13 @@
 
 namespace App\Helper;
 
+use function pathinfo;
+use function strtolower;
+use const yxorP\app\lib\lime\helper;
+
 class theme extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     protected
@@ -35,7 +39,7 @@ class theme extends \
 
     if ($url) {
         $this->favicon = $this->pathToUrl($url);
-        $ext = \strtolower(\pathinfo($this->favicon, PATHINFO_EXTENSION));
+        $ext = strtolower(pathinfo($this->favicon, PATHINFO_EXTENSION));
 
         if ($ext != 'svg') {
             return null;

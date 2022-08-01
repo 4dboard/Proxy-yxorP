@@ -3,10 +3,11 @@
 namespace App\Helper;
 
 use SplPriorityQueue;
+use const yxorP\app\lib\lime\helper;
 
 class menus extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     protected

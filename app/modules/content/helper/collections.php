@@ -2,9 +2,11 @@
 
 namespace Collections\Helper;
 
+use const yxorP\app\lib\lime\helper;
+
 class collections extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     public

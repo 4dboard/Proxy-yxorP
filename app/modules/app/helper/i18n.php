@@ -3,12 +3,16 @@
 
 namespace App\Helper;
 
+use function array_merge;
+use function vsprintf;
+use const yxorP\app\lib\lime\helper;
+
 /**
  * I18n class. Manage translations
  */
 class i18n extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     public
@@ -570,7 +574,7 @@ class i18n extends \
         $alternative = $key;
     }
 
-    return \vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
+    return vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
 }
 
     /**
@@ -594,7 +598,7 @@ class i18n extends \
 
         $langtable = include($path);
 
-        $this->_languages[$lang] = \array_merge($this->_languages[$lang], (array)$langtable);
+        $this->_languages[$lang] = array_merge($this->_languages[$lang], (array)$langtable);
 
         return true;
     }

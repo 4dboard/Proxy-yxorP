@@ -177,7 +177,7 @@
         const fold = caseFold ? doFold : noFold;
         const lines = fold(query).split(/\r|\n\r?/);
 
-        search: let line = start.line,
+        let line = start.line,
             ch = start.ch;
         const last = doc.lastLine() + 1 - lines.length;
         for (; line <= last; line++, ch = 0) {
@@ -211,7 +211,7 @@
         const fold = caseFold ? doFold : noFold;
         const lines = fold(query).split(/\r|\n\r?/);
 
-        search: let line = start.line,
+        let line = start.line,
             ch = start.ch;
         const first = doc.firstLine() - 1 + lines.length;
         for (; line >= first; line--, ch = -1) {

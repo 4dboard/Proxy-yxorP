@@ -8,10 +8,11 @@ use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
 use RobThree\Auth\Providers\Qr\IQRCodeProvider;
 use RobThree\Auth\TwoFactorAuth;
+use const yxorP\app\lib\lime\helper;
 
 class TWFA extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     protected

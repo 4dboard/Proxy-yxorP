@@ -1,4 +1,6 @@
-<?php date_default_timezone_set('UTC');
+<?php use yxorP\app\lib\lime\request;
+
+date_default_timezone_set('UTC');
 
 define('SITE_START_TIME', microtime(true));
 define('SITE_ADMIN', true);
@@ -51,7 +53,7 @@ $app->on('error', function ($error) {
     header('HTTP/1.0 500 Internal Server Error');
     echo $body;
 });
-$request = \yxorP\app\lib\lime\request::fromGlobalRequest(['route' => $SITE_ROUTE, 'site_url' => $app->retrieve('site_url'), 'base_url' => $SITE_BASE_URL, 'base_route' => $SITE_BASE_ROUTE]);
+$request = request::fromGlobalRequest(['route' => $SITE_ROUTE, 'site_url' => $app->retrieve('site_url'), 'base_url' => $SITE_BASE_URL, 'base_route' => $SITE_BASE_ROUTE]);
 if (SITE_API_REQUEST) {
     $app->on('before', function () {
         $cors = $this->retrieve('cors', []);

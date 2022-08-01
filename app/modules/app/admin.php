@@ -1,6 +1,8 @@
 <?php
 
 // Register helpers
+use yxorP\app\lib\lime\request;
+
 $this->helpers['admin'] = 'App\\Helper\\admin';
 $this->helpers['eventStream'] = 'App\\Helper\\eventStream';
 $this->helpers['menus'] = 'App\\Helper\\menus';
@@ -73,7 +75,7 @@ $this->bind('/app-event-stream', function () {
 
 
 // check + validate session time
-$this->on('app.admin.request', function (\yxorP\app\lib\lime\request $request) {
+$this->on('app.admin.request', function (request $request) {
 
     $user = $this->helper('auth')->getUser();
 

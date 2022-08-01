@@ -3,6 +3,10 @@
 namespace Assets\Controller;
 
 use App\Controller\app;
+use Exception;
+use function gd_info;
+use function is_countable;
+use function preg_match;
 
 class assets extends app
 {
@@ -30,11 +34,11 @@ class assets extends app
         if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
         if ($folder = $this->param('folder', null)) $options['folder'] = $folder;
 
-        if (isset($options['filter']) && (is_string($options['filter']) || \is_countable($options['filter']))) {
+        if (isset($options['filter']) && (is_string($options['filter']) || is_countable($options['filter']))) {
 
             $filter = [];
 
-            $options['filter'] = \is_countable($options['filter']) ? $options['filter'] : [$options['filter']];
+            $options['filter'] = is_countable($options['filter']) ? $options['filter'] : [$options['filter']];
 
             foreach ($options['filter'] as $f) {
 
@@ -43,11 +47,11 @@ class assets extends app
                     continue;
                 }
 
-                if (\preg_match('/^{(.*)}$/', $f)) {
+                if (preg_match('/^{(.*)}$/', $f)) {
 
                     try {
                         $f = json5_decode($f, true);
-                    } catch (\Exception $e) {
+                    } catch (Exception $e) {
                     }
 
                 } else {
@@ -275,12 +279,12 @@ class assets extends app
             $mime = null;
 
             if (strpos($this->app->request->headers['Accept'] ?? '', 'image/avif') !== false) {
-                $gdinfo = \gd_info();
+                $gdinfo = gd_info();
                 $mime = isset($gdinfo['AVIF Support']) && $gdinfo['AVIF Support'] ? 'avif' : null;
             }
 
             if (!$mime && strpos($this->app->request->headers['Accept'] ?? '', 'image/webp') !== false) {
-                $gdinfo = \gd_info();
+                $gdinfo = gd_info();
                 $mime = isset($gdinfo['WebP Support']) && $gdinfo['WebP Support'] ? 'webp' : null;
             }
         }

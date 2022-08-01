@@ -3,9 +3,11 @@
 namespace App\Helper;
 
 
+use const yxorP\app\lib\lime\helper;
+
 class acl extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     protected

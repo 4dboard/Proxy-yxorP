@@ -2,13 +2,15 @@
 
 namespace App\Helper;
 
+use const yxorP\app\lib\lime\helper;
+
 /**
  * @property mixed $dataStorage
  * @property mixed $dataStorage
  */
 class eventStream extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     public

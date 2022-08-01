@@ -2,9 +2,12 @@
 
 namespace App\Helper;
 
+use Exception;
+use const yxorP\app\lib\lime\helper;
+
 class csrf extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     public
@@ -49,7 +52,7 @@ class csrf extends \
             try {
                 $payload = $this->app->helper('jwt')->decode($token);
                 return isset($payload->csrf) && $payload->csrf === $key;
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return false;
             }
         }
@@ -62,7 +65,7 @@ class csrf extends \
 
         try {
             $token = $this->app->helper('jwt')->decode($token);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
 

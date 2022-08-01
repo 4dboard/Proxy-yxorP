@@ -5788,7 +5788,9 @@
         // This hack (see related code in patchDisplay) makes sure the
         // element is kept around.
         if (dy && mac && webkit) {
-            outer: let cur = e.target;const view = display.view;for (; cur !== scroll; cur = cur.parentNode) {
+            let cur = e.target;
+            const view = display.view;
+            for (; cur !== scroll; cur = cur.parentNode) {
                 for (let i = 0; i < view.length; i++) {
                     if (view[i].node === cur) {
                         cm.display.currentWheelTarget = cur;
