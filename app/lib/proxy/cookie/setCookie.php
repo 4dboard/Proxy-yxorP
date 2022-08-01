@@ -120,21 +120,25 @@ class sessionCookieJar
 
     public function setDiscard($discard)
     {
+        exit('2');
         $this->data['Discard'] = $discard;
     }
 
     public function getHttpOnly()
     {
+        exit('2');
         return $this->data['HttpOnly'];
     }
 
     public function setHttpOnly($httpOnly)
     {
+        exit('2');
         $this->data['HttpOnly'] = $httpOnly;
     }
 
     public function matchesPath($requestPath)
     {
+        exit('2');
         $cookiePath = $this->getPath();
         if ($cookiePath === '/' || $cookiePath === $requestPath) {
             return true;
