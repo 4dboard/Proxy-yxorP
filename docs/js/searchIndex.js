@@ -1681,6 +1681,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-http-domain.html#method_domain_host"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_trim\u0028\u0029",
+            "name": "domain_trim",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_trim"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain\u0028\u0029",
+            "name": "domain",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-http-domain.html#method_domain"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_sub\u0028\u0029",
             "name": "domain_sub",
             "summary": "",
@@ -1700,16 +1710,6 @@ Search.appendIndex(
             "name": "domain_sub_target",
             "summary": "",
             "url": "classes/yxorP-app-lib-http-domain.html#method_domain_sub_target"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain_trim\u0028\u0029",
-            "name": "domain_trim",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-domain.html#method_domain_trim"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\domain\u003A\u003Adomain\u0028\u0029",
-            "name": "domain",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-http-domain.html#method_domain"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore",
             "name": "paramStore",
@@ -1736,6 +1736,11 @@ Search.appendIndex(
             "summary": "Setting\u0020the\u0020value\u0020of\u0020the\u0020\u0060\u0024key\u0060\u0020parameter\u0020to\u0020the\u0020\u0060\u0024value\u0060\u0020parameter.",
             "url": "classes/yxorP-app-lib-http-paramStore.html#method_set"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003AnormalizeKey\u0028\u0029",
+            "name": "normalizeKey",
+            "summary": "Normalizing\u0020the\u0020key.",
+            "url": "classes/yxorP-app-lib-http-paramStore.html#method_normalizeKey"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003Ahas\u0028\u0029",
             "name": "has",
             "summary": "Checking\u0020if\u0020the\u0020\u0060\u0024key\u0060\u0020parameter\u0020is\u0020in\u0020the\u0020\u0060\u0024data\u0060\u0020variable.",
@@ -1760,11 +1765,6 @@ Search.appendIndex(
             "name": "__toString",
             "summary": "Returning\u0020the\u0020\u0060\u0024data\u0060\u0020variable\u0020as\u0020a\u0020JSON\u0020string.",
             "url": "classes/yxorP-app-lib-http-paramStore.html#method___toString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003AnormalizeKey\u0028\u0029",
-            "name": "normalizeKey",
-            "summary": "Normalizing\u0020the\u0020key.",
-            "url": "classes/yxorP-app-lib-http-paramStore.html#method_normalizeKey"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\paramStore\u003A\u003A\u0024data",
             "name": "data",
@@ -1961,6 +1961,11 @@ Search.appendIndex(
             "summary": "Subscribing\u0020to\u0020all\u0020the\u0020events.",
             "url": "classes/yxorP-app-lib-http-wrapper.html#method_subscribe"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "A\u0020method\u0020that\u0020is\u0020used\u0020to\u0020route\u0020the\u0020events\u0020to\u0020the\u0020appropriate\u0020methods.",
+            "url": "classes/yxorP-app-lib-http-wrapper.html#method_route"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003AonCache\u0028\u0029",
             "name": "onCache",
             "summary": "A\u0020method\u0020that\u0020is\u0020called\u0020when\u0020the\u0020event\u0020\u0060EVENT_BUILD_CACHE\u0060\u0020is\u0020triggered.",
@@ -2025,11 +2030,6 @@ Search.appendIndex(
             "name": "onException",
             "summary": "Used\u0020to\u0020execute\u0020code\u0020when\u0020an\u0020exception\u0020is\u0020thrown.",
             "url": "classes/yxorP-app-lib-http-wrapper.html#method_onException"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "A\u0020method\u0020that\u0020is\u0020used\u0020to\u0020route\u0020the\u0020events\u0020to\u0020the\u0020appropriate\u0020methods.",
-            "url": "classes/yxorP-app-lib-http-wrapper.html#method_route"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\http\\wrapper\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -4211,115 +4211,115 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoLite-UtilArrayQuery.html#property_closures"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client",
-            "name": "Client",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client",
+            "name": "client",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html"
+            "url": "classes/yxorP-app-lib-proxy-client.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-client.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003A__call\u0028\u0029",
-            "name": "__call",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method___call"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003ArequestAsync\u0028\u0029",
-            "name": "requestAsync",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_requestAsync"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003Arequest\u0028\u0029",
-            "name": "request",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_request"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003Asend\u0028\u0029",
-            "name": "send",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_send"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AsendAsync\u0028\u0029",
-            "name": "sendAsync",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_sendAsync"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AgetConfig\u0028\u0029",
-            "name": "getConfig",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_getConfig"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AconfigureDefaults\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AconfigureDefaults\u0028\u0029",
             "name": "configureDefaults",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_configureDefaults"
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_configureDefaults"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AprepareDefaults\u0028\u0029",
-            "name": "prepareDefaults",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003A__call\u0028\u0029",
+            "name": "__call",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_prepareDefaults"
+            "url": "classes/yxorP-app-lib-proxy-client.html#method___call"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AbuildUri\u0028\u0029",
-            "name": "buildUri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_buildUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AinvalidBody\u0028\u0029",
-            "name": "invalidBody",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_invalidBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003Atransfer\u0028\u0029",
-            "name": "transfer",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_transfer"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003AapplyOptions\u0028\u0029",
-            "name": "applyOptions",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#method_applyOptions"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Client\u003A\u003A\u0024config",
-            "name": "config",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Client.html#property_config"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface",
-            "name": "ClientInterface",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface\u003A\u003Asend\u0028\u0029",
-            "name": "send",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html#method_send"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface\u003A\u003AsendAsync\u0028\u0029",
-            "name": "sendAsync",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html#method_sendAsync"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface\u003A\u003Arequest\u0028\u0029",
-            "name": "request",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html#method_request"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface\u003A\u003ArequestAsync\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003ArequestAsync\u0028\u0029",
             "name": "requestAsync",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html#method_requestAsync"
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_requestAsync"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface\u003A\u003AgetConfig\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AprepareDefaults\u0028\u0029",
+            "name": "prepareDefaults",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_prepareDefaults"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AbuildUri\u0028\u0029",
+            "name": "buildUri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_buildUri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AinvalidBody\u0028\u0029",
+            "name": "invalidBody",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_invalidBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003Atransfer\u0028\u0029",
+            "name": "transfer",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_transfer"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AapplyOptions\u0028\u0029",
+            "name": "applyOptions",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_applyOptions"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003Arequest\u0028\u0029",
+            "name": "request",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_request"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_send"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AsendAsync\u0028\u0029",
+            "name": "sendAsync",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_sendAsync"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003AgetConfig\u0028\u0029",
             "name": "getConfig",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html#method_getConfig"
+            "url": "classes/yxorP-app-lib-proxy-client.html#method_getConfig"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\ClientInterface\u003A\u003AVERSION",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\client\u003A\u003A\u0024config",
+            "name": "config",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-client.html#property_config"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface",
+            "name": "clientInterface",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html#method_send"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface\u003A\u003AsendAsync\u0028\u0029",
+            "name": "sendAsync",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html#method_sendAsync"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface\u003A\u003Arequest\u0028\u0029",
+            "name": "request",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html#method_request"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface\u003A\u003ArequestAsync\u0028\u0029",
+            "name": "requestAsync",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html#method_requestAsync"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface\u003A\u003AgetConfig\u0028\u0029",
+            "name": "getConfig",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html#method_getConfig"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\clientInterface\u003A\u003AVERSION",
             "name": "VERSION",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-ClientInterface.html#constant_VERSION"
+            "url": "classes/yxorP-app-lib-proxy-clientInterface.html#constant_VERSION"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar",
             "name": "cookieJar",
@@ -4330,6 +4330,21 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AsetCookie\u0028\u0029",
+            "name": "setCookie",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_setCookie"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AremoveCookieIfEmpty\u0028\u0029",
+            "name": "removeCookieIfEmpty",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_removeCookieIfEmpty"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003Aclear\u0028\u0029",
+            "name": "clear",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_clear"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AfromArray\u0028\u0029",
             "name": "fromArray",
@@ -4345,16 +4360,6 @@ Search.appendIndex(
             "name": "shouldPersist",
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_shouldPersist"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AsetCookie\u0028\u0029",
-            "name": "setCookie",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_setCookie"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003Aclear\u0028\u0029",
-            "name": "clear",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_clear"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AgetCookieByName\u0028\u0029",
             "name": "getCookieByName",
@@ -4386,20 +4391,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_extractCookies"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AwithCookieHeader\u0028\u0029",
-            "name": "withCookieHeader",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_withCookieHeader"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AremoveCookieIfEmpty\u0028\u0029",
-            "name": "removeCookieIfEmpty",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_removeCookieIfEmpty"
-        },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AgetCookiePathFromRequest\u0028\u0029",
             "name": "getCookiePathFromRequest",
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_getCookiePathFromRequest"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003AwithCookieHeader\u0028\u0029",
+            "name": "withCookieHeader",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Cookie-cookieJar.html#method_withCookieHeader"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\cookieJar\u003A\u003A\u0024cookies",
             "name": "cookies",
@@ -4491,6 +4491,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method___construct"
         },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\sessionCookieJar\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_load"
+        },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\sessionCookieJar\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
             "summary": "",
@@ -4500,11 +4505,6 @@ Search.appendIndex(
             "name": "save",
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_save"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\sessionCookieJar\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_load"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Cookie\\sessionCookieJar\u003A\u003A\u0024sessionKey",
             "name": "sessionKey",
@@ -4656,145 +4656,145 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-app-lib-proxy-Exception-ProxyException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\AATransferException",
-            "name": "AATransferException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aaTransferException",
+            "name": "aaTransferException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-AATransferException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aaTransferException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA",
-            "name": "ARequestExceptionAA",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa",
+            "name": "aRequestExceptionAa",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AwrapException\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AwrapException\u0028\u0029",
             "name": "wrapException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_wrapException"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_wrapException"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_create"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_create"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AgetResponseBodySummary\u0028\u0029",
-            "name": "getResponseBodySummary",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_getResponseBodySummary"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AobfuscateUri\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AobfuscateUri\u0028\u0029",
             "name": "obfuscateUri",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_obfuscateUri"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_obfuscateUri"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AgetRequest\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AgetResponseBodySummary\u0028\u0029",
+            "name": "getResponseBodySummary",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_getResponseBodySummary"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AgetRequest\u0028\u0029",
             "name": "getRequest",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_getRequest"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_getRequest"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AgetResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AgetResponse\u0028\u0029",
             "name": "getResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_getResponse"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_getResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AhasResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AhasResponse\u0028\u0029",
             "name": "hasResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_hasResponse"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_hasResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003AgetHandlerContext\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003AgetHandlerContext\u0028\u0029",
             "name": "getHandlerContext",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#method_getHandlerContext"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#method_getHandlerContext"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003A\u0024request",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003A\u0024request",
             "name": "request",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#property_request"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#property_request"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003A\u0024response",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003A\u0024response",
             "name": "response",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#property_response"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#property_response"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ARequestExceptionAA\u003A\u003A\u0024handlerContext",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\aRequestExceptionAa\u003A\u003A\u0024handlerContext",
             "name": "handlerContext",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ARequestExceptionAA.html#property_handlerContext"
+            "url": "classes/yxorP-app-lib-proxy-Exception-aRequestExceptionAa.html#property_handlerContext"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\BadResponseException",
-            "name": "BadResponseException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\badResponseException",
+            "name": "badResponseException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-BadResponseException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-badResponseException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\BadResponseException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\badResponseException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-BadResponseException.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Exception-badResponseException.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ClientException",
-            "name": "ClientException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\clientException",
+            "name": "clientException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ClientException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-clientException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ConnectException",
-            "name": "ConnectException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\connectException",
+            "name": "connectException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ConnectException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-connectException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ConnectException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\connectException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ConnectException.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Exception-connectException.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ConnectException\u003A\u003AgetResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\connectException\u003A\u003AgetResponse\u0028\u0029",
             "name": "getResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ConnectException.html#method_getResponse"
+            "url": "classes/yxorP-app-lib-proxy-Exception-connectException.html#method_getResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ConnectException\u003A\u003AhasResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\connectException\u003A\u003AhasResponse\u0028\u0029",
             "name": "hasResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ConnectException.html#method_hasResponse"
+            "url": "classes/yxorP-app-lib-proxy-Exception-connectException.html#method_hasResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\InvalidArgumentException",
-            "name": "InvalidArgumentException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\invalidArgumentException",
+            "name": "invalidArgumentException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-InvalidArgumentException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-invalidArgumentException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\SeekException",
-            "name": "SeekException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\seekException",
+            "name": "seekException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-SeekException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-seekException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\SeekException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\seekException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-SeekException.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Exception-seekException.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\SeekException\u003A\u003AgetStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\seekException\u003A\u003AgetStream\u0028\u0029",
             "name": "getStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-SeekException.html#method_getStream"
+            "url": "classes/yxorP-app-lib-proxy-Exception-seekException.html#method_getStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\SeekException\u003A\u003A\u0024stream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\seekException\u003A\u003A\u0024stream",
             "name": "stream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-SeekException.html#property_stream"
+            "url": "classes/yxorP-app-lib-proxy-Exception-seekException.html#property_stream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\ServerException",
-            "name": "ServerException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\serverException",
+            "name": "serverException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-ServerException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-serverException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\TooManyRedirectsException",
-            "name": "TooManyRedirectsException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Exception\\tooManyRedirectsException",
+            "name": "tooManyRedirectsException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Exception-TooManyRedirectsException.html"
+            "url": "classes/yxorP-app-lib-proxy-Exception-tooManyRedirectsException.html"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\uri_template\u0028\u0029",
             "name": "uri_template",
@@ -4851,950 +4851,950 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/yxorp-app-lib-proxy.html#function_json_encode"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory",
-            "name": "CurlFactory",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory",
+            "name": "curlFactory",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003Afinish\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003Afinish\u0028\u0029",
             "name": "finish",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_finish"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_finish"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AinvokeStats\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AinvokeStats\u0028\u0029",
             "name": "invokeStats",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_invokeStats"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_invokeStats"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AfinishError\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AfinishError\u0028\u0029",
             "name": "finishError",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_finishError"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_finishError"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AretryFailedRewind\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003Arelease\u0028\u0029",
+            "name": "release",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_release"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AretryFailedRewind\u0028\u0029",
             "name": "retryFailedRewind",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_retryFailedRewind"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_retryFailedRewind"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AcreateRejection\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AcreateRejection\u0028\u0029",
             "name": "createRejection",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_createRejection"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_createRejection"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003Arelease\u0028\u0029",
-            "name": "release",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_release"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_create"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_create"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AgetDefaultConf\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AgetDefaultConf\u0028\u0029",
             "name": "getDefaultConf",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_getDefaultConf"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_getDefaultConf"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AapplyMethod\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AapplyMethod\u0028\u0029",
             "name": "applyMethod",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_applyMethod"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_applyMethod"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AapplyBody\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AapplyBody\u0028\u0029",
             "name": "applyBody",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_applyBody"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_applyBody"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AremoveHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AremoveHeader\u0028\u0029",
             "name": "removeHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_removeHeader"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_removeHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AapplyHandlerOptions\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AapplyHandlerOptions\u0028\u0029",
             "name": "applyHandlerOptions",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_applyHandlerOptions"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_applyHandlerOptions"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AapplyHeaders\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AapplyHeaders\u0028\u0029",
             "name": "applyHeaders",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_applyHeaders"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_applyHeaders"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003AcreateHeaderFn\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003AcreateHeaderFn\u0028\u0029",
             "name": "createHeaderFn",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#method_createHeaderFn"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#method_createHeaderFn"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003ACURL_VERSION_STR",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003ACURL_VERSION_STR",
             "name": "CURL_VERSION_STR",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#constant_CURL_VERSION_STR"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#constant_CURL_VERSION_STR"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003ALOW_CURL_VERSION_NUMBER",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003ALOW_CURL_VERSION_NUMBER",
             "name": "LOW_CURL_VERSION_NUMBER",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#constant_LOW_CURL_VERSION_NUMBER"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#constant_LOW_CURL_VERSION_NUMBER"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003A\u0024handles",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003A\u0024handles",
             "name": "handles",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#property_handles"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#property_handles"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactory\u003A\u003A\u0024maxHandles",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactory\u003A\u003A\u0024maxHandles",
             "name": "maxHandles",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactory.html#property_maxHandles"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactory.html#property_maxHandles"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactoryInterface",
-            "name": "CurlFactoryInterface",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactoryInterface",
+            "name": "curlFactoryInterface",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactoryInterface.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactoryInterface.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactoryInterface\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactoryInterface\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactoryInterface.html#method_create"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactoryInterface.html#method_create"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlFactoryInterface\u003A\u003Arelease\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlFactoryInterface\u003A\u003Arelease\u0028\u0029",
             "name": "release",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlFactoryInterface.html#method_release"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlFactoryInterface.html#method_release"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlHandler",
-            "name": "CurlHandler",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlHandler",
+            "name": "curlHandler",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlHandler.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlHandler.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlHandler\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlHandler\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlHandler.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlHandler.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlHandler\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlHandler\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlHandler.html#method___invoke"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlHandler.html#method___invoke"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlHandler\u003A\u003A\u0024factory",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlHandler\u003A\u003A\u0024factory",
             "name": "factory",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlHandler.html#property_factory"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlHandler.html#property_factory"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler",
-            "name": "CurlMultiHandler",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler",
+            "name": "curlMultiHandler",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A__get\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method___get"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method___get"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A__destruct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A__destruct\u0028\u0029",
             "name": "__destruct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method___destruct"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method___destruct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method___invoke"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method___invoke"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003Acancel\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003Acancel\u0028\u0029",
             "name": "cancel",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method_cancel"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method_cancel"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003AaddRequest\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003AaddRequest\u0028\u0029",
             "name": "addRequest",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method_addRequest"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method_addRequest"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003Aexecute\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method_execute"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method_execute"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003AtimeToNext\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003AtimeToNext\u0028\u0029",
             "name": "timeToNext",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method_timeToNext"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method_timeToNext"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003Atick\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003Atick\u0028\u0029",
             "name": "tick",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method_tick"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method_tick"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003AprocessMessages\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003AprocessMessages\u0028\u0029",
             "name": "processMessages",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#method_processMessages"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#method_processMessages"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A\u0024factory",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A\u0024factory",
             "name": "factory",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#property_factory"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#property_factory"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A\u0024selectTimeout",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A\u0024selectTimeout",
             "name": "selectTimeout",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#property_selectTimeout"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#property_selectTimeout"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A\u0024active",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A\u0024active",
             "name": "active",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#property_active"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#property_active"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A\u0024handles",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A\u0024handles",
             "name": "handles",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#property_handles"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#property_handles"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A\u0024delays",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A\u0024delays",
             "name": "delays",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#property_delays"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#property_delays"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\CurlMultiHandler\u003A\u003A\u0024options",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\curlMultiHandler\u003A\u003A\u0024options",
             "name": "options",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-CurlMultiHandler.html#property_options"
+            "url": "classes/yxorP-app-lib-proxy-Handler-curlMultiHandler.html#property_options"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle",
-            "name": "EasyHandle",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle",
+            "name": "easyHandle",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003AcreateResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003AcreateResponse\u0028\u0029",
             "name": "createResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#method_createResponse"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#method_createResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A__get\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#method___get"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#method___get"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024handle",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024handle",
             "name": "handle",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_handle"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_handle"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024sink",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024sink",
             "name": "sink",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_sink"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_sink"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024headers",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024headers",
             "name": "headers",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_headers"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_headers"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024response",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024response",
             "name": "response",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_response"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_response"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024request",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024request",
             "name": "request",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_request"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_request"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024options",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024options",
             "name": "options",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_options"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_options"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024errno",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024errno",
             "name": "errno",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_errno"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_errno"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\EasyHandle\u003A\u003A\u0024onHeadersException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\easyHandle\u003A\u003A\u0024onHeadersException",
             "name": "onHeadersException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-EasyHandle.html#property_onHeadersException"
+            "url": "classes/yxorP-app-lib-proxy-Handler-easyHandle.html#property_onHeadersException"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler",
-            "name": "MockHandler",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler",
+            "name": "mockHandler",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003AcreateWithMiddleware\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003AcreateWithMiddleware\u0028\u0029",
             "name": "createWithMiddleware",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_createWithMiddleware"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_createWithMiddleware"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method___invoke"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method___invoke"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003Aappend\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003AinvokeStats\u0028\u0029",
+            "name": "invokeStats",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_invokeStats"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003Aappend\u0028\u0029",
             "name": "append",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_append"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_append"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003AgetLastRequest\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003AgetLastRequest\u0028\u0029",
             "name": "getLastRequest",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_getLastRequest"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_getLastRequest"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003AgetLastOptions\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003AgetLastOptions\u0028\u0029",
             "name": "getLastOptions",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_getLastOptions"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_getLastOptions"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003Acount\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003Acount\u0028\u0029",
             "name": "count",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_count"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_count"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003Areset\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003Areset\u0028\u0029",
             "name": "reset",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_reset"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#method_reset"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003AinvokeStats\u0028\u0029",
-            "name": "invokeStats",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#method_invokeStats"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A\u0024queue",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A\u0024queue",
             "name": "queue",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#property_queue"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#property_queue"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A\u0024lastRequest",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A\u0024lastRequest",
             "name": "lastRequest",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#property_lastRequest"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#property_lastRequest"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A\u0024lastOptions",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A\u0024lastOptions",
             "name": "lastOptions",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#property_lastOptions"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#property_lastOptions"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A\u0024onFulfilled",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A\u0024onFulfilled",
             "name": "onFulfilled",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#property_onFulfilled"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#property_onFulfilled"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\MockHandler\u003A\u003A\u0024onRejected",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\mockHandler\u003A\u003A\u0024onRejected",
             "name": "onRejected",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-MockHandler.html#property_onRejected"
+            "url": "classes/yxorP-app-lib-proxy-Handler-mockHandler.html#property_onRejected"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\Proxy",
-            "name": "Proxy",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\proxy",
+            "name": "proxy",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-Proxy.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-proxy.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\Proxy\u003A\u003AwrapSync\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\proxy\u003A\u003AwrapSync\u0028\u0029",
             "name": "wrapSync",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-Proxy.html#method_wrapSync"
+            "url": "classes/yxorP-app-lib-proxy-Handler-proxy.html#method_wrapSync"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\Proxy\u003A\u003AwrapStreaming\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\proxy\u003A\u003AwrapStreaming\u0028\u0029",
             "name": "wrapStreaming",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-Proxy.html#method_wrapStreaming"
+            "url": "classes/yxorP-app-lib-proxy-Handler-proxy.html#method_wrapStreaming"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler",
-            "name": "StreamHandler",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler",
+            "name": "streamHandler",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method___invoke"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method___invoke"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AcreateResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AcreateResponse\u0028\u0029",
             "name": "createResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_createResponse"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_createResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AcheckDecode\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AcheckDecode\u0028\u0029",
             "name": "checkDecode",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_checkDecode"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_checkDecode"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AcreateSink\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AcreateSink\u0028\u0029",
             "name": "createSink",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_createSink"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_createSink"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Adrain\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Adrain\u0028\u0029",
             "name": "drain",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_drain"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_drain"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AinvokeStats\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AinvokeStats\u0028\u0029",
             "name": "invokeStats",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_invokeStats"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_invokeStats"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AcreateStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AcreateStream\u0028\u0029",
             "name": "createStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_createStream"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_createStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AgetDefaultContext\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AgetDefaultContext\u0028\u0029",
             "name": "getDefaultContext",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_getDefaultContext"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_getDefaultContext"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AresolveHost\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AresolveHost\u0028\u0029",
             "name": "resolveHost",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_resolveHost"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_resolveHost"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AcreateResource\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AcreateResource\u0028\u0029",
             "name": "createResource",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_createResource"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_createResource"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Aadd_proxy\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Aadd_proxy\u0028\u0029",
             "name": "add_proxy",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_add_proxy"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_add_proxy"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Aadd_timeout\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Aadd_timeout\u0028\u0029",
             "name": "add_timeout",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_add_timeout"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_add_timeout"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Aadd_verify\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Aadd_verify\u0028\u0029",
             "name": "add_verify",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_add_verify"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_add_verify"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Aadd_cert\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Aadd_cert\u0028\u0029",
             "name": "add_cert",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_add_cert"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_add_cert"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Aadd_progress\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Aadd_progress\u0028\u0029",
             "name": "add_progress",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_add_progress"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_add_progress"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AaddNotification\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AaddNotification\u0028\u0029",
             "name": "addNotification",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_addNotification"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_addNotification"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003AcallArray\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003AcallArray\u0028\u0029",
             "name": "callArray",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_callArray"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_callArray"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003Aadd_debug\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003Aadd_debug\u0028\u0029",
             "name": "add_debug",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#method_add_debug"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#method_add_debug"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\StreamHandler\u003A\u003A\u0024lastHeaders",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Handler\\streamHandler\u003A\u003A\u0024lastHeaders",
             "name": "lastHeaders",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Handler-StreamHandler.html#property_lastHeaders"
+            "url": "classes/yxorP-app-lib-proxy-Handler-streamHandler.html#property_lastHeaders"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack",
-            "name": "HandlerStack",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack",
+            "name": "handlerStack",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_create"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_create"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Apush\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Apush\u0028\u0029",
             "name": "push",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_push"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_push"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method___invoke"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method___invoke"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Aresolve\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Aresolve\u0028\u0029",
             "name": "resolve",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_resolve"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_resolve"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003A__toString\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method___toString"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method___toString"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003AsetHandler\u0028\u0029",
-            "name": "setHandler",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_setHandler"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003AhasHandler\u0028\u0029",
-            "name": "hasHandler",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_hasHandler"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Aunshift\u0028\u0029",
-            "name": "unshift",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_unshift"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_before"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Aafter\u0028\u0029",
-            "name": "after",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_after"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_remove"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003AdebugCallable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003AdebugCallable\u0028\u0029",
             "name": "debugCallable",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_debugCallable"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_debugCallable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003Asplice\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003AsetHandler\u0028\u0029",
+            "name": "setHandler",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_setHandler"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003AhasHandler\u0028\u0029",
+            "name": "hasHandler",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_hasHandler"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Aunshift\u0028\u0029",
+            "name": "unshift",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_unshift"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_before"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Asplice\u0028\u0029",
             "name": "splice",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_splice"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_splice"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003AfindByName\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003AfindByName\u0028\u0029",
             "name": "findByName",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#method_findByName"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_findByName"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003A\u0024handler",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Aafter\u0028\u0029",
+            "name": "after",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_after"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#method_remove"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003A\u0024handler",
             "name": "handler",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#property_handler"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#property_handler"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003A\u0024stack",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003A\u0024stack",
             "name": "stack",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#property_stack"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#property_stack"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\HandlerStack\u003A\u003A\u0024cached",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\handlerStack\u003A\u003A\u0024cached",
             "name": "cached",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-HandlerStack.html#property_cached"
+            "url": "classes/yxorP-app-lib-proxy-handlerStack.html#property_cached"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter",
-            "name": "MessageFormatter",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter",
+            "name": "messageFormatter",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003Aformat\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003Aformat\u0028\u0029",
             "name": "format",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#method_format"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#method_format"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003Aheaders\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003Aheaders\u0028\u0029",
             "name": "headers",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#method_headers"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#method_headers"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003ACLF",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003ACLF",
             "name": "CLF",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#constant_CLF"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#constant_CLF"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003ADEBUG",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003ADEBUG",
             "name": "DEBUG",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#constant_DEBUG"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#constant_DEBUG"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003ASHORT",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003ASHORT",
             "name": "SHORT",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#constant_SHORT"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#constant_SHORT"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\MessageFormatter\u003A\u003A\u0024template",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\messageFormatter\u003A\u003A\u0024template",
             "name": "template",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-MessageFormatter.html#property_template"
+            "url": "classes/yxorP-app-lib-proxy-messageFormatter.html#property_template"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware",
-            "name": "Middleware",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware",
+            "name": "middleware",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003Acookies\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003Acookies\u0028\u0029",
             "name": "cookies",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_cookies"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_cookies"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003AhttpErrors\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003AhttpErrors\u0028\u0029",
             "name": "httpErrors",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_httpErrors"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_httpErrors"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003Ahistory\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003Ahistory\u0028\u0029",
             "name": "history",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_history"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_history"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003Atap\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003Atap\u0028\u0029",
             "name": "tap",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_tap"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_tap"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003Aredirect\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003Aredirect\u0028\u0029",
             "name": "redirect",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_redirect"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_redirect"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003Aretry\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003Aretry\u0028\u0029",
             "name": "retry",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_retry"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_retry"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003AprepareBody\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003AprepareBody\u0028\u0029",
             "name": "prepareBody",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_prepareBody"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_prepareBody"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003AmapRequest\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003AmapRequest\u0028\u0029",
             "name": "mapRequest",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_mapRequest"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_mapRequest"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Middleware\u003A\u003AmapResponse\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\middleware\u003A\u003AmapResponse\u0028\u0029",
             "name": "mapResponse",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Middleware.html#method_mapResponse"
+            "url": "classes/yxorP-app-lib-proxy-middleware.html#method_mapResponse"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Pool",
-            "name": "Pool",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\pool",
+            "name": "pool",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Pool.html"
+            "url": "classes/yxorP-app-lib-proxy-pool.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Pool\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\pool\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Pool.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-pool.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Pool\u003A\u003Abatch\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\pool\u003A\u003Abatch\u0028\u0029",
             "name": "batch",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Pool.html#method_batch"
+            "url": "classes/yxorP-app-lib-proxy-pool.html#method_batch"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Pool\u003A\u003AcmpCallback\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\pool\u003A\u003AcmpCallback\u0028\u0029",
             "name": "cmpCallback",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Pool.html#method_cmpCallback"
+            "url": "classes/yxorP-app-lib-proxy-pool.html#method_cmpCallback"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Pool\u003A\u003Apromise\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\pool\u003A\u003Apromise\u0028\u0029",
             "name": "promise",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Pool.html#method_promise"
+            "url": "classes/yxorP-app-lib-proxy-pool.html#method_promise"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Pool\u003A\u003A\u0024each",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\pool\u003A\u003A\u0024each",
             "name": "each",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Pool.html#property_each"
+            "url": "classes/yxorP-app-lib-proxy-pool.html#property_each"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\PrepareBodyMiddleware",
-            "name": "PrepareBodyMiddleware",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\prepareBodyMiddleware",
+            "name": "prepareBodyMiddleware",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-PrepareBodyMiddleware.html"
+            "url": "classes/yxorP-app-lib-proxy-prepareBodyMiddleware.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\PrepareBodyMiddleware\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\prepareBodyMiddleware\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-PrepareBodyMiddleware.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-prepareBodyMiddleware.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\PrepareBodyMiddleware\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\prepareBodyMiddleware\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-PrepareBodyMiddleware.html#method___invoke"
+            "url": "classes/yxorP-app-lib-proxy-prepareBodyMiddleware.html#method___invoke"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\PrepareBodyMiddleware\u003A\u003AaddExpectHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\prepareBodyMiddleware\u003A\u003AaddExpectHeader\u0028\u0029",
             "name": "addExpectHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-PrepareBodyMiddleware.html#method_addExpectHeader"
+            "url": "classes/yxorP-app-lib-proxy-prepareBodyMiddleware.html#method_addExpectHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\PrepareBodyMiddleware\u003A\u003A\u0024nextHandler",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\prepareBodyMiddleware\u003A\u003A\u0024nextHandler",
             "name": "nextHandler",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-PrepareBodyMiddleware.html#property_nextHandler"
+            "url": "classes/yxorP-app-lib-proxy-prepareBodyMiddleware.html#property_nextHandler"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\AggregateExceptionA",
-            "name": "AggregateExceptionA",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\aggregateExceptionA",
+            "name": "aggregateExceptionA",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-AggregateExceptionA.html"
+            "url": "classes/yxorP-app-lib-proxy-Promise-aggregateExceptionA.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\AggregateExceptionA\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\aggregateExceptionA\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-AggregateExceptionA.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Promise-aggregateExceptionA.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\ARejectionException",
-            "name": "ARejectionException",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\aRejectionException",
+            "name": "aRejectionException",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-ARejectionException.html"
+            "url": "classes/yxorP-app-lib-proxy-Promise-aRejectionException.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\ARejectionException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\aRejectionException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-ARejectionException.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Promise-aRejectionException.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\ARejectionException\u003A\u003AgetReason\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\aRejectionException\u003A\u003AgetReason\u0028\u0029",
             "name": "getReason",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-ARejectionException.html#method_getReason"
+            "url": "classes/yxorP-app-lib-proxy-Promise-aRejectionException.html#method_getReason"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\ARejectionException\u003A\u003A\u0024reason",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\aRejectionException\u003A\u003A\u0024reason",
             "name": "reason",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-ARejectionException.html#property_reason"
+            "url": "classes/yxorP-app-lib-proxy-Promise-aRejectionException.html#property_reason"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\CancellationExceptionA",
-            "name": "CancellationExceptionA",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\cancellationExceptionA",
+            "name": "cancellationExceptionA",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-CancellationExceptionA.html"
+            "url": "classes/yxorP-app-lib-proxy-Promise-cancellationExceptionA.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine",
-            "name": "Coroutine",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine",
+            "name": "coroutine",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003Athen\u0028\u0029",
-            "name": "then",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_then"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003Aotherwise\u0028\u0029",
-            "name": "otherwise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_otherwise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003Await\u0028\u0029",
-            "name": "wait",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_wait"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003AgetState\u0028\u0029",
-            "name": "getState",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_getState"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_resolve"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003Areject\u0028\u0029",
-            "name": "reject",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_reject"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003Acancel\u0028\u0029",
-            "name": "cancel",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_cancel"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003A_handleSuccess\u0028\u0029",
-            "name": "_handleSuccess",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method__handleSuccess"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003A_handleFailure\u0028\u0029",
-            "name": "_handleFailure",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method__handleFailure"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003AnextCoroutine\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003AnextCoroutine\u0028\u0029",
             "name": "nextCoroutine",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#method_nextCoroutine"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_nextCoroutine"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003A\u0024currentPromise",
-            "name": "currentPromise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#property_currentPromise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003A\u0024generator",
-            "name": "generator",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#property_generator"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Coroutine\u003A\u003A\u0024result",
-            "name": "result",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Coroutine.html#property_result"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise",
-            "name": "EachPromise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003Apromise\u0028\u0029",
-            "name": "promise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_promise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003AcreatePromise\u0028\u0029",
-            "name": "createPromise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_createPromise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003ArefillPending\u0028\u0029",
-            "name": "refillPending",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_refillPending"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003AaddPending\u0028\u0029",
-            "name": "addPending",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_addPending"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003Astep\u0028\u0029",
-            "name": "step",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_step"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003AadvanceIterator\u0028\u0029",
-            "name": "advanceIterator",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_advanceIterator"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003AcheckIfFinished\u0028\u0029",
-            "name": "checkIfFinished",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#method_checkIfFinished"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024pending",
-            "name": "pending",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_pending"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024iterable",
-            "name": "iterable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_iterable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024concurrency",
-            "name": "concurrency",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_concurrency"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024onFulfilled",
-            "name": "onFulfilled",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_onFulfilled"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024onRejected",
-            "name": "onRejected",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_onRejected"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024aggregate",
-            "name": "aggregate",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_aggregate"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\EachPromise\u003A\u003A\u0024mutex",
-            "name": "mutex",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-EachPromise.html#property_mutex"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise",
-            "name": "FulfilledPromise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003Aotherwise\u0028\u0029",
-            "name": "otherwise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_otherwise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003Athen\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003Athen\u0028\u0029",
             "name": "then",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_then"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_then"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003Await\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003Aotherwise\u0028\u0029",
+            "name": "otherwise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_otherwise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003Await\u0028\u0029",
             "name": "wait",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_wait"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_wait"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003AgetState\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003AgetState\u0028\u0029",
             "name": "getState",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_getState"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_getState"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003Aresolve\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003Aresolve\u0028\u0029",
             "name": "resolve",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_resolve"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_resolve"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003Areject\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003Areject\u0028\u0029",
             "name": "reject",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_reject"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_reject"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003Acancel\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003Acancel\u0028\u0029",
             "name": "cancel",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#method_cancel"
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method_cancel"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\FulfilledPromise\u003A\u003A\u0024value",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003A_handleSuccess\u0028\u0029",
+            "name": "_handleSuccess",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method__handleSuccess"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003A_handleFailure\u0028\u0029",
+            "name": "_handleFailure",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#method__handleFailure"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003A\u0024currentPromise",
+            "name": "currentPromise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#property_currentPromise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003A\u0024generator",
+            "name": "generator",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#property_generator"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\coroutine\u003A\u003A\u0024result",
+            "name": "result",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-coroutine.html#property_result"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise",
+            "name": "eachPromise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003Apromise\u0028\u0029",
+            "name": "promise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_promise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003AcreatePromise\u0028\u0029",
+            "name": "createPromise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_createPromise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003ArefillPending\u0028\u0029",
+            "name": "refillPending",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_refillPending"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003AaddPending\u0028\u0029",
+            "name": "addPending",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_addPending"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003Astep\u0028\u0029",
+            "name": "step",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_step"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003AadvanceIterator\u0028\u0029",
+            "name": "advanceIterator",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_advanceIterator"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003AcheckIfFinished\u0028\u0029",
+            "name": "checkIfFinished",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#method_checkIfFinished"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024pending",
+            "name": "pending",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_pending"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024iterable",
+            "name": "iterable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_iterable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024concurrency",
+            "name": "concurrency",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_concurrency"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024onFulfilled",
+            "name": "onFulfilled",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_onFulfilled"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024onRejected",
+            "name": "onRejected",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_onRejected"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024aggregate",
+            "name": "aggregate",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_aggregate"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\eachPromise\u003A\u003A\u0024mutex",
+            "name": "mutex",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-eachPromise.html#property_mutex"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise",
+            "name": "fulfilledPromise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003Aotherwise\u0028\u0029",
+            "name": "otherwise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_otherwise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003Athen\u0028\u0029",
+            "name": "then",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_then"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003Await\u0028\u0029",
+            "name": "wait",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_wait"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003AgetState\u0028\u0029",
+            "name": "getState",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_getState"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_resolve"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003Areject\u0028\u0029",
+            "name": "reject",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_reject"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003Acancel\u0028\u0029",
+            "name": "cancel",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#method_cancel"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\fulfilledPromise\u003A\u003A\u0024value",
             "name": "value",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-FulfilledPromise.html#property_value"
+            "url": "classes/yxorP-app-lib-proxy-Promise-fulfilledPromise.html#property_value"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\queue\u0028\u0029",
             "name": "queue",
@@ -5896,775 +5896,775 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/yxorp-app-lib-proxy-promise.html#function_coroutine"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise",
-            "name": "Promise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003AcallHandler\u0028\u0029",
-            "name": "callHandler",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_callHandler"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_resolve"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003AgetState\u0028\u0029",
-            "name": "getState",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_getState"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Aotherwise\u0028\u0029",
-            "name": "otherwise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_otherwise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Athen\u0028\u0029",
-            "name": "then",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_then"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Await\u0028\u0029",
-            "name": "wait",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_wait"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Areject\u0028\u0029",
-            "name": "reject",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_reject"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Acancel\u0028\u0029",
-            "name": "cancel",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_cancel"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003Asettle\u0028\u0029",
-            "name": "settle",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_settle"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003AwaitIfPending\u0028\u0029",
-            "name": "waitIfPending",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_waitIfPending"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003AinvokeWaitFn\u0028\u0029",
-            "name": "invokeWaitFn",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_invokeWaitFn"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003AinvokeWaitList\u0028\u0029",
-            "name": "invokeWaitList",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#method_invokeWaitList"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A\u0024state",
-            "name": "state",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#property_state"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A\u0024result",
-            "name": "result",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#property_result"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A\u0024cancelFn",
-            "name": "cancelFn",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#property_cancelFn"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A\u0024waitFn",
-            "name": "waitFn",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#property_waitFn"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A\u0024waitList",
-            "name": "waitList",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#property_waitList"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\Promise\u003A\u003A\u0024handlers",
-            "name": "handlers",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-Promise.html#property_handlers"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface",
-            "name": "PromiseInterface",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003Athen\u0028\u0029",
-            "name": "then",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_then"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003Aotherwise\u0028\u0029",
-            "name": "otherwise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_otherwise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003AgetState\u0028\u0029",
-            "name": "getState",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_getState"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_resolve"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003Areject\u0028\u0029",
-            "name": "reject",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_reject"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003Acancel\u0028\u0029",
-            "name": "cancel",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_cancel"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003Await\u0028\u0029",
-            "name": "wait",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#method_wait"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003APENDING",
-            "name": "PENDING",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#constant_PENDING"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003AFULFILLED",
-            "name": "FULFILLED",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#constant_FULFILLED"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromiseInterface\u003A\u003AREJECTED",
-            "name": "REJECTED",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromiseInterface.html#constant_REJECTED"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromisorInterface",
-            "name": "PromisorInterface",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromisorInterface.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\PromisorInterface\u003A\u003Apromise\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise",
             "name": "promise",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-PromisorInterface.html#method_promise"
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise",
-            "name": "RejectedPromise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003Aotherwise\u0028\u0029",
-            "name": "otherwise",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_otherwise"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003Athen\u0028\u0029",
-            "name": "then",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_then"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003Await\u0028\u0029",
-            "name": "wait",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_wait"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003AgetState\u0028\u0029",
-            "name": "getState",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_getState"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003Aresolve\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Aresolve\u0028\u0029",
             "name": "resolve",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_resolve"
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_resolve"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003Areject\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Asettle\u0028\u0029",
+            "name": "settle",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_settle"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003AcallHandler\u0028\u0029",
+            "name": "callHandler",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_callHandler"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003AgetState\u0028\u0029",
+            "name": "getState",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_getState"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Aotherwise\u0028\u0029",
+            "name": "otherwise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_otherwise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Athen\u0028\u0029",
+            "name": "then",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_then"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Await\u0028\u0029",
+            "name": "wait",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_wait"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003AwaitIfPending\u0028\u0029",
+            "name": "waitIfPending",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_waitIfPending"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003AinvokeWaitFn\u0028\u0029",
+            "name": "invokeWaitFn",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_invokeWaitFn"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Areject\u0028\u0029",
             "name": "reject",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_reject"
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_reject"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003Acancel\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003AinvokeWaitList\u0028\u0029",
+            "name": "invokeWaitList",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_invokeWaitList"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003Acancel\u0028\u0029",
             "name": "cancel",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#method_cancel"
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#method_cancel"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\RejectedPromise\u003A\u003A\u0024reason",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A\u0024state",
+            "name": "state",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#property_state"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A\u0024result",
+            "name": "result",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#property_result"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A\u0024cancelFn",
+            "name": "cancelFn",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#property_cancelFn"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A\u0024waitFn",
+            "name": "waitFn",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#property_waitFn"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A\u0024waitList",
+            "name": "waitList",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#property_waitList"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promise\u003A\u003A\u0024handlers",
+            "name": "handlers",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promise.html#property_handlers"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface",
+            "name": "promiseInterface",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003Athen\u0028\u0029",
+            "name": "then",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_then"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003Aotherwise\u0028\u0029",
+            "name": "otherwise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_otherwise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003AgetState\u0028\u0029",
+            "name": "getState",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_getState"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003Areject\u0028\u0029",
+            "name": "reject",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_reject"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003Acancel\u0028\u0029",
+            "name": "cancel",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_cancel"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003Await\u0028\u0029",
+            "name": "wait",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#method_wait"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003APENDING",
+            "name": "PENDING",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#constant_PENDING"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003AFULFILLED",
+            "name": "FULFILLED",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#constant_FULFILLED"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promiseInterface\u003A\u003AREJECTED",
+            "name": "REJECTED",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promiseInterface.html#constant_REJECTED"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promisorInterface",
+            "name": "promisorInterface",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promisorInterface.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\promisorInterface\u003A\u003Apromise\u0028\u0029",
+            "name": "promise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-promisorInterface.html#method_promise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise",
+            "name": "rejectedPromise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003Aotherwise\u0028\u0029",
+            "name": "otherwise",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_otherwise"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003Athen\u0028\u0029",
+            "name": "then",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_then"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003Await\u0028\u0029",
+            "name": "wait",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_wait"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003AgetState\u0028\u0029",
+            "name": "getState",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_getState"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_resolve"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003Areject\u0028\u0029",
+            "name": "reject",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_reject"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003Acancel\u0028\u0029",
+            "name": "cancel",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#method_cancel"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\rejectedPromise\u003A\u003A\u0024reason",
             "name": "reason",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-RejectedPromise.html#property_reason"
+            "url": "classes/yxorP-app-lib-proxy-Promise-rejectedPromise.html#property_reason"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue",
-            "name": "TaskQueue",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue",
+            "name": "taskQueue",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003Arun\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003Arun\u0028\u0029",
             "name": "run",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#method_run"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#method_run"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003AisEmpty\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003AisEmpty\u0028\u0029",
             "name": "isEmpty",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#method_isEmpty"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#method_isEmpty"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#method_add"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#method_add"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003AdisableShutdown\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003AdisableShutdown\u0028\u0029",
             "name": "disableShutdown",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#method_disableShutdown"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#method_disableShutdown"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003A\u0024enableShutdown",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003A\u0024enableShutdown",
             "name": "enableShutdown",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#property_enableShutdown"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#property_enableShutdown"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueue\u003A\u003A\u0024queue",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueue\u003A\u003A\u0024queue",
             "name": "queue",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueue.html#property_queue"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueue.html#property_queue"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueueInterface",
-            "name": "TaskQueueInterface",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueueInterface",
+            "name": "taskQueueInterface",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueueInterface.html"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueueInterface.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueueInterface\u003A\u003AisEmpty\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueueInterface\u003A\u003AisEmpty\u0028\u0029",
             "name": "isEmpty",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueueInterface.html#method_isEmpty"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueueInterface.html#method_isEmpty"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueueInterface\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueueInterface\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueueInterface.html#method_add"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueueInterface.html#method_add"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\TaskQueueInterface\u003A\u003Arun\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Promise\\taskQueueInterface\u003A\u003Arun\u0028\u0029",
             "name": "run",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Promise-TaskQueueInterface.html#method_run"
+            "url": "classes/yxorP-app-lib-proxy-Promise-taskQueueInterface.html#method_run"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream",
-            "name": "AppendStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream",
+            "name": "appendStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AaddStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AaddStream\u0028\u0029",
             "name": "addStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_addStream"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_addStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AisReadable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AisReadable\u0028\u0029",
             "name": "isReadable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_isReadable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_isReadable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AisSeekable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AisSeekable\u0028\u0029",
             "name": "isSeekable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_isSeekable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_isSeekable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003A__toString\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method___toString"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method___toString"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Arewind\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_rewind"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_rewind"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Aseek\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Aseek\u0028\u0029",
             "name": "seek",
             "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_seek"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_seek"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Aeof\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Aeof\u0028\u0029",
             "name": "eof",
             "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_eof"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_eof"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Aread\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Aread\u0028\u0029",
             "name": "read",
             "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_read"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_read"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AgetContents\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
             "summary": "Returns\u0020the\u0020remaining\u0020contents\u0020in\u0020a\u0020string",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_getContents"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_getContents"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_close"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_close"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Adetach\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Adetach\u0028\u0029",
             "name": "detach",
             "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_detach"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_detach"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Atell\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Atell\u0028\u0029",
             "name": "tell",
             "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_tell"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_tell"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AgetSize\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_getSize"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_getSize"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AisWritable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AisWritable\u0028\u0029",
             "name": "isWritable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_isWritable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_isWritable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003Awrite\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003Awrite\u0028\u0029",
             "name": "write",
             "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_write"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_write"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003AgetMetadata\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003AgetMetadata\u0028\u0029",
             "name": "getMetadata",
             "summary": "Get\u0020stream\u0020metadata\u0020as\u0020an\u0020associative\u0020array\u0020or\u0020retrieve\u0020a\u0020specific\u0020key.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#method_getMetadata"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#method_getMetadata"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003A\u0024streams",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003A\u0024streams",
             "name": "streams",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#property_streams"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#property_streams"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003A\u0024seekable",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003A\u0024seekable",
             "name": "seekable",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#property_seekable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#property_seekable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003A\u0024current",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003A\u0024current",
             "name": "current",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#property_current"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#property_current"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AppendStream\u003A\u003A\u0024pos",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\appendStream\u003A\u003A\u0024pos",
             "name": "pos",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AppendStream.html#property_pos"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-appendStream.html#property_pos"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait",
-            "name": "AStreamDecoratorTrait",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait",
+            "name": "aStreamDecoratorTrait",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003A__get\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method___get"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method___get"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003A__toString\u0028\u0029",
-            "name": "__toString",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method___toString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AisSeekable\u0028\u0029",
-            "name": "isSeekable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_isSeekable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Aseek\u0028\u0029",
-            "name": "seek",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_seek"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AgetContents\u0028\u0029",
-            "name": "getContents",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_getContents"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003A__call\u0028\u0029",
-            "name": "__call",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method___call"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_close"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AgetMetadata\u0028\u0029",
-            "name": "getMetadata",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_getMetadata"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Adetach\u0028\u0029",
-            "name": "detach",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_detach"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AgetSize\u0028\u0029",
-            "name": "getSize",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_getSize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Aeof\u0028\u0029",
-            "name": "eof",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_eof"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Atell\u0028\u0029",
-            "name": "tell",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_tell"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AisReadable\u0028\u0029",
-            "name": "isReadable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_isReadable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AisWritable\u0028\u0029",
-            "name": "isWritable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_isWritable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_rewind"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Aread\u0028\u0029",
-            "name": "read",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_read"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_write"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\AStreamDecoratorTrait\u003A\u003AcreateStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AcreateStream\u0028\u0029",
             "name": "createStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-AStreamDecoratorTrait.html#method_createStream"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_createStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream",
-            "name": "BufferStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method___toString"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AisSeekable\u0028\u0029",
+            "name": "isSeekable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_isSeekable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Aseek\u0028\u0029",
+            "name": "seek",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_seek"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AgetContents\u0028\u0029",
+            "name": "getContents",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_getContents"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003A__call\u0028\u0029",
+            "name": "__call",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method___call"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_close"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AgetMetadata\u0028\u0029",
+            "name": "getMetadata",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_getMetadata"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Adetach\u0028\u0029",
+            "name": "detach",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_detach"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_getSize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Aeof\u0028\u0029",
+            "name": "eof",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_eof"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Atell\u0028\u0029",
+            "name": "tell",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_tell"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AisReadable\u0028\u0029",
+            "name": "isReadable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_isReadable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003AisWritable\u0028\u0029",
+            "name": "isWritable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_isWritable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_rewind"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_read"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\aStreamDecoratorTrait\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-aStreamDecoratorTrait.html#method_write"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream",
+            "name": "bufferStream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003A__toString\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method___toString"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method___toString"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003AgetContents\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
             "summary": "Returns\u0020the\u0020remaining\u0020contents\u0020in\u0020a\u0020string",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_getContents"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_getContents"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Adetach\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Adetach\u0028\u0029",
             "name": "detach",
             "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_detach"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_detach"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_close"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_close"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003AgetSize\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_getSize"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_getSize"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003AisReadable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003AisReadable\u0028\u0029",
             "name": "isReadable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_isReadable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_isReadable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003AisWritable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003AisWritable\u0028\u0029",
             "name": "isWritable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_isWritable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_isWritable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003AisSeekable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003AisSeekable\u0028\u0029",
             "name": "isSeekable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_isSeekable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_isSeekable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Arewind\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_rewind"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_rewind"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Aseek\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Aseek\u0028\u0029",
             "name": "seek",
             "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_seek"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_seek"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Aeof\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Aeof\u0028\u0029",
             "name": "eof",
             "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_eof"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_eof"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Atell\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Atell\u0028\u0029",
             "name": "tell",
             "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_tell"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_tell"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Aread\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Aread\u0028\u0029",
             "name": "read",
             "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_read"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_read"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003Awrite\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003Awrite\u0028\u0029",
             "name": "write",
             "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_write"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_write"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003AgetMetadata\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003AgetMetadata\u0028\u0029",
             "name": "getMetadata",
             "summary": "Get\u0020stream\u0020metadata\u0020as\u0020an\u0020associative\u0020array\u0020or\u0020retrieve\u0020a\u0020specific\u0020key.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#method_getMetadata"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#method_getMetadata"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003A\u0024hwm",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003A\u0024hwm",
             "name": "hwm",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#property_hwm"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#property_hwm"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\BufferStream\u003A\u003A\u0024buffer",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\bufferStream\u003A\u003A\u0024buffer",
             "name": "buffer",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-BufferStream.html#property_buffer"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-bufferStream.html#property_buffer"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream",
-            "name": "CachingStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream",
+            "name": "cachingStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003Arewind\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_rewind"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_rewind"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003Aseek\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003Aseek\u0028\u0029",
             "name": "seek",
             "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_seek"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_seek"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003AgetSize\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_getSize"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_getSize"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003Aeof\u0028\u0029",
-            "name": "eof",
-            "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_eof"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003Aread\u0028\u0029",
-            "name": "read",
-            "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_read"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_write"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_close"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003AcacheEntireStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003AcacheEntireStream\u0028\u0029",
             "name": "cacheEntireStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#method_cacheEntireStream"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_cacheEntireStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003A\u0024remoteStream",
-            "name": "remoteStream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#property_remoteStream"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\CachingStream\u003A\u003A\u0024skipReadBytes",
-            "name": "skipReadBytes",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-CachingStream.html#property_skipReadBytes"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\DroppingStream",
-            "name": "DroppingStream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-DroppingStream.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\DroppingStream\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-DroppingStream.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\DroppingStream\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-DroppingStream.html#method_write"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\DroppingStream\u003A\u003A\u0024maxLength",
-            "name": "maxLength",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-DroppingStream.html#property_maxLength"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream",
-            "name": "FnStream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Adecorate\u0028\u0029",
-            "name": "decorate",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_decorate"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method___get"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method___destruct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003A__wakeup\u0028\u0029",
-            "name": "__wakeup",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method___wakeup"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003A__toString\u0028\u0029",
-            "name": "__toString",
-            "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method___toString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_close"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Adetach\u0028\u0029",
-            "name": "detach",
-            "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_detach"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003AgetSize\u0028\u0029",
-            "name": "getSize",
-            "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_getSize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Atell\u0028\u0029",
-            "name": "tell",
-            "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_tell"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Aeof\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003Aeof\u0028\u0029",
             "name": "eof",
             "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_eof"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_eof"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003AisSeekable\u0028\u0029",
-            "name": "isSeekable",
-            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_isSeekable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_rewind"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Aseek\u0028\u0029",
-            "name": "seek",
-            "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_seek"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003AisWritable\u0028\u0029",
-            "name": "isWritable",
-            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_isWritable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_write"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003AisReadable\u0028\u0029",
-            "name": "isReadable",
-            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_isReadable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003Aread\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003Aread\u0028\u0029",
             "name": "read",
             "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_read"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_read"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003AgetContents\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_write"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#method_close"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003A\u0024remoteStream",
+            "name": "remoteStream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#property_remoteStream"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\cachingStream\u003A\u003A\u0024skipReadBytes",
+            "name": "skipReadBytes",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-cachingStream.html#property_skipReadBytes"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\droppingStream",
+            "name": "droppingStream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-droppingStream.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\droppingStream\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-droppingStream.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\droppingStream\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-droppingStream.html#method_write"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\droppingStream\u003A\u003A\u0024maxLength",
+            "name": "maxLength",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-droppingStream.html#property_maxLength"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream",
+            "name": "fnStream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Adecorate\u0028\u0029",
+            "name": "decorate",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_decorate"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method___get"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method___destruct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003A__wakeup\u0028\u0029",
+            "name": "__wakeup",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method___wakeup"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method___toString"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_close"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Adetach\u0028\u0029",
+            "name": "detach",
+            "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_detach"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_getSize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Atell\u0028\u0029",
+            "name": "tell",
+            "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_tell"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Aeof\u0028\u0029",
+            "name": "eof",
+            "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_eof"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003AisSeekable\u0028\u0029",
+            "name": "isSeekable",
+            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_isSeekable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_rewind"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Aseek\u0028\u0029",
+            "name": "seek",
+            "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_seek"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003AisWritable\u0028\u0029",
+            "name": "isWritable",
+            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_isWritable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_write"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003AisReadable\u0028\u0029",
+            "name": "isReadable",
+            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_isReadable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_read"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
             "summary": "Returns\u0020the\u0020remaining\u0020contents\u0020in\u0020a\u0020string",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_getContents"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_getContents"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003AgetMetadata\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003AgetMetadata\u0028\u0029",
             "name": "getMetadata",
             "summary": "Get\u0020stream\u0020metadata\u0020as\u0020an\u0020associative\u0020array\u0020or\u0020retrieve\u0020a\u0020specific\u0020key.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#method_getMetadata"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#method_getMetadata"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\FnStream\u003A\u003A\u0024slots",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\fnStream\u003A\u003A\u0024slots",
             "name": "slots",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-FnStream.html#property_slots"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-fnStream.html#property_slots"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\str\u0028\u0029",
             "name": "str",
@@ -6776,1785 +6776,1785 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/yxorp-app-lib-proxy-psr7.html#function__caseless_remove"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\InflateStream",
-            "name": "InflateStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\inflateStream",
+            "name": "inflateStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-InflateStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-inflateStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\InflateStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\inflateStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-InflateStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-inflateStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\InflateStream\u003A\u003AgetLengthOfPossibleFilenameHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\inflateStream\u003A\u003AgetLengthOfPossibleFilenameHeader\u0028\u0029",
             "name": "getLengthOfPossibleFilenameHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-InflateStream.html#method_getLengthOfPossibleFilenameHeader"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-inflateStream.html#method_getLengthOfPossibleFilenameHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LazyOpenStream",
-            "name": "LazyOpenStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\lazyOpenStream",
+            "name": "lazyOpenStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LazyOpenStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-lazyOpenStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LazyOpenStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\lazyOpenStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LazyOpenStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-lazyOpenStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LazyOpenStream\u003A\u003AcreateStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\lazyOpenStream\u003A\u003AcreateStream\u0028\u0029",
             "name": "createStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LazyOpenStream.html#method_createStream"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-lazyOpenStream.html#method_createStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LazyOpenStream\u003A\u003A\u0024filename",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\lazyOpenStream\u003A\u003A\u0024filename",
             "name": "filename",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LazyOpenStream.html#property_filename"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-lazyOpenStream.html#property_filename"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LazyOpenStream\u003A\u003A\u0024mode",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\lazyOpenStream\u003A\u003A\u0024mode",
             "name": "mode",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LazyOpenStream.html#property_mode"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-lazyOpenStream.html#property_mode"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream",
-            "name": "LimitStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream",
+            "name": "limitStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003AsetLimit\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003AsetLimit\u0028\u0029",
             "name": "setLimit",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_setLimit"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_setLimit"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003AsetOffset\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003AsetOffset\u0028\u0029",
             "name": "setOffset",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_setOffset"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_setOffset"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003Atell\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003Atell\u0028\u0029",
             "name": "tell",
             "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_tell"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_tell"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003Aseek\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003Aseek\u0028\u0029",
             "name": "seek",
             "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_seek"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_seek"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003Aread\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003Aread\u0028\u0029",
             "name": "read",
             "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_read"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_read"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003Aeof\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003Aeof\u0028\u0029",
             "name": "eof",
             "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_eof"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_eof"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003AgetSize\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#method_getSize"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#method_getSize"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003A\u0024offset",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003A\u0024offset",
             "name": "offset",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#property_offset"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#property_offset"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\LimitStream\u003A\u003A\u0024limit",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\limitStream\u003A\u003A\u0024limit",
             "name": "limit",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-LimitStream.html#property_limit"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-limitStream.html#property_limit"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait",
-            "name": "MessageTrait",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait",
+            "name": "messageTrait",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AgetProtocolVersion\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AgetProtocolVersion\u0028\u0029",
             "name": "getProtocolVersion",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_getProtocolVersion"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_getProtocolVersion"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AwithProtocolVersion\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AwithProtocolVersion\u0028\u0029",
             "name": "withProtocolVersion",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_withProtocolVersion"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_withProtocolVersion"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AgetHeaders\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AgetHeaders\u0028\u0029",
             "name": "getHeaders",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_getHeaders"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_getHeaders"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AhasHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AhasHeader\u0028\u0029",
             "name": "hasHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_hasHeader"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_hasHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AgetHeaderLine\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AgetHeaderLine\u0028\u0029",
             "name": "getHeaderLine",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_getHeaderLine"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_getHeaderLine"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AgetHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AgetHeader\u0028\u0029",
             "name": "getHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_getHeader"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_getHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AwithHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AwithHeader\u0028\u0029",
             "name": "withHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_withHeader"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_withHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AwithAddedHeader\u0028\u0029",
-            "name": "withAddedHeader",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_withAddedHeader"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AwithoutHeader\u0028\u0029",
-            "name": "withoutHeader",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_withoutHeader"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AgetBody\u0028\u0029",
-            "name": "getBody",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_getBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AwithBody\u0028\u0029",
-            "name": "withBody",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_withBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AassertHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AassertHeader\u0028\u0029",
             "name": "assertHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_assertHeader"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_assertHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AnormalizeHeaderValue\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AnormalizeHeaderValue\u0028\u0029",
             "name": "normalizeHeaderValue",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_normalizeHeaderValue"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_normalizeHeaderValue"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AtrimHeaderValues\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AtrimHeaderValues\u0028\u0029",
             "name": "trimHeaderValues",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_trimHeaderValues"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_trimHeaderValues"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003AsetHeaders\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AwithAddedHeader\u0028\u0029",
+            "name": "withAddedHeader",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_withAddedHeader"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AwithoutHeader\u0028\u0029",
+            "name": "withoutHeader",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_withoutHeader"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AgetBody\u0028\u0029",
+            "name": "getBody",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_getBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AwithBody\u0028\u0029",
+            "name": "withBody",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_withBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003AsetHeaders\u0028\u0029",
             "name": "setHeaders",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#method_setHeaders"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#method_setHeaders"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003A\u0024headers",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003A\u0024headers",
             "name": "headers",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#property_headers"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#property_headers"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003A\u0024headerNames",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003A\u0024headerNames",
             "name": "headerNames",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#property_headerNames"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#property_headerNames"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003A\u0024protocol",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003A\u0024protocol",
             "name": "protocol",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#property_protocol"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#property_protocol"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MessageTrait\u003A\u003A\u0024stream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\messageTrait\u003A\u003A\u0024stream",
             "name": "stream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MessageTrait.html#property_stream"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-messageTrait.html#property_stream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream",
-            "name": "MultipartStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream",
+            "name": "multipartStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AcreateStream\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AcreateStream\u0028\u0029",
             "name": "createStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_createStream"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_createStream"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AaddElement\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AaddElement\u0028\u0029",
             "name": "addElement",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_addElement"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_addElement"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AcreateElement\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AcreateElement\u0028\u0029",
             "name": "createElement",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_createElement"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_createElement"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AgetHeader\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AgetHeader\u0028\u0029",
             "name": "getHeader",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_getHeader"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_getHeader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AgetHeaders\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AgetHeaders\u0028\u0029",
             "name": "getHeaders",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_getHeaders"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_getHeaders"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AgetBoundary\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AgetBoundary\u0028\u0029",
             "name": "getBoundary",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_getBoundary"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_getBoundary"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003AisWritable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003AisWritable\u0028\u0029",
             "name": "isWritable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#method_isWritable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#method_isWritable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\MultipartStream\u003A\u003A\u0024boundary",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\multipartStream\u003A\u003A\u0024boundary",
             "name": "boundary",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-MultipartStream.html#property_boundary"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-multipartStream.html#property_boundary"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\NoSeekStream",
-            "name": "NoSeekStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\noSeekStream",
+            "name": "noSeekStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-NoSeekStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-noSeekStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\NoSeekStream\u003A\u003Aseek\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\noSeekStream\u003A\u003Aseek\u0028\u0029",
             "name": "seek",
             "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-NoSeekStream.html#method_seek"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-noSeekStream.html#method_seek"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\NoSeekStream\u003A\u003AisSeekable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\noSeekStream\u003A\u003AisSeekable\u0028\u0029",
             "name": "isSeekable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-NoSeekStream.html#method_isSeekable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-noSeekStream.html#method_isSeekable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream",
-            "name": "PumpStream",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream",
+            "name": "pumpStream",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method___construct"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A__toString\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method___toString"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method___toString"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Aclose\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Aclose\u0028\u0029",
             "name": "close",
             "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_close"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_close"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Adetach\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Adetach\u0028\u0029",
             "name": "detach",
             "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_detach"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_detach"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003AgetSize\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003AgetSize\u0028\u0029",
             "name": "getSize",
             "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_getSize"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_getSize"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Atell\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Atell\u0028\u0029",
             "name": "tell",
             "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_tell"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_tell"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003AisSeekable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003AisSeekable\u0028\u0029",
             "name": "isSeekable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_isSeekable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_isSeekable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Arewind\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Arewind\u0028\u0029",
             "name": "rewind",
             "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_rewind"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_rewind"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Aseek\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Aseek\u0028\u0029",
             "name": "seek",
             "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_seek"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_seek"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003AisWritable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003AisWritable\u0028\u0029",
             "name": "isWritable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_isWritable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_isWritable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Awrite\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Awrite\u0028\u0029",
             "name": "write",
             "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_write"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_write"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003AisReadable\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003AisReadable\u0028\u0029",
             "name": "isReadable",
             "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_isReadable"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_isReadable"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003AgetContents\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003AgetContents\u0028\u0029",
             "name": "getContents",
             "summary": "Returns\u0020the\u0020remaining\u0020contents\u0020in\u0020a\u0020string",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_getContents"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_getContents"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Aeof\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Aeof\u0028\u0029",
             "name": "eof",
             "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_eof"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_eof"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Aread\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Aread\u0028\u0029",
             "name": "read",
             "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_read"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_read"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003Apump\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003Apump\u0028\u0029",
             "name": "pump",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_pump"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_pump"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003AgetMetadata\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003AgetMetadata\u0028\u0029",
             "name": "getMetadata",
             "summary": "Get\u0020stream\u0020metadata\u0020as\u0020an\u0020associative\u0020array\u0020or\u0020retrieve\u0020a\u0020specific\u0020key.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#method_getMetadata"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#method_getMetadata"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A\u0024source",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A\u0024source",
             "name": "source",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#property_source"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#property_source"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A\u0024size",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A\u0024size",
             "name": "size",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#property_size"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#property_size"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A\u0024tellPos",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A\u0024tellPos",
             "name": "tellPos",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#property_tellPos"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#property_tellPos"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A\u0024metadata",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A\u0024metadata",
             "name": "metadata",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#property_metadata"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#property_metadata"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\PumpStream\u003A\u003A\u0024buffer",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\pumpStream\u003A\u003A\u0024buffer",
             "name": "buffer",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-PumpStream.html#property_buffer"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-pumpStream.html#property_buffer"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request",
-            "name": "Request",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AassertMethod\u0028\u0029",
-            "name": "assertMethod",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_assertMethod"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AupdateHostFromUri\u0028\u0029",
-            "name": "updateHostFromUri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_updateHostFromUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AgetRequestTarget\u0028\u0029",
-            "name": "getRequestTarget",
-            "summary": "Retrieves\u0020the\u0020message\u0027s\u0020request\u0020target.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_getRequestTarget"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AwithRequestTarget\u0028\u0029",
-            "name": "withRequestTarget",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specific\u0020request\u002Dtarget.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_withRequestTarget"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AgetMethod\u0028\u0029",
-            "name": "getMethod",
-            "summary": "Retrieves\u0020the\u0020HTTP\u0020method\u0020of\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_getMethod"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AwithMethod\u0028\u0029",
-            "name": "withMethod",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020provided\u0020HTTP\u0020method.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_withMethod"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AgetUri\u0028\u0029",
-            "name": "getUri",
-            "summary": "Retrieves\u0020the\u0020URI\u0020instance.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_getUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003AwithUri\u0028\u0029",
-            "name": "withUri",
-            "summary": "Returns\u0020an\u0020instance\u0020with\u0020the\u0020provided\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#method_withUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003A\u0024method",
-            "name": "method",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#property_method"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003A\u0024requestTarget",
-            "name": "requestTarget",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#property_requestTarget"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Request\u003A\u003A\u0024uri",
-            "name": "uri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Request.html#property_uri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response",
-            "name": "Response",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003AassertStatusCodeIsInteger\u0028\u0029",
-            "name": "assertStatusCodeIsInteger",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#method_assertStatusCodeIsInteger"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003AassertStatusCodeRange\u0028\u0029",
-            "name": "assertStatusCodeRange",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#method_assertStatusCodeRange"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003AgetStatusCode\u0028\u0029",
-            "name": "getStatusCode",
-            "summary": "Gets\u0020the\u0020response\u0020status\u0020code.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#method_getStatusCode"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003AgetReasonPhrase\u0028\u0029",
-            "name": "getReasonPhrase",
-            "summary": "Gets\u0020the\u0020response\u0020reason\u0020phrase\u0020associated\u0020with\u0020the\u0020status\u0020code.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#method_getReasonPhrase"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003AwithStatus\u0028\u0029",
-            "name": "withStatus",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020status\u0020code\u0020and,\u0020optionally,\u0020reason\u0020phrase.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#method_withStatus"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003A\u0024phrases",
-            "name": "phrases",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#property_phrases"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003A\u0024reasonPhrase",
-            "name": "reasonPhrase",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#property_reasonPhrase"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Response\u003A\u003A\u0024statusCode",
-            "name": "statusCode",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Response.html#property_statusCode"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Rfc7230",
-            "name": "Rfc7230",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Rfc7230.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Rfc7230\u003A\u003AHEADER_REGEX",
-            "name": "HEADER_REGEX",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Rfc7230.html#constant_HEADER_REGEX"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Rfc7230\u003A\u003AHEADER_FOLD_REGEX",
-            "name": "HEADER_FOLD_REGEX",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Rfc7230.html#constant_HEADER_FOLD_REGEX"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest",
-            "name": "ServerRequest",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AfromGlobals\u0028\u0029",
-            "name": "fromGlobals",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_fromGlobals"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetUriFromGlobals\u0028\u0029",
-            "name": "getUriFromGlobals",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getUriFromGlobals"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AnormalizeFiles\u0028\u0029",
-            "name": "normalizeFiles",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_normalizeFiles"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AextractHostAndPortFromAuthority\u0028\u0029",
-            "name": "extractHostAndPortFromAuthority",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_extractHostAndPortFromAuthority"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AcreateUploadedFileFromSpec\u0028\u0029",
-            "name": "createUploadedFileFromSpec",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_createUploadedFileFromSpec"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AnormalizeNestedFileSpec\u0028\u0029",
-            "name": "normalizeNestedFileSpec",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_normalizeNestedFileSpec"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AwithUploadedFiles\u0028\u0029",
-            "name": "withUploadedFiles",
-            "summary": "Create\u0020a\u0020new\u0020instance\u0020with\u0020the\u0020specified\u0020uploaded\u0020files.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_withUploadedFiles"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AwithParsedBody\u0028\u0029",
-            "name": "withParsedBody",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020body\u0020parameters.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_withParsedBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AwithQueryParams\u0028\u0029",
-            "name": "withQueryParams",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020query\u0020string\u0020arguments.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_withQueryParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AwithCookieParams\u0028\u0029",
-            "name": "withCookieParams",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020cookies.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_withCookieParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetServerParams\u0028\u0029",
-            "name": "getServerParams",
-            "summary": "Retrieve\u0020server\u0020parameters.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getServerParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetUploadedFiles\u0028\u0029",
-            "name": "getUploadedFiles",
-            "summary": "Retrieve\u0020normalized\u0020file\u0020upload\u0020data.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getUploadedFiles"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetCookieParams\u0028\u0029",
-            "name": "getCookieParams",
-            "summary": "Retrieve\u0020cookies.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getCookieParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetQueryParams\u0028\u0029",
-            "name": "getQueryParams",
-            "summary": "Retrieve\u0020query\u0020string\u0020arguments.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getQueryParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetParsedBody\u0028\u0029",
-            "name": "getParsedBody",
-            "summary": "Retrieve\u0020any\u0020parameters\u0020provided\u0020in\u0020the\u0020request\u0020body.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getParsedBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetAttributes\u0028\u0029",
-            "name": "getAttributes",
-            "summary": "Retrieve\u0020attributes\u0020derived\u0020from\u0020the\u0020request.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getAttributes"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AgetAttribute\u0028\u0029",
-            "name": "getAttribute",
-            "summary": "Retrieve\u0020a\u0020single\u0020derived\u0020request\u0020attribute.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_getAttribute"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AwithAttribute\u0028\u0029",
-            "name": "withAttribute",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020derived\u0020request\u0020attribute.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_withAttribute"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003AwithoutAttribute\u0028\u0029",
-            "name": "withoutAttribute",
-            "summary": "Return\u0020an\u0020instance\u0020that\u0020removes\u0020the\u0020specified\u0020derived\u0020request\u0020attribute.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#method_withoutAttribute"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A\u0024attributes",
-            "name": "attributes",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#property_attributes"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A\u0024cookieParams",
-            "name": "cookieParams",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#property_cookieParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A\u0024parsedBody",
-            "name": "parsedBody",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#property_parsedBody"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A\u0024queryParams",
-            "name": "queryParams",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#property_queryParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A\u0024serverParams",
-            "name": "serverParams",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#property_serverParams"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\ServerRequest\u003A\u003A\u0024uploadedFiles",
-            "name": "uploadedFiles",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-ServerRequest.html#property_uploadedFiles"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream",
-            "name": "Stream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AgetMetadata\u0028\u0029",
-            "name": "getMetadata",
-            "summary": "Get\u0020stream\u0020metadata\u0020as\u0020an\u0020associative\u0020array\u0020or\u0020retrieve\u0020a\u0020specific\u0020key.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_getMetadata"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A__destruct\u0028\u0029",
-            "name": "__destruct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method___destruct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Aclose\u0028\u0029",
-            "name": "close",
-            "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_close"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Adetach\u0028\u0029",
-            "name": "detach",
-            "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_detach"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A__toString\u0028\u0029",
-            "name": "__toString",
-            "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method___toString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Aseek\u0028\u0029",
-            "name": "seek",
-            "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_seek"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AgetContents\u0028\u0029",
-            "name": "getContents",
-            "summary": "Returns\u0020the\u0020remaining\u0020contents\u0020in\u0020a\u0020string",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_getContents"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AgetSize\u0028\u0029",
-            "name": "getSize",
-            "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_getSize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AisReadable\u0028\u0029",
-            "name": "isReadable",
-            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_isReadable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AisWritable\u0028\u0029",
-            "name": "isWritable",
-            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_isWritable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AisSeekable\u0028\u0029",
-            "name": "isSeekable",
-            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_isSeekable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Aeof\u0028\u0029",
-            "name": "eof",
-            "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_eof"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Atell\u0028\u0029",
-            "name": "tell",
-            "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_tell"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_rewind"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Aread\u0028\u0029",
-            "name": "read",
-            "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_read"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#method_write"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AREADABLE_MODES",
-            "name": "READABLE_MODES",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#constant_READABLE_MODES"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003AWRITABLE_MODES",
-            "name": "WRITABLE_MODES",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#constant_WRITABLE_MODES"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024stream",
-            "name": "stream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_stream"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024size",
-            "name": "size",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_size"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024seekable",
-            "name": "seekable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_seekable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024readable",
-            "name": "readable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_readable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024writable",
-            "name": "writable",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_writable"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024uri",
-            "name": "uri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_uri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Stream\u003A\u003A\u0024customMetadata",
-            "name": "customMetadata",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Stream.html#property_customMetadata"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper",
-            "name": "StreamWrapper",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003AgetResource\u0028\u0029",
-            "name": "getResource",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_getResource"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Aregister\u0028\u0029",
-            "name": "register",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_register"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003AcreateStreamContext\u0028\u0029",
-            "name": "createStreamContext",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_createStreamContext"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_open\u0028\u0029",
-            "name": "stream_open",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_open"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_read\u0028\u0029",
-            "name": "stream_read",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_read"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_write\u0028\u0029",
-            "name": "stream_write",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_write"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_tell\u0028\u0029",
-            "name": "stream_tell",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_tell"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_eof\u0028\u0029",
-            "name": "stream_eof",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_eof"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_seek\u0028\u0029",
-            "name": "stream_seek",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_seek"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_cast\u0028\u0029",
-            "name": "stream_cast",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_cast"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Astream_stat\u0028\u0029",
-            "name": "stream_stat",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_stream_stat"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003Aurl_stat\u0028\u0029",
-            "name": "url_stat",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#method_url_stat"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003A\u0024context",
-            "name": "context",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#property_context"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003A\u0024stream",
-            "name": "stream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#property_stream"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\StreamWrapper\u003A\u003A\u0024mode",
-            "name": "mode",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-StreamWrapper.html#property_mode"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile",
-            "name": "UploadedFile",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AmoveTo\u0028\u0029",
-            "name": "moveTo",
-            "summary": "Move\u0020the\u0020uploaded\u0020file\u0020to\u0020a\u0020new\u0020location.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_moveTo"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AisMoved\u0028\u0029",
-            "name": "isMoved",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_isMoved"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AgetStream\u0028\u0029",
-            "name": "getStream",
-            "summary": "Retrieve\u0020a\u0020stream\u0020representing\u0020the\u0020uploaded\u0020file.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_getStream"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AgetSize\u0028\u0029",
-            "name": "getSize",
-            "summary": "Retrieve\u0020the\u0020file\u0020size.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_getSize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AgetError\u0028\u0029",
-            "name": "getError",
-            "summary": "Retrieve\u0020the\u0020error\u0020associated\u0020with\u0020the\u0020uploaded\u0020file.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_getError"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AgetClientFilename\u0028\u0029",
-            "name": "getClientFilename",
-            "summary": "Retrieve\u0020the\u0020filename\u0020sent\u0020by\u0020the\u0020client.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_getClientFilename"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AgetClientMediaType\u0028\u0029",
-            "name": "getClientMediaType",
-            "summary": "Retrieve\u0020the\u0020media\u0020type\u0020sent\u0020by\u0020the\u0020client.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_getClientMediaType"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AsetError\u0028\u0029",
-            "name": "setError",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_setError"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AsetSize\u0028\u0029",
-            "name": "setSize",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_setSize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AsetClientFilename\u0028\u0029",
-            "name": "setClientFilename",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_setClientFilename"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AisStringOrNull\u0028\u0029",
-            "name": "isStringOrNull",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_isStringOrNull"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AsetClientMediaType\u0028\u0029",
-            "name": "setClientMediaType",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_setClientMediaType"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AisOk\u0028\u0029",
-            "name": "isOk",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_isOk"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AsetStreamOrFile\u0028\u0029",
-            "name": "setStreamOrFile",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_setStreamOrFile"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AvalidateActive\u0028\u0029",
-            "name": "validateActive",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_validateActive"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003AisStringNotEmpty\u0028\u0029",
-            "name": "isStringNotEmpty",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#method_isStringNotEmpty"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024errors",
-            "name": "errors",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_errors"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024clientFilename",
-            "name": "clientFilename",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_clientFilename"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024clientMediaType",
-            "name": "clientMediaType",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_clientMediaType"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024error",
-            "name": "error",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_error"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024file",
-            "name": "file",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_file"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024moved",
-            "name": "moved",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_moved"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024size",
-            "name": "size",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_size"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UploadedFile\u003A\u003A\u0024stream",
-            "name": "stream",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UploadedFile.html#property_stream"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri",
-            "name": "Uri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AisDefaultPort\u0028\u0029",
-            "name": "isDefaultPort",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_isDefaultPort"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AisAbsolute\u0028\u0029",
-            "name": "isAbsolute",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_isAbsolute"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AisNetworkPathReference\u0028\u0029",
-            "name": "isNetworkPathReference",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_isNetworkPathReference"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AisAbsolutePathReference\u0028\u0029",
-            "name": "isAbsolutePathReference",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_isAbsolutePathReference"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AisRelativePathReference\u0028\u0029",
-            "name": "isRelativePathReference",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_isRelativePathReference"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AisSameDocumentReference\u0028\u0029",
-            "name": "isSameDocumentReference",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_isSameDocumentReference"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AremoveDotSegments\u0028\u0029",
-            "name": "removeDotSegments",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_removeDotSegments"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_resolve"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithoutQueryValue\u0028\u0029",
-            "name": "withoutQueryValue",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withoutQueryValue"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithQueryValue\u0028\u0029",
-            "name": "withQueryValue",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withQueryValue"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithQueryValues\u0028\u0029",
-            "name": "withQueryValues",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withQueryValues"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfromParts\u0028\u0029",
-            "name": "fromParts",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_fromParts"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AcomposeComponents\u0028\u0029",
-            "name": "composeComponents",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_composeComponents"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetFilteredQueryString\u0028\u0029",
-            "name": "getFilteredQueryString",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getFilteredQueryString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgenerateQueryString\u0028\u0029",
-            "name": "generateQueryString",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_generateQueryString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetPort\u0028\u0029",
-            "name": "getPort",
-            "summary": "Retrieve\u0020the\u0020port\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getPort"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetScheme\u0028\u0029",
-            "name": "getScheme",
-            "summary": "Retrieve\u0020the\u0020scheme\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getScheme"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetAuthority\u0028\u0029",
-            "name": "getAuthority",
-            "summary": "Retrieve\u0020the\u0020authority\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getAuthority"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetPath\u0028\u0029",
-            "name": "getPath",
-            "summary": "Retrieve\u0020the\u0020path\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getPath"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetQuery\u0028\u0029",
-            "name": "getQuery",
-            "summary": "Retrieve\u0020the\u0020query\u0020string\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getQuery"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithQuery\u0028\u0029",
-            "name": "withQuery",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020query\u0020string.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withQuery"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A__toString\u0028\u0029",
-            "name": "__toString",
-            "summary": "Return\u0020the\u0020string\u0020representation\u0020as\u0020a\u0020URI\u0020reference.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method___toString"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetUserInfo\u0028\u0029",
-            "name": "getUserInfo",
-            "summary": "Retrieve\u0020the\u0020user\u0020information\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getUserInfo"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetHost\u0028\u0029",
-            "name": "getHost",
-            "summary": "Retrieve\u0020the\u0020host\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getHost"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AgetFragment\u0028\u0029",
-            "name": "getFragment",
-            "summary": "Retrieve\u0020the\u0020fragment\u0020component\u0020of\u0020the\u0020URI.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_getFragment"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithScheme\u0028\u0029",
-            "name": "withScheme",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020scheme.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withScheme"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithUserInfo\u0028\u0029",
-            "name": "withUserInfo",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020user\u0020information.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withUserInfo"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithHost\u0028\u0029",
-            "name": "withHost",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020host.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withHost"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithPort\u0028\u0029",
-            "name": "withPort",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020port.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withPort"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithPath\u0028\u0029",
-            "name": "withPath",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020path.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withPath"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AwithFragment\u0028\u0029",
-            "name": "withFragment",
-            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020URI\u0020fragment.",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_withFragment"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AapplyParts\u0028\u0029",
-            "name": "applyParts",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_applyParts"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfilterScheme\u0028\u0029",
-            "name": "filterScheme",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_filterScheme"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfilterUserInfoComponent\u0028\u0029",
-            "name": "filterUserInfoComponent",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_filterUserInfoComponent"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfilterHost\u0028\u0029",
-            "name": "filterHost",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_filterHost"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfilterPort\u0028\u0029",
-            "name": "filterPort",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_filterPort"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfilterPath\u0028\u0029",
-            "name": "filterPath",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_filterPath"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AfilterQueryAndFragment\u0028\u0029",
-            "name": "filterQueryAndFragment",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_filterQueryAndFragment"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AremoveDefaultPort\u0028\u0029",
-            "name": "removeDefaultPort",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_removeDefaultPort"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AvalidateState\u0028\u0029",
-            "name": "validateState",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_validateState"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003ArawurlencodeMatchZero\u0028\u0029",
-            "name": "rawurlencodeMatchZero",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#method_rawurlencodeMatchZero"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003AHTTP_DEFAULT_HOST",
-            "name": "HTTP_DEFAULT_HOST",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#constant_HTTP_DEFAULT_HOST"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024defaultPorts",
-            "name": "defaultPorts",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_defaultPorts"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024charUnreserved",
-            "name": "charUnreserved",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_charUnreserved"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024charSubDelims",
-            "name": "charSubDelims",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_charSubDelims"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024replaceQuery",
-            "name": "replaceQuery",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_replaceQuery"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024scheme",
-            "name": "scheme",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_scheme"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024userInfo",
-            "name": "userInfo",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_userInfo"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024host",
-            "name": "host",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_host"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024port",
-            "name": "port",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_port"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024path",
-            "name": "path",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_path"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024query",
-            "name": "query",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_query"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\Uri\u003A\u003A\u0024fragment",
-            "name": "fragment",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-Uri.html#property_fragment"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer",
-            "name": "UriNormalizer",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AisEquivalent\u0028\u0029",
-            "name": "isEquivalent",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#method_isEquivalent"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003Anormalize\u0028\u0029",
-            "name": "normalize",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#method_normalize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AcapitalizePercentEncoding\u0028\u0029",
-            "name": "capitalizePercentEncoding",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#method_capitalizePercentEncoding"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AdecodeUnreservedCharacters\u0028\u0029",
-            "name": "decodeUnreservedCharacters",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#method_decodeUnreservedCharacters"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003APRESERVING_NORMALIZATIONS",
-            "name": "PRESERVING_NORMALIZATIONS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_PRESERVING_NORMALIZATIONS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003ACAPITALIZE_PERCENT_ENCODING",
-            "name": "CAPITALIZE_PERCENT_ENCODING",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_CAPITALIZE_PERCENT_ENCODING"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003ADECODE_UNRESERVED_CHARACTERS",
-            "name": "DECODE_UNRESERVED_CHARACTERS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_DECODE_UNRESERVED_CHARACTERS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003ACONVERT_EMPTY_PATH",
-            "name": "CONVERT_EMPTY_PATH",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_CONVERT_EMPTY_PATH"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AREMOVE_DEFAULT_HOST",
-            "name": "REMOVE_DEFAULT_HOST",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_REMOVE_DEFAULT_HOST"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AREMOVE_DEFAULT_PORT",
-            "name": "REMOVE_DEFAULT_PORT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_REMOVE_DEFAULT_PORT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AREMOVE_DOT_SEGMENTS",
-            "name": "REMOVE_DOT_SEGMENTS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_REMOVE_DOT_SEGMENTS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003AREMOVE_DUPLICATE_SLASHES",
-            "name": "REMOVE_DUPLICATE_SLASHES",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_REMOVE_DUPLICATE_SLASHES"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriNormalizer\u003A\u003ASORT_QUERY_PARAMETERS",
-            "name": "SORT_QUERY_PARAMETERS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriNormalizer.html#constant_SORT_QUERY_PARAMETERS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriResolver",
-            "name": "UriResolver",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriResolver.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriResolver\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriResolver.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriResolver\u003A\u003Aresolve\u0028\u0029",
-            "name": "resolve",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriResolver.html#method_resolve"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriResolver\u003A\u003AremoveDotSegments\u0028\u0029",
-            "name": "removeDotSegments",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriResolver.html#method_removeDotSegments"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriResolver\u003A\u003Arelativize\u0028\u0029",
-            "name": "relativize",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriResolver.html#method_relativize"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\UriResolver\u003A\u003AgetRelativePath\u0028\u0029",
-            "name": "getRelativePath",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Psr7-UriResolver.html#method_getRelativePath"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware",
-            "name": "RedirectMiddleware",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003A__invoke\u0028\u0029",
-            "name": "__invoke",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method___invoke"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003AcheckRedirect\u0028\u0029",
-            "name": "checkRedirect",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method_checkRedirect"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003AmodifyRequest\u0028\u0029",
-            "name": "modifyRequest",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method_modifyRequest"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003AguardMax\u0028\u0029",
-            "name": "guardMax",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method_guardMax"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003AredirectUri\u0028\u0029",
-            "name": "redirectUri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method_redirectUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003AwithTracking\u0028\u0029",
-            "name": "withTracking",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#method_withTracking"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003AHISTORY_HEADER",
-            "name": "HISTORY_HEADER",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#constant_HISTORY_HEADER"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003ASTATUS_HISTORY_HEADER",
-            "name": "STATUS_HISTORY_HEADER",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#constant_STATUS_HISTORY_HEADER"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003A\u0024defaultSettings",
-            "name": "defaultSettings",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#property_defaultSettings"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RedirectMiddleware\u003A\u003A\u0024nextHandler",
-            "name": "nextHandler",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RedirectMiddleware.html#property_nextHandler"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions",
-            "name": "RequestOptions",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AALLOW_REDIRECTS",
-            "name": "ALLOW_REDIRECTS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_ALLOW_REDIRECTS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AAUTH",
-            "name": "AUTH",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_AUTH"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ABODY",
-            "name": "BODY",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_BODY"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ACERT",
-            "name": "CERT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_CERT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ACOOKIES",
-            "name": "COOKIES",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_COOKIES"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ACONNECT_TIMEOUT",
-            "name": "CONNECT_TIMEOUT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_CONNECT_TIMEOUT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ADEBUG",
-            "name": "DEBUG",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_DEBUG"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ADECODE_CONTENT",
-            "name": "DECODE_CONTENT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_DECODE_CONTENT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ADELAY",
-            "name": "DELAY",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_DELAY"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AEXPECT",
-            "name": "EXPECT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_EXPECT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AFORM_PARAMS",
-            "name": "FORM_PARAMS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_FORM_PARAMS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AHEADERS",
-            "name": "HEADERS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_HEADERS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AHTTP_ERRORS",
-            "name": "HTTP_ERRORS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_HTTP_ERRORS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AIDN_CONVERSION",
-            "name": "IDN_CONVERSION",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_IDN_CONVERSION"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AJSON",
-            "name": "JSON",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_JSON"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AMULTIPART",
-            "name": "MULTIPART",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_MULTIPART"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AON_HEADERS",
-            "name": "ON_HEADERS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_ON_HEADERS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AON_STATS",
-            "name": "ON_STATS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_ON_STATS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003APROGRESS",
-            "name": "PROGRESS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_PROGRESS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003APROXY",
-            "name": "PROXY",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_PROXY"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AQUERY",
-            "name": "QUERY",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_QUERY"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ASINK",
-            "name": "SINK",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_SINK"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ASYNCHRONOUS",
-            "name": "SYNCHRONOUS",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_SYNCHRONOUS"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ASSL_KEY",
-            "name": "SSL_KEY",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_SSL_KEY"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ASTREAM",
-            "name": "STREAM",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_STREAM"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AVERIFY",
-            "name": "VERIFY",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_VERIFY"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003ATIMEOUT",
-            "name": "TIMEOUT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_TIMEOUT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AREAD_TIMEOUT",
-            "name": "READ_TIMEOUT",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_READ_TIMEOUT"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AVERSION",
-            "name": "VERSION",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_VERSION"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RequestOptions\u003A\u003AFORCE_IP_RESOLVE",
-            "name": "FORCE_IP_RESOLVE",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RequestOptions.html#constant_FORCE_IP_RESOLVE"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware",
-            "name": "RetryMiddleware",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003AexponentialDelay\u0028\u0029",
-            "name": "exponentialDelay",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#method_exponentialDelay"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003A__invoke\u0028\u0029",
-            "name": "__invoke",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#method___invoke"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003AonFulfilled\u0028\u0029",
-            "name": "onFulfilled",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#method_onFulfilled"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003AdoRetry\u0028\u0029",
-            "name": "doRetry",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#method_doRetry"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003AonRejected\u0028\u0029",
-            "name": "onRejected",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#method_onRejected"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003A\u0024nextHandler",
-            "name": "nextHandler",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#property_nextHandler"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003A\u0024decider",
-            "name": "decider",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#property_decider"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\RetryMiddleware\u003A\u003A\u0024delay",
-            "name": "delay",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-RetryMiddleware.html#property_delay"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats",
-            "name": "TransferStats",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method___construct"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetRequest\u0028\u0029",
-            "name": "getRequest",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getRequest"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetResponse\u0028\u0029",
-            "name": "getResponse",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getResponse"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AhasResponse\u0028\u0029",
-            "name": "hasResponse",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_hasResponse"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetHandlerErrorData\u0028\u0029",
-            "name": "getHandlerErrorData",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getHandlerErrorData"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetEffectiveUri\u0028\u0029",
-            "name": "getEffectiveUri",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getEffectiveUri"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetTransferTime\u0028\u0029",
-            "name": "getTransferTime",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getTransferTime"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetHandlerStats\u0028\u0029",
-            "name": "getHandlerStats",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getHandlerStats"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003AgetHandlerStat\u0028\u0029",
-            "name": "getHandlerStat",
-            "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#method_getHandlerStat"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003A\u0024request",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request",
             "name": "request",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#property_request"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003A\u0024response",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AassertMethod\u0028\u0029",
+            "name": "assertMethod",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_assertMethod"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AupdateHostFromUri\u0028\u0029",
+            "name": "updateHostFromUri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_updateHostFromUri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AgetRequestTarget\u0028\u0029",
+            "name": "getRequestTarget",
+            "summary": "Retrieves\u0020the\u0020message\u0027s\u0020request\u0020target.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_getRequestTarget"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AwithRequestTarget\u0028\u0029",
+            "name": "withRequestTarget",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specific\u0020request\u002Dtarget.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_withRequestTarget"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AgetMethod\u0028\u0029",
+            "name": "getMethod",
+            "summary": "Retrieves\u0020the\u0020HTTP\u0020method\u0020of\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_getMethod"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AwithMethod\u0028\u0029",
+            "name": "withMethod",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020provided\u0020HTTP\u0020method.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_withMethod"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AgetUri\u0028\u0029",
+            "name": "getUri",
+            "summary": "Retrieves\u0020the\u0020URI\u0020instance.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_getUri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003AwithUri\u0028\u0029",
+            "name": "withUri",
+            "summary": "Returns\u0020an\u0020instance\u0020with\u0020the\u0020provided\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#method_withUri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003A\u0024method",
+            "name": "method",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#property_method"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003A\u0024requestTarget",
+            "name": "requestTarget",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#property_requestTarget"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\request\u003A\u003A\u0024uri",
+            "name": "uri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-request.html#property_uri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response",
             "name": "response",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#property_response"
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003A\u0024transferTime",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003AassertStatusCodeIsInteger\u0028\u0029",
+            "name": "assertStatusCodeIsInteger",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#method_assertStatusCodeIsInteger"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003AassertStatusCodeRange\u0028\u0029",
+            "name": "assertStatusCodeRange",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#method_assertStatusCodeRange"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003AgetStatusCode\u0028\u0029",
+            "name": "getStatusCode",
+            "summary": "Gets\u0020the\u0020response\u0020status\u0020code.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#method_getStatusCode"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003AgetReasonPhrase\u0028\u0029",
+            "name": "getReasonPhrase",
+            "summary": "Gets\u0020the\u0020response\u0020reason\u0020phrase\u0020associated\u0020with\u0020the\u0020status\u0020code.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#method_getReasonPhrase"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003AwithStatus\u0028\u0029",
+            "name": "withStatus",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020status\u0020code\u0020and,\u0020optionally,\u0020reason\u0020phrase.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#method_withStatus"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003A\u0024phrases",
+            "name": "phrases",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#property_phrases"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003A\u0024reasonPhrase",
+            "name": "reasonPhrase",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#property_reasonPhrase"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\response\u003A\u003A\u0024statusCode",
+            "name": "statusCode",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-response.html#property_statusCode"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\rfc7230",
+            "name": "rfc7230",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-rfc7230.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\rfc7230\u003A\u003AHEADER_REGEX",
+            "name": "HEADER_REGEX",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-rfc7230.html#constant_HEADER_REGEX"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\rfc7230\u003A\u003AHEADER_FOLD_REGEX",
+            "name": "HEADER_FOLD_REGEX",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-rfc7230.html#constant_HEADER_FOLD_REGEX"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest",
+            "name": "serverRequest",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AfromGlobals\u0028\u0029",
+            "name": "fromGlobals",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_fromGlobals"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetUriFromGlobals\u0028\u0029",
+            "name": "getUriFromGlobals",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getUriFromGlobals"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AextractHostAndPortFromAuthority\u0028\u0029",
+            "name": "extractHostAndPortFromAuthority",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_extractHostAndPortFromAuthority"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AwithUploadedFiles\u0028\u0029",
+            "name": "withUploadedFiles",
+            "summary": "Create\u0020a\u0020new\u0020instance\u0020with\u0020the\u0020specified\u0020uploaded\u0020files.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_withUploadedFiles"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AwithParsedBody\u0028\u0029",
+            "name": "withParsedBody",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020body\u0020parameters.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_withParsedBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AwithQueryParams\u0028\u0029",
+            "name": "withQueryParams",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020query\u0020string\u0020arguments.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_withQueryParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AwithCookieParams\u0028\u0029",
+            "name": "withCookieParams",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020cookies.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_withCookieParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AnormalizeFiles\u0028\u0029",
+            "name": "normalizeFiles",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_normalizeFiles"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AcreateUploadedFileFromSpec\u0028\u0029",
+            "name": "createUploadedFileFromSpec",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_createUploadedFileFromSpec"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AnormalizeNestedFileSpec\u0028\u0029",
+            "name": "normalizeNestedFileSpec",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_normalizeNestedFileSpec"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetServerParams\u0028\u0029",
+            "name": "getServerParams",
+            "summary": "Retrieve\u0020server\u0020parameters.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getServerParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetUploadedFiles\u0028\u0029",
+            "name": "getUploadedFiles",
+            "summary": "Retrieve\u0020normalized\u0020file\u0020upload\u0020data.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getUploadedFiles"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetCookieParams\u0028\u0029",
+            "name": "getCookieParams",
+            "summary": "Retrieve\u0020cookies.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getCookieParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetQueryParams\u0028\u0029",
+            "name": "getQueryParams",
+            "summary": "Retrieve\u0020query\u0020string\u0020arguments.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getQueryParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetParsedBody\u0028\u0029",
+            "name": "getParsedBody",
+            "summary": "Retrieve\u0020any\u0020parameters\u0020provided\u0020in\u0020the\u0020request\u0020body.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getParsedBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetAttributes\u0028\u0029",
+            "name": "getAttributes",
+            "summary": "Retrieve\u0020attributes\u0020derived\u0020from\u0020the\u0020request.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getAttributes"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AgetAttribute\u0028\u0029",
+            "name": "getAttribute",
+            "summary": "Retrieve\u0020a\u0020single\u0020derived\u0020request\u0020attribute.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_getAttribute"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AwithAttribute\u0028\u0029",
+            "name": "withAttribute",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020derived\u0020request\u0020attribute.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_withAttribute"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003AwithoutAttribute\u0028\u0029",
+            "name": "withoutAttribute",
+            "summary": "Return\u0020an\u0020instance\u0020that\u0020removes\u0020the\u0020specified\u0020derived\u0020request\u0020attribute.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#method_withoutAttribute"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A\u0024attributes",
+            "name": "attributes",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#property_attributes"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A\u0024cookieParams",
+            "name": "cookieParams",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#property_cookieParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A\u0024parsedBody",
+            "name": "parsedBody",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#property_parsedBody"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A\u0024queryParams",
+            "name": "queryParams",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#property_queryParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A\u0024serverParams",
+            "name": "serverParams",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#property_serverParams"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\serverRequest\u003A\u003A\u0024uploadedFiles",
+            "name": "uploadedFiles",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-serverRequest.html#property_uploadedFiles"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream",
+            "name": "stream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AgetMetadata\u0028\u0029",
+            "name": "getMetadata",
+            "summary": "Get\u0020stream\u0020metadata\u0020as\u0020an\u0020associative\u0020array\u0020or\u0020retrieve\u0020a\u0020specific\u0020key.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_getMetadata"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A__destruct\u0028\u0029",
+            "name": "__destruct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method___destruct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Aclose\u0028\u0029",
+            "name": "close",
+            "summary": "Closes\u0020the\u0020stream\u0020and\u0020any\u0020underlying\u0020resources.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_close"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Adetach\u0028\u0029",
+            "name": "detach",
+            "summary": "Separates\u0020any\u0020underlying\u0020resources\u0020from\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_detach"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Reads\u0020all\u0020data\u0020from\u0020the\u0020stream\u0020into\u0020a\u0020string,\u0020from\u0020the\u0020beginning\u0020to\u0020end.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method___toString"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Aseek\u0028\u0029",
+            "name": "seek",
+            "summary": "Seek\u0020to\u0020a\u0020position\u0020in\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_seek"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AgetContents\u0028\u0029",
+            "name": "getContents",
+            "summary": "Returns\u0020the\u0020remaining\u0020contents\u0020in\u0020a\u0020string",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_getContents"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "Get\u0020the\u0020size\u0020of\u0020the\u0020stream\u0020if\u0020known.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_getSize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AisReadable\u0028\u0029",
+            "name": "isReadable",
+            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020readable.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_isReadable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AisWritable\u0028\u0029",
+            "name": "isWritable",
+            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020writable.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_isWritable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AisSeekable\u0028\u0029",
+            "name": "isSeekable",
+            "summary": "Returns\u0020whether\u0020or\u0020not\u0020the\u0020stream\u0020is\u0020seekable.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_isSeekable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Aeof\u0028\u0029",
+            "name": "eof",
+            "summary": "Returns\u0020true\u0020if\u0020the\u0020stream\u0020is\u0020at\u0020the\u0020end\u0020of\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_eof"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Atell\u0028\u0029",
+            "name": "tell",
+            "summary": "Returns\u0020the\u0020current\u0020position\u0020of\u0020the\u0020file\u0020read\/write\u0020pointer",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_tell"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "Seek\u0020to\u0020the\u0020beginning\u0020of\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_rewind"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Aread\u0028\u0029",
+            "name": "read",
+            "summary": "Read\u0020data\u0020from\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_read"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "Write\u0020data\u0020to\u0020the\u0020stream.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#method_write"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AREADABLE_MODES",
+            "name": "READABLE_MODES",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#constant_READABLE_MODES"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003AWRITABLE_MODES",
+            "name": "WRITABLE_MODES",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#constant_WRITABLE_MODES"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024stream",
+            "name": "stream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_stream"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024size",
+            "name": "size",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_size"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024seekable",
+            "name": "seekable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_seekable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024readable",
+            "name": "readable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_readable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024writable",
+            "name": "writable",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_writable"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024uri",
+            "name": "uri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_uri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\stream\u003A\u003A\u0024customMetadata",
+            "name": "customMetadata",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-stream.html#property_customMetadata"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper",
+            "name": "streamWrapper",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003AgetResource\u0028\u0029",
+            "name": "getResource",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_getResource"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Aregister\u0028\u0029",
+            "name": "register",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_register"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003AcreateStreamContext\u0028\u0029",
+            "name": "createStreamContext",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_createStreamContext"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_open\u0028\u0029",
+            "name": "stream_open",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_open"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_read\u0028\u0029",
+            "name": "stream_read",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_read"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_write\u0028\u0029",
+            "name": "stream_write",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_write"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_tell\u0028\u0029",
+            "name": "stream_tell",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_tell"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_eof\u0028\u0029",
+            "name": "stream_eof",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_eof"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_seek\u0028\u0029",
+            "name": "stream_seek",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_seek"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_cast\u0028\u0029",
+            "name": "stream_cast",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_cast"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Astream_stat\u0028\u0029",
+            "name": "stream_stat",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_stream_stat"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003Aurl_stat\u0028\u0029",
+            "name": "url_stat",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#method_url_stat"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003A\u0024context",
+            "name": "context",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#property_context"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003A\u0024stream",
+            "name": "stream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#property_stream"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\streamWrapper\u003A\u003A\u0024mode",
+            "name": "mode",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-streamWrapper.html#property_mode"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile",
+            "name": "uploadedFile",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AsetError\u0028\u0029",
+            "name": "setError",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_setError"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AsetSize\u0028\u0029",
+            "name": "setSize",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_setSize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AsetClientFilename\u0028\u0029",
+            "name": "setClientFilename",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_setClientFilename"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AisStringOrNull\u0028\u0029",
+            "name": "isStringOrNull",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_isStringOrNull"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AsetClientMediaType\u0028\u0029",
+            "name": "setClientMediaType",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_setClientMediaType"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AisOk\u0028\u0029",
+            "name": "isOk",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_isOk"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AsetStreamOrFile\u0028\u0029",
+            "name": "setStreamOrFile",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_setStreamOrFile"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AmoveTo\u0028\u0029",
+            "name": "moveTo",
+            "summary": "Move\u0020the\u0020uploaded\u0020file\u0020to\u0020a\u0020new\u0020location.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_moveTo"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AvalidateActive\u0028\u0029",
+            "name": "validateActive",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_validateActive"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AisMoved\u0028\u0029",
+            "name": "isMoved",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_isMoved"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AisStringNotEmpty\u0028\u0029",
+            "name": "isStringNotEmpty",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_isStringNotEmpty"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AgetStream\u0028\u0029",
+            "name": "getStream",
+            "summary": "Retrieve\u0020a\u0020stream\u0020representing\u0020the\u0020uploaded\u0020file.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_getStream"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "Retrieve\u0020the\u0020file\u0020size.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_getSize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AgetError\u0028\u0029",
+            "name": "getError",
+            "summary": "Retrieve\u0020the\u0020error\u0020associated\u0020with\u0020the\u0020uploaded\u0020file.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_getError"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AgetClientFilename\u0028\u0029",
+            "name": "getClientFilename",
+            "summary": "Retrieve\u0020the\u0020filename\u0020sent\u0020by\u0020the\u0020client.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_getClientFilename"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003AgetClientMediaType\u0028\u0029",
+            "name": "getClientMediaType",
+            "summary": "Retrieve\u0020the\u0020media\u0020type\u0020sent\u0020by\u0020the\u0020client.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#method_getClientMediaType"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024errors",
+            "name": "errors",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_errors"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024clientFilename",
+            "name": "clientFilename",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_clientFilename"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024clientMediaType",
+            "name": "clientMediaType",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_clientMediaType"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024error",
+            "name": "error",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_error"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024file",
+            "name": "file",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_file"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024moved",
+            "name": "moved",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_moved"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024size",
+            "name": "size",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_size"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uploadedFile\u003A\u003A\u0024stream",
+            "name": "stream",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uploadedFile.html#property_stream"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri",
+            "name": "uri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AapplyParts\u0028\u0029",
+            "name": "applyParts",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_applyParts"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfilterScheme\u0028\u0029",
+            "name": "filterScheme",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_filterScheme"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfilterUserInfoComponent\u0028\u0029",
+            "name": "filterUserInfoComponent",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_filterUserInfoComponent"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfilterHost\u0028\u0029",
+            "name": "filterHost",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_filterHost"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfilterPort\u0028\u0029",
+            "name": "filterPort",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_filterPort"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfilterPath\u0028\u0029",
+            "name": "filterPath",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_filterPath"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfilterQueryAndFragment\u0028\u0029",
+            "name": "filterQueryAndFragment",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_filterQueryAndFragment"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AremoveDefaultPort\u0028\u0029",
+            "name": "removeDefaultPort",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_removeDefaultPort"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AisDefaultPort\u0028\u0029",
+            "name": "isDefaultPort",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_isDefaultPort"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetPort\u0028\u0029",
+            "name": "getPort",
+            "summary": "Retrieve\u0020the\u0020port\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getPort"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetScheme\u0028\u0029",
+            "name": "getScheme",
+            "summary": "Retrieve\u0020the\u0020scheme\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getScheme"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AisAbsolute\u0028\u0029",
+            "name": "isAbsolute",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_isAbsolute"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AisNetworkPathReference\u0028\u0029",
+            "name": "isNetworkPathReference",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_isNetworkPathReference"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetAuthority\u0028\u0029",
+            "name": "getAuthority",
+            "summary": "Retrieve\u0020the\u0020authority\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getAuthority"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AisAbsolutePathReference\u0028\u0029",
+            "name": "isAbsolutePathReference",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_isAbsolutePathReference"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetPath\u0028\u0029",
+            "name": "getPath",
+            "summary": "Retrieve\u0020the\u0020path\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getPath"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AisRelativePathReference\u0028\u0029",
+            "name": "isRelativePathReference",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_isRelativePathReference"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AisSameDocumentReference\u0028\u0029",
+            "name": "isSameDocumentReference",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_isSameDocumentReference"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetQuery\u0028\u0029",
+            "name": "getQuery",
+            "summary": "Retrieve\u0020the\u0020query\u0020string\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getQuery"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AremoveDotSegments\u0028\u0029",
+            "name": "removeDotSegments",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_removeDotSegments"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_resolve"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithoutQueryValue\u0028\u0029",
+            "name": "withoutQueryValue",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withoutQueryValue"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetFilteredQueryString\u0028\u0029",
+            "name": "getFilteredQueryString",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getFilteredQueryString"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithQuery\u0028\u0029",
+            "name": "withQuery",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020query\u0020string.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withQuery"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithQueryValue\u0028\u0029",
+            "name": "withQueryValue",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withQueryValue"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgenerateQueryString\u0028\u0029",
+            "name": "generateQueryString",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_generateQueryString"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithQueryValues\u0028\u0029",
+            "name": "withQueryValues",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withQueryValues"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AfromParts\u0028\u0029",
+            "name": "fromParts",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_fromParts"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AvalidateState\u0028\u0029",
+            "name": "validateState",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_validateState"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Return\u0020the\u0020string\u0020representation\u0020as\u0020a\u0020URI\u0020reference.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method___toString"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AcomposeComponents\u0028\u0029",
+            "name": "composeComponents",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_composeComponents"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetUserInfo\u0028\u0029",
+            "name": "getUserInfo",
+            "summary": "Retrieve\u0020the\u0020user\u0020information\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getUserInfo"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetHost\u0028\u0029",
+            "name": "getHost",
+            "summary": "Retrieve\u0020the\u0020host\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getHost"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AgetFragment\u0028\u0029",
+            "name": "getFragment",
+            "summary": "Retrieve\u0020the\u0020fragment\u0020component\u0020of\u0020the\u0020URI.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_getFragment"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithScheme\u0028\u0029",
+            "name": "withScheme",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020scheme.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withScheme"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithUserInfo\u0028\u0029",
+            "name": "withUserInfo",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020user\u0020information.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withUserInfo"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithHost\u0028\u0029",
+            "name": "withHost",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020host.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withHost"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithPort\u0028\u0029",
+            "name": "withPort",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020port.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withPort"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithPath\u0028\u0029",
+            "name": "withPath",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020path.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withPath"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AwithFragment\u0028\u0029",
+            "name": "withFragment",
+            "summary": "Return\u0020an\u0020instance\u0020with\u0020the\u0020specified\u0020URI\u0020fragment.",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_withFragment"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003ArawurlencodeMatchZero\u0028\u0029",
+            "name": "rawurlencodeMatchZero",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#method_rawurlencodeMatchZero"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003AHTTP_DEFAULT_HOST",
+            "name": "HTTP_DEFAULT_HOST",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#constant_HTTP_DEFAULT_HOST"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024defaultPorts",
+            "name": "defaultPorts",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_defaultPorts"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024charUnreserved",
+            "name": "charUnreserved",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_charUnreserved"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024charSubDelims",
+            "name": "charSubDelims",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_charSubDelims"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024replaceQuery",
+            "name": "replaceQuery",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_replaceQuery"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024scheme",
+            "name": "scheme",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_scheme"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024userInfo",
+            "name": "userInfo",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_userInfo"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024host",
+            "name": "host",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_host"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024port",
+            "name": "port",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_port"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_path"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024query",
+            "name": "query",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_query"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uri\u003A\u003A\u0024fragment",
+            "name": "fragment",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uri.html#property_fragment"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer",
+            "name": "uriNormalizer",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AisEquivalent\u0028\u0029",
+            "name": "isEquivalent",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#method_isEquivalent"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003Anormalize\u0028\u0029",
+            "name": "normalize",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#method_normalize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AcapitalizePercentEncoding\u0028\u0029",
+            "name": "capitalizePercentEncoding",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#method_capitalizePercentEncoding"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AdecodeUnreservedCharacters\u0028\u0029",
+            "name": "decodeUnreservedCharacters",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#method_decodeUnreservedCharacters"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003APRESERVING_NORMALIZATIONS",
+            "name": "PRESERVING_NORMALIZATIONS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_PRESERVING_NORMALIZATIONS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003ACAPITALIZE_PERCENT_ENCODING",
+            "name": "CAPITALIZE_PERCENT_ENCODING",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_CAPITALIZE_PERCENT_ENCODING"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003ADECODE_UNRESERVED_CHARACTERS",
+            "name": "DECODE_UNRESERVED_CHARACTERS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_DECODE_UNRESERVED_CHARACTERS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003ACONVERT_EMPTY_PATH",
+            "name": "CONVERT_EMPTY_PATH",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_CONVERT_EMPTY_PATH"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AREMOVE_DEFAULT_HOST",
+            "name": "REMOVE_DEFAULT_HOST",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_REMOVE_DEFAULT_HOST"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AREMOVE_DEFAULT_PORT",
+            "name": "REMOVE_DEFAULT_PORT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_REMOVE_DEFAULT_PORT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AREMOVE_DOT_SEGMENTS",
+            "name": "REMOVE_DOT_SEGMENTS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_REMOVE_DOT_SEGMENTS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003AREMOVE_DUPLICATE_SLASHES",
+            "name": "REMOVE_DUPLICATE_SLASHES",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_REMOVE_DUPLICATE_SLASHES"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriNormalizer\u003A\u003ASORT_QUERY_PARAMETERS",
+            "name": "SORT_QUERY_PARAMETERS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriNormalizer.html#constant_SORT_QUERY_PARAMETERS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriResolver",
+            "name": "uriResolver",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriResolver.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriResolver\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriResolver.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriResolver\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriResolver.html#method_resolve"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriResolver\u003A\u003AremoveDotSegments\u0028\u0029",
+            "name": "removeDotSegments",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriResolver.html#method_removeDotSegments"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriResolver\u003A\u003Arelativize\u0028\u0029",
+            "name": "relativize",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriResolver.html#method_relativize"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\Psr7\\uriResolver\u003A\u003AgetRelativePath\u0028\u0029",
+            "name": "getRelativePath",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-Psr7-uriResolver.html#method_getRelativePath"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware",
+            "name": "redirectMiddleware",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003A__invoke\u0028\u0029",
+            "name": "__invoke",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method___invoke"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003AcheckRedirect\u0028\u0029",
+            "name": "checkRedirect",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method_checkRedirect"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003AguardMax\u0028\u0029",
+            "name": "guardMax",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method_guardMax"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003AmodifyRequest\u0028\u0029",
+            "name": "modifyRequest",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method_modifyRequest"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003AredirectUri\u0028\u0029",
+            "name": "redirectUri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method_redirectUri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003AwithTracking\u0028\u0029",
+            "name": "withTracking",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#method_withTracking"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003AHISTORY_HEADER",
+            "name": "HISTORY_HEADER",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#constant_HISTORY_HEADER"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003ASTATUS_HISTORY_HEADER",
+            "name": "STATUS_HISTORY_HEADER",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#constant_STATUS_HISTORY_HEADER"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003A\u0024defaultSettings",
+            "name": "defaultSettings",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#property_defaultSettings"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\redirectMiddleware\u003A\u003A\u0024nextHandler",
+            "name": "nextHandler",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-redirectMiddleware.html#property_nextHandler"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions",
+            "name": "requestOptions",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AALLOW_REDIRECTS",
+            "name": "ALLOW_REDIRECTS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_ALLOW_REDIRECTS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AAUTH",
+            "name": "AUTH",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_AUTH"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ABODY",
+            "name": "BODY",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_BODY"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ACERT",
+            "name": "CERT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_CERT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ACOOKIES",
+            "name": "COOKIES",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_COOKIES"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ACONNECT_TIMEOUT",
+            "name": "CONNECT_TIMEOUT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_CONNECT_TIMEOUT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ADEBUG",
+            "name": "DEBUG",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_DEBUG"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ADECODE_CONTENT",
+            "name": "DECODE_CONTENT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_DECODE_CONTENT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ADELAY",
+            "name": "DELAY",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_DELAY"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AEXPECT",
+            "name": "EXPECT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_EXPECT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AFORM_PARAMS",
+            "name": "FORM_PARAMS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_FORM_PARAMS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AHEADERS",
+            "name": "HEADERS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_HEADERS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AHTTP_ERRORS",
+            "name": "HTTP_ERRORS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_HTTP_ERRORS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AIDN_CONVERSION",
+            "name": "IDN_CONVERSION",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_IDN_CONVERSION"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AJSON",
+            "name": "JSON",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_JSON"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AMULTIPART",
+            "name": "MULTIPART",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_MULTIPART"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AON_HEADERS",
+            "name": "ON_HEADERS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_ON_HEADERS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AON_STATS",
+            "name": "ON_STATS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_ON_STATS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003APROGRESS",
+            "name": "PROGRESS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_PROGRESS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003APROXY",
+            "name": "PROXY",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_PROXY"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AQUERY",
+            "name": "QUERY",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_QUERY"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ASINK",
+            "name": "SINK",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_SINK"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ASYNCHRONOUS",
+            "name": "SYNCHRONOUS",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_SYNCHRONOUS"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ASSL_KEY",
+            "name": "SSL_KEY",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_SSL_KEY"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ASTREAM",
+            "name": "STREAM",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_STREAM"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AVERIFY",
+            "name": "VERIFY",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_VERIFY"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003ATIMEOUT",
+            "name": "TIMEOUT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_TIMEOUT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AREAD_TIMEOUT",
+            "name": "READ_TIMEOUT",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_READ_TIMEOUT"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AVERSION",
+            "name": "VERSION",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_VERSION"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\requestOptions\u003A\u003AFORCE_IP_RESOLVE",
+            "name": "FORCE_IP_RESOLVE",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-requestOptions.html#constant_FORCE_IP_RESOLVE"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware",
+            "name": "retryMiddleware",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003AexponentialDelay\u0028\u0029",
+            "name": "exponentialDelay",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#method_exponentialDelay"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003A__invoke\u0028\u0029",
+            "name": "__invoke",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#method___invoke"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003AonFulfilled\u0028\u0029",
+            "name": "onFulfilled",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#method_onFulfilled"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003AdoRetry\u0028\u0029",
+            "name": "doRetry",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#method_doRetry"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003AonRejected\u0028\u0029",
+            "name": "onRejected",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#method_onRejected"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003A\u0024nextHandler",
+            "name": "nextHandler",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#property_nextHandler"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003A\u0024decider",
+            "name": "decider",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#property_decider"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\retryMiddleware\u003A\u003A\u0024delay",
+            "name": "delay",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-retryMiddleware.html#property_delay"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats",
+            "name": "transferStats",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetRequest\u0028\u0029",
+            "name": "getRequest",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getRequest"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetResponse\u0028\u0029",
+            "name": "getResponse",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getResponse"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AhasResponse\u0028\u0029",
+            "name": "hasResponse",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_hasResponse"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetHandlerErrorData\u0028\u0029",
+            "name": "getHandlerErrorData",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getHandlerErrorData"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetEffectiveUri\u0028\u0029",
+            "name": "getEffectiveUri",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getEffectiveUri"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetTransferTime\u0028\u0029",
+            "name": "getTransferTime",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getTransferTime"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetHandlerStats\u0028\u0029",
+            "name": "getHandlerStats",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getHandlerStats"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003AgetHandlerStat\u0028\u0029",
+            "name": "getHandlerStat",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#method_getHandlerStat"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003A\u0024request",
+            "name": "request",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#property_request"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003A\u0024response",
+            "name": "response",
+            "summary": "",
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#property_response"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003A\u0024transferTime",
             "name": "transferTime",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#property_transferTime"
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#property_transferTime"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003A\u0024handlerStats",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003A\u0024handlerStats",
             "name": "handlerStats",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#property_handlerStats"
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#property_handlerStats"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\TransferStats\u003A\u003A\u0024handlerErrorData",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\transferStats\u003A\u003A\u0024handlerErrorData",
             "name": "handlerErrorData",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-TransferStats.html#property_handlerErrorData"
+            "url": "classes/yxorP-app-lib-proxy-transferStats.html#property_handlerErrorData"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate",
-            "name": "UriTemplate",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate",
+            "name": "uriTemplate",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003Aexpand\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003Aexpand\u0028\u0029",
             "name": "expand",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#method_expand"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#method_expand"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003AexpandMatch\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003AexpandMatch\u0028\u0029",
             "name": "expandMatch",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#method_expandMatch"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#method_expandMatch"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003AparseExpression\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003AparseExpression\u0028\u0029",
             "name": "parseExpression",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#method_parseExpression"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#method_parseExpression"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003AisAssoc\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003AisAssoc\u0028\u0029",
             "name": "isAssoc",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#method_isAssoc"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#method_isAssoc"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003AdecodeReserved\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003AdecodeReserved\u0028\u0029",
             "name": "decodeReserved",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#method_decodeReserved"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#method_decodeReserved"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003A\u0024operatorHash",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003A\u0024operatorHash",
             "name": "operatorHash",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#property_operatorHash"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#property_operatorHash"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003A\u0024delims",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003A\u0024delims",
             "name": "delims",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#property_delims"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#property_delims"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003A\u0024delimsPct",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003A\u0024delimsPct",
             "name": "delimsPct",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#property_delimsPct"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#property_delimsPct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003A\u0024template",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003A\u0024template",
             "name": "template",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#property_template"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#property_template"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\UriTemplate\u003A\u003A\u0024variables",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\uriTemplate\u003A\u003A\u0024variables",
             "name": "variables",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-UriTemplate.html#property_variables"
+            "url": "classes/yxorP-app-lib-proxy-uriTemplate.html#property_variables"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Utils",
-            "name": "Utils",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\utils",
+            "name": "utils",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Utils.html"
+            "url": "classes/yxorP-app-lib-proxy-utils.html"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Utils\u003A\u003AcurrentTime\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\utils\u003A\u003AcurrentTime\u0028\u0029",
             "name": "currentTime",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Utils.html#method_currentTime"
+            "url": "classes/yxorP-app-lib-proxy-utils.html#method_currentTime"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Utils\u003A\u003AidnUriConvert\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\utils\u003A\u003AidnUriConvert\u0028\u0029",
             "name": "idnUriConvert",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Utils.html#method_idnUriConvert"
+            "url": "classes/yxorP-app-lib-proxy-utils.html#method_idnUriConvert"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\proxy\\Utils\u003A\u003AidnToAsci\u0028\u0029",
+            "fqsen": "\\yxorP\\app\\lib\\proxy\\utils\u003A\u003AidnToAsci\u0028\u0029",
             "name": "idnToAsci",
             "summary": "",
-            "url": "classes/yxorP-app-lib-proxy-Utils.html#method_idnToAsci"
+            "url": "classes/yxorP-app-lib-proxy-utils.html#method_idnToAsci"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\Psr\\Http\\Message\\MessageInterface",
             "name": "MessageInterface",
@@ -48711,255 +48711,255 @@ Search.appendIndex(
             "summary": "Shorten\u0020class\u0020name\u0028s\u0029.",
             "url": "classes/OpenApi-Util.html#method_shorten"
         },                {
-            "fqsen": "\\App\\Command\\Cache\\Flush",
-            "name": "Flush",
+            "fqsen": "\\App\\Command\\Cache\\flush",
+            "name": "flush",
             "summary": "Base\u0020class\u0020for\u0020all\u0020commands.",
-            "url": "classes/App-Command-Cache-Flush.html"
+            "url": "classes/App-Command-Cache-flush.html"
         },                {
-            "fqsen": "\\App\\Command\\Cache\\Flush\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Command\\Cache\\flush\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/App-Command-Cache-Flush.html#method___construct"
+            "url": "classes/App-Command-Cache-flush.html#method___construct"
         },                {
-            "fqsen": "\\App\\Command\\Cache\\Flush\u003A\u003Aconfigure\u0028\u0029",
+            "fqsen": "\\App\\Command\\Cache\\flush\u003A\u003Aconfigure\u0028\u0029",
             "name": "configure",
             "summary": "Configures\u0020the\u0020current\u0020command.",
-            "url": "classes/App-Command-Cache-Flush.html#method_configure"
+            "url": "classes/App-Command-Cache-flush.html#method_configure"
         },                {
-            "fqsen": "\\App\\Command\\Cache\\Flush\u003A\u003Aexecute\u0028\u0029",
+            "fqsen": "\\App\\Command\\Cache\\flush\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "Executes\u0020the\u0020current\u0020command.",
-            "url": "classes/App-Command-Cache-Flush.html#method_execute"
+            "url": "classes/App-Command-Cache-flush.html#method_execute"
         },                {
-            "fqsen": "\\App\\Command\\Cache\\Flush\u003A\u003A\u0024defaultName",
+            "fqsen": "\\App\\Command\\Cache\\flush\u003A\u003A\u0024defaultName",
             "name": "defaultName",
             "summary": "",
-            "url": "classes/App-Command-Cache-Flush.html#property_defaultName"
+            "url": "classes/App-Command-Cache-flush.html#property_defaultName"
         },                {
-            "fqsen": "\\App\\Command\\Cache\\Flush\u003A\u003A\u0024app",
+            "fqsen": "\\App\\Command\\Cache\\flush\u003A\u003A\u0024app",
             "name": "app",
             "summary": "",
-            "url": "classes/App-Command-Cache-Flush.html#property_app"
+            "url": "classes/App-Command-Cache-flush.html#property_app"
         },                {
-            "fqsen": "\\App\\Command\\i18n\\CreateTranslation",
-            "name": "CreateTranslation",
+            "fqsen": "\\App\\Command\\i18n\\createTranslation",
+            "name": "createTranslation",
             "summary": "Base\u0020class\u0020for\u0020all\u0020commands.",
-            "url": "classes/App-Command-i18n-CreateTranslation.html"
+            "url": "classes/App-Command-i18n-createTranslation.html"
         },                {
-            "fqsen": "\\App\\Command\\i18n\\CreateTranslation\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Command\\i18n\\createTranslation\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/App-Command-i18n-CreateTranslation.html#method___construct"
+            "url": "classes/App-Command-i18n-createTranslation.html#method___construct"
         },                {
-            "fqsen": "\\App\\Command\\i18n\\CreateTranslation\u003A\u003Aconfigure\u0028\u0029",
+            "fqsen": "\\App\\Command\\i18n\\createTranslation\u003A\u003Aconfigure\u0028\u0029",
             "name": "configure",
             "summary": "Configures\u0020the\u0020current\u0020command.",
-            "url": "classes/App-Command-i18n-CreateTranslation.html#method_configure"
+            "url": "classes/App-Command-i18n-createTranslation.html#method_configure"
         },                {
-            "fqsen": "\\App\\Command\\i18n\\CreateTranslation\u003A\u003Aexecute\u0028\u0029",
+            "fqsen": "\\App\\Command\\i18n\\createTranslation\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "Executes\u0020the\u0020current\u0020command.",
-            "url": "classes/App-Command-i18n-CreateTranslation.html#method_execute"
+            "url": "classes/App-Command-i18n-createTranslation.html#method_execute"
         },                {
-            "fqsen": "\\App\\Command\\i18n\\CreateTranslation\u003A\u003A\u0024defaultName",
+            "fqsen": "\\App\\Command\\i18n\\createTranslation\u003A\u003A\u0024defaultName",
             "name": "defaultName",
             "summary": "",
-            "url": "classes/App-Command-i18n-CreateTranslation.html#property_defaultName"
+            "url": "classes/App-Command-i18n-createTranslation.html#property_defaultName"
         },                {
-            "fqsen": "\\App\\Command\\i18n\\CreateTranslation\u003A\u003A\u0024app",
+            "fqsen": "\\App\\Command\\i18n\\createTranslation\u003A\u003A\u0024app",
             "name": "app",
             "summary": "",
-            "url": "classes/App-Command-i18n-CreateTranslation.html#property_app"
+            "url": "classes/App-Command-i18n-createTranslation.html#property_app"
         },                {
-            "fqsen": "\\App\\Command\\Spaces\\Create",
-            "name": "Create",
+            "fqsen": "\\App\\Command\\Spaces\\create",
+            "name": "create",
             "summary": "Base\u0020class\u0020for\u0020all\u0020commands.",
-            "url": "classes/App-Command-Spaces-Create.html"
+            "url": "classes/App-Command-Spaces-create.html"
         },                {
-            "fqsen": "\\App\\Command\\Spaces\\Create\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\Command\\Spaces\\create\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/App-Command-Spaces-Create.html#method___construct"
+            "url": "classes/App-Command-Spaces-create.html#method___construct"
         },                {
-            "fqsen": "\\App\\Command\\Spaces\\Create\u003A\u003Aconfigure\u0028\u0029",
+            "fqsen": "\\App\\Command\\Spaces\\create\u003A\u003Aconfigure\u0028\u0029",
             "name": "configure",
             "summary": "Configures\u0020the\u0020current\u0020command.",
-            "url": "classes/App-Command-Spaces-Create.html#method_configure"
+            "url": "classes/App-Command-Spaces-create.html#method_configure"
         },                {
-            "fqsen": "\\App\\Command\\Spaces\\Create\u003A\u003Aexecute\u0028\u0029",
+            "fqsen": "\\App\\Command\\Spaces\\create\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "Executes\u0020the\u0020current\u0020command.",
-            "url": "classes/App-Command-Spaces-Create.html#method_execute"
+            "url": "classes/App-Command-Spaces-create.html#method_execute"
         },                {
-            "fqsen": "\\App\\Command\\Spaces\\Create\u003A\u003A\u0024defaultName",
+            "fqsen": "\\App\\Command\\Spaces\\create\u003A\u003A\u0024defaultName",
             "name": "defaultName",
             "summary": "",
-            "url": "classes/App-Command-Spaces-Create.html#property_defaultName"
+            "url": "classes/App-Command-Spaces-create.html#property_defaultName"
         },                {
-            "fqsen": "\\App\\Command\\Spaces\\Create\u003A\u003A\u0024app",
+            "fqsen": "\\App\\Command\\Spaces\\create\u003A\u003A\u0024app",
             "name": "app",
             "summary": "",
-            "url": "classes/App-Command-Spaces-Create.html#property_app"
+            "url": "classes/App-Command-Spaces-create.html#property_app"
         },                {
-            "fqsen": "\\App\\Controller\\App",
-            "name": "App",
+            "fqsen": "\\App\\Controller\\app",
+            "name": "app",
             "summary": "Class\u0020Controller",
-            "url": "classes/App-Controller-App.html"
+            "url": "classes/App-Controller-app.html"
         },                {
-            "fqsen": "\\App\\Controller\\App\u003A\u003Arender\u0028\u0029",
+            "fqsen": "\\App\\Controller\\app\u003A\u003Arender\u0028\u0029",
             "name": "render",
             "summary": "",
-            "url": "classes/App-Controller-App.html#method_render"
+            "url": "classes/App-Controller-app.html#method_render"
         },                {
-            "fqsen": "\\App\\Controller\\App\u003A\u003A\u0024layout",
+            "fqsen": "\\App\\Controller\\app\u003A\u003A\u0024layout",
             "name": "layout",
             "summary": "",
-            "url": "classes/App-Controller-App.html#property_layout"
+            "url": "classes/App-Controller-app.html#property_layout"
         },                {
-            "fqsen": "\\App\\Controller\\Auth",
-            "name": "Auth",
+            "fqsen": "\\App\\Controller\\auth",
+            "name": "auth",
             "summary": "Class\u0020Controller",
-            "url": "classes/App-Controller-Auth.html"
+            "url": "classes/App-Controller-auth.html"
         },                {
-            "fqsen": "\\App\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
+            "fqsen": "\\App\\Controller\\auth\u003A\u003Alogin\u0028\u0029",
             "name": "login",
             "summary": "",
-            "url": "classes/App-Controller-Auth.html#method_login"
+            "url": "classes/App-Controller-auth.html#method_login"
         },                {
-            "fqsen": "\\App\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
+            "fqsen": "\\App\\Controller\\auth\u003A\u003Alogout\u0028\u0029",
             "name": "logout",
             "summary": "",
-            "url": "classes/App-Controller-Auth.html#method_logout"
+            "url": "classes/App-Controller-auth.html#method_logout"
         },                {
-            "fqsen": "\\App\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
+            "fqsen": "\\App\\Controller\\auth\u003A\u003Acheck\u0028\u0029",
             "name": "check",
             "summary": "",
-            "url": "classes/App-Controller-Auth.html#method_check"
+            "url": "classes/App-Controller-auth.html#method_check"
         },                {
-            "fqsen": "\\App\\Controller\\Auth\u003A\u003Avalidate2FA\u0028\u0029",
+            "fqsen": "\\App\\Controller\\auth\u003A\u003Avalidate2FA\u0028\u0029",
             "name": "validate2FA",
             "summary": "",
-            "url": "classes/App-Controller-Auth.html#method_validate2FA"
+            "url": "classes/App-Controller-auth.html#method_validate2FA"
         },                {
-            "fqsen": "\\App\\Controller\\Auth\u003A\u003A\u0024layout",
+            "fqsen": "\\App\\Controller\\auth\u003A\u003A\u0024layout",
             "name": "layout",
             "summary": "",
-            "url": "classes/App-Controller-Auth.html#property_layout"
+            "url": "classes/App-Controller-auth.html#property_layout"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated",
-            "name": "Authenticated",
+            "fqsen": "\\App\\Controller\\authenticated",
+            "name": "authenticated",
             "summary": "Class\u0020Controller",
-            "url": "classes/App-Controller-Authenticated.html"
+            "url": "classes/App-Controller-authenticated.html"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AunlockResource\u0028\u0029",
+            "fqsen": "\\App\\Controller\\authenticated\u003A\u003AunlockResource\u0028\u0029",
             "name": "unlockResource",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_unlockResource"
+            "url": "classes/App-Controller-authenticated.html#method_unlockResource"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\App\\Controller\\authenticated\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_initialize"
+            "url": "classes/App-Controller-authenticated.html#method_initialize"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AisAllowed\u0028\u0029",
+            "fqsen": "\\App\\Controller\\authenticated\u003A\u003AisAllowed\u0028\u0029",
             "name": "isAllowed",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_isAllowed"
+            "url": "classes/App-Controller-authenticated.html#method_isAllowed"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003AcheckAndLockResource\u0028\u0029",
+            "fqsen": "\\App\\Controller\\authenticated\u003A\u003AcheckAndLockResource\u0028\u0029",
             "name": "checkAndLockResource",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#method_checkAndLockResource"
+            "url": "classes/App-Controller-authenticated.html#method_checkAndLockResource"
         },                {
-            "fqsen": "\\App\\Controller\\Authenticated\u003A\u003A\u0024user",
+            "fqsen": "\\App\\Controller\\authenticated\u003A\u003A\u0024user",
             "name": "user",
             "summary": "",
-            "url": "classes/App-Controller-Authenticated.html#property_user"
+            "url": "classes/App-Controller-authenticated.html#property_user"
         },                {
-            "fqsen": "\\App\\Controller\\Base",
-            "name": "Base",
+            "fqsen": "\\App\\Controller\\base",
+            "name": "base",
             "summary": "Class\u0020Controller",
-            "url": "classes/App-Controller-Base.html"
+            "url": "classes/App-Controller-base.html"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-base.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\base\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_initialize"
+            "url": "classes/App-Controller-base.html#method_initialize"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controller-Base.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_before"
+            "url": "classes/App-Controller-base.html#method_before"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Arender\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Arender\u0028\u0029",
             "name": "render",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_render"
+            "url": "classes/App-Controller-base.html#method_render"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Apath\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Apath\u0028\u0029",
             "name": "path",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_path"
+            "url": "classes/App-Controller-base.html#method_path"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Aparam\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Aparam\u0028\u0029",
             "name": "param",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_param"
+            "url": "classes/App-Controller-base.html#method_param"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Amodule\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Amodule\u0028\u0029",
             "name": "module",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_module"
+            "url": "classes/App-Controller-base.html#method_module"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Ahelper\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Ahelper\u0028\u0029",
             "name": "helper",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_helper"
+            "url": "classes/App-Controller-base.html#method_helper"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003Astop\u0028\u0029",
+            "fqsen": "\\App\\Controller\\base\u003A\u003Astop\u0028\u0029",
             "name": "stop",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#method_stop"
+            "url": "classes/App-Controller-base.html#method_stop"
         },                {
-            "fqsen": "\\App\\Controller\\Base\u003A\u003A\u0024layout",
+            "fqsen": "\\App\\Controller\\base\u003A\u003A\u0024layout",
             "name": "layout",
             "summary": "",
-            "url": "classes/App-Controller-Base.html#property_layout"
+            "url": "classes/App-Controller-base.html#property_layout"
         },                {
-            "fqsen": "\\App\\Controller\\Dashboard",
-            "name": "Dashboard",
+            "fqsen": "\\App\\Controller\\dashboard",
+            "name": "dashboard",
             "summary": "Class\u0020Controller",
-            "url": "classes/App-Controller-Dashboard.html"
+            "url": "classes/App-Controller-dashboard.html"
         },                {
-            "fqsen": "\\App\\Controller\\Dashboard\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\App\\Controller\\dashboard\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/App-Controller-Dashboard.html#method_index"
+            "url": "classes/App-Controller-dashboard.html#method_index"
         },                {
-            "fqsen": "\\App\\Controller\\Utils",
-            "name": "Utils",
+            "fqsen": "\\App\\Controller\\utils",
+            "name": "utils",
             "summary": "Class\u0020Controller",
-            "url": "classes/App-Controller-Utils.html"
+            "url": "classes/App-Controller-utils.html"
         },                {
-            "fqsen": "\\App\\Controller\\Utils\u003A\u003AgenerateToken\u0028\u0029",
+            "fqsen": "\\App\\Controller\\utils\u003A\u003AgenerateToken\u0028\u0029",
             "name": "generateToken",
             "summary": "",
-            "url": "classes/App-Controller-Utils.html#method_generateToken"
+            "url": "classes/App-Controller-utils.html#method_generateToken"
         },                {
-            "fqsen": "\\App\\Controller\\Utils\u003A\u003Acsrf\u0028\u0029",
+            "fqsen": "\\App\\Controller\\utils\u003A\u003Acsrf\u0028\u0029",
             "name": "csrf",
             "summary": "",
-            "url": "classes/App-Controller-Utils.html#method_csrf"
+            "url": "classes/App-Controller-utils.html#method_csrf"
         },                {
-            "fqsen": "\\App\\Controller\\Utils\u003A\u003Asearch\u0028\u0029",
+            "fqsen": "\\App\\Controller\\utils\u003A\u003Asearch\u0028\u0029",
             "name": "search",
             "summary": "",
-            "url": "classes/App-Controller-Utils.html#method_search"
+            "url": "classes/App-Controller-utils.html#method_search"
         },                {
             "fqsen": "\\t\u0028\u0029",
             "name": "t",
@@ -48976,335 +48976,335 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html#function__allowed"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query",
-            "name": "Query",
+            "fqsen": "\\App\\GraphQL\\query",
+            "name": "query",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html"
+            "url": "classes/App-GraphQL-query.html"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003Ainit\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003Ainit\u0028\u0029",
             "name": "init",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#method_init"
+            "url": "classes/App-GraphQL-query.html#method_init"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003Aprocess\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003Aprocess\u0028\u0029",
             "name": "process",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#method_process"
+            "url": "classes/App-GraphQL-query.html#method_process"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024queries",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003A\u0024queries",
             "name": "queries",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_queries"
+            "url": "classes/App-GraphQL-query.html#property_queries"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024mutations",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003A\u0024mutations",
             "name": "mutations",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_mutations"
+            "url": "classes/App-GraphQL-query.html#property_mutations"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024types",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003A\u0024types",
             "name": "types",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_types"
+            "url": "classes/App-GraphQL-query.html#property_types"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024directives",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003A\u0024directives",
             "name": "directives",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_directives"
+            "url": "classes/App-GraphQL-query.html#property_directives"
         },                {
-            "fqsen": "\\App\\GraphQL\\Query\u003A\u003A\u0024initialized",
+            "fqsen": "\\App\\GraphQL\\query\u003A\u003A\u0024initialized",
             "name": "initialized",
             "summary": "",
-            "url": "classes/App-GraphQL-Query.html#property_initialized"
+            "url": "classes/App-GraphQL-query.html#property_initialized"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes",
-            "name": "FieldTypes",
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes",
+            "name": "fieldTypes",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html"
+            "url": "classes/App-GraphQL-Types-fieldTypes.html"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AgetName\u0028\u0029",
-            "name": "getName",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getName"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AbuildFieldsDefinitions\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes\u003A\u003AbuildFieldsDefinitions\u0028\u0029",
             "name": "buildFieldsDefinitions",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_buildFieldsDefinitions"
+            "url": "classes/App-GraphQL-Types-fieldTypes.html#method_buildFieldsDefinitions"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003AgetType\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-fieldTypes.html#method_instance"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes\u003A\u003AgetType\u0028\u0029",
             "name": "getType",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_getType"
+            "url": "classes/App-GraphQL-Types-fieldTypes.html#method_getType"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#method_instance"
+            "url": "classes/App-GraphQL-Types-fieldTypes.html#method_getName"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003A\u0024types",
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes\u003A\u003A\u0024types",
             "name": "types",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#property_types"
+            "url": "classes/App-GraphQL-Types-fieldTypes.html#property_types"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\FieldTypes\u003A\u003A\u0024names",
+            "fqsen": "\\App\\GraphQL\\Types\\fieldTypes\u003A\u003A\u0024names",
             "name": "names",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-FieldTypes.html#property_names"
+            "url": "classes/App-GraphQL-Types-fieldTypes.html#property_names"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType",
-            "name": "JsonType",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType",
+            "name": "jsonType",
             "summary": "Scalar\u0020Type\u0020Definition",
-            "url": "classes/App-GraphQL-Types-JsonType.html"
+            "url": "classes/App-GraphQL-Types-jsonType.html"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method___construct"
+            "url": "classes/App-GraphQL-Types-jsonType.html#method___construct"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003AparseValue\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-jsonType.html#method_instance"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003AparseValue\u0028\u0029",
             "name": "parseValue",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_parseValue"
+            "url": "classes/App-GraphQL-Types-jsonType.html#method_parseValue"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aserialize\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003Aserialize\u0028\u0029",
             "name": "serialize",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_serialize"
+            "url": "classes/App-GraphQL-Types-jsonType.html#method_serialize"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003AparseLiteral\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003AparseLiteral\u0028\u0029",
             "name": "parseLiteral",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_parseLiteral"
+            "url": "classes/App-GraphQL-Types-jsonType.html#method_parseLiteral"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Aidentity\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003Aidentity\u0028\u0029",
             "name": "identity",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_identity"
+            "url": "classes/App-GraphQL-Types-jsonType.html#method_identity"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#method_instance"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003A\u0024name",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#property_name"
+            "url": "classes/App-GraphQL-Types-jsonType.html#property_name"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\JsonType\u003A\u003A\u0024description",
+            "fqsen": "\\App\\GraphQL\\Types\\jsonType\u003A\u003A\u0024description",
             "name": "description",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-JsonType.html#property_description"
+            "url": "classes/App-GraphQL-Types-jsonType.html#property_description"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType",
-            "name": "UploadType",
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType",
+            "name": "uploadType",
             "summary": "Scalar\u0020Type\u0020Definition",
-            "url": "classes/App-GraphQL-Types-UploadType.html"
+            "url": "classes/App-GraphQL-Types-uploadType.html"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Aserialize\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType\u003A\u003Ainstance\u0028\u0029",
+            "name": "instance",
+            "summary": "",
+            "url": "classes/App-GraphQL-Types-uploadType.html#method_instance"
+        },                {
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType\u003A\u003Aserialize\u0028\u0029",
             "name": "serialize",
             "summary": "Serializes\u0020an\u0020internal\u0020value\u0020to\u0020include\u0020in\u0020a\u0020response.",
-            "url": "classes/App-GraphQL-Types-UploadType.html#method_serialize"
+            "url": "classes/App-GraphQL-Types-uploadType.html#method_serialize"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003AparseValue\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType\u003A\u003AparseValue\u0028\u0029",
             "name": "parseValue",
             "summary": "Parses\u0020an\u0020externally\u0020provided\u0020value\u0020\u0028query\u0020variable\u0029\u0020to\u0020use\u0020as\u0020an\u0020input",
-            "url": "classes/App-GraphQL-Types-UploadType.html#method_parseValue"
+            "url": "classes/App-GraphQL-Types-uploadType.html#method_parseValue"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003AparseLiteral\u0028\u0029",
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType\u003A\u003AparseLiteral\u0028\u0029",
             "name": "parseLiteral",
             "summary": "Parses\u0020an\u0020externally\u0020provided\u0020literal\u0020value\u0020\u0028hardcoded\u0020in\u0020GraphQL\u0020query\u0029\u0020to\u0020use\u0020as\u0020an\u0020input",
-            "url": "classes/App-GraphQL-Types-UploadType.html#method_parseLiteral"
+            "url": "classes/App-GraphQL-Types-uploadType.html#method_parseLiteral"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003Ainstance\u0028\u0029",
-            "name": "instance",
-            "summary": "",
-            "url": "classes/App-GraphQL-Types-UploadType.html#method_instance"
-        },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003A\u0024name",
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-UploadType.html#property_name"
+            "url": "classes/App-GraphQL-Types-uploadType.html#property_name"
         },                {
-            "fqsen": "\\App\\GraphQL\\Types\\UploadType\u003A\u003A\u0024description",
+            "fqsen": "\\App\\GraphQL\\Types\\uploadType\u003A\u003A\u0024description",
             "name": "description",
             "summary": "",
-            "url": "classes/App-GraphQL-Types-UploadType.html#property_description"
+            "url": "classes/App-GraphQL-Types-uploadType.html#property_description"
         },                {
-            "fqsen": "\\App\\Helper\\Acl",
-            "name": "Acl",
+            "fqsen": "\\App\\Helper\\acl",
+            "name": "acl",
             "summary": "",
-            "url": "classes/App-Helper-Acl.html"
+            "url": "classes/App-Helper-acl.html"
         },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003A\u0024roles",
+            "fqsen": "\\App\\Helper\\acl\u003A\u003A\u0024roles",
             "name": "roles",
             "summary": "",
-            "url": "classes/App-Helper-Acl.html#property_roles"
+            "url": "classes/App-Helper-acl.html#property_roles"
         },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003AisAllowed\u0028\u0029",
+            "fqsen": "\\App\\Helper\\acl\u003A\u003AisAllowed\u0028\u0029",
             "name": "isAllowed",
             "summary": "",
-            "url": "classes/App-Helper-Acl.html#method_isAllowed"
+            "url": "classes/App-Helper-acl.html#method_isAllowed"
         },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003AisSuperAdmin\u0028\u0029",
+            "fqsen": "\\App\\Helper\\acl\u003A\u003AisSuperAdmin\u0028\u0029",
             "name": "isSuperAdmin",
             "summary": "",
-            "url": "classes/App-Helper-Acl.html#method_isSuperAdmin"
+            "url": "classes/App-Helper-acl.html#method_isSuperAdmin"
         },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003Acache\u0028\u0029",
+            "fqsen": "\\App\\Helper\\acl\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
-            "url": "classes/App-Helper-Acl.html#method_cache"
+            "url": "classes/App-Helper-acl.html#method_cache"
         },                {
-            "fqsen": "\\App\\Helper\\Acl\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\App\\Helper\\acl\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-Acl.html#method_initialize"
+            "url": "classes/App-Helper-acl.html#method_initialize"
         },                {
-            "fqsen": "\\App\\Helper\\Admin",
-            "name": "Admin",
+            "fqsen": "\\App\\Helper\\admin",
+            "name": "admin",
             "summary": "",
-            "url": "classes/App-Helper-Admin.html"
+            "url": "classes/App-Helper-admin.html"
         },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "fqsen": "\\App\\Helper\\admin\u003A\u003AisResourceLocked\u0028\u0029",
             "name": "isResourceLocked",
             "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_isResourceLocked"
+            "url": "classes/App-Helper-admin.html#method_isResourceLocked"
         },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
+            "fqsen": "\\App\\Helper\\admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
             "name": "isResourceEditableByCurrentUser",
             "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+            "url": "classes/App-Helper-admin.html#method_isResourceEditableByCurrentUser"
         },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
+            "fqsen": "\\App\\Helper\\admin\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
             "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_lockResourceId"
+            "url": "classes/App-Helper-admin.html#method_lockResourceId"
         },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AupdateLockedResourceId\u0028\u0029",
+            "fqsen": "\\App\\Helper\\admin\u003A\u003AupdateLockedResourceId\u0028\u0029",
             "name": "updateLockedResourceId",
             "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_updateLockedResourceId"
+            "url": "classes/App-Helper-admin.html#method_updateLockedResourceId"
         },                {
-            "fqsen": "\\App\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
+            "fqsen": "\\App\\Helper\\admin\u003A\u003AunlockResourceId\u0028\u0029",
             "name": "unlockResourceId",
             "summary": "",
-            "url": "classes/App-Helper-Admin.html#method_unlockResourceId"
+            "url": "classes/App-Helper-admin.html#method_unlockResourceId"
         },                {
             "fqsen": "\\App\\Helper\\App",
             "name": "App",
             "summary": "",
             "url": "classes/App-Helper-App.html"
         },                {
-            "fqsen": "\\App\\Helper\\Async",
-            "name": "Async",
+            "fqsen": "\\App\\Helper\\async",
+            "name": "async",
             "summary": "Async\u0020Helper\u0020class.",
-            "url": "classes/App-Helper-Async.html"
+            "url": "classes/App-Helper-async.html"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
+            "fqsen": "\\App\\Helper\\async\u003A\u003Aexec\u0028\u0029",
             "name": "exec",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_exec"
+            "url": "classes/App-Helper-async.html#method_exec"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "fqsen": "\\App\\Helper\\async\u003A\u003Afinished\u0028\u0029",
             "name": "finished",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_finished"
+            "url": "classes/App-Helper-async.html#method_finished"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Apossible\u0028\u0029",
+            "fqsen": "\\App\\Helper\\async\u003A\u003Apossible\u0028\u0029",
             "name": "possible",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_possible"
+            "url": "classes/App-Helper-async.html#method_possible"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
+            "fqsen": "\\App\\Helper\\async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_execInBackground"
+            "url": "classes/App-Helper-async.html#method_execInBackground"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
+            "fqsen": "\\App\\Helper\\async\u003A\u003AisExecAvailable\u0028\u0029",
             "name": "isExecAvailable",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_isExecAvailable"
+            "url": "classes/App-Helper-async.html#method_isExecAvailable"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\App\\Helper\\async\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#method_initialize"
+            "url": "classes/App-Helper-async.html#method_initialize"
         },                {
-            "fqsen": "\\App\\Helper\\Async\u003A\u003A\u0024phpPath",
+            "fqsen": "\\App\\Helper\\async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
             "summary": "",
-            "url": "classes/App-Helper-Async.html#property_phpPath"
+            "url": "classes/App-Helper-async.html#property_phpPath"
         },                {
-            "fqsen": "\\App\\Helper\\Auth",
-            "name": "Auth",
+            "fqsen": "\\App\\Helper\\auth",
+            "name": "auth",
             "summary": "",
-            "url": "classes/App-Helper-Auth.html"
+            "url": "classes/App-Helper-auth.html"
         },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003Aauthenticate\u0028\u0029",
+            "fqsen": "\\App\\Helper\\auth\u003A\u003Aauthenticate\u0028\u0029",
             "name": "authenticate",
             "summary": "",
-            "url": "classes/App-Helper-Auth.html#method_authenticate"
+            "url": "classes/App-Helper-auth.html#method_authenticate"
         },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003AgetUser\u0028\u0029",
+            "fqsen": "\\App\\Helper\\auth\u003A\u003AgetUser\u0028\u0029",
             "name": "getUser",
             "summary": "",
-            "url": "classes/App-Helper-Auth.html#method_getUser"
+            "url": "classes/App-Helper-auth.html#method_getUser"
         },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003AsetUser\u0028\u0029",
+            "fqsen": "\\App\\Helper\\auth\u003A\u003AsetUser\u0028\u0029",
             "name": "setUser",
             "summary": "",
-            "url": "classes/App-Helper-Auth.html#method_setUser"
+            "url": "classes/App-Helper-auth.html#method_setUser"
         },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003Alogout\u0028\u0029",
+            "fqsen": "\\App\\Helper\\auth\u003A\u003Alogout\u0028\u0029",
             "name": "logout",
             "summary": "",
-            "url": "classes/App-Helper-Auth.html#method_logout"
+            "url": "classes/App-Helper-auth.html#method_logout"
         },                {
-            "fqsen": "\\App\\Helper\\Auth\u003A\u003A\u0024sessionKey",
+            "fqsen": "\\App\\Helper\\auth\u003A\u003A\u0024sessionKey",
             "name": "sessionKey",
             "summary": "",
-            "url": "classes/App-Helper-Auth.html#property_sessionKey"
+            "url": "classes/App-Helper-auth.html#property_sessionKey"
         },                {
-            "fqsen": "\\App\\Helper\\Csrf",
-            "name": "Csrf",
+            "fqsen": "\\App\\Helper\\csrf",
+            "name": "csrf",
             "summary": "",
-            "url": "classes/App-Helper-Csrf.html"
+            "url": "classes/App-Helper-csrf.html"
         },                {
-            "fqsen": "\\App\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "fqsen": "\\App\\Helper\\csrf\u003A\u003AgenerateToken\u0028\u0029",
             "name": "generateToken",
             "summary": "",
-            "url": "classes/App-Helper-Csrf.html#method_generateToken"
+            "url": "classes/App-Helper-csrf.html#method_generateToken"
         },                {
-            "fqsen": "\\App\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
+            "fqsen": "\\App\\Helper\\csrf\u003A\u003Atoken\u0028\u0029",
             "name": "token",
             "summary": "",
-            "url": "classes/App-Helper-Csrf.html#method_token"
+            "url": "classes/App-Helper-csrf.html#method_token"
         },                {
-            "fqsen": "\\App\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
+            "fqsen": "\\App\\Helper\\csrf\u003A\u003AisValid\u0028\u0029",
             "name": "isValid",
             "summary": "",
-            "url": "classes/App-Helper-Csrf.html#method_isValid"
+            "url": "classes/App-Helper-csrf.html#method_isValid"
         },                {
-            "fqsen": "\\App\\Helper\\EventStream",
-            "name": "EventStream",
+            "fqsen": "\\App\\Helper\\eventStream",
+            "name": "eventStream",
             "summary": "",
-            "url": "classes/App-Helper-EventStream.html"
+            "url": "classes/App-Helper-eventStream.html"
         },                {
-            "fqsen": "\\App\\Helper\\EventStream\u003A\u003Acleanup\u0028\u0029",
+            "fqsen": "\\App\\Helper\\eventStream\u003A\u003Acleanup\u0028\u0029",
             "name": "cleanup",
             "summary": "",
-            "url": "classes/App-Helper-EventStream.html#method_cleanup"
+            "url": "classes/App-Helper-eventStream.html#method_cleanup"
         },                {
-            "fqsen": "\\App\\Helper\\EventStream\u003A\u003AgetEvents\u0028\u0029",
+            "fqsen": "\\App\\Helper\\eventStream\u003A\u003AgetEvents\u0028\u0029",
             "name": "getEvents",
             "summary": "",
-            "url": "classes/App-Helper-EventStream.html#method_getEvents"
+            "url": "classes/App-Helper-eventStream.html#method_getEvents"
         },                {
-            "fqsen": "\\App\\Helper\\EventStream\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\App\\Helper\\eventStream\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
-            "url": "classes/App-Helper-EventStream.html#method_add"
+            "url": "classes/App-Helper-eventStream.html#method_add"
         },                {
             "fqsen": "\\App\\Helper\\i18n",
             "name": "i18n",
@@ -49361,45 +49361,45 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-i18n.html#property_currencies"
         },                {
-            "fqsen": "\\App\\Helper\\JWT",
-            "name": "JWT",
+            "fqsen": "\\App\\Helper\\jWT",
+            "name": "jWT",
             "summary": "",
-            "url": "classes/App-Helper-JWT.html"
+            "url": "classes/App-Helper-jWT.html"
         },                {
-            "fqsen": "\\App\\Helper\\JWT\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\App\\Helper\\jWT\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/App-Helper-JWT.html#method_create"
+            "url": "classes/App-Helper-jWT.html#method_create"
         },                {
-            "fqsen": "\\App\\Helper\\JWT\u003A\u003Aencode\u0028\u0029",
+            "fqsen": "\\App\\Helper\\jWT\u003A\u003Aencode\u0028\u0029",
             "name": "encode",
             "summary": "alias\u0020for\u0020create",
-            "url": "classes/App-Helper-JWT.html#method_encode"
+            "url": "classes/App-Helper-jWT.html#method_encode"
         },                {
-            "fqsen": "\\App\\Helper\\JWT\u003A\u003Adecode\u0028\u0029",
+            "fqsen": "\\App\\Helper\\jWT\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
             "summary": "",
-            "url": "classes/App-Helper-JWT.html#method_decode"
+            "url": "classes/App-Helper-jWT.html#method_decode"
         },                {
-            "fqsen": "\\App\\Helper\\Menus",
-            "name": "Menus",
-            "summary": "",
-            "url": "classes/App-Helper-Menus.html"
-        },                {
-            "fqsen": "\\App\\Helper\\Menus\u003A\u003AaddLink\u0028\u0029",
-            "name": "addLink",
-            "summary": "",
-            "url": "classes/App-Helper-Menus.html#method_addLink"
-        },                {
-            "fqsen": "\\App\\Helper\\Menus\u003A\u003Amenu\u0028\u0029",
-            "name": "menu",
-            "summary": "",
-            "url": "classes/App-Helper-Menus.html#method_menu"
-        },                {
-            "fqsen": "\\App\\Helper\\Menus\u003A\u003A\u0024menus",
+            "fqsen": "\\App\\Helper\\menus",
             "name": "menus",
             "summary": "",
-            "url": "classes/App-Helper-Menus.html#property_menus"
+            "url": "classes/App-Helper-menus.html"
+        },                {
+            "fqsen": "\\App\\Helper\\menus\u003A\u003AaddLink\u0028\u0029",
+            "name": "addLink",
+            "summary": "",
+            "url": "classes/App-Helper-menus.html#method_addLink"
+        },                {
+            "fqsen": "\\App\\Helper\\menus\u003A\u003Amenu\u0028\u0029",
+            "name": "menu",
+            "summary": "",
+            "url": "classes/App-Helper-menus.html#method_menu"
+        },                {
+            "fqsen": "\\App\\Helper\\menus\u003A\u003A\u0024menus",
+            "name": "menus",
+            "summary": "",
+            "url": "classes/App-Helper-menus.html#property_menus"
         },                {
             "fqsen": "\\App\\Helper\\ResponseCache",
             "name": "ResponseCache",
@@ -49461,50 +49461,50 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Helper-ResponseCacheMemoryeHandler.html#method_getCache"
         },                {
-            "fqsen": "\\App\\Helper\\Theme",
-            "name": "Theme",
-            "summary": "",
-            "url": "classes/App-Helper-Theme.html"
-        },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024title",
-            "name": "title",
-            "summary": "",
-            "url": "classes/App-Helper-Theme.html#property_title"
-        },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024favicon",
-            "name": "favicon",
-            "summary": "",
-            "url": "classes/App-Helper-Theme.html#property_favicon"
-        },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024logo",
-            "name": "logo",
-            "summary": "",
-            "url": "classes/App-Helper-Theme.html#property_logo"
-        },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003Atheme\u0028\u0029",
+            "fqsen": "\\App\\Helper\\theme",
             "name": "theme",
             "summary": "",
-            "url": "classes/App-Helper-Theme.html#method_theme"
+            "url": "classes/App-Helper-theme.html"
         },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003Aassets\u0028\u0029",
+            "fqsen": "\\App\\Helper\\theme\u003A\u003A\u0024title",
+            "name": "title",
+            "summary": "",
+            "url": "classes/App-Helper-theme.html#property_title"
+        },                {
+            "fqsen": "\\App\\Helper\\theme\u003A\u003A\u0024favicon",
+            "name": "favicon",
+            "summary": "",
+            "url": "classes/App-Helper-theme.html#property_favicon"
+        },                {
+            "fqsen": "\\App\\Helper\\theme\u003A\u003A\u0024logo",
+            "name": "logo",
+            "summary": "",
+            "url": "classes/App-Helper-theme.html#property_logo"
+        },                {
+            "fqsen": "\\App\\Helper\\theme\u003A\u003Atheme\u0028\u0029",
+            "name": "theme",
+            "summary": "",
+            "url": "classes/App-Helper-theme.html#method_theme"
+        },                {
+            "fqsen": "\\App\\Helper\\theme\u003A\u003Aassets\u0028\u0029",
             "name": "assets",
             "summary": "",
-            "url": "classes/App-Helper-Theme.html#method_assets"
+            "url": "classes/App-Helper-theme.html#method_assets"
         },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024pageClass",
+            "fqsen": "\\App\\Helper\\theme\u003A\u003A\u0024pageClass",
             "name": "pageClass",
             "summary": "",
-            "url": "classes/App-Helper-Theme.html#property_pageClass"
+            "url": "classes/App-Helper-theme.html#property_pageClass"
         },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003A\u0024vars",
+            "fqsen": "\\App\\Helper\\theme\u003A\u003A\u0024vars",
             "name": "vars",
             "summary": "",
-            "url": "classes/App-Helper-Theme.html#property_vars"
+            "url": "classes/App-Helper-theme.html#property_vars"
         },                {
-            "fqsen": "\\App\\Helper\\Theme\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\App\\Helper\\theme\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/App-Helper-Theme.html#method_initialize"
+            "url": "classes/App-Helper-theme.html#method_initialize"
         },                {
             "fqsen": "\\App\\Helper\\TWFA",
             "name": "TWFA",
@@ -49556,105 +49556,105 @@ Search.appendIndex(
             "summary": "Generate\u0020and\u0020return\u0020the\u0020QR\u0020code\u0020to\u0020embed\u0020in\u0020a\u0020web\u0020page",
             "url": "classes/App-Helper-TWFAQRCodeRenderer.html#method_getQRCodeImage"
         },                {
-            "fqsen": "\\App\\RestApi\\Query",
-            "name": "Query",
+            "fqsen": "\\App\\RestApi\\query",
+            "name": "query",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html"
+            "url": "classes/App-RestApi-query.html"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003Ainit\u0028\u0029",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003Ainit\u0028\u0029",
             "name": "init",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_init"
+            "url": "classes/App-RestApi-query.html#method_init"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003Aprocess\u0028\u0029",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003Aprocess\u0028\u0029",
             "name": "process",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_process"
+            "url": "classes/App-RestApi-query.html#method_process"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003AaddEndPoint\u0028\u0029",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003AaddEndPoint\u0028\u0029",
             "name": "addEndPoint",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_addEndPoint"
+            "url": "classes/App-RestApi-query.html#method_addEndPoint"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003AisPathMatching\u0028\u0029",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003AisPathMatching\u0028\u0029",
             "name": "isPathMatching",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_isPathMatching"
+            "url": "classes/App-RestApi-query.html#method_isPathMatching"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003AgetRegex\u0028\u0029",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003AgetRegex\u0028\u0029",
             "name": "getRegex",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#method_getRegex"
+            "url": "classes/App-RestApi-query.html#method_getRegex"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003A\u0024endpoints",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003A\u0024endpoints",
             "name": "endpoints",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#property_endpoints"
+            "url": "classes/App-RestApi-query.html#property_endpoints"
         },                {
-            "fqsen": "\\App\\RestApi\\Query\u003A\u003A\u0024initialized",
+            "fqsen": "\\App\\RestApi\\query\u003A\u003A\u0024initialized",
             "name": "initialized",
             "summary": "",
-            "url": "classes/App-RestApi-Query.html#property_initialized"
+            "url": "classes/App-RestApi-query.html#property_initialized"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets",
-            "name": "Assets",
+            "fqsen": "\\Assets\\Controller\\assets",
+            "name": "assets",
             "summary": "Class\u0020Controller",
-            "url": "classes/Assets-Controller-Assets.html"
+            "url": "classes/Assets-Controller-assets.html"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_index"
+            "url": "classes/Assets-Controller-assets.html#method_index"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Aassets\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Aassets\u0028\u0029",
             "name": "assets",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_assets"
+            "url": "classes/Assets-Controller-assets.html#method_assets"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Aasset\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Aasset\u0028\u0029",
             "name": "asset",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_asset"
+            "url": "classes/Assets-Controller-assets.html#method_asset"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Aupdate\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_update"
+            "url": "classes/Assets-Controller-assets.html#method_update"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Aupload\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_upload"
+            "url": "classes/Assets-Controller-assets.html#method_upload"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Areplace\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Areplace\u0028\u0029",
             "name": "replace",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_replace"
+            "url": "classes/Assets-Controller-assets.html#method_replace"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_remove"
+            "url": "classes/Assets-Controller-assets.html#method_remove"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Afolders\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Afolders\u0028\u0029",
             "name": "folders",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_folders"
+            "url": "classes/Assets-Controller-assets.html#method_folders"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003AsaveFolder\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003AsaveFolder\u0028\u0029",
             "name": "saveFolder",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_saveFolder"
+            "url": "classes/Assets-Controller-assets.html#method_saveFolder"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003AremoveFolder\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003AremoveFolder\u0028\u0029",
             "name": "removeFolder",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_removeFolder"
+            "url": "classes/Assets-Controller-assets.html#method_removeFolder"
         },                {
-            "fqsen": "\\Assets\\Controller\\Assets\u003A\u003Athumbnail\u0028\u0029",
+            "fqsen": "\\Assets\\Controller\\assets\u003A\u003Athumbnail\u0028\u0029",
             "name": "thumbnail",
             "summary": "",
-            "url": "classes/Assets-Controller-Assets.html#method_thumbnail"
+            "url": "classes/Assets-Controller-assets.html#method_thumbnail"
         },                {
             "fqsen": "\\Assets\\Helper\\Asset",
             "name": "Asset",
@@ -49716,170 +49716,170 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Assets-Helper-Img.html#property_image"
         },                {
-            "fqsen": "\\SVGSanitizer",
-            "name": "SVGSanitizer",
+            "fqsen": "\\sVGSanitizer",
+            "name": "sVGSanitizer",
             "summary": "Class\u0020SVGSanitizer",
-            "url": "classes/SVGSanitizer.html"
+            "url": "classes/sVGSanitizer.html"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003Aclean\u0028\u0029",
             "name": "clean",
             "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
-            "url": "classes/SVGSanitizer.html#method_clean"
+            "url": "classes/sVGSanitizer.html#method_clean"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#method___construct"
+            "url": "classes/sVGSanitizer.html#method___construct"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
             "name": "resetInternal",
             "summary": "Set\u0020up\u0020the\u0020DOMDocument",
-            "url": "classes/SVGSanitizer.html#method_resetInternal"
+            "url": "classes/sVGSanitizer.html#method_resetInternal"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
             "name": "setXMLOptions",
             "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
+            "url": "classes/sVGSanitizer.html#method_setXMLOptions"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
             "name": "getXMLOptions",
             "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
+            "url": "classes/sVGSanitizer.html#method_getXMLOptions"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
             "name": "getAllowedTags",
             "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
+            "url": "classes/sVGSanitizer.html#method_getAllowedTags"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
             "name": "setAllowedTags",
             "summary": "Set\u0020custom\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
+            "url": "classes/sVGSanitizer.html#method_setAllowedTags"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
             "name": "getAllowedAttrs",
             "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
+            "url": "classes/sVGSanitizer.html#method_getAllowedAttrs"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
             "name": "setAllowedAttrs",
             "summary": "Set\u0020custom\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
+            "url": "classes/sVGSanitizer.html#method_setAllowedAttrs"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
             "name": "removeRemoteReferences",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+            "url": "classes/sVGSanitizer.html#property_removeRemoteReferences"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003Asanitize\u0028\u0029",
             "name": "sanitize",
             "summary": "Sanitize\u0020the\u0020passed\u0020string",
-            "url": "classes/SVGSanitizer.html#method_sanitize"
+            "url": "classes/sVGSanitizer.html#method_sanitize"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
             "name": "setUpBefore",
             "summary": "Set\u0020up\u0020libXML\u0020before\u0020we\u0020start",
-            "url": "classes/SVGSanitizer.html#method_setUpBefore"
+            "url": "classes/sVGSanitizer.html#method_setUpBefore"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AresetAfter\u0028\u0029",
             "name": "resetAfter",
             "summary": "Reset\u0020the\u0020class\u0020after\u0020use",
-            "url": "classes/SVGSanitizer.html#method_resetAfter"
+            "url": "classes/sVGSanitizer.html#method_resetAfter"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AremoveDoctype\u0028\u0029",
             "name": "removeDoctype",
             "summary": "Remove\u0020the\u0020XML\u0020Doctype\nIt\u0020may\u0020be\u0020caught\u0020later\u0020on\u0020output\u0020but\u0020that\u0020seems\u0020to\u0020be\u0020buggy,\u0020so\u0020we\u0020need\u0020to\u0020make\u0020sure\u0020it\u0027s\u0020gone",
-            "url": "classes/SVGSanitizer.html#method_removeDoctype"
+            "url": "classes/sVGSanitizer.html#method_removeDoctype"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AstartClean\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AstartClean\u0028\u0029",
             "name": "startClean",
             "summary": "Start\u0020the\u0020cleaning\u0020with\u0020tags,\u0020then\u0020we\u0020move\u0020onto\u0020attributes\u0020and\u0020hrefs\u0020later",
-            "url": "classes/SVGSanitizer.html#method_startClean"
+            "url": "classes/sVGSanitizer.html#method_startClean"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AcleanAttributesOnWhitelist\u0028\u0029",
             "name": "cleanAttributesOnWhitelist",
             "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
-            "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
+            "url": "classes/sVGSanitizer.html#method_cleanAttributesOnWhitelist"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
             "name": "cleanXlinkHrefs",
             "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
+            "url": "classes/sVGSanitizer.html#method_cleanXlinkHrefs"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
             "name": "cleanHrefs",
             "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
+            "url": "classes/sVGSanitizer.html#method_cleanHrefs"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
             "name": "removeNonPrintableCharacters",
             "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
-            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
+            "url": "classes/sVGSanitizer.html#method_removeNonPrintableCharacters"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
             "name": "hasRemoteReference",
             "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
-            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
+            "url": "classes/sVGSanitizer.html#method_hasRemoteReference"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003Aminify\u0028\u0029",
             "name": "minify",
             "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
-            "url": "classes/SVGSanitizer.html#method_minify"
+            "url": "classes/sVGSanitizer.html#method_minify"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024removeXMLTag",
             "name": "removeXMLTag",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
+            "url": "classes/sVGSanitizer.html#property_removeXMLTag"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
             "name": "isAriaAttribute",
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
-            "url": "classes/SVGSanitizer.html#method_isAriaAttribute"
+            "url": "classes/sVGSanitizer.html#method_isAriaAttribute"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AisDataAttribute\u0028\u0029",
             "name": "isDataAttribute",
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
-            "url": "classes/SVGSanitizer.html#method_isDataAttribute"
+            "url": "classes/sVGSanitizer.html#method_isDataAttribute"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
+            "fqsen": "\\sVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
             "name": "isUseTagDirty",
             "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
-            "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
+            "url": "classes/sVGSanitizer.html#method_isUseTagDirty"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
+            "fqsen": "\\sVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
             "summary": "Regex\u0020to\u0020catch\u0020script\u0020and\u0020data\u0020values\u0020in\u0020attributes",
-            "url": "classes/SVGSanitizer.html#constant_SCRIPT_REGEX"
+            "url": "classes/sVGSanitizer.html#constant_SCRIPT_REGEX"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024xmlDocument",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024xmlDocument",
             "name": "xmlDocument",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_xmlDocument"
+            "url": "classes/sVGSanitizer.html#property_xmlDocument"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024allowedTags",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024allowedTags",
             "name": "allowedTags",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_allowedTags"
+            "url": "classes/sVGSanitizer.html#property_allowedTags"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024allowedAttrs",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024allowedAttrs",
             "name": "allowedAttrs",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_allowedAttrs"
+            "url": "classes/sVGSanitizer.html#property_allowedAttrs"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024xmlLoaderValue",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024xmlLoaderValue",
             "name": "xmlLoaderValue",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_xmlLoaderValue"
+            "url": "classes/sVGSanitizer.html#property_xmlLoaderValue"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024minifyXML",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024minifyXML",
             "name": "minifyXML",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_minifyXML"
+            "url": "classes/sVGSanitizer.html#property_minifyXML"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024xmlOptions",
+            "fqsen": "\\sVGSanitizer\u003A\u003A\u0024xmlOptions",
             "name": "xmlOptions",
             "summary": "",
-            "url": "classes/SVGSanitizer.html#property_xmlOptions"
+            "url": "classes/sVGSanitizer.html#property_xmlOptions"
         },                {
             "fqsen": "\\ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c",
             "name": "ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c",
@@ -50586,415 +50586,415 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ColorThief-VBox.html#property_avg_set"
         },                {
-            "fqsen": "\\Content\\Controller\\Collection",
-            "name": "Collection",
+            "fqsen": "\\Content\\Controller\\collection",
+            "name": "collection",
             "summary": "Class\u0020Controller",
-            "url": "classes/Content-Controller-Collection.html"
+            "url": "classes/Content-Controller-collection.html"
         },                {
-            "fqsen": "\\Content\\Controller\\Collection\u003A\u003Aitems\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\collection\u003A\u003Aitems\u0028\u0029",
             "name": "items",
             "summary": "",
-            "url": "classes/Content-Controller-Collection.html#method_items"
+            "url": "classes/Content-Controller-collection.html#method_items"
         },                {
-            "fqsen": "\\Content\\Controller\\Collection\u003A\u003Aitem\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\collection\u003A\u003Aitem\u0028\u0029",
             "name": "item",
             "summary": "",
-            "url": "classes/Content-Controller-Collection.html#method_item"
+            "url": "classes/Content-Controller-collection.html#method_item"
         },                {
-            "fqsen": "\\Content\\Controller\\Collection\u003A\u003Afind\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\collection\u003A\u003Afind\u0028\u0029",
             "name": "find",
             "summary": "",
-            "url": "classes/Content-Controller-Collection.html#method_find"
+            "url": "classes/Content-Controller-collection.html#method_find"
         },                {
-            "fqsen": "\\Content\\Controller\\Collection\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\collection\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/Content-Controller-Collection.html#method_remove"
+            "url": "classes/Content-Controller-collection.html#method_remove"
         },                {
-            "fqsen": "\\Content\\Controller\\Content",
-            "name": "Content",
+            "fqsen": "\\Content\\Controller\\content",
+            "name": "content",
             "summary": "Class\u0020Controller",
-            "url": "classes/Content-Controller-Content.html"
+            "url": "classes/Content-Controller-content.html"
         },                {
-            "fqsen": "\\Content\\Controller\\Content\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\content\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/Content-Controller-Content.html#method_index"
+            "url": "classes/Content-Controller-content.html#method_index"
         },                {
-            "fqsen": "\\Content\\Controller\\Models",
-            "name": "Models",
+            "fqsen": "\\Content\\Controller\\models",
+            "name": "models",
             "summary": "Class\u0020Controller",
-            "url": "classes/Content-Controller-Models.html"
+            "url": "classes/Content-Controller-models.html"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_create"
+            "url": "classes/Content-Controller-models.html#method_create"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003Aedit\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_edit"
+            "url": "classes/Content-Controller-models.html#method_edit"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_remove"
+            "url": "classes/Content-Controller-models.html#method_remove"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_save"
+            "url": "classes/Content-Controller-models.html#method_save"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003Aload\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_load"
+            "url": "classes/Content-Controller-models.html#method_load"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003AsaveItem\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003AsaveItem\u0028\u0029",
             "name": "saveItem",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_saveItem"
+            "url": "classes/Content-Controller-models.html#method_saveItem"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003Aclone\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003Aclone\u0028\u0029",
             "name": "clone",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_clone"
+            "url": "classes/Content-Controller-models.html#method_clone"
         },                {
-            "fqsen": "\\Content\\Controller\\Models\u003A\u003AgetGroups\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\models\u003A\u003AgetGroups\u0028\u0029",
             "name": "getGroups",
             "summary": "",
-            "url": "classes/Content-Controller-Models.html#method_getGroups"
+            "url": "classes/Content-Controller-models.html#method_getGroups"
         },                {
-            "fqsen": "\\Content\\Controller\\Singleton",
-            "name": "Singleton",
+            "fqsen": "\\Content\\Controller\\singleton",
+            "name": "singleton",
             "summary": "Class\u0020Controller",
-            "url": "classes/Content-Controller-Singleton.html"
+            "url": "classes/Content-Controller-singleton.html"
         },                {
-            "fqsen": "\\Content\\Controller\\Singleton\u003A\u003Aitem\u0028\u0029",
+            "fqsen": "\\Content\\Controller\\singleton\u003A\u003Aitem\u0028\u0029",
             "name": "item",
             "summary": "",
-            "url": "classes/Content-Controller-Singleton.html#method_item"
+            "url": "classes/Content-Controller-singleton.html#method_item"
         },                {
-            "fqsen": "\\Collections\\Helper\\Collections",
-            "name": "Collections",
+            "fqsen": "\\Collections\\Helper\\collections",
+            "name": "collections",
             "summary": "",
-            "url": "classes/Collections-Helper-Collections.html"
+            "url": "classes/Collections-Helper-collections.html"
         },                {
-            "fqsen": "\\Collections\\Helper\\Collections\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\Collections\\Helper\\collections\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/Collections-Helper-Collections.html#method_index"
+            "url": "classes/Collections-Helper-collections.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Api",
-            "name": "Api",
+            "fqsen": "\\System\\Controller\\api",
+            "name": "api",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Api.html"
+            "url": "classes/System-Controller-api.html"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_index"
+            "url": "classes/System-Controller-api.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Apublic\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Apublic\u0028\u0029",
             "name": "public",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_public"
+            "url": "classes/System-Controller-api.html#method_public"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Akey\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Akey\u0028\u0029",
             "name": "key",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_key"
+            "url": "classes/System-Controller-api.html#method_key"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_create"
+            "url": "classes/System-Controller-api.html#method_create"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_remove"
+            "url": "classes/System-Controller-api.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
-            "summary": "",
-            "url": "classes/System-Controller-Api.html#method_cache"
-        },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_save"
+            "url": "classes/System-Controller-api.html#method_save"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Aload\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_load"
+            "url": "classes/System-Controller-api.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Aopenapi\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Aopenapi\u0028\u0029",
             "name": "openapi",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_openapi"
+            "url": "classes/System-Controller-api.html#method_openapi"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003ArestApiViewer\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003ArestApiViewer\u0028\u0029",
             "name": "restApiViewer",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_restApiViewer"
+            "url": "classes/System-Controller-api.html#method_restApiViewer"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003AgraphqlViewer\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003AgraphqlViewer\u0028\u0029",
             "name": "graphqlViewer",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_graphqlViewer"
+            "url": "classes/System-Controller-api.html#method_graphqlViewer"
         },                {
-            "fqsen": "\\System\\Controller\\Api\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\System\\Controller\\api\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
+            "summary": "",
+            "url": "classes/System-Controller-api.html#method_cache"
+        },                {
+            "fqsen": "\\System\\Controller\\api\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/System-Controller-Api.html#method_before"
+            "url": "classes/System-Controller-api.html#method_before"
         },                {
-            "fqsen": "\\System\\Controller\\Locales",
-            "name": "Locales",
+            "fqsen": "\\System\\Controller\\locales",
+            "name": "locales",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Locales.html"
+            "url": "classes/System-Controller-locales.html"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_index"
+            "url": "classes/System-Controller-locales.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Alocale\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Alocale\u0028\u0029",
             "name": "locale",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_locale"
+            "url": "classes/System-Controller-locales.html#method_locale"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_create"
+            "url": "classes/System-Controller-locales.html#method_create"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_remove"
+            "url": "classes/System-Controller-locales.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_save"
+            "url": "classes/System-Controller-locales.html#method_save"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Aload\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_load"
+            "url": "classes/System-Controller-locales.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_before"
+            "url": "classes/System-Controller-locales.html#method_before"
         },                {
-            "fqsen": "\\System\\Controller\\Locales\u003A\u003Acache\u0028\u0029",
+            "fqsen": "\\System\\Controller\\locales\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
-            "url": "classes/System-Controller-Locales.html#method_cache"
+            "url": "classes/System-Controller-locales.html#method_cache"
         },                {
-            "fqsen": "\\System\\Controller\\Logs",
-            "name": "Logs",
+            "fqsen": "\\System\\Controller\\logs",
+            "name": "logs",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Logs.html"
+            "url": "classes/System-Controller-logs.html"
         },                {
-            "fqsen": "\\System\\Controller\\Logs\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\System\\Controller\\logs\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/System-Controller-Logs.html#method_index"
+            "url": "classes/System-Controller-logs.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Logs\u003A\u003Aload\u0028\u0029",
+            "fqsen": "\\System\\Controller\\logs\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "",
-            "url": "classes/System-Controller-Logs.html#method_load"
+            "url": "classes/System-Controller-logs.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Logs\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\System\\Controller\\logs\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/System-Controller-Logs.html#method_before"
+            "url": "classes/System-Controller-logs.html#method_before"
         },                {
-            "fqsen": "\\System\\Controller\\Settings",
-            "name": "Settings",
+            "fqsen": "\\System\\Controller\\settings",
+            "name": "settings",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Settings.html"
+            "url": "classes/System-Controller-settings.html"
         },                {
-            "fqsen": "\\System\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\System\\Controller\\settings\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/System-Controller-Settings.html#method_index"
+            "url": "classes/System-Controller-settings.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
+            "fqsen": "\\System\\Controller\\settings\u003A\u003Ainfo\u0028\u0029",
             "name": "info",
             "summary": "",
-            "url": "classes/System-Controller-Settings.html#method_info"
+            "url": "classes/System-Controller-settings.html#method_info"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles",
-            "name": "Roles",
+            "fqsen": "\\System\\Controller\\Users\\roles",
+            "name": "roles",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Users-Roles.html"
+            "url": "classes/System-Controller-Users-roles.html"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_index"
+            "url": "classes/System-Controller-Users-roles.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Arole\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Arole\u0028\u0029",
             "name": "role",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_role"
+            "url": "classes/System-Controller-Users-roles.html#method_role"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_create"
+            "url": "classes/System-Controller-Users-roles.html#method_create"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_remove"
+            "url": "classes/System-Controller-Users-roles.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_save"
+            "url": "classes/System-Controller-Users-roles.html#method_save"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Aload\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_load"
+            "url": "classes/System-Controller-Users-roles.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_before"
+            "url": "classes/System-Controller-Users-roles.html#method_before"
         },                {
-            "fqsen": "\\System\\Controller\\Users\\Roles\u003A\u003Acache\u0028\u0029",
+            "fqsen": "\\System\\Controller\\Users\\roles\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
-            "url": "classes/System-Controller-Users-Roles.html#method_cache"
+            "url": "classes/System-Controller-Users-roles.html#method_cache"
         },                {
-            "fqsen": "\\System\\Controller\\Users",
-            "name": "Users",
+            "fqsen": "\\System\\Controller\\users",
+            "name": "users",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Users.html"
+            "url": "classes/System-Controller-users.html"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Aindex\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Aindex\u0028\u0029",
             "name": "index",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_index"
+            "url": "classes/System-Controller-users.html#method_index"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Auser\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Auser\u0028\u0029",
             "name": "user",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_user"
+            "url": "classes/System-Controller-users.html#method_user"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Acreate\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_create"
+            "url": "classes/System-Controller-users.html#method_create"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Asave\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_save"
+            "url": "classes/System-Controller-users.html#method_save"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_remove"
+            "url": "classes/System-Controller-users.html#method_remove"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Aload\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Aload\u0028\u0029",
             "name": "load",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_load"
+            "url": "classes/System-Controller-users.html#method_load"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003AgetSecretQRCode\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003AgetSecretQRCode\u0028\u0029",
             "name": "getSecretQRCode",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_getSecretQRCode"
+            "url": "classes/System-Controller-users.html#method_getSecretQRCode"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Abefore\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_before"
+            "url": "classes/System-Controller-users.html#method_before"
         },                {
-            "fqsen": "\\System\\Controller\\Users\u003A\u003Ageti18n\u0028\u0029",
+            "fqsen": "\\System\\Controller\\users\u003A\u003Ageti18n\u0028\u0029",
             "name": "geti18n",
             "summary": "",
-            "url": "classes/System-Controller-Users.html#method_geti18n"
+            "url": "classes/System-Controller-users.html#method_geti18n"
         },                {
-            "fqsen": "\\System\\Controller\\Utils",
-            "name": "Utils",
+            "fqsen": "\\System\\Controller\\utils",
+            "name": "utils",
             "summary": "Class\u0020Controller",
-            "url": "classes/System-Controller-Utils.html"
+            "url": "classes/System-Controller-utils.html"
         },                {
-            "fqsen": "\\System\\Controller\\Utils\u003A\u003Auser\u0028\u0029",
+            "fqsen": "\\System\\Controller\\utils\u003A\u003Auser\u0028\u0029",
             "name": "user",
             "summary": "",
-            "url": "classes/System-Controller-Utils.html#method_user"
+            "url": "classes/System-Controller-utils.html#method_user"
         },                {
-            "fqsen": "\\System\\Controller\\Utils\u003A\u003Arevisions\u0028\u0029",
+            "fqsen": "\\System\\Controller\\utils\u003A\u003Arevisions\u0028\u0029",
             "name": "revisions",
             "summary": "",
-            "url": "classes/System-Controller-Utils.html#method_revisions"
+            "url": "classes/System-Controller-utils.html#method_revisions"
         },                {
-            "fqsen": "\\System\\Controller\\Utils\u003A\u003Aicons\u0028\u0029",
+            "fqsen": "\\System\\Controller\\utils\u003A\u003Aicons\u0028\u0029",
             "name": "icons",
             "summary": "",
-            "url": "classes/System-Controller-Utils.html#method_icons"
+            "url": "classes/System-Controller-utils.html#method_icons"
         },                {
-            "fqsen": "\\System\\Helper\\Api",
-            "name": "Api",
+            "fqsen": "\\System\\Helper\\api",
+            "name": "api",
             "summary": "",
-            "url": "classes/System-Helper-Api.html"
+            "url": "classes/System-Helper-api.html"
         },                {
-            "fqsen": "\\System\\Helper\\Api\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/System-Helper-Api.html#method_initialize"
-        },                {
-            "fqsen": "\\System\\Helper\\Api\u003A\u003AgetKey\u0028\u0029",
+            "fqsen": "\\System\\Helper\\api\u003A\u003AgetKey\u0028\u0029",
             "name": "getKey",
             "summary": "",
-            "url": "classes/System-Helper-Api.html#method_getKey"
+            "url": "classes/System-Helper-api.html#method_getKey"
         },                {
-            "fqsen": "\\System\\Helper\\Api\u003A\u003A\u0024keys",
+            "fqsen": "\\System\\Helper\\api\u003A\u003A\u0024keys",
             "name": "keys",
             "summary": "",
-            "url": "classes/System-Helper-Api.html#property_keys"
+            "url": "classes/System-Helper-api.html#property_keys"
         },                {
-            "fqsen": "\\System\\Helper\\Api\u003A\u003Acache\u0028\u0029",
+            "fqsen": "\\System\\Helper\\api\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "",
-            "url": "classes/System-Helper-Api.html#method_cache"
+            "url": "classes/System-Helper-api.html#method_cache"
         },                {
-            "fqsen": "\\System\\Helper\\Locales",
-            "name": "Locales",
-            "summary": "",
-            "url": "classes/System-Helper-Locales.html"
-        },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003A\u0024locales",
-            "name": "locales",
-            "summary": "",
-            "url": "classes/System-Helper-Locales.html#property_locales"
-        },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003AapplyLocales\u0028\u0029",
-            "name": "applyLocales",
-            "summary": "",
-            "url": "classes/System-Helper-Locales.html#method_applyLocales"
-        },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003Acache\u0028\u0029",
-            "name": "cache",
-            "summary": "",
-            "url": "classes/System-Helper-Locales.html#method_cache"
-        },                {
-            "fqsen": "\\System\\Helper\\Locales\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\System\\Helper\\api\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/System-Helper-Locales.html#method_initialize"
+            "url": "classes/System-Helper-api.html#method_initialize"
+        },                {
+            "fqsen": "\\System\\Helper\\locales",
+            "name": "locales",
+            "summary": "",
+            "url": "classes/System-Helper-locales.html"
+        },                {
+            "fqsen": "\\System\\Helper\\locales\u003A\u003A\u0024locales",
+            "name": "locales",
+            "summary": "",
+            "url": "classes/System-Helper-locales.html#property_locales"
+        },                {
+            "fqsen": "\\System\\Helper\\locales\u003A\u003AapplyLocales\u0028\u0029",
+            "name": "applyLocales",
+            "summary": "",
+            "url": "classes/System-Helper-locales.html#method_applyLocales"
+        },                {
+            "fqsen": "\\System\\Helper\\locales\u003A\u003Acache\u0028\u0029",
+            "name": "cache",
+            "summary": "",
+            "url": "classes/System-Helper-locales.html#method_cache"
+        },                {
+            "fqsen": "\\System\\Helper\\locales\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/System-Helper-locales.html#method_initialize"
         },                {
             "fqsen": "\\System\\Helper\\Log",
             "name": "Log",
@@ -51066,85 +51066,85 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/System-Helper-LogChannel.html#property_name"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions",
-            "name": "Revisions",
+            "fqsen": "\\System\\Helper\\revisions",
+            "name": "revisions",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html"
+            "url": "classes/System-Helper-revisions.html"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003Ainitialize\u0028\u0029",
             "name": "initialize",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_initialize"
+            "url": "classes/System-Helper-revisions.html#method_initialize"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003Acount\u0028\u0029",
             "name": "count",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_count"
+            "url": "classes/System-Helper-revisions.html#method_count"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003AgetList\u0028\u0029",
             "name": "getList",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_getList"
+            "url": "classes/System-Helper-revisions.html#method_getList"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_add"
+            "url": "classes/System-Helper-revisions.html#method_add"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_get"
+            "url": "classes/System-Helper-revisions.html#method_get"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003Alatest\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003Alatest\u0028\u0029",
             "name": "latest",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_latest"
+            "url": "classes/System-Helper-revisions.html#method_latest"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_remove"
+            "url": "classes/System-Helper-revisions.html#method_remove"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003AremoveAll\u0028\u0029",
             "name": "removeAll",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#method_removeAll"
+            "url": "classes/System-Helper-revisions.html#method_removeAll"
         },                {
-            "fqsen": "\\System\\Helper\\Revisions\u003A\u003A\u0024storage",
+            "fqsen": "\\System\\Helper\\revisions\u003A\u003A\u0024storage",
             "name": "storage",
             "summary": "",
-            "url": "classes/System-Helper-Revisions.html#property_storage"
+            "url": "classes/System-Helper-revisions.html#property_storage"
         },                {
-            "fqsen": "\\System\\Helper\\Settings",
-            "name": "Settings",
+            "fqsen": "\\System\\Helper\\settings",
+            "name": "settings",
             "summary": "",
-            "url": "classes/System-Helper-Settings.html"
+            "url": "classes/System-Helper-settings.html"
         },                {
-            "fqsen": "\\System\\Helper\\Settings\u003A\u003Agroups\u0028\u0029",
+            "fqsen": "\\System\\Helper\\settings\u003A\u003Agroups\u0028\u0029",
             "name": "groups",
             "summary": "",
-            "url": "classes/System-Helper-Settings.html#method_groups"
+            "url": "classes/System-Helper-settings.html#method_groups"
         },                {
-            "fqsen": "\\System\\Helper\\System",
-            "name": "System",
+            "fqsen": "\\System\\Helper\\system",
+            "name": "system",
             "summary": "",
-            "url": "classes/System-Helper-System.html"
+            "url": "classes/System-Helper-system.html"
         },                {
-            "fqsen": "\\System\\Helper\\System\u003A\u003Atry\u0028\u0029",
+            "fqsen": "\\System\\Helper\\system\u003A\u003Atry\u0028\u0029",
             "name": "try",
             "summary": "",
-            "url": "classes/System-Helper-System.html#method_try"
+            "url": "classes/System-Helper-system.html#method_try"
         },                {
-            "fqsen": "\\System\\Helper\\System\u003A\u003Areport\u0028\u0029",
+            "fqsen": "\\System\\Helper\\system\u003A\u003Areport\u0028\u0029",
             "name": "report",
             "summary": "",
-            "url": "classes/System-Helper-System.html#method_report"
+            "url": "classes/System-Helper-system.html#method_report"
         },                {
-            "fqsen": "\\System\\Helper\\System\u003A\u003AflushCache\u0028\u0029",
+            "fqsen": "\\System\\Helper\\system\u003A\u003AflushCache\u0028\u0029",
             "name": "flushCache",
             "summary": "",
-            "url": "classes/System-Helper-System.html#method_flushCache"
+            "url": "classes/System-Helper-system.html#method_flushCache"
         },                {
             "fqsen": "\\DIR_ROOT",
             "name": "DIR_ROOT",
@@ -51161,25 +51161,20 @@ Search.appendIndex(
             "summary": "It\u0027s\u0020looping\u0020through\u0020all\u0020the\u0020events\u0020in\u0020the\u0020\u0060init\u0028\u0029\u0060\u0020function\u0020and\u0020dispatching\u0020them\u0020to\u0020the\u0020\u0060yxorP\u0028\u0029\u0060\u0020function",
             "url": "classes/yxorP-app-lib-yP.html#method___construct"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003AloadActions\u0028\u0029",
-            "name": "loadActions",
+            "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
             "summary": "",
-            "url": "classes/yxorP-app-lib-yP.html#method_loadActions"
+            "url": "classes/yxorP-app-lib-yP.html#method_init"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003AautoLoader\u0028\u0029",
             "name": "autoLoader",
             "summary": "It\u0027s\u0020looping\u0020through\u0020all\u0020the\u0020files\u0020in\u0020the\u0020\u0060\u0024root\u0060\u0020directory,\u0020and\u0020if\u0020the\u0020file\u0020is\u0020a\u0020directory,\u0020it\u0027s\u0020calling\u0020the\n\u0060autoLoader\u0028\u0029\u0060\u0020function\u0020on\u0020it.\u0020If\u0020the\u0020file\u0020is\u0020an\u0020interface,\u0020it\u0027s\u0020requiring\u0020it.\u0020If\u0020the\u0020file\u0020is\u0020a\u0020class,\u0020it\u0027s\nrequiring\u0020it.",
             "url": "classes/yxorP-app-lib-yP.html#method_autoLoader"
         },                {
-            "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003AaddListener\u0028\u0029",
-            "name": "addListener",
-            "summary": "This\u0020function\u0020adds\u0020a\u0020listener\u0020to\u0020the\u0020listeners\u0020array",
-            "url": "classes/yxorP-app-lib-yP.html#method_addListener"
-        },                {
-            "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
+            "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003AloadActions\u0028\u0029",
+            "name": "loadActions",
             "summary": "",
-            "url": "classes/yxorP-app-lib-yP.html#method_init"
+            "url": "classes/yxorP-app-lib-yP.html#method_loadActions"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003Asubscribe\u0028\u0029",
             "name": "subscribe",
@@ -51195,6 +51190,11 @@ Search.appendIndex(
             "name": "dispatch",
             "summary": "The\u0020function\u0020is\u0020checking\u0020if\u0020there\u0020are\u0020any\u0020listeners\u0020for\u0020the\u0020event,\u0020and\u0020if\u0020there\u0020are,\u0020it\u0027s\u0020looping\u0020through\u0020them\u0020and\u0020calling\nthem.",
             "url": "classes/yxorP-app-lib-yP.html#method_dispatch"
+        },                {
+            "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003AaddListener\u0028\u0029",
+            "name": "addListener",
+            "summary": "This\u0020function\u0020adds\u0020a\u0020listener\u0020to\u0020the\u0020listeners\u0020array",
+            "url": "classes/yxorP-app-lib-yP.html#method_addListener"
         },                {
             "fqsen": "\\yxorP\\app\\lib\\yP\u003A\u003A\u0024instance",
             "name": "instance",
@@ -51786,50 +51786,50 @@ Search.appendIndex(
             "summary": "A\u0020regex\u0020pattern\u0020that\u0020will\u0020be\u0020used\u0020to\u0020match\u0020the\u0020url\u0020of\u0020the\u0020request.",
             "url": "classes/yxorP-plugin-youtubePluginAction.html#property_url_pattern"
         },                {
-            "fqsen": "\\ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862",
-            "name": "ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862",
+            "fqsen": "\\ComposerAutoloaderInit",
+            "name": "ComposerAutoloaderInit",
             "summary": "",
-            "url": "classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.html"
+            "url": "classes/ComposerAutoloaderInit.html"
         },                {
-            "fqsen": "\\ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862\u003A\u003AloadClassLoader\u0028\u0029",
+            "fqsen": "\\ComposerAutoloaderInit\u003A\u003AloadClassLoader\u0028\u0029",
             "name": "loadClassLoader",
             "summary": "",
-            "url": "classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.html#method_loadClassLoader"
+            "url": "classes/ComposerAutoloaderInit.html#method_loadClassLoader"
         },                {
-            "fqsen": "\\ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862\u003A\u003AgetLoader\u0028\u0029",
+            "fqsen": "\\ComposerAutoloaderInit\u003A\u003AgetLoader\u0028\u0029",
             "name": "getLoader",
             "summary": "",
-            "url": "classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.html#method_getLoader"
+            "url": "classes/ComposerAutoloaderInit.html#method_getLoader"
         },                {
-            "fqsen": "\\ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862\u003A\u003A\u0024loader",
+            "fqsen": "\\ComposerAutoloaderInit\u003A\u003A\u0024loader",
             "name": "loader",
             "summary": "",
-            "url": "classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.html#property_loader"
+            "url": "classes/ComposerAutoloaderInit.html#property_loader"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit43ee69a3007d6872663d476a71cbd862",
-            "name": "ComposerStaticInit43ee69a3007d6872663d476a71cbd862",
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit",
+            "name": "ComposerStaticInit",
             "summary": "",
-            "url": "classes/Composer-Autoload-ComposerStaticInit43ee69a3007d6872663d476a71cbd862.html"
+            "url": "classes/Composer-Autoload-ComposerStaticInit.html"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit43ee69a3007d6872663d476a71cbd862\u003A\u003AgetInitializer\u0028\u0029",
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit\u003A\u003AgetInitializer\u0028\u0029",
             "name": "getInitializer",
             "summary": "",
-            "url": "classes/Composer-Autoload-ComposerStaticInit43ee69a3007d6872663d476a71cbd862.html#method_getInitializer"
+            "url": "classes/Composer-Autoload-ComposerStaticInit.html#method_getInitializer"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit43ee69a3007d6872663d476a71cbd862\u003A\u003A\u0024prefixLengthsPsr4",
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit\u003A\u003A\u0024prefixLengthsPsr4",
             "name": "prefixLengthsPsr4",
             "summary": "",
-            "url": "classes/Composer-Autoload-ComposerStaticInit43ee69a3007d6872663d476a71cbd862.html#property_prefixLengthsPsr4"
+            "url": "classes/Composer-Autoload-ComposerStaticInit.html#property_prefixLengthsPsr4"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit43ee69a3007d6872663d476a71cbd862\u003A\u003A\u0024prefixDirsPsr4",
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit\u003A\u003A\u0024prefixDirsPsr4",
             "name": "prefixDirsPsr4",
             "summary": "",
-            "url": "classes/Composer-Autoload-ComposerStaticInit43ee69a3007d6872663d476a71cbd862.html#property_prefixDirsPsr4"
+            "url": "classes/Composer-Autoload-ComposerStaticInit.html#property_prefixDirsPsr4"
         },                {
-            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit43ee69a3007d6872663d476a71cbd862\u003A\u003A\u0024classMap",
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInit\u003A\u003A\u0024classMap",
             "name": "classMap",
             "summary": "",
-            "url": "classes/Composer-Autoload-ComposerStaticInit43ee69a3007d6872663d476a71cbd862.html#property_classMap"
+            "url": "classes/Composer-Autoload-ComposerStaticInit.html#property_classMap"
         },                {
             "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackagesByType\u0028\u0029",
             "name": "getInstalledPackagesByType",
