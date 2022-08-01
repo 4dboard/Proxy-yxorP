@@ -18,7 +18,7 @@ class onWriteAction extends wrapper
      */
     public function onWrite(): void
     {
-        if (!store::handler(VAR_RESPONSE)) exit(header("Location: http://www.domain.com/new-page.php", true, 301));
+        if (!store::handler(VAR_RESPONSE)) exit(header(YXORP_SITE_DOMAIN, true, 301));
         /* Getting the response body from the `VAR_RESPONSE` variable. */
         $content = store::handler(VAR_RESPONSE)->getBody();
         /* Checking if the MIME type is HTML. */
