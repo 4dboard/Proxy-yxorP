@@ -130,12 +130,9 @@ class ResponseCacheMemoryeHandler extends AppAware
         $hash = trim($request->route . '/' . md5(serialize($request->request)), '/');
         $cache = $this->app->memory->get($hash);
 
-        if ($cache) {
-
-            if ($cache['eol'] < time()) {
-                $this->app->memory->del($hash);
-                $cache = null;
-            }
+        if ($cache) if ($cache['eol'] < time()) {
+            $this->app->memory->del($hash);
+            $cache = null;
         }
 
         return $cache;
