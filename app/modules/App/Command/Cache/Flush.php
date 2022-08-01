@@ -3,7 +3,6 @@
 namespace App\Command\Cache;
 
 use Lime\App;
-use MongoDB\Driver\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -30,6 +29,6 @@ class flush
         $this->app->helper('system')->flushCache();
 
         $output->writeln('<info>[✓]</info> Tmp folder was flushed!');
-        return Command::SUCCESS;
+        x
     }
 }
