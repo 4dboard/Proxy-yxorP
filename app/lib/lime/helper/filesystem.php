@@ -202,7 +202,6 @@ class FileObject
     }
 }
 
-
 function fnmatch(string $pattern, string $string): bool
 {
     return preg_match("#^" . strtr(preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.']) . "$#i", $string);
