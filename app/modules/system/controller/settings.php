@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorp\app\modules\system\controller;
+namespace yxorP\app\modules\system\controller;
 
 use App\Controller\app;
 

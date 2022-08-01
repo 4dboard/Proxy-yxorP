@@ -534,7 +534,7 @@ docker-composer up -d
                                         class="notranslate"><code>
 docker run
 
--p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp
+-p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorP
 
 </code></pre>
                                     <div class="zeroclipboard-container position-absolute right-0 top-0">
@@ -543,7 +543,7 @@ docker run
                                                         data-copy-feedback="Copied!" data-tooltip-direction="w" value="
 docker run
 
--p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp
+-p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorP
 " tabindex="0" role="button">
                                             <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1"
                                                  width="16" data-view-component="true"
@@ -1833,8 +1833,8 @@ init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/a
                                                  href="https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png"><img
                                             src="https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png"
                                             alt="img.png" style="max-width: 100%;"></a></p>
-                                <h1 dir="auto"><a id="user-content-yxorp-documentation" class="anchor"
-                                                  aria-hidden="true" href="#yxorp-documentation">
+                                <h1 dir="auto"><a id="user-content-yxorP-documentation" class="anchor"
+                                                  aria-hidden="true" href="#yxorP-documentation">
                                         <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16"
                                              height="16" aria-hidden="true">
                                             <path fill-rule="evenodd"

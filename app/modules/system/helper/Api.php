@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorp\app\modules\system\helper;
+namespace yxorP\app\modules\system\helper;
 
 use helper;
 use const yxorP\app\lib\lime\helper;
