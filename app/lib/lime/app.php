@@ -84,8 +84,8 @@ use const PHP_SAPI;
 use const PHP_SESSION_ACTIVE;
 use const PHP_URL_PATH;
 
-include(__DIR__ . '/Request.php');
-include(__DIR__ . '/Response.php');
+include(__DIR__ . '/request.php');
+include(__DIR__ . '/response.php');
 
 
 /**
@@ -97,10 +97,10 @@ class App implements ArrayAccess
 {
 
     protected static $apps = [];
-    /** @var Response|null */
-    public ?Response $response = null;
-    /** @var Request|null */
-    public ?Request $request = null;
+    /** @var response|null */
+    public ?response $response = null;
+    /** @var request|null */
+    public ?request $request = null;
     public ArrayObject $helpers;
     public mixed $layout = false;
     protected array $registry = [];
@@ -168,10 +168,10 @@ class App implements ArrayAccess
 
         // default helpers
         $this->helpers = new ArrayObject(array_merge([
-            'cache' => 'Lime\\Helper\\Cache',
+            'cache' => 'Lime\\Helper\\cache',
             'fs' => 'Lime\\Helper\\Filesystem',
-            'session' => 'Lime\\Helper\\Session',
-            'utils' => 'Lime\\Helper\\Utils'
+            'session' => 'Lime\\Helper\\session',
+            'utils' => 'Lime\\Helper\\utils'
         ], $this->registry['helpers']));
 
         // register simple autoloader
@@ -460,14 +460,14 @@ class App implements ArrayAccess
             $this->response->body = $data;
         }
 
-        if (is_numeric($data) && isset(Response::$statusCodes[$data])) {
+        if (is_numeric($data) && isset(response::$statusCodes[$data])) {
 
             $this->response->status = $data;
 
             if ($this->response->mime === 'json') {
-                $this->response->body = json_encode(['error' => Response::$statusCodes[$data]]);
+                $this->response->body = json_encode(['error' => response::$statusCodes[$data]]);
             } else {
-                $this->response->body = Response::$statusCodes[$data];
+                $this->response->body = response::$statusCodes[$data];
             }
         }
 
@@ -957,7 +957,7 @@ class App implements ArrayAccess
      * @param String $route Route to parse
      * @return void
      */
-    public function run(?string $route = null, ?Request $request = null, bool $flush = true): Response
+    public function run(?string $route = null, ?request $request = null, bool $flush = true): response
     {
 
         $self = $this;
@@ -976,7 +976,7 @@ class App implements ArrayAccess
             $this->request->route = $route;
         }
 
-        $this->response = new Response();
+        $this->response = new response();
         $this->trigger('before');
 
         if (!$this->request->stopped) {
@@ -1007,10 +1007,10 @@ class App implements ArrayAccess
         return $this->response;
     }
 
-    protected function getRequestfromGlobals(): Request
+    protected function getRequestfromGlobals(): request
     {
 
-        return Request::fromGlobalRequest([
+        return request::fromGlobalRequest([
             'site_url' => $this->registry['site_url'],
             'base_url' => $this->registry['base_url'],
             'base_route' => $this->registry['base_route']
@@ -1477,8 +1477,8 @@ class Helper extends AppAware
 }
 
 
-include(__DIR__ . '/Helper/Session.php');
-include(__DIR__ . '/Helper/Cache.php');
+include(__DIR__ . '/helper/session.php');
+include(__DIR__ . '/helper/cache.php');
 
 // helper functions
 

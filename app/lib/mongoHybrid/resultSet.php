@@ -4,11 +4,11 @@ namespace MongoHybrid;
 
 use ArrayObject;
 
-class ResultSet extends ArrayObject
+class resultSet extends ArrayObject
 {
 
     /** Driver */
-    protected Mongo|MongoLite $driver;
+    protected mongo|mongoLite $driver;
 
     /** @var array - Collection docs cache */
     protected array $cache = [];
@@ -18,7 +18,7 @@ class ResultSet extends ArrayObject
      * @param $driver
      * @param iterable $documents
      */
-    public function __construct(Mongo|MongoLite $driver, array &$documents)
+    public function __construct(mongo|mongoLite $driver, array &$documents)
     {
 
         $this->driver = $driver;

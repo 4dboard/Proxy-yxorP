@@ -10,7 +10,7 @@ use function is_numeric;
 use function is_string;
 use const SQLITE3_ASSOC;
 
-class Index
+class index
 {
 
     protected string $path;

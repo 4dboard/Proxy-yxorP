@@ -11,7 +11,7 @@ use function is_resource;
 use function json_encode;
 use function ob_start;
 
-class Response
+class response
 {
 
     public static array $statusCodes = [

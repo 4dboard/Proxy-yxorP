@@ -60,7 +60,7 @@ $app->on('error', function ($error) {
     header('HTTP/1.0 500 Internal Server Error');
     echo $body;
 });
-$request = Lime\Request::fromGlobalRequest(['route' => $SITE_ROUTE, 'site_url' => $app->retrieve('site_url'), 'base_url' => $SITE_BASE_URL, 'base_route' => $SITE_BASE_ROUTE]);
+$request = Lime\request::fromGlobalRequest(['route' => $SITE_ROUTE, 'site_url' => $app->retrieve('site_url'), 'base_url' => $SITE_BASE_URL, 'base_route' => $SITE_BASE_ROUTE]);
 if (SITE_API_REQUEST) {
     $app->on('before', function () {
         $cors = $this->retrieve('cors', []);

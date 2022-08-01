@@ -11,7 +11,7 @@ use function session_start;
 use function session_status;
 use function session_write_close;
 
-class Session extends Helper
+class session extends Helper
 {
 
     public string $name;

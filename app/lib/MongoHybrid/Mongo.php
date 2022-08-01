@@ -13,7 +13,7 @@ use function json_decode;
 use function json_encode;
 use function substr;
 
-class Mongo
+class mongo
 {
 
     protected MongoDBClient $client;
@@ -192,7 +192,7 @@ class Mongo
         return $v;
     }
 
-    public function find(string $collection, array $options = []): ResultSet
+    public function find(string $collection, array $options = []): resultSet
     {
 
         $filter = isset($options['filter']) && $options['filter'] ? $options['filter'] : [];
@@ -222,7 +222,7 @@ class Mongo
             $docs = [];
         }
 
-        $resultSet = new ResultSet($this, $docs);
+        $resultSet = new resultSet($this, $docs);
 
         return $resultSet;
     }
@@ -232,7 +232,7 @@ class Mongo
 
         $cursor = $this->getCollection($collection)->aggregate($pipeline);
         $docs = $cursor->toArray();
-        $resultSet = new ResultSet($this, $docs);
+        $resultSet = new resultSet($this, $docs);
 
         return $resultSet;
     }

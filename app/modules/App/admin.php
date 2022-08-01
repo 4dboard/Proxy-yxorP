@@ -73,7 +73,7 @@ $this->bind('/app-event-stream', function () {
 
 
 // check + validate session time
-$this->on('app.admin.request', function (Lime\Request $request) {
+$this->on('app.admin.request', function (Lime\request $request) {
 
     $user = $this->helper('auth')->getUser();
 

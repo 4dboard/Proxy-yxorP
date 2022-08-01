@@ -14,7 +14,7 @@ use function json_encode;
 /**
  * Collection object.
  */
-class Collection
+class collection
 {
 
     /**
@@ -208,11 +208,11 @@ class Collection
      * Find documents
      *
      * @param mixed $criteria
-     * @return Cursor Cursor
+     * @return cursor Cursor
      */
-    public function find(mixed $criteria = null, ?array $projection = null): Cursor
+    public function find(mixed $criteria = null, ?array $projection = null): cursor
     {
-        return new Cursor($this, $this->database->registerCriteriaFunction($criteria), $projection);
+        return new cursor($this, $this->database->registerCriteriaFunction($criteria), $projection);
     }
 
     /**

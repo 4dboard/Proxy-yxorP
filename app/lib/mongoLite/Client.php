@@ -8,7 +8,7 @@ use function rtrim;
 /**
  * Client object.
  */
-class Client
+class client
 {
 
     /**
@@ -68,9 +68,9 @@ class Client
      *
      * @param string $database
      * @param string $collection
-     * @return Collection
+     * @return collection
      */
-    public function selectCollection(string $database, string $collection): Collection
+    public function selectCollection(string $database, string $collection): collection
     {
         return $this->selectDB($database)->selectCollection($collection);
     }

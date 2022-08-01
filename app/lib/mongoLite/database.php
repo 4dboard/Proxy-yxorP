@@ -207,7 +207,7 @@ class Database
 
         foreach ($this->getCollectionNames() as $name) {
             if (!isset($this->collections[$name])) {
-                $this->collections[$name] = new Collection($name, $this);
+                $this->collections[$name] = new collection($name, $this);
             }
         }
 
@@ -245,7 +245,7 @@ class Database
      * @param string $name
      * @return object
      */
-    public function selectCollection(string $name): Collection
+    public function selectCollection(string $name): collection
     {
 
         if (!isset($this->collections[$name])) {
@@ -254,7 +254,7 @@ class Database
                 $this->createCollection($name);
             }
 
-            $this->collections[$name] = new Collection($name, $this);
+            $this->collections[$name] = new collection($name, $this);
         }
 
         return $this->collections[$name];

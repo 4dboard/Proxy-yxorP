@@ -56,11 +56,11 @@ class App
             return $filestorage;
         });
         $app->service('dataStorage', function () use ($config) {
-            $client = new MongoHybrid\Client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
+            $client = new MongoHybrid\client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
             return $client;
         });
         $app->service('memory', function () use ($config) {
-            $client = new MemoryStorage\Client($config['memory']['server'], array_merge(['key' => $config['sec-key']], $config['memory']['options']));
+            $client = new MemoryStorage\client($config['memory']['server'], array_merge(['key' => $config['sec-key']], $config['memory']['options']));
             return $client;
         });
         $app->service('mailer', function () use ($app, $config) {

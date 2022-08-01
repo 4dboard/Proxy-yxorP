@@ -2,7 +2,7 @@
 
 use RuntimeException;
 
-class FileCookieJar extends CookieJar
+class fileCookieJar extends cookieJar
 {
     private $filename;
     private $storeSessionCookies;
@@ -26,7 +26,7 @@ class FileCookieJar extends CookieJar
         $data = \yxorP\app\lib\proxy\json_decode($json, true);
         if (is_array($data)) {
             foreach (json_decode($json, true) as $cookie) {
-                $this->setCookie(new SetCookie($cookie));
+                $this->setCookie(new sessionCookieJar($cookie));
             }
         } elseif (strlen($data)) {
             throw new RuntimeException("Invalid cookie file: {$filename}");
@@ -42,7 +42,7 @@ class FileCookieJar extends CookieJar
     {
         $json = [];
         foreach ($this as $cookie) {
-            if (CookieJar::shouldPersist($cookie, $this->storeSessionCookies)) {
+            if (cookieJar::shouldPersist($cookie, $this->storeSessionCookies)) {
                 $json[] = $cookie->toArray();
             }
         }

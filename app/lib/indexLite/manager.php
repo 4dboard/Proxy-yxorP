@@ -7,7 +7,7 @@ use SQLite3;
 use function file_exists;
 use function unlink;
 
-class Manager
+class manager
 {
 
     protected string $path;
@@ -48,9 +48,9 @@ class Manager
         return file_exists("{$this->path}/$name.idx");
     }
 
-    public function index(string $name): Index
+    public function index(string $name): index
     {
-        $index = new Index("{$this->path}/$name.idx");
+        $index = new index("{$this->path}/$name.idx");
         return $index;
     }
 

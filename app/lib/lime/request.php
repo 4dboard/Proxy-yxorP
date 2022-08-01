@@ -23,7 +23,7 @@ use function strtolower;
 use function substr;
 use function trim;
 
-class Request
+class request
 {
 
     public array $request = [];

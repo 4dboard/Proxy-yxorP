@@ -11,7 +11,7 @@ use function json_decode;
 /**
  * Cursor object.
  */
-class Cursor implements Iterator
+class cursor implements Iterator
 {
 
     /**
@@ -25,9 +25,9 @@ class Cursor implements Iterator
     protected array $data = [];
 
     /**
-     * @var Collection object
+     * @var collection object
      */
-    protected Collection $collection;
+    protected collection $collection;
 
     /**
      * @var string|null
@@ -60,7 +60,7 @@ class Cursor implements Iterator
      * @param object $collection
      * @param mixed $criteria
      */
-    public function __construct(Collection $collection, mixed $criteria, ?array $projection = null)
+    public function __construct(collection $collection, mixed $criteria, ?array $projection = null)
     {
         $this->collection = $collection;
         $this->criteria = $criteria;

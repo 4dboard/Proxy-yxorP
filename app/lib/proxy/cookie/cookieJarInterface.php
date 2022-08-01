@@ -5,13 +5,13 @@ use IteratorAggregate;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 
-interface CookieJarInterface extends Countable, IteratorAggregate
+interface cookieJarInterface extends Countable, IteratorAggregate
 {
     public function withCookieHeader(RequestInterface $request);
 
     public function extractCookies(RequestInterface $request, ResponseInterface $response);
 
-    public function setCookie(SetCookie $cookie);
+    public function setCookie(sessionCookieJar $cookie);
 
     public function clear($domain = null, $path = null, $name = null);
 

@@ -2,13 +2,13 @@
 
 namespace MongoHybrid;
 
-use MongoLite\Client as MongoLiteClient;
-use MongoLite\Collection;
+use MongoLite\client as MongoLiteClient;
+use MongoLite\collection;
 
 /**
  * @property mixed $db
  */
-class MongoLite
+class mongoLite
 {
 
     protected MongoLiteClient $client;
@@ -87,7 +87,7 @@ class MongoLite
         return $this->getCollection($collection)->findOne($filter, $projection);
     }
 
-    public function getCollection(string $name, ?string $db = null): Collection
+    public function getCollection(string $name, ?string $db = null): collection
     {
 
         if (strpos($name, '/') !== false) {
@@ -108,7 +108,7 @@ class MongoLite
         return $this->getCollection($collection)->findOne(['_id' => $id]);
     }
 
-    public function find(string $collection, array $options = []): ResultSet
+    public function find(string $collection, array $options = []): resultSet
     {
 
         $filter = isset($options['filter']) ? $options['filter'] : null;
@@ -124,7 +124,7 @@ class MongoLite
         if ($skip) $cursor->skip($skip);
 
         $docs = $cursor->toArray();
-        $resultSet = new ResultSet($this, $docs);
+        $resultSet = new resultSet($this, $docs);
 
         return $resultSet;
     }
@@ -134,7 +134,7 @@ class MongoLite
 
         $cursor = $this->getCollection($collection)->aggregate($pipeline);
         $docs = $cursor->toArray();
-        $resultSet = new ResultSet($this, $docs);
+        $resultSet = new resultSet($this, $docs);
 
         return $resultSet;
     }

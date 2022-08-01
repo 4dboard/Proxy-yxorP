@@ -2,7 +2,7 @@
 
 namespace JSONStream;
 
-class CollectionWriter
+class collectionWriter
 {
 
     protected $resource;

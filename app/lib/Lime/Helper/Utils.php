@@ -43,7 +43,7 @@ use function usort;
  * Class Utils
  * @package Lime\Helper
  */
-class Utils extends Helper
+class utils extends Helper
 {
 
     /**

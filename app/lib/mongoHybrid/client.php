@@ -2,23 +2,23 @@
 
 namespace MongoHybrid;
 
-class Client
+class client
 {
 
     public ?string $type = null;
-    protected Mongo|MongoLite $driver;
+    protected mongo|mongoLite $driver;
 
     public function __construct(string $server, array $options = [], array $driverOptions = [])
     {
 
         if (strpos($server, 'mongodb://') === 0 || strpos($server, 'mongodb+srv://') === 0) {
 
-            $this->driver = new Mongo($server, $options, $driverOptions);
+            $this->driver = new mongo($server, $options, $driverOptions);
             $this->type = 'mongodb';
         }
 
         if (strpos($server, 'mongolite://') === 0) {
-            $this->driver = new MongoLite($server, $options);
+            $this->driver = new mongoLite($server, $options);
             $this->type = 'mongolite';
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Assets\Helper;
 
-use SimpleImageLib as SimpleImage;
+use simpleImageLib as SimpleImage;
 
 class Asset extends \Lime\Helper
 {

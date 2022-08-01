@@ -3,7 +3,7 @@
 use Exception;
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\proxy\Cookie\CookieJar;
+use yxorP\app\lib\proxy\Cookie\cookieJar;
 use yxorP\app\lib\proxy\Promise;
 use yxorP\app\lib\proxy\Psr7;
 
@@ -87,7 +87,7 @@ class Client implements ClientInterface
         }
         $this->config = $config + $defaults;
         if (!empty($config['cookies']) && $config['cookies'] === true) {
-            $this->config['cookies'] = new CookieJar();
+            $this->config['cookies'] = new cookieJar();
         }
         if (!isset($this->config['headers'])) {
             $this->config['headers'] = ['User-Agent' => default_user_agent()];

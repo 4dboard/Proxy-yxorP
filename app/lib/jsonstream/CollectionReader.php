@@ -5,7 +5,7 @@ namespace JSONStream;
 use Generator;
 use InvalidArgumentException;
 
-class CollectionReader
+class collectionReader
 {
 
     const CHUNK_SIZE = 8192;

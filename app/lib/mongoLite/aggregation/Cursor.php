@@ -4,7 +4,7 @@ namespace MongoLite\Aggregation;
 
 use Closure;
 use Iterator;
-use MongoLite\Collection;
+use MongoLite\collection;
 use MongoLite\UtilArrayQuery;
 
 class Cursor implements Iterator
@@ -14,10 +14,10 @@ class Cursor implements Iterator
     protected array $data = [];
 
     protected array $pipeline;
-    protected Collection $collection;
+    protected collection $collection;
 
 
-    public function __construct(Collection $collection, array $pipeline)
+    public function __construct(collection $collection, array $pipeline)
     {
 
         $this->collection = $collection;

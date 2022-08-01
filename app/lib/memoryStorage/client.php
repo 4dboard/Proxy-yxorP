@@ -7,7 +7,7 @@ use RedisLite;
 use function call_user_func;
 use function is_callable;
 
-class Client
+class client
 {
 
     protected $driver;

@@ -20,7 +20,7 @@ use function time;
 use function unlink;
 use function unserialize;
 
-class Cache extends Helper
+class cache extends Helper
 {
 
     public ?string $prefix = null;

@@ -6,7 +6,7 @@ use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 
-class CookieJar implements CookieJarInterface
+class cookieJar implements cookieJarInterface
 {
     private $cookies = [];
     private $strictMode;
@@ -15,8 +15,8 @@ class CookieJar implements CookieJarInterface
     {
         $this->strictMode = $strictMode;
         foreach ($cookieArray as $cookie) {
-            if (!($cookie instanceof SetCookie)) {
-                $cookie = new SetCookie($cookie);
+            if (!($cookie instanceof sessionCookieJar)) {
+                $cookie = new sessionCookieJar($cookie);
             }
             $this->setCookie($cookie);
         }
@@ -26,7 +26,7 @@ class CookieJar implements CookieJarInterface
     {
         $cookieJar = new self();
         foreach ($cookies as $name => $value) {
-            $cookieJar->setCookie(new SetCookie(['Domain' => $domain, 'Name' => $name, 'Value' => $value, 'Discard' => true]));
+            $cookieJar->setCookie(new sessionCookieJar(['Domain' => $domain, 'Name' => $name, 'Value' => $value, 'Discard' => true]));
         }
         return $cookieJar;
     }
@@ -36,7 +36,7 @@ class CookieJar implements CookieJarInterface
         return $value;
     }
 
-    public static function shouldPersist(SetCookie $cookie, $allowSessionCookies = false)
+    public static function shouldPersist(sessionCookieJar $cookie, $allowSessionCookies = false)
     {
         if ($cookie->getExpires() || $allowSessionCookies) {
             if (!$cookie->getDiscard()) {
@@ -46,7 +46,7 @@ class CookieJar implements CookieJarInterface
         return false;
     }
 
-    public function setCookie(SetCookie $cookie)
+    public function setCookie(sessionCookieJar $cookie)
     {
         $name = $cookie->getName();
         if (!$name && $name !== '0') {
@@ -89,15 +89,15 @@ class CookieJar implements CookieJarInterface
             $this->cookies = [];
             return;
         } elseif (!$path) {
-            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($domain) {
+            $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) use ($domain) {
                 return !$cookie->matchesDomain($domain);
             });
         } elseif (!$name) {
-            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain) {
+            $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) use ($path, $domain) {
                 return !($cookie->matchesPath($path) && $cookie->matchesDomain($domain));
             });
         } else {
-            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain, $name) {
+            $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) use ($path, $domain, $name) {
                 return !($cookie->getName() === $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
             });
         }
@@ -118,7 +118,7 @@ class CookieJar implements CookieJarInterface
 
     public function toArray()
     {
-        return array_map(function (SetCookie $cookie) {
+        return array_map(function (sessionCookieJar $cookie) {
             return $cookie->toArray();
         }, $this->getIterator()->getArrayCopy());
     }
@@ -130,7 +130,7 @@ class CookieJar implements CookieJarInterface
 
     public function clearSessionCookies()
     {
-        $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) {
+        $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) {
             return !$cookie->getDiscard() && $cookie->getExpires();
         });
     }
@@ -144,7 +144,7 @@ class CookieJar implements CookieJarInterface
     {
         if ($cookieHeader = $response->getHeader('Set-Cookie')) {
             foreach ($cookieHeader as $cookie) {
-                $sc = SetCookie::fromString($cookie);
+                $sc = sessionCookieJar::fromString($cookie);
                 if (!$sc->getDomain()) {
                     $sc->setDomain($request->getUri()->getHost());
                 }
@@ -171,7 +171,7 @@ class CookieJar implements CookieJarInterface
         return $values ? $request->withHeader('Cookie', implode('; ', $values)) : $request;
     }
 
-    private function removeCookieIfEmpty(SetCookie $cookie)
+    private function removeCookieIfEmpty(sessionCookieJar $cookie)
     {
         $cookieValue = $cookie->getValue();
         if ($cookieValue === null || $cookieValue === '') {
