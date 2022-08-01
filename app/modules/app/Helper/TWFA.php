@@ -9,7 +9,7 @@ use BaconQrCode\Writer;
 use RobThree\Auth\Providers\Qr\IQRCodeProvider;
 use RobThree\Auth\TwoFactorAuth;
 
-class TWFA extends \Lime\Helper
+class TWFA extends \\yxorP\app\lib\lime\Helper
 {
 
     protected TwoFactorAuth $tfa;

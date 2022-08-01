@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-use Lime\Helper;
+use \yxorP\app\lib\lime\Helper;
 use function exec;
 use function explode;
 use function fclose;

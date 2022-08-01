@@ -14,14 +14,14 @@ class App
 {
     protected static $instance = [];
 
-    public static function instance(?string $envDir = null, array $config = []): Lime\App
+    public static function instance(?string $envDir = null, array $config = []): \yxorP\app\lib\lime\App
     {
         if (!$envDir) $envDir = SITE_DIR;
         if (!isset(static::$instance[$envDir])) static::$instance[$envDir] = static::init($envDir, $config);
         return static::$instance[$envDir];
     }
 
-    protected static function init(?string $envDir = null, array $config = []): Lime\App
+    protected static function init(?string $envDir = null, array $config = []): \yxorP\app\lib\lime\App
     {
         $appDir = SITE_DIR;
         $app = null;
@@ -31,7 +31,7 @@ class App
         if (file_exists("{$envDir}/config/config.php")) $cfg = include("{$envDir}/config/config.php");
         $config = array_replace_recursive(['docs_root' => defined('SITE_DOCUMENT_ROOT') ? SITE_DOCUMENT_ROOT : null, 'debug' => SITE_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''), 'app.name' => 'App', 'app.version' => SITE_VERSION, 'session.name' => md5($envDir), 'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', 'i18n' => 'en', 'database' => ['server' => "mongolite://{$envDir}/storage/data", 'options' => ['db' => 'app'], 'driverOptions' => []], 'memory' => ['server' => "redislite://{$envDir}/storage/data/app.memory.sqlite", 'options' => []], 'paths' => ['#app' => __DIR__, '#root' => $envDir, '#config' => $envDir . '/config', '#modules' => $envDir . '/modules', '#addons' => $envDir . '/addons', '#storage' => $envDir . '/storage', '#cache' => $envDir . '/storage/cache', '#cache' => $envDir . '/storage/cache', '#uploads' => $envDir . '/storage/uploads',], 'response' => ['cache' => ['handler' => 'memory', 'duration' => 600,]]], $cfg ?? [], $config);
         if ($config['debug']) $config['app.version'] .= '-' . time();
-        $app = new Lime\App($config);
+        $app = new \yxorP\app\lib\lime\App($config);
         foreach ($config['paths'] as $key => $path) $app->path($key, $path);
         $app->helper('cache')->setCachePath($app->path('#cache:') ?? sys_get_temp_dir());
         $app->service('fileStorage', function () use ($config, $app) {

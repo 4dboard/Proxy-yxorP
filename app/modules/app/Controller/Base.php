@@ -6,7 +6,7 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class base extends \Lime\AppAware
+class base extends \\yxorP\app\lib\lime\AppAware
 {
 
     protected $layout = false;

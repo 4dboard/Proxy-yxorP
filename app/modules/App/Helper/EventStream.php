@@ -6,7 +6,7 @@ namespace App\Helper;
  * @property mixed $dataStorage
  * @property mixed $dataStorage
  */
-class eventStream extends \Lime\Helper
+class eventStream extends \\yxorP\app\lib\lime\Helper
 {
 
     public function cleanup()

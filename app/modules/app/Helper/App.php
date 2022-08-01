@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class App extends \Lime\Helper
+class App extends \\yxorP\app\lib\lime\Helper
 {
 
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Lime\Helper;
+namespace \yxorP\app\lib\lime\Helper;
 
 
 use DirectoryIterator;
 use Exception;
 use FilesystemIterator;
-use Lime\Helper;
+use \yxorP\app\lib\lime\Helper;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileObject;

@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class theme extends \Lime\Helper
+class theme extends \\yxorP\app\lib\lime\Helper
 {
 
     protected array $vars;

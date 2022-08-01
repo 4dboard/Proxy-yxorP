@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class csrf extends \Lime\Helper
+class csrf extends \\yxorP\app\lib\lime\Helper
 {
 
     public function token(string $key, bool $generate = false, ?int $expire = null): string

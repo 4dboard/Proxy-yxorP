@@ -4,7 +4,7 @@ namespace App\Helper;
 
 use SplPriorityQueue;
 
-class menus extends \Lime\Helper
+class menus extends \\yxorP\app\lib\lime\Helper
 {
 
     protected array $menus = [];

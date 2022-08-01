@@ -6,7 +6,7 @@ namespace App\Helper;
 /**
  * I18n class. Manage translations
  */
-class i18n extends \Lime\Helper
+class i18n extends \\yxorP\app\lib\lime\Helper
 {
 
     public static array $locales = [

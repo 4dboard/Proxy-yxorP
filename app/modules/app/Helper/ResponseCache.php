@@ -2,8 +2,8 @@
 
 namespace App\Helper;
 
-use Lime\AppAware;
-use Lime\Helper;
+use \yxorP\app\lib\lime\AppAware;
+use \yxorP\app\lib\lime\Helper;
 
 /**
  * @property mixed $response

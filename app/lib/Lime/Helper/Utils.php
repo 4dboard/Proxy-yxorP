@@ -1,10 +1,10 @@
 <?php
 
-namespace Lime\Helper;
+namespace \yxorP\app\lib\lime\Helper;
 
 use ArrayObject;
 use Exception;
-use Lime\Helper;
+use \yxorP\app\lib\lime\Helper;
 use function array_keys;
 use function array_merge;
 use function array_values;
@@ -41,7 +41,7 @@ use function usort;
 
 /**
  * Class Utils
- * @package Lime\Helper
+ * @package \yxorP\app\lib\lime\Helper
  */
 class utils extends Helper
 {

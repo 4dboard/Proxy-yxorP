@@ -1,9 +1,9 @@
 <?php
 
-namespace Lime\Helper;
+namespace \yxorP\app\lib\lime\Helper;
 
-use Lime\Helper;
-use function Lime\fetch_from_array;
+use \yxorP\app\lib\lime\Helper;
+use function \yxorP\app\lib\lime\fetch_from_array;
 use function session_destroy;
 use function session_name;
 use function session_regenerate_id;

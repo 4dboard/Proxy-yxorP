@@ -168,10 +168,10 @@ class App implements ArrayAccess
 
         // default helpers
         $this->helpers = new ArrayObject(array_merge([
-            'cache' => 'Lime\\Helper\\cache',
-            'fs' => 'Lime\\Helper\\Filesystem',
-            'session' => 'Lime\\Helper\\session',
-            'utils' => 'Lime\\Helper\\utils'
+            'cache' => '\yxorP\app\lib\lime\\Helper\\cache',
+            'fs' => '\yxorP\app\lib\lime\\Helper\\Filesystem',
+            'session' => '\yxorP\app\lib\lime\\Helper\\session',
+            'utils' => '\yxorP\app\lib\lime\\Helper\\utils'
         ], $this->registry['helpers']));
 
         // register simple autoloader

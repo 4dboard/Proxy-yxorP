@@ -2,7 +2,7 @@
 
 namespace System\Helper;
 
-class revisions extends \Lime\Helper
+class revisions extends \\yxorP\app\lib\lime\Helper
 {
 
     protected $storage;

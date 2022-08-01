@@ -1,7 +1,7 @@
 <?php
 
 namespace System\Helper;
-class locales extends \Lime\Helper
+class locales extends \\yxorP\app\lib\lime\Helper
 {
 
     protected array $locales = [];

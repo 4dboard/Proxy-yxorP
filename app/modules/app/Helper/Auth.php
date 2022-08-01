@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class auth extends \Lime\Helper
+class auth extends \\yxorP\app\lib\lime\Helper
 {
 
     public string $sessionKey = 'app.auth.user';

@@ -2,7 +2,7 @@
 
 namespace System\Helper;
 
-class Log extends \Lime\Helper
+class Log extends \\yxorP\app\lib\lime\Helper
 {
 
     protected array $channels = [];

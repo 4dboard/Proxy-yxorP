@@ -2,7 +2,7 @@
 
 namespace App\RestApi;
 
-class query extends \Lime\AppAware
+class query extends \\yxorP\app\lib\lime\AppAware
 {
 
     protected array $endpoints = [];

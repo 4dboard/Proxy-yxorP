@@ -3,7 +3,7 @@
 namespace App\Command\Spaces;
 
 use Cockpit;
-use Lime\App;
+use \yxorP\app\lib\lime\App;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

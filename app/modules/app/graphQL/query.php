@@ -9,7 +9,7 @@ use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use mysql_xdevapi\Schema;
 
-class query extends \Lime\AppAware
+class query extends \\yxorP\app\lib\lime\AppAware
 {
 
     public $queries;

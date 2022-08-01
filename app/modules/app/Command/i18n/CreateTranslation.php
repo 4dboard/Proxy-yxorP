@@ -14,7 +14,7 @@ class createTranslation extends Command
     protected static $defaultName = 'app:i18n:create';
     protected $app = null;
 
-    public function __construct(\Lime\App $app)
+    public function __construct(\\yxorP\app\lib\lime\App $app)
     {
         $this->app = $app;
         parent::__construct();

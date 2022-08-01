@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class admin extends \Lime\Helper
+class admin extends \\yxorP\app\lib\lime\Helper
 {
 
     public function lockResourceId($resourceId, $user = null)

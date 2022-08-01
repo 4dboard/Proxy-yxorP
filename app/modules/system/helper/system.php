@@ -5,7 +5,7 @@ namespace System\Helper;
 use Closure;
 use Throwable;
 
-class system extends \Lime\Helper
+class system extends \\yxorP\app\lib\lime\Helper
 {
 
 

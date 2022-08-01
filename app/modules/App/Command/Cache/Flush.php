@@ -2,7 +2,7 @@
 
 namespace App\Command\Cache;
 
-use Lime\App;
+use \yxorP\app\lib\lime\App;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
