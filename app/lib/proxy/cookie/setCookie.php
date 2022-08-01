@@ -150,11 +150,13 @@ class sessionCookieJar
 
     public function getPath()
     {
+        exit('2');
         return $this->data['Path'];
     }
 
     public function matchesDomain($domain)
     {
+        exit('2');
         $cookieDomain = ltrim($this->getDomain(), '.');
         if (!$cookieDomain || !strcasecmp($domain, $cookieDomain)) {
             return true;
