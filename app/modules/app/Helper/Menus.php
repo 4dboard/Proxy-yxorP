@@ -4,12 +4,16 @@ namespace App\Helper;
 
 use SplPriorityQueue;
 
-class menus extends \\yxorP\app\lib\lime\Helper
+class menus extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected array $menus = [];
+    protected
+    array $menus = [];
 
-    public function addLink(string $menu, array $link): void
+    public
+    function addLink(string $menu, array $link): void
     {
 
         if (!isset($this->menus[$menu])) {
@@ -32,7 +36,8 @@ class menus extends \\yxorP\app\lib\lime\Helper
         $this->menus[$menu][] = $link;
     }
 
-    public function menu(string $name, bool $grouped = false): array
+    public
+    function menu(string $name, bool $grouped = false): array
     {
 
         if (!isset($this->menus[$name]) || !count($this->menus[$name])) {

@@ -2,22 +2,28 @@
 
 namespace System\Helper;
 
-class api extends \\yxorP\app\lib\lime\Helper
+class api extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected array $keys = [];
+    protected
+    array $keys = [];
 
-    public function getKey(string $key)
+    public
+    function getKey(string $key)
     {
         return $this->keys[$key] ?? null;
     }
 
-    public function keys(): array
+    public
+    function keys(): array
     {
         return array_keys($this->keys);
     }
 
-    protected function initialize()
+    protected
+    function initialize()
     {
 
         $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
@@ -25,7 +31,8 @@ class api extends \\yxorP\app\lib\lime\Helper
         });
     }
 
-    public function cache(bool $persistent = true): array
+    public
+    function cache(bool $persistent = true): array
     {
 
         $cache = [];

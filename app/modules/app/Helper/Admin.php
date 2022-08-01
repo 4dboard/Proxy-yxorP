@@ -2,10 +2,13 @@
 
 namespace App\Helper;
 
-class admin extends \\yxorP\app\lib\lime\Helper
+class admin extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    public function lockResourceId($resourceId, $user = null)
+    public
+    function lockResourceId($resourceId, $user = null)
     {
 
         if (!$resourceId) {
@@ -35,7 +38,8 @@ class admin extends \\yxorP\app\lib\lime\Helper
         return true;
     }
 
-    public function updateLockedResourceId($resourceId)
+    public
+    function updateLockedResourceId($resourceId)
     {
 
         $meta = null;
@@ -55,7 +59,8 @@ class admin extends \\yxorP\app\lib\lime\Helper
         return true;
     }
 
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
+    public
+    function isResourceEditableByCurrentUser($resourceId, &$meta = null)
     {
 
         $meta = $this->isResourceLocked($resourceId);
@@ -73,7 +78,8 @@ class admin extends \\yxorP\app\lib\lime\Helper
         return false;
     }
 
-    public function isResourceLocked($resourceId, $ttl = null)
+    public
+    function isResourceLocked($resourceId, $ttl = null)
     {
 
         $ttl = $ttl ?? 300;
@@ -92,7 +98,8 @@ class admin extends \\yxorP\app\lib\lime\Helper
         return false;
     }
 
-    public function unlockResourceId($resourceId)
+    public
+    function unlockResourceId($resourceId)
     {
 
         $meta = $this->isResourceLocked($resourceId);

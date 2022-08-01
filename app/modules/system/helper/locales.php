@@ -1,12 +1,16 @@
 <?php
 
 namespace System\Helper;
-class locales extends \\yxorP\app\lib\lime\Helper
+class locales extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected array $locales = [];
+    protected
+    array $locales = [];
 
-    public function applyLocales($obj, $locale = 'default')
+    public
+    function applyLocales($obj, $locale = 'default')
     {
 
         static $locales;
@@ -69,7 +73,8 @@ class locales extends \\yxorP\app\lib\lime\Helper
         return $obj;
     }
 
-    public function locales(bool $assoc = false): array
+    public
+    function locales(bool $assoc = false): array
     {
 
         if ($assoc) {
@@ -89,7 +94,8 @@ class locales extends \\yxorP\app\lib\lime\Helper
         return $locales;
     }
 
-    protected function initialize()
+    protected
+    function initialize()
     {
 
         $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
@@ -97,7 +103,8 @@ class locales extends \\yxorP\app\lib\lime\Helper
         });
     }
 
-    public function cache(bool $persistent = true): array
+    public
+    function cache(bool $persistent = true): array
     {
 
         $cache = [

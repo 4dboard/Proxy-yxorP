@@ -9,37 +9,40 @@ use BaconQrCode\Writer;
 use RobThree\Auth\Providers\Qr\IQRCodeProvider;
 use RobThree\Auth\TwoFactorAuth;
 
-class TWFA extends \\yxorP\app\lib\lime\Helper
+class TWFA extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected TwoFactorAuth $tfa;
+    protected
+    TwoFactorAuth $tfa;
 
     public function createSecret(int $length = 160)
-    {
-        return $this->tfa->createSecret($length);
-    }
+{
+    return $this->tfa->createSecret($length);
+}
 
     public function getQRCodeImageAsDataUri(string $secret, int $size = 150): string
-    {
-        return $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
-    }
+{
+    return $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
+}
 
     public function getQRCodeImage(string $secret, int $size = 150): mixed
-    {
-        $uri = $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
-        $binary = file_get_contents($uri);
-        return $binary;
-    }
+{
+    $uri = $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
+    $binary = file_get_contents($uri);
+    return $binary;
+}
 
     public function verifyCode(string $secret, string $code): bool
-    {
-        return $this->tfa->verifyCode($secret, $code);
-    }
+{
+    return $this->tfa->verifyCode($secret, $code);
+}
 
     protected function initialize()
-    {
-        $this->tfa = new TwoFactorAuth($this->app['app.name'], 6, 30, 'sha1', new TWFAQRCodeRenderer());
-    }
+{
+    $this->tfa = new TwoFactorAuth($this->app['app.name'], 6, 30, 'sha1', new TWFAQRCodeRenderer());
+}
 }
 
 class TWFAQRCodeRenderer implements IQRCodeProvider

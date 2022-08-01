@@ -4,10 +4,13 @@ namespace Assets\Helper;
 
 use simpleImageLib as SimpleImage;
 
-class Asset extends \\yxorP\app\lib\lime\Helper
+class Asset extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    public function image(array $options = [], bool $asPath = false)
+    public
+    function image(array $options = [], bool $asPath = false)
     {
 
         $options = array_merge([

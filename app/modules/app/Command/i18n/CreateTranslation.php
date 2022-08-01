@@ -20,115 +20,117 @@ class createTranslation extends Command
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->setHelp('This command creates a language file')
-            ->addArgument('locale', InputArgument::REQUIRED, 'What is the target language (e.g. de or fr?')
-            ->addArgument('module', InputArgument::OPTIONAL, 'Create a language file for a module');
+protected
+function configure(): void
+{
+    $this
+        ->setHelp('This command creates a language file')
+        ->addArgument('locale', InputArgument::REQUIRED, 'What is the target language (e.g. de or fr?')
+        ->addArgument('module', InputArgument::OPTIONAL, 'Create a language file for a module');
+}
+
+protected
+function execute(InputInterface $input, OutputInterface $output): int
+{
+
+    $translator = null;
+    $locale = $input->getArgument('locale');
+    $module = $input->getArgument('module');
+
+    $extensions = ['php', 'js'];
+
+    if ($module && $module === 'System') {
+        $module = 'App';
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    if ($module && !($this->app->path("#modules:{$module}") || $this->app->path("#addons:{$module}"))) {
+        $output->writeln("<error>[x] Module <<{$module}>> does not exists!</error>");
+        return Command::FAILURE;
+    }
 
-        $translator = null;
-        $locale = $input->getArgument('locale');
-        $module = $input->getArgument('module');
+    $modules = array_filter($this->app['modules']->getArrayCopy(), function ($m) use ($module) {
 
-        $extensions = ['php', 'js'];
+        $name = basename($m->_dir);
 
-        if ($module && $module === 'System') {
-            $module = 'App';
+        if ($module && $module === 'App' && $name === 'System') {
+            return true;
         }
 
-        if ($module && !($this->app->path("#modules:{$module}") || $this->app->path("#addons:{$module}"))) {
-            $output->writeln("<error>[x] Module <<{$module}>> does not exists!</error>");
-            return Command::FAILURE;
-        }
+        return !$module || $name === $module;
+    });
 
-        $modules = array_filter($this->app['modules']->getArrayCopy(), function ($m) use ($module) {
+    if ($this->app->module('lokalize')) {
+        $translator = $this->app->module('lokalize');
+    }
 
-            $name = basename($m->_dir);
+    foreach ($modules as $m) {
 
-            if ($module && $module === 'App' && $name === 'System') {
-                return true;
+        $dir = $m->_dir;
+        $name = basename($m->_dir);
+
+        $strings = [];
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir), \RecursiveIteratorIterator::SELF_FIRST);
+
+        $output->writeln("<info>-></info> {$name}");
+
+        foreach ($iterator as $file) {
+
+            if (!$file->isFile() || !in_array($file->getExtension(), $extensions)) continue;
+
+            $contents = file_get_contents($file->getRealPath());
+
+            preg_match_all('/(?:{{ t|<\?=t|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
+
+            if (!isset($matches[2])) continue;
+
+            foreach ($matches[2] as &$string) {
+                $strings[$string] = $string;
             }
-
-            return !$module || $name === $module;
-        });
-
-        if ($this->app->module('lokalize')) {
-            $translator = $this->app->module('lokalize');
         }
 
-        foreach ($modules as $m) {
+        if (count($strings)) {
 
-            $dir = $m->_dir;
-            $name = basename($m->_dir);
+            // try to auto-translate
+            if ($translator) {
 
-            $strings = [];
-            $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir), \RecursiveIteratorIterator::SELF_FIRST);
+                $keys = array_keys($strings);
+                $values = array_values($strings);
 
-            $output->writeln("<info>-></info> {$name}");
+                $ret = $translator->translate(implode("\n@\n", $values), $locale);
 
-            foreach ($iterator as $file) {
+                if ($ret && !isset($ret['error'])) {
 
-                if (!$file->isFile() || !in_array($file->getExtension(), $extensions)) continue;
+                    $values = explode("\n@\n", $ret);
 
-                $contents = file_get_contents($file->getRealPath());
+                    foreach ($keys as $idx => $key) {
 
-                preg_match_all('/(?:{{ t|<\?=t|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
-
-                if (!isset($matches[2])) continue;
-
-                foreach ($matches[2] as &$string) {
-                    $strings[$string] = $string;
-                }
-            }
-
-            if (count($strings)) {
-
-                // try to auto-translate
-                if ($translator) {
-
-                    $keys = array_keys($strings);
-                    $values = array_values($strings);
-
-                    $ret = $translator->translate(implode("\n@\n", $values), $locale);
-
-                    if ($ret && !isset($ret['error'])) {
-
-                        $values = explode("\n@\n", $ret);
-
-                        foreach ($keys as $idx => $key) {
-
-                            if (!$idx || !isset($values[$idx])) continue;
-                            $strings[$key] = $values[$idx];
-                        }
+                        if (!$idx || !isset($values[$idx])) continue;
+                        $strings[$key] = $values[$idx];
                     }
                 }
-
-                if ($name === 'System') {
-                    $name = 'App';
-                }
-
-                $strings = array_merge([
-                    '@meta' => ['language' => \App\Helper\i18n::$locales[$locale] ?? strtoupper($locale)]
-                ], $strings);
-
-                if ($this->app->path("#config:i18n/{$name}/{$locale}.php")) {
-                    $langfile = include($this->app->path("#config:i18n/{$name}/{$locale}.php"));
-                    $strings = array_merge($strings, $langfile);
-                }
-
-                ksort($strings);
-
-                $this->app->helper('fs')->write("#config:i18n/{$name}/{$locale}.php", '<?php return ' . $this->app->helper('utils')->var_export($strings, true) . ';');
             }
 
+            if ($name === 'System') {
+                $name = 'App';
+            }
+
+            $strings = array_merge([
+                '@meta' => ['language' => \App\Helper\i18n::$locales[$locale] ?? strtoupper($locale)]
+            ], $strings);
+
+            if ($this->app->path("#config:i18n/{$name}/{$locale}.php")) {
+                $langfile = include($this->app->path("#config:i18n/{$name}/{$locale}.php"));
+                $strings = array_merge($strings, $langfile);
+            }
+
+            ksort($strings);
+
+            $this->app->helper('fs')->write("#config:i18n/{$name}/{$locale}.php", '<?php return ' . $this->app->helper('utils')->var_export($strings, true) . ';');
         }
 
-        $output->writeln('<info>[✓]</info> Lang file(s) created in <info>#config:i18n</info>!');
-        return Command::SUCCESS;
     }
+
+    $output->writeln('<info>[✓]</info> Lang file(s) created in <info>#config:i18n</info>!');
+    return Command::SUCCESS;
+}
 }

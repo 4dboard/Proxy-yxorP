@@ -9,16 +9,24 @@ use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use mysql_xdevapi\Schema;
 
-class query extends \\yxorP\app\lib\lime\AppAware
+class query extends \
+
+\yxorP\app\lib\lime\AppAware
 {
 
-    public $queries;
-    public $mutations;
-    public $types;
-    public $directives;
-    protected $initialized = false;
+    public
+    $queries;
+    public
+    $mutations;
+    public
+    $types;
+    public
+    $directives;
+    protected
+    $initialized = false;
 
-    public function process($query = '{}', $variables = null)
+    public
+    function process($query = '{}', $variables = null)
     {
 
         if (!$this->initialized) {
@@ -60,7 +68,8 @@ class query extends \\yxorP\app\lib\lime\AppAware
         return $result;
     }
 
-    public function init()
+    public
+    function init()
     {
 
         if ($this->initialized) return;

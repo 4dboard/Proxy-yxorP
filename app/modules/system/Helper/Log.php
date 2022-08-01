@@ -2,12 +2,16 @@
 
 namespace System\Helper;
 
-class Log extends \\yxorP\app\lib\lime\Helper
+class Log extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected array $channels = [];
+    protected
+    array $channels = [];
 
-    public function channel(string $name): LogChannel
+    public
+    function channel(string $name): LogChannel
     {
 
         if (!isset($this->channels[$name])) {
@@ -36,24 +40,6 @@ class LogChannel
         $this->addRecord($message, 'info', $context);
     }
 
-    protected function addRecord(string $message, $type = 'info', ?array $context = null): void
-    {
-
-        $time = time();
-
-        $record = [
-            'message' => $message,
-            'type' => $type,
-            'channel' => $this->name,
-            'context' => $context,
-            'timestamp' => $time,
-            'datetime' => date('Y-m-d G:i:s T', $time)
-        ];
-
-        $this->app->dataStorage->save('system/log', $record);
-
-    }
-
     public function debug(string $message, ?array $context = null): void
     {
         $this->addRecord($message, 'debug', $context);
@@ -77,6 +63,24 @@ class LogChannel
     public function error(string $message, ?array $context = null): void
     {
         $this->addRecord($message, 'error', $context);
+    }
+
+    protected function addRecord(string $message, $type = 'info', ?array $context = null): void
+    {
+
+        $time = time();
+
+        $record = [
+            'message' => $message,
+            'type' => $type,
+            'channel' => $this->name,
+            'context' => $context,
+            'timestamp' => $time,
+            'datetime' => date('Y-m-d G:i:s T', $time)
+        ];
+
+        $this->app->dataStorage->save('system/log', $record);
+
     }
 
 }

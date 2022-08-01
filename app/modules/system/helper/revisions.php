@@ -2,22 +2,28 @@
 
 namespace System\Helper;
 
-class revisions extends \\yxorP\app\lib\lime\Helper
+class revisions extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected $storage;
+    protected
+    $storage;
 
-    public function initialize()
+    public
+    function initialize()
     {
         $this->storage = $this->app->dataStorage;
     }
 
-    public function count($id)
+    public
+    function count($id)
     {
         return $this->storage->count('system/revisions', ['_oid' => $id]);
     }
 
-    public function getList(string $id, int $limit = 50, int $skip = 0)
+    public
+    function getList(string $id, int $limit = 50, int $skip = 0)
     {
 
         $options = [
@@ -30,7 +36,8 @@ class revisions extends \\yxorP\app\lib\lime\Helper
         return $this->storage->find('system/revisions', $options)->toArray();
     }
 
-    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null)
+    public
+    function add($id, $data, $meta = null, $by = null, $created = null, $ref = null)
     {
 
         if ($by === true) {
@@ -88,13 +95,15 @@ class revisions extends \\yxorP\app\lib\lime\Helper
         return $revision;
     }
 
-    public function get($id)
+    public
+    function get($id)
     {
         return $this->storage->findOne('system/revisions', ['_oid' => $id]);
     }
 
 
-    public function latest($id)
+    public
+    function latest($id)
     {
 
         $options = [
@@ -109,12 +118,14 @@ class revisions extends \\yxorP\app\lib\lime\Helper
     }
 
 
-    public function remove($rid)
+    public
+    function remove($rid)
     {
         return $this->storage->remove('system/revisions', ['_id' => $rid]);
     }
 
-    public function removeAll($id)
+    public
+    function removeAll($id)
     {
         return $this->storage->remove('system/revisions', ['_oid' => $id]);
     }

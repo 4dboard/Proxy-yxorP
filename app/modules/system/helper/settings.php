@@ -4,10 +4,13 @@ namespace System\Helper;
 
 use ArrayObject;
 
-class settings extends \\yxorP\app\lib\lime\Helper
+class settings extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    public function groups(bool $filter = false): ArrayObject
+    public
+    function groups(bool $filter = false): ArrayObject
     {
 
         $settings = new ArrayObject([

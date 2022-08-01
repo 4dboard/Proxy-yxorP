@@ -2,10 +2,13 @@
 
 namespace App\Helper;
 
-class csrf extends \\yxorP\app\lib\lime\Helper
+class csrf extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    public function token(string $key, bool $generate = false, ?int $expire = null): string
+    public
+    function token(string $key, bool $generate = false, ?int $expire = null): string
     {
 
         $token = $this->app->helper('session')->read("app.csrf.token.{$key}", null);
@@ -17,7 +20,8 @@ class csrf extends \\yxorP\app\lib\lime\Helper
         return $token;
     }
 
-    public function generateToken(string $key, ?int $expire = null): string
+    public
+    function generateToken(string $key, ?int $expire = null): string
     {
 
         $payload = ['csrf' => $key];
@@ -33,7 +37,8 @@ class csrf extends \\yxorP\app\lib\lime\Helper
         return $token;
     }
 
-    public function isValid(string $key, string $token, bool $checkpayload = false): bool
+    public
+    function isValid(string $key, string $token, bool $checkpayload = false): bool
     {
 
         if (!$token) {

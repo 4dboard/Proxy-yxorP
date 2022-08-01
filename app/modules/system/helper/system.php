@@ -5,11 +5,14 @@ namespace System\Helper;
 use Closure;
 use Throwable;
 
-class system extends \\yxorP\app\lib\lime\Helper
+class system extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
 
-    public function try(callable $callback, $rescue = null, $report = true)
+    public
+    function try(callable $callback, $rescue = null, $report = true)
     {
         try {
             return $callback();
@@ -23,37 +26,37 @@ class system extends \\yxorP\app\lib\lime\Helper
     }
 
     public function report()
-    {
-        // to be implemented
-    }
+{
+    // to be implemented
+}
 
     public function flushCache()
-    {
+{
 
-        $dirs = ['#cache:', '#tmp:'];
-        $fs = $this->app->helper('fs');
+    $dirs = ['#cache:', '#tmp:'];
+    $fs = $this->app->helper('fs');
 
-        foreach ($dirs as $dir) {
+    foreach ($dirs as $dir) {
 
-            $path = $this->app->path($dir);
-            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
+        $path = $this->app->path($dir);
+        $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
 
-            foreach ($files as $file) {
+        foreach ($files as $file) {
 
-                if (!$file->isFile() || preg_match('/(\.gitkeep|\.gitignore|index\.html)$/', $file)) continue;
+            if (!$file->isFile() || preg_match('/(\.gitkeep|\.gitignore|index\.html)$/', $file)) continue;
 
-                @unlink($file->getRealPath());
-            }
-
-            $fs->removeEmptySubFolders($path);
+            @unlink($file->getRealPath());
         }
 
-        $this->app->memory->flush();
-        $this->app->trigger('app.system.cache.flush');
-
-        if (function_exists('opcache_reset')) {
-            opcache_reset();
-        }
+        $fs->removeEmptySubFolders($path);
     }
+
+    $this->app->memory->flush();
+    $this->app->trigger('app.system.cache.flush');
+
+    if (function_exists('opcache_reset')) {
+        opcache_reset();
+    }
+}
 
 }

@@ -3,12 +3,16 @@
 namespace App\Helper;
 
 
-class acl extends \\yxorP\app\lib\lime\Helper
+class acl extends \
+
+\yxorP\app\lib\lime\Helper
 {
 
-    protected array $roles = [];
+    protected
+    array $roles = [];
 
-    public function roles(): array
+    public
+    function roles(): array
     {
 
         $roles = [
@@ -26,7 +30,8 @@ class acl extends \\yxorP\app\lib\lime\Helper
         return $roles;
     }
 
-    public function isAllowed(string $permission, ?string $role = null): bool
+    public
+    function isAllowed(string $permission, ?string $role = null): bool
     {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
@@ -38,7 +43,8 @@ class acl extends \\yxorP\app\lib\lime\Helper
         return isset($this->roles[$role]['permissions'][$permission]) && $this->roles[$role]['permissions'][$permission];
     }
 
-    public function isSuperAdmin($role = null)
+    public
+    function isSuperAdmin($role = null)
     {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
@@ -50,7 +56,8 @@ class acl extends \\yxorP\app\lib\lime\Helper
         return false;
     }
 
-    protected function initialize()
+    protected
+    function initialize()
     {
 
         $this->roles = $this->app->memory->get('app.roles.permissions', function () {
@@ -58,7 +65,8 @@ class acl extends \\yxorP\app\lib\lime\Helper
         });
     }
 
-    public function cache(): array
+    public
+    function cache(): array
     {
 
         $cache = [];
