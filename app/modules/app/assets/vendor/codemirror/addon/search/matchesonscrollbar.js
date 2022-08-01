@@ -81,9 +81,9 @@
         if (sizeChange) for (var i = 0; i < this.matches.length; i++) {
             var match = this.matches[i];
             var newFrom = offsetLine(match.from.line, startLine, sizeChange);
-            if (newFrom != match.from.line) match.from = CodeMirror.Pos(newFrom, match.from.ch);
+            if (newFrom !== match.from.line) match.from = CodeMirror.Pos(newFrom, match.from.ch);
             var newTo = offsetLine(match.to.line, startLine, sizeChange);
-            if (newTo != match.to.line) match.to = CodeMirror.Pos(newTo, match.to.ch);
+            if (newTo !== match.to.line) match.to = CodeMirror.Pos(newTo, match.to.ch);
         }
         clearTimeout(this.update);
         var self = this;

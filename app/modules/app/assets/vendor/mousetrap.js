@@ -398,7 +398,7 @@
             // if this is not a keypress event then we should
             // be smart about using shift keys
             // this will only work for US keyboards however
-            if (action && action != 'keypress' && _SHIFT_MAP[key]) {
+            if (action && action !== 'keypress' && _SHIFT_MAP[key]) {
                 key = _SHIFT_MAP[key];
                 modifiers.push('shift');
             }
@@ -559,13 +559,13 @@
 
                 // if a sequence name is not specified, but this is a sequence at
                 // the wrong level then move onto the next match
-                if (!sequenceName && callback.seq && _sequenceLevels[callback.seq] != callback.level) {
+                if (!sequenceName && callback.seq && _sequenceLevels[callback.seq] !== callback.level) {
                     continue;
                 }
 
                 // if the action we are looking for doesn't match the action we got
                 // then we should keep going
-                if (action != callback.action) {
+                if (action !== callback.action) {
                     continue;
                 }
 
@@ -604,6 +604,10 @@
          *
          * @param {Function} callback
          * @param {Event} e
+         * @param combo
+         * @param sequence
+         * @param combo
+         * @param sequence
          * @returns void
          */
         function _fireCallback(callback, e, combo, sequence) {
@@ -659,7 +663,7 @@
                     //
                     // any sequences that do not match here will be discarded
                     // below by the _resetSequences call
-                    if (callbacks[i].level != maxLevel) {
+                    if (callbacks[i].level !== maxLevel) {
                         continue;
                     }
 

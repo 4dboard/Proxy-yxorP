@@ -113,7 +113,7 @@
                 if (stream.eol()) state.inTag += " "
             }
             return style;
-        };
+        }
 
         return {
             startState: function () {

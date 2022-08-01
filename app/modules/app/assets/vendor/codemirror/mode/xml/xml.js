@@ -254,7 +254,7 @@
         function closeTagNameState(type, stream, state) {
             if (type === "word") {
                 var tagName = stream.current();
-                if (state.context && state.context.tagName != tagName &&
+                if (state.context && state.context.tagName !== tagName &&
                     config.implicitlyClosed.hasOwnProperty(lower(state.context.tagName)))
                     popContext(state);
                 if ((state.context && state.context.tagName === tagName) || config.matchClosing === false) {
@@ -274,7 +274,7 @@
         }
 
         function closeState(type, _stream, state) {
-            if (type != "endTag") {
+            if (type !== "endTag") {
                 setStyle = "error";
                 return closeState;
             }
@@ -348,7 +348,7 @@
                 if (stream.eatSpace()) return null;
                 type = null;
                 var style = state.tokenize(stream, state);
-                if ((style || type) && style != "comment") {
+                if ((style || type) && style !== "comment") {
                     setStyle = null;
                     state.state = state.state(type || style, stream, state);
                     if (setStyle)
@@ -367,7 +367,7 @@
                         return state.indented + indentUnit;
                 }
                 if (context && context.noIndent) return CodeMirror.Pass;
-                if (state.tokenize != inTag && state.tokenize != inText)
+                if (state.tokenize !== inTag && state.tokenize !== inText)
                     return fullLine ? fullLine.match(/^(\s*)/)[0].length : 0;
                 // Indent the starts of attribute names.
                 if (state.tagName) {

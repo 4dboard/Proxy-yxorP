@@ -82,7 +82,7 @@
             else if (isStringChar.test(ch))
                 state.tokenize = tokenWord(ch);
 
-            return (state.tokenize != tokenBase) ? state.tokenize(stream, state) : null;
+            return (state.tokenize !== tokenBase) ? state.tokenize(stream, state) : null;
         }
 
         return {

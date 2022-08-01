@@ -186,7 +186,7 @@
                     }
                     escaped = !escaped && ch === "\\";
                 }
-                if (ch === quote || !escaped && quote != ")") state.tokenize = null;
+                if (ch === quote || !escaped && quote !== ")") state.tokenize = null;
                 return ["string", "string"];
             };
         }

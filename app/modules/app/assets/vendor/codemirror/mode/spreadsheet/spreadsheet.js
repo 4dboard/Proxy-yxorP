@@ -97,7 +97,7 @@
                 } else if (stream.match(/^[a-zA-Z_]\w*/)) {
                     if (stream.match(/(?=[\(.])/, false)) return "keyword";
                     return "variable-2";
-                } else if (["[", "]", "(", ")", "{", "}"].indexOf(peek) != -1) {
+                } else if (["[", "]", "(", ")", "{", "}"].indexOf(peek) !== -1) {
                     stream.next();
                     return "bracket";
                 } else if (!stream.eatSpace()) {

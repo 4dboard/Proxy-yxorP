@@ -192,7 +192,7 @@
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != tokenBase && state.tokenize != null) return 0;
+                if (state.tokenize !== tokenBase && state.tokenize != null) return 0;
                 var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
                 if (ctx.type === "statement" && firstChar === "}") ctx = ctx.prev;
                 var closing = firstChar === ctx.type;

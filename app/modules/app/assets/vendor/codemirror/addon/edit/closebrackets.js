@@ -19,7 +19,7 @@
     var Pos = CodeMirror.Pos;
 
     CodeMirror.defineOption("autoCloseBrackets", false, function (cm, val, old) {
-        if (old && old != CodeMirror.Init) {
+        if (old && old !== CodeMirror.Init) {
             cm.removeKeyMap(keyMap);
             cm.state.closeBrackets = null;
         }
@@ -69,7 +69,7 @@
         for (var i = 0; i < ranges.length; i++) {
             if (!ranges[i].empty()) return CodeMirror.Pass;
             var around = charsAround(cm, ranges[i].head);
-            if (!around || pairs.indexOf(around) % 2 != 0) return CodeMirror.Pass;
+            if (!around || pairs.indexOf(around) % 2 !== 0) return CodeMirror.Pass;
         }
         for (var i = ranges.length - 1; i >= 0; i--) {
             var cur = ranges[i].head;
@@ -86,7 +86,7 @@
         for (var i = 0; i < ranges.length; i++) {
             if (!ranges[i].empty()) return CodeMirror.Pass;
             var around = charsAround(cm, ranges[i].head);
-            if (!around || explode.indexOf(around) % 2 != 0) return CodeMirror.Pass;
+            if (!around || explode.indexOf(around) % 2 !== 0) return CodeMirror.Pass;
         }
         cm.operation(function () {
             var linesep = cm.lineSeparator() || "\n";
@@ -158,7 +158,7 @@
                 curType = "addFour";
             } else if (identical) {
                 var prev = cur.ch === 0 ? " " : cm.getRange(Pos(cur.line, cur.ch - 1), cur)
-                if (!CodeMirror.isWordChar(next) && prev != ch && !CodeMirror.isWordChar(prev)) curType = "both";
+                if (!CodeMirror.isWordChar(next) && prev !== ch && !CodeMirror.isWordChar(prev)) curType = "both";
                 else return CodeMirror.Pass;
             } else if (opening && (next.length === 0 || /\s/.test(next) || closeBefore.indexOf(next) > -1)) {
                 curType = "both";
@@ -166,7 +166,7 @@
                 return CodeMirror.Pass;
             }
             if (!type) type = curType;
-            else if (type != curType) return CodeMirror.Pass;
+            else if (type !== curType) return CodeMirror.Pass;
         }
 
         var left = pos % 2 ? pairs.charAt(pos - 1) : ch;

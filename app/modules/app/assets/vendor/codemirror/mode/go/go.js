@@ -90,7 +90,7 @@
                         end = true;
                         break;
                     }
-                    escaped = !escaped && quote != "`" && next === "\\";
+                    escaped = !escaped && quote !== "`" && next === "\\";
                 }
                 if (end || !(escaped || quote === "`"))
                     state.tokenize = tokenBase;
@@ -167,7 +167,7 @@
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != tokenBase && state.tokenize != null) return CodeMirror.Pass;
+                if (state.tokenize !== tokenBase && state.tokenize != null) return CodeMirror.Pass;
                 var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
                 if (ctx.type === "case" && /^(?:case|default)\b/.test(textAfter)) {
                     state.context.type = "}";

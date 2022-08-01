@@ -20,7 +20,7 @@
     CodeMirror.simpleMode = function (config, states) {
         ensureState(states, "start");
         var states_ = {}, meta = states.meta || {}, hasIndentation = false;
-        for (var state in states) if (state != meta && states.hasOwnProperty(state)) {
+        for (var state in states) if (state !== meta && states.hasOwnProperty(state)) {
             var list = states_[state] = [], orig = states[state];
             for (var i = 0; i < orig.length; i++) {
                 var data = orig[i];

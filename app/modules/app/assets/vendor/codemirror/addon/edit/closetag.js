@@ -36,7 +36,7 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     CodeMirror.defineOption("autoCloseTags", false, function (cm, val, old) {
-        if (old != CodeMirror.Init && old)
+        if (old !== CodeMirror.Init && old)
             cm.removeKeyMap("autoCloseTags");
         if (!val) return;
         var map = {name: "autoCloseTags"};
@@ -76,7 +76,7 @@
             var lowerTagName = tagName.toLowerCase();
             // Don't process the '>' at the end of an end-tag or self-closing tag
             if (!tagName ||
-                tok.type === "string" && (tok.end != pos.ch || !/[\"\']/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length === 1) ||
+                tok.type === "string" && (tok.end !== pos.ch || !/[\"\']/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length === 1) ||
                 tok.type === "tag" && tagInfo.close ||
                 tok.string.indexOf("/") === (pos.ch - tok.start - 1) || // match something like <someTagName />
                 dontCloseTags && indexOf(dontCloseTags, lowerTagName) > -1 ||
@@ -120,14 +120,14 @@
             if (!ranges[i].empty()) return CodeMirror.Pass;
             var pos = ranges[i].head, tok = cm.getTokenAt(pos);
             var inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
-            if (typingSlash && (tok.type === "string" || tok.string.charAt(0) != "<" ||
-                tok.start != pos.ch - 1))
+            if (typingSlash && (tok.type === "string" || tok.string.charAt(0) !== "<" ||
+                tok.start !== pos.ch - 1))
                 return CodeMirror.Pass;
             // Kludge to get around the fact that we are not in XML mode
             // when completing in JS/CSS snippet in htmlmixed mode. Does not
             // work for other XML embedded languages (there is no general
             // way to go from a mixed mode to its current XML state).
-            var replacement, mixed = inner.mode.name != "xml" && cm.getMode().name === "htmlmixed"
+            var replacement, mixed = inner.mode.name !== "xml" && cm.getMode().name === "htmlmixed"
             if (mixed && inner.mode.name === "javascript") {
                 replacement = head + "script";
             } else if (mixed && inner.mode.name === "css") {
@@ -139,7 +139,7 @@
                     return CodeMirror.Pass;
                 replacement = head + top
             }
-            if (cm.getLine(pos.line).charAt(tok.end) != ">") replacement += ">";
+            if (cm.getLine(pos.line).charAt(tok.end) !== ">") replacement += ">";
             replacements[i] = replacement;
         }
         cm.replaceSelections(replacements);
@@ -173,7 +173,7 @@
         if (!CodeMirror.scanForClosingTag) return false;
         var end = Math.min(cm.lastLine() + 1, pos.line + 500);
         var nextClose = CodeMirror.scanForClosingTag(cm, pos, null, end);
-        if (!nextClose || nextClose.tag != tagName) return false;
+        if (!nextClose || nextClose.tag !== tagName) return false;
         // If the immediate wrapping context contains onCx instances of
         // the same tag, a closing tag only exists if there are at least
         // that many closing tags of that type following.
@@ -185,7 +185,7 @@
         pos = nextClose.to;
         for (var i = 1; i < onCx; i++) {
             var next = CodeMirror.scanForClosingTag(cm, pos, null, end);
-            if (!next || next.tag != tagName) return false;
+            if (!next || next.tag !== tagName) return false;
             pos = next.to;
         }
         return true;

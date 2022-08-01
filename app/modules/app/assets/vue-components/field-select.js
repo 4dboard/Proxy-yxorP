@@ -81,7 +81,7 @@ export default {
     methods: {
 
         selected(value) {
-            return !Array.isArray(this.val) || this.val.indexOf(value) === -1 ? false : true;
+            return !(!Array.isArray(this.val) || this.val.indexOf(value) === -1);
         },
 
         select(value) {

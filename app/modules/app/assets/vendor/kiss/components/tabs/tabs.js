@@ -31,7 +31,7 @@ customElements.define('kiss-tabs', class extends HTMLElement {
     }
 
     attributeChangedCallback(oldvalue, newvalue) {
-        if (oldvalue != newvalue) this.render();
+        if (oldvalue !== newvalue) this.render();
     }
 
     setIndex(index) {

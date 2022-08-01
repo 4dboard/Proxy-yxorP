@@ -10,7 +10,7 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     CodeMirror.defineOption("placeholder", "", function (cm, val, old) {
-        var prev = old && old != CodeMirror.Init;
+        var prev = old && old !== CodeMirror.Init;
         if (val && !prev) {
             cm.on("blur", onBlur);
             cm.on("change", onChange);

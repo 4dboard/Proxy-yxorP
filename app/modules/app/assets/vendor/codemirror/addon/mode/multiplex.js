@@ -63,13 +63,13 @@
 
                             state.inner = CodeMirror.startState(other.mode, outerIndent);
                             return other.delimStyle && (other.delimStyle + " " + other.delimStyle + "-open");
-                        } else if (found != -1 && found < cutOff) {
+                        } else if (found !== -1 && found < cutOff) {
                             cutOff = found;
                         }
                     }
-                    if (cutOff != Infinity) stream.string = oldContent.slice(0, cutOff);
+                    if (cutOff !== Infinity) stream.string = oldContent.slice(0, cutOff);
                     var outerToken = outer.token(stream, state.outer);
-                    if (cutOff != Infinity) stream.string = oldContent;
+                    if (cutOff !== Infinity) stream.string = oldContent;
                     return outerToken;
                 } else {
                     var curInner = state.innerActive, oldContent = stream.string;

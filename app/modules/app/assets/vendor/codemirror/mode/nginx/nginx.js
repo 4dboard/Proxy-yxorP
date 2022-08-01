@@ -155,7 +155,7 @@
                     else state.stack.push("{");
                 } else if (type === "}") state.stack.pop();
                 else if (type === "@media") state.stack.push("@media");
-                else if (context === "{" && type != "comment") state.stack.push("rule");
+                else if (context === "{" && type !== "comment") state.stack.push("rule");
                 return style;
             },
 

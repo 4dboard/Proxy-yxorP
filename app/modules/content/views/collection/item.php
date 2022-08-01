@@ -305,7 +305,7 @@
             computed: {
 
                 isModified() {
-                    return JSON.stringify(this.item) != this.savedItemState;
+                    return JSON.stringify(this.item) !== this.savedItemState;
                 },
 
                 hasLocales() {

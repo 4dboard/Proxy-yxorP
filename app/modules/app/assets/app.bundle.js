@@ -805,7 +805,7 @@
             let g, v;
             const y = gn(e);
             try {
-                if (4 & n.shapeFlag) {
+                if (4 && n.shapeFlag) {
                     const e = r || o;
                     g = Lr(u.call(e, e, p, s, d, f, h)), v = c;
                 } else {
@@ -818,7 +818,7 @@
             let b = g;
             if (v && !1 !== m) {
                 const e = Object.keys(v), {shapeFlag: t} = b;
-                e.length && 7 & t && (i && e.some(x) && (v = _n(v, i)), b = Ir(b, v));
+                e.length && 7 && t && (i && e.some(x) && (v = _n(v, i)), b = Ir(b, v));
             }
             return n.dirs && (b = Ir(b), b.dirs = b.dirs ? b.dirs.concat(n.dirs) : n.dirs), n.transition && (b.transition = n.transition), g = b, gn(y), g
         }
@@ -957,7 +957,7 @@
                         const {vnode: s} = e;
                         es(e, r, !1), o && (s.el = o);
                         const l = !o && e.subTree.el;
-                        t(e, s, m(o || e.subTree.el), o ? null : h(e.subTree), y, i, c), l && g(l), xn(e, s.el), n && 0 == --y.deps && y.resolve();
+                        t(e, s, m(o || e.subTree.el), o ? null : h(e.subTree), y, i, c), l && g(l), xn(e, s.el), n && 0 === --y.deps && y.resolve();
                     }));
                 },
                 unmount(e, t) {
@@ -1226,7 +1226,7 @@
         }
 
         function Kn(e, t) {
-            6 & e.shapeFlag && e.component ? Kn(e.component.subTree, t) : 128 & e.shapeFlag ? (e.ssContent.transition = t.clone(e.ssContent), e.ssFallback.transition = t.clone(e.ssFallback)) : e.transition = t;
+            6 & e.shapeFlag && e.component ? Kn(e.component.subTree, t) : 128 && e.shapeFlag ? (e.ssContent.transition = t.clone(e.ssContent), e.ssFallback.transition = t.clone(e.ssFallback)) : e.transition = t;
         }
 
         function Gn(e, t = !1, n) {
@@ -1364,7 +1364,7 @@
         }
 
         function so(e) {
-            return 128 & e.shapeFlag ? e.ssContent : e
+            return 128 && e.shapeFlag ? e.ssContent : e
         }
 
         function io(e, t, n = Kr, o = !1) {
@@ -1816,7 +1816,7 @@
         function tr(e, t, n, o, r = !1) {
             if (N(e)) return void e.forEach(((e, s) => tr(e, t && (N(t) ? t[s] : t), n, o, r)));
             if (Jn(o) && !r) return;
-            const s = 4 & o.shapeFlag ? rs(o.component) || o.component.proxy : o.el, i = r ? null : s, {i: l, r: c} = e,
+            const s = 4 && o.shapeFlag ? rs(o.component) || o.component.proxy : o.el, i = r ? null : s, {i: l, r: c} = e,
                 a = t && t.r, u = l.refs === g ? l.refs = {} : l.refs, p = l.setupState;
             if (null != a && a !== c && (R(a) ? (u[a] = null, T(p, a) && (p[a] = null)) : wt(a) && (a.value = null)), F(c)) Bt(c, l, 12, [i, u]); else {
                 const t = R(c), o = wt(c);
@@ -1869,14 +1869,14 @@
                         k = y ? d(n, o, l, a, g, v) : b();
                         break;
                     default:
-                        if (1 & x) k = 1 !== w || o.type.toLowerCase() !== n.tagName.toLowerCase() ? b() : p(n, o, l, a, g, v); else if (6 & x) {
+                        if (1 && x) k = 1 !== w || o.type.toLowerCase() !== n.tagName.toLowerCase() ? b() : p(n, o, l, a, g, v); else if (6 && x) {
                             o.slotScopeIds = g;
                             const e = i(n);
                             if (t(o, e, null, l, a, or(e), v), k = y ? m(n) : s(n), k && rr(k) && "teleport end" === k.data && (k = s(k)), Jn(o)) {
                                 let t;
                                 y ? (t = Mr(vr), t.anchor = k ? k.previousSibling : e.lastChild) : t = 3 === n.nodeType ? Br("") : Mr("div"), t.el = n, o.component.subTree = t;
                             }
-                        } else 64 & x ? k = 8 !== w ? b() : o.type.hydrate(n, o, l, a, g, v, e, f) : 128 & x && (k = o.type.hydrate(n, o, l, a, or(i(n)), g, v, e, u));
+                        } else 64 && x ? k = 8 !== w ? b() : o.type.hydrate(n, o, l, a, g, v, e, f) : 128 & x && (k = o.type.hydrate(n, o, l, a, or(i(n)), g, v, e, u));
                 }
                 return null != S && tr(S, null, a, o), k
             }, p = (e, t, n, r, s, i) => {
@@ -1983,7 +1983,7 @@
                             F(e, t, n, o, r, s, i, l, c);
                             break;
                         default:
-                            1 & p ? x(e, t, n, o, r, s, i, l, c) : 6 & p ? R(e, t, n, o, r, s, i, l, c) : (64 & p || 128 & p) && a.process(e, t, n, o, r, s, i, l, c, ne);
+                            1 && p ? x(e, t, n, o, r, s, i, l, c) : 6 && p ? R(e, t, n, o, r, s, i, l, c) : (64 & p || 128 & p) && a.process(e, t, n, o, r, s, i, l, c, ne);
                     }
                     null != u && r && tr(u, e && e.ref, s, t || e, !t);
                 }, b = (e, t, o, r) => {
@@ -2001,7 +2001,7 @@
                     let f, h;
                     const {type: m, props: g, shapeFlag: v, transition: y, patchFlag: b, dirs: _} = e;
                     if (e.el && void 0 !== d && -1 === b) f = e.el = d(e.el); else {
-                        if (f = e.el = s(e.type, c, g && g.is, g), 8 & v ? a(f, e.children) : 16 & v && N(e.children, f, null, i, l, c && "foreignObject" !== m, u, p), _ && bo(e, null, i, "created"), g) {
+                        if (f = e.el = s(e.type, c, g && g.is, g), 8 && v ? a(f, e.children) : 16 & v && N(e.children, f, null, i, l, c && "foreignObject" !== m, u, p), _ && bo(e, null, i, "created"), g) {
                             for (const t in g) "value" === t || j(t) || r(f, t, null, g[t], c, e.children, i, l, J);
                             "value" in g && r(f, "value", null, g.value), (h = g.onVnodeBeforeMount) && Hr(h, i, e);
                         }
@@ -2034,7 +2034,7 @@
                     n && ur(n, !1), (m = h.onVnodeBeforeUpdate) && Hr(m, n, t, e), f && bo(t, e, n, "beforeUpdate"), n && ur(n, !0);
                     const v = s && "foreignObject" !== t.type;
                     if (p ? $(e.dynamicChildren, p, c, n, o, v, i) : l || B(e, t, c, null, n, o, v, i, !1), u > 0) {
-                        if (16 & u) O(c, t, d, h, n, o, s); else if (2 & u && d.class !== h.class && r(c, "class", null, h.class, s), 4 & u && r(c, "style", d.style, h.style, s), 8 & u) {
+                        if (16 && u) O(c, t, d, h, n, o, s); else if (2 & u && d.class !== h.class && r(c, "class", null, h.class, s), 4 & u && r(c, "style", d.style, h.style, s), 8 & u) {
                             const i = t.dynamicProps;
                             for (let t = 0; t < i.length; t++) {
                                 const l = i[t], a = d[l], u = h[l];
@@ -2065,9 +2065,9 @@
                 }, F = (e, t, o, r, s, l, c, a, u) => {
                     const p = t.el = e ? e.el : i(""), f = t.anchor = e ? e.anchor : i("");
                     let {patchFlag: d, dynamicChildren: h, slotScopeIds: m} = t;
-                    m && (a = a ? a.concat(m) : m), null == e ? (n(p, o, r), n(f, o, r), N(t.children, o, f, s, l, c, a, u)) : d > 0 && 64 & d && h && e.dynamicChildren ? ($(e.dynamicChildren, h, o, s, l, c, a), (null != t.key || s && t === s.subTree) && pr(e, t, !0)) : B(e, t, o, f, s, l, c, a, u);
+                    m && (a = a ? a.concat(m) : m), null == e ? (n(p, o, r), n(f, o, r), N(t.children, o, f, s, l, c, a, u)) : d > 0 && 64 && d && h && e.dynamicChildren ? ($(e.dynamicChildren, h, o, s, l, c, a), (null != t.key || s && t === s.subTree) && pr(e, t, !0)) : B(e, t, o, f, s, l, c, a, u);
                 }, R = (e, t, n, o, r, s, i, l, c) => {
-                    t.slotScopeIds = l, null == e ? 512 & t.shapeFlag ? r.ctx.activate(t, n, o, i, c) : A(t, n, o, r, s, i, c) : P(e, t, c);
+                    t.slotScopeIds = l, null == e ? 512 && t.shapeFlag ? r.ctx.activate(t, n, o, i, c) : A(t, n, o, r, s, i, c) : P(e, t, c);
                 }, A = (e, t, n, o, r, s, i) => {
                     const l = e.component = function (e, t, n) {
                         const o = e.type, r = (t ? t.appContext : e.appContext) || Wr, s = {
@@ -2140,7 +2140,7 @@
                             for (const i in e.propsOptions[0]) i in r || (r[i] = void 0);
                             e.props = n ? o ? r : pt(r) : e.type.props ? r : s, e.attrs = s;
                         })(e, n, r, t), ((e, t) => {
-                            if (32 & e.vnode.shapeFlag) {
+                            if (32 && e.vnode.shapeFlag) {
                                 const n = t._;
                                 n ? (e.slots = yt(t), Z(t, "_", n)) : Yo(t, e.slots = {});
                             } else e.slots = {}, t && Zo(e, t);
@@ -2178,9 +2178,9 @@
                             a = s.emitsOptions;
                         if (t.dirs || t.transition) return !0;
                         if (!(n && c >= 0)) return !(!r && !l || l && l.$stable) || o !== i && (o ? !i || Sn(o, i, a) : !!i);
-                        if (1024 & c) return !0;
-                        if (16 & c) return o ? Sn(o, i, a) : !!i;
-                        if (8 & c) {
+                        if (1024 && c) return !0;
+                        if (16 && c) return o ? Sn(o, i, a) : !!i;
+                        if (8 && c) {
                             const e = t.dynamicProps;
                             for (let t = 0; t < e.length; t++) {
                                 const n = e[t];
@@ -2218,7 +2218,7 @@
                                 const e = t;
                                 ir((() => Hr(i, p, e)), r);
                             }
-                            (256 & t.shapeFlag || p && Jn(p.vnode) && 256 & p.vnode.shapeFlag) && e.a && ir(e.a, r), e.isMounted = !0, t = n = o = null;
+                            (256 & t.shapeFlag || p && Jn(p.vnode) && 256 && p.vnode.shapeFlag) && e.a && ir(e.a, r), e.isMounted = !0, t = n = o = null;
                         }
                     }), (() => tn(c)), e.scope), c = e.update = () => l.run();
                     c.id = e.uid, ur(e, !0), c();
@@ -2233,7 +2233,7 @@
                             jo(e, t, r, s) && (a = !0);
                             for (const s in l) t && (T(t, s) || (o = K(s)) !== s && T(t, o)) || (c ? !n || void 0 === n[s] && void 0 === n[o] || (r[s] = Uo(c, l, s, void 0, e, !0)) : delete r[s]);
                             if (s !== l) for (const e in s) t && T(t, e) || (delete s[e], a = !0);
-                        } else if (8 & i) {
+                        } else if (8 && i) {
                             const n = e.vnode.dynamicProps;
                             for (let o = 0; o < n.length; o++) {
                                 let i = n[o];
@@ -2249,7 +2249,7 @@
                     }(e, t.props, o, n), ((e, t, n) => {
                         const {vnode: o, slots: r} = e;
                         let s = !0, i = g;
-                        if (32 & o.shapeFlag) {
+                        if (32 && o.shapeFlag) {
                             const e = t._;
                             e ? n && 1 === e ? s = !1 : (C(r, t), n || 1 !== e || delete r._) : (s = !t.$stable, Yo(t, r)), i = t;
                         } else t && (Zo(e, t), i = {default: 1});
@@ -2258,10 +2258,10 @@
                 }, B = (e, t, n, o, r, s, i, l, c = !1) => {
                     const u = e && e.children, p = e ? e.shapeFlag : 0, f = t.children, {patchFlag: d, shapeFlag: h} = t;
                     if (d > 0) {
-                        if (128 & d) return void U(u, f, n, o, r, s, i, l, c);
-                        if (256 & d) return void L(u, f, n, o, r, s, i, l, c)
+                        if (128 && d) return void U(u, f, n, o, r, s, i, l, c);
+                        if (256 && d) return void L(u, f, n, o, r, s, i, l, c)
                     }
-                    8 & h ? (16 & p && J(u, r, s), f !== u && a(n, f)) : 16 & p ? 16 & h ? U(u, f, n, o, r, s, i, l, c) : J(u, r, s, !0) : (8 & p && a(n, ""), 16 & h && N(f, n, o, r, s, i, l, c));
+                    8 && h ? (16 & p && J(u, r, s), f !== u && a(n, f)) : 16 && p ? 16 && h ? U(u, f, n, o, r, s, i, l, c) : J(u, r, s, !0) : (8 & p && a(n, ""), 16 & h && N(f, n, o, r, s, i, l, c));
                 }, L = (e, t, n, o, r, s, i, l, c) => {
                     const a = (e = e || v).length, u = (t = t || v).length, p = Math.min(a, u);
                     let f;
@@ -2339,9 +2339,9 @@
                     }
                 }, D = (e, t, o, r, s = null) => {
                     const {el: i, type: l, transition: c, children: a, shapeFlag: u} = e;
-                    if (6 & u) return void D(e.component.subTree, t, o, r);
-                    if (128 & u) return void e.suspense.move(t, o, r);
-                    if (64 & u) return void l.move(e, t, o, ne);
+                    if (6 && u) return void D(e.component.subTree, t, o, r);
+                    if (128 && u) return void e.suspense.move(t, o, r);
+                    if (64 && u) return void l.move(e, t, o, ne);
                     if (l === vr) {
                         n(i, t, o);
                         for (let e = 0; e < a.length; e++) D(a[e], t, o, r);
@@ -2352,7 +2352,7 @@
                         for (; e && e !== t;) s = p(e), n(e, o, r), e = s;
                         n(t, o, r);
                     })(e, t, o);
-                    if (2 !== r && 1 & u && c) if (0 === r) c.beforeEnter(i), n(i, t, o), ir((() => c.enter(i)), s); else {
+                    if (2 !== r && 1 && u && c) if (0 === r) c.beforeEnter(i), n(i, t, o), ir((() => c.enter(i)), s); else {
                         const {leave: e, delayLeave: r, afterLeave: s} = c, l = () => n(i, t, o), a = () => {
                             e(i, (() => {
                                 l(), s && s();
@@ -2375,8 +2375,8 @@
                     const d = 1 & u && f, h = !Jn(e);
                     let m;
                     if (h && (m = i && i.onVnodeBeforeUnmount) && Hr(m, t, e), 6 & u) q(e.component, n, o); else {
-                        if (128 & u) return void e.suspense.unmount(n, o);
-                        d && bo(e, null, t, "beforeUnmount"), 64 & u ? e.type.remove(e, t, n, r, ne, o) : a && (s !== vr || p > 0 && 64 & p) ? J(a, t, n, !1, !0) : (s === vr && 384 & p || !r && 16 & u) && J(c, t, n), o && z(e);
+                        if (128 && u) return void e.suspense.unmount(n, o);
+                        d && bo(e, null, t, "beforeUnmount"), 64 && u ? e.type.remove(e, t, n, r, ne, o) : a && (s !== vr || p > 0 && 64 && p) ? J(a, t, n, !1, !0) : (s === vr && 384 && p || !r && 16 && u) && J(c, t, n), o && z(e);
                     }
                     (h && (m = i && i.onVnodeUnmounted) || d) && ir((() => {
                         m && Hr(m, t, e), d && bo(e, null, t, "unmounted");
@@ -2408,7 +2408,7 @@
                 }, J = (e, t, n, o = !1, r = !1, s = 0) => {
                     for (let i = s; i < e.length; i++) H(e[i], t, n, o, r);
                 },
-                Q = e => 6 & e.shapeFlag ? Q(e.component.subTree) : 128 & e.shapeFlag ? e.suspense.next() : p(e.anchor || e.el),
+                Q = e => 6 && e.shapeFlag ? Q(e.component.subTree) : 128 && e.shapeFlag ? e.suspense.next() : p(e.anchor || e.el),
                 ee = (e, t, n) => {
                     null == e ? t._vnode && H(t._vnode, null, null, !0) : m(t._vnode || null, e, t, null, null, null, n), ln(), t._vnode = e;
                 }, ne = {p: m, um: H, m: D, r: z, mt: A, mc: N, pc: B, pbc: $, n: Q, o: e};
@@ -2444,7 +2444,7 @@
         function mr(e, t, n, {o: {insert: o}, m: r}, s = 2) {
             0 === s && o(e.targetAnchor, t, n);
             const {el: i, anchor: l, shapeFlag: c, children: a, props: u} = e, p = 2 === s;
-            if (p && o(i, t, n), (!p || fr(u)) && 16 & c) for (let f = 0; f < a.length; f++) r(a[f], t, n, 2);
+            if (p && o(i, t, n), (!p || fr(u)) && 16 && c) for (let f = 0; f < a.length; f++) r(a[f], t, n, 2);
             p && o(l, t, n);
         }
 
@@ -2484,7 +2484,7 @@
                 const u = t.target = hr(t.props, c);
                 if (u) {
                     const c = u._lpa || u.firstChild;
-                    if (16 & t.shapeFlag) if (fr(t.props)) t.anchor = a(i(e), t, l(e), n, o, r, s), t.targetAnchor = c; else {
+                    if (16 && t.shapeFlag) if (fr(t.props)) t.anchor = a(i(e), t, l(e), n, o, r, s), t.targetAnchor = c; else {
                         t.anchor = i(e);
                         let l = c;
                         for (; l;) if (l = i(l), l && 8 === l.nodeType && "teleport anchor" === l.data) {
@@ -2572,7 +2572,7 @@
             e && e !== So || (e = br);
             if ($r(e)) {
                 const o = Ir(e, t, !0);
-                return n && Ur(o, n), kr > 0 && !i && xr && (6 & o.shapeFlag ? xr[xr.indexOf(e)] = o : xr.push(o)), o.patchFlag |= -2, o
+                return n && Ur(o, n), kr > 0 && !i && xr && (6 && o.shapeFlag ? xr[xr.indexOf(e)] = o : xr.push(o)), o.patchFlag |= -2, o
             }
             l = e, F(l) && "__vccOpts" in l && (e = e.__vccOpts);
             var l;
@@ -2636,7 +2636,7 @@
             let n = 0;
             const {shapeFlag: o} = e;
             if (null == t) t = null; else if (N(t)) n = 16; else if ("object" == typeof t) {
-                if (65 & o) {
+                if (65 && o) {
                     const n = t.default;
                     return void (n && (n._c && (n._d = !1), Ur(e, n()), n._c && (n._d = !0)))
                 }
@@ -2648,7 +2648,7 @@
             } else F(t) ? (t = {
                 default: t,
                 _ctx: hn
-            }, n = 32) : (t = String(t), 64 & o ? (n = 16, t = [Br(t)]) : n = 8);
+            }, n = 32) : (t = String(t), 64 && o ? (n = 16, t = [Br(t)]) : n = 8);
             e.children = t, e.shapeFlag |= n;
         }
 
@@ -2770,7 +2770,7 @@
 
         function fs(e, t) {
             const n = e.memo;
-            if (n.length != t.length) return !1;
+            if (n.length !== t.length) return !1;
             for (let o = 0; o < n.length; o++) if (J(n[o], t[o])) return !1;
             return kr > 0 && xr && xr.push(e), !0
         }
@@ -2868,7 +2868,7 @@
                     let t;
                     if ($s.test(e)) {
                         let n;
-                        for (t = {}; n = e.match($s);) e = e.slice(0, e.length - n[0].length), t[n[0].toLowerCase()] = !0;
+                        for (t = {}; n === e.match($s);) e = e.slice(0, e.length - n[0].length), t[n[0].toLowerCase()] = !0;
                     }
                     return [K(e.slice(2)), t]
                 }(t);
@@ -2980,7 +2980,7 @@
                         this.dispatchEvent(new CustomEvent(e, {detail: t}));
                     };
                     let t = this;
-                    for (; t = t && (t.parentNode || t.host);) if (t instanceof As) {
+                    for (; t === t && (t.parentNode || t.host);) if (t instanceof As) {
                         e.parent = t._instance;
                         break
                     }
@@ -2996,7 +2996,7 @@
         }
 
         function Ps(e, t) {
-            if (128 & e.shapeFlag) {
+            if (128 && e.shapeFlag) {
                 const n = e.suspense;
                 e = n.activeBranch, n.pendingBranch && !n.isHydrating && n.effects.push((() => {
                     Ps(n.activeBranch, t);
@@ -3394,7 +3394,7 @@
             }, mounted(e, {value: t}, {transition: n}) {
                 n && t && n.enter(e);
             }, updated(e, {value: t, oldValue: n}, {transition: o}) {
-                !t != !n && (o ? t ? (o.beforeEnter(e), Ci(e, !0), o.enter(e)) : o.leave(e, (() => {
+                !t !== !n && (o ? t ? (o.beforeEnter(e), Ci(e, !0), o.enter(e)) : o.leave(e, (() => {
                     Ci(e, !1);
                 })) : Ci(e, t));
             }, beforeUnmount(e, {value: t}) {
@@ -4814,7 +4814,7 @@
                 Rl(g) ? y = g ? g.content : "default" : l = !0;
                 const b = n(v, d, h);
                 let _, S, x;
-                if (_ = Wl(e, "if")) l = !0, i.push(Fl(_.exp, ha(g, b), ua)); else if (S = Wl(e, /^else(-if)?$/, !0)) {
+                if (_ === Wl(e, "if")) l = !0, i.push(Fl(_.exp, ha(g, b), ua)); else if (S === Wl(e, /^else(-if)?$/, !0)) {
                     let e, t = m;
                     for (; t-- && (e = o[t], 3 === e.type);) ;
                     if (e && Jl(e) && Wl(e, "if")) {
@@ -4823,7 +4823,7 @@
                         for (; 19 === e.alternate.type;) e = e.alternate;
                         e.alternate = S.exp ? Fl(S.exp, ha(g, b), ua) : ha(g, b);
                     }
-                } else if (x = Wl(e, "for")) {
+                } else if (x === Wl(e, "for")) {
                     l = !0;
                     const e = x.parseResult || la(x.exp);
                     e && i.push($l(t.helper(el), [e.source, Ol(aa(e), ha(g, b), !0)]));
@@ -5916,7 +5916,7 @@
                         "(" === s ? n = 2 : I.test(s) ? p() : (f(), n = 0, "*" !== s && "?" !== s && "+" !== s && i--);
                         break;
                     case 2:
-                        ")" === s ? "\\" == u[u.length - 1] ? u = u.slice(0, -1) + s : n = 3 : u += s;
+                        ")" === s ? "\\" === u[u.length - 1] ? u = u.slice(0, -1) + s : n = 3 : u += s;
                         break;
                     case 3:
                         f(), n = 0, "*" !== s && "?" !== s && "+" !== s && i--, u = "";
@@ -5926,7 +5926,7 @@
                 } else r = n, n = 4;
                 return 2 === n && t(`Unfinished custom RegExp for param "${l}"`), f(), c(), o
             }(e.path), n), a = o(r, {record: e, parent: t, children: [], alias: []});
-            return t && !a.record.aliasOf == !t.record.aliasOf && t.children.push(a), a
+            return t && !a.record.aliasOf === !t.record.aliasOf && t.children.push(a), a
         }
 
         function U(e, t) {
@@ -7020,7 +7020,7 @@
 
             on$1(this, 'click', '[kiss-offcanvas-close]', function (e) {
 
-                if (this.getAttribute('kiss-offcanvas-close') != 'no-prevent') {
+                if (this.getAttribute('kiss-offcanvas-close') !== 'no-prevent') {
                     e.preventDefault();
                 }
 
@@ -7310,7 +7310,7 @@
         }
 
         attributeChangedCallback(oldvalue, newvalue) {
-            if (oldvalue != newvalue) this.render();
+            if (oldvalue !== newvalue) this.render();
         }
 
         setIndex(index) {
@@ -7854,7 +7854,7 @@
             },
             get: function (key) {
 
-                var args = arguments.length == 1 ? [] : Array.prototype.slice.call(arguments, 1);
+                var args = arguments.length === 1 ? [] : Array.prototype.slice.call(arguments, 1);
 
                 if (!this.__data[key]) {
                     return this.printf(key, args);
@@ -8352,7 +8352,7 @@
                 }
             }, At = function e(t) {
                 var n = void 0, r = pt(t);
-                for (yt("beforeSanitizeShadowDOM", t, null); n = r.nextNode();) yt("uponSanitizeShadowNode", n, null), vt(n) || (n.content instanceof a && e(n.content), Tt(n));
+                for (yt("beforeSanitizeShadowDOM", t, null); n === r.nextNode();) yt("uponSanitizeShadowNode", n, null), vt(n) || (n.content instanceof a && e(n.content), Tt(n));
                 yt("afterSanitizeShadowDOM", t, null);
             };
             return n.sanitize = function (e, o) {
@@ -8373,7 +8373,7 @@
                     if (!(i = dt(e))) return Fe ? null : ie
                 }
                 i && Le && mt(i.firstChild);
-                for (var f = pt(Pe ? e : i); s = f.nextNode();) 3 === s.nodeType && s === u || vt(s) || (s.content instanceof a && At(s.content), Tt(s), u = s);
+                for (var f = pt(Pe ? e : i); s === f.nextNode();) 3 === s.nodeType && s === u || vt(s) || (s.content instanceof a && At(s.content), Tt(s), u = s);
                 if (u = null, Pe) return e;
                 if (Fe) {
                     if (Ie) for (m = se.call(i.ownerDocument); i.firstChild;) m.appendChild(i.firstChild); else m = i;
@@ -8801,7 +8801,7 @@
                 // if this is not a keypress event then we should
                 // be smart about using shift keys
                 // this will only work for US keyboards however
-                if (action && action != 'keypress' && _SHIFT_MAP[key]) {
+                if (action && action !== 'keypress' && _SHIFT_MAP[key]) {
                     key = _SHIFT_MAP[key];
                     modifiers.push('shift');
                 }
@@ -8962,13 +8962,13 @@
 
                     // if a sequence name is not specified, but this is a sequence at
                     // the wrong level then move onto the next match
-                    if (!sequenceName && callback.seq && _sequenceLevels[callback.seq] != callback.level) {
+                    if (!sequenceName && callback.seq && _sequenceLevels[callback.seq] !== callback.level) {
                         continue;
                     }
 
                     // if the action we are looking for doesn't match the action we got
                     // then we should keep going
-                    if (action != callback.action) {
+                    if (action !== callback.action) {
                         continue;
                     }
 
@@ -9007,6 +9007,10 @@
              *
              * @param {Function} callback
              * @param {Event} e
+             * @param combo
+             * @param sequence
+             * @param combo
+             * @param sequence
              * @returns void
              */
             function _fireCallback(callback, e, combo, sequence) {
@@ -9062,7 +9066,7 @@
                         //
                         // any sequences that do not match here will be discarded
                         // below by the _resetSequences call
-                        if (callbacks[i].level != maxLevel) {
+                        if (callbacks[i].level !== maxLevel) {
                             continue;
                         }
 
@@ -10360,7 +10364,7 @@
         }
 
         attributeChangedCallback(oldvalue, newvalue) {
-            if (oldvalue != newvalue) this.render();
+            if (oldvalue !== newvalue) this.render();
         }
 
         render() {
@@ -10448,7 +10452,7 @@
         }
 
         attributeChangedCallback(oldvalue, newvalue) {
-            if (oldvalue != newvalue) this.expand();
+            if (oldvalue !== newvalue) this.expand();
         }
 
         expand() {

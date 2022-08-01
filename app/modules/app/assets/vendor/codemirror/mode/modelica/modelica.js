@@ -159,7 +159,7 @@
                     state.tokenize = tokenIdent;
                 }
                 // Q-IDENT
-                else if (ch === "'" && stream.peek() && stream.peek() != "'") {
+                else if (ch === "'" && stream.peek() && stream.peek() !== "'") {
                     state.tokenize = tokenQIdent;
                 }
                 // STRING

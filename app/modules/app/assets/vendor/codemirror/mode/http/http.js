@@ -94,7 +94,7 @@
         return {
             token: function (stream, state) {
                 var cur = state.cur;
-                if (cur != header && cur != body && stream.eatSpace()) return null;
+                if (cur !== header && cur !== body && stream.eatSpace()) return null;
                 return cur(stream, state);
             },
 

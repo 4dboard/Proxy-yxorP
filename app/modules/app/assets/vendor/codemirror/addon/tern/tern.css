@@ -20,19 +20,9 @@
     box-sizing: border-box;
 }
 
-.CodeMirror-Tern-completion-unknown:before {
-    content: "?";
-    background: #4bb;
-}
-
 .CodeMirror-Tern-completion-object:before {
     content: "O";
     background: #77c;
-}
-
-.CodeMirror-Tern-completion-fn:before {
-    content: "F";
-    background: #7c7;
 }
 
 .CodeMirror-Tern-completion-array:before {
@@ -50,46 +40,9 @@
     background: #999;
 }
 
-.CodeMirror-Tern-completion-bool:before {
-    content: "B";
-    background: #999;
-}
-
-.CodeMirror-Tern-completion-guess {
-    color: #999;
-}
-
-.CodeMirror-Tern-tooltip {
-    border: 1px solid silver;
-    border-radius: 3px;
-    color: #444;
-    padding: 2px 5px;
-    font-size: 90%;
-    font-family: monospace;
-    background-color: white;
-    white-space: pre-wrap;
-
-    max-width: 40em;
-    position: absolute;
-    z-index: 10;
-    -webkit-box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
-    -moz-box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
-    box-shadow: 2px 3px 5px rgba(0, 0, 0, .2);
-
-    transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -webkit-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    -ms-transition: opacity 1s;
-}
-
 .CodeMirror-Tern-hint-doc {
     max-width: 25em;
     margin-top: -3px;
-}
-
-.CodeMirror-Tern-fname {
-    color: black;
 }
 
 .CodeMirror-Tern-farg {
@@ -104,6 +57,3 @@
     color: #07c;
 }
 
-.CodeMirror-Tern-fhint-guess {
-    opacity: .7;
-}

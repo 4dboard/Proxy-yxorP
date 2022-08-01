@@ -138,7 +138,7 @@
                 }
 
                 var str = "";
-                if (ch != "/") {
+                if (ch !== "/") {
                     str += ch;
                 }
                 var c = null;

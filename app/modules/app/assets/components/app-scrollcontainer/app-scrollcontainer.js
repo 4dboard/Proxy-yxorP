@@ -24,7 +24,7 @@ customElements.define('app-scrollcontainer', class extends HTMLElement {
     }
 
     attributeChangedCallback(oldvalue, newvalue) {
-        if (oldvalue != newvalue) this.expand();
+        if (oldvalue !== newvalue) this.expand();
     }
 
     expand() {

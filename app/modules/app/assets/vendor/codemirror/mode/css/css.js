@@ -105,7 +105,7 @@
                     }
                     escaped = !escaped && ch === "\\";
                 }
-                if (ch === quote || !escaped && quote != ")") state.tokenize = null;
+                if (ch === quote || !escaped && quote !== ")") state.tokenize = null;
                 return ret("string", "string");
             };
         }
@@ -374,7 +374,7 @@
             if (type === "}") return popContext(state);
             if (type === "{" || type === ";") return popAndPass(type, stream, state);
             if (type === "word") override = "variable";
-            else if (type != "variable" && type != "(" && type != ")") override = "error";
+            else if (type !== "variable" && type !== "(" && type !== ")") override = "error";
             return "interpolation";
         };
 
@@ -396,7 +396,7 @@
                     style = style[0];
                 }
                 override = style;
-                if (type != "comment")
+                if (type !== "comment")
                     state.state = states[state.state](type, stream, state);
                 return override;
             },

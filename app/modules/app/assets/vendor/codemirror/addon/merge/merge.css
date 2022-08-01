@@ -32,7 +32,7 @@
 
 .CodeMirror-merge-pane-rightmost {
     position: absolute;
-    right: 0px;
+    right: 0;
     z-index: 1;
 }
 
@@ -69,15 +69,6 @@
 
 .CodeMirror-merge-scrolllock.CodeMirror-merge-scrolllock-enabled:after {
     content: "\21db\21da";
-}
-
-.CodeMirror-merge-copybuttons-left, .CodeMirror-merge-copybuttons-right {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    line-height: 1;
 }
 
 .CodeMirror-merge-copy {
@@ -175,6 +166,3 @@
     border-radius: 4px;
 }
 
-.CodeMirror-merge-collapsed-line .CodeMirror-gutter-elt {
-    display: none;
-}

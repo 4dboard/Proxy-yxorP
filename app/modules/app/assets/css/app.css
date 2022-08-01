@@ -77,12 +77,6 @@ html[data-theme='light'] {
     --app-scrollbar-color: var(--kiss-color-muted);
 }
 
-html[data-theme='light'] .kiss-bgcolor-transparentimage {
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, .15) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, .15) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, .15) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, .15) 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-}
-
 html[data-theme='light'] [active="true"] .kiss-tabs-nav-link:after {
     border-color: var(--kiss-color-primary);
     border-width: 2px;
@@ -363,11 +357,6 @@ app-actionbar kiss-container {
     display: inline-block;
     font-weight: normal;
     font-size: 11px;
-}
-
-.field-layout-dragarea {
-    min-height: 47px;
-    border-radius: var(--app-border-radius);
 }
 
 .sortable-chosen[data-draggable="true"] {

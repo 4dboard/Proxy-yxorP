@@ -206,7 +206,7 @@
 
         //add separator
         var indexOfSeparator = fullQuery.indexOf(CONS.QUERY_DIV);
-        while (indexOfSeparator != -1) {
+        while (indexOfSeparator !== -1) {
             separator.push(doc.posFromIndex(indexOfSeparator));
             indexOfSeparator = fullQuery.indexOf(CONS.QUERY_DIV, indexOfSeparator + 1);
         }

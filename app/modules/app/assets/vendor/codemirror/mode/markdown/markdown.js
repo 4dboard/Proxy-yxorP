@@ -569,7 +569,7 @@
 
             if (modeCfg.xml && ch === '<' && stream.match(/^(!--|\?|!\[CDATA\[|[a-z][a-z0-9-]*(?:\s+[a-z_:.\-]+(?:\s*=\s*[^>]+)?)*\s*(?:>|$))/i, false)) {
                 var end = stream.string.indexOf(">", stream.pos);
-                if (end != -1) {
+                if (end !== -1) {
                     var atts = stream.string.substring(stream.start, end);
                     if (/markdown\s*=\s*('|"){0,1}1('|"){0,1}/.test(atts)) state.md_inside = true;
                 }
@@ -844,7 +844,7 @@
                 // Reset state.formatting
                 state.formatting = false;
 
-                if (stream != state.thisLine.stream) {
+                if (stream !== state.thisLine.stream) {
                     state.header = 0;
                     state.hr = false;
 
@@ -865,7 +865,7 @@
 
                     if (!state.localState) {
                         state.f = state.block;
-                        if (state.f != htmlBlock) {
+                        if (state.f !== htmlBlock) {
                             var indentation = stream.match(/^\s*/, true)[0].replace(/\t/g, expandedTab).length;
                             state.indentation = indentation;
                             state.indentationDiff = null;

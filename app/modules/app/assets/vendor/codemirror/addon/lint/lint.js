@@ -130,7 +130,7 @@
             inner.className = "CodeMirror-lint-marker CodeMirror-lint-marker-multiple";
         }
 
-        if (tooltips != false) CodeMirror.on(inner, "mouseover", function (e) {
+        if (tooltips !== false) CodeMirror.on(inner, "mouseover", function (e) {
             showTooltipFor(cm, e, labels, inner);
         });
 
@@ -176,7 +176,7 @@
         cm.on("change", abort)
         getAnnotations(cm.getValue(), function (annotations, arg2) {
             cm.off("change", abort)
-            if (state.waitingFor != id) return
+            if (state.waitingFor !== id) return
             if (arg2 && annotations instanceof CodeMirror) annotations = arg2
             cm.operation(function () {
                 updateLinting(cm, annotations)
@@ -290,7 +290,7 @@
     }
 
     CodeMirror.defineOption("lint", false, function (cm, val, old) {
-        if (old && old != CodeMirror.Init) {
+        if (old && old !== CodeMirror.Init) {
             clearMarks(cm);
             if (cm.state.lint.options.lintOnChange !== false)
                 cm.off("change", onChange);
@@ -305,7 +305,7 @@
             var state = cm.state.lint = new LintState(cm, val, hasLintGutter);
             if (state.options.lintOnChange)
                 cm.on("change", onChange);
-            if (state.options.tooltips != false && state.options.tooltips != "gutter")
+            if (state.options.tooltips !== false && state.options.tooltips !== "gutter")
                 CodeMirror.on(cm.getWrapperElement(), "mouseover", state.onMouseOver);
 
             startLinting(cm);

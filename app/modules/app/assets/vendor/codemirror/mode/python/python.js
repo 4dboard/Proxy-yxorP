@@ -50,10 +50,10 @@
         var hangingIndent = parserConf.hangingIndent || conf.indentUnit;
 
         var myKeywords = commonKeywords, myBuiltins = commonBuiltins;
-        if (parserConf.extra_keywords != undefined)
+        if (parserConf.extra_keywords !== undefined)
             myKeywords = myKeywords.concat(parserConf.extra_keywords);
 
-        if (parserConf.extra_builtins != undefined)
+        if (parserConf.extra_builtins !== undefined)
             myBuiltins = myBuiltins.concat(parserConf.extra_builtins);
 
         var py3 = !(parserConf.version && Number(parserConf.version) < 3)
@@ -76,7 +76,7 @@
 
         // tokenizers
         function tokenBase(stream, state) {
-            var sol = stream.sol() && state.lastToken != "\\"
+            var sol = stream.sol() && state.lastToken !== "\\"
             if (sol) state.indent = stream.indentation()
             // Handle scope changes
             if (sol && top(state).type === "py") {
@@ -85,7 +85,7 @@
                     var lineOffset = stream.indentation();
                     if (lineOffset > scopeOffset)
                         pushPyScope(state);
-                    else if (lineOffset < scopeOffset && dedent(stream, state) && stream.peek() != "#")
+                    else if (lineOffset < scopeOffset && dedent(stream, state) && stream.peek() !== "#")
                         state.errorToken = true;
                     return null;
                 } else {
@@ -283,7 +283,7 @@
         }
 
         function pushPyScope(state) {
-            while (top(state).type != "py") state.scopes.pop()
+            while (top(state).type !== "py") state.scopes.pop()
             state.scopes.push({
                 offset: top(state).offset + conf.indentUnit,
                 type: "py",
@@ -303,10 +303,10 @@
         function dedent(stream, state) {
             var indented = stream.indentation();
             while (state.scopes.length > 1 && top(state).offset > indented) {
-                if (top(state).type != "py") return true;
+                if (top(state).type !== "py") return true;
                 state.scopes.pop();
             }
-            return top(state).offset != indented;
+            return top(state).offset !== indented;
         }
 
         function tokenLexer(stream, state) {
@@ -338,11 +338,11 @@
 
             if (current.length === 1 && !/string|comment/.test(style)) {
                 var delimiter_index = "[({".indexOf(current);
-                if (delimiter_index != -1)
+                if (delimiter_index !== -1)
                     pushBracketScope(stream, state, "])}".slice(delimiter_index, delimiter_index + 1));
 
                 delimiter_index = "])}".indexOf(current);
-                if (delimiter_index != -1) {
+                if (delimiter_index !== -1) {
                     if (top(state).type === current) state.indent = state.scopes.pop().offset - hangingIndent
                     else return ERRORCLASS;
                 }
@@ -370,7 +370,7 @@
                 if (addErr) state.errorToken = false;
                 var style = tokenLexer(stream, state);
 
-                if (style && style != "comment")
+                if (style && style !== "comment")
                     state.lastToken = (style === "keyword" || style === "punctuation") ? stream.current() : style;
                 if (style === "punctuation") style = null;
 
@@ -380,7 +380,7 @@
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != tokenBase)
+                if (state.tokenize !== tokenBase)
                     return state.tokenize.isString ? CodeMirror.Pass : 0;
 
                 var scope = top(state)

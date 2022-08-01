@@ -75,7 +75,7 @@
             return "punctuation"
         }
         var stringMatch
-        if (stringMatch = stream.match(/("""|"|')/)) {
+        if (stringMatch === stream.match(/("""|"|')/)) {
             var tokenize = tokenString.bind(null, stringMatch[0])
             state.tokenize.push(tokenize)
             return tokenize(stream, state)

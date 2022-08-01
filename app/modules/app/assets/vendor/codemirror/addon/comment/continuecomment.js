@@ -22,7 +22,7 @@
             if (!/\bcomment\b/.test(cm.getTokenTypeAt(pos))) return CodeMirror.Pass;
             var modeHere = cm.getModeAt(pos)
             if (!mode) mode = modeHere;
-            else if (mode != modeHere) return CodeMirror.Pass;
+            else if (mode !== modeHere) return CodeMirror.Pass;
 
             var insert = null, line, found;
             var blockStart = mode.blockCommentStart, lineCmt = mode.lineComment;
@@ -31,7 +31,7 @@
                 var end = line.lastIndexOf(mode.blockCommentEnd, pos.ch - mode.blockCommentEnd.length);
                 // 1. if this block comment ended
                 // 2. if this is actually inside a line comment
-                if (end != -1 && end === pos.ch - mode.blockCommentEnd.length ||
+                if (end !== -1 && end === pos.ch - mode.blockCommentEnd.length ||
                     lineCmt && (found = line.lastIndexOf(lineCmt, pos.ch - 1)) > -1 &&
                     /\bcomment\b/.test(cm.getTokenTypeAt({line: pos.line, ch: found + 1}))) {
                     // ...then don't continue it
@@ -101,7 +101,7 @@
     }
 
     CodeMirror.defineOption("continueComments", null, function (cm, val, prev) {
-        if (prev && prev != CodeMirror.Init)
+        if (prev && prev !== CodeMirror.Init)
             cm.removeKeyMap("continueComment");
         if (val) {
             var key = "Enter";

@@ -98,7 +98,7 @@
                 inside = true;
         }
         var cursor = inside ? data.value : "";
-        if (cm.display.lineDiv.style.cursor != cursor)
+        if (cm.display.lineDiv.style.cursor !== cursor)
             cm.display.lineDiv.style.cursor = cursor;
     }
 });

@@ -121,8 +121,8 @@
 
         function tokenBase(stream, state) {
             var ch = stream.peek(), style;
-            if (hooks[ch] && (style = hooks[ch](stream, state)) != false) return style;
-            if (hooks.tokenBase && (style = hooks.tokenBase(stream, state)) != false)
+            if (hooks[ch] && (style = hooks[ch](stream, state)) !== false) return style;
+            if (hooks.tokenBase && (style = hooks.tokenBase(stream, state)) !== false)
                 return style;
 
             if (/[,;:\.]/.test(ch)) {
@@ -453,7 +453,7 @@
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != tokenBase && state.tokenize != null) return CodeMirror.Pass;
+                if (state.tokenize !== tokenBase && state.tokenize != null) return CodeMirror.Pass;
                 if (hooks.indent) {
                     var fromHook = hooks.indent(state);
                     if (fromHook >= 0) return fromHook;
@@ -651,7 +651,7 @@
                         // This starts a statement if the position is at the scope level
                         // and we're not within a statement leading comment.
                         beginStatement =
-                            (stream.peek() != " ") &&   // not a space
+                            (stream.peek() !== " ") &&   // not a space
                             (style === undefined) &&    // not a region identifier
                             !state.tlvInBlockComment && // not in block comment
                             //!stream.match(tlvCommentMatch, false) && // not comment start
@@ -709,7 +709,7 @@
                             state.tlvInBlockComment = true;
                         }
                         style = "comment";
-                    } else if (match = stream.match(tlvIdentMatch)) {
+                    } else if (match === stream.match(tlvIdentMatch)) {
                         // looks like an identifier (or identifier prefix)
                         var prefix = match[1];
                         var mnemonic = match[2];
@@ -736,7 +736,7 @@
                     } else if (stream.match(/^[\[\]{}\(\);\:]+/)) {
                         // [:], (), {}, ;.
                         style = "meta";
-                    } else if (match = stream.match(/^[mM]4([\+_])?[\w\d_]*/)) {
+                    } else if (match === stream.match(/^[mM]4([\+_])?[\w\d_]*/)) {
                         // m4 pre proc
                         style = (match[1] === "+") ? "tlv-m4-plus" : "tlv-m4";
                     } else if (stream.match(/^ +/)) {

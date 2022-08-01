@@ -60,7 +60,7 @@
                 } else if (stream.eatSpace()) {
                     return null;
                 } else if (state.lhs && stream.eatWhile(function (c) {
-                    return c != '=' && c != ' ';
+                    return c !== '=' && c !== ' ';
                 })) {
                     return "property";
                 } else if (state.lhs && stream.peek() === "=") {

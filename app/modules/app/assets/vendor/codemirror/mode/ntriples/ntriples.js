@@ -119,7 +119,7 @@
                     transitState(state, ch);
                     var parsedURI = '';
                     stream.eatWhile(function (c) {
-                        if (c != '#' && c != '>') {
+                        if (c !== '#' && c !== '>') {
                             parsedURI += c;
                             return true;
                         }
@@ -134,7 +134,7 @@
                 if (ch === '#') {
                     var parsedAnchor = '';
                     stream.eatWhile(function (c) {
-                        if (c != '>' && c != ' ') {
+                        if (c !== '>' && c !== ' ') {
                             parsedAnchor += c;
                             return true;
                         }
@@ -151,7 +151,7 @@
                     transitState(state, ch);
                     var parsedBNode = '';
                     stream.eatWhile(function (c) {
-                        if (c != ' ') {
+                        if (c !== ' ') {
                             parsedBNode += c;
                             return true;
                         }
@@ -165,10 +165,10 @@
                 if (ch === '"') {
                     transitState(state, ch);
                     stream.eatWhile(function (c) {
-                        return c != '"';
+                        return c !== '"';
                     });
                     stream.next();
-                    if (stream.peek() != '@' && stream.peek() != '^') {
+                    if (stream.peek() !== '@' && stream.peek() !== '^') {
                         transitState(state, '"');
                     }
                     return 'string';
@@ -177,7 +177,7 @@
                     transitState(state, '@');
                     var parsedLang = '';
                     stream.eatWhile(function (c) {
-                        if (c != ' ') {
+                        if (c !== ' ') {
                             parsedLang += c;
                             return true;
                         }
@@ -193,7 +193,7 @@
                     transitState(state, '^');
                     var parsedType = '';
                     stream.eatWhile(function (c) {
-                        if (c != '>') {
+                        if (c !== '>') {
                             parsedType += c;
                             return true;
                         }

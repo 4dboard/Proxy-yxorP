@@ -261,10 +261,6 @@
     }
 }
 
-.wobble {
-    animation-name: wobble;
-}
-
 @keyframes jello {
     from,
     11.1%,
@@ -299,11 +295,6 @@
     88.8% {
         transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
     }
-}
-
-.jello {
-    animation-name: jello;
-    transform-origin: center;
 }
 
 @keyframes heartBeat {
@@ -481,10 +472,6 @@
     }
 }
 
-.bounceInRight {
-    animation-name: bounceInRight;
-}
-
 @keyframes bounceInUp {
     from,
     60%,
@@ -515,10 +502,6 @@
     to {
         transform: translate3d(0, 0, 0);
     }
-}
-
-.bounceInUp {
-    animation-name: bounceInUp;
 }
 
 @keyframes bounceOut {
@@ -560,10 +543,6 @@
     }
 }
 
-.bounceOutDown {
-    animation-name: bounceOutDown;
-}
-
 @keyframes bounceOutLeft {
     20% {
         opacity: 1;
@@ -574,10 +553,6 @@
         opacity: 0;
         transform: translate3d(-2000px, 0, 0);
     }
-}
-
-.bounceOutLeft {
-    animation-name: bounceOutLeft;
 }
 
 @keyframes bounceOutRight {
@@ -611,10 +586,6 @@
         opacity: 0;
         transform: translate3d(0, -2000px, 0);
     }
-}
-
-.bounceOutUp {
-    animation-name: bounceOutUp;
 }
 
 @keyframes fadeIn {
@@ -659,10 +630,6 @@
     }
 }
 
-.fadeInDownBig {
-    animation-name: fadeInDownBig;
-}
-
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -691,10 +658,6 @@
     }
 }
 
-.fadeInLeftBig {
-    animation-name: fadeInLeftBig;
-}
-
 @keyframes fadeInRight {
     from {
         opacity: 0;
@@ -707,10 +670,6 @@
     }
 }
 
-.fadeInRight {
-    animation-name: fadeInRight;
-}
-
 @keyframes fadeInRightBig {
     from {
         opacity: 0;
@@ -721,10 +680,6 @@
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
-}
-
-.fadeInRightBig {
-    animation-name: fadeInRightBig;
 }
 
 @keyframes fadeInUp {
@@ -753,10 +708,6 @@
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
-}
-
-.fadeInUpBig {
-    animation-name: fadeInUpBig;
 }
 
 @keyframes fadeOut {
@@ -799,10 +750,6 @@
     }
 }
 
-.fadeOutDownBig {
-    animation-name: fadeOutDownBig;
-}
-
 @keyframes fadeOutLeft {
     from {
         opacity: 1;
@@ -827,10 +774,6 @@
         opacity: 0;
         transform: translate3d(-2000px, 0, 0);
     }
-}
-
-.fadeOutLeftBig {
-    animation-name: fadeOutLeftBig;
 }
 
 @keyframes fadeOutRight {
@@ -859,10 +802,6 @@
     }
 }
 
-.fadeOutRightBig {
-    animation-name: fadeOutRightBig;
-}
-
 @keyframes fadeOutUp {
     from {
         opacity: 1;
@@ -874,10 +813,6 @@
     }
 }
 
-.fadeOutUp {
-    animation-name: fadeOutUp;
-}
-
 @keyframes fadeOutUpBig {
     from {
         opacity: 1;
@@ -887,10 +822,6 @@
         opacity: 0;
         transform: translate3d(0, -2000px, 0);
     }
-}
-
-.fadeOutUpBig {
-    animation-name: fadeOutUpBig;
 }
 
 @keyframes flip {
@@ -951,11 +882,6 @@
     }
 }
 
-.flipInX {
-    backface-visibility: visible !important;
-    animation-name: flipInX;
-}
-
 @keyframes flipInY {
     from {
         transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
@@ -1003,12 +929,6 @@
     }
 }
 
-.flipOutX {
-    animation-duration: 0.75s;
-    animation-name: flipOutX;
-    backface-visibility: visible !important;
-}
-
 @keyframes flipOutY {
     from {
         transform: perspective(400px);
@@ -1023,12 +943,6 @@
         transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
         opacity: 0;
     }
-}
-
-.flipOutY {
-    animation-duration: 0.75s;
-    backface-visibility: visible !important;
-    animation-name: flipOutY;
 }
 
 @keyframes lightSpeedIn {
@@ -1122,10 +1036,6 @@
     }
 }
 
-.rotateInDownRight {
-    animation-name: rotateInDownRight;
-}
-
 @keyframes rotateInUpLeft {
     from {
         transform-origin: left bottom;
@@ -1158,10 +1068,6 @@
     }
 }
 
-.rotateInUpRight {
-    animation-name: rotateInUpRight;
-}
-
 @keyframes rotateOut {
     from {
         transform-origin: center;
@@ -1192,10 +1098,6 @@
     }
 }
 
-.rotateOutDownLeft {
-    animation-name: rotateOutDownLeft;
-}
-
 @keyframes rotateOutDownRight {
     from {
         transform-origin: right bottom;
@@ -1207,10 +1109,6 @@
         transform: rotate3d(0, 0, 1, -45deg);
         opacity: 0;
     }
-}
-
-.rotateOutDownRight {
-    animation-name: rotateOutDownRight;
 }
 
 @keyframes rotateOutUpLeft {
@@ -1226,10 +1124,6 @@
     }
 }
 
-.rotateOutUpLeft {
-    animation-name: rotateOutUpLeft;
-}
-
 @keyframes rotateOutUpRight {
     from {
         transform-origin: right bottom;
@@ -1241,10 +1135,6 @@
         transform: rotate3d(0, 0, 1, 90deg);
         opacity: 0;
     }
-}
-
-.rotateOutUpRight {
-    animation-name: rotateOutUpRight;
 }
 
 @keyframes hinge {
@@ -1298,10 +1188,6 @@
         opacity: 1;
         transform: scale(1);
     }
-}
-
-.jackInTheBox {
-    animation-name: jackInTheBox;
 }
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
@@ -1386,10 +1272,6 @@
     }
 }
 
-.zoomInLeft {
-    animation-name: zoomInLeft;
-}
-
 @keyframes zoomInRight {
     from {
         opacity: 0;
@@ -1404,10 +1286,6 @@
     }
 }
 
-.zoomInRight {
-    animation-name: zoomInRight;
-}
-
 @keyframes zoomInUp {
     from {
         opacity: 0;
@@ -1420,10 +1298,6 @@
         transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
         animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
-}
-
-.zoomInUp {
-    animation-name: zoomInUp;
 }
 
 @keyframes zoomOut {
@@ -1441,10 +1315,6 @@
     }
 }
 
-.zoomOut {
-    animation-name: zoomOut;
-}
-
 @keyframes zoomOutDown {
     40% {
         opacity: 1;
@@ -1460,10 +1330,6 @@
     }
 }
 
-.zoomOutDown {
-    animation-name: zoomOutDown;
-}
-
 @keyframes zoomOutLeft {
     40% {
         opacity: 1;
@@ -1475,10 +1341,6 @@
         transform: scale(0.1) translate3d(-2000px, 0, 0);
         transform-origin: left center;
     }
-}
-
-.zoomOutLeft {
-    animation-name: zoomOutLeft;
 }
 
 @keyframes zoomOutRight {
@@ -1494,10 +1356,6 @@
     }
 }
 
-.zoomOutRight {
-    animation-name: zoomOutRight;
-}
-
 @keyframes zoomOutUp {
     40% {
         opacity: 1;
@@ -1511,10 +1369,6 @@
         transform-origin: center bottom;
         animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
-}
-
-.zoomOutUp {
-    animation-name: zoomOutUp;
 }
 
 @keyframes slideInDown {
@@ -1633,10 +1487,6 @@
     }
 }
 
-.slideOutUp {
-    animation-name: slideOutUp;
-}
-
 .animated {
     animation-duration: 1s;
     animation-fill-mode: both;
@@ -1652,10 +1502,6 @@
 
 .animated.delay-2s {
     animation-delay: 2s;
-}
-
-.animated.delay-3s {
-    animation-delay: 3s;
 }
 
 .animated.delay-4s {

@@ -92,7 +92,7 @@
             if (options.closeOnBlur !== false) CodeMirror.on(dialog, "focusout", function (evt) {
                 if (evt.relatedTarget !== null) close();
             });
-        } else if (button = dialog.getElementsByTagName("button")[0]) {
+        } else if (button === dialog.getElementsByTagName("button")[0]) {
             CodeMirror.on(button, "click", function () {
                 close();
                 me.focus();

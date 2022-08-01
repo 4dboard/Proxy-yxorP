@@ -83,10 +83,6 @@
     pointer-events: none;
 }
 
-.kiss-visible-toggle:not(:hover):not(:focus) .kiss-hidden-hover:not(:focus-within) {
-    display: none;
-}
-
 .kiss-visible-toggle:not(:hover):not(:focus) .kiss-invisible-hover:not(:focus-within) {
     opacity: 0 !important;
 }
@@ -101,17 +97,7 @@
 }
 
 @media (pointer: coarse) {
-    .kiss-hidden-touch {
-        display: none !important;
-    }
-}
-
-.kiss-hidden-notouch {
-    display: none !important;
 }
 
 @media (pointer: coarse) {
-    .kiss-hidden-notouch {
-        display: block !important;
-    }
 }

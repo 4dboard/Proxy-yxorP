@@ -97,7 +97,7 @@
             if (state.waitDot) {
                 state.waitDot = false;
 
-                if (stream.peek() != ".") {
+                if (stream.peek() !== ".") {
                     return "null";
                 }
 
@@ -116,7 +116,7 @@
             if (state.waitPipe) {
                 state.waitPipe = false;
 
-                if (stream.peek() != "|") {
+                if (stream.peek() !== "|") {
                     return "null";
                 }
 
@@ -196,7 +196,7 @@
             if (state.waitDot) {
                 state.waitDot = false;
 
-                if (stream.peek() != ".") {
+                if (stream.peek() !== ".") {
                     return "null";
                 }
 
@@ -215,7 +215,7 @@
             if (state.waitPipe) {
                 state.waitPipe = false;
 
-                if (stream.peek() != "|") {
+                if (stream.peek() !== "|") {
                     return "null";
                 }
 

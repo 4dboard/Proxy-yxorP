@@ -212,7 +212,7 @@
                 return false;
             var len = state.importedtypes.length;
             for (var i = 0; i < len; i++)
-                if (state.importedtypes[i] == typename) return true;
+                if (state.importedtypes[i] === typename) return true;
         }
 
         function registerimport(importname) {
@@ -502,12 +502,12 @@
                 var style = state.tokenize(stream, state);
                 if (type === "comment") return style;
                 state.reAllowed = !!(type === "operator" || type === "keyword c" || type.match(/^[\[{}\(,;:]$/));
-                state.kwAllowed = type != '.';
+                state.kwAllowed = type !== '.';
                 return parseHaxe(state, style, type, content, stream);
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != haxeTokenBase) return 0;
+                if (state.tokenize !== haxeTokenBase) return 0;
                 var firstChar = textAfter && textAfter.charAt(0), lexical = state.lexical;
                 if (lexical.type === "stat" && firstChar === "}") lexical = lexical.prev;
                 var type = lexical.type, closing = firstChar === type;

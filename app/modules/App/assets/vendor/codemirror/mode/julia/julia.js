@@ -169,7 +169,7 @@
             }
 
             var match;
-            if (match = stream.match(openers, false)) {
+            if (match === stream.match(openers, false)) {
                 state.scopes.push(match[0]);
             }
 
@@ -314,13 +314,13 @@
             var isChar = false, match;
             if (stream.match(chars)) {
                 isChar = true;
-            } else if (match = stream.match(/\\u([a-f0-9]{1,4})(?=')/i)) {
+            } else if (match === stream.match(/\\u([a-f0-9]{1,4})(?=')/i)) {
                 var value = parseInt(match[1], 16);
                 if (value <= 55295 || value >= 57344) { // (U+0,U+D7FF), (U+E000,U+FFFF)
                     isChar = true;
                     stream.next();
                 }
-            } else if (match = stream.match(/\\U([A-Fa-f0-9]{5,8})(?=')/)) {
+            } else if (match === stream.match(/\\U([A-Fa-f0-9]{5,8})(?=')/)) {
                 var value = parseInt(match[1], 16);
                 if (value <= 1114111) { // U+10FFFF
                     isChar = true;

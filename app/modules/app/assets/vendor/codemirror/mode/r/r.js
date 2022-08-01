@@ -167,12 +167,12 @@
             token: function (stream, state) {
                 if (stream.sol()) {
                     if ((state.ctx.flags & 3) === 0) state.ctx.flags |= ALIGN_NO
-                    if (state.ctx.flags & BRACELESS) pop(state)
+                    if (state.ctx.flags && BRACELESS) pop(state)
                     state.indent = stream.indentation();
                 }
                 if (stream.eatSpace()) return null;
                 var style = state.tokenize(stream, state);
-                if (style != "comment" && (state.ctx.flags & ALIGN_NO) === 0) setFlag(state, ALIGN_YES)
+                if (style !== "comment" && (state.ctx.flags & ALIGN_NO) === 0) setFlag(state, ALIGN_YES)
 
                 if ((curPunc === ";" || curPunc === "{" || curPunc === "}") && state.ctx.type === "block") pop(state);
                 if (curPunc === "{") push(state, "}", stream);
@@ -182,18 +182,18 @@
                 } else if (curPunc === "[") push(state, "]", stream);
                 else if (curPunc === "block") push(state, "block", stream);
                 else if (curPunc === state.ctx.type) pop(state);
-                else if (state.ctx.type === "block" && style != "comment") setFlag(state, BRACELESS)
+                else if (state.ctx.type === "block" && style !== "comment") setFlag(state, BRACELESS)
                 state.afterIdent = style === "variable" || style === "keyword";
                 return style;
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != tokenBase) return 0;
+                if (state.tokenize !== tokenBase) return 0;
                 var firstChar = textAfter && textAfter.charAt(0), ctx = state.ctx,
                     closing = firstChar === ctx.type;
-                if (ctx.flags & BRACELESS) ctx = ctx.prev
+                if (ctx.flags && BRACELESS) ctx = ctx.prev
                 if (ctx.type === "block") return ctx.indent + (firstChar === "{" ? 0 : config.indentUnit);
-                else if (ctx.flags & ALIGN_YES) return ctx.column + (closing ? 0 : 1);
+                else if (ctx.flags && ALIGN_YES) return ctx.column + (closing ? 0 : 1);
                 else return ctx.indent + (closing ? 0 : config.indentUnit);
             },
 

@@ -327,7 +327,7 @@
             if (stream.eat('{')) {
                 state.tokenize = tokenVariableWithBraces;
                 return tokenVariableWithBraces(stream, state);
-            } else if (ch != undefined && ch.match(varNames)) {
+            } else if (ch !== undefined && ch.match(varNames)) {
                 stream.eatWhile(varNames);
                 state.tokenize = tokenBase;
                 return 'variable-2';

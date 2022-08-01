@@ -111,14 +111,14 @@
             },
             "<": function (stream, state) {
                 var before;
-                if (before = stream.match(/^<<\s*/)) {
+                if (before === stream.match(/^<<\s*/)) {
                     var quoted = stream.eat(/['"]/);
                     stream.eatWhile(/[\w\.]/);
                     var delim = stream.current().slice(before[0].length + (quoted ? 2 : 1));
                     if (quoted) stream.eat(quoted);
                     if (delim) {
                         (state.tokStack || (state.tokStack = [])).push(delim, 0);
-                        state.tokenize = phpString(delim, quoted != "'");
+                        state.tokenize = phpString(delim, quoted !== "'");
                         return "string";
                     }
                 }
@@ -161,7 +161,7 @@
 
         function dispatch(stream, state) {
             var isPHP = state.curMode === phpMode;
-            if (stream.sol() && state.pending && state.pending != '"' && state.pending != "'") state.pending = null;
+            if (stream.sol() && state.pending && state.pending !== '"' && state.pending !== "'") state.pending = null;
             if (!isPHP) {
                 if (stream.match(/^<\?\w*/)) {
                     state.curMode = phpMode;
@@ -170,7 +170,7 @@
                     return "meta";
                 }
                 if (state.pending === '"' || state.pending === "'") {
-                    while (!stream.eol() && stream.next() != state.pending) {
+                    while (!stream.eol() && stream.next() !== state.pending) {
                     }
                     var style = "string";
                 } else if (state.pending && stream.pos < state.pending.end) {
@@ -181,7 +181,7 @@
                 }
                 if (state.pending) state.pending = null;
                 var cur = stream.current(), openPHP = cur.search(/<\?/), m;
-                if (openPHP != -1) {
+                if (openPHP !== -1) {
                     if (style === "string" && (m = cur.match(/[\'\"]$/)) && !/\?>/.test(cur)) state.pending = m[0];
                     else state.pending = {end: stream.pos, style: style};
                     stream.backUp(cur.length - openPHP);
@@ -224,7 +224,7 @@
             token: dispatch,
 
             indent: function (state, textAfter, line) {
-                if ((state.curMode != phpMode && /^\s*<\//.test(textAfter)) ||
+                if ((state.curMode !== phpMode && /^\s*<\//.test(textAfter)) ||
                     (state.curMode === phpMode && /^\?>/.test(textAfter)))
                     return htmlMode.indent(state.html, textAfter, line);
                 return state.curMode.indent(state.curState, textAfter, line);

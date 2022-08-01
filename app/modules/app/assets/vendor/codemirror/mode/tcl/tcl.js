@@ -121,7 +121,7 @@
                 }
                 if (ch === "]")
                     maybeEnd++;
-                else if (ch != " ")
+                else if (ch !== " ")
                     maybeEnd = 0;
             }
             return "meta";

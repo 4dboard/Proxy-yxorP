@@ -18,7 +18,7 @@
     "use strict";
 
     CodeMirror.defineOption("styleSelectedText", false, function (cm, val, old) {
-        var prev = old && old != CodeMirror.Init;
+        var prev = old && old !== CodeMirror.Init;
         if (val && !prev) {
             cm.state.markedSelection = [];
             cm.state.markedSelectionStyle = typeof val === "string" ? val : "CodeMirror-selectedtext";

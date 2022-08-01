@@ -107,7 +107,7 @@
                     return "keyword";
                 // is it one of the listed functions?
                 if (functions && functions.propertyIsEnumerable(word) ||
-                    (stream.current().match(/^#@?[a-z0-9_]+ *$/i) && stream.peek() == "(") &&
+                    (stream.current().match(/^#@?[a-z0-9_]+ *$/i) && stream.peek() === "(") &&
                     !(functions && functions.propertyIsEnumerable(word.toLowerCase()))) {
                     state.beforeParams = true;
                     state.lastTokenWasBuiltin = false;
@@ -117,7 +117,7 @@
                     state.lastTokenWasBuiltin = false;
                     return "string";
                 }
-                if (stream.pos > word.length && stream.string.charAt(stream.pos - word.length - 1) == "." && state.lastTokenWasBuiltin)
+                if (stream.pos > word.length && stream.string.charAt(stream.pos - word.length - 1) === "." && state.lastTokenWasBuiltin)
                     return "builtin";
                 // default: just a "word"
                 state.lastTokenWasBuiltin = false;
@@ -133,7 +133,7 @@
                         end = true;
                         break;
                     }
-                    if (quote == '"' && stream.peek() === '$' && !escaped) {
+                    if (quote === '"' && stream.peek() === '$' && !escaped) {
                         state.inString = true;
                         end = true;
                         break;
@@ -166,7 +166,7 @@
                 }
                 if (ch === "]")
                     maybeEnd++;
-                else if (ch != " ")
+                else if (ch !== " ")
                     maybeEnd = 0;
             }
             return "meta";

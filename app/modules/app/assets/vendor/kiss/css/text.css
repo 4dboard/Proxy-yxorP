@@ -44,14 +44,6 @@ td.kiss-text-truncate {
 }
 
 
-.kiss-text-pacing-loose {
-    letter-spacing: .05em !important;
-}
-
-.kiss-text-pacing-looser {
-    letter-spacing: .1em !important;
-}
-
 .kiss-text-monospace {
     font-family: ui-monospace,
     Menlo, Monaco,

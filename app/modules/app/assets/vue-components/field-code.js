@@ -122,7 +122,7 @@ export default {
                 lineNumbers: true,
                 mode: null,
                 height: this.height,
-                foldGutter: mode ? true : false,
+                foldGutter: !!mode,
                 gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
                 mode,
             }, this.codemirror || {}));

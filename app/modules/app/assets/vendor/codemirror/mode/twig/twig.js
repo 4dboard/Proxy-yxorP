@@ -105,7 +105,7 @@
                     }
                     return "comment";
                     //Open tag
-                } else if (ch = stream.eat(/\{|%/)) {
+                } else if (ch === stream.eat(/\{|%/)) {
                     //Cache close tag
                     state.intag = ch;
                     if (ch === "{") {
@@ -116,7 +116,7 @@
                 }
             }
             stream.next();
-        };
+        }
 
         return {
             startState: function () {

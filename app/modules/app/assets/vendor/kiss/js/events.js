@@ -69,7 +69,7 @@ export function on(element, name, delegate, fn) {
     }
 
     return element;
-};
+}
 
 
 export function trigger(ele, name, data = {}) {

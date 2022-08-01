@@ -25,7 +25,7 @@
             }
             return false;
         }
-        return arr.indexOf(item) != -1;
+        return arr.indexOf(item) !== -1;
     }
 
     function scriptHint(editor, keywords, getToken, options) {
@@ -51,7 +51,7 @@
         // If it is a property, find out what it is a property of.
         while (tprop.type === "property") {
             tprop = getToken(editor, Pos(cur.line, tprop.start));
-            if (tprop.string != ".") return;
+            if (tprop.string !== ".") return;
             tprop = getToken(editor, Pos(cur.line, tprop.start));
             if (!context) var context = [];
             context.push(tprop);
@@ -69,7 +69,7 @@
                 return e.getTokenAt(cur);
             },
             options);
-    };
+    }
     CodeMirror.registerHelper("hint", "javascript", javascriptHint);
 
     function getCoffeeScriptToken(editor, cur) {

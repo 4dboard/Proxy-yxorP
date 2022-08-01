@@ -49,7 +49,7 @@
     }
 
     CodeMirror.defineOption("highlightSelectionMatches", false, function (cm, val, old) {
-        if (old && old != CodeMirror.Init) {
+        if (old && old !== CodeMirror.Init) {
             removeOverlay(cm);
             clearTimeout(cm.state.matchHighlighter.timeout);
             cm.state.matchHighlighter = null;
@@ -126,7 +126,7 @@
                 return;
             }
             var from = cm.getCursor("from"), to = cm.getCursor("to");
-            if (from.line != to.line) return;
+            if (from.line !== to.line) return;
             if (state.options.wordsOnly && !isWord(cm, from, to)) return;
             var selection = cm.getRange(from, to)
             if (state.options.trim) selection = selection.replace(/^\s+|\s+$/g, "")

@@ -19,7 +19,7 @@
             for (var i = 0; i < dict.length; i++) {
                 words[dict[i]] = style;
             }
-        };
+        }
 
         var commonAtoms = ["true", "false"];
         var commonKeywords = ["if", "then", "do", "else", "elif", "while", "until", "for", "in", "esac", "fi",
@@ -99,7 +99,7 @@
                     if (next === close && !escaped) {
                         state.tokens.shift();
                         break;
-                    } else if (next === '$' && !escaped && quote !== "'" && stream.peek() != close) {
+                    } else if (next === '$' && !escaped && quote !== "'" && stream.peek() !== close) {
                         escaped = true;
                         stream.backUp(1);
                         state.tokens.unshift(tokenDollar);
@@ -116,7 +116,7 @@
                 }
                 return style;
             };
-        };
+        }
 
         function tokenStringStart(quote, style) {
             return function (stream, state) {
@@ -148,7 +148,7 @@
 
         function tokenize(stream, state) {
             return (state.tokens[0] || tokenBase)(stream, state);
-        };
+        }
 
         return {
             startState: function () {

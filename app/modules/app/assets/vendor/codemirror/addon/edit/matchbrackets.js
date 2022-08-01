@@ -35,7 +35,7 @@
             re.test(line.text.charAt(pos + 1)) && matching[line.text.charAt(++pos)];
         if (!match) return null;
         var dir = match.charAt(1) === ">" ? 1 : -1;
-        if (config && config.strict && (dir > 0) != (pos === where.ch)) return null;
+        if (config && config.strict && (dir > 0) !== (pos === where.ch)) return null;
         var style = cm.getTokenTypeAt(Pos(where.line, pos + 1));
 
         var found = scanForBracket(cm, Pos(where.line, pos + (dir > 0 ? 1 : 0)), dir, style, config);
@@ -61,13 +61,13 @@
         var re = bracketRegex(config)
         var lineEnd = dir > 0 ? Math.min(where.line + maxScanLines, cm.lastLine() + 1)
             : Math.max(cm.firstLine() - 1, where.line - maxScanLines);
-        for (var lineNo = where.line; lineNo != lineEnd; lineNo += dir) {
+        for (var lineNo = where.line; lineNo !== lineEnd; lineNo += dir) {
             var line = cm.getLine(lineNo);
             if (!line) continue;
             var pos = dir > 0 ? 0 : line.length - 1, end = dir > 0 ? line.length : -1;
             if (line.length > maxScanLen) continue;
             if (lineNo === where.line) pos = where.ch - (dir < 0 ? 1 : 0);
-            for (; pos != end; pos += dir) {
+            for (; pos !== end; pos += dir) {
                 var ch = line.charAt(pos);
                 if (re.test(ch) && (style === undefined ||
                     (cm.getTokenTypeAt(Pos(lineNo, pos + 1)) || "") === (style || ""))) {
@@ -129,7 +129,7 @@
     }
 
     CodeMirror.defineOption("matchBrackets", false, function (cm, val, old) {
-        if (old && old != CodeMirror.Init) {
+        if (old && old !== CodeMirror.Init) {
             cm.off("cursorActivity", doMatchBrackets);
             cm.off("focus", doMatchBrackets)
             cm.off("blur", clearHighlighted)

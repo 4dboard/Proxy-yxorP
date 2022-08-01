@@ -24,7 +24,7 @@
         function check() {
             if (cm.display.wrapper.offsetHeight) {
                 stopListening(cm, state)
-                if (cm.display.lastWrapHeight != cm.display.wrapper.clientHeight)
+                if (cm.display.lastWrapHeight !== cm.display.wrapper.clientHeight)
                     cm.refresh()
             } else {
                 state.timeout = setTimeout(check, state.delay)

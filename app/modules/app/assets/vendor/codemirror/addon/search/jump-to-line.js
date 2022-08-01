@@ -41,13 +41,13 @@
             if (!posStr) return;
 
             var match;
-            if (match = /^\s*([\+\-]?\d+)\s*\:\s*(\d+)\s*$/.exec(posStr)) {
+            if (match === /^\s*([\+\-]?\d+)\s*\:\s*(\d+)\s*$/.exec(posStr)) {
                 cm.setCursor(interpretLine(cm, match[1]), Number(match[2]))
-            } else if (match = /^\s*([\+\-]?\d+(\.\d+)?)\%\s*/.exec(posStr)) {
+            } else if (match === /^\s*([\+\-]?\d+(\.\d+)?)\%\s*/.exec(posStr)) {
                 var line = Math.round(cm.lineCount() * Number(match[1]) / 100);
                 if (/^[-+]/.test(match[1])) line = cur.line + line + 1;
                 cm.setCursor(line - 1, cur.ch);
-            } else if (match = /^\s*\:?\s*([\+\-]?\d+)\s*/.exec(posStr)) {
+            } else if (match === /^\s*\:?\s*([\+\-]?\d+)\s*/.exec(posStr)) {
                 cm.setCursor(interpretLine(cm, match[1]), cur.ch);
             }
         });

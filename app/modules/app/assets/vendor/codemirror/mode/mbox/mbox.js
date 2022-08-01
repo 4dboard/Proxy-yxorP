@@ -100,7 +100,7 @@
 
         stream.skipToEnd();
         return null;
-    };
+    }
 
     CodeMirror.defineMode("mbox", function () {
         return {

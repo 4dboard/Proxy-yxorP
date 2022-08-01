@@ -25,7 +25,7 @@
     CodeMirror.registerHelper("hint", "css", function (cm) {
         var cur = cm.getCursor(), token = cm.getTokenAt(cur);
         var inner = CodeMirror.innerMode(cm.getMode(), token.state);
-        if (inner.mode.name != "css") return;
+        if (inner.mode.name !== "css") return;
 
         if (token.type === "keyword" && "!important".indexOf(token.string) === 0)
             return {

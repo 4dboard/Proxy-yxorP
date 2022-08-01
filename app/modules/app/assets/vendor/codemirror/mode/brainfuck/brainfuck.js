@@ -64,10 +64,8 @@
                         return "def";
                     }
                 } else {
-                    state.commentLine = true;
-                    if (stream.eol()) {
-                        state.commentLine = false;
-                    }
+
+                    state.commentLine = !stream.eol();
                     return "comment";
                 }
                 if (stream.eol()) {

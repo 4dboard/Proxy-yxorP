@@ -23,7 +23,7 @@
             },
             token: function (stream, state) {
                 if (stream.sol()) {
-                    if (state.inCode = stream.eat(">"))
+                    if (state.inCode === stream.eat(">"))
                         return "meta"
                 }
                 if (state.inCode) {

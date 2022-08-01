@@ -93,7 +93,7 @@
                                 state.braced--;
                             }
                         }
-                        ;
+
                     }
                     return token;
                 } else if (identifier(stream)) {
@@ -101,7 +101,7 @@
                         return 'variable';
                     }
                     return 'variable-2';
-                } else if (['[', ']', '(', ')'].indexOf(stream.peek()) != -1) {
+                } else if (['[', ']', '(', ')'].indexOf(stream.peek()) !== -1) {
                     stream.next();
                     return 'bracket';
                 } else if (!stream.eatSpace()) {

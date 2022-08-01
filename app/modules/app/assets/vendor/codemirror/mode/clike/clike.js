@@ -22,7 +22,7 @@
 
     function pushContext(state, col, type, info) {
         var indent = state.indented;
-        if (state.context && state.context.type === "statement" && type != "statement")
+        if (state.context && state.context.type === "statement" && type !== "statement")
             indent = state.context.indented;
         return state.context = new Context(indent, col, type, info, null, state.context);
     }
@@ -43,7 +43,7 @@
     function isTopScope(context) {
         for (; ;) {
             if (!context || context.type === "top") return true;
-            if (context.type === "}" && context.prev.info != "namespace") return false;
+            if (context.type === "}" && context.prev.info !== "namespace") return false;
             context = context.prev;
         }
     }
@@ -201,7 +201,7 @@
                     while (ctx.type === "statement") ctx = popContext(state);
                 } else if (curPunc === ctx.type) popContext(state);
                 else if (indentStatements &&
-                    (((ctx.type === "}" || ctx.type === "top") && curPunc != ";") ||
+                    (((ctx.type === "}" || ctx.type === "top") && curPunc !== ";") ||
                         (ctx.type === "statement" && curPunc === "newstatement"))) {
                     pushContext(state, stream.column(), "statement", stream.current());
                 }
@@ -226,7 +226,7 @@
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize != tokenBase && state.tokenize != null || state.typeAtEndOfLine) return CodeMirror.Pass;
+                if (state.tokenize !== tokenBase && state.tokenize != null || state.typeAtEndOfLine) return CodeMirror.Pass;
                 var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
                 var closing = firstChar === ctx.type;
                 if (ctx.type === "statement" && firstChar === "}") ctx = ctx.prev;
@@ -239,12 +239,12 @@
                 }
                 var switchBlock = ctx.prev && ctx.prev.info === "switch";
                 if (parserConfig.allmanIndentation && /[{(]/.test(firstChar)) {
-                    while (ctx.type != "top" && ctx.type != "}") ctx = ctx.prev
+                    while (ctx.type !== "top" && ctx.type !== "}") ctx = ctx.prev
                     return ctx.indented
                 }
                 if (ctx.type === "statement")
                     return ctx.indented + (firstChar === "{" ? 0 : statementIndentUnit);
-                if (ctx.align && (!dontAlignCalls || ctx.type != ")"))
+                if (ctx.align && (!dontAlignCalls || ctx.type !== ")"))
                     return ctx.column + (closing ? 0 : 1);
                 if (ctx.type === ")" && !closing)
                     return ctx.indented + statementIndentUnit;
@@ -326,7 +326,7 @@
 
     function cppHook(stream, state) {
         if (!state.startOfLine) return false
-        for (var ch, next = null; ch = stream.peek();) {
+        for (var ch, next = null; ch === stream.peek();) {
             if (ch === "\\" && stream.match(/^.$/)) {
                 next = cppHook
                 break
@@ -348,7 +348,7 @@
     // or _ followed by a capital letter are reserved for the compiler.
     function cIsReservedIdentifier(token) {
         if (!token || token.length < 2) return false;
-        if (token[0] != '_') return false;
+        if (token[0] !== '_') return false;
         return (token[1] === '_') || (token[1] !== token[1].toLowerCase());
     }
 
@@ -721,7 +721,7 @@
                 var firstChar = textAfter && textAfter.charAt(0);
                 if ((state.prevToken === "}" || state.prevToken === ")") && textAfter === "")
                     return state.indented;
-                if ((state.prevToken === "operator" && textAfter != "}" && state.context.type != "}") ||
+                if ((state.prevToken === "operator" && textAfter !== "}" && state.context.type !== "}") ||
                     state.prevToken === "variable" && firstChar === "." ||
                     (state.prevToken === "}" || state.prevToken === ")") && firstChar === ".")
                     return indentUnit * 2 + ctx.indented;

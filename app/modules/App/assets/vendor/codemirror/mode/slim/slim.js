@@ -552,7 +552,7 @@
                     state.indented = stream.indentation();
                     state.startOfLine = true;
                     state.tokenize = state.line;
-                    while (state.stack && state.stack.indented > state.indented && state.last != "slimSubmode") {
+                    while (state.stack && state.stack.indented > state.indented && state.last !== "slimSubmode") {
                         state.line = state.tokenize = state.stack.tokenize;
                         state.stack = state.stack.parent;
                         state.subMode = null;

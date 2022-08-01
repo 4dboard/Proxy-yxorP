@@ -88,7 +88,7 @@ E.G.:
             builtinObjsWords = builtinObjsWords.concat(aspBuiltinObjsWords);
             knownWords = knownWords.concat(aspKnownMethods, aspKnownProperties);
         }
-        ;
+
 
         var keywords = wordRegexp(commonkeywords);
         var atoms = wordRegexp(atomWords);

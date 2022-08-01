@@ -76,7 +76,7 @@ export default {
                 paste: false,
                 duplicateItemsAllowed: false,
                 maxItemCount: this.max || -1,
-                placeholder: this.placeholder ? true : false,
+                placeholder: this.placeholder,
                 placeholderValue: this.placeholder || '',
                 removeItemButton: true,
                 searchResultLimit: 8,

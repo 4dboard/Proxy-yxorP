@@ -72,7 +72,7 @@
             return;
         }
 
-        var end = Math.min(to.ch != 0 || to.line === from.line ? to.line + 1 : to.line, self.lastLine() + 1);
+        var end = Math.min(to.ch !== 0 || to.line === from.line ? to.line + 1 : to.line, self.lastLine() + 1);
         var pad = options.padding === null ? " " : options.padding;
         var blankLines = options.commentBlankLines || from.line === to.line;
 
@@ -89,7 +89,7 @@
                 for (var i = from.line; i < end; ++i) {
                     var line = self.getLine(i), cut = baseString.length;
                     if (!blankLines && !nonWS.test(line)) continue;
-                    if (line.slice(0, cut) != baseString) cut = firstNonWS(line);
+                    if (line.slice(0, cut) !== baseString) cut = firstNonWS(line);
                     self.replaceRange(baseString + commentString + pad, Pos(i, 0), Pos(i, cut));
                 }
             } else {
@@ -107,26 +107,26 @@
         var startString = options.blockCommentStart || mode.blockCommentStart;
         var endString = options.blockCommentEnd || mode.blockCommentEnd;
         if (!startString || !endString) {
-            if ((options.lineComment || mode.lineComment) && options.fullLines != false)
+            if ((options.lineComment || mode.lineComment) && options.fullLines !== false)
                 self.lineComment(from, to, options);
             return;
         }
         if (/\bcomment\b/.test(self.getTokenTypeAt(Pos(from.line, 0)))) return
 
         var end = Math.min(to.line, self.lastLine());
-        if (end != from.line && to.ch === 0 && nonWS.test(self.getLine(end))) --end;
+        if (end !== from.line && to.ch === 0 && nonWS.test(self.getLine(end))) --end;
 
         var pad = options.padding === null ? " " : options.padding;
         if (from.line > end) return;
 
         self.operation(function () {
-            if (options.fullLines != false) {
+            if (options.fullLines !== false) {
                 var lastLineHasText = nonWS.test(self.getLine(end));
                 self.replaceRange(pad + endString, Pos(end));
                 self.replaceRange(startString + pad, Pos(from.line, 0));
                 var lead = options.blockCommentLead || mode.blockCommentLead;
                 if (lead != null) for (var i = from.line + 1; i <= end; ++i)
-                    if (i != end || lastLineHasText)
+                    if (i !== end || lastLineHasText)
                         self.replaceRange(lead + pad, Pos(i, 0));
             } else {
                 var atCursor = cmp(self.getCursor("to"), to) === 0, empty = !self.somethingSelected()
@@ -140,7 +140,7 @@
     CodeMirror.defineExtension("uncomment", function (from, to, options) {
         if (!options) options = noOptions;
         var self = this, mode = getMode(self, from);
-        var end = Math.min(to.ch != 0 || to.line === from.line ? to.line : to.line - 1, self.lastLine()),
+        var end = Math.min(to.ch !== 0 || to.line === from.line ? to.line : to.line - 1, self.lastLine()),
             start = Math.min(from.line, end);
 
         // Try finding line comments
@@ -189,12 +189,12 @@
         // Positions of the last startString before the start of the selection, and the first endString after it.
         var lastStart = startLine.lastIndexOf(startString, from.ch);
         var firstEnd = lastStart === -1 ? -1 : startLine.slice(0, from.ch).indexOf(endString, lastStart + startString.length);
-        if (lastStart != -1 && firstEnd != -1 && firstEnd + endString.length != from.ch) return false;
+        if (lastStart !== -1 && firstEnd !== -1 && firstEnd + endString.length !== from.ch) return false;
         // Positions of the first endString after the end of the selection, and the last startString before it.
         firstEnd = endLine.indexOf(endString, to.ch);
         var almostLastStart = endLine.slice(to.ch).lastIndexOf(startString, firstEnd - to.ch);
         lastStart = (firstEnd === -1 || almostLastStart === -1) ? -1 : to.ch + almostLastStart;
-        if (firstEnd != -1 && lastStart != -1 && lastStart != to.ch) return false;
+        if (firstEnd !== -1 && lastStart !== -1 && lastStart !== to.ch) return false;
 
         self.operation(function () {
             self.replaceRange("", Pos(end, close - (pad && endLine.slice(close - pad.length, close) === pad ? pad.length : 0)),

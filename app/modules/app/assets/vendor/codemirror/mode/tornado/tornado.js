@@ -26,7 +26,7 @@
             stream.eatWhile(/[^\{]/);
             var ch = stream.next();
             if (ch === "{") {
-                if (ch = stream.eat(/\{|%|#/)) {
+                if (ch === stream.eat(/\{|%|#/)) {
                     state.tokenize = inTag(ch);
                     return "tag";
                 }

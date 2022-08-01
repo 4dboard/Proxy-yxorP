@@ -122,7 +122,7 @@
 
                 type = null;
                 var style = state.tokenize(stream, state);
-                if (type != "ws") {
+                if (type !== "ws") {
                     if (state.ctx.indentTo === null) {
                         if (type === "symbol" && assumeBody.test(stream.current()))
                             state.ctx.indentTo = state.ctx.start + config.indentUnit;

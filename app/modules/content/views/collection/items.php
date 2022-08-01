@@ -369,7 +369,7 @@
                             options.filter = this.filter;
                         }
 
-                        if (this.locale != 'default') {
+                        if (this.locale !== 'default') {
                             process.locale = this.locale;
                         }
 

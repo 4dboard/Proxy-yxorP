@@ -84,7 +84,7 @@
                 }
             }
             // single line comment or operator
-            else if (ch == "-") {
+            else if (ch === "-") {
                 if (stream.eat("-")) {
                     stream.skipToEnd();
                     return "comment";

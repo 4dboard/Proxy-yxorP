@@ -137,7 +137,7 @@
             }
             // Handle regex literals
             if (stream.match(regexPrefixes)) {
-                if (stream.current() != "/" || stream.match(/^.*\//, false)) { // prevent highlight of division
+                if (stream.current() !== "/" || stream.match(/^.*\//, false)) { // prevent highlight of division
                     state.tokenize = tokenFactory(stream.current(), true, "string-2");
                     return state.tokenize(stream, state);
                 } else {
@@ -322,7 +322,7 @@
                 if (fillAlign && stream.sol()) fillAlign.align = false;
 
                 var style = tokenLexer(stream, state);
-                if (style && style != "comment") {
+                if (style && style !== "comment") {
                     if (fillAlign) fillAlign.align = true;
                     state.prop = style === "punctuation" && stream.current() === "."
                 }
@@ -331,7 +331,7 @@
             },
 
             indent: function (state, text) {
-                if (state.tokenize != tokenBase) return 0;
+                if (state.tokenize !== tokenBase) return 0;
                 var scope = state.scope;
                 var closer = text && "])}".indexOf(text.charAt(0)) > -1;
                 if (closer) while (scope.type === "coffee" && scope.prev) scope = scope.prev;

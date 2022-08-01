@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineOption("foldGutter", false, function (cm, val, old) {
-        if (old && old != CodeMirror.Init) {
+        if (old && old !== CodeMirror.Init) {
             cm.clearGutter(cm.state.foldGutter.options.gutter);
             cm.state.foldGutter = null;
             cm.off("gutterClick", onGutterClick);
@@ -117,7 +117,7 @@
         var state = cm.state.foldGutter;
         if (!state) return;
         var opts = state.options;
-        if (gutter != opts.gutter) return;
+        if (gutter !== opts.gutter) return;
         var folded = isFolded(cm, line);
         if (folded) folded.clear();
         else cm.foldCode(Pos(line, 0), opts);

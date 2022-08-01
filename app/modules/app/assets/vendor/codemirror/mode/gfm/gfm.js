@@ -99,7 +99,7 @@
                     }
                 }
                 if (stream.match(urlRE) &&
-                    stream.string.slice(stream.start - 2, stream.start) != "](" &&
+                    stream.string.slice(stream.start - 2, stream.start) !== "](" &&
                     (stream.start === 0 || /\W/.test(stream.string.charAt(stream.start - 1)))) {
                     // URLs
                     // Taken from http://daringfireball.net/2010/07/improved_regex_for_matching_urls

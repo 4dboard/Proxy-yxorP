@@ -41,7 +41,7 @@
             },
 
             token: function (stream, state) {
-                if (stream != state.streamSeen ||
+                if (stream !== state.streamSeen ||
                     Math.min(state.basePos, state.overlayPos) < stream.start) {
                     state.streamSeen = stream;
                     state.basePos = state.overlayPos = stream.start;

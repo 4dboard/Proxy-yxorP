@@ -53,12 +53,12 @@
             var inner = context.length && context[context.length - 1]
             var curTag = inner && tags[inner]
             var childList = inner ? curTag && curTag.children : tags["!top"];
-            if (childList && tagType != "close") {
+            if (childList && tagType !== "close") {
                 for (var i = 0; i < childList.length; ++i) if (!prefix || matches(childList[i], prefix, matchInMiddle))
                     result.push("<" + childList[i]);
-            } else if (tagType != "close") {
+            } else if (tagType !== "close") {
                 for (var name in tags)
-                    if (tags.hasOwnProperty(name) && name != "!top" && name != "!attrs" && (!prefix || matches(name, prefix, matchInMiddle)))
+                    if (tags.hasOwnProperty(name) && name !== "!top" && name !== "!attrs" && (!prefix || matches(name, prefix, matchInMiddle)))
                         result.push("<" + name);
             }
             if (inner && (!prefix || tagType === "close" && matches(inner, prefix, matchInMiddle)))

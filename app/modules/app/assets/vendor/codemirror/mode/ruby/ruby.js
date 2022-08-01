@@ -277,7 +277,7 @@
                             kwtype = "indent";
                     }
                 }
-                if (curPunc || (style && style != "comment")) state.lastTok = thisTok;
+                if (curPunc || (style && style !== "comment")) state.lastTok = thisTok;
                 if (curPunc === "|") state.varList = !state.varList;
 
                 if (kwtype === "indent" || /[\(\[\{]/.test(curPunc))
@@ -291,7 +291,7 @@
             },
 
             indent: function (state, textAfter) {
-                if (state.tokenize[state.tokenize.length - 1] != tokenBase) return CodeMirror.Pass;
+                if (state.tokenize[state.tokenize.length - 1] !== tokenBase) return CodeMirror.Pass;
                 var firstChar = textAfter && textAfter.charAt(0);
                 var ct = state.context;
                 var closed = ct.type === closing[firstChar] ||

@@ -33,7 +33,7 @@ customElements.define('kiss-offcanvas', class extends HTMLElement {
 
         on(this, 'click', '[kiss-offcanvas-close]', function (e) {
 
-            if (this.getAttribute('kiss-offcanvas-close') != 'no-prevent') {
+            if (this.getAttribute('kiss-offcanvas-close') !== 'no-prevent') {
                 e.preventDefault();
             }
 

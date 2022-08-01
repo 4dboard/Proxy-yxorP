@@ -170,10 +170,10 @@
         var iter = new Iter(cm, start.line, 0);
         for (; ;) {
             var openTag = toNextTag(iter)
-            if (!openTag || iter.line != start.line) return
+            if (!openTag || iter.line !== start.line) return
             var end = toTagEnd(iter)
             if (!end) return
-            if (!openTag[1] && end != "selfClose") {
+            if (!openTag[1] && end !== "selfClose") {
                 var startPos = Pos(iter.line, iter.ch);
                 var endPos = findMatchingClose(iter, openTag[2]);
                 return endPos && cmp(endPos.from, startPos) > 0 ? {from: startPos, to: endPos.from} : null

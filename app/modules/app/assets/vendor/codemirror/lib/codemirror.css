@@ -42,14 +42,6 @@
     white-space: nowrap;
 }
 
-.CodeMirror-guttermarker {
-    color: black;
-}
-
-.CodeMirror-guttermarker-subtle {
-    color: #999;
-}
-
 /* CURSOR */
 
 .CodeMirror-cursor {
@@ -59,9 +51,6 @@
 }
 
 /* Shown when moving in bi-directional text */
-.CodeMirror div.CodeMirror-secondarycursor {
-    border-left: 1px solid silver;
-}
 
 .cm-fat-cursor .CodeMirror-cursor {
     width: auto;
@@ -128,22 +117,6 @@
     text-decoration: inherit;
 }
 
-.CodeMirror-rulers {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -50px;
-    bottom: 0;
-    overflow: hidden;
-}
-
-.CodeMirror-ruler {
-    border-left: 1px solid #ccc;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-}
-
 /* DEFAULT THEME */
 
 .cm-s-default .cm-header {
@@ -182,30 +155,8 @@
     color: #708;
 }
 
-.cm-s-default .cm-atom {
-    color: #219;
-}
-
 .cm-s-default .cm-number {
     color: #164;
-}
-
-.cm-s-default .cm-def {
-    color: #00f;
-}
-
-.cm-s-default .cm-variable,
-.cm-s-default .cm-punctuation,
-.cm-s-default .cm-property,
-.cm-s-default .cm-operator {
-}
-
-.cm-s-default .cm-variable-2 {
-    color: #05a;
-}
-
-.cm-s-default .cm-variable-3, .cm-s-default .cm-type {
-    color: #085;
 }
 
 .cm-s-default .cm-comment {
@@ -221,10 +172,6 @@
 }
 
 .cm-s-default .cm-meta {
-    color: #555;
-}
-
-.cm-s-default .cm-qualifier {
     color: #555;
 }
 
@@ -266,18 +213,6 @@
 
 /* Default styles for common addons */
 
-div.CodeMirror span.CodeMirror-matchingbracket {
-    color: #0b0;
-}
-
-div.CodeMirror span.CodeMirror-nonmatchingbracket {
-    color: #a22;
-}
-
-.CodeMirror-matchingtag {
-    background: rgba(255, 150, 0, .3);
-}
-
 .CodeMirror-activeline-background {
     background: #e8f2ff;
 }
@@ -314,26 +249,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 /* The fake, visible scrollbars. Used to force redraw during scrolling
    before actual scrolling happens, thus preventing shaking and
    flickering artifacts. */
-.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-    position: absolute;
-    z-index: 6;
-    display: none;
-    outline: none;
-}
-
-.CodeMirror-vscrollbar {
-    right: 0;
-    top: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-.CodeMirror-hscrollbar {
-    bottom: 0;
-    left: 0;
-    overflow-y: hidden;
-    overflow-x: scroll;
-}
 
 .CodeMirror-scrollbar-filler {
     right: 0;
@@ -372,12 +287,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     position: absolute;
     top: 0;
     bottom: 0;
-    z-index: 4;
-}
-
-.CodeMirror-gutter-elt {
-    position: absolute;
-    cursor: default;
     z-index: 4;
 }
 
@@ -422,15 +331,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     word-wrap: break-word;
     white-space: pre-wrap;
     word-break: normal;
-}
-
-.CodeMirror-linebackground {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 0;
 }
 
 .CodeMirror-linewidget {
@@ -483,10 +383,6 @@ div.CodeMirror-cursors {
     z-index: 3;
 }
 
-div.CodeMirror-dragcursors {
-    visibility: visible;
-}
-
 .CodeMirror-focused div.CodeMirror-cursors {
     visibility: visible;
 }
@@ -534,6 +430,3 @@ div.CodeMirror-dragcursors {
 }
 
 /* Help users use markselection to safely style text background */
-span.CodeMirror-selectedtext {
-    background: none;
-}

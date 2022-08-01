@@ -55,7 +55,7 @@
 
             this.orig.state.diffViews = [this];
             var classLocation = options.chunkClassLocation || "background";
-            if (Object.prototype.toString.call(classLocation) != "[object Array]") classLocation = [classLocation]
+            if (Object.prototype.toString.call(classLocation) !== "[object Array]") classLocation = [classLocation]
             this.classes.classLocation = classLocation
 
             this.diff = getDiff(asString(orig), asString(options.value), this.mv.options.ignoreWhitespace);
@@ -72,7 +72,7 @@
         },
         setShowDifferences: function (val) {
             val = val !== false;
-            if (val != this.showDifferences) {
+            if (val !== this.showDifferences) {
                 this.showDifferences = val;
                 this.forceUpdate("full");
             }
@@ -138,7 +138,7 @@
                 edit.from = edit.to = orig.from = orig.to = 0;
             }
             // Update faster when a line was added/removed
-            setDealign(change.text.length - 1 != change.to.line - change.from.line);
+            setDealign(change.text.length - 1 !== change.to.line - change.from.line);
         }
 
         function swapDoc() {
@@ -237,7 +237,7 @@
 
     function setScrollLock(dv, val, action) {
         dv.lockScroll = val;
-        if (val && action != false) syncScroll(dv, DIFF_INSERT) && makeConnections(dv);
+        if (val && action !== false) syncScroll(dv, DIFF_INSERT) && makeConnections(dv);
         (val ? CodeMirror.addClass : CodeMirror.rmClass)(dv.lockButton, "CodeMirror-merge-scrolllock-enabled");
     }
 
@@ -442,7 +442,7 @@
         if (other) for (var i = 0, j = 0; i < other.chunks.length; i++) {
             var n = other.chunks[i].editTo
             while (j < alignable.length && alignable[j] < n) j++
-            if (j === alignable.length || alignable[j] != n) alignable.splice(j++, 0, n)
+            if (j === alignable.length || alignable[j] !== n) alignable.splice(j++, 0, n)
         }
         for (var i = 0; i < alignable.length; i++)
             result.push([alignable[i], null, null])
@@ -481,7 +481,7 @@
             offset.push(-cm[i].getScrollerElement().getBoundingClientRect().top)
         }
 
-        if (offset[0] != offset[1] || cm.length === 3 && offset[1] != offset[2])
+        if (offset[0] !== offset[1] || cm.length === 3 && offset[1] !== offset[2])
             alignLines(cm, offset, [0, 0, 0], aligners)
         for (var ln = 0; ln < linesToAlign.length; ln++)
             alignLines(cm, offset, linesToAlign[ln], aligners);
@@ -640,7 +640,7 @@
         };
         CodeMirror.on(window, "resize", onResize);
         var resizeInterval = setInterval(function () {
-            for (var p = wrapElt.parentNode; p && p != document.body; p = p.parentNode) {
+            for (var p = wrapElt.parentNode; p && p !== document.body; p = p.parentNode) {
             }
             if (!p) {
                 clearInterval(resizeInterval);
@@ -680,7 +680,7 @@
             });
             gapElts.unshift(dv.copyButtons);
         }
-        if (dv.mv.options.connect != "align") {
+        if (dv.mv.options.connect !== "align") {
             var svg = document.createElementNS && document.createElementNS(svgNS, "svg");
             if (svg && !svg.createSVGRect) svg = null;
             dv.svg = svg;
@@ -780,7 +780,7 @@
     function endOfLineClean(diff, i) {
         if (i === diff.length - 1) return true;
         var next = diff[i + 1][1];
-        if ((next.length === 1 && i < diff.length - 2) || next.charCodeAt(0) != 10) return false;
+        if ((next.length === 1 && i < diff.length - 2) || next.charCodeAt(0) !== 10) return false;
         if (i === diff.length - 2) return true;
         next = diff[i + 2][1];
         return (next.length > 1 || i === diff.length - 3) && next.charCodeAt(0) === 10;
@@ -789,7 +789,7 @@
     function startOfLineClean(diff, i) {
         if (i === 0) return true;
         var last = diff[i - 1][1];
-        if (last.charCodeAt(last.length - 1) != 10) return false;
+        if (last.charCodeAt(last.length - 1) !== 10) return false;
         if (i === 1) return true;
         last = diff[i - 2][1];
         return last.charCodeAt(last.length - 1) === 10;
@@ -974,7 +974,7 @@
             if (nBefore || nAfter) self.check(change.from.line, F_MARKER, self.hasMarker)
         })
         cm.on("viewportChange", function () {
-            if (self.cm.doc.height != self.height) self.signal()
+            if (self.cm.doc.height !== self.height) self.signal()
         })
     }
 
@@ -1008,7 +1008,7 @@
 
         check: function (n, flag, pred) {
             var found = this.find(n)
-            if (found === -1 || !(this.alignable[found + 1] & flag)) return
+            if (found === -1 || !(this.alignable[found + 1] && flag)) return
             if (!pred.call(this, n)) {
                 this.signal()
                 var flags = this.alignable[found + 1] & ~flag
@@ -1044,9 +1044,9 @@
             var diff = nAfter - nBefore, to = from + nBefore, widgetFrom = -1, widgetTo = -1
             for (var i = 0; i < this.alignable.length; i += 2) {
                 var n = this.alignable[i]
-                if (n === from && (this.alignable[i + 1] & F_WIDGET_BELOW)) widgetFrom = i
-                if (n === to && (this.alignable[i + 1] & F_WIDGET_BELOW)) widgetTo = i
-                if (n <= from) continue
+                if (n === from && (this.alignable[i + 1] && F_WIDGET_BELOW)) widgetFrom = i
+                if (n === to && (this.alignable[i + 1] && F_WIDGET_BELOW)) widgetTo = i
+                if (n <= from)
                 else if (n < to) this.alignable.splice(i--, 2)
                 else this.alignable[i] += diff
             }

@@ -61,11 +61,11 @@
             }
 
             // Macros
-            if (state.lastToken != "\\" && stream.match("{%", false)) {
+            if (state.lastToken !== "\\" && stream.match("{%", false)) {
                 return chain(tokenMacro("%", "%"), stream, state);
             }
 
-            if (state.lastToken != "\\" && stream.match("{{", false)) {
+            if (state.lastToken !== "\\" && stream.match("{{", false)) {
                 return chain(tokenMacro("{", "}"), stream, state);
             }
 
@@ -162,7 +162,7 @@
                     embed = false;
                     delim = stream.next();
                 } else {
-                    if (delim = stream.match(/^%([^\w\s=])/)) {
+                    if (delim === stream.match(/^%([^\w\s=])/)) {
                         delim = delim[1];
                     } else if (stream.match(/^%[a-zA-Z_\u009F-\uFFFF][\w\u009F-\uFFFF]*/)) {
                         // Macro variables
@@ -180,7 +180,7 @@
             }
 
             // Here Docs
-            if (matched = stream.match(/^<<-('?)([A-Z]\w*)\1/)) {
+            if (matched === stream.match(/^<<-('?)([A-Z]\w*)\1/)) {
                 return chain(tokenHereDoc(matched[2], !matched[1]), stream, state)
             }
 
@@ -219,7 +219,7 @@
             }
 
             // Parens and braces
-            if (matched = stream.match(/[({[]/, false)) {
+            if (matched === stream.match(/[({[]/, false)) {
                 matched = matched[0];
                 return chain(tokenNest(matched, matching[matched], null), stream, state);
             }
@@ -277,7 +277,7 @@
             }
 
             var matched;
-            if (matched = stream.match(idents)) {
+            if (matched === stream.match(idents)) {
                 if (matched === "def") {
                     return "keyword";
                 }
@@ -405,7 +405,7 @@
                 var style = state.tokenize[state.tokenize.length - 1](stream, state);
                 var token = stream.current();
 
-                if (style && style != "comment") {
+                if (style && style !== "comment") {
                     state.lastToken = token;
                     state.lastStyle = style;
                 }

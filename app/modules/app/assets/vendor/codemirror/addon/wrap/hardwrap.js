@@ -87,7 +87,7 @@
                 var firstBreak = curLine.length > column && leadingSpace === spaceTrimmed &&
                     findBreakPoint(curLine, column, wrapOn, killTrailing, forceBreak);
                 // If this isn't broken, or is broken at a different point, remove old break
-                if (!firstBreak || firstBreak.from != oldLen || firstBreak.to != oldLen + spaceInserted) {
+                if (!firstBreak || firstBreak.from !== oldLen || firstBreak.to !== oldLen + spaceInserted) {
                     changes.push({
                         text: [spaceInserted ? " " : ""],
                         from: Pos(curNo, oldLen),
@@ -100,7 +100,7 @@
             }
             while (curLine.length > column) {
                 var bp = findBreakPoint(curLine, column, wrapOn, killTrailing, forceBreak);
-                if (bp.from != bp.to ||
+                if (bp.from !== bp.to ||
                     forceBreak && leadingSpace !== curLine.slice(0, bp.to)) {
                     changes.push({
                         text: ["", leadingSpace],

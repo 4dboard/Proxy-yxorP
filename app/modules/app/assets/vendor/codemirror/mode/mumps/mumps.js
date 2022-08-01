@@ -51,7 +51,7 @@
                     state.commandMode = 1;
                 else if ((state.commandMode < 0) || (state.commandMode === 2))
                     state.commandMode = 0;
-            } else if ((ch != ".") && (state.commandMode > 0)) {
+            } else if ((ch !== ".") && (state.commandMode > 0)) {
                 if (ch === ":")
                     state.commandMode = -1;   // SIS - Command post-conditional
                 else

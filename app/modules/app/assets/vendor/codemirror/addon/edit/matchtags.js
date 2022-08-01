@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineOption("matchTags", false, function (cm, val, old) {
-        if (old && old != CodeMirror.Init) {
+        if (old && old !== CodeMirror.Init) {
             cm.off("cursorActivity", doMatchTags);
             cm.off("viewportChange", maybeUpdateMatch);
             clear(cm);

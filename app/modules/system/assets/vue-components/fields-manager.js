@@ -134,7 +134,7 @@ let FieldsManager = {
 
         setFieldType(fieldType) {
 
-            if (this.field.type != fieldType) {
+            if (this.field.type !== fieldType) {
                 this.field.opts = {};
                 this.field.type = fieldType;
             }
