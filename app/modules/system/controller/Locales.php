@@ -5,7 +5,7 @@ namespace System\Controller;
 use App\Controller\app;
 use ArrayObject;
 
-class Locales extends app
+class locales extends app
 {
 
     public function index()

@@ -5,7 +5,7 @@ namespace Assets\Controller;
 use App\Controller\app;
 use ArrayObject;
 
-class Assets extends app
+class assets extends app
 {
 
 

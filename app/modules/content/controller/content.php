@@ -5,7 +5,7 @@ namespace Content\Controller;
 use App\Controller\app;
 use ArrayObject;
 
-class Content extends app
+class content extends app
 {
 
     public function index()

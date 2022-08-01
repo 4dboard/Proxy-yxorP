@@ -1,7 +1,7 @@
 <?php
 
 namespace System\Helper;
-class Locales extends \Lime\Helper
+class locales extends \Lime\Helper
 {
 
     protected array $locales = [];

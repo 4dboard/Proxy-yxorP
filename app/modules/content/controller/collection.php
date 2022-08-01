@@ -5,7 +5,7 @@ namespace Content\Controller;
 use App\Controller\app;
 use ArrayObject;
 
-class Collection extends app
+class collection extends app
 {
 
 

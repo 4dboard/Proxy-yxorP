@@ -1,16 +1,16 @@
 <?php
 
 // Register Helpers
-$this->helpers['settings'] = 'System\\Helper\\Settings';
+$this->helpers['settings'] = 'System\\Helper\\settings';
 
 // Register routes
-$this->bindClass('System\\Controller\\Api', '/system/api');
-$this->bindClass('System\\Controller\\Locales', '/system/locales');
-$this->bindClass('System\\Controller\\Logs', '/system/logs');
-$this->bindClass('System\\Controller\\Users\\Roles', '/system/users/roles');
-$this->bindClass('System\\Controller\\Users', '/system/users');
-$this->bindClass('System\\Controller\\Utils', '/system/utils');
-$this->bindClass('System\\Controller\\Settings', '/system');
+$this->bindClass('System\\Controller\\api', '/system/api');
+$this->bindClass('System\\Controller\\locales', '/system/locales');
+$this->bindClass('System\\Controller\\logs', '/system/logs');
+$this->bindClass('System\\Controller\\Users\\roles', '/system/users/roles');
+$this->bindClass('System\\Controller\\users', '/system/users');
+$this->bindClass('System\\Controller\\utils', '/system/utils');
+$this->bindClass('System\\Controller\\settings', '/system');
 
 $this->helper('menus')->addLink('modules', [
     'label' => 'Api',

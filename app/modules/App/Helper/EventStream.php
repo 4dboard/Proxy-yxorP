@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class EventStream extends \Lime\Helper {
+class eventStream extends \Lime\Helper {
 
     public function cleanup() {
         $this->app->dataStorage->remove('app/events/stream', ['_created' => ['$lt' => strtotime('-5 minutes')]]);

@@ -8,7 +8,7 @@
  *
  * @package enshrined\svgSanitize
  */
-class SVGSanitizer
+class sVGSanitizer
 {
 
     /**

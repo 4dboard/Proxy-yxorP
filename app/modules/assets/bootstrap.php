@@ -3,7 +3,7 @@
 use ColorThief\ColorThief;
 
 include_once(__DIR__ . '/lib/vendor/autoload.php');
-include_once(__DIR__ . '/lib/SVGSanitizer.php');
+include_once(__DIR__ . '/lib/sVGSanitizer.php');
 
 // Register Helpers
 $this->helpers['asset'] = 'Assets\\Helper\\Asset';
@@ -86,7 +86,7 @@ $this->module('assets')->extend([
                     $uploaded[] = $files['name'][$i];
 
                     if (preg_match('/\.(svg|xml)$/i', $_file)) {
-                        file_put_contents($_file, SVGSanitizer::clean(file_get_contents($_file)));
+                        file_put_contents($_file, sVGSanitizer::clean(file_get_contents($_file)));
                     }
 
                 } else {

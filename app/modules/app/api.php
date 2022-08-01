@@ -17,13 +17,13 @@ $app = $this;
 
 // GraphQl service
 $this->service('gql', function () use ($app) {
-    $gql = new App\GraphQL\Query($app);
+    $gql = new App\GraphQL\query($app);
     return $gql;
 });
 
 // Rest Api service
 $this->service('restApi', function () use ($app) {
-    $restApi = new App\RestApi\Query($app);
+    $restApi = new App\RestApi\query($app);
     return $restApi;
 });
 

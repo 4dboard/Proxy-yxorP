@@ -4,7 +4,7 @@ namespace System\Controller;
 
 use App\Controller\app;
 
-class Utils extends app
+class utils extends app
 {
 
 

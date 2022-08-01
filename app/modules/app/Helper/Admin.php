@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class Admin extends \Lime\Helper
+class admin extends \Lime\Helper
 {
 
     public function isResourceLocked($resourceId, $ttl = null)

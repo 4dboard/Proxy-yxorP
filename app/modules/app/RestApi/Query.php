@@ -4,7 +4,7 @@ namespace App\RestApi;
 
 use ArrayObject;
 
-class Query extends \Lime\AppAware
+class query extends \Lime\AppAware
 {
 
     protected array $endpoints = [];

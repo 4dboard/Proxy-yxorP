@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class Theme extends \Lime\Helper
+class theme extends \Lime\Helper
 {
 
     protected array $vars;

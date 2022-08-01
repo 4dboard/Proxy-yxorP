@@ -1,14 +1,14 @@
 <?php
 
 // Register Helpers
-$this->helpers['app'] = 'App\\Helper\\App';
-$this->helpers['acl'] = 'App\\Helper\\Acl';
-$this->helpers['async'] = 'App\\Helper\\Async';
-$this->helpers['auth'] = 'App\\Helper\\Auth';
-$this->helpers['csrf'] = 'App\\Helper\\Csrf';
+$this->helpers['app'] = 'App\\Helper\\app';
+$this->helpers['acl'] = 'App\\Helper\\acl';
+$this->helpers['async'] = 'App\\Helper\\async';
+$this->helpers['auth'] = 'App\\Helper\\auth';
+$this->helpers['csrf'] = 'App\\Helper\\csrf';
 $this->helpers['i18n'] = 'App\\Helper\\i18n';
 $this->helpers['rspc'] = 'App\\Helper\\ResponseCache';
-$this->helpers['jwt'] = 'App\\Helper\\JWT';
+$this->helpers['jwt'] = 'App\\Helper\\jWT';
 
 include_once(__DIR__ . '/functions.php');
 

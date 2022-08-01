@@ -2,7 +2,7 @@
 
 namespace System\Helper;
 
-class Api extends \Lime\Helper {
+class api extends \Lime\Helper {
 
     protected array $keys = [];
 

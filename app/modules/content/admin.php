@@ -1,10 +1,10 @@
 <?php
 
 // Register routes
-$this->bindClass('Content\\Controller\\Collection', '/content/collection');
-$this->bindClass('Content\\Controller\\Singleton', '/content/singleton');
-$this->bindClass('Content\\Controller\\Models', '/content/models');
-$this->bindClass('Content\\Controller\\Content', '/content');
+$this->bindClass('Content\\Controller\\collection', '/content/collection');
+$this->bindClass('Content\\Controller\\singleton', '/content/singleton');
+$this->bindClass('Content\\Controller\\models', '/content/models');
+$this->bindClass('Content\\Controller\\content', '/content');
 
 $this->helper('menus')->addLink('modules', [
     'label' => 'Content',

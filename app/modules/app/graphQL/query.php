@@ -8,7 +8,7 @@ use GraphQL\Type\Schema;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
-class Query extends \Lime\AppAware
+class query extends \Lime\AppAware
 {
 
     public $queries;

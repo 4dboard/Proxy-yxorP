@@ -4,7 +4,7 @@ namespace System\Helper;
 
 use ArrayObject;
 
-class System extends \Lime\Helper {
+class system extends \Lime\Helper {
 
 
     public function try(callable $callback, $rescue = null, $report = true) {

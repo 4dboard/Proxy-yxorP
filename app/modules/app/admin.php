@@ -1,10 +1,10 @@
 <?php
 
 // Register helpers
-$this->helpers['admin'] = 'App\\Helper\\Admin';
-$this->helpers['eventStream'] = 'App\\Helper\\EventStream';
-$this->helpers['menus'] = 'App\\Helper\\Menus';
-$this->helpers['theme'] = 'App\\Helper\\Theme';
+$this->helpers['admin'] = 'App\\Helper\\admin';
+$this->helpers['eventStream'] = 'App\\Helper\\eventStream';
+$this->helpers['menus'] = 'App\\Helper\\menus';
+$this->helpers['theme'] = 'App\\Helper\\theme';
 $this->helpers['twfa'] = 'App\\Helper\\TWFA';
 
 // Register routes

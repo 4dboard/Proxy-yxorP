@@ -5,7 +5,7 @@ namespace System\Controller\Users;
 use App\Controller\app;
 use ArrayObject;
 
-class Roles extends app
+class roles extends app
 {
 
     public function index()

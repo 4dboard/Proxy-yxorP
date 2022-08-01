@@ -2,7 +2,7 @@
 
 namespace System\Helper;
 
-class Revisions extends \Lime\Helper
+class revisions extends \Lime\Helper
 {
 
     protected $storage;

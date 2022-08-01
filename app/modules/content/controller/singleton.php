@@ -5,7 +5,7 @@ namespace Content\Controller;
 use App\Controller\app;
 use ArrayObject;
 
-class Singleton extends app
+class singleton extends app
 {
 
 

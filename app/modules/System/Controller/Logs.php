@@ -4,7 +4,7 @@ namespace System\Controller;
 
 use App\Controller\app;
 
-class Logs extends app
+class logs extends app
 {
 
     public function index()

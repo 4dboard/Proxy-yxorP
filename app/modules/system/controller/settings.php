@@ -4,7 +4,7 @@ namespace System\Controller;
 
 use App\Controller\app;
 
-class Settings extends app
+class settings extends app
 {
 
     public function index()

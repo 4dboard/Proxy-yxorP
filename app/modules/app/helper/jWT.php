@@ -5,7 +5,7 @@ namespace App\Helper;
 use Firebase\JWT\JWT as JWTLIB;
 use Firebase\JWT\Key;
 
-class JWT extends \Lime\Helper {
+class jWT extends \Lime\Helper {
 
 
     public function create(array $payload, ?string $key = null) {

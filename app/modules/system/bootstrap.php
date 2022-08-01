@@ -1,11 +1,11 @@
 <?php
 
 // Register Helpers
-$this->helpers['api'] = 'System\\Helper\\Api';
-$this->helpers['locales'] = 'System\\Helper\\Locales';
+$this->helpers['api'] = 'System\\Helper\\api';
+$this->helpers['locales'] = 'System\\Helper\\locales';
 $this->helpers['log'] = 'System\\Helper\\Log';
-$this->helpers['revisions'] = 'System\\Helper\\Revisions';
-$this->helpers['system'] = 'System\\Helper\\System';
+$this->helpers['revisions'] = 'System\\Helper\\revisions';
+$this->helpers['system'] = 'System\\Helper\\system';
 
 $this->on('app.admin.init', function () {
     include(__DIR__ . '/admin.php');

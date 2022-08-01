@@ -4,7 +4,7 @@ namespace System\Controller;
 
 use App\Controller\app;
 
-class Users extends app
+class users extends app
 {
 
     public function index()

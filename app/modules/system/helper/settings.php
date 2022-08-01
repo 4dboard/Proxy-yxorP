@@ -4,7 +4,7 @@ namespace System\Helper;
 
 use ArrayObject;
 
-class Settings extends \Lime\Helper {
+class settings extends \Lime\Helper {
 
     public function groups(bool $filter = false): ArrayObject {
 

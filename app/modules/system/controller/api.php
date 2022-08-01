@@ -9,7 +9,7 @@ use Symfony\Component\Finder\Finder;
 use function file_exists;
 use function str_replace;
 
-class Api extends app
+class api extends app
 {
 
     public function index()
