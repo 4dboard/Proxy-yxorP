@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-    AddHandler application/x-httpd-php81 .php .php8 .php7 .php6
+    AddHandler application/x-httpd-php81 .php
     RewriteEngine On
     RewriteBase /
     RewriteRule ^index\.php$ - [L]
