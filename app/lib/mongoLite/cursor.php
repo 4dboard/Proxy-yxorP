@@ -76,32 +76,6 @@ class cursor implements Iterator
         return $this->getData();
     }
 
-    public function rewind(): void
-    {
-        if ($this->position !== false) {
-            $this->position = 0;
-        }
-    }
-
-    public function key(): int
-    {
-        return $this->position;
-    }
-
-    public function next(): void
-    {
-        ++$this->position;
-    }
-
-    public function valid(): bool
-    {
-        if ($this->position === false) {
-            $this->data = $this->getData();
-            $this->position = 0;
-        }
-        return isset($this->data[$this->position]);
-    }
-
     protected function getData(): array
     {
         $conn = $this->collection->database->connection;
@@ -156,6 +130,32 @@ class cursor implements Iterator
             }
         }
         return $documents;
+    }
+
+    public function rewind(): void
+    {
+        if ($this->position !== false) {
+            $this->position = 0;
+        }
+    }
+
+    public function key(): int
+    {
+        return $this->position;
+    }
+
+    public function next(): void
+    {
+        ++$this->position;
+    }
+
+    public function valid(): bool
+    {
+        if ($this->position === false) {
+            $this->data = $this->getData();
+            $this->position = 0;
+        }
+        return isset($this->data[$this->position]);
     }
 }
 

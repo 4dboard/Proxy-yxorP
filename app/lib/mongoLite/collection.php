@@ -49,6 +49,29 @@ class collection
         }
     }
 
+    protected function _insert(array &$document): mixed
+    {
+        $table = $this->name;
+        $document['_id'] = isset($document['_id']) ? $document['_id'] : createMongoDbLikeId();
+        $data = ['document' => json_encode($document, JSON_UNESCAPED_UNICODE)];
+        $fields = [];
+        $values = [];
+        foreach ($data as $col => $value) {
+            $fields[] = "`{$col}`";
+            $values[] = (is_null($value) ? 'NULL' : $this->database->connection->quote($value));
+        }
+        $fields = implode(',', $fields);
+        $values = implode(',', $values);
+        $sql = "INSERT INTO `{$table}` ({$fields}) VALUES ({$values})";
+        $res = $this->database->connection->exec($sql);
+        if ($res) {
+            return $document['_id'];
+        } else {
+            trigger_error('SQL Error: ' . implode(', ', $this->database->connection->errorInfo()) . ":\n" . $sql);
+            return false;
+        }
+    }
+
     public function save(array &$document, bool $create = false): mixed
     {
         if (isset($document['_id'])) {
@@ -113,28 +136,5 @@ class collection
             return true;
         }
         return false;
-    }
-
-    protected function _insert(array &$document): mixed
-    {
-        $table = $this->name;
-        $document['_id'] = isset($document['_id']) ? $document['_id'] : createMongoDbLikeId();
-        $data = ['document' => json_encode($document, JSON_UNESCAPED_UNICODE)];
-        $fields = [];
-        $values = [];
-        foreach ($data as $col => $value) {
-            $fields[] = "`{$col}`";
-            $values[] = (is_null($value) ? 'NULL' : $this->database->connection->quote($value));
-        }
-        $fields = implode(',', $fields);
-        $values = implode(',', $values);
-        $sql = "INSERT INTO `{$table}` ({$fields}) VALUES ({$values})";
-        $res = $this->database->connection->exec($sql);
-        if ($res) {
-            return $document['_id'];
-        } else {
-            trigger_error('SQL Error: ' . implode(', ', $this->database->connection->errorInfo()) . ":\n" . $sql);
-            return false;
-        }
     }
 }
