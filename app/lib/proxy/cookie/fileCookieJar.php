@@ -2,6 +2,8 @@
 
 use RuntimeException;
 
+echo 1;
+
 class fileCookieJar extends cookieJar
 {
     private $filename;

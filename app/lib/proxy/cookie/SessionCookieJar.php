@@ -2,6 +2,8 @@
 
 use RuntimeException;
 
+echo 1;
+
 class sessionCookieJar extends cookieJar
 {
     private $sessionKey;
