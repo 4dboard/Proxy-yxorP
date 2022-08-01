@@ -35,8 +35,7 @@ $this->on('app.search', function ($search, $findings) {
 
     if (!$this->helper('acl')->isAllowed('app/users/manage')) return;
 
-    $users = $this->dataStorage->find('system/users', ['filter' => ['$or' => [['name' => ['$regex' => $search, '$options' => 'i']], ['label' => ['$regex' => $search, '$options' => 'i']]]], 'limit' => 5
-    ])->toArray();
+    $users = $this->dataStorage->find('system/users', ['filter' => ['$or' => [['name' => ['$regex' => $search, '$options' => 'i']], ['label' => ['$regex' => $search, '$options' => 'i']]]], 'limit' => 5])->toArray();
 
     foreach ($users as $user) {
 
