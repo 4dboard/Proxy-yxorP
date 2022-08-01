@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\modules\app\graphQL\Types;
+namespace yxorP\app\modules\app\graphQL\types;
 
 use graphQL\Language\AST\BooleanValueNode;
 use graphQL\Language\AST\FloatValueNode;
