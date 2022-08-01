@@ -93,8 +93,7 @@ class locales extends helper
         return $locales;
     }
 
-    protected
-    function initialize()
+    protected function initialize()
     {
 
         $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
@@ -102,8 +101,7 @@ class locales extends helper
         });
     }
 
-    public
-    function cache(bool $persistent = true): array
+    public function cache(bool $persistent = true): array
     {
 
         $cache = [
