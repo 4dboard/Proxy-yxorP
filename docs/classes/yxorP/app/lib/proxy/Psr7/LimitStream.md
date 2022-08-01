@@ -1,12 +1,12 @@
 ***
 
-# LimitStream
+# limitStream
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\LimitStream`
+* Full name: `\yxorP\app\lib\proxy\Psr7\limitStream`
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 
@@ -304,6 +304,26 @@ public __get(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
+
+***
+
+### createStream
+
+
+
+```php
+protected createStream(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -656,26 +676,6 @@ public write(mixed $string): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
-
-
-
-
-***
-
-### createStream
-
-
-
-```php
-protected createStream(): mixed
-```
-
-
-
-
-
-
-
 
 
 

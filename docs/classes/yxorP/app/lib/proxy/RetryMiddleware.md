@@ -1,12 +1,12 @@
 ***
 
-# RetryMiddleware
+# retryMiddleware
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\RetryMiddleware`
+* Full name: `\yxorP\app\lib\proxy\retryMiddleware`
 
 
 

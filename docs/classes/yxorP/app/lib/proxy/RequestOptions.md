@@ -1,12 +1,12 @@
 ***
 
-# RequestOptions
+# requestOptions
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\RequestOptions`
+* Full name: `\yxorP\app\lib\proxy\requestOptions`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

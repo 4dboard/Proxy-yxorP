@@ -1,12 +1,12 @@
 ***
 
-# MultipartStream
+# multipartStream
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\MultipartStream`
+* Full name: `\yxorP\app\lib\proxy\Psr7\multipartStream`
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 
@@ -91,7 +91,7 @@ protected createStream(array $elements): mixed
 
 
 ```php
-private addElement(\yxorP\app\lib\proxy\Psr7\AppendStream $stream, array $element): mixed
+private addElement(\yxorP\app\lib\proxy\Psr7\appendStream $stream, array $element): mixed
 ```
 
 
@@ -105,7 +105,7 @@ private addElement(\yxorP\app\lib\proxy\Psr7\AppendStream $stream, array $elemen
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\proxy\Psr7\AppendStream** |  |
+| `$stream` | **\yxorP\app\lib\proxy\Psr7\appendStream** |  |
 | `$element` | **array** |  |
 
 
@@ -285,6 +285,26 @@ public __get(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
+
+***
+
+### createStream
+
+
+
+```php
+protected createStream(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -637,26 +657,6 @@ public write(mixed $string): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
-
-
-
-
-***
-
-### createStream
-
-
-
-```php
-protected createStream(): mixed
-```
-
-
-
-
-
-
-
 
 
 

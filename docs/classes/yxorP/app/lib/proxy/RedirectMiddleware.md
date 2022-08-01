@@ -1,12 +1,12 @@
 ***
 
-# RedirectMiddleware
+# redirectMiddleware
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\RedirectMiddleware`
+* Full name: `\yxorP\app\lib\proxy\redirectMiddleware`
 
 
 ## Constants
@@ -133,6 +133,33 @@ public checkRedirect(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, 
 
 ***
 
+### guardMax
+
+
+
+```php
+private guardMax(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array& $options): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$options` | **array** |  |
+
+
+
+
+***
+
 ### modifyRequest
 
 
@@ -155,33 +182,6 @@ public modifyRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, 
 | `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
 | `$options` | **array** |  |
 | `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
-
-
-
-
-***
-
-### guardMax
-
-
-
-```php
-private guardMax(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array& $options): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$options` | **array** |  |
 
 
 
@@ -221,7 +221,7 @@ private redirectUri(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \
 
 
 ```php
-private withTracking(\yxorP\app\lib\proxy\Promise\PromiseInterface $promise, mixed $uri, mixed $statusCode): mixed
+private withTracking(\yxorP\app\lib\proxy\Promise\promiseInterface $promise, mixed $uri, mixed $statusCode): mixed
 ```
 
 
@@ -235,7 +235,7 @@ private withTracking(\yxorP\app\lib\proxy\Promise\PromiseInterface $promise, mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$promise` | **\yxorP\app\lib\proxy\Promise\PromiseInterface** |  |
+| `$promise` | **\yxorP\app\lib\proxy\Promise\promiseInterface** |  |
 | `$uri` | **mixed** |  |
 | `$statusCode` | **mixed** |  |
 

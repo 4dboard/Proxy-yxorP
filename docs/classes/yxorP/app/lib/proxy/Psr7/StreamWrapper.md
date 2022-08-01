@@ -1,12 +1,12 @@
 ***
 
-# StreamWrapper
+# streamWrapper
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\StreamWrapper`
+* Full name: `\yxorP\app\lib\proxy\Psr7\streamWrapper`
 
 
 

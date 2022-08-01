@@ -1,13 +1,13 @@
 ***
 
-# ServerRequest
+# serverRequest
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\ServerRequest`
-* Parent class: [`\yxorP\app\lib\proxy\Psr7\Request`](./Request.md)
+* Full name: `\yxorP\app\lib\proxy\Psr7\serverRequest`
+* Parent class: [`\yxorP\app\lib\proxy\Psr7\request`](./request.md)
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\ServerRequestInterface`](../../Psr/Http/Message/ServerRequestInterface.md)
 
@@ -180,32 +180,6 @@ public static getUriFromGlobals(): mixed
 
 ***
 
-### normalizeFiles
-
-
-
-```php
-public static normalizeFiles(array $files): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$files` | **array** |  |
-
-
-
-
-***
-
 ### extractHostAndPortFromAuthority
 
 
@@ -226,58 +200,6 @@ private static extractHostAndPortFromAuthority(mixed $authority): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$authority` | **mixed** |  |
-
-
-
-
-***
-
-### createUploadedFileFromSpec
-
-
-
-```php
-private static createUploadedFileFromSpec(array $value): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **array** |  |
-
-
-
-
-***
-
-### normalizeNestedFileSpec
-
-
-
-```php
-private static normalizeNestedFileSpec(array $files = []): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$files` | **array** |  |
 
 
 
@@ -423,6 +345,84 @@ updated cookie values.
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cookies` | **array** | Array of key/value pairs representing cookies. |
+
+
+
+
+***
+
+### normalizeFiles
+
+
+
+```php
+public static normalizeFiles(array $files): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$files` | **array** |  |
+
+
+
+
+***
+
+### createUploadedFileFromSpec
+
+
+
+```php
+private static createUploadedFileFromSpec(array $value): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **array** |  |
+
+
+
+
+***
+
+### normalizeNestedFileSpec
+
+
+
+```php
+private static normalizeNestedFileSpec(array $files = []): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$files` | **array** |  |
 
 
 
@@ -1124,6 +1124,84 @@ public withHeader(mixed $header, mixed $value): mixed
 
 ***
 
+### assertHeader
+
+
+
+```php
+private assertHeader(mixed $header): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$header` | **mixed** |  |
+
+
+
+
+***
+
+### normalizeHeaderValue
+
+
+
+```php
+private normalizeHeaderValue(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### trimHeaderValues
+
+
+
+```php
+private trimHeaderValues(array $values): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$values` | **array** |  |
+
+
+
+
+***
+
 ### withAddedHeader
 
 
@@ -1217,84 +1295,6 @@ public withBody(\yxorP\app\lib\Psr\Http\Message\StreamInterface $body): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$body` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
-
-
-
-
-***
-
-### assertHeader
-
-
-
-```php
-private assertHeader(mixed $header): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$header` | **mixed** |  |
-
-
-
-
-***
-
-### normalizeHeaderValue
-
-
-
-```php
-private normalizeHeaderValue(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### trimHeaderValues
-
-
-
-```php
-private trimHeaderValues(array $values): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$values` | **array** |  |
 
 
 

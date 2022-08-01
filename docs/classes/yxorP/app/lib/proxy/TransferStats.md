@@ -1,12 +1,12 @@
 ***
 
-# TransferStats
+# transferStats
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\TransferStats`
+* Full name: `\yxorP\app\lib\proxy\transferStats`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

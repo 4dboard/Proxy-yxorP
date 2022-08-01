@@ -1,12 +1,12 @@
 ***
 
-# Utils
+# utils
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Utils`
+* Full name: `\yxorP\app\lib\proxy\utils`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

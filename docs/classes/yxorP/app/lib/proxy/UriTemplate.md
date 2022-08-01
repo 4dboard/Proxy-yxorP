@@ -1,12 +1,12 @@
 ***
 
-# UriTemplate
+# uriTemplate
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\UriTemplate`
+* Full name: `\yxorP\app\lib\proxy\uriTemplate`
 
 
 
