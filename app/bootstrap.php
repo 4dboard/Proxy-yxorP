@@ -1,5 +1,7 @@
 <?php
 
+namespace yxorP\app\lib;
+
 use function yxorP\autoLoader;
 
 define('SITE_VERSION', '2.0.2');
