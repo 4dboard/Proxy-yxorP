@@ -59,6 +59,28 @@ class index
         $stmt->execute();
     }
 
+    public function search(string $query, ?array $fields = null): array
+    {
+
+        if (!trim($query)) {
+            return [];
+        }
+
+        $fields = $fields ?? ['*'];
+
+        $stmt = $this->db->prepare("SELECT " . implode(',', array_map(fn($f) => $this->db->escapeString($f), $fields)) . " FROM documents WHERE documents MATCH :query ORDER BY rank");
+        $stmt->bindParam(':query', $query);
+
+        $result = $stmt->execute();
+        $hits = [];
+
+        while ($hit = $result->fetchArray(SQLITE3_ASSOC)) {
+            $hits[] = $hit;
+        }
+
+        return $hits;
+    }
+
     protected function stringify($value)
     {
 
@@ -89,27 +111,5 @@ class index
         }
 
         return '';
-    }
-
-    public function search(string $query, ?array $fields = null): array
-    {
-
-        if (!trim($query)) {
-            return [];
-        }
-
-        $fields = $fields ?? ['*'];
-
-        $stmt = $this->db->prepare("SELECT " . implode(',', array_map(fn($f) => $this->db->escapeString($f), $fields)) . " FROM documents WHERE documents MATCH :query ORDER BY rank");
-        $stmt->bindParam(':query', $query);
-
-        $result = $stmt->execute();
-        $hits = [];
-
-        while ($hit = $result->fetchArray(SQLITE3_ASSOC)) {
-            $hits[] = $hit;
-        }
-
-        return $hits;
     }
 }
