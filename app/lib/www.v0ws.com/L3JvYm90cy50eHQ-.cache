@@ -1,0 +1,2 @@
+<?php header('Content-type: text/plain'); exit(die('User-agent: *
+Disallow:')); ?>
