@@ -59,9 +59,7 @@ class ResponseCache extends Helper
 
         $this->app->on('after', function () use ($request, $cacheHandler) {
 
-            if ($request->stopped || $this->response->status != 200) {
-                return;
-            }
+            if ($request->stopped || $this->response->status != 200) return;
 
             $cacheHandler->cache($request, $this->response);
 
