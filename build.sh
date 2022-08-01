@@ -13,4 +13,4 @@ f1() {
 }
 
 
-f1 'app/inc/*'
+f1 'app/lib/*'
