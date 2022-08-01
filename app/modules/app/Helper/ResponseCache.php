@@ -16,9 +16,7 @@ class ResponseCache extends Helper
     public function handle($request)
     {
 
-        if (!$request->param('rspc')) {
-            return;
-        }
+        if (!$request->param('rspc'))   return;
 
         if (!$this->getCache($request)) {
             $this->cache($request);
