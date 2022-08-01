@@ -26,6 +26,7 @@ class onExceptionAction extends wrapper
         store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
 
         print_r(store::handler(YXORP_APP)->dataStorage->load->save('system/log'));
+        store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
 
         if (helpers::MIME() === 'text' . CHAR_SLASH . 'html' && defined(YXORP_PROXY_URL)) header("Location: " . YXORP_PROXY_URL); else if (ENV_DEBUG) var_dump($e); else store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
     }
