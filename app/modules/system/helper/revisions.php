@@ -21,7 +21,6 @@ class revisions extends helper
 
     public function getList(string $id, int $limit = 50, int $skip = 0)
     {
-
         $options = [
             'filter' => ['_oid' => $id],
             'sort' => ['_created' => -1],
