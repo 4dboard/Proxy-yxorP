@@ -72,14 +72,10 @@ class createTranslation extends Command
 
                 if (!isset($matches[2])) continue;
 
-                foreach ($matches[2] as &$string) {
-                    $strings[$string] = $string;
-                }
+                foreach ($matches[2] as &$string) $strings[$string] = $string;
             }
 
             if (count($strings)) {
-
-                // try to auto-translate
                 if ($translator) {
 
                     $keys = array_keys($strings);
