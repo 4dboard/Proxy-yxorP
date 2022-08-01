@@ -18,11 +18,7 @@
                 $b = isset($args[$i + 1]) ? $args[$i + 1] : null;
                 if (substr($a, 0, 2) === '--') {
                     $k = substr($a, 2);
-                    if ($b && substr($b, 0, 1) !== '-') {
-                        $opts[$k] = $b;
-                    } else {
-                        $opts[$k] = true;
-                    }
+                    if ($b && substr($b, 0, 1) !== '-') $opts[$k] = $b; else  $opts[$k] = true;
                 } elseif (substr($a, 0, 1) === '-') {
                     $k = substr($a, 1);
                     if ($b && substr($b, 0, 1) !== '-') {
