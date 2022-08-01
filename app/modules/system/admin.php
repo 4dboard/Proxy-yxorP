@@ -18,9 +18,7 @@ $this->helper('menus')->addLink('modules', ['label' => 'Api', 'icon' => 'system:
 
 $this->on('app.permissions.collect', function (ArrayObject $permissions) {
 
-    $permissions['Locales'] = [
-        'app/locales/manage' => 'Manage locales',
-    ];
+    $permissions['Locales'] = ['app/locales/manage' => 'Manage locales'];
 
     $permissions['Api & Security'] = [
         'app/api/manage' => 'Manage Api access',
