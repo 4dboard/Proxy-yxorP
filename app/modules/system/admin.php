@@ -39,12 +39,7 @@ $this->on('app.search', function ($search, $findings) {
 
     foreach ($users as $user) {
 
-        $findings[] = [
-            'title' => isset($user['name']) && $user['name'] ? "{$user['name']} ({$user['user']})" : $user['user'],
-            'route' => $this->routeUrl("/system/users/user/{$user['_id']}"),
-            'group' => 'Users',
-            'icon' => 'system:assets/icons/users.svg'
-        ];
+        $findings[] = ['title' => isset($user['name']) && $user['name'] ? "{$user['name']} ({$user['user']})" : $user['user'], 'route' => $this->routeUrl("/system/users/user/{$user['_id']}"), 'group' => 'Users', 'icon' => 'system:assets/icons/users.svg'];
     }
 
 });
