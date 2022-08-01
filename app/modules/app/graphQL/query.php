@@ -4,9 +4,9 @@ namespace App\GraphQL;
 
 use ArrayObject;
 use GraphQL\GraphQL;
-use GraphQL\Type\Schema;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
+use GraphQL\Type\Schema;
 
 class query extends \Lime\AppAware
 {
@@ -16,19 +16,6 @@ class query extends \Lime\AppAware
     public $types;
     public $directives;
     protected $initialized = false;
-
-    public function init()
-    {
-
-        if ($this->initialized) return;
-
-        $this->queries = new \ArrayObject(['name' => 'Query', 'fields' => []]);
-        $this->mutations = new \ArrayObject(['name' => 'Mutation', 'fields' => []]);
-        $this->types = new \ArrayObject([]);
-        $this->directives = new \ArrayObject(GraphQL::getStandardDirectives());
-        $this->app->trigger('graphql.config', [$this]);
-        $this->initialized = true;
-    }
 
     public function process($query = '{}', $variables = null)
     {
@@ -70,5 +57,18 @@ class query extends \Lime\AppAware
         }
 
         return $result;
+    }
+
+    public function init()
+    {
+
+        if ($this->initialized) return;
+
+        $this->queries = new \ArrayObject(['name' => 'Query', 'fields' => []]);
+        $this->mutations = new \ArrayObject(['name' => 'Mutation', 'fields' => []]);
+        $this->types = new \ArrayObject([]);
+        $this->directives = new \ArrayObject(GraphQL::getStandardDirectives());
+        $this->app->trigger('graphql.config', [$this]);
+        $this->initialized = true;
     }
 }

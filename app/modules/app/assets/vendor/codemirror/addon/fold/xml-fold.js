@@ -212,5 +212,5 @@
     CodeMirror.scanForClosingTag = function (cm, pos, name, end) {
         var iter = new Iter(cm, pos.line, pos.ch, end ? {from: 0, to: end} : null);
         return findMatchingClose(iter, name);
-  };
+    };
 });

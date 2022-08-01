@@ -5,6 +5,18 @@ namespace App\Helper;
 class csrf extends \Lime\Helper
 {
 
+    public function token(string $key, bool $generate = false, ?int $expire = null): string
+    {
+
+        $token = $this->app->helper('session')->read("app.csrf.token.{$key}", null);
+
+        if (!$token || $generate) {
+            $token = $this->generateToken($key, $expire);
+        }
+
+        return $token;
+    }
+
     public function generateToken(string $key, ?int $expire = null): string
     {
 
@@ -17,18 +29,6 @@ class csrf extends \Lime\Helper
         $token = $this->app->helper('jwt')->create($payload);
 
         $this->app->helper('session')->write("app.csrf.token.{$key}", $token);
-
-        return $token;
-    }
-
-    public function token(string $key, bool $generate = false, ?int $expire = null): string
-    {
-
-        $token = $this->app->helper('session')->read("app.csrf.token.{$key}", null);
-
-        if (!$token || $generate) {
-            $token = $this->generateToken($key, $expire);
-        }
 
         return $token;
     }

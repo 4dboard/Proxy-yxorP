@@ -1,11 +1,11 @@
 customElements.define('app-frame', class extends HTMLElement {
 
-    static get observedAttributes() {
-        return ['src'];
-    }
-
     constructor() {
         super();
+    }
+
+    static get observedAttributes() {
+        return ['src'];
     }
 
     connectedCallback() {

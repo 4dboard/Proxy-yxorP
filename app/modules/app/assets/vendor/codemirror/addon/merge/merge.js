@@ -1106,7 +1106,7 @@
     CodeMirror.commands.goNextDiff = function (cm) {
         return goNearbyDiff(cm, 1);
     };
-    CodeMirror.commands.goPrevDiff = function(cm) {
-    return goNearbyDiff(cm, -1);
-  };
+    CodeMirror.commands.goPrevDiff = function (cm) {
+        return goNearbyDiff(cm, -1);
+    };
 });

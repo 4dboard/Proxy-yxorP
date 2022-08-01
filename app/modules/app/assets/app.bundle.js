@@ -6577,12 +6577,12 @@
 
     customElements.define('kiss-accordion', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return [];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return [];
         }
 
         connectedCallback() {
@@ -7279,12 +7279,12 @@
 
     customElements.define('kiss-tabs', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return [];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return [];
         }
 
         connectedCallback() {
@@ -10142,12 +10142,12 @@
 
     customElements.define('app-avatar', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['name', 'size', 'color'];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return ['name', 'size', 'color'];
         }
 
         connectedCallback() {
@@ -10285,12 +10285,12 @@
 
     customElements.define('app-frame', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['src'];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return ['src'];
         }
 
         connectedCallback() {
@@ -10347,12 +10347,12 @@
 
     customElements.define('app-loader', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['label', 'mode'];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return ['label', 'mode'];
         }
 
         connectedCallback() {
@@ -10387,12 +10387,12 @@
 
     customElements.define('app-loader-cover', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['label', 'mode'];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return ['label', 'mode'];
         }
 
         connectedCallback() {
@@ -10424,12 +10424,12 @@
 
     customElements.define('app-scrollcontainer', class extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['boundary'];
-        }
-
         constructor() {
             super();
+        }
+
+        static get observedAttributes() {
+            return ['boundary'];
         }
 
         connectedCallback() {
@@ -10679,8 +10679,8 @@
     // custom utils
     App$1.utils.import = function (uri) {
         return import(App$1.base(uri) + '?v=' + App$1.version);
-  };
+    };
 
-  window.App = App$1;
+    window.App = App$1;
 
 }());

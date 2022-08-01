@@ -164,5 +164,5 @@
         var line = from.line;
         if (line >= state.from && line < state.to)
             updateFoldInfo(cm, line, line + 1);
-  }
+    }
 });

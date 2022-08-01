@@ -2,22 +2,11 @@
 
 namespace App\RestApi;
 
-use ArrayObject;
-
 class query extends \Lime\AppAware
 {
 
     protected array $endpoints = [];
     protected bool $initialized = false;
-
-    public function init()
-    {
-
-        if ($this->initialized) return;
-
-        $this->app->trigger('restApi.config', [$this]);
-        $this->initialized = true;
-    }
 
     public function process(string $path, string $method = 'GET', ?string $apiKey = null)
     {
@@ -61,10 +50,13 @@ class query extends \Lime\AppAware
         return false;
     }
 
-    public function addEndPoint(string $path, array $methods = [])
+    public function init()
     {
 
-        $this->endpoints[$path] = $methods;
+        if ($this->initialized) return;
+
+        $this->app->trigger('restApi.config', [$this]);
+        $this->initialized = true;
     }
 
     protected function isPathMatching($path, $pattern, &$params = null)
@@ -119,5 +111,11 @@ class query extends \Lime\AppAware
         $patternAsRegex = "@^" . $pattern . "$@D";
 
         return $patternAsRegex;
+    }
+
+    public function addEndPoint(string $path, array $methods = [])
+    {
+
+        $this->endpoints[$path] = $methods;
     }
 }

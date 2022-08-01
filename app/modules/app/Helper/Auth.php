@@ -42,22 +42,6 @@ class auth extends \Lime\Helper
         return false;
     }
 
-    public function getUser(?string $prop = null, mixed $default = null): mixed
-    {
-
-        $user = $this->app->retrieve($this->sessionKey);
-
-        if (is_null($user)) {
-            $user = $this->app->helper('session')->read($this->sessionKey, null);
-        }
-
-        if (!is_null($prop)) {
-            return $user && isset($user[$prop]) ? $user[$prop] : $default;
-        }
-
-        return $user;
-    }
-
     public function setUser(array $user, bool $permanent = true): void
     {
 
@@ -84,5 +68,21 @@ class auth extends \Lime\Helper
 
         // prevent session fixation attacks
         $this->app->helper('session')->regenerateId(true);
+    }
+
+    public function getUser(?string $prop = null, mixed $default = null): mixed
+    {
+
+        $user = $this->app->retrieve($this->sessionKey);
+
+        if (is_null($user)) {
+            $user = $this->app->helper('session')->read($this->sessionKey, null);
+        }
+
+        if (!is_null($prop)) {
+            return $user && isset($user[$prop]) ? $user[$prop] : $default;
+        }
+
+        return $user;
     }
 }

@@ -50,6 +50,14 @@ class acl extends \Lime\Helper
         return false;
     }
 
+    protected function initialize()
+    {
+
+        $this->roles = $this->app->memory->get('app.roles.permissions', function () {
+            return $this->cache();
+        });
+    }
+
     public function cache(): array
     {
 
@@ -66,13 +74,5 @@ class acl extends \Lime\Helper
         $this->app->memory->set('app.roles.permissions', $cache);
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->roles = $this->app->memory->get('app.roles.permissions', function () {
-            return $this->cache();
-        });
     }
 }

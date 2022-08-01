@@ -34,6 +34,11 @@ class authenticated extends base
         return ['success' => $success];
     }
 
+    protected function isAllowed(string $permission): bool
+    {
+        return $this->helper('acl')->isAllowed($permission);
+    }
+
     protected function initialize()
     {
 
@@ -48,11 +53,6 @@ class authenticated extends base
         $this->app->set('user', $user);
 
         parent::initialize();
-    }
-
-    protected function isAllowed(string $permission): bool
-    {
-        return $this->helper('acl')->isAllowed($permission);
     }
 
     protected function checkAndLockResource($resourceId)

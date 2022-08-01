@@ -1,11 +1,11 @@
 customElements.define('app-avatar', class extends HTMLElement {
 
-    static get observedAttributes() {
-        return ['name', 'size', 'color'];
-    }
-
     constructor() {
         super();
+    }
+
+    static get observedAttributes() {
+        return ['name', 'size', 'color'];
     }
 
     connectedCallback() {

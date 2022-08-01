@@ -210,6 +210,6 @@
                 self.replaceRange("", Pos(i, found), Pos(i, foundEnd));
             }
         });
-    return true;
-  });
+        return true;
+    });
 });

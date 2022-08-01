@@ -12,16 +12,16 @@ app-field[disabled="true"] {
     transition: opacity .3s;
 }
 
-app-fieldcontainer:not([disabled="true"]):hover  .app-fieldcontainer-visible-hover {
+app-fieldcontainer:not([disabled="true"]):hover .app-fieldcontainer-visible-hover {
     opacity: 1;
     pointer-events: all;
 }
 
-@media (min-width:1220px) {
+@media (min-width: 1220px) {
 
     app-fieldcontainer {
         padding-left: 15px;
-        border-left: 2px var(--app-fieldcontainer-border-color-inactive, rgba(0,0,0,.1)) solid;
+        border-left: 2px var(--app-fieldcontainer-border-color-inactive, rgba(0, 0, 0, .1)) solid;
         transition: border-color 200ms, opacity 100ms ease;
         opacity: .7;
     }

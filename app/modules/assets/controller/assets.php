@@ -3,7 +3,6 @@
 namespace Assets\Controller;
 
 use App\Controller\app;
-use ArrayObject;
 
 class assets extends app
 {
