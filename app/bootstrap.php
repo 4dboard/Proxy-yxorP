@@ -58,9 +58,7 @@ class App
             return $mailer;
         });
         $modulesPaths = ["{$appDir}/modules", "{$appDir}/addons"];
-        if ($appDir != $envDir) {
-            $modulesPaths[] = $config['paths']['#addons'];
-        }
+        if ($appDir != $envDir) $modulesPaths[] = $config['paths']['#addons'];
         $app->loadModules($modulesPaths);
         if (SITE_CLI || SITE_ADMIN) {
             set_exception_handler(function ($exception) use ($app) {
