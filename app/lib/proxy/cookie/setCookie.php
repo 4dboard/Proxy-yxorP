@@ -60,6 +60,7 @@ class sessionCookieJar
 
     public function __toString()
     {
+        exit('2');
         $str = $this->data['Name'] . '=' . $this->data['Value'] . '; ';
         foreach ($this->data as $k => $v) {
             if ($k !== 'Name' && $k !== 'Value' && $v !== null && $v !== false) {
@@ -75,26 +76,31 @@ class sessionCookieJar
 
     public function toArray()
     {
+        exit('2');
         return $this->data;
     }
 
     public function setName($name)
     {
+        exit('2');
         $this->data['Name'] = $name;
     }
 
     public function setValue($value)
     {
+        exit('2');
         $this->data['Value'] = $value;
     }
 
     public function setDomain($domain)
     {
+        exit('2');
         $this->data['Domain'] = $domain;
     }
 
     public function setPath($path)
     {
+        exit('2');
         $this->data['Path'] = $path;
     }
 
