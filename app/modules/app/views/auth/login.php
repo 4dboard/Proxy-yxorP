@@ -66,7 +66,7 @@
                     </div>
                     <div class="kiss-margin-top">
                         <button class="kiss-button kiss-button-outline kiss-button-primary kiss-width-1-1">{{
-                            t('Verifycode') }}
+                            t('Verify code') }}
                         </button>
                     </div>
                 </form>
