@@ -475,7 +475,7 @@ class helpers
          * Setting the pattern, replace, and plugins variables.
          */
         foreach ([YXORP_GLOBAL_PATTERN => VAR_PATTERN, YXORP_GLOBAL_REPLACE => VAR_REPLACE, YXORP_GLOBAL_CSS => VAR_CSS, YXORP_GLOBAL_JS => VAR_JS] as $key => $value) store::handler($key, store::handler(SITE_DETAILS_GLOBAL, store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_SINGLETONS, [SITE_MODULE => SITE_SETTINGS]))[$value]);
-        PATH_COOKIE_JAR
+        if (!is_file(PATH_COOKIE_JAR)) file_put_contents(PATH_COOKIE_JAR, '[]');     // Save our content to the file.
         /**
          * Loading the Proxy Snag class.
          */
