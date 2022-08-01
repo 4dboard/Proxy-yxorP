@@ -4,7 +4,6 @@ use Countable;
 use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use ReturnTypeWillChange;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\handlerStack;
 use yxorP\app\lib\proxy\Promise\promiseInterface;
