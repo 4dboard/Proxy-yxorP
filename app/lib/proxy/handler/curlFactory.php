@@ -26,7 +26,7 @@ class curlFactory implements curlFactoryInterface
         $this->maxHandles = $maxHandles;
     }
 
-    public static function finish(callable $handler, EasyHandle $easy, curlFactoryInterface $factory)
+    public static function finish(callable $handler, easyHandle $easy, curlFactoryInterface $factory)
     {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
@@ -42,7 +42,7 @@ class curlFactory implements curlFactoryInterface
         return new FulfilledPromise($easy->response);
     }
 
-    private static function invokeStats(EasyHandle $easy)
+    private static function invokeStats(easyHandle $easy)
     {
         $curlStats = curl_getinfo($easy->handle);
         $curlStats['appconnect_time'] = curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME);
@@ -50,7 +50,7 @@ class curlFactory implements curlFactoryInterface
         call_user_func($easy->options['on_stats'], $stats);
     }
 
-    private static function finishError(callable $handler, EasyHandle $easy, curlFactoryInterface $factory)
+    private static function finishError(callable $handler, easyHandle $easy, curlFactoryInterface $factory)
     {
         $ctx = ['errno' => $easy->errno, 'error' => curl_error($easy->handle), 'appconnect_time' => curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME),] + curl_getinfo($easy->handle);
         $ctx[self::CURL_VERSION_STR] = curl_version()['version'];
@@ -61,7 +61,7 @@ class curlFactory implements curlFactoryInterface
         return self::createRejection($easy, $ctx);
     }
 
-    private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx)
+    private static function retryFailedRewind(callable $handler, easyHandle $easy, array $ctx)
     {
         try {
             $body = $easy->request->getBody();
@@ -83,7 +83,7 @@ class curlFactory implements curlFactoryInterface
         return $handler($easy->request, $easy->options);
     }
 
-    private static function createRejection(EasyHandle $easy, array $ctx)
+    private static function createRejection(easyHandle $easy, array $ctx)
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
@@ -98,7 +98,7 @@ class curlFactory implements curlFactoryInterface
         return rejection_for($error);
     }
 
-    public function release(EasyHandle $easy)
+    public function release(easyHandle $easy)
     {
         $resource = $easy->handle;
         unset($easy->handle);
@@ -120,7 +120,7 @@ class curlFactory implements curlFactoryInterface
             $options['_body_as_string'] = $options['curl']['body_as_string'];
             unset($options['curl']['body_as_string']);
         }
-        $easy = new EasyHandle;
+        $easy = new easyHandle;
         $easy->request = $request;
         $easy->options = $options;
         $conf = $this->getDefaultConf($easy);
@@ -137,7 +137,7 @@ class curlFactory implements curlFactoryInterface
         return $easy;
     }
 
-    private function getDefaultConf(EasyHandle $easy)
+    private function getDefaultConf(easyHandle $easy)
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
         if (defined('CURLOPT_PROTOCOLS')) {
@@ -154,7 +154,7 @@ class curlFactory implements curlFactoryInterface
         return $conf;
     }
 
-    private function applyMethod(EasyHandle $easy, array &$conf)
+    private function applyMethod(easyHandle $easy, array &$conf)
     {
         $body = $easy->request->getBody();
         $size = $body->getSize();
@@ -212,7 +212,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    private function applyHandlerOptions(EasyHandle $easy, array &$conf)
+    private function applyHandlerOptions(easyHandle $easy, array &$conf)
     {
         $options = $easy->options;
         if (isset($options['verify'])) {
@@ -338,7 +338,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    private function applyHeaders(EasyHandle $easy, array &$conf)
+    private function applyHeaders(easyHandle $easy, array &$conf)
     {
         foreach ($conf['_headers'] as $name => $values) {
             foreach ($values as $value) {
@@ -355,7 +355,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    private function createHeaderFn(EasyHandle $easy)
+    private function createHeaderFn(easyHandle $easy)
     {
         if (isset($easy->options['on_headers'])) {
             $onHeaders = $easy->options['on_headers'];

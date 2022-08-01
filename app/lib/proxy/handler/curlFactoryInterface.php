@@ -6,5 +6,5 @@ interface curlFactoryInterface
 {
     public function create(RequestInterface $request, array $options);
 
-    public function release(EasyHandle $easy);
+    public function release(easyHandle $easy);
 }
