@@ -4,7 +4,6 @@ use MongoDB\BSON\ObjectID;
 use MongoDB\client as MongoDBClient;
 use MongoDB\collection;
 use MongoDB\database;
-use MongoLite\Database;
 use Throwable;
 use function is_iterable;
 use function is_object;
