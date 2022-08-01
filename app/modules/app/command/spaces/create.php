@@ -4,7 +4,6 @@ namespace App\Command\Spaces;
 
 use Cockpit;
 use Lime\App;
-use MongoDB\Driver\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -66,6 +65,6 @@ class create
         $instance->dataStorage->save('system/users', $user);
 
         $output->writeln("<info>[✓]</info> Space <info>{$name}</info> created!");
-        return Command::SUCCESS;
+        return 1;
     }
 }
