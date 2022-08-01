@@ -58,6 +58,7 @@ class yP
          * class.
          */
         if (!self::$instance) (self::$instance = $this)->init($request, $root);
+        exit('1');
     }
 
     /**
