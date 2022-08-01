@@ -23,11 +23,11 @@ class UniqueOperationNames extends ValidationRule
         $this->knownOperationNames = [];
 
         return [
-            NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node) use ($context) : VisitorOperation {
+            NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node) use ($context): VisitorOperation {
                 $operationName = $node->name;
 
                 if ($operationName !== null) {
-                    if (! isset($this->knownOperationNames[$operationName->value])) {
+                    if (!isset($this->knownOperationNames[$operationName->value])) {
                         $this->knownOperationNames[$operationName->value] = $operationName;
                     } else {
                         $context->reportError(new Error(
@@ -39,7 +39,7 @@ class UniqueOperationNames extends ValidationRule
 
                 return Visitor::skipNode();
             },
-            NodeKind::FRAGMENT_DEFINITION  => static function () : VisitorOperation {
+            NodeKind::FRAGMENT_DEFINITION => static function (): VisitorOperation {
                 return Visitor::skipNode();
             },
         ];

@@ -97,41 +97,43 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
     public function __construct(
         PromiseAdapter $promiseAdapter,
-        Schema $schema,
-        DocumentNode $documentNode,
-        $rootValue,
-        $contextValue,
-        $rawVariableValues,
-        ?string $operationName,
-        callable $fieldResolver
-    ) {
+        Schema         $schema,
+        DocumentNode   $documentNode,
+                       $rootValue,
+                       $contextValue,
+                       $rawVariableValues,
+        ?string        $operationName,
+        callable       $fieldResolver
+    )
+    {
         if (self::$undefined === null) {
             self::$undefined = Utils::undefined();
         }
 
-        $this->errors            = [];
-        $this->queue             = new SplQueue();
-        $this->schedule          = new SplQueue();
-        $this->schema            = $schema;
-        $this->fieldResolver     = $fieldResolver;
-        $this->promiseAdapter    = $promiseAdapter;
-        $this->rootValue         = $rootValue;
-        $this->contextValue      = $contextValue;
+        $this->errors = [];
+        $this->queue = new SplQueue();
+        $this->schedule = new SplQueue();
+        $this->schema = $schema;
+        $this->fieldResolver = $fieldResolver;
+        $this->promiseAdapter = $promiseAdapter;
+        $this->rootValue = $rootValue;
+        $this->contextValue = $contextValue;
         $this->rawVariableValues = $rawVariableValues;
-        $this->documentNode      = $documentNode;
-        $this->operationName     = $operationName;
+        $this->documentNode = $documentNode;
+        $this->operationName = $operationName;
     }
 
     public static function create(
         PromiseAdapter $promiseAdapter,
-        Schema $schema,
-        DocumentNode $documentNode,
-        $rootValue,
-        $contextValue,
-        $variableValues,
-        ?string $operationName,
-        callable $fieldResolver
-    ) {
+        Schema         $schema,
+        DocumentNode   $documentNode,
+                       $rootValue,
+                       $contextValue,
+                       $variableValues,
+        ?string        $operationName,
+        callable       $fieldResolver
+    )
+    {
         return new static(
             $promiseAdapter,
             $schema,
@@ -144,40 +146,13 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         );
     }
 
-    private static function resultToArray($value, $emptyObjectAsStdClass = true)
-    {
-        if ($value instanceof stdClass) {
-            $array = (array) $value;
-            foreach ($array as $propertyName => $propertyValue) {
-                $array[$propertyName] = self::resultToArray($propertyValue);
-            }
-
-            if ($emptyObjectAsStdClass && count($array) === 0) {
-                return new stdClass();
-            }
-
-            return $array;
-        }
-
-        if (is_array($value)) {
-            $array = [];
-            foreach ($value as $key => $item) {
-                $array[$key] = self::resultToArray($item);
-            }
-
-            return $array;
-        }
-
-        return $value;
-    }
-
-    public function doExecute() : Promise
+    public function doExecute(): Promise
     {
         $this->rootResult = new stdClass();
-        $this->errors     = [];
-        $this->queue      = new SplQueue();
-        $this->schedule   = new SplQueue();
-        $this->pending    = 0;
+        $this->errors = [];
+        $this->queue = new SplQueue();
+        $this->schedule = new SplQueue();
+        $this->pending = 0;
 
         $this->collector = new Collector($this->schema, $this);
         $this->collector->initialize($this->documentNode, $this->operationName);
@@ -213,11 +188,11 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
             );
 
             $fieldDefinition = $this->findFieldDefinition($ctx);
-            if (! $fieldDefinition->getType() instanceof NonNull) {
+            if (!$fieldDefinition->getType() instanceof NonNull) {
                 $ctx->nullFence = [$shared->resultName];
             }
 
-            if ($this->collector->operation->operation === 'mutation' && ! $this->queue->isEmpty()) {
+            if ($this->collector->operation->operation === 'mutation' && !$this->queue->isEmpty()) {
                 $this->schedule->enqueue($ctx);
             } else {
                 $this->queue->enqueue(new Strand($this->spawn($ctx)));
@@ -227,7 +202,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         $this->run();
 
         if ($this->pending > 0) {
-            return $this->promiseAdapter->create(function (callable $resolve) : void {
+            return $this->promiseAdapter->create(function (callable $resolve): void {
                 $this->doResolve = $resolve;
             });
         }
@@ -237,16 +212,16 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
     /**
      * @param object|null $value
-     * @param Error[]     $errors
+     * @param Error[] $errors
      */
-    private function finishExecute($value, array $errors) : ExecutionResult
+    private function finishExecute($value, array $errors): ExecutionResult
     {
-        $this->rootResult     = null;
-        $this->errors         = [];
-        $this->queue          = new SplQueue();
-        $this->schedule       = new SplQueue();
-        $this->pending        = null;
-        $this->collector      = null;
+        $this->rootResult = null;
+        $this->errors = [];
+        $this->queue = new SplQueue();
+        $this->schedule = new SplQueue();
+        $this->pending = null;
+        $this->collector = null;
         $this->variableValues = null;
 
         if ($value !== null) {
@@ -256,124 +231,48 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         return new ExecutionResult($value, $errors);
     }
 
-    /**
-     * @internal
-     *
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
-     */
-    public function evaluate(ValueNode $valueNode, InputType $type)
+    private static function resultToArray($value, $emptyObjectAsStdClass = true)
     {
-        return AST::valueFromAST($valueNode, $type, $this->variableValues);
-    }
-
-    /**
-     * @internal
-     */
-    public function addError($error)
-    {
-        $this->errors[] = $error;
-    }
-
-    private function run()
-    {
-        RUN:
-        while (! $this->queue->isEmpty()) {
-            /** @var Strand $strand */
-            $strand = $this->queue->dequeue();
-
-            try {
-                if ($strand->success !== null) {
-                    RESUME:
-
-                    if ($strand->success) {
-                        $strand->current->send($strand->value);
-                    } else {
-                        $strand->current->throw($strand->value);
-                    }
-
-                    $strand->success = null;
-                    $strand->value   = null;
-                }
-
-                START:
-                if ($strand->current->valid()) {
-                    $value = $strand->current->current();
-
-                    if ($value instanceof Generator) {
-                        $strand->stack[$strand->depth++] = $strand->current;
-                        $strand->current                 = $value;
-                        goto START;
-                    } elseif ($this->isPromise($value)) {
-                        // !!! increment pending before calling ->then() as it may invoke the callback right away
-                        ++$this->pending;
-
-                        if (! $value instanceof Promise) {
-                            $value = $this->promiseAdapter->convertThenable($value);
-                        }
-
-                        $this->promiseAdapter
-                            ->then(
-                                $value,
-                                function ($value) use ($strand) : void {
-                                    $strand->success = true;
-                                    $strand->value   = $value;
-                                    $this->queue->enqueue($strand);
-                                    $this->done();
-                                },
-                                function (Throwable $throwable) use ($strand) : void {
-                                    $strand->success = false;
-                                    $strand->value   = $throwable;
-                                    $this->queue->enqueue($strand);
-                                    $this->done();
-                                }
-                            );
-                        continue;
-                    } else {
-                        $strand->success = true;
-                        $strand->value   = $value;
-                        goto RESUME;
-                    }
-                }
-
-                $strand->success = true;
-                $strand->value   = $strand->current->getReturn();
-            } catch (Throwable $reason) {
-                $strand->success = false;
-                $strand->value   = $reason;
+        if ($value instanceof stdClass) {
+            $array = (array)$value;
+            foreach ($array as $propertyName => $propertyValue) {
+                $array[$propertyName] = self::resultToArray($propertyValue);
             }
 
-            if ($strand->depth <= 0) {
-                continue;
+            if ($emptyObjectAsStdClass && count($array) === 0) {
+                return new stdClass();
             }
 
-            $current         = &$strand->stack[--$strand->depth];
-            $strand->current = $current;
-            $current         = null;
-            goto RESUME;
+            return $array;
         }
 
-        if ($this->pending > 0 || $this->schedule->isEmpty()) {
-            return;
+        if (is_array($value)) {
+            $array = [];
+            foreach ($value as $key => $item) {
+                $array[$key] = self::resultToArray($item);
+            }
+
+            return $array;
         }
 
-        /** @var CoroutineContext $ctx */
-        $ctx = $this->schedule->dequeue();
-        $this->queue->enqueue(new Strand($this->spawn($ctx)));
-        goto RUN;
+        return $value;
     }
 
-    private function done()
+    private function findFieldDefinition(CoroutineContext $ctx)
     {
-        --$this->pending;
-
-        $this->run();
-
-        if ($this->pending > 0) {
-            return;
+        if ($ctx->shared->fieldName === Introspection::SCHEMA_FIELD_NAME && $ctx->type === $this->schema->getQueryType()) {
+            return Introspection::schemaMetaFieldDef();
         }
 
-        $doResolve = $this->doResolve;
-        $doResolve($this->finishExecute($this->rootResult, $this->errors));
+        if ($ctx->shared->fieldName === Introspection::TYPE_FIELD_NAME && $ctx->type === $this->schema->getQueryType()) {
+            return Introspection::typeMetaFieldDef();
+        }
+
+        if ($ctx->shared->fieldName === Introspection::TYPE_NAME_FIELD_NAME) {
+            return Introspection::typeNameMetaFieldDef();
+        }
+
+        return $ctx->type->getField($ctx->shared->fieldName);
     }
 
     private function spawn(CoroutineContext $ctx)
@@ -387,11 +286,11 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
         try {
             if ($ctx->shared->typeGuard1 === $ctx->type) {
-                $resolve                = $ctx->shared->resolveIfType1;
-                $ctx->resolveInfo       = clone $ctx->shared->resolveInfoIfType1;
+                $resolve = $ctx->shared->resolveIfType1;
+                $ctx->resolveInfo = clone $ctx->shared->resolveInfoIfType1;
                 $ctx->resolveInfo->path = $ctx->path;
-                $arguments              = $ctx->shared->argumentsIfType1;
-                $returnType             = $ctx->resolveInfo->returnType;
+                $arguments = $ctx->shared->argumentsIfType1;
+                $returnType = $ctx->resolveInfo->returnType;
             } else {
                 $fieldDefinition = $this->findFieldDefinition($ctx);
 
@@ -424,15 +323,15 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
                 );
 
                 // !!! assign only in batch when no exception can be thrown in-between
-                $ctx->shared->typeGuard1         = $ctx->type;
-                $ctx->shared->resolveIfType1     = $resolve;
-                $ctx->shared->argumentsIfType1   = $arguments;
+                $ctx->shared->typeGuard1 = $ctx->type;
+                $ctx->shared->resolveIfType1 = $resolve;
+                $ctx->shared->argumentsIfType1 = $arguments;
                 $ctx->shared->resolveInfoIfType1 = $ctx->resolveInfo;
             }
 
             $value = $resolve($ctx->value, $arguments, $this->contextValue, $ctx->resolveInfo);
 
-            if (! $this->completeValueFast($ctx, $returnType, $value, $ctx->path, $returnValue)) {
+            if (!$this->completeValueFast($ctx, $returnType, $value, $ctx->path, $returnValue)) {
                 $returnValue = yield $this->completeValue(
                     $ctx,
                     $returnType,
@@ -466,29 +365,12 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         }
     }
 
-    private function findFieldDefinition(CoroutineContext $ctx)
-    {
-        if ($ctx->shared->fieldName === Introspection::SCHEMA_FIELD_NAME && $ctx->type === $this->schema->getQueryType()) {
-            return Introspection::schemaMetaFieldDef();
-        }
-
-        if ($ctx->shared->fieldName === Introspection::TYPE_FIELD_NAME && $ctx->type === $this->schema->getQueryType()) {
-            return Introspection::typeMetaFieldDef();
-        }
-
-        if ($ctx->shared->fieldName === Introspection::TYPE_NAME_FIELD_NAME) {
-            return Introspection::typeNameMetaFieldDef();
-        }
-
-        return $ctx->type->getField($ctx->shared->fieldName);
-    }
-
     /**
-     * @param mixed    $value
+     * @param mixed $value
      * @param string[] $path
-     * @param mixed    $returnValue
+     * @param mixed $returnValue
      */
-    private function completeValueFast(CoroutineContext $ctx, Type $type, $value, array $path, &$returnValue) : bool
+    private function completeValueFast(CoroutineContext $ctx, Type $type, $value, array $path, &$returnValue): bool
     {
         // special handling of Throwable inherited from JS reference implementation, but makes no sense in this PHP
         if ($this->isPromise($value) || $value instanceof Throwable) {
@@ -498,10 +380,10 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         $nonNull = false;
         if ($type instanceof NonNull) {
             $nonNull = true;
-            $type    = $type->getWrappedType();
+            $type = $type->getWrappedType();
         }
 
-        if (! $type instanceof LeafType) {
+        if (!$type instanceof LeafType) {
             return false;
         }
 
@@ -567,20 +449,38 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
     }
 
     /**
-     * @param mixed         $value
-     * @param string[]      $path
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    private function isPromise($value)
+    {
+        return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
+    }
+
+    /**
+     * @internal
+     */
+    public function addError($error)
+    {
+        $this->errors[] = $error;
+    }
+
+    /**
+     * @param mixed $value
+     * @param string[] $path
      * @param string[]|null $nullFence
      *
      * @return mixed
      */
     private function completeValue(CoroutineContext $ctx, Type $type, $value, array $path, ?array $nullFence)
     {
-        $nonNull     = false;
+        $nonNull = false;
         $returnValue = null;
 
         if ($type instanceof NonNull) {
             $nonNull = true;
-            $type    = $type->getWrappedType();
+            $type = $type->getWrappedType();
         } else {
             $nullFence = $path;
         }
@@ -624,17 +524,17 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
         if ($type instanceof ListOfType) {
             $returnValue = [];
-            $index       = -1;
-            $itemType    = $type->getWrappedType();
+            $index = -1;
+            $itemType = $type->getWrappedType();
             foreach ($value as $itemValue) {
                 ++$index;
 
-                $itemPath               = $path;
-                $itemPath[]             = $index; // !!! use arrays COW semantics
+                $itemPath = $path;
+                $itemPath[] = $index; // !!! use arrays COW semantics
                 $ctx->resolveInfo->path = $itemPath;
 
                 try {
-                    if (! $this->completeValueFast($ctx, $itemType, $itemValue, $itemPath, $itemReturnValue)) {
+                    if (!$this->completeValueFast($ctx, $itemType, $itemValue, $itemPath, $itemReturnValue)) {
                         $itemReturnValue = yield $this->completeValue($ctx, $itemType, $itemValue, $itemPath, $nullFence);
                     }
                 } catch (Throwable $reason) {
@@ -725,7 +625,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
                         $returnValue = self::$undefined;
                         goto CHECKED_RETURN;
-                    } elseif (! $objectType instanceof ObjectType) {
+                    } elseif (!$objectType instanceof ObjectType) {
                         $this->addError(Error::createLocatedError(
                             new InvariantViolation(sprintf(
                                 'Abstract type %s must resolve to an Object type at ' .
@@ -745,7 +645,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
                         $returnValue = null;
                         goto CHECKED_RETURN;
-                    } elseif (! $this->schema->isSubType($type, $objectType)) {
+                    } elseif (!$this->schema->isSubType($type, $objectType)) {
                         $this->addError(Error::createLocatedError(
                             new InvariantViolation(sprintf(
                                 'Runtime Object type "%s" is not a possible type for "%s".',
@@ -797,7 +697,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
                 if ($typeCheck !== null) {
                     // !!! $objectType->isTypeOf() might return promise, yield to resolve
                     $typeCheck = yield $typeCheck;
-                    if (! $typeCheck) {
+                    if (!$typeCheck) {
                         $this->addError(Error::createLocatedError(
                             sprintf('Expected value of type "%s" but got: %s.', $type->name, Utils::printSafe($value)),
                             $ctx->shared->fieldNodes,
@@ -813,13 +713,13 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
                 if ($ctx->shared->typeGuard2 === $objectType) {
                     foreach ($ctx->shared->childContextsIfType2 as $childCtx) {
-                        $childCtx              = clone $childCtx;
-                        $childCtx->type        = $objectType;
-                        $childCtx->value       = $value;
-                        $childCtx->result      = $returnValue;
-                        $childCtx->path        = $path;
-                        $childCtx->path[]      = $childCtx->shared->resultName; // !!! uses array COW semantics
-                        $childCtx->nullFence   = $nullFence;
+                        $childCtx = clone $childCtx;
+                        $childCtx->type = $objectType;
+                        $childCtx->value = $value;
+                        $childCtx->result = $returnValue;
+                        $childCtx->path = $path;
+                        $childCtx->path[] = $childCtx->shared->resultName; // !!! uses array COW semantics
+                        $childCtx->nullFence = $nullFence;
                         $childCtx->resolveInfo = null;
 
                         $this->queue->enqueue(new Strand($this->spawn($childCtx)));
@@ -840,9 +740,9 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
 
                     /** @var CoroutineContextShared $childShared */
                     foreach ($fields as $childShared) {
-                        $childPath   = $path;
+                        $childPath = $path;
                         $childPath[] = $childShared->resultName; // !!! uses array COW semantics
-                        $childCtx    = new CoroutineContext(
+                        $childCtx = new CoroutineContext(
                             $childShared,
                             $objectType,
                             $value,
@@ -859,7 +759,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
                         $returnValue->{$childShared->resultName} = null;
                     }
 
-                    $ctx->shared->typeGuard2           = $objectType;
+                    $ctx->shared->typeGuard2 = $objectType;
                     $ctx->shared->childContextsIfType2 = $childContexts;
                 }
 
@@ -892,23 +792,6 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         }
 
         return $returnValue;
-    }
-
-    private function mergeSelectionSets(CoroutineContext $ctx)
-    {
-        $selections = [];
-
-        foreach ($ctx->shared->fieldNodes as $fieldNode) {
-            if ($fieldNode->selectionSet === null) {
-                continue;
-            }
-
-            foreach ($fieldNode->selectionSet->selections as $selection) {
-                $selections[] = $selection;
-            }
-        }
-
-        return $ctx->shared->mergedSelectionSet = new SelectionSetNode(['selections' => $selections]);
     }
 
     /**
@@ -948,7 +831,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         $selectedType = null;
         foreach ($possibleTypes as $type) {
             $typeCheck = yield $type->isTypeOf($value, $this->contextValue, $ctx->resolveInfo);
-            if ($selectedType !== null || ! $typeCheck) {
+            if ($selectedType !== null || !$typeCheck) {
                 continue;
             }
 
@@ -958,13 +841,132 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
         return $selectedType;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return bool
-     */
-    private function isPromise($value)
+    private function mergeSelectionSets(CoroutineContext $ctx)
     {
-        return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
+        $selections = [];
+
+        foreach ($ctx->shared->fieldNodes as $fieldNode) {
+            if ($fieldNode->selectionSet === null) {
+                continue;
+            }
+
+            foreach ($fieldNode->selectionSet->selections as $selection) {
+                $selections[] = $selection;
+            }
+        }
+
+        return $ctx->shared->mergedSelectionSet = new SelectionSetNode(['selections' => $selections]);
+    }
+
+    private function run()
+    {
+        RUN:
+        while (!$this->queue->isEmpty()) {
+            /** @var Strand $strand */
+            $strand = $this->queue->dequeue();
+
+            try {
+                if ($strand->success !== null) {
+                    RESUME:
+
+                    if ($strand->success) {
+                        $strand->current->send($strand->value);
+                    } else {
+                        $strand->current->throw($strand->value);
+                    }
+
+                    $strand->success = null;
+                    $strand->value = null;
+                }
+
+                START:
+                if ($strand->current->valid()) {
+                    $value = $strand->current->current();
+
+                    if ($value instanceof Generator) {
+                        $strand->stack[$strand->depth++] = $strand->current;
+                        $strand->current = $value;
+                        goto START;
+                    } elseif ($this->isPromise($value)) {
+                        // !!! increment pending before calling ->then() as it may invoke the callback right away
+                        ++$this->pending;
+
+                        if (!$value instanceof Promise) {
+                            $value = $this->promiseAdapter->convertThenable($value);
+                        }
+
+                        $this->promiseAdapter
+                            ->then(
+                                $value,
+                                function ($value) use ($strand): void {
+                                    $strand->success = true;
+                                    $strand->value = $value;
+                                    $this->queue->enqueue($strand);
+                                    $this->done();
+                                },
+                                function (Throwable $throwable) use ($strand): void {
+                                    $strand->success = false;
+                                    $strand->value = $throwable;
+                                    $this->queue->enqueue($strand);
+                                    $this->done();
+                                }
+                            );
+                        continue;
+                    } else {
+                        $strand->success = true;
+                        $strand->value = $value;
+                        goto RESUME;
+                    }
+                }
+
+                $strand->success = true;
+                $strand->value = $strand->current->getReturn();
+            } catch (Throwable $reason) {
+                $strand->success = false;
+                $strand->value = $reason;
+            }
+
+            if ($strand->depth <= 0) {
+                continue;
+            }
+
+            $current = &$strand->stack[--$strand->depth];
+            $strand->current = $current;
+            $current = null;
+            goto RESUME;
+        }
+
+        if ($this->pending > 0 || $this->schedule->isEmpty()) {
+            return;
+        }
+
+        /** @var CoroutineContext $ctx */
+        $ctx = $this->schedule->dequeue();
+        $this->queue->enqueue(new Strand($this->spawn($ctx)));
+        goto RUN;
+    }
+
+    private function done()
+    {
+        --$this->pending;
+
+        $this->run();
+
+        if ($this->pending > 0) {
+            return;
+        }
+
+        $doResolve = $this->doResolve;
+        $doResolve($this->finishExecute($this->rootResult, $this->errors));
+    }
+
+    /**
+     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
+     * @internal
+     *
+     */
+    public function evaluate(ValueNode $valueNode, InputType $type)
+    {
+        return AST::valueFromAST($valueNode, $type, $this->variableValues);
     }
 }
