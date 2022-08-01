@@ -1,4 +1,4 @@
-<?php class RedisLite
+<?php class redisLite
 {
     protected string $path;
     protected object $connection;

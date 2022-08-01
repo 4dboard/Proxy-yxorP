@@ -1,7 +1,7 @@
 <?php use League\Flysystem\Filesystem;
 use League\Flysystem\MountManager;
 
-class FileStorage
+class fileStorage
 {
     protected array $config = [];
     protected array $storages = [];

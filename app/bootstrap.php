@@ -4,7 +4,7 @@ if (!defined('SITE_CLI')) define('SITE_CLI', PHP_SAPI === 'cli');
 if (!defined('SITE_ADMIN')) define('SITE_ADMIN', false);
 define('SITE_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 include_once(__DIR__ . '/lib/_autoload.php');
-DotEnv::load(SITE_DIR);
+dotEnv::load(SITE_DIR);
 spl_autoload_register(function ($class) {
     $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
@@ -34,7 +34,7 @@ class App
             $envDir = $appDir;
         }
         if ($appDir != $envDir) {
-            DotEnv::load($envDir);
+            dotEnv::load($envDir);
         }
         if (file_exists("{$envDir}/config/config.php")) {
             $cfg = include("{$envDir}/config/config.php");
@@ -52,7 +52,7 @@ class App
             $visibility = League\Flysystem\UnixVisibility\PortableVisibilityConverter::fromArray(['file' => ['public' => 0644, 'private' => 0644,], 'dir' => ['public' => 0755, 'private' => 0755,],]);
             $storages = array_replace_recursive(['#app' => ['adapter' => 'League\Flysystem\Local\LocalFilesystemAdapter', 'args' => [$app->path('#app:')], 'mount' => true, 'url' => $app->pathToUrl('#app:', true)], 'root' => ['adapter' => 'League\Flysystem\Local\LocalFilesystemAdapter', 'args' => [$app->path('#root:')], 'mount' => true, 'url' => $app->pathToUrl('#root:', true)], 'cache' => ['adapter' => 'League\Flysystem\Local\LocalFilesystemAdapter', 'args' => [$app->path('#cache:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#cache:', true)], 'cache' => ['adapter' => 'League\Flysystem\Local\LocalFilesystemAdapter', 'args' => [$app->path('#cache:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#cache:', true)], 'uploads' => ['adapter' => 'League\Flysystem\Local\LocalFilesystemAdapter', 'args' => [$app->path('#uploads:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#uploads:', true)], '#uploads' => ['adapter' => 'League\Flysystem\Local\LocalFilesystemAdapter', 'args' => [$app->path('#uploads:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#uploads:', true)],], $config['fileStorage'] ?? []);
             $app->trigger('app.filestorage.init', [&$storages]);
-            $filestorage = new FileStorage($storages);
+            $filestorage = new fileStorage($storages);
             return $filestorage;
         });
         $app->service('dataStorage', function () use ($config) {

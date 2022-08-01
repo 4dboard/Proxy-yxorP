@@ -3,7 +3,7 @@
 namespace MemoryStorage;
 
 use Redis;
-use RedisLite;
+use redisLite;
 use function call_user_func;
 use function is_callable;
 
@@ -48,7 +48,7 @@ class client
             $this->driver->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
 
         } elseif (strpos($server, 'redislite://') === 0) {
-            $this->driver = new RedisLite(str_replace('redislite://', '', $server), $options);
+            $this->driver = new redisLite(str_replace('redislite://', '', $server), $options);
         }
 
         if (isset($options['key']) && is_string($options['key'])) {

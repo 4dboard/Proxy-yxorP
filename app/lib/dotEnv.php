@@ -1,4 +1,4 @@
-<?php class DotEnv
+<?php class dotEnv
 {
     public static function load(string $dir = '.'): bool
     {

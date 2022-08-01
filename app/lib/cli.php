@@ -1,4 +1,4 @@
-<?php class CLI
+<?php class cli
 {
     public static function beep(): void
     {
