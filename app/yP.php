@@ -52,6 +52,15 @@ class yP
          * Defining the root directory of the website.
          */
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
+        const PATH_SITE_BOOTSTRAP = DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP;
+        const PATH_COOKIE_JAR = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR;
+        const PATH_DIR_APP = DIR_ROOT . DIR_APP;
+        const PATH_SITE_LOCAL = DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP;
+        const PATH_SITE_INDEX = DIR_ROOT . DIR_APP . FILE_INDEX;
+        const PATH_REWRITE = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE;
+        const PATH_TLDS_ALPHA_BY_DOMAIN = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN;
+        const PATH_PUBLIC_SUFFIX_LIST = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST;
+        const PATH_FILE_MIME_TYPES = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES;
 
         /**
          * It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `self`
