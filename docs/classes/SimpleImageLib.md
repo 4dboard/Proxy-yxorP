@@ -1,12 +1,12 @@
 ***
 
-# SimpleImageLib
+# simpleImageLib
 
 A PHP class that makes working with images as simple as possible.
 
 
 
-* Full name: `\SimpleImageLib`
+* Full name: `\simpleImageLib`
 * Parent class: [`\claviska\SimpleImage`](./claviska/SimpleImage.md)
 
 

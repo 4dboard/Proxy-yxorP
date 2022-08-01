@@ -1,12 +1,12 @@
 ***
 
-# RedisLite
+# redisLite
 
 
 
 
 
-* Full name: `\RedisLite`
+* Full name: `\redisLite`
 
 
 
