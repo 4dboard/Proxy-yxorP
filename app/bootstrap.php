@@ -13,7 +13,7 @@ define('SITE_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'yP.php');
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'dotEnv.php');
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . '_autoload.php');
-dotEnv::load(SITE_DIR);
+
 spl_autoload_register(function ($class) {
     $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
