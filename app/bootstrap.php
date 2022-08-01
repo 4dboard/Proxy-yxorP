@@ -3,6 +3,7 @@
 require __DIR__ . DIRECTORY_SEPARATOR . 'yP.php';
 
 define('SITE_VERSION', '2.0.2');
+
 if (!defined('SITE_START_TIME')) define('SITE_START_TIME', microtime(true));
 if (!defined('SITE_CLI')) define('SITE_CLI', PHP_SAPI === 'cli');
 if (!defined('SITE_ADMIN')) define('SITE_ADMIN', false);
