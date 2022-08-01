@@ -7,23 +7,19 @@ use helper;
 class revisions extends helper
 {
 
-    protected
-        $storage;
+    protected $storage;
 
-    public
-    function initialize()
+    public function initialize()
     {
         $this->storage = $this->app->dataStorage;
     }
 
-    public
-    function count($id)
+    public function count($id)
     {
         return $this->storage->count('system/revisions', ['_oid' => $id]);
     }
 
-    public
-    function getList(string $id, int $limit = 50, int $skip = 0)
+    public function getList(string $id, int $limit = 50, int $skip = 0)
     {
 
         $options = [
