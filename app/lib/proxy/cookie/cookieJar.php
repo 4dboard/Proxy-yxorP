@@ -198,4 +198,3 @@ class cookieJar implements cookieJarInterface
     }
 }
 
-exit('1');
