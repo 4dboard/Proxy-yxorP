@@ -16,9 +16,7 @@ class system extends helper
         try {
             return $callback();
         } catch (Throwable $e) {
-            if ($report) {
-                store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
-            }
+            store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
 
             return $rescue instanceof Closure ? $rescue($e) : $rescue;
         }
