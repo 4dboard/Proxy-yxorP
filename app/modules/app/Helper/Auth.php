@@ -2,15 +2,17 @@
 
 namespace App\Helper;
 
-class auth extends \Lime\Helper {
+class auth extends \Lime\Helper
+{
 
     public string $sessionKey = 'app.auth.user';
 
-    public function authenticate(array $data): mixed {
+    public function authenticate(array $data): mixed
+    {
 
         $data = array_merge([
-            'user'     => '',
-            'email'    => '',
+            'user' => '',
+            'email' => '',
             'password' => ''
         ], $data);
 
@@ -26,7 +28,7 @@ class auth extends \Lime\Helper {
 
         $user = $this->app->dataStorage->findOne('system/users', $filter);
 
-        if ($user && (password_verify($data['password'], $user['password']))){
+        if ($user && (password_verify($data['password'], $user['password']))) {
 
             $user = array_merge($data, (array)$user);
 
@@ -40,7 +42,8 @@ class auth extends \Lime\Helper {
         return false;
     }
 
-    public function getUser(?string $prop = null, mixed $default = null): mixed {
+    public function getUser(?string $prop = null, mixed $default = null): mixed
+    {
 
         $user = $this->app->retrieve($this->sessionKey);
 
@@ -55,7 +58,8 @@ class auth extends \Lime\Helper {
         return $user;
     }
 
-    public function setUser(array $user, bool $permanent = true): void {
+    public function setUser(array $user, bool $permanent = true): void
+    {
 
         if (isset($user['name'])) {
             $user['name_short'] = explode(' ', $user['name'])[0];
@@ -71,7 +75,8 @@ class auth extends \Lime\Helper {
         $this->app->set($this->sessionKey, $user);
     }
 
-    public function logout(): void {
+    public function logout(): void
+    {
 
         $this->app->trigger('app.user.logout', [$this->getUser()]);
         $this->app->helper('session')->delete($this->sessionKey);

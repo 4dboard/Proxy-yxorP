@@ -4,10 +4,12 @@ namespace System\Helper;
 
 use ArrayObject;
 
-class system extends \Lime\Helper {
+class system extends \Lime\Helper
+{
 
 
-    public function try(callable $callback, $rescue = null, $report = true) {
+    public function try(callable $callback, $rescue = null, $report = true)
+    {
         try {
             return $callback();
         } catch (Throwable $e) {
@@ -19,13 +21,15 @@ class system extends \Lime\Helper {
         }
     }
 
-    public function report() {
+    public function report()
+    {
         // to be implemented
     }
 
-    public function flushCache() {
+    public function flushCache()
+    {
 
-        $dirs = ['#cache:','#tmp:'];
+        $dirs = ['#cache:', '#tmp:'];
         $fs = $this->app->helper('fs');
 
         foreach ($dirs as $dir) {

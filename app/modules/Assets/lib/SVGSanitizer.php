@@ -60,7 +60,8 @@ class sVGSanitizer
     /**
      * SVGSanitizer::clean('<svg ...>')
      */
-    public static function clean($svgText) {
+    public static function clean($svgText)
+    {
 
         $sanitizer = new static();
 
@@ -271,14 +272,14 @@ class sVGSanitizer
      * Set XML options to use when saving XML
      * See: DOMDocument::saveXML
      *
-     * @param int  $xmlOptions
+     * @param int $xmlOptions
      */
     public function setXMLOptions($xmlOptions)
     {
         $this->xmlOptions = $xmlOptions;
     }
 
-     /**
+    /**
      * Get XML options to use when saving XML
      * See: DOMDocument::saveXML
      *
@@ -286,7 +287,7 @@ class sVGSanitizer
      */
     public function getXMLOptions()
     {
-       return $this->xmlOptions;
+        return $this->xmlOptions;
     }
 
     /**
@@ -481,7 +482,7 @@ class sVGSanitizer
             }
 
             // Do we want to strip remote references?
-            if($this->removeRemoteReferences) {
+            if ($this->removeRemoteReferences) {
                 // Remove attribute if it has a remote reference
                 if (isset($element->attributes->item($x)->value) && $this->hasRemoteReference($element->attributes->item($x)->value)) {
                     $element->removeAttribute($attrName);
@@ -507,7 +508,7 @@ class sVGSanitizer
                 'data:image/pjp', // PJPEG
                 'data:image/webp', // WEBP
             ))) {
-                $element->removeAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
+                $element->removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
             }
         }
     }
@@ -533,7 +534,7 @@ class sVGSanitizer
      */
     protected function removeNonPrintableCharacters($value)
     {
-        return trim(preg_replace('/[^ -~]/xu','',$value));
+        return trim(preg_replace('/[^ -~]/xu', '', $value));
     }
 
     /**
@@ -547,7 +548,7 @@ class sVGSanitizer
         $value = $this->removeNonPrintableCharacters($value);
 
         $wrapped_in_url = preg_match('~^url\(\s*[\'"]\s*(.*)\s*[\'"]\s*\)$~xi', $value, $match);
-        if (!$wrapped_in_url){
+        if (!$wrapped_in_url) {
             return false;
         }
 
@@ -563,7 +564,7 @@ class sVGSanitizer
      */
     public function minify($shouldMinify = false)
     {
-        $this->minifyXML = (bool) $shouldMinify;
+        $this->minifyXML = (bool)$shouldMinify;
     }
 
     /**
@@ -573,7 +574,7 @@ class sVGSanitizer
      */
     public function removeXMLTag($removeXMLTag = false)
     {
-        $this->removeXMLTag = (bool) $removeXMLTag;
+        $this->removeXMLTag = (bool)$removeXMLTag;
     }
 
     /**

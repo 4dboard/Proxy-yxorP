@@ -4,9 +4,11 @@ namespace System\Helper;
 
 use ArrayObject;
 
-class settings extends \Lime\Helper {
+class settings extends \Lime\Helper
+{
 
-    public function groups(bool $filter = false): ArrayObject {
+    public function groups(bool $filter = false): ArrayObject
+    {
 
         $settings = new ArrayObject([
             'System' => [
@@ -65,7 +67,7 @@ class settings extends \Lime\Helper {
 
             foreach ($settings as $group => $items) {
 
-                $items = \array_filter($items, function($item) use($acl) {
+                $items = \array_filter($items, function ($item) use ($acl) {
                     return isset($item['permission']) && $item['permission'] ? $acl->isAllowed($item['permission']) : true;
                 });
 
