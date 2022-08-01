@@ -58,7 +58,7 @@ class curlMultiHandler
         }
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         $easy = $this->factory->create($request, $options);
         $id = (int)$easy->handle;

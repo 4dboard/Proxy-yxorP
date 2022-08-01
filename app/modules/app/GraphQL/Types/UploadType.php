@@ -7,7 +7,7 @@ use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Type\Definition\ScalarType;
 use psr\http\message\UploadedFileInterface;
-use yxorP\app\lib\psr\http\message\UploadedFileInterface;
+use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
 class uploadType extends ScalarType
 {

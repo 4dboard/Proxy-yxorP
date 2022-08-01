@@ -12,7 +12,7 @@ class prepareBodyMiddleware
         $this->nextHandler = $nextHandler;
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         $fn = $this->nextHandler;
         if ($request->getBody()->getSize() === 0) {
@@ -38,7 +38,7 @@ class prepareBodyMiddleware
         return $fn(Psr7\modify_request($request, $modify), $options);
     }
 
-    private function addExpectHeader(RequestInterface $request, array $options, array &$modify)
+    private function addExpectHeader(requestInterface $request, array $options, array &$modify)
     {
         if ($request->hasHeader('Expect')) {
             return;

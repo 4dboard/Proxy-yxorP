@@ -6,9 +6,9 @@ interface clientInterface
 {
     const VERSION = '6.5.5';
 
-    public function send(RequestInterface $request, array $options = []);
+    public function send(requestInterface $request, array $options = []);
 
-    public function sendAsync(RequestInterface $request, array $options = []);
+    public function sendAsync(requestInterface $request, array $options = []);
 
     public function request($method, $uri, array $options = []);
 

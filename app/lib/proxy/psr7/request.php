@@ -2,9 +2,9 @@
 
 use InvalidArgumentException;
 use yxorP\app\lib\psr\http\message\requestInterface;
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
-class request implements RequestInterface
+class request implements requestInterface
 {
     use messageTrait;
 
@@ -15,7 +15,7 @@ class request implements RequestInterface
     public function __construct($method, $uri, array $headers = [], $body = null, $version = '1.1')
     {
         $this->assertMethod($method);
-        if (!($uri instanceof UriInterface)) {
+        if (!($uri instanceof uriInterface)) {
             $uri = new uri($uri);
         }
         $this->method = strtoupper($method);
@@ -98,7 +98,7 @@ class request implements RequestInterface
         return $this->uri;
     }
 
-    public function withUri(UriInterface $uri, $preserveHost = false)
+    public function withUri(uriInterface $uri, $preserveHost = false)
     {
         if ($uri === $this->uri) {
             return $this;

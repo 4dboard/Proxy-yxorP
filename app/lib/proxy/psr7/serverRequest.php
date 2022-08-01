@@ -1,10 +1,10 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\ServerRequestInterface;
-use yxorP\app\lib\psr\http\message\UploadedFileInterface;
+use yxorP\app\lib\psr\http\message\serverRequestInterface;
+use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
-class serverRequest extends request implements ServerRequestInterface
+class serverRequest extends request implements serverRequestInterface
 {
     private $attributes = [];
     private $cookieParams = [];
@@ -71,7 +71,7 @@ class serverRequest extends request implements ServerRequestInterface
     {
         $normalized = [];
         foreach ($files as $key => $value) {
-            if ($value instanceof UploadedFileInterface) {
+            if ($value instanceof uploadedFileInterface) {
                 $normalized[$key] = $value;
             } elseif (is_array($value) && isset($value['cache_name'])) {
                 $normalized[$key] = self::createUploadedFileFromSpec($value);

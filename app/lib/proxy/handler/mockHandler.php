@@ -10,7 +10,7 @@ use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 use function yxorP\app\lib\proxy\describe_type;
 use function yxorP\app\lib\proxy\promise\promise_for;
 use function yxorP\app\lib\proxy\promise\rejection_for;
@@ -37,7 +37,7 @@ class mockHandler implements Countable
         return handlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');
@@ -75,7 +75,7 @@ class mockHandler implements Countable
                     fwrite($sink, $contents);
                 } elseif (is_string($sink)) {
                     file_put_contents($sink, $contents);
-                } elseif ($sink instanceof StreamInterface) {
+                } elseif ($sink instanceof streamInterface) {
                     $sink->write($contents);
                 }
             }
@@ -92,7 +92,7 @@ class mockHandler implements Countable
     public function append()
     {
         foreach (func_get_args() as $value) {
-            if ($value instanceof ResponseInterface || $value instanceof Exception || $value instanceof promiseInterface || is_callable($value)) {
+            if ($value instanceof responseInterface || $value instanceof Exception || $value instanceof promiseInterface || is_callable($value)) {
                 $this->queue[] = $value;
             } else {
                 throw new InvalidArgumentException('Expected a response or ' . 'exception. Found ' . describe_type($value));
@@ -120,7 +120,7 @@ class mockHandler implements Countable
         $this->queue = [];
     }
 
-    private function invokeStats(RequestInterface $request, array $options, ResponseInterface $response = null, $reason = null)
+    private function invokeStats(requestInterface $request, array $options, responseInterface $response = null, $reason = null)
     {
         if (isset($options['on_stats'])) {
             $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;

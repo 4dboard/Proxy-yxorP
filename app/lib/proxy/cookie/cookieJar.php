@@ -140,7 +140,7 @@ class cookieJar implements cookieJarInterface
         return count($this->cookies);
     }
 
-    public function extractCookies(RequestInterface $request, ResponseInterface $response)
+    public function extractCookies(requestInterface $request, responseInterface $response)
     {
         if ($cookieHeader = $response->getHeader('Set-Cookie')) {
             foreach ($cookieHeader as $cookie) {
@@ -156,7 +156,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    public function withCookieHeader(RequestInterface $request)
+    public function withCookieHeader(requestInterface $request)
     {
         $values = [];
         $uri = $request->getUri();
@@ -179,7 +179,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    private function getCookiePathFromRequest(RequestInterface $request)
+    private function getCookiePathFromRequest(requestInterface $request)
     {
         $uriPath = $request->getUri()->getPath();
         if ('' === $uriPath) {

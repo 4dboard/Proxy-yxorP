@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class noSeekStream implements StreamInterface
+class noSeekStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 

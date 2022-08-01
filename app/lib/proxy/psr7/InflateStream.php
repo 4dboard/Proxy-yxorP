@@ -1,12 +1,12 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class inflateStream implements StreamInterface
+class inflateStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
-    public function __construct(StreamInterface $stream)
+    public function __construct(streamInterface $stream)
     {
         $header = $stream->read(10);
         $filenameHeaderLength = $this->getLengthOfPossibleFilenameHeader($stream, $header);
@@ -16,7 +16,7 @@ class inflateStream implements StreamInterface
         $this->stream = $stream->isSeekable() ? new stream($resource) : new noSeekStream(new stream($resource));
     }
 
-    private function getLengthOfPossibleFilenameHeader(StreamInterface $stream, $header)
+    private function getLengthOfPossibleFilenameHeader(streamInterface $stream, $header)
     {
         $filename_header_length = 0;
         if (substr(bin2hex($header), 6, 2) === '08') {

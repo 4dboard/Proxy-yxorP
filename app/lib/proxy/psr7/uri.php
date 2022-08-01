@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
-class uri implements UriInterface
+class uri implements uriInterface
 {
     const HTTP_DEFAULT_HOST = 'localhost';
     private static $defaultPorts = ['http' => 80, 'https' => 443, 'ftp' => 21, 'gopher' => 70, 'nntp' => 119, 'news' => 119, 'telnet' => 23, 'tn3270' => 23, 'imap' => 143, 'pop' => 110, 'ldap' => 389,];
@@ -29,32 +29,32 @@ class uri implements UriInterface
         }
     }
 
-    public static function isDefaultPort(UriInterface $uri)
+    public static function isDefaultPort(uriInterface $uri)
     {
         return $uri->getPort() === null || (isset(self::$defaultPorts[$uri->getScheme()]) && $uri->getPort() === self::$defaultPorts[$uri->getScheme()]);
     }
 
-    public static function isAbsolute(UriInterface $uri)
+    public static function isAbsolute(uriInterface $uri)
     {
         return $uri->getScheme() !== '';
     }
 
-    public static function isNetworkPathReference(UriInterface $uri)
+    public static function isNetworkPathReference(uriInterface $uri)
     {
         return $uri->getScheme() === '' && $uri->getAuthority() !== '';
     }
 
-    public static function isAbsolutePathReference(UriInterface $uri)
+    public static function isAbsolutePathReference(uriInterface $uri)
     {
         return $uri->getScheme() === '' && $uri->getAuthority() === '' && isset($uri->getPath()[0]) && $uri->getPath()[0] === '/';
     }
 
-    public static function isRelativePathReference(UriInterface $uri)
+    public static function isRelativePathReference(uriInterface $uri)
     {
         return $uri->getScheme() === '' && $uri->getAuthority() === '' && (!isset($uri->getPath()[0]) || $uri->getPath()[0] !== '/');
     }
 
-    public static function isSameDocumentReference(UriInterface $uri, UriInterface $base = null)
+    public static function isSameDocumentReference(uriInterface $uri, uriInterface $base = null)
     {
         if ($base !== null) {
             $uri = uriResolver::resolve($base, $uri);
@@ -68,28 +68,28 @@ class uri implements UriInterface
         return uriResolver::removeDotSegments($path);
     }
 
-    public static function resolve(UriInterface $base, $rel)
+    public static function resolve(uriInterface $base, $rel)
     {
-        if (!($rel instanceof UriInterface)) {
+        if (!($rel instanceof uriInterface)) {
             $rel = new self($rel);
         }
         return uriResolver::resolve($base, $rel);
     }
 
-    public static function withoutQueryValue(UriInterface $uri, $key)
+    public static function withoutQueryValue(uriInterface $uri, $key)
     {
         $result = self::getFilteredQueryString($uri, [$key]);
         return $uri->withQuery(implode('&', $result));
     }
 
-    public static function withQueryValue(UriInterface $uri, $key, $value)
+    public static function withQueryValue(uriInterface $uri, $key, $value)
     {
         $result = self::getFilteredQueryString($uri, [$key]);
         $result[] = self::generateQueryString($key, $value);
         return $uri->withQuery(implode('&', $result));
     }
 
-    public static function withQueryValues(UriInterface $uri, array $keyValueArray)
+    public static function withQueryValues(uriInterface $uri, array $keyValueArray)
     {
         $result = self::getFilteredQueryString($uri, array_keys($keyValueArray));
         foreach ($keyValueArray as $key => $value) {
@@ -125,7 +125,7 @@ class uri implements UriInterface
         return $uri;
     }
 
-    private static function getFilteredQueryString(UriInterface $uri, array $keys)
+    private static function getFilteredQueryString(uriInterface $uri, array $keys)
     {
         $current = $uri->getQuery();
         if ($current === '') {

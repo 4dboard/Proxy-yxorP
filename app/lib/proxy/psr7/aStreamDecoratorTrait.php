@@ -3,11 +3,11 @@
 use BadMethodCallException;
 use Exception;
 use UnexpectedValueException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
 trait aStreamDecoratorTrait
 {
-    public function __construct(StreamInterface $stream)
+    public function __construct(streamInterface $stream)
     {
         $this->stream = $stream;
     }

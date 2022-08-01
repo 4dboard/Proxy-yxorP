@@ -4,7 +4,7 @@ use Exception;
 use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
 class aRequestExceptionAa extends aaTransferException
@@ -13,7 +13,7 @@ class aRequestExceptionAa extends aaTransferException
     private $response;
     private $handlerContext;
 
-    public function __construct($message, RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $handlerContext = [])
+    public function __construct($message, requestInterface $request, responseInterface $response = null, Exception $previous = null, array $handlerContext = [])
     {
         $code = $response && !($response instanceof promiseInterface) ? $response->getStatusCode() : 0;
         parent::__construct($message, $code, $previous);
@@ -22,12 +22,12 @@ class aRequestExceptionAa extends aaTransferException
         $this->handlerContext = $handlerContext;
     }
 
-    public static function wrapException(RequestInterface $request, Exception $e)
+    public static function wrapException(requestInterface $request, Exception $e)
     {
         return $e instanceof aRequestExceptionAa ? $e : new aRequestExceptionAa($e->getMessage(), $request, null, $e);
     }
 
-    public static function create(RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $ctx = [])
+    public static function create(requestInterface $request, responseInterface $response = null, Exception $previous = null, array $ctx = [])
     {
         if (!$response) {
             return new self('Error completing request', $request, null, $previous, $ctx);
@@ -53,12 +53,12 @@ class aRequestExceptionAa extends aaTransferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
-    public static function getResponseBodySummary(ResponseInterface $response)
+    public static function getResponseBodySummary(responseInterface $response)
     {
         return get_message_body_summary($response);
     }
 
-    private static function obfuscateUri(UriInterface $uri)
+    private static function obfuscateUri(uriInterface $uri)
     {
         $userInfo = $uri->getUserInfo();
         if (false !== ($pos = strpos($userInfo, ':'))) {

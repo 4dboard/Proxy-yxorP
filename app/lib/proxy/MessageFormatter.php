@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy;
 
 use Exception;
-use yxorP\app\lib\psr\http\message\MessageInterface;
+use yxorP\app\lib\psr\http\message\messageInterface;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 
@@ -17,7 +17,7 @@ class messageFormatter
         $this->template = $template ?: self::CLF;
     }
 
-    public function format(RequestInterface $request, ResponseInterface $response = null, Exception $error = null)
+    public function format(requestInterface $request, responseInterface $response = null, Exception $error = null)
     {
         $cache = [];
         return preg_replace_callback('/{\s*([A-Za-z_\-.0-9]+)\s*}/', function (array $matches) use ($request, $response, $error, &$cache) {
@@ -97,7 +97,7 @@ class messageFormatter
         }, $this->template);
     }
 
-    private function headers(MessageInterface $message)
+    private function headers(messageInterface $message)
     {
         $result = '';
         foreach ($message->getHeaders() as $name => $values) {

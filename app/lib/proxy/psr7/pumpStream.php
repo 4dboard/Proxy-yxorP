@@ -2,9 +2,9 @@
 
 use Exception;
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class pumpStream implements StreamInterface
+class pumpStream implements streamInterface
 {
     private $source;
     private $size;

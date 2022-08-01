@@ -31,7 +31,7 @@ class handlerStack
         $this->cached = null;
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         $handler = $this->resolve();
         return $handler($request, $options);

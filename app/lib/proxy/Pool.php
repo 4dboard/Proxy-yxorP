@@ -26,7 +26,7 @@ class pool implements promisorInterface
         $iterable = iter_for($requests);
         $requests = function () use ($iterable, $client, $opts) {
             foreach ($iterable as $key => $rfn) {
-                if ($rfn instanceof RequestInterface) {
+                if ($rfn instanceof requestInterface) {
                     yield $key => $client->sendAsync($rfn, $opts);
                 } elseif (is_callable($rfn)) {
                     yield $key => $rfn($opts);

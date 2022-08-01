@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use yxorP\app\lib\psr\http\message\responseInterface;
 
-class response implements ResponseInterface
+class response implements responseInterface
 {
     use messageTrait;
 

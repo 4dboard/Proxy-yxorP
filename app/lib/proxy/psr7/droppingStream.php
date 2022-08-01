@@ -1,14 +1,14 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class droppingStream implements StreamInterface
+class droppingStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
     private $maxLength;
 
-    public function __construct(StreamInterface $stream, $maxLength)
+    public function __construct(streamInterface $stream, $maxLength)
     {
         $this->stream = $stream;
         $this->maxLength = $maxLength;

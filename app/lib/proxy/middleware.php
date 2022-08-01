@@ -35,7 +35,7 @@ final class middleware
                 if (empty($options['http_errors'])) {
                     return $handler($request, $options);
                 }
-                return $handler($request, $options)->then(function (ResponseInterface $response) use ($request) {
+                return $handler($request, $options)->then(function (responseInterface $response) use ($request) {
                     $code = $response->getStatusCode();
                     if ($code < 400) {
                         return $response;

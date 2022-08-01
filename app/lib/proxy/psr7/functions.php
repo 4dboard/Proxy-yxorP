@@ -3,21 +3,21 @@
 use InvalidArgumentException;
 use Iterator;
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\MessageInterface;
+use yxorP\app\lib\psr\http\message\messageInterface;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
-use yxorP\app\lib\psr\http\message\ServerRequestInterface;
-use yxorP\app\lib\psr\http\message\StreamInterface;
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\serverRequestInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
-function str(MessageInterface $message)
+function str(messageInterface $message)
 {
-    if ($message instanceof RequestInterface) {
+    if ($message instanceof requestInterface) {
         $msg = trim($message->getMethod() . ' ' . $message->getRequestTarget()) . ' HTTP/' . $message->getProtocolVersion();
         if (!$message->hasHeader('host')) {
             $msg .= "\r\nHost: " . $message->getUri()->getHost();
         }
-    } elseif ($message instanceof ResponseInterface) {
+    } elseif ($message instanceof responseInterface) {
         $msg = 'HTTP/' . $message->getProtocolVersion() . ' ' . $message->getStatusCode() . ' ' . $message->getReasonPhrase();
     } else {
         throw new InvalidArgumentException('Unknown message type');
@@ -30,7 +30,7 @@ function str(MessageInterface $message)
 
 function uri_for($uri)
 {
-    if ($uri instanceof UriInterface) {
+    if ($uri instanceof uriInterface) {
         return $uri;
     } elseif (is_string($uri)) {
         return new uri($uri);
@@ -52,7 +52,7 @@ function stream_for($resource = '', array $options = [])
         case 'resource':
             return new stream($resource, $options);
         case 'object':
-            if ($resource instanceof StreamInterface) {
+            if ($resource instanceof streamInterface) {
                 return $resource;
             } elseif ($resource instanceof Iterator) {
                 return new pumpStream(function () use ($resource) {
@@ -119,7 +119,7 @@ function normalize_header($header)
     return $result;
 }
 
-function modify_request(RequestInterface $request, array $changes)
+function modify_request(requestInterface $request, array $changes)
 {
     if (!$changes) {
         return $request;
@@ -150,13 +150,13 @@ function modify_request(RequestInterface $request, array $changes)
     if (isset($changes['query'])) {
         $uri = $uri->withQuery($changes['query']);
     }
-    if ($request instanceof ServerRequestInterface) {
+    if ($request instanceof serverRequestInterface) {
         return (new serverRequest(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion(), $request->getServerParams()))->withParsedBody($request->getParsedBody())->withQueryParams($request->getQueryParams())->withCookieParams($request->getCookieParams())->withUploadedFiles($request->getUploadedFiles());
     }
     return new request(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion());
 }
 
-function rewind_body(MessageInterface $message)
+function rewind_body(messageInterface $message)
 {
     $body = $message->getBody();
     if ($body->tell()) {
@@ -178,7 +178,7 @@ function try_fopen($filename, $mode)
     return $handle;
 }
 
-function copy_to_string(StreamInterface $stream, $maxLen = -1)
+function copy_to_string(streamInterface $stream, $maxLen = -1)
 {
     $buffer = '';
     if ($maxLen === -1) {
@@ -203,7 +203,7 @@ function copy_to_string(StreamInterface $stream, $maxLen = -1)
     return $buffer;
 }
 
-function copy_to_stream(StreamInterface $source, StreamInterface $dest, $maxLen = -1)
+function copy_to_stream(streamInterface $source, streamInterface $dest, $maxLen = -1)
 {
     $bufferSize = 8192;
     if ($maxLen === -1) {
@@ -226,7 +226,7 @@ function copy_to_stream(StreamInterface $source, StreamInterface $dest, $maxLen 
     }
 }
 
-function hash(StreamInterface $stream, $algo, $rawOutput = false)
+function hash(streamInterface $stream, $algo, $rawOutput = false)
 {
     $pos = $stream->tell();
     if ($pos > 0) {
@@ -241,7 +241,7 @@ function hash(StreamInterface $stream, $algo, $rawOutput = false)
     return $out;
 }
 
-function readline(StreamInterface $stream, $maxLength = null)
+function readline(streamInterface $stream, $maxLength = null)
 {
     $buffer = '';
     $size = 0;
@@ -412,7 +412,7 @@ function _parse_request_uri($path, array $headers)
     return $scheme . '://' . $host . '/' . ltrim($path, '/');
 }
 
-function get_message_body_summary(MessageInterface $message, $truncateAt = 120)
+function get_message_body_summary(messageInterface $message, $truncateAt = 120)
 {
     $body = $message->getBody();
     if (!$body->isSeekable() || !$body->isReadable()) {

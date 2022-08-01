@@ -20,7 +20,7 @@ class redirectMiddleware
         $this->nextHandler = $nextHandler;
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         $fn = $this->nextHandler;
         if (empty($options['allow_redirects'])) {
@@ -36,12 +36,12 @@ class redirectMiddleware
         if (empty($options['allow_redirects']['max'])) {
             return $fn($request, $options);
         }
-        return $fn($request, $options)->then(function (ResponseInterface $response) use ($request, $options) {
+        return $fn($request, $options)->then(function (responseInterface $response) use ($request, $options) {
             return $this->checkRedirect($request, $options, $response);
         });
     }
 
-    public function checkRedirect(RequestInterface $request, array $options, ResponseInterface $response)
+    public function checkRedirect(requestInterface $request, array $options, responseInterface $response)
     {
         if (substr($response->getStatusCode(), 0, 1) != '3' || !$response->hasHeader('Location')) {
             return $response;
@@ -58,7 +58,7 @@ class redirectMiddleware
         return $promise;
     }
 
-    public function modifyRequest(RequestInterface $request, array $options, ResponseInterface $response)
+    public function modifyRequest(requestInterface $request, array $options, responseInterface $response)
     {
         $modify = [];
         $protocols = $options['allow_redirects']['protocols'];
@@ -86,7 +86,7 @@ class redirectMiddleware
         return Psr7\modify_request($request, $modify);
     }
 
-    private function guardMax(RequestInterface $request, array &$options)
+    private function guardMax(requestInterface $request, array &$options)
     {
         $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
         $options['__redirect_count'] = $current + 1;
@@ -96,7 +96,7 @@ class redirectMiddleware
         }
     }
 
-    private function redirectUri(RequestInterface $request, ResponseInterface $response, array $protocols)
+    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols)
     {
         $location = Psr7\uriResolver::resolve($request->getUri(), new Psr7\uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {
@@ -107,7 +107,7 @@ class redirectMiddleware
 
     private function withTracking(promiseInterface $promise, $uri, $statusCode)
     {
-        return $promise->then(function (ResponseInterface $response) use ($uri, $statusCode) {
+        return $promise->then(function (responseInterface $response) use ($uri, $statusCode) {
             $historyHeader = $response->getHeader(self::HISTORY_HEADER);
             $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
             array_unshift($historyHeader, $uri);

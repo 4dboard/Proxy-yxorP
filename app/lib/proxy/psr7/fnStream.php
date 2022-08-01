@@ -2,7 +2,7 @@
 
 use BadMethodCallException;
 use LogicException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
 /**
  * @property $_fn_getMetadata
@@ -22,7 +22,7 @@ use yxorP\app\lib\psr\http\message\StreamInterface;
  * @property $_fn___toString
  * @property array $methods
  */
-class fnStream implements StreamInterface
+class fnStream implements streamInterface
 {
     private static $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
 
@@ -34,7 +34,7 @@ class fnStream implements StreamInterface
         }
     }
 
-    public static function decorate(StreamInterface $stream, array $methods)
+    public static function decorate(streamInterface $stream, array $methods)
     {
         foreach (array_diff(self::$slots, array_keys($methods)) as $diff) {
             $methods[$diff] = [$stream, $diff];

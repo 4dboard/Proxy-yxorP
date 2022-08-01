@@ -22,7 +22,7 @@ class retryMiddleware
         return (int)pow(2, $retries - 1) * 1000;
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         if (!isset($options['retries'])) {
             $options['retries'] = 0;
@@ -31,7 +31,7 @@ class retryMiddleware
         return $fn($request, $options)->then($this->onFulfilled($request, $options), $this->onRejected($request, $options));
     }
 
-    private function onFulfilled(RequestInterface $req, array $options)
+    private function onFulfilled(requestInterface $req, array $options)
     {
         return function ($value) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, $value, null)) {
@@ -41,13 +41,13 @@ class retryMiddleware
         };
     }
 
-    private function doRetry(RequestInterface $request, array $options, ResponseInterface $response = null)
+    private function doRetry(requestInterface $request, array $options, responseInterface $response = null)
     {
         $options['delay'] = call_user_func($this->delay, ++$options['retries'], $response);
         return $this($request, $options);
     }
 
-    private function onRejected(RequestInterface $req, array $options)
+    private function onRejected(requestInterface $req, array $options)
     {
         return function ($reason) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, null, $reason)) {

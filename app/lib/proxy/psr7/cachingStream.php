@@ -1,16 +1,16 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class cachingStream implements StreamInterface
+class cachingStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
     private $remoteStream;
     private $skipReadBytes = 0;
 
-    public function __construct(StreamInterface $stream, StreamInterface $target = null)
+    public function __construct(streamInterface $stream, streamInterface $target = null)
     {
         $this->remoteStream = $stream;
         $this->stream = $target ?: new stream(fopen('php://temp', 'r+'));

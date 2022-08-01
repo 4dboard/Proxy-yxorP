@@ -13,7 +13,7 @@ use RuntimeException;
  * state of the current instance and return an instance that contains the
  * changed state.
  */
-interface UploadedFileInterface
+interface uploadedFileInterface
 {
     /**
      * Retrieve a stream representing the uploaded file.
@@ -27,7 +27,7 @@ interface UploadedFileInterface
      * If the moveTo() method has been called previously, this method MUST raise
      * an exception.
      *
-     * @return StreamInterface Stream representation of the uploaded file.
+     * @return streamInterface Stream representation of the uploaded file.
      * @throws RuntimeException in cases when no stream is available or can be
      *     created.
      */

@@ -2,10 +2,10 @@
 
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
-use yxorP\app\lib\psr\http\message\UploadedFileInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
+use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
-class uploadedFile implements UploadedFileInterface
+class uploadedFile implements uploadedFileInterface
 {
     private static $errors = [UPLOAD_ERR_OK, UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_NO_FILE, UPLOAD_ERR_NO_CACHE_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION,];
     private $clientFilename;
@@ -52,7 +52,7 @@ class uploadedFile implements UploadedFileInterface
     public function getStream()
     {
         $this->validateActive();
-        if ($this->stream instanceof StreamInterface) {
+        if ($this->stream instanceof streamInterface) {
             return $this->stream;
         }
         return new lazyOpenStream($this->file, 'r+');
@@ -129,7 +129,7 @@ class uploadedFile implements UploadedFileInterface
             $this->file = $streamOrFile;
         } elseif (is_resource($streamOrFile)) {
             $this->stream = new stream($streamOrFile);
-        } elseif ($streamOrFile instanceof StreamInterface) {
+        } elseif ($streamOrFile instanceof streamInterface) {
             $this->stream = $streamOrFile;
         } else {
             throw new InvalidArgumentException('Invalid stream or file provided for UploadedFile');

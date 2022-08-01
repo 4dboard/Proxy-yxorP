@@ -1,8 +1,8 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class lazyOpenStream implements StreamInterface
+class lazyOpenStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 

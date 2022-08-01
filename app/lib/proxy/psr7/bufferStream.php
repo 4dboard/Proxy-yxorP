@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class bufferStream implements StreamInterface
+class bufferStream implements streamInterface
 {
     private $hwm;
     private $buffer = '';

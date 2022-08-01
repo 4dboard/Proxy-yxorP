@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class multipartStream implements StreamInterface
+class multipartStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
@@ -45,7 +45,7 @@ class multipartStream implements StreamInterface
         $stream->addStream(stream_for("\r\n"));
     }
 
-    private function createElement($name, StreamInterface $stream, $filename, array $headers)
+    private function createElement($name, streamInterface $stream, $filename, array $headers)
     {
         $disposition = $this->getHeader($headers, 'content-disposition');
         if (!$disposition) {

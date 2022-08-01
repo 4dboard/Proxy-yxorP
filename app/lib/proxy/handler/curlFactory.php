@@ -114,7 +114,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    public function create(RequestInterface $request, array $options)
+    public function create(requestInterface $request, array $options)
     {
         if (isset($options['curl']['body_as_string'])) {
             $options['_body_as_string'] = $options['curl']['body_as_string'];
@@ -173,7 +173,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    private function applyBody(RequestInterface $request, array $options, array &$conf)
+    private function applyBody(requestInterface $request, array $options, array &$conf)
     {
         $size = $request->hasHeader('Content-Length') ? (int)$request->getHeaderLine('Content-Length') : null;
         if (($size !== null && $size < 1000000) || !empty($options['_body_as_string'])) {

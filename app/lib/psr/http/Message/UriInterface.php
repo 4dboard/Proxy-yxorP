@@ -24,7 +24,7 @@ use InvalidArgumentException;
  *
  * @link http://tools.ietf.org/html/rfc3986 (the URI specification)
  */
-interface UriInterface
+interface uriInterface
 {
     /**
      * Retrieve the scheme component of the URI.

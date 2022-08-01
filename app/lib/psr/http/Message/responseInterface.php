@@ -19,7 +19,7 @@ use InvalidArgumentException;
  * be implemented such that they retain the internal state of the current
  * message and return an instance that contains the changed state.
  */
-interface ResponseInterface extends MessageInterface
+interface responseInterface extends messageInterface
 {
     /**
      * Gets the response status code.

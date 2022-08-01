@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
 trait messageTrait
 {
@@ -100,7 +100,7 @@ trait messageTrait
         return $this->stream;
     }
 
-    public function withBody(StreamInterface $body)
+    public function withBody(streamInterface $body)
     {
         if ($body === $this->stream) {
             return $this;

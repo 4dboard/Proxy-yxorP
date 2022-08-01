@@ -56,13 +56,13 @@ class client implements clientInterface
         return $this->requestAsync($method, $uri, $options)->wait();
     }
 
-    public function send(RequestInterface $request, array $options = [])
+    public function send(requestInterface $request, array $options = [])
     {
         $options[requestOptions::SYNCHRONOUS] = true;
         return $this->sendAsync($request, $options)->wait();
     }
 
-    public function sendAsync(RequestInterface $request, array $options = [])
+    public function sendAsync(requestInterface $request, array $options = [])
     {
         $options = $this->prepareDefaults($options);
         return $this->transfer($request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')), $options);
@@ -144,7 +144,7 @@ class client implements clientInterface
         throw new InvalidArgumentException('Passing in the "body" request ' . 'option as an array to send a POST request has been deprecated. ' . 'Please use the "form_params" request option to send a ' . 'application/x-www-form-urlencoded request, or the "multipart" ' . 'request option to send a multipart/form-data request.');
     }
 
-    private function transfer(RequestInterface $request, array $options)
+    private function transfer(requestInterface $request, array $options)
     {
         if (isset($options['save_to'])) {
             $options['sink'] = $options['save_to'];
@@ -163,7 +163,7 @@ class client implements clientInterface
         }
     }
 
-    private function applyOptions(RequestInterface $request, array &$options)
+    private function applyOptions(requestInterface $request, array &$options)
     {
         $modify = ['set_headers' => [],];
         if (isset($options['headers'])) {

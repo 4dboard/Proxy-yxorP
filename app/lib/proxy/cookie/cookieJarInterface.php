@@ -7,9 +7,9 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 
 interface cookieJarInterface extends Countable, IteratorAggregate
 {
-    public function withCookieHeader(RequestInterface $request);
+    public function withCookieHeader(requestInterface $request);
 
-    public function extractCookies(RequestInterface $request, ResponseInterface $response);
+    public function extractCookies(requestInterface $request, responseInterface $response);
 
     public function setCookie(sessionCookieJar $cookie);
 

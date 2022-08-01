@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
 class streamWrapper
 {
@@ -9,7 +9,7 @@ class streamWrapper
     private $stream;
     private $mode;
 
-    public static function getResource(StreamInterface $stream)
+    public static function getResource(streamInterface $stream)
     {
         self::register();
         if ($stream->isReadable()) {
@@ -29,7 +29,7 @@ class streamWrapper
         }
     }
 
-    public static function createStreamContext(StreamInterface $stream)
+    public static function createStreamContext(streamInterface $stream)
     {
         return stream_context_create(['proxy' => ['stream' => $stream]]);
     }

@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
 final class uriResolver
 {
@@ -8,7 +8,7 @@ final class uriResolver
     {
     }
 
-    public static function resolve(UriInterface $base, UriInterface $rel)
+    public static function resolve(uriInterface $base, uriInterface $rel)
     {
         if ((string)$rel === '') {
             return $base;
@@ -70,7 +70,7 @@ final class uriResolver
         return $newPath;
     }
 
-    public static function relativize(UriInterface $base, UriInterface $target)
+    public static function relativize(uriInterface $base, uriInterface $target)
     {
         if ($target->getScheme() !== '' && ($base->getScheme() !== $target->getScheme() || $target->getAuthority() === '' && $base->getAuthority() !== '')) {
             return $target;
@@ -96,7 +96,7 @@ final class uriResolver
         return $emptyPathUri;
     }
 
-    private static function getRelativePath(UriInterface $base, UriInterface $target)
+    private static function getRelativePath(uriInterface $base, uriInterface $target)
     {
         $sourceSegments = explode('/', $base->getPath());
         $targetSegments = explode('/', $target->getPath());

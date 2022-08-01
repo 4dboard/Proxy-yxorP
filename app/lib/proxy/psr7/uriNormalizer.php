@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
 final class uriNormalizer
 {
@@ -18,12 +18,12 @@ final class uriNormalizer
     {
     }
 
-    public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS)
+    public static function isEquivalent(uriInterface $uri1, uriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS)
     {
         return (string)self::normalize($uri1, $normalizations) === (string)self::normalize($uri2, $normalizations);
     }
 
-    public static function normalize(UriInterface $uri, $flags = self::PRESERVING_NORMALIZATIONS)
+    public static function normalize(uriInterface $uri, $flags = self::PRESERVING_NORMALIZATIONS)
     {
         if ($flags & self::CAPITALIZE_PERCENT_ENCODING) {
             $uri = self::capitalizePercentEncoding($uri);
@@ -54,7 +54,7 @@ final class uriNormalizer
         return $uri;
     }
 
-    private static function capitalizePercentEncoding(UriInterface $uri)
+    private static function capitalizePercentEncoding(uriInterface $uri)
     {
         $regex = '/(?:%[A-Fa-f0-9]{2})++/';
         $callback = function (array $match) {
@@ -63,7 +63,7 @@ final class uriNormalizer
         return $uri->withPath(preg_replace_callback($regex, $callback, $uri->getPath()))->withQuery(preg_replace_callback($regex, $callback, $uri->getQuery()));
     }
 
-    private static function decodeUnreservedCharacters(UriInterface $uri)
+    private static function decodeUnreservedCharacters(uriInterface $uri)
     {
         $regex = '/%(?:2D|2E|5F|7E|3[0-9]|[46][1-9A-F]|[57][0-9A])/i';
         $callback = function (array $match) {

@@ -11,7 +11,7 @@ use RuntimeException;
  * a wrapper around the most common operations, including serialization of
  * the entire stream to a string.
  */
-interface StreamInterface
+interface streamInterface
 {
     /**
      * Reads all data from the stream into a string, from the beginning to end.

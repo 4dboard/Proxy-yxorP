@@ -3,9 +3,9 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class appendStream implements StreamInterface
+class appendStream implements streamInterface
 {
     private $streams = [];
     private $seekable = true;
@@ -19,7 +19,7 @@ class appendStream implements StreamInterface
         }
     }
 
-    public function addStream(StreamInterface $stream)
+    public function addStream(streamInterface $stream)
     {
         if (!$stream->isReadable()) {
             throw new InvalidArgumentException('Each stream must be readable');

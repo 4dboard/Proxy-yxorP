@@ -16,7 +16,7 @@ use InvalidArgumentException;
  * @link http://www.ietf.org/rfc/rfc7230.txt
  * @link http://www.ietf.org/rfc/rfc7231.txt
  */
-interface MessageInterface
+interface messageInterface
 {
     /**
      * Retrieves the HTTP protocol version as a string.
@@ -168,7 +168,7 @@ interface MessageInterface
     /**
      * Gets the body of the message.
      *
-     * @return StreamInterface Returns the body as a stream.
+     * @return streamInterface Returns the body as a stream.
      */
     public function getBody();
 
@@ -181,9 +181,9 @@ interface MessageInterface
      * immutability of the message, and MUST return a new instance that has the
      * new body stream.
      *
-     * @param StreamInterface $body Body.
+     * @param streamInterface $body Body.
      * @return static
      * @throws InvalidArgumentException When the body is not valid.
      */
-    public function withBody(StreamInterface $body);
+    public function withBody(streamInterface $body);
 }

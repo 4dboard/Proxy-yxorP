@@ -11,7 +11,7 @@ use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\proxy\utils;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\default_ca_bundle;
 use function yxorP\app\lib\proxy\headers_from_lines;
@@ -23,7 +23,7 @@ class streamHandler
 {
     private $lastHeaders = [];
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options)
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);
@@ -48,7 +48,7 @@ class streamHandler
         }
     }
 
-    private function createResponse(RequestInterface $request, array $options, $stream, $startTime)
+    private function createResponse(requestInterface $request, array $options, $stream, $startTime)
     {
         $hdrs = $this->lastHeaders;
         $this->lastHeaders = [];
@@ -105,7 +105,7 @@ class streamHandler
         return [$stream, $headers];
     }
 
-    private function createSink(StreamInterface $stream, array $options)
+    private function createSink(streamInterface $stream, array $options)
     {
         if (!empty($options['stream'])) {
             return $stream;
@@ -114,7 +114,7 @@ class streamHandler
         return is_string($sink) ? new Psr7\lazyOpenStream($sink, 'w+') : Psr7\stream_for($sink);
     }
 
-    private function drain(StreamInterface $source, StreamInterface $sink, $contentLength)
+    private function drain(streamInterface $source, streamInterface $sink, $contentLength)
     {
         Psr7\copy_to_stream($source, $sink, (strlen($contentLength) > 0 && (int)$contentLength > 0) ? (int)$contentLength : -1);
         $sink->seek(0);
@@ -122,7 +122,7 @@ class streamHandler
         return $sink;
     }
 
-    private function invokeStats(array $options, RequestInterface $request, $startTime, ResponseInterface $response = null, $error = null)
+    private function invokeStats(array $options, requestInterface $request, $startTime, responseInterface $response = null, $error = null)
     {
         if (isset($options['on_stats'])) {
             $stats = new transferStats($request, $response, utils::currentTime() - $startTime, $error, []);
@@ -130,7 +130,7 @@ class streamHandler
         }
     }
 
-    private function createStream(RequestInterface $request, array $options)
+    private function createStream(requestInterface $request, array $options)
     {
         static $methods;
         if (!$methods) {
@@ -181,7 +181,7 @@ class streamHandler
         });
     }
 
-    private function getDefaultContext(RequestInterface $request)
+    private function getDefaultContext(requestInterface $request)
     {
         $headers = '';
         foreach ($request->getHeaders() as $name => $value) {
@@ -201,7 +201,7 @@ class streamHandler
         return $context;
     }
 
-    private function resolveHost(RequestInterface $request, array $options)
+    private function resolveHost(requestInterface $request, array $options)
     {
         $uri = $request->getUri();
         if (isset($options['force_ip_resolve']) && !filter_var($uri->getHost(), FILTER_VALIDATE_IP)) {
@@ -243,7 +243,7 @@ class streamHandler
         return $resource;
     }
 
-    private function add_proxy(RequestInterface $request, &$options, $value, &$params)
+    private function add_proxy(requestInterface $request, &$options, $value, &$params)
     {
         if (!is_array($value)) {
             $options['http']['proxy'] = $value;
@@ -257,14 +257,14 @@ class streamHandler
         }
     }
 
-    private function add_timeout(RequestInterface $request, &$options, $value, &$params)
+    private function add_timeout(requestInterface $request, &$options, $value, &$params)
     {
         if ($value > 0) {
             $options['http']['timeout'] = $value;
         }
     }
 
-    private function add_verify(RequestInterface $request, &$options, $value, &$params)
+    private function add_verify(requestInterface $request, &$options, $value, &$params)
     {
         if ($value === true) {
             if (PHP_VERSION_ID < 50600) {
@@ -287,7 +287,7 @@ class streamHandler
         $options['ssl']['allow_self_signed'] = false;
     }
 
-    private function add_cert(RequestInterface $request, &$options, $value, &$params)
+    private function add_cert(requestInterface $request, &$options, $value, &$params)
     {
         if (is_array($value)) {
             $options['ssl']['passphrase'] = $value[1];
@@ -299,7 +299,7 @@ class streamHandler
         $options['ssl']['local_cert'] = $value;
     }
 
-    private function add_progress(RequestInterface $request, &$options, $value, &$params)
+    private function add_progress(requestInterface $request, &$options, $value, &$params)
     {
         $this->addNotification($params, function ($code, $a, $b, $c, $transferred, $total) use ($value) {
             if ($code === STREAM_NOTIFY_PROGRESS) {
@@ -327,7 +327,7 @@ class streamHandler
         };
     }
 
-    private function add_debug(RequestInterface $request, &$options, $value, &$params)
+    private function add_debug(requestInterface $request, &$options, $value, &$params)
     {
         if ($value === false) {
             return;

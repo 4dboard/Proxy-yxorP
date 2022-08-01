@@ -1,16 +1,16 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use RuntimeException;
-use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\streamInterface;
 
-class limitStream implements StreamInterface
+class limitStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
     private $offset;
     private $limit;
 
-    public function __construct(StreamInterface $stream, $limit = -1, $offset = 0)
+    public function __construct(streamInterface $stream, $limit = -1, $offset = 0)
     {
         $this->stream = $stream;
         $this->setLimit($limit);

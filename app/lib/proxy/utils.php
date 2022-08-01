@@ -3,7 +3,7 @@
 use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
 use yxorP\app\lib\proxy\exception\invalidArgumentException;
-use yxorP\app\lib\psr\http\message\UriInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 use function extension_loaded;
 use function idn_to_ascii;
 use function preg_match;
@@ -15,7 +15,7 @@ final class utils
         return function_exists('hrtime') ? hrtime(true) / 1e9 : microtime(true);
     }
 
-    public static function idnUriConvert(UriInterface $uri, $options = 0)
+    public static function idnUriConvert(uriInterface $uri, $options = 0)
     {
         if ($uri->getHost()) {
             $asciiHost = self::idnToAsci($uri->getHost(), $options, $info);
