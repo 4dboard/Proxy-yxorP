@@ -28,12 +28,8 @@ Options -Indexes
 # Character encoding: Serve text/html or text/plain as UTF-8
 AddDefaultCharset UTF-8
 
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
-</IfModule>
 <IfModule mod_rewrite.c>
-    AddHandler application/x-httpd-ea-php81 .php
-    AddHandler application/x-httpd-php81 .php
+    AddType application/x-httpd-php81 .php
 
     Options -MultiViews
 
