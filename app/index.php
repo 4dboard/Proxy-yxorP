@@ -47,11 +47,7 @@ define('SITE_API_REQUEST', strpos($SITE_ROUTE, '/api/') === 0 ? 1 : 0);
 $app = App::instance($SITE_SPACE_DIR, ['base_route' => $SITE_BASE_ROUTE, 'base_url' => $SITE_BASE_URL]);
 $app->on('error', function ($error) {
     if (!isset($this->request)) return;
-    if ($this['debug']) {
-        $body = $this->request->is('ajax') || SITE_API_REQUEST ? json_encode(['error' => $error['message'], 'file' => $error['file'], 'line' => $error['line']]) : $this->render('app:views/errors/500-debug.php', ['error' => $error]);
-    } else {
-        $body = $this->request->is('ajax') || SITE_API_REQUEST ? '{"error": "500", "message": "system error"}' : $this->render('app:views/errors/500.php');
-    }
+    if ($this['debug']) $body = $this->request->is('ajax') || SITE_API_REQUEST ? json_encode(['error' => $error['message'], 'file' => $error['file'], 'line' => $error['line']]) : $this->render('app:views/errors/500-debug.php', ['error' => $error]); else    $body = $this->request->is('ajax') || SITE_API_REQUEST ? '{"error": "500", "message": "system error"}' : $this->render('app:views/errors/500.php');
     header('HTTP/1.0 500 Internal Server Error');
     echo $body;
 });
