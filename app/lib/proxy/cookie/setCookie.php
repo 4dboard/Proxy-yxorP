@@ -202,6 +202,7 @@ class sessionCookieJar
 
     public function getValue()
     {
+        exit('2');
         return $this->data['Value'];
     }
 }
