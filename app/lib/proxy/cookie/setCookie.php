@@ -1,6 +1,5 @@
 <?php namespace yxorP\app\lib\proxy\Cookie;
 
-exit('1');
 
 class sessionCookieJar
 {
