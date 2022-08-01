@@ -198,9 +198,7 @@ class FileObject
     public function __call($method, $args)
     {
 
-        if (!isset($this->fileObject)) {
-            $this->fileObject = new SplFileObject($this->path);
-        }
+        if (!isset($this->fileObject)) $this->fileObject = new SplFileObject($this->path);
 
         return call_user_func_array([$this->fileObject, $method], $args);
     }
