@@ -93,14 +93,6 @@ class locales extends helper
         return $locales;
     }
 
-    protected function initialize()
-    {
-
-        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
-            return $this->cache();
-        });
-    }
-
     public function cache(bool $persistent = true): array
     {
 
@@ -135,5 +127,13 @@ class locales extends helper
         }
 
         return $cache;
+    }
+
+    protected function initialize()
+    {
+
+        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
+            return $this->cache();
+        });
     }
 }

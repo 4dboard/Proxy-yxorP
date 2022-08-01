@@ -39,23 +39,6 @@ class users extends app
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
     }
 
-    protected function geti18n()
-    {
-
-        $languages = [['i18n' => 'en', 'language' => 'English']];
-
-        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
-
-            $lang = include($file->getRealPath());
-            $i18n = $file->getBasename('.php');
-            $language = $lang['@meta']['language'] ?? $i18n;
-
-            $languages[] = ['i18n' => $i18n, 'language' => $language];
-        }
-
-        return $languages;
-    }
-
     public function create()
     {
 
@@ -235,6 +218,23 @@ class users extends app
         $this->app->response->mime = 'svg';
 
         return $this->helper('twfa')->getQRCodeImage($secret, intval($size));
+    }
+
+    protected function geti18n()
+    {
+
+        $languages = [['i18n' => 'en', 'language' => 'English']];
+
+        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
+
+            $lang = include($file->getRealPath());
+            $i18n = $file->getBasename('.php');
+            $language = $lang['@meta']['language'] ?? $i18n;
+
+            $languages[] = ['i18n' => $i18n, 'language' => $language];
+        }
+
+        return $languages;
     }
 
     protected function before()

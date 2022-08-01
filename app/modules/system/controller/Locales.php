@@ -69,11 +69,6 @@ class locales extends app
         return ['success' => true];
     }
 
-    protected function cache()
-    {
-        $this->helper('locales')->cache();
-    }
-
     public function save()
     {
 
@@ -132,6 +127,11 @@ class locales extends app
         ])->toArray();
 
         return $locales;
+    }
+
+    protected function cache()
+    {
+        $this->helper('locales')->cache();
     }
 
     protected function before()
