@@ -28,17 +28,14 @@ class query extends appAware
             'directives' => $this->directives->getArrayCopy(),
         ]), $query, [], null, $variables)->toArray();
 
-        if (isset($result['data'])) {
+        if (isset($result['data'])) foreach ($result['data'] as $key => $value) {
 
-            foreach ($result['data'] as $key => $value) {
+            if ($value && is_string($value)) {
 
-                if ($value && is_string($value)) {
+                $start = substr($value, 0, 1);
+                $end = substr($value, -1, 1);
 
-                    $start = substr($value, 0, 1);
-                    $end = substr($value, -1, 1);
-
-                    if (($start === '[' && $end === ']') || ($start === '{' && $end === '}')) $result['data'][$key] = json_decode($value); elseif ($value === 'null') $result['data'][$key] = null;
-                }
+                if (($start === '[' && $end === ']') || ($start === '{' && $end === '}')) $result['data'][$key] = json_decode($value); elseif ($value === 'null') $result['data'][$key] = null;
             }
         }
         return $result;
