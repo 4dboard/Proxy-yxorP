@@ -170,9 +170,7 @@ class Filesystem extends Helper
             if (!@$func($path)) throw new Exception("Unable to delete: {$path}.");
         } elseif (is_dir($path)) {
             foreach (new FilesystemIterator($path) as $item) $this->delete($item->getRealPath());
-            if (!@rmdir($path)) {
-                throw new Exception("Unable to delete directory: {$path}.");
-            }
+            if (!@rmdir($path)) throw new Exception("Unable to delete directory: {$path}.");
         }
     }
 
