@@ -56,66 +56,6 @@ abstract class Type implements JsonSerializable
     /**
      * @api
      */
-    public static function id(): ScalarType
-    {
-        if (!isset(static::$standardTypes[self::ID])) {
-            static::$standardTypes[self::ID] = new IDType();
-        }
-
-        return static::$standardTypes[self::ID];
-    }
-
-    /**
-     * @api
-     */
-    public static function string(): ScalarType
-    {
-        if (!isset(static::$standardTypes[self::STRING])) {
-            static::$standardTypes[self::STRING] = new StringType();
-        }
-
-        return static::$standardTypes[self::STRING];
-    }
-
-    /**
-     * @api
-     */
-    public static function boolean(): ScalarType
-    {
-        if (!isset(static::$standardTypes[self::BOOLEAN])) {
-            static::$standardTypes[self::BOOLEAN] = new BooleanType();
-        }
-
-        return static::$standardTypes[self::BOOLEAN];
-    }
-
-    /**
-     * @api
-     */
-    public static function int(): ScalarType
-    {
-        if (!isset(static::$standardTypes[self::INT])) {
-            static::$standardTypes[self::INT] = new IntType();
-        }
-
-        return static::$standardTypes[self::INT];
-    }
-
-    /**
-     * @api
-     */
-    public static function float(): ScalarType
-    {
-        if (!isset(static::$standardTypes[self::FLOAT])) {
-            static::$standardTypes[self::FLOAT] = new FloatType();
-        }
-
-        return static::$standardTypes[self::FLOAT];
-    }
-
-    /**
-     * @api
-     */
     public static function listOf(Type $wrappedType): ListOfType
     {
         return new ListOfType($wrappedType);
@@ -171,6 +111,66 @@ abstract class Type implements JsonSerializable
             self::INT => static::int(),
             self::BOOLEAN => static::boolean(),
         ];
+    }
+
+    /**
+     * @api
+     */
+    public static function id(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::ID])) {
+            static::$standardTypes[self::ID] = new IDType();
+        }
+
+        return static::$standardTypes[self::ID];
+    }
+
+    /**
+     * @api
+     */
+    public static function string(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::STRING])) {
+            static::$standardTypes[self::STRING] = new StringType();
+        }
+
+        return static::$standardTypes[self::STRING];
+    }
+
+    /**
+     * @api
+     */
+    public static function float(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::FLOAT])) {
+            static::$standardTypes[self::FLOAT] = new FloatType();
+        }
+
+        return static::$standardTypes[self::FLOAT];
+    }
+
+    /**
+     * @api
+     */
+    public static function int(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::INT])) {
+            static::$standardTypes[self::INT] = new IntType();
+        }
+
+        return static::$standardTypes[self::INT];
+    }
+
+    /**
+     * @api
+     */
+    public static function boolean(): ScalarType
+    {
+        if (!isset(static::$standardTypes[self::BOOLEAN])) {
+            static::$standardTypes[self::BOOLEAN] = new BooleanType();
+        }
+
+        return static::$standardTypes[self::BOOLEAN];
     }
 
     /**
