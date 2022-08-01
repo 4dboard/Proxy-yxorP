@@ -32,9 +32,7 @@ class App
         $config = array_replace_recursive(['docs_root' => defined('SITE_DOCUMENT_ROOT') ? SITE_DOCUMENT_ROOT : null, 'debug' => SITE_CLI ? true : preg_match('/(localhost|::1|\.local)$/', $_SERVER['SERVER_NAME'] ?? ''), 'app.name' => 'App', 'app.version' => SITE_VERSION, 'session.name' => md5($envDir), 'sec-key' => 'c3b40c4c-db44-s5h7-a814-b5931a15e5e1', 'i18n' => 'en', 'database' => ['server' => "mongolite://{$envDir}/storage/data", 'options' => ['db' => 'app'], 'driverOptions' => []], 'memory' => ['server' => "redislite://{$envDir}/storage/data/app.memory.sqlite", 'options' => []], 'paths' => ['#app' => __DIR__, '#root' => $envDir, '#config' => $envDir . '/config', '#modules' => $envDir . '/modules', '#addons' => $envDir . '/addons', '#storage' => $envDir . '/storage', '#cache' => $envDir . '/storage/cache', '#cache' => $envDir . '/storage/cache', '#uploads' => $envDir . '/storage/uploads',], 'response' => ['cache' => ['handler' => 'memory', 'duration' => 600,]]], $cfg ?? [], $config);
         if ($config['debug']) $config['app.version'] .= '-' . time();
         $app = new Lime\App($config);
-        foreach ($config['paths'] as $key => $path) {
-            $app->path($key, $path);
-        }
+        foreach ($config['paths'] as $key => $path) $app->path($key, $path);
         $app->helper('cache')->setCachePath($app->path('#cache:') ?? sys_get_temp_dir());
         $app->service('fileStorage', function () use ($config, $app) {
             $visibility = League\Flysystem\UnixVisibility\PortableVisibilityConverter::fromArray(['file' => ['public' => 0644, 'private' => 0644,], 'dir' => ['public' => 0755, 'private' => 0755,],]);
