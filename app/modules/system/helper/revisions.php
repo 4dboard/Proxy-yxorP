@@ -21,18 +21,15 @@ class revisions extends helper
 
     public function getList(string $id, int $limit = 50, int $skip = 0)
     {
-        $options = [
+        return $this->storage->find('system/revisions', [
             'filter' => ['_oid' => $id],
             'sort' => ['_created' => -1],
             'limit' => $limit,
             'skip' => $skip
-        ];
-
-        return $this->storage->find('system/revisions', $options)->toArray();
+        ])->toArray();
     }
 
-    public
-    function add($id, $data, $meta = null, $by = null, $created = null, $ref = null)
+    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null)
     {
 
         if ($by === true) {
