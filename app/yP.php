@@ -74,9 +74,10 @@ class yP
         foreach (array('http', 'minify', 'parser', 'Psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
-         * appended to it        exit('1');
-         * .
+         * appended to it.
          */
+        exit('1');
+
         helpers::define($request);
 
         /**
