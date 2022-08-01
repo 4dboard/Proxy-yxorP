@@ -374,21 +374,6 @@ class helpers
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
         /**
-         * Setting the localisation of the server to the request.
-         */
-        helpers::localise($request);
-
-    }
-
-    /**
-     * @param array|null $request
-     * @return void
-     * It's checking if the file exists.
-     */
-    public static function localise(?array $request): void
-    {
-
-        /**
          * Requiring the APP library.
          */
         require PATH_SITE_BOOTSTRAP;
@@ -434,11 +419,6 @@ class helpers
          */
         define('YXORP_SITE_SUB_DOMAIN', domain::domain_sub());
 
-
-        /**
-         * Setting the `TARGET` variable to the result of the `findOne` method.
-         */
-
         /**
          * Setting the pattern, replace, and plugins variables.
          */
@@ -483,6 +463,7 @@ class helpers
 
 
     }
+
 
     /**
      * @param $line
