@@ -10,7 +10,6 @@ use Throwable;
 class system extends yxorP\app\lib\lime\helper
 {
 
-
     public function try(callable $callback, $rescue = null, $report = true)
     {
         try {
