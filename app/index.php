@@ -6,17 +6,13 @@ require(__DIR__ . '/bootstrap.php');
 $SITE_SPACE_DIR = __DIR__;
 $SITE_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
 $SITE_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : __DIR__);
-if (strpos($SITE_DIR, $SITE_DOCUMENT_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) {
-    $SITE_DOCUMENT_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $SITE_DIR);
-}
+if (strpos($SITE_DIR, $SITE_DOCUMENT_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) $SITE_DOCUMENT_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $SITE_DIR);
 if (PHP_SAPI === 'cli-server') {
     $file = $_SERVER['SCRIPT_FILENAME'];
     $path = pathinfo($file);
     $index = realpath($path['dirname'] . '/index.php');
     $_SERVER['PATH_INFO'] = explode('?', $_SERVER['REQUEST_URI'] ?? '')[0];
-    if (is_file($file) && $path['extension'] != 'php') {
-        return false;
-    }
+    if (is_file($file) && $path['extension'] != 'php') return false;
     if (is_file($index) && $index != __FILE__) {
         include($index);
         return;
