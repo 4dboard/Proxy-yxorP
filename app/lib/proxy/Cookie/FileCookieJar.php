@@ -18,7 +18,6 @@ class FileCookieJar extends CookieJar
     public function load($filename)
     {
         $json = file_get_contents($filename);
-        print_r($json);
         if (false === $json) {
             throw new RuntimeException("Unable to load file {$filename}");
         } elseif ($json === '') {
