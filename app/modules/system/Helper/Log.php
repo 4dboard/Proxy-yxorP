@@ -7,11 +7,9 @@ use helper;
 class Log extends helper
 {
 
-    protected
-    array $channels = [];
+    protected array $channels = [];
 
-    public
-    function channel(string $name): LogChannel
+    public function channel(string $name): LogChannel
     {
 
         if (!isset($this->channels[$name])) {
