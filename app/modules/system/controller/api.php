@@ -1,6 +1,6 @@
 <?php
 
-namespace System\Controller;
+namespace yxorp\app\modules\system\Controller;
 
 use App\Controller\app;
 use ArrayObject;

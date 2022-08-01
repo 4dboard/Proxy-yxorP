@@ -1,6 +1,6 @@
 <?php
 
-namespace System\Helper;
+namespace yxorp\app\modules\system\Helper;
 class locales extends \
 
 \yxorP\app\lib\lime\helper
