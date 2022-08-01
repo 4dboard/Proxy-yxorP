@@ -11,12 +11,7 @@ $components = [];
 
 $this->trigger('app.permissions.collect', [$permissions]);
 
-foreach ($permissions as $key => $meta) {
-
-    if (isset($meta['component'])) {
-        $components[$meta['component']] = $meta['src'];
-    }
-}
+foreach ($permissions as $key => $meta) if (isset($meta['component'])) $components[$meta['component']] = $meta['src'];
 
 ?>
 <kiss-container class="kiss-margin" size="small">
