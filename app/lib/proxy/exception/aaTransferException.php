@@ -2,6 +2,6 @@
 
 use RuntimeException;
 
-class aaTransferException extends RuntimeException implements ProxyException
+class aaTransferException extends RuntimeException implements proxyException
 {
 }

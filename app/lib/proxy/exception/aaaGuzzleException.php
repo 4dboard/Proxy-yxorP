@@ -3,12 +3,11 @@
 use Throwable;
 
 if (interface_exists(Throwable::class)) {
-    interface ProxyException extends Throwable
+    interface proxyException extends Throwable
     {
     }
 } else {
-    interface ProxyException
+    interface proxyException
     {
     }
 }
-echo 1;
