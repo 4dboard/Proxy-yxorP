@@ -1,10 +1,7 @@
 <?php
 
 $permissions = new ArrayObject([
-    'Users' => [
-        'app/users/manage' => 'Manage users',
-        'app/roles/manage' => 'Manage roles',
-    ]
+    'Users' => ['app/users/manage' => 'Manage users', 'app/roles/manage' => 'Manage roles']
 ]);
 
 $components = [];
