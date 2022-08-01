@@ -9730,7 +9730,7 @@
                 let line = Math.min(start.line, pos.line);
                 const end = Math.min(cm.lastLine(), Math.max(start.line, pos.line));
                 for (;
-                     line <= end; line++) {
+                    line <= end; line++) {
                     const text = getLine(doc, line).text, leftPos = findColumn(text, left, tabSize);
                     if (left === right) {
                         ranges.push(new Range(Pos(line, leftPos), Pos(line, leftPos)));

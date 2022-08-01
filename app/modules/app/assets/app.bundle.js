@@ -1816,7 +1816,10 @@
         function tr(e, t, n, o, r = !1) {
             if (N(e)) return void e.forEach(((e, s) => tr(e, t && (N(t) ? t[s] : t), n, o, r)));
             if (Jn(o) && !r) return;
-            const s = 4 && o.shapeFlag ? rs(o.component) || o.component.proxy : o.el, i = r ? null : s, {i: l, r: c} = e,
+            const s = 4 && o.shapeFlag ? rs(o.component) || o.component.proxy : o.el, i = r ? null : s, {
+                    i: l,
+                    r: c
+                } = e,
                 a = t && t.r, u = l.refs === g ? l.refs = {} : l.refs, p = l.setupState;
             if (null != a && a !== c && (R(a) ? (u[a] = null, T(p, a) && (p[a] = null)) : wt(a) && (a.value = null)), F(c)) Bt(c, l, 12, [i, u]); else {
                 const t = R(c), o = wt(c);

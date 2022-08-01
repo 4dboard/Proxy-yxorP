@@ -178,7 +178,9 @@
         const lines = fold(query).split(/\r|\n\r?/);
 
         search: let line = start.line,
-            ch = start.ch;const last = doc.lastLine() + 1 - lines.length;for (; line <= last; line++, ch = 0) {
+            ch = start.ch;
+        const last = doc.lastLine() + 1 - lines.length;
+        for (; line <= last; line++, ch = 0) {
             const orig = doc.getLine(line).slice(ch), string = fold(orig);
             if (lines.length === 1) {
                 const found = string.indexOf(lines[0]);
@@ -210,7 +212,9 @@
         const lines = fold(query).split(/\r|\n\r?/);
 
         search: let line = start.line,
-            ch = start.ch;const first = doc.firstLine() - 1 + lines.length;for (; line >= first; line--, ch = -1) {
+            ch = start.ch;
+        const first = doc.firstLine() - 1 + lines.length;
+        for (; line >= first; line--, ch = -1) {
             let orig = doc.getLine(line);
             if (ch > -1) orig = orig.slice(0, ch)
             const string = fold(orig);

@@ -136,7 +136,6 @@
             }
 
 
-
             // Handle non-detected items
             stream.next();
             return 'error';

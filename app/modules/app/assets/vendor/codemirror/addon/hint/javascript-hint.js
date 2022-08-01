@@ -73,6 +73,7 @@
             },
             options);
     }
+
     CodeMirror.registerHelper("hint", "javascript", javascriptHint);
 
     function getCoffeeScriptToken(editor, cur) {
