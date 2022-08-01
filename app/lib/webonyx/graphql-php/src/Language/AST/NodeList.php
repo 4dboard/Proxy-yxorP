@@ -7,7 +7,6 @@ namespace GraphQL\Language\AST;
 use ArrayAccess;
 use Countable;
 use GraphQL\Utils\AST;
-use InvalidArgumentException;
 use IteratorAggregate;
 use Traversable;
 use function array_merge;
@@ -55,32 +54,6 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
     public function offsetExists($offset): bool
     {
         return isset($this->nodes[$offset]);
-    }
-
-    /**
-     * TODO enable strict typing by changing how the Visitor deals with NodeList.
-     * Ideally, this function should always return a Node instance.
-     * However, the Visitor currently allows mutation of the NodeList
-     * and puts arbitrary values in the NodeList, such as strings.
-     * We will have to switch to using an array or a less strict
-     * type instead so we can enable strict typing in this class.
-     *
-     * @param int|string $offset
-     *
-     * @phpstan-return T
-     */
-    #[ReturnTypeWillChange]
-    public function offsetGet($offset)// : Node
-    {
-        $item = $this->nodes[$offset];
-
-        if (is_array($item) && isset($item['kind'])) {
-            /** @phpstan-var T $node */
-            $node = AST::fromArray($item);
-            $this->nodes[$offset] = $node;
-        }
-
-        return $this->nodes[$offset];
     }
 
     /**
@@ -144,6 +117,32 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
         foreach ($this->nodes as $key => $_) {
             yield $this->offsetGet($key);
         }
+    }
+
+    /**
+     * TODO enable strict typing by changing how the Visitor deals with NodeList.
+     * Ideally, this function should always return a Node instance.
+     * However, the Visitor currently allows mutation of the NodeList
+     * and puts arbitrary values in the NodeList, such as strings.
+     * We will have to switch to using an array or a less strict
+     * type instead so we can enable strict typing in this class.
+     *
+     * @param int|string $offset
+     *
+     * @phpstan-return T
+     */
+    #[ReturnTypeWillChange]
+    public function offsetGet($offset)// : Node
+    {
+        $item = $this->nodes[$offset];
+
+        if (is_array($item) && isset($item['kind'])) {
+            /** @phpstan-var T $node */
+            $node = AST::fromArray($item);
+            $this->nodes[$offset] = $node;
+        }
+
+        return $this->nodes[$offset];
     }
 
     public function count(): int
