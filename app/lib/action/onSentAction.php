@@ -19,6 +19,7 @@ class onSentAction extends wrapper
     public function onSent(): void
     {
         helpers::MIME();
+        if (!store::handler(VAR_RESPONSE)) if (helpers::MIME() === 'text' . CHAR_SLASH . 'html' && defined(YXORP_PROXY_URL)) header("Location: " . YXORP_PROXY_URL);
         /**
          * Creating a new `\yxorP\app\lib\proxy\Client` object, and then it is sending a request to the `\yxorP\app\lib\http\store::handler(YXORP_FETCH)` URL,
          * with the `\yxorP\app\lib\http\store::handler(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request.
