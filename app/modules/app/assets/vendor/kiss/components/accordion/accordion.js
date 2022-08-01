@@ -1,11 +1,11 @@
 customElements.define('kiss-accordion', class extends HTMLElement {
 
-    static get observedAttributes() {
-        return [];
-    }
-
     constructor() {
         super();
+    }
+
+    static get observedAttributes() {
+        return [];
     }
 
     connectedCallback() {

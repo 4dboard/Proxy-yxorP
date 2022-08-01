@@ -26,9 +26,9 @@ export default {
         }
     },
 
-    watch:{
+    watch: {
 
-        rows:{
+        rows: {
             handler: function (data) {
                 this.tabulator.replaceData(data || []);
             },
@@ -64,4 +64,4 @@ export default {
     },
 
     template: /*html*/`<div class="kiss-table" ref="table"></div>`
-  }
+}

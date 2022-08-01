@@ -1,6 +1,6 @@
 kiss-tooltip {
     display: block;
-    position:fixed;
+    position: fixed;
     z-index: 100000;
     pointer-events: none;
     opacity: 0;

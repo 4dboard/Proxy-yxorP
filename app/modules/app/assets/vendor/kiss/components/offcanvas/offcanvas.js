@@ -1,4 +1,4 @@
-import {on, onMutation} from '../../js/events.js';
+import {on} from '../../js/events.js';
 
 on(document.documentElement, 'click', '[kiss-offcanvas]', function (e) {
 
