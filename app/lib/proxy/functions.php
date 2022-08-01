@@ -2,10 +2,10 @@
 
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\proxy\Handler\curlHandler;
-use yxorP\app\lib\proxy\Handler\curlMultiHandler;
-use yxorP\app\lib\proxy\Handler\proxy;
-use yxorP\app\lib\proxy\Handler\streamHandler;
+use yxorP\app\lib\proxy\handler\curlHandler;
+use yxorP\app\lib\proxy\handler\curlMultiHandler;
+use yxorP\app\lib\proxy\handler\proxy;
+use yxorP\app\lib\proxy\handler\streamHandler;
 use function curl_version;
 
 function uri_template($template, array $variables)

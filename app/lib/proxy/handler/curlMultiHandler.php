@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\proxy\Handler;
+<?php namespace yxorP\app\lib\proxy\handler;
 
 use BadMethodCallException;
 use yxorP\app\lib\proxy\Promise as P;
