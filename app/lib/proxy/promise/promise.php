@@ -19,9 +19,92 @@ class promise implements promiseInterface
         $this->cancelFn = $cancelFn;
     }
 
+    private static function callHandler($index, $value, array $handler)
+    {
+        $promise = $handler[0];
+        if ($promise->getState() !== self::PENDING) {
+            return;
+        }
+        try {
+            if (isset($handler[$index])) {
+                $promise->resolve($handler[$index]($value));
+            } elseif ($index === 1) {
+                $promise->resolve($value);
+            } else {
+                $promise->reject($value);
+            }
+        } catch (Throwable $reason) {
+            $promise->reject($reason);
+        }
+    }
+
     public function resolve($value)
     {
         $this->settle(self::FULFILLED, $value);
+    }
+
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    public function otherwise(callable $onRejected)
+    {
+        return $this->then(null, $onRejected);
+    }
+
+    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    {
+        if ($this->state === self::PENDING) {
+            $p = new promise(null, [$this, 'cancel']);
+            $this->handlers[] = [$p, $onFulfilled, $onRejected];
+            $p->waitList = $this->waitList;
+            $p->waitList[] = $this;
+            return $p;
+        }
+        if ($this->state === self::FULFILLED) {
+            return $onFulfilled ? promise_for($this->result)->then($onFulfilled) : promise_for($this->result);
+        }
+        $rejection = rejection_for($this->result);
+        return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
+    }
+
+    public function wait($unwrap = true)
+    {
+        $this->waitIfPending();
+        $inner = $this->result instanceof promiseInterface ? $this->result->wait($unwrap) : $this->result;
+        if ($unwrap) {
+            if ($this->result instanceof promiseInterface || $this->state === self::FULFILLED) {
+                return $inner;
+            } else {
+                throw exception_for($inner);
+            }
+        }
+    }
+
+    public function reject($reason)
+    {
+        $this->settle(self::REJECTED, $reason);
+    }
+
+    public function cancel()
+    {
+        if ($this->state !== self::PENDING) {
+            return;
+        }
+        $this->waitFn = $this->waitList = null;
+        if ($this->cancelFn) {
+            $fn = $this->cancelFn;
+            $this->cancelFn = null;
+            try {
+                $fn();
+            } catch (Throwable $e) {
+                $this->reject($e);
+            }
+        }
+        if ($this->state === self::PENDING) {
+            $this->reject(new cancellationExceptionA('Promise has been cancelled'));
+        }
     }
 
     private function settle($state, $value)
@@ -66,64 +149,6 @@ class promise implements promiseInterface
         }
     }
 
-    private static function callHandler($index, $value, array $handler)
-    {
-        $promise = $handler[0];
-        if ($promise->getState() !== self::PENDING) {
-            return;
-        }
-        try {
-            if (isset($handler[$index])) {
-                $promise->resolve($handler[$index]($value));
-            } elseif ($index === 1) {
-                $promise->resolve($value);
-            } else {
-                $promise->reject($value);
-            }
-        } catch (Throwable $reason) {
-            $promise->reject($reason);
-        }
-    }
-
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    public function otherwise(callable $onRejected)
-    {
-        return $this->then(null, $onRejected);
-    }
-
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
-    {
-        if ($this->state === self::PENDING) {
-            $p = new promise(null, [$this, 'cancel']);
-            $this->handlers[] = [$p, $onFulfilled, $onRejected];
-            $p->waitList = $this->waitList;
-            $p->waitList[] = $this;
-            return $p;
-        }
-        if ($this->state === self::FULFILLED) {
-            return $onFulfilled ? promise_for($this->result)->then($onFulfilled) : promise_for($this->result);
-        }
-        $rejection = rejection_for($this->result);
-        return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
-    }
-
-    public function wait($unwrap = true)
-    {
-        $this->waitIfPending();
-        $inner = $this->result instanceof promiseInterface ? $this->result->wait($unwrap) : $this->result;
-        if ($unwrap) {
-            if ($this->result instanceof promiseInterface || $this->state === self::FULFILLED) {
-                return $inner;
-            } else {
-                throw exception_for($inner);
-            }
-        }
-    }
-
     private function waitIfPending()
     {
         if ($this->state !== self::PENDING) {
@@ -156,11 +181,6 @@ class promise implements promiseInterface
         }
     }
 
-    public function reject($reason)
-    {
-        $this->settle(self::REJECTED, $reason);
-    }
-
     private function invokeWaitList()
     {
         $waitList = $this->waitList;
@@ -177,26 +197,6 @@ class promise implements promiseInterface
                     break;
                 }
             }
-        }
-    }
-
-    public function cancel()
-    {
-        if ($this->state !== self::PENDING) {
-            return;
-        }
-        $this->waitFn = $this->waitList = null;
-        if ($this->cancelFn) {
-            $fn = $this->cancelFn;
-            $this->cancelFn = null;
-            try {
-                $fn();
-            } catch (Throwable $e) {
-                $this->reject($e);
-            }
-        }
-        if ($this->state === self::PENDING) {
-            $this->reject(new cancellationExceptionA('Promise has been cancelled'));
         }
     }
 }

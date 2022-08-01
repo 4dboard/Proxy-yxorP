@@ -53,6 +53,11 @@ class aRequestExceptionAa extends aaTransferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return get_message_body_summary($response);
+    }
+
     private static function obfuscateUri(UriInterface $uri)
     {
         $userInfo = $uri->getUserInfo();
@@ -60,11 +65,6 @@ class aRequestExceptionAa extends aaTransferException
             return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
         }
         return $uri;
-    }
-
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return get_message_body_summary($response);
     }
 
     public function getRequest()
