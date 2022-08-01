@@ -105,7 +105,7 @@ class yP
      * @param string $root
      * @return void
      */
-     public static function autoLoader(string $root): void
+    public static function autoLoader(string $root): void
     {
         /**
          * Creating an empty array.
