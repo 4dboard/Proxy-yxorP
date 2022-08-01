@@ -89,6 +89,15 @@ class mockHandler implements Countable
         });
     }
 
+    private function invokeStats(requestInterface $request, array $options, responseInterface $response = null, $reason = null)
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new transferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
+    }
+
     public function append()
     {
         foreach (func_get_args() as $value) {
@@ -118,14 +127,5 @@ class mockHandler implements Countable
     public function reset()
     {
         $this->queue = [];
-    }
-
-    private function invokeStats(requestInterface $request, array $options, responseInterface $response = null, $reason = null)
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new transferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
     }
 }
