@@ -197,6 +197,7 @@ class sessionCookieJar
 
     public function getName()
     {
+        exit('2');
         return $this->data['Name'];
     }
 
