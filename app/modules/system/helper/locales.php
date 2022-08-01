@@ -6,26 +6,6 @@ class locales extends \Lime\Helper
 
     protected array $locales = [];
 
-    public function locales(bool $assoc = false): array
-    {
-
-        if ($assoc) {
-            return $this->locales;
-        }
-
-        $locales = [];
-
-        foreach ($this->locales as $locale) {
-
-            $locales[] = [
-                'i18n' => $locale['i18n'],
-                'name' => $locale['name'],
-            ];
-        }
-
-        return $locales;
-    }
-
     public function applyLocales($obj, $locale = 'default')
     {
 
@@ -89,6 +69,34 @@ class locales extends \Lime\Helper
         return $obj;
     }
 
+    public function locales(bool $assoc = false): array
+    {
+
+        if ($assoc) {
+            return $this->locales;
+        }
+
+        $locales = [];
+
+        foreach ($this->locales as $locale) {
+
+            $locales[] = [
+                'i18n' => $locale['i18n'],
+                'name' => $locale['name'],
+            ];
+        }
+
+        return $locales;
+    }
+
+    protected function initialize()
+    {
+
+        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
+            return $this->cache();
+        });
+    }
+
     public function cache(bool $persistent = true): array
     {
 
@@ -123,13 +131,5 @@ class locales extends \Lime\Helper
         }
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
-            return $this->cache();
-        });
     }
 }

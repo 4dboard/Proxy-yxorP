@@ -69,6 +69,11 @@ class locales extends app
         return ['success' => true];
     }
 
+    protected function cache()
+    {
+        $this->helper('locales')->cache();
+    }
+
     public function save()
     {
 
@@ -135,10 +140,5 @@ class locales extends app
         if (!$this->isAllowed('app/locales/manage')) {
             return $this->stop(401);
         }
-    }
-
-    protected function cache()
-    {
-        $this->helper('locales')->cache();
     }
 }

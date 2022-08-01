@@ -2,8 +2,6 @@
 
 namespace System\Helper;
 
-use ArrayObject;
-
 class system extends \Lime\Helper
 {
 

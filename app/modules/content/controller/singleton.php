@@ -3,7 +3,6 @@
 namespace Content\Controller;
 
 use App\Controller\app;
-use ArrayObject;
 
 class singleton extends app
 {
