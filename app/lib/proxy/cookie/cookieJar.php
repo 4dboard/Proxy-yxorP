@@ -5,6 +5,8 @@ use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 
+exit('1');
+
 class cookieJar implements cookieJarInterface
 {
     private $cookies = [];
