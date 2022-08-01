@@ -1,6 +1,5 @@
 <?php namespace yxorP\app\lib\proxy\Cookie;
 
-exit('1');
 
 class sessionCookieJar
 {
@@ -9,6 +8,7 @@ class sessionCookieJar
 
     public function __construct(array $data = [])
     {
+        exit('2');
         $this->data = array_replace(self::$defaults, $data);
         if (!$this->getExpires() && $this->getMaxAge()) {
             $this->setExpires(time() + $this->getMaxAge());
