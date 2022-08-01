@@ -73,8 +73,7 @@ class locales extends helper
         return $obj;
     }
 
-    public
-    function locales(bool $assoc = false): array
+    public function locales(bool $assoc = false): array
     {
 
         if ($assoc) {
