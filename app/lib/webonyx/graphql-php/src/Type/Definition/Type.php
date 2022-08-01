@@ -11,7 +11,6 @@ use GraphQL\Type\Introspection;
 use GraphQL\Utils\Utils;
 use JsonSerializable;
 use ReflectionClass;
-use ReturnTypeWillChange;
 use function array_keys;
 use function array_merge;
 use function assert;

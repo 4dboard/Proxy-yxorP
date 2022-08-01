@@ -9,7 +9,6 @@ use Countable;
 use GraphQL\Utils\AST;
 use InvalidArgumentException;
 use IteratorAggregate;
-use ReturnTypeWillChange;
 use Traversable;
 use function array_merge;
 use function array_splice;

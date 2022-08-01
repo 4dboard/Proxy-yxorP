@@ -7,7 +7,6 @@ namespace GraphQL\Utils;
 use ArrayAccess;
 use GraphQL\Type\Definition\EnumValueDefinition;
 use InvalidArgumentException;
-use ReturnTypeWillChange;
 use SplObjectStorage;
 use function array_key_exists;
 use function array_search;
