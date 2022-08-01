@@ -1,7 +1,4 @@
-
 <IfModule mod_rewrite.c>
-    AddHandler application/x-httpd-ea-php81 .php
-    AddHandler application/x-httpd-php81 .php
     RewriteEngine On
     RewriteBase /
     RewriteRule ^index\.php$ - [L]
