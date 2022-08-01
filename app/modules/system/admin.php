@@ -20,13 +20,9 @@ $this->on('app.permissions.collect', function (ArrayObject $permissions) {
 
     $permissions['Locales'] = ['app/locales/manage' => 'Manage locales'];
 
-    $permissions['Api & Security'] = [
-        'app/api/manage' => 'Manage Api access',
-    ];
+    $permissions['Api & Security'] = ['app/api/manage' => 'Manage Api access'];
 
-    $permissions['Logs'] = [
-        'app/logs' => 'View app logs',
-    ];
+    $permissions['Logs'] = ['app/logs' => 'View app logs'];
 
 });
 
