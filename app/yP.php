@@ -1,6 +1,5 @@
 <?php
 
-exit('1');
 
 namespace yxorP\app\lib;
 /**
@@ -23,6 +22,7 @@ include 'constants.php';
 use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\http\store;
 use yxorP\app\lib\proxy\FileCookieJar;
+
 
 /**
  * It's a class that's used to dispatch events.
