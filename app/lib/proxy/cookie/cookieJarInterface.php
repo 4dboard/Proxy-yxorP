@@ -5,8 +5,6 @@ use IteratorAggregate;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 
-echo 1;
-
 interface cookieJarInterface extends Countable, IteratorAggregate
 {
     public function withCookieHeader(requestInterface $request);
