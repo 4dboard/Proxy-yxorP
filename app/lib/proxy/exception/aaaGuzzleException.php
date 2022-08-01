@@ -2,6 +2,8 @@
 
 use Throwable;
 
+
+echo 2;
 if (interface_exists(Throwable::class)) {
     interface proxyException extends Throwable
     {
@@ -11,3 +13,6 @@ if (interface_exists(Throwable::class)) {
     {
     }
 }
+
+
+echo 3;
