@@ -3,9 +3,9 @@
 namespace MongoHybrid;
 
 use MongoDB\BSON\ObjectID;
-use MongoDB\Client as MongoDBClient;
-use MongoDB\Collection;
-use MongoDB\Database;
+use MongoDB\client as MongoDBClient;
+use MongoDB\collection;
+use MongoDB\database;
 use MongoLite\Database;
 use Throwable;
 use function is_iterable;
@@ -99,7 +99,7 @@ class mongo
         return $doc;
     }
 
-    public function getCollection(string $name, ?string $db = null): Collection
+    public function getCollection(string $name, ?string $db = null): collection
     {
 
         if ($db) {
