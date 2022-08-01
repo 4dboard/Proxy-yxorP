@@ -1,12 +1,12 @@
 ***
 
-# FileStorage
+# fileStorage
 
 
 
 
 
-* Full name: `\FileStorage`
+* Full name: `\fileStorage`
 
 
 

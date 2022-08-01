@@ -19,24 +19,22 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`App`](./classes/App.md) | |
 | [`Attribute`](./classes/Attribute.md) | |
-| [`CLI`](./classes/CLI.md) | |
 | [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](./classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
 | [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](./classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
-| [`DotEnv`](./classes/DotEnv.md) | |
-| [`FileStorage`](./classes/FileStorage.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
 | [`Mailer`](./classes/Mailer.md) | |
 | [`Mailer_Message`](./classes/Mailer_Message.md) | |
 | [`Normalizer`](./classes/Normalizer.md) | |
 | [`PhpToken`](./classes/PhpToken.md) | |
-| [`RedisLite`](./classes/RedisLite.md) | |
 | [`ReturnTypeWillChange`](./classes/ReturnTypeWillChange.md) | |
 | [`SVGSanitizer`](./classes/SVGSanitizer.md) | Class SVGSanitizer|
-| [`SimpleImageLib`](./classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
+| [`cli`](./classes/cli.md) | |
+| [`dotEnv`](./classes/dotEnv.md) | |
+| [`fileStorage`](./classes/fileStorage.md) | |
 | [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
 | [`onCompleteAction`](./classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
 | [`onContextAction`](./classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
@@ -48,6 +46,8 @@ This is an automatically generated documentation for **Documentation**.
 | [`onSendAction`](./classes/onSendAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onSentAction`](./classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onWriteAction`](./classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
+| [`redisLite`](./classes/redisLite.md) | |
+| [`simpleImageLib`](./classes/simpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 
 
 
@@ -1232,8 +1232,8 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Index`](./classes/IndexLite/Index.md) | |
-| [`Manager`](./classes/IndexLite/Manager.md) | |
+| [`index`](./classes/IndexLite/index.md) | |
+| [`manager`](./classes/IndexLite/manager.md) | |
 
 
 
@@ -1244,8 +1244,8 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`CollectionReader`](./classes/JSONStream/CollectionReader.md) | |
-| [`CollectionWriter`](./classes/JSONStream/CollectionWriter.md) | |
+| [`collectionReader`](./classes/JSONStream/collectionReader.md) | |
+| [`collectionWriter`](./classes/JSONStream/collectionWriter.md) | |
 
 
 
@@ -1411,8 +1411,8 @@ This is an automatically generated documentation for **Documentation**.
 | [`AppAware`](./classes/Lime/AppAware.md) | |
 | [`Helper`](./classes/Lime/Helper.md) | |
 | [`Module`](./classes/Lime/Module.md) | |
-| [`Request`](./classes/Lime/Request.md) | |
-| [`Response`](./classes/Lime/Response.md) | |
+| [`request`](./classes/Lime/request.md) | |
+| [`response`](./classes/Lime/response.md) | |
 
 
 
@@ -1423,11 +1423,11 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Cache`](./classes/Lime/Helper/Cache.md) | |
 | [`FileObject`](./classes/Lime/Helper/FileObject.md) | Use custom FileObject to prevent &quot;too many files open&quot; error|
 | [`Filesystem`](./classes/Lime/Helper/Filesystem.md) | |
-| [`Session`](./classes/Lime/Helper/Session.md) | |
-| [`Utils`](./classes/Lime/Helper/Utils.md) | Class Utils|
+| [`cache`](./classes/Lime/Helper/cache.md) | |
+| [`session`](./classes/Lime/Helper/session.md) | |
+| [`utils`](./classes/Lime/Helper/utils.md) | Class Utils|
 
 
 
@@ -1438,7 +1438,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/MemoryStorage/Client.md) | |
+| [`client`](./classes/MemoryStorage/client.md) | |
 
 
 
@@ -1585,10 +1585,10 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/MongoHybrid/Client.md) | |
-| [`Mongo`](./classes/MongoHybrid/Mongo.md) | |
-| [`MongoLite`](./classes/MongoHybrid/MongoLite.md) | |
-| [`ResultSet`](./classes/MongoHybrid/ResultSet.md) | |
+| [`client`](./classes/MongoHybrid/client.md) | |
+| [`mongo`](./classes/MongoHybrid/mongo.md) | |
+| [`mongoLite`](./classes/MongoHybrid/mongoLite.md) | |
+| [`resultSet`](./classes/MongoHybrid/resultSet.md) | |
 
 
 
@@ -1599,11 +1599,11 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/MongoLite/Client.md) | Client object.|
-| [`Collection`](./classes/MongoLite/Collection.md) | Collection object.|
-| [`Cursor`](./classes/MongoLite/Cursor.md) | Cursor object.|
 | [`Database`](./classes/MongoLite/Database.md) | Database object.|
 | [`UtilArrayQuery`](./classes/MongoLite/UtilArrayQuery.md) | |
+| [`client`](./classes/MongoLite/client.md) | Client object.|
+| [`collection`](./classes/MongoLite/collection.md) | Collection object.|
+| [`cursor`](./classes/MongoLite/cursor.md) | Cursor object.|
 
 
 
@@ -2810,10 +2810,10 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`CookieJar`](./classes/yxorP/app/lib/proxy/Cookie/CookieJar.md) | |
-| [`FileCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/FileCookieJar.md) | |
-| [`SessionCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/SessionCookieJar.md) | |
-| [`SetCookie`](./classes/yxorP/app/lib/proxy/Cookie/SetCookie.md) | |
+| [`cookieJar`](./classes/yxorP/app/lib/proxy/Cookie/cookieJar.md) | |
+| [`fileCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/fileCookieJar.md) | |
+| [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/sessionCookieJar.md) | |
+| [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/sessionCookieJar.md) | |
 
 
 
@@ -2821,7 +2821,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`CookieJarInterface`](./classes/yxorP/app/lib/proxy/Cookie/CookieJarInterface.md) | |
+| [`cookieJarInterface`](./classes/yxorP/app/lib/proxy/Cookie/cookieJarInterface.md) | |
 
 
 

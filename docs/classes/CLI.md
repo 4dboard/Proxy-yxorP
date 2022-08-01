@@ -1,12 +1,12 @@
 ***
 
-# CLI
+# cli
 
 
 
 
 
-* Full name: `\CLI`
+* Full name: `\cli`
 
 
 

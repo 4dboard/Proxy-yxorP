@@ -1,12 +1,12 @@
 ***
 
-# Index
+# index
 
 
 
 
 
-* Full name: `\IndexLite\Index`
+* Full name: `\IndexLite\index`
 
 
 
@@ -127,32 +127,6 @@ public remove(mixed $id): mixed
 
 ***
 
-### stringify
-
-
-
-```php
-protected stringify(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
 ### search
 
 
@@ -174,6 +148,32 @@ public search(string $query, ?array $fields = null): array
 |-----------|------|-------------|
 | `$query` | **string** |  |
 | `$fields` | **?array** |  |
+
+
+
+
+***
+
+### stringify
+
+
+
+```php
+protected stringify(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
 
 
 

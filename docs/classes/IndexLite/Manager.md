@@ -1,12 +1,12 @@
 ***
 
-# Manager
+# manager
 
 
 
 
 
-* Full name: `\IndexLite\Manager`
+* Full name: `\IndexLite\manager`
 
 
 
@@ -116,7 +116,7 @@ public exists(string $name): bool
 
 
 ```php
-public index(string $name): \IndexLite\Index
+public index(string $name): \IndexLite\index
 ```
 
 

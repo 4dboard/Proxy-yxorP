@@ -1,12 +1,12 @@
 ***
 
-# Client
+# client
 
 
 
 
 
-* Full name: `\MemoryStorage\Client`
+* Full name: `\MemoryStorage\client`
 
 
 

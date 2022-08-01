@@ -1,12 +1,12 @@
 ***
 
-# Client
+# client
 
 
 
 
 
-* Full name: `\MongoHybrid\Client`
+* Full name: `\MongoHybrid\client`
 
 
 
@@ -33,7 +33,7 @@ public ?string $type
 
 
 ```php
-protected \MongoHybrid\Mongo|\MongoHybrid\MongoLite $driver
+protected \MongoHybrid\mongo|\MongoHybrid\mongoLite $driver
 ```
 
 

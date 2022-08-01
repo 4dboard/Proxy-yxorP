@@ -1,12 +1,12 @@
 ***
 
-# CollectionWriter
+# collectionWriter
 
 
 
 
 
-* Full name: `\JSONStream\CollectionWriter`
+* Full name: `\JSONStream\collectionWriter`
 
 
 

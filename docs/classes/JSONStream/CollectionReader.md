@@ -1,12 +1,12 @@
 ***
 
-# CollectionReader
+# collectionReader
 
 
 
 
 
-* Full name: `\JSONStream\CollectionReader`
+* Full name: `\JSONStream\collectionReader`
 
 
 ## Constants

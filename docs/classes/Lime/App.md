@@ -35,7 +35,7 @@ protected static $apps
 
 
 ```php
-public ?\Lime\Response $response
+public ?\Lime\response $response
 ```
 
 
@@ -50,7 +50,7 @@ public ?\Lime\Response $response
 
 
 ```php
-public ?\Lime\Request $request
+public ?\Lime\request $request
 ```
 
 
@@ -1074,7 +1074,7 @@ public bindNamespace(string $namespace, ?string $alias = null): void
 Run Application request
 
 ```php
-public run(string $route = null, ?\Lime\Request $request = null, bool $flush = true): void
+public run(string $route = null, ?\Lime\request $request = null, bool $flush = true): void
 ```
 
 
@@ -1089,7 +1089,7 @@ public run(string $route = null, ?\Lime\Request $request = null, bool $flush = t
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$route` | **string** | Route to parse |
-| `$request` | **?\Lime\Request** |  |
+| `$request` | **?\Lime\request** |  |
 | `$flush` | **bool** |  |
 
 
@@ -1102,7 +1102,7 @@ public run(string $route = null, ?\Lime\Request $request = null, bool $flush = t
 
 
 ```php
-protected getRequestfromGlobals(): \Lime\Request
+protected getRequestfromGlobals(): \Lime\request
 ```
 
 

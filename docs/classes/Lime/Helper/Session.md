@@ -1,12 +1,12 @@
 ***
 
-# Session
+# session
 
 
 
 
 
-* Full name: `\Lime\Helper\Session`
+* Full name: `\Lime\Helper\session`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
 

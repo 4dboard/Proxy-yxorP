@@ -1,12 +1,12 @@
 ***
 
-# Cache
+# cache
 
 
 
 
 
-* Full name: `\Lime\Helper\Cache`
+* Full name: `\Lime\Helper\cache`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
 
