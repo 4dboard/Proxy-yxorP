@@ -16,12 +16,8 @@ class App
 
     public static function instance(?string $envDir = null, array $config = []): Lime\App
     {
-        if (!$envDir) {
-            $envDir = SITE_DIR;
-        }
-        if (!isset(static::$instance[$envDir])) {
-            static::$instance[$envDir] = static::init($envDir, $config);
-        }
+        if (!$envDir) $envDir = SITE_DIR;
+        if (!isset(static::$instance[$envDir])) static::$instance[$envDir] = static::init($envDir, $config);
         return static::$instance[$envDir];
     }
 
