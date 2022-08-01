@@ -280,7 +280,6 @@ const RUNTIME_EXCEPTION = 'Directory "%s" was not created';
 const ACCESS_DENIED_EXCEPTION = 'Error: Access denied!';
 const ACCESS_ALREADY_DEFINED = 'Argument already exists and cannot be redefined!';
 const PATH_SITE_BOOTSTRAP = DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP;
-X
 const PATH_COOKIE_JAR = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR;
 const PATH_DIR_APP = DIR_ROOT . DIR_APP;
 const PATH_SITE_LOCAL = DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP;
