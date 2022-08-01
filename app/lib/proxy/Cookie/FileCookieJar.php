@@ -12,9 +12,7 @@ class FileCookieJar extends CookieJar
         parent::__construct();
         $this->filename = $cookieFile;
         $this->storeSessionCookies = $storeSessionCookies;
-        if (file_exists($cookieFile)) {
-            $this->load($cookieFile);
-        }
+        if (file_exists($cookieFile)) $this->load($cookieFile);
     }
 
     public function load($filename)
