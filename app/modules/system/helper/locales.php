@@ -6,9 +6,7 @@ use helper;
 use Throwable;
 use const yxorP\app\lib\lime\helper;
 
-class locales extends
-
-    helper
+class locales extends helper
 {
 
     protected

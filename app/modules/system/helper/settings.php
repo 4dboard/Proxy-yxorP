@@ -7,9 +7,7 @@ use helper;
 use function array_filter;
 use const yxorP\app\lib\lime\helper;
 
-class settings extends
-
-    helper
+class settings extends helper
 {
 
     public

@@ -5,9 +5,7 @@ namespace yxorP\app\modules\system\helper;
 use helper;
 use const yxorP\app\lib\lime\helper;
 
-class revisions extends
-
-    helper
+class revisions extends helper
 {
 
     protected
