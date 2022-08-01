@@ -66,9 +66,7 @@ class App
                 $app->trigger('error', [$error, $exception]);
             });
         }
-        if ($custombootfile = $app->path('#config:bootstrap.php')) {
-            include($custombootfile);
-        }
+        if ($custombootfile = $app->path('#config:bootstrap.php')) include($custombootfile);
         $app->trigger('bootstrap');
         return $app;
     }
