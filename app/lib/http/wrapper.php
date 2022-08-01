@@ -53,53 +53,53 @@ abstract class wrapper
         /**
          * Used to catch exceptions.
          */
-        //try {
+        try {
 
-        /* Used to filter the events. */
-        if ($this->url_pattern && helpers::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, YXORP_REQUEST_URI_FULL) !== 1 && stripos(YXORP_REQUEST_URI_FULL, $this->url_pattern) === 0) return;
+            /* Used to filter the events. */
+            if ($this->url_pattern && helpers::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, YXORP_REQUEST_URI_FULL) !== 1 && stripos(YXORP_REQUEST_URI_FULL, $this->url_pattern) === 0) return;
 
-        /**
-         * Used to route the events to the appropriate methods.
-         */
+            /**
+             * Used to route the events to the appropriate methods.
+             */
 
-        switch ($event_name) {
-            case EVENT_BUILD_CACHE: /* Calling the `onCheck` method and then the `onCache` method. */
-                $this->onCheck()->onCache();
-                break;
-            case EVENT_BUILD_CONTEXT: /* Calling the `onCheck` method and then the `onContext` method. */
-                $this->onCheck()->onContext();
-                break;
-            case EVENT_BUILD_INCLUDES: /* Calling the `onCheck` method and then the `onIncludes` method. */
-                $this->onCheck()->onIncludes();
-                break;
-            case EVENT_BUILD_HEADERS: /* Calling the `onCheck` method and then the `onHeaders` method. */
-                $this->onCheck()->onHeaders();
-                break;
-            case EVENT_BUILD_REQUEST: /* Calling the `onCheck` method and then the `onRequest` method. */
-                $this->onCheck()->onRequest();
-                break;
-            case EVENT_BEFORE_SEND: /* Calling the `onCheck` method and then the `onBeforeSend` method. */
-                $this->onCheck()->onBeforeSend();
-                break;
-            case EVENT_SEND: /* Calling the `onCheck` method and then the `onSend` method. */
-                $this->onCheck()->onSend();
-                break;
-            case EVENT_SENT: /* Calling the `onCheck` method and then the `onSent` method. */
-                $this->onCheck()->onSent();
-                break;
-            case EVENT_WRITE: /* Calling the `onCheck` method and then the `onWrite` method. */
-                $this->onCheck()->onWrite();
-                break;
-            case EVENT_COMPLETE: /* Calling the `onComplete` method. */
-                $this->onComplete();
-                break;
-            case EVENT_FINAL: /* Calling the `onFinal` method. */
-                $this->onFinal();
-                break;
+            switch ($event_name) {
+                case EVENT_BUILD_CACHE: /* Calling the `onCheck` method and then the `onCache` method. */
+                    $this->onCheck()->onCache();
+                    break;
+                case EVENT_BUILD_CONTEXT: /* Calling the `onCheck` method and then the `onContext` method. */
+                    $this->onCheck()->onContext();
+                    break;
+                case EVENT_BUILD_INCLUDES: /* Calling the `onCheck` method and then the `onIncludes` method. */
+                    $this->onCheck()->onIncludes();
+                    break;
+                case EVENT_BUILD_HEADERS: /* Calling the `onCheck` method and then the `onHeaders` method. */
+                    $this->onCheck()->onHeaders();
+                    break;
+                case EVENT_BUILD_REQUEST: /* Calling the `onCheck` method and then the `onRequest` method. */
+                    $this->onCheck()->onRequest();
+                    break;
+                case EVENT_BEFORE_SEND: /* Calling the `onCheck` method and then the `onBeforeSend` method. */
+                    $this->onCheck()->onBeforeSend();
+                    break;
+                case EVENT_SEND: /* Calling the `onCheck` method and then the `onSend` method. */
+                    $this->onCheck()->onSend();
+                    break;
+                case EVENT_SENT: /* Calling the `onCheck` method and then the `onSent` method. */
+                    $this->onCheck()->onSent();
+                    break;
+                case EVENT_WRITE: /* Calling the `onCheck` method and then the `onWrite` method. */
+                    $this->onCheck()->onWrite();
+                    break;
+                case EVENT_COMPLETE: /* Calling the `onComplete` method. */
+                    $this->onComplete();
+                    break;
+                case EVENT_FINAL: /* Calling the `onFinal` method. */
+                    $this->onFinal();
+                    break;
+            }
+        } catch (Exception $e) {
+            $this->onException($e);
         }
-        /* } catch (Exception $e) {
-        $this->onException($e);
-    }*/
     }
 
     /**
