@@ -19,7 +19,6 @@ class query extends appAware
 
     public function process($query = '{}', $variables = null)
     {
-
         if (!$this->initialized) $this->init();
 
         $result = GraphQL::executeQuery(new Schema([
