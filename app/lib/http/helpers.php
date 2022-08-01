@@ -464,7 +464,7 @@ class helpers
         /**
          * Loading the Proxy Snag class.
          */
-        helpers::loadProxySnag();
+        store::handler(VAR_PROXY, new Client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
 
     }
@@ -558,19 +558,6 @@ class helpers
         closedir($root);
     }
 
-    /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     *
-     */
-    public static function loadProxySnag(): void
-    {
-        /**
-         * Setting the token PROXY to a new instance of the \yxorP\app\lib\proxy\Client class.
-         */
-        store::handler(VAR_PROXY, new Client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
-
-    }
 
     public static function contains($str, array $arr): bool
     {
