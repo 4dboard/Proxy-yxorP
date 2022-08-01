@@ -76,6 +76,7 @@ class createTranslation extends Command
             }
 
             if (count($strings)) {
+
                 if ($translator) {
 
                     $keys = array_keys($strings);
@@ -95,9 +96,7 @@ class createTranslation extends Command
                     }
                 }
 
-                if ($name === 'System') {
-                    $name = 'App';
-                }
+                if ($name === 'System') $name = 'App';
 
                 $strings = array_merge([
                     '@meta' => ['language' => i18n::$locales[$locale] ?? strtoupper($locale)]
