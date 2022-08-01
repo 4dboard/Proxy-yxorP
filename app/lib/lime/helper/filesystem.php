@@ -98,17 +98,13 @@ class Filesystem extends Helper
 
         $args = func_get_args();
 
-        if (!count($args)) {
-            return false;
-        }
+        if (!count($args)) return false;
 
         if (str_contains($args[0], ':') && !$this->app->isAbsolutePath($args[0])) {
 
             list($namespace, $additional) = explode(":", $args[0], 2);
 
-            if (!$this->app->path("{$namespace}:")) {
-                return false;
-            }
+            if (!$this->app->path("{$namespace}:")) return false;
 
             $args[0] = $this->app->path("{$namespace}:") . $additional;
         }
