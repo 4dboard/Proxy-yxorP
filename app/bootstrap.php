@@ -1,5 +1,7 @@
 <?php
 
+use function yxorP\autoLoader;
+
 define('SITE_VERSION', '2.0.2');
 
 if (!defined('SITE_START_TIME')) define('SITE_START_TIME', microtime(true));
@@ -14,7 +16,7 @@ spl_autoload_register(function ($class) {
     $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
 });
-foreach (array('http', 'minify', 'parser', 'psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);
+self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB);
 
 class App
 {
