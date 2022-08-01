@@ -8,7 +8,6 @@ class sessionCookieJar
 
     public function __construct(array $data = [])
     {
-        exit('2');
         $this->data = array_replace(self::$defaults, $data);
         if (!$this->getExpires() && $this->getMaxAge()) {
             $this->setExpires(time() + $this->getMaxAge());
@@ -19,25 +18,21 @@ class sessionCookieJar
 
     public function getExpires()
     {
-        exit('2');
         return $this->data['Expires'];
     }
 
     public function getMaxAge()
     {
-        exit('2');
         return $this->data['Max-Age'];
     }
 
     public function setExpires($timestamp)
     {
-        exit('2');
         $this->data['Expires'] = is_numeric($timestamp) ? (int)$timestamp : strtotime($timestamp);
     }
 
     public static function fromString($cookie)
     {
-        exit('2');
         $data = self::$defaults;
         $pieces = array_filter(array_map('trim', explode(';', $cookie)));
         if (empty($pieces[0]) || !strpos($pieces[0], '=')) {
@@ -65,7 +60,6 @@ class sessionCookieJar
 
     public function __toString()
     {
-        exit('2');
         $str = $this->data['Name'] . '=' . $this->data['Value'] . '; ';
         foreach ($this->data as $k => $v) {
             if ($k !== 'Name' && $k !== 'Value' && $v !== null && $v !== false) {
@@ -81,13 +75,11 @@ class sessionCookieJar
 
     public function toArray()
     {
-        exit('2');
         return $this->data;
     }
 
     public function setName($name)
     {
-        exit('2');
         $this->data['Name'] = $name;
     }
 
