@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ../
+cd '../'
 
 f1() {
     for file in `ls ${1}*.php 2>/dev/null`
