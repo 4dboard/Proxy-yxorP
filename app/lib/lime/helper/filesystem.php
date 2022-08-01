@@ -167,9 +167,7 @@ class Filesystem extends Helper
 
         if (is_file($path) || is_link($path)) {
             $func = DIRECTORY_SEPARATOR === '\\' && is_dir($path) ? 'rmdir' : 'unlink';
-            if (!@$func($path)) {
-                throw new Exception("Unable to delete: {$path}.");
-            }
+            if (!@$func($path)) throw new Exception("Unable to delete: {$path}.");
         } elseif (is_dir($path)) {
             foreach (new FilesystemIterator($path) as $item) {
                 $this->delete($item->getRealPath());
