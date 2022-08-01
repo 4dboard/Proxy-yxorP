@@ -98,128 +98,125 @@ abstract class wrapper
                 break;
         }
         /* } catch (Exception $e) {
-             /**
-              * Calling the `onException` method.
-              */
         $this->onException($e);
     }*/
-}
+    }
 
-/**
- * A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
- *
- */
-public
-function onCache(): void
-{
-}
+    /**
+     * A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
+     *
+     */
+    public
+    function onCache(): void
+    {
+    }
 
-/**
- * Used to check if the event should be executed.
- *
- */
-public
-function onCheck(): self
-{
-    return $this;
-}
+    /**
+     * Used to check if the event should be executed.
+     *
+     */
+    public
+    function onCheck(): self
+    {
+        return $this;
+    }
 
-/**
- * A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
- *
- */
-public
-function onContext(): void
-{
-}
+    /**
+     * A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered.
+     *
+     */
+    public
+    function onContext(): void
+    {
+    }
 
-/**
- * A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
- *
- */
-public
-function onIncludes(): void
-{
-}
+    /**
+     * A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered.
+     *
+     */
+    public
+    function onIncludes(): void
+    {
+    }
 
-/**
- * A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
- *
- */
-public
-function onHeaders(): void
-{
-}
+    /**
+     * A method that is called when the event `EVENT_BUILD_HEADERS` is triggered.
+     *
+     */
+    public
+    function onHeaders(): void
+    {
+    }
 
-/**
- * A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
- *
- */
-public
-function onRequest(): void
-{
-}
+    /**
+     * A method that is called when the event `EVENT_BUILD_REQUEST` is triggered.
+     *
+     */
+    public
+    function onRequest(): void
+    {
+    }
 
-/**
- * Used to build the result.
- *
- */
-public
-function onBeforeSend(): void
-{
-}
+    /**
+     * Used to build the result.
+     *
+     */
+    public
+    function onBeforeSend(): void
+    {
+    }
 
-/**
- * Used to execute code when the request is sent.
- *
- */
-public
-function onSend(): void
-{
-}
+    /**
+     * Used to execute code when the request is sent.
+     *
+     */
+    public
+    function onSend(): void
+    {
+    }
 
-/**
- * Used to execute code before the request is sent.
- *
- */
-public
-function onSent(): void
-{
-}
+    /**
+     * Used to execute code before the request is sent.
+     *
+     */
+    public
+    function onSent(): void
+    {
+    }
 
-/**
- * Used to execute code when the headers are received.
- *
- */
-public
-function onWrite(): void
-{
-}
+    /**
+     * Used to execute code when the headers are received.
+     *
+     */
+    public
+    function onWrite(): void
+    {
+    }
 
-/**
- * Used to execute code when the headers are received.
- *
- */
-public
-function onComplete(): void
-{
-}
+    /**
+     * Used to execute code when the headers are received.
+     *
+     */
+    public
+    function onComplete(): void
+    {
+    }
 
-/**
- * Used to execute code when the request is completed.
- *
- */
-public
-function onFinal(): void
-{
-}
+    /**
+     * Used to execute code when the request is completed.
+     *
+     */
+    public
+    function onFinal(): void
+    {
+    }
 
-/**
- * Used to execute code when an exception is thrown.
- *
- */
-public
-function onException(Exception $e): void
-{
-}
+    /**
+     * Used to execute code when an exception is thrown.
+     *
+     */
+    public
+    function onException(Exception $e): void
+    {
+    }
 }
