@@ -3,7 +3,7 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\promise\fulfilledPromise;
 use yxorP\app\lib\proxy\psr7;
@@ -43,7 +43,7 @@ class streamHandler
             if (strpos($message, 'getaddrinfo') || strpos($message, 'Connection refused') || strpos($message, "couldn't connect to host") || strpos($message, "connection attempt failed")) {
                 $e = new connectException($e->getMessage(), $request, $e);
             }
-            $e = aRequestExceptionAa::wrapException($request, $e);
+            $e = aRequestException::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
             return rejection_for($e);
         }
@@ -70,7 +70,7 @@ class streamHandler
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new aRequestExceptionAa($msg, $request, $response, $e);
+                $ex = new aRequestException($msg, $request, $response, $e);
                 return rejection_for($ex);
             }
         }

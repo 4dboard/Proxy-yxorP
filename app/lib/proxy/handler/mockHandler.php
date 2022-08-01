@@ -4,7 +4,7 @@ use Countable;
 use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\handlerStack;
 use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\proxy\transferStats;
@@ -56,7 +56,7 @@ class mockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new aRequestExceptionAa($msg, $request, $response, $e);
+                $response = new aRequestException($msg, $request, $response, $e);
             }
         }
         if (is_callable($response)) {

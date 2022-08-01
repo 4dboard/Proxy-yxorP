@@ -3,7 +3,7 @@
 use ArrayAccess;
 use InvalidArgumentException;
 use yxorP\app\lib\proxy\cookie\cookieJarInterface;
-use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\psr\http\message\responseInterface;
 use function yxorP\app\lib\proxy\promise\rejection_for;
 
@@ -40,7 +40,7 @@ final class middleware
                     if ($code < 400) {
                         return $response;
                     }
-                    throw aRequestExceptionAa::create($request, $response);
+                    throw aRequestException::create($request, $response);
                 });
             };
         };

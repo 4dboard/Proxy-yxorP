@@ -3,7 +3,7 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\promise\fulfilledPromise;
 use yxorP\app\lib\proxy\psr7\lazyOpenStream;
@@ -103,14 +103,14 @@ class curlFactory implements curlFactoryInterface
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
-            return rejection_for(new aRequestExceptionAa('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
+            return rejection_for(new aRequestException('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
         }
         if (version_compare($ctx[self::CURL_VERSION_STR], self::LOW_CURL_VERSION_NUMBER)) {
             $message = sprintf('cURL error %s: %s (%s)', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html');
         } else {
             $message = sprintf('cURL error %s: %s (%s) for %s', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html', $easy->request->getUri());
         }
-        $error = isset($connectionErrors[$easy->errno]) ? new connectException($message, $easy->request, null, $ctx) : new aRequestExceptionAa($message, $easy->request, $easy->response, null, $ctx);
+        $error = isset($connectionErrors[$easy->errno]) ? new connectException($message, $easy->request, null, $ctx) : new aRequestException($message, $easy->request, $easy->response, null, $ctx);
         return rejection_for($error);
     }
 

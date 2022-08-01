@@ -7,7 +7,7 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
-class aRequestExceptionAa extends aaTransferException
+class aRequestException extends aaTransferException
 {
     private $request;
     private $response;
@@ -24,7 +24,7 @@ class aRequestExceptionAa extends aaTransferException
 
     public static function wrapException(requestInterface $request, Exception $e)
     {
-        return $e instanceof aRequestExceptionAa ? $e : new aRequestExceptionAa($e->getMessage(), $request, null, $e);
+        return $e instanceof aRequestException ? $e : new aRequestException($e->getMessage(), $request, null, $e);
     }
 
     public static function create(requestInterface $request, responseInterface $response = null, Exception $previous = null, array $ctx = [])

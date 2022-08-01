@@ -4,7 +4,7 @@ use Exception;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 
-class badResponseException extends aRequestExceptionAa
+class badResponseException extends aRequestException
 {
     public function __construct($message, requestInterface $request, responseInterface $response = null, Exception $previous = null, array $handlerContext = [])
     {
