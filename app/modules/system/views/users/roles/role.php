@@ -1,10 +1,8 @@
 <?php
 
-$permissions = new ArrayObject(['Users' => ['app/users/manage' => 'Manage users', 'app/roles/manage' => 'Manage roles']]);
-
 $components = [];
 
-$this->trigger('app.permissions.collect', [$permissions]);
+$this->trigger('app.permissions.collect', [$permissions = new ArrayObject(['Users' => ['app/users/manage' => 'Manage users', 'app/roles/manage' => 'Manage roles']])]);
 
 foreach ($permissions as $key => $meta) if (isset($meta['component'])) $components[$meta['component']] = $meta['src'];
 
