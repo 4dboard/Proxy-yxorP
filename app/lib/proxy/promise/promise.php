@@ -4,7 +4,7 @@ use Exception;
 use LogicException;
 use Throwable;
 
-class Promise implements PromiseInterface
+class promise implements promiseInterface
 {
     private $state = self::PENDING;
     private $result;
@@ -56,7 +56,7 @@ class Promise implements PromiseInterface
     public function then(callable $onFulfilled = null, callable $onRejected = null)
     {
         if ($this->state === self::PENDING) {
-            $p = new Promise(null, [$this, 'cancel']);
+            $p = new promise(null, [$this, 'cancel']);
             $this->handlers[] = [$p, $onFulfilled, $onRejected];
             $p->waitList = $this->waitList;
             $p->waitList[] = $this;
@@ -72,9 +72,9 @@ class Promise implements PromiseInterface
     public function wait($unwrap = true)
     {
         $this->waitIfPending();
-        $inner = $this->result instanceof PromiseInterface ? $this->result->wait($unwrap) : $this->result;
+        $inner = $this->result instanceof promiseInterface ? $this->result->wait($unwrap) : $this->result;
         if ($unwrap) {
-            if ($this->result instanceof PromiseInterface || $this->state === self::FULFILLED) {
+            if ($this->result instanceof promiseInterface || $this->state === self::FULFILLED) {
                 return $inner;
             } else {
                 throw exception_for($inner);
@@ -103,7 +103,7 @@ class Promise implements PromiseInterface
             }
         }
         if ($this->state === self::PENDING) {
-            $this->reject(new CancellationExceptionA('Promise has been cancelled'));
+            $this->reject(new cancellationExceptionA('Promise has been cancelled'));
         }
     }
 
@@ -134,7 +134,7 @@ class Promise implements PromiseInterface
                     self::callHandler($id, $value, $handler);
                 }
             });
-        } elseif ($value instanceof Promise && $value->getState() === self::PENDING) {
+        } elseif ($value instanceof promise && $value->getState() === self::PENDING) {
             $value->handlers = array_merge($value->handlers, $handlers);
         } else {
             $value->then(static function ($value) use ($handlers) {
@@ -188,10 +188,10 @@ class Promise implements PromiseInterface
         foreach ($waitList as $result) {
             while (true) {
                 $result->waitIfPending();
-                if ($result->result instanceof Promise) {
+                if ($result->result instanceof promise) {
                     $result = $result->result;
                 } else {
-                    if ($result->result instanceof PromiseInterface) {
+                    if ($result->result instanceof promiseInterface) {
                         $result->result->wait(false);
                     }
                     break;

@@ -3,7 +3,7 @@
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\proxy\RequestOptions;
 
-class Proxy
+class proxy
 {
     public static function wrapSync(callable $default, callable $sync)
     {

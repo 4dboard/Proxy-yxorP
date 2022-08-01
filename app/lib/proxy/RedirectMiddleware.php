@@ -5,7 +5,7 @@ use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\proxy\Exception\badResponseException;
 use yxorP\app\lib\proxy\Exception\tooManyRedirectsException;
-use yxorP\app\lib\proxy\Promise\PromiseInterface;
+use yxorP\app\lib\proxy\Promise\promiseInterface;
 use yxorP\app\lib\proxy\Psr7;
 
 class RedirectMiddleware
@@ -98,14 +98,14 @@ class RedirectMiddleware
 
     private function redirectUri(RequestInterface $request, ResponseInterface $response, array $protocols)
     {
-        $location = Psr7\UriResolver::resolve($request->getUri(), new Psr7\Uri($response->getHeaderLine('Location')));
+        $location = Psr7\uriResolver::resolve($request->getUri(), new Psr7\uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {
             throw new badResponseException(sprintf('Redirect URI, %s, does not use one of the allowed redirect protocols: %s', $location, implode(', ', $protocols)), $request, $response);
         }
         return $location;
     }
 
-    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
+    private function withTracking(promiseInterface $promise, $uri, $statusCode)
     {
         return $promise->then(function (ResponseInterface $response) use ($uri, $statusCode) {
             $historyHeader = $response->getHeader(self::HISTORY_HEADER);

@@ -3,7 +3,7 @@
 use Exception;
 use Throwable;
 
-final class Coroutine implements PromiseInterface
+final class coroutine implements promiseInterface
 {
     private $currentPromise;
     private $generator;
@@ -12,7 +12,7 @@ final class Coroutine implements PromiseInterface
     public function __construct(callable $generatorFn)
     {
         $this->generator = $generatorFn();
-        $this->result = new Promise(function () {
+        $this->result = new promise(function () {
             while (isset($this->currentPromise)) {
                 $this->currentPromise->wait();
             }

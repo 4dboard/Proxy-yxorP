@@ -5,8 +5,8 @@ use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\Exception\connectException;
-use yxorP\app\lib\proxy\Promise\FulfilledPromise;
-use yxorP\app\lib\proxy\Psr7\LazyOpenStream;
+use yxorP\app\lib\proxy\Promise\fulfilledPromise;
+use yxorP\app\lib\proxy\Psr7\lazyOpenStream;
 use yxorP\app\lib\proxy\TransferStats;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use function yxorP\app\lib\proxy\debug_resource;
@@ -39,7 +39,7 @@ class curlFactory implements curlFactoryInterface
         if ($body->isSeekable()) {
             $body->rewind();
         }
-        return new FulfilledPromise($easy->response);
+        return new fulfilledPromise($easy->response);
     }
 
     private static function invokeStats(easyHandle $easy)
@@ -251,7 +251,7 @@ class curlFactory implements curlFactoryInterface
             } elseif (!is_dir(dirname($sink))) {
                 throw new RuntimeException(sprintf('Directory %s does not exist for sink value of %s', dirname($sink), $sink));
             } else {
-                $sink = new LazyOpenStream($sink, 'w+');
+                $sink = new lazyOpenStream($sink, 'w+');
             }
             $easy->sink = $sink;
             $conf[CURLOPT_WRITEFUNCTION] = function ($ch, $write) use ($sink) {

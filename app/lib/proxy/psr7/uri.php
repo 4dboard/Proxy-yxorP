@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
 
-class Uri implements UriInterface
+class uri implements UriInterface
 {
     const HTTP_DEFAULT_HOST = 'localhost';
     private static $defaultPorts = ['http' => 80, 'https' => 443, 'ftp' => 21, 'gopher' => 70, 'nntp' => 119, 'news' => 119, 'telnet' => 23, 'tn3270' => 23, 'imap' => 143, 'pop' => 110, 'ldap' => 389,];
@@ -57,7 +57,7 @@ class Uri implements UriInterface
     public static function isSameDocumentReference(UriInterface $uri, UriInterface $base = null)
     {
         if ($base !== null) {
-            $uri = UriResolver::resolve($base, $uri);
+            $uri = uriResolver::resolve($base, $uri);
             return ($uri->getScheme() === $base->getScheme()) && ($uri->getAuthority() === $base->getAuthority()) && ($uri->getPath() === $base->getPath()) && ($uri->getQuery() === $base->getQuery());
         }
         return $uri->getScheme() === '' && $uri->getAuthority() === '' && $uri->getPath() === '' && $uri->getQuery() === '';
@@ -65,7 +65,7 @@ class Uri implements UriInterface
 
     public static function removeDotSegments($path)
     {
-        return UriResolver::removeDotSegments($path);
+        return uriResolver::removeDotSegments($path);
     }
 
     public static function resolve(UriInterface $base, $rel)
@@ -73,7 +73,7 @@ class Uri implements UriInterface
         if (!($rel instanceof UriInterface)) {
             $rel = new self($rel);
         }
-        return UriResolver::resolve($base, $rel);
+        return uriResolver::resolve($base, $rel);
     }
 
     public static function withoutQueryValue(UriInterface $uri, $key)

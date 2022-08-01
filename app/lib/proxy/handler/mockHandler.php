@@ -10,13 +10,13 @@ use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\HandlerStack;
-use yxorP\app\lib\proxy\Promise\PromiseInterface;
+use yxorP\app\lib\proxy\Promise\promiseInterface;
 use yxorP\app\lib\proxy\TransferStats;
 use function yxorP\app\lib\proxy\describe_type;
 use function yxorP\app\lib\proxy\Promise\promise_for;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
 
-class MockHandler implements Countable
+class mockHandler implements Countable
 {
     private $queue = [];
     private $lastRequest;
@@ -93,7 +93,7 @@ class MockHandler implements Countable
     public function append()
     {
         foreach (func_get_args() as $value) {
-            if ($value instanceof ResponseInterface || $value instanceof Exception || $value instanceof PromiseInterface || is_callable($value)) {
+            if ($value instanceof ResponseInterface || $value instanceof Exception || $value instanceof promiseInterface || is_callable($value)) {
                 $this->queue[] = $value;
             } else {
                 throw new InvalidArgumentException('Expected a response or ' . 'exception. Found ' . describe_type($value));

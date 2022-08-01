@@ -1,5 +1,5 @@
 <?php namespace yxorP\app\lib\proxy\Promise;
-interface PromiseInterface
+interface promiseInterface
 {
     const PENDING = 'pending';
     const FULFILLED = 'fulfilled';

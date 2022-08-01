@@ -1,5 +1,5 @@
 <?php namespace yxorP\app\lib\proxy\Promise;
-interface TaskQueueInterface
+interface taskQueueInterface
 {
     public function isEmpty();
 

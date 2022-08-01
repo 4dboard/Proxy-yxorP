@@ -3,9 +3,9 @@
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class MultipartStream implements StreamInterface
+class multipartStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     private $boundary;
 
@@ -17,7 +17,7 @@ class MultipartStream implements StreamInterface
 
     protected function createStream(array $elements)
     {
-        $stream = new AppendStream();
+        $stream = new appendStream();
         foreach ($elements as $element) {
             $this->addElement($stream, $element);
         }
@@ -25,7 +25,7 @@ class MultipartStream implements StreamInterface
         return $stream;
     }
 
-    private function addElement(AppendStream $stream, array $element)
+    private function addElement(appendStream $stream, array $element)
     {
         foreach (['contents', 'name'] as $key) {
             if (!array_key_exists($key, $element)) {
