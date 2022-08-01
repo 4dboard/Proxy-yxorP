@@ -7,7 +7,7 @@ use MongoDB\Driver\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class flush extends Command
+class flush
 {
 
     protected static $defaultName = 'app:cache:flush';
