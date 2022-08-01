@@ -51,9 +51,7 @@ class App
         });
         $app->service('mailer', function () use ($app, $config) {
             $options = isset($config['mailer']) ? $config['mailer'] : [];
-            if (is_string($options)) {
-                parse_str($options, (array)$options);
-            }
+            if (is_string($options)) parse_str($options, (array)$options);
             $mailer = new Mailer($options['transport'] ?? 'mail', $options);
             return $mailer;
         });
