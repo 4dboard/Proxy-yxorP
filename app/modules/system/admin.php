@@ -33,9 +33,7 @@ $this->on('app.user.login', function ($user) {
 
 $this->on('app.search', function ($search, $findings) {
 
-    if (!$this->helper('acl')->isAllowed('app/users/manage')) {
-        return;
-    }
+    if (!$this->helper('acl')->isAllowed('app/users/manage')) return;
 
     $users = $this->dataStorage->find('system/users', [
         'filter' => [
