@@ -4,9 +4,9 @@ namespace App\graphQL\Types;
 
 use graphQL\Error\Error;
 use graphQL\Error\InvariantViolation;
+use graphQL\Language\AST\Node;
 use graphQL\Type\Definition\ScalarType;
 use psr\http\message\UploadedFileInterface;
-use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
 class uploadType extends ScalarType
 {
@@ -64,7 +64,7 @@ class uploadType extends ScalarType
     /**
      * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input
      *
-     * @param \graphQL\Language\AST\Node $valueNode
+     * @param Node $valueNode
      * @param null|array $variables
      *
      * @return mixed
