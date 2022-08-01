@@ -9,8 +9,7 @@ use function array_filter;
 class settings extends helper
 {
 
-    public
-    function groups(bool $filter = false): ArrayObject
+    public function groups(bool $filter = false): ArrayObject
     {
 
         $settings = new ArrayObject([

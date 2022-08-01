@@ -111,8 +111,7 @@ class revisions extends helper
         return $this->storage->remove('system/revisions', ['_id' => $rid]);
     }
 
-    public
-    function removeAll($id)
+    public function removeAll($id)
     {
         return $this->storage->remove('system/revisions', ['_oid' => $id]);
     }
