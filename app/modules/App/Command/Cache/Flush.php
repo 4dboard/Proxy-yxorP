@@ -2,8 +2,8 @@
 
 namespace App\Command\Cache;
 
+use Lime\App;
 use MongoDB\Driver\Command;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -13,7 +13,7 @@ class flush extends Command
     protected static $defaultName = 'app:cache:flush';
     protected $app = null;
 
-    public function __construct(\Lime\App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
         parent::__construct();
