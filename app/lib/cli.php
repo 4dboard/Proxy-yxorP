@@ -62,8 +62,6 @@
         $numEmptyBars = $barWidth - $numBars;
         $barsString = '[' . str_repeat("=", ($numBars)) . str_repeat(" ", ($numEmptyBars)) . ']';
         echo "($str) " . $barsString . "\r";
-        if ($percent === 100) {
-            echo PHP_EOL;
-        }
+        if ($percent === 100) echo PHP_EOL;
     }
 }
