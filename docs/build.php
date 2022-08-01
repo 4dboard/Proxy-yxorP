@@ -1,5 +1,4 @@
-<?php include_once "./build/alomtools.php";
-echo 1;
+<?php include_once "build/alomtools.php";
 $content = file_get_contents($argv[1]);
 $min = alom_minify($content);
 file_put_contents($argv[1], $min);
