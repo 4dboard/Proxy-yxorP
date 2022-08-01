@@ -4,7 +4,7 @@ use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
 
-class RetryMiddleware
+class retryMiddleware
 {
     private $nextHandler;
     private $decider;

@@ -3,7 +3,7 @@
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\proxy\Psr7;
 
-class PrepareBodyMiddleware
+class prepareBodyMiddleware
 {
     private $nextHandler;
 

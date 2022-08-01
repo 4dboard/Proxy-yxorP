@@ -6,11 +6,11 @@ use yxorP\app\lib\proxy\Promise\eachPromise;
 use yxorP\app\lib\proxy\Promise\promisorInterface;
 use function yxorP\app\lib\proxy\Promise\iter_for;
 
-class Pool implements promisorInterface
+class pool implements promisorInterface
 {
     private $each;
 
-    public function __construct(ClientInterface $client, $requests, array $config = [])
+    public function __construct(clientInterface $client, $requests, array $config = [])
     {
         if (isset($config['pool_size'])) {
             $config['concurrency'] = $config['pool_size'];
@@ -38,7 +38,7 @@ class Pool implements promisorInterface
         $this->each = new eachPromise($requests(), $config);
     }
 
-    public static function batch(ClientInterface $client, $requests, array $options = [])
+    public static function batch(clientInterface $client, $requests, array $options = [])
     {
         $res = [];
         self::cmpCallback($options, 'fulfilled', $res);

@@ -1,5 +1,5 @@
 <?php namespace yxorP\app\lib\proxy;
-final class RequestOptions
+final class requestOptions
 {
     const ALLOW_REDIRECTS = 'allow_redirects';
     const AUTH = 'auth';

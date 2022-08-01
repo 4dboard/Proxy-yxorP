@@ -3,7 +3,7 @@
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 
-final class TransferStats
+final class transferStats
 {
     private $request;
     private $response;

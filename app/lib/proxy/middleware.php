@@ -7,7 +7,7 @@ use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
 
-final class Middleware
+final class middleware
 {
     public static function cookies()
     {
@@ -83,14 +83,14 @@ final class Middleware
     public static function redirect()
     {
         return function (callable $handler) {
-            return new RedirectMiddleware($handler);
+            return new redirectMiddleware($handler);
         };
     }
 
     public static function retry(callable $decider, callable $delay = null)
     {
         return function (callable $handler) use ($decider, $delay) {
-            return new RetryMiddleware($decider, $handler, $delay);
+            return new retryMiddleware($decider, $handler, $delay);
         };
     }
 
@@ -98,7 +98,7 @@ final class Middleware
     public static function prepareBody()
     {
         return function (callable $handler) {
-            return new PrepareBodyMiddleware($handler);
+            return new prepareBodyMiddleware($handler);
         };
     }
 

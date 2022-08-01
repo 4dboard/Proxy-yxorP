@@ -3,7 +3,7 @@
 use BadMethodCallException;
 use yxorP\app\lib\proxy\Promise as P;
 use yxorP\app\lib\proxy\Promise\promise;
-use yxorP\app\lib\proxy\Utils;
+use yxorP\app\lib\proxy\utils;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
 class curlMultiHandler
@@ -79,7 +79,7 @@ class curlMultiHandler
         if (empty($easy->options['delay'])) {
             curl_multi_add_handle($this->_mh, $easy->handle);
         } else {
-            $this->delays[$id] = Utils::currentTime() + ($easy->options['delay'] / 1000);
+            $this->delays[$id] = utils::currentTime() + ($easy->options['delay'] / 1000);
         }
     }
 
@@ -96,7 +96,7 @@ class curlMultiHandler
 
     private function timeToNext()
     {
-        $currentTime = Utils::currentTime();
+        $currentTime = utils::currentTime();
         $nextTime = PHP_INT_MAX;
         foreach ($this->delays as $time) {
             if ($time < $nextTime) {
@@ -109,7 +109,7 @@ class curlMultiHandler
     public function tick()
     {
         if ($this->delays) {
-            $currentTime = Utils::currentTime();
+            $currentTime = utils::currentTime();
             foreach ($this->delays as $id => $delay) {
                 if ($currentTime >= $delay) {
                     unset($this->delays[$id]);

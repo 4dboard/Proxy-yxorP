@@ -4,7 +4,7 @@ use InvalidArgumentException;
 use LogicException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
-class HandlerStack
+class handlerStack
 {
     private $handler;
     private $stack = [];
@@ -18,10 +18,10 @@ class HandlerStack
     public static function create(callable $handler = null)
     {
         $stack = new self($handler ?: choose_handler());
-        $stack->push(Middleware::httpErrors(), 'http_errors');
-        $stack->push(Middleware::redirect(), 'allow_redirects');
-        $stack->push(Middleware::cookies(), 'cookies');
-        $stack->push(Middleware::prepareBody(), 'prepare_body');
+        $stack->push(middleware::httpErrors(), 'http_errors');
+        $stack->push(middleware::redirect(), 'allow_redirects');
+        $stack->push(middleware::cookies(), 'cookies');
+        $stack->push(middleware::prepareBody(), 'prepare_body');
         return $stack;
     }
 

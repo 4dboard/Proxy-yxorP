@@ -2,7 +2,7 @@
 
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
-interface ClientInterface
+interface clientInterface
 {
     const VERSION = '6.5.5';
 

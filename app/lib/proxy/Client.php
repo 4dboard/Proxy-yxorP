@@ -7,14 +7,14 @@ use yxorP\app\lib\proxy\Cookie\cookieJar;
 use yxorP\app\lib\proxy\Promise;
 use yxorP\app\lib\proxy\Psr7;
 
-class Client implements ClientInterface
+class client implements clientInterface
 {
     private $config;
 
     public function __construct(array $config = [])
     {
         if (!isset($config['handler'])) {
-            $config['handler'] = HandlerStack::create();
+            $config['handler'] = handlerStack::create();
         } elseif (!is_callable($config['handler'])) {
             throw new InvalidArgumentException('handler must be a callable');
         }
@@ -51,13 +51,13 @@ class Client implements ClientInterface
 
     public function request($method, $uri = '', array $options = [])
     {
-        $options[RequestOptions::SYNCHRONOUS] = true;
+        $options[requestOptions::SYNCHRONOUS] = true;
         return $this->requestAsync($method, $uri, $options)->wait();
     }
 
     public function send(RequestInterface $request, array $options = [])
     {
-        $options[RequestOptions::SYNCHRONOUS] = true;
+        $options[requestOptions::SYNCHRONOUS] = true;
         return $this->sendAsync($request, $options)->wait();
     }
 
@@ -74,7 +74,7 @@ class Client implements ClientInterface
 
     private function configureDefaults(array $config)
     {
-        $defaults = ['allow_redirects' => RedirectMiddleware::$defaultSettings, 'http_errors' => true, 'decode_content' => true, 'verify' => true, 'cookies' => false, 'idn_conversion' => true,];
+        $defaults = ['allow_redirects' => redirectMiddleware::$defaultSettings, 'http_errors' => true, 'decode_content' => true, 'verify' => true, 'cookies' => false, 'idn_conversion' => true,];
         if (php_sapi_name() === 'cli' && getenv('HTTP_PROXY')) {
             $defaults['proxy']['http'] = getenv('HTTP_PROXY');
         }
@@ -133,7 +133,7 @@ class Client implements ClientInterface
         }
         if (isset($config['idn_conversion']) && ($config['idn_conversion'] !== false)) {
             $idnOptions = ($config['idn_conversion'] === true) ? IDNA_DEFAULT : $config['idn_conversion'];
-            $uri = Utils::idnUriConvert($uri, $idnOptions);
+            $uri = utils::idnUriConvert($uri, $idnOptions);
         }
         return $uri->getScheme() === '' && $uri->getHost() !== '' ? $uri->withScheme('http') : $uri;
     }

@@ -8,7 +8,7 @@ use yxorP\app\lib\proxy\Exception\tooManyRedirectsException;
 use yxorP\app\lib\proxy\Promise\promiseInterface;
 use yxorP\app\lib\proxy\Psr7;
 
-class RedirectMiddleware
+class redirectMiddleware
 {
     const HISTORY_HEADER = 'X-Proxy-Redirect-History';
     const STATUS_HISTORY_HEADER = 'X-Proxy-Redirect-Status-History';
@@ -70,7 +70,7 @@ class RedirectMiddleware
         $uri = $this->redirectUri($request, $response, $protocols);
         if (isset($options['idn_conversion']) && ($options['idn_conversion'] !== false)) {
             $idnOptions = ($options['idn_conversion'] === true) ? IDNA_DEFAULT : $options['idn_conversion'];
-            $uri = Utils::idnUriConvert($uri, $idnOptions);
+            $uri = utils::idnUriConvert($uri, $idnOptions);
         }
         $modify['uri'] = $uri;
         Psr7\rewind_body($request);

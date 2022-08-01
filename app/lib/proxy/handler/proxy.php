@@ -1,14 +1,14 @@
 <?php namespace yxorP\app\lib\proxy\Handler;
 
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\proxy\RequestOptions;
+use yxorP\app\lib\proxy\requestOptions;
 
 class proxy
 {
     public static function wrapSync(callable $default, callable $sync)
     {
         return function (RequestInterface $request, array $options) use ($default, $sync) {
-            return empty($options[RequestOptions::SYNCHRONOUS]) ? $default($request, $options) : $sync($request, $options);
+            return empty($options[requestOptions::SYNCHRONOUS]) ? $default($request, $options) : $sync($request, $options);
         };
     }
 

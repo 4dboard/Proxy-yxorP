@@ -9,9 +9,9 @@ use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
-use yxorP\app\lib\proxy\HandlerStack;
+use yxorP\app\lib\proxy\handlerStack;
 use yxorP\app\lib\proxy\Promise\promiseInterface;
-use yxorP\app\lib\proxy\TransferStats;
+use yxorP\app\lib\proxy\transferStats;
 use function yxorP\app\lib\proxy\describe_type;
 use function yxorP\app\lib\proxy\Promise\promise_for;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
@@ -35,7 +35,7 @@ class mockHandler implements Countable
 
     public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null)
     {
-        return HandlerStack::create(new self($queue, $onFulfilled, $onRejected));
+        return handlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
     public function __invoke(RequestInterface $request, array $options)
@@ -125,7 +125,7 @@ class mockHandler implements Countable
     {
         if (isset($options['on_stats'])) {
             $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new TransferStats($request, $response, $transferTime, $reason);
+            $stats = new transferStats($request, $response, $transferTime, $reason);
             call_user_func($options['on_stats'], $stats);
         }
     }

@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\http;
 
 use App;
-use yxorP\app\lib\proxy\Client;
+use yxorP\app\lib\proxy\client;
 use yxorP\app\lib\proxy\Cookie\fileCookieJar;
 
 
@@ -479,7 +479,7 @@ class helpers
         /**
          * Loading the Proxy Snag class.
          */
-        store::handler(VAR_PROXY, new Client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
+        store::handler(VAR_PROXY, new client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
 
 
     }

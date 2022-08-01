@@ -15,7 +15,7 @@ function uri_template($template, array $variables)
     }
     static $uriTemplate;
     if (!$uriTemplate) {
-        $uriTemplate = new UriTemplate();
+        $uriTemplate = new uriTemplate();
     }
     return $uriTemplate->expand($template, $variables);
 }
@@ -76,7 +76,7 @@ function default_user_agent()
 {
     static $defaultAgent = '';
     if (!$defaultAgent) {
-        $defaultAgent = 'ProxyHttp/' . Client::VERSION;
+        $defaultAgent = 'ProxyHttp/' . client::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }

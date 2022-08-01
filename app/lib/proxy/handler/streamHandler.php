@@ -10,8 +10,8 @@ use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\Exception\connectException;
 use yxorP\app\lib\proxy\Promise\fulfilledPromise;
 use yxorP\app\lib\proxy\Psr7;
-use yxorP\app\lib\proxy\TransferStats;
-use yxorP\app\lib\proxy\Utils;
+use yxorP\app\lib\proxy\transferStats;
+use yxorP\app\lib\proxy\utils;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\default_ca_bundle;
 use function yxorP\app\lib\proxy\headers_from_lines;
@@ -28,7 +28,7 @@ class streamHandler
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);
         }
-        $startTime = isset($options['on_stats']) ? Utils::currentTime() : null;
+        $startTime = isset($options['on_stats']) ? utils::currentTime() : null;
         try {
             $request = $request->withoutHeader('Expect');
             if (0 === $request->getBody()->getSize()) {
@@ -125,7 +125,7 @@ class streamHandler
     private function invokeStats(array $options, RequestInterface $request, $startTime, ResponseInterface $response = null, $error = null)
     {
         if (isset($options['on_stats'])) {
-            $stats = new TransferStats($request, $response, Utils::currentTime() - $startTime, $error, []);
+            $stats = new transferStats($request, $response, utils::currentTime() - $startTime, $error, []);
             call_user_func($options['on_stats'], $stats);
         }
     }

@@ -8,7 +8,7 @@ use function extension_loaded;
 use function idn_to_ascii;
 use function preg_match;
 
-final class Utils
+final class utils
 {
     public static function currentTime()
     {

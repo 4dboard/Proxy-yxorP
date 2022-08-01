@@ -7,7 +7,7 @@ use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\Exception\connectException;
 use yxorP\app\lib\proxy\Promise\fulfilledPromise;
 use yxorP\app\lib\proxy\Psr7\lazyOpenStream;
-use yxorP\app\lib\proxy\TransferStats;
+use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\is_host_in_noproxy;
@@ -46,7 +46,7 @@ class curlFactory implements curlFactoryInterface
     {
         $curlStats = curl_getinfo($easy->handle);
         $curlStats['appconnect_time'] = curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME);
-        $stats = new TransferStats($easy->request, $easy->response, $curlStats['total_time'], $easy->errno, $curlStats);
+        $stats = new transferStats($easy->request, $easy->response, $curlStats['total_time'], $easy->errno, $curlStats);
         call_user_func($easy->options['on_stats'], $stats);
     }
 
