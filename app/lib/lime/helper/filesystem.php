@@ -142,7 +142,6 @@ class Filesystem extends Helper
      */
     public function rename(string $path, string $newpath, bool $overwrite = true): bool
     {
-
         $path = $this->app->path($path);
 
         if (!$overwrite && file_exists($newpath)) return false; elseif (!file_exists($path)) return false;
