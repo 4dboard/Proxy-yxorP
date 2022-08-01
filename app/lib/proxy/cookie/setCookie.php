@@ -207,4 +207,3 @@ class sessionCookieJar
     }
 }
 
-exit('2');
