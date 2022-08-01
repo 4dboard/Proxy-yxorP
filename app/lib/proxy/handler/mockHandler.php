@@ -4,7 +4,7 @@ use Countable;
 use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\handlerStack;
 use yxorP\app\lib\proxy\Promise\promiseInterface;
 use yxorP\app\lib\proxy\transferStats;

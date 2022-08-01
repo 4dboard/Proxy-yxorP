@@ -1,8 +1,8 @@
 <?php namespace yxorP\app\lib\proxy;
 
 use InvalidArgumentException;
-use yxorP\app\lib\proxy\Exception\badResponseException;
-use yxorP\app\lib\proxy\Exception\tooManyRedirectsException;
+use yxorP\app\lib\proxy\exception\badResponseException;
+use yxorP\app\lib\proxy\exception\tooManyRedirectsException;
 use yxorP\app\lib\proxy\Promise\promiseInterface;
 use yxorP\app\lib\proxy\Psr7;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;

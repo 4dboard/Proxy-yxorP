@@ -2,7 +2,7 @@
 
 use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
-use yxorP\app\lib\proxy\Exception\invalidArgumentException;
+use yxorP\app\lib\proxy\exception\invalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
 use function extension_loaded;
 use function idn_to_ascii;

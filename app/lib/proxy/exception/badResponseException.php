@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\proxy\Exception;
+<?php namespace yxorP\app\lib\proxy\exception;
 
 use Exception;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;

@@ -3,7 +3,7 @@
 use ArrayAccess;
 use InvalidArgumentException;
 use yxorP\app\lib\proxy\cookie\cookieJarInterface;
-use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
 

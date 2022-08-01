@@ -3,8 +3,8 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
-use yxorP\app\lib\proxy\Exception\connectException;
+use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\Promise\fulfilledPromise;
 use yxorP\app\lib\proxy\Psr7\lazyOpenStream;
 use yxorP\app\lib\proxy\transferStats;
