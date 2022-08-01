@@ -7,8 +7,7 @@ use helper;
 class api extends helper
 {
 
-    protected
-    array $keys = [];
+    protected array $keys = [];
 
     public function getKey(string $key)
     {
