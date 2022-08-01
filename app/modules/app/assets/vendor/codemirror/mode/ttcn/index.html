@@ -96,13 +96,13 @@ module Templates {
     </div>
 
     <script>
-        var ttcnEditor = CodeMirror.fromTextArea(document.getElementById("ttcn-code"), {
+        const ttcnEditor = CodeMirror.fromTextArea(document.getElementById("ttcn-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-ttcn"
         });
         ttcnEditor.setSize(600, 860);
-        var mac = CodeMirror.keyMap.default === CodeMirror.keyMap.macDefault;
+        const mac = CodeMirror.keyMap.default === CodeMirror.keyMap.macDefault;
         CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
     </script>
     <br/>

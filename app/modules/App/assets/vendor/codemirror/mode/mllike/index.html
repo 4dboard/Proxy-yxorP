@@ -184,13 +184,13 @@ type Color =
 
 
     <script>
-        var ocamlEditor = CodeMirror.fromTextArea(document.getElementById('ocamlCode'), {
+        const ocamlEditor = CodeMirror.fromTextArea(document.getElementById('ocamlCode'), {
             mode: 'text/x-ocaml',
             lineNumbers: true,
             matchBrackets: true
         });
 
-        var fsharpEditor = CodeMirror.fromTextArea(document.getElementById('fsharpCode'), {
+        const fsharpEditor = CodeMirror.fromTextArea(document.getElementById('fsharpCode'), {
             mode: 'text/x-fsharp',
             lineNumbers: true,
             matchBrackets: true

@@ -13,12 +13,14 @@
 
     CodeMirror.defineMode("eiffel", function () {
         function wordObj(words) {
-            var o = {};
-            for (var i = 0, e = words.length; i < e; ++i) o[words[i]] = true;
+            const o = {};
+            let i = 0;
+            const e = words.length;
+            for (; i < e; ++i) o[words[i]] = true;
             return o;
         }
 
-        var keywords = wordObj([
+        const keywords = wordObj([
             'note',
             'across',
             'when',
@@ -84,7 +86,7 @@
             'not',
             'or'
         ]);
-        var operators = wordObj([":=", "and then", "and", "or", "<<", ">>"]);
+        const operators = wordObj([":=", "and then", "and", "or", "<<", ">>"]);
 
         function chain(newtok, stream, state) {
             state.tokenize.push(newtok);
@@ -93,7 +95,7 @@
 
         function tokenBase(stream, state) {
             if (stream.eatSpace()) return null;
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '"' || ch === "'") {
                 return chain(readQuoted(ch, "string"), stream, state);
             } else if (ch === "-" && stream.eat("-")) {
@@ -102,12 +104,12 @@
             } else if (ch === ":" && stream.eat("=")) {
                 return "operator";
             } else if (/[0-9]/.test(ch)) {
-                stream.eatWhile(/[xXbBCc0-9\.]/);
-                stream.eat(/[\?\!]/);
+                stream.eatWhile(/[xXbBCc0-9.]/);
+                stream.eat(/[?!]/);
                 return "ident";
             } else if (/[a-zA-Z_0-9]/.test(ch)) {
                 stream.eatWhile(/[a-zA-Z_0-9]/);
-                stream.eat(/[\?\!]/);
+                stream.eat(/[?!]/);
                 return "ident";
             } else if (/[=+\-\/*^%<>~]/.test(ch)) {
                 stream.eatWhile(/[=+\-\/*^%<>~]/);
@@ -119,7 +121,7 @@
 
         function readQuoted(quote, style, unescaped) {
             return function (stream, state) {
-                var escaped = false, ch;
+                let escaped = false, ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === quote && (unescaped || !escaped)) {
                         state.tokenize.pop();
@@ -137,9 +139,9 @@
             },
 
             token: function (stream, state) {
-                var style = state.tokenize[state.tokenize.length - 1](stream, state);
+                let style = state.tokenize[state.tokenize.length - 1](stream, state);
                 if (style === "ident") {
-                    var word = stream.current();
+                    const word = stream.current();
                     style = keywords.propertyIsEnumerable(stream.current()) ? "keyword"
                         : operators.propertyIsEnumerable(stream.current()) ? "operator"
                             : /^[A-Z][A-Z_0-9]*$/g.test(word) ? "tag"

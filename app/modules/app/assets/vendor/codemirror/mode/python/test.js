@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 4},
+    const mode = CodeMirror.getMode({indentUnit: 4},
         {
             name: "python",
             version: 3,
@@ -29,9 +29,9 @@
     MT("matmulWithSpace:", "[variable a] [operator @] [variable b]");
     MT("matmulWithoutSpace:", "[variable a][operator @][variable b]");
     MT("matmulSpaceBefore:", "[variable a] [operator @][variable b]");
-    var before_equal_sign = ["+", "-", "*", "/", "=", "!", ">", "<"];
-    for (var i = 0; i < before_equal_sign.length; ++i) {
-        var c = before_equal_sign[i]
+    const before_equal_sign = ["+", "-", "*", "/", "=", "!", ">", "<"];
+    for (let i = 0; i < before_equal_sign.length; ++i) {
+        const c = before_equal_sign[i];
         MT("before_equal_sign_" + c, "[variable a] [operator " + c + "=] [variable b]");
     }
 

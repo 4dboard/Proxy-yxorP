@@ -365,7 +365,7 @@ for (var i = 0; i < items.length; i++) {
 </textarea></form>
 
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             mode: 'markdown',
             lineNumbers: true,
             theme: "default",

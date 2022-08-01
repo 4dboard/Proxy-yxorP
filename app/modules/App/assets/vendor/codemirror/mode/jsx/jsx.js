@@ -29,18 +29,18 @@
     }
 
     CodeMirror.defineMode("jsx", function (config, modeConfig) {
-        var xmlMode = CodeMirror.getMode(config, {
+        const xmlMode = CodeMirror.getMode(config, {
             name: "xml",
             allowMissing: true,
             multilineTagIndentPastTag: false,
             allowMissingTagName: true
-        })
-        var jsMode = CodeMirror.getMode(config, modeConfig && modeConfig.base || "javascript")
+        });
+        const jsMode = CodeMirror.getMode(config, modeConfig && modeConfig.base || "javascript");
 
         function flatXMLIndent(state) {
-            var tagName = state.tagName
+            const tagName = state.tagName;
             state.tagName = null
-            var result = xmlMode.indent(state, "", "")
+            const result = xmlMode.indent(state, "", "");
             state.tagName = tagName
             return result
         }
@@ -62,7 +62,7 @@
             if (stream.peek() === "{") {
                 xmlMode.skipAttribute(cx.state)
 
-                var indent = flatXMLIndent(cx.state), xmlContext = cx.state.context
+                let indent = flatXMLIndent(cx.state), xmlContext = cx.state.context;
                 // If JS starts on same line as tag
                 if (xmlContext && stream.match(/^[^>]*>\s*$/, false)) {
                     while (xmlContext.prev && !xmlContext.startOfLine)
@@ -96,7 +96,8 @@
                 }
             }
 
-            var style = xmlMode.token(stream, cx.state), cur = stream.current(), stop
+            const style = xmlMode.token(stream, cx.state), cur = stream.current();
+            let stop;
             if (/\btag\b/.test(style)) {
                 if (/>$/.test(cur)) {
                     if (cx.state.context) cx.depth = 0
@@ -118,9 +119,9 @@
                 return null
             }
 
-            var style = jsMode.token(stream, cx.state)
+            const style = jsMode.token(stream, cx.state);
             if (!style && cx.depth != null) {
-                var cur = stream.current()
+                const cur = stream.current();
                 if (cur === "{") {
                     cx.depth++
                 } else if (cur === "}") {

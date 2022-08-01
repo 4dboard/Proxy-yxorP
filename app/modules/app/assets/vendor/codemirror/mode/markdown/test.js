@@ -2,38 +2,38 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var config = {tabSize: 4, indentUnit: 2}
-    var mode = CodeMirror.getMode(config, "markdown");
+    const config = {tabSize: 4, indentUnit: 2};
+    const mode = CodeMirror.getMode(config, "markdown");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeHighlightFormatting = CodeMirror.getMode(config, {name: "markdown", highlightFormatting: true});
+    const modeHighlightFormatting = CodeMirror.getMode(config, {name: "markdown", highlightFormatting: true});
 
     function FT(name) {
         test.mode(name, modeHighlightFormatting, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeMT_noXml = CodeMirror.getMode(config, {name: "markdown", xml: false});
+    const modeMT_noXml = CodeMirror.getMode(config, {name: "markdown", xml: false});
 
     function MT_noXml(name) {
         test.mode(name, modeMT_noXml, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeMT_noFencedHighlight = CodeMirror.getMode(config, {name: "markdown", fencedCodeBlockHighlighting: false});
+    const modeMT_noFencedHighlight = CodeMirror.getMode(config, {name: "markdown", fencedCodeBlockHighlighting: false});
 
     function MT_noFencedHighlight(name) {
         test.mode(name, modeMT_noFencedHighlight, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeAtxNoSpace = CodeMirror.getMode(config, {name: "markdown", allowAtxHeaderWithoutSpace: true});
+    const modeAtxNoSpace = CodeMirror.getMode(config, {name: "markdown", allowAtxHeaderWithoutSpace: true});
 
     function AtxNoSpaceTest(name) {
         test.mode(name, modeAtxNoSpace, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeOverrideClasses = CodeMirror.getMode(config, {
+    const modeOverrideClasses = CodeMirror.getMode(config, {
         name: "markdown",
         strikethrough: true,
         emoji: true,
@@ -63,7 +63,7 @@
         test.mode(name, modeOverrideClasses, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeFormattingOverride = CodeMirror.getMode(config, {
+    const modeFormattingOverride = CodeMirror.getMode(config, {
         name: "markdown",
         highlightFormatting: true,
         tokenTypeOverrides: {
@@ -75,7 +75,7 @@
         test.mode(name, modeFormattingOverride, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeET = CodeMirror.getMode(config, {name: "markdown", emoji: true});
+    const modeET = CodeMirror.getMode(config, {name: "markdown", emoji: true});
 
     function ET(name) {
         test.mode(name, modeET, Array.prototype.slice.call(arguments, 1));

@@ -2,11 +2,11 @@
     if (typeof exports === "object" && typeof module === "object") module.exports = factory(); else if (typeof define === "function" && define.amd) define([], factory); else if (typeof exports === "object") exports["dateFns"] = factory(); else root["dateFns"] = factory()
 })(this, function () {
     return function (modules) {
-        var installedModules = {};
+        const installedModules = {};
 
         function __webpack_require__(moduleId) {
             if (installedModules[moduleId]) return installedModules[moduleId].exports;
-            var module = installedModules[moduleId] = {exports: {}, id: moduleId, loaded: false};
+            const module = installedModules[moduleId] = {exports: {}, id: moduleId, loaded: false};
             modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
             module.loaded = true;
             return module.exports
@@ -174,39 +174,39 @@
             subYears: __webpack_require__(158)
         }
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function addDays(dirtyDate, dirtyAmount) {
-            var date = parse(dirtyDate);
-            var amount = Number(dirtyAmount);
+            const date = parse(dirtyDate);
+            const amount = Number(dirtyAmount);
             date.setDate(date.getDate() + amount);
             return date
         }
 
         module.exports = addDays
     }, function (module, exports, __webpack_require__) {
-        var isDate = __webpack_require__(3);
-        var MILLISECONDS_IN_HOUR = 36e5;
-        var MILLISECONDS_IN_MINUTE = 6e4;
-        var DEFAULT_ADDITIONAL_DIGITS = 2;
-        var parseTokenDateTimeDelimeter = /[T ]/;
-        var parseTokenPlainTime = /:/;
-        var parseTokenYY = /^(\d{2})$/;
-        var parseTokensYYY = [/^([+-]\d{2})$/, /^([+-]\d{3})$/, /^([+-]\d{4})$/];
-        var parseTokenYYYY = /^(\d{4})/;
-        var parseTokensYYYYY = [/^([+-]\d{4})/, /^([+-]\d{5})/, /^([+-]\d{6})/];
-        var parseTokenMM = /^-(\d{2})$/;
-        var parseTokenDDD = /^-?(\d{3})$/;
-        var parseTokenMMDD = /^-?(\d{2})-?(\d{2})$/;
-        var parseTokenWww = /^-?W(\d{2})$/;
-        var parseTokenWwwD = /^-?W(\d{2})-?(\d{1})$/;
-        var parseTokenHH = /^(\d{2}([.,]\d*)?)$/;
-        var parseTokenHHMM = /^(\d{2}):?(\d{2}([.,]\d*)?)$/;
-        var parseTokenHHMMSS = /^(\d{2}):?(\d{2}):?(\d{2}([.,]\d*)?)$/;
-        var parseTokenTimezone = /([Z+-].*)$/;
-        var parseTokenTimezoneZ = /^(Z)$/;
-        var parseTokenTimezoneHH = /^([+-])(\d{2})$/;
-        var parseTokenTimezoneHHMM = /^([+-])(\d{2}):?(\d{2})$/;
+        const isDate = __webpack_require__(3);
+        const MILLISECONDS_IN_HOUR = 36e5;
+        const MILLISECONDS_IN_MINUTE = 6e4;
+        const DEFAULT_ADDITIONAL_DIGITS = 2;
+        const parseTokenDateTimeDelimeter = /[T ]/;
+        const parseTokenPlainTime = /:/;
+        const parseTokenYY = /^(\d{2})$/;
+        const parseTokensYYY = [/^([+-]\d{2})$/, /^([+-]\d{3})$/, /^([+-]\d{4})$/];
+        const parseTokenYYYY = /^(\d{4})/;
+        const parseTokensYYYYY = [/^([+-]\d{4})/, /^([+-]\d{5})/, /^([+-]\d{6})/];
+        const parseTokenMM = /^-(\d{2})$/;
+        const parseTokenDDD = /^-?(\d{3})$/;
+        const parseTokenMMDD = /^-?(\d{2})-?(\d{2})$/;
+        const parseTokenWww = /^-?W(\d{2})$/;
+        const parseTokenWwwD = /^-?W(\d{2})-?(\d{1})$/;
+        const parseTokenHH = /^(\d{2}([.,]\d*)?)$/;
+        const parseTokenHHMM = /^(\d{2}):?(\d{2}([.,]\d*)?)$/;
+        const parseTokenHHMMSS = /^(\d{2}):?(\d{2}):?(\d{2}([.,]\d*)?)$/;
+        const parseTokenTimezone = /([Z+-].*)$/;
+        const parseTokenTimezoneZ = /^(Z)$/;
+        const parseTokenTimezoneHH = /^([+-])(\d{2})$/;
+        const parseTokenTimezoneHHMM = /^([+-])(\d{2}):?(\d{2})$/;
 
         function parse(argument, dirtyOptions) {
             if (isDate(argument)) {
@@ -214,22 +214,22 @@
             } else if (typeof argument !== "string") {
                 return new Date(argument)
             }
-            var options = dirtyOptions || {};
-            var additionalDigits = options.additionalDigits;
+            const options = dirtyOptions || {};
+            let additionalDigits = options.additionalDigits;
             if (additionalDigits === null) {
                 additionalDigits = DEFAULT_ADDITIONAL_DIGITS
             } else {
                 additionalDigits = Number(additionalDigits)
             }
-            var dateStrings = splitDateString(argument);
-            var parseYearResult = parseYear(dateStrings.date, additionalDigits);
-            var year = parseYearResult.year;
-            var restDateString = parseYearResult.restDateString;
-            var date = parseDate(restDateString, year);
+            const dateStrings = splitDateString(argument);
+            const parseYearResult = parseYear(dateStrings.date, additionalDigits);
+            const year = parseYearResult.year;
+            const restDateString = parseYearResult.restDateString;
+            const date = parseDate(restDateString, year);
             if (date) {
-                var timestamp = date.getTime();
-                var time = 0;
-                var offset;
+                const timestamp = date.getTime();
+                let time = 0;
+                let offset;
                 if (dateStrings.time) {
                     time = parseTime(dateStrings.time)
                 }
@@ -246,9 +246,9 @@
         }
 
         function splitDateString(dateString) {
-            var dateStrings = {};
-            var array = dateString.split(parseTokenDateTimeDelimeter);
-            var timeString;
+            const dateStrings = {};
+            const array = dateString.split(parseTokenDateTimeDelimeter);
+            let timeString;
             if (parseTokenPlainTime.test(array[0])) {
                 dateStrings.date = null;
                 timeString = array[0]
@@ -257,7 +257,7 @@
                 timeString = array[1]
             }
             if (timeString) {
-                var token = parseTokenTimezone.exec(timeString);
+                const token = parseTokenTimezone.exec(timeString);
                 if (token) {
                     dateStrings.time = timeString.replace(token[1], "");
                     dateStrings.timezone = token[1]
@@ -269,17 +269,17 @@
         }
 
         function parseYear(dateString, additionalDigits) {
-            var parseTokenYYY = parseTokensYYY[additionalDigits];
-            var parseTokenYYYYY = parseTokensYYYYY[additionalDigits];
-            var token;
+            const parseTokenYYY = parseTokensYYY[additionalDigits];
+            const parseTokenYYYYY = parseTokensYYYYY[additionalDigits];
+            let token;
             token = parseTokenYYYY.exec(dateString) || parseTokenYYYYY.exec(dateString);
             if (token) {
-                var yearString = token[1];
+                const yearString = token[1];
                 return {year: parseInt(yearString, 10), restDateString: dateString.slice(yearString.length)}
             }
             token = parseTokenYY.exec(dateString) || parseTokenYYY.exec(dateString);
             if (token) {
-                var centuryString = token[1];
+                const centuryString = token[1];
                 return {year: parseInt(centuryString, 10) * 100, restDateString: dateString.slice(centuryString.length)}
             }
             return {year: null}
@@ -289,10 +289,10 @@
             if (year === null) {
                 return null
             }
-            var token;
-            var date;
-            var month;
-            var week;
+            let token;
+            let date;
+            let month;
+            let week;
             if (dateString.length === 0) {
                 date = new Date(0);
                 date.setUTCFullYear(year);
@@ -308,7 +308,7 @@
             token = parseTokenDDD.exec(dateString);
             if (token) {
                 date = new Date(0);
-                var dayOfYear = parseInt(token[1], 10);
+                const dayOfYear = parseInt(token[1], 10);
                 date.setUTCFullYear(year, 0, dayOfYear);
                 return date
             }
@@ -316,7 +316,7 @@
             if (token) {
                 date = new Date(0);
                 month = parseInt(token[1], 10) - 1;
-                var day = parseInt(token[2], 10);
+                const day = parseInt(token[2], 10);
                 date.setUTCFullYear(year, month, day);
                 return date
             }
@@ -328,16 +328,16 @@
             token = parseTokenWwwD.exec(dateString);
             if (token) {
                 week = parseInt(token[1], 10) - 1;
-                var dayOfWeek = parseInt(token[2], 10) - 1;
+                const dayOfWeek = parseInt(token[2], 10) - 1;
                 return dayOfISOYear(year, week, dayOfWeek)
             }
             return null
         }
 
         function parseTime(timeString) {
-            var token;
-            var hours;
-            var minutes;
+            let token;
+            let hours;
+            let minutes;
             token = parseTokenHH.exec(timeString);
             if (token) {
                 hours = parseFloat(token[1].replace(",", "."));
@@ -353,15 +353,15 @@
             if (token) {
                 hours = parseInt(token[1], 10);
                 minutes = parseInt(token[2], 10);
-                var seconds = parseFloat(token[3].replace(",", "."));
+                const seconds = parseFloat(token[3].replace(",", "."));
                 return hours % 24 * MILLISECONDS_IN_HOUR + minutes * MILLISECONDS_IN_MINUTE + seconds * 1e3
             }
             return null
         }
 
         function parseTimezone(timezoneString) {
-            var token;
-            var absoluteOffset;
+            let token;
+            let absoluteOffset;
             token = parseTokenTimezoneZ.exec(timezoneString);
             if (token) {
                 return 0
@@ -382,10 +382,10 @@
         function dayOfISOYear(isoYear, week, day) {
             week = week || 0;
             day = day || 0;
-            var date = new Date(0);
+            const date = new Date(0);
             date.setUTCFullYear(isoYear, 0, 4);
-            var fourthOfJanuaryDay = date.getUTCDay() || 7;
-            var diff = week * 7 + day + 1 - fourthOfJanuaryDay;
+            const fourthOfJanuaryDay = date.getUTCDay() || 7;
+            const diff = week * 7 + day + 1 - fourthOfJanuaryDay;
             date.setUTCDate(date.getUTCDate() + diff);
             return date
         }
@@ -398,50 +398,50 @@
 
         module.exports = isDate
     }, function (module, exports, __webpack_require__) {
-        var addMilliseconds = __webpack_require__(5);
-        var MILLISECONDS_IN_HOUR = 36e5;
+        const addMilliseconds = __webpack_require__(5);
+        const MILLISECONDS_IN_HOUR = 36e5;
 
         function addHours(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMilliseconds(dirtyDate, amount * MILLISECONDS_IN_HOUR)
         }
 
         module.exports = addHours
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function addMilliseconds(dirtyDate, dirtyAmount) {
-            var timestamp = parse(dirtyDate).getTime();
-            var amount = Number(dirtyAmount);
+            const timestamp = parse(dirtyDate).getTime();
+            const amount = Number(dirtyAmount);
             return new Date(timestamp + amount)
         }
 
         module.exports = addMilliseconds
     }, function (module, exports, __webpack_require__) {
-        var getISOYear = __webpack_require__(7);
-        var setISOYear = __webpack_require__(10);
+        const getISOYear = __webpack_require__(7);
+        const setISOYear = __webpack_require__(10);
 
         function addISOYears(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return setISOYear(dirtyDate, getISOYear(dirtyDate) + amount)
         }
 
         module.exports = addISOYears
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var startOfISOWeek = __webpack_require__(8);
+        const parse = __webpack_require__(2);
+        const startOfISOWeek = __webpack_require__(8);
 
         function getISOYear(dirtyDate) {
-            var date = parse(dirtyDate);
-            var year = date.getFullYear();
-            var fourthOfJanuaryOfNextYear = new Date(0);
+            const date = parse(dirtyDate);
+            const year = date.getFullYear();
+            const fourthOfJanuaryOfNextYear = new Date(0);
             fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
             fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
-            var startOfNextYear = startOfISOWeek(fourthOfJanuaryOfNextYear);
-            var fourthOfJanuaryOfThisYear = new Date(0);
+            const startOfNextYear = startOfISOWeek(fourthOfJanuaryOfNextYear);
+            const fourthOfJanuaryOfThisYear = new Date(0);
             fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4);
             fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0);
-            var startOfThisYear = startOfISOWeek(fourthOfJanuaryOfThisYear);
+            const startOfThisYear = startOfISOWeek(fourthOfJanuaryOfThisYear);
             if (date.getTime() >= startOfNextYear.getTime()) {
                 return year + 1
             } else if (date.getTime() >= startOfThisYear.getTime()) {
@@ -453,7 +453,7 @@
 
         module.exports = getISOYear
     }, function (module, exports, __webpack_require__) {
-        var startOfWeek = __webpack_require__(9);
+        const startOfWeek = __webpack_require__(9);
 
         function startOfISOWeek(dirtyDate) {
             return startOfWeek(dirtyDate, {weekStartsOn: 1})
@@ -461,13 +461,13 @@
 
         module.exports = startOfISOWeek
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfWeek(dirtyDate, dirtyOptions) {
-            var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
-            var date = parse(dirtyDate);
-            var day = date.getDay();
-            var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
+            const weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
+            const date = parse(dirtyDate);
+            const day = date.getDay();
+            const diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
             date.setDate(date.getDate() - diff);
             date.setHours(0, 0, 0, 0);
             return date
@@ -475,15 +475,15 @@
 
         module.exports = startOfWeek
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var startOfISOYear = __webpack_require__(11);
-        var differenceInCalendarDays = __webpack_require__(12);
+        const parse = __webpack_require__(2);
+        const startOfISOYear = __webpack_require__(11);
+        const differenceInCalendarDays = __webpack_require__(12);
 
         function setISOYear(dirtyDate, dirtyISOYear) {
-            var date = parse(dirtyDate);
-            var isoYear = Number(dirtyISOYear);
-            var diff = differenceInCalendarDays(date, startOfISOYear(date));
-            var fourthOfJanuary = new Date(0);
+            let date = parse(dirtyDate);
+            const isoYear = Number(dirtyISOYear);
+            const diff = differenceInCalendarDays(date, startOfISOYear(date));
+            const fourthOfJanuary = new Date(0);
             fourthOfJanuary.setFullYear(isoYear, 0, 4);
             fourthOfJanuary.setHours(0, 0, 0, 0);
             date = startOfISOYear(fourthOfJanuary);
@@ -493,78 +493,78 @@
 
         module.exports = setISOYear
     }, function (module, exports, __webpack_require__) {
-        var getISOYear = __webpack_require__(7);
-        var startOfISOWeek = __webpack_require__(8);
+        const getISOYear = __webpack_require__(7);
+        const startOfISOWeek = __webpack_require__(8);
 
         function startOfISOYear(dirtyDate) {
-            var year = getISOYear(dirtyDate);
-            var fourthOfJanuary = new Date(0);
+            const year = getISOYear(dirtyDate);
+            const fourthOfJanuary = new Date(0);
             fourthOfJanuary.setFullYear(year, 0, 4);
             fourthOfJanuary.setHours(0, 0, 0, 0);
-            var date = startOfISOWeek(fourthOfJanuary);
+            const date = startOfISOWeek(fourthOfJanuary);
             return date
         }
 
         module.exports = startOfISOYear
     }, function (module, exports, __webpack_require__) {
-        var startOfDay = __webpack_require__(13);
-        var MILLISECONDS_IN_MINUTE = 6e4;
-        var MILLISECONDS_IN_DAY = 864e5;
+        const startOfDay = __webpack_require__(13);
+        const MILLISECONDS_IN_MINUTE = 6e4;
+        const MILLISECONDS_IN_DAY = 864e5;
 
         function differenceInCalendarDays(dirtyDateLeft, dirtyDateRight) {
-            var startOfDayLeft = startOfDay(dirtyDateLeft);
-            var startOfDayRight = startOfDay(dirtyDateRight);
-            var timestampLeft = startOfDayLeft.getTime() - startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
-            var timestampRight = startOfDayRight.getTime() - startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+            const startOfDayLeft = startOfDay(dirtyDateLeft);
+            const startOfDayRight = startOfDay(dirtyDateRight);
+            const timestampLeft = startOfDayLeft.getTime() - startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+            const timestampRight = startOfDayRight.getTime() - startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
             return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY)
         }
 
         module.exports = differenceInCalendarDays
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfDay(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setHours(0, 0, 0, 0);
             return date
         }
 
         module.exports = startOfDay
     }, function (module, exports, __webpack_require__) {
-        var addMilliseconds = __webpack_require__(5);
-        var MILLISECONDS_IN_MINUTE = 6e4;
+        const addMilliseconds = __webpack_require__(5);
+        const MILLISECONDS_IN_MINUTE = 6e4;
 
         function addMinutes(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMilliseconds(dirtyDate, amount * MILLISECONDS_IN_MINUTE)
         }
 
         module.exports = addMinutes
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var getDaysInMonth = __webpack_require__(16);
+        const parse = __webpack_require__(2);
+        const getDaysInMonth = __webpack_require__(16);
 
         function addMonths(dirtyDate, dirtyAmount) {
-            var date = parse(dirtyDate);
-            var amount = Number(dirtyAmount);
-            var desiredMonth = date.getMonth() + amount;
-            var dateWithDesiredMonth = new Date(0);
+            const date = parse(dirtyDate);
+            const amount = Number(dirtyAmount);
+            const desiredMonth = date.getMonth() + amount;
+            const dateWithDesiredMonth = new Date(0);
             dateWithDesiredMonth.setFullYear(date.getFullYear(), desiredMonth, 1);
             dateWithDesiredMonth.setHours(0, 0, 0, 0);
-            var daysInMonth = getDaysInMonth(dateWithDesiredMonth);
+            const daysInMonth = getDaysInMonth(dateWithDesiredMonth);
             date.setMonth(desiredMonth, Math.min(daysInMonth, date.getDate()));
             return date
         }
 
         module.exports = addMonths
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getDaysInMonth(dirtyDate) {
-            var date = parse(dirtyDate);
-            var year = date.getFullYear();
-            var monthIndex = date.getMonth();
-            var lastDayOfMonth = new Date(0);
+            const date = parse(dirtyDate);
+            const year = date.getFullYear();
+            const monthIndex = date.getMonth();
+            const lastDayOfMonth = new Date(0);
             lastDayOfMonth.setFullYear(year, monthIndex + 1, 0);
             lastDayOfMonth.setHours(0, 0, 0, 0);
             return lastDayOfMonth.getDate()
@@ -572,51 +572,51 @@
 
         module.exports = getDaysInMonth
     }, function (module, exports, __webpack_require__) {
-        var addMonths = __webpack_require__(15);
+        const addMonths = __webpack_require__(15);
 
         function addQuarters(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
-            var months = amount * 3;
+            const amount = Number(dirtyAmount);
+            const months = amount * 3;
             return addMonths(dirtyDate, months)
         }
 
         module.exports = addQuarters
     }, function (module, exports, __webpack_require__) {
-        var addMilliseconds = __webpack_require__(5);
+        const addMilliseconds = __webpack_require__(5);
 
         function addSeconds(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMilliseconds(dirtyDate, amount * 1e3)
         }
 
         module.exports = addSeconds
     }, function (module, exports, __webpack_require__) {
-        var addDays = __webpack_require__(1);
+        const addDays = __webpack_require__(1);
 
         function addWeeks(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
-            var days = amount * 7;
+            const amount = Number(dirtyAmount);
+            const days = amount * 7;
             return addDays(dirtyDate, days)
         }
 
         module.exports = addWeeks
     }, function (module, exports, __webpack_require__) {
-        var addMonths = __webpack_require__(15);
+        const addMonths = __webpack_require__(15);
 
         function addYears(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMonths(dirtyDate, amount * 12)
         }
 
         module.exports = addYears
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function areRangesOverlapping(dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
-            var initialStartTime = parse(dirtyInitialRangeStartDate).getTime();
-            var initialEndTime = parse(dirtyInitialRangeEndDate).getTime();
-            var comparedStartTime = parse(dirtyComparedRangeStartDate).getTime();
-            var comparedEndTime = parse(dirtyComparedRangeEndDate).getTime();
+            const initialStartTime = parse(dirtyInitialRangeStartDate).getTime();
+            const initialEndTime = parse(dirtyInitialRangeEndDate).getTime();
+            const comparedStartTime = parse(dirtyComparedRangeStartDate).getTime();
+            const comparedEndTime = parse(dirtyComparedRangeEndDate).getTime();
             if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
                 throw new Error("The start of the range cannot be after the end of the range")
             }
@@ -625,19 +625,19 @@
 
         module.exports = areRangesOverlapping
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function closestIndexTo(dirtyDateToCompare, dirtyDatesArray) {
             if (!(dirtyDatesArray instanceof Array)) {
                 throw new TypeError(toString.call(dirtyDatesArray) + " is not an instance of Array")
             }
-            var dateToCompare = parse(dirtyDateToCompare);
-            var timeToCompare = dateToCompare.getTime();
-            var result;
-            var minDistance;
+            const dateToCompare = parse(dirtyDateToCompare);
+            const timeToCompare = dateToCompare.getTime();
+            let result;
+            let minDistance;
             dirtyDatesArray.forEach(function (dirtyDate, index) {
-                var currentDate = parse(dirtyDate);
-                var distance = Math.abs(timeToCompare - currentDate.getTime());
+                const currentDate = parse(dirtyDate);
+                const distance = Math.abs(timeToCompare - currentDate.getTime());
                 if (result === undefined || distance < minDistance) {
                     result = index;
                     minDistance = distance
@@ -648,19 +648,19 @@
 
         module.exports = closestIndexTo
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function closestTo(dirtyDateToCompare, dirtyDatesArray) {
             if (!(dirtyDatesArray instanceof Array)) {
                 throw new TypeError(toString.call(dirtyDatesArray) + " is not an instance of Array")
             }
-            var dateToCompare = parse(dirtyDateToCompare);
-            var timeToCompare = dateToCompare.getTime();
-            var result;
-            var minDistance;
+            const dateToCompare = parse(dirtyDateToCompare);
+            const timeToCompare = dateToCompare.getTime();
+            let result;
+            let minDistance;
             dirtyDatesArray.forEach(function (dirtyDate) {
-                var currentDate = parse(dirtyDate);
-                var distance = Math.abs(timeToCompare - currentDate.getTime());
+                const currentDate = parse(dirtyDate);
+                const distance = Math.abs(timeToCompare - currentDate.getTime());
                 if (result === undefined || distance < minDistance) {
                     result = currentDate;
                     minDistance = distance
@@ -671,13 +671,13 @@
 
         module.exports = closestTo
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function compareAsc(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var timeLeft = dateLeft.getTime();
-            var dateRight = parse(dirtyDateRight);
-            var timeRight = dateRight.getTime();
+            const dateLeft = parse(dirtyDateLeft);
+            const timeLeft = dateLeft.getTime();
+            const dateRight = parse(dirtyDateRight);
+            const timeRight = dateRight.getTime();
             if (timeLeft < timeRight) {
                 return -1
             } else if (timeLeft > timeRight) {
@@ -689,13 +689,13 @@
 
         module.exports = compareAsc
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function compareDesc(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var timeLeft = dateLeft.getTime();
-            var dateRight = parse(dirtyDateRight);
-            var timeRight = dateRight.getTime();
+            const dateLeft = parse(dirtyDateLeft);
+            const timeLeft = dateLeft.getTime();
+            const dateRight = parse(dirtyDateRight);
+            const timeRight = dateRight.getTime();
             if (timeLeft > timeRight) {
                 return -1
             } else if (timeLeft < timeRight) {
@@ -707,21 +707,21 @@
 
         module.exports = compareDesc
     }, function (module, exports, __webpack_require__) {
-        var startOfISOWeek = __webpack_require__(8);
-        var MILLISECONDS_IN_MINUTE = 6e4;
-        var MILLISECONDS_IN_WEEK = 6048e5;
+        const startOfISOWeek = __webpack_require__(8);
+        const MILLISECONDS_IN_MINUTE = 6e4;
+        const MILLISECONDS_IN_WEEK = 6048e5;
 
         function differenceInCalendarISOWeeks(dirtyDateLeft, dirtyDateRight) {
-            var startOfISOWeekLeft = startOfISOWeek(dirtyDateLeft);
-            var startOfISOWeekRight = startOfISOWeek(dirtyDateRight);
-            var timestampLeft = startOfISOWeekLeft.getTime() - startOfISOWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
-            var timestampRight = startOfISOWeekRight.getTime() - startOfISOWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+            const startOfISOWeekLeft = startOfISOWeek(dirtyDateLeft);
+            const startOfISOWeekRight = startOfISOWeek(dirtyDateRight);
+            const timestampLeft = startOfISOWeekLeft.getTime() - startOfISOWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+            const timestampRight = startOfISOWeekRight.getTime() - startOfISOWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
             return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
         }
 
         module.exports = differenceInCalendarISOWeeks
     }, function (module, exports, __webpack_require__) {
-        var getISOYear = __webpack_require__(7);
+        const getISOYear = __webpack_require__(7);
 
         function differenceInCalendarISOYears(dirtyDateLeft, dirtyDateRight) {
             return getISOYear(dirtyDateLeft) - getISOYear(dirtyDateRight)
@@ -729,216 +729,216 @@
 
         module.exports = differenceInCalendarISOYears
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function differenceInCalendarMonths(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
-            var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
-            var monthDiff = dateLeft.getMonth() - dateRight.getMonth();
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
+            const yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+            const monthDiff = dateLeft.getMonth() - dateRight.getMonth();
             return yearDiff * 12 + monthDiff
         }
 
         module.exports = differenceInCalendarMonths
     }, function (module, exports, __webpack_require__) {
-        var getQuarter = __webpack_require__(30);
-        var parse = __webpack_require__(2);
+        const getQuarter = __webpack_require__(30);
+        const parse = __webpack_require__(2);
 
         function differenceInCalendarQuarters(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
-            var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
-            var quarterDiff = getQuarter(dateLeft) - getQuarter(dateRight);
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
+            const yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+            const quarterDiff = getQuarter(dateLeft) - getQuarter(dateRight);
             return yearDiff * 4 + quarterDiff
         }
 
         module.exports = differenceInCalendarQuarters
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getQuarter(dirtyDate) {
-            var date = parse(dirtyDate);
-            var quarter = Math.floor(date.getMonth() / 3) + 1;
+            const date = parse(dirtyDate);
+            const quarter = Math.floor(date.getMonth() / 3) + 1;
             return quarter
         }
 
         module.exports = getQuarter
     }, function (module, exports, __webpack_require__) {
-        var startOfWeek = __webpack_require__(9);
-        var MILLISECONDS_IN_MINUTE = 6e4;
-        var MILLISECONDS_IN_WEEK = 6048e5;
+        const startOfWeek = __webpack_require__(9);
+        const MILLISECONDS_IN_MINUTE = 6e4;
+        const MILLISECONDS_IN_WEEK = 6048e5;
 
         function differenceInCalendarWeeks(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
-            var startOfWeekLeft = startOfWeek(dirtyDateLeft, dirtyOptions);
-            var startOfWeekRight = startOfWeek(dirtyDateRight, dirtyOptions);
-            var timestampLeft = startOfWeekLeft.getTime() - startOfWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
-            var timestampRight = startOfWeekRight.getTime() - startOfWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+            const startOfWeekLeft = startOfWeek(dirtyDateLeft, dirtyOptions);
+            const startOfWeekRight = startOfWeek(dirtyDateRight, dirtyOptions);
+            const timestampLeft = startOfWeekLeft.getTime() - startOfWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+            const timestampRight = startOfWeekRight.getTime() - startOfWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
             return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
         }
 
         module.exports = differenceInCalendarWeeks
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function differenceInCalendarYears(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
             return dateLeft.getFullYear() - dateRight.getFullYear()
         }
 
         module.exports = differenceInCalendarYears
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var differenceInCalendarDays = __webpack_require__(12);
-        var compareAsc = __webpack_require__(24);
+        const parse = __webpack_require__(2);
+        const differenceInCalendarDays = __webpack_require__(12);
+        const compareAsc = __webpack_require__(24);
 
         function differenceInDays(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
-            var sign = compareAsc(dateLeft, dateRight);
-            var difference = Math.abs(differenceInCalendarDays(dateLeft, dateRight));
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
+            const sign = compareAsc(dateLeft, dateRight);
+            const difference = Math.abs(differenceInCalendarDays(dateLeft, dateRight));
             dateLeft.setDate(dateLeft.getDate() - sign * difference);
-            var isLastDayNotFull = compareAsc(dateLeft, dateRight) === -sign;
+            const isLastDayNotFull = compareAsc(dateLeft, dateRight) === -sign;
             return sign * (difference - isLastDayNotFull)
         }
 
         module.exports = differenceInDays
     }, function (module, exports, __webpack_require__) {
-        var differenceInMilliseconds = __webpack_require__(35);
-        var MILLISECONDS_IN_HOUR = 36e5;
+        const differenceInMilliseconds = __webpack_require__(35);
+        const MILLISECONDS_IN_HOUR = 36e5;
 
         function differenceInHours(dirtyDateLeft, dirtyDateRight) {
-            var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR;
+            const diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR;
             return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
         }
 
         module.exports = differenceInHours
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
             return dateLeft.getTime() - dateRight.getTime()
         }
 
         module.exports = differenceInMilliseconds
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var differenceInCalendarISOYears = __webpack_require__(27);
-        var compareAsc = __webpack_require__(24);
-        var subISOYears = __webpack_require__(37);
+        const parse = __webpack_require__(2);
+        const differenceInCalendarISOYears = __webpack_require__(27);
+        const compareAsc = __webpack_require__(24);
+        const subISOYears = __webpack_require__(37);
 
         function differenceInISOYears(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
-            var sign = compareAsc(dateLeft, dateRight);
-            var difference = Math.abs(differenceInCalendarISOYears(dateLeft, dateRight));
+            let dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
+            const sign = compareAsc(dateLeft, dateRight);
+            const difference = Math.abs(differenceInCalendarISOYears(dateLeft, dateRight));
             dateLeft = subISOYears(dateLeft, sign * difference);
-            var isLastISOYearNotFull = compareAsc(dateLeft, dateRight) === -sign;
+            const isLastISOYearNotFull = compareAsc(dateLeft, dateRight) === -sign;
             return sign * (difference - isLastISOYearNotFull)
         }
 
         module.exports = differenceInISOYears
     }, function (module, exports, __webpack_require__) {
-        var addISOYears = __webpack_require__(6);
+        const addISOYears = __webpack_require__(6);
 
         function subISOYears(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addISOYears(dirtyDate, -amount)
         }
 
         module.exports = subISOYears
     }, function (module, exports, __webpack_require__) {
-        var differenceInMilliseconds = __webpack_require__(35);
-        var MILLISECONDS_IN_MINUTE = 6e4;
+        const differenceInMilliseconds = __webpack_require__(35);
+        const MILLISECONDS_IN_MINUTE = 6e4;
 
         function differenceInMinutes(dirtyDateLeft, dirtyDateRight) {
-            var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_MINUTE;
+            const diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_MINUTE;
             return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
         }
 
         module.exports = differenceInMinutes
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var differenceInCalendarMonths = __webpack_require__(28);
-        var compareAsc = __webpack_require__(24);
+        const parse = __webpack_require__(2);
+        const differenceInCalendarMonths = __webpack_require__(28);
+        const compareAsc = __webpack_require__(24);
 
         function differenceInMonths(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
-            var sign = compareAsc(dateLeft, dateRight);
-            var difference = Math.abs(differenceInCalendarMonths(dateLeft, dateRight));
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
+            const sign = compareAsc(dateLeft, dateRight);
+            const difference = Math.abs(differenceInCalendarMonths(dateLeft, dateRight));
             dateLeft.setMonth(dateLeft.getMonth() - sign * difference);
-            var isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign;
+            const isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign;
             return sign * (difference - isLastMonthNotFull)
         }
 
         module.exports = differenceInMonths
     }, function (module, exports, __webpack_require__) {
-        var differenceInMonths = __webpack_require__(39);
+        const differenceInMonths = __webpack_require__(39);
 
         function differenceInQuarters(dirtyDateLeft, dirtyDateRight) {
-            var diff = differenceInMonths(dirtyDateLeft, dirtyDateRight) / 3;
+            const diff = differenceInMonths(dirtyDateLeft, dirtyDateRight) / 3;
             return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
         }
 
         module.exports = differenceInQuarters
     }, function (module, exports, __webpack_require__) {
-        var differenceInMilliseconds = __webpack_require__(35);
+        const differenceInMilliseconds = __webpack_require__(35);
 
         function differenceInSeconds(dirtyDateLeft, dirtyDateRight) {
-            var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / 1e3;
+            const diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / 1e3;
             return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
         }
 
         module.exports = differenceInSeconds
     }, function (module, exports, __webpack_require__) {
-        var differenceInDays = __webpack_require__(33);
+        const differenceInDays = __webpack_require__(33);
 
         function differenceInWeeks(dirtyDateLeft, dirtyDateRight) {
-            var diff = differenceInDays(dirtyDateLeft, dirtyDateRight) / 7;
+            const diff = differenceInDays(dirtyDateLeft, dirtyDateRight) / 7;
             return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
         }
 
         module.exports = differenceInWeeks
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var differenceInCalendarYears = __webpack_require__(32);
-        var compareAsc = __webpack_require__(24);
+        const parse = __webpack_require__(2);
+        const differenceInCalendarYears = __webpack_require__(32);
+        const compareAsc = __webpack_require__(24);
 
         function differenceInYears(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
-            var sign = compareAsc(dateLeft, dateRight);
-            var difference = Math.abs(differenceInCalendarYears(dateLeft, dateRight));
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
+            const sign = compareAsc(dateLeft, dateRight);
+            const difference = Math.abs(differenceInCalendarYears(dateLeft, dateRight));
             dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference);
-            var isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign;
+            const isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign;
             return sign * (difference - isLastYearNotFull)
         }
 
         module.exports = differenceInYears
     }, function (module, exports, __webpack_require__) {
-        var compareDesc = __webpack_require__(25);
-        var parse = __webpack_require__(2);
-        var differenceInSeconds = __webpack_require__(41);
-        var differenceInMonths = __webpack_require__(39);
-        var enLocale = __webpack_require__(45);
-        var MINUTES_IN_DAY = 1440;
-        var MINUTES_IN_ALMOST_TWO_DAYS = 2520;
-        var MINUTES_IN_MONTH = 43200;
-        var MINUTES_IN_TWO_MONTHS = 86400;
+        const compareDesc = __webpack_require__(25);
+        const parse = __webpack_require__(2);
+        const differenceInSeconds = __webpack_require__(41);
+        const differenceInMonths = __webpack_require__(39);
+        const enLocale = __webpack_require__(45);
+        const MINUTES_IN_DAY = 1440;
+        const MINUTES_IN_ALMOST_TWO_DAYS = 2520;
+        const MINUTES_IN_MONTH = 43200;
+        const MINUTES_IN_TWO_MONTHS = 86400;
 
         function distanceInWords(dirtyDateToCompare, dirtyDate, dirtyOptions) {
-            var options = dirtyOptions || {};
-            var comparison = compareDesc(dirtyDateToCompare, dirtyDate);
-            var locale = options.locale;
-            var localize = enLocale.distanceInWords.localize;
+            const options = dirtyOptions || {};
+            const comparison = compareDesc(dirtyDateToCompare, dirtyDate);
+            const locale = options.locale;
+            let localize = enLocale.distanceInWords.localize;
             if (locale && locale.distanceInWords && locale.distanceInWords.localize) {
                 localize = locale.distanceInWords.localize
             }
-            var localizeOptions = {addSuffix: Boolean(options.addSuffix), comparison: comparison};
-            var dateLeft, dateRight;
+            const localizeOptions = {addSuffix: Boolean(options.addSuffix), comparison: comparison};
+            let dateLeft, dateRight;
             if (comparison > 0) {
                 dateLeft = parse(dirtyDateToCompare);
                 dateRight = parse(dirtyDate)
@@ -946,10 +946,10 @@
                 dateLeft = parse(dirtyDate);
                 dateRight = parse(dirtyDateToCompare)
             }
-            var seconds = differenceInSeconds(dateRight, dateLeft);
-            var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset();
-            var minutes = Math.round(seconds / 60) - offset;
-            var months;
+            const seconds = differenceInSeconds(dateRight, dateLeft);
+            const offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset();
+            const minutes = Math.round(seconds / 60) - offset;
+            let months;
             if (minutes < 2) {
                 if (options.includeSeconds) {
                     if (seconds < 5) {
@@ -977,12 +977,12 @@
             } else if (minutes < 90) {
                 return localize("aboutXHours", 1, localizeOptions)
             } else if (minutes < MINUTES_IN_DAY) {
-                var hours = Math.round(minutes / 60);
+                const hours = Math.round(minutes / 60);
                 return localize("aboutXHours", hours, localizeOptions)
             } else if (minutes < MINUTES_IN_ALMOST_TWO_DAYS) {
                 return localize("xDays", 1, localizeOptions)
             } else if (minutes < MINUTES_IN_MONTH) {
-                var days = Math.round(minutes / MINUTES_IN_DAY);
+                const days = Math.round(minutes / MINUTES_IN_DAY);
                 return localize("xDays", days, localizeOptions)
             } else if (minutes < MINUTES_IN_TWO_MONTHS) {
                 months = Math.round(minutes / MINUTES_IN_MONTH);
@@ -990,11 +990,11 @@
             }
             months = differenceInMonths(dateRight, dateLeft);
             if (months < 12) {
-                var nearestMonth = Math.round(minutes / MINUTES_IN_MONTH);
+                const nearestMonth = Math.round(minutes / MINUTES_IN_MONTH);
                 return localize("xMonths", nearestMonth, localizeOptions)
             } else {
-                var monthsSinceStartOfYear = months % 12;
-                var years = Math.floor(months / 12);
+                const monthsSinceStartOfYear = months % 12;
+                const years = Math.floor(months / 12);
                 if (monthsSinceStartOfYear < 3) {
                     return localize("aboutXYears", years, localizeOptions)
                 } else if (monthsSinceStartOfYear < 9) {
@@ -1007,12 +1007,12 @@
 
         module.exports = distanceInWords
     }, function (module, exports, __webpack_require__) {
-        var buildDistanceInWordsLocale = __webpack_require__(46);
-        var buildFormatLocale = __webpack_require__(47);
+        const buildDistanceInWordsLocale = __webpack_require__(46);
+        const buildFormatLocale = __webpack_require__(47);
         module.exports = {distanceInWords: buildDistanceInWordsLocale(), format: buildFormatLocale()}
     }, function (module, exports) {
         function buildDistanceInWordsLocale() {
-            var distanceInWordsLocale = {
+            const distanceInWordsLocale = {
                 lessThanXSeconds: {one: "less than a second", other: "less than {{count}} seconds"},
                 xSeconds: {one: "1 second", other: "{{count}} seconds"},
                 halfAMinute: "half a minute",
@@ -1033,7 +1033,7 @@
 
             function localize(token, count, options) {
                 options = options || {};
-                var result;
+                let result;
                 if (typeof distanceInWordsLocale[token] === "string") {
                     result = distanceInWordsLocale[token]
                 } else if (count === 1) {
@@ -1056,18 +1056,18 @@
 
         module.exports = buildDistanceInWordsLocale
     }, function (module, exports, __webpack_require__) {
-        var buildFormattingTokensRegExp = __webpack_require__(48);
+        const buildFormattingTokensRegExp = __webpack_require__(48);
 
         function buildFormatLocale() {
-            var months3char = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            var monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            var weekdays2char = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-            var weekdays3char = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            var weekdaysFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            var meridiemUppercase = ["AM", "PM"];
-            var meridiemLowercase = ["am", "pm"];
-            var meridiemFull = ["a.m.", "p.m."];
-            var formatters = {
+            const months3char = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const monthsFull = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const weekdays2char = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+            const weekdays3char = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const weekdaysFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const meridiemUppercase = ["AM", "PM"];
+            const meridiemLowercase = ["am", "pm"];
+            const meridiemFull = ["a.m.", "p.m."];
+            const formatters = {
                 MMM: function (date) {
                     return months3char[date.getMonth()]
                 }, MMMM: function (date) {
@@ -1086,7 +1086,7 @@
                     return date.getHours() / 12 >= 1 ? meridiemFull[1] : meridiemFull[0]
                 }
             };
-            var ordinalFormatters = ["M", "D", "DDD", "d", "Q", "W"];
+            const ordinalFormatters = ["M", "D", "DDD", "d", "Q", "W"];
             ordinalFormatters.forEach(function (formatterToken) {
                 formatters[formatterToken + "o"] = function (date, formatters) {
                     return ordinal(formatters[formatterToken](date))
@@ -1096,7 +1096,7 @@
         }
 
         function ordinal(number) {
-            var rem100 = number % 100;
+            const rem100 = number % 100;
             if (rem100 > 20 || rem100 < 10) {
                 switch (rem100 % 10) {
                     case 1:
@@ -1112,40 +1112,40 @@
 
         module.exports = buildFormatLocale
     }, function (module, exports) {
-        var commonFormatterKeys = ["M", "MM", "Q", "D", "DD", "DDD", "DDDD", "d", "E", "W", "WW", "YY", "YYYY", "GG", "GGGG", "H", "HH", "h", "hh", "m", "mm", "s", "ss", "S", "SS", "SSS", "Z", "ZZ", "X", "x"];
+        const commonFormatterKeys = ["M", "MM", "Q", "D", "DD", "DDD", "DDDD", "d", "E", "W", "WW", "YY", "YYYY", "GG", "GGGG", "H", "HH", "h", "hh", "m", "mm", "s", "ss", "S", "SS", "SSS", "Z", "ZZ", "X", "x"];
 
         function buildFormattingTokensRegExp(formatters) {
-            var formatterKeys = [];
-            for (var key in formatters) {
+            const formatterKeys = [];
+            for (let key in formatters) {
                 if (formatters.hasOwnProperty(key)) {
                     formatterKeys.push(key)
                 }
             }
-            var formattingTokens = commonFormatterKeys.concat(formatterKeys).sort().reverse();
-            var formattingTokensRegExp = new RegExp("(\\[[^\\[]*\\])|(\\\\)?" + "(" + formattingTokens.join("|") + "|.)", "g");
+            const formattingTokens = commonFormatterKeys.concat(formatterKeys).sort().reverse();
+            const formattingTokensRegExp = new RegExp("(\\[[^\\[]*\\])|(\\\\)?" + "(" + formattingTokens.join("|") + "|.)", "g");
             return formattingTokensRegExp
         }
 
         module.exports = buildFormattingTokensRegExp
     }, function (module, exports, __webpack_require__) {
-        var compareDesc = __webpack_require__(25);
-        var parse = __webpack_require__(2);
-        var differenceInSeconds = __webpack_require__(41);
-        var enLocale = __webpack_require__(45);
-        var MINUTES_IN_DAY = 1440;
-        var MINUTES_IN_MONTH = 43200;
-        var MINUTES_IN_YEAR = 525600;
+        const compareDesc = __webpack_require__(25);
+        const parse = __webpack_require__(2);
+        const differenceInSeconds = __webpack_require__(41);
+        const enLocale = __webpack_require__(45);
+        const MINUTES_IN_DAY = 1440;
+        const MINUTES_IN_MONTH = 43200;
+        const MINUTES_IN_YEAR = 525600;
 
         function distanceInWordsStrict(dirtyDateToCompare, dirtyDate, dirtyOptions) {
-            var options = dirtyOptions || {};
-            var comparison = compareDesc(dirtyDateToCompare, dirtyDate);
-            var locale = options.locale;
-            var localize = enLocale.distanceInWords.localize;
+            const options = dirtyOptions || {};
+            const comparison = compareDesc(dirtyDateToCompare, dirtyDate);
+            const locale = options.locale;
+            let localize = enLocale.distanceInWords.localize;
             if (locale && locale.distanceInWords && locale.distanceInWords.localize) {
                 localize = locale.distanceInWords.localize
             }
-            var localizeOptions = {addSuffix: Boolean(options.addSuffix), comparison: comparison};
-            var dateLeft, dateRight;
+            const localizeOptions = {addSuffix: Boolean(options.addSuffix), comparison: comparison};
+            let dateLeft, dateRight;
             if (comparison > 0) {
                 dateLeft = parse(dirtyDateToCompare);
                 dateRight = parse(dirtyDate)
@@ -1153,12 +1153,12 @@
                 dateLeft = parse(dirtyDate);
                 dateRight = parse(dirtyDateToCompare)
             }
-            var unit;
-            var mathPartial = Math[options.partialMethod ? String(options.partialMethod) : "floor"];
-            var seconds = differenceInSeconds(dateRight, dateLeft);
-            var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset();
-            var minutes = mathPartial(seconds / 60) - offset;
-            var hours, days, months, years;
+            let unit;
+            const mathPartial = Math[options.partialMethod ? String(options.partialMethod) : "floor"];
+            const seconds = differenceInSeconds(dateRight, dateLeft);
+            const offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset();
+            const minutes = mathPartial(seconds / 60) - offset;
+            let hours, days, months, years;
             if (options.unit) {
                 unit = String(options.unit)
             } else {
@@ -1198,7 +1198,7 @@
 
         module.exports = distanceInWordsStrict
     }, function (module, exports, __webpack_require__) {
-        var distanceInWords = __webpack_require__(44);
+        const distanceInWords = __webpack_require__(44);
 
         function distanceInWordsToNow(dirtyDate, dirtyOptions) {
             return distanceInWords(Date.now(), dirtyDate, dirtyOptions)
@@ -1206,17 +1206,17 @@
 
         module.exports = distanceInWordsToNow
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function eachDay(dirtyStartDate, dirtyEndDate) {
-            var startDate = parse(dirtyStartDate);
-            var endDate = parse(dirtyEndDate);
-            var endTime = endDate.getTime();
+            const startDate = parse(dirtyStartDate);
+            const endDate = parse(dirtyEndDate);
+            const endTime = endDate.getTime();
             if (startDate.getTime() > endTime) {
                 throw new Error("The first date cannot be after the second date")
             }
-            var dates = [];
-            var currentDate = startDate;
+            const dates = [];
+            const currentDate = startDate;
             currentDate.setHours(0, 0, 0, 0);
             while (currentDate.getTime() <= endTime) {
                 dates.push(parse(currentDate));
@@ -1227,27 +1227,27 @@
 
         module.exports = eachDay
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfDay(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setHours(23, 59, 59, 999);
             return date
         }
 
         module.exports = endOfDay
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfHour(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setMinutes(59, 59, 999);
             return date
         }
 
         module.exports = endOfHour
     }, function (module, exports, __webpack_require__) {
-        var endOfWeek = __webpack_require__(55);
+        const endOfWeek = __webpack_require__(55);
 
         function endOfISOWeek(dirtyDate) {
             return endOfWeek(dirtyDate, {weekStartsOn: 1})
@@ -1255,13 +1255,13 @@
 
         module.exports = endOfISOWeek
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfWeek(dirtyDate, dirtyOptions) {
-            var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
-            var date = parse(dirtyDate);
-            var day = date.getDay();
-            var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
+            const weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
+            const date = parse(dirtyDate);
+            const day = date.getDay();
+            const diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
             date.setDate(date.getDate() + diff);
             date.setHours(23, 59, 59, 999);
             return date
@@ -1269,36 +1269,36 @@
 
         module.exports = endOfWeek
     }, function (module, exports, __webpack_require__) {
-        var getISOYear = __webpack_require__(7);
-        var startOfISOWeek = __webpack_require__(8);
+        const getISOYear = __webpack_require__(7);
+        const startOfISOWeek = __webpack_require__(8);
 
         function endOfISOYear(dirtyDate) {
-            var year = getISOYear(dirtyDate);
-            var fourthOfJanuaryOfNextYear = new Date(0);
+            const year = getISOYear(dirtyDate);
+            const fourthOfJanuaryOfNextYear = new Date(0);
             fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
             fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
-            var date = startOfISOWeek(fourthOfJanuaryOfNextYear);
+            const date = startOfISOWeek(fourthOfJanuaryOfNextYear);
             date.setMilliseconds(date.getMilliseconds() - 1);
             return date
         }
 
         module.exports = endOfISOYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfMinute(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setSeconds(59, 999);
             return date
         }
 
         module.exports = endOfMinute
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfMonth(dirtyDate) {
-            var date = parse(dirtyDate);
-            var month = date.getMonth();
+            const date = parse(dirtyDate);
+            const month = date.getMonth();
             date.setFullYear(date.getFullYear(), month + 1, 0);
             date.setHours(23, 59, 59, 999);
             return date
@@ -1306,12 +1306,12 @@
 
         module.exports = endOfMonth
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfQuarter(dirtyDate) {
-            var date = parse(dirtyDate);
-            var currentMonth = date.getMonth();
-            var month = currentMonth - currentMonth % 3 + 3;
+            const date = parse(dirtyDate);
+            const currentMonth = date.getMonth();
+            const month = currentMonth - currentMonth % 3 + 3;
             date.setMonth(month, 0);
             date.setHours(23, 59, 59, 999);
             return date
@@ -1319,17 +1319,17 @@
 
         module.exports = endOfQuarter
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfSecond(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setMilliseconds(999);
             return date
         }
 
         module.exports = endOfSecond
     }, function (module, exports, __webpack_require__) {
-        var endOfDay = __webpack_require__(52);
+        const endOfDay = __webpack_require__(52);
 
         function endOfToday() {
             return endOfDay(new Date)
@@ -1338,11 +1338,11 @@
         module.exports = endOfToday
     }, function (module, exports) {
         function endOfTomorrow() {
-            var now = new Date;
-            var year = now.getFullYear();
-            var month = now.getMonth();
-            var day = now.getDate();
-            var date = new Date(0);
+            const now = new Date;
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const day = now.getDate();
+            const date = new Date(0);
             date.setFullYear(year, month, day + 1);
             date.setHours(23, 59, 59, 999);
             return date
@@ -1350,11 +1350,11 @@
 
         module.exports = endOfTomorrow
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function endOfYear(dirtyDate) {
-            var date = parse(dirtyDate);
-            var year = date.getFullYear();
+            const date = parse(dirtyDate);
+            const year = date.getFullYear();
             date.setFullYear(year + 1, 0, 0);
             date.setHours(23, 59, 59, 999);
             return date
@@ -1363,11 +1363,11 @@
         module.exports = endOfYear
     }, function (module, exports) {
         function endOfYesterday() {
-            var now = new Date;
-            var year = now.getFullYear();
-            var month = now.getMonth();
-            var day = now.getDate();
-            var date = new Date(0);
+            const now = new Date;
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const day = now.getDate();
+            const date = new Date(0);
             date.setFullYear(year, month, day - 1);
             date.setHours(23, 59, 59, 999);
             return date
@@ -1375,34 +1375,34 @@
 
         module.exports = endOfYesterday
     }, function (module, exports, __webpack_require__) {
-        var getDayOfYear = __webpack_require__(66);
-        var getISOWeek = __webpack_require__(68);
-        var getISOYear = __webpack_require__(7);
-        var parse = __webpack_require__(2);
-        var isValid = __webpack_require__(69);
-        var enLocale = __webpack_require__(45);
+        const getDayOfYear = __webpack_require__(66);
+        const getISOWeek = __webpack_require__(68);
+        const getISOYear = __webpack_require__(7);
+        const parse = __webpack_require__(2);
+        const isValid = __webpack_require__(69);
+        const enLocale = __webpack_require__(45);
 
         function format(dirtyDate, dirtyFormatStr, dirtyOptions) {
-            var formatStr = dirtyFormatStr ? String(dirtyFormatStr) : "YYYY-MM-DDTHH:mm:ss.SSSZ";
-            var options = dirtyOptions || {};
-            var locale = options.locale;
-            var localeFormatters = enLocale.format.formatters;
-            var formattingTokensRegExp = enLocale.format.formattingTokensRegExp;
+            const formatStr = dirtyFormatStr ? String(dirtyFormatStr) : "YYYY-MM-DDTHH:mm:ss.SSSZ";
+            const options = dirtyOptions || {};
+            const locale = options.locale;
+            let localeFormatters = enLocale.format.formatters;
+            let formattingTokensRegExp = enLocale.format.formattingTokensRegExp;
             if (locale && locale.format && locale.format.formatters) {
                 localeFormatters = locale.format.formatters;
                 if (locale.format.formattingTokensRegExp) {
                     formattingTokensRegExp = locale.format.formattingTokensRegExp
                 }
             }
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             if (!isValid(date)) {
                 return "Invalid Date"
             }
-            var formatFn = buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp);
+            const formatFn = buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp);
             return formatFn(date)
         }
 
-        var formatters = {
+        const formatters = {
             M: function (date) {
                 return date.getMonth() + 1
             }, MM: function (date) {
@@ -1438,7 +1438,7 @@
             }, HH: function (date) {
                 return addLeadingZeros(date.getHours(), 2)
             }, h: function (date) {
-                var hours = date.getHours();
+                const hours = date.getHours();
                 if (hours === 0) {
                     return 12
                 } else if (hours > 12) {
@@ -1474,10 +1474,10 @@
         };
 
         function buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp) {
-            var array = formatStr.match(formattingTokensRegExp);
-            var length = array.length;
-            var i;
-            var formatter;
+            const array = formatStr.match(formattingTokensRegExp);
+            const length = array.length;
+            let i;
+            let formatter;
             for (i = 0; i < length; i++) {
                 formatter = localeFormatters[array[i]] || formatters[array[i]];
                 if (formatter) {
@@ -1487,8 +1487,8 @@
                 }
             }
             return function (date) {
-                var output = "";
-                for (var i = 0; i < length; i++) {
+                let output = "";
+                for (let i = 0; i < length; i++) {
                     if (array[i] instanceof Function) {
                         output += array[i](date, formatters)
                     } else {
@@ -1508,15 +1508,15 @@
 
         function formatTimezone(offset, delimeter) {
             delimeter = delimeter || "";
-            var sign = offset > 0 ? "-" : "+";
-            var absOffset = Math.abs(offset);
-            var hours = Math.floor(absOffset / 60);
-            var minutes = absOffset % 60;
+            const sign = offset > 0 ? "-" : "+";
+            const absOffset = Math.abs(offset);
+            const hours = Math.floor(absOffset / 60);
+            const minutes = absOffset % 60;
             return sign + addLeadingZeros(hours, 2) + delimeter + addLeadingZeros(minutes, 2)
         }
 
         function addLeadingZeros(number, targetLength) {
-            var output = Math.abs(number).toString();
+            let output = Math.abs(number).toString();
             while (output.length < targetLength) {
                 output = "0" + output
             }
@@ -1525,24 +1525,24 @@
 
         module.exports = format
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var startOfYear = __webpack_require__(67);
-        var differenceInCalendarDays = __webpack_require__(12);
+        const parse = __webpack_require__(2);
+        const startOfYear = __webpack_require__(67);
+        const differenceInCalendarDays = __webpack_require__(12);
 
         function getDayOfYear(dirtyDate) {
-            var date = parse(dirtyDate);
-            var diff = differenceInCalendarDays(date, startOfYear(date));
-            var dayOfYear = diff + 1;
+            const date = parse(dirtyDate);
+            const diff = differenceInCalendarDays(date, startOfYear(date));
+            const dayOfYear = diff + 1;
             return dayOfYear
         }
 
         module.exports = getDayOfYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfYear(dirtyDate) {
-            var cleanDate = parse(dirtyDate);
-            var date = new Date(0);
+            const cleanDate = parse(dirtyDate);
+            const date = new Date(0);
             date.setFullYear(cleanDate.getFullYear(), 0, 1);
             date.setHours(0, 0, 0, 0);
             return date
@@ -1550,20 +1550,20 @@
 
         module.exports = startOfYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var startOfISOWeek = __webpack_require__(8);
-        var startOfISOYear = __webpack_require__(11);
-        var MILLISECONDS_IN_WEEK = 6048e5;
+        const parse = __webpack_require__(2);
+        const startOfISOWeek = __webpack_require__(8);
+        const startOfISOYear = __webpack_require__(11);
+        const MILLISECONDS_IN_WEEK = 6048e5;
 
         function getISOWeek(dirtyDate) {
-            var date = parse(dirtyDate);
-            var diff = startOfISOWeek(date).getTime() - startOfISOYear(date).getTime();
+            const date = parse(dirtyDate);
+            const diff = startOfISOWeek(date).getTime() - startOfISOYear(date).getTime();
             return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
         }
 
         module.exports = getISOWeek
     }, function (module, exports, __webpack_require__) {
-        var isDate = __webpack_require__(3);
+        const isDate = __webpack_require__(3);
 
         function isValid(dirtyDate) {
             if (isDate(dirtyDate)) {
@@ -1575,27 +1575,27 @@
 
         module.exports = isValid
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getDate(dirtyDate) {
-            var date = parse(dirtyDate);
-            var dayOfMonth = date.getDate();
+            const date = parse(dirtyDate);
+            const dayOfMonth = date.getDate();
             return dayOfMonth
         }
 
         module.exports = getDate
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getDay(dirtyDate) {
-            var date = parse(dirtyDate);
-            var day = date.getDay();
+            const date = parse(dirtyDate);
+            const day = date.getDay();
             return day
         }
 
         module.exports = getDay
     }, function (module, exports, __webpack_require__) {
-        var isLeapYear = __webpack_require__(73);
+        const isLeapYear = __webpack_require__(73);
 
         function getDaysInYear(dirtyDate) {
             return isLeapYear(dirtyDate) ? 366 : 365
@@ -1603,31 +1603,31 @@
 
         module.exports = getDaysInYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isLeapYear(dirtyDate) {
-            var date = parse(dirtyDate);
-            var year = date.getFullYear();
+            const date = parse(dirtyDate);
+            const year = date.getFullYear();
             return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0
         }
 
         module.exports = isLeapYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getHours(dirtyDate) {
-            var date = parse(dirtyDate);
-            var hours = date.getHours();
+            const date = parse(dirtyDate);
+            const hours = date.getHours();
             return hours
         }
 
         module.exports = getHours
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getISODay(dirtyDate) {
-            var date = parse(dirtyDate);
-            var day = date.getDay();
+            const date = parse(dirtyDate);
+            let day = date.getDay();
             if (day === 0) {
                 day = 7
             }
@@ -1636,133 +1636,133 @@
 
         module.exports = getISODay
     }, function (module, exports, __webpack_require__) {
-        var startOfISOYear = __webpack_require__(11);
-        var addWeeks = __webpack_require__(19);
-        var MILLISECONDS_IN_WEEK = 6048e5;
+        const startOfISOYear = __webpack_require__(11);
+        const addWeeks = __webpack_require__(19);
+        const MILLISECONDS_IN_WEEK = 6048e5;
 
         function getISOWeeksInYear(dirtyDate) {
-            var thisYear = startOfISOYear(dirtyDate);
-            var nextYear = startOfISOYear(addWeeks(thisYear, 60));
-            var diff = nextYear.valueOf() - thisYear.valueOf();
+            const thisYear = startOfISOYear(dirtyDate);
+            const nextYear = startOfISOYear(addWeeks(thisYear, 60));
+            const diff = nextYear.valueOf() - thisYear.valueOf();
             return Math.round(diff / MILLISECONDS_IN_WEEK)
         }
 
         module.exports = getISOWeeksInYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getMilliseconds(dirtyDate) {
-            var date = parse(dirtyDate);
-            var milliseconds = date.getMilliseconds();
+            const date = parse(dirtyDate);
+            const milliseconds = date.getMilliseconds();
             return milliseconds
         }
 
         module.exports = getMilliseconds
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getMinutes(dirtyDate) {
-            var date = parse(dirtyDate);
-            var minutes = date.getMinutes();
+            const date = parse(dirtyDate);
+            const minutes = date.getMinutes();
             return minutes
         }
 
         module.exports = getMinutes
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getMonth(dirtyDate) {
-            var date = parse(dirtyDate);
-            var month = date.getMonth();
+            const date = parse(dirtyDate);
+            const month = date.getMonth();
             return month
         }
 
         module.exports = getMonth
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1e3;
+        const parse = __webpack_require__(2);
+        const MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1e3;
 
         function getOverlappingDaysInRanges(dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
-            var initialStartTime = parse(dirtyInitialRangeStartDate).getTime();
-            var initialEndTime = parse(dirtyInitialRangeEndDate).getTime();
-            var comparedStartTime = parse(dirtyComparedRangeStartDate).getTime();
-            var comparedEndTime = parse(dirtyComparedRangeEndDate).getTime();
+            const initialStartTime = parse(dirtyInitialRangeStartDate).getTime();
+            const initialEndTime = parse(dirtyInitialRangeEndDate).getTime();
+            const comparedStartTime = parse(dirtyComparedRangeStartDate).getTime();
+            const comparedEndTime = parse(dirtyComparedRangeEndDate).getTime();
             if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
                 throw new Error("The start of the range cannot be after the end of the range")
             }
-            var isOverlapping = initialStartTime < comparedEndTime && comparedStartTime < initialEndTime;
+            const isOverlapping = initialStartTime < comparedEndTime && comparedStartTime < initialEndTime;
             if (!isOverlapping) {
                 return 0
             }
-            var overlapStartDate = comparedStartTime < initialStartTime ? initialStartTime : comparedStartTime;
-            var overlapEndDate = comparedEndTime > initialEndTime ? initialEndTime : comparedEndTime;
-            var differenceInMs = overlapEndDate - overlapStartDate;
+            const overlapStartDate = comparedStartTime < initialStartTime ? initialStartTime : comparedStartTime;
+            const overlapEndDate = comparedEndTime > initialEndTime ? initialEndTime : comparedEndTime;
+            const differenceInMs = overlapEndDate - overlapStartDate;
             return Math.ceil(differenceInMs / MILLISECONDS_IN_DAY)
         }
 
         module.exports = getOverlappingDaysInRanges
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getSeconds(dirtyDate) {
-            var date = parse(dirtyDate);
-            var seconds = date.getSeconds();
+            const date = parse(dirtyDate);
+            const seconds = date.getSeconds();
             return seconds
         }
 
         module.exports = getSeconds
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getTime(dirtyDate) {
-            var date = parse(dirtyDate);
-            var timestamp = date.getTime();
+            const date = parse(dirtyDate);
+            const timestamp = date.getTime();
             return timestamp
         }
 
         module.exports = getTime
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function getYear(dirtyDate) {
-            var date = parse(dirtyDate);
-            var year = date.getFullYear();
+            const date = parse(dirtyDate);
+            const year = date.getFullYear();
             return year
         }
 
         module.exports = getYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isAfter(dirtyDate, dirtyDateToCompare) {
-            var date = parse(dirtyDate);
-            var dateToCompare = parse(dirtyDateToCompare);
+            const date = parse(dirtyDate);
+            const dateToCompare = parse(dirtyDateToCompare);
             return date.getTime() > dateToCompare.getTime()
         }
 
         module.exports = isAfter
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isBefore(dirtyDate, dirtyDateToCompare) {
-            var date = parse(dirtyDate);
-            var dateToCompare = parse(dirtyDateToCompare);
+            const date = parse(dirtyDate);
+            const dateToCompare = parse(dirtyDateToCompare);
             return date.getTime() < dateToCompare.getTime()
         }
 
         module.exports = isBefore
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isEqual(dirtyLeftDate, dirtyRightDate) {
-            var dateLeft = parse(dirtyLeftDate);
-            var dateRight = parse(dirtyRightDate);
+            const dateLeft = parse(dirtyLeftDate);
+            const dateRight = parse(dirtyRightDate);
             return dateLeft.getTime() === dateRight.getTime()
         }
 
         module.exports = isEqual
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isFirstDayOfMonth(dirtyDate) {
             return parse(dirtyDate).getDate() === 1
@@ -1770,7 +1770,7 @@
 
         module.exports = isFirstDayOfMonth
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isFriday(dirtyDate) {
             return parse(dirtyDate).getDay() === 5
@@ -1778,7 +1778,7 @@
 
         module.exports = isFriday
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isFuture(dirtyDate) {
             return parse(dirtyDate).getTime() > (new Date).getTime()
@@ -1786,18 +1786,18 @@
 
         module.exports = isFuture
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var endOfDay = __webpack_require__(52);
-        var endOfMonth = __webpack_require__(58);
+        const parse = __webpack_require__(2);
+        const endOfDay = __webpack_require__(52);
+        const endOfMonth = __webpack_require__(58);
 
         function isLastDayOfMonth(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             return endOfDay(date).getTime() === endOfMonth(date).getTime()
         }
 
         module.exports = isLastDayOfMonth
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isMonday(dirtyDate) {
             return parse(dirtyDate).getDay() === 1
@@ -1805,7 +1805,7 @@
 
         module.exports = isMonday
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isPast(dirtyDate) {
             return parse(dirtyDate).getTime() < (new Date).getTime()
@@ -1813,37 +1813,37 @@
 
         module.exports = isPast
     }, function (module, exports, __webpack_require__) {
-        var startOfDay = __webpack_require__(13);
+        const startOfDay = __webpack_require__(13);
 
         function isSameDay(dirtyDateLeft, dirtyDateRight) {
-            var dateLeftStartOfDay = startOfDay(dirtyDateLeft);
-            var dateRightStartOfDay = startOfDay(dirtyDateRight);
+            const dateLeftStartOfDay = startOfDay(dirtyDateLeft);
+            const dateRightStartOfDay = startOfDay(dirtyDateRight);
             return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime()
         }
 
         module.exports = isSameDay
     }, function (module, exports, __webpack_require__) {
-        var startOfHour = __webpack_require__(95);
+        const startOfHour = __webpack_require__(95);
 
         function isSameHour(dirtyDateLeft, dirtyDateRight) {
-            var dateLeftStartOfHour = startOfHour(dirtyDateLeft);
-            var dateRightStartOfHour = startOfHour(dirtyDateRight);
+            const dateLeftStartOfHour = startOfHour(dirtyDateLeft);
+            const dateRightStartOfHour = startOfHour(dirtyDateRight);
             return dateLeftStartOfHour.getTime() === dateRightStartOfHour.getTime()
         }
 
         module.exports = isSameHour
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfHour(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setMinutes(0, 0, 0);
             return date
         }
 
         module.exports = startOfHour
     }, function (module, exports, __webpack_require__) {
-        var isSameWeek = __webpack_require__(97);
+        const isSameWeek = __webpack_require__(97);
 
         function isSameISOWeek(dirtyDateLeft, dirtyDateRight) {
             return isSameWeek(dirtyDateLeft, dirtyDateRight, {weekStartsOn: 1})
@@ -1851,72 +1851,72 @@
 
         module.exports = isSameISOWeek
     }, function (module, exports, __webpack_require__) {
-        var startOfWeek = __webpack_require__(9);
+        const startOfWeek = __webpack_require__(9);
 
         function isSameWeek(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
-            var dateLeftStartOfWeek = startOfWeek(dirtyDateLeft, dirtyOptions);
-            var dateRightStartOfWeek = startOfWeek(dirtyDateRight, dirtyOptions);
+            const dateLeftStartOfWeek = startOfWeek(dirtyDateLeft, dirtyOptions);
+            const dateRightStartOfWeek = startOfWeek(dirtyDateRight, dirtyOptions);
             return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime()
         }
 
         module.exports = isSameWeek
     }, function (module, exports, __webpack_require__) {
-        var startOfISOYear = __webpack_require__(11);
+        const startOfISOYear = __webpack_require__(11);
 
         function isSameISOYear(dirtyDateLeft, dirtyDateRight) {
-            var dateLeftStartOfYear = startOfISOYear(dirtyDateLeft);
-            var dateRightStartOfYear = startOfISOYear(dirtyDateRight);
+            const dateLeftStartOfYear = startOfISOYear(dirtyDateLeft);
+            const dateRightStartOfYear = startOfISOYear(dirtyDateRight);
             return dateLeftStartOfYear.getTime() === dateRightStartOfYear.getTime()
         }
 
         module.exports = isSameISOYear
     }, function (module, exports, __webpack_require__) {
-        var startOfMinute = __webpack_require__(100);
+        const startOfMinute = __webpack_require__(100);
 
         function isSameMinute(dirtyDateLeft, dirtyDateRight) {
-            var dateLeftStartOfMinute = startOfMinute(dirtyDateLeft);
-            var dateRightStartOfMinute = startOfMinute(dirtyDateRight);
+            const dateLeftStartOfMinute = startOfMinute(dirtyDateLeft);
+            const dateRightStartOfMinute = startOfMinute(dirtyDateRight);
             return dateLeftStartOfMinute.getTime() === dateRightStartOfMinute.getTime()
         }
 
         module.exports = isSameMinute
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfMinute(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setSeconds(0, 0);
             return date
         }
 
         module.exports = startOfMinute
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isSameMonth(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
             return dateLeft.getFullYear() === dateRight.getFullYear() && dateLeft.getMonth() === dateRight.getMonth()
         }
 
         module.exports = isSameMonth
     }, function (module, exports, __webpack_require__) {
-        var startOfQuarter = __webpack_require__(103);
+        const startOfQuarter = __webpack_require__(103);
 
         function isSameQuarter(dirtyDateLeft, dirtyDateRight) {
-            var dateLeftStartOfQuarter = startOfQuarter(dirtyDateLeft);
-            var dateRightStartOfQuarter = startOfQuarter(dirtyDateRight);
+            const dateLeftStartOfQuarter = startOfQuarter(dirtyDateLeft);
+            const dateRightStartOfQuarter = startOfQuarter(dirtyDateRight);
             return dateLeftStartOfQuarter.getTime() === dateRightStartOfQuarter.getTime()
         }
 
         module.exports = isSameQuarter
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfQuarter(dirtyDate) {
-            var date = parse(dirtyDate);
-            var currentMonth = date.getMonth();
-            var month = currentMonth - currentMonth % 3;
+            const date = parse(dirtyDate);
+            const currentMonth = date.getMonth();
+            const month = currentMonth - currentMonth % 3;
             date.setMonth(month, 1);
             date.setHours(0, 0, 0, 0);
             return date
@@ -1924,37 +1924,37 @@
 
         module.exports = startOfQuarter
     }, function (module, exports, __webpack_require__) {
-        var startOfSecond = __webpack_require__(105);
+        const startOfSecond = __webpack_require__(105);
 
         function isSameSecond(dirtyDateLeft, dirtyDateRight) {
-            var dateLeftStartOfSecond = startOfSecond(dirtyDateLeft);
-            var dateRightStartOfSecond = startOfSecond(dirtyDateRight);
+            const dateLeftStartOfSecond = startOfSecond(dirtyDateLeft);
+            const dateRightStartOfSecond = startOfSecond(dirtyDateRight);
             return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime()
         }
 
         module.exports = isSameSecond
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfSecond(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setMilliseconds(0);
             return date
         }
 
         module.exports = startOfSecond
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isSameYear(dirtyDateLeft, dirtyDateRight) {
-            var dateLeft = parse(dirtyDateLeft);
-            var dateRight = parse(dirtyDateRight);
+            const dateLeft = parse(dirtyDateLeft);
+            const dateRight = parse(dirtyDateRight);
             return dateLeft.getFullYear() === dateRight.getFullYear()
         }
 
         module.exports = isSameYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isSaturday(dirtyDate) {
             return parse(dirtyDate).getDay() === 6
@@ -1962,7 +1962,7 @@
 
         module.exports = isSaturday
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isSunday(dirtyDate) {
             return parse(dirtyDate).getDay() === 0
@@ -1970,7 +1970,7 @@
 
         module.exports = isSunday
     }, function (module, exports, __webpack_require__) {
-        var isSameHour = __webpack_require__(94);
+        const isSameHour = __webpack_require__(94);
 
         function isThisHour(dirtyDate) {
             return isSameHour(new Date, dirtyDate)
@@ -1978,7 +1978,7 @@
 
         module.exports = isThisHour
     }, function (module, exports, __webpack_require__) {
-        var isSameISOWeek = __webpack_require__(96);
+        const isSameISOWeek = __webpack_require__(96);
 
         function isThisISOWeek(dirtyDate) {
             return isSameISOWeek(new Date, dirtyDate)
@@ -1986,7 +1986,7 @@
 
         module.exports = isThisISOWeek
     }, function (module, exports, __webpack_require__) {
-        var isSameISOYear = __webpack_require__(98);
+        const isSameISOYear = __webpack_require__(98);
 
         function isThisISOYear(dirtyDate) {
             return isSameISOYear(new Date, dirtyDate)
@@ -1994,7 +1994,7 @@
 
         module.exports = isThisISOYear
     }, function (module, exports, __webpack_require__) {
-        var isSameMinute = __webpack_require__(99);
+        const isSameMinute = __webpack_require__(99);
 
         function isThisMinute(dirtyDate) {
             return isSameMinute(new Date, dirtyDate)
@@ -2002,7 +2002,7 @@
 
         module.exports = isThisMinute
     }, function (module, exports, __webpack_require__) {
-        var isSameMonth = __webpack_require__(101);
+        const isSameMonth = __webpack_require__(101);
 
         function isThisMonth(dirtyDate) {
             return isSameMonth(new Date, dirtyDate)
@@ -2010,7 +2010,7 @@
 
         module.exports = isThisMonth
     }, function (module, exports, __webpack_require__) {
-        var isSameQuarter = __webpack_require__(102);
+        const isSameQuarter = __webpack_require__(102);
 
         function isThisQuarter(dirtyDate) {
             return isSameQuarter(new Date, dirtyDate)
@@ -2018,7 +2018,7 @@
 
         module.exports = isThisQuarter
     }, function (module, exports, __webpack_require__) {
-        var isSameSecond = __webpack_require__(104);
+        const isSameSecond = __webpack_require__(104);
 
         function isThisSecond(dirtyDate) {
             return isSameSecond(new Date, dirtyDate)
@@ -2026,7 +2026,7 @@
 
         module.exports = isThisSecond
     }, function (module, exports, __webpack_require__) {
-        var isSameWeek = __webpack_require__(97);
+        const isSameWeek = __webpack_require__(97);
 
         function isThisWeek(dirtyDate, dirtyOptions) {
             return isSameWeek(new Date, dirtyDate, dirtyOptions)
@@ -2034,7 +2034,7 @@
 
         module.exports = isThisWeek
     }, function (module, exports, __webpack_require__) {
-        var isSameYear = __webpack_require__(106);
+        const isSameYear = __webpack_require__(106);
 
         function isThisYear(dirtyDate) {
             return isSameYear(new Date, dirtyDate)
@@ -2042,7 +2042,7 @@
 
         module.exports = isThisYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isThursday(dirtyDate) {
             return parse(dirtyDate).getDay() === 4
@@ -2050,7 +2050,7 @@
 
         module.exports = isThursday
     }, function (module, exports, __webpack_require__) {
-        var startOfDay = __webpack_require__(13);
+        const startOfDay = __webpack_require__(13);
 
         function isToday(dirtyDate) {
             return startOfDay(dirtyDate).getTime() === startOfDay(new Date).getTime()
@@ -2058,17 +2058,17 @@
 
         module.exports = isToday
     }, function (module, exports, __webpack_require__) {
-        var startOfDay = __webpack_require__(13);
+        const startOfDay = __webpack_require__(13);
 
         function isTomorrow(dirtyDate) {
-            var tomorrow = new Date;
+            const tomorrow = new Date;
             tomorrow.setDate(tomorrow.getDate() + 1);
             return startOfDay(dirtyDate).getTime() === startOfDay(tomorrow).getTime()
         }
 
         module.exports = isTomorrow
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isTuesday(dirtyDate) {
             return parse(dirtyDate).getDay() === 2
@@ -2076,7 +2076,7 @@
 
         module.exports = isTuesday
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isWednesday(dirtyDate) {
             return parse(dirtyDate).getDay() === 3
@@ -2084,22 +2084,22 @@
 
         module.exports = isWednesday
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isWeekend(dirtyDate) {
-            var date = parse(dirtyDate);
-            var day = date.getDay();
+            const date = parse(dirtyDate);
+            const day = date.getDay();
             return day === 0 || day === 6
         }
 
         module.exports = isWeekend
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function isWithinRange(dirtyDate, dirtyStartDate, dirtyEndDate) {
-            var time = parse(dirtyDate).getTime();
-            var startTime = parse(dirtyStartDate).getTime();
-            var endTime = parse(dirtyEndDate).getTime();
+            const time = parse(dirtyDate).getTime();
+            const startTime = parse(dirtyStartDate).getTime();
+            const endTime = parse(dirtyEndDate).getTime();
             if (startTime > endTime) {
                 throw new Error("The start of the range cannot be after the end of the range")
             }
@@ -2108,17 +2108,17 @@
 
         module.exports = isWithinRange
     }, function (module, exports, __webpack_require__) {
-        var startOfDay = __webpack_require__(13);
+        const startOfDay = __webpack_require__(13);
 
         function isYesterday(dirtyDate) {
-            var yesterday = new Date;
+            const yesterday = new Date;
             yesterday.setDate(yesterday.getDate() - 1);
             return startOfDay(dirtyDate).getTime() === startOfDay(yesterday).getTime()
         }
 
         module.exports = isYesterday
     }, function (module, exports, __webpack_require__) {
-        var lastDayOfWeek = __webpack_require__(127);
+        const lastDayOfWeek = __webpack_require__(127);
 
         function lastDayOfISOWeek(dirtyDate) {
             return lastDayOfWeek(dirtyDate, {weekStartsOn: 1})
@@ -2126,13 +2126,13 @@
 
         module.exports = lastDayOfISOWeek
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function lastDayOfWeek(dirtyDate, dirtyOptions) {
-            var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
-            var date = parse(dirtyDate);
-            var day = date.getDay();
-            var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
+            const weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
+            const date = parse(dirtyDate);
+            const day = date.getDay();
+            const diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
             date.setHours(0, 0, 0, 0);
             date.setDate(date.getDate() + diff);
             return date
@@ -2140,26 +2140,26 @@
 
         module.exports = lastDayOfWeek
     }, function (module, exports, __webpack_require__) {
-        var getISOYear = __webpack_require__(7);
-        var startOfISOWeek = __webpack_require__(8);
+        const getISOYear = __webpack_require__(7);
+        const startOfISOWeek = __webpack_require__(8);
 
         function lastDayOfISOYear(dirtyDate) {
-            var year = getISOYear(dirtyDate);
-            var fourthOfJanuary = new Date(0);
+            const year = getISOYear(dirtyDate);
+            const fourthOfJanuary = new Date(0);
             fourthOfJanuary.setFullYear(year + 1, 0, 4);
             fourthOfJanuary.setHours(0, 0, 0, 0);
-            var date = startOfISOWeek(fourthOfJanuary);
+            const date = startOfISOWeek(fourthOfJanuary);
             date.setDate(date.getDate() - 1);
             return date
         }
 
         module.exports = lastDayOfISOYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function lastDayOfMonth(dirtyDate) {
-            var date = parse(dirtyDate);
-            var month = date.getMonth();
+            const date = parse(dirtyDate);
+            const month = date.getMonth();
             date.setFullYear(date.getFullYear(), month + 1, 0);
             date.setHours(0, 0, 0, 0);
             return date
@@ -2167,12 +2167,12 @@
 
         module.exports = lastDayOfMonth
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function lastDayOfQuarter(dirtyDate) {
-            var date = parse(dirtyDate);
-            var currentMonth = date.getMonth();
-            var month = currentMonth - currentMonth % 3 + 3;
+            const date = parse(dirtyDate);
+            const currentMonth = date.getMonth();
+            const month = currentMonth - currentMonth % 3 + 3;
             date.setMonth(month, 0);
             date.setHours(0, 0, 0, 0);
             return date
@@ -2180,11 +2180,11 @@
 
         module.exports = lastDayOfQuarter
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function lastDayOfYear(dirtyDate) {
-            var date = parse(dirtyDate);
-            var year = date.getFullYear();
+            const date = parse(dirtyDate);
+            const year = date.getFullYear();
             date.setFullYear(year + 1, 0, 0);
             date.setHours(0, 0, 0, 0);
             return date
@@ -2192,64 +2192,64 @@
 
         module.exports = lastDayOfYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function max() {
-            var dirtyDates = Array.prototype.slice.call(arguments);
-            var dates = dirtyDates.map(function (dirtyDate) {
+            const dirtyDates = Array.prototype.slice.call(arguments);
+            const dates = dirtyDates.map(function (dirtyDate) {
                 return parse(dirtyDate)
             });
-            var latestTimestamp = Math.max.apply(null, dates);
+            const latestTimestamp = Math.max.apply(null, dates);
             return new Date(latestTimestamp)
         }
 
         module.exports = max
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function min() {
-            var dirtyDates = Array.prototype.slice.call(arguments);
-            var dates = dirtyDates.map(function (dirtyDate) {
+            const dirtyDates = Array.prototype.slice.call(arguments);
+            const dates = dirtyDates.map(function (dirtyDate) {
                 return parse(dirtyDate)
             });
-            var earliestTimestamp = Math.min.apply(null, dates);
+            const earliestTimestamp = Math.min.apply(null, dates);
             return new Date(earliestTimestamp)
         }
 
         module.exports = min
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setDate(dirtyDate, dirtyDayOfMonth) {
-            var date = parse(dirtyDate);
-            var dayOfMonth = Number(dirtyDayOfMonth);
+            const date = parse(dirtyDate);
+            const dayOfMonth = Number(dirtyDayOfMonth);
             date.setDate(dayOfMonth);
             return date
         }
 
         module.exports = setDate
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var addDays = __webpack_require__(1);
+        const parse = __webpack_require__(2);
+        const addDays = __webpack_require__(1);
 
         function setDay(dirtyDate, dirtyDay, dirtyOptions) {
-            var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
-            var date = parse(dirtyDate);
-            var day = Number(dirtyDay);
-            var currentDay = date.getDay();
-            var remainder = day % 7;
-            var dayIndex = (remainder + 7) % 7;
-            var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
+            const weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
+            const date = parse(dirtyDate);
+            const day = Number(dirtyDay);
+            const currentDay = date.getDay();
+            const remainder = day % 7;
+            const dayIndex = (remainder + 7) % 7;
+            const diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
             return addDays(date, diff)
         }
 
         module.exports = setDay
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setDayOfYear(dirtyDate, dirtyDayOfYear) {
-            var date = parse(dirtyDate);
-            var dayOfYear = Number(dirtyDayOfYear);
+            const date = parse(dirtyDate);
+            const dayOfYear = Number(dirtyDayOfYear);
             date.setMonth(0);
             date.setDate(dayOfYear);
             return date
@@ -2257,123 +2257,123 @@
 
         module.exports = setDayOfYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setHours(dirtyDate, dirtyHours) {
-            var date = parse(dirtyDate);
-            var hours = Number(dirtyHours);
+            const date = parse(dirtyDate);
+            const hours = Number(dirtyHours);
             date.setHours(hours);
             return date
         }
 
         module.exports = setHours
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var addDays = __webpack_require__(1);
-        var getISODay = __webpack_require__(75);
+        const parse = __webpack_require__(2);
+        const addDays = __webpack_require__(1);
+        const getISODay = __webpack_require__(75);
 
         function setISODay(dirtyDate, dirtyDay) {
-            var date = parse(dirtyDate);
-            var day = Number(dirtyDay);
-            var currentDay = getISODay(date);
-            var diff = day - currentDay;
+            const date = parse(dirtyDate);
+            const day = Number(dirtyDay);
+            const currentDay = getISODay(date);
+            const diff = day - currentDay;
             return addDays(date, diff)
         }
 
         module.exports = setISODay
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var getISOWeek = __webpack_require__(68);
+        const parse = __webpack_require__(2);
+        const getISOWeek = __webpack_require__(68);
 
         function setISOWeek(dirtyDate, dirtyISOWeek) {
-            var date = parse(dirtyDate);
-            var isoWeek = Number(dirtyISOWeek);
-            var diff = getISOWeek(date) - isoWeek;
+            const date = parse(dirtyDate);
+            const isoWeek = Number(dirtyISOWeek);
+            const diff = getISOWeek(date) - isoWeek;
             date.setDate(date.getDate() - diff * 7);
             return date
         }
 
         module.exports = setISOWeek
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setMilliseconds(dirtyDate, dirtyMilliseconds) {
-            var date = parse(dirtyDate);
-            var milliseconds = Number(dirtyMilliseconds);
+            const date = parse(dirtyDate);
+            const milliseconds = Number(dirtyMilliseconds);
             date.setMilliseconds(milliseconds);
             return date
         }
 
         module.exports = setMilliseconds
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setMinutes(dirtyDate, dirtyMinutes) {
-            var date = parse(dirtyDate);
-            var minutes = Number(dirtyMinutes);
+            const date = parse(dirtyDate);
+            const minutes = Number(dirtyMinutes);
             date.setMinutes(minutes);
             return date
         }
 
         module.exports = setMinutes
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var getDaysInMonth = __webpack_require__(16);
+        const parse = __webpack_require__(2);
+        const getDaysInMonth = __webpack_require__(16);
 
         function setMonth(dirtyDate, dirtyMonth) {
-            var date = parse(dirtyDate);
-            var month = Number(dirtyMonth);
-            var year = date.getFullYear();
-            var day = date.getDate();
-            var dateWithDesiredMonth = new Date(0);
+            const date = parse(dirtyDate);
+            const month = Number(dirtyMonth);
+            const year = date.getFullYear();
+            const day = date.getDate();
+            const dateWithDesiredMonth = new Date(0);
             dateWithDesiredMonth.setFullYear(year, month, 15);
             dateWithDesiredMonth.setHours(0, 0, 0, 0);
-            var daysInMonth = getDaysInMonth(dateWithDesiredMonth);
+            const daysInMonth = getDaysInMonth(dateWithDesiredMonth);
             date.setMonth(month, Math.min(day, daysInMonth));
             return date
         }
 
         module.exports = setMonth
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
-        var setMonth = __webpack_require__(142);
+        const parse = __webpack_require__(2);
+        const setMonth = __webpack_require__(142);
 
         function setQuarter(dirtyDate, dirtyQuarter) {
-            var date = parse(dirtyDate);
-            var quarter = Number(dirtyQuarter);
-            var oldQuarter = Math.floor(date.getMonth() / 3) + 1;
-            var diff = quarter - oldQuarter;
+            const date = parse(dirtyDate);
+            const quarter = Number(dirtyQuarter);
+            const oldQuarter = Math.floor(date.getMonth() / 3) + 1;
+            const diff = quarter - oldQuarter;
             return setMonth(date, date.getMonth() + diff * 3)
         }
 
         module.exports = setQuarter
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setSeconds(dirtyDate, dirtySeconds) {
-            var date = parse(dirtyDate);
-            var seconds = Number(dirtySeconds);
+            const date = parse(dirtyDate);
+            const seconds = Number(dirtySeconds);
             date.setSeconds(seconds);
             return date
         }
 
         module.exports = setSeconds
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function setYear(dirtyDate, dirtyYear) {
-            var date = parse(dirtyDate);
-            var year = Number(dirtyYear);
+            const date = parse(dirtyDate);
+            const year = Number(dirtyYear);
             date.setFullYear(year);
             return date
         }
 
         module.exports = setYear
     }, function (module, exports, __webpack_require__) {
-        var parse = __webpack_require__(2);
+        const parse = __webpack_require__(2);
 
         function startOfMonth(dirtyDate) {
-            var date = parse(dirtyDate);
+            const date = parse(dirtyDate);
             date.setDate(1);
             date.setHours(0, 0, 0, 0);
             return date
@@ -2381,7 +2381,7 @@
 
         module.exports = startOfMonth
     }, function (module, exports, __webpack_require__) {
-        var startOfDay = __webpack_require__(13);
+        const startOfDay = __webpack_require__(13);
 
         function startOfToday() {
             return startOfDay(new Date)
@@ -2390,11 +2390,11 @@
         module.exports = startOfToday
     }, function (module, exports) {
         function startOfTomorrow() {
-            var now = new Date;
-            var year = now.getFullYear();
-            var month = now.getMonth();
-            var day = now.getDate();
-            var date = new Date(0);
+            const now = new Date;
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const day = now.getDate();
+            const date = new Date(0);
             date.setFullYear(year, month, day + 1);
             date.setHours(0, 0, 0, 0);
             return date
@@ -2403,11 +2403,11 @@
         module.exports = startOfTomorrow
     }, function (module, exports) {
         function startOfYesterday() {
-            var now = new Date;
-            var year = now.getFullYear();
-            var month = now.getMonth();
-            var day = now.getDate();
-            var date = new Date(0);
+            const now = new Date;
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const day = now.getDate();
+            const date = new Date(0);
             date.setFullYear(year, month, day - 1);
             date.setHours(0, 0, 0, 0);
             return date
@@ -2415,82 +2415,82 @@
 
         module.exports = startOfYesterday
     }, function (module, exports, __webpack_require__) {
-        var addDays = __webpack_require__(1);
+        const addDays = __webpack_require__(1);
 
         function subDays(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addDays(dirtyDate, -amount)
         }
 
         module.exports = subDays
     }, function (module, exports, __webpack_require__) {
-        var addHours = __webpack_require__(4);
+        const addHours = __webpack_require__(4);
 
         function subHours(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addHours(dirtyDate, -amount)
         }
 
         module.exports = subHours
     }, function (module, exports, __webpack_require__) {
-        var addMilliseconds = __webpack_require__(5);
+        const addMilliseconds = __webpack_require__(5);
 
         function subMilliseconds(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMilliseconds(dirtyDate, -amount)
         }
 
         module.exports = subMilliseconds
     }, function (module, exports, __webpack_require__) {
-        var addMinutes = __webpack_require__(14);
+        const addMinutes = __webpack_require__(14);
 
         function subMinutes(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMinutes(dirtyDate, -amount)
         }
 
         module.exports = subMinutes
     }, function (module, exports, __webpack_require__) {
-        var addMonths = __webpack_require__(15);
+        const addMonths = __webpack_require__(15);
 
         function subMonths(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addMonths(dirtyDate, -amount)
         }
 
         module.exports = subMonths
     }, function (module, exports, __webpack_require__) {
-        var addQuarters = __webpack_require__(17);
+        const addQuarters = __webpack_require__(17);
 
         function subQuarters(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addQuarters(dirtyDate, -amount)
         }
 
         module.exports = subQuarters
     }, function (module, exports, __webpack_require__) {
-        var addSeconds = __webpack_require__(18);
+        const addSeconds = __webpack_require__(18);
 
         function subSeconds(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addSeconds(dirtyDate, -amount)
         }
 
         module.exports = subSeconds
     }, function (module, exports, __webpack_require__) {
-        var addWeeks = __webpack_require__(19);
+        const addWeeks = __webpack_require__(19);
 
         function subWeeks(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addWeeks(dirtyDate, -amount)
         }
 
         module.exports = subWeeks
     }, function (module, exports, __webpack_require__) {
-        var addYears = __webpack_require__(20);
+        const addYears = __webpack_require__(20);
 
         function subYears(dirtyDate, dirtyAmount) {
-            var amount = Number(dirtyAmount);
+            const amount = Number(dirtyAmount);
             return addYears(dirtyDate, -amount)
         }
 

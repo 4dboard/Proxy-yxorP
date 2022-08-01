@@ -44,8 +44,8 @@
                 return parser(stream, state);
             }
 
-            var sol = stream.sol();
-            var ch = stream.next();
+            const sol = stream.sol();
+            const ch = stream.next();
 
             //non start of line
             switch (ch) { //switch is generally much faster than if, so it is used here
@@ -126,14 +126,14 @@
             return null;
         }
 
-        var indentUnit = config.indentUnit;
+        const indentUnit = config.indentUnit;
 
         // Return variables for tokenizers
-        var pluginName, type;
+        let pluginName, type;
 
         function inPlugin(stream, state) {
-            var ch = stream.next();
-            var peek = stream.peek();
+            const ch = stream.next();
+            let peek = stream.peek();
 
             if (ch === "}") {
                 state.tokenize = inText;
@@ -180,8 +180,8 @@
         function inAttributeNoQuote() {
             return function (stream, state) {
                 while (!stream.eol()) {
-                    var ch = stream.next();
-                    var peek = stream.peek();
+                    const ch = stream.next();
+                    const peek = stream.peek();
                     if (ch === " " || ch === "," || /[ )}]/.test(peek)) {
                         state.tokenize = inPlugin;
                         break;
@@ -191,10 +191,10 @@
             };
         }
 
-        var curState, setStyle;
+        let curState, setStyle;
 
         function pass() {
-            for (var i = arguments.length - 1; i >= 0; i--) curState.cc.push(arguments[i]);
+            for (let i = arguments.length - 1; i >= 0; i--) curState.cc.push(arguments[i]);
         }
 
         function cont() {
@@ -203,7 +203,7 @@
         }
 
         function pushContext(pluginName, startOfLine) {
-            var noIndent = curState.context && curState.context.noIndent;
+            const noIndent = curState.context && curState.context.noIndent;
             curState.context = {
                 prev: curState.context,
                 pluginName: pluginName,
@@ -222,7 +222,7 @@
                 curState.pluginName = pluginName;
                 return cont(attributes, endplugin(curState.startOfLine));
             } else if (type === "closePlugin") {
-                var err = false;
+                let err = false;
                 if (curState.context) {
                     err = curState.context.pluginName !== pluginName;
                     popContext();
@@ -296,11 +296,11 @@
                 if (stream.eatSpace()) return null;
 
                 setStyle = type = pluginName = null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if ((style || type) && style !== "comment") {
                     curState = state;
                     while (true) {
-                        var comb = state.cc.pop() || element;
+                        const comb = state.cc.pop() || element;
                         if (comb(type || style)) break;
                     }
                 }
@@ -308,7 +308,7 @@
                 return setStyle || style;
             },
             indent: function (state, textAfter) {
-                var context = state.context;
+                let context = state.context;
                 if (context && context.noIndent) return 0;
                 if (context && /^{\//.test(textAfter))
                     context = context.prev;

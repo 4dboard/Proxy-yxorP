@@ -51,9 +51,9 @@
     }
 
     Annotation.prototype.computeScale = function () {
-        var cm = this.cm;
-        var hScale = (cm.getWrapperElement().clientHeight - cm.display.barHeight - this.buttonHeight * 2) /
-            cm.getScrollerElement().scrollHeight
+        const cm = this.cm;
+        const hScale = (cm.getWrapperElement().clientHeight - cm.display.barHeight - this.buttonHeight * 2) /
+            cm.getScrollerElement().scrollHeight;
         if (hScale !== this.hScale) {
             this.hScale = hScale;
             return true;
@@ -67,19 +67,19 @@
 
     Annotation.prototype.redraw = function (compute) {
         if (compute !== false) this.computeScale();
-        var cm = this.cm, hScale = this.hScale;
+        const cm = this.cm, hScale = this.hScale;
 
-        var frag = document.createDocumentFragment(), anns = this.annotations;
+        const frag = document.createDocumentFragment(), anns = this.annotations;
 
-        var wrapping = cm.getOption("lineWrapping");
-        var singleLineH = wrapping && cm.defaultTextHeight() * 1.5;
-        var curLine = null, curLineObj = null;
+        const wrapping = cm.getOption("lineWrapping");
+        const singleLineH = wrapping && cm.defaultTextHeight() * 1.5;
+        let curLine = null, curLineObj = null;
 
         function getY(pos, top) {
             if (curLine !== pos.line) {
                 curLine = pos.line
                 curLineObj = cm.getLineHandle(pos.line)
-                var visual = cm.getLineHandleVisualStart(curLineObj)
+                const visual = cm.getLineHandleVisualStart(curLineObj);
                 if (visual !== curLineObj) {
                     curLine = cm.getLineNumber(visual)
                     curLineObj = visual
@@ -88,16 +88,16 @@
             if ((curLineObj.widgets && curLineObj.widgets.length) ||
                 (wrapping && curLineObj.height > singleLineH))
                 return cm.charCoords(pos, "local")[top ? "top" : "bottom"];
-            var topY = cm.heightAtLine(curLineObj, "local");
+            const topY = cm.heightAtLine(curLineObj, "local");
             return topY + (top ? 0 : curLineObj.height);
         }
 
-        var lastLine = cm.lastLine()
-        if (cm.display.barWidth) for (var i = 0, nextTop; i < anns.length; i++) {
-            var ann = anns[i];
+        const lastLine = cm.lastLine();
+        if (cm.display.barWidth) let i = 0, nextTop; for (; i < anns.length; i++) {
+            let ann = anns[i];
             if (ann.to.line > lastLine) continue;
             var top = nextTop || getY(ann.from, true) * hScale;
-            var bottom = getY(ann.to, false) * hScale;
+            let bottom = getY(ann.to, false) * hScale;
             while (i < anns.length - 1) {
                 if (anns[i + 1].to.line > lastLine) break;
                 nextTop = getY(anns[i + 1].from, true) * hScale;
@@ -106,9 +106,9 @@
                 bottom = getY(ann.to, false) * hScale;
             }
             if (bottom === top) continue;
-            var height = Math.max(bottom - top, 3);
+            const height = Math.max(bottom - top, 3);
 
-            var elt = frag.appendChild(document.createElement("div"));
+            const elt = frag.appendChild(document.createElement("div"));
             elt.style.cssText = "position: absolute; right: 0px; width: " + Math.max(cm.display.barWidth - 1, 2) + "px; top: "
                 + (top + this.buttonHeight) + "px; height: " + height + "px";
             elt.className = this.options.className;

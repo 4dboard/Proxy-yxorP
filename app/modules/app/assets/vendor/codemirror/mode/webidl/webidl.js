@@ -15,7 +15,7 @@
         return new RegExp("^((" + words.join(")|(") + "))\\b");
     }
 
-    var builtinArray = [
+    const builtinArray = [
         "Clamp",
         "Constructor",
         "EnforceRange",
@@ -38,9 +38,9 @@
         "Unforgeable",
         "Unscopeable"
     ];
-    var builtins = wordRegexp(builtinArray);
+    const builtins = wordRegexp(builtinArray);
 
-    var typeArray = [
+    const typeArray = [
         "unsigned", "short", "long",                  // UnsignedIntegerType
         "unrestricted", "float", "double",            // UnrestrictedFloatType
         "boolean", "byte", "octet",                   // Rest of PrimitiveType
@@ -53,9 +53,9 @@
         "any",                                        // Rest of SingleType
         "void"                                        // Rest of ReturnType
     ];
-    var types = wordRegexp(typeArray);
+    const types = wordRegexp(typeArray);
 
-    var keywordArray = [
+    const keywordArray = [
         "attribute", "callback", "const", "deleter", "dictionary", "enum", "getter",
         "implements", "inherit", "interface", "iterable", "legacycaller", "maplike",
         "partial", "required", "serializer", "setlike", "setter", "static",
@@ -63,33 +63,33 @@
                                                       // "unrestricted"
         "optional", "readonly", "or"
     ];
-    var keywords = wordRegexp(keywordArray);
+    const keywords = wordRegexp(keywordArray);
 
-    var atomArray = [
+    const atomArray = [
         "true", "false",                              // BooleanLiteral
         "Infinity", "NaN",                            // FloatLiteral
         "null"                                        // Rest of ConstValue
     ];
-    var atoms = wordRegexp(atomArray);
+    const atoms = wordRegexp(atomArray);
 
     CodeMirror.registerHelper("hintWords", "webidl",
         builtinArray.concat(typeArray).concat(keywordArray).concat(atomArray));
 
-    var startDefArray = ["callback", "dictionary", "enum", "interface"];
-    var startDefs = wordRegexp(startDefArray);
+    const startDefArray = ["callback", "dictionary", "enum", "interface"];
+    const startDefs = wordRegexp(startDefArray);
 
-    var endDefArray = ["typedef"];
-    var endDefs = wordRegexp(endDefArray);
+    const endDefArray = ["typedef"];
+    const endDefs = wordRegexp(endDefArray);
 
-    var singleOperators = /^[:<=>?]/;
-    var integers = /^-?([1-9][0-9]*|0[Xx][0-9A-Fa-f]+|0[0-7]*)/;
-    var floats = /^-?(([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)([Ee][+-]?[0-9]+)?|[0-9]+[Ee][+-]?[0-9]+)/;
-    var identifiers = /^_?[A-Za-z][0-9A-Z_a-z-]*/;
-    var identifiersEnd = /^_?[A-Za-z][0-9A-Z_a-z-]*(?=\s*;)/;
-    var strings = /^"[^"]*"/;
-    var multilineComments = /^\/\*.*?\*\//;
-    var multilineCommentsStart = /^\/\*.*/;
-    var multilineCommentsEnd = /^.*?\*\//;
+    const singleOperators = /^[:<=>?]/;
+    const integers = /^-?([1-9][0-9]*|0[Xx][0-9A-Fa-f]+|0[0-7]*)/;
+    const floats = /^-?(([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)([Ee][+-]?[0-9]+)?|[0-9]+[Ee][+-]?[0-9]+)/;
+    const identifiers = /^_?[A-Za-z][0-9A-Z_a-z-]*/;
+    const identifiersEnd = /^_?[A-Za-z][0-9A-Z_a-z-]*(?=\s*;)/;
+    const strings = /^"[^"]*"/;
+    const multilineComments = /^\/\*.*?\*\//;
+    const multilineCommentsStart = /^\/\*.*/;
+    const multilineCommentsEnd = /^.*?\*\//;
 
     function readToken(stream, state) {
         // whitespace
@@ -115,7 +115,7 @@
         }
 
         // integer and float
-        if (stream.match(/^-?[0-9\.]/, false)) {
+        if (stream.match(/^-?[0-9.]/, false)) {
             if (stream.match(integers) || stream.match(floats)) return "number";
         }
 
@@ -133,8 +133,8 @@
         if (stream.match(keywords)) return "keyword";
 
         if (stream.match(types)) {
-            var lastToken = state.lastToken;
-            var nextToken = (stream.match(/^\s*(.+?)\b/, false) || [])[1];
+            const lastToken = state.lastToken;
+            const nextToken = (stream.match(/^\s*(.+?)\b/, false) || [])[1];
 
             if (lastToken === ":" || lastToken === "implements" ||
                 nextToken === "implements" || nextToken === "=") {
@@ -173,10 +173,10 @@
                 };
             },
             token: function (stream, state) {
-                var style = readToken(stream, state);
+                const style = readToken(stream, state);
 
                 if (style) {
-                    var cur = stream.current();
+                    const cur = stream.current();
                     state.lastToken = cur;
                     if (style === "keyword") {
                         state.startDef = startDefs.test(cur);

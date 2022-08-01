@@ -2,6 +2,7 @@
 
 namespace App\Command\i18n;
 
+use MongoDB\Driver\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -76,7 +77,7 @@ class createTranslation extends Command
 
                 $contents = file_get_contents($file->getRealPath());
 
-                preg_match_all('/(?:{{ t|\<\?=t|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
+                preg_match_all('/(?:{{ t|<\?=t|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
 
                 if (!isset($matches[2])) continue;
 

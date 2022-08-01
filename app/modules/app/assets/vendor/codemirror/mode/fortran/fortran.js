@@ -13,14 +13,14 @@
 
     CodeMirror.defineMode("fortran", function () {
         function words(array) {
-            var keys = {};
-            for (var i = 0; i < array.length; ++i) {
+            const keys = {};
+            for (let i = 0; i < array.length; ++i) {
                 keys[array[i]] = true;
             }
             return keys;
         }
 
-        var keywords = words([
+        const keywords = words([
             "abstract", "accept", "allocatable", "allocate",
             "array", "assign", "asynchronous", "backspace",
             "bind", "block", "byte", "call", "case",
@@ -43,7 +43,7 @@
             "stop", "subroutine", "target", "then", "to", "type",
             "use", "value", "volatile", "where", "while",
             "write"]);
-        var builtins = words(["abort", "abs", "access", "achar", "acos",
+        const builtins = words(["abort", "abs", "access", "achar", "acos",
             "adjustl", "adjustr", "aimag", "aint", "alarm",
             "all", "allocated", "alog", "amax", "amin",
             "amod", "and", "anint", "any", "asin",
@@ -101,7 +101,7 @@
             "unpack", "verify", "xor", "zabs", "zcos", "zexp",
             "zlog", "zsin", "zsqrt"]);
 
-        var dataTypes = words(["c_bool", "c_char", "c_double", "c_double_complex",
+        const dataTypes = words(["c_bool", "c_char", "c_double", "c_double_complex",
             "c_float", "c_float_complex", "c_funptr", "c_int",
             "c_int16_t", "c_int32_t", "c_int64_t", "c_int8_t",
             "c_int_fast16_t", "c_int_fast32_t", "c_int_fast64_t",
@@ -111,8 +111,8 @@
             "c_long_double_complex", "c_long_long", "c_ptr",
             "c_short", "c_signed_char", "c_size_t", "character",
             "complex", "double", "integer", "logical", "real"]);
-        var isOperatorChar = /[+\-*&=<>\/\:]/;
-        var litOperator = /^\.(and|or|eq|lt|le|gt|ge|ne|not|eqv|neqv)\./i;
+        const isOperatorChar = /[+\-*&=<>\/\:]/;
+        const litOperator = /^\.(and|or|eq|lt|le|gt|ge|ne|not|eqv|neqv)\./i;
 
         function tokenBase(stream, state) {
 
@@ -120,7 +120,7 @@
                 return 'operator';
             }
 
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === "!") {
                 stream.skipToEnd();
                 return "comment";
@@ -141,7 +141,7 @@
                 return "operator";
             }
             stream.eatWhile(/[\w\$_]/);
-            var word = stream.current().toLowerCase();
+            const word = stream.current().toLowerCase();
 
             if (keywords.hasOwnProperty(word)) {
                 return 'keyword';
@@ -154,7 +154,7 @@
 
         function tokenString(quote) {
             return function (stream, state) {
-                var escaped = false, next, end = false;
+                let escaped = false, next, end = false;
                 while ((next = stream.next()) != null) {
                     if (next === quote && !escaped) {
                         end = true;
@@ -176,7 +176,7 @@
 
             token: function (stream, state) {
                 if (stream.eatSpace()) return null;
-                var style = (state.tokenize || tokenBase)(stream, state);
+                const style = (state.tokenize || tokenBase)(stream, state);
                 if (style === "comment" || style === "meta") return style;
                 return style;
             }

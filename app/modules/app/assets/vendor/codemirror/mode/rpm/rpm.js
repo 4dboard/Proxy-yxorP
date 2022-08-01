@@ -12,9 +12,9 @@
     "use strict";
 
     CodeMirror.defineMode("rpm-changes", function () {
-        var headerSeparator = /^-+$/;
-        var headerLine = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)  ?\d{1,2} \d{2}:\d{2}(:\d{2})? [A-Z]{3,4} \d{4} - /;
-        var simpleEmail = /^[\w+.-]+@[\w.-]+/;
+        const headerSeparator = /^-+$/;
+        const headerLine = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)  ?\d{1,2} \d{2}:\d{2}(:\d{2})? [A-Z]{3,4} \d{4} - /;
+        const simpleEmail = /^[\w+.-]+@[\w.-]+/;
 
         return {
             token: function (stream) {
@@ -40,13 +40,13 @@
 // Quick and dirty spec file highlighting
 
     CodeMirror.defineMode("rpm-spec", function () {
-        var arch = /^(i386|i586|i686|x86_64|ppc64le|ppc64|ppc|ia64|s390x|s390|sparc64|sparcv9|sparc|noarch|alphaev6|alpha|hppa|mipsel)/;
+        const arch = /^(i386|i586|i686|x86_64|ppc64le|ppc64|ppc|ia64|s390x|s390|sparc64|sparcv9|sparc|noarch|alphaev6|alpha|hppa|mipsel)/;
 
-        var preamble = /^[a-zA-Z0-9()]+:/;
-        var section = /^%(debug_package|package|description|prep|build|install|files|clean|changelog|preinstall|preun|postinstall|postun|pretrans|posttrans|pre|post|triggerin|triggerun|verifyscript|check|triggerpostun|triggerprein|trigger)/;
-        var control_flow_complex = /^%(ifnarch|ifarch|if)/; // rpm control flow macros
-        var control_flow_simple = /^%(else|endif)/; // rpm control flow macros
-        var operators = /^(\!|\?|\<\=|\<|\>\=|\>|\=\=|\&\&|\|\|)/; // operators in control flow macros
+        const preamble = /^[a-zA-Z0-9()]+:/;
+        const section = /^%(debug_package|package|description|prep|build|install|files|clean|changelog|preinstall|preun|postinstall|postun|pretrans|posttrans|pre|post|triggerin|triggerun|verifyscript|check|triggerpostun|triggerprein|trigger)/;
+        const control_flow_complex = /^%(ifnarch|ifarch|if)/; // rpm control flow macros
+        const control_flow_simple = /^%(else|endif)/; // rpm control flow macros
+        const operators = /^(!|\?|<=|<|>=|>|==|&&|\|\|)/; // operators in control flow macros
 
         return {
             startState: function () {
@@ -57,7 +57,7 @@
                 };
             },
             token: function (stream, state) {
-                var ch = stream.peek();
+                const ch = stream.peek();
                 if (ch === "#") {
                     stream.skipToEnd();
                     return "comment";
@@ -75,7 +75,7 @@
                 if (stream.match(/^\$\w+/)) {
                     return "def";
                 } // Variables like '$RPM_BUILD_ROOT'
-                if (stream.match(/^\$\{\w+\}/)) {
+                if (stream.match(/^\${\w+}/)) {
                     return "def";
                 } // Variables like '${RPM_BUILD_ROOT}'
 
@@ -123,7 +123,7 @@
                 }
 
                 // Macros like '%{defined fedora}'
-                if (stream.match(/^%\{\??[\w \-\:\!]+\}/)) {
+                if (stream.match(/^%{\??[\w \-:!]+}/)) {
                     if (stream.eol()) {
                         state.controlFlow = false;
                     }

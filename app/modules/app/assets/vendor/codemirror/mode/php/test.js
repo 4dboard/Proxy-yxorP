@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "php");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "php");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
@@ -79,13 +79,13 @@
 
 
     function build_recursive_monsters(nt, t, n) {
-        var monsters = [t];
-        for (var i = 1; i <= n; ++i)
+        const monsters = [t];
+        for (let i = 1; i <= n; ++i)
             monsters[i] = nt.join(monsters[i - 1]);
         return monsters;
     }
 
-    var m1 = build_recursive_monsters(
+    const m1 = build_recursive_monsters(
         ['[string "][variable-2 $]{[variable aaa] [operator +] ', '}[string "]'],
         '[comment /* }?>} */] [string "aaa][variable-2 $aaa][string .aaa"]',
         10
@@ -107,7 +107,7 @@
         '[keyword echo] [string "end"];',
         '[meta ?>]');
 
-    var m2 = build_recursive_monsters(
+    const m2 = build_recursive_monsters(
         ['[string "a][variable-2 $]{[variable aaa] [operator +] ', ' [operator +] ', '}[string .a"]'],
         '[comment /* }?>{{ */] [string "a?>}{{aa][variable-2 $aaa][string .a}a?>a"]',
         5
@@ -125,13 +125,13 @@
         '[meta ?>]');
 
     function build_recursive_monsters_2(mf1, mf2, nt, t, n) {
-        var monsters = [t];
-        for (var i = 1; i <= n; ++i)
+        const monsters = [t];
+        for (let i = 1; i <= n; ++i)
             monsters[i] = nt[0] + mf1[i - 1] + nt[1] + mf2[i - 1] + nt[2] + monsters[i - 1] + nt[3];
         return monsters;
     }
 
-    var m3 = build_recursive_monsters_2(
+    const m3 = build_recursive_monsters_2(
         m1,
         m2,
         ['[string "a][variable-2 $]{[variable aaa] [operator +] ', ' [operator +] ', ' [operator +] ', '}[string .a"]'],

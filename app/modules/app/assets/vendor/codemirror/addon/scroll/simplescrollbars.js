@@ -21,12 +21,12 @@
         this.node.className = cls + "-" + orientation;
         this.inner = this.node.appendChild(document.createElement("div"));
 
-        var self = this;
+        const self = this;
         CodeMirror.on(this.inner, "mousedown", function (e) {
             if (e.which !== 1) return;
             CodeMirror.e_preventDefault(e);
-            var axis = self.orientation === "horizontal" ? "pageX" : "pageY";
-            var start = e[axis], startpos = self.pos;
+            const axis = self.orientation === "horizontal" ? "pageX" : "pageY";
+            const start = e[axis], startpos = self.pos;
 
             function done() {
                 CodeMirror.off(document, "mousemove", move);
@@ -44,7 +44,8 @@
 
         CodeMirror.on(this.node, "click", function (e) {
             CodeMirror.e_preventDefault(e);
-            var innerBox = self.inner.getBoundingClientRect(), where;
+            const innerBox = self.inner.getBoundingClientRect();
+            let where;
             if (self.orientation === "horizontal")
                 where = e.clientX < innerBox.left ? -1 : e.clientX > innerBox.right ? 1 : 0;
             else
@@ -53,8 +54,8 @@
         });
 
         function onWheel(e) {
-            var moved = CodeMirror.wheelEventPixels(e)[self.orientation === "horizontal" ? "x" : "y"];
-            var oldPos = self.pos;
+            const moved = CodeMirror.wheelEventPixels(e)[self.orientation === "horizontal" ? "x" : "y"];
+            const oldPos = self.pos;
             self.moveTo(self.pos + moved);
             if (self.pos !== oldPos) CodeMirror.e_preventDefault(e);
         }
@@ -77,17 +78,17 @@
         if (this.setPos(pos)) this.scroll(pos, this.orientation);
     }
 
-    var minButtonSize = 10;
+    const minButtonSize = 10;
 
     Bar.prototype.update = function (scrollSize, clientSize, barSize) {
-        var sizeChanged = this.screen !== clientSize || this.total !== scrollSize || this.size !== barSize
+        const sizeChanged = this.screen !== clientSize || this.total !== scrollSize || this.size !== barSize;
         if (sizeChanged) {
             this.screen = clientSize;
             this.total = scrollSize;
             this.size = barSize;
         }
 
-        var buttonSize = this.screen * (this.size / this.total);
+        let buttonSize = this.screen * (this.size / this.total);
         if (buttonSize < minButtonSize) {
             this.size -= minButtonSize - buttonSize;
             buttonSize = minButtonSize;
@@ -108,13 +109,13 @@
 
     SimpleScrollbars.prototype.update = function (measure) {
         if (this.width === null) {
-            var style = window.getComputedStyle ? window.getComputedStyle(this.horiz.node) : this.horiz.node.currentStyle;
+            const style = window.getComputedStyle ? window.getComputedStyle(this.horiz.node) : this.horiz.node.currentStyle;
             if (style) this.width = parseInt(style.height);
         }
-        var width = this.width || 0;
+        const width = this.width || 0;
 
-        var needsH = measure.scrollWidth > measure.clientWidth + 1;
-        var needsV = measure.scrollHeight > measure.clientHeight + 1;
+        const needsH = measure.scrollWidth > measure.clientWidth + 1;
+        const needsV = measure.scrollHeight > measure.clientHeight + 1;
         this.vert.node.style.display = needsV ? "block" : "none";
         this.horiz.node.style.display = needsH ? "block" : "none";
 
@@ -142,7 +143,7 @@
     };
 
     SimpleScrollbars.prototype.clear = function () {
-        var parent = this.horiz.node.parentNode;
+        const parent = this.horiz.node.parentNode;
         parent.removeChild(this.horiz.node);
         parent.removeChild(this.vert.node);
     };

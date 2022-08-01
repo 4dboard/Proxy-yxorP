@@ -12,41 +12,41 @@
     "use strict";
 
     CodeMirror.defineMode("vb", function (conf, parserConf) {
-        var ERRORCLASS = 'error';
+        const ERRORCLASS = 'error';
 
         function wordRegexp(words) {
             return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
         }
 
-        var singleOperators = new RegExp("^[\\+\\-\\*/%&\\\\|\\^~<>!]");
-        var singleDelimiters = new RegExp('^[\\(\\)\\[\\]\\{\\}@,:`=;\\.]');
-        var doubleOperators = new RegExp("^((==)|(<>)|(<=)|(>=)|(<>)|(<<)|(>>)|(//)|(\\*\\*))");
-        var doubleDelimiters = new RegExp("^((\\+=)|(\\-=)|(\\*=)|(%=)|(/=)|(&=)|(\\|=)|(\\^=))");
-        var tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
-        var identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
+        const singleOperators = new RegExp("^[\\+\\-\\*/%&\\\\|\\^~<>!]");
+        const singleDelimiters = new RegExp('^[\\(\\)\\[\\]\\{\\}@,:`=;\\.]');
+        const doubleOperators = new RegExp("^((==)|(<>)|(<=)|(>=)|(<>)|(<<)|(>>)|(//)|(\\*\\*))");
+        const doubleDelimiters = new RegExp("^((\\+=)|(\\-=)|(\\*=)|(%=)|(/=)|(&=)|(\\|=)|(\\^=))");
+        const tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
+        const identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
 
-        var openingKeywords = ['class', 'module', 'sub', 'enum', 'select', 'while', 'if', 'function', 'get', 'set', 'property', 'try', 'structure', 'synclock', 'using', 'with'];
-        var middleKeywords = ['else', 'elseif', 'case', 'catch', 'finally'];
-        var endKeywords = ['next', 'loop'];
+        const openingKeywords = ['class', 'module', 'sub', 'enum', 'select', 'while', 'if', 'function', 'get', 'set', 'property', 'try', 'structure', 'synclock', 'using', 'with'];
+        const middleKeywords = ['else', 'elseif', 'case', 'catch', 'finally'];
+        const endKeywords = ['next', 'loop'];
 
-        var operatorKeywords = ['and', "andalso", 'or', 'orelse', 'xor', 'in', 'not', 'is', 'isnot', 'like'];
-        var wordOperators = wordRegexp(operatorKeywords);
+        const operatorKeywords = ['and', "andalso", 'or', 'orelse', 'xor', 'in', 'not', 'is', 'isnot', 'like'];
+        const wordOperators = wordRegexp(operatorKeywords);
 
-        var commonKeywords = ["#const", "#else", "#elseif", "#end", "#if", "#region", "addhandler", "addressof", "alias", "as", "byref", "byval", "cbool", "cbyte", "cchar", "cdate", "cdbl", "cdec", "cint", "clng", "cobj", "compare", "const", "continue", "csbyte", "cshort", "csng", "cstr", "cuint", "culng", "cushort", "declare", "default", "delegate", "dim", "directcast", "each", "erase", "error", "event", "exit", "explicit", "false", "for", "friend", "gettype", "goto", "handles", "implements", "imports", "infer", "inherits", "interface", "isfalse", "istrue", "lib", "me", "mod", "mustinherit", "mustoverride", "my", "mybase", "myclass", "namespace", "narrowing", "new", "nothing", "notinheritable", "notoverridable", "of", "off", "on", "operator", "option", "optional", "out", "overloads", "overridable", "overrides", "paramarray", "partial", "private", "protected", "public", "raiseevent", "readonly", "redim", "removehandler", "resume", "return", "shadows", "shared", "static", "step", "stop", "strict", "then", "throw", "to", "true", "trycast", "typeof", "until", "until", "when", "widening", "withevents", "writeonly"];
+        const commonKeywords = ["#const", "#else", "#elseif", "#end", "#if", "#region", "addhandler", "addressof", "alias", "as", "byref", "byval", "cbool", "cbyte", "cchar", "cdate", "cdbl", "cdec", "cint", "clng", "cobj", "compare", "const", "continue", "csbyte", "cshort", "csng", "cstr", "cuint", "culng", "cushort", "declare", "default", "delegate", "dim", "directcast", "each", "erase", "error", "event", "exit", "explicit", "false", "for", "friend", "gettype", "goto", "handles", "implements", "imports", "infer", "inherits", "interface", "isfalse", "istrue", "lib", "me", "mod", "mustinherit", "mustoverride", "my", "mybase", "myclass", "namespace", "narrowing", "new", "nothing", "notinheritable", "notoverridable", "of", "off", "on", "operator", "option", "optional", "out", "overloads", "overridable", "overrides", "paramarray", "partial", "private", "protected", "public", "raiseevent", "readonly", "redim", "removehandler", "resume", "return", "shadows", "shared", "static", "step", "stop", "strict", "then", "throw", "to", "true", "trycast", "typeof", "until", "until", "when", "widening", "withevents", "writeonly"];
 
-        var commontypes = ['object', 'boolean', 'char', 'string', 'byte', 'sbyte', 'short', 'ushort', 'int16', 'uint16', 'integer', 'uinteger', 'int32', 'uint32', 'long', 'ulong', 'int64', 'uint64', 'decimal', 'single', 'double', 'float', 'date', 'datetime', 'intptr', 'uintptr'];
+        const commontypes = ['object', 'boolean', 'char', 'string', 'byte', 'sbyte', 'short', 'ushort', 'int16', 'uint16', 'integer', 'uinteger', 'int32', 'uint32', 'long', 'ulong', 'int64', 'uint64', 'decimal', 'single', 'double', 'float', 'date', 'datetime', 'intptr', 'uintptr'];
 
-        var keywords = wordRegexp(commonKeywords);
-        var types = wordRegexp(commontypes);
-        var stringPrefixes = '"';
+        const keywords = wordRegexp(commonKeywords);
+        const types = wordRegexp(commontypes);
+        const stringPrefixes = '"';
 
-        var opening = wordRegexp(openingKeywords);
-        var middle = wordRegexp(middleKeywords);
-        var closing = wordRegexp(endKeywords);
-        var doubleClosing = wordRegexp(['end']);
-        var doOpening = wordRegexp(['do']);
+        const opening = wordRegexp(openingKeywords);
+        const middle = wordRegexp(middleKeywords);
+        const closing = wordRegexp(endKeywords);
+        const doubleClosing = wordRegexp(['end']);
+        const doOpening = wordRegexp(['do']);
 
-        var indentInfo = null;
+        const indentInfo = null;
 
         CodeMirror.registerHelper("hintWords", "vb", openingKeywords.concat(middleKeywords).concat(endKeywords)
             .concat(operatorKeywords).concat(commonKeywords).concat(commontypes));
@@ -65,7 +65,7 @@
                 return null;
             }
 
-            var ch = stream.peek();
+            const ch = stream.peek();
 
             // Handle Comments
             if (ch === "'") {
@@ -76,7 +76,7 @@
 
             // Handle Number Literals
             if (stream.match(/^((&H)|(&O))?[0-9\.a-f]/i, false)) {
-                var floatLiteral = false;
+                let floatLiteral = false;
                 // Floats
                 if (stream.match(/^\d*\.\d+F?/i)) {
                     floatLiteral = true;
@@ -92,7 +92,7 @@
                     return 'number';
                 }
                 // Integers
-                var intLiteral = false;
+                let intLiteral = false;
                 // Hex
                 if (stream.match(/^&H[0-9a-f]+/i)) {
                     intLiteral = true;
@@ -181,8 +181,8 @@
         }
 
         function tokenStringFactory(delimiter) {
-            var singleline = delimiter.length === 1;
-            var OUTCLASS = 'string';
+            const singleline = delimiter.length === 1;
+            const OUTCLASS = 'string';
 
             return function (stream, state) {
                 while (!stream.eol()) {
@@ -207,8 +207,8 @@
 
 
         function tokenLexer(stream, state) {
-            var style = state.tokenize(stream, state);
-            var current = stream.current();
+            let style = state.tokenize(stream, state);
+            const current = stream.current();
 
             // Handle '.' connected identifiers
             if (current === '.') {
@@ -221,7 +221,7 @@
             }
 
 
-            var delimiter_index = '[({'.indexOf(current);
+            let delimiter_index = '[({'.indexOf(current);
             if (delimiter_index !== -1) {
                 indent(stream, state);
             }
@@ -240,7 +240,7 @@
             return style;
         }
 
-        var external = {
+        const external = {
             electricChars: "dDpPtTfFeE ",
             startState: function () {
                 return {
@@ -260,7 +260,7 @@
                     state.nextLineIndent = 0;
                     state.doInCurrentLine = 0;
                 }
-                var style = tokenLexer(stream, state);
+                const style = tokenLexer(stream, state);
 
                 state.lastToken = {style: style, content: stream.current()};
 
@@ -269,7 +269,7 @@
             },
 
             indent: function (state, textAfter) {
-                var trueText = textAfter.replace(/^\s+|\s+$/g, '');
+                const trueText = textAfter.replace(/^\s+|\s+$/g, '');
                 if (trueText.match(closing) || trueText.match(doubleClosing) || trueText.match(middle)) return conf.indentUnit * (state.currentIndent - 1);
                 if (state.currentIndent < 0) return 0;
                 return state.currentIndent * conf.indentUnit;

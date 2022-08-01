@@ -7,7 +7,7 @@
 
         if (!destination || !source) return destination;
 
-        for (var field in source) {
+        for (let field in source) {
             if (destination[field] === source[field]) continue;
             destination[field] = source[field];
         }
@@ -16,7 +16,7 @@
     }
 
 
-    var i18n = {
+    const i18n = {
 
         __data: {},
 
@@ -33,7 +33,7 @@
         },
         get: function (key) {
 
-            var args = arguments.length === 1 ? [] : Array.prototype.slice.call(arguments, 1);
+            const args = arguments.length === 1 ? [] : Array.prototype.slice.call(arguments, 1);
 
             if (!this.__data[key]) {
                 return this.printf(key, args);
@@ -66,23 +66,23 @@
             // *     returns 3: '[####monkey]'
             // *     example 4: sprintf("%d", 123456789012345);
             // *     returns 4: '123456789012345'
-            var regex = /%%|%(\d+\$)?([-+\'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
-            var a = arguments,
-                i = 0,
-                format = a[i++];
+            const regex = /%%|%(\d+\$)?([-+\'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
+            const a = arguments;
+            let i = 0;
+            const format = a[i++];
 
             // pad()
-            var pad = function (str, len, chr, leftJustify) {
+            const pad = function (str, len, chr, leftJustify) {
                 if (!chr) {
                     chr = ' ';
                 }
-                var padding = (str.length >= len) ? '' : Array(1 + len - str.length >>> 0).join(chr);
+                const padding = (str.length >= len) ? '' : Array(1 + len - str.length >>> 0).join(chr);
                 return leftJustify ? str + padding : padding + str;
             };
 
             // justify()
-            var justify = function (value, prefix, leftJustify, minWidth, zeroPad, customPadChar) {
-                var diff = minWidth - value.length;
+            const justify = function (value, prefix, leftJustify, minWidth, zeroPad, customPadChar) {
+                const diff = minWidth - value.length;
                 if (diff > 0) {
                     if (leftJustify || !zeroPad) {
                         value = pad(value, minWidth, customPadChar, leftJustify);
@@ -94,9 +94,9 @@
             };
 
             // formatBaseX()
-            var formatBaseX = function (value, base, prefix, leftJustify, minWidth, precision, zeroPad) {
+            const formatBaseX = function (value, base, prefix, leftJustify, minWidth, precision, zeroPad) {
                 // Note: casts negative numbers to positive ones
-                var number = value >>> 0;
+                const number = value >>> 0;
                 prefix = prefix && number && {
                     '2': '0b',
                     '8': '0',
@@ -107,7 +107,7 @@
             };
 
             // formatString()
-            var formatString = function (value, leftJustify, minWidth, precision, zeroPad, customPadChar) {
+            const formatString = function (value, leftJustify, minWidth, precision, zeroPad, customPadChar) {
                 if (precision != null) {
                     value = value.slice(0, precision);
                 }
@@ -115,25 +115,25 @@
             };
 
             // doFormat()
-            var doFormat = function (substring, valueIndex, flags, minWidth, _, precision, type) {
-                var number;
-                var prefix;
-                var method;
-                var textTransform;
-                var value;
+            const doFormat = function (substring, valueIndex, flags, minWidth, _, precision, type) {
+                let number;
+                let prefix;
+                let method;
+                let textTransform;
+                let value;
 
                 if (substring === '%%') {
                     return '%';
                 }
 
                 // parse flags
-                var leftJustify = false,
+                let leftJustify = false,
                     positivePrefix = '',
                     zeroPad = false,
                     prefixBaseX = false,
                     customPadChar = ' ';
-                var flagsl = flags.length;
-                for (var j = 0; flags && j < flagsl; j++) {
+                const flagsl = flags.length;
+                for (let j = 0; flags && j < flagsl; j++) {
                     switch (flags.charAt(j)) {
                         case ' ':
                             positivePrefix = ' ';

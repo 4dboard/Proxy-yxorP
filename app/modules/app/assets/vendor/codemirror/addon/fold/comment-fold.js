@@ -14,13 +14,14 @@
     CodeMirror.registerGlobalHelper("fold", "comment", function (mode) {
         return mode.blockCommentStart && mode.blockCommentEnd;
     }, function (cm, start) {
-        var mode = cm.getModeAt(start), startToken = mode.blockCommentStart, endToken = mode.blockCommentEnd;
+        const mode = cm.getModeAt(start), startToken = mode.blockCommentStart, endToken = mode.blockCommentEnd;
         if (!startToken || !endToken) return;
-        var line = start.line, lineText = cm.getLine(line);
+        const line = start.line, lineText = cm.getLine(line);
 
-        var startCh;
-        for (var at = start.ch, pass = 0; ;) {
-            var found = at <= 0 ? -1 : lineText.lastIndexOf(startToken, at - 1);
+        let startCh;
+        let at = start.ch, pass = 0;
+        for (; ;) {
+            const found = at <= 0 ? -1 : lineText.lastIndexOf(startToken, at - 1);
             if (found === -1) {
                 if (pass === 1) return;
                 pass = 1;
@@ -37,11 +38,14 @@
             at = found - 1;
         }
 
-        var depth = 1, lastLine = cm.lastLine(), end, endCh;
-        outer: for (var i = line; i <= lastLine; ++i) {
-            var text = cm.getLine(i), pos = i === line ? startCh : 0;
+        let depth = 1;
+        const lastLine = cm.lastLine();
+        let end, endCh;
+        outer: for (let i = line; i <= lastLine; ++i) {
+            const text = cm.getLine(i);
+            let pos = i === line ? startCh : 0;
             for (; ;) {
-                var nextOpen = text.indexOf(startToken, pos), nextClose = text.indexOf(endToken, pos);
+                let nextOpen = text.indexOf(startToken, pos), nextClose = text.indexOf(endToken, pos);
                 if (nextOpen < 0) nextOpen = text.length;
                 if (nextClose < 0) nextClose = text.length;
                 pos = Math.min(nextOpen, nextClose);

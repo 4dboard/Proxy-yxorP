@@ -11,7 +11,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var defaultTags = {
+    const defaultTags = {
         script: [
             ["lang", /(javascript|babel)/i, "javascript"],
             ["type", /^(?:text|application)\/(?:x-)?(?:java|ecma)script$|^module$|^$/i, "javascript"],
@@ -27,7 +27,7 @@
     };
 
     function maybeBackup(stream, pat, style) {
-        var cur = stream.current(), close = cur.search(pat);
+        const cur = stream.current(), close = cur.search(pat);
         if (close > -1) {
             stream.backUp(cur.length - close);
         } else if (cur.match(/<\/?$/)) {
@@ -37,16 +37,16 @@
         return style;
     }
 
-    var attrRegexpCache = {};
+    const attrRegexpCache = {};
 
     function getAttrRegexp(attr) {
-        var regexp = attrRegexpCache[attr];
+        const regexp = attrRegexpCache[attr];
         if (regexp) return regexp;
         return attrRegexpCache[attr] = new RegExp("\\s+" + attr + "\\s*=\\s*('|\")?([^'\"]+)('|\")?\\s*");
     }
 
     function getAttrValue(text, attr) {
-        var match = text.match(getAttrRegexp(attr))
+        const match = text.match(getAttrRegexp(attr));
         return match ? /^\s*(.*?)\s*$/.exec(match[2])[1] : ""
     }
 
@@ -55,23 +55,23 @@
     }
 
     function addTags(from, to) {
-        for (var tag in from) {
-            var dest = to[tag] || (to[tag] = []);
-            var source = from[tag];
-            for (var i = source.length - 1; i >= 0; i--)
+        for (let tag in from) {
+            const dest = to[tag] || (to[tag] = []);
+            const source = from[tag];
+            for (let i = source.length - 1; i >= 0; i--)
                 dest.unshift(source[i])
         }
     }
 
     function findMatchingMode(tagInfo, tagText) {
-        for (var i = 0; i < tagInfo.length; i++) {
-            var spec = tagInfo[i];
+        for (let i = 0; i < tagInfo.length; i++) {
+            const spec = tagInfo[i];
             if (!spec[0] || spec[1].test(getAttrValue(tagText, spec[0]))) return spec[2];
         }
     }
 
     CodeMirror.defineMode("htmlmixed", function (config, parserConfig) {
-        var htmlMode = CodeMirror.getMode(config, {
+        const htmlMode = CodeMirror.getMode(config, {
             name: "xml",
             htmlMode: true,
             multilineTagIndentFactor: parserConfig.multilineTagIndentFactor,
@@ -79,25 +79,26 @@
             allowMissingTagName: parserConfig.allowMissingTagName,
         });
 
-        var tags = {};
-        var configTags = parserConfig && parserConfig.tags, configScript = parserConfig && parserConfig.scriptTypes;
+        const tags = {};
+        const configTags = parserConfig && parserConfig.tags, configScript = parserConfig && parserConfig.scriptTypes;
         addTags(defaultTags, tags);
         if (configTags) addTags(configTags, tags);
-        if (configScript) for (var i = configScript.length - 1; i >= 0; i--)
+        if (configScript) for (let i = configScript.length - 1; i >= 0; i--)
             tags.script.unshift(["type", configScript[i].matches, configScript[i].mode])
 
         function html(stream, state) {
-            var style = htmlMode.token(stream, state.htmlState), tag = /\btag\b/.test(style), tagName
+            const style = htmlMode.token(stream, state.htmlState), tag = /\btag\b/.test(style);
+            let tagName;
             if (tag && !/[<>\s\/]/.test(stream.current()) &&
                 (tagName = state.htmlState.tagName && state.htmlState.tagName.toLowerCase()) &&
                 tags.hasOwnProperty(tagName)) {
                 state.inTag = tagName + " "
             } else if (state.inTag && tag && />$/.test(stream.current())) {
-                var inTag = /^([\S]+) (.*)/.exec(state.inTag)
+                const inTag = /^([\S]+) (.*)/.exec(state.inTag);
                 state.inTag = null
-                var modeSpec = stream.current() === ">" && findMatchingMode(tags[inTag[1]], inTag[2])
-                var mode = CodeMirror.getMode(config, modeSpec)
-                var endTagA = getTagRegexp(inTag[1], true), endTag = getTagRegexp(inTag[1], false);
+                const modeSpec = stream.current() === ">" && findMatchingMode(tags[inTag[1]], inTag[2]);
+                const mode = CodeMirror.getMode(config, modeSpec);
+                const endTagA = getTagRegexp(inTag[1], true), endTag = getTagRegexp(inTag[1], false);
                 state.token = function (stream, state) {
                     if (stream.match(endTagA, false)) {
                         state.token = html;
@@ -117,12 +118,12 @@
 
         return {
             startState: function () {
-                var state = CodeMirror.startState(htmlMode);
+                const state = CodeMirror.startState(htmlMode);
                 return {token: html, inTag: null, localMode: null, localState: null, htmlState: state};
             },
 
             copyState: function (state) {
-                var local;
+                let local;
                 if (state.localState) {
                     local = CodeMirror.copyState(state.localMode, state.localState);
                 }

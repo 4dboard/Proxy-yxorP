@@ -3,10 +3,10 @@
 
 (function () {
     CodeMirror.defineMode("markdown_with_stex", function () {
-        var inner = CodeMirror.getMode({}, "stex");
-        var outer = CodeMirror.getMode({}, "markdown");
+        const inner = CodeMirror.getMode({}, "stex");
+        const outer = CodeMirror.getMode({}, "markdown");
 
-        var innerOptions = {
+        const innerOptions = {
             open: '$',
             close: '$',
             mode: inner,
@@ -17,7 +17,7 @@
         return CodeMirror.multiplexingMode(outer, innerOptions);
     });
 
-    var mode = CodeMirror.getMode({}, "markdown_with_stex");
+    const mode = CodeMirror.getMode({}, "markdown_with_stex");
 
     function MT(name) {
         test.mode(
@@ -41,7 +41,7 @@
         });
     });
 
-    var mode2 = CodeMirror.getMode({}, "identical_delim_multiplex");
+    const mode2 = CodeMirror.getMode({}, "identical_delim_multiplex");
 
     test.mode("identical_delimiters_with_parseDelimiters", mode2, [
         "[keyword let] [def x] [operator =] [q #foo][q&em *bar*][q #];"

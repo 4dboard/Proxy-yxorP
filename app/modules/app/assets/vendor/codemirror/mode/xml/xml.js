@@ -11,7 +11,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var htmlConfig = {
+    const htmlConfig = {
         autoSelfClosers: {
             'area': true, 'base': true, 'br': true, 'col': true, 'command': true,
             'embed': true, 'frame': true, 'hr': true, 'img': true, 'input': true,
@@ -49,9 +49,9 @@
         allowUnquoted: true,
         allowMissing: true,
         caseFold: true
-    }
+    };
 
-    var xmlConfig = {
+    const xmlConfig = {
         autoSelfClosers: {},
         implicitlyClosed: {},
         contextGrabbers: {},
@@ -60,17 +60,17 @@
         allowMissing: false,
         allowMissingTagName: false,
         caseFold: false
-    }
+    };
 
     CodeMirror.defineMode("xml", function (editorConf, config_) {
-        var indentUnit = editorConf.indentUnit
-        var config = {}
-        var defaults = config_.htmlMode ? htmlConfig : xmlConfig
+        const indentUnit = editorConf.indentUnit;
+        const config = {};
+        const defaults = config_.htmlMode ? htmlConfig : xmlConfig;
         for (var prop in defaults) config[prop] = defaults[prop]
         for (var prop in config_) config[prop] = config_[prop]
 
         // Return variables for tokenizers
-        var type, setStyle;
+        let type, setStyle;
 
         function inText(stream, state) {
             function chain(parser) {
@@ -78,7 +78,7 @@
                 return parser(stream, state);
             }
 
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === "<") {
                 if (stream.eat("!")) {
                     if (stream.eat("[")) {
@@ -102,7 +102,7 @@
                     return "tag bracket";
                 }
             } else if (ch === "&") {
-                var ok;
+                let ok;
                 if (stream.eat("#")) {
                     if (stream.eat("x")) {
                         ok = stream.eatWhile(/[a-fA-F\d]/) && stream.eat(";");
@@ -122,7 +122,7 @@
         inText.isInText = true;
 
         function inTag(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === ">" || (ch === "/" && stream.eat(">"))) {
                 state.tokenize = inText;
                 type = ch === ">" ? "endTag" : "selfcloseTag";
@@ -134,7 +134,7 @@
                 state.tokenize = inText;
                 state.state = baseState;
                 state.tagName = state.tagStart = null;
-                var next = state.tokenize(stream, state);
+                const next = state.tokenize(stream, state);
                 return next ? next + " tag error" : "tag error";
             } else if (/[\'\"]/.test(ch)) {
                 state.tokenize = inAttribute(ch);
@@ -147,7 +147,7 @@
         }
 
         function inAttribute(quote) {
-            var closure = function (stream, state) {
+            const closure = function (stream, state) {
                 while (!stream.eol()) {
                     if (stream.next() === quote) {
                         state.tokenize = inTag;
@@ -175,7 +175,7 @@
 
         function doctype(depth) {
             return function (stream, state) {
-                var ch;
+                let ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === "<") {
                         state.tokenize = doctype(depth + 1);
@@ -212,7 +212,7 @@
         }
 
         function maybePopContext(state, nextTagName) {
-            var parentTagName;
+            let parentTagName;
             while (true) {
                 if (!state.context) {
                     return;
@@ -253,7 +253,7 @@
 
         function closeTagNameState(type, stream, state) {
             if (type === "word") {
-                var tagName = stream.current();
+                const tagName = stream.current();
                 if (state.context && state.context.tagName !== tagName &&
                     config.implicitlyClosed.hasOwnProperty(lower(state.context.tagName)))
                     popContext(state);
@@ -292,7 +292,7 @@
                 setStyle = "attribute";
                 return attrEqState;
             } else if (type === "endTag" || type === "selfcloseTag") {
-                var tagName = state.tagName, tagStart = state.tagStart;
+                const tagName = state.tagName, tagStart = state.tagStart;
                 state.tagName = state.tagStart = null;
                 if (type === "selfcloseTag" ||
                     config.autoSelfClosers.hasOwnProperty(lower(tagName))) {
@@ -330,13 +330,13 @@
 
         return {
             startState: function (baseIndent) {
-                var state = {
+                const state = {
                     tokenize: inText,
                     state: baseState,
                     indented: baseIndent || 0,
                     tagName: null, tagStart: null,
                     context: null
-                }
+                };
                 if (baseIndent != null) state.baseIndent = baseIndent
                 return state
             },
@@ -347,7 +347,7 @@
 
                 if (stream.eatSpace()) return null;
                 type = null;
-                var style = state.tokenize(stream, state);
+                let style = state.tokenize(stream, state);
                 if ((style || type) && style !== "comment") {
                     setStyle = null;
                     state.state = state.state(type || style, stream, state);
@@ -358,7 +358,7 @@
             },
 
             indent: function (state, textAfter, fullLine) {
-                var context = state.context;
+                let context = state.context;
                 // Indent multi-line strings (e.g. css).
                 if (state.tokenize.isInAttribute) {
                     if (state.tagStart === state.indented)
@@ -377,7 +377,7 @@
                         return state.tagStart + indentUnit * (config.multilineTagIndentFactor || 1);
                 }
                 if (config.alignCDATA && /<!\[CDATA\[/.test(textAfter)) return 0;
-                var tagAfter = textAfter && /^<(\/)?([\w_:\.-]*)/.exec(textAfter);
+                const tagAfter = textAfter && /^<(\/)?([\w_:\.-]*)/.exec(textAfter);
                 if (tagAfter && tagAfter[1]) { // Closing tag spotted
                     while (context) {
                         if (context.tagName === tagAfter[2]) {
@@ -391,7 +391,7 @@
                     }
                 } else if (tagAfter) { // Opening tag spotted
                     while (context) {
-                        var grabbers = config.contextGrabbers[lower(context.tagName)];
+                        const grabbers = config.contextGrabbers[lower(context.tagName)];
                         if (grabbers && grabbers.hasOwnProperty(lower(tagAfter[2])))
                             context = context.prev;
                         else
@@ -421,8 +421,8 @@
             },
 
             xmlCurrentContext: function (state) {
-                var context = []
-                for (var cx = state.context; cx; cx = cx.prev)
+                const context = [];
+                for (let cx = state.context; cx; cx = cx.prev)
                     context.push(cx.tagName)
                 return context.reverse()
             }

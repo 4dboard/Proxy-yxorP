@@ -27,14 +27,15 @@
 
     function drawRulers(cm) {
         cm.state.rulerDiv.textContent = ""
-        var val = cm.getOption("rulers");
-        var cw = cm.defaultCharWidth();
-        var left = cm.charCoords(CodeMirror.Pos(cm.firstLine(), 0), "div").left;
+        const val = cm.getOption("rulers");
+        const cw = cm.defaultCharWidth();
+        const left = cm.charCoords(CodeMirror.Pos(cm.firstLine(), 0), "div").left;
         cm.state.rulerDiv.style.minHeight = (cm.display.scroller.offsetHeight + 30) + "px";
-        for (var i = 0; i < val.length; i++) {
-            var elt = document.createElement("div");
+        for (let i = 0; i < val.length; i++) {
+            const elt = document.createElement("div");
             elt.className = "CodeMirror-ruler";
-            var col, conf = val[i];
+            let col;
+            const conf = val[i];
             if (typeof conf === "number") {
                 col = conf;
             } else {

@@ -12,8 +12,8 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     "use strict";
-    var Pos = CodeMirror.Pos;
-    var svgNS = "http://www.w3.org/2000/svg";
+    const Pos = CodeMirror.Pos;
+    const svgNS = "http://www.w3.org/2000/svg";
 
     function DiffView(mv, type) {
         this.mv = mv;
@@ -54,7 +54,7 @@
             this.lockButton.setAttribute("aria-label", this.lockButton.title);
 
             this.orig.state.diffViews = [this];
-            var classLocation = options.chunkClassLocation || "background";
+            let classLocation = options.chunkClassLocation || "background";
             if (Object.prototype.toString.call(classLocation) !== "[object Array]") classLocation = [classLocation]
             this.classes.classLocation = classLocation
 
@@ -88,12 +88,12 @@
         }
     }
 
-    var updating = false;
+    let updating = false;
 
     function registerUpdate(dv) {
-        var edit = {from: 0, to: 0, marked: []};
-        var orig = {from: 0, to: 0, marked: []};
-        var debounceChange, updatingFast = false;
+        const edit = {from: 0, to: 0, marked: []};
+        const orig = {from: 0, to: 0, marked: []};
+        let debounceChange, updatingFast = false;
 
         function update(mode) {
             updating = true;
@@ -183,7 +183,8 @@
         }
         dv.needsScrollSync = null
         if (!dv.lockScroll) return true;
-        var editor, other, now = +new Date;
+        let editor, other;
+        const now = +new Date;
         if (toOrig) {
             editor = dv.edit;
             other = dv.orig;
@@ -195,26 +196,26 @@
         // (to prevent feedback loops)
         if (editor.state.scrollSetBy === dv && (editor.state.scrollSetAt || 0) + 250 > now) return false;
 
-        var sInfo = editor.getScrollInfo();
+        const sInfo = editor.getScrollInfo();
         if (dv.mv.options.connect === "align") {
             targetPos = sInfo.top;
         } else {
-            var halfScreen = .5 * sInfo.clientHeight, midY = sInfo.top + halfScreen;
-            var mid = editor.lineAtHeight(midY, "local");
-            var around = chunkBoundariesAround(dv.chunks, mid, toOrig);
-            var off = getOffsets(editor, toOrig ? around.edit : around.orig);
-            var offOther = getOffsets(other, toOrig ? around.orig : around.edit);
-            var ratio = (midY - off.top) / (off.bot - off.top);
+            const halfScreen = .5 * sInfo.clientHeight, midY = sInfo.top + halfScreen;
+            const mid = editor.lineAtHeight(midY, "local");
+            const around = chunkBoundariesAround(dv.chunks, mid, toOrig);
+            const off = getOffsets(editor, toOrig ? around.edit : around.orig);
+            const offOther = getOffsets(other, toOrig ? around.orig : around.edit);
+            const ratio = (midY - off.top) / (off.bot - off.top);
             var targetPos = (offOther.top - halfScreen) + ratio * (offOther.bot - offOther.top);
 
-            var botDist, mix;
+            let botDist, mix;
             // Some careful tweaking to make sure no space is left out of view
             // when scrolling to top or bottom.
             if (targetPos > sInfo.top && (mix = sInfo.top / halfScreen) < 1) {
                 targetPos = targetPos * mix + sInfo.top * (1 - mix);
             } else if ((botDist = sInfo.height - sInfo.clientHeight - sInfo.top) < halfScreen) {
-                var otherInfo = other.getScrollInfo();
-                var botDistOther = otherInfo.height - otherInfo.clientHeight - targetPos;
+                const otherInfo = other.getScrollInfo();
+                const botDistOther = otherInfo.height - otherInfo.clientHeight - targetPos;
                 if (botDistOther > botDist && (mix = botDist / halfScreen) < 1)
                     targetPos = targetPos * mix + (otherInfo.height - otherInfo.clientHeight - botDist) * (1 - mix);
             }
@@ -227,7 +228,7 @@
     }
 
     function getOffsets(editor, around) {
-        var bot = around.after;
+        let bot = around.after;
         if (bot === null) bot = editor.lastLine() + 1;
         return {
             top: editor.heightAtLine(around.before || 0, "local"),
@@ -244,8 +245,8 @@
     // Updating the marks for editor content
 
     function removeClass(editor, line, classes) {
-        var locs = classes.classLocation
-        for (var i = 0; i < locs.length; i++) {
+        const locs = classes.classLocation;
+        for (let i = 0; i < locs.length; i++) {
             editor.removeLineClass(line, locs[i], classes.chunk);
             editor.removeLineClass(line, locs[i], classes.start);
             editor.removeLineClass(line, locs[i], classes.end);
@@ -253,8 +254,8 @@
     }
 
     function clearMarks(editor, arr, classes) {
-        for (var i = 0; i < arr.length; ++i) {
-            var mark = arr[i];
+        for (let i = 0; i < arr.length; ++i) {
+            const mark = arr[i];
             if (mark instanceof CodeMirror.TextMarker)
                 mark.clear();
             else if (mark.parent)
@@ -265,7 +266,7 @@
 
     // FIXME maybe add a margin around viewport to prevent too many updates
     function updateMarks(editor, diff, state, type, classes) {
-        var vp = editor.getViewport();
+        const vp = editor.getViewport();
         editor.operation(function () {
             if (state.from === state.to || vp.from - state.to > 20 || state.from - vp.to > 20) {
                 clearMarks(editor, state.marked, classes);
@@ -286,8 +287,8 @@
     }
 
     function addClass(editor, lineNr, classes, main, start, end) {
-        var locs = classes.classLocation, line = editor.getLineHandle(lineNr);
-        for (var i = 0; i < locs.length; i++) {
+        const locs = classes.classLocation, line = editor.getLineHandle(lineNr);
+        for (let i = 0; i < locs.length; i++) {
             if (main) editor.addLineClass(line, locs[i], classes.chunk);
             if (start) editor.addLineClass(line, locs[i], classes.start);
             if (end) editor.addLineClass(line, locs[i], classes.end);
@@ -296,13 +297,13 @@
     }
 
     function markChanges(editor, diff, type, marks, from, to, classes) {
-        var pos = Pos(0, 0);
-        var top = Pos(from, 0), bot = editor.clipPos(Pos(to - 1));
-        var cls = type === DIFF_DELETE ? classes.del : classes.insert;
+        let pos = Pos(0, 0);
+        const top = Pos(from, 0), bot = editor.clipPos(Pos(to - 1));
+        const cls = type === DIFF_DELETE ? classes.del : classes.insert;
 
         function markChunk(start, end) {
-            var bfrom = Math.max(from, start), bto = Math.min(to, end);
-            for (var i = bfrom; i < bto; ++i)
+            const bfrom = Math.max(from, start), bto = Math.min(to, end);
+            for (let i = bfrom; i < bto; ++i)
                 marks.push(addClass(editor, i, classes, true, i === start, i === end - 1));
             // When the chunk is empty, make sure a horizontal line shows up
             if (start === end && bfrom === end && bto === end) {
@@ -313,13 +314,13 @@
             }
         }
 
-        var chunkStart = 0, pending = false;
+        let chunkStart = 0, pending = false;
         for (var i = 0; i < diff.length; ++i) {
-            var part = diff[i], tp = part[0], str = part[1];
+            const part = diff[i], tp = part[0], str = part[1];
             if (tp === DIFF_EQUAL) {
-                var cleanFrom = pos.line + (startOfLineClean(diff, i) ? 0 : 1);
+                const cleanFrom = pos.line + (startOfLineClean(diff, i) ? 0 : 1);
                 moveOver(pos, str);
-                var cleanTo = pos.line + (endOfLineClean(diff, i) ? 1 : 0);
+                const cleanTo = pos.line + (endOfLineClean(diff, i) ? 1 : 0);
                 if (cleanTo > cleanFrom) {
                     if (pending) {
                         markChunk(chunkStart, cleanFrom);
@@ -331,7 +332,7 @@
                 pending = true
                 if (tp === type) {
                     var end = moveOver(pos, str, true);
-                    var a = posMax(top, pos), b = posMin(bot, end);
+                    const a = posMax(top, pos), b = posMin(bot, end);
                     if (!posEq(a, b))
                         marks.push(editor.markText(a, b, {className: cls}));
                     pos = end;
@@ -353,12 +354,12 @@
         }
         if (dv.copyButtons) clear(dv.copyButtons);
 
-        var vpEdit = dv.edit.getViewport(), vpOrig = dv.orig.getViewport();
-        var outerTop = dv.mv.wrap.getBoundingClientRect().top
-        var sTopEdit = outerTop - dv.edit.getScrollerElement().getBoundingClientRect().top + dv.edit.getScrollInfo().top
-        var sTopOrig = outerTop - dv.orig.getScrollerElement().getBoundingClientRect().top + dv.orig.getScrollInfo().top;
-        for (var i = 0; i < dv.chunks.length; i++) {
-            var ch = dv.chunks[i];
+        const vpEdit = dv.edit.getViewport(), vpOrig = dv.orig.getViewport();
+        const outerTop = dv.mv.wrap.getBoundingClientRect().top;
+        const sTopEdit = outerTop - dv.edit.getScrollerElement().getBoundingClientRect().top + dv.edit.getScrollInfo().top;
+        const sTopOrig = outerTop - dv.orig.getScrollerElement().getBoundingClientRect().top + dv.orig.getScrollInfo().top;
+        for (let i = 0; i < dv.chunks.length; i++) {
+            const ch = dv.chunks[i];
             if (ch.editFrom <= vpEdit.to && ch.editTo >= vpEdit.from &&
                 ch.origFrom <= vpOrig.to && ch.origTo >= vpOrig.from)
                 drawConnectorsForChunk(dv, ch, sTopOrig, sTopEdit, w);
@@ -366,9 +367,9 @@
     }
 
     function getMatchingOrigLine(editLine, chunks) {
-        var editStart = 0, origStart = 0;
-        for (var i = 0; i < chunks.length; i++) {
-            var chunk = chunks[i];
+        let editStart = 0, origStart = 0;
+        for (let i = 0; i < chunks.length; i++) {
+            const chunk = chunks[i];
             if (chunk.editTo > editLine && chunk.editFrom <= editLine) return null;
             if (chunk.editFrom > editLine) break;
             editStart = chunk.editTo;
@@ -381,14 +382,14 @@
     // an array of lines, in a single editor, that probably need to be
     // aligned with their counterparts in the editor next to it.
     function alignableFor(cm, chunks, isOrig) {
-        var tracker = cm.state.trackAlignable
-        var start = cm.firstLine(), trackI = 0
-        var result = []
-        for (var i = 0; ; i++) {
-            var chunk = chunks[i]
-            var chunkStart = !chunk ? 1e9 : isOrig ? chunk.origFrom : chunk.editFrom
+        const tracker = cm.state.trackAlignable;
+        let start = cm.firstLine(), trackI = 0;
+        const result = [];
+        for (let i = 0; ; i++) {
+            const chunk = chunks[i];
+            const chunkStart = !chunk ? 1e9 : isOrig ? chunk.origFrom : chunk.editFrom;
             for (; trackI < tracker.alignable.length; trackI += 2) {
-                var n = tracker.alignable[trackI] + 1
+                const n = tracker.alignable[trackI] + 1;
                 if (n <= start) continue
                 if (n <= chunkStart) result.push(n)
                 else break
@@ -403,14 +404,14 @@
     // the result (an array of three-element arrays) to reflect the
     // lines that need to be aligned with each other.
     function mergeAlignable(result, origAlignable, chunks, setIndex) {
-        var rI = 0, origI = 0, chunkI = 0, diff = 0
+        let rI = 0, origI = 0, chunkI = 0, diff = 0;
         outer: for (; ; rI++) {
-            var nextR = result[rI], nextO = origAlignable[origI]
+            const nextR = result[rI], nextO = origAlignable[origI];
             if (!nextR && nextO === null) break
 
-            var rLine = nextR ? nextR[0] : 1e9, oLine = nextO === null ? 1e9 : nextO
+            const rLine = nextR ? nextR[0] : 1e9, oLine = nextO === null ? 1e9 : nextO;
             while (chunkI < chunks.length) {
-                var chunk = chunks[chunkI]
+                const chunk = chunks[chunkI];
                 if (chunk.origFrom <= oLine && chunk.origTo > oLine) {
                     origI++
                     rI--
@@ -429,7 +430,7 @@
             } else if (rLine < oLine - diff) {
                 nextR[setIndex] = rLine + diff
             } else {
-                var record = [oLine - diff, null, null]
+                const record = [oLine - diff, null, null];
                 record[setIndex] = oLine
                 result.splice(rI, 0, record)
                 origI++
@@ -438,9 +439,9 @@
     }
 
     function findAlignedLines(dv, other) {
-        var alignable = alignableFor(dv.edit, dv.chunks, false), result = []
+        const alignable = alignableFor(dv.edit, dv.chunks, false), result = [];
         if (other) for (var i = 0, j = 0; i < other.chunks.length; i++) {
-            var n = other.chunks[i].editTo
+            const n = other.chunks[i].editTo;
             while (j < alignable.length && alignable[j] < n) j++
             if (j === alignable.length || alignable[j] !== n) alignable.splice(j++, 0, n)
         }
@@ -461,20 +462,20 @@
         });
 
         dv.dealigned = false;
-        var other = dv.mv.left === dv ? dv.mv.right : dv.mv.left;
+        const other = dv.mv.left === dv ? dv.mv.right : dv.mv.left;
         if (other) {
             ensureDiff(other);
             other.dealigned = false;
         }
-        var linesToAlign = findAlignedLines(dv, other);
+        const linesToAlign = findAlignedLines(dv, other);
 
         // Clear old aligners
-        var aligners = dv.mv.aligners;
+        const aligners = dv.mv.aligners;
         for (var i = 0; i < aligners.length; i++)
             aligners[i].clear();
         aligners.length = 0;
 
-        var cm = [dv.edit, dv.orig], scroll = [], offset = []
+        const cm = [dv.edit, dv.orig], scroll = [], offset = [];
         if (other) cm.push(other.orig);
         for (var i = 0; i < cm.length; i++) {
             scroll.push(cm[i].getScrollInfo().top);
@@ -483,7 +484,7 @@
 
         if (offset[0] !== offset[1] || cm.length === 3 && offset[1] !== offset[2])
             alignLines(cm, offset, [0, 0, 0], aligners)
-        for (var ln = 0; ln < linesToAlign.length; ln++)
+        for (let ln = 0; ln < linesToAlign.length; ln++)
             alignLines(cm, offset, linesToAlign[ln], aligners);
 
         for (var i = 0; i < cm.length; i++)
@@ -491,26 +492,27 @@
     }
 
     function alignLines(cm, cmOffset, lines, aligners) {
-        var maxOffset = -1e8, offset = [];
+        let maxOffset = -1e8;
+        const offset = [];
         for (var i = 0; i < cm.length; i++) if (lines[i] != null) {
-            var off = cm[i].heightAtLine(lines[i], "local") - cmOffset[i];
+            const off = cm[i].heightAtLine(lines[i], "local") - cmOffset[i];
             offset[i] = off;
             maxOffset = Math.max(maxOffset, off);
         }
         for (var i = 0; i < cm.length; i++) if (lines[i] != null) {
-            var diff = maxOffset - offset[i];
+            const diff = maxOffset - offset[i];
             if (diff > 1)
                 aligners.push(padAbove(cm[i], lines[i], diff));
         }
     }
 
     function padAbove(cm, line, size) {
-        var above = true;
+        let above = true;
         if (line > cm.lastLine()) {
             line--;
             above = false;
         }
-        var elt = document.createElement("div");
+        const elt = document.createElement("div");
         elt.className = "CodeMirror-merge-spacer";
         elt.style.height = size + "px";
         elt.style.minWidth = "1px";
@@ -518,33 +520,33 @@
     }
 
     function drawConnectorsForChunk(dv, chunk, sTopOrig, sTopEdit, w) {
-        var flip = dv.type === "left";
-        var top = dv.orig.heightAtLine(chunk.origFrom, "local", true) - sTopOrig;
+        const flip = dv.type === "left";
+        const top = dv.orig.heightAtLine(chunk.origFrom, "local", true) - sTopOrig;
         if (dv.svg) {
-            var topLpx = top;
-            var topRpx = dv.edit.heightAtLine(chunk.editFrom, "local", true) - sTopEdit;
+            let topLpx = top;
+            let topRpx = dv.edit.heightAtLine(chunk.editFrom, "local", true) - sTopEdit;
             if (flip) {
                 var tmp = topLpx;
                 topLpx = topRpx;
                 topRpx = tmp;
             }
-            var botLpx = dv.orig.heightAtLine(chunk.origTo, "local", true) - sTopOrig;
-            var botRpx = dv.edit.heightAtLine(chunk.editTo, "local", true) - sTopEdit;
+            let botLpx = dv.orig.heightAtLine(chunk.origTo, "local", true) - sTopOrig;
+            let botRpx = dv.edit.heightAtLine(chunk.editTo, "local", true) - sTopEdit;
             if (flip) {
                 var tmp = botLpx;
                 botLpx = botRpx;
                 botRpx = tmp;
             }
-            var curveTop = " C " + w / 2 + " " + topRpx + " " + w / 2 + " " + topLpx + " " + (w + 2) + " " + topLpx;
-            var curveBot = " C " + w / 2 + " " + botLpx + " " + w / 2 + " " + botRpx + " -1 " + botRpx;
+            const curveTop = " C " + w / 2 + " " + topRpx + " " + w / 2 + " " + topLpx + " " + (w + 2) + " " + topLpx;
+            const curveBot = " C " + w / 2 + " " + botLpx + " " + w / 2 + " " + botRpx + " -1 " + botRpx;
             attrs(dv.svg.appendChild(document.createElementNS(svgNS, "path")),
                 "d", "M -1 " + topRpx + curveTop + " L " + (w + 2) + " " + botLpx + curveBot + " z",
                 "class", dv.classes.connect);
         }
         if (dv.copyButtons) {
-            var copy = dv.copyButtons.appendChild(elt("div", dv.type === "left" ? "\u21dd" : "\u21dc",
+            const copy = dv.copyButtons.appendChild(elt("div", dv.type === "left" ? "\u21dd" : "\u21dc",
                 "CodeMirror-merge-copy"));
-            var editOriginals = dv.mv.options.allowEditingOriginals;
+            const editOriginals = dv.mv.options.allowEditingOriginals;
             copy.title = dv.edit.phrase(editOriginals ? "Push to left" : "Revert chunk");
             copy.chunk = chunk;
             copy.style.top = (chunk.origTo > chunk.origFrom ? top : dv.edit.heightAtLine(chunk.editFrom, "local") - sTopEdit) + "px";
@@ -553,8 +555,8 @@
             copy.setAttribute("aria-label", copy.title);
 
             if (editOriginals) {
-                var topReverse = dv.edit.heightAtLine(chunk.editFrom, "local") - sTopEdit;
-                var copyReverse = dv.copyButtons.appendChild(elt("div", dv.type === "right" ? "\u21dd" : "\u21dc",
+                const topReverse = dv.edit.heightAtLine(chunk.editFrom, "local") - sTopEdit;
+                const copyReverse = dv.copyButtons.appendChild(elt("div", dv.type === "right" ? "\u21dd" : "\u21dc",
                     "CodeMirror-merge-copy-reverse"));
                 copyReverse.title = "Push to right";
                 copyReverse.chunk = {
@@ -572,11 +574,11 @@
 
     function copyChunk(dv, to, from, chunk) {
         if (dv.diffOutOfDate) return;
-        var origStart = chunk.origTo > from.lastLine() ? Pos(chunk.origFrom - 1) : Pos(chunk.origFrom, 0)
-        var origEnd = Pos(chunk.origTo, 0)
-        var editStart = chunk.editTo > to.lastLine() ? Pos(chunk.editFrom - 1) : Pos(chunk.editFrom, 0)
-        var editEnd = Pos(chunk.editTo, 0)
-        var handler = dv.mv.options.revertChunk
+        const origStart = chunk.origTo > from.lastLine() ? Pos(chunk.origFrom - 1) : Pos(chunk.origFrom, 0);
+        const origEnd = Pos(chunk.origTo, 0);
+        const editStart = chunk.editTo > to.lastLine() ? Pos(chunk.editFrom - 1) : Pos(chunk.editFrom, 0);
+        const editEnd = Pos(chunk.editTo, 0);
+        const handler = dv.mv.options.revertChunk;
         if (handler)
             handler(dv.mv, from, origStart, origEnd, to, editStart, editEnd)
         else
@@ -585,16 +587,17 @@
 
     // Merge view, containing 0, 1, or 2 diff views.
 
-    var MergeView = CodeMirror.MergeView = function (node, options) {
+    const MergeView = CodeMirror.MergeView = function (node, options) {
         if (!(this instanceof MergeView)) return new MergeView(node, options);
 
         this.options = options;
-        var origLeft = options.origLeft, origRight = options.origRight === null ? options.orig : options.origRight;
+        const origLeft = options.origLeft, origRight = options.origRight === null ? options.orig : options.origRight;
 
-        var hasLeft = origLeft != null, hasRight = origRight != null;
-        var panes = 1 + (hasLeft ? 1 : 0) + (hasRight ? 1 : 0);
-        var wrap = [], left = this.left = null, right = this.right = null;
-        var self = this;
+        const hasLeft = origLeft != null, hasRight = origRight != null;
+        const panes = 1 + (hasLeft ? 1 : 0) + (hasRight ? 1 : 0);
+        const wrap = [];
+        let left = this.left = null, right = this.right = null;
+        const self = this;
 
         if (hasLeft) {
             left = this.left = new DiffView(this, "left");
@@ -603,7 +606,7 @@
             wrap.push(buildGap(left));
         }
 
-        var editPane = elt("div", null, "CodeMirror-merge-pane CodeMirror-merge-editor");
+        const editPane = elt("div", null, "CodeMirror-merge-pane CodeMirror-merge-editor");
         wrap.push(editPane);
 
         if (hasRight) {
@@ -617,7 +620,7 @@
 
         wrap.push(elt("div", null, null, "height: 0; clear: both;"));
 
-        var wrapElt = this.wrap = node.appendChild(elt("div", wrap, "CodeMirror-merge CodeMirror-merge-" + panes + "pane"));
+        const wrapElt = this.wrap = node.appendChild(elt("div", wrap, "CodeMirror-merge CodeMirror-merge-" + panes + "pane"));
         this.edit = CodeMirror(editPane, copyObj(options));
 
         if (left) left.init(leftPane, origLeft, options);
@@ -634,12 +637,12 @@
         if (right) right.registerEvents(left)
 
 
-        var onResize = function () {
+        const onResize = function () {
             if (left) makeConnections(left);
             if (right) makeConnections(right);
         };
         CodeMirror.on(window, "resize", onResize);
-        var resizeInterval = setInterval(function () {
+        const resizeInterval = setInterval(function () {
             for (var p = wrapElt.parentNode; p && p !== document.body; p = p.parentNode) {
             }
             if (!p) {
@@ -650,22 +653,22 @@
     };
 
     function buildGap(dv) {
-        var lock = dv.lockButton = elt("div", null, "CodeMirror-merge-scrolllock");
+        const lock = dv.lockButton = elt("div", null, "CodeMirror-merge-scrolllock");
         lock.setAttribute("role", "button");
         lock.setAttribute("tabindex", "0");
-        var lockWrap = elt("div", [lock], "CodeMirror-merge-scrolllock-wrap");
+        const lockWrap = elt("div", [lock], "CodeMirror-merge-scrolllock-wrap");
         CodeMirror.on(lock, "click", function () {
             setScrollLock(dv, !dv.lockScroll);
         });
         CodeMirror.on(lock, "keyup", function (e) {
             e.key === "Enter" && setScrollLock(dv, !dv.lockScroll);
         });
-        var gapElts = [lockWrap];
+        const gapElts = [lockWrap];
         if (dv.mv.options.revertButtons !== false) {
             dv.copyButtons = elt("div", null, "CodeMirror-merge-copybuttons-" + dv.type);
 
             function copyButtons(e) {
-                var node = e.target || e.srcElement;
+                const node = e.target || e.srcElement;
                 if (!node.chunk) return;
                 if (node.className === "CodeMirror-merge-copy-reverse") {
                     copyChunk(dv, dv.orig, dv.edit, node.chunk);
@@ -681,7 +684,7 @@
             gapElts.unshift(dv.copyButtons);
         }
         if (dv.mv.options.connect !== "align") {
-            var svg = document.createElementNS && document.createElementNS(svgNS, "svg");
+            let svg = document.createElementNS && document.createElementNS(svgNS, "svg");
             if (svg && !svg.createSVGRect) svg = null;
             dv.svg = svg;
             if (svg) gapElts.push(svg);
@@ -725,15 +728,15 @@
     }
 
     // Operations on diffs
-    var dmp;
+    let dmp;
 
     function getDiff(a, b, ignoreWhitespace) {
         if (!dmp) dmp = new diff_match_patch();
 
-        var diff = dmp.diff_main(a, b);
+        const diff = dmp.diff_main(a, b);
         // The library sometimes leaves in empty parts, which confuse the algorithm
-        for (var i = 0; i < diff.length; ++i) {
-            var part = diff[i];
+        for (let i = 0; i < diff.length; ++i) {
+            const part = diff[i];
             if (ignoreWhitespace ? !/[^ \t]/.test(part[1]) : !part[1]) {
                 diff.splice(i--, 1);
             } else if (i && diff[i - 1][0] === part[0]) {
@@ -745,18 +748,18 @@
     }
 
     function getChunks(diff) {
-        var chunks = [];
+        const chunks = [];
         if (!diff.length) return chunks;
-        var startEdit = 0, startOrig = 0;
-        var edit = Pos(0, 0), orig = Pos(0, 0);
-        for (var i = 0; i < diff.length; ++i) {
-            var part = diff[i], tp = part[0];
+        let startEdit = 0, startOrig = 0;
+        const edit = Pos(0, 0), orig = Pos(0, 0);
+        for (let i = 0; i < diff.length; ++i) {
+            const part = diff[i], tp = part[0];
             if (tp === DIFF_EQUAL) {
-                var startOff = !startOfLineClean(diff, i) || edit.line < startEdit || orig.line < startOrig ? 1 : 0;
-                var cleanFromEdit = edit.line + startOff, cleanFromOrig = orig.line + startOff;
+                const startOff = !startOfLineClean(diff, i) || edit.line < startEdit || orig.line < startOrig ? 1 : 0;
+                const cleanFromEdit = edit.line + startOff, cleanFromOrig = orig.line + startOff;
                 moveOver(edit, part[1], null, orig);
-                var endOff = endOfLineClean(diff, i) ? 1 : 0;
-                var cleanToEdit = edit.line + endOff, cleanToOrig = orig.line + endOff;
+                const endOff = endOfLineClean(diff, i) ? 1 : 0;
+                const cleanToEdit = edit.line + endOff, cleanToOrig = orig.line + endOff;
                 if (cleanToEdit > cleanFromEdit) {
                     if (i) chunks.push({
                         origFrom: startOrig, origTo: cleanFromOrig,
@@ -779,7 +782,7 @@
 
     function endOfLineClean(diff, i) {
         if (i === diff.length - 1) return true;
-        var next = diff[i + 1][1];
+        let next = diff[i + 1][1];
         if ((next.length === 1 && i < diff.length - 2) || next.charCodeAt(0) !== 10) return false;
         if (i === diff.length - 2) return true;
         next = diff[i + 2][1];
@@ -788,7 +791,7 @@
 
     function startOfLineClean(diff, i) {
         if (i === 0) return true;
-        var last = diff[i - 1][1];
+        let last = diff[i - 1][1];
         if (last.charCodeAt(last.length - 1) !== 10) return false;
         if (i === 1) return true;
         last = diff[i - 2][1];
@@ -796,11 +799,11 @@
     }
 
     function chunkBoundariesAround(chunks, n, nInEdit) {
-        var beforeE, afterE, beforeO, afterO;
-        for (var i = 0; i < chunks.length; i++) {
-            var chunk = chunks[i];
-            var fromLocal = nInEdit ? chunk.editFrom : chunk.origFrom;
-            var toLocal = nInEdit ? chunk.editTo : chunk.origTo;
+        let beforeE, afterE, beforeO, afterO;
+        for (let i = 0; i < chunks.length; i++) {
+            const chunk = chunks[i];
+            const fromLocal = nInEdit ? chunk.editFrom : chunk.origFrom;
+            const toLocal = nInEdit ? chunk.editTo : chunk.origTo;
             if (afterE === null) {
                 if (fromLocal > n) {
                     afterE = chunk.editFrom;
@@ -823,10 +826,10 @@
 
     function collapseSingle(cm, from, to) {
         cm.addLineClass(from, "wrap", "CodeMirror-merge-collapsed-line");
-        var widget = document.createElement("span");
+        const widget = document.createElement("span");
         widget.className = "CodeMirror-merge-collapsed-widget";
         widget.title = cm.phrase("Identical text collapsed. Click to expand.");
-        var mark = cm.markText(Pos(from, 0), Pos(to - 1), {
+        const mark = cm.markText(Pos(from, 0), Pos(to - 1), {
             inclusiveLeft: true,
             inclusiveRight: true,
             replacedWith: widget,
@@ -846,15 +849,15 @@
     }
 
     function collapseStretch(size, editors) {
-        var marks = [];
+        const marks = [];
 
         function clear() {
-            for (var i = 0; i < marks.length; i++) marks[i].clear();
+            for (let i = 0; i < marks.length; i++) marks[i].clear();
         }
 
         for (var i = 0; i < editors.length; i++) {
-            var editor = editors[i];
-            var mark = collapseSingle(editor.cm, editor.line, editor.line + size);
+            const editor = editors[i];
+            const mark = collapseSingle(editor.cm, editor.line, editor.line + size);
             marks.push(mark);
             mark.mark.on("clear", clear);
         }
@@ -862,10 +865,10 @@
     }
 
     function unclearNearChunks(dv, margin, off, clear) {
-        for (var i = 0; i < dv.chunks.length; i++) {
-            var chunk = dv.chunks[i];
-            for (var l = chunk.editFrom - margin; l < chunk.editTo + margin; l++) {
-                var pos = l + off;
+        for (let i = 0; i < dv.chunks.length; i++) {
+            const chunk = dv.chunks[i];
+            for (let l = chunk.editFrom - margin; l < chunk.editTo + margin; l++) {
+                const pos = l + off;
                 if (pos >= 0 && pos < clear.length) clear[pos] = false;
             }
         }
@@ -873,21 +876,23 @@
 
     function collapseIdenticalStretches(mv, margin) {
         if (typeof margin != "number") margin = 2;
-        var clear = [], edit = mv.editor(), off = edit.firstLine();
-        for (var l = off, e = edit.lastLine(); l <= e; l++) clear.push(true);
+        const clear = [], edit = mv.editor(), off = edit.firstLine();
+        let l = off;
+        const e = edit.lastLine();
+        for (; l <= e; l++) clear.push(true);
         if (mv.left) unclearNearChunks(mv.left, margin, off, clear);
         if (mv.right) unclearNearChunks(mv.right, margin, off, clear);
 
-        for (var i = 0; i < clear.length; i++) {
+        for (let i = 0; i < clear.length; i++) {
             if (clear[i]) {
-                var line = i + off;
+                const line = i + off;
                 for (var size = 1; i < clear.length - 1 && clear[i + 1]; i++, size++) {
                 }
                 if (size > margin) {
-                    var editors = [{line: line, cm: edit}];
+                    const editors = [{line: line, cm: edit}];
                     if (mv.left) editors.push({line: getMatchingOrigLine(line, mv.left.chunks), cm: mv.left.orig});
                     if (mv.right) editors.push({line: getMatchingOrigLine(line, mv.right.chunks), cm: mv.right.orig});
-                    var mark = collapseStretch(size, editors);
+                    const mark = collapseStretch(size, editors);
                     if (mv.options.onCollapse) mv.options.onCollapse(mv, line, size, mark);
                 }
             }
@@ -897,34 +902,35 @@
     // General utilities
 
     function elt(tag, content, className, style) {
-        var e = document.createElement(tag);
+        const e = document.createElement(tag);
         if (className) e.className = className;
         if (style) e.style.cssText = style;
         if (typeof content === "string") e.appendChild(document.createTextNode(content));
-        else if (content) for (var i = 0; i < content.length; ++i) e.appendChild(content[i]);
+        else if (content) for (let i = 0; i < content.length; ++i) e.appendChild(content[i]);
         return e;
     }
 
     function clear(node) {
-        for (var count = node.childNodes.length; count > 0; --count)
+        for (let count = node.childNodes.length; count > 0; --count)
             node.removeChild(node.firstChild);
     }
 
     function attrs(elt) {
-        for (var i = 1; i < arguments.length; i += 2)
+        for (let i = 1; i < arguments.length; i += 2)
             elt.setAttribute(arguments[i], arguments[i + 1]);
     }
 
     function copyObj(obj, target) {
         if (!target) target = {};
-        for (var prop in obj) if (obj.hasOwnProperty(prop)) target[prop] = obj[prop];
+        for (let prop in obj) if (obj.hasOwnProperty(prop)) target[prop] = obj[prop];
         return target;
     }
 
     function moveOver(pos, str, copy, other) {
-        var out = copy ? Pos(pos.line, pos.ch) : pos, at = 0;
+        const out = copy ? Pos(pos.line, pos.ch) : pos;
+        let at = 0;
         for (; ;) {
-            var nl = str.indexOf("\n", at);
+            const nl = str.indexOf("\n", at);
             if (nl === -1) break;
             ++out.line;
             if (other) ++other.line;
@@ -938,16 +944,16 @@
     // Tracks collapsed markers and line widgets, in order to be able to
     // accurately align the content of two editors.
 
-    var F_WIDGET = 1, F_WIDGET_BELOW = 2, F_MARKER = 4
+    const F_WIDGET = 1, F_WIDGET_BELOW = 2, F_MARKER = 4;
 
     function TrackAlignable(cm) {
         this.cm = cm
         this.alignable = []
         this.height = cm.doc.height
-        var self = this
+        const self = this;
         cm.on("markerAdded", function (_, marker) {
             if (!marker.collapsed) return
-            var found = marker.find(1)
+            const found = marker.find(1);
             if (found != null) self.set(found.line, F_MARKER)
         })
         cm.on("markerCleared", function (_, marker, _min, max) {
@@ -967,8 +973,8 @@
         })
         cm.on("lineWidgetChanged", this.signal.bind(this))
         cm.on("change", function (_, change) {
-            var start = change.from.line, nBefore = change.to.line - change.from.line
-            var nAfter = change.text.length - 1, end = start + nAfter
+            const start = change.from.line, nBefore = change.to.line - change.from.line;
+            const nAfter = change.text.length - 1, end = start + nAfter;
             if (nBefore || nAfter) self.map(start, nBefore, nAfter)
             self.check(end, F_MARKER, self.hasMarker)
             if (nBefore || nAfter) self.check(change.from.line, F_MARKER, self.hasMarker)
@@ -985,9 +991,9 @@
         },
 
         set: function (n, flags) {
-            var pos = -1
+            let pos = -1;
             for (; pos < this.alignable.length; pos += 2) {
-                var diff = this.alignable[pos] - n
+                const diff = this.alignable[pos] - n;
                 if (diff === 0) {
                     if ((this.alignable[pos + 1] & flags) === flags) return
                     this.alignable[pos + 1] |= flags
@@ -1001,49 +1007,50 @@
         },
 
         find: function (n) {
-            for (var i = 0; i < this.alignable.length; i += 2)
+            for (let i = 0; i < this.alignable.length; i += 2)
                 if (this.alignable[i] === n) return i
             return -1
         },
 
         check: function (n, flag, pred) {
-            var found = this.find(n)
+            const found = this.find(n);
             if (found === -1 || !(this.alignable[found + 1] && flag)) return
             if (!pred.call(this, n)) {
                 this.signal()
-                var flags = this.alignable[found + 1] & ~flag
+                const flags = this.alignable[found + 1] & ~flag;
                 if (flags) this.alignable[found + 1] = flags
                 else this.alignable.splice(found, 2)
             }
         },
 
         hasMarker: function (n) {
-            var handle = this.cm.getLineHandle(n)
-            if (handle.markedSpans) for (var i = 0; i < handle.markedSpans.length; i++)
+            const handle = this.cm.getLineHandle(n);
+            if (handle.markedSpans) for (let i = 0; i < handle.markedSpans.length; i++)
                 if (handle.markedSpans[i].marker.collapsed && handle.markedSpans[i].to != null)
                     return true
             return false
         },
 
         hasWidget: function (n) {
-            var handle = this.cm.getLineHandle(n)
-            if (handle.widgets) for (var i = 0; i < handle.widgets.length; i++)
+            const handle = this.cm.getLineHandle(n);
+            if (handle.widgets) for (let i = 0; i < handle.widgets.length; i++)
                 if (!handle.widgets[i].above && !handle.widgets[i].mergeSpacer) return true
             return false
         },
 
         hasWidgetBelow: function (n) {
             if (n === this.cm.lastLine()) return false
-            var handle = this.cm.getLineHandle(n + 1)
-            if (handle.widgets) for (var i = 0; i < handle.widgets.length; i++)
+            const handle = this.cm.getLineHandle(n + 1);
+            if (handle.widgets) for (let i = 0; i < handle.widgets.length; i++)
                 if (handle.widgets[i].above && !handle.widgets[i].mergeSpacer) return true
             return false
         },
 
         map: function (from, nBefore, nAfter) {
-            var diff = nAfter - nBefore, to = from + nBefore, widgetFrom = -1, widgetTo = -1
-            for (var i = 0; i < this.alignable.length; i += 2) {
-                var n = this.alignable[i]
+            const diff = nAfter - nBefore, to = from + nBefore;
+            let widgetFrom = -1, widgetTo = -1;
+            for (let i = 0; i < this.alignable.length; i += 2) {
+                const n = this.alignable[i];
                 if (n === from && (this.alignable[i + 1] && F_WIDGET_BELOW)) widgetFrom = i
                 if (n === to && (this.alignable[i + 1] && F_WIDGET_BELOW)) widgetTo = i
                 if (n <= from)
@@ -1051,7 +1058,7 @@
                 else this.alignable[i] += diff
             }
             if (widgetFrom > -1) {
-                var flags = this.alignable[widgetFrom + 1]
+                const flags = this.alignable[widgetFrom + 1];
                 if (flags === F_WIDGET_BELOW) this.alignable.splice(widgetFrom, 2)
                 else this.alignable[widgetFrom + 1] = flags & ~F_WIDGET_BELOW
             }
@@ -1073,27 +1080,28 @@
     }
 
     function findPrevDiff(chunks, start, isOrig) {
-        for (var i = chunks.length - 1; i >= 0; i--) {
-            var chunk = chunks[i];
-            var to = (isOrig ? chunk.origTo : chunk.editTo) - 1;
+        for (let i = chunks.length - 1; i >= 0; i--) {
+            const chunk = chunks[i];
+            const to = (isOrig ? chunk.origTo : chunk.editTo) - 1;
             if (to < start) return to;
         }
     }
 
     function findNextDiff(chunks, start, isOrig) {
-        for (var i = 0; i < chunks.length; i++) {
-            var chunk = chunks[i];
-            var from = (isOrig ? chunk.origFrom : chunk.editFrom);
+        for (let i = 0; i < chunks.length; i++) {
+            const chunk = chunks[i];
+            const from = (isOrig ? chunk.origFrom : chunk.editFrom);
             if (from > start) return from;
         }
     }
 
     function goNearbyDiff(cm, dir) {
-        var found = null, views = cm.state.diffViews, line = cm.getCursor().line;
-        if (views) for (var i = 0; i < views.length; i++) {
-            var dv = views[i], isOrig = cm === dv.orig;
+        let found = null;
+        const views = cm.state.diffViews, line = cm.getCursor().line;
+        if (views) for (let i = 0; i < views.length; i++) {
+            const dv = views[i], isOrig = cm === dv.orig;
             ensureDiff(dv);
-            var pos = dir < 0 ? findPrevDiff(dv.chunks, line, isOrig) : findNextDiff(dv.chunks, line, isOrig);
+            const pos = dir < 0 ? findPrevDiff(dv.chunks, line, isOrig) : findNextDiff(dv.chunks, line, isOrig);
             if (pos != null && (found === null || (dir < 0 ? pos > found : pos < found)))
                 found = pos;
         }

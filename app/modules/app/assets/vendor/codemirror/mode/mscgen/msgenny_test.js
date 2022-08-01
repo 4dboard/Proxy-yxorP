@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "text/x-msgenny");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "text/x-msgenny");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1), "msgenny");

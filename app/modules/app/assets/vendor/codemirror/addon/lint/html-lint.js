@@ -15,7 +15,7 @@
 })(function (CodeMirror, HTMLHint) {
     "use strict";
 
-    var defaultRules = {
+    const defaultRules = {
         "tagname-lowercase": true,
         "attr-lowercase": true,
         "attr-value-double-quotes": true,
@@ -28,7 +28,7 @@
     };
 
     CodeMirror.registerHelper("lint", "html", function (text, options) {
-        var found = [];
+        const found = [];
         if (HTMLHint && !HTMLHint.verify) {
             if (typeof HTMLHint.default !== 'undefined') {
                 HTMLHint = HTMLHint.default;
@@ -43,10 +43,10 @@
             }
             return found;
         }
-        var messages = HTMLHint.verify(text, options && options.rules || defaultRules);
-        for (var i = 0; i < messages.length; i++) {
-            var message = messages[i];
-            var startLine = message.line - 1, endLine = message.line - 1, startCol = message.col - 1,
+        const messages = HTMLHint.verify(text, options && options.rules || defaultRules);
+        for (let i = 0; i < messages.length; i++) {
+            const message = messages[i];
+            const startLine = message.line - 1, endLine = message.line - 1, startCol = message.col - 1,
                 endCol = message.col;
             found.push({
                 from: CodeMirror.Pos(startLine, startCol),

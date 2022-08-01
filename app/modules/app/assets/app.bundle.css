@@ -1686,7 +1686,7 @@ icon[size="larger"] {
     text-align: center;
     font-size: 12px;
     font-weight: bolder;
-    letter-spacing: .5px;
+    letter-spacing: 1px;
 
     /*
       Let the content set the size of the tooltips
@@ -2244,10 +2244,7 @@ hr {
     box-sizing: content-box;
     height: var(--kiss-hr-height, 1px);
     overflow: visible;
-    margin-top: var(--kiss-block-element-margin, 1rem);
-    margin-bottom: var(--kiss-block-element-margin, 1rem);
-    margin-left: auto;
-    margin-right: auto;
+    margin: var(--kiss-block-element-margin, 1rem) auto;
     padding: 0;
     border: 0;
     background-color: var(--kiss-hr-color, rgba(0, 0, 0, .1));
@@ -2423,8 +2420,7 @@ kiss-accordion-trigger[active="true"] + kiss-content {
 }
 
 .kiss-badge-outline {
-    background: none;
-    background-color: transparent;
+    background: transparent none;
     border-color: currentColor;
     color: currentColor !important;
 }
@@ -2631,10 +2627,7 @@ kiss-dialog {
 kiss-dialog > kiss-content {
     position: relative;
     display: flow-root;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 
     padding: var(--kiss-dialog-content-spacing, 10px);
 
@@ -2642,7 +2635,7 @@ kiss-dialog > kiss-content {
     color: var(--kiss-dialog-content-color, inherit);
 
     width: var(--kiss-dialog-width, 350px);
-    max-width: calc(100% - 0.01px) !important;
+    max-width: calc(100% - 0px) !important;
 
     box-sizing: border-box;
 }
@@ -2942,10 +2935,7 @@ kiss-popoutmenu {
 kiss-popoutmenu > kiss-content {
     position: relative;
     display: flow-root;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 
     padding: var(--kiss-popoutmenu-content-spacing, 15px);
 
@@ -2953,7 +2943,7 @@ kiss-popoutmenu > kiss-content {
     color: var(--kiss-popoutmenu-content-color, inherit);
 
     min-width: var(--kiss-popoutmenu-width, 250px);
-    max-width: calc(100% - 0.01px) !important;
+    max-width: calc(100% - 0px) !important;
 
     box-sizing: border-box;
 
@@ -4761,17 +4751,17 @@ kiss-tooltip {
 kiss-dialog,
 kiss-offcanvas,
 kiss-popoutmenu {
-    backdrop-filter: grayscale(1) blur(1.5px);
+    backdrop-filter: grayscale(1) blur(2px);
 }
 
 kiss-offcanvas kiss-content,
 kiss-dialog kiss-content,
 kiss-popoutmenu kiss-content {
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034),
+    0 7px 5px rgba(0, 0, 0, 0.048),
+    0 13px 10px rgba(0, 0, 0, 0.06),
+    0 22px 18px rgba(0, 0, 0, 0.072),
+    0 42px 33px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
@@ -4851,7 +4841,7 @@ kiss-offcanvas kiss-navlist ul > li > * {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 }
 
 kiss-offcanvas kiss-navlist[space="small"] ul > li > * {
@@ -4865,10 +4855,7 @@ kiss-offcanvas kiss-navlist .kiss-nav-header {
 }
 
 kiss-offcanvas kiss-navlist .kiss-nav-divider {
-    margin-left: calc(-1 * var(--kiss-padding, 1rem));
-    margin-right: calc(-1 * var(--kiss-padding, 1rem));
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
+    margin: 1.2rem calc(-1 * var(--kiss-padding, 1rem));
 }
 
 kiss-dropdownbox kiss-navlist ul > li a icon,
@@ -4883,11 +4870,11 @@ kiss-offcanvas kiss-navlist ul > li a kiss-svg {
 }
 
 kiss-card[hover="shadow"]:hover {
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034),
+    0 7px 5px rgba(0, 0, 0, 0.048),
+    0 13px 10px rgba(0, 0, 0, 0.06),
+    0 22px 18px rgba(0, 0, 0, 0.072),
+    0 42px 33px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
@@ -5137,11 +5124,11 @@ html[data-theme='light'] .kiss-bgcolor-danger {
 }
 
 html[data-theme='light'] kiss-card[hover="shadow"]:hover {
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    0 12.5px 10px rgba(0, 0, 0, 0.04),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.052),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.066),
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.014),
+    0 7px 5px rgba(0, 0, 0, 0.028),
+    0 13px 10px rgba(0, 0, 0, 0.04),
+    0 22px 18px rgba(0, 0, 0, 0.052),
+    0 42px 33px rgba(0, 0, 0, 0.066),
     0 100px 80px rgba(0, 0, 0, 0.06);
 }
 
@@ -5277,7 +5264,7 @@ del {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 }
 
 .app-container-aside kiss-navlist[space="small"] ul > li > * {
@@ -5343,11 +5330,11 @@ label {
     z-index: -1;
     opacity: .8;
 
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034),
+    0 7px 5px rgba(0, 0, 0, 0.048),
+    0 13px 10px rgba(0, 0, 0, 0.06),
+    0 22px 18px rgba(0, 0, 0, 0.072),
+    0 42px 33px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 

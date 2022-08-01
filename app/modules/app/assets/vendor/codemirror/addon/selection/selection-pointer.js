@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineOption("selectionPointer", false, function (cm, val) {
-        var data = cm.state.selectionPointer;
+        let data = cm.state.selectionPointer;
         if (data) {
             CodeMirror.off(cm.getWrapperElement(), "mousemove", data.mousemove);
             CodeMirror.off(cm.getWrapperElement(), "mouseout", data.mouseout);
@@ -47,7 +47,7 @@
     });
 
     function mousemove(cm, event) {
-        var data = cm.state.selectionPointer;
+        const data = cm.state.selectionPointer;
         if (event.buttons === null ? event.which : event.buttons) {
             data.mouseX = data.mouseY = null;
         } else {
@@ -59,7 +59,7 @@
 
     function mouseout(cm, event) {
         if (!cm.getWrapperElement().contains(event.relatedTarget)) {
-            var data = cm.state.selectionPointer;
+            const data = cm.state.selectionPointer;
             data.mouseX = data.mouseY = null;
             scheduleUpdate(cm);
         }
@@ -81,23 +81,23 @@
     }
 
     function update(cm) {
-        var data = cm.state.selectionPointer;
+        const data = cm.state.selectionPointer;
         if (!data) return;
         if (data.rects === null && data.mouseX != null) {
             data.rects = [];
             if (cm.somethingSelected()) {
-                for (var sel = cm.display.selectionDiv.firstChild; sel; sel = sel.nextSibling)
+                for (let sel = cm.display.selectionDiv.firstChild; sel; sel = sel.nextSibling)
                     data.rects.push(sel.getBoundingClientRect());
             }
         }
-        var inside = false;
-        if (data.mouseX != null) for (var i = 0; i < data.rects.length; i++) {
-            var rect = data.rects[i];
+        let inside = false;
+        if (data.mouseX != null) for (let i = 0; i < data.rects.length; i++) {
+            const rect = data.rects[i];
             if (rect.left <= data.mouseX && rect.right >= data.mouseX &&
                 rect.top <= data.mouseY && rect.bottom >= data.mouseY)
                 inside = true;
         }
-        var cursor = inside ? data.value : "";
+        const cursor = inside ? data.value : "";
         if (cm.display.lineDiv.style.cursor !== cursor)
             cm.display.lineDiv.style.cursor = cursor;
     }

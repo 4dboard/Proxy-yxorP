@@ -36,7 +36,7 @@
      *
      * @type {Object}
      */
-    var _MAP = {
+    const _MAP = {
         8: 'backspace',
         9: 'tab',
         13: 'enter',
@@ -69,7 +69,7 @@
      *
      * @type {Object}
      */
-    var _KEYCODE_MAP = {
+    const _KEYCODE_MAP = {
         106: '*',
         107: '+',
         109: '-',
@@ -98,7 +98,7 @@
      *
      * @type {Object}
      */
-    var _SHIFT_MAP = {
+    const _SHIFT_MAP = {
         '~': '`',
         '!': '1',
         '@': '2',
@@ -126,7 +126,7 @@
      *
      * @type {Object}
      */
-    var _SPECIAL_ALIASES = {
+    const _SPECIAL_ALIASES = {
         'option': 'alt',
         'command': 'meta',
         'return': 'enter',
@@ -142,7 +142,7 @@
      *
      * @type {Object|undefined}
      */
-    var _REVERSE_MAP;
+    let _REVERSE_MAP;
 
     /**
      * loop through the f keys, f1 to f19 and add them to the map
@@ -192,7 +192,7 @@
 
         // for keypress events we should return the character as is
         if (e.type === 'keypress') {
-            var character = String.fromCharCode(e.which);
+            let character = String.fromCharCode(e.which);
 
             // if the shift key is not pressed then it is safe to assume
             // that we want the character to be lowercase.  this means if
@@ -245,7 +245,7 @@
      * @returns {Array}
      */
     function _eventModifiers(e) {
-        var modifiers = [];
+        const modifiers = [];
 
         if (e.shiftKey) {
             modifiers.push('shift');
@@ -315,7 +315,7 @@
     function _getReverseMap() {
         if (!_REVERSE_MAP) {
             _REVERSE_MAP = {};
-            for (var key in _MAP) {
+            for (let key in _MAP) {
 
                 // pull out the numeric keypad from here cause keypress should
                 // be able to detect the keys from the character
@@ -378,10 +378,10 @@
      * @returns {Object}
      */
     function _getKeyInfo(combination, action) {
-        var keys;
-        var key;
-        var i;
-        var modifiers = [];
+        let keys;
+        let key;
+        let i;
+        const modifiers = [];
 
         // take the keys from this pattern and figure out what the actual
         // pattern is all about
@@ -433,7 +433,7 @@
     }
 
     function Mousetrap(targetElement) {
-        var self = this;
+        const self = this;
 
         targetElement = targetElement || document;
 
@@ -468,28 +468,28 @@
          *
          * @type {Object}
          */
-        var _sequenceLevels = {};
+        const _sequenceLevels = {};
 
         /**
          * variable to store the setTimeout call
          *
          * @type {null|number}
          */
-        var _resetTimer;
+        let _resetTimer;
 
         /**
          * temporary state where we will ignore the next keyup
          *
          * @type {boolean|string}
          */
-        var _ignoreNextKeyup = false;
+        let _ignoreNextKeyup = false;
 
         /**
          * temporary state where we will ignore the next keypress
          *
          * @type {boolean}
          */
-        var _ignoreNextKeypress = false;
+        let _ignoreNextKeypress = false;
 
         /**
          * are we currently inside of a sequence?
@@ -497,7 +497,7 @@
          *
          * @type {boolean|string}
          */
-        var _nextExpectedAction = false;
+        let _nextExpectedAction = false;
 
         /**
          * resets all sequence counters except for the ones passed in
@@ -508,7 +508,7 @@
         function _resetSequences(doNotReset) {
             doNotReset = doNotReset || {};
 
-            var activeSequences = false,
+            let activeSequences = false,
                 key;
 
             for (key in _sequenceLevels) {
@@ -537,10 +537,10 @@
          * @returns {Array}
          */
         function _getMatches(character, modifiers, e, sequenceName, combination, level) {
-            var i;
-            var callback;
-            var matches = [];
-            var action = e.type;
+            let i;
+            let callback;
+            const matches = [];
+            const action = e.type;
 
             // if there are no events related to this keycode
             if (!self._callbacks[character]) {
@@ -583,8 +583,8 @@
                     // combination is specified in this call it does just that
                     //
                     // @todo make deleting its own method?
-                    var deleteCombo = !sequenceName && callback.combo === combination;
-                    var deleteSequence = sequenceName && callback.seq === sequenceName && callback.level === level;
+                    const deleteCombo = !sequenceName && callback.combo === combination;
+                    const deleteSequence = sequenceName && callback.seq === sequenceName && callback.level === level;
                     if (deleteCombo || deleteSequence) {
                         self._callbacks[character].splice(i, 1);
                     }
@@ -632,11 +632,11 @@
          * @returns void
          */
         self._handleKey = function (character, modifiers, e) {
-            var callbacks = _getMatches(character, modifiers, e);
-            var i;
-            var doNotReset = {};
-            var maxLevel = 0;
-            var processedSequenceCallback = false;
+            const callbacks = _getMatches(character, modifiers, e);
+            let i;
+            const doNotReset = {};
+            let maxLevel = 0;
+            let processedSequenceCallback = false;
 
             // Calculate the maxLevel for sequences so we can only execute the longest callback sequence
             for (i = 0; i < callbacks.length; ++i) {
@@ -703,7 +703,7 @@
             //
             // we ignore keypresses in a sequence that directly follow a keydown
             // for the same character
-            var ignoreThisKeypress = e.type === 'keypress' && _ignoreNextKeypress;
+            const ignoreThisKeypress = e.type === 'keypress' && _ignoreNextKeypress;
             if (e.type === _nextExpectedAction && !_isModifier(character) && !ignoreThisKeypress) {
                 _resetSequences(doNotReset);
             }
@@ -725,7 +725,7 @@
                 e.which = e.keyCode;
             }
 
-            var character = _characterFromEvent(e);
+            const character = _characterFromEvent(e);
 
             // no character found then stop
             if (!character) {
@@ -815,9 +815,9 @@
             // next key in the sequence should match.  this allows a sequence
             // to mix and match keypress and keydown events depending on which
             // ones are better suited to the key provided
-            for (var i = 0; i < keys.length; ++i) {
-                var isFinal = i + 1 === keys.length;
-                var wrappedCallback = isFinal ? _callbackAndReset : _increaseSequence(action || _getKeyInfo(keys[i + 1]).action);
+            for (let i = 0; i < keys.length; ++i) {
+                const isFinal = i + 1 === keys.length;
+                const wrappedCallback = isFinal ? _callbackAndReset : _increaseSequence(action || _getKeyInfo(keys[i + 1]).action);
                 _bindSingle(keys[i], wrappedCallback, action, combo, i);
             }
         }
@@ -840,8 +840,8 @@
             // make sure multiple spaces in a row become a single space
             combination = combination.replace(/\s+/g, ' ');
 
-            var sequence = combination.split(' ');
-            var info;
+            const sequence = combination.split(' ');
+            let info;
 
             // if this pattern is a sequence of keys then run through this method
             // to reprocess each pattern one key at a time
@@ -884,7 +884,7 @@
          * @returns void
          */
         self._bindMultiple = function (combinations, callback, action) {
-            for (var i = 0; i < combinations.length; ++i) {
+            for (let i = 0; i < combinations.length; ++i) {
                 _bindSingle(combinations[i], callback, action);
             }
         };
@@ -910,7 +910,7 @@
      * @returns void
      */
     Mousetrap.prototype.bind = function (keys, callback, action) {
-        var self = this;
+        const self = this;
         keys = keys instanceof Array ? keys : [keys];
         self._bindMultiple.call(self, keys, callback, action);
         return self;
@@ -934,7 +934,7 @@
      * @returns void
      */
     Mousetrap.prototype.unbind = function (keys, action) {
-        var self = this;
+        const self = this;
         return self.bind.call(self, keys, function () {
         }, action);
     };
@@ -947,7 +947,7 @@
      * @returns void
      */
     Mousetrap.prototype.trigger = function (keys, action) {
-        var self = this;
+        const self = this;
         if (self._directMap[keys + ':' + action]) {
             self._directMap[keys + ':' + action]({}, keys);
         }
@@ -962,7 +962,7 @@
      * @returns void
      */
     Mousetrap.prototype.reset = function () {
-        var self = this;
+        const self = this;
         self._callbacks = {};
         self._directMap = {};
         return self;
@@ -976,7 +976,7 @@
      * @return {boolean}
      */
     Mousetrap.prototype.stopCallback = function (e, element) {
-        var self = this;
+        const self = this;
 
         // if the element has the class "mousetrap" then no need to stop
         if ((' ' + element.className + ' ').indexOf(' mousetrap ') > -1) {
@@ -995,7 +995,7 @@
         // target cannot be obtained.
         if ('composedPath' in e && typeof e.composedPath === 'function') {
             // For open shadow trees, update `element` so that the following check works.
-            var initialEventTarget = e.composedPath()[0];
+            const initialEventTarget = e.composedPath()[0];
             if (initialEventTarget !== e.target) {
                 element = initialEventTarget;
             }
@@ -1009,7 +1009,7 @@
      * exposes _handleKey publicly so it can be overwritten by extensions
      */
     Mousetrap.prototype.handleKey = function () {
-        var self = this;
+        const self = this;
         return self._handleKey.apply(self, arguments);
     };
 
@@ -1017,7 +1017,7 @@
      * allow custom key mappings
      */
     Mousetrap.addKeycodes = function (object) {
-        for (var key in object) {
+        for (let key in object) {
             if (object.hasOwnProperty(key)) {
                 _MAP[key] = object[key];
             }
@@ -1032,8 +1032,8 @@
      * now that mousetrap is a constructor function.
      */
     Mousetrap.init = function () {
-        var documentMousetrap = Mousetrap(document);
-        for (var method in documentMousetrap) {
+        const documentMousetrap = Mousetrap(document);
+        for (let method in documentMousetrap) {
             if (method.charAt(0) !== '_') {
                 Mousetrap[method] = (function (method) {
                     return function () {

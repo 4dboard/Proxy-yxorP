@@ -10,12 +10,12 @@
         mod(CodeMirror)
 })(function (CodeMirror) {
 
-    var START = 0, FRONTMATTER = 1, BODY = 2
+    const START = 0, FRONTMATTER = 1, BODY = 2;
 
     // a mixed mode for Markdown text with an optional YAML front matter
     CodeMirror.defineMode("yaml-frontmatter", function (config, parserConfig) {
-        var yamlMode = CodeMirror.getMode(config, "yaml")
-        var innerMode = CodeMirror.getMode(config, parserConfig && parserConfig.base || "gfm")
+        const yamlMode = CodeMirror.getMode(config, "yaml");
+        const innerMode = CodeMirror.getMode(config, parserConfig && parserConfig.base || "gfm");
 
         function localMode(state) {
             return state.state === FRONTMATTER ? {mode: yamlMode, state: state.yaml} : {
@@ -50,8 +50,8 @@
                         return innerMode.token(stream, state.inner)
                     }
                 } else if (state.state === FRONTMATTER) {
-                    var end = stream.sol() && stream.match(/(---|\.\.\.)/, false)
-                    var style = yamlMode.token(stream, state.yaml)
+                    const end = stream.sol() && stream.match(/(---|\.\.\.)/, false);
+                    const style = yamlMode.token(stream, state.yaml);
                     if (end) {
                         state.state = BODY
                         state.yaml = null
@@ -63,11 +63,11 @@
             },
             innerMode: localMode,
             indent: function (state, a, b) {
-                var m = localMode(state)
+                const m = localMode(state);
                 return m.mode.indent ? m.mode.indent(m.state, a, b) : CodeMirror.Pass
             },
             blankLine: function (state) {
-                var m = localMode(state)
+                const m = localMode(state);
                 if (m.mode.blankLine) return m.mode.blankLine(m.state)
             }
         }

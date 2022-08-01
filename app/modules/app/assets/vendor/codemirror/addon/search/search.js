@@ -31,7 +31,7 @@
         return {
             token: function (stream) {
                 query.lastIndex = stream.pos;
-                var match = query.exec(stream.string);
+                const match = query.exec(stream.string);
                 if (match && match.index === stream.pos) {
                     stream.pos += match[0].length || 1;
                     return "searching";
@@ -100,7 +100,7 @@
     }
 
     function parseQuery(query) {
-        var isRE = query.match(/^\/(.*)\/([a-z]*)$/);
+        const isRE = query.match(/^\/(.*)\/([a-z]*)$/);
         if (isRE) {
             try {
                 query = new RegExp(isRE[1], isRE[2].indexOf("i") === -1 ? "" : "i");
@@ -130,13 +130,13 @@
     }
 
     function doSearch(cm, rev, persistent, immediate) {
-        var state = getSearchState(cm);
+        const state = getSearchState(cm);
         if (state.query) return findNext(cm, rev);
-        var q = cm.getSelection() || state.lastQuery;
+        let q = cm.getSelection() || state.lastQuery;
         if (q instanceof RegExp && q.source === "x^") q = null
         if (persistent && cm.openDialog) {
-            var hiding = null
-            var searchNext = function (query, event) {
+            const hiding = null;
+            const searchNext = function (query, event) {
                 CodeMirror.e_stop(event);
                 if (!query) return;
                 if (query !== state.queryText) {
@@ -145,7 +145,7 @@
                 }
                 if (hiding) hiding.style.opacity = 1
                 findNext(cm, event.shiftKey, function (_, to) {
-                    var dialog
+                    let dialog;
                     if (to.line < 3 && document.querySelector &&
                         (dialog = cm.display.wrapper.querySelector(".CodeMirror-dialog")) &&
                         dialog.getBoundingClientRect().bottom - 4 > cm.cursorCoords(to, "window").top)
@@ -153,9 +153,9 @@
                 })
             };
             persistentDialog(cm, getQueryDialog(cm), q, searchNext, function (event, query) {
-                var keyName = CodeMirror.keyName(event)
-                var extra = cm.getOption('extraKeys'),
-                    cmd = (extra && extra[keyName]) || CodeMirror.keyMap[cm.getOption("keyMap")][keyName]
+                const keyName = CodeMirror.keyName(event);
+                const extra = cm.getOption('extraKeys'),
+                    cmd = (extra && extra[keyName]) || CodeMirror.keyMap[cm.getOption("keyMap")][keyName];
                 if (cmd === "findNext" || cmd === "findPrev" ||
                     cmd === "findPersistentNext" || cmd === "findPersistentPrev") {
                     CodeMirror.e_stop(event);
@@ -183,8 +183,8 @@
 
     function findNext(cm, rev, callback) {
         cm.operation(function () {
-            var state = getSearchState(cm);
-            var cursor = getSearchCursor(cm, state.query, rev ? state.posFrom : state.posTo);
+            const state = getSearchState(cm);
+            let cursor = getSearchCursor(cm, state.query, rev ? state.posFrom : state.posTo);
             if (!cursor.find(rev)) {
                 cursor = getSearchCursor(cm, state.query, rev ? CodeMirror.Pos(cm.lastLine()) : CodeMirror.Pos(cm.firstLine(), 0));
                 if (!cursor.find(rev)) return;
@@ -199,7 +199,7 @@
 
     function clearSearch(cm) {
         cm.operation(function () {
-            var state = getSearchState(cm);
+            const state = getSearchState(cm);
             state.lastQuery = state.query;
             if (!state.query) return;
             state.query = state.queryText = null;
@@ -212,19 +212,19 @@
     }
 
     function el(tag, attrs) {
-        var element = tag ? document.createElement(tag) : document.createDocumentFragment();
-        for (var key in attrs) {
+        const element = tag ? document.createElement(tag) : document.createDocumentFragment();
+        for (let key in attrs) {
             element[key] = attrs[key];
         }
-        for (var i = 2; i < arguments.length; i++) {
-            var child = arguments[i]
+        for (let i = 2; i < arguments.length; i++) {
+            const child = arguments[i];
             element.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
         }
         return element;
     }
 
     function getQueryDialog(cm) {
-        var label = el("label", {className: "CodeMirror-search-label"},
+        const label = el("label", {className: "CodeMirror-search-label"},
             cm.phrase("Search:"),
             el("input", {
                 type: "text", "style": "width: 10em", className: "CodeMirror-search-field",
@@ -260,9 +260,9 @@
 
     function replaceAll(cm, query, text) {
         cm.operation(function () {
-            for (var cursor = getSearchCursor(cm, query); cursor.findNext();) {
+            for (const cursor = getSearchCursor(cm, query); cursor.findNext();) {
                 if (typeof query != "string") {
-                    var match = cm.getRange(cursor.from(), cursor.to()).match(query);
+                    const match = cm.getRange(cursor.from(), cursor.to()).match(query);
                     cursor.replace(text.replace(/\$(\d)/g, function (_, i) {
                         return match[i];
                     }));
@@ -273,11 +273,11 @@
 
     function replace(cm, all) {
         if (cm.getOption("readOnly")) return;
-        var query = cm.getSelection() || getSearchState(cm).lastQuery;
-        var dialogText = all ? cm.phrase("Replace all:") : cm.phrase("Replace:")
-        var fragment = el("", null,
+        let query = cm.getSelection() || getSearchState(cm).lastQuery;
+        const dialogText = all ? cm.phrase("Replace all:") : cm.phrase("Replace:");
+        const fragment = el("", null,
             el("span", {className: "CodeMirror-search-label"}, dialogText),
-            getReplaceQueryDialog(cm))
+            getReplaceQueryDialog(cm));
         dialog(cm, fragment, dialogText, query, function (query) {
             if (!query) return;
             query = parseQuery(query);
@@ -287,9 +287,10 @@
                     replaceAll(cm, query, text)
                 } else {
                     clearSearch(cm);
-                    var cursor = getSearchCursor(cm, query, cm.getCursor("from"));
-                    var advance = function () {
-                        var start = cursor.from(), match;
+                    const cursor = getSearchCursor(cm, query, cm.getCursor("from"));
+                    const advance = function () {
+                        const start = cursor.from();
+                        let match;
                         if (!(match = cursor.findNext())) {
                             cursor = getSearchCursor(cm, query);
                             if (!(match = cursor.findNext()) ||

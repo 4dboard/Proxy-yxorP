@@ -12,12 +12,14 @@
     "use strict";
 
     function wordObj(words) {
-        var o = {};
-        for (var i = 0, e = words.length; i < e; ++i) o[words[i]] = true;
+        const o = {};
+        let i = 0;
+        const e = words.length;
+        for (; i < e; ++i) o[words[i]] = true;
         return o;
     }
 
-    var keywordList = [
+    const keywordList = [
         "alias", "and", "BEGIN", "begin", "break", "case", "class", "def", "defined?", "do", "else",
         "elsif", "END", "end", "ensure", "false", "for", "if", "in", "module", "next", "not", "or",
         "redo", "rescue", "retry", "return", "self", "super", "then", "true", "undef", "unless",
@@ -26,14 +28,14 @@
         "require_relative", "extend", "autoload", "__END__", "__FILE__", "__LINE__", "__dir__"
     ], keywords = wordObj(keywordList);
 
-    var indentWords = wordObj(["def", "class", "case", "for", "while", "until", "module", "then",
+    const indentWords = wordObj(["def", "class", "case", "for", "while", "until", "module", "then",
         "catch", "loop", "proc", "begin"]);
-    var dedentWords = wordObj(["end", "until"]);
-    var opening = {"[": "]", "{": "}", "(": ")"};
-    var closing = {"]": "[", "}": "{", ")": "("};
+    const dedentWords = wordObj(["end", "until"]);
+    const opening = {"[": "]", "{": "}", "(": ")"};
+    const closing = {"]": "[", "}": "{", ")": "("};
 
     CodeMirror.defineMode("ruby", function (config) {
-        var curPunc;
+        let curPunc;
 
         function chain(newtok, stream, state) {
             state.tokenize.push(newtok);
@@ -46,7 +48,8 @@
                 return "comment";
             }
             if (stream.eatSpace()) return null;
-            var ch = stream.next(), m;
+            const ch = stream.next();
+            let m;
             if (ch === "`" || ch === "'" || ch === '"') {
                 return chain(readQuoted(ch, "string", ch === '"' || ch === "`"), stream, state);
             } else if (ch === "/") {
@@ -55,7 +58,7 @@
                 else
                     return "operator";
             } else if (ch === "%") {
-                var style = "string", embed = true;
+                let style = "string", embed = true;
                 if (stream.eat("s")) style = "atom";
                 else if (stream.eat(/[WQ]/)) style = "string";
                 else if (stream.eat(/[r]/)) style = "string-2";
@@ -63,7 +66,7 @@
                     style = "string";
                     embed = false;
                 }
-                var delim = stream.eat(/[^\w\s=]/);
+                let delim = stream.eat(/[^\w\s=]/);
                 if (!delim) return "operator";
                 if (opening.propertyIsEnumerable(delim)) delim = opening[delim];
                 return chain(readQuoted(delim, style, embed, true), stream, state);
@@ -136,7 +139,7 @@
             } else if (ch === "-" && stream.eat(">")) {
                 return "arrow";
             } else if (/[=+\-\/*:\.^%<>~|]/.test(ch)) {
-                var more = stream.eatWhile(/[=+\-\/*:\.^%<>~|]/);
+                const more = stream.eatWhile(/[=+\-\/*:\.^%<>~|]/);
                 if (ch === "." && !more) curPunc = ".";
                 return "operator";
             } else {
@@ -145,7 +148,8 @@
         }
 
         function regexpAhead(stream) {
-            var start = stream.pos, depth = 0, next, found = false, escaped = false
+            const start = stream.pos;
+            let depth = 0, next, found = false, escaped = false;
             while ((next = stream.next()) != null) {
                 if (!escaped) {
                     if ("[{(".indexOf(next) > -1) {
@@ -184,7 +188,7 @@
         }
 
         function tokenBaseOnce() {
-            var alreadyCalled = false;
+            let alreadyCalled = false;
             return function (stream, state) {
                 if (alreadyCalled) {
                     state.tokenize.pop();
@@ -197,7 +201,7 @@
 
         function readQuoted(quote, style, embed, unescaped) {
             return function (stream, state) {
-                var escaped = false, ch;
+                let escaped = false, ch;
 
                 if (state.context.type === 'read-quoted-paused') {
                     state.context = state.context.prev;
@@ -258,10 +262,10 @@
             token: function (stream, state) {
                 curPunc = null;
                 if (stream.sol()) state.indented = stream.indentation();
-                var style = state.tokenize[state.tokenize.length - 1](stream, state), kwtype;
-                var thisTok = curPunc;
+                let style = state.tokenize[state.tokenize.length - 1](stream, state), kwtype;
+                let thisTok = curPunc;
                 if (style === "ident") {
-                    var word = stream.current();
+                    const word = stream.current();
                     style = state.lastTok === "." ? "property"
                         : keywords.propertyIsEnumerable(stream.current()) ? "keyword"
                             : /^[A-Z]/.test(word) ? "tag"
@@ -292,9 +296,9 @@
 
             indent: function (state, textAfter) {
                 if (state.tokenize[state.tokenize.length - 1] !== tokenBase) return CodeMirror.Pass;
-                var firstChar = textAfter && textAfter.charAt(0);
-                var ct = state.context;
-                var closed = ct.type === closing[firstChar] ||
+                const firstChar = textAfter && textAfter.charAt(0);
+                const ct = state.context;
+                const closed = ct.type === closing[firstChar] ||
                     ct.type === "keyword" && /^(?:end|until|else|elsif|when|rescue)\b/.test(textAfter);
                 return ct.indented + (closed ? 0 : config.indentUnit) +
                     (state.continuedLine ? config.indentUnit : 0);

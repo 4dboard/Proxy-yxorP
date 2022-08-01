@@ -297,7 +297,7 @@
 
                             if (searchParams.has('state')) {
                                 try {
-                                    var q = JSON.parse(atob(searchParams.get('state')));
+                                    const q = JSON.parse(atob(searchParams.get('state')));
                                     if (q.sort) this.sort = q.sort;
                                     if (q.page) this.page = q.page;
                                     if (q.limit) this.limit = (parseInt(q.limit) || this.limit);

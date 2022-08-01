@@ -13,25 +13,25 @@
 
     CodeMirror.defineMode("groovy", function (config) {
         function words(str) {
-            var obj = {}, words = str.split(" ");
-            for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+            const obj = {}, words = str.split(" ");
+            for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
             return obj;
         }
 
-        var keywords = words(
+        const keywords = words(
             "abstract as assert boolean break byte case catch char class const continue def default " +
             "do double else enum extends final finally float for goto if implements import in " +
             "instanceof int interface long native new package private protected public return " +
             "short static strictfp super switch synchronized threadsafe throw throws trait transient " +
             "try void volatile while");
-        var blockKeywords = words("catch class def do else enum finally for if interface switch trait try while");
-        var standaloneKeywords = words("return break continue");
-        var atoms = words("null true false this");
+        const blockKeywords = words("catch class def do else enum finally for if interface switch trait try while");
+        const standaloneKeywords = words("return break continue");
+        const atoms = words("null true false this");
 
-        var curPunc;
+        let curPunc;
 
         function tokenBase(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '"' || ch === "'") {
                 return startString(ch, stream, state);
             }
@@ -78,7 +78,7 @@
                 curPunc = "proplabel";
                 return "property";
             }
-            var cur = stream.current();
+            const cur = stream.current();
             if (atoms.propertyIsEnumerable(cur)) {
                 return "atom";
             }
@@ -93,14 +93,14 @@
         tokenBase.isBase = true;
 
         function startString(quote, stream, state) {
-            var tripleQuoted = false;
+            let tripleQuoted = false;
             if (quote !== "/" && stream.eat(quote)) {
                 if (stream.eat(quote)) tripleQuoted = true;
                 else return "string";
             }
 
             function t(stream, state) {
-                var escaped = false, next, end = !tripleQuoted;
+                let escaped = false, next, end = !tripleQuoted;
                 while ((next = stream.next()) != null) {
                     if (next === quote && !escaped) {
                         if (!tripleQuoted) {
@@ -131,7 +131,7 @@
         }
 
         function tokenBaseUntilBrace() {
-            var depth = 1;
+            let depth = 1;
 
             function t(stream, state) {
                 if (stream.peek() === "}") {
@@ -151,7 +151,7 @@
         }
 
         function tokenVariableDeref(stream, state) {
-            var next = stream.match(/^(\.|[\w\$_]+)/)
+            const next = stream.match(/^(\.|[\w\$_]+)/);
             if (!next) {
                 state.tokenize.pop()
                 return state.tokenize[state.tokenize.length - 1](stream, state)
@@ -160,7 +160,7 @@
         }
 
         function tokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize.pop();
@@ -190,7 +190,7 @@
         }
 
         function popContext(state) {
-            var t = state.context.type;
+            const t = state.context.type;
             if (t === ")" || t === "]" || t === "}")
                 state.indented = state.context.indented;
             return state.context = state.context.prev;
@@ -210,7 +210,7 @@
             },
 
             token: function (stream, state) {
-                var ctx = state.context;
+                let ctx = state.context;
                 if (stream.sol()) {
                     if (ctx.align === null) ctx.align = false;
                     state.indented = stream.indentation();
@@ -223,7 +223,7 @@
                 }
                 if (stream.eatSpace()) return null;
                 curPunc = null;
-                var style = state.tokenize[state.tokenize.length - 1](stream, state);
+                const style = state.tokenize[state.tokenize.length - 1](stream, state);
                 if (style === "comment") return style;
                 if (ctx.align === null) ctx.align = true;
 
@@ -249,9 +249,10 @@
 
             indent: function (state, textAfter) {
                 if (!state.tokenize[state.tokenize.length - 1].isBase) return CodeMirror.Pass;
-                var firstChar = textAfter && textAfter.charAt(0), ctx = state.context;
+                const firstChar = textAfter && textAfter.charAt(0);
+                let ctx = state.context;
                 if (ctx.type === "statement" && !expectExpression(state.lastToken, true)) ctx = ctx.prev;
-                var closing = firstChar === ctx.type;
+                const closing = firstChar === ctx.type;
                 if (ctx.type === "statement") return ctx.indented + (firstChar === "{" ? 0 : config.indentUnit);
                 else if (ctx.align) return ctx.column + (closing ? 0 : 1);
                 else return ctx.indented + (closing ? 0 : config.indentUnit);

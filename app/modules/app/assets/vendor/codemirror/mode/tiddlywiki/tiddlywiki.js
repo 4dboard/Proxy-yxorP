@@ -29,9 +29,9 @@
 
     CodeMirror.defineMode("tiddlywiki", function () {
         // Tokenizer
-        var textwords = {};
+        const textwords = {};
 
-        var keywords = {
+        const keywords = {
             "allTags": true, "closeAll": true, "list": true,
             "newJournal": true, "newTiddler": true,
             "permaview": true, "saveChanges": true,
@@ -42,7 +42,7 @@
             "with": true, "filter": true
         };
 
-        var isSpaceName = /[\w_\-]/i,
+        const isSpaceName = /[\w_\-]/i,
             reHR = /^\-\-\-\-+$/,                                 // <hr>
             reWikiCommentStart = /^\/\*\*\*$/,            // /***
             reWikiCommentStop = /^\*\*\*\/$/,             // ***/
@@ -64,7 +64,7 @@
         }
 
         function tokenBase(stream, state) {
-            var sol = stream.sol(), ch = stream.peek();
+            const sol = stream.sol(), ch = stream.peek();
 
             state.block = false;        // indicates the start of a code block.
 
@@ -177,7 +177,7 @@
 
         // tw invisible comment
         function twTokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = tokenBase;
@@ -190,7 +190,7 @@
 
         // tw strong / bold
         function twTokenStrong(stream, state) {
-            var maybeEnd = false,
+            let maybeEnd = false,
                 ch;
             while (ch = stream.next()) {
                 if (ch === "'" && maybeEnd) {
@@ -204,7 +204,7 @@
 
         // tw code
         function twTokenCode(stream, state) {
-            var sb = state.block;
+            const sb = state.block;
 
             if (sb && stream.current()) {
                 return "comment";
@@ -226,7 +226,7 @@
 
         // tw em / italic
         function twTokenEm(stream, state) {
-            var maybeEnd = false,
+            let maybeEnd = false,
                 ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
@@ -240,7 +240,7 @@
 
         // tw underlined text
         function twTokenUnderline(stream, state) {
-            var maybeEnd = false,
+            let maybeEnd = false,
                 ch;
             while (ch = stream.next()) {
                 if (ch === "_" && maybeEnd) {
@@ -255,7 +255,7 @@
         // tw strike through text looks ugly
         // change CSS if needed
         function twTokenStrike(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
 
             while (ch = stream.next()) {
                 if (ch === "-" && maybeEnd) {
@@ -273,7 +273,7 @@
                 return 'macro';
             }
 
-            var ch = stream.next();
+            const ch = stream.next();
             if (!ch) {
                 state.tokenize = tokenBase;
                 return null;
@@ -298,7 +298,7 @@
 
             token: function (stream, state) {
                 if (stream.eatSpace()) return null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 return style;
             }
         };

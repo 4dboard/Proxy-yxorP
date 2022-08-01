@@ -4,6 +4,13 @@
  * @property array|false $exif
  * @property false|GdImage|resource $imagex
  * @property mixed $mimeType
+ * @property false|GdImage|resource $image
+ * @property false|GdImage|resource $image
+ * @property false|GdImage|resource $image
+ * @property false|GdImage|resource $image
+ * @property false|GdImage|resource $image
+ * @property false|GdImage|resource $image
+ * @property false|GdImage|resource $image
  */
 class simpleImageLib extends SimpleImage
 {

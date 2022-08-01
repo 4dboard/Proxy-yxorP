@@ -29,7 +29,7 @@
         mod(CodeMirror);
     }
 })(function (CodeMirror) {
-    var tagLanguages = {
+    const tagLanguages = {
         script: [
             ["lang", /coffee(script)?/, "coffeescript"],
             ["type", /^(?:text|application)\/(?:x-)?coffee(?:script)?$/, "coffeescript"],
@@ -58,7 +58,7 @@
     };
 
     CodeMirror.defineMode("vue-template", function (config, parserConfig) {
-        var mustacheOverlay = {
+        const mustacheOverlay = {
             token: function (stream) {
                 if (stream.match(/^\{\{.*?\}\}/)) return "meta mustache";
                 while (stream.next() && !stream.match("{{", false)) {

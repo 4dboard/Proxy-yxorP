@@ -14,7 +14,7 @@ class uriTemplate
         }
         $this->template = $template;
         $this->variables = $variables;
-        return preg_replace_callback('/\{([^\}]+)\}/', [$this, 'expandMatch'], $this->template);
+        return preg_replace_callback('/{([^}]+)}/', [$this, 'expandMatch'], $this->template);
     }
 
     private function expandMatch(array $matches)

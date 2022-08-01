@@ -179,7 +179,7 @@ class sessionCookieJar
         if (empty($name) && !is_numeric($name)) {
             return 'The cookie name must not be empty';
         }
-        if (preg_match('/[\x00-\x20\x22\x28-\x29\x2c\x2f\x3a-\x40\x5c\x7b\x7d\x7f]/', $name)) {
+        if (preg_match('/[\x00-\x20\x22\x28-\x29\x2c\x2f\x3a-\x40{\x7d\x7f]/', $name)) {
             return 'Cookie name must not contain invalid characters: ASCII ' . 'Control characters (0-31;127), space, tab and the ' . 'following characters: ()<>@,;:\"/?={}';
         }
         $value = $this->getValue();

@@ -18,15 +18,15 @@
             return f(source, setState);
         }
 
-        var lowerRE = /[a-z]/;
-        var upperRE = /[A-Z]/;
-        var innerRE = /[a-zA-Z0-9_]/;
+        const lowerRE = /[a-z]/;
+        const upperRE = /[A-Z]/;
+        const innerRE = /[a-zA-Z0-9_]/;
 
-        var digitRE = /[0-9]/;
-        var hexRE = /[0-9A-Fa-f]/;
-        var symbolRE = /[-&*+.\\/<>=?^|:]/;
-        var specialRE = /[(),[\]{}]/;
-        var spacesRE = /[ \v\f]/; // newlines are handled in tokenizer
+        const digitRE = /[0-9]/;
+        const hexRE = /[0-9A-Fa-f]/;
+        const symbolRE = /[-&*+.\\/<>=?^|:]/;
+        const specialRE = /[(),[\]{}]/;
+        const spacesRE = /[ \v\f]/; // newlines are handled in tokenizer
 
         function normal() {
             return function (source, setState) {
@@ -34,7 +34,7 @@
                     return null;
                 }
 
-                var char = source.next();
+                const char = source.next();
 
                 if (specialRE.test(char)) {
                     return (char === '{' && source.eat('-'))
@@ -62,7 +62,7 @@
                 }
 
                 if (lowerRE.test(char)) {
-                    var isDef = source.pos === 1;
+                    const isDef = source.pos === 1;
                     source.eatWhile(innerRE);
                     return isDef ? "def" : "variable";
                 }
@@ -109,7 +109,7 @@
             }
             return function (source, setState) {
                 while (!source.eol()) {
-                    var char = source.next();
+                    const char = source.next();
                     if (char === '{' && source.eat('-')) {
                         ++nest;
                     } else if (char === '-' && source.eat('}')) {
@@ -127,7 +127,7 @@
 
         function chompMultiString(source, setState) {
             while (!source.eol()) {
-                var char = source.next();
+                const char = source.next();
                 if (char === '"' && source.eat('"') && source.eat('"')) {
                     setState(normal());
                     return 'string';
@@ -168,7 +168,7 @@
 
         function chompGlsl(source, setState) {
             while (!source.eol()) {
-                var char = source.next();
+                const char = source.next();
                 if (char === '|' && source.eat(']')) {
                     setState(normal());
                     return 'string';
@@ -177,7 +177,7 @@
             return 'string';
         }
 
-        var wellKnownWords = {
+        const wellKnownWords = {
             case: 1,
             of: 1,
             as: 1,
@@ -204,10 +204,10 @@
             },
 
             token: function (stream, state) {
-                var type = state.f(stream, function (s) {
+                const type = state.f(stream, function (s) {
                     state.f = s;
                 });
-                var word = stream.current();
+                const word = stream.current();
                 return (wellKnownWords.hasOwnProperty(word)) ? 'keyword' : type;
             }
         };

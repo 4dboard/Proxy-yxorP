@@ -14,14 +14,14 @@
     "use strict";
 
     function toWordList(words) {
-        var ret = [];
+        const ret = [];
         words.split(' ').forEach(function (e) {
             ret.push({name: e});
         });
         return ret;
     }
 
-    var coreWordList = toWordList(
+    const coreWordList = toWordList(
         'INVERT AND OR XOR\
          2* 2/ LSHIFT RSHIFT\
          0= = 0< < > U< MIN MAX\
@@ -61,11 +61,11 @@
          PREVIOUS SEARCH-WORDLIST WORDLIST FIND ALSO ONLY FORTH DEFINITIONS ORDER\
          -TRAILING /STRING SEARCH COMPARE CMOVE CMOVE> BLANK SLITERAL');
 
-    var immediateWordList = toWordList('IF ELSE THEN BEGIN WHILE REPEAT UNTIL RECURSE [IF] [ELSE] [THEN] ?DO DO LOOP +LOOP UNLOOP LEAVE EXIT AGAIN CASE OF ENDOF ENDCASE');
+    const immediateWordList = toWordList('IF ELSE THEN BEGIN WHILE REPEAT UNTIL RECURSE [IF] [ELSE] [THEN] ?DO DO LOOP +LOOP UNLOOP LEAVE EXIT AGAIN CASE OF ENDOF ENDCASE');
 
     CodeMirror.defineMode('forth', function () {
         function searchWordList(wordList, word) {
-            var i;
+            let i;
             for (i = wordList.length - 1; i >= 0; i--) {
                 if (wordList[i].name === word.toUpperCase()) {
                     return wordList[i];
@@ -85,16 +85,16 @@
                 };
             },
             token: function (stream, stt) {
-                var mat;
+                let mat;
                 if (stream.eatSpace()) {
                     return null;
                 }
                 if (stt.state === '') { // interpretation
-                    if (stream.match(/^(\]|:NONAME)(\s|$)/i)) {
+                    if (stream.match(/^(]|:NONAME)(\s|$)/i)) {
                         stt.state = ' compilation';
                         return 'builtin compilation';
                     }
-                    mat = stream.match(/^(\:)\s+(\S+)(\s|$)+/);
+                    mat = stream.match(/^(:)\s+(\S+)(\s|$)+/);
                     if (mat) {
                         stt.wordList.push({name: mat[2].toUpperCase()});
                         stt.state = ' compilation';
@@ -105,18 +105,18 @@
                         stt.wordList.push({name: mat[2].toUpperCase()});
                         return 'def' + stt.state;
                     }
-                    mat = stream.match(/^(\'|\[\'\])\s+(\S+)(\s|$)+/);
+                    mat = stream.match(/^('|\['])\s+(\S+)(\s|$)+/);
                     if (mat) {
                         return 'builtin' + stt.state;
                     }
                 } else { // compilation
                     // ; [
-                    if (stream.match(/^(\;|\[)(\s)/)) {
+                    if (stream.match(/^([;\[])(\s)/)) {
                         stt.state = '';
                         stream.backUp(1);
                         return 'builtin compilation';
                     }
-                    if (stream.match(/^(\;|\[)($)/)) {
+                    if (stream.match(/^([;\[])($)/)) {
                         stt.state = '';
                         return 'builtin compilation';
                     }

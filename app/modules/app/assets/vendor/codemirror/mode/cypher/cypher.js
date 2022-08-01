@@ -13,14 +13,14 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     "use strict";
-    var wordRegexp = function (words) {
+    const wordRegexp = function (words) {
         return new RegExp("^(?:" + words.join("|") + ")$", "i");
     };
 
     CodeMirror.defineMode("cypher", function (config) {
-        var tokenBase = function (stream/*, state*/) {
+        const tokenBase = function (stream/*, state*/) {
             curPunc = null
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '"') {
                 stream.match(/^[^"]*"/);
                 return "string";
@@ -29,7 +29,7 @@
                 stream.match(/^[^']*'/);
                 return "string";
             }
-            if (/[{}\(\),\.;\[\]]/.test(ch)) {
+            if (/[{}(),.;\[\]]/.test(ch)) {
                 curPunc = ch;
                 return "node";
             } else if (ch === "/" && stream.eat("/")) {
@@ -44,14 +44,14 @@
                     stream.eatWhile(/[\w\d_\-]/);
                     return "atom";
                 }
-                var word = stream.current();
+                const word = stream.current();
                 if (funcs.test(word)) return "builtin";
                 if (preds.test(word)) return "def";
                 if (keywords.test(word) || systemKeywords.test(word)) return "keyword";
                 return "variable";
             }
         };
-        var pushContext = function (state, type, col) {
+        const pushContext = function (state, type, col) {
             return state.context = {
                 prev: state.context,
                 indent: state.indent,
@@ -59,11 +59,11 @@
                 type: type
             };
         };
-        var popContext = function (state) {
+        const popContext = function (state) {
             state.indent = state.context.indent;
             return state.context = state.context.prev;
         };
-        var indentUnit = config.indentUnit;
+        const indentUnit = config.indentUnit;
         var curPunc;
         var funcs = wordRegexp(["abs", "acos", "allShortestPaths", "asin", "atan", "atan2", "avg", "ceil", "coalesce", "collect", "cos", "cot", "count", "degrees", "e", "endnode", "exp", "extract", "filter", "floor", "haversin", "head", "id", "keys", "labels", "last", "left", "length", "log", "log10", "lower", "ltrim", "max", "min", "node", "nodes", "percentileCont", "percentileDisc", "pi", "radians", "rand", "range", "reduce", "rel", "relationship", "relationships", "replace", "reverse", "right", "round", "rtrim", "shortestPath", "sign", "sin", "size", "split", "sqrt", "startnode", "stdev", "stdevp", "str", "substring", "sum", "tail", "tan", "timestamp", "toFloat", "toInt", "toString", "trim", "type", "upper"]);
         var preds = wordRegexp(["all", "and", "any", "contains", "exists", "has", "in", "none", "not", "or", "single", "xor"]);
@@ -90,7 +90,7 @@
                 if (stream.eatSpace()) {
                     return null;
                 }
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if (style !== "comment" && state.context && (state.context.align === null) && state.context.type !== "pattern") {
                     state.context.align = true;
                 }
@@ -100,7 +100,7 @@
                     pushContext(state, "]", stream.column());
                 } else if (curPunc === "{") {
                     pushContext(state, "}", stream.column());
-                } else if (/[\]\}\)]/.test(curPunc)) {
+                } else if (/[\]})]/.test(curPunc)) {
                     while (state.context && state.context.type === "pattern") {
                         popContext(state);
                     }
@@ -110,7 +110,7 @@
                 } else if (curPunc === "." && state.context && state.context.type === "pattern") {
                     popContext(state);
                 } else if (/atom|string|variable/.test(style) && state.context) {
-                    if (/[\}\]]/.test(state.context.type)) {
+                    if (/[}\]]/.test(state.context.type)) {
                         pushContext(state, "pattern", stream.column());
                     } else if (state.context.type === "pattern" && !state.context.align) {
                         state.context.align = true;
@@ -120,14 +120,14 @@
                 return style;
             },
             indent: function (state, textAfter) {
-                var firstChar = textAfter && textAfter.charAt(0);
-                var context = state.context;
-                if (/[\]\}]/.test(firstChar)) {
+                const firstChar = textAfter && textAfter.charAt(0);
+                let context = state.context;
+                if (/[\]}]/.test(firstChar)) {
                     while (context && context.type === "pattern") {
                         context = context.prev;
                     }
                 }
-                var closing = context && firstChar === context.type;
+                const closing = context && firstChar === context.type;
                 if (!context) return 0;
                 if (context.type === "keywords") return CodeMirror.commands.newlineAndIndent;
                 if (context.align) return context.col + (closing ? 0 : 1);

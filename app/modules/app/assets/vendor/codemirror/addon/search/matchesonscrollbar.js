@@ -20,8 +20,8 @@
     function SearchAnnotation(cm, query, caseFold, options) {
         this.cm = cm;
         this.options = options;
-        var annotateOptions = {listenForChanges: false};
-        for (var prop in options) annotateOptions[prop] = options[prop];
+        const annotateOptions = {listenForChanges: false};
+        for (let prop in options) annotateOptions[prop] = options[prop];
         if (!annotateOptions.className) annotateOptions.className = "CodeMirror-search-match";
         this.annotation = cm.annotateScrollbar(annotateOptions);
         this.query = query;
@@ -33,13 +33,13 @@
         this.findMatches();
         this.annotation.update(this.matches);
 
-        var self = this;
+        const self = this;
         cm.on("change", this.changeHandler = function (_cm, change) {
             self.onChange(change);
         });
     }
 
-    var MAX_MATCHES = 1000;
+    const MAX_MATCHES = 1000;
 
     SearchAnnotation.prototype.findMatches = function () {
         if (!this.gap) return;
@@ -48,11 +48,11 @@
             if (match.from.line >= this.gap.to) break;
             if (match.to.line >= this.gap.from) this.matches.splice(i--, 1);
         }
-        var cursor = this.cm.getSearchCursor(this.query, CodeMirror.Pos(this.gap.from, 0), {
+        const cursor = this.cm.getSearchCursor(this.query, CodeMirror.Pos(this.gap.from, 0), {
             caseFold: this.caseFold,
             multiline: this.options.multiline
         });
-        var maxMatches = this.options && this.options.maxMatches || MAX_MATCHES;
+        const maxMatches = this.options && this.options.maxMatches || MAX_MATCHES;
         while (cursor.findNext()) {
             var match = {from: cursor.from(), to: cursor.to()};
             if (match.from.line >= this.gap.to) break;
@@ -68,9 +68,9 @@
     }
 
     SearchAnnotation.prototype.onChange = function (change) {
-        var startLine = change.from.line;
-        var endLine = CodeMirror.changeEnd(change).line;
-        var sizeChange = endLine - change.to.line;
+        const startLine = change.from.line;
+        const endLine = CodeMirror.changeEnd(change).line;
+        const sizeChange = endLine - change.to.line;
         if (this.gap) {
             this.gap.from = Math.min(offsetLine(this.gap.from, startLine, sizeChange), change.from.line);
             this.gap.to = Math.max(offsetLine(this.gap.to, startLine, sizeChange), change.from.line);
@@ -78,15 +78,15 @@
             this.gap = {from: change.from.line, to: endLine + 1};
         }
 
-        if (sizeChange) for (var i = 0; i < this.matches.length; i++) {
-            var match = this.matches[i];
-            var newFrom = offsetLine(match.from.line, startLine, sizeChange);
+        if (sizeChange) for (let i = 0; i < this.matches.length; i++) {
+            const match = this.matches[i];
+            const newFrom = offsetLine(match.from.line, startLine, sizeChange);
             if (newFrom !== match.from.line) match.from = CodeMirror.Pos(newFrom, match.from.ch);
-            var newTo = offsetLine(match.to.line, startLine, sizeChange);
+            const newTo = offsetLine(match.to.line, startLine, sizeChange);
             if (newTo !== match.to.line) match.to = CodeMirror.Pos(newTo, match.to.ch);
         }
         clearTimeout(this.update);
-        var self = this;
+        const self = this;
         this.update = setTimeout(function () {
             self.updateAfterChange();
         }, 250);

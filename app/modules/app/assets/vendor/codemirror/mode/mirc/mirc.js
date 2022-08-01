@@ -16,12 +16,12 @@
     CodeMirror.defineMIME("text/mirc", "mirc");
     CodeMirror.defineMode("mirc", function () {
         function parseWords(str) {
-            var obj = {}, words = str.split(" ");
-            for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+            const obj = {}, words = str.split(" ");
+            for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
             return obj;
         }
 
-        var specials = parseWords("$! $$ $& $? $+ $abook $abs $active $activecid " +
+        const specials = parseWords("$! $$ $& $? $+ $abook $abs $active $activecid " +
             "$activewid $address $addtok $agent $agentname $agentstat $agentver " +
             "$alias $and $anick $ansi2mirc $aop $appactive $appstate $asc $asctime " +
             "$asin $atan $avoice $away $awaymsg $awaytime $banmask $base $bfind " +
@@ -57,7 +57,7 @@
             "$timestampfmt $timezone $tip $titlebar $toolbar $treebar $trust $ulevel " +
             "$ulist $upper $uptime $url $usermode $v1 $v2 $var $vcmd $vcmdstat $vcmdver " +
             "$version $vnick $vol $wid $width $wildsite $wildtok $window $wrap $xor");
-        var keywords = parseWords("abook ajinvite alias aline ame amsg anick aop auser autojoin avoice " +
+        const keywords = parseWords("abook ajinvite alias aline ame amsg anick aop auser autojoin avoice " +
             "away background ban bcopy beep bread break breplace bset btrunc bunset bwrite " +
             "channel clear clearall cline clipboard close cnick color comclose comopen " +
             "comreg continue copy creq ctcpreply ctcps dcc dccserver dde ddeserver " +
@@ -82,8 +82,8 @@
             "isnotify isnum ison isop isprotect isreg isupper isvoice iswm iswmcs " +
             "elseif else goto menu nicklist status title icon size option text edit " +
             "button check radio box scroll list combo link tab item");
-        var functions = parseWords("if elseif else and not or eq ne in ni for foreach while switch");
-        var isOperatorChar = /[+\-*&%=<>!?^\/\|]/;
+        const functions = parseWords("if elseif else and not or eq ne in ni for foreach while switch");
+        const isOperatorChar = /[+\-*&%=<>!?^\/\|]/;
 
         function chain(stream, state, f) {
             state.tokenize = f;
@@ -91,9 +91,9 @@
         }
 
         function tokenBase(stream, state) {
-            var beforeParams = state.beforeParams;
+            const beforeParams = state.beforeParams;
             state.beforeParams = false;
-            var ch = stream.next();
+            const ch = stream.next();
             if (/[\[\]{}\(\),\.]/.test(ch)) {
                 if (ch === "(" && beforeParams) state.inParams = true;
                 else if (ch === ")") state.inParams = false;
@@ -132,7 +132,7 @@
                 return "operator";
             } else {
                 stream.eatWhile(/[\w\$_{}]/);
-                var word = stream.current().toLowerCase();
+                const word = stream.current().toLowerCase();
                 if (keywords && keywords.propertyIsEnumerable(word))
                     return "keyword";
                 if (functions && functions.propertyIsEnumerable(word)) {
@@ -144,7 +144,7 @@
         }
 
         function tokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = tokenBase;
@@ -156,7 +156,7 @@
         }
 
         function tokenUnparsed(stream, state) {
-            var maybeEnd = 0, ch;
+            let maybeEnd = 0, ch;
             while (ch = stream.next()) {
                 if (ch === ";" && maybeEnd === 2) {
                     state.tokenize = tokenBase;

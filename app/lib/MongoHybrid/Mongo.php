@@ -6,6 +6,7 @@ use MongoDB\BSON\ObjectID;
 use MongoDB\Client as MongoDBClient;
 use MongoDB\Collection;
 use MongoDB\Database;
+use MongoLite\Database;
 use Throwable;
 use function is_iterable;
 use function is_object;

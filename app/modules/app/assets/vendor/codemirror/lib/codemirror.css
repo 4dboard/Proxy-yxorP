@@ -336,7 +336,7 @@
 .CodeMirror-linewidget {
     position: relative;
     z-index: 2;
-    padding: 0.1px; /* Force widget margins to stay inside of the container */
+    padding: 0px; /* Force widget margins to stay inside of the container */
 }
 
 .CodeMirror-widget {
@@ -414,7 +414,7 @@ div.CodeMirror-cursors {
 
 /* Used to force a border model for a node */
 .cm-force-border {
-    padding-right: .1px;
+    padding-right: 0px;
 }
 
 @media print {

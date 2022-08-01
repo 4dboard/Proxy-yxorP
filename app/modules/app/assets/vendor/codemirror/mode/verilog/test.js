@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 4}, "verilog");
+    const mode = CodeMirror.getMode({indentUnit: 4}, "verilog");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));

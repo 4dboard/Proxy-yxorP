@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "javascript");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "javascript");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
@@ -328,7 +328,7 @@
         "  }",
         "}")
 
-    var ts_mode = CodeMirror.getMode({indentUnit: 2}, "application/typescript")
+    const ts_mode = CodeMirror.getMode({indentUnit: 2}, "application/typescript");
 
     function TS(name) {
         test.mode(name, ts_mode, Array.prototype.slice.call(arguments, 1))
@@ -485,7 +485,7 @@
         "  [property bar]: [type void]",
         "}")
 
-    var jsonld_mode = CodeMirror.getMode(
+    const jsonld_mode = CodeMirror.getMode(
         {indentUnit: 2},
         {name: "javascript", jsonld: true}
     );

@@ -2,14 +2,14 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "powershell");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "powershell");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
     }
 
     function forEach(arr, f) {
-        for (var i = 0; i < arr.length; i++) f(arr[i], i)
+        for (let i = 0; i < arr.length; i++) f(arr[i], i)
     }
 
     MT('comment', '[number 1][comment # A]');

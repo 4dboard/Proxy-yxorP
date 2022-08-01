@@ -102,10 +102,7 @@ hr {
     box-sizing: content-box;
     height: var(--kiss-hr-height, 1px);
     overflow: visible;
-    margin-top: var(--kiss-block-element-margin, 1rem);
-    margin-bottom: var(--kiss-block-element-margin, 1rem);
-    margin-left: auto;
-    margin-right: auto;
+    margin: var(--kiss-block-element-margin, 1rem) auto;
     padding: 0;
     border: 0;
     background-color: var(--kiss-hr-color, rgba(0, 0, 0, .1));

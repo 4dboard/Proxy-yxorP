@@ -3,10 +3,10 @@
 
 // declare global: tern, server
 
-var server;
+let server;
 
 this.onmessage = function (e) {
-    var data = e.data;
+    const data = e.data;
     switch (data.type) {
         case "init":
             return startServer(data.defs, data.plugins, data.scripts);
@@ -19,7 +19,7 @@ this.onmessage = function (e) {
                 postMessage({id: data.id, body: reqData, err: err && String(err)});
             });
         case "getFile":
-            var c = pending[data.id];
+            const c = pending[data.id];
             delete pending[data.id];
             return c(data.err, data.text);
         default:

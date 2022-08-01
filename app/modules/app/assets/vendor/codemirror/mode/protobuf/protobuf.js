@@ -15,18 +15,18 @@
         return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
     }
 
-    var keywordArray = [
+    const keywordArray = [
         "package", "message", "import", "syntax",
         "required", "optional", "repeated", "reserved", "default", "extensions", "packed",
         "bool", "bytes", "double", "enum", "float", "string",
         "int32", "int64", "uint32", "uint64", "sint32", "sint64", "fixed32", "fixed64", "sfixed32", "sfixed64",
         "option", "service", "rpc", "returns"
     ];
-    var keywords = wordRegexp(keywordArray);
+    const keywords = wordRegexp(keywordArray);
 
     CodeMirror.registerHelper("hintWords", "protobuf", keywordArray);
 
-    var identifiers = new RegExp("^[_A-Za-z\xa1-\uffff][_A-Za-z0-9\xa1-\uffff]*");
+    const identifiers = new RegExp("^[_A-Za-z\xa1-\uffff][_A-Za-z0-9\xa1-\uffff]*");
 
     function tokenBase(stream) {
         // whitespaces
@@ -39,7 +39,7 @@
         }
 
         // Handle Number Literals
-        if (stream.match(/^[0-9\.+-]/, false)) {
+        if (stream.match(/^[0-9.+-]/, false)) {
             if (stream.match(/^[+-]?0x[0-9a-fA-F]+/))
                 return "number";
             if (stream.match(/^[+-]?\d*\.\d+([EeDd][+-]?\d+)?/))

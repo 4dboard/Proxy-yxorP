@@ -7,7 +7,7 @@
 // as likely to wrong as the code.
 
 (function () {
-    var mode = CodeMirror.getMode({tabSize: 4}, "xquery");
+    const mode = CodeMirror.getMode({tabSize: 4}, "xquery");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));

@@ -11,19 +11,19 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var listRE = /^(\s*)(>[> ]*|[*+-] \[[x ]\]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
-        emptyListRE = /^(\s*)(>[> ]*|[*+-] \[[x ]\]|[*+-]|(\d+)[.)])(\s*)$/,
+    const listRE = /^(\s*)(>[> ]*|[*+-] \[[x ]]\s|[*+-]\s|(\d+)([.)]))(\s*)/,
+        emptyListRE = /^(\s*)(>[> ]*|[*+-] \[[x ]]|[*+-]|(\d+)[.)])(\s*)$/,
         unorderedListRE = /[*+-]\s/;
 
     CodeMirror.commands.newlineAndIndentContinueMarkdownList = function (cm) {
         if (cm.getOption("disableInput")) return CodeMirror.Pass;
-        var ranges = cm.listSelections(), replacements = [];
-        for (var i = 0; i < ranges.length; i++) {
-            var pos = ranges[i].head;
+        const ranges = cm.listSelections(), replacements = [];
+        for (let i = 0; i < ranges.length; i++) {
+            const pos = ranges[i].head;
 
             // If we're not in Markdown mode, fall back to normal newlineAndIndent
-            var eolState = cm.getStateAfter(pos.line);
-            var inner = CodeMirror.innerMode(cm.getMode(), eolState);
+            let eolState = cm.getStateAfter(pos.line);
+            const inner = CodeMirror.innerMode(cm.getMode(), eolState);
             if (inner.mode.name !== "markdown" && inner.mode.helperType !== "markdown") {
                 cm.execCommand("newlineAndIndent");
                 return;
@@ -31,18 +31,18 @@
                 eolState = inner.state;
             }
 
-            var inList = eolState.list !== false;
-            var inQuote = eolState.quote !== 0;
+            const inList = eolState.list !== false;
+            const inQuote = eolState.quote !== 0;
 
-            var line = cm.getLine(pos.line), match = listRE.exec(line);
-            var cursorBeforeBullet = /^\s*$/.test(line.slice(0, pos.ch));
+            const line = cm.getLine(pos.line), match = listRE.exec(line);
+            const cursorBeforeBullet = /^\s*$/.test(line.slice(0, pos.ch));
             if (!ranges[i].empty() || (!inList && !inQuote) || !match || cursorBeforeBullet) {
                 cm.execCommand("newlineAndIndent");
                 return;
             }
             if (emptyListRE.test(line)) {
-                var endOfQuote = inQuote && />\s*$/.test(line)
-                var endOfList = !/>\s*$/.test(line)
+                const endOfQuote = inQuote && />\s*$/.test(line);
+                const endOfList = !/>\s*$/.test(line);
                 if (endOfQuote || endOfList) cm.replaceRange("", {
                     line: pos.line, ch: 0
                 }, {
@@ -50,9 +50,9 @@
                 });
                 replacements[i] = "\n";
             } else {
-                var indent = match[1], after = match[5];
-                var numbered = !(unorderedListRE.test(match[2]) || match[2].indexOf(">") >= 0);
-                var bullet = numbered ? (parseInt(match[3], 10) + 1) + match[4] : match[2].replace("x", " ");
+                const indent = match[1], after = match[5];
+                const numbered = !(unorderedListRE.test(match[2]) || match[2].indexOf(">") >= 0);
+                const bullet = numbered ? (parseInt(match[3], 10) + 1) + match[4] : match[2].replace("x", " ");
                 replacements[i] = "\n" + indent + bullet + after;
 
                 if (numbered) incrementRemainingMarkdownListNumbers(cm, pos);
@@ -65,18 +65,20 @@
     // Auto-updating Markdown list numbers when a new item is added to the
     // middle of a list
     function incrementRemainingMarkdownListNumbers(cm, pos) {
-        var startLine = pos.line, lookAhead = 0, skipCount = 0;
-        var startItem = listRE.exec(cm.getLine(startLine)), startIndent = startItem[1];
+        const startLine = pos.line;
+        let lookAhead = 0, skipCount = 0;
+        const startItem = listRE.exec(cm.getLine(startLine)), startIndent = startItem[1];
 
         do {
             lookAhead += 1;
-            var nextLineNumber = startLine + lookAhead;
+            const nextLineNumber = startLine + lookAhead;
             var nextLine = cm.getLine(nextLineNumber), nextItem = listRE.exec(nextLine);
 
             if (nextItem) {
-                var nextIndent = nextItem[1];
-                var newNumber = (parseInt(startItem[3], 10) + lookAhead - skipCount);
-                var nextNumber = (parseInt(nextItem[3], 10)), itemNumber = nextNumber;
+                const nextIndent = nextItem[1];
+                const newNumber = (parseInt(startItem[3], 10) + lookAhead - skipCount);
+                const nextNumber = (parseInt(nextItem[3], 10));
+                let itemNumber = nextNumber;
 
                 if (startIndent === nextIndent && !isNaN(nextNumber)) {
                     if (newNumber === nextNumber) itemNumber = nextNumber + 1;

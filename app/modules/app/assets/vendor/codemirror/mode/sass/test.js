@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "sass");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "sass");
     // Since Sass has an indent-based syntax, is almost impossible to test correctly the indentation in all cases.
     // So disable it for tests.
     mode.indent = undefined;

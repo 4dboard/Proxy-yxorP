@@ -19,15 +19,15 @@
             var finder = getOption(cm, options, "rangeFinder");
         }
         if (typeof pos === "number") pos = CodeMirror.Pos(pos, 0);
-        var minSize = getOption(cm, options, "minFoldSize");
+        const minSize = getOption(cm, options, "minFoldSize");
 
         function getRange(allowFolded) {
-            var range = finder(cm, pos);
+            const range = finder(cm, pos);
             if (!range || range.to.line - range.from.line < minSize) return null;
             if (force === "fold") return range;
 
-            var marks = cm.findMarksAt(range.from);
-            for (var i = 0; i < marks.length; ++i) {
+            const marks = cm.findMarksAt(range.from);
+            for (let i = 0; i < marks.length; ++i) {
                 if (marks[i].__isFold) {
                     if (!allowFolded) return null;
                     range.cleared = true;
@@ -44,7 +44,7 @@
         }
         if (!range || range.cleared || force === "unfold") return;
 
-        var myWidget = makeWidget(cm, options, range);
+        const myWidget = makeWidget(cm, options, range);
         CodeMirror.on(myWidget, "mousedown", function (e) {
             myRange.clear();
             CodeMirror.e_preventDefault(e);
@@ -61,14 +61,14 @@
     }
 
     function makeWidget(cm, options, range) {
-        var widget = getOption(cm, options, "widget");
+        let widget = getOption(cm, options, "widget");
 
         if (typeof widget === "function") {
             widget = widget(range.from, range.to);
         }
 
         if (typeof widget === "string") {
-            var text = document.createTextNode(widget);
+            const text = document.createTextNode(widget);
             widget = document.createElement("span");
             widget.appendChild(text);
             widget.className = "CodeMirror-foldmarker";
@@ -91,8 +91,8 @@
     });
 
     CodeMirror.defineExtension("isFolded", function (pos) {
-        var marks = this.findMarksAt(pos);
-        for (var i = 0; i < marks.length; ++i)
+        const marks = this.findMarksAt(pos);
+        for (let i = 0; i < marks.length; ++i)
             if (marks[i].__isFold) return true;
     });
 
@@ -107,36 +107,40 @@
     };
     CodeMirror.commands.foldAll = function (cm) {
         cm.operation(function () {
-            for (var i = cm.firstLine(), e = cm.lastLine(); i <= e; i++)
+            let i = cm.firstLine();
+            const e = cm.lastLine();
+            for (; i <= e; i++)
                 cm.foldCode(CodeMirror.Pos(i, 0), {scanUp: false}, "fold");
         });
     };
     CodeMirror.commands.unfoldAll = function (cm) {
         cm.operation(function () {
-            for (var i = cm.firstLine(), e = cm.lastLine(); i <= e; i++)
+            let i = cm.firstLine();
+            const e = cm.lastLine();
+            for (; i <= e; i++)
                 cm.foldCode(CodeMirror.Pos(i, 0), {scanUp: false}, "unfold");
         });
     };
 
     CodeMirror.registerHelper("fold", "combine", function () {
-        var funcs = Array.prototype.slice.call(arguments, 0);
+        const funcs = Array.prototype.slice.call(arguments, 0);
         return function (cm, start) {
-            for (var i = 0; i < funcs.length; ++i) {
-                var found = funcs[i](cm, start);
+            for (let i = 0; i < funcs.length; ++i) {
+                const found = funcs[i](cm, start);
                 if (found) return found;
             }
         };
     });
 
     CodeMirror.registerHelper("fold", "auto", function (cm, start) {
-        var helpers = cm.getHelpers(start, "fold");
-        for (var i = 0; i < helpers.length; i++) {
-            var cur = helpers[i](cm, start);
+        const helpers = cm.getHelpers(start, "fold");
+        for (let i = 0; i < helpers.length; i++) {
+            const cur = helpers[i](cm, start);
             if (cur) return cur;
         }
     });
 
-    var defaultOptions = {
+    const defaultOptions = {
         rangeFinder: CodeMirror.fold.auto,
         widget: "\u2194",
         minFoldSize: 0,
@@ -149,7 +153,7 @@
     function getOption(cm, options, name) {
         if (options && options[name] !== undefined)
             return options[name];
-        var editorOptions = cm.options.foldOptions;
+        const editorOptions = cm.options.foldOptions;
         if (editorOptions && editorOptions[name] !== undefined)
             return editorOptions[name];
         return defaultOptions[name];

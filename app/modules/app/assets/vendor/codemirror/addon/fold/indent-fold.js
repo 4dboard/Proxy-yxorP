@@ -12,22 +12,24 @@
     "use strict";
 
     function lineIndent(cm, lineNo) {
-        var text = cm.getLine(lineNo)
-        var spaceTo = text.search(/\S/)
+        const text = cm.getLine(lineNo);
+        const spaceTo = text.search(/\S/);
         if (spaceTo === -1 || /\bcomment\b/.test(cm.getTokenTypeAt(CodeMirror.Pos(lineNo, spaceTo + 1))))
             return -1
         return CodeMirror.countColumn(text, null, cm.getOption("tabSize"))
     }
 
     CodeMirror.registerHelper("fold", "indent", function (cm, start) {
-        var myIndent = lineIndent(cm, start.line)
+        const myIndent = lineIndent(cm, start.line);
         if (myIndent < 0) return
-        var lastLineInFold = null
+        let lastLineInFold = null;
 
         // Go through lines until we find a line that definitely doesn't belong in
         // the block we're folding, or to the end.
-        for (var i = start.line + 1, end = cm.lastLine(); i <= end; ++i) {
-            var indent = lineIndent(cm, i)
+        let i = start.line + 1;
+        const end = cm.lastLine();
+        for (; i <= end; ++i) {
+            const indent = lineIndent(cm, i);
             if (indent === -1) {
             } else if (indent > myIndent) {
                 // Lines with a greater indent are considered part of the block.

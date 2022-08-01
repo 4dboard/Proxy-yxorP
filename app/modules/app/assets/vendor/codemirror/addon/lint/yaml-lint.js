@@ -16,7 +16,7 @@
 // declare global: jsyaml
 
     CodeMirror.registerHelper("lint", "yaml", function (text) {
-        var found = [];
+        const found = [];
         if (!window.jsyaml) {
             if (window.console) {
                 window.console.error("Error: window.jsyaml not defined, CodeMirror YAML linting cannot run.");
@@ -26,7 +26,7 @@
         try {
             jsyaml.loadAll(text);
         } catch (e) {
-            var loc = e.mark,
+            const loc = e.mark,
                 // js-yaml YAMLException doesn't always provide an accurate lineno
                 // e.g., when there are multiple yaml docs
                 // ---

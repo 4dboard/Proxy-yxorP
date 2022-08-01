@@ -12,17 +12,17 @@
     "use strict";
 
     function forEach(arr, f) {
-        for (var i = 0; i < arr.length; i++) f(arr[i], i)
+        for (let i = 0; i < arr.length; i++) f(arr[i], i)
     }
 
     function some(arr, f) {
-        for (var i = 0; i < arr.length; i++) if (f(arr[i], i)) return true
+        for (let i = 0; i < arr.length; i++) if (f(arr[i], i)) return true
         return false
     }
 
     CodeMirror.defineMode("dylan", function (_config) {
         // Words
-        var words = {
+        const words = {
             // Words that introduce unnamed definitions like "define interface"
             unnamedDefinition: ["interface"],
 
@@ -110,16 +110,16 @@
                 .concat(words["other"]);
 
         // Patterns
-        var symbolPattern = "[-_a-zA-Z?!*@<>$%]+";
-        var symbol = new RegExp("^" + symbolPattern);
-        var patterns = {
+        const symbolPattern = "[-_a-zA-Z?!*@<>$%]+";
+        const symbol = new RegExp("^" + symbolPattern);
+        const patterns = {
             // Symbols with special syntax
             symbolKeyword: symbolPattern + ":",
             symbolClass: "<" + symbolPattern + ">",
             symbolGlobal: "\\*" + symbolPattern + "\\*",
             symbolConstant: "\\$" + symbolPattern
         };
-        var patternStyles = {
+        const patternStyles = {
             symbolKeyword: "atom",
             symbolClass: "tag",
             symbolGlobal: "variable-2",
@@ -127,7 +127,7 @@
         };
 
         // Compile all patterns to regular expressions
-        for (var patternName in patterns)
+        for (let patternName in patterns)
             if (patterns.hasOwnProperty(patternName))
                 patterns[patternName] = new RegExp("^" + patterns[patternName]);
 
@@ -135,15 +135,15 @@
         // used as statement macro
         patterns["keyword"] = [/^with(?:out)?-[-_a-zA-Z?!*@<>$%]+/];
 
-        var styles = {};
+        const styles = {};
         styles["keyword"] = "keyword";
         styles["definition"] = "def";
         styles["simpleDefinition"] = "def";
         styles["signalingCalls"] = "builtin";
 
         // protected words lookup table
-        var wordLookup = {};
-        var styleLookup = {};
+        const wordLookup = {};
+        const styleLookup = {};
 
         forEach([
             "keyword",
@@ -165,7 +165,7 @@
 
         function tokenBase(stream, state) {
             // String
-            var ch = stream.peek();
+            let ch = stream.peek();
             if (ch === "'" || ch === '"') {
                 stream.next();
                 return chain(stream, state, tokenString(ch, "string"));
@@ -264,9 +264,9 @@
             } else if (stream.match("end")) {
                 return "keyword";
             }
-            for (var name in patterns) {
+            for (let name in patterns) {
                 if (patterns.hasOwnProperty(name)) {
-                    var pattern = patterns[name];
+                    const pattern = patterns[name];
                     if ((pattern instanceof Array && some(pattern, function (p) {
                         return stream.match(p);
                     })) || stream.match(pattern))
@@ -294,7 +294,7 @@
         }
 
         function tokenComment(stream, state) {
-            var maybeEnd = false, maybeNested = false, nestedCount = 0, ch;
+            let maybeEnd = false, maybeNested = false, nestedCount = 0, ch;
             while ((ch = stream.next())) {
                 if (ch === "/" && maybeEnd) {
                     if (nestedCount > 0) {
@@ -314,7 +314,7 @@
 
         function tokenString(quote, style) {
             return function (stream, state) {
-                var escaped = false, next, end = false;
+                let escaped = false, next, end = false;
                 while ((next = stream.next()) != null) {
                     if (next === quote && !escaped) {
                         end = true;
@@ -340,7 +340,7 @@
             token: function (stream, state) {
                 if (stream.eatSpace())
                     return null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 return style;
             },
             blockCommentStart: "/*",

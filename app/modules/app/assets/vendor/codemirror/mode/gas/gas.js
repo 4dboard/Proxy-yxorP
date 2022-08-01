@@ -17,20 +17,20 @@
         // If an architecture is specified, its initialization function may
         // populate this array with custom parsing functions which will be
         // tried in the event that the standard functions do not find a match.
-        var custom = [];
+        const custom = [];
 
         // The symbol used to start a line comment changes based on the target
         // architecture.
         // If no architecture is pased in "parserConfig" then only multiline
         // comments will have syntax support.
-        var lineCommentStartSymbol = "";
+        let lineCommentStartSymbol = "";
 
         // These directives are architecture independent.
         // Machine specific directives should go in their respective
         // architecture initialization function.
         // Reference:
         // http://sourceware.org/binutils/docs/as/Pseudo-Ops.html#Pseudo-Ops
-        var directives = {
+        const directives = {
             ".abort": "builtin",
             ".align": "builtin",
             ".altmacro": "builtin",
@@ -139,7 +139,7 @@
             ".word": "builtin"
         };
 
-        var registers = {};
+        const registers = {};
 
         function x86(_parserConfig) {
             lineCommentStartSymbol = "#";
@@ -232,7 +232,7 @@
             });
         }
 
-        var arch = (parserConfig.architecture || "x86").toLowerCase();
+        const arch = (parserConfig.architecture || "x86").toLowerCase();
         if (arch === "x86") {
             x86(parserConfig);
         } else if (arch === "arm" || arch === "armv6") {
@@ -240,7 +240,7 @@
         }
 
         function nextUntilUnescaped(stream, end) {
-            var escaped = false, next;
+            let escaped = false, next;
             while ((next = stream.next()) != null) {
                 if (next === end && !escaped) {
                     return false;
@@ -251,7 +251,7 @@
         }
 
         function clikeComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while ((ch = stream.next()) != null) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = null;
@@ -278,7 +278,8 @@
                     return null;
                 }
 
-                var style, cur, ch = stream.next();
+                let style, cur;
+                const ch = stream.next();
 
                 if (ch === "/") {
                     if (stream.eat("*")) {
@@ -336,7 +337,7 @@
                     return style || null;
                 }
 
-                for (var i = 0; i < custom.length; i++) {
+                for (let i = 0; i < custom.length; i++) {
                     style = custom[i](ch, stream, state);
                     if (style) {
                         return style;

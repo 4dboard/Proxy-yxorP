@@ -9,36 +9,36 @@
     else // Plain browser env
         mod(CodeMirror);
 })(function (CodeMirror) {
-    var ie_lt8 = /MSIE \d/.test(navigator.userAgent) &&
+    const ie_lt8 = /MSIE \d/.test(navigator.userAgent) &&
         (document.documentMode === null || document.documentMode < 8);
 
-    var Pos = CodeMirror.Pos;
+    const Pos = CodeMirror.Pos;
 
-    var matching = {"(": ")>", ")": "(<", "[": "]>", "]": "[<", "{": "}>", "}": "{<", "<": ">>", ">": "<<"};
+    const matching = {"(": ")>", ")": "(<", "[": "]>", "]": "[<", "{": "}>", "}": "{<", "<": ">>", ">": "<<"};
 
     function bracketRegex(config) {
         return config && config.bracketRegex || /[(){}[\]]/
     }
 
     function findMatchingBracket(cm, where, config) {
-        var line = cm.getLineHandle(where.line), pos = where.ch - 1;
-        var afterCursor = config && config.afterCursor
+        const line = cm.getLineHandle(where.line), pos = where.ch - 1;
+        let afterCursor = config && config.afterCursor;
         if (afterCursor === null)
             afterCursor = /(^| )cm-fat-cursor($| )/.test(cm.getWrapperElement().className)
-        var re = bracketRegex(config)
+        const re = bracketRegex(config);
 
         // A cursor is defined as between two characters, but in in vim command mode
         // (i.e. not insert mode), the cursor is visually represented as a
         // highlighted box on top of the 2nd character. Otherwise, we allow matches
         // from before or after the cursor.
-        var match = (!afterCursor && pos >= 0 && re.test(line.text.charAt(pos)) && matching[line.text.charAt(pos)]) ||
+        const match = (!afterCursor && pos >= 0 && re.test(line.text.charAt(pos)) && matching[line.text.charAt(pos)]) ||
             re.test(line.text.charAt(pos + 1)) && matching[line.text.charAt(++pos)];
         if (!match) return null;
-        var dir = match.charAt(1) === ">" ? 1 : -1;
+        const dir = match.charAt(1) === ">" ? 1 : -1;
         if (config && config.strict && (dir > 0) !== (pos === where.ch)) return null;
-        var style = cm.getTokenTypeAt(Pos(where.line, pos + 1));
+        const style = cm.getTokenTypeAt(Pos(where.line, pos + 1));
 
-        var found = scanForBracket(cm, Pos(where.line, pos + (dir > 0 ? 1 : 0)), dir, style, config);
+        const found = scanForBracket(cm, Pos(where.line, pos + (dir > 0 ? 1 : 0)), dir, style, config);
         if (found === null) return null;
         return {
             from: Pos(where.line, pos), to: found && found.pos,
@@ -54,24 +54,25 @@
     // Returns false when no bracket was found, null when it reached
     // maxScanLines and gave up
     function scanForBracket(cm, where, dir, style, config) {
-        var maxScanLen = (config && config.maxScanLineLength) || 10000;
-        var maxScanLines = (config && config.maxScanLines) || 1000;
+        const maxScanLen = (config && config.maxScanLineLength) || 10000;
+        const maxScanLines = (config && config.maxScanLines) || 1000;
 
-        var stack = [];
-        var re = bracketRegex(config)
-        var lineEnd = dir > 0 ? Math.min(where.line + maxScanLines, cm.lastLine() + 1)
+        const stack = [];
+        const re = bracketRegex(config);
+        const lineEnd = dir > 0 ? Math.min(where.line + maxScanLines, cm.lastLine() + 1)
             : Math.max(cm.firstLine() - 1, where.line - maxScanLines);
         for (var lineNo = where.line; lineNo !== lineEnd; lineNo += dir) {
-            var line = cm.getLine(lineNo);
+            const line = cm.getLine(lineNo);
             if (!line) continue;
-            var pos = dir > 0 ? 0 : line.length - 1, end = dir > 0 ? line.length : -1;
+            let pos = dir > 0 ? 0 : line.length - 1;
+            const end = dir > 0 ? line.length : -1;
             if (line.length > maxScanLen) continue;
             if (lineNo === where.line) pos = where.ch - (dir < 0 ? 1 : 0);
             for (; pos !== end; pos += dir) {
-                var ch = line.charAt(pos);
+                const ch = line.charAt(pos);
                 if (re.test(ch) && (style === undefined ||
                     (cm.getTokenTypeAt(Pos(lineNo, pos + 1)) || "") === (style || ""))) {
-                    var match = matching[ch];
+                    const match = matching[ch];
                     if (match && (match.charAt(1) === ">") === (dir > 0)) stack.push(ch);
                     else if (!stack.length) return {pos: Pos(lineNo, pos), ch: ch};
                     else stack.pop();
@@ -83,13 +84,13 @@
 
     function matchBrackets(cm, autoclear, config) {
         // Disable brace matching in long lines, since it'll cause hugely slow updates
-        var maxHighlightLen = cm.state.matchBrackets.maxHighlightLineLength || 1000,
+        const maxHighlightLen = cm.state.matchBrackets.maxHighlightLineLength || 1000,
             highlightNonMatching = config && config.highlightNonMatching;
-        var marks = [], ranges = cm.listSelections();
-        for (var i = 0; i < ranges.length; i++) {
-            var match = ranges[i].empty() && findMatchingBracket(cm, ranges[i].head, config);
+        const marks = [], ranges = cm.listSelections();
+        for (let i = 0; i < ranges.length; i++) {
+            const match = ranges[i].empty() && findMatchingBracket(cm, ranges[i].head, config);
             if (match && (match.match || highlightNonMatching !== false) && cm.getLine(match.from.line).length <= maxHighlightLen) {
-                var style = match.match ? "CodeMirror-matchingbracket" : "CodeMirror-nonmatchingbracket";
+                const style = match.match ? "CodeMirror-matchingbracket" : "CodeMirror-nonmatchingbracket";
                 marks.push(cm.markText(match.from, Pos(match.from.line, match.from.ch + 1), {className: style}));
                 if (match.to && cm.getLine(match.to.line).length <= maxHighlightLen)
                     marks.push(cm.markText(match.to, Pos(match.to.line, match.to.ch + 1), {className: style}));
@@ -101,9 +102,9 @@
             // input stops going to the textarea whenever this fires.
             if (ie_lt8 && cm.state.focused) cm.focus();
 
-            var clear = function () {
+            const clear = function () {
                 cm.operation(function () {
-                    for (var i = 0; i < marks.length; i++) marks[i].clear();
+                    for (let i = 0; i < marks.length; i++) marks[i].clear();
                 });
             };
             if (autoclear) setTimeout(clear, 800);

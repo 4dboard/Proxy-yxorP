@@ -11,7 +11,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var pseudoClasses = {
+    const pseudoClasses = {
         "active": 1, "after": 1, "before": 1, "checked": 1, "default": 1,
         "disabled": 1, "empty": 1, "enabled": 1, "first-child": 1, "first-letter": 1,
         "first-line": 1, "first-of-type": 1, "focus": 1, "hover": 1, "in-range": 1,
@@ -23,8 +23,8 @@
     };
 
     CodeMirror.registerHelper("hint", "css", function (cm) {
-        var cur = cm.getCursor(), token = cm.getTokenAt(cur);
-        var inner = CodeMirror.innerMode(cm.getMode(), token.state);
+        const cur = cm.getCursor(), token = cm.getTokenAt(cur);
+        const inner = CodeMirror.innerMode(cm.getMode(), token.state);
         if (inner.mode.name !== "css") return;
 
         if (token.type === "keyword" && "!important".indexOf(token.string) === 0)
@@ -33,23 +33,23 @@
                 to: CodeMirror.Pos(cur.line, token.end)
             };
 
-        var start = token.start, end = cur.ch, word = token.string.slice(0, end - start);
+        let start = token.start, end = cur.ch, word = token.string.slice(0, end - start);
         if (/[^\w$_-]/.test(word)) {
             word = "";
             start = end = cur.ch;
         }
 
-        var spec = CodeMirror.resolveMode("text/css");
+        const spec = CodeMirror.resolveMode("text/css");
 
-        var result = [];
+        const result = [];
 
         function add(keywords) {
-            for (var name in keywords)
+            for (let name in keywords)
                 if (!word || name.lastIndexOf(word, 0) === 0)
                     result.push(name);
         }
 
-        var st = inner.state.state;
+        const st = inner.state.state;
         if (st === "pseudo" || token.type === "variable-3") {
             add(pseudoClasses);
         } else if (st === "block" || st === "maybeprop") {

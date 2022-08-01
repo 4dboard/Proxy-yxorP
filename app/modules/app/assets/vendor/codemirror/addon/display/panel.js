@@ -14,10 +14,10 @@
 
         if (!this.state.panels) initPanels(this);
 
-        var info = this.state.panels;
-        var wrapper = info.wrapper;
-        var cmWrapper = this.getWrapperElement();
-        var replace = options.replace instanceof Panel && !options.replace.cleared;
+        const info = this.state.panels;
+        const wrapper = info.wrapper;
+        const cmWrapper = this.getWrapperElement();
+        const replace = options.replace instanceof Panel && !options.replace.cleared;
 
         if (options.after instanceof Panel && !options.after.cleared) {
             wrapper.insertBefore(node, options.before.node.nextSibling);
@@ -36,9 +36,9 @@
             wrapper.insertBefore(node, wrapper.firstChild);
         }
 
-        var height = (options && options.height) || node.offsetHeight;
+        const height = (options && options.height) || node.offsetHeight;
 
-        var panel = new Panel(this, node, options, height);
+        const panel = new Panel(this, node, options, height);
         info.panels.push(panel);
 
         this.setSize();
@@ -61,7 +61,7 @@
     Panel.prototype.clear = function (skipRemove) {
         if (this.cleared) return;
         this.cleared = true;
-        var info = this.cm.state.panels;
+        const info = this.cm.state.panels;
         info.panels.splice(info.panels.indexOf(this), 1);
         this.cm.setSize();
         if (this.options.stable && isAtTop(this.cm, this.node))
@@ -76,15 +76,15 @@
     };
 
     function initPanels(cm) {
-        var wrap = cm.getWrapperElement()
-        var style = window.getComputedStyle ? window.getComputedStyle(wrap) : wrap.currentStyle;
-        var height = parseInt(style.height);
-        var info = cm.state.panels = {
+        const wrap = cm.getWrapperElement();
+        const style = window.getComputedStyle ? window.getComputedStyle(wrap) : wrap.currentStyle;
+        let height = parseInt(style.height);
+        const info = cm.state.panels = {
             setHeight: wrap.style.height,
             panels: [],
             wrapper: document.createElement("div")
         };
-        var hasFocus = cm.hasFocus(), scrollPos = cm.getScrollInfo()
+        const hasFocus = cm.hasFocus(), scrollPos = cm.getScrollInfo();
         wrap.parentNode.insertBefore(info.wrapper, wrap);
         info.wrapper.appendChild(wrap);
         cm.scrollTo(scrollPos.left, scrollPos.top)
@@ -95,7 +95,7 @@
             if (!newHeight) newHeight = info.wrapper.offsetHeight;
             info.setHeight = newHeight;
             if (typeof newHeight != "number") {
-                var px = /^(\d+\.?\d*)px$/.exec(newHeight);
+                const px = /^(\d+\.?\d*)px$/.exec(newHeight);
                 if (px) {
                     newHeight = Number(px[1]);
                 } else {
@@ -103,7 +103,7 @@
                     newHeight = info.wrapper.offsetHeight;
                 }
             }
-            var editorheight = newHeight - info.panels
+            const editorheight = newHeight - info.panels
                 .map(function (p) {
                     return p.node.getBoundingClientRect().height;
                 })
@@ -116,11 +116,11 @@
     }
 
     function removePanels(cm) {
-        var info = cm.state.panels;
+        const info = cm.state.panels;
         cm.state.panels = null;
 
-        var wrap = cm.getWrapperElement()
-        var hasFocus = cm.hasFocus(), scrollPos = cm.getScrollInfo()
+        const wrap = cm.getWrapperElement();
+        const hasFocus = cm.hasFocus(), scrollPos = cm.getScrollInfo();
         info.wrapper.parentNode.replaceChild(wrap, info.wrapper);
         cm.scrollTo(scrollPos.left, scrollPos.top)
         if (hasFocus) cm.focus();
@@ -130,7 +130,7 @@
     }
 
     function isAtTop(cm, dom) {
-        for (var sibling = dom.nextSibling; sibling; sibling = sibling.nextSibling)
+        for (let sibling = dom.nextSibling; sibling; sibling = sibling.nextSibling)
             if (sibling === cm.getWrapperElement()) return true
         return false
     }

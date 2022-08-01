@@ -2,6 +2,9 @@
 
 namespace System\Helper;
 
+use Closure;
+use Throwable;
+
 class system extends \Lime\Helper
 {
 

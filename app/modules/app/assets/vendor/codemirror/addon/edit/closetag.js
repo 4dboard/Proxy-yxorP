@@ -39,7 +39,7 @@
         if (old !== CodeMirror.Init && old)
             cm.removeKeyMap("autoCloseTags");
         if (!val) return;
-        var map = {name: "autoCloseTags"};
+        const map = {name: "autoCloseTags"};
         if (typeof val != "object" || val.whenClosing !== false)
             map["'/'"] = function (cm) {
                 return autoCloseSlash(cm);
@@ -51,29 +51,29 @@
         cm.addKeyMap(map);
     });
 
-    var htmlDontClose = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param",
+    const htmlDontClose = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param",
         "source", "track", "wbr"];
-    var htmlIndent = ["applet", "blockquote", "body", "button", "div", "dl", "fieldset", "form", "frameset", "h1", "h2", "h3", "h4",
+    const htmlIndent = ["applet", "blockquote", "body", "button", "div", "dl", "fieldset", "form", "frameset", "h1", "h2", "h3", "h4",
         "h5", "h6", "head", "html", "iframe", "layer", "legend", "object", "ol", "p", "select", "table", "ul"];
 
     function autoCloseGT(cm) {
         if (cm.getOption("disableInput")) return CodeMirror.Pass;
-        var ranges = cm.listSelections(), replacements = [];
-        var opt = cm.getOption("autoCloseTags");
+        const ranges = cm.listSelections(), replacements = [];
+        const opt = cm.getOption("autoCloseTags");
         for (var i = 0; i < ranges.length; i++) {
             if (!ranges[i].empty()) return CodeMirror.Pass;
-            var pos = ranges[i].head, tok = cm.getTokenAt(pos);
-            var inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
-            var tagInfo = inner.mode.xmlCurrentTag && inner.mode.xmlCurrentTag(state)
-            var tagName = tagInfo && tagInfo.name
+            const pos = ranges[i].head, tok = cm.getTokenAt(pos);
+            const inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
+            const tagInfo = inner.mode.xmlCurrentTag && inner.mode.xmlCurrentTag(state);
+            let tagName = tagInfo && tagInfo.name;
             if (!tagName) return CodeMirror.Pass
 
-            var html = inner.mode.configuration === "html";
-            var dontCloseTags = (typeof opt === "object" && opt.dontCloseTags) || (html && htmlDontClose);
-            var indentTags = (typeof opt === "object" && opt.indentTags) || (html && htmlIndent);
+            const html = inner.mode.configuration === "html";
+            const dontCloseTags = (typeof opt === "object" && opt.dontCloseTags) || (html && htmlDontClose);
+            const indentTags = (typeof opt === "object" && opt.indentTags) || (html && htmlIndent);
 
             if (tok.end > pos.ch) tagName = tagName.slice(0, tagName.length - tok.end + pos.ch);
-            var lowerTagName = tagName.toLowerCase();
+            const lowerTagName = tagName.toLowerCase();
             // Don't process the '>' at the end of an end-tag or self-closing tag
             if (!tagName ||
                 tok.type === "string" && (tok.end !== pos.ch || !/[\"\']/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length === 1) ||
@@ -83,13 +83,13 @@
                 closingTagExists(cm, inner.mode.xmlCurrentContext && inner.mode.xmlCurrentContext(state) || [], tagName, pos, true))
                 return CodeMirror.Pass;
 
-            var emptyTags = typeof opt === "object" && opt.emptyTags;
+            const emptyTags = typeof opt === "object" && opt.emptyTags;
             if (emptyTags && indexOf(emptyTags, tagName) > -1) {
                 replacements[i] = {text: "/>", newPos: CodeMirror.Pos(pos.line, pos.ch + 2)};
                 continue;
             }
 
-            var indent = indentTags && indexOf(indentTags, lowerTagName) > -1;
+            const indent = indentTags && indexOf(indentTags, lowerTagName) > -1;
             replacements[i] = {
                 indent: indent,
                 text: ">" + (indent ? "\n\n" : "") + "</" + tagName + ">",
@@ -97,11 +97,11 @@
             };
         }
 
-        var dontIndentOnAutoClose = (typeof opt === "object" && opt.dontIndentOnAutoClose);
+        const dontIndentOnAutoClose = (typeof opt === "object" && opt.dontIndentOnAutoClose);
         for (var i = ranges.length - 1; i >= 0; i--) {
-            var info = replacements[i];
+            const info = replacements[i];
             cm.replaceRange(info.text, ranges[i].head, ranges[i].anchor, "+insert");
-            var sel = cm.listSelections().slice(0);
+            const sel = cm.listSelections().slice(0);
             sel[i] = {head: info.newPos, anchor: info.newPos};
             cm.setSelections(sel);
             if (!dontIndentOnAutoClose && info.indent) {
@@ -112,14 +112,15 @@
     }
 
     function autoCloseCurrent(cm, typingSlash) {
-        var ranges = cm.listSelections(), replacements = [];
-        var head = typingSlash ? "/" : "</";
-        var opt = cm.getOption("autoCloseTags");
-        var dontIndentOnAutoClose = (typeof opt === "object" && opt.dontIndentOnSlash);
+        let ranges = cm.listSelections();
+        const replacements = [];
+        const head = typingSlash ? "/" : "</";
+        const opt = cm.getOption("autoCloseTags");
+        const dontIndentOnAutoClose = (typeof opt === "object" && opt.dontIndentOnSlash);
         for (var i = 0; i < ranges.length; i++) {
             if (!ranges[i].empty()) return CodeMirror.Pass;
-            var pos = ranges[i].head, tok = cm.getTokenAt(pos);
-            var inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
+            const pos = ranges[i].head, tok = cm.getTokenAt(pos);
+            const inner = CodeMirror.innerMode(cm.getMode(), tok.state), state = inner.state;
             if (typingSlash && (tok.type === "string" || tok.string.charAt(0) !== "<" ||
                 tok.start !== pos.ch - 1))
                 return CodeMirror.Pass;
@@ -127,14 +128,15 @@
             // when completing in JS/CSS snippet in htmlmixed mode. Does not
             // work for other XML embedded languages (there is no general
             // way to go from a mixed mode to its current XML state).
-            var replacement, mixed = inner.mode.name !== "xml" && cm.getMode().name === "htmlmixed"
+            let replacement;
+            const mixed = inner.mode.name !== "xml" && cm.getMode().name === "htmlmixed";
             if (mixed && inner.mode.name === "javascript") {
                 replacement = head + "script";
             } else if (mixed && inner.mode.name === "css") {
                 replacement = head + "style";
             } else {
-                var context = inner.mode.xmlCurrentContext && inner.mode.xmlCurrentContext(state)
-                var top = context.length ? context[context.length - 1] : ""
+                const context = inner.mode.xmlCurrentContext && inner.mode.xmlCurrentContext(state);
+                const top = context.length ? context[context.length - 1] : "";
                 if (!context || (context.length && closingTagExists(cm, context, top, pos)))
                     return CodeMirror.Pass;
                 replacement = head + top
@@ -162,7 +164,9 @@
 
     function indexOf(collection, elt) {
         if (collection.indexOf) return collection.indexOf(elt);
-        for (var i = 0, e = collection.length; i < e; ++i)
+        let i = 0;
+        const e = collection.length;
+        for (; i < e; ++i)
             if (collection[i] === elt) return i;
         return -1;
     }
@@ -171,20 +175,20 @@
     // whether a given tag is actually unclosed.
     function closingTagExists(cm, context, tagName, pos, newTag) {
         if (!CodeMirror.scanForClosingTag) return false;
-        var end = Math.min(cm.lastLine() + 1, pos.line + 500);
-        var nextClose = CodeMirror.scanForClosingTag(cm, pos, null, end);
+        const end = Math.min(cm.lastLine() + 1, pos.line + 500);
+        const nextClose = CodeMirror.scanForClosingTag(cm, pos, null, end);
         if (!nextClose || nextClose.tag !== tagName) return false;
         // If the immediate wrapping context contains onCx instances of
         // the same tag, a closing tag only exists if there are at least
         // that many closing tags of that type following.
-        var onCx = newTag ? 1 : 0
+        let onCx = newTag ? 1 : 0;
         for (var i = context.length - 1; i >= 0; i--) {
             if (context[i] === tagName) ++onCx
             else break
         }
         pos = nextClose.to;
         for (var i = 1; i < onCx; i++) {
-            var next = CodeMirror.scanForClosingTag(cm, pos, null, end);
+            const next = CodeMirror.scanForClosingTag(cm, pos, null, end);
             if (!next || next.tag !== tagName) return false;
             pos = next.to;
         }

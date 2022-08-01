@@ -20,6 +20,7 @@ use yxorP\app\lib\Psr\Http\Message\StreamInterface;
  * @property $_fn_detach
  * @property $_fn_close
  * @property $_fn___toString
+ * @property array $methods
  */
 class fnStream implements StreamInterface
 {

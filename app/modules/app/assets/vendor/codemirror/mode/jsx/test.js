@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "jsx")
+    const mode = CodeMirror.getMode({indentUnit: 2}, "jsx");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1))
@@ -83,7 +83,7 @@
         "  [variable y]",
         "]]")
 
-    var ts_mode = CodeMirror.getMode({indentUnit: 2}, "text/typescript-jsx")
+    const ts_mode = CodeMirror.getMode({indentUnit: 2}, "text/typescript-jsx");
 
     function TS(name) {
         test.mode(name, ts_mode, Array.prototype.slice.call(arguments, 1))

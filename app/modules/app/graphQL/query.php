@@ -7,6 +7,7 @@ use GraphQL\GraphQL;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
+use mysql_xdevapi\Schema;
 
 class query extends \Lime\AppAware
 {

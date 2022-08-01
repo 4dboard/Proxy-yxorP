@@ -18,19 +18,19 @@
     CodeMirror.defineMode('mathematica', function (_config, _parserConfig) {
 
         // used pattern building blocks
-        var Identifier = '[a-zA-Z\\$][a-zA-Z0-9\\$]*';
-        var pBase = "(?:\\d+)";
-        var pFloat = "(?:\\.\\d+|\\d+\\.\\d*|\\d+)";
-        var pFloatBase = "(?:\\.\\w+|\\w+\\.\\w*|\\w+)";
-        var pPrecision = "(?:`(?:`?" + pFloat + ")?)";
+        const Identifier = '[a-zA-Z\\$][a-zA-Z0-9\\$]*';
+        const pBase = "(?:\\d+)";
+        const pFloat = "(?:\\.\\d+|\\d+\\.\\d*|\\d+)";
+        const pFloatBase = "(?:\\.\\w+|\\w+\\.\\w*|\\w+)";
+        const pPrecision = "(?:`(?:`?" + pFloat + ")?)";
 
         // regular expressions
-        var reBaseForm = new RegExp('(?:' + pBase + '(?:\\^\\^' + pFloatBase + pPrecision + '?(?:\\*\\^[+-]?\\d+)?))');
-        var reFloatForm = new RegExp('(?:' + pFloat + pPrecision + '?(?:\\*\\^[+-]?\\d+)?)');
-        var reIdInContext = new RegExp('(?:`?)(?:' + Identifier + ')(?:`(?:' + Identifier + '))*(?:`?)');
+        const reBaseForm = new RegExp('(?:' + pBase + '(?:\\^\\^' + pFloatBase + pPrecision + '?(?:\\*\\^[+-]?\\d+)?))');
+        const reFloatForm = new RegExp('(?:' + pFloat + pPrecision + '?(?:\\*\\^[+-]?\\d+)?)');
+        const reIdInContext = new RegExp('(?:`?)(?:' + Identifier + ')(?:`(?:' + Identifier + '))*(?:`?)');
 
         function tokenBase(stream, state) {
-            var ch;
+            let ch;
 
             // get next character
             ch = stream.next();
@@ -66,52 +66,52 @@
             }
 
             /* In[23] and Out[34] */
-            if (stream.match(/(?:In|Out)\[[0-9]*\]/, true, false)) {
+            if (stream.match(/(?:In|Out)\[[0-9]*]/, true, false)) {
                 return 'atom';
             }
 
             // usage
-            if (stream.match(/([a-zA-Z\$][a-zA-Z0-9\$]*(?:`[a-zA-Z0-9\$]+)*::usage)/, true, false)) {
+            if (stream.match(/([a-zA-Z$][a-zA-Z0-9$]*(?:`[a-zA-Z0-9$]+)*::usage)/, true, false)) {
                 return 'meta';
             }
 
             // message
-            if (stream.match(/([a-zA-Z\$][a-zA-Z0-9\$]*(?:`[a-zA-Z0-9\$]+)*::[a-zA-Z\$][a-zA-Z0-9\$]*):?/, true, false)) {
+            if (stream.match(/([a-zA-Z$][a-zA-Z0-9$]*(?:`[a-zA-Z0-9$]+)*::[a-zA-Z$][a-zA-Z0-9$]*):?/, true, false)) {
                 return 'string-2';
             }
 
             // this makes a look-ahead match for something like variable:{_Integer}
             // the match is then forwarded to the mma-patterns tokenizer.
-            if (stream.match(/([a-zA-Z\$][a-zA-Z0-9\$]*\s*:)(?:(?:[a-zA-Z\$][a-zA-Z0-9\$]*)|(?:[^:=>~@\^\&\*\)\[\]'\?,\|])).*/, true, false)) {
+            if (stream.match(/([a-zA-Z$][a-zA-Z0-9$]*\s*:)(?:[a-zA-Z$][a-zA-Z0-9$]*|[^:=>~@^&*)\[\]'?,|]).*/, true, false)) {
                 return 'variable-2';
             }
 
             // catch variables which are used together with Blank (_), BlankSequence (__) or BlankNullSequence (___)
             // Cannot start with a number, but can have numbers at any other position. Examples
             // blub__Integer, a1_, b34_Integer32
-            if (stream.match(/[a-zA-Z\$][a-zA-Z0-9\$]*_+[a-zA-Z\$][a-zA-Z0-9\$]*/, true, false)) {
+            if (stream.match(/[a-zA-Z$][a-zA-Z0-9$]*_+[a-zA-Z$][a-zA-Z0-9$]*/, true, false)) {
                 return 'variable-2';
             }
-            if (stream.match(/[a-zA-Z\$][a-zA-Z0-9\$]*_+/, true, false)) {
+            if (stream.match(/[a-zA-Z$][a-zA-Z0-9$]*_+/, true, false)) {
                 return 'variable-2';
             }
-            if (stream.match(/_+[a-zA-Z\$][a-zA-Z0-9\$]*/, true, false)) {
+            if (stream.match(/_+[a-zA-Z$][a-zA-Z0-9$]*/, true, false)) {
                 return 'variable-2';
             }
 
             // Named characters in Mathematica, like \[Gamma].
-            if (stream.match(/\\\[[a-zA-Z\$][a-zA-Z0-9\$]*\]/, true, false)) {
+            if (stream.match(/\\\[[a-zA-Z$][a-zA-Z0-9$]*]/, true, false)) {
                 return 'variable-3';
             }
 
             // Match all braces separately
-            if (stream.match(/(?:\[|\]|{|}|\(|\))/, true, false)) {
+            if (stream.match(/[\[\]{}()]/, true, false)) {
                 return 'bracket';
             }
 
             // Catch Slots (#, ##, #3, ##9 and the V10 named slots #name). I have never seen someone using more than one digit after #, so we match
             // only one.
-            if (stream.match(/(?:#[a-zA-Z\$][a-zA-Z0-9\$]*|#+[0-9]?)/, true, false)) {
+            if (stream.match(/#[a-zA-Z$][a-zA-Z0-9$]*|#+[0-9]?/, true, false)) {
                 return 'variable-2';
             }
 
@@ -121,7 +121,7 @@
             }
 
             // operators. Note that operators like @@ or /; are matched separately for each symbol.
-            if (stream.match(/(?:\\|\+|\-|\*|\/|,|;|\.|:|@|~|=|>|<|&|\||_|`|'|\^|\?|!|%)/, true, false)) {
+            if (stream.match(/[\\+\-*\/,;.:@~=><&|_`'^?!%]/, true, false)) {
                 return 'operator';
             }
 
@@ -131,7 +131,7 @@
         }
 
         function tokenString(stream, state) {
-            var next, end = false, escaped = false;
+            let next, end = false, escaped = false;
             while ((next = stream.next()) != null) {
                 if (next === '"' && !escaped) {
                     end = true;
@@ -146,7 +146,7 @@
         }
 
         function tokenComment(stream, state) {
-            var prev, next;
+            let prev, next;
             while (state.commentLevel > 0 && (next = stream.next()) != null) {
                 if (prev === '(' && next === '*') state.commentLevel++;
                 if (prev === '*' && next === ')') state.commentLevel--;

@@ -20,16 +20,16 @@
             return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
         }
 
-        var singleOperators = new RegExp("^[\\+\\-\\*/&#!_?\\\\<>=\\'\\[\\]]");
-        var doubleOperators = new RegExp("^(('=)|(<=)|(>=)|('>)|('<)|([[)|(]])|(^$))");
-        var singleDelimiters = new RegExp("^[\\.,:]");
-        var brackets = new RegExp("[()]");
-        var identifiers = new RegExp("^[%A-Za-z][A-Za-z0-9]*");
-        var commandKeywords = ["break", "close", "do", "else", "for", "goto", "halt", "hang", "if", "job", "kill", "lock", "merge", "new", "open", "quit", "read", "set", "tcommit", "trollback", "tstart", "use", "view", "write", "xecute", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "q", "r", "s", "tc", "tro", "ts", "u", "v", "w", "x"];
+        const singleOperators = new RegExp("^[\\+\\-\\*/&#!_?\\\\<>=\\'\\[\\]]");
+        const doubleOperators = new RegExp("^(('=)|(<=)|(>=)|('>)|('<)|([[)|(]])|(^$))");
+        const singleDelimiters = new RegExp("^[\\.,:]");
+        const brackets = new RegExp("[()]");
+        const identifiers = new RegExp("^[%A-Za-z][A-Za-z0-9]*");
+        const commandKeywords = ["break", "close", "do", "else", "for", "goto", "halt", "hang", "if", "job", "kill", "lock", "merge", "new", "open", "quit", "read", "set", "tcommit", "trollback", "tstart", "use", "view", "write", "xecute", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "q", "r", "s", "tc", "tro", "ts", "u", "v", "w", "x"];
         // The following list includes intrinsic functions _and_ special variables
-        var intrinsicFuncsWords = ["\\$ascii", "\\$char", "\\$data", "\\$ecode", "\\$estack", "\\$etrap", "\\$extract", "\\$find", "\\$fnumber", "\\$get", "\\$horolog", "\\$io", "\\$increment", "\\$job", "\\$justify", "\\$length", "\\$name", "\\$next", "\\$order", "\\$piece", "\\$qlength", "\\$qsubscript", "\\$query", "\\$quit", "\\$random", "\\$reverse", "\\$select", "\\$stack", "\\$test", "\\$text", "\\$translate", "\\$view", "\\$x", "\\$y", "\\$a", "\\$c", "\\$d", "\\$e", "\\$ec", "\\$es", "\\$et", "\\$f", "\\$fn", "\\$g", "\\$h", "\\$i", "\\$j", "\\$l", "\\$n", "\\$na", "\\$o", "\\$p", "\\$q", "\\$ql", "\\$qs", "\\$r", "\\$re", "\\$s", "\\$st", "\\$t", "\\$tr", "\\$v", "\\$z"];
-        var intrinsicFuncs = wordRegexp(intrinsicFuncsWords);
-        var command = wordRegexp(commandKeywords);
+        const intrinsicFuncsWords = ["\\$ascii", "\\$char", "\\$data", "\\$ecode", "\\$estack", "\\$etrap", "\\$extract", "\\$find", "\\$fnumber", "\\$get", "\\$horolog", "\\$io", "\\$increment", "\\$job", "\\$justify", "\\$length", "\\$name", "\\$next", "\\$order", "\\$piece", "\\$qlength", "\\$qsubscript", "\\$query", "\\$quit", "\\$random", "\\$reverse", "\\$select", "\\$stack", "\\$test", "\\$text", "\\$translate", "\\$view", "\\$x", "\\$y", "\\$a", "\\$c", "\\$d", "\\$e", "\\$ec", "\\$es", "\\$et", "\\$f", "\\$fn", "\\$g", "\\$h", "\\$i", "\\$j", "\\$l", "\\$n", "\\$na", "\\$o", "\\$p", "\\$q", "\\$ql", "\\$qs", "\\$r", "\\$re", "\\$s", "\\$st", "\\$t", "\\$tr", "\\$v", "\\$z"];
+        const intrinsicFuncs = wordRegexp(intrinsicFuncsWords);
+        const command = wordRegexp(commandKeywords);
 
         function tokenBase(stream, state) {
             if (stream.sol()) {
@@ -43,7 +43,7 @@
 
             // Examine each character and update a mode variable whose interpretation is:
             //   >0 => command    0 => argument    <0 => command post-conditional
-            var ch = stream.peek();
+            const ch = stream.peek();
 
             if (ch === " " || ch === "\t") { // Pre-process <space>
                 state.label = false;
@@ -137,7 +137,7 @@
             },
 
             token: function (stream, state) {
-                var style = tokenBase(stream, state);
+                const style = tokenBase(stream, state);
                 if (state.label) return "tag";
                 return style;
             }

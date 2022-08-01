@@ -53,7 +53,7 @@ WHERE {
 }
 </textarea></form>
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             mode: "application/sparql-query",
             matchBrackets: true
         });

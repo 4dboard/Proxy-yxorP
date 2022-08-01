@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineMode("pegjs", function (config) {
-        var jsMode = CodeMirror.getMode(config, "javascript");
+        const jsMode = CodeMirror.getMode(config, "javascript");
 
         function identifier(stream) {
             return stream.match(/^[a-zA-Z_][a-zA-Z0-9_]*/);
@@ -53,7 +53,7 @@
                             stream.next();
                             stream.next();
                         } else {
-                            stream.match(/^.[^\\\"\']*/);
+                            stream.match(/^.[^\\"']*/);
                         }
                     }
                     return state.lhs ? "property string" : "string"; // Token style
@@ -62,7 +62,7 @@
                         if (stream.match('*/')) {
                             state.inComment = false; // Clear flag
                         } else {
-                            stream.match(/^.[^\*]*/);
+                            stream.match(/^.[^*]*/);
                         }
                     }
                     return "comment";
@@ -83,10 +83,10 @@
                     if (state.localState === null) {
                         state.localState = CodeMirror.startState(jsMode);
                     }
-                    var token = jsMode.token(stream, state.localState);
-                    var text = stream.current();
+                    const token = jsMode.token(stream, state.localState);
+                    const text = stream.current();
                     if (!token) {
-                        for (var i = 0; i < text.length; i++) {
+                        for (let i = 0; i < text.length; i++) {
                             if (text[i] === '{') {
                                 state.braced++;
                             } else if (text[i] === '}') {

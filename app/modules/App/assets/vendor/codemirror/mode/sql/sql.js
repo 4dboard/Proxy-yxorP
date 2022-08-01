@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineMode("sql", function (config, parserConfig) {
-        var client = parserConfig.client || {},
+        const client = parserConfig.client || {},
             atoms = parserConfig.atoms || {"false": true, "true": true, "null": true},
             builtin = parserConfig.builtin || set(defaultBuiltin),
             keywords = parserConfig.keywords || set(sqlKeywords),
@@ -21,15 +21,15 @@
             hooks = parserConfig.hooks || {},
             dateSQL = parserConfig.dateSQL || {"date": true, "time": true, "timestamp": true},
             backslashStringEscapes = parserConfig.backslashStringEscapes !== false,
-            brackets = parserConfig.brackets || /^[\{}\(\)\[\]]/,
-            punctuation = parserConfig.punctuation || /^[;.,:]/
+            brackets = parserConfig.brackets || /^[{}()\[\]]/,
+            punctuation = parserConfig.punctuation || /^[;.,:]/;
 
         function tokenBase(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
 
             // call hooks from the mime type
             if (hooks[ch]) {
-                var result = hooks[ch](stream, state);
+                const result = hooks[ch](stream, state);
                 if (result !== false) return result;
             }
 
@@ -90,7 +90,7 @@
                 return state.tokenize(stream, state);
             } else if (ch === ".") {
                 // .1 for 0.1
-                if (support.zerolessFloat && stream.match(/^(?:\d+(?:e[+-]?\d+)?)/i))
+                if (support.zerolessFloat && stream.match(/^\d+(?:e[+-]?\d+)?/i))
                     return "number";
                 if (stream.match(/^\.+/))
                     return null
@@ -116,7 +116,7 @@
                 return "number";
             } else {
                 stream.eatWhile(/^[_\w\d]/);
-                var word = stream.current().toLowerCase();
+                const word = stream.current().toLowerCase();
                 // dates (standard SQL syntax)
                 // ref: http://dev.mysql.com/doc/refman/5.5/en/date-and-time-literals.html
                 if (dateSQL.hasOwnProperty(word) && (stream.match(/^( )+'[^']*'/) || stream.match(/^( )+"[^"]*"/)))
@@ -132,7 +132,7 @@
         // 'string', with char specified in quote escaped by '\'
         function tokenLiteral(quote, backslashEscapes) {
             return function (stream, state) {
-                var escaped = false, ch;
+                let escaped = false, ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === quote && !escaped) {
                         state.tokenize = tokenBase;
@@ -146,7 +146,7 @@
 
         function tokenComment(depth) {
             return function (stream, state) {
-                var m = stream.match(/^.*?(\/\*|\*\/)/)
+                const m = stream.match(/^.*?(\/\*|\*\/)/);
                 if (!m) stream.skipToEnd()
                 else if (m[1] === "/*") state.tokenize = tokenComment(depth + 1)
                 else if (depth > 1) state.tokenize = tokenComment(depth - 1)
@@ -181,13 +181,13 @@
                 }
                 if (state.tokenize === tokenBase && stream.eatSpace()) return null;
 
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if (style === "comment") return style;
 
                 if (state.context && state.context.align === null)
                     state.context.align = true;
 
-                var tok = stream.current();
+                const tok = stream.current();
                 if (tok === "(")
                     pushContext(stream, state, ")");
                 else if (tok === "[")
@@ -198,9 +198,9 @@
             },
 
             indent: function (state, textAfter) {
-                var cx = state.context;
+                const cx = state.context;
                 if (!cx) return CodeMirror.Pass;
-                var closing = textAfter.charAt(0) === cx.type;
+                const closing = textAfter.charAt(0) === cx.type;
                 if (cx.align) return cx.col + (closing ? 0 : 1);
                 else return cx.indent + (closing ? 0 : config.indentUnit);
             },
@@ -216,7 +216,7 @@
     function hookIdentifier(stream) {
         // MySQL/MariaDB identifiers
         // ref: http://dev.mysql.com/doc/refman/5.6/en/identifier-qualifiers.html
-        var ch;
+        let ch;
         while ((ch = stream.next()) != null) {
             if (ch === "`" && !stream.eat("`")) return "variable-2";
         }
@@ -229,7 +229,7 @@
         // Standard SQL /SQLite identifiers
         // ref: http://web.archive.org/web/20160813185132/http://savage.net.au/SQL/sql-99.bnf.html#delimited%20identifier
         // ref: http://sqlite.org/lang_keywords.html
-        var ch;
+        let ch;
         while ((ch = stream.next()) != null) {
             if (ch === "\"" && !stream.eat("\"")) return "variable-2";
         }
@@ -258,7 +258,7 @@
         } else if (stream.eat("`")) {
             stream.match(/^.*`/);
             return "variable-2";
-        } else if (stream.match(/^[0-9a-zA-Z$\.\_]+/)) {
+        } else if (stream.match(/^[0-9a-zA-Z$._]+/)) {
             return "variable-2";
         }
         return null;
@@ -281,8 +281,8 @@
 
     // turn a space-separated list into an array
     function set(str) {
-        var obj = {}, words = str.split(" ");
-        for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+        const obj = {}, words = str.split(" ");
+        for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
         return obj;
     }
 
@@ -304,8 +304,8 @@
         keywords: set(sqlKeywords + "begin trigger proc view index for add constraint key primary foreign collate clustered nonclustered declare exec go if use index holdlock nolock nowait paglock readcommitted readcommittedlock readpast readuncommitted repeatableread rowlock serializable snapshot tablock tablockx updlock with"),
         builtin: set("bigint numeric bit smallint decimal smallmoney int tinyint money float real char varchar text nchar nvarchar ntext binary varbinary image cursor timestamp hierarchyid uniqueidentifier sql_variant xml table "),
         atoms: set("is not null like and or in left right between inner outer join all any some cross unpivot pivot exists"),
-        operatorChars: /^[*+\-%<>!=^\&|\/]/,
-        brackets: /^[\{}\(\)]/,
+        operatorChars: /^[*+\-%<>!=^&|\/]/,
+        brackets: /^[{}()]/,
         punctuation: /^[;.,:/]/,
         backslashStringEscapes: false,
         dateSQL: set("date datetimeoffset datetime2 smalldatetime datetime time"),
@@ -421,7 +421,7 @@
         // https://www.postgresql.org/docs/11/datatype.html
         builtin: set("bigint int8 bigserial serial8 bit varying varbit boolean bool box bytea character char varchar cidr circle date double precision float8 inet integer int int4 interval json jsonb line lseg macaddr macaddr8 money numeric decimal path pg_lsn point polygon real float4 smallint int2 smallserial serial2 serial serial4 text time without zone with timetz timestamp timestamptz tsquery tsvector txid_snapshot uuid xml"),
         atoms: set("false true null unknown"),
-        operatorChars: /^[*\/+\-%<>!=&|^\/#@?~]/,
+        operatorChars: /^[*\/+\-%<>!=&|^#@?~]/,
         backslashStringEscapes: false,
         dateSQL: set("date time timestamp"),
         support: set("ODBCdotTable decimallessFloat zerolessFloat binaryNumber hexNumber nCharCast charsetCast escapeConstant")

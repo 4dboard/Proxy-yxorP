@@ -15,13 +15,13 @@
         return new RegExp("^((" + words.join(")|(") + "))\\b");
     }
 
-    var wordOperators = wordRegexp(["and", "or", "not", "is"]);
-    var commonKeywords = ["as", "assert", "break", "class", "continue",
+    const wordOperators = wordRegexp(["and", "or", "not", "is"]);
+    const commonKeywords = ["as", "assert", "break", "class", "continue",
         "def", "del", "elif", "else", "except", "finally",
         "for", "from", "global", "if", "import",
         "lambda", "pass", "raise", "return",
         "try", "while", "with", "yield", "in"];
-    var commonBuiltins = ["abs", "all", "any", "bin", "bool", "bytearray", "callable", "chr",
+    const commonBuiltins = ["abs", "all", "any", "bin", "bool", "bytearray", "callable", "chr",
         "classmethod", "compile", "complex", "delattr", "dict", "dir", "divmod",
         "enumerate", "eval", "filter", "float", "format", "frozenset",
         "getattr", "globals", "hasattr", "hash", "help", "hex", "id",
@@ -39,24 +39,24 @@
     }
 
     CodeMirror.defineMode("python", function (conf, parserConf) {
-        var ERRORCLASS = "error";
+        const ERRORCLASS = "error";
 
-        var delimiters = parserConf.delimiters || parserConf.singleDelimiters || /^[\(\)\[\]\{\}@,:`=;\.\\]/;
+        const delimiters = parserConf.delimiters || parserConf.singleDelimiters || /^[\(\)\[\]\{\}@,:`=;\.\\]/;
         //               (Backwards-compatibility with old, cumbersome config system)
-        var operators = [parserConf.singleOperators, parserConf.doubleOperators, parserConf.doubleDelimiters, parserConf.tripleDelimiters,
-            parserConf.operators || /^([-+*/%\/&|^]=?|[<>=]+|\/\/=?|\*\*=?|!=|[~!@]|\.\.\.)/]
+        const operators = [parserConf.singleOperators, parserConf.doubleOperators, parserConf.doubleDelimiters, parserConf.tripleDelimiters,
+            parserConf.operators || /^([-+*/%\/&|^]=?|[<>=]+|\/\/=?|\*\*=?|!=|[~!@]|\.\.\.)/];
         for (var i = 0; i < operators.length; i++) if (!operators[i]) operators.splice(i--, 1)
 
-        var hangingIndent = parserConf.hangingIndent || conf.indentUnit;
+        const hangingIndent = parserConf.hangingIndent || conf.indentUnit;
 
-        var myKeywords = commonKeywords, myBuiltins = commonBuiltins;
+        let myKeywords = commonKeywords, myBuiltins = commonBuiltins;
         if (parserConf.extra_keywords !== undefined)
             myKeywords = myKeywords.concat(parserConf.extra_keywords);
 
         if (parserConf.extra_builtins !== undefined)
             myBuiltins = myBuiltins.concat(parserConf.extra_builtins);
 
-        var py3 = !(parserConf.version && Number(parserConf.version) < 3)
+        const py3 = !(parserConf.version && Number(parserConf.version) < 3);
         if (py3) {
             // since http://legacy.python.org/dev/peps/pep-0465/ @ is also an operator
             var identifiers = parserConf.identifiers || /^[_A-Za-z\u00A1-\uFFFF][_A-Za-z0-9\u00A1-\uFFFF]*/;
@@ -71,25 +71,25 @@
                 "unichr", "unicode", "xrange", "False", "True", "None"]);
             var stringPrefixes = new RegExp("^(([rubf]|(ur)|(br))?('{3}|\"{3}|['\"]))", "i");
         }
-        var keywords = wordRegexp(myKeywords);
-        var builtins = wordRegexp(myBuiltins);
+        const keywords = wordRegexp(myKeywords);
+        const builtins = wordRegexp(myBuiltins);
 
         // tokenizers
         function tokenBase(stream, state) {
-            var sol = stream.sol() && state.lastToken !== "\\"
+            const sol = stream.sol() && state.lastToken !== "\\";
             if (sol) state.indent = stream.indentation()
             // Handle scope changes
             if (sol && top(state).type === "py") {
-                var scopeOffset = top(state).offset;
+                const scopeOffset = top(state).offset;
                 if (stream.eatSpace()) {
-                    var lineOffset = stream.indentation();
+                    const lineOffset = stream.indentation();
                     if (lineOffset > scopeOffset)
                         pushPyScope(state);
                     else if (lineOffset < scopeOffset && dedent(stream, state) && stream.peek() !== "#")
                         state.errorToken = true;
                     return null;
                 } else {
-                    var style = tokenBaseInner(stream, state);
+                    let style = tokenBaseInner(stream, state);
                     if (scopeOffset > 0 && dedent(stream, state))
                         style += " " + ERRORCLASS;
                     return style;
@@ -106,7 +106,7 @@
 
             // Handle Number Literals
             if (stream.match(/^[0-9\.]/, false)) {
-                var floatLiteral = false;
+                let floatLiteral = false;
                 // Floats
                 if (stream.match(/^[\d_]*\.\d+(e[\+\-]?\d+)?/i)) {
                     floatLiteral = true;
@@ -123,7 +123,7 @@
                     return "number";
                 }
                 // Integers
-                var intLiteral = false;
+                let intLiteral = false;
                 // Hex
                 if (stream.match(/^0x[0-9a-f_]+/i)) intLiteral = true;
                 // Binary
@@ -148,7 +148,7 @@
 
             // Handle Strings
             if (stream.match(stringPrefixes)) {
-                var isFmtString = stream.current().toLowerCase().indexOf('f') !== -1;
+                const isFmtString = stream.current().toLowerCase().indexOf('f') !== -1;
                 if (!isFmtString) {
                     state.tokenize = tokenStringFactory(stream.current(), state.tokenize);
                     return state.tokenize(stream, state);
@@ -158,7 +158,7 @@
                 }
             }
 
-            for (var i = 0; i < operators.length; i++)
+            for (let i = 0; i < operators.length; i++)
                 if (stream.match(operators[i])) return "operator"
 
             if (stream.match(delimiters)) return "punctuation";
@@ -190,12 +190,12 @@
             while ("rubf".indexOf(delimiter.charAt(0).toLowerCase()) >= 0)
                 delimiter = delimiter.substr(1);
 
-            var singleline = delimiter.length === 1;
-            var OUTCLASS = "string";
+            const singleline = delimiter.length === 1;
+            const OUTCLASS = "string";
 
             function tokenNestedExpr(depth) {
                 return function (stream, state) {
-                    var inner = tokenBaseInner(stream, state, true)
+                    const inner = tokenBaseInner(stream, state, true);
                     if (inner === "punctuation") {
                         if (stream.current() === "{") {
                             state.tokenize = tokenNestedExpr(depth + 1)
@@ -252,8 +252,8 @@
             while ("rubf".indexOf(delimiter.charAt(0).toLowerCase()) >= 0)
                 delimiter = delimiter.substr(1);
 
-            var singleline = delimiter.length === 1;
-            var OUTCLASS = "string";
+            const singleline = delimiter.length === 1;
+            const OUTCLASS = "string";
 
             function tokenString(stream, state) {
                 while (!stream.eol()) {
@@ -292,7 +292,7 @@
         }
 
         function pushBracketScope(stream, state, type) {
-            var align = stream.match(/^[\s\[\{\(]*(?:#|$)/, false) ? null : stream.column() + 1
+            const align = stream.match(/^[\s\[\{\(]*(?:#|$)/, false) ? null : stream.column() + 1;
             state.scopes.push({
                 offset: state.indent + hangingIndent,
                 type: type,
@@ -301,7 +301,7 @@
         }
 
         function dedent(stream, state) {
-            var indented = stream.indentation();
+            const indented = stream.indentation();
             while (state.scopes.length > 1 && top(state).offset > indented) {
                 if (top(state).type !== "py") return true;
                 state.scopes.pop();
@@ -315,8 +315,8 @@
                 state.dedent = false;
             }
 
-            var style = state.tokenize(stream, state);
-            var current = stream.current();
+            let style = state.tokenize(stream, state);
+            const current = stream.current();
 
             // Handle decorators
             if (state.beginningOfLine && current === "@")
@@ -337,7 +337,7 @@
                 pushPyScope(state);
 
             if (current.length === 1 && !/string|comment/.test(style)) {
-                var delimiter_index = "[({".indexOf(current);
+                let delimiter_index = "[({".indexOf(current);
                 if (delimiter_index !== -1)
                     pushBracketScope(stream, state, "])}".slice(delimiter_index, delimiter_index + 1));
 
@@ -353,7 +353,7 @@
             return style;
         }
 
-        var external = {
+        const external = {
             startState: function (basecolumn) {
                 return {
                     tokenize: tokenBase,
@@ -366,9 +366,9 @@
             },
 
             token: function (stream, state) {
-                var addErr = state.errorToken;
+                const addErr = state.errorToken;
                 if (addErr) state.errorToken = false;
-                var style = tokenLexer(stream, state);
+                let style = tokenLexer(stream, state);
 
                 if (style && style !== "comment")
                     state.lastToken = (style === "keyword" || style === "punctuation") ? stream.current() : style;
@@ -383,9 +383,9 @@
                 if (state.tokenize !== tokenBase)
                     return state.tokenize.isString ? CodeMirror.Pass : 0;
 
-                var scope = top(state)
-                var closing = scope.type === textAfter.charAt(0) ||
-                    scope.type === "py" && !state.dedent && /^(else:|elif |except |finally:)/.test(textAfter)
+                const scope = top(state);
+                const closing = scope.type === textAfter.charAt(0) ||
+                    scope.type === "py" && !state.dedent && /^(else:|elif |except |finally:)/.test(textAfter);
                 if (scope.align != null)
                     return scope.align - (closing ? 1 : 0)
                 else

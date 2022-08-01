@@ -32,8 +32,8 @@
     "use strict";
 
     CodeMirror.defineMode("sas", function () {
-        var words = {};
-        var isDoubleOperatorSym = {
+        const words = {};
+        const isDoubleOperatorSym = {
             eq: 'operator',
             lt: 'operator',
             le: 'operator',
@@ -43,15 +43,15 @@
             ne: 'operator',
             or: 'operator'
         };
-        var isDoubleOperatorChar = /(<=|>=|!=|<>)/;
-        var isSingleOperatorChar = /[=\(:\),{}.*<>+\-\/^\[\]]/;
+        const isDoubleOperatorChar = /(<=|>=|!=|<>)/;
+        const isSingleOperatorChar = /[=(:),{}.*<>+\-\/^\[\]]/;
 
         // Takes a string of words separated by spaces and adds them as
         // keys with the value of the first argument 'style'
         function define(style, string, context) {
             if (context) {
-                var split = string.split(' ');
-                for (var i = 0; i < split.length; i++) {
+                const split = string.split(' ');
+                for (let i = 0; i < split.length; i++) {
                     words[split[i]] = {style: style, state: context};
                 }
             }
@@ -95,7 +95,7 @@
         // Main function
         function tokenize(stream, state) {
             // Finally advance the stream
-            var ch = stream.next();
+            const ch = stream.next();
 
             // BLOCKCOMMENT
             if (ch === '/' && stream.eat('*')) {
@@ -123,7 +123,7 @@
             }
 
             // DoubleOperator match
-            var doubleOperator = ch + stream.peek();
+            const doubleOperator = ch + stream.peek();
 
             if ((ch === '"' || ch === "'") && !state.continueString) {
                 state.continueString = ch
@@ -142,7 +142,7 @@
             } else if (state.continueString !== null && stream.eol()) {
                 stream.skipTo(state.continueString) || stream.skipToEnd();
                 return "string";
-            } else if (/[\d\.]/.test(ch)) { //find numbers
+            } else if (/[\d.]/.test(ch)) { //find numbers
                 if (ch === ".")
                     stream.match(/^[0-9]+([eE][\-+]?[0-9]+)?/);
                 else if (ch === "0")
@@ -162,7 +162,7 @@
             }
 
             // Matches one whole word -- even if the word is a character
-            var word;
+            let word;
             if (stream.match(/[%&;\w]+/, false) != null) {
                 word = ch + stream.match(/[%&;\w]+/, true);
                 if (/&/.test(word)) return 'variable'
@@ -199,7 +199,7 @@
                     if (stream.start < stream.pos)
                         stream.backUp(stream.pos - stream.start);
                     //advance the length of the word and return
-                    for (var i = 0; i < word.length; ++i) stream.next();
+                    for (let i = 0; i < word.length; ++i) stream.next();
                     return words[word].style;
                 }
             }

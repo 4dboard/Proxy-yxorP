@@ -16,7 +16,7 @@
 
     CodeMirror.defineMode("perl", function () {
         // http://perldoc.perl.org
-        var PERL = {                                      //   null - magic touch
+        const PERL = {                                      //   null - magic touch
             //   1 - keyword
             //   2 - def
             //   3 - atom
@@ -478,15 +478,15 @@
             y: null
         }; // - transliterate a string
 
-        var RXstyle = "string-2";
-        var RXmodifiers = /[goseximacplud]/;              // NOTE: "m", "s", "y" and "tr" need to correct real modifiers for each regexp type
+        const RXstyle = "string-2";
+        const RXmodifiers = /[goseximacplud]/;              // NOTE: "m", "s", "y" and "tr" need to correct real modifiers for each regexp type
 
         function tokenChain(stream, state, chain, style, tail) {     // NOTE: chain.length > 2 is not working now (it's for s[...][...]geos;)
             state.chain = null;                               //                                                          12   3tail
             state.style = null;
             state.tail = null;
             state.tokenize = function (stream, state) {
-                var e = false, c, i = 0;
+                let e = false, c, i = 0;
                 while (c = stream.next()) {
                     if (c === chain[i] && !e) {
                         if (chain[++i] !== undefined) {
@@ -529,12 +529,12 @@
             if (stream.sol() && stream.match(/^\=item(?!\w)/)) {// NOTE: \n=item...\n=cut\n
                 return tokenSOMETHING(stream, state, '=cut');
             }
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '"' || ch === "'") {                           // NOTE: ' or " or <<'SOMETHING'\n...\nSOMETHING\n or <<"SOMETHING"\n...\nSOMETHING\n
                 if (prefix(stream, 3) === "<<" + ch) {
                     var p = stream.pos;
                     stream.eatWhile(/\w/);
-                    var n = stream.current().substr(1);
+                    const n = stream.current().substr(1);
                     if (n && stream.eat(ch))
                         return tokenSOMETHING(stream, state, n);
                     stream.pos = p;
@@ -883,7 +883,7 @@
 // return a part of prefix of current stream from current position
     function prefix(stream, c) {
         if (c) {
-            var x = stream.pos - c;
+            const x = stream.pos - c;
             return stream.string.substr((x >= 0 ? x : 0), c);
         } else {
             return stream.string.substr(0, stream.pos - 1);
@@ -892,15 +892,15 @@
 
 // return a part of suffix of current stream from current position
     function suffix(stream, c) {
-        var y = stream.string.length;
-        var x = y - stream.pos + 1;
+        const y = stream.string.length;
+        const x = y - stream.pos + 1;
         return stream.string.substr(stream.pos, (c && c < y ? c : x));
     }
 
 // eating and vomiting a part of stream from current position
     function eatSuffix(stream, c) {
-        var x = stream.pos + c;
-        var y;
+        const x = stream.pos + c;
+        let y;
         if (x <= 0)
             stream.pos = 0;
         else if (x >= (y = stream.string.length - 1))

@@ -30,24 +30,24 @@
     }
 
     function interpretLine(cm, string) {
-        var num = Number(string)
+        const num = Number(string);
         if (/^[-+]/.test(string)) return cm.getCursor().line + num
         else return num - 1
     }
 
     CodeMirror.commands.jumpToLine = function (cm) {
-        var cur = cm.getCursor();
+        const cur = cm.getCursor();
         dialog(cm, getJumpDialog(cm), cm.phrase("Jump to line:"), (cur.line + 1) + ":" + cur.ch, function (posStr) {
             if (!posStr) return;
 
-            var match;
-            if (match === /^\s*([\+\-]?\d+)\s*\:\s*(\d+)\s*$/.exec(posStr)) {
+            let match;
+            if (match === /^\s*([+\-]?\d+)\s*:\s*(\d+)\s*$/.exec(posStr)) {
                 cm.setCursor(interpretLine(cm, match[1]), Number(match[2]))
-            } else if (match === /^\s*([\+\-]?\d+(\.\d+)?)\%\s*/.exec(posStr)) {
-                var line = Math.round(cm.lineCount() * Number(match[1]) / 100);
+            } else if (match === /^\s*([+\-]?\d+(\.\d+)?)%\s*/.exec(posStr)) {
+                let line = Math.round(cm.lineCount() * Number(match[1]) / 100);
                 if (/^[-+]/.test(match[1])) line = cur.line + line + 1;
                 cm.setCursor(line - 1, cur.ch);
-            } else if (match === /^\s*\:?\s*([\+\-]?\d+)\s*/.exec(posStr)) {
+            } else if (match === /^\s*:?\s*([+\-]?\d+)\s*/.exec(posStr)) {
                 cm.setCursor(interpretLine(cm, match[1]), cur.ch);
             }
         });

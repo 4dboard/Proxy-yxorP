@@ -10,7 +10,7 @@
 
     function Store(name, adapter) {
 
-        var $this = this;
+        const $this = this;
 
         this.name = name;
         this.adapter = adapter;
@@ -20,9 +20,9 @@
         // cleanup expires data
         (function () {
 
-            var time = (new Date()).getTime();
+            const time = (new Date()).getTime();
 
-            for (var key in $this.data.__ex) {
+            for (let key in $this.data.__ex) {
                 if ($this.data.__ex[key] < time) {
                     delete $this.data[key];
                     delete $this.data.__ex[key];
@@ -45,7 +45,7 @@
 
     Store.prototype.flushdb = function () {
 
-        var $this = this;
+        const $this = this;
 
         this.data = {};
         this.data.__ex = {};
@@ -87,11 +87,11 @@
 
     Store.prototype.del = function () {
 
-        var keys = arguments,
-            key = null,
+        const keys = arguments;
+        let key = null,
             removed = 0;
 
-        for (var i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
 
             key = keys[i];
 
@@ -126,7 +126,7 @@
 
         value = String(value);
 
-        var current = String(this.get(key, "")),
+        const current = String(this.get(key, "")),
             newone = current + value;
 
         this.set(key, newone);
@@ -138,7 +138,7 @@
 
         by = by || 1;
 
-        var current = Number(this.get(key, 0)),
+        const current = Number(this.get(key, 0)),
             newone = current + by;
 
         this.set(key, newone);
@@ -158,7 +158,7 @@
     };
 
     Store.prototype.lpush = function (key, value) {
-        var list = this.get(key, []),
+        const list = this.get(key, []),
             ret = list.unshift(value);
 
         this.set(key, list);
@@ -166,7 +166,7 @@
     };
 
     Store.prototype.rpush = function (key, value) {
-        var list = this.get(key, []),
+        const list = this.get(key, []),
             ret = list.push(value);
 
         this.set(key, list);
@@ -174,7 +174,7 @@
     };
 
     Store.prototype.lset = function (key, index, value) {
-        var list = this.get(key, []);
+        const list = this.get(key, []);
 
         if (index < 0) {
             index = list.length - Math.abs(index);
@@ -190,7 +190,7 @@
     };
 
     Store.prototype.lindex = function (key, index) {
-        var list = this.get(key, []);
+        const list = this.get(key, []);
 
         if (index < 0) {
             index = list.length - Math.abs(index);
@@ -202,14 +202,14 @@
     /* Hash methods */
 
     Store.prototype.hset = function (key, field, value) {
-        var set = this.get(key, {});
+        const set = this.get(key, {});
 
         set[field] = value;
         this.set(key, set);
     };
 
     Store.prototype.hget = function (key, field, def) {
-        var set = this.get(key, {});
+        const set = this.get(key, {});
 
         return set[field] !== undefined ? set[field] : def;
     };
@@ -219,15 +219,15 @@
     };
 
     Store.prototype.hexists = function (key, field) {
-        var set = this.get(key, {});
+        const set = this.get(key, {});
 
         return (set[field] !== undefined);
     };
 
     Store.prototype.hkeys = function (key) {
-        var set = this.get(key, {}),
-            keys = [],
-            name = null;
+        const set = this.get(key, {}),
+            keys = [];
+        let name = null;
 
         for (name in set) {
             if (set.hasOwnProperty(name)) {
@@ -239,9 +239,9 @@
     };
 
     Store.prototype.hvals = function (key) {
-        var set = this.get(key, {}),
-            vals = [],
-            name = null;
+        const set = this.get(key, {}),
+            vals = [];
+        let name = null;
 
         for (name in set) {
             if (set.hasOwnProperty(name)) {
@@ -260,11 +260,11 @@
 
         if (!this.exists(key)) return 0;
 
-        var set = this.get(key, {}),
-            field = null,
+        const set = this.get(key, {});
+        let field = null,
             removed = 0;
 
-        for (var i = 1; i < arguments.length; i++) {
+        for (let i = 1; i < arguments.length; i++) {
 
             field = arguments[i];
 
@@ -281,7 +281,7 @@
 
     Store.prototype.hincrby = function (key, field, by) {
         by = by || 1;
-        var current = Number(this.hget(key, field, 0)),
+        const current = Number(this.hget(key, field, 0)),
             newone = current + by;
 
         this.hset(key, field, newone);
@@ -290,11 +290,11 @@
     };
 
     Store.prototype.hmget = function (key) {
-        var set = this.get(key, {}),
-            field = null,
-            values = [];
+        const set = this.get(key, {});
+        let field = null;
+        const values = [];
 
-        for (var i = 1; i < arguments.length; i++) {
+        for (let i = 1; i < arguments.length; i++) {
             field = arguments[i];
             values.push(set[field] !== undefined ? set[field] : null);
         }
@@ -303,11 +303,11 @@
     };
 
     Store.prototype.hmset = function (key) {
-        var set = this.get(key, {}),
-            field = null,
+        const set = this.get(key, {});
+        let field = null,
             value = null;
 
-        for (var i = 1; i < arguments.length; i++) {
+        for (let i = 1; i < arguments.length; i++) {
             field = arguments[i];
             value = arguments[(i + 1)] ? arguments[(i + 1)] : null;
             set[field] = value;
@@ -317,7 +317,7 @@
         this.set(key, set);
     };
 
-    var JSONStorage = {
+    const JSONStorage = {
 
         select: function (name, adapter) {
             return (new Store(name, typeof (adapter) === 'object' ? adapter : (this.adapters[adapter] || this.adapters['memory'])));
@@ -326,7 +326,7 @@
         adapters: {
 
             memory: (function () {
-                var dbs = {};
+                const dbs = {};
 
                 return {
                     load: function (name) {

@@ -12,9 +12,9 @@
     "use strict";
 
     CodeMirror.defineMode("ebnf", function (config) {
-        var commentType = {slash: 0, parenthesis: 1};
-        var stateType = {comment: 0, _string: 1, characterClass: 2};
-        var bracesMode = null;
+        const commentType = {slash: 0, parenthesis: 1};
+        const stateType = {comment: 0, _string: 1, characterClass: 2};
+        let bracesMode = null;
 
         if (config.bracesMode)
             bracesMode = CodeMirror.getMode(config, config.bracesMode);
@@ -90,17 +90,17 @@
                         return "operator";
                 }
 
-                var peek = stream.peek();
+                const peek = stream.peek();
 
                 if (bracesMode !== null && (state.braced || peek === "{")) {
                     if (state.localState === null)
                         state.localState = CodeMirror.startState(bracesMode);
 
-                    var token = bracesMode.token(stream, state.localState),
-                        text = stream.current();
+                    let token = bracesMode.token(stream, state.localState);
+                    const text = stream.current();
 
                     if (!token) {
-                        for (var i = 0; i < text.length; i++) {
+                        for (let i = 0; i < text.length; i++) {
                             if (text[i] === "{") {
                                 if (state.braced === 0) {
                                     token = "matchingbracket";

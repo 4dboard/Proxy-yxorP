@@ -13,13 +13,13 @@
 
     CodeMirror.defineMode('troff', function () {
 
-        var words = {};
+        const words = {};
 
         function tokenBase(stream) {
             if (stream.eatSpace()) return null;
 
-            var sol = stream.sol();
-            var ch = stream.next();
+            const sol = stream.sol();
+            const ch = stream.next();
 
             if (ch === '\\') {
                 if (stream.match('fB') || stream.match('fR') || stream.match('fI') ||
@@ -61,7 +61,7 @@
                 }
             }
             stream.eatWhile(/[\w-]/);
-            var cur = stream.current();
+            const cur = stream.current();
             return words.hasOwnProperty(cur) ? words[cur] : null;
         }
 

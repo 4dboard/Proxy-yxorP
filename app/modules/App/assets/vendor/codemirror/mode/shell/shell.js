@@ -13,18 +13,18 @@
 
     CodeMirror.defineMode('shell', function () {
 
-        var words = {};
+        const words = {};
 
         function define(style, dict) {
-            for (var i = 0; i < dict.length; i++) {
+            for (let i = 0; i < dict.length; i++) {
                 words[dict[i]] = style;
             }
         }
 
-        var commonAtoms = ["true", "false"];
-        var commonKeywords = ["if", "then", "do", "else", "elif", "while", "until", "for", "in", "esac", "fi",
+        const commonAtoms = ["true", "false"];
+        const commonKeywords = ["if", "then", "do", "else", "elif", "while", "until", "for", "in", "esac", "fi",
             "fin", "fil", "done", "exit", "set", "unset", "export", "function"];
-        var commonCommands = ["ab", "awk", "bash", "beep", "cat", "cc", "cd", "chown", "chmod", "chroot", "clear",
+        const commonCommands = ["ab", "awk", "bash", "beep", "cat", "cc", "cd", "chown", "chmod", "chroot", "clear",
             "cp", "curl", "cut", "diff", "echo", "find", "gawk", "gcc", "get", "git", "grep", "hg", "kill", "killall",
             "ln", "ls", "make", "mkdir", "openssl", "mv", "nc", "nl", "node", "npm", "ping", "ps", "restart", "rm",
             "rmdir", "sed", "service", "sh", "shopt", "shred", "source", "sort", "sleep", "ssh", "start", "stop",
@@ -40,8 +40,8 @@
         function tokenBase(stream, state) {
             if (stream.eatSpace()) return null;
 
-            var sol = stream.sol();
-            var ch = stream.next();
+            const sol = stream.sol();
+            const ch = stream.next();
 
             if (ch === '\\') {
                 stream.next();
@@ -73,7 +73,7 @@
             }
             if (ch === "<") {
                 if (stream.match("<<")) return "operator"
-                var heredoc = stream.match(/^<-?\s*['"]?([^'"]*)['"]?/)
+                const heredoc = stream.match(/^<-?\s*['"]?([^'"]*)['"]?/);
                 if (heredoc) {
                     state.tokens.unshift(tokenHeredoc(heredoc[1]))
                     return 'string-2'
@@ -86,15 +86,15 @@
                 }
             }
             stream.eatWhile(/[\w-]/);
-            var cur = stream.current();
+            const cur = stream.current();
             if (stream.peek() === '=' && /\w+/.test(cur)) return 'def';
             return words.hasOwnProperty(cur) ? words[cur] : null;
         }
 
         function tokenString(quote, style) {
-            var close = quote === "(" ? ")" : quote === "{" ? "}" : quote
+            const close = quote === "(" ? ")" : quote === "{" ? "}" : quote;
             return function (stream, state) {
-                var next, escaped = false;
+                let next, escaped = false;
                 while ((next = stream.next()) != null) {
                     if (next === close && !escaped) {
                         state.tokens.shift();
@@ -128,7 +128,7 @@
 
         var tokenDollar = function (stream, state) {
             if (state.tokens.length > 1) stream.eat('$');
-            var ch = stream.next()
+            const ch = stream.next();
             if (/['"({]/.test(ch)) {
                 state.tokens[0] = tokenString(ch, ch === "(" ? "quote" : ch === "{" ? "def" : "string");
                 return tokenize(stream, state);

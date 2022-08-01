@@ -184,7 +184,7 @@ class users extends app
 
             $filter = null;
 
-            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
+            if (\preg_match('/^{(.*)}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);

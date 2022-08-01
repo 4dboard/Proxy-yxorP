@@ -55,9 +55,9 @@
     // declare global: tern
 
     CodeMirror.TernServer = function (options) {
-        var self = this;
+        const self = this;
         this.options = options || {};
-        var plugins = this.options.plugins || (this.options.plugins = {});
+        const plugins = this.options.plugins || (this.options.plugins = {});
         if (!plugins.doc_comment) plugins.doc_comment = true;
         this.docs = Object.create(null);
         if (this.options.useWorker) {
@@ -88,14 +88,14 @@
 
     CodeMirror.TernServer.prototype = {
         addDoc: function (name, doc) {
-            var data = {doc: doc, name: name, changed: null};
+            const data = {doc: doc, name: name, changed: null};
             this.server.addFile(name, docValue(this, data));
             CodeMirror.on(doc, "change", this.trackChange);
             return this.docs[name] = data;
         },
 
         delDoc: function (id) {
-            var found = resolveDoc(this, id);
+            const found = resolveDoc(this, id);
             if (!found) return;
             CodeMirror.off(found.doc, "change", this.trackChange);
             delete this.docs[found.name];
@@ -104,7 +104,7 @@
 
         hideDoc: function (id) {
             closeArgHints(this);
-            var found = resolveDoc(this, id);
+            const found = resolveDoc(this, id);
             if (found && found.changed) sendDoc(this, found);
         },
 
@@ -141,11 +141,11 @@
         },
 
         request: function (cm, query, c, pos) {
-            var self = this;
-            var doc = findDoc(this, cm.getDoc());
-            var request = buildRequest(this, doc, query, pos);
-            var extraOptions = request.query && this.options.queryOptions && this.options.queryOptions[request.query.type]
-            if (extraOptions) for (var prop in extraOptions) request.query[prop] = extraOptions[prop];
+            const self = this;
+            const doc = findDoc(this, cm.getDoc());
+            const request = buildRequest(this, doc, query, pos);
+            const extraOptions = request.query && this.options.queryOptions && this.options.queryOptions[request.query.type];
+            if (extraOptions) for (let prop in extraOptions) request.query[prop] = extraOptions[prop];
 
             this.server.request(request, function (error, data) {
                 if (!error && self.options.responseFilter)
@@ -163,12 +163,12 @@
         }
     };
 
-    var Pos = CodeMirror.Pos;
-    var cls = "CodeMirror-Tern-";
-    var bigDoc = 250;
+    const Pos = CodeMirror.Pos;
+    const cls = "CodeMirror-Tern-";
+    const bigDoc = 250;
 
     function getFile(ts, name, c) {
-        var buf = ts.docs[name];
+        const buf = ts.docs[name];
         if (buf)
             c(docValue(ts, buf));
         else if (ts.options.getFile)
@@ -179,10 +179,10 @@
 
     function findDoc(ts, doc, name) {
         for (var n in ts.docs) {
-            var cur = ts.docs[n];
+            const cur = ts.docs[n];
             if (cur.doc === doc) return cur;
         }
-        if (!name) for (var i = 0; ; ++i) {
+        if (!name) for (let i = 0; ; ++i) {
             n = "[doc" + (i || "") + "]";
             if (!ts.docs[n]) {
                 name = n;
@@ -199,16 +199,16 @@
     }
 
     function trackChange(ts, doc, change) {
-        var data = findDoc(ts, doc);
+        const data = findDoc(ts, doc);
 
-        var argHints = ts.cachedArgHints;
+        const argHints = ts.cachedArgHints;
         if (argHints && argHints.doc === doc && cmpPos(argHints.start, change.to) >= 0)
             ts.cachedArgHints = null;
 
-        var changed = data.changed;
+        let changed = data.changed;
         if (changed === null)
             data.changed = changed = {from: change.from.line, to: change.from.line};
-        var end = change.from.line + (change.text.length - 1);
+        const end = change.from.line + (change.text.length - 1);
         if (change.from.line < changed.to) changed.to = changed.to - (change.to.line - end);
         if (end >= changed.to) changed.to = end + 1;
         if (changed.from > change.from.line) changed.from = change.from.line;
@@ -230,14 +230,16 @@
     function hint(ts, cm, c) {
         ts.request(cm, {type: "completions", types: true, docs: true, urls: true}, function (error, data) {
             if (error) return showError(ts, cm, error);
-            var completions = [], after = "";
-            var from = data.start, to = data.end;
+            const completions = [];
+            let after = "";
+            const from = data.start, to = data.end;
             if (cm.getRange(Pos(from.line, from.ch - 2), from) === "[\"" &&
                 cm.getRange(to, Pos(to.line, to.ch + 2)) !== "\"]")
                 after = "\"]";
 
-            for (var i = 0; i < data.completions.length; ++i) {
-                var completion = data.completions[i], className = typeToIcon(completion.type);
+            for (let i = 0; i < data.completions.length; ++i) {
+                const completion = data.completions[i];
+                let className = typeToIcon(completion.type);
                 if (data.guess) className += " " + cls + "guess";
                 completions.push({
                     text: completion.name + after,
@@ -247,8 +249,8 @@
                 });
             }
 
-            var obj = {from: from, to: to, list: completions};
-            var tooltip = null;
+            const obj = {from: from, to: to, list: completions};
+            let tooltip = null;
             CodeMirror.on(obj, "close", function () {
                 remove(tooltip);
             });
@@ -257,7 +259,7 @@
             });
             CodeMirror.on(obj, "select", function (cur, node) {
                 remove(tooltip);
-                var content = ts.options.completionTip ? ts.options.completionTip(cur.data) : cur.data.doc;
+                const content = ts.options.completionTip ? ts.options.completionTip(cur.data) : cur.data.doc;
                 if (content) {
                     tooltip = makeTooltip(node.parentNode.getBoundingClientRect().right + window.pageXOffset,
                         node.getBoundingClientRect().top + window.pageYOffset, content, cm, cls + "hint-doc");
@@ -268,7 +270,7 @@
     }
 
     function typeToIcon(type) {
-        var suffix;
+        let suffix;
         if (type === "?") suffix = "unknown";
         else if (type === "number" || type === "string" || type === "bool") suffix = type;
         else if (/^fn\(/.test(type)) suffix = "fn";
@@ -290,7 +292,7 @@
                     tip.appendChild(document.createTextNode(" — " + data.doc));
                 if (data.url) {
                     tip.appendChild(document.createTextNode(" "));
-                    var child = tip.appendChild(elt("a", null, "[docs]"));
+                    const child = tip.appendChild(elt("a", null, "[docs]"));
                     child.href = data.url;
                     child.target = "_blank";
                 }
@@ -306,17 +308,19 @@
         closeArgHints(ts);
 
         if (cm.somethingSelected()) return;
-        var state = cm.getTokenAt(cm.getCursor()).state;
-        var inner = CodeMirror.innerMode(cm.getMode(), state);
+        const state = cm.getTokenAt(cm.getCursor()).state;
+        const inner = CodeMirror.innerMode(cm.getMode(), state);
         if (inner.mode.name !== "javascript") return;
-        var lex = inner.state.lexical;
+        const lex = inner.state.lexical;
         if (lex.info !== "call") return;
 
-        var ch, argPos = lex.pos || 0, tabSize = cm.getOption("tabSize");
+        let ch;
+        const argPos = lex.pos || 0, tabSize = cm.getOption("tabSize");
         for (var line = cm.getCursor().line, e = Math.max(0, line - 9), found = false; line >= e; --line) {
-            var str = cm.getLine(line), extra = 0;
-            for (var pos = 0; ;) {
-                var tab = str.indexOf("\t", pos);
+            const str = cm.getLine(line);
+            let extra = 0;
+            for (let pos = 0; ;) {
+                const tab = str.indexOf("\t", pos);
                 if (tab === -1) break;
                 extra += tabSize - (tab + extra) % tabSize - 1;
                 pos = tab + 1;
@@ -329,8 +333,8 @@
         }
         if (!found) return;
 
-        var start = Pos(line, ch);
-        var cache = ts.cachedArgHints;
+        const start = Pos(line, ch);
+        const cache = ts.cachedArgHints;
         if (cache && cache.doc === cm.getDoc() && cmpPos(start, cache.start) === 0)
             return showArgHints(ts, cm, argPos);
 
@@ -350,12 +354,12 @@
     function showArgHints(ts, cm, pos) {
         closeArgHints(ts);
 
-        var cache = ts.cachedArgHints, tp = cache.type;
-        var tip = elt("span", cache.guess ? cls + "fhint-guess" : null,
+        const cache = ts.cachedArgHints, tp = cache.type;
+        const tip = elt("span", cache.guess ? cls + "fhint-guess" : null,
             elt("span", cls + "fname", cache.name), "(");
-        for (var i = 0; i < tp.args.length; ++i) {
+        for (let i = 0; i < tp.args.length; ++i) {
             if (i) tip.appendChild(document.createTextNode(", "));
-            var arg = tp.args[i];
+            const arg = tp.args[i];
             tip.appendChild(elt("span", cls + "farg" + (i === pos ? " " + cls + "farg-current" : ""), arg.name || "?"));
             if (arg.type !== "?") {
                 tip.appendChild(document.createTextNode(":\u00a0"));
@@ -364,8 +368,8 @@
         }
         tip.appendChild(document.createTextNode(tp.rettype ? ") ->\u00a0" : ")"));
         if (tp.rettype) tip.appendChild(elt("span", cls + "type", tp.rettype));
-        var place = cm.cursorCoords(null, "page");
-        var tooltip = ts.activeArgHints = makeTooltip(place.right + 1, place.bottom, tip, cm)
+        const place = cm.cursorCoords(null, "page");
+        const tooltip = ts.activeArgHints = makeTooltip(place.right + 1, place.bottom, tip, cm);
         setTimeout(function () {
             tooltip.clear = onEditorActivity(cm, function () {
                 if (ts.activeArgHints === tooltip) closeArgHints(ts)
@@ -374,32 +378,34 @@
     }
 
     function parseFnType(text) {
-        var args = [], pos = 3;
+        const args = [];
+        let pos = 3;
 
         function skipMatching(upto) {
-            var depth = 0, start = pos;
+            let depth = 0;
+            const start = pos;
             for (; ;) {
-                var next = text.charAt(pos);
+                const next = text.charAt(pos);
                 if (upto.test(next) && !depth) return text.slice(start, pos);
-                if (/[{\[\(]/.test(next)) ++depth;
-                else if (/[}\]\)]/.test(next)) --depth;
+                if (/[{\[(]/.test(next)) ++depth;
+                else if (/[}\])]/.test(next)) --depth;
                 ++pos;
             }
         }
 
         // Parse arguments
         if (text.charAt(pos) !== ")") for (; ;) {
-            var name = text.slice(pos).match(/^([^, \(\[\{]+): /);
+            let name = text.slice(pos).match(/^([^, (\[{]+): /);
             if (name) {
                 pos += name[0].length;
                 name = name[1];
             }
-            args.push({name: name, type: skipMatching(/[\),]/)});
+            args.push({name: name, type: skipMatching(/[),]/)});
             if (text.charAt(pos) === ")") break;
             pos += 2;
         }
 
-        var rettype = text.slice(pos).match(/^\) -> (.*)$/);
+        const rettype = text.slice(pos).match(/^\) -> (.*)$/);
 
         return {args: args, rettype: rettype && rettype[1]};
     }
@@ -408,8 +414,8 @@
 
     function jumpToDef(ts, cm) {
         function inner(varName) {
-            var req = {type: "definition", variable: varName || null};
-            var doc = findDoc(ts, cm.getDoc());
+            const req = {type: "definition", variable: varName || null};
+            const doc = findDoc(ts, cm.getDoc());
             ts.server.request(buildRequest(ts, doc, req), function (error, data) {
                 if (error) return showError(ts, cm, error);
                 if (!data.file && data.url) {
@@ -418,7 +424,8 @@
                 }
 
                 if (data.file) {
-                    var localDoc = ts.docs[data.file], found;
+                    const localDoc = ts.docs[data.file];
+                    let found;
                     if (localDoc && (found = findContext(localDoc.doc, data))) {
                         ts.jumpStack.push({
                             file: doc.name,
@@ -442,7 +449,7 @@
     }
 
     function jumpBack(ts, cm) {
-        var pos = ts.jumpStack.pop(), doc = pos && ts.docs[pos.file];
+        const pos = ts.jumpStack.pop(), doc = pos && ts.docs[pos.file];
         if (!doc) return;
         moveTo(ts, findDoc(ts, cm.getDoc()), doc, pos.start, pos.end);
     }
@@ -457,19 +464,20 @@
 
     // The {line,ch} representation of positions makes this rather awkward.
     function findContext(doc, data) {
-        var before = data.context.slice(0, data.contextOffset).split("\n");
-        var startLine = data.start.line - (before.length - 1);
-        var start = Pos(startLine, (before.length === 1 ? data.start.ch : doc.getLine(startLine).length) - before[0].length);
+        const before = data.context.slice(0, data.contextOffset).split("\n");
+        const startLine = data.start.line - (before.length - 1);
+        const start = Pos(startLine, (before.length === 1 ? data.start.ch : doc.getLine(startLine).length) - before[0].length);
 
-        var text = doc.getLine(startLine).slice(start.ch);
-        for (var cur = startLine + 1; cur < doc.lineCount() && text.length < data.context.length; ++cur)
+        let text = doc.getLine(startLine).slice(start.ch);
+        for (let cur = startLine + 1; cur < doc.lineCount() && text.length < data.context.length; ++cur)
             text += "\n" + doc.getLine(cur);
         if (text.slice(0, data.context.length) === data.context) return data;
 
-        var cursor = doc.getSearchCursor(data.context, 0, false);
-        var nearest, nearestDist = Infinity;
+        const cursor = doc.getSearchCursor(data.context, 0, false);
+        let nearest, nearestDist = Infinity;
         while (cursor.findNext()) {
-            var from = cursor.from(), dist = Math.abs(from.line - start.line) * 10000;
+            const from = cursor.from();
+            let dist = Math.abs(from.line - start.line) * 10000;
             if (!dist) dist = Math.abs(from.ch - start.ch);
             if (dist < nearestDist) {
                 nearest = from;
@@ -490,7 +498,7 @@
     }
 
     function atInterestingExpression(cm) {
-        var pos = cm.getCursor("end"), tok = cm.getTokenAt(pos);
+        const pos = cm.getCursor("end"), tok = cm.getTokenAt(pos);
         if (tok.start < pos.ch && tok.type === "comment") return false;
         return /[\w)\]]/.test(cm.getLine(pos.line).slice(Math.max(pos.ch - 1, 0), pos.ch + 1));
     }
@@ -498,7 +506,7 @@
     // Variable renaming
 
     function rename(ts, cm) {
-        var token = cm.getTokenAt(cm.getCursor());
+        const token = cm.getTokenAt(cm.getCursor());
         if (!/\w/.test(token.string)) return showError(ts, cm, "Not at a variable");
         dialog(cm, "New name for " + token.string, function (newName) {
             ts.request(cm, {type: "rename", newName: newName, fullDocs: true}, function (error, data) {
@@ -509,13 +517,14 @@
     }
 
     function selectName(ts, cm) {
-        var name = findDoc(ts, cm.doc).name;
+        const name = findDoc(ts, cm.doc).name;
         ts.request(cm, {type: "refs"}, function (error, data) {
             if (error) return showError(ts, cm, error);
-            var ranges = [], cur = 0;
-            var curPos = cm.getCursor();
-            for (var i = 0; i < data.refs.length; i++) {
-                var ref = data.refs[i];
+            const ranges = [];
+            let cur = 0;
+            const curPos = cm.getCursor();
+            for (let i = 0; i < data.refs.length; i++) {
+                const ref = data.refs[i];
                 if (ref.file === name) {
                     ranges.push({anchor: ref.start, head: ref.end});
                     if (cmpPos(curPos, ref.start) >= 0 && cmpPos(curPos, ref.end) <= 0)
@@ -526,22 +535,22 @@
         });
     }
 
-    var nextChangeOrig = 0;
+    const nextChangeOrig = 0;
 
     function applyChanges(ts, changes) {
-        var perFile = Object.create(null);
+        const perFile = Object.create(null);
         for (var i = 0; i < changes.length; ++i) {
             var ch = changes[i];
             (perFile[ch.file] || (perFile[ch.file] = [])).push(ch);
         }
-        for (var file in perFile) {
-            var known = ts.docs[file], chs = perFile[file];
+        for (let file in perFile) {
+            const known = ts.docs[file], chs = perFile[file];
 
             if (!known) continue;
             chs.sort(function (a, b) {
                 return cmpPos(b.start, a.start);
             });
-            var origin = "*rename" + (++nextChangeOrig);
+            const origin = "*rename" + (++nextChangeOrig);
             for (var i = 0; i < chs.length; ++i) {
                 var ch = chs[i];
                 known.doc.replaceRange(ch.text, ch.start, ch.end, origin);
@@ -561,7 +570,7 @@
             if (doc.doc.somethingSelected())
                 query.start = doc.doc.getCursor("start");
         }
-        var startPos = query.start || query.end;
+        const startPos = query.start || query.end;
 
         if (doc.changed) {
             if (doc.doc.lineCount() > bigDoc && allowFragments !== false &&
@@ -584,8 +593,8 @@
         } else {
             query.file = doc.name;
         }
-        for (var name in ts.docs) {
-            var cur = ts.docs[name];
+        for (let name in ts.docs) {
+            const cur = ts.docs[name];
             if (cur.changed && cur !== doc) {
                 files.push({type: "full", name: cur.name, text: docValue(ts, cur)});
                 cur.changed = null;
@@ -596,10 +605,11 @@
     }
 
     function getFragmentAround(data, start, end) {
-        var doc = data.doc;
-        var minIndent = null, minLine = null, endLine, tabSize = 4;
+        const doc = data.doc;
+        let minIndent = null, minLine = null, endLine;
+        const tabSize = 4;
         for (var p = start.line - 1, min = Math.max(0, p - 50); p >= min; --p) {
-            var line = doc.getLine(p), fn = line.search(/\bfunction\b/);
+            const line = doc.getLine(p), fn = line.search(/\bfunction\b/);
             if (fn < 0) continue;
             var indent = CodeMirror.countColumn(line, null, tabSize);
             if (minIndent != null && minIndent <= indent) continue;
@@ -607,14 +617,14 @@
             minLine = p;
         }
         if (minLine === null) minLine = min;
-        var max = Math.min(doc.lastLine(), end.line + 20);
+        const max = Math.min(doc.lastLine(), end.line + 20);
         if (minIndent === null || minIndent === CodeMirror.countColumn(doc.getLine(start.line), null, tabSize))
             endLine = max;
         else for (endLine = end.line + 1; endLine < max; ++endLine) {
             var indent = CodeMirror.countColumn(doc.getLine(endLine), null, tabSize);
             if (indent <= minIndent) break;
         }
-        var from = Pos(minLine, 0);
+        const from = Pos(minLine, 0);
 
         return {
             type: "part",
@@ -629,10 +639,10 @@
     var cmpPos = CodeMirror.cmpPos;
 
     function elt(tagname, cls /*, ... elts*/) {
-        var e = document.createElement(tagname);
+        const e = document.createElement(tagname);
         if (cls) e.className = cls;
-        for (var i = 2; i < arguments.length; ++i) {
-            var elt = arguments[i];
+        for (let i = 2; i < arguments.length; ++i) {
+            let elt = arguments[i];
             if (typeof elt === "string") elt = document.createTextNode(elt);
             e.appendChild(elt);
         }
@@ -650,8 +660,8 @@
 
     function tempTooltip(cm, content, ts) {
         if (cm.state.ternTooltip) remove(cm.state.ternTooltip);
-        var where = cm.cursorCoords();
-        var tip = cm.state.ternTooltip = makeTooltip(where.right + 1, where.bottom, content, cm);
+        const where = cm.cursorCoords();
+        const tip = cm.state.ternTooltip = makeTooltip(where.right + 1, where.bottom, content, cm);
 
         function maybeClear() {
             old = true;
@@ -669,7 +679,7 @@
             mouseOnTip = true;
         });
         CodeMirror.on(tip, "mouseout", function (e) {
-            var related = e.relatedTarget || e.toElement
+            const related = e.relatedTarget || e.toElement;
             if (!related || !CodeMirror.contains(tip, related)) {
                 if (old) clear();
                 else mouseOnTip = false;
@@ -693,19 +703,19 @@
     }
 
     function makeTooltip(x, y, content, cm, className) {
-        var node = elt("div", cls + "tooltip" + " " + (className || ""), content);
+        const node = elt("div", cls + "tooltip" + " " + (className || ""), content);
         node.style.left = x + "px";
         node.style.top = y + "px";
-        var container = ((cm.options || {}).hintOptions || {}).container || document.body;
+        const container = ((cm.options || {}).hintOptions || {}).container || document.body;
         container.appendChild(node);
 
-        var pos = cm.cursorCoords();
-        var winW = window.innerWidth;
-        var winH = window.innerHeight;
+        const pos = cm.cursorCoords();
+        const winW = window.innerWidth;
+        const winH = window.innerHeight;
         var box = node.getBoundingClientRect();
-        var hints = document.querySelector(".CodeMirror-hints");
-        var overlapY = box.bottom - winH;
-        var overlapX = box.right - winW;
+        const hints = document.querySelector(".CodeMirror-hints");
+        const overlapY = box.bottom - winH;
+        let overlapX = box.right - winW;
 
         if (hints && overlapX > 0) {
             node.style.left = 0;
@@ -714,7 +724,7 @@
             overlapX = box.right - winW;
         }
         if (overlapY > 0) {
-            var height = box.bottom - box.top, curTop = pos.top - (pos.bottom - box.top);
+            const height = box.bottom - box.top, curTop = pos.top - (pos.bottom - box.top);
             if (curTop - height > 0) { // Fits above cursor
                 node.style.top = (pos.top - height) + "px";
             } else if (height > winH) {
@@ -734,7 +744,7 @@
     }
 
     function remove(node) {
-        var p = node && node.parentNode;
+        const p = node && node.parentNode;
         if (p) p.removeChild(node);
     }
 
@@ -761,7 +771,7 @@
     }
 
     function docValue(ts, doc) {
-        var val = doc.doc.getValue();
+        let val = doc.doc.getValue();
         if (ts.options.fileFilter) val = ts.options.fileFilter(val, doc.name, doc.doc);
         return val;
     }
@@ -769,14 +779,14 @@
     // Worker wrapper
 
     function WorkerServer(ts) {
-        var worker = ts.worker = new Worker(ts.options.workerScript);
+        const worker = ts.worker = new Worker(ts.options.workerScript);
         worker.postMessage({
             type: "init",
             defs: ts.options.defs,
             plugins: ts.options.plugins,
             scripts: ts.options.workerDeps
         });
-        var msgId = 0, pending = {};
+        let msgId = 0, pending = {};
 
         function send(data, c) {
             if (c) {
@@ -787,7 +797,7 @@
         }
 
         worker.onmessage = function (e) {
-            var data = e.data;
+            const data = e.data;
             if (data.type === "getFile") {
                 getFile(ts, data.name, function (err, text) {
                     send({type: "getFile", err: String(err), text: text, id: data.id});
@@ -800,7 +810,7 @@
             }
         };
         worker.onerror = function (e) {
-            for (var id in pending) pending[id](e);
+            for (let id in pending) pending[id](e);
             pending = {};
         };
 

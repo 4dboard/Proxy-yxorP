@@ -2,6 +2,10 @@
 
 namespace App\Helper;
 
+/**
+ * @property mixed $dataStorage
+ * @property mixed $dataStorage
+ */
 class eventStream extends \Lime\Helper
 {
 

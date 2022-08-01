@@ -13,15 +13,15 @@
 
     CodeMirror.defineMode("puppet", function () {
         // Stores the words from the define method
-        var words = {};
+        const words = {};
         // Taken, mostly, from the Puppet official variable standards regex
-        var variable_regex = /({)?([a-z][a-z0-9_]*)?((::[a-z][a-z0-9_]*)*::)?[a-zA-Z0-9_]+(})?/;
+        const variable_regex = /({)?([a-z][a-z0-9_]*)?((::[a-z][a-z0-9_]*)*::)?[a-zA-Z0-9_]+(})?/;
 
         // Takes a string of words separated by spaces and adds them as
         // keys with the value of the first argument 'style'
         function define(style, string) {
-            var split = string.split(' ');
-            for (var i = 0; i < split.length; i++) {
+            const split = string.split(' ');
+            for (let i = 0; i < split.length; i++) {
                 words[split[i]] = style;
             }
         }
@@ -45,7 +45,7 @@
         // If a variable is encountered along the way, we display it differently when it
         // is encapsulated in a double-quoted string.
         function tokenString(stream, state) {
-            var current, prev, found_var = false;
+            let current, prev, found_var = false;
             while (!stream.eol() && (current = stream.next()) !== state.pending) {
                 if (current === '$' && prev !== '\\' && state.pending === '"') {
                     found_var = true;
@@ -63,17 +63,17 @@
         // Main function
         function tokenize(stream, state) {
             // Matches one whole word
-            var word = stream.match(/[\w]+/, false);
+            const word = stream.match(/[\w]+/, false);
             // Matches attributes (i.e. ensure => present ; 'ensure' would be matched)
-            var attribute = stream.match(/(\s+)?\w+\s+=>.*/, false);
+            const attribute = stream.match(/(\s+)?\w+\s+=>.*/, false);
             // Matches non-builtin resource declarations
             // (i.e. "apache::vhost {" or "mycustomclasss {" would be matched)
-            var resource = stream.match(/(\s+)?[\w:_]+(\s+)?{/, false);
+            const resource = stream.match(/(\s+)?[\w:_]+(\s+)?{/, false);
             // Matches virtual and exported resources (i.e. @@user { ; and the like)
-            var special_resource = stream.match(/(\s+)?[@]{1,2}[\w:_]+(\s+)?{/, false);
+            const special_resource = stream.match(/(\s+)?[@]{1,2}[\w:_]+(\s+)?{/, false);
 
             // Finally advance the stream
-            var ch = stream.next();
+            const ch = stream.next();
 
             // Have we found a variable?
             if (ch === '$') {
@@ -196,7 +196,7 @@
         // Start it all
         return {
             startState: function () {
-                var state = {};
+                const state = {};
                 state.inDefinition = false;
                 state.inInclude = false;
                 state.continueString = false;

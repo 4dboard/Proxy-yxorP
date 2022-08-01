@@ -6,6 +6,16 @@ use yxorP\app\lib\proxy\Promise\promise;
 use yxorP\app\lib\proxy\utils;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
+/**
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
+ * @property CurlMultiHandle|CurlMultiHandle $_mh
+ */
 class curlMultiHandler
 {
     private $factory;

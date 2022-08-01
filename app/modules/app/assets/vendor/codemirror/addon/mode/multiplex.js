@@ -13,14 +13,14 @@
 
     CodeMirror.multiplexingMode = function (outer /*, others */) {
         // Others should be {open, close, mode [, delimStyle] [, innerStyle] [, parseDelimiters]} objects
-        var others = Array.prototype.slice.call(arguments, 1);
+        const others = Array.prototype.slice.call(arguments, 1);
 
         function indexOf(string, pattern, from, returnEnd) {
             if (typeof pattern === "string") {
-                var found = string.indexOf(pattern, from);
+                const found = string.indexOf(pattern, from);
                 return returnEnd && found > -1 ? found + pattern.length : found;
             }
-            var m = pattern.exec(from ? string.slice(from) : string);
+            const m = pattern.exec(from ? string.slice(from) : string);
             return m ? m.index + from + (returnEnd ? m[0].length : 0) : -1;
         }
 
@@ -46,8 +46,8 @@
             token: function (stream, state) {
                 if (!state.innerActive) {
                     var cutOff = Infinity, oldContent = stream.string;
-                    for (var i = 0; i < others.length; ++i) {
-                        var other = others[i];
+                    for (let i = 0; i < others.length; ++i) {
+                        const other = others[i];
                         var found = indexOf(oldContent, other.open, stream.pos);
                         if (found === stream.pos) {
                             if (!other.parseDelimiters) stream.match(other.open);
@@ -55,9 +55,9 @@
                             state.innerActive = other;
 
                             // Get the outer indent, making sure to handle CodeMirror.Pass
-                            var outerIndent = 0;
+                            let outerIndent = 0;
                             if (outer.indent) {
-                                var possibleOuterIndent = outer.indent(state.outer, "", "");
+                                const possibleOuterIndent = outer.indent(state.outer, "", "");
                                 if (possibleOuterIndent !== CodeMirror.Pass) outerIndent = possibleOuterIndent;
                             }
 
@@ -68,7 +68,7 @@
                         }
                     }
                     if (cutOff !== Infinity) stream.string = oldContent.slice(0, cutOff);
-                    var outerToken = outer.token(stream, state.outer);
+                    const outerToken = outer.token(stream, state.outer);
                     if (cutOff !== Infinity) stream.string = oldContent;
                     return outerToken;
                 } else {
@@ -85,7 +85,7 @@
                         return curInner.delimStyle && (curInner.delimStyle + " " + curInner.delimStyle + "-close");
                     }
                     if (found > -1) stream.string = oldContent.slice(0, found);
-                    var innerToken = curInner.mode.token(stream, state.inner);
+                    let innerToken = curInner.mode.token(stream, state.inner);
                     if (found > -1) stream.string = oldContent;
                     else if (stream.pos > stream.start) state.startingInner = false
 
@@ -102,19 +102,19 @@
             },
 
             indent: function (state, textAfter, line) {
-                var mode = state.innerActive ? state.innerActive.mode : outer;
+                const mode = state.innerActive ? state.innerActive.mode : outer;
                 if (!mode.indent) return CodeMirror.Pass;
                 return mode.indent(state.innerActive ? state.inner : state.outer, textAfter, line);
             },
 
             blankLine: function (state) {
-                var mode = state.innerActive ? state.innerActive.mode : outer;
+                const mode = state.innerActive ? state.innerActive.mode : outer;
                 if (mode.blankLine) {
                     mode.blankLine(state.innerActive ? state.inner : state.outer);
                 }
                 if (!state.innerActive) {
-                    for (var i = 0; i < others.length; ++i) {
-                        var other = others[i];
+                    for (let i = 0; i < others.length; ++i) {
+                        const other = others[i];
                         if (other.open === "\n") {
                             state.innerActive = other;
                             state.inner = CodeMirror.startState(other.mode, mode.indent ? mode.indent(state.outer, "", "") : 0);

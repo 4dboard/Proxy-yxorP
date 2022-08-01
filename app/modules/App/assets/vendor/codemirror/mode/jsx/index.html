@@ -78,10 +78,10 @@ var content = (
 </textarea></div>
 
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             lineNumbers: true,
             mode: "jsx"
-        })
+        });
     </script>
 
     <p>JSX Mode for <a href="http://facebook.github.io/react">React</a>'s

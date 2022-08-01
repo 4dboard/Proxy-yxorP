@@ -44,7 +44,7 @@ ORDER BY COUNT(*) DESC , friend_of_friend.name
     </p>
     <script>
         window.onload = function () {
-            var mime = 'application/x-cypher-query';
+            let mime = 'application/x-cypher-query';
             // get mime type
             if (window.location.href.indexOf('mime=') > -1) {
                 mime = window.location.href.substr(window.location.href.indexOf('mime=') + 5);

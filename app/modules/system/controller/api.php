@@ -4,6 +4,7 @@ namespace System\Controller;
 
 use App\Controller\app;
 use ArrayObject;
+use Generator;
 use OpenApi\Generator;
 use Symfony\Component\Finder\Finder;
 use function file_exists;

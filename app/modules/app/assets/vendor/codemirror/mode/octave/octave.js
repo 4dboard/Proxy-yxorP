@@ -16,15 +16,15 @@
             return new RegExp("^((" + words.join(")|(") + "))\\b");
         }
 
-        var singleOperators = new RegExp("^[\\+\\-\\*/&|\\^~<>!@'\\\\]");
-        var singleDelimiters = new RegExp('^[\\(\\[\\{\\},:=;\\.]');
-        var doubleOperators = new RegExp("^((==)|(~=)|(<=)|(>=)|(<<)|(>>)|(\\.[\\+\\-\\*/\\^\\\\]))");
-        var doubleDelimiters = new RegExp("^((!=)|(\\+=)|(\\-=)|(\\*=)|(/=)|(&=)|(\\|=)|(\\^=))");
-        var tripleDelimiters = new RegExp("^((>>=)|(<<=))");
-        var expressionEnd = new RegExp("^[\\]\\)]");
-        var identifiers = new RegExp("^[_A-Za-z\xa1-\uffff][_A-Za-z0-9\xa1-\uffff]*");
+        const singleOperators = new RegExp("^[+\\-*/&|^~<>!@'\\\\]");
+        const singleDelimiters = new RegExp('^[(\\[{},:=;.]');
+        const doubleOperators = new RegExp("^((==)|(~=)|(<=)|(>=)|(<<)|(>>)|(\\.[+\\-*/^\\\\]))");
+        const doubleDelimiters = new RegExp("^((!=)|(\\+=)|(-=)|(\\*=)|(/=)|(&=)|(\\|=)|(\\^=))");
+        const tripleDelimiters = new RegExp("^((>>=)|(<<=))");
+        const expressionEnd = new RegExp("^[\\])]");
+        const identifiers = new RegExp("^[_A-Za-z\xa1-\uffff][_A-Za-z0-9\xa1-\uffff]*");
 
-        var builtins = wordRegexp([
+        const builtins = wordRegexp([
             'error', 'eval', 'function', 'abs', 'acos', 'atan', 'asin', 'cos',
             'cosh', 'exp', 'log', 'prod', 'sum', 'log10', 'max', 'min', 'sign', 'sin', 'sinh',
             'sqrt', 'tan', 'reshape', 'break', 'zeros', 'default', 'margin', 'round', 'ones',
@@ -34,7 +34,7 @@
             'fft', 'ifft', 'arrayfun', 'cellfun', 'input', 'fliplr', 'flipud', 'ismember'
         ]);
 
-        var keywords = wordRegexp([
+        const keywords = wordRegexp([
             'return', 'case', 'switch', 'else', 'elseif', 'end', 'endif', 'endfunction',
             'if', 'otherwise', 'do', 'for', 'while', 'try', 'catch', 'classdef', 'properties', 'events',
             'methods', 'global', 'persistent', 'endfor', 'endwhile', 'printf', 'sprintf', 'disp', 'until',
@@ -81,7 +81,7 @@
             }
 
             // Handle Number Literals
-            if (stream.match(/^[0-9\.+-]/, false)) {
+            if (stream.match(/^[0-9.+-]/, false)) {
                 if (stream.match(/^[+-]?0x[0-9a-fA-F]+[ij]?/)) {
                     stream.tokenize = tokenBase;
                     return 'number';
@@ -102,7 +102,7 @@
 
 
             // Handle Strings
-            var m = stream.match(/^"(?:[^"]|"")*("|$)/) || stream.match(/^'(?:[^']|'')*('|$)/)
+            const m = stream.match(/^"(?:[^"]|"")*("|$)/) || stream.match(/^'(?:[^']|'')*('|$)/);
             if (m) {
                 return m[1] ? 'string' : "string error";
             }
@@ -151,7 +151,7 @@
             },
 
             token: function (stream, state) {
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if (style === 'number' || style === 'variable') {
                     state.tokenize = tokenTranspose;
                 }

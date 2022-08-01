@@ -12,14 +12,14 @@
     "use strict";
 
     CodeMirror.defineMode("commonlisp", function (config) {
-        var specialForm = /^(block|let*|return-from|catch|load-time-value|setq|eval-when|locally|symbol-macrolet|flet|macrolet|tagbody|function|multiple-value-call|the|go|multiple-value-prog1|throw|if|progn|unwind-protect|labels|progv|let|quote)$/;
-        var assumeBody = /^with|^def|^do|^prog|case$|^cond$|bind$|when$|unless$/;
-        var numLiteral = /^(?:[+\-]?(?:\d+|\d*\.\d+)(?:[efd][+\-]?\d+)?|[+\-]?\d+(?:\/[+\-]?\d+)?|#b[+\-]?[01]+|#o[+\-]?[0-7]+|#x[+\-]?[\da-f]+)/;
-        var symbol = /[^\s'`,@()\[\]";]/;
-        var type;
+        const specialForm = /^(block|let*|return-from|catch|load-time-value|setq|eval-when|locally|symbol-macrolet|flet|macrolet|tagbody|function|multiple-value-call|the|go|multiple-value-prog1|throw|if|progn|unwind-protect|labels|progv|let|quote)$/;
+        const assumeBody = /^with|^def|^do|^prog|case$|^cond$|bind$|when$|unless$/;
+        const numLiteral = /^(?:[+\-]?(?:\d+|\d*\.\d+)(?:[efd][+\-]?\d+)?|[+\-]?\d+(?:\/[+\-]?\d+)?|#b[+\-]?[01]+|#o[+\-]?[0-7]+|#x[+\-]?[\da-f]+)/;
+        const symbol = /[^\s'`,@()\[\]";]/;
+        let type;
 
         function readSym(stream) {
-            var ch;
+            let ch;
             while (ch = stream.next()) {
                 if (ch === "\\") stream.next();
                 else if (!symbol.test(ch)) {
@@ -76,7 +76,7 @@
                     return "string-2"
                 } else return "error";
             } else {
-                var name = readSym(stream);
+                const name = readSym(stream);
                 if (name === ".") return null;
                 type = "symbol";
                 if (name === "nil" || name === "t" || name.charAt(0) === ":") return "atom";
@@ -87,7 +87,7 @@
         }
 
         function inString(stream, state) {
-            var escaped = false, next;
+            let escaped = false, next;
             while (next = stream.next()) {
                 if (next === '"' && !escaped) {
                     state.tokenize = base;
@@ -99,7 +99,7 @@
         }
 
         function inComment(stream, state) {
-            var next, last;
+            let next, last;
             while (next = stream.next()) {
                 if (next === "#" && last === "|") {
                     state.tokenize = base;
@@ -121,7 +121,7 @@
                     state.ctx.indentTo = state.ctx.start + 1;
 
                 type = null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if (type !== "ws") {
                     if (state.ctx.indentTo === null) {
                         if (type === "symbol" && assumeBody.test(stream.current()))
@@ -139,7 +139,7 @@
             },
 
             indent: function (state, _textAfter) {
-                var i = state.ctx.indentTo;
+                const i = state.ctx.indentTo;
                 return typeof i === "number" ? i : state.ctx.start + 1;
             },
 

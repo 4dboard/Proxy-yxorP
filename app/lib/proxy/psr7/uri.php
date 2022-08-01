@@ -57,7 +57,7 @@ class uri implements UriInterface
         if (!is_string($component)) {
             throw new InvalidArgumentException('User info must be a string');
         }
-        return preg_replace_callback('/[^%na' . self::$charUnreserved . self::$charSubDelims . 'me]+|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $component);
+        return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ']+|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $component);
     }
 
     private function filterHost($host)
@@ -85,7 +85,7 @@ class uri implements UriInterface
         if (!is_string($path)) {
             throw new InvalidArgumentException('Path must be a string');
         }
-        return preg_replace_callback('/[^%na' . self::$charUnreserved . self::$charSubDelims . 'me:@\/]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $path);
+        return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ':@\/]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $path);
     }
 
     private function filterQueryAndFragment($str)
@@ -93,7 +93,7 @@ class uri implements UriInterface
         if (!is_string($str)) {
             throw new InvalidArgumentException('Query and fragment must be a string');
         }
-        return preg_replace_callback('/[^%na' . self::$charUnreserved . self::$charSubDelims . 'me:@\/?]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $str);
+        return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ':@\/?]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $str);
     }
 
     private function removeDefaultPort()

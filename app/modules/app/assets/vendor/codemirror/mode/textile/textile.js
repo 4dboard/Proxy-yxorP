@@ -12,7 +12,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var TOKEN_STYLES = {
+    const TOKEN_STYLES = {
         addition: "positive",
         attributes: "attribute",
         bold: "strong",
@@ -71,12 +71,12 @@
         }
 
         if (ch === "[") {
-            if (stream.match(/\d+\]/)) state.footCite = true;
+            if (stream.match(/\d+]/)) state.footCite = true;
             return tokenStyles(state);
         }
 
         if (ch === "(") {
-            var spec = stream.match(/^(r|tm|c)\)/);
+            const spec = stream.match(/^(r|tm|c)\)/);
             if (spec)
                 return tokenStylesWith(state, TOKEN_STYLES.specialChar);
         }
@@ -109,7 +109,7 @@
             return togglePhraseModifier(stream, state, "code", /@/, 1);
 
         if (ch === "!") {
-            var type = togglePhraseModifier(stream, state, "image", /(?:\([^\)]+\))?!/, 1);
+            const type = togglePhraseModifier(stream, state, "image", /(?:\([^)]+\))?!/, 1);
             stream.match(/^:\S+/); // optional Url portion
             return type;
         }
@@ -117,11 +117,11 @@
     }
 
     function togglePhraseModifier(stream, state, phraseModifier, closeRE, openSize) {
-        var charBefore = stream.pos > openSize ? stream.string.charAt(stream.pos - openSize - 1) : null;
-        var charAfter = stream.peek();
+        const charBefore = stream.pos > openSize ? stream.string.charAt(stream.pos - openSize - 1) : null;
+        const charAfter = stream.peek();
         if (state[phraseModifier]) {
             if ((!charAfter || /\W/.test(charAfter)) && charBefore && /\S/.test(charBefore)) {
-                var type = tokenStyles(state);
+                const type = tokenStyles(state);
                 state[phraseModifier] = false;
                 return type;
             }
@@ -134,10 +134,10 @@
     }
 
     function tokenStyles(state) {
-        var disabled = textileDisabled(state);
+        const disabled = textileDisabled(state);
         if (disabled) return disabled;
 
-        var styles = [];
+        let styles = [];
         if (state.layoutType) styles.push(TOKEN_STYLES[state.layoutType]);
 
         styles = styles.concat(activeStyles(
@@ -151,7 +151,7 @@
     }
 
     function textileDisabled(state) {
-        var type = state.layoutType;
+        const type = state.layoutType;
 
         switch (type) {
             case "notextile":
@@ -166,10 +166,10 @@
     }
 
     function tokenStylesWith(state, extraStyles) {
-        var disabled = textileDisabled(state);
+        const disabled = textileDisabled(state);
         if (disabled) return disabled;
 
-        var type = tokenStyles(state);
+        const type = tokenStyles(state);
         if (extraStyles)
             return type ? (type + " " + extraStyles) : extraStyles;
         else
@@ -177,8 +177,8 @@
     }
 
     function activeStyles(state) {
-        var styles = [];
-        for (var i = 1; i < arguments.length; ++i) {
+        const styles = [];
+        for (let i = 1; i < arguments.length; ++i) {
             if (state[arguments[i]])
                 styles.push(TOKEN_STYLES[arguments[i]]);
         }
@@ -186,9 +186,9 @@
     }
 
     function blankLine(state) {
-        var spanningLayout = state.spanningLayout, type = state.layoutType;
+        const spanningLayout = state.spanningLayout, type = state.layoutType;
 
-        for (var key in state) if (state.hasOwnProperty(key))
+        for (let key in state) if (state.hasOwnProperty(key))
             delete state[key];
 
         state.mode = Modes.newLayout;
@@ -198,7 +198,7 @@
         }
     }
 
-    var REs = {
+    const REs = {
         cache: {},
         single: {
             bc: "bc",
@@ -209,25 +209,25 @@
             drawTable: /\|.*\|/,
             foot: /fn\d+/,
             header: /h[1-6]/,
-            html: /\s*<(?:\/)?(\w+)(?:[^>]+)?>(?:[^<]+<\/\1>)?/,
+            html: /\s*<\/?(\w+)(?:[^>]+)?>(?:[^<]+<\/\1>)?/,
             link: /[^"]+":\S/,
-            linkDefinition: /\[[^\s\]]+\]\S+/,
-            list: /(?:#+|\*+)/,
+            linkDefinition: /\[[^\s\]]+]\S+/,
+            list: /#+|\*+/,
             notextile: "notextile",
             para: "p",
             pre: "pre",
             table: "table",
             tableCellAttributes: /[\/\\]\d+/,
             tableHeading: /\|_\./,
-            tableText: /[^"_\*\[\(\?\+~\^%@|-]+/,
-            text: /[^!"_=\*\[\(<\?\+~\^%@-]+/
+            tableText: /[^"_*\[(?+~^%@|-]+/,
+            text: /[^!"_=*\[(<?+~^%@-]+/
         },
         attributes: {
-            align: /(?:<>|<|>|=)/,
-            selector: /\([^\(][^\)]+\)/,
-            lang: /\[[^\[\]]+\]/,
+            align: /<>|<|>|=/,
+            selector: /\([^(][^)]+\)/,
+            lang: /\[[^\[\]]+]/,
             pad: /(?:\(+|\)+){1,2}/,
-            css: /\{[^\}]+\}/
+            css: /{[^}]+}/
         },
         createRe: function (name) {
             switch (name) {
@@ -265,16 +265,16 @@
             }
         },
         makeRe: function () {
-            var pattern = "";
-            for (var i = 0; i < arguments.length; ++i) {
-                var arg = arguments[i];
+            let pattern = "";
+            for (let i = 0; i < arguments.length; ++i) {
+                const arg = arguments[i];
                 pattern += (typeof arg === "string") ? arg : arg.source;
             }
             return new RegExp(pattern);
         },
         choiceRe: function () {
-            var parts = [arguments[0]];
-            for (var i = 1; i < arguments.length; ++i) {
+            const parts = [arguments[0]];
+            for (let i = 1; i < arguments.length; ++i) {
                 parts[i * 2 - 1] = "|";
                 parts[i * 2] = arguments[i];
             }
@@ -295,7 +295,7 @@
                 state.spanningLayout = false;
                 return (state.mode = Modes.blockType)(stream, state);
             }
-            var newMode;
+            let newMode;
             if (!textileDisabled(state)) {
                 if (stream.match(RE("listLayout"), false))
                     newMode = Modes.list;
@@ -312,7 +312,7 @@
         },
 
         blockType: function (stream, state) {
-            var match, type;
+            let match, type;
             state.layoutType = null;
 
             if (match === stream.match(RE("type")))
@@ -346,7 +346,7 @@
         text: function (stream, state) {
             if (stream.match(RE("text"))) return tokenStyles(state);
 
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '"')
                 return (state.mode = Modes.link)(stream, state);
             return handlePhraseModifier(stream, state, ch);
@@ -370,9 +370,9 @@
         },
 
         list: function (stream, state) {
-            var match = stream.match(RE("list"));
+            const match = stream.match(RE("list"));
             state.listDepth = match[0].length;
-            var listMod = (state.listDepth - 1) % 3;
+            const listMod = (state.listDepth - 1) % 3;
             if (!listMod)
                 state.layoutType = "list1";
             else if (listMod === 1)

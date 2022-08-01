@@ -59,7 +59,7 @@
     <script>
         // Define an extended mixed-mode that understands vbscript and
         // leaves mustache/handlebars embedded templates in html mode
-        var mixedMode = {
+        const mixedMode = {
             name: "htmlmixed",
             scriptTypes: [{
                 matches: /\/x-handlebars-template|\/x-mustache/i,
@@ -70,7 +70,7 @@
                     mode: "vbscript"
                 }]
         };
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             mode: mixedMode,
             selectionPointer: true
         });

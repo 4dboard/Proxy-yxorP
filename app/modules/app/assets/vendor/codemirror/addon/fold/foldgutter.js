@@ -34,7 +34,7 @@
         }
     });
 
-    var Pos = CodeMirror.Pos;
+    const Pos = CodeMirror.Pos;
 
     function State(options) {
         this.options = options;
@@ -50,10 +50,10 @@
     }
 
     function isFolded(cm, line) {
-        var marks = cm.findMarks(Pos(line, 0), Pos(line + 1, 0));
-        for (var i = 0; i < marks.length; ++i) {
+        const marks = cm.findMarks(Pos(line, 0), Pos(line + 1, 0));
+        for (let i = 0; i < marks.length; ++i) {
             if (marks[i].__isFold) {
-                var fromPos = marks[i].find(-1);
+                const fromPos = marks[i].find(-1);
                 if (fromPos && fromPos.line === line)
                     return marks[i];
             }
@@ -62,7 +62,7 @@
 
     function marker(spec) {
         if (typeof spec === "string") {
-            var elt = document.createElement("div");
+            const elt = document.createElement("div");
             elt.className = spec + " CodeMirror-guttermarker-subtle";
             return elt;
         } else {
@@ -71,23 +71,24 @@
     }
 
     function updateFoldInfo(cm, from, to) {
-        var opts = cm.state.foldGutter.options, cur = from - 1;
-        var minSize = cm.foldOption(opts, "minFoldSize");
-        var func = cm.foldOption(opts, "rangeFinder");
+        const opts = cm.state.foldGutter.options;
+        let cur = from - 1;
+        const minSize = cm.foldOption(opts, "minFoldSize");
+        const func = cm.foldOption(opts, "rangeFinder");
         // we can reuse the built-in indicator element if its className matches the new state
-        var clsFolded = typeof opts.indicatorFolded === "string" && classTest(opts.indicatorFolded);
-        var clsOpen = typeof opts.indicatorOpen === "string" && classTest(opts.indicatorOpen);
+        const clsFolded = typeof opts.indicatorFolded === "string" && classTest(opts.indicatorFolded);
+        const clsOpen = typeof opts.indicatorOpen === "string" && classTest(opts.indicatorOpen);
         cm.eachLine(from, to, function (line) {
             ++cur;
-            var mark = null;
-            var old = line.gutterMarkers;
+            let mark = null;
+            let old = line.gutterMarkers;
             if (old) old = old[opts.gutter];
             if (isFolded(cm, cur)) {
                 if (clsFolded && old && clsFolded.test(old.className)) return;
                 mark = marker(opts.indicatorFolded);
             } else {
-                var pos = Pos(cur, 0);
-                var range = func && func(cm, pos);
+                const pos = Pos(cur, 0);
+                const range = func && func(cm, pos);
                 if (range && range.to.line - range.from.line >= minSize) {
                     if (clsOpen && old && clsOpen.test(old.className)) return;
                     mark = marker(opts.indicatorOpen);
@@ -104,7 +105,7 @@
     }
 
     function updateInViewport(cm) {
-        var vp = cm.getViewport(), state = cm.state.foldGutter;
+        const vp = cm.getViewport(), state = cm.state.foldGutter;
         if (!state) return;
         cm.operation(function () {
             updateFoldInfo(cm, vp.from, vp.to);
@@ -114,19 +115,19 @@
     }
 
     function onGutterClick(cm, line, gutter) {
-        var state = cm.state.foldGutter;
+        const state = cm.state.foldGutter;
         if (!state) return;
-        var opts = state.options;
+        const opts = state.options;
         if (gutter !== opts.gutter) return;
-        var folded = isFolded(cm, line);
+        const folded = isFolded(cm, line);
         if (folded) folded.clear();
         else cm.foldCode(Pos(line, 0), opts);
     }
 
     function onChange(cm) {
-        var state = cm.state.foldGutter;
+        const state = cm.state.foldGutter;
         if (!state) return;
-        var opts = state.options;
+        const opts = state.options;
         state.from = state.to = 0;
         clearTimeout(state.changeUpdate);
         state.changeUpdate = setTimeout(function () {
@@ -135,12 +136,12 @@
     }
 
     function onViewportChange(cm) {
-        var state = cm.state.foldGutter;
+        const state = cm.state.foldGutter;
         if (!state) return;
-        var opts = state.options;
+        const opts = state.options;
         clearTimeout(state.changeUpdate);
         state.changeUpdate = setTimeout(function () {
-            var vp = cm.getViewport();
+            const vp = cm.getViewport();
             if (state.from === state.to || vp.from - state.to > 20 || state.from - vp.to > 20) {
                 updateInViewport(cm);
             } else {
@@ -159,9 +160,9 @@
     }
 
     function onFold(cm, from) {
-        var state = cm.state.foldGutter;
+        const state = cm.state.foldGutter;
         if (!state) return;
-        var line = from.line;
+        const line = from.line;
         if (line >= state.from && line < state.to)
             updateFoldInfo(cm, line, line + 1);
     }

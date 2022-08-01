@@ -14,32 +14,32 @@
     "use strict"
 
     function wordSet(words) {
-        var set = {}
-        for (var i = 0; i < words.length; i++) set[words[i]] = true
+        const set = {};
+        for (let i = 0; i < words.length; i++) set[words[i]] = true
         return set
     }
 
-    var keywords = wordSet(["_", "var", "let", "class", "enum", "extension", "import", "protocol", "struct", "func", "typealias", "associatedtype",
+    const keywords = wordSet(["_", "var", "let", "class", "enum", "extension", "import", "protocol", "struct", "func", "typealias", "associatedtype",
         "open", "public", "internal", "fileprivate", "private", "deinit", "init", "new", "override", "self", "subscript", "super",
         "convenience", "dynamic", "final", "indirect", "lazy", "required", "static", "unowned", "unowned(safe)", "unowned(unsafe)", "weak", "as", "is",
         "break", "case", "continue", "default", "else", "fallthrough", "for", "guard", "if", "in", "repeat", "switch", "where", "while",
         "defer", "return", "inout", "mutating", "nonmutating", "catch", "do", "rethrows", "throw", "throws", "try", "didSet", "get", "set", "willSet",
         "assignment", "associativity", "infix", "left", "none", "operator", "postfix", "precedence", "precedencegroup", "prefix", "right",
-        "Any", "AnyObject", "Type", "dynamicType", "Self", "Protocol", "__COLUMN__", "__FILE__", "__FUNCTION__", "__LINE__"])
-    var definingKeywords = wordSet(["var", "let", "class", "enum", "extension", "import", "protocol", "struct", "func", "typealias", "associatedtype", "for"])
-    var atoms = wordSet(["true", "false", "nil", "self", "super", "_"])
-    var types = wordSet(["Array", "Bool", "Character", "Dictionary", "Double", "Float", "Int", "Int8", "Int16", "Int32", "Int64", "Never", "Optional", "Set", "String",
-        "UInt8", "UInt16", "UInt32", "UInt64", "Void"])
-    var operators = "+-/*%=|&<>~^?!"
-    var punc = ":;,.(){}[]"
-    var binary = /^\-?0b[01][01_]*/
-    var octal = /^\-?0o[0-7][0-7_]*/
-    var hexadecimal = /^\-?0x[\dA-Fa-f][\dA-Fa-f_]*(?:(?:\.[\dA-Fa-f][\dA-Fa-f_]*)?[Pp]\-?\d[\d_]*)?/
-    var decimal = /^\-?\d[\d_]*(?:\.\d[\d_]*)?(?:[Ee]\-?\d[\d_]*)?/
-    var identifier = /^\$\d+|(`?)[_A-Za-z][_A-Za-z$0-9]*\1/
-    var property = /^\.(?:\$\d+|(`?)[_A-Za-z][_A-Za-z$0-9]*\1)/
-    var instruction = /^\#[A-Za-z]+/
-    var attribute = /^@(?:\$\d+|(`?)[_A-Za-z][_A-Za-z$0-9]*\1)/
+        "Any", "AnyObject", "Type", "dynamicType", "Self", "Protocol", "__COLUMN__", "__FILE__", "__FUNCTION__", "__LINE__"]);
+    const definingKeywords = wordSet(["var", "let", "class", "enum", "extension", "import", "protocol", "struct", "func", "typealias", "associatedtype", "for"]);
+    const atoms = wordSet(["true", "false", "nil", "self", "super", "_"]);
+    const types = wordSet(["Array", "Bool", "Character", "Dictionary", "Double", "Float", "Int", "Int8", "Int16", "Int32", "Int64", "Never", "Optional", "Set", "String",
+        "UInt8", "UInt16", "UInt32", "UInt64", "Void"]);
+    const operators = "+-/*%=|&<>~^?!";
+    const punc = ":;,.(){}[]";
+    const binary = /^-?0b[01][01_]*/;
+    const octal = /^-?0o[0-7][0-7_]*/;
+    const hexadecimal = /^-?0x[\dA-Fa-f][\dA-Fa-f_]*(?:(?:\.[\dA-Fa-f][\dA-Fa-f_]*)?[Pp]-?\d[\d_]*)?/;
+    const decimal = /^-?\d[\d_]*(?:\.\d[\d_]*)?(?:[Ee]-?\d[\d_]*)?/;
+    const identifier = /^\$\d+|(`?)[_A-Za-z][_A-Za-z$0-9]*\1/;
+    const property = /^\.(?:\$\d+|(`?)[_A-Za-z][_A-Za-z$0-9]*\1)/;
+    const instruction = /^#[A-Za-z]+/;
+    const attribute = /^@(?:\$\d+|(`?)[_A-Za-z][_A-Za-z$0-9]*\1)/;
 
     //var regexp = /^\/(?!\s)(?:\/\/)?(?:\\.|[^\/])+\//
 
@@ -47,7 +47,7 @@
         if (stream.sol()) state.indented = stream.indentation()
         if (stream.eatSpace()) return null
 
-        var ch = stream.peek()
+        const ch = stream.peek();
         if (ch === "/") {
             if (stream.match("//")) {
                 stream.skipToEnd()
@@ -74,15 +74,15 @@
             stream.match("..")
             return "punctuation"
         }
-        var stringMatch
+        let stringMatch;
         if (stringMatch === stream.match(/("""|"|')/)) {
-            var tokenize = tokenString.bind(null, stringMatch[0])
+            const tokenize = tokenString.bind(null, stringMatch[0]);
             state.tokenize.push(tokenize)
             return tokenize(stream, state)
         }
 
         if (stream.match(identifier)) {
-            var ident = stream.current()
+            const ident = stream.current();
             if (types.hasOwnProperty(ident)) return "variable-2"
             if (atoms.hasOwnProperty(ident)) return "atom"
             if (keywords.hasOwnProperty(ident)) {
@@ -99,9 +99,9 @@
     }
 
     function tokenUntilClosingParen() {
-        var depth = 0
+        let depth = 0;
         return function (stream, state, prev) {
-            var inner = tokenBase(stream, state, prev)
+            const inner = tokenBase(stream, state, prev);
             if (inner === "punctuation") {
                 if (stream.current() === "(") ++depth
                 else if (stream.current() === ")") {
@@ -117,8 +117,8 @@
     }
 
     function tokenString(openQuote, stream, state) {
-        var singleLine = openQuote.length === 1
-        var ch, escaped = false
+        const singleLine = openQuote.length === 1;
+        let ch, escaped = false;
         while (ch = stream.peek()) {
             if (escaped) {
                 stream.next()
@@ -142,7 +142,7 @@
     }
 
     function tokenComment(stream, state) {
-        var ch
+        let ch;
         while (true) {
             stream.match(/^[^/*]+/, true)
             ch = stream.next()
@@ -163,7 +163,7 @@
     }
 
     function pushContext(state, stream) {
-        var align = stream.match(/^\s*($|\/[\/\*])/, false) ? null : stream.column() + 1
+        const align = stream.match(/^\s*($|\/[\/*])/, false) ? null : stream.column() + 1;
         state.context = new Context(state.context, align, state.indented)
     }
 
@@ -186,15 +186,15 @@
             },
 
             token: function (stream, state) {
-                var prev = state.prev
+                const prev = state.prev;
                 state.prev = null
-                var tokenize = state.tokenize[state.tokenize.length - 1] || tokenBase
-                var style = tokenize(stream, state, prev)
+                const tokenize = state.tokenize[state.tokenize.length - 1] || tokenBase;
+                const style = tokenize(stream, state, prev);
                 if (!style || style === "comment") state.prev = prev
                 else if (!state.prev) state.prev = style
 
                 if (style === "punctuation") {
-                    var bracket = /[\(\[\{]|([\]\)\}])/.exec(stream.current())
+                    const bracket = /[(\[{]|([\])}])/.exec(stream.current());
                     if (bracket) (bracket[1] ? popContext : pushContext)(state, stream)
                 }
 
@@ -202,14 +202,14 @@
             },
 
             indent: function (state, textAfter) {
-                var cx = state.context
+                const cx = state.context;
                 if (!cx) return 0
-                var closing = /^[\]\}\)]/.test(textAfter)
+                const closing = /^[\]})]/.test(textAfter);
                 if (cx.align != null) return cx.align - (closing ? 1 : 0)
                 return cx.indented + (closing ? 0 : config.indentUnit)
             },
 
-            electricInput: /^\s*[\)\}\]]$/,
+            electricInput: /^\s*[)}\]]$/,
 
             lineComment: "//",
             blockCommentStart: "/*",

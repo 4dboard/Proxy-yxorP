@@ -13,7 +13,7 @@
 
     CodeMirror.defineMode("diff", function () {
 
-        var TOKEN_NAMES = {
+        const TOKEN_NAMES = {
             '+': 'positive',
             '-': 'negative',
             '@': 'meta'
@@ -21,7 +21,7 @@
 
         return {
             token: function (stream) {
-                var tw_pos = stream.string.search(/[\t ]+?$/);
+                const tw_pos = stream.string.search(/[\t ]+?$/);
 
                 if (!stream.sol() || tw_pos === 0) {
                     stream.skipToEnd();
@@ -29,7 +29,7 @@
                         TOKEN_NAMES[stream.string.charAt(0)] || '')).replace(/ $/, '');
                 }
 
-                var token_name = TOKEN_NAMES[stream.peek()] || stream.skipToEnd();
+                const token_name = TOKEN_NAMES[stream.peek()] || stream.skipToEnd();
 
                 if (tw_pos === -1) {
                     stream.skipToEnd();

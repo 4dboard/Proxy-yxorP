@@ -12,8 +12,8 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     function dialogDiv(cm, template, bottom) {
-        var wrap = cm.getWrapperElement();
-        var dialog;
+        const wrap = cm.getWrapperElement();
+        let dialog;
         dialog = wrap.appendChild(document.createElement("div"));
         if (bottom)
             dialog.className = "CodeMirror-dialog CodeMirror-dialog-bottom";
@@ -40,8 +40,9 @@
 
         closeNotification(this, null);
 
-        var dialog = dialogDiv(this, template, options.bottom);
-        var closed = false, me = this;
+        const dialog = dialogDiv(this, template, options.bottom);
+        let closed = false;
+        const me = this;
 
         function close(newVal) {
             if (typeof newVal === 'string') {
@@ -107,9 +108,11 @@
 
     CodeMirror.defineExtension("openConfirm", function (template, callbacks, options) {
         closeNotification(this, null);
-        var dialog = dialogDiv(this, template, options && options.bottom);
-        var buttons = dialog.getElementsByTagName("button");
-        var closed = false, me = this, blurring = 1;
+        const dialog = dialogDiv(this, template, options && options.bottom);
+        const buttons = dialog.getElementsByTagName("button");
+        let closed = false;
+        const me = this;
+        let blurring = 1;
 
         function close() {
             if (closed) return;
@@ -120,8 +123,8 @@
         }
 
         buttons[0].focus();
-        for (var i = 0; i < buttons.length; ++i) {
-            var b = buttons[i];
+        for (let i = 0; i < buttons.length; ++i) {
+            const b = buttons[i];
             (function (callback) {
                 CodeMirror.on(b, "click", function (e) {
                     CodeMirror.e_preventDefault(e);
@@ -151,9 +154,9 @@
      */
     CodeMirror.defineExtension("openNotification", function (template, options) {
         closeNotification(this, close);
-        var dialog = dialogDiv(this, template, options && options.bottom);
-        var closed = false, doneTimer;
-        var duration = options && typeof options.duration !== "undefined" ? options.duration : 5000;
+        const dialog = dialogDiv(this, template, options && options.bottom);
+        let closed = false, doneTimer;
+        const duration = options && typeof options.duration !== "undefined" ? options.duration : 5000;
 
         function close() {
             if (closed) return;

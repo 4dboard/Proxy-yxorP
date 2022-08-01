@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "text/x-c");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "text/x-c");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
@@ -69,7 +69,7 @@
         "[variable foo_T];",
         "[variable _t];");
 
-    var mode_cpp = CodeMirror.getMode({indentUnit: 2}, "text/x-c++src");
+    const mode_cpp = CodeMirror.getMode({indentUnit: 2}, "text/x-c++src");
 
     function MTCPP(name) {
         test.mode(name, mode_cpp, Array.prototype.slice.call(arguments, 1));
@@ -91,7 +91,7 @@
         "[builtin __aName];",
         "[variable _aName];");
 
-    var mode_objc = CodeMirror.getMode({indentUnit: 2}, "text/x-objectivec");
+    const mode_objc = CodeMirror.getMode({indentUnit: 2}, "text/x-objectivec");
 
     function MTOBJC(name) {
         test.mode(name, mode_objc, Array.prototype.slice.call(arguments, 1));
@@ -136,7 +136,7 @@
         "[type BOOL];"
     );
 
-    var mode_scala = CodeMirror.getMode({indentUnit: 2}, "text/x-scala");
+    const mode_scala = CodeMirror.getMode({indentUnit: 2}, "text/x-scala");
 
     function MTSCALA(name) {
         test.mode("scala_" + name, mode_scala, Array.prototype.slice.call(arguments, 1));
@@ -149,7 +149,7 @@
         "[comment ///// let / me / show / you /////]",
         "[comment */]");
 
-    var mode_java = CodeMirror.getMode({indentUnit: 2}, "text/x-java");
+    const mode_java = CodeMirror.getMode({indentUnit: 2}, "text/x-java");
 
     function MTJAVA(name) {
         test.mode("java_" + name, mode_java, Array.prototype.slice.call(arguments, 1));

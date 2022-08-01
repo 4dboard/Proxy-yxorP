@@ -11,26 +11,26 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var rfc2822 = [
+    const rfc2822 = [
         "From", "Sender", "Reply-To", "To", "Cc", "Bcc", "Message-ID",
         "In-Reply-To", "References", "Resent-From", "Resent-Sender", "Resent-To",
         "Resent-Cc", "Resent-Bcc", "Resent-Message-ID", "Return-Path", "Received"
     ];
-    var rfc2822NoEmail = [
+    const rfc2822NoEmail = [
         "Date", "Subject", "Comments", "Keywords", "Resent-Date"
     ];
 
     CodeMirror.registerHelper("hintWords", "mbox", rfc2822.concat(rfc2822NoEmail));
 
-    var whitespace = /^[ \t]/;
-    var separator = /^From /; // See RFC 4155
-    var rfc2822Header = new RegExp("^(" + rfc2822.join("|") + "): ");
-    var rfc2822HeaderNoEmail = new RegExp("^(" + rfc2822NoEmail.join("|") + "): ");
-    var header = /^[^:]+:/; // Optional fields defined in RFC 2822
-    var email = /^[^ ]+@[^ ]+/;
-    var untilEmail = /^.*?(?=[^ ]+?@[^ ]+)/;
-    var bracketedEmail = /^<.*?>/;
-    var untilBracketedEmail = /^.*?(?=<.*>)/;
+    const whitespace = /^[ \t]/;
+    const separator = /^From /; // See RFC 4155
+    const rfc2822Header = new RegExp("^(" + rfc2822.join("|") + "): ");
+    const rfc2822HeaderNoEmail = new RegExp("^(" + rfc2822NoEmail.join("|") + "): ");
+    const header = /^[^:]+:/; // Optional fields defined in RFC 2822
+    const email = /^[^ ]+@[^ ]+/;
+    const untilEmail = /^.*?(?=[^ ]+?@[^ ]+)/;
+    const bracketedEmail = /^<.*?>/;
+    const untilBracketedEmail = /^.*?(?=<.*>)/;
 
     function styleForHeader(header) {
         if (header === "Subject") return "header";
@@ -55,8 +55,8 @@
                 return "atom";
             }
 
-            var match;
-            var emailPermitted = false;
+            let match;
+            let emailPermitted = false;
             if ((match = stream.match(rfc2822HeaderNoEmail)) ||
                 (emailPermitted = true) && (match = stream.match(rfc2822Header))) {
                 state.inHeaders = true;
@@ -88,7 +88,7 @@
         }
 
         if (state.inHeader) {
-            var style = styleForHeader(state.header);
+            const style = styleForHeader(state.header);
 
             if (state.emailPermitted) {
                 if (stream.match(bracketedEmail)) return style + " link";

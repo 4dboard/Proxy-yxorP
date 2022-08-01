@@ -19,10 +19,7 @@ kiss-popoutmenu {
 kiss-popoutmenu > kiss-content {
     position: relative;
     display: flow-root;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 
     padding: var(--kiss-popoutmenu-content-spacing, 15px);
 
@@ -30,7 +27,7 @@ kiss-popoutmenu > kiss-content {
     color: var(--kiss-popoutmenu-content-color, inherit);
 
     min-width: var(--kiss-popoutmenu-width, 250px);
-    max-width: calc(100% - 0.01px) !important;
+    max-width: calc(100% - 0px) !important;
 
     box-sizing: border-box;
 

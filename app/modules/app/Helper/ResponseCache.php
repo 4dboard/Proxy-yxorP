@@ -5,6 +5,10 @@ namespace App\Helper;
 use Lime\AppAware;
 use Lime\Helper;
 
+/**
+ * @property mixed $response
+ * @property mixed $response
+ */
 class ResponseCache extends Helper
 {
 

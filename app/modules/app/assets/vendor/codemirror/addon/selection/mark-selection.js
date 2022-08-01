@@ -18,7 +18,7 @@
     "use strict";
 
     CodeMirror.defineOption("styleSelectedText", false, function (cm, val, old) {
-        var prev = old && old !== CodeMirror.Init;
+        const prev = old && old !== CodeMirror.Init;
         if (val && !prev) {
             cm.state.markedSelection = [];
             cm.state.markedSelectionStyle = typeof val === "string" ? val : "CodeMirror-selectedtext";
@@ -47,19 +47,19 @@
             });
     }
 
-    var CHUNK_SIZE = 8;
-    var Pos = CodeMirror.Pos;
-    var cmp = CodeMirror.cmpPos;
+    const CHUNK_SIZE = 8;
+    const Pos = CodeMirror.Pos;
+    const cmp = CodeMirror.cmpPos;
 
     function coverRange(cm, from, to, addAt) {
         if (cmp(from, to) === 0) return;
-        var array = cm.state.markedSelection;
-        var cls = cm.state.markedSelectionStyle;
-        for (var line = from.line; ;) {
-            var start = line === from.line ? from : Pos(line, 0);
-            var endLine = line + CHUNK_SIZE, atEnd = endLine >= to.line;
-            var end = atEnd ? to : Pos(endLine, 0);
-            var mark = cm.markText(start, end, {className: cls});
+        const array = cm.state.markedSelection;
+        const cls = cm.state.markedSelectionStyle;
+        for (let line = from.line; ;) {
+            const start = line === from.line ? from : Pos(line, 0);
+            const endLine = line + CHUNK_SIZE, atEnd = endLine >= to.line;
+            const end = atEnd ? to : Pos(endLine, 0);
+            const mark = cm.markText(start, end, {className: cls});
             if (addAt === null) array.push(mark);
             else array.splice(addAt++, 0, mark);
             if (atEnd) break;
@@ -68,15 +68,15 @@
     }
 
     function clear(cm) {
-        var array = cm.state.markedSelection;
-        for (var i = 0; i < array.length; ++i) array[i].clear();
+        const array = cm.state.markedSelection;
+        for (let i = 0; i < array.length; ++i) array[i].clear();
         array.length = 0;
     }
 
     function reset(cm) {
         clear(cm);
-        var ranges = cm.listSelections();
-        for (var i = 0; i < ranges.length; i++)
+        const ranges = cm.listSelections();
+        for (let i = 0; i < ranges.length; i++)
             coverRange(cm, ranges[i].from(), ranges[i].to());
     }
 
@@ -84,12 +84,12 @@
         if (!cm.somethingSelected()) return clear(cm);
         if (cm.listSelections().length > 1) return reset(cm);
 
-        var from = cm.getCursor("start"), to = cm.getCursor("end");
+        const from = cm.getCursor("start"), to = cm.getCursor("end");
 
-        var array = cm.state.markedSelection;
+        const array = cm.state.markedSelection;
         if (!array.length) return coverRange(cm, from, to);
 
-        var coverStart = array[0].find(), coverEnd = array[array.length - 1].find();
+        let coverStart = array[0].find(), coverEnd = array[array.length - 1].find();
         if (!coverStart || !coverEnd || to.line - from.line <= CHUNK_SIZE ||
             cmp(from, coverEnd.to) >= 0 || cmp(to, coverStart.from) <= 0)
             return reset(cm);

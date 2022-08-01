@@ -3593,7 +3593,7 @@
             return Al(e, "Teleport") ? Ii : Al(e, "Suspense") ? Bi : Al(e, "KeepAlive") ? Li : Al(e, "BaseTransition") ? ji : void 0
         }
 
-        const Ml = /^\d|[^\$\w]/, Vl = e => !Ml.test(e), Il = /[A-Za-z_$\xA0-\uFFFF]/, Bl = /[\.\?\w$\xA0-\uFFFF]/,
+        const Ml = /^\d|[^$\w]/, Vl = e => !Ml.test(e), Il = /[A-Za-z_$\xA0-\uFFFF]/, Bl = /[.?\w$\xA0-\uFFFF]/,
             Ll = /\s+[.[]\s*|\s*[.[]\s+/g, jl = e => {
                 e = e.trim().replace(Ll, (e => e.trim()));
                 let t = 0, n = [], o = 0, r = 0, s = null;
@@ -3817,7 +3817,7 @@
         function pc(e) {
             const t = Sc(e);
             let n;
-            const o = /--(\!)?>/.exec(e.source);
+            const o = /--(!)?>/.exec(e.source);
             if (o) {
                 n = e.source.slice(4, o.index);
                 const t = e.source.slice(0, o.index);
@@ -3930,7 +3930,7 @@
             }(e));
             const s = xc(e, n);
             if (!e.inVPre && /^(v-[A-Za-z0-9-]|:|\.|@|#)/.test(o)) {
-                const t = /(?:^v-([a-z0-9-]+))?(?:(?::|^\.|^@|^#)(\[[^\]]+\]|[^\.]+))?(.+)?$/i.exec(o);
+                const t = /(?:^v-([a-z0-9-]+))?(?:(?::|^\.|^@|^#)(\[[^\]]+]|[^.]+))?(.+)?$/i.exec(o);
                 let i, l = wc(o, "."), c = t[1] || (l || wc(o, ":") ? "bind" : wc(o, "@") ? "on" : "slot");
                 if (t[2]) {
                     const r = "slot" === c, s = o.lastIndexOf(t[2]),
@@ -4747,7 +4747,7 @@
                 }
             }))
         }));
-        const ra = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/, sa = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/, ia = /^\(|\)$/g;
+        const ra = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/, sa = /,([^,}\]]*)(?:,([^,}\]]*))?$/, ia = /^\(|\)$/g;
 
         function la(e, t) {
             const n = e.loc, o = e.content, r = o.match(ra);
@@ -5133,7 +5133,7 @@
 
         const Va = Symbol(""), Ia = Symbol(""), Ba = Symbol(""), La = Symbol(""), ja = Symbol(""), Ua = Symbol(""),
             Da = Symbol(""), Ha = Symbol(""), Wa = Symbol(""), za = Symbol("");
-        var Ka;
+        let Ka;
         let Ga;
         Ka = {
             [Va]: "vModelRadio",
@@ -5419,7 +5419,7 @@
         }, e.resolveDynamicComponent = function (e) {
             return R(e) ? xo(_o, e, !1) || e : e || So
         }, e.resolveFilter = null, e.resolveTransitionHooks = Hn,e.setBlockTracking = Tr,e.setDevtoolsHook = function t(n, o) {
-            var r, s;
+            let r, s;
             if (e.devtools = n, e.devtools) e.devtools.enabled = !0, un.forEach((({
                                                                                       event: t,
                                                                                       args: n
@@ -5603,7 +5603,7 @@
             return s(t) ? e.length === t.length && e.every(((e, n) => e === t[n])) : 1 === e.length && e[0] === t
         }
 
-        var m, g;
+        let m, g;
         !function (e) {
             e.pop = "pop", e.push = "push";
         }(m || (m = {})), function (e) {
@@ -5761,7 +5761,7 @@
             meta: {},
             redirectedFrom: void 0
         }, S = Symbol("");
-        var A;
+        let A;
 
         function L(e, t) {
             return o(new Error, {type: e, [S]: !0}, t)
@@ -6148,7 +6148,7 @@
             const a = r && (r.enterCallbacks[o] = r.enterCallbacks[o] || []);
             return () => new Promise(((c, s) => {
                 const i = e => {
-                    var i;
+                    let i;
                     !1 === e ? s(L(4, {
                         from: n,
                         to: t
@@ -6467,7 +6467,7 @@
                     if (s) return void T(o(s, {replace: !0}), a).catch(c);
                     b = a;
                     const i = y.value;
-                    var l, u;
+                    let l, u;
                     n && (l = R(i.fullPath, r.delta), u = w(), O.set(l, u)), G(a, i).catch((e => M(e, 12) ? e : M(e, 2) ? (T(e.to, a).then((e => {
                         M(e, 20) && !r.delta && r.type === m.pop && h.go(-1, !1);
                     })).catch(c), Promise.reject()) : (r.delta && h.go(-r.delta, !1), N(e, a, i)))).then((e => {
@@ -7452,7 +7452,7 @@
 
         function Store(name, adapter) {
 
-            var $this = this;
+            const $this = this;
 
             this.name = name;
             this.adapter = adapter;
@@ -7462,9 +7462,9 @@
             // cleanup expires data
             (function () {
 
-                var time = (new Date()).getTime();
+                const time = (new Date()).getTime();
 
-                for (var key in $this.data.__ex) {
+                for (let key in $this.data.__ex) {
                     if ($this.data.__ex[key] < time) {
                         delete $this.data[key];
                         delete $this.data.__ex[key];
@@ -7487,7 +7487,7 @@
 
         Store.prototype.flushdb = function () {
 
-            var $this = this;
+            const $this = this;
 
             this.data = {};
             this.data.__ex = {};
@@ -7529,11 +7529,11 @@
 
         Store.prototype.del = function () {
 
-            var keys = arguments,
-                key = null,
+            const keys = arguments;
+            let key = null,
                 removed = 0;
 
-            for (var i = 0; i < keys.length; i++) {
+            for (let i = 0; i < keys.length; i++) {
 
                 key = keys[i];
 
@@ -7568,7 +7568,7 @@
 
             value = String(value);
 
-            var current = String(this.get(key, "")),
+            const current = String(this.get(key, "")),
                 newone = current + value;
 
             this.set(key, newone);
@@ -7580,7 +7580,7 @@
 
             by = by || 1;
 
-            var current = Number(this.get(key, 0)),
+            const current = Number(this.get(key, 0)),
                 newone = current + by;
 
             this.set(key, newone);
@@ -7600,7 +7600,7 @@
         };
 
         Store.prototype.lpush = function (key, value) {
-            var list = this.get(key, []),
+            const list = this.get(key, []),
                 ret = list.unshift(value);
 
             this.set(key, list);
@@ -7608,7 +7608,7 @@
         };
 
         Store.prototype.rpush = function (key, value) {
-            var list = this.get(key, []),
+            const list = this.get(key, []),
                 ret = list.push(value);
 
             this.set(key, list);
@@ -7616,7 +7616,7 @@
         };
 
         Store.prototype.lset = function (key, index, value) {
-            var list = this.get(key, []);
+            const list = this.get(key, []);
 
             if (index < 0) {
                 index = list.length - Math.abs(index);
@@ -7632,7 +7632,7 @@
         };
 
         Store.prototype.lindex = function (key, index) {
-            var list = this.get(key, []);
+            const list = this.get(key, []);
 
             if (index < 0) {
                 index = list.length - Math.abs(index);
@@ -7644,14 +7644,14 @@
         /* Hash methods */
 
         Store.prototype.hset = function (key, field, value) {
-            var set = this.get(key, {});
+            const set = this.get(key, {});
 
             set[field] = value;
             this.set(key, set);
         };
 
         Store.prototype.hget = function (key, field, def) {
-            var set = this.get(key, {});
+            const set = this.get(key, {});
 
             return set[field] !== undefined ? set[field] : def;
         };
@@ -7661,15 +7661,15 @@
         };
 
         Store.prototype.hexists = function (key, field) {
-            var set = this.get(key, {});
+            const set = this.get(key, {});
 
             return (set[field] !== undefined);
         };
 
         Store.prototype.hkeys = function (key) {
-            var set = this.get(key, {}),
-                keys = [],
-                name = null;
+            const set = this.get(key, {}),
+                keys = [];
+            let name = null;
 
             for (name in set) {
                 if (set.hasOwnProperty(name)) {
@@ -7681,9 +7681,9 @@
         };
 
         Store.prototype.hvals = function (key) {
-            var set = this.get(key, {}),
-                vals = [],
-                name = null;
+            const set = this.get(key, {}),
+                vals = [];
+            let name = null;
 
             for (name in set) {
                 if (set.hasOwnProperty(name)) {
@@ -7702,11 +7702,11 @@
 
             if (!this.exists(key)) return 0;
 
-            var set = this.get(key, {}),
-                field = null,
+            const set = this.get(key, {});
+            let field = null,
                 removed = 0;
 
-            for (var i = 1; i < arguments.length; i++) {
+            for (let i = 1; i < arguments.length; i++) {
 
                 field = arguments[i];
 
@@ -7723,7 +7723,7 @@
 
         Store.prototype.hincrby = function (key, field, by) {
             by = by || 1;
-            var current = Number(this.hget(key, field, 0)),
+            const current = Number(this.hget(key, field, 0)),
                 newone = current + by;
 
             this.hset(key, field, newone);
@@ -7732,11 +7732,11 @@
         };
 
         Store.prototype.hmget = function (key) {
-            var set = this.get(key, {}),
-                field = null,
-                values = [];
+            const set = this.get(key, {});
+            let field = null;
+            const values = [];
 
-            for (var i = 1; i < arguments.length; i++) {
+            for (let i = 1; i < arguments.length; i++) {
                 field = arguments[i];
                 values.push(set[field] !== undefined ? set[field] : null);
             }
@@ -7745,11 +7745,11 @@
         };
 
         Store.prototype.hmset = function (key) {
-            var set = this.get(key, {}),
-                field = null,
+            const set = this.get(key, {});
+            let field = null,
                 value = null;
 
-            for (var i = 1; i < arguments.length; i++) {
+            for (let i = 1; i < arguments.length; i++) {
                 field = arguments[i];
                 value = arguments[(i + 1)] ? arguments[(i + 1)] : null;
                 set[field] = value;
@@ -7759,7 +7759,7 @@
             this.set(key, set);
         };
 
-        var JSONStorage = {
+        const JSONStorage = {
 
             select: function (name, adapter) {
                 return (new Store(name, typeof (adapter) === 'object' ? adapter : (this.adapters[adapter] || this.adapters['memory'])));
@@ -7768,7 +7768,7 @@
             adapters: {
 
                 memory: (function () {
-                    var dbs = {};
+                    const dbs = {};
 
                     return {
                         load: function (name) {
@@ -7828,7 +7828,7 @@
 
             if (!destination || !source) return destination;
 
-            for (var field in source) {
+            for (let field in source) {
                 if (destination[field] === source[field]) continue;
                 destination[field] = source[field];
             }
@@ -7837,7 +7837,7 @@
         }
 
 
-        var i18n = {
+        const i18n = {
 
             __data: {},
 
@@ -7854,7 +7854,7 @@
             },
             get: function (key) {
 
-                var args = arguments.length === 1 ? [] : Array.prototype.slice.call(arguments, 1);
+                const args = arguments.length === 1 ? [] : Array.prototype.slice.call(arguments, 1);
 
                 if (!this.__data[key]) {
                     return this.printf(key, args);
@@ -7887,23 +7887,23 @@
                 // *     returns 3: '[####monkey]'
                 // *     example 4: sprintf("%d", 123456789012345);
                 // *     returns 4: '123456789012345'
-                var regex = /%%|%(\d+\$)?([-+\'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
-                var a = arguments,
-                    i = 0,
-                    format = a[i++];
+                const regex = /%%|%(\d+\$)?([-+'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
+                const a = arguments;
+                let i = 0;
+                const format = a[i++];
 
                 // pad()
-                var pad = function (str, len, chr, leftJustify) {
+                const pad = function (str, len, chr, leftJustify) {
                     if (!chr) {
                         chr = ' ';
                     }
-                    var padding = (str.length >= len) ? '' : Array(1 + len - str.length >>> 0).join(chr);
+                    const padding = (str.length >= len) ? '' : Array(1 + len - str.length >>> 0).join(chr);
                     return leftJustify ? str + padding : padding + str;
                 };
 
                 // justify()
-                var justify = function (value, prefix, leftJustify, minWidth, zeroPad, customPadChar) {
-                    var diff = minWidth - value.length;
+                const justify = function (value, prefix, leftJustify, minWidth, zeroPad, customPadChar) {
+                    const diff = minWidth - value.length;
                     if (diff > 0) {
                         if (leftJustify || !zeroPad) {
                             value = pad(value, minWidth, customPadChar, leftJustify);
@@ -7915,9 +7915,9 @@
                 };
 
                 // formatBaseX()
-                var formatBaseX = function (value, base, prefix, leftJustify, minWidth, precision, zeroPad) {
+                const formatBaseX = function (value, base, prefix, leftJustify, minWidth, precision, zeroPad) {
                     // Note: casts negative numbers to positive ones
-                    var number = value >>> 0;
+                    const number = value >>> 0;
                     prefix = prefix && number && {
                         '2': '0b',
                         '8': '0',
@@ -7928,7 +7928,7 @@
                 };
 
                 // formatString()
-                var formatString = function (value, leftJustify, minWidth, precision, zeroPad, customPadChar) {
+                const formatString = function (value, leftJustify, minWidth, precision, zeroPad, customPadChar) {
                     if (precision != null) {
                         value = value.slice(0, precision);
                     }
@@ -7936,25 +7936,25 @@
                 };
 
                 // doFormat()
-                var doFormat = function (substring, valueIndex, flags, minWidth, _, precision, type) {
-                    var number;
-                    var prefix;
-                    var method;
-                    var textTransform;
-                    var value;
+                const doFormat = function (substring, valueIndex, flags, minWidth, _, precision, type) {
+                    let number;
+                    let prefix;
+                    let method;
+                    let textTransform;
+                    let value;
 
                     if (substring === '%%') {
                         return '%';
                     }
 
                     // parse flags
-                    var leftJustify = false,
+                    let leftJustify = false,
                         positivePrefix = '',
                         zeroPad = false,
                         prefixBaseX = false,
                         customPadChar = ' ';
-                    var flagsl = flags.length;
-                    for (var j = 0; flags && j < flagsl; j++) {
+                    const flagsl = flags.length;
+                    for (let j = 0; flags && j < flagsl; j++) {
                         switch (flags.charAt(j)) {
                             case ' ':
                                 positivePrefix = ' ';
@@ -8081,9 +8081,12 @@
     !function (e, t) {
         "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = e || self).DOMPurify = t();
     }(undefined, (function () {
-        var e = Object.hasOwnProperty, t = Object.setPrototypeOf, n = Object.isFrozen, r = Object.getPrototypeOf,
-            o = Object.getOwnPropertyDescriptor, i = Object.freeze, a = Object.seal, l = Object.create,
-            c = "undefined" != typeof Reflect && Reflect, s = c.apply, u = c.construct;
+        let e = Object.hasOwnProperty, t = Object.setPrototypeOf;
+        const n = Object.isFrozen;
+        let r = Object.getPrototypeOf,
+            o = Object.getOwnPropertyDescriptor, i = Object.freeze, a = Object.seal, l = Object.create;
+        const c = "undefined" != typeof Reflect && Reflect;
+        let s = c.apply, u = c.construct;
         s || (s = function (e, t, n) {
             return e.apply(t, n)
         }), i || (i = function (e) {
@@ -8099,7 +8102,10 @@
                 return Array.from(e)
             }(t))))
         });
-        var m, f = x(Array.prototype.forEach), d = x(Array.prototype.pop), p = x(Array.prototype.push),
+        let m;
+        const f = x(Array.prototype.forEach);
+        let d = x(Array.prototype.pop);
+        const p = x(Array.prototype.push),
             h = x(String.prototype.toLowerCase), g = x(String.prototype.match), y = x(String.prototype.replace),
             v = x(String.prototype.indexOf), b = x(String.prototype.trim), T = x(RegExp.prototype.test),
             A = (m = TypeError, function () {
@@ -8116,10 +8122,10 @@
 
         function S(e, r) {
             t && t(e, null);
-            for (var o = r.length; o--;) {
-                var i = r[o];
+            for (let o = r.length; o--;) {
+                let i = r[o];
                 if ("string" == typeof i) {
-                    var a = h(i);
+                    const a = h(i);
                     a !== i && (n(r) || (r[o] = a), i = a);
                 }
                 e[i] = !0;
@@ -8128,14 +8134,15 @@
         }
 
         function w(t) {
-            var n = l(null), r = void 0;
+            const n = l(null);
+            let r = void 0;
             for (r in t) s(e, t, [r]) && (n[r] = t[r]);
             return n
         }
 
         function E(e, t) {
             for (; null !== e;) {
-                var n = o(e, t);
+                const n = o(e, t);
                 if (n) {
                     if (n.get) return x(n.get);
                     if ("function" == typeof n.value) return x(n.value)
@@ -8147,7 +8154,7 @@
             }
         }
 
-        var R = i(["a", "abbr", "acronym", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "big", "blink", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "content", "data", "datalist", "dd", "decorator", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "element", "em", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "img", "input", "ins", "kbd", "label", "legend", "li", "main", "map", "mark", "marquee", "menu", "menuitem", "meter", "nav", "nobr", "ol", "optgroup", "option", "output", "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "section", "select", "shadow", "small", "source", "spacer", "span", "strike", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "tt", "u", "ul", "var", "video", "wbr"]),
+        const R = i(["a", "abbr", "acronym", "address", "area", "article", "aside", "audio", "b", "bdi", "bdo", "big", "blink", "blockquote", "body", "br", "button", "canvas", "caption", "center", "cite", "code", "col", "colgroup", "content", "data", "datalist", "dd", "decorator", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt", "element", "em", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hgroup", "hr", "html", "i", "img", "input", "ins", "kbd", "label", "legend", "li", "main", "map", "mark", "marquee", "menu", "menuitem", "meter", "nav", "nobr", "ol", "optgroup", "option", "output", "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "section", "select", "shadow", "small", "source", "spacer", "span", "strike", "strong", "style", "sub", "summary", "sup", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "tt", "u", "ul", "var", "video", "wbr"]),
             _ = i(["svg", "a", "altglyph", "altglyphdef", "altglyphitem", "animatecolor", "animatemotion", "animatetransform", "circle", "clippath", "defs", "desc", "ellipse", "filter", "font", "g", "glyph", "glyphref", "hkern", "image", "line", "lineargradient", "marker", "mask", "metadata", "mpath", "path", "pattern", "polygon", "polyline", "radialgradient", "rect", "stop", "style", "switch", "symbol", "text", "textpath", "title", "tref", "tspan", "view", "vkern"]),
             N = i(["feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence"]),
             D = i(["animate", "color-profile", "cursor", "discard", "fedropshadow", "feimage", "font-face", "font-face-format", "font-face-name", "font-face-src", "font-face-uri", "foreignobject", "hatch", "hatchpath", "mesh", "meshgradient", "meshpatch", "meshrow", "missing-glyph", "script", "set", "solidcolor", "unknown", "use"]),
@@ -8158,7 +8165,7 @@
             F = i(["accent-height", "accumulate", "additive", "alignment-baseline", "ascent", "attributename", "attributetype", "azimuth", "basefrequency", "baseline-shift", "begin", "bias", "by", "class", "clip", "clippathunits", "clip-path", "clip-rule", "color", "color-interpolation", "color-interpolation-filters", "color-profile", "color-rendering", "cx", "cy", "d", "dx", "dy", "diffuseconstant", "direction", "display", "divisor", "dur", "edgemode", "elevation", "end", "fill", "fill-opacity", "fill-rule", "filter", "filterunits", "flood-color", "flood-opacity", "font-family", "font-size", "font-size-adjust", "font-stretch", "font-style", "font-variant", "font-weight", "fx", "fy", "g1", "g2", "glyph-name", "glyphref", "gradientunits", "gradienttransform", "height", "href", "id", "image-rendering", "in", "in2", "k", "k1", "k2", "k3", "k4", "kerning", "keypoints", "keysplines", "keytimes", "lang", "lengthadjust", "letter-spacing", "kernelmatrix", "kernelunitlength", "lighting-color", "local", "marker-end", "marker-mid", "marker-start", "markerheight", "markerunits", "markerwidth", "maskcontentunits", "maskunits", "max", "mask", "media", "method", "mode", "min", "name", "numoctaves", "offset", "operator", "opacity", "order", "orient", "orientation", "origin", "overflow", "paint-order", "path", "pathlength", "patterncontentunits", "patterntransform", "patternunits", "points", "preservealpha", "preserveaspectratio", "primitiveunits", "r", "rx", "ry", "radius", "refx", "refy", "repeatcount", "repeatdur", "restart", "result", "rotate", "scale", "seed", "shape-rendering", "specularconstant", "specularexponent", "spreadmethod", "startoffset", "stddeviation", "stitchtiles", "stop-color", "stop-opacity", "stroke-dasharray", "stroke-dashoffset", "stroke-linecap", "stroke-linejoin", "stroke-miterlimit", "stroke-opacity", "stroke", "stroke-width", "style", "surfacescale", "systemlanguage", "tabindex", "targetx", "targety", "transform", "text-anchor", "text-decoration", "text-rendering", "textlength", "type", "u1", "u2", "unicode", "values", "viewbox", "visibility", "version", "vert-adv-y", "vert-origin-x", "vert-origin-y", "width", "word-spacing", "wrap", "writing-mode", "xchannelselector", "ychannelselector", "x", "x1", "x2", "xmlns", "y", "y1", "y2", "z", "zoomandpan"]),
             I = i(["accent", "accentunder", "align", "bevelled", "close", "columnsalign", "columnlines", "columnspan", "denomalign", "depth", "dir", "display", "displaystyle", "encoding", "fence", "frame", "height", "href", "id", "largeop", "length", "linethickness", "lspace", "lquote", "mathbackground", "mathcolor", "mathsize", "mathvariant", "maxsize", "minsize", "movablelimits", "notation", "numalign", "open", "rowalign", "rowlines", "rowspacing", "rowspan", "rspace", "rquote", "scriptlevel", "scriptminsize", "scriptsizemultiplier", "selection", "separator", "separators", "stretchy", "subscriptshift", "supscriptshift", "symmetric", "voffset", "width", "xmlns"]),
             C = i(["xlink:href", "xml:id", "xlink:title", "xml:space", "xmlns:xlink"]),
-            z = a(/\{\{[\s\S]*|[\s\S]*\}\}/gm), H = a(/<%[\s\S]*|[\s\S]*%>/gm), U = a(/^data-[\-\w.\u00B7-\uFFFF]/),
+            z = a(/{{[\s\S]*|[\s\S]*}}/gm), H = a(/<%[\s\S]*|[\s\S]*%>/gm), U = a(/^data-[\-\w.\u00B7-\uFFFF]/),
             P = a(/^aria-[\-\w]+$/),
             j = a(/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i),
             B = a(/^(?:\w+script|data):/i), W = a(/[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205F\u3000]/g),
@@ -8176,13 +8183,14 @@
             return Array.from(e)
         }
 
-        var Y = function () {
+        const Y = function () {
             return "undefined" == typeof window ? null : window
         }, K = function (e, t) {
             if ("object" !== (void 0 === e ? "undefined" : G(e)) || "function" != typeof e.createPolicy) return null;
-            var n = null, r = "data-tt-policy-suffix";
+            let n = null;
+            const r = "data-tt-policy-suffix";
             t.currentScript && t.currentScript.hasAttribute(r) && (n = t.currentScript.getAttribute(r));
-            var o = "dompurify" + (n ? "#" + n : "");
+            const o = "dompurify" + (n ? "#" + n : "");
             try {
                 return e.createPolicy(o, {
                     createHTML: function (e) {
@@ -8194,27 +8202,34 @@
             }
         };
         return function e() {
-            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Y(), n = function (t) {
+            const t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Y(), n = function (t) {
                 return e(t)
             };
             if (n.version = "2.3.3", n.removed = [], !t || !t.document || 9 !== t.document.nodeType) return n.isSupported = !1, n;
-            var r = t.document, o = t.document, a = t.DocumentFragment, l = t.HTMLTemplateElement, c = t.Node,
-                s = t.Element, u = t.NodeFilter, m = t.NamedNodeMap,
-                x = void 0 === m ? t.NamedNodeMap || t.MozNamedAttrMap : m, V = t.Text, X = t.Comment, $ = t.DOMParser,
+            const r = t.document;
+            let o = t.document;
+            const a = t.DocumentFragment;
+            let l = t.HTMLTemplateElement;
+            const c = t.Node,
+                s = t.Element;
+            let u = t.NodeFilter, m = t.NamedNodeMap;
+            const x = void 0 === m ? t.NamedNodeMap || t.MozNamedAttrMap : m, V = t.Text, X = t.Comment,
+                $ = t.DOMParser,
                 Z = t.trustedTypes, J = s.prototype, Q = E(J, "cloneNode"), ee = E(J, "nextSibling"),
                 te = E(J, "childNodes"), ne = E(J, "parentNode");
             if ("function" == typeof l) {
-                var re = o.createElement("template");
+                const re = o.createElement("template");
                 re.content && re.content.ownerDocument && (o = re.content.ownerDocument);
             }
-            var oe = K(Z, r), ie = oe && ze ? oe.createHTML("") : "", ae = o, le = ae.implementation,
+            const oe = K(Z, r), ie = oe && ze ? oe.createHTML("") : "", ae = o, le = ae.implementation,
                 ce = ae.createNodeIterator, se = ae.createDocumentFragment, ue = ae.getElementsByTagName,
-                me = r.importNode, fe = {};
+                me = r.importNode;
+            let fe = {};
             try {
                 fe = w(o).documentMode ? o.documentMode : {};
             } catch (e) {
             }
-            var de = {};
+            let de = {};
             n.isSupported = "function" == typeof ne && le && void 0 !== le.createHTMLDocument && 9 !== fe;
             var pe = z, he = H, ge = U, ye = P, ve = B, be = W, Te = j, Ae = null,
                 xe = S({}, [].concat(q(R), q(_), q(N), q(k), q(M))), Se = null,
@@ -8234,18 +8249,18 @@
                 }, at = S({}, ["mi", "mo", "mn", "ms", "mtext"]),
                 lt = S({}, ["foreignobject", "desc", "title", "annotation-xml"]), ct = S({}, _);
             S(ct, N), S(ct, D);
-            var st = S({}, k);
+            const st = S({}, k);
             S(st, O);
-            var ut = function (e) {
-                var t = ne(e);
+            const ut = function (e) {
+                let t = ne(e);
                 t && t.tagName || (t = {namespaceURI: $e, tagName: "template"});
-                var n = h(e.tagName), r = h(t.tagName);
+                const n = h(e.tagName), r = h(t.tagName);
                 if (e.namespaceURI === Xe) return t.namespaceURI === $e ? "svg" === n : t.namespaceURI === Ve ? "svg" === n && ("annotation-xml" === r || at[r]) : Boolean(ct[n]);
                 if (e.namespaceURI === Ve) return t.namespaceURI === $e ? "math" === n : t.namespaceURI === Xe ? "math" === n && lt[r] : Boolean(st[n]);
                 if (e.namespaceURI === $e) {
                     if (t.namespaceURI === Xe && !lt[r]) return !1;
                     if (t.namespaceURI === Ve && !at[r]) return !1;
-                    var o = S({}, ["title", "style", "font", "a", "script"]);
+                    const o = S({}, ["title", "style", "font", "a", "script"]);
                     return !st[n] && (o[n] || !ct[n])
                 }
                 return !1
@@ -8274,13 +8289,13 @@
                 } catch (e) {
                 }
             }, dt = function (e) {
-                var t = void 0, n = void 0;
+                let t = void 0, n = void 0;
                 if (Le) e = "<remove></remove>" + e; else {
-                    var r = g(e, /^[\r\n\t ]+/);
+                    const r = g(e, /^[\r\n\t ]+/);
                     n = r && r[0];
                 }
                 "application/xhtml+xml" === Qe && (e = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + e + "</body></html>");
-                var i = oe ? oe.createHTML(e) : e;
+                const i = oe ? oe.createHTML(e) : e;
                 if (Ze === $e) try {
                     t = (new $).parseFromString(i, Qe);
                 } catch (e) {
@@ -8292,7 +8307,7 @@
                     } catch (e) {
                     }
                 }
-                var a = t.body || t.documentElement;
+                const a = t.body || t.documentElement;
                 return e && n && a.insertBefore(o.createTextNode(n), a.childNodes[0] || null), Ze === $e ? ue.call(t, Oe ? "html" : "body")[0] : Oe ? t.documentElement : a
             }, pt = function (e) {
                 return ce.call(e.ownerDocument || e, e, u.SHOW_ELEMENT | u.SHOW_COMMENT | u.SHOW_TEXT, null, !1)
@@ -8305,10 +8320,10 @@
                     e.call(n, t, r, rt);
                 }));
             }, vt = function (e) {
-                var t = void 0;
+                let t = void 0;
                 if (yt("beforeSanitizeElements", e, null), ht(e)) return mt(e), !0;
                 if (g(e.nodeName, /[\u0080-\uFFFF]/)) return mt(e), !0;
-                var r = nt(e.nodeName);
+                const r = nt(e.nodeName);
                 if (yt("uponSanitizeElement", e, {
                     tagName: r,
                     allowedTags: Ae
@@ -8316,8 +8331,8 @@
                 if ("select" === r && T(/<template/i, e.innerHTML)) return mt(e), !0;
                 if (!Ae[r] || Ee[r]) {
                     if (Ue && !Be[r]) {
-                        var o = ne(e) || e.parentNode, i = te(e) || e.childNodes;
-                        if (i && o) for (var a = i.length - 1; a >= 0; --a) o.insertBefore(Q(i[a], !0), ee(e));
+                        const o = ne(e) || e.parentNode, i = te(e) || e.childNodes;
+                        if (i && o) for (let a = i.length - 1; a >= 0; --a) o.insertBefore(Q(i[a], !0), ee(e));
                     }
                     return mt(e), !0
                 }
@@ -8332,16 +8347,17 @@
                 }
                 return !0
             }, Tt = function (e) {
-                var t = void 0, r = void 0, o = void 0, i = void 0;
+                const t = void 0;
+                let r = void 0, o = void 0, i = void 0;
                 yt("beforeSanitizeAttributes", e, null);
-                var a = e.attributes;
+                const a = e.attributes;
                 if (a) {
-                    var l = {attrName: "", attrValue: "", keepAttr: !0, allowedAttributes: Se};
+                    const l = {attrName: "", attrValue: "", keepAttr: !0, allowedAttributes: Se};
                     for (i = a.length; i--;) {
-                        var c = t = a[i], s = c.name, u = c.namespaceURI;
+                        const c = t = a[i], s = c.name, u = c.namespaceURI;
                         if (r = b(t.value), o = nt(s), l.attrName = o, l.attrValue = r, l.keepAttr = !0, l.forceKeepAttr = void 0, yt("uponSanitizeAttribute", e, l), r = l.attrValue, !l.forceKeepAttr && (ft(s, e), l.keepAttr)) if (T(/\/>/i, r)) ft(s, e); else {
                             ke && (r = y(r, pe, " "), r = y(r, he, " "));
-                            var m = nt(e.nodeName);
+                            const m = nt(e.nodeName);
                             if (bt(m, o, r)) try {
                                 u ? e.setAttributeNS(u, s, r) : e.setAttribute(s, r), d(n.removed);
                             } catch (e) {
@@ -8351,12 +8367,14 @@
                     yt("afterSanitizeAttributes", e, null);
                 }
             }, At = function e(t) {
-                var n = void 0, r = pt(t);
+                const n = void 0, r = pt(t);
                 for (yt("beforeSanitizeShadowDOM", t, null); n === r.nextNode();) yt("uponSanitizeShadowNode", n, null), vt(n) || (n.content instanceof a && e(n.content), Tt(n));
                 yt("afterSanitizeShadowDOM", t, null);
             };
             return n.sanitize = function (e, o) {
-                var i = void 0, l = void 0, s = void 0, u = void 0, m = void 0;
+                let i = void 0, l = void 0;
+                const s = void 0;
+                let u = void 0, m = void 0;
                 if ((Je = !e) && (e = "\x3c!--\x3e"), "string" != typeof e && !gt(e)) {
                     if ("function" != typeof e.toString) throw A("toString is not a function");
                     if ("string" != typeof (e = e.toString())) throw A("dirty is not a string, aborting")
@@ -8373,13 +8391,13 @@
                     if (!(i = dt(e))) return Fe ? null : ie
                 }
                 i && Le && mt(i.firstChild);
-                for (var f = pt(Pe ? e : i); s === f.nextNode();) 3 === s.nodeType && s === u || vt(s) || (s.content instanceof a && At(s.content), Tt(s), u = s);
+                for (const f = pt(Pe ? e : i); s === f.nextNode();) 3 === s.nodeType && s === u || vt(s) || (s.content instanceof a && At(s.content), Tt(s), u = s);
                 if (u = null, Pe) return e;
                 if (Fe) {
                     if (Ie) for (m = se.call(i.ownerDocument); i.firstChild;) m.appendChild(i.firstChild); else m = i;
                     return Ce && (m = me.call(r, m, !0)), m
                 }
-                var d = Oe ? i.outerHTML : i.innerHTML;
+                let d = Oe ? i.outerHTML : i.innerHTML;
                 return ke && (d = y(d, pe, " "), d = y(d, he, " ")), oe && ze ? oe.createHTML(d) : d
             }, n.setConfig = function (e) {
                 it(e), Me = !0;
@@ -8387,7 +8405,7 @@
                 rt = null, Me = !1;
             }, n.isValidAttribute = function (e, t, n) {
                 rt || it({});
-                var r = nt(e), o = nt(t);
+                const r = nt(e), o = nt(t);
                 return bt(r, o, n)
             }, n.addHook = function (e, t) {
                 "function" == typeof t && (de[e] = de[e] || [], p(de[e], t));
@@ -8439,7 +8457,7 @@
          *
          * @type {Object}
          */
-        var _MAP = {
+        const _MAP = {
             8: 'backspace',
             9: 'tab',
             13: 'enter',
@@ -8472,7 +8490,7 @@
          *
          * @type {Object}
          */
-        var _KEYCODE_MAP = {
+        const _KEYCODE_MAP = {
             106: '*',
             107: '+',
             109: '-',
@@ -8501,7 +8519,7 @@
          *
          * @type {Object}
          */
-        var _SHIFT_MAP = {
+        const _SHIFT_MAP = {
             '~': '`',
             '!': '1',
             '@': '2',
@@ -8529,7 +8547,7 @@
          *
          * @type {Object}
          */
-        var _SPECIAL_ALIASES = {
+        const _SPECIAL_ALIASES = {
             'option': 'alt',
             'command': 'meta',
             'return': 'enter',
@@ -8545,7 +8563,7 @@
          *
          * @type {Object|undefined}
          */
-        var _REVERSE_MAP;
+        let _REVERSE_MAP;
 
         /**
          * loop through the f keys, f1 to f19 and add them to the map
@@ -8595,7 +8613,7 @@
 
             // for keypress events we should return the character as is
             if (e.type === 'keypress') {
-                var character = String.fromCharCode(e.which);
+                let character = String.fromCharCode(e.which);
 
                 // if the shift key is not pressed then it is safe to assume
                 // that we want the character to be lowercase.  this means if
@@ -8648,7 +8666,7 @@
          * @returns {Array}
          */
         function _eventModifiers(e) {
-            var modifiers = [];
+            const modifiers = [];
 
             if (e.shiftKey) {
                 modifiers.push('shift');
@@ -8718,7 +8736,7 @@
         function _getReverseMap() {
             if (!_REVERSE_MAP) {
                 _REVERSE_MAP = {};
-                for (var key in _MAP) {
+                for (let key in _MAP) {
 
                     // pull out the numeric keypad from here cause keypress should
                     // be able to detect the keys from the character
@@ -8781,10 +8799,10 @@
          * @returns {Object}
          */
         function _getKeyInfo(combination, action) {
-            var keys;
-            var key;
-            var i;
-            var modifiers = [];
+            let keys;
+            let key;
+            let i;
+            const modifiers = [];
 
             // take the keys from this pattern and figure out what the actual
             // pattern is all about
@@ -8836,7 +8854,7 @@
         }
 
         function Mousetrap(targetElement) {
-            var self = this;
+            const self = this;
 
             targetElement = targetElement || document;
 
@@ -8871,28 +8889,28 @@
              *
              * @type {Object}
              */
-            var _sequenceLevels = {};
+            const _sequenceLevels = {};
 
             /**
              * variable to store the setTimeout call
              *
              * @type {null|number}
              */
-            var _resetTimer;
+            let _resetTimer;
 
             /**
              * temporary state where we will ignore the next keyup
              *
              * @type {boolean|string}
              */
-            var _ignoreNextKeyup = false;
+            let _ignoreNextKeyup = false;
 
             /**
              * temporary state where we will ignore the next keypress
              *
              * @type {boolean}
              */
-            var _ignoreNextKeypress = false;
+            let _ignoreNextKeypress = false;
 
             /**
              * are we currently inside of a sequence?
@@ -8900,7 +8918,7 @@
              *
              * @type {boolean|string}
              */
-            var _nextExpectedAction = false;
+            let _nextExpectedAction = false;
 
             /**
              * resets all sequence counters except for the ones passed in
@@ -8911,7 +8929,7 @@
             function _resetSequences(doNotReset) {
                 doNotReset = doNotReset || {};
 
-                var activeSequences = false,
+                let activeSequences = false,
                     key;
 
                 for (key in _sequenceLevels) {
@@ -8940,10 +8958,10 @@
              * @returns {Array}
              */
             function _getMatches(character, modifiers, e, sequenceName, combination, level) {
-                var i;
-                var callback;
-                var matches = [];
-                var action = e.type;
+                let i;
+                let callback;
+                const matches = [];
+                const action = e.type;
 
                 // if there are no events related to this keycode
                 if (!self._callbacks[character]) {
@@ -8986,8 +9004,8 @@
                         // combination is specified in this call it does just that
                         //
                         // @todo make deleting its own method?
-                        var deleteCombo = !sequenceName && callback.combo === combination;
-                        var deleteSequence = sequenceName && callback.seq === sequenceName && callback.level === level;
+                        const deleteCombo = !sequenceName && callback.combo === combination;
+                        const deleteSequence = sequenceName && callback.seq === sequenceName && callback.level === level;
                         if (deleteCombo || deleteSequence) {
                             self._callbacks[character].splice(i, 1);
                         }
@@ -9035,11 +9053,11 @@
              * @returns void
              */
             self._handleKey = function (character, modifiers, e) {
-                var callbacks = _getMatches(character, modifiers, e);
-                var i;
-                var doNotReset = {};
-                var maxLevel = 0;
-                var processedSequenceCallback = false;
+                const callbacks = _getMatches(character, modifiers, e);
+                let i;
+                const doNotReset = {};
+                let maxLevel = 0;
+                let processedSequenceCallback = false;
 
                 // Calculate the maxLevel for sequences so we can only execute the longest callback sequence
                 for (i = 0; i < callbacks.length; ++i) {
@@ -9106,7 +9124,7 @@
                 //
                 // we ignore keypresses in a sequence that directly follow a keydown
                 // for the same character
-                var ignoreThisKeypress = e.type === 'keypress' && _ignoreNextKeypress;
+                const ignoreThisKeypress = e.type === 'keypress' && _ignoreNextKeypress;
                 if (e.type === _nextExpectedAction && !_isModifier(character) && !ignoreThisKeypress) {
                     _resetSequences(doNotReset);
                 }
@@ -9128,7 +9146,7 @@
                     e.which = e.keyCode;
                 }
 
-                var character = _characterFromEvent(e);
+                const character = _characterFromEvent(e);
 
                 // no character found then stop
                 if (!character) {
@@ -9218,9 +9236,9 @@
                 // next key in the sequence should match.  this allows a sequence
                 // to mix and match keypress and keydown events depending on which
                 // ones are better suited to the key provided
-                for (var i = 0; i < keys.length; ++i) {
-                    var isFinal = i + 1 === keys.length;
-                    var wrappedCallback = isFinal ? _callbackAndReset : _increaseSequence(action || _getKeyInfo(keys[i + 1]).action);
+                for (let i = 0; i < keys.length; ++i) {
+                    const isFinal = i + 1 === keys.length;
+                    const wrappedCallback = isFinal ? _callbackAndReset : _increaseSequence(action || _getKeyInfo(keys[i + 1]).action);
                     _bindSingle(keys[i], wrappedCallback, action, combo, i);
                 }
             }
@@ -9243,8 +9261,8 @@
                 // make sure multiple spaces in a row become a single space
                 combination = combination.replace(/\s+/g, ' ');
 
-                var sequence = combination.split(' ');
-                var info;
+                const sequence = combination.split(' ');
+                let info;
 
                 // if this pattern is a sequence of keys then run through this method
                 // to reprocess each pattern one key at a time
@@ -9287,7 +9305,7 @@
              * @returns void
              */
             self._bindMultiple = function (combinations, callback, action) {
-                for (var i = 0; i < combinations.length; ++i) {
+                for (let i = 0; i < combinations.length; ++i) {
                     _bindSingle(combinations[i], callback, action);
                 }
             };
@@ -9313,7 +9331,7 @@
          * @returns void
          */
         Mousetrap.prototype.bind = function (keys, callback, action) {
-            var self = this;
+            const self = this;
             keys = keys instanceof Array ? keys : [keys];
             self._bindMultiple.call(self, keys, callback, action);
             return self;
@@ -9337,7 +9355,7 @@
          * @returns void
          */
         Mousetrap.prototype.unbind = function (keys, action) {
-            var self = this;
+            const self = this;
             return self.bind.call(self, keys, function () {
             }, action);
         };
@@ -9350,7 +9368,7 @@
          * @returns void
          */
         Mousetrap.prototype.trigger = function (keys, action) {
-            var self = this;
+            const self = this;
             if (self._directMap[keys + ':' + action]) {
                 self._directMap[keys + ':' + action]({}, keys);
             }
@@ -9365,7 +9383,7 @@
          * @returns void
          */
         Mousetrap.prototype.reset = function () {
-            var self = this;
+            const self = this;
             self._callbacks = {};
             self._directMap = {};
             return self;
@@ -9379,7 +9397,7 @@
          * @return {boolean}
          */
         Mousetrap.prototype.stopCallback = function (e, element) {
-            var self = this;
+            const self = this;
 
             // if the element has the class "mousetrap" then no need to stop
             if ((' ' + element.className + ' ').indexOf(' mousetrap ') > -1) {
@@ -9398,7 +9416,7 @@
             // target cannot be obtained.
             if ('composedPath' in e && typeof e.composedPath === 'function') {
                 // For open shadow trees, update `element` so that the following check works.
-                var initialEventTarget = e.composedPath()[0];
+                const initialEventTarget = e.composedPath()[0];
                 if (initialEventTarget !== e.target) {
                     element = initialEventTarget;
                 }
@@ -9412,7 +9430,7 @@
          * exposes _handleKey publicly so it can be overwritten by extensions
          */
         Mousetrap.prototype.handleKey = function () {
-            var self = this;
+            const self = this;
             return self._handleKey.apply(self, arguments);
         };
 
@@ -9420,7 +9438,7 @@
          * allow custom key mappings
          */
         Mousetrap.addKeycodes = function (object) {
-            for (var key in object) {
+            for (let key in object) {
                 if (object.hasOwnProperty(key)) {
                     _MAP[key] = object[key];
                 }
@@ -9435,8 +9453,8 @@
          * now that mousetrap is a constructor function.
          */
         Mousetrap.init = function () {
-            var documentMousetrap = Mousetrap(document);
-            for (var method in documentMousetrap) {
+            const documentMousetrap = Mousetrap(document);
+            for (let method in documentMousetrap) {
                 if (method.charAt(0) !== '_') {
                     Mousetrap[method] = (function (method) {
                         return function () {
@@ -9530,7 +9548,7 @@
     };
 
     let copyText = function (text, cb) {
-        var inp = document.createElement('textarea');
+        const inp = document.createElement('textarea');
         document.body.appendChild(inp);
         inp.value = text;
         inp.select();
@@ -9580,7 +9598,7 @@
         }
     };
 
-    var utils = {
+    const utils = {
         copyText,
         formatSize,
         formatDuration,
@@ -9593,7 +9611,7 @@
         stripTags
     };
 
-    var ui$1 = {
+    const ui$1 = {
 
         notify: function (message, status, timeout) {
 
@@ -9798,7 +9816,7 @@
         }
     };
 
-    var assets = {
+    const assets = {
 
         _ress: {},
 
@@ -9812,7 +9830,9 @@
             var req = [],
                 ress = Array.isArray(ress) ? ress : [ress];
 
-            for (var i = 0, len = ress.length; i < len; i++) {
+            let i = 0;
+            const len = ress.length;
+            for (; i < len; i++) {
 
                 if (!ress[i]) continue;
 
@@ -9841,7 +9861,7 @@
 
             return new Promise(function (resolve, reject) {
 
-                var script = document.createElement('script');
+                const script = document.createElement('script');
 
                 script.async = true;
 
@@ -9864,14 +9884,14 @@
 
             return new Promise(function (resolve, reject) {
 
-                var link = document.createElement('link');
+                const link = document.createElement('link');
                 link.type = 'text/css';
                 link.rel = 'stylesheet';
                 link.href = (url.match(/^(\/\/|http)/) ? url : App.base(url)) + '?v=' + App.version;
 
                 document.getElementsByTagName('head')[0].appendChild(link);
 
-                var img = document.createElement('img');
+                const img = document.createElement('img');
                 img.onerror = function () {
                     resolve(url);
                 };
@@ -9883,7 +9903,7 @@
 
             return new Promise(function (resolve, reject) {
 
-                var img = document.createElement('img');
+                const img = document.createElement('img');
 
                 img.onload = function () {
                     resolve(url);
@@ -10552,7 +10572,7 @@
 
         base: function (url) {
 
-            let path = url.match(/^(.*?)\:/);
+            let path = url.match(/^(.*?):/);
 
             if (path && this._paths[path[1]]) {
                 return url.replace(path[0], this._paths[path[1]]);
