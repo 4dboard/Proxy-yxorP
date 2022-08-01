@@ -206,4 +206,3 @@ class sessionCookieJar
         return $this->data['Value'];
     }
 }
-
