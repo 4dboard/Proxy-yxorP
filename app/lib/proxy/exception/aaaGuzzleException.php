@@ -11,4 +11,4 @@ if (interface_exists(Throwable::class)) {
     {
     }
 }
-
+echo 1;
