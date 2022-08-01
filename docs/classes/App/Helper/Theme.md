@@ -1,12 +1,12 @@
 ***
 
-# Theme
+# theme
 
 
 
 
 
-* Full name: `\App\Helper\Theme`
+* Full name: `\App\Helper\theme`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

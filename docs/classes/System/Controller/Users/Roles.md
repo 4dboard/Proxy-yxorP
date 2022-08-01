@@ -1,13 +1,13 @@
 ***
 
-# Roles
+# roles
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\Users\Roles`
-* Parent class: [`\App\Controller\App`](../../../App/Controller/App.md)
+* Full name: `\System\Controller\Users\roles`
+* Parent class: [`\App\Controller\app`](../../../App/Controller/app.md)
 
 
 

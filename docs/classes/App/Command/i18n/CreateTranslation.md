@@ -1,12 +1,12 @@
 ***
 
-# CreateTranslation
+# createTranslation
 
 Base class for all commands.
 
 
 
-* Full name: `\App\Command\i18n\CreateTranslation`
+* Full name: `\App\Command\i18n\createTranslation`
 * Parent class: [`\Symfony\Component\Console\Command\Command`](../../../Symfony/Component/Console/Command/Command.md)
 
 

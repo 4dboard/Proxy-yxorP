@@ -1,6 +1,6 @@
 ***
 
-# JsonType
+# jsonType
 
 Scalar Type Definition
 
@@ -19,7 +19,7 @@ class OddType extends ScalarType
     }
 }
 
-* Full name: `\App\GraphQL\Types\JsonType`
+* Full name: `\App\GraphQL\Types\jsonType`
 * Parent class: [`\GraphQL\Type\Definition\ScalarType`](../../../GraphQL/Type/Definition/ScalarType.md)
 
 
@@ -80,6 +80,26 @@ public __construct(string $name = null): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
+
+
+
+
+***
+
+### instance
+
+
+
+```php
+public static instance(): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
 
 
 
@@ -185,26 +205,6 @@ private identity(mixed $value): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
-
-***
-
-### instance
-
-
-
-```php
-public static instance(): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
 
 
 

@@ -1,13 +1,13 @@
 ***
 
-# App
+# app
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\App`
-* Parent class: [`\App\Controller\Authenticated`](./Authenticated.md)
+* Full name: `\App\Controller\app`
+* Parent class: [`\App\Controller\authenticated`](./authenticated.md)
 
 
 

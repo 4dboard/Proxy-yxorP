@@ -1,12 +1,12 @@
 ***
 
-# Acl
+# acl
 
 
 
 
 
-* Full name: `\App\Helper\Acl`
+* Full name: `\App\Helper\acl`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

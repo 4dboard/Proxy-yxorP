@@ -1,12 +1,12 @@
 ***
 
-# Admin
+# admin
 
 
 
 
 
-* Full name: `\App\Helper\Admin`
+* Full name: `\App\Helper\admin`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

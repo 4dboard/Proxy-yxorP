@@ -1,13 +1,13 @@
 ***
 
-# Content
+# content
 
 Class Controller
 
 
 
-* Full name: `\Content\Controller\Content`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\Content\Controller\content`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

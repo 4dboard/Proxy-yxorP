@@ -1,12 +1,12 @@
 ***
 
-# Query
+# query
 
 
 
 
 
-* Full name: `\App\GraphQL\Query`
+* Full name: `\App\GraphQL\query`
 * Parent class: [`\Lime\AppAware`](../../Lime/AppAware.md)
 
 

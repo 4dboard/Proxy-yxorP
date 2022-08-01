@@ -1,12 +1,12 @@
 ***
 
-# MessageTrait
+# messageTrait
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\MessageTrait`
+* Full name: `\yxorP\app\lib\proxy\Psr7\messageTrait`
 
 
 
@@ -247,6 +247,84 @@ public withHeader(mixed $header, mixed $value): mixed
 
 ***
 
+### assertHeader
+
+
+
+```php
+private assertHeader(mixed $header): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$header` | **mixed** |  |
+
+
+
+
+***
+
+### normalizeHeaderValue
+
+
+
+```php
+private normalizeHeaderValue(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### trimHeaderValues
+
+
+
+```php
+private trimHeaderValues(array $values): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$values` | **array** |  |
+
+
+
+
+***
+
 ### withAddedHeader
 
 
@@ -340,84 +418,6 @@ public withBody(\yxorP\app\lib\Psr\Http\Message\StreamInterface $body): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$body` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
-
-
-
-
-***
-
-### assertHeader
-
-
-
-```php
-private assertHeader(mixed $header): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$header` | **mixed** |  |
-
-
-
-
-***
-
-### normalizeHeaderValue
-
-
-
-```php
-private normalizeHeaderValue(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### trimHeaderValues
-
-
-
-```php
-private trimHeaderValues(array $values): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$values` | **array** |  |
 
 
 

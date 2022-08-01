@@ -1,13 +1,13 @@
 ***
 
-# Users
+# users
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\Users`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\System\Controller\users`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

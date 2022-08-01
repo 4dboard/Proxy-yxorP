@@ -1,6 +1,6 @@
 ***
 
-# Async
+# async
 
 Async Helper class.
 
@@ -13,7 +13,7 @@ Cockpit::instance()->helper('async')->exec('
    file_put_contents(COCKPIT_DIR."/debug.txt", $test);
 ', ['test' => 222]);
 
-* Full name: `\App\Helper\Async`
+* Full name: `\App\Helper\async`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

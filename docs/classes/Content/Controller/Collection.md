@@ -1,13 +1,13 @@
 ***
 
-# Collection
+# collection
 
 Class Controller
 
 
 
-* Full name: `\Content\Controller\Collection`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\Content\Controller\collection`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

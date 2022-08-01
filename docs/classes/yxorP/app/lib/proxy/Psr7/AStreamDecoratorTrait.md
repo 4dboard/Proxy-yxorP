@@ -1,12 +1,12 @@
 ***
 
-# AStreamDecoratorTrait
+# aStreamDecoratorTrait
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\AStreamDecoratorTrait`
+* Full name: `\yxorP\app\lib\proxy\Psr7\aStreamDecoratorTrait`
 
 
 
@@ -60,6 +60,26 @@ public __get(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
+
+***
+
+### createStream
+
+
+
+```php
+protected createStream(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -412,26 +432,6 @@ public write(mixed $string): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
-
-
-
-
-***
-
-### createStream
-
-
-
-```php
-protected createStream(): mixed
-```
-
-
-
-
-
-
-
 
 
 

@@ -1,12 +1,12 @@
 ***
 
-# FieldTypes
+# fieldTypes
 
 
 
 
 
-* Full name: `\App\GraphQL\Types\FieldTypes`
+* Full name: `\App\GraphQL\Types\fieldTypes`
 
 
 
@@ -46,32 +46,6 @@ protected static $names
 ## Methods
 
 
-### getName
-
-
-
-```php
-private static getName(mixed $name): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
-
-
-
-
-***
-
 ### buildFieldsDefinitions
 
 
@@ -92,6 +66,32 @@ public static buildFieldsDefinitions(mixed $meta): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$meta` | **mixed** |  |
+
+
+
+
+***
+
+### instance
+
+
+
+```php
+public static instance(mixed $field): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$field` | **mixed** |  |
 
 
 
@@ -124,12 +124,12 @@ protected static getType(mixed $field): mixed
 
 ***
 
-### instance
+### getName
 
 
 
 ```php
-public static instance(mixed $field): mixed
+private static getName(mixed $name): mixed
 ```
 
 
@@ -143,7 +143,7 @@ public static instance(mixed $field): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$field` | **mixed** |  |
+| `$name` | **mixed** |  |
 
 
 

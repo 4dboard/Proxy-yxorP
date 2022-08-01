@@ -1,13 +1,13 @@
 ***
 
-# Models
+# models
 
 Class Controller
 
 
 
-* Full name: `\Content\Controller\Models`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\Content\Controller\models`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

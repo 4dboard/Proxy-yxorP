@@ -1,13 +1,13 @@
 ***
 
-# Locales
+# locales
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\Locales`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\System\Controller\locales`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

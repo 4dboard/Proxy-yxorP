@@ -1,12 +1,12 @@
 ***
 
-# SVGSanitizer
+# sVGSanitizer
 
 Class SVGSanitizer
 
 simplified/compact version of svg-sanitizer - https://github.com/darylldoyle/svg-sanitizer by Daryll Doyle
 
-* Full name: `\SVGSanitizer`
+* Full name: `\sVGSanitizer`
 
 
 ## Constants

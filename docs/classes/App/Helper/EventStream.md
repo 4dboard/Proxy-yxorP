@@ -1,12 +1,12 @@
 ***
 
-# EventStream
+# eventStream
 
 
 
 
 
-* Full name: `\App\Helper\EventStream`
+* Full name: `\App\Helper\eventStream`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

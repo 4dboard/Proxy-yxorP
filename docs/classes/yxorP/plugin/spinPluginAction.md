@@ -91,6 +91,32 @@ final public subscribe(\yxorP\app\lib\yP $dispatcher): void
 
 ***
 
+### route
+
+A method that is used to route the events to the appropriate methods.
+
+```php
+private route(string $event_name): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event_name` | **string** |  |
+
+
+
+
+***
+
 ### onCache
 
 A method that is called when the event `EVENT_BUILD_CACHE` is triggered.
@@ -351,32 +377,6 @@ public onException(\Exception $e): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
-
-
-
-
-***
-
-### route
-
-A method that is used to route the events to the appropriate methods.
-
-```php
-private route(string $event_name): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event_name` | **string** |  |
 
 
 

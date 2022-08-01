@@ -1,12 +1,12 @@
 ***
 
-# Revisions
+# revisions
 
 
 
 
 
-* Full name: `\System\Helper\Revisions`
+* Full name: `\System\Helper\revisions`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

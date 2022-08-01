@@ -1,13 +1,13 @@
 ***
 
-# Logs
+# logs
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\Logs`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\System\Controller\logs`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

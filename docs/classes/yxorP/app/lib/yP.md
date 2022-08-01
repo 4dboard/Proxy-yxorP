@@ -73,20 +73,26 @@ public __construct(string $root, array|null $request = null): mixed
 
 ***
 
-### loadActions
+### init
 
 
 
 ```php
-final public static loadActions(): void
+private init(?array $request): void
 ```
 
 
 
-* This method is **static**.
 
-* This method is **final**.
 
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$request` | **?array** |  |
 
 
 **Return Value:**
@@ -125,57 +131,20 @@ final protected static autoLoader(string $root): void
 
 ***
 
-### addListener
+### loadActions
 
-This function adds a listener to the listeners array
+
 
 ```php
-final public addListener(string $event, object $callback): void
+final public static loadActions(): void
 ```
 
 
 
-
+* This method is **static**.
 
 * This method is **final**.
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event` | **string** |  |
-| `$callback` | **object** |  |
-
-
-**Return Value:**
-
-The priority of the listener. Higher priority listeners are called before lower priority listeners.
-
-
-
-***
-
-### init
-
-
-
-```php
-private init(?array $request): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **?array** |  |
 
 
 **Return Value:**
@@ -263,6 +232,37 @@ private dispatch(string $event_name): void
 |-----------|------|-------------|
 | `$event_name` | **string** |  |
 
+
+
+
+***
+
+### addListener
+
+This function adds a listener to the listeners array
+
+```php
+final public addListener(string $event, object $callback): void
+```
+
+
+
+
+
+* This method is **final**.
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event` | **string** |  |
+| `$callback` | **object** |  |
+
+
+**Return Value:**
+
+The priority of the listener. Higher priority listeners are called before lower priority listeners.
 
 
 

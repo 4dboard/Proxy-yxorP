@@ -1,13 +1,13 @@
 ***
 
-# Dashboard
+# dashboard
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\Dashboard`
-* Parent class: [`\App\Controller\App`](./App.md)
+* Full name: `\App\Controller\dashboard`
+* Parent class: [`\App\Controller\app`](./app.md)
 
 
 

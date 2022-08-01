@@ -1,13 +1,13 @@
 ***
 
-# Singleton
+# singleton
 
 Class Controller
 
 
 
-* Full name: `\Content\Controller\Singleton`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\Content\Controller\singleton`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

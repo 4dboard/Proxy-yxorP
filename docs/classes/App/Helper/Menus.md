@@ -1,12 +1,12 @@
 ***
 
-# Menus
+# menus
 
 
 
 
 
-* Full name: `\App\Helper\Menus`
+* Full name: `\App\Helper\menus`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

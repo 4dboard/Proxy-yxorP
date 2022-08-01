@@ -1,13 +1,13 @@
 ***
 
-# Auth
+# auth
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\Auth`
-* Parent class: [`\App\Controller\Base`](./Base.md)
+* Full name: `\App\Controller\auth`
+* Parent class: [`\App\Controller\base`](./base.md)
 
 
 
@@ -116,12 +116,12 @@ public validate2FA(): mixed
 ## Inherited methods
 
 
-### initialize
+### index
 
 
 
 ```php
-protected initialize(): mixed
+public index(): string
 ```
 
 
@@ -136,12 +136,12 @@ protected initialize(): mixed
 
 ***
 
-### index
+### initialize
 
 
 
 ```php
-public index(): string
+protected initialize(): mixed
 ```
 
 

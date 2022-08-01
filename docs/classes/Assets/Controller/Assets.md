@@ -1,13 +1,13 @@
 ***
 
-# Assets
+# assets
 
 Class Controller
 
 
 
-* Full name: `\Assets\Controller\Assets`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\Assets\Controller\assets`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 

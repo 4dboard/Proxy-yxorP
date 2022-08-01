@@ -1,12 +1,12 @@
 ***
 
-# Collections
+# collections
 
 
 
 
 
-* Full name: `\Collections\Helper\Collections`
+* Full name: `\Collections\Helper\collections`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

@@ -1,13 +1,13 @@
 ***
 
-# Api
+# api
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\Api`
-* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
+* Full name: `\System\Controller\api`
+* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
 
 
 
@@ -121,26 +121,6 @@ public remove(): mixed
 
 ***
 
-### cache
-
-
-
-```php
-protected cache(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### save
 
 
@@ -227,6 +207,26 @@ public restApiViewer(): mixed
 
 ```php
 public graphqlViewer(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### cache
+
+
+
+```php
+protected cache(): mixed
 ```
 
 

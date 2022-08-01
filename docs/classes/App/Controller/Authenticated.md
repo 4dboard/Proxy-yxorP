@@ -1,13 +1,13 @@
 ***
 
-# Authenticated
+# authenticated
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\Authenticated`
-* Parent class: [`\App\Controller\Base`](./Base.md)
+* Full name: `\App\Controller\authenticated`
+* Parent class: [`\App\Controller\base`](./base.md)
 
 
 
@@ -134,12 +134,12 @@ protected checkAndLockResource(mixed $resourceId): mixed
 ## Inherited methods
 
 
-### initialize
+### index
 
 
 
 ```php
-protected initialize(): mixed
+public index(): string
 ```
 
 
@@ -154,12 +154,12 @@ protected initialize(): mixed
 
 ***
 
-### index
+### initialize
 
 
 
 ```php
-public index(): string
+protected initialize(): mixed
 ```
 
 

@@ -1,12 +1,12 @@
 ***
 
-# Csrf
+# csrf
 
 
 
 
 
-* Full name: `\App\Helper\Csrf`
+* Full name: `\App\Helper\csrf`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

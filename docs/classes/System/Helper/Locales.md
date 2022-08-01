@@ -1,12 +1,12 @@
 ***
 
-# Locales
+# locales
 
 
 
 
 
-* Full name: `\System\Helper\Locales`
+* Full name: `\System\Helper\locales`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

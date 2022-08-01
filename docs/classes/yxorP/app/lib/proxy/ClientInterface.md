@@ -1,12 +1,12 @@
 ***
 
-# ClientInterface
+# clientInterface
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\ClientInterface`
+* Full name: `\yxorP\app\lib\proxy\clientInterface`
 
 
 ## Constants

@@ -1,13 +1,13 @@
 ***
 
-# Utils
+# utils
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\Utils`
-* Parent class: [`\App\Controller\App`](./App.md)
+* Full name: `\App\Controller\utils`
+* Parent class: [`\App\Controller\app`](./app.md)
 
 
 
