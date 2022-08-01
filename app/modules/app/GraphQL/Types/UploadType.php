@@ -2,7 +2,6 @@
 
 namespace App\graphQL\Types;
 
-use Error;
 use graphQL\Error\Error;
 use graphQL\Error\InvariantViolation;
 use graphQL\Type\Definition\ScalarType;
