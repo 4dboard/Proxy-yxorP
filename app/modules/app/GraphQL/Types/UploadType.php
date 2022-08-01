@@ -1,6 +1,6 @@
 <?php
 
-namespace App\graphQL\Types;
+namespace yxorP\app\modules\app\graphQL\Types;
 
 use graphQL\Error\Error;
 use graphQL\Error\InvariantViolation;

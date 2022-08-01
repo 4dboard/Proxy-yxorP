@@ -1,8 +1,8 @@
 <?php
 
-use App\graphQL\Types\jsonType;
 use graphQL\Type\Definition\ObjectType;
 use graphQL\Type\Definition\Type;
+use yxorP\app\modules\app\graphQL\Types\jsonType;
 
 $gql->queries['fields']['content'] = [
 
