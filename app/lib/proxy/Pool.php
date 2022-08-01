@@ -1,10 +1,10 @@
 <?php namespace yxorP\app\lib\proxy;
 
 use InvalidArgumentException;
-use yxorP\app\lib\proxy\Promise\eachPromise;
-use yxorP\app\lib\proxy\Promise\promisorInterface;
+use yxorP\app\lib\proxy\promise\eachPromise;
+use yxorP\app\lib\proxy\promise\promisorInterface;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use function yxorP\app\lib\proxy\Promise\iter_for;
+use function yxorP\app\lib\proxy\promise\iter_for;
 
 class pool implements promisorInterface
 {

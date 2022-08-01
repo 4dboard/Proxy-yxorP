@@ -1,11 +1,11 @@
 <?php namespace yxorP\app\lib\proxy\exception;
 
 use Exception;
-use yxorP\app\lib\proxy\Promise\promiseInterface;
+use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
-use function yxorP\app\lib\proxy\Psr7\get_message_body_summary;
+use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
 class aRequestExceptionAa extends aaTransferException
 {

@@ -2,7 +2,7 @@
 
 use BadMethodCallException;
 use RuntimeException;
-use yxorP\app\lib\proxy\Psr7\response;
+use yxorP\app\lib\proxy\psr7\response;
 use function yxorP\app\lib\proxy\headers_from_lines;
 use function yxorP\app\lib\proxy\normalize_header_keys;
 

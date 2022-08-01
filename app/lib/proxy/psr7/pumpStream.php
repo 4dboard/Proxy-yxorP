@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\proxy\Psr7;
+<?php namespace yxorP\app\lib\proxy\psr7;
 
 use Exception;
 use RuntimeException;

@@ -6,14 +6,14 @@ use InvalidArgumentException;
 use OutOfBoundsException;
 use yxorP\app\lib\proxy\exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\handlerStack;
-use yxorP\app\lib\proxy\Promise\promiseInterface;
+use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use function yxorP\app\lib\proxy\describe_type;
-use function yxorP\app\lib\proxy\Promise\promise_for;
-use function yxorP\app\lib\proxy\Promise\rejection_for;
+use function yxorP\app\lib\proxy\promise\promise_for;
+use function yxorP\app\lib\proxy\promise\rejection_for;
 
 class mockHandler implements Countable
 {

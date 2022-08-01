@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\proxy\Promise;
+<?php namespace yxorP\app\lib\proxy\promise;
 class taskQueue implements taskQueueInterface
 {
     private $enableShutdown = true;
