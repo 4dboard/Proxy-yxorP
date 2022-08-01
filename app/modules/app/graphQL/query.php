@@ -7,24 +7,17 @@ use GraphQL\GraphQL;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
-use mysql_xdevapi\Schema;
-use const yxorP\app\lib\lime\appAware;
 
-class query extends \
+class query extends
 
-appAware
+    appAware
 {
 
-    public
-    $queries;
-    public
-    $mutations;
-    public
-    $types;
-    public
-    $directives;
-    protected
-    $initialized = false;
+    public $queries;
+    public $mutations;
+    public $types;
+    public $directives;
+    protected $initialized = false;
 
     public
     function process($query = '{}', $variables = null)
