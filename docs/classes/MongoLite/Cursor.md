@@ -342,6 +342,26 @@ public toArray(): array
 
 ***
 
+### getData
+
+Get documents matching criteria
+
+```php
+protected getData(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### rewind
 
 Iterator implementation
@@ -408,26 +428,6 @@ public next(): void
 
 ```php
 public valid(): bool
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getData
-
-Get documents matching criteria
-
-```php
-protected getData(): array
 ```
 
 

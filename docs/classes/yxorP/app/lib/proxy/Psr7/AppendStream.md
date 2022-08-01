@@ -1,12 +1,12 @@
 ***
 
-# AppendStream
+# appendStream
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\AppendStream`
+* Full name: `\yxorP\app\lib\proxy\Psr7\appendStream`
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 

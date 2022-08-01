@@ -1,12 +1,12 @@
 ***
 
-# ARejectionException
+# aRejectionException
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\ARejectionException`
+* Full name: `\yxorP\app\lib\proxy\Promise\aRejectionException`
 * Parent class: [`RuntimeException`](../../../../../RuntimeException.md)
 
 

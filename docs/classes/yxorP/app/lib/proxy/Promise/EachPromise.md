@@ -1,14 +1,14 @@
 ***
 
-# EachPromise
+# eachPromise
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\EachPromise`
+* Full name: `\yxorP\app\lib\proxy\Promise\eachPromise`
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\PromisorInterface`](./PromisorInterface.md)
+[`\yxorP\app\lib\proxy\Promise\promisorInterface`](./promisorInterface.md)
 
 
 

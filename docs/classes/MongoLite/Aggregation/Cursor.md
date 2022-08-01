@@ -125,6 +125,52 @@ public toArray(): array
 
 ***
 
+### getData
+
+Get documents matching criteria
+
+```php
+protected getData(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### make_cmp
+
+
+
+```php
+protected make_cmp(array $sortValues): \Closure
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sortValues` | **array** |  |
+
+
+
+
+***
+
 ### rewind
 
 Iterator implementation
@@ -219,52 +265,6 @@ public valid(): bool
 
 
 
-
-
-
-
-***
-
-### getData
-
-Get documents matching criteria
-
-```php
-protected getData(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### make_cmp
-
-
-
-```php
-protected make_cmp(array $sortValues): \Closure
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$sortValues` | **array** |  |
 
 
 

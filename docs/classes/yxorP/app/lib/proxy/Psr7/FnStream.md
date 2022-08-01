@@ -1,12 +1,12 @@
 ***
 
-# FnStream
+# fnStream
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\FnStream`
+* Full name: `\yxorP\app\lib\proxy\Psr7\fnStream`
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 

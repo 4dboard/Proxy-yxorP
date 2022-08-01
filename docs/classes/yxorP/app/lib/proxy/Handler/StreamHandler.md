@@ -1,12 +1,12 @@
 ***
 
-# StreamHandler
+# streamHandler
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\StreamHandler`
+* Full name: `\yxorP\app\lib\proxy\Handler\streamHandler`
 
 
 

@@ -1,12 +1,12 @@
 ***
 
-# CurlMultiHandler
+# curlMultiHandler
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\CurlMultiHandler`
+* Full name: `\yxorP\app\lib\proxy\Handler\curlMultiHandler`
 
 
 

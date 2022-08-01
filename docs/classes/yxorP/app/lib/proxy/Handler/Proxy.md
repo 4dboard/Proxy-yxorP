@@ -1,12 +1,12 @@
 ***
 
-# Proxy
+# proxy
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\Proxy`
+* Full name: `\yxorP\app\lib\proxy\Handler\proxy`
 
 
 

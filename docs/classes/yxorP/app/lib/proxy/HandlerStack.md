@@ -1,12 +1,12 @@
 ***
 
-# HandlerStack
+# handlerStack
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\HandlerStack`
+* Full name: `\yxorP\app\lib\proxy\handlerStack`
 
 
 
@@ -207,6 +207,32 @@ public __toString(): mixed
 
 ***
 
+### debugCallable
+
+
+
+```php
+private debugCallable(mixed $fn): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$fn` | **mixed** |  |
+
+
+
+
+***
+
 ### setHandler
 
 
@@ -308,86 +334,6 @@ public before(mixed $findName, callable $middleware, mixed $withName = &#039;&#0
 
 ***
 
-### after
-
-
-
-```php
-public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$findName` | **mixed** |  |
-| `$middleware` | **callable** |  |
-| `$withName` | **mixed** |  |
-
-
-
-
-***
-
-### remove
-
-
-
-```php
-public remove(mixed $remove): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$remove` | **mixed** |  |
-
-
-
-
-***
-
-### debugCallable
-
-
-
-```php
-private debugCallable(mixed $fn): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$fn` | **mixed** |  |
-
-
-
-
-***
-
 ### splice
 
 
@@ -437,6 +383,60 @@ private findByName(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
+
+***
+
+### after
+
+
+
+```php
+public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$findName` | **mixed** |  |
+| `$middleware` | **callable** |  |
+| `$withName` | **mixed** |  |
+
+
+
+
+***
+
+### remove
+
+
+
+```php
+public remove(mixed $remove): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$remove` | **mixed** |  |
 
 
 

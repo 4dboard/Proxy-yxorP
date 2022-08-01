@@ -177,6 +177,86 @@ public __construct(mixed $strictMode = false, mixed $cookieArray = []): mixed
 
 ***
 
+### setCookie
+
+
+
+```php
+public setCookie(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
+
+
+
+
+***
+
+### removeCookieIfEmpty
+
+
+
+```php
+private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
+
+
+
+
+***
+
+### clear
+
+
+
+```php
+public clear(mixed $domain = null, mixed $path = null, mixed $name = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$domain` | **mixed** |  |
+| `$path` | **mixed** |  |
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
 ### fromArray
 
 
@@ -251,60 +331,6 @@ public static shouldPersist(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie
 |-----------|------|-------------|
 | `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
 | `$allowSessionCookies` | **mixed** |  |
-
-
-
-
-***
-
-### setCookie
-
-
-
-```php
-public setCookie(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
-
-
-
-
-***
-
-### clear
-
-
-
-```php
-public clear(mixed $domain = null, mixed $path = null, mixed $name = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$domain` | **mixed** |  |
-| `$path` | **mixed** |  |
-| `$name` | **mixed** |  |
 
 
 
@@ -444,12 +470,12 @@ public extractCookies(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request,
 
 ***
 
-### withCookieHeader
+### getCookiePathFromRequest
 
 
 
 ```php
-public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
+private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
 ```
 
 
@@ -470,38 +496,12 @@ public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $reques
 
 ***
 
-### removeCookieIfEmpty
+### withCookieHeader
 
 
 
 ```php
-private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
-
-
-
-
-***
-
-### getCookiePathFromRequest
-
-
-
-```php
-private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
+public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
 ```
 
 

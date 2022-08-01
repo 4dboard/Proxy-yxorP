@@ -1,12 +1,12 @@
 ***
 
-# MockHandler
+# mockHandler
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\MockHandler`
+* Full name: `\yxorP\app\lib\proxy\Handler\mockHandler`
 * This class implements:
 [`\Countable`](../../../../../Countable.md)
 
@@ -176,6 +176,35 @@ public __invoke(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array
 
 ***
 
+### invokeStats
+
+
+
+```php
+private invokeStats(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response = null, mixed $reason = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$options` | **array** |  |
+| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$reason` | **mixed** |  |
+
+
+
+
+***
+
 ### append
 
 
@@ -270,35 +299,6 @@ public reset(): mixed
 
 
 
-
-
-
-
-***
-
-### invokeStats
-
-
-
-```php
-private invokeStats(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response = null, mixed $reason = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$options` | **array** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
-| `$reason` | **mixed** |  |
 
 
 

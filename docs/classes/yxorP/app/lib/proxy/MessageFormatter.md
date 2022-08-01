@@ -1,12 +1,12 @@
 ***
 
-# MessageFormatter
+# messageFormatter
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\MessageFormatter`
+* Full name: `\yxorP\app\lib\proxy\messageFormatter`
 
 
 ## Constants

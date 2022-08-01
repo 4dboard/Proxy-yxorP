@@ -154,6 +154,32 @@ count count of inserted documents for arrays
 
 ***
 
+### _insert
+
+Insert document
+
+```php
+protected _insert(array& $document): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$document` | **array** |  |
+
+
+
+
+***
+
 ### save
 
 Save document
@@ -365,32 +391,6 @@ public renameCollection(string $newname): bool
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newname` | **string** | [description] |
-
-
-
-
-***
-
-### _insert
-
-Insert document
-
-```php
-protected _insert(array& $document): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$document` | **array** |  |
 
 
 

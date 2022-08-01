@@ -1,13 +1,13 @@
 ***
 
-# CancellationExceptionA
+# cancellationExceptionA
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\CancellationExceptionA`
-* Parent class: [`\yxorP\app\lib\proxy\Promise\ARejectionException`](./ARejectionException.md)
+* Full name: `\yxorP\app\lib\proxy\Promise\cancellationExceptionA`
+* Parent class: [`\yxorP\app\lib\proxy\Promise\aRejectionException`](./aRejectionException.md)
 
 
 

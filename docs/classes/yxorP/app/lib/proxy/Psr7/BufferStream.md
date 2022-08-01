@@ -1,12 +1,12 @@
 ***
 
-# BufferStream
+# bufferStream
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\BufferStream`
+* Full name: `\yxorP\app\lib\proxy\Psr7\bufferStream`
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 

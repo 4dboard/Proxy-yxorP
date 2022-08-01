@@ -1,12 +1,12 @@
 ***
 
-# Middleware
+# middleware
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Middleware`
+* Full name: `\yxorP\app\lib\proxy\middleware`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 

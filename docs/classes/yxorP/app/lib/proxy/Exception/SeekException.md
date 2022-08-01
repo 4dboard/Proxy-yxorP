@@ -1,12 +1,12 @@
 ***
 
-# SeekException
+# seekException
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Exception\SeekException`
+* Full name: `\yxorP\app\lib\proxy\Exception\seekException`
 * Parent class: [`RuntimeException`](../../../../../RuntimeException.md)
 * This class implements:
 [`\yxorP\app\lib\proxy\Exception\ProxyException`](./ProxyException.md)

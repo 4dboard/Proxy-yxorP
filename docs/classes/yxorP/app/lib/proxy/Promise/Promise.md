@@ -1,14 +1,14 @@
 ***
 
-# Promise
+# promise
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\Promise`
+* Full name: `\yxorP\app\lib\proxy\Promise\promise`
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\PromiseInterface`](./PromiseInterface.md)
+[`\yxorP\app\lib\proxy\Promise\promiseInterface`](./promiseInterface.md)
 
 
 
@@ -135,6 +135,59 @@ public __construct(callable $waitFn = null, callable $cancelFn = null): mixed
 
 ***
 
+### resolve
+
+
+
+```php
+public resolve(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### settle
+
+
+
+```php
+private settle(mixed $state, mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$state` | **mixed** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
 ### callHandler
 
 
@@ -157,32 +210,6 @@ private static callHandler(mixed $index, mixed $value, array $handler): mixed
 | `$index` | **mixed** |  |
 | `$value` | **mixed** |  |
 | `$handler` | **array** |  |
-
-
-
-
-***
-
-### resolve
-
-
-
-```php
-public resolve(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
 
 
 
@@ -288,79 +315,6 @@ public wait(mixed $unwrap = true): mixed
 
 ***
 
-### reject
-
-
-
-```php
-public reject(mixed $reason): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$reason` | **mixed** |  |
-
-
-
-
-***
-
-### cancel
-
-
-
-```php
-public cancel(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### settle
-
-
-
-```php
-private settle(mixed $state, mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$state` | **mixed** |  |
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
 ### waitIfPending
 
 
@@ -401,12 +355,58 @@ private invokeWaitFn(): mixed
 
 ***
 
+### reject
+
+
+
+```php
+public reject(mixed $reason): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$reason` | **mixed** |  |
+
+
+
+
+***
+
 ### invokeWaitList
 
 
 
 ```php
 private invokeWaitList(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### cancel
+
+
+
+```php
+public cancel(): mixed
 ```
 
 

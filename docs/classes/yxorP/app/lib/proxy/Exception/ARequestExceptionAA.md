@@ -1,13 +1,13 @@
 ***
 
-# ARequestExceptionAA
+# aRequestExceptionAa
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Exception\ARequestExceptionAA`
-* Parent class: [`\yxorP\app\lib\proxy\Exception\AATransferException`](./AATransferException.md)
+* Full name: `\yxorP\app\lib\proxy\Exception\aRequestExceptionAa`
+* Parent class: [`\yxorP\app\lib\proxy\Exception\aaTransferException`](./aaTransferException.md)
 
 
 
@@ -148,32 +148,6 @@ public static create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, 
 
 ***
 
-### getResponseBodySummary
-
-
-
-```php
-public static getResponseBodySummary(\yxorP\app\lib\Psr\Http\Message\ResponseInterface $response): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
-
-
-
-
-***
-
 ### obfuscateUri
 
 
@@ -194,6 +168,32 @@ private static obfuscateUri(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri): 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$uri` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
+
+
+
+
+***
+
+### getResponseBodySummary
+
+
+
+```php
+public static getResponseBodySummary(\yxorP\app\lib\Psr\Http\Message\ResponseInterface $response): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
 
 
 

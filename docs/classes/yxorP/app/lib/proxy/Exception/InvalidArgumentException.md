@@ -1,12 +1,12 @@
 ***
 
-# InvalidArgumentException
+# invalidArgumentException
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Exception\InvalidArgumentException`
+* Full name: `\yxorP\app\lib\proxy\Exception\invalidArgumentException`
 * Parent class: [`InvalidArgumentException`](../../../../../InvalidArgumentException.md)
 * This class is marked as **final** and can't be subclassed
 * This class implements:

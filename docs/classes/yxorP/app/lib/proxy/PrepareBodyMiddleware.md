@@ -1,12 +1,12 @@
 ***
 
-# PrepareBodyMiddleware
+# prepareBodyMiddleware
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\PrepareBodyMiddleware`
+* Full name: `\yxorP\app\lib\proxy\prepareBodyMiddleware`
 
 
 

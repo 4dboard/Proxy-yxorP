@@ -1,12 +1,12 @@
 ***
 
-# CurlHandler
+# curlHandler
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\CurlHandler`
+* Full name: `\yxorP\app\lib\proxy\Handler\curlHandler`
 
 
 

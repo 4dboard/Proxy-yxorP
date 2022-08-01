@@ -1,12 +1,12 @@
 ***
 
-# CachingStream
+# cachingStream
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\CachingStream`
+* Full name: `\yxorP\app\lib\proxy\Psr7\cachingStream`
 * This class implements:
 [`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 
@@ -147,6 +147,26 @@ Returns the size in bytes if known, or null if unknown.
 
 ***
 
+### cacheEntireStream
+
+
+
+```php
+private cacheEntireStream(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### eof
 
 Returns true if the stream is at the end of the stream.
@@ -248,26 +268,6 @@ public close(): void
 
 ***
 
-### cacheEntireStream
-
-
-
-```php
-private cacheEntireStream(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 
 ## Inherited methods
 
@@ -318,6 +318,26 @@ public __get(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
+
+***
+
+### createStream
+
+
+
+```php
+protected createStream(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -670,26 +690,6 @@ public write(mixed $string): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
-
-
-
-
-***
-
-### createStream
-
-
-
-```php
-protected createStream(): mixed
-```
-
-
-
-
-
-
-
 
 
 

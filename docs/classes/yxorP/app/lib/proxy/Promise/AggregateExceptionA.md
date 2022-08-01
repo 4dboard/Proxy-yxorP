@@ -1,13 +1,13 @@
 ***
 
-# AggregateExceptionA
+# aggregateExceptionA
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\AggregateExceptionA`
-* Parent class: [`\yxorP\app\lib\proxy\Promise\ARejectionException`](./ARejectionException.md)
+* Full name: `\yxorP\app\lib\proxy\Promise\aggregateExceptionA`
+* Parent class: [`\yxorP\app\lib\proxy\Promise\aRejectionException`](./aRejectionException.md)
 
 
 
