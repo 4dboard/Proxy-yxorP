@@ -11,8 +11,7 @@ use yxorP\app\lib\html\store;
 class system extends helper
 {
 
-    public
-    function try(callable $callback, $rescue = null, $report = true)
+    public function try(callable $callback, $rescue = null, $report = true)
     {
         try {
             return $callback();
