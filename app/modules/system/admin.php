@@ -12,12 +12,7 @@ $this->bindClass('System\\Controller\\users', '/system/users');
 $this->bindClass('System\\Controller\\utils', '/system/utils');
 $this->bindClass('System\\Controller\\settings', '/system');
 
-$this->helper('menus')->addLink('modules', [
-    'label' => 'Api',
-    'icon' => 'system:assets/icons/api.svg',
-    'route' => '/system/api',
-    'active' => false
-]);
+$this->helper('menus')->addLink('modules', ['label' => 'Api', 'icon' => 'system:assets/icons/api.svg', 'route' => '/system/api', 'active' => false]);
 
 // events
 
