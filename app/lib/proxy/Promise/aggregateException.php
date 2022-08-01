@@ -1,5 +1,5 @@
 <?php namespace yxorP\app\lib\proxy\promise;
-class aggregateExceptionA extends aRejectionException
+class aggregateException extends aRejectionException
 {
     public function __construct($msg, array $reasons)
     {

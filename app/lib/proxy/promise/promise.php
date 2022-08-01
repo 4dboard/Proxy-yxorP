@@ -103,7 +103,7 @@ class promise implements promiseInterface
             }
         }
         if ($this->state === self::PENDING) {
-            $this->reject(new cancellationExceptionA('Promise has been cancelled'));
+            $this->reject(new cancellationException('Promise has been cancelled'));
         }
     }
 

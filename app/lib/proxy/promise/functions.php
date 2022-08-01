@@ -127,7 +127,7 @@ function some($count, $promises)
         $rejections[] = $reason;
     })->then(function () use (&$results, &$rejections, $count) {
         if (count($results) !== $count) {
-            throw new aggregateExceptionA('Not enough promises to fulfill count', $rejections);
+            throw new aggregateException('Not enough promises to fulfill count', $rejections);
         }
         ksort($results);
         return array_values($results);
