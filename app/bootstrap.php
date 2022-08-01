@@ -60,12 +60,10 @@ class App
         $modulesPaths = ["{$appDir}/modules", "{$appDir}/addons"];
         if ($appDir != $envDir) $modulesPaths[] = $config['paths']['#addons'];
         $app->loadModules($modulesPaths);
-        if (SITE_CLI || SITE_ADMIN) {
-            set_exception_handler(function ($exception) use ($app) {
-                $error = ['message' => $exception->getMessage(), 'file' => $exception->getFile(), 'line' => $exception->getLine(), 'trace' => array_slice($exception->getTrace(), 0, 4),];
-                $app->trigger('error', [$error, $exception]);
-            });
-        }
+        if (SITE_CLI || SITE_ADMIN) set_exception_handler(function ($exception) use ($app) {
+            $error = ['message' => $exception->getMessage(), 'file' => $exception->getFile(), 'line' => $exception->getLine(), 'trace' => array_slice($exception->getTrace(), 0, 4),];
+            $app->trigger('error', [$error, $exception]);
+        });
         if ($custombootfile = $app->path('#config:bootstrap.php')) include($custombootfile);
         $app->trigger('bootstrap');
         return $app;
