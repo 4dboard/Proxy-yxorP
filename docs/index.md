@@ -19,9 +19,9 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`App`](./classes/App.md) | |
 | [`Attribute`](./classes/Attribute.md) | |
+| [`ComposerAutoloaderInit`](./classes/ComposerAutoloaderInit.md) | |
 | [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](./classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
-| [`ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862`](./classes/ComposerAutoloaderInit43ee69a3007d6872663d476a71cbd862.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
 | [`Mailer`](./classes/Mailer.md) | |
@@ -29,7 +29,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`Normalizer`](./classes/Normalizer.md) | |
 | [`PhpToken`](./classes/PhpToken.md) | |
 | [`ReturnTypeWillChange`](./classes/ReturnTypeWillChange.md) | |
-| [`SVGSanitizer`](./classes/SVGSanitizer.md) | Class SVGSanitizer|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
 | [`cli`](./classes/cli.md) | |
@@ -47,6 +46,7 @@ This is an automatically generated documentation for **Documentation**.
 | [`onSentAction`](./classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onWriteAction`](./classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
 | [`redisLite`](./classes/redisLite.md) | |
+| [`sVGSanitizer`](./classes/sVGSanitizer.md) | Class SVGSanitizer|
 | [`simpleImageLib`](./classes/simpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 
 
@@ -65,7 +65,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Flush`](./classes/App/Command/Cache/Flush.md) | Base class for all commands.|
+| [`flush`](./classes/App/Command/Cache/flush.md) | Base class for all commands.|
 
 
 
@@ -76,7 +76,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Create`](./classes/App/Command/Spaces/Create.md) | Base class for all commands.|
+| [`create`](./classes/App/Command/Spaces/create.md) | Base class for all commands.|
 
 
 
@@ -87,7 +87,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`CreateTranslation`](./classes/App/Command/i18n/CreateTranslation.md) | Base class for all commands.|
+| [`createTranslation`](./classes/App/Command/i18n/createTranslation.md) | Base class for all commands.|
 
 
 
@@ -98,12 +98,12 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`App`](./classes/App/Controller/App.md) | Class Controller|
-| [`Auth`](./classes/App/Controller/Auth.md) | Class Controller|
-| [`Authenticated`](./classes/App/Controller/Authenticated.md) | Class Controller|
-| [`Base`](./classes/App/Controller/Base.md) | Class Controller|
-| [`Dashboard`](./classes/App/Controller/Dashboard.md) | Class Controller|
-| [`Utils`](./classes/App/Controller/Utils.md) | Class Controller|
+| [`app`](./classes/App/Controller/app.md) | Class Controller|
+| [`auth`](./classes/App/Controller/auth.md) | Class Controller|
+| [`authenticated`](./classes/App/Controller/authenticated.md) | Class Controller|
+| [`base`](./classes/App/Controller/base.md) | Class Controller|
+| [`dashboard`](./classes/App/Controller/dashboard.md) | Class Controller|
+| [`utils`](./classes/App/Controller/utils.md) | Class Controller|
 
 
 
@@ -114,7 +114,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Query`](./classes/App/GraphQL/Query.md) | |
+| [`query`](./classes/App/GraphQL/query.md) | |
 
 
 
@@ -125,9 +125,9 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`FieldTypes`](./classes/App/GraphQL/Types/FieldTypes.md) | |
-| [`JsonType`](./classes/App/GraphQL/Types/JsonType.md) | Scalar Type Definition|
-| [`UploadType`](./classes/App/GraphQL/Types/UploadType.md) | Scalar Type Definition|
+| [`fieldTypes`](./classes/App/GraphQL/Types/fieldTypes.md) | |
+| [`jsonType`](./classes/App/GraphQL/Types/jsonType.md) | Scalar Type Definition|
+| [`uploadType`](./classes/App/GraphQL/Types/uploadType.md) | Scalar Type Definition|
 
 
 
@@ -138,22 +138,22 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Acl`](./classes/App/Helper/Acl.md) | |
-| [`Admin`](./classes/App/Helper/Admin.md) | |
 | [`App`](./classes/App/Helper/App.md) | |
-| [`Async`](./classes/App/Helper/Async.md) | Async Helper class.|
-| [`Auth`](./classes/App/Helper/Auth.md) | |
-| [`Csrf`](./classes/App/Helper/Csrf.md) | |
-| [`EventStream`](./classes/App/Helper/EventStream.md) | |
-| [`JWT`](./classes/App/Helper/JWT.md) | |
-| [`Menus`](./classes/App/Helper/Menus.md) | |
 | [`ResponseCache`](./classes/App/Helper/ResponseCache.md) | |
 | [`ResponseCacheFileHandler`](./classes/App/Helper/ResponseCacheFileHandler.md) | |
 | [`ResponseCacheMemoryeHandler`](./classes/App/Helper/ResponseCacheMemoryeHandler.md) | |
 | [`TWFA`](./classes/App/Helper/TWFA.md) | |
 | [`TWFAQRCodeRenderer`](./classes/App/Helper/TWFAQRCodeRenderer.md) | |
-| [`Theme`](./classes/App/Helper/Theme.md) | |
+| [`acl`](./classes/App/Helper/acl.md) | |
+| [`admin`](./classes/App/Helper/admin.md) | |
+| [`async`](./classes/App/Helper/async.md) | Async Helper class.|
+| [`auth`](./classes/App/Helper/auth.md) | |
+| [`csrf`](./classes/App/Helper/csrf.md) | |
+| [`eventStream`](./classes/App/Helper/eventStream.md) | |
 | [`i18n`](./classes/App/Helper/i18n.md) | I18n class. Manage translations|
+| [`jWT`](./classes/App/Helper/jWT.md) | |
+| [`menus`](./classes/App/Helper/menus.md) | |
+| [`theme`](./classes/App/Helper/theme.md) | |
 
 
 
@@ -164,7 +164,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Query`](./classes/App/RestApi/Query.md) | |
+| [`query`](./classes/App/RestApi/query.md) | |
 
 
 
@@ -175,7 +175,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Assets`](./classes/Assets/Controller/Assets.md) | Class Controller|
+| [`assets`](./classes/Assets/Controller/assets.md) | Class Controller|
 
 
 
@@ -432,7 +432,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Collections`](./classes/Collections/Helper/Collections.md) | |
+| [`collections`](./classes/Collections/Helper/collections.md) | |
 
 
 
@@ -526,9 +526,9 @@ This is an automatically generated documentation for **Documentation**.
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
+| [`ComposerStaticInit`](./classes/Composer/Autoload/ComposerStaticInit.md) | |
 | [`ComposerStaticInit00d1f9b6bf944011268c41c2b4662055`](./classes/Composer/Autoload/ComposerStaticInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/Composer/Autoload/ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
-| [`ComposerStaticInit43ee69a3007d6872663d476a71cbd862`](./classes/Composer/Autoload/ComposerStaticInit43ee69a3007d6872663d476a71cbd862.md) | |
 
 
 
@@ -539,10 +539,10 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Collection`](./classes/Content/Controller/Collection.md) | Class Controller|
-| [`Content`](./classes/Content/Controller/Content.md) | Class Controller|
-| [`Models`](./classes/Content/Controller/Models.md) | Class Controller|
-| [`Singleton`](./classes/Content/Controller/Singleton.md) | Class Controller|
+| [`collection`](./classes/Content/Controller/collection.md) | Class Controller|
+| [`content`](./classes/Content/Controller/content.md) | Class Controller|
+| [`models`](./classes/Content/Controller/models.md) | Class Controller|
+| [`singleton`](./classes/Content/Controller/singleton.md) | Class Controller|
 
 
 
@@ -2610,12 +2610,12 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Api`](./classes/System/Controller/Api.md) | Class Controller|
-| [`Locales`](./classes/System/Controller/Locales.md) | Class Controller|
-| [`Logs`](./classes/System/Controller/Logs.md) | Class Controller|
-| [`Settings`](./classes/System/Controller/Settings.md) | Class Controller|
-| [`Users`](./classes/System/Controller/Users.md) | Class Controller|
-| [`Utils`](./classes/System/Controller/Utils.md) | Class Controller|
+| [`api`](./classes/System/Controller/api.md) | Class Controller|
+| [`locales`](./classes/System/Controller/locales.md) | Class Controller|
+| [`logs`](./classes/System/Controller/logs.md) | Class Controller|
+| [`settings`](./classes/System/Controller/settings.md) | Class Controller|
+| [`users`](./classes/System/Controller/users.md) | Class Controller|
+| [`utils`](./classes/System/Controller/utils.md) | Class Controller|
 
 
 
@@ -2626,7 +2626,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Roles`](./classes/System/Controller/Users/Roles.md) | Class Controller|
+| [`roles`](./classes/System/Controller/Users/roles.md) | Class Controller|
 
 
 
@@ -2637,13 +2637,13 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Api`](./classes/System/Helper/Api.md) | |
-| [`Locales`](./classes/System/Helper/Locales.md) | |
 | [`Log`](./classes/System/Helper/Log.md) | |
 | [`LogChannel`](./classes/System/Helper/LogChannel.md) | |
-| [`Revisions`](./classes/System/Helper/Revisions.md) | |
-| [`Settings`](./classes/System/Helper/Settings.md) | |
-| [`System`](./classes/System/Helper/System.md) | |
+| [`api`](./classes/System/Helper/api.md) | |
+| [`locales`](./classes/System/Helper/locales.md) | |
+| [`revisions`](./classes/System/Helper/revisions.md) | |
+| [`settings`](./classes/System/Helper/settings.md) | |
+| [`system`](./classes/System/Helper/system.md) | |
 
 
 
@@ -2781,18 +2781,18 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/yxorP/app/lib/proxy/Client.md) | |
-| [`HandlerStack`](./classes/yxorP/app/lib/proxy/HandlerStack.md) | |
-| [`MessageFormatter`](./classes/yxorP/app/lib/proxy/MessageFormatter.md) | |
-| [`Middleware`](./classes/yxorP/app/lib/proxy/Middleware.md) | |
-| [`Pool`](./classes/yxorP/app/lib/proxy/Pool.md) | |
-| [`PrepareBodyMiddleware`](./classes/yxorP/app/lib/proxy/PrepareBodyMiddleware.md) | |
-| [`RedirectMiddleware`](./classes/yxorP/app/lib/proxy/RedirectMiddleware.md) | |
-| [`RequestOptions`](./classes/yxorP/app/lib/proxy/RequestOptions.md) | |
-| [`RetryMiddleware`](./classes/yxorP/app/lib/proxy/RetryMiddleware.md) | |
-| [`TransferStats`](./classes/yxorP/app/lib/proxy/TransferStats.md) | |
-| [`UriTemplate`](./classes/yxorP/app/lib/proxy/UriTemplate.md) | |
-| [`Utils`](./classes/yxorP/app/lib/proxy/Utils.md) | |
+| [`client`](./classes/yxorP/app/lib/proxy/client.md) | |
+| [`handlerStack`](./classes/yxorP/app/lib/proxy/handlerStack.md) | |
+| [`messageFormatter`](./classes/yxorP/app/lib/proxy/messageFormatter.md) | |
+| [`middleware`](./classes/yxorP/app/lib/proxy/middleware.md) | |
+| [`pool`](./classes/yxorP/app/lib/proxy/pool.md) | |
+| [`prepareBodyMiddleware`](./classes/yxorP/app/lib/proxy/prepareBodyMiddleware.md) | |
+| [`redirectMiddleware`](./classes/yxorP/app/lib/proxy/redirectMiddleware.md) | |
+| [`requestOptions`](./classes/yxorP/app/lib/proxy/requestOptions.md) | |
+| [`retryMiddleware`](./classes/yxorP/app/lib/proxy/retryMiddleware.md) | |
+| [`transferStats`](./classes/yxorP/app/lib/proxy/transferStats.md) | |
+| [`uriTemplate`](./classes/yxorP/app/lib/proxy/uriTemplate.md) | |
+| [`utils`](./classes/yxorP/app/lib/proxy/utils.md) | |
 
 
 
@@ -2800,7 +2800,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`ClientInterface`](./classes/yxorP/app/lib/proxy/ClientInterface.md) | |
+| [`clientInterface`](./classes/yxorP/app/lib/proxy/clientInterface.md) | |
 
 
 
@@ -2831,15 +2831,15 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`AATransferException`](./classes/yxorP/app/lib/proxy/Exception/AATransferException.md) | |
-| [`ARequestExceptionAA`](./classes/yxorP/app/lib/proxy/Exception/ARequestExceptionAA.md) | |
-| [`BadResponseException`](./classes/yxorP/app/lib/proxy/Exception/BadResponseException.md) | |
-| [`ClientException`](./classes/yxorP/app/lib/proxy/Exception/ClientException.md) | |
-| [`ConnectException`](./classes/yxorP/app/lib/proxy/Exception/ConnectException.md) | |
-| [`InvalidArgumentException`](./classes/yxorP/app/lib/proxy/Exception/InvalidArgumentException.md) | |
-| [`SeekException`](./classes/yxorP/app/lib/proxy/Exception/SeekException.md) | |
-| [`ServerException`](./classes/yxorP/app/lib/proxy/Exception/ServerException.md) | |
-| [`TooManyRedirectsException`](./classes/yxorP/app/lib/proxy/Exception/TooManyRedirectsException.md) | |
+| [`aRequestExceptionAa`](./classes/yxorP/app/lib/proxy/Exception/aRequestExceptionAa.md) | |
+| [`aaTransferException`](./classes/yxorP/app/lib/proxy/Exception/aaTransferException.md) | |
+| [`badResponseException`](./classes/yxorP/app/lib/proxy/Exception/badResponseException.md) | |
+| [`clientException`](./classes/yxorP/app/lib/proxy/Exception/clientException.md) | |
+| [`connectException`](./classes/yxorP/app/lib/proxy/Exception/connectException.md) | |
+| [`invalidArgumentException`](./classes/yxorP/app/lib/proxy/Exception/invalidArgumentException.md) | |
+| [`seekException`](./classes/yxorP/app/lib/proxy/Exception/seekException.md) | |
+| [`serverException`](./classes/yxorP/app/lib/proxy/Exception/serverException.md) | |
+| [`tooManyRedirectsException`](./classes/yxorP/app/lib/proxy/Exception/tooManyRedirectsException.md) | |
 
 
 
@@ -2857,13 +2857,13 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`CurlFactory`](./classes/yxorP/app/lib/proxy/Handler/CurlFactory.md) | |
-| [`CurlHandler`](./classes/yxorP/app/lib/proxy/Handler/CurlHandler.md) | |
-| [`CurlMultiHandler`](./classes/yxorP/app/lib/proxy/Handler/CurlMultiHandler.md) | |
-| [`EasyHandle`](./classes/yxorP/app/lib/proxy/Handler/EasyHandle.md) | |
-| [`MockHandler`](./classes/yxorP/app/lib/proxy/Handler/MockHandler.md) | |
-| [`Proxy`](./classes/yxorP/app/lib/proxy/Handler/Proxy.md) | |
-| [`StreamHandler`](./classes/yxorP/app/lib/proxy/Handler/StreamHandler.md) | |
+| [`curlFactory`](./classes/yxorP/app/lib/proxy/Handler/curlFactory.md) | |
+| [`curlHandler`](./classes/yxorP/app/lib/proxy/Handler/curlHandler.md) | |
+| [`curlMultiHandler`](./classes/yxorP/app/lib/proxy/Handler/curlMultiHandler.md) | |
+| [`easyHandle`](./classes/yxorP/app/lib/proxy/Handler/easyHandle.md) | |
+| [`mockHandler`](./classes/yxorP/app/lib/proxy/Handler/mockHandler.md) | |
+| [`proxy`](./classes/yxorP/app/lib/proxy/Handler/proxy.md) | |
+| [`streamHandler`](./classes/yxorP/app/lib/proxy/Handler/streamHandler.md) | |
 
 
 
@@ -2871,7 +2871,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`CurlFactoryInterface`](./classes/yxorP/app/lib/proxy/Handler/CurlFactoryInterface.md) | |
+| [`curlFactoryInterface`](./classes/yxorP/app/lib/proxy/Handler/curlFactoryInterface.md) | |
 
 
 
@@ -2881,15 +2881,15 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`ARejectionException`](./classes/yxorP/app/lib/proxy/Promise/ARejectionException.md) | |
-| [`AggregateExceptionA`](./classes/yxorP/app/lib/proxy/Promise/AggregateExceptionA.md) | |
-| [`CancellationExceptionA`](./classes/yxorP/app/lib/proxy/Promise/CancellationExceptionA.md) | |
-| [`Coroutine`](./classes/yxorP/app/lib/proxy/Promise/Coroutine.md) | |
-| [`EachPromise`](./classes/yxorP/app/lib/proxy/Promise/EachPromise.md) | |
-| [`FulfilledPromise`](./classes/yxorP/app/lib/proxy/Promise/FulfilledPromise.md) | |
-| [`Promise`](./classes/yxorP/app/lib/proxy/Promise/Promise.md) | |
-| [`RejectedPromise`](./classes/yxorP/app/lib/proxy/Promise/RejectedPromise.md) | |
-| [`TaskQueue`](./classes/yxorP/app/lib/proxy/Promise/TaskQueue.md) | |
+| [`aRejectionException`](./classes/yxorP/app/lib/proxy/Promise/aRejectionException.md) | |
+| [`aggregateExceptionA`](./classes/yxorP/app/lib/proxy/Promise/aggregateExceptionA.md) | |
+| [`cancellationExceptionA`](./classes/yxorP/app/lib/proxy/Promise/cancellationExceptionA.md) | |
+| [`coroutine`](./classes/yxorP/app/lib/proxy/Promise/coroutine.md) | |
+| [`eachPromise`](./classes/yxorP/app/lib/proxy/Promise/eachPromise.md) | |
+| [`fulfilledPromise`](./classes/yxorP/app/lib/proxy/Promise/fulfilledPromise.md) | |
+| [`promise`](./classes/yxorP/app/lib/proxy/Promise/promise.md) | |
+| [`rejectedPromise`](./classes/yxorP/app/lib/proxy/Promise/rejectedPromise.md) | |
+| [`taskQueue`](./classes/yxorP/app/lib/proxy/Promise/taskQueue.md) | |
 
 
 
@@ -2897,9 +2897,9 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`PromiseInterface`](./classes/yxorP/app/lib/proxy/Promise/PromiseInterface.md) | |
-| [`PromisorInterface`](./classes/yxorP/app/lib/proxy/Promise/PromisorInterface.md) | |
-| [`TaskQueueInterface`](./classes/yxorP/app/lib/proxy/Promise/TaskQueueInterface.md) | |
+| [`promiseInterface`](./classes/yxorP/app/lib/proxy/Promise/promiseInterface.md) | |
+| [`promisorInterface`](./classes/yxorP/app/lib/proxy/Promise/promisorInterface.md) | |
+| [`taskQueueInterface`](./classes/yxorP/app/lib/proxy/Promise/taskQueueInterface.md) | |
 
 
 
@@ -2909,35 +2909,35 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`AppendStream`](./classes/yxorP/app/lib/proxy/Psr7/AppendStream.md) | |
-| [`BufferStream`](./classes/yxorP/app/lib/proxy/Psr7/BufferStream.md) | |
-| [`CachingStream`](./classes/yxorP/app/lib/proxy/Psr7/CachingStream.md) | |
-| [`DroppingStream`](./classes/yxorP/app/lib/proxy/Psr7/DroppingStream.md) | |
-| [`FnStream`](./classes/yxorP/app/lib/proxy/Psr7/FnStream.md) | |
-| [`InflateStream`](./classes/yxorP/app/lib/proxy/Psr7/InflateStream.md) | |
-| [`LazyOpenStream`](./classes/yxorP/app/lib/proxy/Psr7/LazyOpenStream.md) | |
-| [`LimitStream`](./classes/yxorP/app/lib/proxy/Psr7/LimitStream.md) | |
-| [`MultipartStream`](./classes/yxorP/app/lib/proxy/Psr7/MultipartStream.md) | |
-| [`NoSeekStream`](./classes/yxorP/app/lib/proxy/Psr7/NoSeekStream.md) | |
-| [`PumpStream`](./classes/yxorP/app/lib/proxy/Psr7/PumpStream.md) | |
-| [`Request`](./classes/yxorP/app/lib/proxy/Psr7/Request.md) | |
-| [`Response`](./classes/yxorP/app/lib/proxy/Psr7/Response.md) | |
-| [`Rfc7230`](./classes/yxorP/app/lib/proxy/Psr7/Rfc7230.md) | |
-| [`ServerRequest`](./classes/yxorP/app/lib/proxy/Psr7/ServerRequest.md) | |
-| [`Stream`](./classes/yxorP/app/lib/proxy/Psr7/Stream.md) | |
-| [`StreamWrapper`](./classes/yxorP/app/lib/proxy/Psr7/StreamWrapper.md) | |
-| [`UploadedFile`](./classes/yxorP/app/lib/proxy/Psr7/UploadedFile.md) | |
-| [`Uri`](./classes/yxorP/app/lib/proxy/Psr7/Uri.md) | |
-| [`UriNormalizer`](./classes/yxorP/app/lib/proxy/Psr7/UriNormalizer.md) | |
-| [`UriResolver`](./classes/yxorP/app/lib/proxy/Psr7/UriResolver.md) | |
+| [`appendStream`](./classes/yxorP/app/lib/proxy/Psr7/appendStream.md) | |
+| [`bufferStream`](./classes/yxorP/app/lib/proxy/Psr7/bufferStream.md) | |
+| [`cachingStream`](./classes/yxorP/app/lib/proxy/Psr7/cachingStream.md) | |
+| [`droppingStream`](./classes/yxorP/app/lib/proxy/Psr7/droppingStream.md) | |
+| [`fnStream`](./classes/yxorP/app/lib/proxy/Psr7/fnStream.md) | |
+| [`inflateStream`](./classes/yxorP/app/lib/proxy/Psr7/inflateStream.md) | |
+| [`lazyOpenStream`](./classes/yxorP/app/lib/proxy/Psr7/lazyOpenStream.md) | |
+| [`limitStream`](./classes/yxorP/app/lib/proxy/Psr7/limitStream.md) | |
+| [`multipartStream`](./classes/yxorP/app/lib/proxy/Psr7/multipartStream.md) | |
+| [`noSeekStream`](./classes/yxorP/app/lib/proxy/Psr7/noSeekStream.md) | |
+| [`pumpStream`](./classes/yxorP/app/lib/proxy/Psr7/pumpStream.md) | |
+| [`request`](./classes/yxorP/app/lib/proxy/Psr7/request.md) | |
+| [`response`](./classes/yxorP/app/lib/proxy/Psr7/response.md) | |
+| [`rfc7230`](./classes/yxorP/app/lib/proxy/Psr7/rfc7230.md) | |
+| [`serverRequest`](./classes/yxorP/app/lib/proxy/Psr7/serverRequest.md) | |
+| [`stream`](./classes/yxorP/app/lib/proxy/Psr7/stream.md) | |
+| [`streamWrapper`](./classes/yxorP/app/lib/proxy/Psr7/streamWrapper.md) | |
+| [`uploadedFile`](./classes/yxorP/app/lib/proxy/Psr7/uploadedFile.md) | |
+| [`uri`](./classes/yxorP/app/lib/proxy/Psr7/uri.md) | |
+| [`uriNormalizer`](./classes/yxorP/app/lib/proxy/Psr7/uriNormalizer.md) | |
+| [`uriResolver`](./classes/yxorP/app/lib/proxy/Psr7/uriResolver.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`AStreamDecoratorTrait`](./classes/yxorP/app/lib/proxy/Psr7/AStreamDecoratorTrait.md) | |
-| [`MessageTrait`](./classes/yxorP/app/lib/proxy/Psr7/MessageTrait.md) | |
+| [`aStreamDecoratorTrait`](./classes/yxorP/app/lib/proxy/Psr7/aStreamDecoratorTrait.md) | |
+| [`messageTrait`](./classes/yxorP/app/lib/proxy/Psr7/messageTrait.md) | |
 
 
 
