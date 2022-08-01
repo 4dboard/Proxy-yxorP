@@ -71,7 +71,6 @@ class createTranslation extends Command
                 preg_match_all('/(?:{{ t|<\?=t|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
 
                 if (!isset($matches[2])) continue;
-
                 foreach ($matches[2] as &$string) $strings[$string] = $string;
             }
 
@@ -89,7 +88,6 @@ class createTranslation extends Command
                         $values = explode("\n@\n", $ret);
 
                         foreach ($keys as $idx => $key) {
-
                             if (!$idx || !isset($values[$idx])) continue;
                             $strings[$key] = $values[$idx];
                         }
