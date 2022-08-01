@@ -3,6 +3,8 @@
 namespace yxorp\app\modules\system\Controller;
 
 use App\Controller\app;
+use Exception;
+use function preg_match;
 
 class users extends app
 {
@@ -35,6 +37,23 @@ class users extends app
         $languages = $this->geti18n();
 
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
+    }
+
+    protected function geti18n()
+    {
+
+        $languages = [['i18n' => 'en', 'language' => 'English']];
+
+        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
+
+            $lang = include($file->getRealPath());
+            $i18n = $file->getBasename('.php');
+            $language = $lang['@meta']['language'] ?? $i18n;
+
+            $languages[] = ['i18n' => $i18n, 'language' => $language];
+        }
+
+        return $languages;
     }
 
     public function create()
@@ -167,11 +186,11 @@ class users extends app
 
             $filter = null;
 
-            if (\preg_match('/^{(.*)}$/', $options['filter'])) {
+            if (preg_match('/^{(.*)}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                 }
             }
 
@@ -216,23 +235,6 @@ class users extends app
         $this->app->response->mime = 'svg';
 
         return $this->helper('twfa')->getQRCodeImage($secret, intval($size));
-    }
-
-    protected function geti18n()
-    {
-
-        $languages = [['i18n' => 'en', 'language' => 'English']];
-
-        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
-
-            $lang = include($file->getRealPath());
-            $i18n = $file->getBasename('.php');
-            $language = $lang['@meta']['language'] ?? $i18n;
-
-            $languages[] = ['i18n' => $i18n, 'language' => $language];
-        }
-
-        return $languages;
     }
 
     protected function before()

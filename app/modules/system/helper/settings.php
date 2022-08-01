@@ -3,10 +3,12 @@
 namespace yxorp\app\modules\system\Helper;
 
 use ArrayObject;
+use function array_filter;
+use const yxorP\app\lib\lime\helper;
 
 class settings extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     public
@@ -70,7 +72,7 @@ class settings extends \
 
             foreach ($settings as $group => $items) {
 
-                $items = \array_filter($items, function ($item) use ($acl) {
+                $items = array_filter($items, function ($item) use ($acl) {
                     return isset($item['permission']) && $item['permission'] ? $acl->isAllowed($item['permission']) : true;
                 });
 

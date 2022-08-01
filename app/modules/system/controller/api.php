@@ -89,6 +89,11 @@ class api extends app
         return ['success' => true];
     }
 
+    protected function cache()
+    {
+        $this->helper('api')->cache();
+    }
+
     public function save()
     {
 
@@ -209,11 +214,6 @@ class api extends app
         $this->layout = 'app:layouts/raw.php';
 
         return $this->render('system:views/api/graphql-viewer.php', compact('apiKey', 'bgColor', 'primaryColor', 'textColor'));
-    }
-
-    protected function cache()
-    {
-        $this->helper('api')->cache();
     }
 
     protected function before()

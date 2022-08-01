@@ -3,6 +3,9 @@
 namespace yxorp\app\modules\system\Controller;
 
 use App\Controller\app;
+use ArrayObject;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 class utils extends app
 {
@@ -54,7 +57,7 @@ class utils extends app
     public function icons()
     {
 
-        $icons = new \ArrayObject([]);
+        $icons = new ArrayObject([]);
         $dirs = [
             '#config:icons',
         ];
@@ -65,8 +68,8 @@ class utils extends app
 
             if (!$path) continue;
 
-            $dir = new \RecursiveDirectoryIterator($path);
-            $iterator = new \RecursiveIteratorIterator($dir);
+            $dir = new RecursiveDirectoryIterator($path);
+            $iterator = new RecursiveIteratorIterator($dir);
 
 
             foreach ($iterator as $f) {

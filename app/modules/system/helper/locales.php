@@ -1,9 +1,12 @@
 <?php
 
 namespace yxorp\app\modules\system\Helper;
+use Throwable;
+use const yxorP\app\lib\lime\helper;
+
 class locales extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     protected
@@ -129,7 +132,7 @@ class locales extends \
                 $cache[$locale['i18n']] = $locale;
             }
 
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $locales = null;
         }
 

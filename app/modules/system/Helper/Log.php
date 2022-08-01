@@ -2,9 +2,11 @@
 
 namespace yxorp\app\modules\system\Helper;
 
+use const yxorP\app\lib\lime\helper;
+
 class Log extends \
 
-\yxorP\app\lib\lime\helper
+helper
 {
 
     protected
@@ -40,6 +42,24 @@ class LogChannel
         $this->addRecord($message, 'info', $context);
     }
 
+    protected function addRecord(string $message, $type = 'info', ?array $context = null): void
+    {
+
+        $time = time();
+
+        $record = [
+            'message' => $message,
+            'type' => $type,
+            'channel' => $this->name,
+            'context' => $context,
+            'timestamp' => $time,
+            'datetime' => date('Y-m-d G:i:s T', $time)
+        ];
+
+        $this->app->dataStorage->save('system/log', $record);
+
+    }
+
     public function debug(string $message, ?array $context = null): void
     {
         $this->addRecord($message, 'debug', $context);
@@ -63,24 +83,6 @@ class LogChannel
     public function error(string $message, ?array $context = null): void
     {
         $this->addRecord($message, 'error', $context);
-    }
-
-    protected function addRecord(string $message, $type = 'info', ?array $context = null): void
-    {
-
-        $time = time();
-
-        $record = [
-            'message' => $message,
-            'type' => $type,
-            'channel' => $this->name,
-            'context' => $context,
-            'timestamp' => $time,
-            'datetime' => date('Y-m-d G:i:s T', $time)
-        ];
-
-        $this->app->dataStorage->save('system/log', $record);
-
     }
 
 }
