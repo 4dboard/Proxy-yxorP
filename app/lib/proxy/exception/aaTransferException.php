@@ -2,6 +2,10 @@
 
 use RuntimeException;
 
+echo 1;
+
 class aaTransferException extends RuntimeException implements proxyException
 {
 }
+
+echo 2;
