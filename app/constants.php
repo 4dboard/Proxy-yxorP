@@ -17,6 +17,7 @@ const MIME = 'MIME';
 const CHAR_SLASH = '/';
 const COOKIE_JAR = 'cookie_jar' . CHAR_PERIOD;
 const DIR_APP_STORAGE = 'storage';
+const DIR_APP_STORAGE_DATA = 'data';
 const FILE_COOKIE_JAR = COOKIE_JAR . CHAR_DASH . CACHE_KEY . EXT_TEXT;
 const VAR_CACHE_STORE = 'CACHE_STORE';
 const CHAR_UNDER = '_';
