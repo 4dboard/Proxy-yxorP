@@ -20,8 +20,6 @@ use function yxorP\app\lib\proxy\normalize_header_keys;
 use function yxorP\app\lib\proxy\promise\rejection_for;
 
 
-echo 1;
-
 class streamHandler
 {
     private $lastHeaders = [];

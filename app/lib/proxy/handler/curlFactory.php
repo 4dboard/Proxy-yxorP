@@ -14,9 +14,6 @@ use function yxorP\app\lib\proxy\is_host_in_noproxy;
 use function yxorP\app\lib\proxy\promise\rejection_for;
 use function yxorP\app\lib\proxy\psr7\stream_for;
 
-
-echo 1;
-
 class curlFactory implements curlFactoryInterface
 {
     const CURL_VERSION_STR = 'curl_version';
