@@ -23,7 +23,7 @@ class sessionCookieJar extends cookieJar
         $data = json_decode($_SESSION[$this->sessionKey], true);
         if (is_array($data)) {
             foreach ($data as $cookie) {
-                $this->setCookie(new sessionCookieJar($cookie));
+                $this->setCookie(new setCookie($cookie));
             }
         } elseif (strlen($data)) {
             throw new RuntimeException("Invalid cookie data");

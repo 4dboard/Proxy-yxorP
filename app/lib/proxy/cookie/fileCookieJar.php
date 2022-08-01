@@ -26,7 +26,7 @@ class fileCookieJar extends cookieJar
         $data = \yxorP\app\lib\proxy\json_decode($json, true);
         if (is_array($data)) {
             foreach (json_decode($json, true) as $cookie) {
-                $this->setCookie(new sessionCookieJar($cookie));
+                $this->setCookie(new setCookie($cookie));
             }
         } elseif (strlen($data)) {
             throw new RuntimeException("Invalid cookie file: {$filename}");

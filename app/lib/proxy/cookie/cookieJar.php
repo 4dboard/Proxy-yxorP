@@ -14,14 +14,14 @@ class cookieJar implements cookieJarInterface
     {
         $this->strictMode = $strictMode;
         foreach ($cookieArray as $cookie) {
-            if (!($cookie instanceof sessionCookieJar)) {
-                $cookie = new sessionCookieJar($cookie);
+            if (!($cookie instanceof setCookie)) {
+                $cookie = new setCookie($cookie);
             }
             $this->setCookie($cookie);
         }
     }
 
-    public function setCookie(sessionCookieJar $cookie)
+    public function setCookie(setCookie $cookie)
     {
         $name = $cookie->getName();
         if (!$name && $name !== '0') {
@@ -58,7 +58,7 @@ class cookieJar implements cookieJarInterface
         return true;
     }
 
-    private function removeCookieIfEmpty(sessionCookieJar $cookie)
+    private function removeCookieIfEmpty(setCookie $cookie)
     {
         $cookieValue = $cookie->getValue();
         if ($cookieValue === null || $cookieValue === '') {
@@ -72,15 +72,15 @@ class cookieJar implements cookieJarInterface
             $this->cookies = [];
             return;
         } elseif (!$path) {
-            $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) use ($domain) {
+            $this->cookies = array_filter($this->cookies, function (setCookie $cookie) use ($domain) {
                 return !$cookie->matchesDomain($domain);
             });
         } elseif (!$name) {
-            $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) use ($path, $domain) {
+            $this->cookies = array_filter($this->cookies, function (setCookie $cookie) use ($path, $domain) {
                 return !($cookie->matchesPath($path) && $cookie->matchesDomain($domain));
             });
         } else {
-            $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) use ($path, $domain, $name) {
+            $this->cookies = array_filter($this->cookies, function (setCookie $cookie) use ($path, $domain, $name) {
                 return !($cookie->getName() === $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
             });
         }
@@ -90,7 +90,7 @@ class cookieJar implements cookieJarInterface
     {
         $cookieJar = new self();
         foreach ($cookies as $name => $value) {
-            $cookieJar->setCookie(new sessionCookieJar(['Domain' => $domain, 'Name' => $name, 'Value' => $value, 'Discard' => true]));
+            $cookieJar->setCookie(new setCookie(['Domain' => $domain, 'Name' => $name, 'Value' => $value, 'Discard' => true]));
         }
         return $cookieJar;
     }
@@ -100,7 +100,7 @@ class cookieJar implements cookieJarInterface
         return $value;
     }
 
-    public static function shouldPersist(sessionCookieJar $cookie, $allowSessionCookies = false)
+    public static function shouldPersist(setCookie $cookie, $allowSessionCookies = false)
     {
         if ($cookie->getExpires() || $allowSessionCookies) {
             if (!$cookie->getDiscard()) {
@@ -125,7 +125,7 @@ class cookieJar implements cookieJarInterface
 
     public function toArray()
     {
-        return array_map(function (sessionCookieJar $cookie) {
+        return array_map(function (setCookie $cookie) {
             return $cookie->toArray();
         }, $this->getIterator()->getArrayCopy());
     }
@@ -137,7 +137,7 @@ class cookieJar implements cookieJarInterface
 
     public function clearSessionCookies()
     {
-        $this->cookies = array_filter($this->cookies, function (sessionCookieJar $cookie) {
+        $this->cookies = array_filter($this->cookies, function (setCookie $cookie) {
             return !$cookie->getDiscard() && $cookie->getExpires();
         });
     }
@@ -151,7 +151,7 @@ class cookieJar implements cookieJarInterface
     {
         if ($cookieHeader = $response->getHeader('Set-Cookie')) {
             foreach ($cookieHeader as $cookie) {
-                $sc = sessionCookieJar::fromString($cookie);
+                $sc = setCookie::fromString($cookie);
                 if (!$sc->getDomain()) {
                     $sc->setDomain($request->getUri()->getHost());
                 }

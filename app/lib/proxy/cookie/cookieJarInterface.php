@@ -11,7 +11,7 @@ interface cookieJarInterface extends Countable, IteratorAggregate
 
     public function extractCookies(requestInterface $request, responseInterface $response);
 
-    public function setCookie(sessionCookieJar $cookie);
+    public function setCookie(setCookie $cookie);
 
     public function clear($domain = null, $path = null, $name = null);
 
