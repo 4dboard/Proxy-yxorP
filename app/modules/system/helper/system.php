@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorp\app\modules\system\Helper;
+namespace yxorp\app\modules\system\helper;
 
 use Closure;
 use RecursiveDirectoryIterator;

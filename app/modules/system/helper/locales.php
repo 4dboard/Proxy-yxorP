@@ -1,12 +1,14 @@
 <?php
 
-namespace yxorp\app\modules\system\Helper;
+namespace yxorp\app\modules\system\helper;
+
+use helper;
 use Throwable;
 use const yxorP\app\lib\lime\helper;
 
-class locales extends \
+class locales extends
 
-helper
+    helper
 {
 
     protected

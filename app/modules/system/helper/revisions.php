@@ -1,16 +1,17 @@
 <?php
 
-namespace yxorp\app\modules\system\Helper;
+namespace yxorp\app\modules\system\helper;
 
+use helper;
 use const yxorP\app\lib\lime\helper;
 
-class revisions extends \
+class revisions extends
 
-helper
+    helper
 {
 
     protected
-    $storage;
+        $storage;
 
     public
     function initialize()
