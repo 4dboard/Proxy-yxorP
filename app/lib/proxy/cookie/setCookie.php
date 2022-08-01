@@ -8,6 +8,8 @@ class sessionCookieJar
 
     public function __construct(array $data = [])
     {
+        exit('2');
+
         $this->data = array_replace(self::$defaults, $data);
         if (!$this->getExpires() && $this->getMaxAge()) {
             $this->setExpires(time() + $this->getMaxAge());
@@ -18,6 +20,8 @@ class sessionCookieJar
 
     public function getExpires()
     {
+        exit('2');
+
         return $this->data['Expires'];
     }
 
