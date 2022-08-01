@@ -16,7 +16,7 @@ class ResponseCache extends Helper
     public function handle($request)
     {
 
-        if (!$request->param('rspc'))   return;
+        if (!$request->param('rspc')) return;
 
         if (!$this->getCache($request)) {
             $this->cache($request);
@@ -35,9 +35,7 @@ class ResponseCache extends Helper
 
             $this->app->on('before', function () use ($cache) {
 
-                if (!isset($this->response)) {
-                    return;
-                }
+                if (!isset($this->response)) return;
 
                 $this->response->headers['SITE_RSP_CACHE'] = 'true';
                 $this->response->mime = $cache['mime'] ?? 'text/html';
