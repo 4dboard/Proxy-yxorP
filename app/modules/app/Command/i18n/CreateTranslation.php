@@ -2,7 +2,10 @@
 
 namespace App\Command\i18n;
 
+use App\Helper\i18n;
 use MongoDB\Driver\Command;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +17,7 @@ class createTranslation extends Command
     protected static $defaultName = 'app:i18n:create';
     protected $app = null;
 
-    public function __construct(\\yxorP\app\lib\lime\App $app)
+    public function __construct(\\yxorP\app\lib\lime\app $app)
     {
         $this->app = $app;
         parent::__construct();
@@ -69,7 +72,7 @@ function execute(InputInterface $input, OutputInterface $output): int
         $name = basename($m->_dir);
 
         $strings = [];
-        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir), \RecursiveIteratorIterator::SELF_FIRST);
+        $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir), RecursiveIteratorIterator::SELF_FIRST);
 
         $output->writeln("<info>-></info> {$name}");
 
@@ -115,7 +118,7 @@ function execute(InputInterface $input, OutputInterface $output): int
             }
 
             $strings = array_merge([
-                '@meta' => ['language' => \App\Helper\i18n::$locales[$locale] ?? strtoupper($locale)]
+                '@meta' => ['language' => i18n::$locales[$locale] ?? strtoupper($locale)]
             ], $strings);
 
             if ($this->app->path("#config:i18n/{$name}/{$locale}.php")) {

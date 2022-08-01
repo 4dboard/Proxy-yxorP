@@ -2,9 +2,13 @@
 
 namespace App\RestApi;
 
+use function call_user_func;
+use function is_callable;
+use const yxorP\app\lib\lime\appAware;
+
 class query extends \
 
-\yxorP\app\lib\lime\AppAware
+appAware
 {
 
     protected
@@ -32,8 +36,8 @@ class query extends \
         }
     }
 
-    if ($handler && \is_callable($handler)) {
-        return \call_user_func($handler, $params, $this->app);
+    if ($handler && is_callable($handler)) {
+        return call_user_func($handler, $params, $this->app);
     }
 
     // custom file based route

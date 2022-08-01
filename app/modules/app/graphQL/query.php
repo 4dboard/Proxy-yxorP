@@ -8,10 +8,11 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use mysql_xdevapi\Schema;
+use const yxorP\app\lib\lime\appAware;
 
 class query extends \
 
-\yxorP\app\lib\lime\AppAware
+appAware
 {
 
     public
@@ -74,10 +75,10 @@ class query extends \
 
         if ($this->initialized) return;
 
-        $this->queries = new \ArrayObject(['name' => 'Query', 'fields' => []]);
-        $this->mutations = new \ArrayObject(['name' => 'Mutation', 'fields' => []]);
-        $this->types = new \ArrayObject([]);
-        $this->directives = new \ArrayObject(GraphQL::getStandardDirectives());
+        $this->queries = new ArrayObject(['name' => 'Query', 'fields' => []]);
+        $this->mutations = new ArrayObject(['name' => 'Mutation', 'fields' => []]);
+        $this->types = new ArrayObject([]);
+        $this->directives = new ArrayObject(GraphQL::getStandardDirectives());
         $this->app->trigger('graphql.config', [$this]);
         $this->initialized = true;
     }

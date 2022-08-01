@@ -2,9 +2,9 @@
 
 namespace App\Command\Cache;
 
-use \yxorP\app\lib\lime\App;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use yxorP\app\lib\lime\app;
 
 class flush
 {

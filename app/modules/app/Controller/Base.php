@@ -2,13 +2,18 @@
 
 namespace App\Controller;
 
+use function get_class;
+use function str_replace;
+use function strtolower;
+use const yxorP\app\lib\lime\appAware;
+
 /**
  * Class Controller
  * @package App
  */
 class base extends \
 
-\yxorP\app\lib\lime\AppAware
+appAware
 {
 
     protected
@@ -30,7 +35,7 @@ class base extends \
     function initialize()
     {
 
-        $controller = \strtolower(\str_replace('\\', '.', \get_class($this)));
+        $controller = strtolower(str_replace('\\', '.', get_class($this)));
 
         $this->app->trigger("app.{$controller}.init", [$this]);
 
