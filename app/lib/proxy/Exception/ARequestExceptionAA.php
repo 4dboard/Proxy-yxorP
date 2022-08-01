@@ -7,8 +7,6 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
-echo 1;
-
 class aRequestExceptionAa extends aaTransferException
 {
     private $request;
