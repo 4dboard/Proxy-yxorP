@@ -8,9 +8,7 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 
-class query extends
-
-    appAware
+class query extends appAware
 {
 
     public $queries;
