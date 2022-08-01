@@ -1,7 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\Cookie;
 
 use ArrayIterator;
-use ReturnTypeWillChange;
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
@@ -20,30 +19,6 @@ class cookieJar implements cookieJarInterface
             }
             $this->setCookie($cookie);
         }
-    }
-
-    public static function fromArray(array $cookies, $domain)
-    {
-        $cookieJar = new self();
-        foreach ($cookies as $name => $value) {
-            $cookieJar->setCookie(new sessionCookieJar(['Domain' => $domain, 'Name' => $name, 'Value' => $value, 'Discard' => true]));
-        }
-        return $cookieJar;
-    }
-
-    public static function getCookieValue($value)
-    {
-        return $value;
-    }
-
-    public static function shouldPersist(sessionCookieJar $cookie, $allowSessionCookies = false)
-    {
-        if ($cookie->getExpires() || $allowSessionCookies) {
-            if (!$cookie->getDiscard()) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public function setCookie(sessionCookieJar $cookie)
@@ -83,6 +58,14 @@ class cookieJar implements cookieJarInterface
         return true;
     }
 
+    private function removeCookieIfEmpty(sessionCookieJar $cookie)
+    {
+        $cookieValue = $cookie->getValue();
+        if ($cookieValue === null || $cookieValue === '') {
+            $this->clear($cookie->getDomain(), $cookie->getPath(), $cookie->getName());
+        }
+    }
+
     public function clear($domain = null, $path = null, $name = null)
     {
         if (!$domain) {
@@ -101,6 +84,30 @@ class cookieJar implements cookieJarInterface
                 return !($cookie->getName() === $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
             });
         }
+    }
+
+    public static function fromArray(array $cookies, $domain)
+    {
+        $cookieJar = new self();
+        foreach ($cookies as $name => $value) {
+            $cookieJar->setCookie(new sessionCookieJar(['Domain' => $domain, 'Name' => $name, 'Value' => $value, 'Discard' => true]));
+        }
+        return $cookieJar;
+    }
+
+    public static function getCookieValue($value)
+    {
+        return $value;
+    }
+
+    public static function shouldPersist(sessionCookieJar $cookie, $allowSessionCookies = false)
+    {
+        if ($cookie->getExpires() || $allowSessionCookies) {
+            if (!$cookie->getDiscard()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function getCookieByName($name)
@@ -156,29 +163,6 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    public function withCookieHeader(RequestInterface $request)
-    {
-        $values = [];
-        $uri = $request->getUri();
-        $scheme = $uri->getScheme();
-        $host = $uri->getHost();
-        $path = $uri->getPath() ?: '/';
-        foreach ($this->cookies as $cookie) {
-            if ($cookie->matchesPath($path) && $cookie->matchesDomain($host) && !$cookie->isExpired() && (!$cookie->getSecure() || $scheme === 'https')) {
-                $values[] = $cookie->getName() . '=' . $cookie->getValue();
-            }
-        }
-        return $values ? $request->withHeader('Cookie', implode('; ', $values)) : $request;
-    }
-
-    private function removeCookieIfEmpty(sessionCookieJar $cookie)
-    {
-        $cookieValue = $cookie->getValue();
-        if ($cookieValue === null || $cookieValue === '') {
-            $this->clear($cookie->getDomain(), $cookie->getPath(), $cookie->getName());
-        }
-    }
-
     private function getCookiePathFromRequest(RequestInterface $request)
     {
         $uriPath = $request->getUri()->getPath();
@@ -195,5 +179,20 @@ class cookieJar implements cookieJarInterface
             return '/';
         }
         return substr($uriPath, 0, $lastSlashPos);
+    }
+
+    public function withCookieHeader(RequestInterface $request)
+    {
+        $values = [];
+        $uri = $request->getUri();
+        $scheme = $uri->getScheme();
+        $host = $uri->getHost();
+        $path = $uri->getPath() ?: '/';
+        foreach ($this->cookies as $cookie) {
+            if ($cookie->matchesPath($path) && $cookie->matchesDomain($host) && !$cookie->isExpired() && (!$cookie->getSecure() || $scheme === 'https')) {
+                $values[] = $cookie->getName() . '=' . $cookie->getValue();
+            }
+        }
+        return $values ? $request->withHeader('Cookie', implode('; ', $values)) : $request;
     }
 }
