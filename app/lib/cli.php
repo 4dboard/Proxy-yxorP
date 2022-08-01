@@ -42,12 +42,8 @@
         $bg_colors = ['black' => '40', 'white' => '47', 'red' => '41', 'green' => '42', 'yellow' => '43', 'blue' => '44', 'magenta' => '45', 'cyan' => '46', 'light_gray' => '47'];
         $colored = "";
         if ($fgcolor && isset($fg_colors[$fgcolor])) $colored .= "\033[" . $fg_colors[$fgcolor] . "m";
-        if ($bgcolor && isset($bg_colors[$bgcolor])) {
-            $colored .= "\033[" . $bg_colors[$bgcolor] . "m";
-        }
-        if ($colored) {
-            $out = $colored . $out . "\033[0m";
-        }
+        if ($bgcolor && isset($bg_colors[$bgcolor])) $colored .= "\033[" . $bg_colors[$bgcolor] . "m";
+        if ($colored) $out = $colored . $out . "\033[0m";
         echo "{$out}";
     }
 
