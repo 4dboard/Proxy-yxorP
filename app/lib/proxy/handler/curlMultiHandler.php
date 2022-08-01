@@ -6,7 +6,7 @@ use yxorP\app\lib\proxy\Promise\Promise;
 use yxorP\app\lib\proxy\Utils;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
-class CurlMultiHandler
+class curlMultiHandler
 {
     private $factory;
     private $selectTimeout;
@@ -17,7 +17,7 @@ class CurlMultiHandler
 
     public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new CurlFactory(50);
+        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new curlFactory(50);
         if (isset($options['select_timeout'])) {
             $this->selectTimeout = $options['select_timeout'];
         } elseif ($selectTimeout = getenv('PROXY_CURL_SELECT_TIMEOUT')) {
@@ -136,7 +136,7 @@ class CurlMultiHandler
             $entry = $this->handles[$id];
             unset($this->handles[$id], $this->delays[$id]);
             $entry['easy']->errno = $done['result'];
-            $entry['deferred']->resolve(CurlFactory::finish($this, $entry['easy'], $this->factory));
+            $entry['deferred']->resolve(curlFactory::finish($this, $entry['easy'], $this->factory));
         }
     }
 }

@@ -3,8 +3,8 @@
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
-use yxorP\app\lib\proxy\Exception\BadResponseException;
-use yxorP\app\lib\proxy\Exception\TooManyRedirectsException;
+use yxorP\app\lib\proxy\Exception\badResponseException;
+use yxorP\app\lib\proxy\Exception\tooManyRedirectsException;
 use yxorP\app\lib\proxy\Promise\PromiseInterface;
 use yxorP\app\lib\proxy\Psr7;
 
@@ -92,7 +92,7 @@ class RedirectMiddleware
         $options['__redirect_count'] = $current + 1;
         $max = $options['allow_redirects']['max'];
         if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsException("Will not follow more than {$max} redirects", $request);
+            throw new tooManyRedirectsException("Will not follow more than {$max} redirects", $request);
         }
     }
 
@@ -100,7 +100,7 @@ class RedirectMiddleware
     {
         $location = Psr7\UriResolver::resolve($request->getUri(), new Psr7\Uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {
-            throw new BadResponseException(sprintf('Redirect URI, %s, does not use one of the allowed redirect protocols: %s', $location, implode(', ', $protocols)), $request, $response);
+            throw new badResponseException(sprintf('Redirect URI, %s, does not use one of the allowed redirect protocols: %s', $location, implode(', ', $protocols)), $request, $response);
         }
         return $location;
     }

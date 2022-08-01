@@ -6,8 +6,8 @@ use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
-use yxorP\app\lib\proxy\Exception\ARequestExceptionAA;
-use yxorP\app\lib\proxy\Exception\ConnectException;
+use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\Exception\connectException;
 use yxorP\app\lib\proxy\Promise\FulfilledPromise;
 use yxorP\app\lib\proxy\Psr7;
 use yxorP\app\lib\proxy\TransferStats;
@@ -40,9 +40,9 @@ class StreamHandler
         } catch (Exception $e) {
             $message = $e->getMessage();
             if (strpos($message, 'getaddrinfo') || strpos($message, 'Connection refused') || strpos($message, "couldn't connect to host") || strpos($message, "connection attempt failed")) {
-                $e = new ConnectException($e->getMessage(), $request, $e);
+                $e = new connectException($e->getMessage(), $request, $e);
             }
-            $e = ARequestExceptionAA::wrapException($request, $e);
+            $e = aRequestExceptionAa::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
             return rejection_for($e);
         }
@@ -69,7 +69,7 @@ class StreamHandler
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new ARequestExceptionAA($msg, $request, $response, $e);
+                $ex = new aRequestExceptionAa($msg, $request, $response, $e);
                 return rejection_for($ex);
             }
         }
@@ -208,13 +208,13 @@ class StreamHandler
             if ('v4' === $options['force_ip_resolve']) {
                 $records = dns_get_record($uri->getHost(), DNS_A);
                 if (!isset($records[0]['ip'])) {
-                    throw new ConnectException(sprintf("Could not resolve IPv4 address for host '%s'", $uri->getHost()), $request);
+                    throw new connectException(sprintf("Could not resolve IPv4 address for host '%s'", $uri->getHost()), $request);
                 }
                 $uri = $uri->withHost($records[0]['ip']);
             } elseif ('v6' === $options['force_ip_resolve']) {
                 $records = dns_get_record($uri->getHost(), DNS_AAAA);
                 if (!isset($records[0]['ipv6'])) {
-                    throw new ConnectException(sprintf("Could not resolve IPv6 address for host '%s'", $uri->getHost()), $request);
+                    throw new connectException(sprintf("Could not resolve IPv6 address for host '%s'", $uri->getHost()), $request);
                 }
                 $uri = $uri->withHost('[' . $records[0]['ipv6'] . ']');
             }

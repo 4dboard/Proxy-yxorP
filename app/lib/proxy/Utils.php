@@ -3,7 +3,7 @@
 use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
-use yxorP\app\lib\proxy\Exception\InvalidArgumentException;
+use yxorP\app\lib\proxy\Exception\invalidArgumentException;
 use function extension_loaded;
 use function idn_to_ascii;
 use function preg_match;
@@ -34,7 +34,7 @@ final class Utils
                 if ($errors) {
                     $errorMessage .= ' (errors: ' . implode(', ', $errors) . ')';
                 }
-                throw new InvalidArgumentException($errorMessage);
+                throw new invalidArgumentException($errorMessage);
             } else {
                 if ($uri->getHost() !== $asciiHost) {
                     $uri = $uri->withHost($asciiHost);

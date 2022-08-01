@@ -3,7 +3,7 @@
 use Exception;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
-class ConnectException extends ARequestExceptionAA
+class connectException extends aRequestExceptionAa
 {
     public function __construct($message, RequestInterface $request, Exception $previous = null, array $handlerContext = [])
     {

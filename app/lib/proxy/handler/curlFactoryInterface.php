@@ -2,7 +2,7 @@
 
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
-interface CurlFactoryInterface
+interface curlFactoryInterface
 {
     public function create(RequestInterface $request, array $options);
 

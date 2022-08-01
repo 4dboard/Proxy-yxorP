@@ -8,7 +8,7 @@ use ReturnTypeWillChange;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
-use yxorP\app\lib\proxy\Exception\ARequestExceptionAA;
+use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\HandlerStack;
 use yxorP\app\lib\proxy\Promise\PromiseInterface;
 use yxorP\app\lib\proxy\TransferStats;
@@ -57,7 +57,7 @@ class MockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new ARequestExceptionAA($msg, $request, $response, $e);
+                $response = new aRequestExceptionAa($msg, $request, $response, $e);
             }
         }
         if (is_callable($response)) {

@@ -4,8 +4,8 @@ use Exception;
 use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\proxy\Exception\ARequestExceptionAA;
-use yxorP\app\lib\proxy\Exception\ConnectException;
+use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
+use yxorP\app\lib\proxy\Exception\connectException;
 use yxorP\app\lib\proxy\Promise\FulfilledPromise;
 use yxorP\app\lib\proxy\Psr7\LazyOpenStream;
 use yxorP\app\lib\proxy\TransferStats;
@@ -14,7 +14,7 @@ use function yxorP\app\lib\proxy\is_host_in_noproxy;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
 use function yxorP\app\lib\proxy\Psr7\stream_for;
 
-class CurlFactory implements CurlFactoryInterface
+class curlFactory implements curlFactoryInterface
 {
     const CURL_VERSION_STR = 'curl_version';
     const LOW_CURL_VERSION_NUMBER = '7.21.2';
@@ -26,7 +26,7 @@ class CurlFactory implements CurlFactoryInterface
         $this->maxHandles = $maxHandles;
     }
 
-    public static function finish(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory)
+    public static function finish(callable $handler, EasyHandle $easy, curlFactoryInterface $factory)
     {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
@@ -50,7 +50,7 @@ class CurlFactory implements CurlFactoryInterface
         call_user_func($easy->options['on_stats'], $stats);
     }
 
-    private static function finishError(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory)
+    private static function finishError(callable $handler, EasyHandle $easy, curlFactoryInterface $factory)
     {
         $ctx = ['errno' => $easy->errno, 'error' => curl_error($easy->handle), 'appconnect_time' => curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME),] + curl_getinfo($easy->handle);
         $ctx[self::CURL_VERSION_STR] = curl_version()['version'];
@@ -87,14 +87,14 @@ class CurlFactory implements CurlFactoryInterface
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
-            return rejection_for(new ARequestExceptionAA('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
+            return rejection_for(new aRequestExceptionAa('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
         }
         if (version_compare($ctx[self::CURL_VERSION_STR], self::LOW_CURL_VERSION_NUMBER)) {
             $message = sprintf('cURL error %s: %s (%s)', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html');
         } else {
             $message = sprintf('cURL error %s: %s (%s) for %s', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html', $easy->request->getUri());
         }
-        $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new ARequestExceptionAA($message, $easy->request, $easy->response, null, $ctx);
+        $error = isset($connectionErrors[$easy->errno]) ? new connectException($message, $easy->request, null, $ctx) : new aRequestExceptionAa($message, $easy->request, $easy->response, null, $ctx);
         return rejection_for($error);
     }
 

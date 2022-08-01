@@ -2,8 +2,8 @@
 
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\proxy\Handler\CurlHandler;
-use yxorP\app\lib\proxy\Handler\CurlMultiHandler;
+use yxorP\app\lib\proxy\Handler\curlHandler;
+use yxorP\app\lib\proxy\Handler\curlMultiHandler;
 use yxorP\app\lib\proxy\Handler\Proxy;
 use yxorP\app\lib\proxy\Handler\StreamHandler;
 use function curl_version;
@@ -58,11 +58,11 @@ function choose_handler()
 {
     $handler = null;
     if (function_exists('curl_multi_exec') && function_exists('curl_exec')) {
-        $handler = Proxy::wrapSync(new CurlMultiHandler(), new CurlHandler());
+        $handler = Proxy::wrapSync(new curlMultiHandler(), new curlHandler());
     } elseif (function_exists('curl_exec')) {
-        $handler = new CurlHandler();
+        $handler = new curlHandler();
     } elseif (function_exists('curl_multi_exec')) {
-        $handler = new CurlMultiHandler();
+        $handler = new curlMultiHandler();
     }
     if (ini_get('allow_url_fopen')) {
         $handler = $handler ? Proxy::wrapStreaming($handler, new StreamHandler()) : new StreamHandler();
@@ -143,13 +143,13 @@ function is_host_in_noproxy($host, array $noProxyArray)
 function json_decode($json, $assoc = false, $depth = 512, $options = 0)
 {
     $data = \json_decode($json, $assoc, $depth, $options);
-    if (JSON_ERROR_NONE !== json_last_error()) throw new Exception\InvalidArgumentException('json_decode error: ' . json_last_error_msg());
+    if (JSON_ERROR_NONE !== json_last_error()) throw new Exception\invalidArgumentException('json_decode error: ' . json_last_error_msg());
     return $data;
 }
 
 function json_encode($value, $options = 0, $depth = 512)
 {
     $json = \json_encode($value, $options, $depth);
-    if (JSON_ERROR_NONE !== json_last_error()) throw new Exception\InvalidArgumentException('json_encode error: ' . json_last_error_msg());
+    if (JSON_ERROR_NONE !== json_last_error()) throw new Exception\invalidArgumentException('json_encode error: ' . json_last_error_msg());
     return $json;
 }

@@ -2,13 +2,13 @@
 
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
-class CurlHandler
+class curlHandler
 {
     private $factory;
 
     public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new CurlFactory(3);
+        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new curlFactory(3);
     }
 
     public function __invoke(RequestInterface $request, array $options)
@@ -19,6 +19,6 @@ class CurlHandler
         $easy = $this->factory->create($request, $options);
         curl_exec($easy->handle);
         $easy->errno = curl_errno($easy->handle);
-        return CurlFactory::finish($this, $easy, $this->factory);
+        return curlFactory::finish($this, $easy, $this->factory);
     }
 }

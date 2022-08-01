@@ -3,7 +3,7 @@
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class SeekException extends RuntimeException implements ProxyException
+class seekException extends RuntimeException implements ProxyException
 {
     private $stream;
 

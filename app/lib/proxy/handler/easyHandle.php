@@ -6,7 +6,7 @@ use yxorP\app\lib\proxy\Psr7\Response;
 use function yxorP\app\lib\proxy\headers_from_lines;
 use function yxorP\app\lib\proxy\normalize_header_keys;
 
-final class EasyHandle
+final class easyHandle
 {
     public $handle;
     public $sink;

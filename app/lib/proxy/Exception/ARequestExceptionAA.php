@@ -7,7 +7,7 @@ use yxorP\app\lib\Psr\Http\Message\UriInterface;
 use yxorP\app\lib\proxy\Promise\PromiseInterface;
 use function yxorP\app\lib\proxy\Psr7\get_message_body_summary;
 
-class ARequestExceptionAA extends AATransferException
+class aRequestExceptionAa extends aaTransferException
 {
     private $request;
     private $response;
@@ -24,7 +24,7 @@ class ARequestExceptionAA extends AATransferException
 
     public static function wrapException(RequestInterface $request, Exception $e)
     {
-        return $e instanceof ARequestExceptionAA ? $e : new ARequestExceptionAA($e->getMessage(), $request, null, $e);
+        return $e instanceof aRequestExceptionAa ? $e : new aRequestExceptionAa($e->getMessage(), $request, null, $e);
     }
 
     public static function create(RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $ctx = [])
@@ -35,10 +35,10 @@ class ARequestExceptionAA extends AATransferException
         $level = (int)floor($response->getStatusCode() / 100);
         if ($level === 4) {
             $label = 'Client error';
-            $className = ClientException::class;
+            $className = clientException::class;
         } elseif ($level === 5) {
             $label = 'Server error';
-            $className = ServerException::class;
+            $className = serverException::class;
         } else {
             $label = 'Unsuccessful request';
             $className = __CLASS__;
