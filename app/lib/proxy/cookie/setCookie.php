@@ -23,11 +23,14 @@ class sessionCookieJar
 
     public function getMaxAge()
     {
+        exit('2');
+
         return $this->data['Max-Age'];
     }
 
     public function setExpires($timestamp)
     {
+        exit('2');
         $this->data['Expires'] = is_numeric($timestamp) ? (int)$timestamp : strtotime($timestamp);
     }
 
