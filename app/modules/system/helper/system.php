@@ -16,7 +16,7 @@ class system extends yxorP\app\lib\lime\helper
             return $callback();
         } catch (Throwable $e) {
             if ($report) {
-                $this->report($e);
+                yxorP\app\lib\html\store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
             }
 
             return $rescue instanceof Closure ? $rescue($e) : $rescue;
