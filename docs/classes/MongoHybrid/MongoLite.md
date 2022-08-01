@@ -1,12 +1,12 @@
 ***
 
-# MongoLite
+# mongoLite
 
 
 
 
 
-* Full name: `\MongoHybrid\MongoLite`
+* Full name: `\MongoHybrid\mongoLite`
 
 
 
@@ -18,7 +18,7 @@
 
 
 ```php
-protected \MongoLite\Client $client
+protected \MongoLite\client $client
 ```
 
 
@@ -166,7 +166,7 @@ public findOne(string $collection, ?array $filter = null, ?array $projection = n
 
 
 ```php
-public getCollection(string $name, ?string $db = null): \MongoLite\Collection
+public getCollection(string $name, ?string $db = null): \MongoLite\collection
 ```
 
 
@@ -220,7 +220,7 @@ public findOneById(string $collection, string $id): ?array
 
 
 ```php
-public find(string $collection, array $options = []): \MongoHybrid\ResultSet
+public find(string $collection, array $options = []): \MongoHybrid\resultSet
 ```
 
 

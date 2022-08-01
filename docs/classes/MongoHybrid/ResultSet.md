@@ -1,12 +1,12 @@
 ***
 
-# ResultSet
+# resultSet
 
 
 
 
 
-* Full name: `\MongoHybrid\ResultSet`
+* Full name: `\MongoHybrid\resultSet`
 * Parent class: [`ArrayObject`](../ArrayObject.md)
 
 
@@ -19,7 +19,7 @@
 Driver
 
 ```php
-protected \MongoHybrid\Mongo|\MongoHybrid\MongoLite $driver
+protected \MongoHybrid\mongo|\MongoHybrid\mongoLite $driver
 ```
 
 

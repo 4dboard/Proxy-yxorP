@@ -1,12 +1,12 @@
 ***
 
-# Collection
+# collection
 
 Collection object.
 
 
 
-* Full name: `\MongoLite\Collection`
+* Full name: `\MongoLite\collection`
 
 
 
@@ -154,32 +154,6 @@ count count of inserted documents for arrays
 
 ***
 
-### _insert
-
-Insert document
-
-```php
-protected _insert(array& $document): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$document` | **array** |  |
-
-
-
-
-***
-
 ### save
 
 Save document
@@ -292,7 +266,7 @@ public count(mixed $criteria = null): int
 Find documents
 
 ```php
-public find(mixed $criteria = null, ?array $projection = null): \MongoLite\Cursor
+public find(mixed $criteria = null, ?array $projection = null): \MongoLite\cursor
 ```
 
 
@@ -391,6 +365,32 @@ public renameCollection(string $newname): bool
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newname` | **string** | [description] |
+
+
+
+
+***
+
+### _insert
+
+Insert document
+
+```php
+protected _insert(array& $document): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$document` | **array** |  |
 
 
 

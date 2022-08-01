@@ -1,40 +1,39 @@
 ***
 
-# SessionCookieJar
+# sessionCookieJar
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Cookie\SessionCookieJar`
-* Parent class: [`\yxorP\app\lib\proxy\Cookie\CookieJar`](./CookieJar.md)
+* Full name: `\yxorP\app\lib\proxy\Cookie\sessionCookieJar`
 
 
 
 ## Properties
 
 
-### sessionKey
+### defaults
 
 
 
 ```php
-private $sessionKey
+private static $defaults
 ```
 
 
 
-
+* This property is **static**.
 
 
 ***
 
-### storeSessionCookies
+### data
 
 
 
 ```php
-private $storeSessionCookies
+private $data
 ```
 
 
@@ -52,7 +51,7 @@ private $storeSessionCookies
 
 
 ```php
-public __construct(mixed $sessionKey, mixed $storeSessionCookies = false): mixed
+public __construct(array $data = []): mixed
 ```
 
 
@@ -66,20 +65,19 @@ public __construct(mixed $sessionKey, mixed $storeSessionCookies = false): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$sessionKey` | **mixed** |  |
-| `$storeSessionCookies` | **mixed** |  |
+| `$data` | **array** |  |
 
 
 
 
 ***
 
-### __destruct
+### getExpires
 
 
 
 ```php
-public __destruct(): mixed
+public getExpires(): mixed
 ```
 
 
@@ -94,12 +92,12 @@ public __destruct(): mixed
 
 ***
 
-### save
+### getMaxAge
 
 
 
 ```php
-public save(): mixed
+public getMaxAge(): mixed
 ```
 
 
@@ -114,36 +112,12 @@ public save(): mixed
 
 ***
 
-### load
+### setExpires
 
 
 
 ```php
-protected load(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-
-## Inherited methods
-
-
-### __construct
-
-
-
-```php
-public __construct(mixed $strictMode = false, mixed $cookieArray = []): mixed
+public setExpires(mixed $timestamp): mixed
 ```
 
 
@@ -157,20 +131,19 @@ public __construct(mixed $strictMode = false, mixed $cookieArray = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$strictMode` | **mixed** |  |
-| `$cookieArray` | **mixed** |  |
+| `$timestamp` | **mixed** |  |
 
 
 
 
 ***
 
-### fromArray
+### fromString
 
 
 
 ```php
-public static fromArray(array $cookies, mixed $domain): mixed
+public static fromString(mixed $cookie): mixed
 ```
 
 
@@ -184,73 +157,19 @@ public static fromArray(array $cookies, mixed $domain): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookies` | **array** |  |
-| `$domain` | **mixed** |  |
+| `$cookie` | **mixed** |  |
 
 
 
 
 ***
 
-### getCookieValue
+### __toString
 
 
 
 ```php
-public static getCookieValue(mixed $value): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### shouldPersist
-
-
-
-```php
-public static shouldPersist(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie, mixed $allowSessionCookies = false): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\SetCookie** |  |
-| `$allowSessionCookies` | **mixed** |  |
-
-
-
-
-***
-
-### setCookie
-
-
-
-```php
-public setCookie(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixed
+public __toString(): mixed
 ```
 
 
@@ -259,66 +178,6 @@ public setCookie(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\SetCookie** |  |
-
-
-
-
-***
-
-### clear
-
-
-
-```php
-public clear(mixed $domain = null, mixed $path = null, mixed $name = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$domain` | **mixed** |  |
-| `$path` | **mixed** |  |
-| `$name` | **mixed** |  |
-
-
-
-
-***
-
-### getCookieByName
-
-
-
-```php
-public getCookieByName(mixed $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **mixed** |  |
 
 
 
@@ -345,72 +204,12 @@ public toArray(): mixed
 
 ***
 
-### getIterator
+### setName
 
 
 
 ```php
-public getIterator(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### clearSessionCookies
-
-
-
-```php
-public clearSessionCookies(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### count
-
-
-
-```php
-public count(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### extractCookies
-
-
-
-```php
-public extractCookies(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response): mixed
+public setName(mixed $name): mixed
 ```
 
 
@@ -424,20 +223,19 @@ public extractCookies(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request,
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$name` | **mixed** |  |
 
 
 
 
 ***
 
-### withCookieHeader
+### setValue
 
 
 
 ```php
-public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
+public setValue(mixed $value): mixed
 ```
 
 
@@ -451,19 +249,19 @@ public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $reques
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$value` | **mixed** |  |
 
 
 
 
 ***
 
-### removeCookieIfEmpty
+### setDomain
 
 
 
 ```php
-private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixed
+public setDomain(mixed $domain): mixed
 ```
 
 
@@ -477,19 +275,19 @@ private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\SetCookie** |  |
+| `$domain` | **mixed** |  |
 
 
 
 
 ***
 
-### getCookiePathFromRequest
+### setPath
 
 
 
 ```php
-private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
+public setPath(mixed $path): mixed
 ```
 
 
@@ -503,7 +301,343 @@ private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$path` | **mixed** |  |
+
+
+
+
+***
+
+### setMaxAge
+
+
+
+```php
+public setMaxAge(mixed $maxAge): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$maxAge` | **mixed** |  |
+
+
+
+
+***
+
+### getSecure
+
+
+
+```php
+public getSecure(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setSecure
+
+
+
+```php
+public setSecure(mixed $secure): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$secure` | **mixed** |  |
+
+
+
+
+***
+
+### getDiscard
+
+
+
+```php
+public getDiscard(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setDiscard
+
+
+
+```php
+public setDiscard(mixed $discard): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$discard` | **mixed** |  |
+
+
+
+
+***
+
+### getHttpOnly
+
+
+
+```php
+public getHttpOnly(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setHttpOnly
+
+
+
+```php
+public setHttpOnly(mixed $httpOnly): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$httpOnly` | **mixed** |  |
+
+
+
+
+***
+
+### matchesPath
+
+
+
+```php
+public matchesPath(mixed $requestPath): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$requestPath` | **mixed** |  |
+
+
+
+
+***
+
+### getPath
+
+
+
+```php
+public getPath(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### matchesDomain
+
+
+
+```php
+public matchesDomain(mixed $domain): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$domain` | **mixed** |  |
+
+
+
+
+***
+
+### getDomain
+
+
+
+```php
+public getDomain(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### isExpired
+
+
+
+```php
+public isExpired(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### validate
+
+
+
+```php
+public validate(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getName
+
+
+
+```php
+public getName(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getValue
+
+
+
+```php
+public getValue(): mixed
+```
+
+
+
+
+
+
+
 
 
 

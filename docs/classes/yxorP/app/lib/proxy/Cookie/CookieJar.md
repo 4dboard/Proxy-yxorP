@@ -1,14 +1,14 @@
 ***
 
-# CookieJar
+# cookieJar
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Cookie\CookieJar`
+* Full name: `\yxorP\app\lib\proxy\Cookie\cookieJar`
 * This class implements:
-[`\yxorP\app\lib\proxy\Cookie\CookieJarInterface`](./CookieJarInterface.md)
+[`\yxorP\app\lib\proxy\Cookie\cookieJarInterface`](./cookieJarInterface.md)
 
 
 
@@ -133,7 +133,7 @@ public static getCookieValue(mixed $value): mixed
 
 
 ```php
-public static shouldPersist(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie, mixed $allowSessionCookies = false): mixed
+public static shouldPersist(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie, mixed $allowSessionCookies = false): mixed
 ```
 
 
@@ -147,7 +147,7 @@ public static shouldPersist(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie, mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\SetCookie** |  |
+| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
 | `$allowSessionCookies` | **mixed** |  |
 
 
@@ -160,7 +160,7 @@ public static shouldPersist(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie, mixed
 
 
 ```php
-public setCookie(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixed
+public setCookie(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
 ```
 
 
@@ -174,7 +174,7 @@ public setCookie(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\SetCookie** |  |
+| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
 
 
 
@@ -373,7 +373,7 @@ public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $reques
 
 
 ```php
-private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixed
+private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
 ```
 
 
@@ -387,7 +387,7 @@ private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\SetCookie $cookie): mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\SetCookie** |  |
+| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
 
 
 

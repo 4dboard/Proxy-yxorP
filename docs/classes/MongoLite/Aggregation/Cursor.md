@@ -65,7 +65,7 @@ protected array $pipeline
 
 
 ```php
-protected \MongoLite\Collection $collection
+protected \MongoLite\collection $collection
 ```
 
 
@@ -83,7 +83,7 @@ protected \MongoLite\Collection $collection
 
 
 ```php
-public __construct(\MongoLite\Collection $collection, array $pipeline): mixed
+public __construct(\MongoLite\collection $collection, array $pipeline): mixed
 ```
 
 
@@ -97,7 +97,7 @@ public __construct(\MongoLite\Collection $collection, array $pipeline): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$collection` | **\MongoLite\Collection** |  |
+| `$collection` | **\MongoLite\collection** |  |
 | `$pipeline` | **array** |  |
 
 
@@ -119,52 +119,6 @@ public toArray(): array
 
 
 
-
-
-
-
-***
-
-### getData
-
-Get documents matching criteria
-
-```php
-protected getData(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### make_cmp
-
-
-
-```php
-protected make_cmp(array $sortValues): \Closure
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$sortValues` | **array** |  |
 
 
 
@@ -265,6 +219,52 @@ public valid(): bool
 
 
 
+
+
+
+
+***
+
+### getData
+
+Get documents matching criteria
+
+```php
+protected getData(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### make_cmp
+
+
+
+```php
+protected make_cmp(array $sortValues): \Closure
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$sortValues` | **array** |  |
 
 
 

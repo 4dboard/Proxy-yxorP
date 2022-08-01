@@ -1,12 +1,12 @@
 ***
 
-# Mongo
+# mongo
 
 
 
 
 
-* Full name: `\MongoHybrid\Mongo`
+* Full name: `\MongoHybrid\mongo`
 
 
 
@@ -305,7 +305,7 @@ protected getObjectID(mixed $v): mixed
 
 
 ```php
-public find(string $collection, array $options = []): \MongoHybrid\ResultSet
+public find(string $collection, array $options = []): \MongoHybrid\resultSet
 ```
 
 
