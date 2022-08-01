@@ -1,10 +1,9 @@
 <?php
 
-namespace \yxorP\app\lib\lime\helper;
+namespace yxorP\app\lib\lime\helper;
 
 use ArrayObject;
 use Exception;
-use \yxorP\app\lib\lime\helper;
 use function array_keys;
 use function array_merge;
 use function array_values;

@@ -1,8 +1,7 @@
 <?php
 
-namespace \yxorP\app\lib\lime\helper;
+namespace yxorP\app\lib\lime\helper;
 
-use \yxorP\app\lib\lime\helper;
 use RecursiveDirectoryIterator;
 use function call_user_func;
 use function file_exists;
