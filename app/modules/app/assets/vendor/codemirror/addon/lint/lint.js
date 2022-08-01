@@ -10,11 +10,11 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     "use strict";
-    var GUTTER_ID = "CodeMirror-lint-markers";
-    var LINT_LINE_ID = "CodeMirror-lint-line-";
+    const GUTTER_ID = "CodeMirror-lint-markers";
+    const LINT_LINE_ID = "CodeMirror-lint-line-";
 
     function showTooltip(cm, e, content) {
-        var tt = document.createElement("div");
+        const tt = document.createElement("div");
         tt.className = "CodeMirror-lint-tooltip cm-s-" + cm.options.theme;
         tt.appendChild(content.cloneNode(true));
         if (cm.state.lint.options.selfContain)
@@ -48,7 +48,7 @@
     }
 
     function showTooltipFor(cm, e, content, node) {
-        var tooltip = showTooltip(cm, e, content);
+        let tooltip = showTooltip(cm, e, content);
 
         function hide() {
             CodeMirror.off(node, "mouseout", hide);
@@ -58,8 +58,8 @@
             }
         }
 
-        var poll = setInterval(function () {
-            if (tooltip) for (var n = node; ; n = n.parentNode) {
+        const poll = setInterval(function () {
+            if (tooltip) for (let n = node; ; n = n.parentNode) {
                 if (n && n.nodeType === 11) n = n.host;
                 if (n === document.body) return;
                 if (!n) {
@@ -107,23 +107,24 @@
     }
 
     function clearMarks(cm) {
-        var state = cm.state.lint;
+        const state = cm.state.lint;
         if (state.hasGutter) cm.clearGutter(GUTTER_ID);
         if (state.options.highlightLines) clearErrorLines(cm);
-        for (var i = 0; i < state.marked.length; ++i)
+        for (let i = 0; i < state.marked.length; ++i)
             state.marked[i].clear();
         state.marked.length = 0;
     }
 
     function clearErrorLines(cm) {
         cm.eachLine(function (line) {
-            var has = line.wrapClass && /\bCodeMirror-lint-line-\w+\b/.exec(line.wrapClass);
+            const has = line.wrapClass && /\bCodeMirror-lint-line-\w+\b/.exec(line.wrapClass);
             if (has) cm.removeLineClass(line, "wrap", has[0]);
         })
     }
 
     function makeMarker(cm, labels, severity, multiple, tooltips) {
-        var marker = document.createElement("div"), inner = marker;
+        const marker = document.createElement("div");
+        let inner = marker;
         marker.className = "CodeMirror-lint-marker CodeMirror-lint-marker-" + severity;
         if (multiple) {
             inner = marker.appendChild(document.createElement("div"));
@@ -143,18 +144,18 @@
     }
 
     function groupByLine(annotations) {
-        var lines = [];
-        for (var i = 0; i < annotations.length; ++i) {
-            var ann = annotations[i], line = ann.from.line;
+        const lines = [];
+        for (let i = 0; i < annotations.length; ++i) {
+            const ann = annotations[i], line = ann.from.line;
             (lines[line] || (lines[line] = [])).push(ann);
         }
         return lines;
     }
 
     function annotationTooltip(ann) {
-        var severity = ann.severity;
+        let severity = ann.severity;
         if (!severity) severity = "error";
-        var tip = document.createElement("div");
+        const tip = document.createElement("div");
         tip.className = "CodeMirror-lint-message CodeMirror-lint-message-" + severity;
         if (typeof ann.messageHTML != 'undefined') {
             tip.innerHTML = ann.messageHTML;
@@ -165,8 +166,8 @@
     }
 
     function lintAsync(cm, getAnnotations) {
-        var state = cm.state.lint
-        var id = ++state.waitingFor
+        const state = cm.state.lint;
+        let id = ++state.waitingFor;
 
         function abort() {
             id = -1
@@ -185,19 +186,19 @@
     }
 
     function startLinting(cm) {
-        var state = cm.state.lint;
+        const state = cm.state.lint;
         if (!state) return;
-        var options = state.options;
+        const options = state.options;
         /*
          * Passing rules in `options` property prevents JSHint (and other linters) from complaining
          * about unrecognized rules like `onUpdateLinting`, `delay`, `lintOnChange`, etc.
          */
-        var getAnnotations = options.getAnnotations || cm.getHelper(CodeMirror.Pos(0, 0), "lint");
+        const getAnnotations = options.getAnnotations || cm.getHelper(CodeMirror.Pos(0, 0), "lint");
         if (!getAnnotations) return;
         if (options.async || getAnnotations.async) {
             lintAsync(cm, getAnnotations)
         } else {
-            var annotations = getAnnotations(cm.getValue(), state.linterOptions, cm);
+            const annotations = getAnnotations(cm.getValue(), state.linterOptions, cm);
             if (!annotations) return;
             if (annotations.then) annotations.then(function (issues) {
                 cm.operation(function () {
@@ -211,29 +212,29 @@
     }
 
     function updateLinting(cm, annotationsNotSorted) {
-        var state = cm.state.lint;
+        const state = cm.state.lint;
         if (!state) return;
-        var options = state.options;
+        const options = state.options;
         clearMarks(cm);
 
-        var annotations = groupByLine(annotationsNotSorted);
+        const annotations = groupByLine(annotationsNotSorted);
 
-        for (var line = 0; line < annotations.length; ++line) {
-            var anns = annotations[line];
+        for (let line = 0; line < annotations.length; ++line) {
+            let anns = annotations[line];
             if (!anns) continue;
 
             // filter out duplicate messages
-            var message = [];
+            const message = [];
             anns = anns.filter(function (item) {
                 return message.indexOf(item.message) > -1 ? false : message.push(item.message)
             });
 
-            var maxSeverity = null;
-            var tipLabel = state.hasGutter && document.createDocumentFragment();
+            let maxSeverity = null;
+            const tipLabel = state.hasGutter && document.createDocumentFragment();
 
-            for (var i = 0; i < anns.length; ++i) {
-                var ann = anns[i];
-                var severity = ann.severity;
+            for (let i = 0; i < anns.length; ++i) {
+                let ann = anns[i];
+                let severity = ann.severity;
                 if (!severity) severity = "error";
                 maxSeverity = getMaxSeverity(maxSeverity, severity);
 
@@ -257,7 +258,7 @@
     }
 
     function onChange(cm) {
-        var state = cm.state.lint;
+        const state = cm.state.lint;
         if (!state) return;
         clearTimeout(state.timeout);
         state.timeout = setTimeout(function () {
@@ -266,24 +267,24 @@
     }
 
     function popupTooltips(cm, annotations, e) {
-        var target = e.target || e.srcElement;
-        var tooltip = document.createDocumentFragment();
-        for (var i = 0; i < annotations.length; i++) {
-            var ann = annotations[i];
+        const target = e.target || e.srcElement;
+        const tooltip = document.createDocumentFragment();
+        for (let i = 0; i < annotations.length; i++) {
+            const ann = annotations[i];
             tooltip.appendChild(annotationTooltip(ann));
         }
         showTooltipFor(cm, e, tooltip, target);
     }
 
     function onMouseOver(cm, e) {
-        var target = e.target || e.srcElement;
+        const target = e.target || e.srcElement;
         if (!/\bCodeMirror-lint-mark-/.test(target.className)) return;
-        var box = target.getBoundingClientRect(), x = (box.left + box.right) / 2, y = (box.top + box.bottom) / 2;
-        var spans = cm.findMarksAt(cm.coordsChar({left: x, top: y}, "client"));
+        const box = target.getBoundingClientRect(), x = (box.left + box.right) / 2, y = (box.top + box.bottom) / 2;
+        const spans = cm.findMarksAt(cm.coordsChar({left: x, top: y}, "client"));
 
-        var annotations = [];
-        for (var i = 0; i < spans.length; ++i) {
-            var ann = spans[i].__annotation;
+        const annotations = [];
+        for (let i = 0; i < spans.length; ++i) {
+            const ann = spans[i].__annotation;
             if (ann) annotations.push(ann);
         }
         if (annotations.length) popupTooltips(cm, annotations, e);
@@ -300,9 +301,10 @@
         }
 
         if (val) {
-            var gutters = cm.getOption("gutters"), hasLintGutter = false;
-            for (var i = 0; i < gutters.length; ++i) if (gutters[i] === GUTTER_ID) hasLintGutter = true;
-            var state = cm.state.lint = new LintState(cm, val, hasLintGutter);
+            const gutters = cm.getOption("gutters");
+            let hasLintGutter = false;
+            for (let i = 0; i < gutters.length; ++i) if (gutters[i] === GUTTER_ID) hasLintGutter = true;
+            const state = cm.state.lint = new LintState(cm, val, hasLintGutter);
             if (state.options.lintOnChange)
                 cm.on("change", onChange);
             if (state.options.tooltips !== false && state.options.tooltips !== "gutter")

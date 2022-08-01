@@ -62,7 +62,7 @@ doctype html
           h3 There are no spots currently available.
 </textarea></form>
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             mode: {name: "pug", alignCDATA: true},
             lineNumbers: true
         });

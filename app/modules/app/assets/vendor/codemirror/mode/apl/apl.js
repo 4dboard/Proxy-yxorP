@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineMode("apl", function () {
-        var builtInOps = {
+        const builtInOps = {
             ".": "innerProduct",
             "\\": "scan",
             "/": "reduce",
@@ -21,7 +21,7 @@
             "¨": "each",
             "⍣": "power"
         };
-        var builtInFuncs = {
+        const builtInFuncs = {
             "+": ["conjugate", "add"],
             "−": ["negate", "subtract"],
             "×": ["signOf", "multiply"],
@@ -74,14 +74,14 @@
             "⊢": ["pass", "right"]
         };
 
-        var isOperator = /[\.\/⌿⍀¨⍣]/;
-        var isNiladic = /⍬/;
-        var isFunction = /[\+−×÷⌈⌊∣⍳\?⋆⍟○!⌹<≤=>≥≠≡≢∈⍷∪∩∼∨∧⍱⍲⍴,⍪⌽⊖⍉↑↓⊂⊃⌷⍋⍒⊤⊥⍕⍎⊣⊢]/;
-        var isArrow = /←/;
-        var isComment = /[⍝#].*$/;
+        const isOperator = /[.\/⌿⍀¨⍣]/;
+        const isNiladic = /⍬/;
+        const isFunction = /[+−×÷⌈⌊∣⍳?⋆⍟○!⌹<≤=>≥≠≡≢∈⍷∪∩∼∨∧⍱⍲⍴,⍪⌽⊖⍉↑↓⊂⊃⌷⍋⍒⊤⊥⍕⍎⊣⊢]/;
+        const isArrow = /←/;
+        const isComment = /[⍝#].*$/;
 
-        var stringEater = function (type) {
-            var prev;
+        const stringEater = function (type) {
+            let prev;
             prev = false;
             return function (c) {
                 prev = c;
@@ -102,7 +102,7 @@
                 };
             },
             token: function (stream, state) {
-                var ch, funcName;
+                let ch, funcName;
                 if (stream.eatSpace()) {
                     return null;
                 }
@@ -113,11 +113,11 @@
                     state.prev = true;
                     return "string";
                 }
-                if (/[\[{\(]/.test(ch)) {
+                if (/[\[{(]/.test(ch)) {
                     state.prev = false;
                     return null;
                 }
-                if (/[\]}\)]/.test(ch)) {
+                if (/[\]})]/.test(ch)) {
                     state.prev = true;
                     return null;
                 }
@@ -132,7 +132,7 @@
                     } else {
                         state.prev = true;
                     }
-                    stream.eatWhile(/[\w\.]/);
+                    stream.eatWhile(/[\w.]/);
                     return "number";
                 }
                 if (isOperator.test(ch)) {
@@ -162,7 +162,7 @@
                     stream.next();
                     return "function jot-dot";
                 }
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 state.prev = true;
                 return "keyword";
             }

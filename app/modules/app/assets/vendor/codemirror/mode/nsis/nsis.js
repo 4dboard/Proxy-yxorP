@@ -16,7 +16,7 @@
     CodeMirror.defineSimpleMode("nsis", {
         start: [
             // Numbers
-            {regex: /(?:[+-]?)(?:0x[\d,a-f]+)|(?:0o[0-7]+)|(?:0b[0,1]+)|(?:\d+.?\d*)/, token: "number"},
+            {regex: /[+-]?0x[\d,a-f]+|0o[0-7]+|0b[0,1]+|\d+.?\d*/, token: "number"},
 
             // Strings
             {regex: /"(?:[^\\"]|\\.)*"?/, token: "string"},
@@ -25,13 +25,13 @@
 
             // Compile Time Commands
             {
-                regex: /^\s*(?:\!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|error|execute|finalize|getdllversion|gettlbversion|include|insertmacro|macro|macroend|makensis|packhdr|pragma|searchparse|searchreplace|system|tempfile|undef|uninstfinalize|verbose|warning))\b/i,
+                regex: /^\s*!(addincludedir|addplugindir|appendfile|cd|define|delfile|echo|error|execute|finalize|getdllversion|gettlbversion|include|insertmacro|macro|macroend|makensis|packhdr|pragma|searchparse|searchreplace|system|tempfile|undef|uninstfinalize|verbose|warning)\b/i,
                 token: "keyword"
             },
 
             // Conditional Compilation
-            {regex: /^\s*(?:\!(if(?:n?def)?|ifmacron?def|macro))\b/i, token: "keyword", indent: true},
-            {regex: /^\s*(?:\!(else|endif|macroend))\b/i, token: "keyword", dedent: true},
+            {regex: /^\s*!(if(?:n?def)?|ifmacron?def|macro)\b/i, token: "keyword", indent: true},
+            {regex: /^\s*!(else|endif|macroend)\b/i, token: "keyword", dedent: true},
 
             // Runtime Commands
             {
@@ -39,7 +39,7 @@
                 token: "keyword"
             },
             {regex: /^\s*(?:Function|PageEx|Section(?:Group)?)\b/i, token: "keyword", indent: true},
-            {regex: /^\s*(?:(Function|PageEx|Section(?:Group)?)End)\b/i, token: "keyword", dedent: true},
+            {regex: /^\s*(Function|PageEx|Section(?:Group)?)End\b/i, token: "keyword", dedent: true},
 
             // Command Options
             {
@@ -53,52 +53,52 @@
 
             // LogicLib.nsh
             {
-                regex: /\$\{(?:And(?:If(?:Not)?|Unless)|Break|Case(?:Else)?|Continue|Default|Do(?:Until|While)?|Else(?:If(?:Not)?|Unless)?|End(?:If|Select|Switch)|Exit(?:Do|For|While)|For(?:Each)?|If(?:Cmd|Not(?:Then)?|Then)?|Loop(?:Until|While)?|Or(?:If(?:Not)?|Unless)|Select|Switch|Unless|While)\}/i,
+                regex: /\${(?:And(?:If(?:Not)?|Unless)|Break|Case(?:Else)?|Continue|Default|Do(?:Until|While)?|Else(?:If(?:Not)?|Unless)?|End(?:If|Select|Switch)|Exit(?:Do|For|While)|For(?:Each)?|If(?:Cmd|Not(?:Then)?|Then)?|Loop(?:Until|While)?|Or(?:If(?:Not)?|Unless)|Select|Switch|Unless|While)}/i,
                 token: "variable-2",
                 indent: true
             },
 
             // FileFunc.nsh
             {
-                regex: /\$\{(?:BannerTrimPath|DirState|DriveSpace|Get(BaseName|Drives|ExeName|ExePath|FileAttributes|FileExt|FileName|FileVersion|Options|OptionsS|Parameters|Parent|Root|Size|Time)|Locate|RefreshShellIcons)\}/i,
+                regex: /\${(?:BannerTrimPath|DirState|DriveSpace|Get(BaseName|Drives|ExeName|ExePath|FileAttributes|FileExt|FileName|FileVersion|Options|OptionsS|Parameters|Parent|Root|Size|Time)|Locate|RefreshShellIcons)}/i,
                 token: "variable-2",
                 dedent: true
             },
 
             // Memento.nsh
             {
-                regex: /\$\{(?:Memento(?:Section(?:Done|End|Restore|Save)?|UnselectedSection))\}/i,
+                regex: /\${Memento(?:Section(?:Done|End|Restore|Save)?|UnselectedSection)}/i,
                 token: "variable-2",
                 dedent: true
             },
 
             // TextFunc.nsh
             {
-                regex: /\$\{(?:Config(?:Read|ReadS|Write|WriteS)|File(?:Join|ReadFromEnd|Recode)|Line(?:Find|Read|Sum)|Text(?:Compare|CompareS)|TrimNewLines)\}/i,
+                regex: /\${(?:Config(?:Read|ReadS|Write|WriteS)|File(?:Join|ReadFromEnd|Recode)|Line(?:Find|Read|Sum)|Text(?:Compare|CompareS)|TrimNewLines)}/i,
                 token: "variable-2",
                 dedent: true
             },
 
             // WinVer.nsh
             {
-                regex: /\$\{(?:(?:At(?:Least|Most)|Is)(?:ServicePack|Win(?:7|8|10|95|98|200(?:0|3|8(?:R2)?)|ME|NT4|Vista|XP))|Is(?:NT|Server))\}/i,
+                regex: /\${(?:(?:At(?:Least|Most)|Is)(?:ServicePack|Win(?:7|8|10|95|98|200(?:0|3|8(?:R2)?)|ME|NT4|Vista|XP))|Is(?:NT|Server))}/i,
                 token: "variable",
                 dedent: true
             },
 
             // WordFunc.nsh
             {
-                regex: /\$\{(?:StrFilterS?|Version(?:Compare|Convert)|Word(?:AddS?|Find(?:(?:2|3)X)?S?|InsertS?|ReplaceS?))\}/i,
+                regex: /\${(?:StrFilterS?|Version(?:Compare|Convert)|Word(?:AddS?|Find(?:[23]X)?S?|InsertS?|ReplaceS?))}/i,
                 token: "variable-2",
                 dedent: true
             },
 
             // x64.nsh
-            {regex: /\$\{(?:RunningX64)\}/i, token: "variable", dedent: true},
-            {regex: /\$\{(?:Disable|Enable)X64FSRedirection\}/i, token: "variable-2", dedent: true},
+            {regex: /\${RunningX64}/i, token: "variable", dedent: true},
+            {regex: /\${(?:Disable|Enable)X64FSRedirection}/i, token: "variable-2", dedent: true},
 
             // Line Comment
-            {regex: /(#|;).*/, token: "comment"},
+            {regex: /([#;]).*/, token: "comment"},
 
             // Block Comment
             {regex: /\/\*/, token: "comment", next: "comment"},
@@ -107,20 +107,20 @@
             {regex: /[-+\/*=<>!]+/, token: "operator"},
 
             // Variable
-            {regex: /\$\w[\w\.]*/, token: "variable"},
+            {regex: /\$\w[\w.]*/, token: "variable"},
 
             // Constant
-            {regex: /\${[\!\w\.:-]+}/, token: "variable-2"},
+            {regex: /\${[!\w.:-]+}/, token: "variable-2"},
 
             // Language String
-            {regex: /\$\([\!\w\.:-]+\)/, token: "variable-3"}
+            {regex: /\$\([!\w.:-]+\)/, token: "variable-3"}
         ],
         comment: [
             {regex: /.*?\*\//, token: "comment", next: "start"},
             {regex: /.*/, token: "comment"}
         ],
         meta: {
-            electricInput: /^\s*((Function|PageEx|Section|Section(Group)?)End|(\!(endif|macroend))|\$\{(End(If|Unless|While)|Loop(Until)|Next)\})$/i,
+            electricInput: /^\s*((Function|PageEx|Section|Section(Group)?)End|(!(endif|macroend))|\${(End(If|Unless|While)|Loop(Until)|Next)})$/i,
             blockCommentStart: "/*",
             blockCommentEnd: "*/",
             lineComment: ["#", ";"]

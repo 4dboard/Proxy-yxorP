@@ -11,12 +11,12 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var noOptions = {};
-    var nonWS = /[^\s\u00a0]/;
-    var Pos = CodeMirror.Pos, cmp = CodeMirror.cmpPos;
+    const noOptions = {};
+    const nonWS = /[^\s\u00a0]/;
+    const Pos = CodeMirror.Pos, cmp = CodeMirror.cmpPos;
 
     function firstNonWS(str) {
-        var found = str.search(nonWS);
+        const found = str.search(nonWS);
         return found === -1 ? 0 : found;
     }
 
@@ -26,10 +26,13 @@
 
     CodeMirror.defineExtension("toggleComment", function (options) {
         if (!options) options = noOptions;
-        var cm = this;
-        var minLine = Infinity, ranges = this.listSelections(), mode = null;
-        for (var i = ranges.length - 1; i >= 0; i--) {
-            var from = ranges[i].from(), to = ranges[i].to();
+        const cm = this;
+        let minLine = Infinity;
+        const ranges = this.listSelections();
+        let mode = null;
+        for (let i = ranges.length - 1; i >= 0; i--) {
+            const from = ranges[i].from();
+            let to = ranges[i].to();
             if (from.line >= minLine) continue;
             if (to.line >= minLine) to = Pos(minLine, 0);
             minLine = from.line;
@@ -53,17 +56,17 @@
     }
 
     function getMode(cm, pos) {
-        var mode = cm.getMode()
+        const mode = cm.getMode();
         return mode.useInnerComments === false || !mode.innerMode ? mode : cm.getModeAt(pos)
     }
 
     CodeMirror.defineExtension("lineComment", function (from, to, options) {
         if (!options) options = noOptions;
-        var self = this, mode = getMode(self, from);
-        var firstLine = self.getLine(from.line);
+        const self = this, mode = getMode(self, from);
+        const firstLine = self.getLine(from.line);
         if (firstLine === null || probablyInsideString(self, from, firstLine)) return;
 
-        var commentString = options.lineComment || mode.lineComment;
+        const commentString = options.lineComment || mode.lineComment;
         if (!commentString) {
             if (options.blockCommentStart || mode.blockCommentStart) {
                 options.fullLines = true;
@@ -72,16 +75,16 @@
             return;
         }
 
-        var end = Math.min(to.ch !== 0 || to.line === from.line ? to.line + 1 : to.line, self.lastLine() + 1);
-        var pad = options.padding === null ? " " : options.padding;
-        var blankLines = options.commentBlankLines || from.line === to.line;
+        const end = Math.min(to.ch !== 0 || to.line === from.line ? to.line + 1 : to.line, self.lastLine() + 1);
+        const pad = options.padding === null ? " " : options.padding;
+        const blankLines = options.commentBlankLines || from.line === to.line;
 
         self.operation(function () {
             if (options.indent) {
-                var baseString = null;
+                let baseString = null;
                 for (var i = from.line; i < end; ++i) {
                     var line = self.getLine(i);
-                    var whitespace = line.search(nonWS) === -1 ? line : line.slice(0, firstNonWS(line));
+                    const whitespace = line.search(nonWS) === -1 ? line : line.slice(0, firstNonWS(line));
                     if (baseString === null || baseString.length > whitespace.length) {
                         baseString = whitespace;
                     }
@@ -103,9 +106,9 @@
 
     CodeMirror.defineExtension("blockComment", function (from, to, options) {
         if (!options) options = noOptions;
-        var self = this, mode = getMode(self, from);
-        var startString = options.blockCommentStart || mode.blockCommentStart;
-        var endString = options.blockCommentEnd || mode.blockCommentEnd;
+        const self = this, mode = getMode(self, from);
+        const startString = options.blockCommentStart || mode.blockCommentStart;
+        const endString = options.blockCommentEnd || mode.blockCommentEnd;
         if (!startString || !endString) {
             if ((options.lineComment || mode.lineComment) && options.fullLines !== false)
                 self.lineComment(from, to, options);
@@ -113,23 +116,23 @@
         }
         if (/\bcomment\b/.test(self.getTokenTypeAt(Pos(from.line, 0)))) return
 
-        var end = Math.min(to.line, self.lastLine());
+        let end = Math.min(to.line, self.lastLine());
         if (end !== from.line && to.ch === 0 && nonWS.test(self.getLine(end))) --end;
 
-        var pad = options.padding === null ? " " : options.padding;
+        const pad = options.padding === null ? " " : options.padding;
         if (from.line > end) return;
 
         self.operation(function () {
             if (options.fullLines !== false) {
-                var lastLineHasText = nonWS.test(self.getLine(end));
+                const lastLineHasText = nonWS.test(self.getLine(end));
                 self.replaceRange(pad + endString, Pos(end));
                 self.replaceRange(startString + pad, Pos(from.line, 0));
-                var lead = options.blockCommentLead || mode.blockCommentLead;
-                if (lead != null) for (var i = from.line + 1; i <= end; ++i)
+                const lead = options.blockCommentLead || mode.blockCommentLead;
+                if (lead != null) for (let i = from.line + 1; i <= end; ++i)
                     if (i !== end || lastLineHasText)
                         self.replaceRange(lead + pad, Pos(i, 0));
             } else {
-                var atCursor = cmp(self.getCursor("to"), to) === 0, empty = !self.somethingSelected()
+                const atCursor = cmp(self.getCursor("to"), to) === 0, empty = !self.somethingSelected();
                 self.replaceRange(endString, to);
                 if (atCursor) self.setSelection(empty ? to : self.getCursor("from"), to)
                 self.replaceRange(startString, from);
@@ -139,13 +142,14 @@
 
     CodeMirror.defineExtension("uncomment", function (from, to, options) {
         if (!options) options = noOptions;
-        var self = this, mode = getMode(self, from);
-        var end = Math.min(to.ch !== 0 || to.line === from.line ? to.line : to.line - 1, self.lastLine()),
+        const self = this, mode = getMode(self, from);
+        const end = Math.min(to.ch !== 0 || to.line === from.line ? to.line : to.line - 1, self.lastLine()),
             start = Math.min(from.line, end);
 
         // Try finding line comments
-        var lineString = options.lineComment || mode.lineComment, lines = [];
-        var pad = options.padding === null ? " " : options.padding, didSomething;
+        const lineString = options.lineComment || mode.lineComment, lines = [];
+        const pad = options.padding === null ? " " : options.padding;
+        let didSomething;
         lineComment: {
             if (!lineString) break lineComment;
             for (var i = start; i <= end; ++i) {
@@ -157,9 +161,10 @@
                 lines.push(line);
             }
             self.operation(function () {
-                for (var i = start; i <= end; ++i) {
-                    var line = lines[i - start];
-                    var pos = line.indexOf(lineString), endPos = pos + lineString.length;
+                for (let i = start; i <= end; ++i) {
+                    const line = lines[i - start];
+                    const pos = line.indexOf(lineString);
+                    let endPos = pos + lineString.length;
                     if (pos < 0) continue;
                     if (line.slice(endPos, endPos + pad.length) === pad) endPos += pad.length;
                     didSomething = true;
@@ -170,15 +175,15 @@
         }
 
         // Try block comments
-        var startString = options.blockCommentStart || mode.blockCommentStart;
-        var endString = options.blockCommentEnd || mode.blockCommentEnd;
+        const startString = options.blockCommentStart || mode.blockCommentStart;
+        const endString = options.blockCommentEnd || mode.blockCommentEnd;
         if (!startString || !endString) return false;
-        var lead = options.blockCommentLead || mode.blockCommentLead;
-        var startLine = self.getLine(start), open = startLine.indexOf(startString)
+        const lead = options.blockCommentLead || mode.blockCommentLead;
+        const startLine = self.getLine(start), open = startLine.indexOf(startString);
         if (open === -1) return false
-        var endLine = end === start ? startLine : self.getLine(end)
-        var close = endLine.indexOf(endString, end === start ? open + startString.length : 0);
-        var insideStart = Pos(start, open + 1), insideEnd = Pos(end, close + 1)
+        const endLine = end === start ? startLine : self.getLine(end);
+        const close = endLine.indexOf(endString, end === start ? open + startString.length : 0);
+        const insideStart = Pos(start, open + 1), insideEnd = Pos(end, close + 1);
         if (close === -1 ||
             !/comment/.test(self.getTokenTypeAt(insideStart)) ||
             !/comment/.test(self.getTokenTypeAt(insideEnd)) ||
@@ -187,25 +192,25 @@
 
         // Avoid killing block comments completely outside the selection.
         // Positions of the last startString before the start of the selection, and the first endString after it.
-        var lastStart = startLine.lastIndexOf(startString, from.ch);
-        var firstEnd = lastStart === -1 ? -1 : startLine.slice(0, from.ch).indexOf(endString, lastStart + startString.length);
+        let lastStart = startLine.lastIndexOf(startString, from.ch);
+        let firstEnd = lastStart === -1 ? -1 : startLine.slice(0, from.ch).indexOf(endString, lastStart + startString.length);
         if (lastStart !== -1 && firstEnd !== -1 && firstEnd + endString.length !== from.ch) return false;
         // Positions of the first endString after the end of the selection, and the last startString before it.
         firstEnd = endLine.indexOf(endString, to.ch);
-        var almostLastStart = endLine.slice(to.ch).lastIndexOf(startString, firstEnd - to.ch);
+        const almostLastStart = endLine.slice(to.ch).lastIndexOf(startString, firstEnd - to.ch);
         lastStart = (firstEnd === -1 || almostLastStart === -1) ? -1 : to.ch + almostLastStart;
         if (firstEnd !== -1 && lastStart !== -1 && lastStart !== to.ch) return false;
 
         self.operation(function () {
             self.replaceRange("", Pos(end, close - (pad && endLine.slice(close - pad.length, close) === pad ? pad.length : 0)),
                 Pos(end, close + endString.length));
-            var openEnd = open + startString.length;
+            let openEnd = open + startString.length;
             if (pad && startLine.slice(openEnd, openEnd + pad.length) === pad) openEnd += pad.length;
             self.replaceRange("", Pos(start, open), Pos(start, openEnd));
-            if (lead) for (var i = start + 1; i <= end; ++i) {
-                var line = self.getLine(i), found = line.indexOf(lead);
+            if (lead) for (let i = start + 1; i <= end; ++i) {
+                const line = self.getLine(i), found = line.indexOf(lead);
                 if (found === -1 || nonWS.test(line.slice(0, found))) continue;
-                var foundEnd = found + lead.length;
+                let foundEnd = found + lead.length;
                 if (pad && line.slice(foundEnd, foundEnd + pad.length) === pad) foundEnd += pad.length;
                 self.replaceRange("", Pos(i, found), Pos(i, foundEnd));
             }

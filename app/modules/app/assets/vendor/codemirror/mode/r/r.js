@@ -15,28 +15,28 @@
 
     CodeMirror.defineMode("r", function (config) {
         function wordObj(words) {
-            var res = {};
-            for (var i = 0; i < words.length; ++i) res[words[i]] = true;
+            const res = {};
+            for (let i = 0; i < words.length; ++i) res[words[i]] = true;
             return res;
         }
 
-        var commonAtoms = ["NULL", "NA", "Inf", "NaN", "NA_integer_", "NA_real_", "NA_complex_", "NA_character_", "TRUE", "FALSE"];
-        var commonBuiltins = ["list", "quote", "bquote", "eval", "return", "call", "parse", "deparse"];
-        var commonKeywords = ["if", "else", "repeat", "while", "function", "for", "in", "next", "break"];
-        var commonBlockKeywords = ["if", "else", "repeat", "while", "function", "for"];
+        const commonAtoms = ["NULL", "NA", "Inf", "NaN", "NA_integer_", "NA_real_", "NA_complex_", "NA_character_", "TRUE", "FALSE"];
+        const commonBuiltins = ["list", "quote", "bquote", "eval", "return", "call", "parse", "deparse"];
+        const commonKeywords = ["if", "else", "repeat", "while", "function", "for", "in", "next", "break"];
+        const commonBlockKeywords = ["if", "else", "repeat", "while", "function", "for"];
 
         CodeMirror.registerHelper("hintWords", "r", commonAtoms.concat(commonBuiltins, commonKeywords));
 
-        var atoms = wordObj(commonAtoms);
-        var builtins = wordObj(commonBuiltins);
-        var keywords = wordObj(commonKeywords);
-        var blockkeywords = wordObj(commonBlockKeywords);
-        var opChars = /[+\-*\/^<>=!&|~$:]/;
-        var curPunc;
+        const atoms = wordObj(commonAtoms);
+        const builtins = wordObj(commonBuiltins);
+        const keywords = wordObj(commonKeywords);
+        const blockkeywords = wordObj(commonBlockKeywords);
+        const opChars = /[+\-*\/^<>=!&|~$:]/;
+        let curPunc;
 
         function tokenBase(stream, state) {
             curPunc = null;
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === "#") {
                 stream.skipToEnd();
                 return "comment";
@@ -57,9 +57,9 @@
                 return "variable-3";
             } else if (ch === "." && stream.match(/.(?:[.]|\d+)/)) {
                 return "keyword";
-            } else if (/[a-zA-Z\.]/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
-                var word = stream.current();
+            } else if (/[a-zA-Z.]/.test(ch)) {
+                stream.eatWhile(/[\w.]/);
+                const word = stream.current();
                 if (atoms.propertyIsEnumerable(word)) return "atom";
                 if (keywords.propertyIsEnumerable(word)) {
                     // Block keywords start new blocks, except 'else if', which only starts
@@ -86,7 +86,7 @@
                 if (ch === "$") return "operator dollar";
                 stream.eatWhile(opChars);
                 return "operator";
-            } else if (/[\(\){}\[\];]/.test(ch)) {
+            } else if (/[(){}\[\];]/.test(ch)) {
                 curPunc = ch;
                 if (ch === ";") return "semi";
                 return null;
@@ -98,7 +98,7 @@
         function tokenString(quote) {
             return function (stream, state) {
                 if (stream.eat("\\")) {
-                    var ch = stream.next();
+                    const ch = stream.next();
                     if (ch === "x") stream.match(/^[a-f0-9]{2}/i);
                     else if ((ch === "u" || ch === "U") && stream.eat("{") && stream.skipTo("}")) stream.next();
                     else if (ch === "u") stream.match(/^[a-f0-9]{4}/i);
@@ -106,7 +106,7 @@
                     else if (/[0-7]/.test(ch)) stream.match(/^[0-7]{1,2}/);
                     return "string-2";
                 } else {
-                    var next;
+                    let next;
                     while ((next = stream.next()) != null) {
                         if (next === quote) {
                             state.tokenize = tokenBase;
@@ -122,7 +122,7 @@
             };
         }
 
-        var ALIGN_YES = 1, ALIGN_NO = 2, BRACELESS = 4
+        const ALIGN_YES = 1, ALIGN_NO = 2, BRACELESS = 4;
 
         function push(state, type, stream) {
             state.ctx = {
@@ -135,7 +135,7 @@
         }
 
         function setFlag(state, flag) {
-            var ctx = state.ctx
+            const ctx = state.ctx;
             state.ctx = {
                 type: ctx.type,
                 indent: ctx.indent,
@@ -171,7 +171,7 @@
                     state.indent = stream.indentation();
                 }
                 if (stream.eatSpace()) return null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if (style !== "comment" && (state.ctx.flags & ALIGN_NO) === 0) setFlag(state, ALIGN_YES)
 
                 if ((curPunc === ";" || curPunc === "{" || curPunc === "}") && state.ctx.type === "block") pop(state);
@@ -189,8 +189,9 @@
 
             indent: function (state, textAfter) {
                 if (state.tokenize !== tokenBase) return 0;
-                var firstChar = textAfter && textAfter.charAt(0), ctx = state.ctx,
-                    closing = firstChar === ctx.type;
+                const firstChar = textAfter && textAfter.charAt(0);
+                let ctx = state.ctx;
+                const closing = firstChar === ctx.type;
                 if (ctx.flags && BRACELESS) ctx = ctx.prev
                 if (ctx.type === "block") return ctx.indent + (firstChar === "{" ? 0 : config.indentUnit);
                 else if (ctx.flags && ALIGN_YES) return ctx.column + (closing ? 0 : 1);

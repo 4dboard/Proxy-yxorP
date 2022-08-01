@@ -14,10 +14,10 @@
     "use strict";
 
     CodeMirror.defineMode("slim", function (config) {
-        var htmlMode = CodeMirror.getMode(config, {name: "htmlmixed"});
-        var rubyMode = CodeMirror.getMode(config, "ruby");
-        var modes = {html: htmlMode, ruby: rubyMode};
-        var embedded = {
+        const htmlMode = CodeMirror.getMode(config, {name: "htmlmixed"});
+        const rubyMode = CodeMirror.getMode(config, "ruby");
+        const modes = {html: htmlMode, ruby: rubyMode};
+        const embedded = {
             ruby: "ruby",
             javascript: "javascript",
             css: "text/css",
@@ -37,13 +37,13 @@
             nokogiri: "text/x-nokogiri", // no highlighting so far
             erb: "application/x-erb"
         };
-        var embeddedRegexp = function (map) {
-            var arr = [];
-            for (var key in map) arr.push(key);
+        const embeddedRegexp = function (map) {
+            const arr = [];
+            for (let key in map) arr.push(key);
             return new RegExp("^(" + arr.join('|') + "):");
         }(embedded);
 
-        var styleMap = {
+        const styleMap = {
             "commentLine": "comment",
             "slimSwitch": "operator special",
             "slimTag": "tag",
@@ -55,22 +55,22 @@
             "slimDoctype": null,
             "lineContinuation": null
         };
-        var closing = {
+        const closing = {
             "{": "}",
             "[": "]",
             "(": ")"
         };
 
-        var nameStartChar = "_a-zA-Z\xC0-\xD6\xD8-\xF6\xF8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD";
-        var nameChar = nameStartChar + "\\-0-9\xB7\u0300-\u036F\u203F-\u2040";
-        var nameRegexp = new RegExp("^[:" + nameStartChar + "](?::[" + nameChar + "]|[" + nameChar + "]*)");
-        var attributeNameRegexp = new RegExp("^[:" + nameStartChar + "][:\\." + nameChar + "]*(?=\\s*=)");
-        var wrappedAttributeNameRegexp = new RegExp("^[:" + nameStartChar + "][:\\." + nameChar + "]*");
-        var classNameRegexp = /^\.-?[_a-zA-Z]+[\w\-]*/;
-        var classIdRegexp = /^#[_a-zA-Z]+[\w\-]*/;
+        const nameStartChar = "_a-zA-Z\xC0-\xD6\xD8-\xF6\xF8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD";
+        const nameChar = nameStartChar + "\\-0-9\xB7\u0300-\u036F\u203F-\u2040";
+        const nameRegexp = new RegExp("^[:" + nameStartChar + "](?::[" + nameChar + "]|[" + nameChar + "]*)");
+        const attributeNameRegexp = new RegExp("^[:" + nameStartChar + "][:\\." + nameChar + "]*(?=\\s*=)");
+        const wrappedAttributeNameRegexp = new RegExp("^[:" + nameStartChar + "][:\\." + nameChar + "]*");
+        const classNameRegexp = /^\.-?[_a-zA-Z]+[\w\-]*/;
+        const classIdRegexp = /^#[_a-zA-Z]+[\w\-]*/;
 
         function backup(pos, tokenize, style) {
-            var restore = function (stream, state) {
+            const restore = function (stream, state) {
                 state.tokenize = tokenize;
                 if (stream.pos < pos) {
                     stream.pos = pos;
@@ -85,8 +85,8 @@
         }
 
         function maybeBackup(stream, state, pat, offset, style) {
-            var cur = stream.current();
-            var idx = cur.search(pat);
+            const cur = stream.current();
+            const idx = cur.search(pat);
             if (idx > -1) {
                 state.tokenize = backup(stream.pos, state.tokenize, style);
                 stream.backUp(cur.length - idx - offset);
@@ -118,7 +118,7 @@
                     continueLine(state, column);
                     return "lineContinuation";
                 }
-                var style = tokenize(stream, state);
+                const style = tokenize(stream, state);
                 if (stream.eol() && stream.current().match(/(?:^|[^\\])(?:\\\\)*\\$/)) {
                     stream.backUp(1);
                 }
@@ -129,7 +129,7 @@
         function commaContinuable(column, tokenize) {
             return function (stream, state) {
                 finishContinue(state);
-                var style = tokenize(stream, state);
+                const style = tokenize(stream, state);
                 if (stream.eol() && stream.current().match(/,$/)) {
                     continueLine(state, column);
                 }
@@ -140,7 +140,7 @@
         function rubyInQuote(endQuote, tokenize) {
             // TODO: add multi line support
             return function (stream, state) {
-                var ch = stream.peek();
+                const ch = stream.peek();
                 if (ch === endQuote && state.rubyState.tokenize.length === 1) {
                     // step out of ruby context as it seems to complete processing all the braces
                     stream.next();
@@ -153,8 +153,8 @@
         }
 
         function startRubySplat(tokenize) {
-            var rubyState;
-            var runSplat = function (stream, state) {
+            let rubyState;
+            const runSplat = function (stream, state) {
                 if (state.rubyState.tokenize.length === 1 && !state.rubyState.context.prev) {
                     stream.backUp(1);
                     if (stream.eatSpace()) {
@@ -195,7 +195,7 @@
 
         function startHtmlLine(lastTokenize) {
             return function (stream, state) {
-                var style = htmlLine(stream, state);
+                const style = htmlLine(stream, state);
                 if (stream.eol()) state.tokenize = lastTokenize;
                 return style;
             };
@@ -252,7 +252,7 @@
         }
 
         function attributeWrapperValue(stream, state) {
-            var ch = stream.peek();
+            const ch = stream.peek();
             if (ch === '"' || ch === "\'") {
                 state.tokenize = readQuoted(ch, "string", true, false, attributeWrapper);
                 stream.next();
@@ -286,12 +286,12 @@
                 state.tokenize = rubyInQuote("}", state.tokenize);
                 return null;
             }
-            var subStream = new CodeMirror.StringStream(stream.string.slice(state.stack.indented), stream.tabSize);
+            const subStream = new CodeMirror.StringStream(stream.string.slice(state.stack.indented), stream.tabSize);
             subStream.pos = stream.pos - state.stack.indented;
             subStream.start = stream.start - state.stack.indented;
             subStream.lastColumnPos = stream.lastColumnPos - state.stack.indented;
             subStream.lastColumnValue = stream.lastColumnValue - state.stack.indented;
-            var style = state.subMode.token(subStream, state.subState);
+            const style = state.subMode.token(subStream, state.subState);
             stream.pos = subStream.pos + state.stack.indented;
             return style;
         }
@@ -303,12 +303,12 @@
         }
 
         function createMode(mode) {
-            var query = embedded[mode];
-            var spec = CodeMirror.mimeModes[query];
+            const query = embedded[mode];
+            const spec = CodeMirror.mimeModes[query];
             if (spec) {
                 return CodeMirror.getMode(config, spec);
             }
-            var factory = CodeMirror.modes[query];
+            const factory = CodeMirror.modes[query];
             if (factory) {
                 return factory(config, {name: query});
             }
@@ -323,8 +323,8 @@
         }
 
         function startSubMode(mode, state) {
-            var subMode = getMode(mode);
-            var subState = CodeMirror.startState(subMode);
+            const subMode = getMode(mode);
+            const subState = CodeMirror.startState(subMode);
 
             state.subMode = subMode;
             state.subState = subState;
@@ -345,7 +345,7 @@
         }
 
         function startLine(stream, state) {
-            var ch = stream.peek();
+            const ch = stream.peek();
             if (ch === '<') {
                 return (state.tokenize = startHtmlLine(state.tokenize))(stream, state);
             }
@@ -364,7 +364,7 @@
                 return "keyword";
             }
 
-            var m = stream.match(embeddedRegexp);
+            const m = stream.match(embeddedRegexp);
             if (m) {
                 return startSubMode(m[1], state);
             }
@@ -437,7 +437,7 @@
         }
 
         function slimAttributeValue(stream, state) {
-            var ch = stream.peek();
+            const ch = stream.peek();
             if (ch === '"' || ch === "\'") {
                 state.tokenize = readQuoted(ch, "string", true, false, slimAttribute);
                 stream.next();
@@ -469,7 +469,7 @@
         function readQuoted(quote, style, embed, unescaped, nextTokenize) {
             return function (stream, state) {
                 finishContinue(state);
-                var fresh = stream.current().length === 0;
+                const fresh = stream.current().length === 0;
                 if (stream.match(/^\\$/, fresh)) {
                     if (!fresh) return style;
                     continueLine(state, state.indented);
@@ -480,7 +480,7 @@
                     state.tokenize = rubyInQuote("}", state.tokenize);
                     return null;
                 }
-                var escaped = false, ch;
+                let escaped = false, ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === quote && (unescaped || !escaped)) {
                         state.tokenize = nextTokenize;
@@ -521,8 +521,8 @@
         var mode = {
             // default to html mode
             startState: function () {
-                var htmlState = CodeMirror.startState(htmlMode);
-                var rubyState = CodeMirror.startState(rubyMode);
+                const htmlState = CodeMirror.startState(htmlMode);
+                const rubyState = CodeMirror.startState(rubyMode);
                 return {
                     htmlState: htmlState,
                     rubyState: rubyState,
@@ -560,7 +560,7 @@
                     }
                 }
                 if (stream.eatSpace()) return null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 state.startOfLine = false;
                 if (style) state.last = style;
                 return styleMap.hasOwnProperty(style) ? styleMap[style] : style;

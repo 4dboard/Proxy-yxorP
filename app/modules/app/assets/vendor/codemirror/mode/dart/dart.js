@@ -11,18 +11,18 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var keywords = ("this super static final const abstract class extends external factory " +
+    const keywords = ("this super static final const abstract class extends external factory " +
         "implements mixin get native set typedef with enum throw rethrow " +
         "assert break case continue default in return new deferred async await covariant " +
         "try catch finally do else for if switch while import library export " +
         "part of show hide is as extension on yield late required").split(" ");
-    var blockKeywords = "try catch finally do else for if switch while".split(" ");
-    var atoms = "true false null".split(" ");
-    var builtins = "void bool num int double dynamic var String Null Never".split(" ");
+    const blockKeywords = "try catch finally do else for if switch while".split(" ");
+    const atoms = "true false null".split(" ");
+    const builtins = "void bool num int double dynamic var String Null Never".split(" ");
 
     function set(words) {
-        var obj = {};
-        for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+        const obj = {};
+        for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
         return obj;
     }
 
@@ -58,7 +58,7 @@
                 return tokenString("\"", stream, state, false);
             },
             "r": function (stream, state) {
-                var peek = stream.peek();
+                const peek = stream.peek();
                 if (peek === "'" || peek === "\"") {
                     return tokenString(stream.next(), stream, state, true);
                 }
@@ -82,7 +82,7 @@
             token: function (stream, _, style) {
                 if (style === "variable") {
                     // Assume uppercase symbols are classes using variable-2
-                    var isUpper = RegExp('^[_$]*[A-Z][a-zA-Z0-9_$]*$', 'g');
+                    const isUpper = RegExp('^[_$]*[A-Z][a-zA-Z0-9_$]*$', 'g');
                     if (isUpper.test(stream.current())) {
                         return 'variable-2';
                     }
@@ -92,21 +92,21 @@
     });
 
     function tokenString(quote, stream, state, raw) {
-        var tripleQuoted = false;
+        let tripleQuoted = false;
         if (stream.eat(quote)) {
             if (stream.eat(quote)) tripleQuoted = true;
             else return "string"; //empty string
         }
 
         function tokenStringHelper(stream, state) {
-            var escaped = false;
+            let escaped = false;
             while (!stream.eol()) {
                 if (!raw && !escaped && stream.peek() === "$") {
                     pushInterpolationStack(state);
                     state.tokenize = tokenInterpolation;
                     return "string";
                 }
-                var next = stream.next();
+                const next = stream.next();
                 if (next === quote && !escaped && (!tripleQuoted || stream.match(quote + quote))) {
                     state.tokenize = null;
                     break;
@@ -140,7 +140,7 @@
 
     function tokenNestedComment(depth) {
         return function (stream, state) {
-            var ch
+            let ch;
             while (ch = stream.next()) {
                 if (ch === "*" && stream.eat("/")) {
                     if (depth === 1) {

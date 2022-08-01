@@ -13,20 +13,20 @@
 
     CodeMirror.defineMode('rst', function (config, options) {
 
-        var rx_strong = /^\*\*[^\*\s](?:[^\*]*[^\*\s])?\*\*/;
-        var rx_emphasis = /^\*[^\*\s](?:[^\*]*[^\*\s])?\*/;
-        var rx_literal = /^``[^`\s](?:[^`]*[^`\s])``/;
+        const rx_strong = /^\*\*[^*\s](?:[^*]*[^*\s])?\*\*/;
+        const rx_emphasis = /^\*[^*\s](?:[^*]*[^*\s])?\*/;
+        const rx_literal = /^``[^`\s][^`]*[^`\s]``/;
 
-        var rx_number = /^(?:[\d]+(?:[\.,]\d+)*)/;
-        var rx_positive = /^(?:\s\+[\d]+(?:[\.,]\d+)*)/;
-        var rx_negative = /^(?:\s\-[\d]+(?:[\.,]\d+)*)/;
+        const rx_number = /^[\d]+(?:[.,]\d+)*/;
+        const rx_positive = /^\s\+[\d]+(?:[.,]\d+)*/;
+        const rx_negative = /^\s-[\d]+(?:[.,]\d+)*/;
 
-        var rx_uri_protocol = "[Hh][Tt][Tt][Pp][Ss]?://";
-        var rx_uri_domain = "(?:[\\d\\w.-]+)\\.(?:\\w{2,6})";
-        var rx_uri_path = "(?:/[\\d\\w\\#\\%\\&\\-\\.\\,\\/\\:\\=\\?\\~]+)*";
-        var rx_uri = new RegExp("^" + rx_uri_protocol + rx_uri_domain + rx_uri_path);
+        const rx_uri_protocol = "[Hh][Tt][Tt][Pp][Ss]?://";
+        const rx_uri_domain = "(?:[\\d\\w.-]+)\\.(?:\\w{2,6})";
+        const rx_uri_path = "(?:/[\\d\\w\\#\\%\\&\\-\\.\\,\\/\\:\\=\\?\\~]+)*";
+        const rx_uri = new RegExp("^" + rx_uri_protocol + rx_uri_domain + rx_uri_path);
 
-        var overlay = {
+        const overlay = {
             token: function (stream) {
 
                 if (stream.match(rx_strong) && stream.match(/\W+|$/, false))
@@ -58,7 +58,7 @@
             }
         };
 
-        var mode = CodeMirror.getMode(
+        const mode = CodeMirror.getMode(
             config, options.backdrop || 'rst-base'
         );
 
@@ -74,7 +74,7 @@
         ///////////////////////////////////////////////////////////////////////////
 
         function format(string) {
-            var args = Array.prototype.slice.call(arguments, 1);
+            const args = Array.prototype.slice.call(arguments, 1);
             return string.replace(/{(\d+)}/g, function (match, n) {
                 return typeof args[n] != 'undefined' ? args[n] : match;
             });
@@ -83,78 +83,78 @@
         ///////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////
 
-        var mode_python = CodeMirror.getMode(config, 'python');
-        var mode_stex = CodeMirror.getMode(config, 'stex');
+        const mode_python = CodeMirror.getMode(config, 'python');
+        const mode_stex = CodeMirror.getMode(config, 'stex');
 
         ///////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////
 
-        var SEPA = "\\s+";
-        var TAIL = "(?:\\s*|\\W|$)",
+        const SEPA = "\\s+";
+        const TAIL = "(?:\\s*|\\W|$)",
             rx_TAIL = new RegExp(format('^{0}', TAIL));
 
-        var NAME =
+        const NAME =
                 "(?:[^\\W\\d_](?:[\\w!\"#$%&'()\\*\\+,\\-\\.\/:;<=>\\?]*[^\\W_])?)",
             rx_NAME = new RegExp(format('^{0}', NAME));
-        var NAME_WWS =
+        const NAME_WWS =
             "(?:[^\\W\\d_](?:[\\w\\s!\"#$%&'()\\*\\+,\\-\\.\/:;<=>\\?]*[^\\W_])?)";
-        var REF_NAME = format('(?:{0}|`{1}`)', NAME, NAME_WWS);
+        const REF_NAME = format('(?:{0}|`{1}`)', NAME, NAME_WWS);
 
-        var TEXT1 = "(?:[^\\s\\|](?:[^\\|]*[^\\s\\|])?)";
-        var TEXT2 = "(?:[^\\`]+)",
+        const TEXT1 = "(?:[^\\s\\|](?:[^\\|]*[^\\s\\|])?)";
+        const TEXT2 = "(?:[^\\`]+)",
             rx_TEXT2 = new RegExp(format('^{0}', TEXT2));
 
-        var rx_section = new RegExp(
+        const rx_section = new RegExp(
             "^([!'#$%&\"()*+,-./:;<=>?@\\[\\\\\\]^_`{|}~])\\1{3,}\\s*$");
-        var rx_explicit = new RegExp(
+        const rx_explicit = new RegExp(
             format('^\\.\\.{0}', SEPA));
-        var rx_link = new RegExp(
+        const rx_link = new RegExp(
             format('^_{0}:{1}|^__:{1}', REF_NAME, TAIL));
-        var rx_directive = new RegExp(
+        const rx_directive = new RegExp(
             format('^{0}::{1}', REF_NAME, TAIL));
-        var rx_substitution = new RegExp(
+        const rx_substitution = new RegExp(
             format('^\\|{0}\\|{1}{2}::{3}', TEXT1, SEPA, REF_NAME, TAIL));
-        var rx_footnote = new RegExp(
+        const rx_footnote = new RegExp(
             format('^\\[(?:\\d+|#{0}?|\\*)]{1}', REF_NAME, TAIL));
-        var rx_citation = new RegExp(
+        const rx_citation = new RegExp(
             format('^\\[{0}\\]{1}', REF_NAME, TAIL));
 
-        var rx_substitution_ref = new RegExp(
+        const rx_substitution_ref = new RegExp(
             format('^\\|{0}\\|', TEXT1));
-        var rx_footnote_ref = new RegExp(
+        const rx_footnote_ref = new RegExp(
             format('^\\[(?:\\d+|#{0}?|\\*)]_', REF_NAME));
-        var rx_citation_ref = new RegExp(
+        const rx_citation_ref = new RegExp(
             format('^\\[{0}\\]_', REF_NAME));
-        var rx_link_ref1 = new RegExp(
+        const rx_link_ref1 = new RegExp(
             format('^{0}__?', REF_NAME));
-        var rx_link_ref2 = new RegExp(
+        const rx_link_ref2 = new RegExp(
             format('^`{0}`_', TEXT2));
 
-        var rx_role_pre = new RegExp(
+        const rx_role_pre = new RegExp(
             format('^:{0}:`{1}`{2}', NAME, TEXT2, TAIL));
-        var rx_role_suf = new RegExp(
+        const rx_role_suf = new RegExp(
             format('^`{1}`:{0}:{2}', NAME, TEXT2, TAIL));
-        var rx_role = new RegExp(
+        const rx_role = new RegExp(
             format('^:{0}:{1}', NAME, TAIL));
 
-        var rx_directive_name = new RegExp(format('^{0}', REF_NAME));
-        var rx_directive_tail = new RegExp(format('^::{0}', TAIL));
-        var rx_substitution_text = new RegExp(format('^\\|{0}\\|', TEXT1));
-        var rx_substitution_sepa = new RegExp(format('^{0}', SEPA));
-        var rx_substitution_name = new RegExp(format('^{0}', REF_NAME));
-        var rx_substitution_tail = new RegExp(format('^::{0}', TAIL));
-        var rx_link_head = new RegExp("^_");
-        var rx_link_name = new RegExp(format('^{0}|_', REF_NAME));
-        var rx_link_tail = new RegExp(format('^:{0}', TAIL));
+        const rx_directive_name = new RegExp(format('^{0}', REF_NAME));
+        const rx_directive_tail = new RegExp(format('^::{0}', TAIL));
+        const rx_substitution_text = new RegExp(format('^\\|{0}\\|', TEXT1));
+        const rx_substitution_sepa = new RegExp(format('^{0}', SEPA));
+        const rx_substitution_name = new RegExp(format('^{0}', REF_NAME));
+        const rx_substitution_tail = new RegExp(format('^::{0}', TAIL));
+        const rx_link_head = new RegExp("^_");
+        const rx_link_name = new RegExp(format('^{0}|_', REF_NAME));
+        const rx_link_tail = new RegExp(format('^:{0}', TAIL));
 
-        var rx_verbatim = new RegExp('^::\\s*$');
-        var rx_examples = new RegExp('^\\s+(?:>>>|In \\[\\d+\\]:)\\s');
+        const rx_verbatim = new RegExp('^::\\s*$');
+        const rx_examples = new RegExp('^\\s+(?:>>>|In \\[\\d+]:)\\s');
 
         ///////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////
 
         function to_normal(stream, state) {
-            var token = null;
+            let token = null;
 
             if (stream.sol() && stream.match(rx_examples, false)) {
                 change(state, to_mode, {
@@ -353,7 +353,7 @@
         ///////////////////////////////////////////////////////////////////////////
 
         function to_explicit(stream, state) {
-            var token = null;
+            let token = null;
 
             if (phase(state) === rx_substitution ||
                 stream.match(rx_substitution, false)) {
@@ -525,7 +525,7 @@
             },
 
             copyState: function (state) {
-                var ctx = state.ctx, tmp = state.tmp;
+                let ctx = state.ctx, tmp = state.tmp;
                 if (ctx.local)
                     ctx = {mode: ctx.mode, local: CodeMirror.copyState(ctx.mode, ctx.local)};
                 if (tmp)

@@ -14,7 +14,7 @@
     "use strict";
 
     CodeMirror.defineMode("django:inner", function () {
-        var keywords = ["block", "endblock", "for", "endfor", "true", "false", "filter", "endfilter",
+        let keywords = ["block", "endblock", "for", "endfor", "true", "false", "filter", "endfilter",
                 "loop", "none", "self", "super", "if", "elif", "endif", "as", "else", "import",
                 "with", "endwith", "without", "context", "ifequal", "endifequal", "ifnotequal",
                 "endifnotequal", "extends", "include", "load", "comment", "endcomment",
@@ -78,7 +78,7 @@
                         state.escapeNext = false;
                     }
 
-                    var ch = stream.next();
+                    const ch = stream.next();
 
                     // Take into account the backslash for escaping characters, such as
                     // the string delimiter.
@@ -279,7 +279,7 @@
             }
 
             // Attempt to match a keyword
-            var keywordMatch = stream.match(keywords);
+            const keywordMatch = stream.match(keywords);
             if (keywordMatch) {
                 if (keywordMatch[0] === "comment") {
                     state.blockCommentTag = true;
@@ -348,8 +348,8 @@
     });
 
     CodeMirror.defineMode("django", function (config) {
-        var htmlBase = CodeMirror.getMode(config, "text/html");
-        var djangoInner = CodeMirror.getMode(config, "django:inner");
+        const htmlBase = CodeMirror.getMode(config, "text/html");
+        const djangoInner = CodeMirror.getMode(config, "django:inner");
         return CodeMirror.overlayMode(htmlBase, djangoInner);
     });
 

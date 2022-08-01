@@ -35,7 +35,7 @@
     border-color: #333 transparent transparent transparent;
     border-width: 5px;
     position: absolute;
-    right: 11.5px;
+    right: 12px;
     top: 50%;
     margin-top: -2.5px;
     pointer-events: none;
@@ -47,7 +47,7 @@
 }
 
 .choices[data-type*=select-one][dir=rtl]::after {
-    left: 11.5px;
+    left: 12px;
     right: auto;
 }
 

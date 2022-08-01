@@ -41,7 +41,7 @@
 
     CodeMirror.defineMode("ntriples", function () {
 
-        var Location = {
+        const Location = {
             PRE_SUBJECT: 0,
             WRITING_SUB_URI: 1,
             WRITING_BNODE_URI: 2,
@@ -58,8 +58,8 @@
         };
 
         function transitState(currState, c) {
-            var currLocation = currState.location;
-            var ret;
+            const currLocation = currState.location;
+            let ret;
 
             // Opening.
             if (currLocation === Location.PRE_SUBJECT && c === '<') ret = Location.WRITING_SUB_URI;
@@ -114,10 +114,10 @@
                 };
             },
             token: function (stream, state) {
-                var ch = stream.next();
+                const ch = stream.next();
                 if (ch === '<') {
                     transitState(state, ch);
-                    var parsedURI = '';
+                    let parsedURI = '';
                     stream.eatWhile(function (c) {
                         if (c !== '#' && c !== '>') {
                             parsedURI += c;
@@ -132,7 +132,7 @@
                     return 'variable';
                 }
                 if (ch === '#') {
-                    var parsedAnchor = '';
+                    let parsedAnchor = '';
                     stream.eatWhile(function (c) {
                         if (c !== '>' && c !== ' ') {
                             parsedAnchor += c;
@@ -149,7 +149,7 @@
                 }
                 if (ch === '_') {
                     transitState(state, ch);
-                    var parsedBNode = '';
+                    let parsedBNode = '';
                     stream.eatWhile(function (c) {
                         if (c !== ' ') {
                             parsedBNode += c;
@@ -175,7 +175,7 @@
                 }
                 if (ch === '@') {
                     transitState(state, '@');
-                    var parsedLang = '';
+                    let parsedLang = '';
                     stream.eatWhile(function (c) {
                         if (c !== ' ') {
                             parsedLang += c;
@@ -191,7 +191,7 @@
                 if (ch === '^') {
                     stream.next();
                     transitState(state, '^');
-                    var parsedType = '';
+                    let parsedType = '';
                     stream.eatWhile(function (c) {
                         if (c !== '>') {
                             parsedType += c;

@@ -2,14 +2,14 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var config = {tabSize: 4, indentUnit: 2}
-    var mode = CodeMirror.getMode(config, "gfm");
+    const config = {tabSize: 4, indentUnit: 2};
+    const mode = CodeMirror.getMode(config, "gfm");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
     }
 
-    var modeHighlightFormatting = CodeMirror.getMode(config, {name: "gfm", highlightFormatting: true});
+    const modeHighlightFormatting = CodeMirror.getMode(config, {name: "gfm", highlightFormatting: true});
 
     function FT(name) {
         test.mode(name, modeHighlightFormatting, Array.prototype.slice.call(arguments, 1));

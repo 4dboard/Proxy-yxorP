@@ -29,7 +29,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var defaults = {
+    const defaults = {
         style: "matchhighlight",
         minChars: 2,
         delay: 100,
@@ -37,11 +37,11 @@
         annotateScrollbar: false,
         showToken: false,
         trim: true
-    }
+    };
 
     function State(options) {
         this.options = {}
-        for (var name in defaults)
+        for (let name in defaults)
             this.options[name] = (options && options.hasOwnProperty(name) ? options : defaults)[name]
         this.overlay = this.timeout = null;
         this.matchesonscroll = null;
@@ -57,7 +57,7 @@
             cm.off("focus", onFocus)
         }
         if (val) {
-            var state = cm.state.matchHighlighter = new State(val);
+            const state = cm.state.matchHighlighter = new State(val);
             if (cm.hasFocus()) {
                 state.active = true
                 highlightMatches(cm)
@@ -69,12 +69,12 @@
     });
 
     function cursorActivity(cm) {
-        var state = cm.state.matchHighlighter;
+        const state = cm.state.matchHighlighter;
         if (state.active || cm.hasFocus()) scheduleHighlight(cm, state)
     }
 
     function onFocus(cm) {
-        var state = cm.state.matchHighlighter
+        const state = cm.state.matchHighlighter;
         if (!state.active) {
             state.active = true
             scheduleHighlight(cm, state)
@@ -89,10 +89,10 @@
     }
 
     function addOverlay(cm, query, hasBoundary, style) {
-        var state = cm.state.matchHighlighter;
+        const state = cm.state.matchHighlighter;
         cm.addOverlay(state.overlay = makeOverlay(query, hasBoundary, style));
         if (state.options.annotateScrollbar && cm.showMatchesOnScrollbar) {
-            var searchFor = hasBoundary ? new RegExp((/\w/.test(query.charAt(0)) ? "\\b" : "") +
+            const searchFor = hasBoundary ? new RegExp((/\w/.test(query.charAt(0)) ? "\\b" : "") +
                 query.replace(/[\\\[.+*?(){|^$]/g, "\\$&") +
                 (/\w/.test(query.charAt(query.length - 1)) ? "\\b" : "")) : query;
             state.matchesonscroll = cm.showMatchesOnScrollbar(searchFor, false,
@@ -101,7 +101,7 @@
     }
 
     function removeOverlay(cm) {
-        var state = cm.state.matchHighlighter;
+        const state = cm.state.matchHighlighter;
         if (state.overlay) {
             cm.removeOverlay(state.overlay);
             state.overlay = null;
@@ -114,21 +114,22 @@
 
     function highlightMatches(cm) {
         cm.operation(function () {
-            var state = cm.state.matchHighlighter;
+            const state = cm.state.matchHighlighter;
             removeOverlay(cm);
             if (!cm.somethingSelected() && state.options.showToken) {
-                var re = state.options.showToken === true ? /[\w$]/ : state.options.showToken;
-                var cur = cm.getCursor(), line = cm.getLine(cur.line), start = cur.ch, end = start;
+                const re = state.options.showToken === true ? /[\w$]/ : state.options.showToken;
+                const cur = cm.getCursor(), line = cm.getLine(cur.line);
+                let start = cur.ch, end = start;
                 while (start && re.test(line.charAt(start - 1))) --start;
                 while (end < line.length && re.test(line.charAt(end))) ++end;
                 if (start < end)
                     addOverlay(cm, line.slice(start, end), re, state.options.style);
                 return;
             }
-            var from = cm.getCursor("from"), to = cm.getCursor("to");
+            const from = cm.getCursor("from"), to = cm.getCursor("to");
             if (from.line !== to.line) return;
             if (state.options.wordsOnly && !isWord(cm, from, to)) return;
-            var selection = cm.getRange(from, to)
+            let selection = cm.getRange(from, to);
             if (state.options.trim) selection = selection.replace(/^\s+|\s+$/g, "")
             if (selection.length >= state.options.minChars)
                 addOverlay(cm, selection, false, state.options.style);
@@ -136,7 +137,7 @@
     }
 
     function isWord(cm, from, to) {
-        var str = cm.getRange(from, to);
+        const str = cm.getRange(from, to);
         if (str.match(/^\w+$/) !== null) {
             if (from.ch > 0) {
                 var pos = {line: from.line, ch: from.ch - 1};

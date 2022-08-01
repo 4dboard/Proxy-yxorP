@@ -31,9 +31,9 @@
     }
 
     function updateBottomMargin(cm) {
-        var padding = "";
+        let padding = "";
         if (cm.lineCount() > 1) {
-            var totalH = cm.display.scroller.clientHeight - 30,
+            const totalH = cm.display.scroller.clientHeight - 30,
                 lastLineH = cm.getLineHandle(cm.lastLine()).height;
             padding = (totalH - lastLineH) + "px";
         }

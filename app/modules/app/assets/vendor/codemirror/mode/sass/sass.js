@@ -12,8 +12,8 @@
     "use strict";
 
     CodeMirror.defineMode("sass", function (config) {
-        var cssMode = CodeMirror.mimeModes["text/css"];
-        var propertyKeywords = cssMode.propertyKeywords || {},
+        const cssMode = CodeMirror.mimeModes["text/css"];
+        const propertyKeywords = cssMode.propertyKeywords || {},
             colorKeywords = cssMode.colorKeywords || {},
             valueKeywords = cssMode.valueKeywords || {},
             fontProperties = cssMode.fontProperties || {};
@@ -22,23 +22,23 @@
             return new RegExp("^" + words.join("|"));
         }
 
-        var keywords = ["true", "false", "null", "auto"];
-        var keywordsRegexp = new RegExp("^" + keywords.join("|"));
+        const keywords = ["true", "false", "null", "auto"];
+        const keywordsRegexp = new RegExp("^" + keywords.join("|"));
 
-        var operators = ["\\(", "\\)", "=", ">", "<", "==", ">=", "<=", "\\+", "-",
+        const operators = ["\\(", "\\)", "=", ">", "<", "==", ">=", "<=", "\\+", "-",
             "\\!=", "/", "\\*", "%", "and", "or", "not", ";", "\\{", "\\}", ":"];
-        var opRegexp = tokenRegexp(operators);
+        const opRegexp = tokenRegexp(operators);
 
-        var pseudoElementsRegexp = /^::?[a-zA-Z_][\w\-]*/;
+        const pseudoElementsRegexp = /^::?[a-zA-Z_][\w\-]*/;
 
-        var word;
+        let word;
 
         function isEndLine(stream) {
             return !stream.peek() || stream.match(/\s+$/, false);
         }
 
         function urlTokens(stream, state) {
-            var ch = stream.peek();
+            const ch = stream.peek();
 
             if (ch === ")") {
                 stream.next();
@@ -83,11 +83,11 @@
             }
 
             function stringTokenizer(stream, state) {
-                var nextChar = stream.next();
-                var peekChar = stream.peek();
-                var previousChar = stream.string.charAt(stream.pos - 2);
+                const nextChar = stream.next();
+                const peekChar = stream.peek();
+                const previousChar = stream.string.charAt(stream.pos - 2);
 
-                var endingString = ((nextChar !== "\\" && peekChar === quote) || (nextChar === quote && previousChar !== "\\"));
+                const endingString = ((nextChar !== "\\" && peekChar === quote) || (nextChar === quote && previousChar !== "\\"));
 
                 if (endingString) {
                     if (nextChar !== quote && greedy) {
@@ -125,8 +125,8 @@
         function indent(state) {
             if (state.indentCount === 0) {
                 state.indentCount++;
-                var lastScopeOffset = state.scopes[0].offset;
-                var currentOffset = lastScopeOffset + config.indentUnit;
+                const lastScopeOffset = state.scopes[0].offset;
+                const currentOffset = lastScopeOffset + config.indentUnit;
                 state.scopes.unshift({offset: currentOffset});
             }
         }
@@ -138,7 +138,7 @@
         }
 
         function tokenBase(stream, state) {
-            var ch = stream.peek();
+            const ch = stream.peek();
 
             // Comment
             if (stream.match("/*")) {
@@ -259,7 +259,7 @@
                 if (stream.eatWhile(/[\w-]/)) {
                     if (stream.match(/ *: *[\w-\+\$#!\("']/, false)) {
                         word = stream.current().toLowerCase();
-                        var prop = state.prevProp + "-" + word;
+                        const prop = state.prevProp + "-" + word;
                         if (propertyKeywords.hasOwnProperty(prop)) {
                             return "property";
                         } else if (propertyKeywords.hasOwnProperty(word)) {
@@ -397,22 +397,22 @@
 
         function tokenLexer(stream, state) {
             if (stream.sol()) state.indentCount = 0;
-            var style = state.tokenizer(stream, state);
-            var current = stream.current();
+            const style = state.tokenizer(stream, state);
+            const current = stream.current();
 
             if (current === "@return" || current === "}") {
                 dedent(state);
             }
 
             if (style !== null) {
-                var startOfToken = stream.pos - current.length;
+                const startOfToken = stream.pos - current.length;
 
-                var withCurrentIndent = startOfToken + (config.indentUnit * state.indentCount);
+                const withCurrentIndent = startOfToken + (config.indentUnit * state.indentCount);
 
-                var newScopes = [];
+                const newScopes = [];
 
-                for (var i = 0; i < state.scopes.length; i++) {
-                    var scope = state.scopes[i];
+                for (let i = 0; i < state.scopes.length; i++) {
+                    const scope = state.scopes[i];
 
                     if (scope.offset <= withCurrentIndent)
                         newScopes.push(scope);
@@ -438,7 +438,7 @@
                 };
             },
             token: function (stream, state) {
-                var style = tokenLexer(stream, state);
+                const style = tokenLexer(stream, state);
 
                 state.lastToken = {style: style, content: stream.current()};
 

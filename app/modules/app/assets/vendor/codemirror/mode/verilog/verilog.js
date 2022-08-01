@@ -13,7 +13,7 @@
 
     CodeMirror.defineMode("verilog", function (config, parserConfig) {
 
-        var indentUnit = config.indentUnit,
+        const indentUnit = config.indentUnit,
             statementIndentUnit = parserConfig.statementIndentUnit || indentUnit,
             dontAlignCalls = parserConfig.dontAlignCalls,
             // compilerDirectivesUseRegularIndentation - If set, Compiler directive
@@ -27,15 +27,15 @@
             hooks = parserConfig.hooks || {};
 
         function words(str) {
-            var obj = {}, words = str.split(" ");
-            for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+            const obj = {}, words = str.split(" ");
+            for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
             return obj;
         }
 
         /**
          * Keywords from IEEE 1800-2012
          */
-        var keywords = words(
+        const keywords = words(
             "accept_on alias always always_comb always_ff always_latch and assert assign assume automatic before begin bind " +
             "bins binsof bit break buf bufif0 bufif1 byte case casex casez cell chandle checker class clocking cmos config " +
             "const constraint context continue cover covergroup coverpoint cross deassign default defparam design disable " +
@@ -68,36 +68,36 @@
          binary_module_path_operator ::=
          === | != | && | || | & | | | ^ | ^~ | ~^
          */
-        var isOperatorChar = /[\+\-\*\/!~&|^%=?:<>]/;
-        var isBracketChar = /[\[\]{}()]/;
+        const isOperatorChar = /[+\-*\/!~&|^%=?:<>]/;
+        const isBracketChar = /[\[\]{}()]/;
 
-        var unsignedNumber = /\d[0-9_]*/;
-        var decimalLiteral = /\d*\s*'s?d\s*\d[0-9_]*/i;
-        var binaryLiteral = /\d*\s*'s?b\s*[xz01][xz01_]*/i;
-        var octLiteral = /\d*\s*'s?o\s*[xz0-7][xz0-7_]*/i;
-        var hexLiteral = /\d*\s*'s?h\s*[0-9a-fxz?][0-9a-fxz?_]*/i;
-        var realLiteral = /(\d[\d_]*(\.\d[\d_]*)?E-?[\d_]+)|(\d[\d_]*\.\d[\d_]*)/i;
+        const unsignedNumber = /\d[0-9_]*/;
+        const decimalLiteral = /\d*\s*'s?d\s*\d[0-9_]*/i;
+        const binaryLiteral = /\d*\s*'s?b\s*[xz01][xz01_]*/i;
+        const octLiteral = /\d*\s*'s?o\s*[xz0-7][xz0-7_]*/i;
+        const hexLiteral = /\d*\s*'s?h\s*[0-9a-fxz?][0-9a-fxz?_]*/i;
+        const realLiteral = /(\d[\d_]*(\.\d[\d_]*)?E-?[\d_]+)|(\d[\d_]*\.\d[\d_]*)/i;
 
-        var closingBracketOrWord = /^((`?\w+)|[)}\]])/;
-        var closingBracket = /[)}\]]/;
-        var compilerDirectiveRegex = new RegExp(
+        const closingBracketOrWord = /^((`?\w+)|[)}\]])/;
+        const closingBracket = /[)}\]]/;
+        const compilerDirectiveRegex = new RegExp(
             "^(`(?:ifdef|ifndef|elsif|else|endif|undef|undefineall|define|include|begin_keywords|celldefine|default|" +
             "nettype|end_keywords|endcelldefine|line|nounconnected_drive|pragma|resetall|timescale|unconnected_drive))\\b");
-        var compilerDirectiveBeginRegex = /^(`(?:ifdef|ifndef|elsif|else))\b/;
-        var compilerDirectiveEndRegex = /^(`(?:elsif|else|endif))\b/;
+        const compilerDirectiveBeginRegex = /^(`(?:ifdef|ifndef|elsif|else))\b/;
+        const compilerDirectiveEndRegex = /^(`(?:elsif|else|endif))\b/;
 
-        var curPunc;
-        var curKeyword;
+        let curPunc;
+        let curKeyword;
 
         // Block openings which are closed by a matching keyword in the form of ("end" + keyword)
         // E.g. "task" => "endtask"
-        var blockKeywords = words(
+        const blockKeywords = words(
             "case checker class clocking config function generate interface module package " +
             "primitive program property specify sequence table task"
         );
 
         // Opening/closing pairs
-        var openClose = {};
+        const openClose = {};
         for (var keyword in blockKeywords) {
             openClose[keyword] = "end" + keyword;
         }
@@ -117,15 +117,16 @@
         }
 
         // Keywords which open statements that are ended with a semi-colon
-        var statementKeywords = words("always always_comb always_ff always_latch assert assign assume else export for foreach forever if import initial repeat while extern typedef");
+        const statementKeywords = words("always always_comb always_ff always_latch assert assign assume else export for foreach forever if import initial repeat while extern typedef");
 
         function tokenBase(stream, state) {
-            var ch = stream.peek(), style;
+            const ch = stream.peek();
+            let style;
             if (hooks[ch] && (style = hooks[ch](stream, state)) !== false) return style;
             if (hooks.tokenBase && (style = hooks.tokenBase(stream, state)) !== false)
                 return style;
 
-            if (/[,;:\.]/.test(ch)) {
+            if (/[,;:.]/.test(ch)) {
                 curPunc = stream.next();
                 return null;
             }
@@ -136,12 +137,12 @@
             // Macros (tick-defines)
             if (ch === '`') {
                 stream.next();
-                if (stream.eatWhile(/[\w\$_]/)) {
+                if (stream.eatWhile(/[\w$_]/)) {
                     var cur = stream.current();
                     curKeyword = cur;
                     // Macros that end in _begin, are start of block and end with _end
                     if (cur.startsWith("`uvm_") && cur.endsWith("_begin")) {
-                        var keywordClose = curKeyword.substr(0, curKeyword.length - 5) + "end";
+                        const keywordClose = curKeyword.substr(0, curKeyword.length - 5) + "end";
                         openClose[cur] = keywordClose;
                         curPunc = "newblock";
                     } else {
@@ -150,7 +151,7 @@
                             // Check if this is a block
                             curPunc = "newmacro";
                         }
-                        var withSpace = stream.current();
+                        const withSpace = stream.current();
                         // Move the stream back before the spaces
                         stream.backUp(withSpace.length - cur.length);
                     }
@@ -162,7 +163,7 @@
             // System calls
             if (ch === '$') {
                 stream.next();
-                if (stream.eatWhile(/[\w\$_]/)) {
+                if (stream.eatWhile(/[\w$_]/)) {
                     return "meta";
                 } else {
                     return null;
@@ -218,7 +219,7 @@
             }
 
             // Keywords / plain variables
-            if (stream.eatWhile(/[\w\$_]/)) {
+            if (stream.eatWhile(/[\w$_]/)) {
                 var cur = stream.current();
                 if (keywords[cur]) {
                     if (openClose[cur]) {
@@ -248,7 +249,7 @@
 
         function tokenString(quote) {
             return function (stream, state) {
-                var escaped = false, next, end = false;
+                let escaped = false, next, end = false;
                 while ((next = stream.next()) != null) {
                     if (next === quote && !escaped) {
                         end = true;
@@ -263,7 +264,7 @@
         }
 
         function tokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = tokenBase;
@@ -284,13 +285,13 @@
         }
 
         function pushContext(state, col, type, scopekind) {
-            var indent = state.indented;
-            var c = new Context(indent, col, type, scopekind ? scopekind : "", null, state.context);
+            const indent = state.indented;
+            const c = new Context(indent, col, type, scopekind ? scopekind : "", null, state.context);
             return state.context = c;
         }
 
         function popContext(state) {
-            var t = state.context.type;
+            const t = state.context.type;
             if (t === ")" || t === "]" || t === "}") {
                 state.indented = state.context.indented;
             }
@@ -302,8 +303,8 @@
                 return true;
             } else {
                 // contextClosing may be multiple keywords separated by ;
-                var closingKeywords = contextClosing.split(";");
-                for (var i in closingKeywords) {
+                const closingKeywords = contextClosing.split(";");
+                for (let i in closingKeywords) {
                     if (text === closingKeywords[i]) {
                         return true;
                     }
@@ -326,16 +327,16 @@
             // Reindentation should occur on any bracket char: {}()[]
             // or on a match of any of the block closing keywords, at
             // the end of a line
-            var allClosings = [];
-            for (var i in openClose) {
+            const allClosings = [];
+            for (let i in openClose) {
                 if (openClose[i]) {
-                    var closings = openClose[i].split(";");
-                    for (var j in closings) {
+                    const closings = openClose[i].split(";");
+                    for (let j in closings) {
                         allClosings.push(closings[j]);
                     }
                 }
             }
-            var re = new RegExp("[{}()\\[\\]]|(" + allClosings.join("|") + ")$");
+            const re = new RegExp("[{}()\\[\\]]|(" + allClosings.join("|") + ")$");
             return re;
         }
 
@@ -346,7 +347,7 @@
             electricInput: buildElectricInputRegEx(),
 
             startState: function (basecolumn) {
-                var state = {
+                const state = {
                     tokenize: null,
                     context: new Context((basecolumn || 0) - indentUnit, 0, "top", "top", false),
                     indented: 0,
@@ -358,7 +359,7 @@
             },
 
             token: function (stream, state) {
-                var ctx = state.context;
+                let ctx = state.context;
                 if (stream.sol()) {
                     if (ctx.align === null) ctx.align = false;
                     state.indented = stream.indentation();
@@ -387,7 +388,7 @@
                 }
                 if (ctx.align === null) ctx.align = true;
 
-                var isClosingAssignment = ctx.type === "assignment" &&
+                const isClosingAssignment = ctx.type === "assignment" &&
                     closingBracket.test(curPunc) && ctx.prev && ctx.prev.type === curPunc;
                 if (curPunc === ctx.type || isClosingAssignment) {
                     if (isClosingAssignment) {
@@ -431,7 +432,7 @@
                     } else if (curKeyword === "class" && ctx && ctx.type === "statement") {
                         // Same thing for class (e.g. typedef)
                     } else {
-                        var close = openClose[curKeyword];
+                        const close = openClose[curKeyword];
                         pushContext(state, stream.column(), close, curKeyword);
                     }
                 } else if (curPunc === "newmacro" || (curKeyword && curKeyword.match(compilerDirectiveRegex))) {
@@ -455,13 +456,14 @@
             indent: function (state, textAfter) {
                 if (state.tokenize !== tokenBase && state.tokenize != null) return CodeMirror.Pass;
                 if (hooks.indent) {
-                    var fromHook = hooks.indent(state);
+                    const fromHook = hooks.indent(state);
                     if (fromHook >= 0) return fromHook;
                 }
-                var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
+                let ctx = state.context;
+                const firstChar = textAfter && textAfter.charAt(0);
                 if (ctx.type === "statement" && firstChar === "}") ctx = ctx.prev;
-                var closing = false;
-                var possibleClosing = textAfter.match(closingBracketOrWord);
+                let closing = false;
+                const possibleClosing = textAfter.match(closingBracketOrWord);
                 if (possibleClosing)
                     closing = isClosing(possibleClosing[0], ctx.type);
                 if (!compilerDirectivesUseRegularIndentation && textAfter.match(compilerDirectiveRegex)) {
@@ -501,7 +503,7 @@
     // TLV Identifier prefixes.
     // Note that sign is not treated separately, so "+/-" versions of numeric identifiers
     // are included.
-    var tlvIdentifierStyle = {
+    const tlvIdentifierStyle = {
         "|": "link",
         ">": "property",  // Should condition this off for > TLV 1c.
         "$": "variable",
@@ -535,7 +537,7 @@
     };
 
     // Lines starting with these characters define scope (result in indentation).
-    var tlvScopePrefixChars = {
+    const tlvScopePrefixChars = {
         "/": "beh-hier",
         ">": "beh-hier",
         "-": "phys-hier",
@@ -544,26 +546,26 @@
         "@": "stage",
         "\\": "keyword"
     };
-    var tlvIndentUnit = 3;
-    var tlvTrackStatements = false;
-    var tlvIdentMatch = /^([~!@#\$%\^&\*-\+=\?\/\\\|'"<>]+)([\d\w_]*)/;  // Matches an identifier.
+    const tlvIndentUnit = 3;
+    const tlvTrackStatements = false;
+    const tlvIdentMatch = /^([~!@#$%^&*-+=?\/\\|'"<>]+)([\d\w_]*)/;  // Matches an identifier.
     // Note that ':' is excluded, because of it's use in [:].
-    var tlvFirstLevelIndentMatch = /^[! ]  /;
-    var tlvLineIndentationMatch = /^[! ] */;
-    var tlvCommentMatch = /^\/[\/\*]/;
+    const tlvFirstLevelIndentMatch = /^[! ] {2}/;
+    const tlvLineIndentationMatch = /^[! ] */;
+    const tlvCommentMatch = /^\/[\/*]/;
 
 
     // Returns a style specific to the scope at the given indentation column.
     // Type is one of: "indent", "scope-ident", "before-scope-ident".
     function tlvScopeStyle(state, indentation, type) {
         // Begin scope.
-        var depth = indentation / tlvIndentUnit;  // TODO: Pass this in instead.
+        const depth = indentation / tlvIndentUnit;  // TODO: Pass this in instead.
         return "tlv-" + state.tlvIndentationStyle[depth] + "-" + type;
     }
 
     // Return true if the next thing in the stream is an identifier with a mnemonic.
     function tlvIdentNext(stream) {
-        var match;
+        let match;
         return (match = stream.match(tlvIdentMatch, false)) && match[2].length > 0;
     }
 
@@ -582,7 +584,7 @@
             //   - TLV scope indentation
             //   - Statement delimitation (enabled by tlvTrackStatements)
             token: function (stream, state) {
-                var style = undefined;
+                let style = undefined;
                 var match;  // Return value of pattern matches.
 
                 // Set highlighting mode based on code region (TLV or SV).
@@ -606,16 +608,16 @@
                     // Compute indentation state:
                     //   o Auto indentation on next line
                     //   o Indentation scope styles
-                    var indented = state.indented;
-                    var depth = indented / tlvIndentUnit;
+                    let indented = state.indented;
+                    let depth = indented / tlvIndentUnit;
                     if (depth <= state.tlvIndentationStyle.length) {
                         // not deeper than current scope
 
-                        var blankline = stream.string.length === indented;
-                        var chPos = depth * tlvIndentUnit;
+                        const blankline = stream.string.length === indented;
+                        const chPos = depth * tlvIndentUnit;
                         if (chPos < stream.string.length) {
-                            var bodyString = stream.string.slice(chPos);
-                            var ch = bodyString[0];
+                            const bodyString = stream.string.slice(chPos);
+                            const ch = bodyString[0];
                             if (tlvScopePrefixChars[ch] && ((match = bodyString.match(tlvIdentMatch)) &&
                                 tlvIdentifierStyle[match[1]])) {
                                 // This line begins scope.
@@ -646,7 +648,7 @@
                 if (state.tlvCodeActive) {
                     // Highlight as TLV.
 
-                    var beginStatement = false;
+                    let beginStatement = false;
                     if (tlvTrackStatements) {
                         // This starts a statement if the position is at the scope level
                         // and we're not within a statement leading comment.
@@ -671,7 +673,7 @@
                         // Region line.
                         style += " " + tlvScopeStyle(state, 0, "scope-ident")
                     } else if (((stream.pos / tlvIndentUnit) < state.tlvIndentationStyle.length) &&
-                        (match = stream.match(stream.sol() ? tlvFirstLevelIndentMatch : /^   /))) {
+                        (match = stream.match(stream.sol() ? tlvFirstLevelIndentMatch : /^ {3}/))) {
                         // Indentation
                         style = // make this style distinct from the previous one to prevent
                             // codemirror from combining spans
@@ -711,8 +713,8 @@
                         style = "comment";
                     } else if (match === stream.match(tlvIdentMatch)) {
                         // looks like an identifier (or identifier prefix)
-                        var prefix = match[1];
-                        var mnemonic = match[2];
+                        const prefix = match[1];
+                        const mnemonic = match[2];
                         if (// is identifier prefix
                             tlvIdentifierStyle.hasOwnProperty(prefix) &&
                             // has mnemonic or we're at the end of the line (maybe it hasn't been typed yet)
@@ -733,10 +735,10 @@
                     } else if (stream.match(/^\t+/)) {
                         // Highlight tabs, which are illegal.
                         style = "tlv-tab";
-                    } else if (stream.match(/^[\[\]{}\(\);\:]+/)) {
+                    } else if (stream.match(/^[\[\]{}();:]+/)) {
                         // [:], (), {}, ;.
                         style = "meta";
-                    } else if (match === stream.match(/^[mM]4([\+_])?[\w\d_]*/)) {
+                    } else if (match === stream.match(/^[mM]4([+_])?[\w\d_]*/)) {
                         // m4 pre proc
                         style = (match[1] === "+") ? "tlv-m4-plus" : "tlv-m4";
                     } else if (stream.match(/^ +/)) {

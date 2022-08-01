@@ -4,7 +4,7 @@ function copyObj(obj, target, overwrite) {
     if (!target) {
         target = {};
     }
-    for (var prop in obj) {
+    for (let prop in obj) {
         if (obj.hasOwnProperty(prop) && (overwrite !== false || !target.hasOwnProperty(prop))) {
             target[prop] = obj[prop];
         }
@@ -21,8 +21,9 @@ function countColumn(string, end, tabSize, startIndex, startValue) {
             end = string.length;
         }
     }
-    for (var i = startIndex || 0, n = startValue || 0; ;) {
-        var nextTab = string.indexOf("\t", i);
+    let i = startIndex || 0, n = startValue || 0;
+    for (; ;) {
+        const nextTab = string.indexOf("\t", i);
         if (nextTab < 0 || nextTab >= end) {
             return n + (end - i)
         }
@@ -36,7 +37,7 @@ function nothing() {
 }
 
 function createObj(base, props) {
-    var inst;
+    let inst;
     if (Object.create) {
         inst = Object.create(base);
     } else {
@@ -54,7 +55,7 @@ function createObj(base, props) {
 // Fed to the mode parsers, provides helper functions to make
 // parsers more succinct.
 
-var StringStream = function (string, tabSize, lineOracle) {
+const StringStream = function (string, tabSize, lineOracle) {
     this.pos = this.start = 0;
     this.string = string;
     this.tabSize = tabSize || 8;
@@ -78,8 +79,8 @@ StringStream.prototype.next = function () {
     }
 };
 StringStream.prototype.eat = function (match) {
-    var ch = this.string.charAt(this.pos);
-    var ok;
+    const ch = this.string.charAt(this.pos);
+    let ok;
     if (typeof match === "string") {
         ok = ch === match;
     } else {
@@ -91,13 +92,13 @@ StringStream.prototype.eat = function (match) {
     }
 };
 StringStream.prototype.eatWhile = function (match) {
-    var start = this.pos;
+    const start = this.pos;
     while (this.eat(match)) {
     }
     return this.pos > start
 };
 StringStream.prototype.eatSpace = function () {
-    var start = this.pos;
+    const start = this.pos;
     while (/[\s\u00a0]/.test(this.string.charAt(this.pos))) {
         ++this.pos;
     }
@@ -107,7 +108,7 @@ StringStream.prototype.skipToEnd = function () {
     this.pos = this.string.length;
 };
 StringStream.prototype.skipTo = function (ch) {
-    var found = this.string.indexOf(ch, this.pos);
+    const found = this.string.indexOf(ch, this.pos);
     if (found > -1) {
         this.pos = found;
         return true
@@ -129,10 +130,10 @@ StringStream.prototype.indentation = function () {
 };
 StringStream.prototype.match = function (pattern, consume, caseInsensitive) {
     if (typeof pattern === "string") {
-        var cased = function (str) {
+        const cased = function (str) {
             return caseInsensitive ? str.toLowerCase() : str;
         };
-        var substr = this.string.substr(this.pos, pattern.length);
+        const substr = this.string.substr(this.pos, pattern.length);
         if (cased(substr) === cased(pattern)) {
             if (consume !== false) {
                 this.pos += pattern.length;
@@ -140,7 +141,7 @@ StringStream.prototype.match = function (pattern, consume, caseInsensitive) {
             return true
         }
     } else {
-        var match = this.string.slice(this.pos).match(pattern);
+        const match = this.string.slice(this.pos).match(pattern);
         if (match && match.index > 0) {
             return null
         }
@@ -162,16 +163,16 @@ StringStream.prototype.hideFirstChars = function (n, inner) {
     }
 };
 StringStream.prototype.lookAhead = function (n) {
-    var oracle = this.lineOracle;
+    const oracle = this.lineOracle;
     return oracle && oracle.lookAhead(n)
 };
 StringStream.prototype.baseToken = function () {
-    var oracle = this.lineOracle;
+    const oracle = this.lineOracle;
     return oracle && oracle.baseToken(this.pos)
 };
 
 // Known modes, by name and by MIME
-var modes = {}, mimeModes = {};
+const modes = {}, mimeModes = {};
 
 // Extra arguments are stored as the mode's dependencies, which is
 // used by (legacy) mechanisms like loadmode.js to automatically
@@ -193,7 +194,7 @@ function resolveMode(spec) {
     if (typeof spec === "string" && mimeModes.hasOwnProperty(spec)) {
         spec = mimeModes[spec];
     } else if (spec && typeof spec.name === "string" && mimeModes.hasOwnProperty(spec.name)) {
-        var found = mimeModes[spec.name];
+        let found = mimeModes[spec.name];
         if (typeof found === "string") {
             found = {name: found};
         }
@@ -215,14 +216,14 @@ function resolveMode(spec) {
 // initialize an actual mode object.
 function getMode(options, spec) {
     spec = resolveMode(spec);
-    var mfactory = modes[spec.name];
+    const mfactory = modes[spec.name];
     if (!mfactory) {
         return getMode(options, "text/plain")
     }
-    var modeObj = mfactory(options, spec);
+    const modeObj = mfactory(options, spec);
     if (modeExtensions.hasOwnProperty(spec.name)) {
-        var exts = modeExtensions[spec.name];
-        for (var prop in exts) {
+        const exts = modeExtensions[spec.name];
+        for (let prop in exts) {
             if (!exts.hasOwnProperty(prop)) {
                 continue
             }
@@ -237,7 +238,7 @@ function getMode(options, spec) {
         modeObj.helperType = spec.helperType;
     }
     if (spec.modeProps) {
-        for (var prop$1 in spec.modeProps) {
+        for (let prop$1 in spec.modeProps) {
             modeObj[prop$1] = spec.modeProps[prop$1];
         }
     }
@@ -250,7 +251,7 @@ function getMode(options, spec) {
 var modeExtensions = {};
 
 function extendMode(mode, properties) {
-    var exts = modeExtensions.hasOwnProperty(mode) ? modeExtensions[mode] : (modeExtensions[mode] = {});
+    const exts = modeExtensions.hasOwnProperty(mode) ? modeExtensions[mode] : (modeExtensions[mode] = {});
     copyObj(properties, exts);
 }
 
@@ -261,9 +262,9 @@ function copyState(mode, state) {
     if (mode.copyState) {
         return mode.copyState(state)
     }
-    var nstate = {};
-    for (var n in state) {
-        var val = state[n];
+    const nstate = {};
+    for (let n in state) {
+        let val = state[n];
         if (val instanceof Array) {
             val = val.concat([]);
         }
@@ -275,7 +276,7 @@ function copyState(mode, state) {
 // Given a mode and a state (for that mode), find the inner mode and
 // state at the position that the state refers to.
 function innerMode(mode, state) {
-    var info;
+    let info;
     while (mode.innerMode) {
         info = mode.innerMode(state);
         if (!info || info.mode === mode) {
@@ -291,7 +292,7 @@ function startState(mode, a1, a2) {
     return mode.startState ? mode.startState(a1, a2) : true
 }
 
-var modeMethods = {
+const modeMethods = {
     __proto__: null,
     modes: modes,
     mimeModes: mimeModes,
@@ -309,7 +310,7 @@ var modeMethods = {
 // Copy StringStream and mode methods into exports (CodeMirror) object.
 exports.StringStream = StringStream;
 exports.countColumn = countColumn;
-for (var exported in modeMethods) {
+for (let exported in modeMethods) {
     exports[exported] = modeMethods[exported];
 }
 
@@ -351,14 +352,15 @@ exports.defaults = {indentUnit: 2};
 })(function (CodeMirror) {
 
     CodeMirror.runMode = function (string, modespec, callback, options) {
-        var mode = CodeMirror.getMode(CodeMirror.defaults, modespec);
-        var tabSize = (options && options.tabSize) || CodeMirror.defaults.tabSize;
+        const mode = CodeMirror.getMode(CodeMirror.defaults, modespec);
+        const tabSize = (options && options.tabSize) || CodeMirror.defaults.tabSize;
 
         // Create a tokenizing callback function if passed-in callback is a DOM element.
         if (callback.appendChild) {
-            var ie = /MSIE \d/.test(navigator.userAgent);
-            var ie_lt9 = ie && (document.documentMode === null || document.documentMode < 9);
-            var node = callback, col = 0;
+            const ie = /MSIE \d/.test(navigator.userAgent);
+            const ie_lt9 = ie && (document.documentMode === null || document.documentMode < 9);
+            const node = callback;
+            let col = 0;
             node.innerHTML = "";
             callback = function (text, style) {
                 if (text === "\n") {
@@ -368,10 +370,10 @@ exports.defaults = {indentUnit: 2};
                     col = 0;
                     return;
                 }
-                var content = "";
+                let content = "";
                 // replace tabs
-                for (var pos = 0; ;) {
-                    var idx = text.indexOf("\t", pos);
+                for (let pos = 0; ;) {
+                    const idx = text.indexOf("\t", pos);
                     if (idx === -1) {
                         content += text.slice(pos);
                         col += text.length - pos;
@@ -379,9 +381,9 @@ exports.defaults = {indentUnit: 2};
                     } else {
                         col += idx - pos;
                         content += text.slice(pos, idx);
-                        var size = tabSize - col % tabSize;
+                        const size = tabSize - col % tabSize;
                         col += size;
-                        for (var i = 0; i < size; ++i) {
+                        for (let i = 0; i < size; ++i) {
                             content += " ";
                         }
                         pos = idx + 1;
@@ -389,7 +391,7 @@ exports.defaults = {indentUnit: 2};
                 }
                 // Create a node with token style and append it to the callback DOM element.
                 if (style) {
-                    var sp = node.appendChild(document.createElement("span"));
+                    const sp = node.appendChild(document.createElement("span"));
                     sp.className = "cm-" + style.replace(/ +/g, " cm-");
                     sp.appendChild(document.createTextNode(content));
                 } else {
@@ -398,12 +400,12 @@ exports.defaults = {indentUnit: 2};
             };
         }
 
-        var lines = CodeMirror.splitLines(string), state = (options && options.state) || CodeMirror.startState(mode);
+        const lines = CodeMirror.splitLines(string), state = (options && options.state) || CodeMirror.startState(mode);
         for (var i = 0, e = lines.length; i < e; ++i) {
             if (i) {
                 callback("\n");
             }
-            var stream = new CodeMirror.StringStream(lines[i], null, {
+            const stream = new CodeMirror.StringStream(lines[i], null, {
                 lookAhead: function (n) {
                     return lines[i + n]
                 },

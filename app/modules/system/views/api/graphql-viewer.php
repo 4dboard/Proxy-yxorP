@@ -29,10 +29,10 @@
 <body>
 <script>
     // Parse the search string to get url parameters.
-    var search = window.location.search;
-    var parameters = {};
+    const search = window.location.search;
+    const parameters = {};
     search.substr(1).split('&').forEach(function (entry) {
-        var eq = entry.indexOf('=');
+        const eq = entry.indexOf('=');
         if (eq >= 0) {
             parameters[decodeURIComponent(entry.slice(0, eq))] =
                 decodeURIComponent(entry.slice(eq + 1));
@@ -68,7 +68,7 @@
     }
 
     function updateURL() {
-        var newSearch = '?' + Object.keys(parameters).filter(function (key) {
+        const newSearch = '?' + Object.keys(parameters).filter(function (key) {
             return Boolean(parameters[key]);
         }).map(function (key) {
             return encodeURIComponent(key) + '=' +

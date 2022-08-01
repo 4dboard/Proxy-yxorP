@@ -2,7 +2,8 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "xml"), mname = "xml";
+    let mode = CodeMirror.getMode({indentUnit: 2}, "xml");
+    const mname = "xml";
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1), mname);

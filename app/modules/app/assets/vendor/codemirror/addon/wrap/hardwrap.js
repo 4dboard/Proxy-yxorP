@@ -11,10 +11,10 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var Pos = CodeMirror.Pos;
+    const Pos = CodeMirror.Pos;
 
     function findParagraph(cm, pos, options) {
-        var startRE = options.paragraphStart || cm.getHelper(pos, "paragraphStart");
+        const startRE = options.paragraphStart || cm.getHelper(pos, "paragraphStart");
         for (var start = pos.line, first = cm.firstLine(); start > first; --start) {
             var line = cm.getLine(start);
             if (startRE && startRE.test(line)) break;
@@ -23,7 +23,7 @@
                 break;
             }
         }
-        var endRE = options.paragraphEnd || cm.getHelper(pos, "paragraphEnd");
+        const endRE = options.paragraphEnd || cm.getHelper(pos, "paragraphEnd");
         for (var end = pos.line + 1, last = cm.lastLine(); end <= last; ++end) {
             var line = cm.getLine(end);
             if (endRE && endRE.test(line)) {
@@ -36,7 +36,7 @@
     }
 
     function findBreakPoint(text, column, wrapOn, killTrailingSpace, forceBreak) {
-        var at = column
+        let at = column;
         while (at < text.length && text.charAt(at) === " ") at++
         for (; at > 0; --at)
             if (wrapOn.test(text.slice(at - 1, at + 1))) break;
@@ -49,8 +49,8 @@
             }
         }
 
-        for (var first = true; ; first = false) {
-            var endOfText = at;
+        for (let first = true; ; first = false) {
+            let endOfText = at;
             if (killTrailingSpace)
                 while (text.charAt(endOfText - 1) === " ") --endOfText;
             if (endOfText === 0 && first) at = column;
@@ -61,30 +61,33 @@
     function wrapRange(cm, from, to, options) {
         from = cm.clipPos(from);
         to = cm.clipPos(to);
-        var column = options.column || 80;
-        var wrapOn = options.wrapOn || /\s\S|-[^\.\d]/;
-        var forceBreak = options.forceBreak !== false;
-        var killTrailing = options.killTrailingSpace !== false;
-        var changes = [], curLine = "", curNo = from.line;
-        var lines = cm.getRange(from, to, false);
+        let column = options.column || 80;
+        const wrapOn = options.wrapOn || /\s\S|-[^\.\d]/;
+        const forceBreak = options.forceBreak !== false;
+        const killTrailing = options.killTrailingSpace !== false;
+        const changes = [];
+        let curLine = "", curNo = from.line;
+        const lines = cm.getRange(from, to, false);
         if (!lines.length) return null;
-        var leadingSpace = lines[0].match(/^[ \t]*/)[0];
+        const leadingSpace = lines[0].match(/^[ \t]*/)[0];
         if (leadingSpace.length >= column) column = leadingSpace.length + 1
 
         for (var i = 0; i < lines.length; ++i) {
-            var text = lines[i], oldLen = curLine.length, spaceInserted = 0;
+            let text = lines[i];
+            const oldLen = curLine.length;
+            let spaceInserted = 0;
             if (curLine && text && !wrapOn.test(curLine.charAt(curLine.length - 1) + text.charAt(0))) {
                 curLine += " ";
                 spaceInserted = 1;
             }
-            var spaceTrimmed = "";
+            let spaceTrimmed = "";
             if (i) {
                 spaceTrimmed = text.match(/^\s*/)[0];
                 text = text.slice(spaceTrimmed.length);
             }
             curLine += text;
             if (i) {
-                var firstBreak = curLine.length > column && leadingSpace === spaceTrimmed &&
+                const firstBreak = curLine.length > column && leadingSpace === spaceTrimmed &&
                     findBreakPoint(curLine, column, wrapOn, killTrailing, forceBreak);
                 // If this isn't broken, or is broken at a different point, remove old break
                 if (!firstBreak || firstBreak.from !== oldLen || firstBreak.to !== oldLen + spaceInserted) {
@@ -99,7 +102,7 @@
                 }
             }
             while (curLine.length > column) {
-                var bp = findBreakPoint(curLine, column, wrapOn, killTrailing, forceBreak);
+                const bp = findBreakPoint(curLine, column, wrapOn, killTrailing, forceBreak);
                 if (bp.from !== bp.to ||
                     forceBreak && leadingSpace !== curLine.slice(0, bp.to)) {
                     changes.push({
@@ -115,8 +118,8 @@
             }
         }
         if (changes.length) cm.operation(function () {
-            for (var i = 0; i < changes.length; ++i) {
-                var change = changes[i];
+            for (let i = 0; i < changes.length; ++i) {
+                const change = changes[i];
                 if (change.text || CodeMirror.cmpPos(change.from, change.to))
                     cm.replaceRange(change.text, change.from, change.to);
             }
@@ -127,17 +130,19 @@
     CodeMirror.defineExtension("wrapParagraph", function (pos, options) {
         options = options || {};
         if (!pos) pos = this.getCursor();
-        var para = findParagraph(this, pos, options);
+        const para = findParagraph(this, pos, options);
         return wrapRange(this, Pos(para.from, 0), Pos(para.to - 1), options);
     });
 
     CodeMirror.commands.wrapLines = function (cm) {
         cm.operation(function () {
-            var ranges = cm.listSelections(), at = cm.lastLine() + 1;
-            for (var i = ranges.length - 1; i >= 0; i--) {
-                var range = ranges[i], span;
+            const ranges = cm.listSelections();
+            let at = cm.lastLine() + 1;
+            for (let i = ranges.length - 1; i >= 0; i--) {
+                const range = ranges[i];
+                let span;
                 if (range.empty()) {
-                    var para = findParagraph(cm, range.head, {});
+                    const para = findParagraph(cm, range.head, {});
                     span = {from: Pos(para.from, 0), to: Pos(para.to - 1)};
                 } else {
                     span = {from: range.from(), to: range.to()};
@@ -155,15 +160,15 @@
 
     CodeMirror.defineExtension("wrapParagraphsInRange", function (from, to, options) {
         options = options || {};
-        var cm = this, paras = [];
-        for (var line = from.line; line <= to.line;) {
-            var para = findParagraph(cm, Pos(line, 0), options);
+        const cm = this, paras = [];
+        for (let line = from.line; line <= to.line;) {
+            const para = findParagraph(cm, Pos(line, 0), options);
             paras.push(para);
             line = para.to;
         }
-        var madeChange = false;
+        let madeChange = false;
         if (paras.length) cm.operation(function () {
-            for (var i = paras.length - 1; i >= 0; --i)
+            for (let i = paras.length - 1; i >= 0; --i)
                 madeChange = madeChange || wrapRange(cm, Pos(paras[i].from, 0), Pos(paras[i].to - 1), options);
         });
         return madeChange;

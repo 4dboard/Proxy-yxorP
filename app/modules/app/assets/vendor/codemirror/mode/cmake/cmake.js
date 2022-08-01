@@ -12,10 +12,10 @@
     "use strict";
 
     CodeMirror.defineMode("cmake", function () {
-        var variable_regex = /({)?[a-zA-Z0-9_]+(})?/;
+        const variable_regex = /({)?[a-zA-Z0-9_]+(})?/;
 
         function tokenString(stream, state) {
-            var current, prev, found_var = false;
+            let current, prev, found_var = false;
             while (!stream.eol() && (current = stream.next()) !== state.pending) {
                 if (current === '$' && prev !== '\\' && state.pending === '"') {
                     found_var = true;
@@ -31,7 +31,7 @@
         }
 
         function tokenize(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
 
             // Have we found a variable?
             if (ch === '$') {
@@ -48,7 +48,7 @@
             }
             // Do we just have a function on our hands?
             // In 'cmake_minimum_required (VERSION 2.8.8)', 'cmake_minimum_required' is matched
-            if (stream.match(/(\s+)?\w+\(/) || stream.match(/(\s+)?\w+\ \(/)) {
+            if (stream.match(/(\s+)?\w+\(/) || stream.match(/(\s+)?\w+ \(/)) {
                 stream.backUp(1);
                 return 'def';
             }
@@ -75,7 +75,7 @@
 
         return {
             startState: function () {
-                var state = {};
+                const state = {};
                 state.inDefinition = false;
                 state.inInclude = false;
                 state.continueString = false;

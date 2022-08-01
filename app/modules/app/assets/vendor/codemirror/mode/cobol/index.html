@@ -180,7 +180,7 @@
 000580
 </textarea>
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-cobol",
@@ -190,14 +190,14 @@
         });
 
         function selectTheme() {
-            var themeInput = document.getElementById("selectTheme");
-            var theme = themeInput.options[themeInput.selectedIndex].innerHTML;
+            const themeInput = document.getElementById("selectTheme");
+            const theme = themeInput.options[themeInput.selectedIndex].innerHTML;
             editor.setOption("theme", theme);
         }
 
         function selectFontsize() {
-            var fontSizeInput = document.getElementById("selectFontSize");
-            var fontSize = fontSizeInput.options[fontSizeInput.selectedIndex].innerHTML;
+            const fontSizeInput = document.getElementById("selectFontSize");
+            const fontSize = fontSizeInput.options[fontSizeInput.selectedIndex].innerHTML;
             editor.getWrapperElement().style.fontSize = fontSize;
             editor.refresh();
         }

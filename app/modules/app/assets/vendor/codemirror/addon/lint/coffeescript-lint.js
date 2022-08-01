@@ -16,15 +16,15 @@
     "use strict";
 
     CodeMirror.registerHelper("lint", "coffeescript", function (text) {
-        var found = [];
+        const found = [];
         if (!window.coffeelint) {
             if (window.console) {
                 window.console.error("Error: window.coffeelint not defined, CodeMirror CoffeeScript linting cannot run.");
             }
             return found;
         }
-        var parseError = function (err) {
-            var loc = err.lineNumber;
+        const parseError = function (err) {
+            const loc = err.lineNumber;
             found.push({
                 from: CodeMirror.Pos(loc - 1, 0),
                 to: CodeMirror.Pos(loc, 0),
@@ -33,8 +33,8 @@
             });
         };
         try {
-            var res = coffeelint.lint(text);
-            for (var i = 0; i < res.length; i++) {
+            const res = coffeelint.lint(text);
+            for (let i = 0; i < res.length; i++) {
                 parseError(res[i]);
             }
         } catch (e) {

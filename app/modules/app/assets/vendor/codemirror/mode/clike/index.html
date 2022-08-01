@@ -326,42 +326,42 @@ shared {Element+} loop&lt;Element&gt;(
 </textarea></div>
 
     <script>
-        var cEditor = CodeMirror.fromTextArea(document.getElementById("c-code"), {
+        const cEditor = CodeMirror.fromTextArea(document.getElementById("c-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-csrc"
         });
-        var cppEditor = CodeMirror.fromTextArea(document.getElementById("cpp-code"), {
+        const cppEditor = CodeMirror.fromTextArea(document.getElementById("cpp-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-c++src"
         });
-        var javaEditor = CodeMirror.fromTextArea(document.getElementById("java-code"), {
+        const javaEditor = CodeMirror.fromTextArea(document.getElementById("java-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-java"
         });
-        var objectivecEditor = CodeMirror.fromTextArea(document.getElementById("objectivec-code"), {
+        const objectivecEditor = CodeMirror.fromTextArea(document.getElementById("objectivec-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-objectivec"
         });
-        var scalaEditor = CodeMirror.fromTextArea(document.getElementById("scala-code"), {
+        const scalaEditor = CodeMirror.fromTextArea(document.getElementById("scala-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-scala"
         });
-        var kotlinEditor = CodeMirror.fromTextArea(document.getElementById("kotlin-code"), {
+        const kotlinEditor = CodeMirror.fromTextArea(document.getElementById("kotlin-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-kotlin"
         });
-        var ceylonEditor = CodeMirror.fromTextArea(document.getElementById("ceylon-code"), {
+        const ceylonEditor = CodeMirror.fromTextArea(document.getElementById("ceylon-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-ceylon"
         });
-        var mac = CodeMirror.keyMap.default === CodeMirror.keyMap.macDefault;
+        const mac = CodeMirror.keyMap.default === CodeMirror.keyMap.macDefault;
         CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
     </script>
 

@@ -13,18 +13,18 @@
 
     CodeMirror.defineMode("pug", function (config) {
         // token types
-        var KEYWORD = 'keyword';
-        var DOCTYPE = 'meta';
-        var ID = 'builtin';
-        var CLASS = 'qualifier';
+        const KEYWORD = 'keyword';
+        const DOCTYPE = 'meta';
+        const ID = 'builtin';
+        const CLASS = 'qualifier';
 
-        var ATTRS_NEST = {
+        const ATTRS_NEST = {
             '{': '}',
             '(': ')',
             '[': ']'
         };
 
-        var jsMode = CodeMirror.getMode(config, 'javascript');
+        const jsMode = CodeMirror.getMode(config, 'javascript');
 
         function State() {
             this.javaScriptLine = false;
@@ -69,7 +69,7 @@
          * @return {State}
          */
         State.prototype.copy = function () {
-            var res = new State();
+            const res = new State();
             res.javaScriptLine = this.javaScriptLine;
             res.javaScriptLineExcludesColon = this.javaScriptLineExcludesColon;
             res.javaScriptArguments = this.javaScriptArguments;
@@ -115,7 +115,7 @@
                     state.javaScriptLineExcludesColon = false;
                     return;
                 }
-                var tok = jsMode.token(stream, state.jsState);
+                const tok = jsMode.token(stream, state.jsState);
                 if (stream.eol()) state.javaScriptLine = false;
                 return tok || true;
             }
@@ -137,7 +137,7 @@
                     return;
                 }
 
-                var tok = jsMode.token(stream, state.jsState);
+                const tok = jsMode.token(stream, state.jsState);
                 return tok || true;
             }
         }
@@ -149,7 +149,7 @@
         }
 
         function doctype(stream) {
-            if (stream.match(/^(?:doctype) *([^\n]+)?/)) {
+            if (stream.match(/^doctype *([^\n]+)?/)) {
                 return DOCTYPE;
             }
         }
@@ -243,7 +243,7 @@
 
         function includeFilteredContinued(stream, state) {
             if (state.isIncludeFiltered) {
-                var tok = filter(stream, state);
+                const tok = filter(stream, state);
                 state.isIncludeFiltered = false;
                 state.restOfLine = 'string';
                 return tok;
@@ -320,7 +320,7 @@
         }
 
         function tag(stream, state) {
-            var captures;
+            let captures;
             if (captures === stream.match(/^(\w(?:[-:\w]*\w)?)\/?/)) {
                 state.lastTag = captures[1].toLowerCase();
                 if (state.lastTag === 'script') {
@@ -332,7 +332,7 @@
 
         function filter(stream, state) {
             if (stream.match(/^:([\w\-]+)/)) {
-                var innerMode;
+                let innerMode;
                 if (config && config.innerModes) {
                     innerMode = config.innerModes(stream.current().substring(1));
                 }
@@ -389,7 +389,7 @@
                     state.isAttrs = false;
                     return 'punctuation';
                 }
-                if (state.inAttributeName && stream.match(/^[^=,\)!]+/)) {
+                if (state.inAttributeName && stream.match(/^[^=,)!]+/)) {
                     if (stream.peek() === '=' || stream.peek() === '!') {
                         state.inAttributeName = false;
                         state.jsState = CodeMirror.startState(jsMode);
@@ -398,7 +398,7 @@
                     return 'attribute';
                 }
 
-                var tok = jsMode.token(stream, state.jsState);
+                const tok = jsMode.token(stream, state.jsState);
                 if (state.attributeIsType && tok === 'string') {
                     state.scriptType = stream.current().toString();
                 }
@@ -460,9 +460,9 @@
 
         function dot(stream, state) {
             if (stream.eat('.')) {
-                var innerMode = null;
+                let innerMode = null;
                 if (state.lastTag === 'script' && state.scriptType.toLowerCase().indexOf('javascript') !== -1) {
-                    innerMode = state.scriptType.toLowerCase().replace(/"|'/g, '');
+                    innerMode = state.scriptType.toLowerCase().replace(/["']/g, '');
                 } else if (state.lastTag === 'style') {
                     innerMode = 'css';
                 }
@@ -519,7 +519,7 @@
             }
             if (state.restOfLine) {
                 stream.skipToEnd();
-                var tok = state.restOfLine;
+                const tok = state.restOfLine;
                 state.restOfLine = '';
                 return tok;
             }
@@ -541,7 +541,7 @@
          * @param {State} state
          */
         function nextToken(stream, state) {
-            var tok = innerMode(stream, state)
+            const tok = innerMode(stream, state)
                 || restOfLine(stream, state)
                 || interpolationContinued(stream, state)
                 || includeFilteredContinued(stream, state)

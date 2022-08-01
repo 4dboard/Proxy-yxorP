@@ -2,10 +2,12 @@
 
 namespace App\GraphQL\Types;
 
+use Error;
 use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Type\Definition\ScalarType;
 use Psr\Http\Message\UploadedFileInterface;
+use yxorP\app\lib\Psr\Http\Message\UploadedFileInterface;
 
 class uploadType extends ScalarType
 {

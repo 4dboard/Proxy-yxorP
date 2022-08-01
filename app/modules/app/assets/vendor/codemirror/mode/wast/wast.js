@@ -11,7 +11,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var kKeywords = [
+    const kKeywords = [
         "align",
         "block",
         "br(_if|_table|_on_(cast|data|func|i31|null))?",
@@ -110,7 +110,7 @@
             },
             {regex: new RegExp(kKeywords.join('|')), token: "keyword"},
             {regex: /\b((any|data|eq|extern|i31|func)ref|[fi](32|64)|i(8|16))\b/, token: "atom"},
-            {regex: /\$([a-zA-Z0-9_`\+\-\*\/\\\^~=<>!\?@#$%&|:\.]+)/, token: "variable-2"},
+            {regex: /\$([a-zA-Z0-9_`+\-*\/\\^~=<>!?@#$%&|:.]+)/, token: "variable-2"},
             {regex: /"(?:[^"\\\x00-\x1f\x7f]|\\[nt\\'"]|\\[0-9a-fA-F][0-9a-fA-F])*"/, token: "string"},
             {regex: /\(;.*?/, token: "comment", next: "comment"},
             {regex: /;;.*$/, token: "comment"},

@@ -16,7 +16,7 @@
     "use strict";
 
     CodeMirror.defineMode("lua", function (config, parserConfig) {
-        var indentUnit = config.indentUnit;
+        const indentUnit = config.indentUnit;
 
         function prefixRE(words) {
             return new RegExp("^(?:" + words.join("|") + ")", "i");
@@ -26,10 +26,10 @@
             return new RegExp("^(?:" + words.join("|") + ")$", "i");
         }
 
-        var specials = wordRE(parserConfig.specials || []);
+        const specials = wordRE(parserConfig.specials || []);
 
         // long list of standard functions from lua manual
-        var builtins = wordRE([
+        const builtins = wordRE([
             "_G", "_VERSION", "assert", "collectgarbage", "dofile", "error", "getfenv", "getmetatable", "ipairs", "load",
             "loadfile", "loadstring", "module", "next", "pairs", "pcall", "print", "rawequal", "rawget", "rawset", "require",
             "select", "setfenv", "setmetatable", "tonumber", "tostring", "type", "unpack", "xpcall",
@@ -61,23 +61,23 @@
 
             "table.concat", "table.insert", "table.maxn", "table.remove", "table.sort"
         ]);
-        var keywords = wordRE(["and", "break", "elseif", "false", "nil", "not", "or", "return",
+        const keywords = wordRE(["and", "break", "elseif", "false", "nil", "not", "or", "return",
             "true", "function", "end", "if", "then", "else", "do",
             "while", "repeat", "until", "for", "in", "local"]);
 
-        var indentTokens = wordRE(["function", "if", "repeat", "do", "\\(", "{"]);
-        var dedentTokens = wordRE(["end", "until", "\\)", "}"]);
-        var dedentPartial = prefixRE(["end", "until", "\\)", "}", "else", "elseif"]);
+        const indentTokens = wordRE(["function", "if", "repeat", "do", "\\(", "{"]);
+        const dedentTokens = wordRE(["end", "until", "\\)", "}"]);
+        const dedentPartial = prefixRE(["end", "until", "\\)", "}", "else", "elseif"]);
 
         function readBracket(stream) {
-            var level = 0;
+            let level = 0;
             while (stream.eat("=")) ++level;
             stream.eat("[");
             return level;
         }
 
         function normal(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === "-" && stream.eat("-")) {
                 if (stream.eat("[") && stream.eat("["))
                     return (state.cur = bracketed(readBracket(stream), "comment"))(stream, state);
@@ -101,7 +101,7 @@
 
         function bracketed(level, style) {
             return function (stream, state) {
-                var curlev = null, ch;
+                let curlev = null, ch;
                 while ((ch = stream.next()) != null) {
                     if (curlev === null) {
                         if (ch === "]") curlev = 0;
@@ -117,7 +117,7 @@
 
         function string(quote) {
             return function (stream, state) {
-                var escaped = false, ch;
+                let escaped = false, ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === quote && !escaped) break;
                     escaped = !escaped && ch === "\\";
@@ -134,8 +134,8 @@
 
             token: function (stream, state) {
                 if (stream.eatSpace()) return null;
-                var style = state.cur(stream, state);
-                var word = stream.current();
+                let style = state.cur(stream, state);
+                const word = stream.current();
                 if (style === "variable") {
                     if (keywords.test(word)) style = "keyword";
                     else if (builtins.test(word)) style = "builtin";
@@ -149,7 +149,7 @@
             },
 
             indent: function (state, textAfter) {
-                var closing = dedentPartial.test(textAfter);
+                const closing = dedentPartial.test(textAfter);
                 return state.basecol + indentUnit * (state.indentDepth - (closing ? 1 : 0));
             },
 

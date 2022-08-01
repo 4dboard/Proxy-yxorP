@@ -13,15 +13,15 @@
 
     CodeMirror.defineMode("markdown", function (cmCfg, modeCfg) {
 
-        var htmlMode = CodeMirror.getMode(cmCfg, "text/html");
-        var htmlModeMissing = htmlMode.name === "null"
+        const htmlMode = CodeMirror.getMode(cmCfg, "text/html");
+        const htmlModeMissing = htmlMode.name === "null";
 
         function getMode(name) {
             if (CodeMirror.findModeByName) {
-                var found = CodeMirror.findModeByName(name);
+                const found = CodeMirror.findModeByName(name);
                 if (found) name = found.mime || found.mimes[0];
             }
-            var mode = CodeMirror.getMode(cmCfg, name);
+            const mode = CodeMirror.getMode(cmCfg, name);
             return mode.name === "null" ? null : mode;
         }
 
@@ -58,7 +58,7 @@
         if (modeCfg.tokenTypeOverrides === undefined)
             modeCfg.tokenTypeOverrides = {};
 
-        var tokenTypes = {
+        const tokenTypes = {
             header: "header",
             code: "comment",
             quote: "quote",
@@ -80,13 +80,13 @@
             emoji: "builtin"
         };
 
-        for (var tokenType in tokenTypes) {
+        for (let tokenType in tokenTypes) {
             if (tokenTypes.hasOwnProperty(tokenType) && modeCfg.tokenTypeOverrides[tokenType]) {
                 tokenTypes[tokenType] = modeCfg.tokenTypeOverrides[tokenType];
             }
         }
 
-        var hrRE = /^([*\-_])(?:\s*\1){2,}\s*$/
+        const hrRE = /^([*\-_])(?:\s*\1){2,}\s*$/
             , listRE = /^(?:[*\-+]|^[0-9]+([.)]))\s+/
             , taskListRE = /^\[(x| )\](?=\s)/i // Must follow listRE
             , atxHeaderRE = modeCfg.allowAtxHeaderWithoutSpace ? /^(#+)/ : /^(#+)(?: |$)/
@@ -96,7 +96,7 @@
             , linkDefRE = /^\s*\[[^\]]+?\]:.*$/ // naive link-definition
             ,
             punctuation = /[!"#$%&'()*+,\-.\/:;<=>?@\[\\\]^_`{|}~\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u0AF0\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E42\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC9\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDF3C-\uDF3E]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]/
-            , expandedTab = "    " // CommonMark specifies tab as 4 spaces
+            , expandedTab = "    "; // CommonMark specifies tab as 4 spaces
 
         function switchInline(stream, state, f) {
             state.f = state.inline = f;
@@ -130,9 +130,9 @@
             // Reset state.indentedCode
             state.indentedCode = false;
             if (state.f === htmlBlock) {
-                var exit = htmlModeMissing
+                let exit = htmlModeMissing;
                 if (!exit) {
-                    var inner = CodeMirror.innerMode(htmlMode, state.htmlState)
+                    const inner = CodeMirror.innerMode(htmlMode, state.htmlState);
                     exit = inner.mode.name === "xml" && inner.state.tagStart === null &&
                         (!inner.state.context && inner.state.tokenize.isInText)
                 }
@@ -152,16 +152,16 @@
         }
 
         function blockNormal(stream, state) {
-            var firstTokenOnLine = stream.column() === state.indentation;
-            var prevLineLineIsEmpty = lineIsEmpty(state.prevLine.stream);
-            var prevLineIsIndentedCode = state.indentedCode;
-            var prevLineIsHr = state.prevLine.hr;
-            var prevLineIsList = state.list !== false;
-            var maxNonCodeIndentation = (state.listStack[state.listStack.length - 1] || 0) + 3;
+            const firstTokenOnLine = stream.column() === state.indentation;
+            const prevLineLineIsEmpty = lineIsEmpty(state.prevLine.stream);
+            const prevLineIsIndentedCode = state.indentedCode;
+            const prevLineIsHr = state.prevLine.hr;
+            const prevLineIsList = state.list !== false;
+            const maxNonCodeIndentation = (state.listStack[state.listStack.length - 1] || 0) + 3;
 
             state.indentedCode = false;
 
-            var lineIndentation = state.indentation;
+            const lineIndentation = state.indentation;
             // compute once per line (on first token)
             if (state.indentationDiff === null) {
                 state.indentationDiff = state.indentation;
@@ -186,16 +186,16 @@
             }
 
             // not comprehensive (currently only for setext detection purposes)
-            var allowsInlineContinuation = (
+            const allowsInlineContinuation = (
                 !prevLineLineIsEmpty && !prevLineIsHr && !state.prevLine.header &&
                 (!prevLineIsList || !prevLineIsIndentedCode) &&
                 !state.prevLine.fencedCodeEnd
             );
 
-            var isHr = (state.list === false || prevLineIsHr || prevLineLineIsEmpty) &&
+            const isHr = (state.list === false || prevLineIsHr || prevLineLineIsEmpty) &&
                 state.indentation <= maxNonCodeIndentation && stream.match(hrRE);
 
-            var match = null;
+            let match = null;
             if (state.indentationDiff >= 4 && (prevLineIsIndentedCode || state.prevLine.fencedCodeEnd ||
                 state.prevLine.header || prevLineLineIsEmpty)) {
                 stream.skipToEnd();
@@ -216,7 +216,7 @@
                 stream.eatSpace();
                 return getType(state);
             } else if (!isHr && !state.setext && firstTokenOnLine && state.indentation <= maxNonCodeIndentation && (match = stream.match(listRE))) {
-                var listType = match[1] ? "ol" : "ul";
+                const listType = match[1] ? "ol" : "ul";
 
                 state.indentation = lineIndentation + stream.current().length;
                 state.list = true;
@@ -283,9 +283,9 @@
         }
 
         function htmlBlock(stream, state) {
-            var style = htmlMode.token(stream, state.htmlState);
+            const style = htmlMode.token(stream, state.htmlState);
             if (!htmlModeMissing) {
-                var inner = CodeMirror.innerMode(htmlMode, state.htmlState)
+                const inner = CodeMirror.innerMode(htmlMode, state.htmlState);
                 if ((inner.mode.name === "xml" && inner.state.tagStart === null &&
                         (!inner.state.context && inner.state.tokenize.isInText)) ||
                     (state.md_inside && stream.current().indexOf(">") > -1)) {
@@ -298,12 +298,12 @@
         }
 
         function local(stream, state) {
-            var currListInd = state.listStack[state.listStack.length - 1] || 0;
-            var hasExitedList = state.indentation < currListInd;
-            var maxFencedEndInd = currListInd + 3;
+            const currListInd = state.listStack[state.listStack.length - 1] || 0;
+            const hasExitedList = state.indentation < currListInd;
+            const maxFencedEndInd = currListInd + 3;
             if (state.fencedEndRE && state.indentation <= maxFencedEndInd && (hasExitedList || stream.match(state.fencedEndRE))) {
                 if (modeCfg.highlightFormatting) state.formatting = "code-block";
-                var returnType;
+                let returnType;
                 if (!hasExitedList) returnType = getType(state)
                 state.localMode = state.localState = null;
                 state.block = blockNormal;
@@ -323,14 +323,14 @@
 
         // Inline
         function getType(state) {
-            var styles = [];
+            const styles = [];
 
             if (state.formatting) {
                 styles.push(tokenTypes.formatting);
 
                 if (typeof state.formatting === "string") state.formatting = [state.formatting];
 
-                for (var i = 0; i < state.formatting.length; i++) {
+                for (let i = 0; i < state.formatting.length; i++) {
                     styles.push(tokenTypes.formatting + "-" + state.formatting[i]);
 
                     if (state.formatting[i] === "header") {
@@ -406,7 +406,7 @@
             }
 
             if (state.list !== false) {
-                var listMod = (state.listStack.length - 1) % 3;
+                const listMod = (state.listStack.length - 1) % 3;
                 if (!listMod) {
                     styles.push(tokenTypes.list1);
                 } else if (listMod === 1) {
@@ -433,7 +433,7 @@
         }
 
         function inlineNormal(stream, state) {
-            var style = state.text(stream, state);
+            const style = state.text(stream, state);
             if (typeof style !== 'undefined')
                 return style;
 
@@ -443,7 +443,7 @@
             }
 
             if (state.taskList) {
-                var taskOpen = stream.match(taskListRE, true)[1] === " ";
+                const taskOpen = stream.match(taskListRE, true)[1] === " ";
                 if (taskOpen) state.taskOpen = true;
                 else state.taskClosed = true;
                 if (modeCfg.highlightFormatting) state.formatting = "task";
@@ -459,17 +459,17 @@
                 return getType(state);
             }
 
-            var ch = stream.next();
+            const ch = stream.next();
 
             // Matches link titles present on next line
             if (state.linkTitle) {
                 state.linkTitle = false;
-                var matchCh = ch;
+                let matchCh = ch;
                 if (ch === '(') {
                     matchCh = ')';
                 }
                 matchCh = (matchCh + '').replace(/([.?*+^\[\]\\(){}|-])/g, "\\$1");
-                var regex = '^\\s*(?:[^' + matchCh + '\\\\]+|\\\\\\\\|\\\\.)' + matchCh;
+                const regex = '^\\s*(?:[^' + matchCh + '\\\\]+|\\\\\\\\|\\\\.)' + matchCh;
                 if (stream.match(new RegExp(regex), true)) {
                     return tokenTypes.linkHref;
                 }
@@ -477,10 +477,10 @@
 
             // If this block is changed, it may need to be updated in GFM mode
             if (ch === '`') {
-                var previousFormatting = state.formatting;
+                const previousFormatting = state.formatting;
                 if (modeCfg.highlightFormatting) state.formatting = "code";
                 stream.eatWhile('`');
-                var count = stream.current().length
+                const count = stream.current().length;
                 if (state.code === 0 && (!state.quote || count === 1)) {
                     state.code = count
                     return getType(state)
@@ -500,7 +500,7 @@
                 stream.next();
                 if (modeCfg.highlightFormatting) {
                     var type = getType(state);
-                    var formattingEscape = tokenTypes.formatting + "-escape";
+                    const formattingEscape = tokenTypes.formatting + "-escape";
                     return type ? type + " " + formattingEscape : formattingEscape;
                 }
             }
@@ -568,9 +568,9 @@
             }
 
             if (modeCfg.xml && ch === '<' && stream.match(/^(!--|\?|!\[CDATA\[|[a-z][a-z0-9-]*(?:\s+[a-z_:.\-]+(?:\s*=\s*[^>]+)?)*\s*(?:>|$))/i, false)) {
-                var end = stream.string.indexOf(">", stream.pos);
+                const end = stream.string.indexOf(">", stream.pos);
                 if (end !== -1) {
-                    var atts = stream.string.substring(stream.start, end);
+                    const atts = stream.string.substring(stream.start, end);
                     if (/markdown\s*=\s*('|"){0,1}1('|"){0,1}/.test(atts)) state.md_inside = true;
                 }
                 stream.backUp(1);
@@ -582,13 +582,14 @@
                 state.md_inside = false;
                 return "tag";
             } else if (ch === "*" || ch === "_") {
-                var len = 1, before = stream.pos === 1 ? " " : stream.string.charAt(stream.pos - 2)
+                let len = 1;
+                const before = stream.pos === 1 ? " " : stream.string.charAt(stream.pos - 2);
                 while (len < 3 && stream.eat(ch)) len++
-                var after = stream.peek() || " "
+                const after = stream.peek() || " ";
                 // See http://spec.commonmark.org/0.27/#emphasis-and-strong-emphasis
-                var leftFlanking = !/\s/.test(after) && (!punctuation.test(after) || /\s/.test(before) || punctuation.test(before))
-                var rightFlanking = !/\s/.test(before) && (!punctuation.test(before) || /\s/.test(after) || punctuation.test(after))
-                var setEm = null, setStrong = null
+                const leftFlanking = !/\s/.test(after) && (!punctuation.test(after) || /\s/.test(before) || punctuation.test(before));
+                const rightFlanking = !/\s/.test(before) && (!punctuation.test(before) || /\s/.test(after) || punctuation.test(after));
+                let setEm = null, setStrong = null;
                 if (len % 2) { // Em
                     if (!state.em && leftFlanking && (ch === "*" || !rightFlanking || punctuation.test(before)))
                         setEm = true
@@ -646,7 +647,7 @@
             if (modeCfg.emoji && ch === ":" && stream.match(/^(?:[a-z_\d+][a-z_\d+-]*|\-[a-z_\d+][a-z_\d+-]*):/)) {
                 state.emoji = true;
                 if (modeCfg.highlightFormatting) state.formatting = "emoji";
-                var retType = getType(state);
+                const retType = getType(state);
                 state.emoji = false;
                 return retType;
             }
@@ -663,12 +664,12 @@
         }
 
         function linkInline(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
 
             if (ch === ">") {
                 state.f = state.inline = inlineNormal;
                 if (modeCfg.highlightFormatting) state.formatting = "link";
-                var type = getType(state);
+                let type = getType(state);
                 if (type) {
                     type += " ";
                 } else {
@@ -687,7 +688,7 @@
             if (stream.eatSpace()) {
                 return null;
             }
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '(' || ch === '[') {
                 state.f = state.inline = getLinkHrefInside(ch === "(" ? ")" : "]");
                 if (modeCfg.highlightFormatting) state.formatting = "link-string";
@@ -697,19 +698,19 @@
             return 'error';
         }
 
-        var linkRE = {
+        const linkRE = {
             ")": /^(?:[^\\\(\)]|\\.|\((?:[^\\\(\)]|\\.)*\))*?(?=\))/,
             "]": /^(?:[^\\\[\]]|\\.|\[(?:[^\\\[\]]|\\.)*\])*?(?=\])/
-        }
+        };
 
         function getLinkHrefInside(endChar) {
             return function (stream, state) {
-                var ch = stream.next();
+                const ch = stream.next();
 
                 if (ch === endChar) {
                     state.f = state.inline = inlineNormal;
                     if (modeCfg.highlightFormatting) state.formatting = "link-string";
-                    var returnState = getType(state);
+                    const returnState = getType(state);
                     state.linkHref = false;
                     return returnState;
                 }
@@ -735,7 +736,7 @@
             if (stream.match(']:', true)) {
                 state.f = state.inline = footnoteUrl;
                 if (modeCfg.highlightFormatting) state.formatting = "link";
-                var returnType = getType(state);
+                const returnType = getType(state);
                 state.linkText = false;
                 return returnType;
             }
@@ -866,7 +867,7 @@
                     if (!state.localState) {
                         state.f = state.block;
                         if (state.f !== htmlBlock) {
-                            var indentation = stream.match(/^\s*/, true)[0].replace(/\t/g, expandedTab).length;
+                            const indentation = stream.match(/^\s*/, true)[0].replace(/\t/g, expandedTab).length;
                             state.indentation = indentation;
                             state.indentationDiff = null;
                             if (indentation > 0) return null;

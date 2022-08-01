@@ -17,21 +17,21 @@
             return new RegExp("^((" + words.join(")|(") + "))\\b");
         }
 
-        var singleOperators = /[\^@!\|<>#~\.\*\-\+\\/,=]/;
-        var doubleOperators = /(<-)|(:=)|(=<)|(>=)|(<=)|(<:)|(>:)|(=:)|(\\=)|(\\=:)|(!!)|(==)|(::)/;
-        var tripleOperators = /(:::)|(\.\.\.)|(=<:)|(>=:)/;
+        const singleOperators = /[\^@!|<>#~.*\-+\\/,=]/;
+        const doubleOperators = /(<-)|(:=)|(=<)|(>=)|(<=)|(<:)|(>:)|(=:)|(\\=)|(\\=:)|(!!)|(==)|(::)/;
+        const tripleOperators = /(:::)|(\.\.\.)|(=<:)|(>=:)/;
 
-        var middle = ["in", "then", "else", "of", "elseof", "elsecase", "elseif", "catch",
+        const middle = ["in", "then", "else", "of", "elseof", "elsecase", "elseif", "catch",
             "finally", "with", "require", "prepare", "import", "export", "define", "do"];
-        var end = ["end"];
+        let end = ["end"];
 
-        var atoms = wordRegexp(["true", "false", "nil", "unit"]);
-        var commonKeywords = wordRegexp(["andthen", "at", "attr", "declare", "feat", "from", "lex",
+        const atoms = wordRegexp(["true", "false", "nil", "unit"]);
+        const commonKeywords = wordRegexp(["andthen", "at", "attr", "declare", "feat", "from", "lex",
             "mod", "div", "mode", "orelse", "parser", "prod", "prop", "scanner", "self", "syn", "token"]);
-        var openingKeywords = wordRegexp(["local", "proc", "fun", "case", "class", "if", "cond", "or", "dis",
+        const openingKeywords = wordRegexp(["local", "proc", "fun", "case", "class", "if", "cond", "or", "dis",
             "choice", "not", "thread", "try", "raise", "lock", "for", "suchthat", "meth", "functor"]);
-        var middleKeywords = wordRegexp(middle);
-        var endKeywords = wordRegexp(end);
+        const middleKeywords = wordRegexp(middle);
+        const endKeywords = wordRegexp(end);
 
         // Tokenizers
         function tokenBase(stream, state) {
@@ -60,7 +60,7 @@
             }
 
             // Opening keywords
-            var matched = stream.match(openingKeywords);
+            const matched = stream.match(openingKeywords);
             if (matched) {
                 if (!state.doInCurrentLine)
                     state.currentIndent++;
@@ -90,7 +90,7 @@
             }
 
             // Eat the next char for next comparisons
-            var ch = stream.next();
+            const ch = stream.next();
 
             // Strings
             if (ch === '"' || ch === "'") {
@@ -173,7 +173,7 @@
         }
 
         function tokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = tokenBase;
@@ -186,7 +186,7 @@
 
         function tokenString(quote) {
             return function (stream, state) {
-                var escaped = false, next, end = false;
+                let escaped = false, next, end = false;
                 while ((next = stream.next()) != null) {
                     if (next === quote && !escaped) {
                         end = true;
@@ -203,7 +203,7 @@
         function buildElectricInputRegEx() {
             // Reindentation should occur on [] or on a match of any of
             // the block closing keywords, at the end of a line.
-            var allClosings = middle.concat(end);
+            const allClosings = middle.concat(end);
             return new RegExp("[\\[\\]]|(" + allClosings.join("|") + ")$");
         }
 
@@ -226,7 +226,7 @@
             },
 
             indent: function (state, textAfter) {
-                var trueText = textAfter.replace(/^\s+|\s+$/g, '');
+                const trueText = textAfter.replace(/^\s+|\s+$/g, '');
 
                 if (trueText.match(endKeywords) || trueText.match(middleKeywords) || trueText.match(/(\[])/))
                     return conf.indentUnit * (state.currentIndent - 1);

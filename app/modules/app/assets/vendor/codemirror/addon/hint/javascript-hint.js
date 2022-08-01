@@ -9,15 +9,17 @@
     else // Plain browser env
         mod(CodeMirror);
 })(function (CodeMirror) {
-    var Pos = CodeMirror.Pos;
+    const Pos = CodeMirror.Pos;
 
     function forEach(arr, f) {
-        for (var i = 0, e = arr.length; i < e; ++i) f(arr[i]);
+        let i = 0;
+        const e = arr.length;
+        for (; i < e; ++i) f(arr[i]);
     }
 
     function arrayContains(arr, item) {
         if (!Array.prototype.indexOf) {
-            var i = arr.length;
+            let i = arr.length;
             while (i--) {
                 if (arr[i] === item) {
                     return true;
@@ -30,9 +32,10 @@
 
     function scriptHint(editor, keywords, getToken, options) {
         // Find the token at the cursor
-        var cur = editor.getCursor(), token = getToken(editor, cur);
+        const cur = editor.getCursor();
+        let token = getToken(editor, cur);
         if (/\b(?:string|comment)\b/.test(token.type)) return;
-        var innerMode = CodeMirror.innerMode(editor.getMode(), token.state);
+        const innerMode = CodeMirror.innerMode(editor.getMode(), token.state);
         if (innerMode.mode.helperType === "json") return;
         token.state = innerMode.state;
 
@@ -47,7 +50,7 @@
             token.string = token.string.slice(0, cur.ch - token.start);
         }
 
-        var tprop = token;
+        let tprop = token;
         // If it is a property, find out what it is a property of.
         while (tprop.type === "property") {
             tprop = getToken(editor, Pos(cur.line, tprop.start));
@@ -76,7 +79,7 @@
         // This getToken, it is for coffeescript, imitates the behavior of
         // getTokenAt method in javascript.js, that is, returning "property"
         // type and treat "." as independent token.
-        var token = editor.getTokenAt(cur);
+        const token = editor.getTokenAt(cur);
         if (cur.ch === token.start + 1 && token.string.charAt(0) === '.') {
             token.end = token.start;
             token.string = '.';
@@ -95,11 +98,11 @@
 
     CodeMirror.registerHelper("hint", "coffeescript", coffeescriptHint);
 
-    var stringProps = ("charAt charCodeAt indexOf lastIndexOf substring substr slice trim trimLeft trimRight " +
+    const stringProps = ("charAt charCodeAt indexOf lastIndexOf substring substr slice trim trimLeft trimRight " +
         "toUpperCase toLowerCase split concat match replace search").split(" ");
-    var arrayProps = ("length concat join splice push pop shift unshift slice reverse sort indexOf " +
+    const arrayProps = ("length concat join splice push pop shift unshift slice reverse sort indexOf " +
         "lastIndexOf every some filter forEach map reduce reduceRight ").split(" ");
-    var funcProps = "prototype apply call bind".split(" ");
+    const funcProps = "prototype apply call bind".split(" ");
     var javascriptKeywords = ("break case catch class const continue debugger default delete do else export extends false finally for function " +
         "if in import instanceof new null return super switch this throw true try typeof var void while with yield").split(" ");
     var coffeescriptKeywords = ("and break catch class continue delete do else extends false finally for " +
@@ -107,15 +110,15 @@
 
     function forAllProps(obj, callback) {
         if (!Object.getOwnPropertyNames || !Object.getPrototypeOf) {
-            for (var name in obj) callback(name)
+            for (let name in obj) callback(name)
         } else {
-            for (var o = obj; o; o = Object.getPrototypeOf(o))
+            for (let o = obj; o; o = Object.getPrototypeOf(o))
                 Object.getOwnPropertyNames(o).forEach(callback)
         }
     }
 
     function getCompletions(token, context, keywords, options) {
-        var found = [], start = token.string, global = options && options.globalScope || window;
+        const found = [], start = token.string, global = options && options.globalScope || window;
 
         function maybeAdd(str) {
             if (str.lastIndexOf(start, 0) === 0 && !arrayContains(found, str)) found.push(str);
@@ -155,11 +158,11 @@
             // If not, just look in the global object, any local scope, and optional additional-context
             // (reading into JS mode internals to get at the local and global variables)
             for (var v = token.state.localVars; v; v = v.next) maybeAdd(v.name);
-            for (var c = token.state.context; c; c = c.prev)
+            for (let c = token.state.context; c; c = c.prev)
                 for (var v = c.vars; v; v = v.next) maybeAdd(v.name)
             for (var v = token.state.globalVars; v; v = v.next) maybeAdd(v.name);
             if (options && options.additionalContext != null)
-                for (var key in options.additionalContext)
+                for (let key in options.additionalContext)
                     maybeAdd(key);
             if (!options || options.useGlobalScope !== false)
                 gatherCompletions(global);

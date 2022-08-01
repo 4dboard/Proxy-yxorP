@@ -11,17 +11,17 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var langs = "ab aa af ak sq am ar an hy as av ae ay az bm ba eu be bn bh bi bs br bg my ca ch ce ny zh cv kw co cr hr cs da dv nl dz en eo et ee fo fj fi fr ff gl ka de el gn gu ht ha he hz hi ho hu ia id ie ga ig ik io is it iu ja jv kl kn kr ks kk km ki rw ky kv kg ko ku kj la lb lg li ln lo lt lu lv gv mk mg ms ml mt mi mr mh mn na nv nb nd ne ng nn no ii nr oc oj cu om or os pa pi fa pl ps pt qu rm rn ro ru sa sc sd se sm sg sr gd sn si sk sl so st es su sw ss sv ta te tg th ti bo tk tl tn to tr ts tt tw ty ug uk ur uz ve vi vo wa cy wo fy xh yi yo za zu".split(" ");
-    var targets = ["_blank", "_self", "_top", "_parent"];
-    var charsets = ["ascii", "utf-8", "utf-16", "latin1", "latin1"];
-    var methods = ["get", "post", "put", "delete"];
-    var encs = ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"];
-    var media = ["all", "screen", "print", "embossed", "braille", "handheld", "print", "projection", "screen", "tty", "tv", "speech",
+    const langs = "ab aa af ak sq am ar an hy as av ae ay az bm ba eu be bn bh bi bs br bg my ca ch ce ny zh cv kw co cr hr cs da dv nl dz en eo et ee fo fj fi fr ff gl ka de el gn gu ht ha he hz hi ho hu ia id ie ga ig ik io is it iu ja jv kl kn kr ks kk km ki rw ky kv kg ko ku kj la lb lg li ln lo lt lu lv gv mk mg ms ml mt mi mr mh mn na nv nb nd ne ng nn no ii nr oc oj cu om or os pa pi fa pl ps pt qu rm rn ro ru sa sc sd se sm sg sr gd sn si sk sl so st es su sw ss sv ta te tg th ti bo tk tl tn to tr ts tt tw ty ug uk ur uz ve vi vo wa cy wo fy xh yi yo za zu".split(" ");
+    const targets = ["_blank", "_self", "_top", "_parent"];
+    const charsets = ["ascii", "utf-8", "utf-16", "latin1", "latin1"];
+    const methods = ["get", "post", "put", "delete"];
+    const encs = ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"];
+    const media = ["all", "screen", "print", "embossed", "braille", "handheld", "print", "projection", "screen", "tty", "tv", "speech",
         "3d-glasses", "resolution [>][<][=] [X]", "device-aspect-ratio: X/Y", "orientation:portrait",
         "orientation:landscape", "device-height: [X]", "device-width: [X]"];
-    var s = {attrs: {}}; // Simple tag, reused for a whole lot of tags
+    const s = {attrs: {}}; // Simple tag, reused for a whole lot of tags
 
-    var data = {
+    const data = {
         a: {
             attrs: {
                 href: null, ping: null, type: null,
@@ -305,7 +305,7 @@
         wbr: s
     };
 
-    var globalAttrs = {
+    const globalAttrs = {
         accesskey: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
         "class": null,
         contenteditable: ["true", "false"],
@@ -334,19 +334,19 @@
     };
 
     function populate(obj) {
-        for (var attr in globalAttrs) if (globalAttrs.hasOwnProperty(attr))
+        for (let attr in globalAttrs) if (globalAttrs.hasOwnProperty(attr))
             obj.attrs[attr] = globalAttrs[attr];
     }
 
     populate(s);
-    for (var tag in data) if (data.hasOwnProperty(tag) && data[tag] !== s)
+    for (let tag in data) if (data.hasOwnProperty(tag) && data[tag] !== s)
         populate(data[tag]);
 
     CodeMirror.htmlSchema = data;
 
     function htmlHint(cm, options) {
-        var local = {schemaInfo: data};
-        if (options) for (var opt in options) local[opt] = options[opt];
+        const local = {schemaInfo: data};
+        if (options) for (let opt in options) local[opt] = options[opt];
         return CodeMirror.hint.xml(cm, local);
     }
 

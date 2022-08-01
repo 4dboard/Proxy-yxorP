@@ -58,7 +58,7 @@
     });
 
     CodeMirror.defineMode("handlebars", function (config, parserConfig) {
-        var handlebars = CodeMirror.getMode(config, "handlebars-tags");
+        const handlebars = CodeMirror.getMode(config, "handlebars-tags");
         if (!parserConfig || !parserConfig.base) return handlebars;
         return CodeMirror.multiplexingMode(
             CodeMirror.getMode(config, parserConfig.base),

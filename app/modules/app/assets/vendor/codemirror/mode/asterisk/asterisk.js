@@ -28,7 +28,7 @@
     "use strict";
 
     CodeMirror.defineMode("asterisk", function () {
-        var atoms = ["exten", "same", "include", "ignorepat", "switch"],
+        const atoms = ["exten", "same", "include", "ignorepat", "switch"],
             dpcmd = ["#include", "#exec"],
             apps = [
                 "addqueuemember", "adsiprog", "aelsub", "agentlogin", "agentmonitoroutgoing", "agi",
@@ -64,8 +64,8 @@
             ];
 
         function basicToken(stream, state) {
-            var cur = '';
-            var ch = stream.next();
+            let cur = '';
+            const ch = stream.next();
             // comment
             if (state.blockComment) {
                 if (ch === "-" && stream.match("-;", true)) {
@@ -116,7 +116,7 @@
             }
             // application args
             if (ch === '$') {
-                var ch1 = stream.peek();
+                const ch1 = stream.peek();
                 if (ch1 === '{') {
                     stream.skipTo('}');
                     stream.eat('}');
@@ -158,7 +158,7 @@
             },
             token: function (stream, state) {
 
-                var cur = '';
+                let cur = '';
                 if (stream.eatSpace()) return null;
                 // extension started
                 if (state.extenStart) {

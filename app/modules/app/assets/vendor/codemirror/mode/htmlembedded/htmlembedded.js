@@ -14,7 +14,7 @@
     "use strict";
 
     CodeMirror.defineMode("htmlembedded", function (config, parserConfig) {
-        var closeComment = parserConfig.closeComment || "--%>"
+        const closeComment = parserConfig.closeComment || "--%>";
         return CodeMirror.multiplexingMode(CodeMirror.getMode(config, "htmlmixed"), {
             open: parserConfig.openComment || "<%--",
             close: closeComment,

@@ -18,10 +18,7 @@ kiss-dialog {
 kiss-dialog > kiss-content {
     position: relative;
     display: flow-root;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 
     padding: var(--kiss-dialog-content-spacing, 10px);
 
@@ -29,7 +26,7 @@ kiss-dialog > kiss-content {
     color: var(--kiss-dialog-content-color, inherit);
 
     width: var(--kiss-dialog-width, 350px);
-    max-width: calc(100% - 0.01px) !important;
+    max-width: calc(100% - 0px) !important;
 
     box-sizing: border-box;
 }

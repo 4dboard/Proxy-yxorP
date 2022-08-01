@@ -12,7 +12,7 @@
     "use strict";
 
     CodeMirror.defineMode("haxe", function (config, parserConfig) {
-        var indentUnit = config.indentUnit;
+        const indentUnit = config.indentUnit;
 
         // Tokenizer
 
@@ -20,11 +20,11 @@
             return {type: type, style: "keyword"};
         }
 
-        var A = kw("keyword a"), B = kw("keyword b"), C = kw("keyword c");
-        var operator = kw("operator"), atom = {type: "atom", style: "atom"},
+        const A = kw("keyword a"), B = kw("keyword b"), C = kw("keyword c");
+        const operator = kw("operator"), atom = {type: "atom", style: "atom"},
             attribute = {type: "attribute", style: "attribute"};
         var type = kw("typedef");
-        var keywords = {
+        const keywords = {
             "if": A,
             "while": A,
             "else": B,
@@ -68,7 +68,7 @@
             "null": atom
         };
 
-        var isOperatorChar = /[+\-*&%=<>!?|]/;
+        const isOperatorChar = /[+\-*&%=<>!?|]/;
 
         function chain(stream, state, f) {
             state.tokenize = f;
@@ -76,7 +76,7 @@
         }
 
         function toUnescaped(stream, end) {
-            var escaped = false, next;
+            let escaped = false, next;
             while ((next = stream.next()) != null) {
                 if (next === end && !escaped)
                     return true;
@@ -95,7 +95,7 @@
         }
 
         function haxeTokenBase(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === '"' || ch === "'") {
                 return chain(stream, state, haxeTokenString(ch));
             } else if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
@@ -154,7 +154,7 @@
         }
 
         function haxeTokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = haxeTokenBase;
@@ -167,7 +167,7 @@
 
         // Parser
 
-        var atomicTypes = {"atom": true, "number": true, "variable": true, "string": true, "regexp": true};
+        const atomicTypes = {"atom": true, "number": true, "variable": true, "string": true, "regexp": true};
 
         function HaxeLexical(indented, column, type, align, prev, info) {
             this.indented = indented;
@@ -179,12 +179,12 @@
         }
 
         function inScope(state, varname) {
-            for (var v = state.localVars; v; v = v.next)
+            for (let v = state.localVars; v; v = v.next)
                 if (v.name === varname) return true;
         }
 
         function parseHaxe(state, style, type, content, stream) {
-            var cc = state.cc;
+            const cc = state.cc;
             // Communicate our context to the combinators.
             // (Less wasteful than consing up a hundred closures on every call.)
             cx.state = state;
@@ -195,7 +195,7 @@
                 state.lexical.align = true;
 
             while (true) {
-                var combinator = cc.length ? cc.pop() : statement;
+                const combinator = cc.length ? cc.pop() : statement;
                 if (combinator(type, content)) {
                     while (cc.length && cc[cc.length - 1].lex)
                         cc.pop()();
@@ -210,14 +210,14 @@
         function imported(state, typename) {
             if (/[a-z]/.test(typename.charAt(0)))
                 return false;
-            var len = state.importedtypes.length;
-            for (var i = 0; i < len; i++)
+            const len = state.importedtypes.length;
+            for (let i = 0; i < len; i++)
                 if (state.importedtypes[i] === typename) return true;
         }
 
         function registerimport(importname) {
-            var state = cx.state;
-            for (var t = state.importedtypes; t; t = t.next)
+            const state = cx.state;
+            for (let t = state.importedtypes; t; t = t.next)
                 if (t.name === importname) return;
             state.importedtypes = {name: importname, next: state.importedtypes};
         }
@@ -227,7 +227,7 @@
         var cx = {state: null, column: null, marked: null, cc: null};
 
         function pass() {
-            for (var i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
+            for (let i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
         }
 
         function cont() {
@@ -236,13 +236,13 @@
         }
 
         function inList(name, list) {
-            for (var v = list; v; v = v.next)
+            for (let v = list; v; v = v.next)
                 if (v.name === name) return true;
             return false;
         }
 
         function register(varname) {
-            var state = cx.state;
+            const state = cx.state;
             if (state.context) {
                 cx.marked = "def";
                 if (inList(varname, state.localVars)) return;
@@ -255,7 +255,7 @@
 
         // Combinators
 
-        var defaultVars = {name: "this", next: null};
+        const defaultVars = {name: "this", next: null};
 
         function pushcontext() {
             if (!cx.state.context) cx.state.localVars = defaultVars;
@@ -270,8 +270,8 @@
         popcontext.lex = true;
 
         function pushlex(type, info) {
-            var result = function () {
-                var state = cx.state;
+            const result = function () {
+                const state = cx.state;
                 state.lexical = new HaxeLexical(state.indented, cx.stream.column(), type, null, state.lexical, info);
             };
             result.lex = true;
@@ -279,7 +279,7 @@
         }
 
         function poplex() {
-            var state = cx.state;
+            const state = cx.state;
             if (state.lexical.prev) {
                 if (state.lexical.type === ")")
                     state.indented = state.lexical.indented;
@@ -475,8 +475,8 @@
         // Interface
         return {
             startState: function (basecolumn) {
-                var defaulttypes = ["Int", "Float", "String", "Void", "Std", "Bool", "Dynamic", "Array"];
-                var state = {
+                const defaulttypes = ["Int", "Float", "String", "Void", "Std", "Bool", "Dynamic", "Array"];
+                const state = {
                     tokenize: haxeTokenBase,
                     reAllowed: true,
                     kwAllowed: true,
@@ -499,7 +499,7 @@
                     state.indented = stream.indentation();
                 }
                 if (stream.eatSpace()) return null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
                 if (type === "comment") return style;
                 state.reAllowed = !!(type === "operator" || type === "keyword c" || type.match(/^[\[{}\(,;:]$/));
                 state.kwAllowed = type !== '.';
@@ -508,9 +508,10 @@
 
             indent: function (state, textAfter) {
                 if (state.tokenize !== haxeTokenBase) return 0;
-                var firstChar = textAfter && textAfter.charAt(0), lexical = state.lexical;
+                const firstChar = textAfter && textAfter.charAt(0);
+                let lexical = state.lexical;
                 if (lexical.type === "stat" && firstChar === "}") lexical = lexical.prev;
-                var type = lexical.type, closing = firstChar === type;
+                const type = lexical.type, closing = firstChar === type;
                 if (type === "vardef") return lexical.indented + 4;
                 else if (type === "form" && firstChar === "{") return lexical.indented;
                 else if (type === "stat" || type === "form") return lexical.indented + indentUnit;
@@ -540,7 +541,7 @@
             },
             token: function (stream, state) {
                 var ch = stream.peek();
-                var sol = stream.sol();
+                const sol = stream.sol();
 
                 ///* comments */
                 if (ch === "#") {
@@ -548,7 +549,7 @@
                     return "comment";
                 }
                 if (sol && ch === "-") {
-                    var style = "variable-2";
+                    let style = "variable-2";
 
                     stream.eat(/-/);
 

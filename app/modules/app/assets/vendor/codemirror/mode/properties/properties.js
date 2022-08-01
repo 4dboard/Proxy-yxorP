@@ -14,8 +14,8 @@
     CodeMirror.defineMode("properties", function () {
         return {
             token: function (stream, state) {
-                var sol = stream.sol() || state.afterSection;
-                var eol = stream.eol();
+                const sol = stream.sol() || state.afterSection;
+                const eol = stream.eol();
 
                 state.afterSection = false;
 
@@ -38,7 +38,7 @@
                     }
                 }
 
-                var ch = stream.next();
+                const ch = stream.next();
 
                 if (sol && (ch === "#" || ch === "!" || ch === ";")) {
                     state.position = "comment";

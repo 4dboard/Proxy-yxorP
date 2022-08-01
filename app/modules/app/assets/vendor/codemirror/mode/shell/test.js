@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({}, "shell");
+    const mode = CodeMirror.getMode({}, "shell");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));

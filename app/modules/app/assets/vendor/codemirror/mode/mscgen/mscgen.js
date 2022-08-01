@@ -19,7 +19,7 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var languages = {
+    const languages = {
         mscgen: {
             "keywords": ["msc"],
             "options": ["hscale", "width", "arcgradient", "wordwraparcs"],
@@ -53,10 +53,10 @@
             "singlecomment": ["//", "#"],
             "operators": ["="]
         }
-    }
+    };
 
     CodeMirror.defineMode("mscgen", function (_, modeConfig) {
-        var language = languages[modeConfig && modeConfig.language || "mscgen"]
+        const language = languages[modeConfig && modeConfig.language || "mscgen"];
         return {
             startState: startStateFn,
             copyState: copyStateFn,
@@ -105,7 +105,7 @@
             }
             /* comments */
             if (!pState.inComment) {
-                if (pStream.match(/\/\*[^\*\/]*/, true, true)) {
+                if (pStream.match(/\/\*[^*\/]*/, true, true)) {
                     pState.inComment = true;
                     return "comment";
                 }
@@ -115,19 +115,19 @@
                 }
             }
             if (pState.inComment) {
-                if (pStream.match(/[^\*\/]*\*\//, true, true))
+                if (pStream.match(/[^\/]*\*\//, true, true))
                     pState.inComment = false;
                 else
                     pStream.skipToEnd();
                 return "comment";
             }
             /* strings */
-            if (!pState.inString && pStream.match(/\"(\\\"|[^\"])*/, true, true)) {
+            if (!pState.inString && pStream.match(/"(\\"|[^"])*/, true, true)) {
                 pState.inString = true;
                 return "string";
             }
             if (pState.inString) {
-                if (pStream.match(/[^\"]*\"/, true, true))
+                if (pStream.match(/[^"]*"/, true, true))
                     pState.inString = false;
                 else
                     pStream.skipToEnd();

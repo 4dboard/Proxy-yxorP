@@ -16,18 +16,18 @@
     "use strict";
 
     CodeMirror.defineMode("cobol", function () {
-        var BUILTIN = "builtin", COMMENT = "comment", STRING = "string",
+        const BUILTIN = "builtin", COMMENT = "comment", STRING = "string",
             ATOM = "atom", NUMBER = "number", KEYWORD = "keyword", MODTAG = "header",
             COBOLLINENUM = "def", PERIOD = "link";
 
         function makeKeywords(str) {
-            var obj = {}, words = str.split(" ");
-            for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+            const obj = {}, words = str.split(" ");
+            for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
             return obj;
         }
 
-        var atoms = makeKeywords("TRUE FALSE ZEROES ZEROS ZERO SPACES SPACE LOW-VALUE LOW-VALUES ");
-        var keywords = makeKeywords(
+        const atoms = makeKeywords("TRUE FALSE ZEROES ZEROS ZERO SPACES SPACE LOW-VALUE LOW-VALUES ");
+        const keywords = makeKeywords(
             "ACCEPT ACCESS ACQUIRE ADD ADDRESS " +
             "ADVANCING AFTER ALIAS ALL ALPHABET " +
             "ALPHABETIC ALPHABETIC-LOWER ALPHABETIC-UPPER ALPHANUMERIC ALPHANUMERIC-EDITED " +
@@ -139,14 +139,14 @@
             "WORDS WORKING-STORAGE WRITE XML XML-CODE " +
             "XML-EVENT XML-NTEXT XML-TEXT ZERO ZERO-FILL ");
 
-        var builtins = makeKeywords("- * ** / + < <= = > >= ");
-        var tests = {
+        const builtins = makeKeywords("- * ** / + < <= = > >= ");
+        const tests = {
             digit: /\d/,
             digit_or_colon: /[\d:]/,
             hex: /[0-9a-f]/i,
             sign: /[+-]/,
             exponent: /e/i,
-            keyword_char: /[^\s\(\[\;\)\]]/,
+            keyword_char: /[^\s(\[;)\]]/,
             symbol: /[\w*+\-]/
         };
 
@@ -194,10 +194,10 @@
                 if (stream.eatSpace()) {
                     return null;
                 }
-                var returnType = null;
+                let returnType = null;
                 switch (state.mode) {
                     case "string": // multi-line string parsing mode
-                        var next = false;
+                        let next = false;
                         while ((next = stream.next()) != null) {
                             if ((next === "\"" || next === "\'") && !stream.match(/['"]/, false)) {
                                 state.mode = false;
@@ -207,8 +207,8 @@
                         returnType = STRING; // continue on in string mode
                         break;
                     default: // default parsing mode
-                        var ch = stream.next();
-                        var col = stream.column();
+                        const ch = stream.next();
+                        let col = stream.column();
                         if (col >= 0 && col <= 5) {
                             returnType = COBOLLINENUM;
                         } else if (col >= 72 && col <= 79) {

@@ -19,7 +19,8 @@
     "use strict";
 
     CodeMirror.defineMode("dtd", function (config) {
-        var indentUnit = config.indentUnit, type;
+        const indentUnit = config.indentUnit;
+        let type;
 
         function ret(style, tp) {
             type = tp;
@@ -27,7 +28,7 @@
         }
 
         function tokenBase(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
 
             if (ch === "<" && stream.eat("!")) {
                 if (stream.eatWhile(/[\-]/)) {
@@ -45,7 +46,7 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             } else if (stream.eatWhile(/[a-zA-Z\?\+\d]/)) {
-                var sc = stream.current();
+                const sc = stream.current();
                 if (sc.substr(sc.length - 1, sc.length).match(/\?|\+/) !== null) stream.backUp(1);
                 return ret("tag", "tag");
             } else if (ch === "%" || ch === "*") return ret("number", "number");
@@ -56,7 +57,7 @@
         }
 
         function tokenSGMLComment(stream, state) {
-            var dashes = 0, ch;
+            let dashes = 0, ch;
             while ((ch = stream.next()) != null) {
                 if (dashes >= 2 && ch === ">") {
                     state.tokenize = tokenBase;
@@ -69,7 +70,7 @@
 
         function tokenString(quote) {
             return function (stream, state) {
-                var escaped = false, ch;
+                let escaped = false, ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === quote && !escaped) {
                         state.tokenize = tokenBase;
@@ -105,9 +106,9 @@
 
             token: function (stream, state) {
                 if (stream.eatSpace()) return null;
-                var style = state.tokenize(stream, state);
+                const style = state.tokenize(stream, state);
 
-                var context = state.stack[state.stack.length - 1];
+                const context = state.stack[state.stack.length - 1];
                 if (stream.current() === "[" || type === "doindent" || type === "[") state.stack.push("rule");
                 else if (type === "endtag") state.stack[state.stack.length - 1] = "endtag";
                 else if (stream.current() === "]" || type === "]" || (type === ">" && context === "rule")) state.stack.pop();
@@ -116,7 +117,7 @@
             },
 
             indent: function (state, textAfter) {
-                var n = state.stack.length;
+                let n = state.stack.length;
 
                 if (textAfter.charAt(0) === ']') n--;
                 else if (textAfter.substr(textAfter.length - 1, textAfter.length) === ">") {

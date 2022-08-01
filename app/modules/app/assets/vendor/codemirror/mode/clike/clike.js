@@ -21,14 +21,14 @@
     }
 
     function pushContext(state, col, type, info) {
-        var indent = state.indented;
+        let indent = state.indented;
         if (state.context && state.context.type === "statement" && type !== "statement")
             indent = state.context.indented;
         return state.context = new Context(indent, col, type, info, null, state.context);
     }
 
     function popContext(state) {
-        var t = state.context.type;
+        const t = state.context.type;
         if (t === ")" || t === "]" || t === "}")
             state.indented = state.context.indented;
         return state.context = state.context.prev;
@@ -49,7 +49,7 @@
     }
 
     CodeMirror.defineMode("clike", function (config, parserConfig) {
-        var indentUnit = config.indentUnit,
+        const indentUnit = config.indentUnit,
             statementIndentUnit = parserConfig.statementIndentUnit || indentUnit,
             dontAlignCalls = parserConfig.dontAlignCalls,
             keywords = parserConfig.keywords || {},
@@ -63,21 +63,21 @@
             indentStatements = parserConfig.indentStatements !== false,
             indentSwitch = parserConfig.indentSwitch !== false,
             namespaceSeparator = parserConfig.namespaceSeparator,
-            isPunctuationChar = parserConfig.isPunctuationChar || /[\[\]{}\(\),;\:\.]/,
-            numberStart = parserConfig.numberStart || /[\d\.]/,
+            isPunctuationChar = parserConfig.isPunctuationChar || /[\[\]{}(),;:.]/,
+            numberStart = parserConfig.numberStart || /[\d.]/,
             number = parserConfig.number || /^(?:0x[a-f\d]+|0b[01]+|(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?)(u|ll?|l|f)?/i,
             isOperatorChar = parserConfig.isOperatorChar || /[+\-*&%=<>!?|\/]/,
-            isIdentifierChar = parserConfig.isIdentifierChar || /[\w\$_\xa1-\uffff]/,
+            isIdentifierChar = parserConfig.isIdentifierChar || /[\w$_\xa1-\uffff]/,
             // An optional function that takes a {string} token and returns true if it
             // should be treated as a builtin.
             isReservedIdentifier = parserConfig.isReservedIdentifier || false;
 
-        var curPunc, isDefKeyword;
+        let curPunc, isDefKeyword;
 
         function tokenBase(stream, state) {
-            var ch = stream.next();
+            const ch = stream.next();
             if (hooks[ch]) {
-                var result = hooks[ch](stream, state);
+                const result = hooks[ch](stream, state);
                 if (result !== false) return result;
             }
             if (ch === '"' || ch === "'") {
@@ -112,7 +112,7 @@
             if (namespaceSeparator) while (stream.match(namespaceSeparator))
                 stream.eatWhile(isIdentifierChar);
 
-            var cur = stream.current();
+            const cur = stream.current();
             if (contains(keywords, cur)) {
                 if (contains(blockKeywords, cur)) curPunc = "newstatement";
                 if (contains(defKeywords, cur)) isDefKeyword = true;
@@ -130,7 +130,7 @@
 
         function tokenString(quote) {
             return function (stream, state) {
-                var escaped = false, next, end = false;
+                let escaped = false, next, end = false;
                 while ((next = stream.next()) != null) {
                     if (next === quote && !escaped) {
                         end = true;
@@ -145,7 +145,7 @@
         }
 
         function tokenComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while (ch = stream.next()) {
                 if (ch === "/" && maybeEnd) {
                     state.tokenize = null;
@@ -175,7 +175,7 @@
             },
 
             token: function (stream, state) {
-                var ctx = state.context;
+                let ctx = state.context;
                 if (stream.sol()) {
                     if (ctx.align === null) ctx.align = false;
                     state.indented = stream.indentation();
@@ -186,7 +186,7 @@
                     return null;
                 }
                 curPunc = isDefKeyword = null;
-                var style = (state.tokenize || tokenBase)(stream, state);
+                let style = (state.tokenize || tokenBase)(stream, state);
                 if (style === "comment" || style === "meta") return style;
                 if (ctx.align === null) ctx.align = true;
 
@@ -213,7 +213,7 @@
                     style = "def";
 
                 if (hooks.token) {
-                    var result = hooks.token(stream, state, style);
+                    const result = hooks.token(stream, state, style);
                     if (result !== undefined) style = result;
                 }
 
@@ -227,17 +227,18 @@
 
             indent: function (state, textAfter) {
                 if (state.tokenize !== tokenBase && state.tokenize != null || state.typeAtEndOfLine) return CodeMirror.Pass;
-                var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
-                var closing = firstChar === ctx.type;
+                let ctx = state.context;
+                const firstChar = textAfter && textAfter.charAt(0);
+                const closing = firstChar === ctx.type;
                 if (ctx.type === "statement" && firstChar === "}") ctx = ctx.prev;
                 if (parserConfig.dontIndentStatements)
                     while (ctx.type === "statement" && parserConfig.dontIndentStatements.test(ctx.info))
                         ctx = ctx.prev
                 if (hooks.indent) {
-                    var hook = hooks.indent(state, ctx, textAfter, indentUnit);
+                    const hook = hooks.indent(state, ctx, textAfter, indentUnit);
                     if (typeof hook === "number") return hook
                 }
-                var switchBlock = ctx.prev && ctx.prev.info === "switch";
+                const switchBlock = ctx.prev && ctx.prev.info === "switch";
                 if (parserConfig.allmanIndentation && /[{(]/.test(firstChar)) {
                     while (ctx.type !== "top" && ctx.type !== "}") ctx = ctx.prev
                     return ctx.indented
@@ -253,7 +254,7 @@
                     (!closing && switchBlock && !/^(?:case|default)\b/.test(textAfter) ? indentUnit : 0);
             },
 
-            electricInput: indentSwitch ? /^\s*(?:case .*?:|default:|\{\}?|\})$/ : /^\s*[{}]$/,
+            electricInput: indentSwitch ? /^\s*(?:case .*?:|default:|{}?|})$/ : /^\s*[{}]$/,
             blockCommentStart: "/*",
             blockCommentEnd: "*/",
             blockCommentContinue: " * ",
@@ -263,8 +264,8 @@
     });
 
     function words(str) {
-        var obj = {}, words = str.split(" ");
-        for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+        const obj = {}, words = str.split(" ");
+        for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
         return obj;
     }
 
@@ -276,37 +277,37 @@
         }
     }
 
-    var cKeywords = "auto if break case register continue return default do sizeof " +
+    const cKeywords = "auto if break case register continue return default do sizeof " +
         "static else struct switch extern typedef union for goto while enum const " +
         "volatile inline restrict asm fortran";
 
     // Keywords from https://en.cppreference.com/w/cpp/keyword includes C++20.
-    var cppKeywords = "alignas alignof and and_eq audit axiom bitand bitor catch " +
+    const cppKeywords = "alignas alignof and and_eq audit axiom bitand bitor catch " +
         "class compl concept constexpr const_cast decltype delete dynamic_cast " +
         "explicit export final friend import module mutable namespace new noexcept " +
         "not not_eq operator or or_eq override private protected public " +
         "reinterpret_cast requires static_assert static_cast template this " +
         "thread_local throw try typeid typename using virtual xor xor_eq";
 
-    var objCKeywords = "bycopy byref in inout oneway out self super atomic nonatomic retain copy " +
+    const objCKeywords = "bycopy byref in inout oneway out self super atomic nonatomic retain copy " +
         "readwrite readonly strong weak assign typeof nullable nonnull null_resettable _cmd " +
         "@interface @implementation @end @protocol @encode @property @synthesize @dynamic @class " +
         "@public @package @private @protected @required @optional @try @catch @finally @import " +
         "@selector @encode @defs @synchronized @autoreleasepool @compatibility_alias @available";
 
-    var objCBuiltins = "FOUNDATION_EXPORT FOUNDATION_EXTERN NS_INLINE NS_FORMAT_FUNCTION " +
+    const objCBuiltins = "FOUNDATION_EXPORT FOUNDATION_EXTERN NS_INLINE NS_FORMAT_FUNCTION " +
         " NS_RETURNS_RETAINEDNS_ERROR_ENUM NS_RETURNS_NOT_RETAINED NS_RETURNS_INNER_POINTER " +
         "NS_DESIGNATED_INITIALIZER NS_ENUM NS_OPTIONS NS_REQUIRES_NIL_TERMINATION " +
-        "NS_ASSUME_NONNULL_BEGIN NS_ASSUME_NONNULL_END NS_SWIFT_NAME NS_REFINED_FOR_SWIFT"
+        "NS_ASSUME_NONNULL_BEGIN NS_ASSUME_NONNULL_END NS_SWIFT_NAME NS_REFINED_FOR_SWIFT";
 
     // Do not use this. Use the cTypes function below. This is global just to avoid
     // excessive calls when cTypes is being called multiple times during a parse.
-    var basicCTypes = words("int long char short double float unsigned signed " +
+    const basicCTypes = words("int long char short double float unsigned signed " +
         "void bool");
 
     // Do not use this. Use the objCTypes function below. This is global just to avoid
     // excessive calls when objCTypes is being called multiple times during a parse.
-    var basicObjCTypes = words("SEL instancetype id Class Protocol BOOL");
+    const basicObjCTypes = words("SEL instancetype id Class Protocol BOOL");
 
     // Returns true if identifier is a "C" type.
     // C type is defined as those that are reserved by the compiler (basicTypes),
@@ -321,8 +322,8 @@
         return cTypes(identifier) || contains(basicObjCTypes, identifier);
     }
 
-    var cBlockKeywords = "case do else for if switch while struct enum union";
-    var cDefKeywords = "struct enum union";
+    const cBlockKeywords = "case do else for if switch while struct enum union";
+    const cDefKeywords = "struct enum union";
 
     function cppHook(stream, state) {
         if (!state.startOfLine) return false
@@ -330,7 +331,7 @@
             if (ch === "\\" && stream.match(/^.$/)) {
                 next = cppHook
                 break
-            } else if (ch === "/" && stream.match(/^\/[\/\*]/, false)) {
+            } else if (ch === "/" && stream.match(/^\/[\/*]/, false)) {
                 break
             }
             stream.next()
@@ -353,7 +354,7 @@
     }
 
     function cpp14Literal(stream) {
-        stream.eatWhile(/[\w\.']/);
+        stream.eatWhile(/[\w.']/);
         return "number";
     }
 
@@ -361,7 +362,7 @@
         stream.backUp(1);
         // Raw strings.
         if (stream.match(/^(?:R|u8R|uR|UR|LR)/)) {
-            var match = stream.match(/^"([^\s\\()]{0,16})\(/);
+            const match = stream.match(/^"([^\s\\()]{0,16})\(/);
             if (!match) {
                 return false;
             }
@@ -382,13 +383,13 @@
     }
 
     function cppLooksLikeConstructor(word) {
-        var lastTwo = /(\w+)::~?(\w+)$/.exec(word);
+        const lastTwo = /(\w+)::~?(\w+)$/.exec(word);
         return lastTwo && lastTwo[1] === lastTwo[2];
     }
 
     // C#-style strings where "" escapes a quote.
     function tokenAtString(stream, state) {
-        var next;
+        let next;
         while ((next = stream.next()) != null) {
             if (next === '"' && !stream.eat('"')) {
                 state.tokenize = null;
@@ -402,8 +403,8 @@
     // <delim> can be a string up to 16 characters long.
     function tokenRawString(stream, state) {
         // Escape characters that have special regex meanings.
-        var delim = state.cpp11RawStringDelim.replace(/[^\w\s]/g, '\\$&');
-        var match = stream.match(new RegExp(".*?\\)" + delim + '"'));
+        const delim = state.cpp11RawStringDelim.replace(/[^\w\s]/g, '\\$&');
+        const match = stream.match(new RegExp(".*?\\)" + delim + '"'));
         if (match)
             state.tokenize = null;
         else
@@ -413,10 +414,10 @@
 
     function def(mimes, mode) {
         if (typeof mimes === "string") mimes = [mimes];
-        var words = [];
+        const words = [];
 
         function add(obj) {
-            if (obj) for (var prop in obj) if (obj.hasOwnProperty(prop))
+            if (obj) for (let prop in obj) if (obj.hasOwnProperty(prop))
                 words.push(prop);
         }
 
@@ -429,7 +430,7 @@
             CodeMirror.registerHelper("hintWords", mimes[0], words);
         }
 
-        for (var i = 0; i < mimes.length; ++i)
+        for (let i = 0; i < mimes.length; ++i)
             CodeMirror.defineMIME(mimes[i], mode);
     }
 
@@ -458,7 +459,7 @@
         typeFirstDefinitions: true,
         atoms: words("true false NULL nullptr"),
         dontIndentStatements: /^template$/,
-        isIdentifierChar: /[\w\$_~\xa1-\uffff]/,
+        isIdentifierChar: /[\w$_~\xa1-\uffff]/,
         isReservedIdentifier: cIsReservedIdentifier,
         hooks: {
             "#": cppHook,
@@ -508,7 +509,7 @@
                 // Don't match the @interface keyword.
                 if (stream.match('interface', false)) return false;
 
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 return "meta";
             },
             '"': function (stream, state) {
@@ -543,14 +544,14 @@
                     state.tokenize = tokenAtString;
                     return tokenAtString(stream, state);
                 }
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 return "meta";
             }
         }
     });
 
     function tokenTripleString(stream, state) {
-        var escaped = false;
+        let escaped = false;
         while (!stream.eol()) {
             if (!escaped && stream.match('"""')) {
                 state.tokenize = null;
@@ -563,7 +564,7 @@
 
     function tokenNestedComment(depth) {
         return function (stream, state) {
-            var ch
+            let ch;
             while (ch = stream.next()) {
                 if (ch === "*" && stream.eat("/")) {
                     if (depth === 1) {
@@ -616,7 +617,7 @@
         isOperatorChar: /[+\-*&%=<>!?|\/#:@]/,
         hooks: {
             "@": function (stream) {
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 return "meta";
             },
             '"': function (stream, state) {
@@ -625,11 +626,11 @@
                 return state.tokenize(stream, state);
             },
             "'": function (stream) {
-                stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+                stream.eatWhile(/[\w$_\xa1-\uffff]/);
                 return "atom";
             },
             "=": function (stream, state) {
-                var cx = state.context
+                const cx = state.context;
                 if (cx.type === "}" && cx.align && stream.eat(">")) {
                     state.context = new Context(cx.indented, cx.column, cx.type, cx.info, null, cx.prev)
                     return "operator"
@@ -649,7 +650,7 @@
 
     function tokenKotlinString(tripleString) {
         return function (stream, state) {
-            var escaped = false, next, end = false;
+            let escaped = false, next, end = false;
             while (!stream.eol()) {
                 if (!tripleString && !escaped && stream.match('"')) {
                     end = true;
@@ -702,7 +703,7 @@
         atoms: words("true false null this"),
         hooks: {
             "@": function (stream) {
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 return "meta";
             },
             '*': function (_stream, state) {
@@ -718,7 +719,7 @@
                 return state.tokenize(stream, state)
             },
             indent: function (state, ctx, textAfter, indentUnit) {
-                var firstChar = textAfter && textAfter.charAt(0);
+                const firstChar = textAfter && textAfter.charAt(0);
                 if ((state.prevToken === "}" || state.prevToken === ")") && textAfter === "")
                     return state.indented;
                 if ((state.prevToken === "operator" && textAfter !== "}" && state.context.type !== "}") ||
@@ -875,11 +876,11 @@
     });
 
     // Ceylon Strings need to deal with interpolation
-    var stringTokenizer = null;
+    let stringTokenizer = null;
 
     function tokenCeylonString(type) {
         return function (stream, state) {
-            var escaped = false, next, end = false;
+            let escaped = false, next, end = false;
             while (!stream.eol()) {
                 if (!escaped && stream.match('"') &&
                     (type === "single" || stream.match('""'))) {
@@ -908,14 +909,14 @@
             " try value void while"),
         types: function (word) {
             // In Ceylon all identifiers that start with an uppercase are types
-            var first = word.charAt(0);
+            const first = word.charAt(0);
             return (first === first.toUpperCase() && first !== first.toLowerCase());
         },
         blockKeywords: words("case catch class dynamic else finally for function if interface module new object switch try while"),
         defKeywords: words("class dynamic function interface module object package value"),
         builtin: words("abstract actual aliased annotation by default deprecated doc final formal late license" +
             " native optional sealed see serializable shared suppressWarnings tagged throws variable"),
-        isPunctuationChar: /[\[\]{}\(\),;\:\.`]/,
+        isPunctuationChar: /[\[\]{}(),;:.`]/,
         isOperatorChar: /[+\-*&%=<>!?|^~:\/]/,
         numberStart: /[\d#$]/,
         number: /^(?:#[\da-fA-F_]+|\$[01_]+|[\d_]+[kMGTPmunpf]?|[\d_]+\.[\d_]+(?:[eE][-+]?\d+|[kMGTPmunpf]|)|)/i,
@@ -926,7 +927,7 @@
         styleDefs: false,
         hooks: {
             "@": function (stream) {
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 return "meta";
             },
             '"': function (stream, state) {
@@ -940,7 +941,7 @@
                 return state.tokenize(stream, state);
             },
             "'": function (stream) {
-                stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+                stream.eatWhile(/[\w$_\xa1-\uffff]/);
                 return "atom";
             },
             token: function (_stream, state, style) {

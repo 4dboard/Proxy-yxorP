@@ -10,7 +10,7 @@
         mod(CodeMirror);
 })(function (CodeMirror) {
     CodeMirror.defineOption("placeholder", "", function (cm, val, old) {
-        var prev = old && old !== CodeMirror.Init;
+        const prev = old && old !== CodeMirror.Init;
         if (val && !prev) {
             cm.on("blur", onBlur);
             cm.on("change", onChange);
@@ -25,7 +25,7 @@
             cm.off("swapDoc", onChange);
             CodeMirror.off(cm.getInputField(), "compositionupdate", cm.state.placeholderCompose)
             clearPlaceholder(cm);
-            var wrapper = cm.getWrapperElement();
+            const wrapper = cm.getWrapperElement();
             wrapper.className = wrapper.className.replace(" CodeMirror-empty", "");
         }
 
@@ -41,11 +41,11 @@
 
     function setPlaceholder(cm) {
         clearPlaceholder(cm);
-        var elt = cm.state.placeholder = document.createElement("pre");
+        const elt = cm.state.placeholder = document.createElement("pre");
         elt.style.cssText = "height: 0; overflow: visible";
         elt.style.direction = cm.getOption("direction");
         elt.className = "CodeMirror-placeholder CodeMirror-line-like";
-        var placeHolder = cm.getOption("placeholder")
+        let placeHolder = cm.getOption("placeholder");
         if (typeof placeHolder === "string") placeHolder = document.createTextNode(placeHolder)
         elt.appendChild(placeHolder)
         cm.display.lineSpace.insertBefore(elt, cm.display.lineSpace.firstChild);
@@ -53,9 +53,9 @@
 
     function onComposition(cm) {
         setTimeout(function () {
-            var empty = false
+            let empty = false;
             if (cm.lineCount() === 1) {
-                var input = cm.getInputField()
+                const input = cm.getInputField();
                 empty = input.nodeName === "TEXTAREA" ? !cm.getLine(0).length
                     : !/[^\u200b]/.test(input.querySelector(".CodeMirror-line").textContent)
             }
@@ -69,7 +69,7 @@
     }
 
     function onChange(cm) {
-        var wrapper = cm.getWrapperElement(), empty = isEmpty(cm);
+        const wrapper = cm.getWrapperElement(), empty = isEmpty(cm);
         wrapper.className = wrapper.className.replace(" CodeMirror-empty", "") + (empty ? " CodeMirror-empty" : "");
 
         if (empty) setPlaceholder(cm);

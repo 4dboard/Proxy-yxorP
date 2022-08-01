@@ -19,22 +19,22 @@
         }
 
         // These should all be Unicode extended, as per the Haskell 2010 report
-        var smallRE = /[a-z_]/;
-        var largeRE = /[A-Z]/;
-        var digitRE = /\d/;
-        var hexitRE = /[0-9A-Fa-f]/;
-        var octitRE = /[0-7]/;
-        var idRE = /[a-z_A-Z0-9'\xa1-\uffff]/;
-        var symbolRE = /[-!#$%&*+.\/<=>?@\\^|~:]/;
-        var specialRE = /[(),;[\]`{}]/;
-        var whiteCharRE = /[ \t\v\f]/; // newlines are handled in tokenizer
+        const smallRE = /[a-z_]/;
+        const largeRE = /[A-Z]/;
+        const digitRE = /\d/;
+        const hexitRE = /[0-9A-Fa-f]/;
+        const octitRE = /[0-7]/;
+        const idRE = /[a-z_A-Z0-9'\xa1-\uffff]/;
+        const symbolRE = /[-!#$%&*+.\/<=>?@\\^|~:]/;
+        const specialRE = /[(),;[\]`{}]/;
+        const whiteCharRE = /[ \t\v\f]/; // newlines are handled in tokenizer
 
         function normal(source, setState) {
             if (source.eatWhile(whiteCharRE)) {
                 return null;
             }
 
-            var ch = source.next();
+            const ch = source.next();
             if (specialRE.test(ch)) {
                 if (ch === '{' && source.eat('-')) {
                     var t = "comment";
@@ -126,9 +126,9 @@
                 return normal;
             }
             return function (source, setState) {
-                var currNest = nest;
+                let currNest = nest;
                 while (!source.eol()) {
-                    var ch = source.next();
+                    const ch = source.next();
                     if (ch === '{' && source.eat('-')) {
                         ++currNest;
                     } else if (ch === '-' && source.eat('}')) {
@@ -146,7 +146,7 @@
 
         function stringLiteral(source, setState) {
             while (!source.eol()) {
-                var ch = source.next();
+                const ch = source.next();
                 if (ch === '"') {
                     setState(normal);
                     return "string";
@@ -176,12 +176,12 @@
         }
 
 
-        var wellKnownWords = (function () {
-            var wkw = {};
+        const wellKnownWords = (function () {
+            const wkw = {};
 
             function setType(t) {
                 return function () {
-                    for (var i = 0; i < arguments.length; i++)
+                    for (let i = 0; i < arguments.length; i++)
                         wkw[arguments[i]] = t;
                 };
             }
@@ -235,8 +235,8 @@
                 "unwords", "unzip", "unzip3", "userError", "words", "writeFile", "zip",
                 "zip3", "zipWith", "zipWith3");
 
-            var override = modeConfig.overrideKeywords;
-            if (override) for (var word in override) if (override.hasOwnProperty(word))
+            const override = modeConfig.overrideKeywords;
+            if (override) for (let word in override) if (override.hasOwnProperty(word))
                 wkw[word] = override[word];
 
             return wkw;
@@ -252,10 +252,10 @@
             },
 
             token: function (stream, state) {
-                var t = state.f(stream, function (s) {
+                const t = state.f(stream, function (s) {
                     state.f = s;
                 });
-                var w = stream.current();
+                const w = stream.current();
                 return wellKnownWords.hasOwnProperty(w) ? wellKnownWords[w] : t;
             },
 

@@ -10,18 +10,19 @@
         mod(CodeMirror)
 })(function (CodeMirror) {
     "use strict"
-    var Pos = CodeMirror.Pos
+    const Pos = CodeMirror.Pos;
 
     function regexpFlags(regexp) {
-        var flags = regexp.flags
+        const flags = regexp.flags;
         return flags != null ? flags : (regexp.ignoreCase ? "i" : "")
             + (regexp.global ? "g" : "")
             + (regexp.multiline ? "m" : "")
     }
 
     function ensureFlags(regexp, flags) {
-        var current = regexpFlags(regexp), target = current
-        for (var i = 0; i < flags.length; i++) if (target.indexOf(flags.charAt(i)) === -1)
+        const current = regexpFlags(regexp);
+        let target = current;
+        for (let i = 0; i < flags.length; i++) if (target.indexOf(flags.charAt(i)) === -1)
             target += flags.charAt(i)
         return current === target ? regexp : new RegExp(regexp.source, target)
     }
@@ -32,9 +33,11 @@
 
     function searchRegexpForward(doc, regexp, start) {
         regexp = ensureFlags(regexp, "g")
-        for (var line = start.line, ch = start.ch, last = doc.lastLine(); line <= last; line++, ch = 0) {
+        let line = start.line, ch = start.ch;
+        const last = doc.lastLine();
+        for (; line <= last; line++, ch = 0) {
             regexp.lastIndex = ch
-            var string = doc.getLine(line), match = regexp.exec(string)
+            const string = doc.getLine(line), match = regexp.exec(string);
             if (match)
                 return {
                     from: Pos(line, match.index),
@@ -48,24 +51,25 @@
         if (!maybeMultiline(regexp)) return searchRegexpForward(doc, regexp, start)
 
         regexp = ensureFlags(regexp, "gm")
-        var string, chunk = 1
-        for (var line = start.line, last = doc.lastLine(); line <= last;) {
+        let string, chunk = 1;
+        const line = start.line, last = doc.lastLine();
+        for (; line <= last;) {
             // This grows the search buffer in exponentially-sized chunks
             // between matches, so that nearby matches are fast and don't
             // require concatenating the whole document (in case we're
             // searching for something that has tons of matches), but at the
             // same time, the amount of retries is limited.
-            for (var i = 0; i < chunk; i++) {
+            for (let i = 0; i < chunk; i++) {
                 if (line > last) break
-                var curLine = doc.getLine(line++)
+                const curLine = doc.getLine(line++);
                 string = string === null ? curLine : string + "\n" + curLine
             }
             chunk = chunk * 2
             regexp.lastIndex = start.ch
-            var match = regexp.exec(string)
+            const match = regexp.exec(string);
             if (match) {
-                var before = string.slice(0, match.index).split("\n"), inside = match[0].split("\n")
-                var startLine = start.line + before.length - 1, startCh = before[before.length - 1].length
+                const before = string.slice(0, match.index).split("\n"), inside = match[0].split("\n");
+                const startLine = start.line + before.length - 1, startCh = before[before.length - 1].length;
                 return {
                     from: Pos(startLine, startCh),
                     to: Pos(startLine + inside.length - 1,
@@ -77,12 +81,12 @@
     }
 
     function lastMatchIn(string, regexp, endMargin) {
-        var match, from = 0
+        let match, from = 0;
         while (from <= string.length) {
             regexp.lastIndex = from
-            var newMatch = regexp.exec(string)
+            const newMatch = regexp.exec(string);
             if (!newMatch) break
-            var end = newMatch.index + newMatch[0].length
+            const end = newMatch.index + newMatch[0].length;
             if (end > string.length - endMargin) break
             if (!match || end > match.index + match[0].length)
                 match = newMatch
@@ -93,9 +97,11 @@
 
     function searchRegexpBackward(doc, regexp, start) {
         regexp = ensureFlags(regexp, "g")
-        for (var line = start.line, ch = start.ch, first = doc.firstLine(); line >= first; line--, ch = -1) {
-            var string = doc.getLine(line)
-            var match = lastMatchIn(string, regexp, ch < 0 ? 0 : string.length - ch)
+        let line = start.line, ch = start.ch;
+        const first = doc.firstLine();
+        for (; line >= first; line--, ch = -1) {
+            const string = doc.getLine(line);
+            const match = lastMatchIn(string, regexp, ch < 0 ? 0 : string.length - ch);
             if (match)
                 return {
                     from: Pos(line, match.index),
@@ -108,18 +114,20 @@
     function searchRegexpBackwardMultiline(doc, regexp, start) {
         if (!maybeMultiline(regexp)) return searchRegexpBackward(doc, regexp, start)
         regexp = ensureFlags(regexp, "gm")
-        var string, chunkSize = 1, endMargin = doc.getLine(start.line).length - start.ch
-        for (var line = start.line, first = doc.firstLine(); line >= first;) {
-            for (var i = 0; i < chunkSize && line >= first; i++) {
-                var curLine = doc.getLine(line--)
+        let string, chunkSize = 1;
+        const endMargin = doc.getLine(start.line).length - start.ch;
+        const line = start.line, first = doc.firstLine();
+        for (; line >= first;) {
+            for (let i = 0; i < chunkSize && line >= first; i++) {
+                const curLine = doc.getLine(line--);
                 string = string === null ? curLine : curLine + "\n" + string
             }
             chunkSize *= 2
 
-            var match = lastMatchIn(string, regexp, endMargin)
+            const match = lastMatchIn(string, regexp, endMargin);
             if (match) {
-                var before = string.slice(0, match.index).split("\n"), inside = match[0].split("\n")
-                var startLine = line + before.length, startCh = before[before.length - 1].length
+                const before = string.slice(0, match.index).split("\n"), inside = match[0].split("\n");
+                const startLine = line + before.length, startCh = before[before.length - 1].length;
                 return {
                     from: Pos(startLine, startCh),
                     to: Pos(startLine + inside.length - 1,
@@ -130,7 +138,7 @@
         }
     }
 
-    var doFold, noFold
+    let doFold, noFold;
     if (String.prototype.normalize) {
         doFold = function (str) {
             return str.normalize("NFD").toLowerCase()
@@ -151,10 +159,11 @@
     // (compensating for codepoints increasing in number during folding)
     function adjustPos(orig, folded, pos, foldFunc) {
         if (orig.length === folded.length) return pos
-        for (var min = 0, max = pos + Math.max(0, orig.length - folded.length); ;) {
+        let min = 0, max = pos + Math.max(0, orig.length - folded.length);
+        for (; ;) {
             if (min === max) return min
-            var mid = (min + max) >> 1
-            var len = foldFunc(orig.slice(0, mid)).length
+            const mid = (min + max) >> 1;
+            const len = foldFunc(orig.slice(0, mid)).length;
             if (len === pos) return mid
             else if (len > pos) max = mid
             else min = mid + 1
@@ -165,13 +174,14 @@
         // Empty string would match anything and never progress, so we
         // define it to match nothing instead.
         if (!query.length) return null
-        var fold = caseFold ? doFold : noFold
-        var lines = fold(query).split(/\r|\n\r?/)
+        const fold = caseFold ? doFold : noFold;
+        const lines = fold(query).split(/\r|\n\r?/);
 
-        search: for (var line = start.line, ch = start.ch, last = doc.lastLine() + 1 - lines.length; line <= last; line++, ch = 0) {
-            var orig = doc.getLine(line).slice(ch), string = fold(orig)
+        search: let line = start.line,
+            ch = start.ch;const last = doc.lastLine() + 1 - lines.length;for (; line <= last; line++, ch = 0) {
+            const orig = doc.getLine(line).slice(ch), string = fold(orig);
             if (lines.length === 1) {
-                var found = string.indexOf(lines[0])
+                const found = string.indexOf(lines[0]);
                 if (found === -1) continue;
                 var start = adjustPos(orig, string, found, fold) + ch
                 return {
@@ -179,12 +189,12 @@
                     to: Pos(line, adjustPos(orig, string, found + lines[0].length, fold) + ch)
                 }
             } else {
-                var cutFrom = string.length - lines[0].length
+                const cutFrom = string.length - lines[0].length;
                 if (string.slice(cutFrom) !== lines[0]) continue;
-                for (var i = 1; i < lines.length - 1; i++)
+                for (let i = 1; i < lines.length - 1; i++)
                     if (fold(doc.getLine(line + i)) !== lines[i]) continue search
-                var end = doc.getLine(line + lines.length - 1), endString = fold(end),
-                    lastLine = lines[lines.length - 1]
+                const end = doc.getLine(line + lines.length - 1), endString = fold(end),
+                    lastLine = lines[lines.length - 1];
                 if (endString.slice(0, lastLine.length) !== lastLine) continue;
                 return {
                     from: Pos(line, adjustPos(orig, string, cutFrom, fold) + ch),
@@ -196,26 +206,27 @@
 
     function searchStringBackward(doc, query, start, caseFold) {
         if (!query.length) return null
-        var fold = caseFold ? doFold : noFold
-        var lines = fold(query).split(/\r|\n\r?/)
+        const fold = caseFold ? doFold : noFold;
+        const lines = fold(query).split(/\r|\n\r?/);
 
-        search: for (var line = start.line, ch = start.ch, first = doc.firstLine() - 1 + lines.length; line >= first; line--, ch = -1) {
-            var orig = doc.getLine(line)
+        search: let line = start.line,
+            ch = start.ch;const first = doc.firstLine() - 1 + lines.length;for (; line >= first; line--, ch = -1) {
+            let orig = doc.getLine(line);
             if (ch > -1) orig = orig.slice(0, ch)
-            var string = fold(orig)
+            const string = fold(orig);
             if (lines.length === 1) {
-                var found = string.lastIndexOf(lines[0])
+                const found = string.lastIndexOf(lines[0]);
                 if (found === -1) continue;
                 return {
                     from: Pos(line, adjustPos(orig, string, found, fold)),
                     to: Pos(line, adjustPos(orig, string, found + lines[0].length, fold))
                 }
             } else {
-                var lastLine = lines[lines.length - 1]
+                const lastLine = lines[lines.length - 1];
                 if (string.slice(0, lastLine.length) !== lastLine) continue;
                 for (var i = 1, start = line - lines.length + 1; i < lines.length - 1; i++)
                     if (fold(doc.getLine(start + i)) !== lines[i]) continue search
-                var top = doc.getLine(line + 1 - lines.length), topString = fold(top)
+                const top = doc.getLine(line + 1 - lines.length), topString = fold(top);
                 if (topString.slice(topString.length - lines[0].length) !== lines[0]) continue;
                 return {
                     from: Pos(line + 1 - lines.length, adjustPos(top, topString, top.length - lines[0].length, fold)),
@@ -232,7 +243,7 @@
         pos = pos ? doc.clipPos(pos) : Pos(0, 0)
         this.pos = {from: pos, to: pos}
 
-        var caseFold
+        let caseFold;
         if (typeof options === "object") {
             caseFold = options.caseFold
         } else { // Backwards compat for when caseFold was the 4th argument
@@ -267,7 +278,7 @@
         },
 
         find: function (reverse) {
-            var head = this.doc.clipPos(reverse ? this.pos.from : this.pos.to);
+            let head = this.doc.clipPos(reverse ? this.pos.from : this.pos.to);
             if (this.afterEmptyMatch && this.atOccurrence) {
                 // do not return the same 0 width match twice
                 head = Pos(head.line, head.ch)
@@ -288,7 +299,7 @@
                     return this.atOccurrence = false
                 }
             }
-            var result = this.matches(reverse, head)
+            const result = this.matches(reverse, head);
             this.afterEmptyMatch = result && CodeMirror.cmpPos(result.from, result.to) === 0
 
             if (result) {
@@ -296,7 +307,7 @@
                 this.atOccurrence = true
                 return this.pos.match || true
             } else {
-                var end = Pos(reverse ? this.doc.firstLine() : this.doc.lastLine() + 1, 0)
+                const end = Pos(reverse ? this.doc.firstLine() : this.doc.lastLine() + 1, 0);
                 this.pos = {from: end, to: end}
                 return this.atOccurrence = false
             }
@@ -311,7 +322,7 @@
 
         replace: function (newText, origin) {
             if (!this.atOccurrence) return
-            var lines = CodeMirror.splitLines(newText)
+            const lines = CodeMirror.splitLines(newText);
             this.doc.replaceRange(lines, this.pos.from, this.pos.to, origin)
             this.pos.to = Pos(this.pos.from.line + lines.length - 1,
                 lines[lines.length - 1].length + (lines.length === 1 ? this.pos.from.ch : 0))
@@ -326,8 +337,8 @@
     })
 
     CodeMirror.defineExtension("selectMatches", function (query, caseFold) {
-        var ranges = []
-        var cur = this.getSearchCursor(query, this.getCursor("from"), caseFold)
+        const ranges = [];
+        const cur = this.getSearchCursor(query, this.getCursor("from"), caseFold);
         while (cur.findNext()) {
             if (CodeMirror.cmpPos(cur.to(), this.getCursor("to")) > 0) break
             ranges.push({anchor: cur.from(), head: cur.to()})

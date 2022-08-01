@@ -13,18 +13,18 @@
 
     CodeMirror.defineMode("sieve", function (config) {
         function words(str) {
-            var obj = {}, words = str.split(" ");
-            for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
+            const obj = {}, words = str.split(" ");
+            for (let i = 0; i < words.length; ++i) obj[words[i]] = true;
             return obj;
         }
 
-        var keywords = words("if elsif else stop require");
-        var atoms = words("true false not");
-        var indentUnit = config.indentUnit;
+        const keywords = words("if elsif else stop require");
+        const atoms = words("true false not");
+        const indentUnit = config.indentUnit;
 
         function tokenBase(stream, state) {
 
-            var ch = stream.next();
+            const ch = stream.next();
             if (ch === "/" && stream.eat("*")) {
                 state.tokenize = tokenCComment;
                 return tokenCComment(stream, state);
@@ -70,7 +70,7 @@
                 return null;
 
 
-            if (/[{}\(\),;]/.test(ch))
+            if (/[{}(),;]/.test(ch))
                 return null;
 
             // 1*DIGIT "K" / "M" / "G"
@@ -89,7 +89,7 @@
             }
 
             stream.eatWhile(/\w/);
-            var cur = stream.current();
+            const cur = stream.current();
 
             // "text:" *(SP / HTAB) (hash-comment / CRLF)
             // *(multiline-literal / multiline-dotstart)
@@ -132,7 +132,7 @@
         }
 
         function tokenCComment(stream, state) {
-            var maybeEnd = false, ch;
+            let maybeEnd = false, ch;
             while ((ch = stream.next()) != null) {
                 if (maybeEnd && ch === "/") {
                     state.tokenize = tokenBase;
@@ -145,7 +145,7 @@
 
         function tokenString(quote) {
             return function (stream, state) {
-                var escaped = false, ch;
+                let escaped = false, ch;
                 while ((ch = stream.next()) != null) {
                     if (ch === quote && !escaped)
                         break;
@@ -173,7 +173,7 @@
             },
 
             indent: function (state, _textAfter) {
-                var length = state._indent.length;
+                let length = state._indent.length;
                 if (_textAfter && (_textAfter[0] === "}"))
                     length--;
 

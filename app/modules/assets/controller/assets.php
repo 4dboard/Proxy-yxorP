@@ -43,7 +43,7 @@ class assets extends app
                     continue;
                 }
 
-                if (\preg_match('/^\{(.*)\}$/', $f)) {
+                if (\preg_match('/^{(.*)}$/', $f)) {
 
                     try {
                         $f = json5_decode($f, true);

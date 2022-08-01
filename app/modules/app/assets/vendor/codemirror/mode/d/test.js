@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "d");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "d");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));

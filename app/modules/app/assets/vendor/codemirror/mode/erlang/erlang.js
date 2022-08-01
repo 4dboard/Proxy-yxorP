@@ -33,41 +33,41 @@
 /////////////////////////////////////////////////////////////////////////////
 // constants
 
-        var typeWords = [
+        const typeWords = [
             "-type", "-spec", "-export_type", "-opaque"];
 
-        var keywordWords = [
+        const keywordWords = [
             "after", "begin", "catch", "case", "cond", "end", "fun", "if",
             "let", "of", "query", "receive", "try", "when"];
 
-        var separatorRE = /[\->,;]/;
-        var separatorWords = [
+        const separatorRE = /[\->,;]/;
+        const separatorWords = [
             "->", ";", ","];
 
-        var operatorAtomWords = [
+        const operatorAtomWords = [
             "and", "andalso", "band", "bnot", "bor", "bsl", "bsr", "bxor",
             "div", "not", "or", "orelse", "rem", "xor"];
 
-        var operatorSymbolRE = /[\+\-\*\/<>=\|:!]/;
-        var operatorSymbolWords = [
+        const operatorSymbolRE = /[\+\-\*\/<>=\|:!]/;
+        const operatorSymbolWords = [
             "=", "+", "-", "*", "/", ">", ">=", "<", "=<", "=:=", "==", "=/=", "/=", "||", "<-", "!"];
 
-        var openParenRE = /[<\(\[\{]/;
-        var openParenWords = [
+        const openParenRE = /[<\(\[\{]/;
+        const openParenWords = [
             "<<", "(", "[", "{"];
 
-        var closeParenRE = /[>\)\]\}]/;
-        var closeParenWords = [
+        const closeParenRE = /[>\)\]\}]/;
+        const closeParenWords = [
             "}", "]", ")", ">>"];
 
-        var guardWords = [
+        const guardWords = [
             "is_atom", "is_binary", "is_bitstring", "is_boolean", "is_float",
             "is_function", "is_integer", "is_list", "is_number", "is_pid",
             "is_port", "is_record", "is_reference", "is_tuple",
             "atom", "binary", "bitstring", "boolean", "function", "integer", "list",
             "number", "pid", "port", "record", "reference", "tuple"];
 
-        var bifWords = [
+        const bifWords = [
             "abs", "adler32", "adler32_combine", "alive", "apply", "atom_to_binary",
             "atom_to_list", "binary_to_atom", "binary_to_existing_atom",
             "binary_to_list", "binary_to_term", "bit_size", "bitstring_to_list",
@@ -93,8 +93,8 @@
 
 // upper case: [A-Z] [Ø-Þ] [À-Ö]
 // lower case: [a-z] [ß-ö] [ø-ÿ]
-        var anumRE = /[\w@Ø-ÞÀ-Öß-öø-ÿ]/;
-        var escapesRE =
+        const anumRE = /[\w@Ø-ÞÀ-Öß-öø-ÿ]/;
+        const escapesRE =
             /[0-7]{1,3}|[bdefnrstv\\"']|\^[a-zA-Z]|x[0-9a-zA-Z]{2}|x{[0-9a-zA-Z]+}/;
 
 /////////////////////////////////////////////////////////////////////////////
@@ -128,7 +128,7 @@
                 }
             }
 
-            var ch = stream.next();
+            const ch = stream.next();
 
             // comment
             if (ch === '%') {
@@ -203,7 +203,7 @@
                     return rval(state, stream, "fun");      // f/0 style fun
                 }
 
-                var w = stream.current();
+                const w = stream.current();
 
                 if (is_member(w, keywordWords)) {
                     return rval(state, stream, "keyword");
@@ -234,8 +234,8 @@
             }
 
             // number
-            var digitRE = /[0-9]/;
-            var radixRE = /[0-9a-zA-Z]/;         // 36#zZ style int
+            const digitRE = /[0-9]/;
+            const radixRE = /[0-9a-zA-Z]/;         // 36#zZ style int
             if (digitRE.test(ch)) {
                 stream.eatWhile(digitRE);
                 if (stream.eat('#')) {                // 36#aZ  style integer
@@ -328,7 +328,7 @@
 
         function quote(stream, quoteChar, escapeChar) {
             while (!stream.eol()) {
-                var ch = stream.next();
+                const ch = stream.next();
                 if (ch === quoteChar) {
                     return true;
                 } else if (ch === escapeChar) {
@@ -339,7 +339,7 @@
         }
 
         function lookahead(stream) {
-            var m = stream.match(/^\s*([^\s%])/, false)
+            const m = stream.match(/^\s*([^\s%])/, false);
             return m ? m[1] : "";
         }
 
@@ -425,8 +425,8 @@
         }
 
         function peekToken(state, depth) {
-            var len = state.tokenStack.length;
-            var dep = (depth ? depth : 1);
+            const len = state.tokenStack.length;
+            const dep = (depth ? depth : 1);
 
             if (len < dep) {
                 return false;
@@ -444,7 +444,7 @@
         }
 
         function maybe_drop_pre(s, token) {
-            var last = s.length - 1;
+            const last = s.length - 1;
 
             if (0 < last && s[last].type === "record" && token.type === "dot") {
                 s.pop();
@@ -459,7 +459,7 @@
 
         function maybe_drop_post(s) {
             if (!s.length) return s
-            var last = s.length - 1;
+            const last = s.length - 1;
 
             if (s[last].type === "dot") {
                 return [];
@@ -519,11 +519,11 @@
             //  in which case it will return an empty stack.
 
             for (var type in tt) {
-                var len = stack.length - 1;
-                var tokens = tt[type];
-                for (var i = len - 1; -1 < i; i--) {
+                const len = stack.length - 1;
+                const tokens = tt[type];
+                for (let i = len - 1; -1 < i; i--) {
                     if (is_member(stack[i].token, tokens)) {
-                        var ss = stack.slice(0, i);
+                        const ss = stack.slice(0, i);
                         switch (type) {
                             case "m":
                                 return ss.concat(stack[i]).concat(stack[len]);
@@ -548,11 +548,11 @@
 // indenter
 
         function indenter(state, textAfter) {
-            var t;
-            var unit = cmCfg.indentUnit;
-            var wordAfter = wordafter(textAfter);
-            var currT = peekToken(state, 1);
-            var prevT = peekToken(state, 2);
+            let t;
+            const unit = cmCfg.indentUnit;
+            const wordAfter = wordafter(textAfter);
+            const currT = peekToken(state, 1);
+            const prevT = peekToken(state, 2);
 
             if (state.in_string || state.in_atom) {
                 return CodeMirror.Pass;
@@ -591,22 +591,22 @@
         }
 
         function wordafter(str) {
-            var m = str.match(/,|[a-z]+|\}|\]|\)|>>|\|+|\(/);
+            const m = str.match(/,|[a-z]+|\}|\]|\)|>>|\|+|\(/);
 
             return truthy(m) && (m.index === 0) ? m[0] : "";
         }
 
         function postcommaToken(state) {
-            var objs = state.tokenStack.slice(0, -1);
-            var i = getTokenIndex(objs, "type", ["open_paren"]);
+            const objs = state.tokenStack.slice(0, -1);
+            const i = getTokenIndex(objs, "type", ["open_paren"]);
 
             return truthy(objs[i]) ? objs[i] : false;
         }
 
         function defaultToken(state) {
-            var objs = state.tokenStack;
-            var stop = getTokenIndex(objs, "type", ["open_paren", "separator", "keyword"]);
-            var oper = getTokenIndex(objs, "type", ["operator"]);
+            const objs = state.tokenStack;
+            const stop = getTokenIndex(objs, "type", ["open_paren", "separator", "keyword"]);
+            const oper = getTokenIndex(objs, "type", ["operator"]);
 
             if (truthy(stop) && truthy(oper) && stop < oper) {
                 return objs[stop + 1];
@@ -618,15 +618,15 @@
         }
 
         function getToken(state, tokens) {
-            var objs = state.tokenStack;
-            var i = getTokenIndex(objs, "token", tokens);
+            const objs = state.tokenStack;
+            const i = getTokenIndex(objs, "token", tokens);
 
             return truthy(objs[i]) ? objs[i] : false;
         }
 
         function getTokenIndex(objs, propname, propvals) {
 
-            for (var i = objs.length - 1; -1 < i; i--) {
+            for (let i = objs.length - 1; -1 < i; i--) {
                 if (is_member(objs[i][propname], propvals)) {
                     return i;
                 }

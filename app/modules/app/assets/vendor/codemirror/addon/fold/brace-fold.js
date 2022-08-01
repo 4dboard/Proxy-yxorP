@@ -13,12 +13,13 @@
 
     function bracketFolding(pairs) {
         return function (cm, start) {
-            var line = start.line, lineText = cm.getLine(line);
+            const line = start.line, lineText = cm.getLine(line);
 
             function findOpening(pair) {
-                var tokenType;
-                for (var at = start.ch, pass = 0; ;) {
-                    var found = at <= 0 ? -1 : lineText.lastIndexOf(pair[0], at - 1);
+                let tokenType;
+                let at = start.ch, pass = 0;
+                for (; ;) {
+                    const found = at <= 0 ? -1 : lineText.lastIndexOf(pair[0], at - 1);
                     if (found === -1) {
                         if (pass === 1) break;
                         pass = 1;
@@ -33,11 +34,16 @@
             }
 
             function findRange(found) {
-                var count = 1, lastLine = cm.lastLine(), end, startCh = found.ch, endCh
-                outer: for (var i = line; i <= lastLine; ++i) {
-                    var text = cm.getLine(i), pos = i === line ? startCh : 0;
+                let count = 1;
+                const lastLine = cm.lastLine();
+                let end;
+                const startCh = found.ch;
+                let endCh;
+                outer: for (let i = line; i <= lastLine; ++i) {
+                    const text = cm.getLine(i);
+                    let pos = i === line ? startCh : 0;
                     for (; ;) {
-                        var nextOpen = text.indexOf(found.pair[0], pos), nextClose = text.indexOf(found.pair[1], pos);
+                        let nextOpen = text.indexOf(found.pair[0], pos), nextClose = text.indexOf(found.pair[1], pos);
                         if (nextOpen < 0) nextOpen = text.length;
                         if (nextClose < 0) nextClose = text.length;
                         pos = Math.min(nextOpen, nextClose);
@@ -63,14 +69,14 @@
 
             var found = []
             for (var i = 0; i < pairs.length; i++) {
-                var open = findOpening(pairs[i])
+                const open = findOpening(pairs[i]);
                 if (open) found.push(open)
             }
             found.sort(function (a, b) {
                 return a.ch - b.ch
             })
             for (var i = 0; i < found.length; i++) {
-                var range = findRange(found[i])
+                const range = findRange(found[i]);
                 if (range) return range
             }
             return null
@@ -84,21 +90,24 @@
     CodeMirror.registerHelper("fold", "import", function (cm, start) {
         function hasImport(line) {
             if (line < cm.firstLine() || line > cm.lastLine()) return null;
-            var start = cm.getTokenAt(CodeMirror.Pos(line, 1));
+            let start = cm.getTokenAt(CodeMirror.Pos(line, 1));
             if (!/\S/.test(start.string)) start = cm.getTokenAt(CodeMirror.Pos(line, start.end + 1));
             if (start.type !== "keyword" || start.string !== "import") return null;
             // Now find closing semicolon, return its position
-            for (var i = line, e = Math.min(cm.lastLine(), line + 10); i <= e; ++i) {
-                var text = cm.getLine(i), semi = text.indexOf(";");
+            let i = line;
+            const e = Math.min(cm.lastLine(), line + 10);
+            for (; i <= e; ++i) {
+                const text = cm.getLine(i), semi = text.indexOf(";");
                 if (semi !== -1) return {startCh: start.end, end: CodeMirror.Pos(i, semi)};
             }
         }
 
-        var startLine = start.line, has = hasImport(startLine), prev;
+        const startLine = start.line, has = hasImport(startLine);
+        let prev;
         if (!has || hasImport(startLine - 1) || ((prev = hasImport(startLine - 2)) && prev.end.line === startLine - 1))
             return null;
         for (var end = has.end; ;) {
-            var next = hasImport(end.line + 1);
+            const next = hasImport(end.line + 1);
             if (next === null) break;
             end = next.end;
         }
@@ -108,15 +117,15 @@
     CodeMirror.registerHelper("fold", "include", function (cm, start) {
         function hasInclude(line) {
             if (line < cm.firstLine() || line > cm.lastLine()) return null;
-            var start = cm.getTokenAt(CodeMirror.Pos(line, 1));
+            let start = cm.getTokenAt(CodeMirror.Pos(line, 1));
             if (!/\S/.test(start.string)) start = cm.getTokenAt(CodeMirror.Pos(line, start.end + 1));
             if (start.type === "meta" && start.string.slice(0, 8) === "#include") return start.start + 8;
         }
 
-        var startLine = start.line, has = hasInclude(startLine);
+        const startLine = start.line, has = hasInclude(startLine);
         if (has === null || hasInclude(startLine - 1) != null) return null;
         for (var end = startLine; ;) {
-            var next = hasInclude(end + 1);
+            const next = hasInclude(end + 1);
             if (next === null) break;
             ++end;
         }

@@ -15,7 +15,7 @@
         return new RegExp('^((' + words.join(')|(') + '))\\b', 'i');
     }
 
-    var builtinArray = [
+    const builtinArray = [
         'a_correlate', 'abs', 'acos', 'adapt_hist_equal', 'alog',
         'alog2', 'alog10', 'amoeba', 'annotate', 'app_user_dir',
         'app_user_dir_query', 'arg_present', 'array_equal', 'array_indices',
@@ -222,9 +222,9 @@
         'xvolume', 'xvolume_rotate', 'xvolume_write_image',
         'xyouts', 'zlib_compress', 'zlib_uncompress', 'zoom', 'zoom_24'
     ];
-    var builtins = wordRegexp(builtinArray);
+    const builtins = wordRegexp(builtinArray);
 
-    var keywordArray = [
+    const keywordArray = [
         'begin', 'end', 'endcase', 'endfor',
         'endwhile', 'endif', 'endrep', 'endforeach',
         'break', 'case', 'continue', 'for',
@@ -232,14 +232,14 @@
         'repeat', 'until', 'switch', 'while',
         'do', 'pro', 'function'
     ];
-    var keywords = wordRegexp(keywordArray);
+    const keywords = wordRegexp(keywordArray);
 
     CodeMirror.registerHelper("hintWords", "idl", builtinArray.concat(keywordArray));
 
-    var identifiers = new RegExp('^[_a-z\xa1-\uffff][_a-z0-9\xa1-\uffff]*', 'i');
+    const identifiers = new RegExp('^[_a-z\xa1-\uffff][_a-z0-9\xa1-\uffff]*', 'i');
 
-    var singleOperators = /[+\-*&=<>\/@#~$]/;
-    var boolOperators = new RegExp('(and|or|eq|lt|le|gt|ge|ne|not)', 'i');
+    const singleOperators = /[+\-*&=<>\/@#~$]/;
+    const boolOperators = new RegExp('(and|or|eq|lt|le|gt|ge|ne|not)', 'i');
 
     function tokenBase(stream) {
         // whitespaces
@@ -252,7 +252,7 @@
         }
 
         // Handle Number Literals
-        if (stream.match(/^[0-9\.+-]/, false)) {
+        if (stream.match(/^[0-9.+-]/, false)) {
             if (stream.match(/^[+-]?0x[0-9a-fA-F]+/))
                 return 'number';
             if (stream.match(/^[+-]?\d*\.\d+([EeDd][+-]?\d+)?/))

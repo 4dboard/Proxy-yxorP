@@ -14,8 +14,7 @@
 }
 
 .kiss-badge-outline {
-    background: none;
-    background-color: transparent;
+    background: transparent none;
     border-color: currentColor;
     color: currentColor !important;
 }

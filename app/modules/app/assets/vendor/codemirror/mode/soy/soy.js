@@ -11,8 +11,8 @@
 })(function (CodeMirror) {
     "use strict";
 
-    var paramData = {noEndTag: true, soyState: "param-def"};
-    var tags = {
+    const paramData = {noEndTag: true, soyState: "param-def"};
+    const tags = {
         "alias": {noEndTag: true},
         "delpackage": {noEndTag: true},
         "namespace": {noEndTag: true, soyState: "namespace-def"},
@@ -54,13 +54,13 @@
         "const": {soyState: "const-def"},
     };
 
-    var indentingTags = Object.keys(tags).filter(function (tag) {
+    const indentingTags = Object.keys(tags).filter(function (tag) {
         return !tags[tag].noEndTag || tags[tag].reduceIndent;
     });
 
     CodeMirror.defineMode("soy", function (config) {
-        var textMode = CodeMirror.getMode(config, "text/plain");
-        var modes = {
+        const textMode = CodeMirror.getMode(config, "text/plain");
+        const modes = {
             html: CodeMirror.getMode(config, {
                 name: "text/html",
                 multilineTagIndentFactor: 2,
@@ -86,15 +86,15 @@
                 }
                 if (indent) return null;
             }
-            var oldString = stream.string;
-            var match = untilRegExp.exec(oldString.substr(stream.pos));
+            const oldString = stream.string;
+            const match = untilRegExp.exec(oldString.substr(stream.pos));
             if (match) {
                 // We don't use backUp because it backs up just the position, not the state.
                 // This uses an undocumented API.
                 stream.string = oldString.substr(0, stream.pos + match.index);
             }
-            var result = stream.hideFirstChars(state.indent, function () {
-                var localState = last(state.localStates);
+            const result = stream.hideFirstChars(state.indent, function () {
+                const localState = last(state.localStates);
                 return localState.mode.token(stream, localState.state);
             });
             stream.string = oldString;
@@ -139,7 +139,7 @@
         }
 
         function expression(stream, state) {
-            var match;
+            let match;
             if (stream.match(/[[]/)) {
                 state.soyState.push("list-literal");
                 state.context = new Context(state.context, "list-literal", state.variables);
@@ -223,8 +223,8 @@
                             stream.skipToEnd();
                         }
                         if (!state.context || !state.context.scope) {
-                            var paramRe = /@param\??\s+(\S+)/g;
-                            var current = stream.current();
+                            const paramRe = /@param\??\s+(\S+)/g;
+                            const current = stream.current();
                             for (var match; (match = paramRe.exec(current));) {
                                 state.variables = prepend(state.variables, match[1]);
                             }
@@ -279,7 +279,7 @@
                         return null;
 
                     case "namespace-def":
-                        if (match === stream.match(/^\.?([\w\.]+)/)) {
+                        if (match === stream.match(/^\.?([\w.]+)/)) {
                             state.soyState.pop();
                             return "variable";
                         }
@@ -485,7 +485,7 @@
                         }
                         var tag = tags[tagName];
                         if (stream.match(/^\/?}/)) {
-                            var selfClosed = stream.current() === "/}";
+                            const selfClosed = stream.current() === "/}";
                             if (selfClosed && !endTag) {
                                 popcontext(state);
                             }
@@ -500,9 +500,9 @@
                             return "keyword";
                         } else if (stream.match(/^([\w?]+)(?==)/)) {
                             if (state.context && state.context.tag === tagName && stream.current() === "kind" && (match = stream.match(/^="([^"]+)/, false))) {
-                                var kind = match[1];
+                                const kind = match[1];
                                 state.context.kind = kind;
-                                var mode = modes[kind] || modes.html;
+                                const mode = modes[kind] || modes.html;
                                 var localState = last(state.localStates);
                                 if (localState.mode.indent) {
                                     state.indent += localState.mode.indent(localState.state, "", "");
@@ -532,7 +532,7 @@
                             state.soyState.pop();
                             return this.token(stream, state);
                         }
-                        return tokenUntil(stream, state, /\{\/literal}/);
+                        return tokenUntil(stream, state, /{\/literal}/);
                     case "export":
                         if (match === stream.match(/\w+/)) {
                             state.soyState.pop();
@@ -563,18 +563,18 @@
                     return "keyword";
 
                     // A tag-keyword must be followed by whitespace, comment or a closing tag.
-                } else if (match === stream.match(/^\{([/@\\]?\w+\??)(?=$|[\s}]|\/[/*])/)) {
-                    var prevTag = state.tag;
+                } else if (match === stream.match(/^{([/@\\]?\w+\??)(?=$|[\s}]|\/[/*])/)) {
+                    const prevTag = state.tag;
                     state.tag = match[1];
                     var endTag = state.tag[0] === "/";
-                    var indentingTag = !!tags[state.tag];
+                    const indentingTag = !!tags[state.tag];
                     var tagName = endTag ? state.tag.substring(1) : state.tag;
                     var tag = tags[tagName];
                     if (state.tag !== "/switch")
                         state.indent += ((endTag || tag && tag.reduceIndent) && prevTag !== "switch" ? 1 : 2) * config.indentUnit;
 
                     state.soyState.push("tag");
-                    var tagError = false;
+                    let tagError = false;
                     if (tag) {
                         if (!endTag) {
                             if (tag.soyState) state.soyState.push(tag.soyState);
@@ -584,7 +584,7 @@
                             state.context = new Context(state.context, state.tag, tag.variableScope ? state.variables : null);
                             // Otherwise close the current context.
                         } else if (endTag) {
-                            var isBalancedForExtern = tagName === 'extern' && (state.context && state.context.tag === 'export');
+                            const isBalancedForExtern = tagName === 'extern' && (state.context && state.context.tag === 'export');
                             if (!state.context || ((state.context.tag !== tagName) && !isBalancedForExtern)) {
                                 tagError = true;
                             } else if (state.context) {
@@ -624,22 +624,23 @@
                     return "keyword";
                 }
 
-                return tokenUntil(stream, state, /\{|\s+\/\/|\/\*/);
+                return tokenUntil(stream, state, /{|\s+\/\/|\/\*/);
             },
 
             indent: function (state, textAfter, line) {
-                var indent = state.indent, top = last(state.soyState);
+                let indent = state.indent;
+                const top = last(state.soyState);
                 if (top === "comment") return CodeMirror.Pass;
 
                 if (top === "literal") {
-                    if (/^\{\/literal}/.test(textAfter)) indent -= config.indentUnit;
+                    if (/^{\/literal}/.test(textAfter)) indent -= config.indentUnit;
                 } else {
-                    if (/^\s*\{\/(template|deltemplate)\b/.test(textAfter)) return 0;
-                    if (/^\{(\/|(fallbackmsg|elseif|else|ifempty)\b)/.test(textAfter)) indent -= config.indentUnit;
-                    if (state.tag !== "switch" && /^\{(case|default)\b/.test(textAfter)) indent -= config.indentUnit;
-                    if (/^\{\/switch\b/.test(textAfter)) indent -= config.indentUnit;
+                    if (/^\s*{\/(template|deltemplate)\b/.test(textAfter)) return 0;
+                    if (/^{(\/|(fallbackmsg|elseif|else|ifempty)\b)/.test(textAfter)) indent -= config.indentUnit;
+                    if (state.tag !== "switch" && /^{(case|default)\b/.test(textAfter)) indent -= config.indentUnit;
+                    if (/^{\/switch\b/.test(textAfter)) indent -= config.indentUnit;
                 }
-                var localState = last(state.localStates);
+                const localState = last(state.localStates);
                 if (indent && localState.mode.indent) {
                     indent += localState.mode.indent(localState.state, textAfter, line);
                 }
@@ -651,7 +652,7 @@
                 else return last(state.localStates);
             },
 
-            electricInput: /^\s*\{(\/|\/template|\/deltemplate|\/switch|fallbackmsg|elseif|else|case|default|ifempty|\/literal\})$/,
+            electricInput: /^\s*{(\/|\/template|\/deltemplate|\/switch|fallbackmsg|elseif|else|case|default|ifempty|\/literal})$/,
             lineComment: "//",
             blockCommentStart: "/*",
             blockCommentEnd: "*/",

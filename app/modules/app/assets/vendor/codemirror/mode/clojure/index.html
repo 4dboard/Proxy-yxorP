@@ -84,7 +84,7 @@
 
 (print-grids (take 3 (iterate step grid)) 5 5)</textarea></form>
     <script>
-        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             autoCloseBrackets: true,
             lineNumbers: true,
             matchBrackets: true,
