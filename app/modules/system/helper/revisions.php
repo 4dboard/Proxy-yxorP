@@ -87,8 +87,7 @@ class revisions extends helper
         return $revision;
     }
 
-    public
-    function get($id)
+    public function get($id)
     {
         return $this->storage->findOne('system/revisions', ['_oid' => $id]);
     }
