@@ -70,7 +70,5 @@ if (SITE_API_REQUEST) {
 if (!SITE_API_REQUEST) {
     $app->helper('session')->init();
     $app->trigger('app.admin.init');
-} else {
-    $app->trigger('app.api.init');
-}
+} else  $app->trigger('app.api.init');
 $app->trigger(SITE_API_REQUEST ? 'app.api.request' : 'app.admin.request', [$request])->run($request->route, $request);
