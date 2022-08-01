@@ -167,6 +167,7 @@ class sessionCookieJar
 
     public function getDomain()
     {
+        exit('2');
         return $this->data['Domain'];
     }
 
