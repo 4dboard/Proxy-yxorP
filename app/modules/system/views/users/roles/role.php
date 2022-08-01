@@ -153,11 +153,7 @@ foreach ($permissions as $key => $meta) if (isset($meta['component'])) $componen
                             this.role = role;
                             this.saving = false;
 
-                            if (isUpdate) {
-                                App.ui.notify('Role updated!');
-                            } else {
-                                App.ui.notify('Role created!');
-                            }
+                            if (isUpdate) App.ui.notify('Role updated!'); else App.ui.notify('Role created!');
                         }).catch(res => {
                             this.saving = false;
                             App.ui.notify(res.error || 'Saving failed!', 'error');
