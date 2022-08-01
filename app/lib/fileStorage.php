@@ -1,6 +1,5 @@
 <?php use League\Flysystem\Filesystem;
 use League\Flysystem\MountManager;
-use Lime\Helper\Filesystem;
 
 class fileStorage
 {
@@ -23,6 +22,22 @@ class fileStorage
             $this->initStorage($name);
         }
         return $this;
+    }
+
+    protected function initStorage(string $name): Filesystem
+    {
+        static $mountMethod;
+        if (!$mountMethod) {
+            $mountMethod = new ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
+            $mountMethod->setAccessible(true);
+        }
+        $config = $this->config[$name];
+        $adapter = new ReflectionClass($config['adapter']);
+        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+        if (isset($config['mount']) && $config['mount']) {
+            $mountMethod->invokeArgs($this->manager, [$name, $this->storages[$name]]);
+        }
+        return $this->storages[$name];
     }
 
     public function use(string $name): ?Filesystem
@@ -50,21 +65,5 @@ class fileStorage
     public function __call($name, $args)
     {
         return call_user_func_array([$this->manager, $name], $args);
-    }
-
-    protected function initStorage(string $name): Filesystem
-    {
-        static $mountMethod;
-        if (!$mountMethod) {
-            $mountMethod = new ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
-            $mountMethod->setAccessible(true);
-        }
-        $config = $this->config[$name];
-        $adapter = new ReflectionClass($config['adapter']);
-        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
-        if (isset($config['mount']) && $config['mount']) {
-            $mountMethod->invokeArgs($this->manager, [$name, $this->storages[$name]]);
-        }
-        return $this->storages[$name];
     }
 }
