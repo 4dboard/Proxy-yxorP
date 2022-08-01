@@ -1,6 +1,5 @@
 <?php date_default_timezone_set('UTC');
 
-exit('1');
 define('SITE_START_TIME', microtime(true));
 define('SITE_ADMIN', true);
 require(__DIR__ . '/bootstrap.php');

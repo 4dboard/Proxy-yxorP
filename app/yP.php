@@ -77,7 +77,6 @@ class yP
          * appended to it.
          */
 
-        exit('1');
         helpers::define($request);
 
         /**
