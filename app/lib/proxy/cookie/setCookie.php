@@ -1,7 +1,5 @@
 <?php namespace yxorP\app\lib\proxy\cookie;
 
-echo 1;
-
 class sessionCookieJar
 {
     private static $defaults = ['Name' => null, 'Value' => null, 'Domain' => null, 'Path' => '/', 'Max-Age' => null, 'Expires' => null, 'Secure' => false, 'Discard' => false, 'HttpOnly' => false];
