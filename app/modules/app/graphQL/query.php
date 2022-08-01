@@ -17,7 +17,7 @@ class query extends appAware
     public $directives;
     protected bool $initialized = false;
 
-    public function process($query = '{}', $variables = null)
+    public function process($query = '{}', $variables = null): array
     {
         if (!$this->initialized) $this->init();
 
@@ -37,11 +37,7 @@ class query extends appAware
                     $start = substr($value, 0, 1);
                     $end = substr($value, -1, 1);
 
-                    if (($start === '[' && $end === ']') || ($start === '{' && $end === '}')) {
-                        $result['data'][$key] = json_decode($value);
-                    } elseif ($value === 'null') {
-                        $result['data'][$key] = null;
-                    }
+                    if (($start === '[' && $end === ']') || ($start === '{' && $end === '}')) $result['data'][$key] = json_decode($value); elseif ($value === 'null') $result['data'][$key] = null;
                 }
             }
         }
