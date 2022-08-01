@@ -1,8 +1,6 @@
 <?php
 
-if (!isset($user['twofa'])) {
-    $user['twofa'] = ['enabled' => false, 'secret' => $this->helper('twfa')->createSecret(160)];
-}
+if (!isset($user['twofa'])) $user['twofa'] = ['enabled' => false, 'secret' => $this->helper('twfa')->createSecret(160)];
 
 ?>
 <kiss-container class="kiss-margin-large" size="small">
