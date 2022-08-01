@@ -66,7 +66,7 @@ class sessionCookieJar
         return new self($data);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         exit('2');
         $str = $this->data['Name'] . '=' . $this->data['Value'] . '; ';
