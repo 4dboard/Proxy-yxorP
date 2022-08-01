@@ -3,7 +3,6 @@
 namespace App\Command\i18n;
 
 use App\Helper\i18n;
-use MongoDB\Driver\Command;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\Command\Command;
@@ -66,7 +65,6 @@ class createTranslation extends Command
             $output->writeln("<info>-></info> {$name}");
 
             foreach ($iterator as $file) {
-
                 if (!$file->isFile() || !in_array($file->getExtension(), $extensions)) continue;
 
                 $contents = file_get_contents($file->getRealPath());
