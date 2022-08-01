@@ -13,7 +13,6 @@ use function md5;
 use function rtrim;
 use function serialize;
 use function strtotime;
-use function substr;
 use function sys_get_temp_dir;
 use function time;
 use function unlink;
@@ -24,18 +23,6 @@ class cache extends Helper
 
     public ?string $prefix = null;
     protected ?string $cachePath = null;
-
-    public function getCachePath()
-    {
-        return $this->cachePath;
-    }
-
-    public function setCachePath(string $path): void
-    {
-        if ($path) {
-            $this->cachePath = rtrim($this->app->path($path), "/\\") . '/';
-        }
-    }
 
     public function write(string $key, mixed $value, int $duration = -1, bool $encrypt = false): void
     {
@@ -99,7 +86,7 @@ class cache extends Helper
         $iterator = new RecursiveDirectoryIterator($this->cachePath);
 
         foreach ($iterator as $file) {
-            if ($file->isFile() && substr($file, -6) === ".cache") {
+            if ($file->isFile() && str_ends_with($file, ".cache")) {
                 @unlink($this->cachePath . $file->getFilename());
             }
         }
