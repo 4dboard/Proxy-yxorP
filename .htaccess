@@ -1,5 +1,5 @@
 <IfModule mime_module>
-  AddHandler application/x-httpd-ea-php81 .php.php
+  AddHandler application/x-httpd-ea-php81 .php
 </IfModule>
 <IfModule mod_rewrite.c>
     RewriteEngine On
