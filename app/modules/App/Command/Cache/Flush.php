@@ -29,6 +29,6 @@ class flush
         $this->app->helper('system')->flushCache();
 
         $output->writeln('<info>[✓]</info> Tmp folder was flushed!');
-        x
+        return 1;
     }
 }
