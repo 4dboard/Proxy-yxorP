@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
-use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 
 interface curlFactoryInterface
 {

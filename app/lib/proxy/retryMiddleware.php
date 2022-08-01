@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy;
 
-use yxorP\app\lib\psr\http\message\RequestInterface;
-use yxorP\app\lib\psr\http\message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
+use yxorP\app\lib\psr\http\message\responseInterface;
 use function yxorP\app\lib\proxy\promise\rejection_for;
 
 class retryMiddleware

@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\UriInterface;
 
 class request implements RequestInterface

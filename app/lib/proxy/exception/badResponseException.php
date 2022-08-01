@@ -1,8 +1,8 @@
 <?php namespace yxorP\app\lib\proxy\exception;
 
 use Exception;
-use yxorP\app\lib\psr\http\message\RequestInterface;
-use yxorP\app\lib\psr\http\message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
+use yxorP\app\lib\psr\http\message\responseInterface;
 
 class badResponseException extends aRequestExceptionAa
 {

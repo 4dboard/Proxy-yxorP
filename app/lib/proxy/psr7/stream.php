@@ -3,7 +3,7 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
 
 class stream implements StreamInterface
 {

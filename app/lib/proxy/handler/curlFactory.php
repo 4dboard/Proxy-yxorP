@@ -8,7 +8,7 @@ use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\promise\fulfilledPromise;
 use yxorP\app\lib\proxy\psr7\lazyOpenStream;
 use yxorP\app\lib\proxy\transferStats;
-use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\is_host_in_noproxy;
 use function yxorP\app\lib\proxy\promise\rejection_for;

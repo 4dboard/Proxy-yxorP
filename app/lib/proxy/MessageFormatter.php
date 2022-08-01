@@ -2,8 +2,8 @@
 
 use Exception;
 use yxorP\app\lib\psr\http\message\MessageInterface;
-use yxorP\app\lib\psr\http\message\RequestInterface;
-use yxorP\app\lib\psr\http\message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
+use yxorP\app\lib\psr\http\message\responseInterface;
 
 class messageFormatter
 {

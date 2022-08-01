@@ -2,8 +2,8 @@
 
 use Exception;
 use yxorP\app\lib\proxy\promise\promiseInterface;
-use yxorP\app\lib\psr\http\message\RequestInterface;
-use yxorP\app\lib\psr\http\message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
+use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\UriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 

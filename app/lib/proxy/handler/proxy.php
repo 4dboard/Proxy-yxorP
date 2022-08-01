@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
 use yxorP\app\lib\proxy\requestOptions;
-use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 
 class proxy
 {

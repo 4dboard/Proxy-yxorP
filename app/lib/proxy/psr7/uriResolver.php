@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\Psr\Http\Message\UriInterface;
+use yxorP\app\lib\psr\http\message\UriInterface;
 
 final class uriResolver
 {

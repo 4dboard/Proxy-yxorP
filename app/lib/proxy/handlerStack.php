@@ -2,7 +2,7 @@
 
 use InvalidArgumentException;
 use LogicException;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 
 class handlerStack
 {
@@ -72,17 +72,6 @@ class handlerStack
         return $result;
     }
 
-    private function debugCallable($fn)
-    {
-        if (is_string($fn)) {
-            return "callable({$fn})";
-        }
-        if (is_array($fn)) {
-            return is_string($fn[0]) ? "callable({$fn[0]}::{$fn[1]})" : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
-        }
-        return 'callable(' . spl_object_hash($fn) . ')';
-    }
-
     public function setHandler(callable $handler)
     {
         $this->handler = $handler;
@@ -103,6 +92,31 @@ class handlerStack
     public function before($findName, callable $middleware, $withName = '')
     {
         $this->splice($findName, $withName, $middleware, true);
+    }
+
+    public function after($findName, callable $middleware, $withName = '')
+    {
+        $this->splice($findName, $withName, $middleware, false);
+    }
+
+    public function remove($remove)
+    {
+        $this->cached = null;
+        $idx = is_callable($remove) ? 0 : 1;
+        $this->stack = array_values(array_filter($this->stack, function ($tuple) use ($idx, $remove) {
+            return $tuple[$idx] !== $remove;
+        }));
+    }
+
+    private function debugCallable($fn)
+    {
+        if (is_string($fn)) {
+            return "callable({$fn})";
+        }
+        if (is_array($fn)) {
+            return is_string($fn[0]) ? "callable({$fn[0]}::{$fn[1]})" : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
+        }
+        return 'callable(' . spl_object_hash($fn) . ')';
     }
 
     private function splice($findName, $withName, callable $middleware, $before)
@@ -133,19 +147,5 @@ class handlerStack
             }
         }
         throw new InvalidArgumentException("Middleware not found: $name");
-    }
-
-    public function after($findName, callable $middleware, $withName = '')
-    {
-        $this->splice($findName, $withName, $middleware, false);
-    }
-
-    public function remove($remove)
-    {
-        $this->cached = null;
-        $idx = is_callable($remove) ? 0 : 1;
-        $this->stack = array_values(array_filter($this->stack, function ($tuple) use ($idx, $remove) {
-            return $tuple[$idx] !== $remove;
-        }));
     }
 }

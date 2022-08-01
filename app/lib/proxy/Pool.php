@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use yxorP\app\lib\proxy\promise\eachPromise;
 use yxorP\app\lib\proxy\promise\promisorInterface;
-use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 use function yxorP\app\lib\proxy\promise\iter_for;
 
 class pool implements promisorInterface

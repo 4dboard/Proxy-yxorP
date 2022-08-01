@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\exception;
 
 use Exception;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
+use yxorP\app\lib\psr\http\message\requestInterface;
 
 class connectException extends aRequestExceptionAa
 {
