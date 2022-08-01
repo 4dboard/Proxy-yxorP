@@ -177,6 +177,7 @@ class sessionCookieJar
 
     public function validate()
     {
+        exit('2');
         $name = $this->getName();
         if (empty($name) && !is_numeric($name)) {
             return 'The cookie name must not be empty';
