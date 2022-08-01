@@ -10,14 +10,12 @@ class api extends helper
     protected
     array $keys = [];
 
-    public
-    function getKey(string $key)
+    public function getKey(string $key)
     {
         return $this->keys[$key] ?? null;
     }
 
-    public
-    function keys(): array
+    public function keys(): array
     {
         return array_keys($this->keys);
     }
