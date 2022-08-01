@@ -8,11 +8,9 @@ use Throwable;
 class locales extends helper
 {
 
-    protected
-    array $locales = [];
+    protected array $locales = [];
 
-    public
-    function applyLocales($obj, $locale = 'default')
+    public function applyLocales($obj, $locale = 'default')
     {
 
         static $locales;
