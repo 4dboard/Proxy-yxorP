@@ -100,21 +100,25 @@ class sessionCookieJar
 
     public function setMaxAge($maxAge)
     {
+        exit('2');
         $this->data['Max-Age'] = $maxAge;
     }
 
     public function getSecure()
     {
+        exit('2');
         return $this->data['Secure'];
     }
 
     public function setSecure($secure)
     {
+        exit('2');
         $this->data['Secure'] = $secure;
     }
 
     public function getDiscard()
     {
+        exit('2');
         return $this->data['Discard'];
     }
 
