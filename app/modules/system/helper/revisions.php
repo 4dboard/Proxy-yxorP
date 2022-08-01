@@ -93,24 +93,20 @@ class revisions extends helper
     }
 
 
-    public
-    function latest($id)
+    public function latest($id)
     {
 
-        $options = [
+        $revs = $this->storage->find('system/revisions', [
             'filter' => ['_oid' => $id],
             'sort' => ['_created' => -1],
             'limit' => 1
-        ];
-
-        $revs = $this->storage->find('system/revisions', $options)->toArray();
+        ])->toArray();
 
         return $revs[0] ?? null;
     }
 
 
-    public
-    function remove($rid)
+    public function remove($rid)
     {
         return $this->storage->remove('system/revisions', ['_id' => $rid]);
     }
