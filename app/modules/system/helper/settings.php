@@ -5,7 +5,6 @@ namespace yxorP\app\modules\system\helper;
 use ArrayObject;
 use helper;
 use function array_filter;
-use const yxorP\app\lib\lime\helper;
 
 class settings extends helper
 {

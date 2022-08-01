@@ -3,7 +3,6 @@
 namespace yxorP\app\modules\system\helper;
 
 use helper;
-use const yxorP\app\lib\lime\helper;
 
 class api extends helper
 {

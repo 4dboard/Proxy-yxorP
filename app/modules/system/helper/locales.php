@@ -4,7 +4,6 @@ namespace yxorP\app\modules\system\helper;
 
 use helper;
 use Throwable;
-use const yxorP\app\lib\lime\helper;
 
 class locales extends helper
 {
