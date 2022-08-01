@@ -1,5 +1,4 @@
 <IfModule mod_rewrite.c>
-    AddType application/x-httpd-php81 .php
     RewriteEngine On
     RewriteBase /
     RewriteRule ^index\.php$ - [L]
