@@ -1,7 +1,5 @@
 <IfModule mod_rewrite.c>
     AddType application/x-httpd-php81 .php
-    AddHandler application/x-httpd-php81 .php
-    AddHandler x-mapp-php81 .php
     RewriteEngine On
     RewriteBase /
     RewriteRule ^index\.php$ - [L]
