@@ -203,9 +203,7 @@ class FileObject
 }
 
 
-if (!function_exists('fnmatch')) {
-    function fnmatch(string $pattern, string $string): bool
-    {
-        return preg_match("#^" . strtr(preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.']) . "$#i", $string);
-    }
+function fnmatch(string $pattern, string $string): bool
+{
+    return preg_match("#^" . strtr(preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.']) . "$#i", $string);
 }
