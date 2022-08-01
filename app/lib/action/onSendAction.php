@@ -19,7 +19,6 @@ class onSendAction extends wrapper
      */
     public function onSend(): void
     {
-        exit('1');
         /**
          * Creating a new `\yxorP\app\lib\proxy\Client` object, and then it is sending a request to the `\yxorP\app\lib\http\store::handler(YXORP_FETCH)` URL,
          * with the `\yxorP\app\lib\http\store::handler(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request.
