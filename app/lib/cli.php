@@ -25,9 +25,7 @@
                 }
             }
         }
-        if (!$name) {
-            return $opts;
-        }
+        if (!$name) return $opts;
         return isset($opts[$name]) ? $opts[$name] : $default;
     }
 
