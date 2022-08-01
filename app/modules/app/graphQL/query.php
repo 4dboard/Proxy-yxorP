@@ -3,10 +3,10 @@
 namespace App\GraphQL;
 
 use ArrayObject;
-use GraphQL\GraphQL;
-use GraphQL\Type\Definition\ObjectType;
-use GraphQL\Type\Definition\Type;
-use GraphQL\Type\Schema;
+use graphQL\GraphQL;
+use graphQL\Type\Definition\ObjectType;
+use graphQL\Type\Definition\Type;
+use graphQL\Type\Schema;
 
 class query extends appAware
 {

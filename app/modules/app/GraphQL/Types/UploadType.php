@@ -1,11 +1,11 @@
 <?php
 
-namespace App\GraphQL\Types;
+namespace App\graphQL\Types;
 
 use Error;
-use GraphQL\Error\Error;
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Type\Definition\ScalarType;
+use graphQL\Error\Error;
+use graphQL\Error\InvariantViolation;
+use graphQL\Type\Definition\ScalarType;
 use psr\http\message\UploadedFileInterface;
 use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
@@ -65,7 +65,7 @@ class uploadType extends ScalarType
     /**
      * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input
      *
-     * @param \GraphQL\Language\AST\Node $valueNode
+     * @param \graphQL\Language\AST\Node $valueNode
      * @param null|array $variables
      *
      * @return mixed

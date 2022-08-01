@@ -17,7 +17,7 @@ $app = $this;
 
 // GraphQl service
 $this->service('gql', function () use ($app) {
-    $gql = new App\GraphQL\query($app);
+    $gql = new App\graphQL\query($app);
     return $gql;
 });
 

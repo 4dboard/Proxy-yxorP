@@ -1,15 +1,15 @@
 <?php
 
-namespace App\GraphQL\Types;
+namespace App\graphQL\Types;
 
-use GraphQL\Language\AST\BooleanValueNode;
-use GraphQL\Language\AST\FloatValueNode;
-use GraphQL\Language\AST\IntValueNode;
-use GraphQL\Language\AST\ListValueNode;
-use GraphQL\Language\AST\Node;
-use GraphQL\Language\AST\ObjectValueNode;
-use GraphQL\Language\AST\StringValueNode;
-use GraphQL\Type\Definition\ScalarType;
+use graphQL\Language\AST\BooleanValueNode;
+use graphQL\Language\AST\FloatValueNode;
+use graphQL\Language\AST\IntValueNode;
+use graphQL\Language\AST\ListValueNode;
+use graphQL\Language\AST\Node;
+use graphQL\Language\AST\ObjectValueNode;
+use graphQL\Language\AST\StringValueNode;
+use graphQL\Type\Definition\ScalarType;
 
 class jsonType extends ScalarType
 {

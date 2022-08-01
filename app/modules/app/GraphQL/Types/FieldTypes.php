@@ -1,9 +1,9 @@
 <?php
 
-namespace App\GraphQL\Types;
+namespace App\graphQL\Types;
 
-use GraphQL\Type\Definition\ObjectType;
-use GraphQL\Type\Definition\Type;
+use graphQL\Type\Definition\ObjectType;
+use graphQL\Type\Definition\Type;
 
 class fieldTypes
 {

@@ -1,8 +1,8 @@
 <?php
 
-use App\GraphQL\Types\jsonType;
-use GraphQL\Type\Definition\ObjectType;
-use GraphQL\Type\Definition\Type;
+use App\graphQL\Types\jsonType;
+use graphQL\Type\Definition\ObjectType;
+use graphQL\Type\Definition\Type;
 
 $gql->queries['fields']['content'] = [
 

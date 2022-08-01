@@ -1,9 +1,9 @@
 <?php
 
-use App\GraphQL\Types\fieldTypes;
-use App\GraphQL\Types\jsonType;
-use GraphQL\Type\Definition\ObjectType;
-use GraphQL\Type\Definition\Type;
+use App\graphQL\Types\fieldTypes;
+use App\graphQL\Types\jsonType;
+use graphQL\Type\Definition\ObjectType;
+use graphQL\Type\Definition\Type;
 
 $models = $app->module('content')->models();
 $collections = array_filter($models, function ($m) {
