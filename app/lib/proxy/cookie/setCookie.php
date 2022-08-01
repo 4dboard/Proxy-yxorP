@@ -33,6 +33,7 @@ class sessionCookieJar
 
     public static function fromString($cookie)
     {
+        exit('2');
         $data = self::$defaults;
         $pieces = array_filter(array_map('trim', explode(';', $cookie)));
         if (empty($pieces[0]) || !strpos($pieces[0], '=')) {
