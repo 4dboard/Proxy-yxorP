@@ -7,8 +7,6 @@ class sessionCookieJar
 
     public function __construct(array $data = [])
     {
-        exit('2');
-
         $this->data = array_replace(self::$defaults, $data);
         if (!$this->getExpires() && $this->getMaxAge()) {
             $this->setExpires(time() + $this->getMaxAge());
@@ -19,27 +17,23 @@ class sessionCookieJar
 
     public function getExpires()
     {
-        exit('2');
 
         return $this->data['Expires'];
     }
 
     public function getMaxAge()
     {
-        exit('2');
 
         return $this->data['Max-Age'];
     }
 
     public function setExpires($timestamp)
     {
-        exit('2');
         $this->data['Expires'] = is_numeric($timestamp) ? (int)$timestamp : strtotime($timestamp);
     }
 
     public static function fromString($cookie)
     {
-        exit('2');
         $data = self::$defaults;
         $pieces = array_filter(array_map('trim', explode(';', $cookie)));
         if (empty($pieces[0]) || !strpos($pieces[0], '=')) {
@@ -67,7 +61,6 @@ class sessionCookieJar
 
     public function __toString(): string
     {
-        exit('2');
         $str = $this->data['Name'] . '=' . $this->data['Value'] . '; ';
         foreach ($this->data as $k => $v) {
             if ($k !== 'Name' && $k !== 'Value' && $v !== null && $v !== false) {
@@ -83,79 +76,66 @@ class sessionCookieJar
 
     public function toArray()
     {
-        exit('2');
         return $this->data;
     }
 
     public function setName($name)
     {
-        exit('2');
         $this->data['Name'] = $name;
     }
 
     public function setValue($value)
     {
-        exit('2');
         $this->data['Value'] = $value;
     }
 
     public function setDomain($domain)
     {
-        exit('2');
         $this->data['Domain'] = $domain;
     }
 
     public function setPath($path)
     {
-        exit('2');
         $this->data['Path'] = $path;
     }
 
     public function setMaxAge($maxAge)
     {
-        exit('2');
         $this->data['Max-Age'] = $maxAge;
     }
 
     public function getSecure()
     {
-        exit('2');
         return $this->data['Secure'];
     }
 
     public function setSecure($secure)
     {
-        exit('2');
         $this->data['Secure'] = $secure;
     }
 
     public function getDiscard()
     {
-        exit('2');
         return $this->data['Discard'];
     }
 
     public function setDiscard($discard)
     {
-        exit('2');
         $this->data['Discard'] = $discard;
     }
 
     public function getHttpOnly()
     {
-        exit('2');
         return $this->data['HttpOnly'];
     }
 
     public function setHttpOnly($httpOnly)
     {
-        exit('2');
         $this->data['HttpOnly'] = $httpOnly;
     }
 
     public function matchesPath($requestPath)
     {
-        exit('2');
         $cookiePath = $this->getPath();
         if ($cookiePath === '/' || $cookiePath === $requestPath) {
             return true;
@@ -171,13 +151,11 @@ class sessionCookieJar
 
     public function getPath()
     {
-        exit('2');
         return $this->data['Path'];
     }
 
     public function matchesDomain($domain)
     {
-        exit('2');
         $cookieDomain = ltrim($this->getDomain(), '.');
         if (!$cookieDomain || !strcasecmp($domain, $cookieDomain)) {
             return true;
@@ -190,19 +168,16 @@ class sessionCookieJar
 
     public function getDomain()
     {
-        exit('2');
         return $this->data['Domain'];
     }
 
     public function isExpired()
     {
-        exit('2');
         return $this->getExpires() !== null && time() > $this->getExpires();
     }
 
     public function validate()
     {
-        exit('2');
         $name = $this->getName();
         if (empty($name) && !is_numeric($name)) {
             return 'The cookie name must not be empty';
@@ -223,13 +198,11 @@ class sessionCookieJar
 
     public function getName()
     {
-        exit('2');
         return $this->data['Name'];
     }
 
     public function getValue()
     {
-        exit('2');
         return $this->data['Value'];
     }
 }
