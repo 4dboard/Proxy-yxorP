@@ -20,23 +20,14 @@ class query extends appAware
     public function process($query = '{}', $variables = null)
     {
 
-        if (!$this->initialized) {
-            $this->init();
-        }
+        if (!$this->initialized) $this->init();
 
-        $queryType = new ObjectType($this->queries->getArrayCopy());
-        $mutationType = new ObjectType($this->mutations->getArrayCopy());
-
-        $schema = new Schema([
-            'query' => $queryType,
-            'mutation' => $mutationType,
+        $result = GraphQL::executeQuery(new Schema([
+            'query' => new ObjectType($this->queries->getArrayCopy()),
+            'mutation' => new ObjectType($this->mutations->getArrayCopy()),
             'types' => $this->types->getArrayCopy(),
             'directives' => $this->directives->getArrayCopy(),
-        ]);
-
-        $rootValue = [];
-        $context = new ArrayObject([]);
-        $result = GraphQL::executeQuery($schema, $query, $rootValue, null, $variables)->toArray();
+        ]), $query, [], null, $variables)->toArray();
 
         if (isset($result['data'])) {
 
