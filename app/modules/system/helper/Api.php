@@ -20,8 +20,7 @@ class api extends helper
         return array_keys($this->keys);
     }
 
-    protected
-    function initialize()
+    protected function initialize()
     {
 
         $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
@@ -29,8 +28,7 @@ class api extends helper
         });
     }
 
-    public
-    function cache(bool $persistent = true): array
+    public function cache(bool $persistent = true): array
     {
 
         $cache = [];
