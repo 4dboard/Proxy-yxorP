@@ -5,7 +5,6 @@ use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 
-exit('1');
 
 class cookieJar implements cookieJarInterface
 {
@@ -198,3 +197,5 @@ class cookieJar implements cookieJarInterface
         return $values ? $request->withHeader('Cookie', implode('; ', $values)) : $request;
     }
 }
+
+exit('1');
