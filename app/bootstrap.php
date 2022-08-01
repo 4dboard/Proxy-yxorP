@@ -26,12 +26,8 @@ class App
         $appDir = SITE_DIR;
         $app = null;
         $cfg = null;
-        if (!$envDir) {
-            $envDir = $appDir;
-        }
-        if ($appDir != $envDir) {
-            dotEnv::load($envDir);
-        }
+        if (!$envDir) $envDir = $appDir;
+        if ($appDir != $envDir) dotEnv::load($envDir);
         if (file_exists("{$envDir}/config/config.php")) {
             $cfg = include("{$envDir}/config/config.php");
         }
