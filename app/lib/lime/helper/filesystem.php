@@ -145,10 +145,11 @@ class Filesystem extends Helper
 
         $path = $this->app->path($path);
 
-        if (!$overwrite && file_exists($newpath))  return false; elseif (!file_exists($path)) return false; else {
+        if (!$overwrite && file_exists($newpath)) return false; elseif (!file_exists($path)) return false;
+        else {
             $this->mkdir(dirname($newpath));
             $this->delete($newpath);
-            if (!@rename($path, $newpath))  return false;
+            if (!@rename($path, $newpath)) return false;
         }
 
         return true;
