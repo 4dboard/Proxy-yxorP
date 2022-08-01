@@ -15,7 +15,7 @@ class query extends appAware
     public $mutations;
     public $types;
     public $directives;
-    protected $initialized = false;
+    protected bool $initialized = false;
 
     public
     function process($query = '{}', $variables = null)
