@@ -5,13 +5,13 @@ use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
 use ReturnTypeWillChange;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\handlerStack;
 use yxorP\app\lib\proxy\Promise\promiseInterface;
 use yxorP\app\lib\proxy\transferStats;
+use yxorP\app\lib\Psr\Http\Message\RequestInterface;
+use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
+use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use function yxorP\app\lib\proxy\describe_type;
 use function yxorP\app\lib\proxy\Promise\promise_for;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
@@ -90,6 +90,15 @@ class mockHandler implements Countable
         });
     }
 
+    private function invokeStats(RequestInterface $request, array $options, ResponseInterface $response = null, $reason = null)
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new transferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
+    }
+
     public function append()
     {
         foreach (func_get_args() as $value) {
@@ -119,14 +128,5 @@ class mockHandler implements Countable
     public function reset()
     {
         $this->queue = [];
-    }
-
-    private function invokeStats(RequestInterface $request, array $options, ResponseInterface $response = null, $reason = null)
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new transferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
     }
 }

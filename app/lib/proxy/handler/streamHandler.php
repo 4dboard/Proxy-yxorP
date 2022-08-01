@@ -3,15 +3,15 @@
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\Exception\connectException;
 use yxorP\app\lib\proxy\Promise\fulfilledPromise;
 use yxorP\app\lib\proxy\Psr7;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\proxy\utils;
+use yxorP\app\lib\Psr\Http\Message\RequestInterface;
+use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
+use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\default_ca_bundle;
 use function yxorP\app\lib\proxy\headers_from_lines;
