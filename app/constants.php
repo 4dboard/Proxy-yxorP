@@ -279,48 +279,14 @@ const ENV_DEFAULT_TARGET = 'DEFAULT_TARGET' . EXT_ENV;
 const RUNTIME_EXCEPTION = 'Directory "%s" was not created';
 const ACCESS_DENIED_EXCEPTION = 'Error: Access denied!';
 const ACCESS_ALREADY_DEFINED = 'Argument already exists and cannot be redefined!';
-
-/**
- * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
- * appended to it.
- * It's defining a constant called `PATH_SITE_BOOTSTRAP` and setting it to the value of `DIR_ROOT` with a
- * `DIR_LIB` and `DIR_APP` and `FILE_SITE_BOOTSTRAP` appended to it.
- */
-define('PATH_SITE_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP);
-/**
- * It's defining a constant called `PATH_COOKIE_JAR` and setting it to the value of `DIR_ROOT` with a
- * `DIR_LIB` and `DIR_DATA` and `FILE_COOKIE_JAR` appended to it.
- */
-define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
-/**
- * It's defining a constant called `PATH_DIR_APP` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_APP` appended to it.
- */
-define('PATH_DIR_APP', DIR_ROOT . DIR_APP);
-/**
- * It's defining a constant called `PATH_SITE_LOCAL` and setting it to the value of `DIR_ROOT` with a
- * `DIR_INSTALL` and `DIR_APP` appended to it.
- */
-define('PATH_SITE_LOCAL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP);
-/**
- * It's defining a constant called `PATH_SITE_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_LIB` and `DIR_APP` and `FILE_INDEX` appended to it.
- */
-define('PATH_SITE_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
-/**
- * It's defining a constant called `PATH_REWRITE` and setting it to the value of `DIR_ROOT` with a  `DIR_LIB` and `DIR_DATA` and `FILE_REWRITE` appended to it.
- */
-define('PATH_REWRITE', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE);
-/**
- * Defining a constant.
- */
-define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
-/**
- * Defining a constant called PATH_PUBLIC_SUFFIX_LIST. The value of the constant is the directory root, the
- * application directory, the library directory, the data directory, and the public suffix list file.
- */
-define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
-/**
- * Defining a constant called PATH_FILE_MIME_TYPES. The value of the constant is the directory root, the
- * application directory, the library directory, the data directory, and the file mime types.
- */
+const PATH_SITE_BOOTSTRAP = DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP;
+X
+const PATH_COOKIE_JAR = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR;
+const PATH_DIR_APP = DIR_ROOT . DIR_APP;
+const PATH_SITE_LOCAL = DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP;
+const PATH_SITE_INDEX = DIR_ROOT . DIR_APP . FILE_INDEX;
+const PATH_REWRITE = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_REWRITE;
+const PATH_TLDS_ALPHA_BY_DOMAIN = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN;
+const PATH_PUBLIC_SUFFIX_LIST = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST;
 const PATH_FILE_MIME_TYPES = DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES;
 define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
