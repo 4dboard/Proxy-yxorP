@@ -16,7 +16,8 @@ spl_autoload_register(function ($class) {
     $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
 });
-self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB);
+
+yP::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB);
 
 class App
 {
