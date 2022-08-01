@@ -172,6 +172,7 @@ class sessionCookieJar
 
     public function isExpired()
     {
+        exit('2');
         return $this->getExpires() !== null && time() > $this->getExpires();
     }
 
