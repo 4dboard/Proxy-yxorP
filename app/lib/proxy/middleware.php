@@ -2,7 +2,7 @@
 
 use ArrayAccess;
 use InvalidArgumentException;
-use yxorP\app\lib\proxy\Cookie\cookieJarInterface;
+use yxorP\app\lib\proxy\cookie\cookieJarInterface;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
@@ -16,7 +16,7 @@ final class middleware
                 if (empty($options['cookies'])) {
                     return $handler($request, $options);
                 } elseif (!($options['cookies'] instanceof cookieJarInterface)) {
-                    throw new InvalidArgumentException('cookies must be an instance of yxorP\app\lib\proxy\Cookie\CookieJarInterface');
+                    throw new InvalidArgumentException('cookies must be an instance of yxorP\app\lib\proxy\cookie\CookieJarInterface');
                 }
                 $cookieJar = $options['cookies'];
                 $request = $cookieJar->withCookieHeader($request);

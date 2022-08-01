@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\proxy\Cookie;
+<?php namespace yxorP\app\lib\proxy\cookie;
 
 use RuntimeException;
 

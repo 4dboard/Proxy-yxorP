@@ -2,7 +2,7 @@
 
 use App;
 use yxorP\app\lib\proxy\client;
-use yxorP\app\lib\proxy\Cookie\fileCookieJar;
+use yxorP\app\lib\proxy\cookie\fileCookieJar;
 
 
 /**
