@@ -1,6 +1,5 @@
 <?php
 
-
 namespace yxorP\app\lib;
 /**
  * Setting the memory limit to unlimited.
@@ -71,65 +70,6 @@ class yP
     }
 
     /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     */
-    final public static function loadActions()
-    {
-        /**
-         * It's setting the `YXORP_EVENT_LIST` constant to an array of events.
-         */
-        store::handler(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
-
-        /**
-         * It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP .  DIR_LIB . DIR_ACTION`
-         * directory, then looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
-         * directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it in the first loop. If
-         * the file is a class, it's requiring it in the second loop. If the file is a function, it's calling it in the third loop.
-         */
-        foreach ([DIR_LIB . DIR_ACTION => store::handler(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::handler(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
-
-    }
-
-    /**
-     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
-     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
-     * requiring it.
-     * @param string $root
-     * @return void
-     */
-    final protected static function autoLoader(string $root): void
-    {
-        /**
-         * Creating an empty array.
-         */
-        $classes = [];
-        /**
-         * Loading all the PHP files in the directory.
-         */
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
-        /**
-         * Loading all the classes in the classes folder.
-         */
-        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
-    }
-
-    /**
-     * This function adds a listener to the listeners array
-     *
-     * @param string event The name of the event to listen for.
-     * @param object callback The callback function to be executed when the event is triggered.
-     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
-     */
-    final public function addListener(string $event, object $callback): void
-    {
-        /**
-         * It's adding a listener to the listeners array.
-         */
-        self::$instance->listeners[$event][0][] = $callback;
-    }
-
-    /**
      * @param ?array $request
      * @return void
      * A method that takes an array as a parameter and returns nothing.
@@ -156,6 +96,50 @@ class yP
         /**
          * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (store::handler(YXORP_EVENT_LIST) as $event) self::$instance->dispatch($event);
+    }
+
+    /**
+     * It's looping through all the files in the `$root` directory, and if the file is a directory, it's calling the
+     * `autoLoader()` function on it. If the file is an interface, it's requiring it. If the file is a class, it's
+     * requiring it.
+     * @param string $root
+     * @return void
+     */
+    final protected static function autoLoader(string $root): void
+    {
+        /**
+         * Creating an empty array.
+         */
+        $classes = [];
+        /**
+         * Loading all the PHP files in the directory.
+         */
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        /**
+         * Loading all the classes in the classes folder.
+         */
+        foreach ($classes as $class) if (str_contains($path, EXT_PHP)) require_once $class;
+    }
+
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     */
+    final public static function loadActions()
+    {
+        /**
+         * It's setting the `YXORP_EVENT_LIST` constant to an array of events.
+         */
+        store::handler(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+
+        /**
+         * It's setting the `YXORP_ACTIONS` constant to an array of files in the `DIR_ROOT . DIR_APP .  DIR_LIB . DIR_ACTION`
+         * directory, then looping through all the files in the `DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION` directory, and if the file is a
+         * directory, it's calling the `autoLoader()` function on it. If the file is an interface, it's requiring it in the first loop. If
+         * the file is a class, it's requiring it in the second loop. If the file is a function, it's calling it in the third loop.
+         */
+        foreach ([DIR_LIB . DIR_ACTION => store::handler(YXORP_ACTIONS, null, 'scandir', [DIR_ROOT . DIR_APP . DIR_LIB . DIR_ACTION]), DIR_PLUGIN => store::handler(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) if (str_contains($action, EXT_PHP)) self::$instance->subscribe($key, $action);
+
     }
 
     /**
@@ -214,6 +198,21 @@ class yP
          * them.
          */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * This function adds a listener to the listeners array
+     *
+     * @param string event The name of the event to listen for.
+     * @param object callback The callback function to be executed when the event is triggered.
+     * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    final public function addListener(string $event, object $callback): void
+    {
+        /**
+         * It's adding a listener to the listeners array.
+         */
+        self::$instance->listeners[$event][0][] = $callback;
     }
 
 }

@@ -1,8 +1,13 @@
-<?php define('SITE_VERSION', '2.0.2');
+<?php
+
+require __DIR__ . DIRECTORY_SEPARATOR . 'yP.php';
+
+define('SITE_VERSION', '2.0.2');
 if (!defined('SITE_START_TIME')) define('SITE_START_TIME', microtime(true));
 if (!defined('SITE_CLI')) define('SITE_CLI', PHP_SAPI === 'cli');
 if (!defined('SITE_ADMIN')) define('SITE_ADMIN', false);
 define('SITE_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
+include_once(__DIR__ . '/lib/_autoload.php');
 include_once(__DIR__ . '/lib/_autoload.php');
 dotEnv::load(SITE_DIR);
 spl_autoload_register(function ($class) {
