@@ -7,7 +7,6 @@ class setCookie
 
     public function __construct(array $data = [])
     {
-        echo 1;
         $this->data = array_replace(self::$defaults, $data);
         if (!$this->getExpires() && $this->getMaxAge()) {
             $this->setExpires(time() + $this->getMaxAge());
