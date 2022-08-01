@@ -1,6 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
 
 class inflateStream implements StreamInterface
 {

@@ -3,12 +3,12 @@
 use InvalidArgumentException;
 use Iterator;
 use RuntimeException;
-use yxorP\app\lib\Psr\Http\Message\MessageInterface;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
-use yxorP\app\lib\Psr\Http\Message\ServerRequestInterface;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
-use yxorP\app\lib\Psr\Http\Message\UriInterface;
+use yxorP\app\lib\psr\http\message\MessageInterface;
+use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\ServerRequestInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\UriInterface;
 
 function str(MessageInterface $message)
 {

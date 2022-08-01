@@ -2,8 +2,8 @@
 
 use Countable;
 use IteratorAggregate;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\ResponseInterface;
 
 interface cookieJarInterface extends Countable, IteratorAggregate
 {

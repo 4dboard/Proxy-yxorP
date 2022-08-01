@@ -1,8 +1,8 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\Psr\Http\Message\ServerRequestInterface;
-use yxorP\app\lib\Psr\Http\Message\UploadedFileInterface;
+use yxorP\app\lib\psr\http\message\ServerRequestInterface;
+use yxorP\app\lib\psr\http\message\UploadedFileInterface;
 
 class serverRequest extends request implements ServerRequestInterface
 {

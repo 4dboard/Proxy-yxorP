@@ -2,9 +2,9 @@
 
 use Exception;
 use yxorP\app\lib\proxy\promise\promiseInterface;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
-use yxorP\app\lib\Psr\Http\Message\UriInterface;
+use yxorP\app\lib\psr\http\message\RequestInterface;
+use yxorP\app\lib\psr\http\message\ResponseInterface;
+use yxorP\app\lib\psr\http\message\UriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
 class aRequestExceptionAa extends aaTransferException

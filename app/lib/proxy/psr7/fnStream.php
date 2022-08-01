@@ -2,7 +2,7 @@
 
 use BadMethodCallException;
 use LogicException;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
 
 /**
  * @property $_fn_getMetadata

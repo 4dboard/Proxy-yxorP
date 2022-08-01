@@ -3,7 +3,7 @@
 use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
 use yxorP\app\lib\proxy\exception\invalidArgumentException;
-use yxorP\app\lib\Psr\Http\Message\UriInterface;
+use yxorP\app\lib\psr\http\message\UriInterface;
 use function extension_loaded;
 use function idn_to_ascii;
 use function preg_match;

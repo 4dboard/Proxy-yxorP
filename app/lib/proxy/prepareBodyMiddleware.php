@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy;
 
 use yxorP\app\lib\proxy\psr7;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
+use yxorP\app\lib\psr\http\message\RequestInterface;
 
 class prepareBodyMiddleware
 {

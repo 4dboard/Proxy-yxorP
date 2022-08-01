@@ -4,7 +4,7 @@ use BadMethodCallException;
 use yxorP\app\lib\proxy\promise as P;
 use yxorP\app\lib\proxy\promise\promise;
 use yxorP\app\lib\proxy\utils;
-use yxorP\app\lib\Psr\Http\Message\RequestInterface;
+use yxorP\app\lib\psr\http\message\RequestInterface;
 
 /**
  * @property CurlMultiHandle $_mh

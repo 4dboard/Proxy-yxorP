@@ -3,7 +3,7 @@
 use BadMethodCallException;
 use Exception;
 use UnexpectedValueException;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
 
 trait aStreamDecoratorTrait
 {

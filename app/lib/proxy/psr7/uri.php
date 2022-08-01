@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\Psr\Http\Message\UriInterface;
+use yxorP\app\lib\psr\http\message\UriInterface;
 
 class uri implements UriInterface
 {

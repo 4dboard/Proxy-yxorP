@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\Psr\Http\Message;
+namespace yxorP\app\lib\psr\http\message;
 
 use InvalidArgumentException;
 

@@ -1,7 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\exception;
 
 use RuntimeException;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
 
 class seekException extends RuntimeException implements ProxyException
 {

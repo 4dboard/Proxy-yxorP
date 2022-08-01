@@ -2,8 +2,8 @@
 
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\app\lib\Psr\Http\Message\StreamInterface;
-use yxorP\app\lib\Psr\Http\Message\UploadedFileInterface;
+use yxorP\app\lib\psr\http\message\StreamInterface;
+use yxorP\app\lib\psr\http\message\UploadedFileInterface;
 
 class uploadedFile implements UploadedFileInterface
 {
