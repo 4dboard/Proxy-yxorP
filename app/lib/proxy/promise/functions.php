@@ -5,13 +5,13 @@ use Exception;
 use Iterator;
 use Throwable;
 
-function queue(TaskQueueInterface $assign = null)
+function queue(taskQueueInterface $assign = null)
 {
     static $queue;
     if ($assign) {
         $queue = $assign;
     } elseif (!$queue) {
-        $queue = new TaskQueue();
+        $queue = new taskQueue();
     }
     return $queue;
 }
@@ -19,7 +19,7 @@ function queue(TaskQueueInterface $assign = null)
 function task(callable $task)
 {
     $queue = queue();
-    $promise = new Promise([$queue, 'run']);
+    $promise = new promise([$queue, 'run']);
     $queue->add(function () use ($task, $promise) {
         try {
             $promise->resolve($task());
@@ -32,30 +32,30 @@ function task(callable $task)
 
 function promise_for($value)
 {
-    if ($value instanceof PromiseInterface) {
+    if ($value instanceof promiseInterface) {
         return $value;
     }
     if (method_exists($value, 'then')) {
         $wfn = method_exists($value, 'wait') ? [$value, 'wait'] : null;
         $cfn = method_exists($value, 'cancel') ? [$value, 'cancel'] : null;
-        $promise = new Promise($wfn, $cfn);
+        $promise = new promise($wfn, $cfn);
         $value->then([$promise, 'resolve'], [$promise, 'reject']);
         return $promise;
     }
-    return new FulfilledPromise($value);
+    return new fulfilledPromise($value);
 }
 
 function rejection_for($reason)
 {
-    if ($reason instanceof PromiseInterface) {
+    if ($reason instanceof promiseInterface) {
         return $reason;
     }
-    return new RejectedPromise($reason);
+    return new rejectedPromise($reason);
 }
 
 function exception_for($reason)
 {
-    return $reason instanceof Exception || $reason instanceof Throwable ? $reason : new ARejectionException($reason);
+    return $reason instanceof Exception || $reason instanceof Throwable ? $reason : new aRejectionException($reason);
 }
 
 function iter_for($value)
@@ -69,14 +69,14 @@ function iter_for($value)
     }
 }
 
-function inspect(PromiseInterface $promise)
+function inspect(promiseInterface $promise)
 {
     try {
-        return ['state' => PromiseInterface::FULFILLED, 'value' => $promise->wait()];
-    } catch (ARejectionException $e) {
-        return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
+        return ['state' => promiseInterface::FULFILLED, 'value' => $promise->wait()];
+    } catch (aRejectionException $e) {
+        return ['state' => promiseInterface::REJECTED, 'reason' => $e->getReason()];
     } catch (Throwable $e) {
-        return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
+        return ['state' => promiseInterface::REJECTED, 'reason' => $e];
     }
 }
 
@@ -103,7 +103,7 @@ function all($promises)
     $results = [];
     return each($promises, function ($value, $idx) use (&$results) {
         $results[$idx] = $value;
-    }, function ($reason, $idx, Promise $aggregate) {
+    }, function ($reason, $idx, promise $aggregate) {
         $aggregate->reject($reason);
     })->then(function () use (&$results) {
         ksort($results);
@@ -115,8 +115,8 @@ function some($count, $promises)
 {
     $results = [];
     $rejections = [];
-    return each($promises, function ($value, $idx, PromiseInterface $p) use (&$results, $count) {
-        if ($p->getState() !== PromiseInterface::PENDING) {
+    return each($promises, function ($value, $idx, promiseInterface $p) use (&$results, $count) {
+        if ($p->getState() !== promiseInterface::PENDING) {
             return;
         }
         $results[$idx] = $value;
@@ -127,7 +127,7 @@ function some($count, $promises)
         $rejections[] = $reason;
     })->then(function () use (&$results, &$rejections, $count) {
         if (count($results) !== $count) {
-            throw new AggregateExceptionA('Not enough promises to fulfill count', $rejections);
+            throw new aggregateExceptionA('Not enough promises to fulfill count', $rejections);
         }
         ksort($results);
         return array_values($results);
@@ -145,9 +145,9 @@ function settle($promises)
 {
     $results = [];
     return each($promises, function ($value, $idx) use (&$results) {
-        $results[$idx] = ['state' => PromiseInterface::FULFILLED, 'value' => $value];
+        $results[$idx] = ['state' => promiseInterface::FULFILLED, 'value' => $value];
     }, function ($reason, $idx) use (&$results) {
-        $results[$idx] = ['state' => PromiseInterface::REJECTED, 'reason' => $reason];
+        $results[$idx] = ['state' => promiseInterface::REJECTED, 'reason' => $reason];
     })->then(function () use (&$results) {
         ksort($results);
         return $results;
@@ -156,37 +156,37 @@ function settle($promises)
 
 function each($iterable, callable $onFulfilled = null, callable $onRejected = null)
 {
-    return (new EachPromise($iterable, ['fulfilled' => $onFulfilled, 'rejected' => $onRejected]))->promise();
+    return (new eachPromise($iterable, ['fulfilled' => $onFulfilled, 'rejected' => $onRejected]))->promise();
 }
 
 function each_limit($iterable, $concurrency, callable $onFulfilled = null, callable $onRejected = null)
 {
-    return (new EachPromise($iterable, ['fulfilled' => $onFulfilled, 'rejected' => $onRejected, 'concurrency' => $concurrency]))->promise();
+    return (new eachPromise($iterable, ['fulfilled' => $onFulfilled, 'rejected' => $onRejected, 'concurrency' => $concurrency]))->promise();
 }
 
 function each_limit_all($iterable, $concurrency, callable $onFulfilled = null)
 {
-    return each_limit($iterable, $concurrency, $onFulfilled, function ($reason, $idx, PromiseInterface $aggregate) {
+    return each_limit($iterable, $concurrency, $onFulfilled, function ($reason, $idx, promiseInterface $aggregate) {
         $aggregate->reject($reason);
     });
 }
 
-function is_fulfilled(PromiseInterface $promise)
+function is_fulfilled(promiseInterface $promise)
 {
-    return $promise->getState() === PromiseInterface::FULFILLED;
+    return $promise->getState() === promiseInterface::FULFILLED;
 }
 
-function is_rejected(PromiseInterface $promise)
+function is_rejected(promiseInterface $promise)
 {
-    return $promise->getState() === PromiseInterface::REJECTED;
+    return $promise->getState() === promiseInterface::REJECTED;
 }
 
-function is_settled(PromiseInterface $promise)
+function is_settled(promiseInterface $promise)
 {
-    return $promise->getState() !== PromiseInterface::PENDING;
+    return $promise->getState() !== promiseInterface::PENDING;
 }
 
 function coroutine(callable $generatorFn)
 {
-    return new Coroutine($generatorFn);
+    return new coroutine($generatorFn);
 }

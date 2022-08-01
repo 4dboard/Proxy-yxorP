@@ -8,7 +8,7 @@ use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\proxy\Exception\aRequestExceptionAa;
 use yxorP\app\lib\proxy\Exception\connectException;
-use yxorP\app\lib\proxy\Promise\FulfilledPromise;
+use yxorP\app\lib\proxy\Promise\fulfilledPromise;
 use yxorP\app\lib\proxy\Psr7;
 use yxorP\app\lib\proxy\TransferStats;
 use yxorP\app\lib\proxy\Utils;
@@ -19,7 +19,7 @@ use function yxorP\app\lib\proxy\is_host_in_noproxy;
 use function yxorP\app\lib\proxy\normalize_header_keys;
 use function yxorP\app\lib\proxy\Promise\rejection_for;
 
-class StreamHandler
+class streamHandler
 {
     private $lastHeaders = [];
 
@@ -63,7 +63,7 @@ class StreamHandler
         if (strcasecmp('HEAD', $request->getMethod())) {
             $sink = $this->createSink($stream, $options);
         }
-        $response = new Psr7\Response($status, $headers, $sink, $ver, $reason);
+        $response = new Psr7\response($status, $headers, $sink, $ver, $reason);
         if (isset($options['on_headers'])) {
             try {
                 $options['on_headers']($response);
@@ -77,7 +77,7 @@ class StreamHandler
             $this->drain($stream, $sink, $response->getHeaderLine('Content-Length'));
         }
         $this->invokeStats($options, $request, $startTime, $response, null);
-        return new FulfilledPromise($response);
+        return new fulfilledPromise($response);
     }
 
     private function checkDecode(array $options, array $headers, $stream)
@@ -87,7 +87,7 @@ class StreamHandler
             if (isset($normalizedKeys['content-encoding'])) {
                 $encoding = $headers[$normalizedKeys['content-encoding']];
                 if ($encoding[0] === 'gzip' || $encoding[0] === 'deflate') {
-                    $stream = new Psr7\InflateStream(Psr7\stream_for($stream));
+                    $stream = new Psr7\inflateStream(Psr7\stream_for($stream));
                     $headers['x-encoded-content-encoding'] = $headers[$normalizedKeys['content-encoding']];
                     unset($headers[$normalizedKeys['content-encoding']]);
                     if (isset($normalizedKeys['content-length'])) {
@@ -111,7 +111,7 @@ class StreamHandler
             return $stream;
         }
         $sink = isset($options['sink']) ? $options['sink'] : fopen('php://temp', 'r+');
-        return is_string($sink) ? new Psr7\LazyOpenStream($sink, 'w+') : Psr7\stream_for($sink);
+        return is_string($sink) ? new Psr7\lazyOpenStream($sink, 'w+') : Psr7\stream_for($sink);
     }
 
     private function drain(StreamInterface $source, StreamInterface $sink, $contentLength)

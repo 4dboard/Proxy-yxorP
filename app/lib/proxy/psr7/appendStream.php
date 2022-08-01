@@ -5,7 +5,7 @@ use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class AppendStream implements StreamInterface
+class appendStream implements StreamInterface
 {
     private $streams = [];
     private $seekable = true;

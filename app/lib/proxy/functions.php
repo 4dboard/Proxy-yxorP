@@ -4,8 +4,8 @@ use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\proxy\Handler\curlHandler;
 use yxorP\app\lib\proxy\Handler\curlMultiHandler;
-use yxorP\app\lib\proxy\Handler\Proxy;
-use yxorP\app\lib\proxy\Handler\StreamHandler;
+use yxorP\app\lib\proxy\Handler\proxy;
+use yxorP\app\lib\proxy\Handler\streamHandler;
 use function curl_version;
 
 function uri_template($template, array $variables)
@@ -58,14 +58,14 @@ function choose_handler()
 {
     $handler = null;
     if (function_exists('curl_multi_exec') && function_exists('curl_exec')) {
-        $handler = Proxy::wrapSync(new curlMultiHandler(), new curlHandler());
+        $handler = proxy::wrapSync(new curlMultiHandler(), new curlHandler());
     } elseif (function_exists('curl_exec')) {
         $handler = new curlHandler();
     } elseif (function_exists('curl_multi_exec')) {
         $handler = new curlMultiHandler();
     }
     if (ini_get('allow_url_fopen')) {
-        $handler = $handler ? Proxy::wrapStreaming($handler, new StreamHandler()) : new StreamHandler();
+        $handler = $handler ? proxy::wrapStreaming($handler, new streamHandler()) : new streamHandler();
     } elseif (!$handler) {
         throw new RuntimeException('ProxyHttp requires cURL, the ' . 'allow_url_fopen ini setting, or a custom HTTP handler.');
     }

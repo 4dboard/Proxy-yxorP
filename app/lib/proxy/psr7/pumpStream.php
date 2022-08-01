@@ -4,7 +4,7 @@ use Exception;
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class PumpStream implements StreamInterface
+class pumpStream implements StreamInterface
 {
     private $source;
     private $size;
@@ -17,7 +17,7 @@ class PumpStream implements StreamInterface
         $this->source = $source;
         $this->size = isset($options['size']) ? $options['size'] : null;
         $this->metadata = isset($options['metadata']) ? $options['metadata'] : [];
-        $this->buffer = new BufferStream();
+        $this->buffer = new bufferStream();
     }
 
     public function __toString()

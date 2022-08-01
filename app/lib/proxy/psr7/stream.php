@@ -5,7 +5,7 @@ use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class Stream implements StreamInterface
+class stream implements StreamInterface
 {
     const READABLE_MODES = '/r|a\+|ab\+|w\+|wb\+|x\+|xb\+|c\+|cb\+/';
     const WRITABLE_MODES = '/a|w|r\+|rb\+|rw|x|c/';

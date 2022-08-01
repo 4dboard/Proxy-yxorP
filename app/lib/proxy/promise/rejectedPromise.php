@@ -4,7 +4,7 @@ use InvalidArgumentException;
 use LogicException;
 use Throwable;
 
-class RejectedPromise implements PromiseInterface
+class rejectedPromise implements promiseInterface
 {
     private $reason;
 
@@ -28,7 +28,7 @@ class RejectedPromise implements PromiseInterface
         }
         $queue = queue();
         $reason = $this->reason;
-        $p = new Promise([$queue, 'run']);
+        $p = new promise([$queue, 'run']);
         $queue->add(static function () use ($p, $reason, $onRejected) {
             if ($p->getState() === self::PENDING) {
                 try {

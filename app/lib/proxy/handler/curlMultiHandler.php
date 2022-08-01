@@ -2,7 +2,7 @@
 
 use BadMethodCallException;
 use yxorP\app\lib\proxy\Promise as P;
-use yxorP\app\lib\proxy\Promise\Promise;
+use yxorP\app\lib\proxy\Promise\promise;
 use yxorP\app\lib\proxy\Utils;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 
@@ -52,7 +52,7 @@ class curlMultiHandler
     {
         $easy = $this->factory->create($request, $options);
         $id = (int)$easy->handle;
-        $promise = new Promise([$this, 'execute'], function () use ($id) {
+        $promise = new promise([$this, 'execute'], function () use ($id) {
             return $this->cancel($id);
         });
         $this->addRequest(['easy' => $easy, 'deferred' => $promise]);

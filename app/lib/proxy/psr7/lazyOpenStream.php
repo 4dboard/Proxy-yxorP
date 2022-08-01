@@ -2,9 +2,9 @@
 
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class LazyOpenStream implements StreamInterface
+class lazyOpenStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     private $filename;
     private $mode;

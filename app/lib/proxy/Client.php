@@ -44,7 +44,7 @@ class Client implements ClientInterface
         if (is_array($body)) {
             $this->invalidBody();
         }
-        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
+        $request = new Psr7\request($method, $uri, $headers, $body, $version);
         unset($options['headers'], $options['body'], $options['version']);
         return $this->transfer($request, $options);
     }
@@ -129,7 +129,7 @@ class Client implements ClientInterface
     {
         $uri = Psr7\uri_for($uri === null ? '' : $uri);
         if (isset($config['base_uri'])) {
-            $uri = Psr7\UriResolver::resolve(Psr7\uri_for($config['base_uri']), $uri);
+            $uri = Psr7\uriResolver::resolve(Psr7\uri_for($config['base_uri']), $uri);
         }
         if (isset($config['idn_conversion']) && ($config['idn_conversion'] !== false)) {
             $idnOptions = ($config['idn_conversion'] === true) ? IDNA_DEFAULT : $config['idn_conversion'];
@@ -179,7 +179,7 @@ class Client implements ClientInterface
             $options['_conditional']['Content-Type'] = 'application/x-www-form-urlencoded';
         }
         if (isset($options['multipart'])) {
-            $options['body'] = new Psr7\MultipartStream($options['multipart']);
+            $options['body'] = new Psr7\multipartStream($options['multipart']);
             unset($options['multipart']);
         }
         if (isset($options['json'])) {
@@ -234,7 +234,7 @@ class Client implements ClientInterface
             }
         }
         $request = Psr7\modify_request($request, $modify);
-        if ($request->getBody() instanceof Psr7\MultipartStream) {
+        if ($request->getBody() instanceof Psr7\multipartStream) {
             $options['_conditional'] = Psr7\_caseless_remove(['Content-Type'], $options['_conditional']);
             $options['_conditional']['Content-Type'] = 'multipart/form-data; boundary=' . $request->getBody()->getBoundary();
         }

@@ -4,9 +4,9 @@ use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
 
-class Request implements RequestInterface
+class request implements RequestInterface
 {
-    use MessageTrait;
+    use messageTrait;
 
     private $method;
     private $requestTarget;
@@ -16,7 +16,7 @@ class Request implements RequestInterface
     {
         $this->assertMethod($method);
         if (!($uri instanceof UriInterface)) {
-            $uri = new Uri($uri);
+            $uri = new uri($uri);
         }
         $this->method = strtoupper($method);
         $this->uri = $uri;

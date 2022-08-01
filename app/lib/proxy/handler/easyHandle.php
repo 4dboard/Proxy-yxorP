@@ -2,7 +2,7 @@
 
 use BadMethodCallException;
 use RuntimeException;
-use yxorP\app\lib\proxy\Psr7\Response;
+use yxorP\app\lib\proxy\Psr7\response;
 use function yxorP\app\lib\proxy\headers_from_lines;
 use function yxorP\app\lib\proxy\normalize_header_keys;
 
@@ -38,7 +38,7 @@ final class easyHandle
                 }
             }
         }
-        $this->response = new Response($startLine[1], $headers, $this->sink, substr($startLine[0], 5), isset($startLine[2]) ? (string)$startLine[2] : null);
+        $this->response = new response($startLine[1], $headers, $this->sink, substr($startLine[0], 5), isset($startLine[2]) ? (string)$startLine[2] : null);
     }
 
     public function __get($name)

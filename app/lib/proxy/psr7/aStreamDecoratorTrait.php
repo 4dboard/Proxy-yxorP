@@ -5,7 +5,7 @@ use Exception;
 use UnexpectedValueException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-trait AStreamDecoratorTrait
+trait aStreamDecoratorTrait
 {
     public function __construct(StreamInterface $stream)
     {

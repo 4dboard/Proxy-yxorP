@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-trait MessageTrait
+trait messageTrait
 {
     private $headers = [];
     private $headerNames = [];

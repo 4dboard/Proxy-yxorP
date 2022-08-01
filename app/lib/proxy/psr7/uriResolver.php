@@ -2,7 +2,7 @@
 
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
 
-final class UriResolver
+final class uriResolver
 {
     private function __construct()
     {
@@ -44,7 +44,7 @@ final class UriResolver
                 $targetQuery = $rel->getQuery();
             }
         }
-        return new Uri(Uri::composeComponents($base->getScheme(), $targetAuthority, $targetPath, $targetQuery, $rel->getFragment()));
+        return new uri(uri::composeComponents($base->getScheme(), $targetAuthority, $targetPath, $targetQuery, $rel->getFragment()));
     }
 
     public static function removeDotSegments($path)
@@ -75,7 +75,7 @@ final class UriResolver
         if ($target->getScheme() !== '' && ($base->getScheme() !== $target->getScheme() || $target->getAuthority() === '' && $base->getAuthority() !== '')) {
             return $target;
         }
-        if (Uri::isRelativePathReference($target)) {
+        if (uri::isRelativePathReference($target)) {
             return $target;
         }
         if ($target->getAuthority() !== '' && $base->getAuthority() !== $target->getAuthority()) {

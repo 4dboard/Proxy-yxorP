@@ -3,7 +3,7 @@
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class BufferStream implements StreamInterface
+class bufferStream implements StreamInterface
 {
     private $hwm;
     private $buffer = '';

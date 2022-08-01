@@ -3,7 +3,7 @@
 use JsonSerializable;
 use RuntimeException;
 
-class ARejectionException extends RuntimeException
+class aRejectionException extends RuntimeException
 {
     private $reason;
 

@@ -2,7 +2,7 @@
 
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
 
-final class UriNormalizer
+final class uriNormalizer
 {
     const PRESERVING_NORMALIZATIONS = 63;
     const CAPITALIZE_PERCENT_ENCODING = 1;
@@ -37,11 +37,11 @@ final class UriNormalizer
         if ($flags & self::REMOVE_DEFAULT_HOST && $uri->getScheme() === 'file' && $uri->getHost() === 'localhost') {
             $uri = $uri->withHost('');
         }
-        if ($flags & self::REMOVE_DEFAULT_PORT && $uri->getPort() !== null && Uri::isDefaultPort($uri)) {
+        if ($flags & self::REMOVE_DEFAULT_PORT && $uri->getPort() !== null && uri::isDefaultPort($uri)) {
             $uri = $uri->withPort(null);
         }
-        if ($flags & self::REMOVE_DOT_SEGMENTS && !Uri::isRelativePathReference($uri)) {
-            $uri = $uri->withPath(UriResolver::removeDotSegments($uri->getPath()));
+        if ($flags & self::REMOVE_DOT_SEGMENTS && !uri::isRelativePathReference($uri)) {
+            $uri = $uri->withPath(uriResolver::removeDotSegments($uri->getPath()));
         }
         if ($flags & self::REMOVE_DUPLICATE_SLASHES) {
             $uri = $uri->withPath(preg_replace('#//++#', '/', $uri->getPath()));

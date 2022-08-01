@@ -2,11 +2,11 @@
 
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
-use yxorP\app\lib\proxy\Promise\EachPromise;
-use yxorP\app\lib\proxy\Promise\PromisorInterface;
+use yxorP\app\lib\proxy\Promise\eachPromise;
+use yxorP\app\lib\proxy\Promise\promisorInterface;
 use function yxorP\app\lib\proxy\Promise\iter_for;
 
-class Pool implements PromisorInterface
+class Pool implements promisorInterface
 {
     private $each;
 
@@ -35,7 +35,7 @@ class Pool implements PromisorInterface
                 }
             }
         };
-        $this->each = new EachPromise($requests(), $config);
+        $this->each = new eachPromise($requests(), $config);
     }
 
     public static function batch(ClientInterface $client, $requests, array $options = [])

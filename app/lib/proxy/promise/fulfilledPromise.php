@@ -4,7 +4,7 @@ use InvalidArgumentException;
 use LogicException;
 use Throwable;
 
-class FulfilledPromise implements PromiseInterface
+class fulfilledPromise implements promiseInterface
 {
     private $value;
 
@@ -27,7 +27,7 @@ class FulfilledPromise implements PromiseInterface
             return $this;
         }
         $queue = queue();
-        $p = new Promise([$queue, 'run']);
+        $p = new promise([$queue, 'run']);
         $value = $this->value;
         $queue->add(static function () use ($p, $value, $onFulfilled) {
             if ($p->getState() === self::PENDING) {

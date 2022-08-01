@@ -3,9 +3,9 @@
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class NoSeekStream implements StreamInterface
+class noSeekStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     public function seek($offset, $whence = SEEK_SET)
     {

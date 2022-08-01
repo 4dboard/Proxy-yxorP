@@ -3,9 +3,9 @@
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class CachingStream implements StreamInterface
+class cachingStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     private $remoteStream;
     private $skipReadBytes = 0;
@@ -13,7 +13,7 @@ class CachingStream implements StreamInterface
     public function __construct(StreamInterface $stream, StreamInterface $target = null)
     {
         $this->remoteStream = $stream;
-        $this->stream = $target ?: new Stream(fopen('php://temp', 'r+'));
+        $this->stream = $target ?: new stream(fopen('php://temp', 'r+'));
     }
 
     public function rewind()
@@ -90,7 +90,7 @@ class CachingStream implements StreamInterface
 
     private function cacheEntireStream()
     {
-        $target = new FnStream(['write' => 'strlen']);
+        $target = new fnStream(['write' => 'strlen']);
         copy_to_stream($this, $target);
         return $this->tell();
     }

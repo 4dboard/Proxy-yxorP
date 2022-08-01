@@ -2,9 +2,9 @@
 
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class DroppingStream implements StreamInterface
+class droppingStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     private $maxLength;
 

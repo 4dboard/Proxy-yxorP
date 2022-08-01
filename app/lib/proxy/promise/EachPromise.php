@@ -2,7 +2,7 @@
 
 use Throwable;
 
-class EachPromise implements PromisorInterface
+class eachPromise implements promisorInterface
 {
     private $pending = [];
     private $iterable;
@@ -44,7 +44,7 @@ class EachPromise implements PromisorInterface
     private function createPromise()
     {
         $this->mutex = false;
-        $this->aggregate = new Promise(function () {
+        $this->aggregate = new promise(function () {
             reset($this->pending);
             if (empty($this->pending) && !$this->iterable->valid()) {
                 $this->aggregate->resolve(null);
@@ -53,7 +53,7 @@ class EachPromise implements PromisorInterface
             while ($promise = current($this->pending)) {
                 next($this->pending);
                 $promise->wait();
-                if ($this->aggregate->getState() !== PromiseInterface::PENDING) {
+                if ($this->aggregate->getState() !== promiseInterface::PENDING) {
                     return;
                 }
             }
@@ -103,7 +103,7 @@ class EachPromise implements PromisorInterface
 
     private function step($idx)
     {
-        if ($this->aggregate->getState() !== PromiseInterface::PENDING) {
+        if ($this->aggregate->getState() !== promiseInterface::PENDING) {
             return;
         }
         unset($this->pending[$idx]);

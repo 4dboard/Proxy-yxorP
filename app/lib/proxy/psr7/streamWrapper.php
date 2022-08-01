@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class StreamWrapper
+class streamWrapper
 {
     public $context;
     private $stream;

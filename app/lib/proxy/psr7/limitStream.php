@@ -3,9 +3,9 @@
 use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class LimitStream implements StreamInterface
+class limitStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     private $offset;
     private $limit;

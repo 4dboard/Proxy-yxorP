@@ -4,7 +4,7 @@ use InvalidArgumentException;
 use yxorP\app\lib\Psr\Http\Message\ServerRequestInterface;
 use yxorP\app\lib\Psr\Http\Message\UploadedFileInterface;
 
-class ServerRequest extends Request implements ServerRequestInterface
+class serverRequest extends request implements ServerRequestInterface
 {
     private $attributes = [];
     private $cookieParams = [];
@@ -24,15 +24,15 @@ class ServerRequest extends Request implements ServerRequestInterface
         $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
         $headers = getallheaders();
         $uri = self::getUriFromGlobals();
-        $body = new CachingStream(new LazyOpenStream('php://input', 'r+'));
+        $body = new cachingStream(new lazyOpenStream('php://input', 'r+'));
         $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? str_replace('HTTP/', '', $_SERVER['SERVER_PROTOCOL']) : '1.1';
-        $serverRequest = new ServerRequest($method, $uri, $headers, $body, $protocol, $_SERVER);
+        $serverRequest = new serverRequest($method, $uri, $headers, $body, $protocol, $_SERVER);
         return $serverRequest->withCookieParams($_COOKIE)->withQueryParams($_GET)->withParsedBody($_POST)->withUploadedFiles(self::normalizeFiles($_FILES));
     }
 
     public static function getUriFromGlobals()
     {
-        $uri = new Uri('');
+        $uri = new uri('');
         $uri = $uri->withScheme(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http');
         $hasPort = false;
         if (isset($_SERVER['HTTP_HOST'])) {
@@ -102,7 +102,7 @@ class ServerRequest extends Request implements ServerRequestInterface
         if (is_array($value['cache_name'])) {
             return self::normalizeNestedFileSpec($value);
         }
-        return new UploadedFile($value['cache_name'], (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
+        return new uploadedFile($value['cache_name'], (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
     }
 
     private static function normalizeNestedFileSpec(array $files = [])

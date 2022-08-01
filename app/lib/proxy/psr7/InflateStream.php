@@ -2,18 +2,18 @@
 
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 
-class InflateStream implements StreamInterface
+class inflateStream implements StreamInterface
 {
-    use AStreamDecoratorTrait;
+    use aStreamDecoratorTrait;
 
     public function __construct(StreamInterface $stream)
     {
         $header = $stream->read(10);
         $filenameHeaderLength = $this->getLengthOfPossibleFilenameHeader($stream, $header);
-        $stream = new LimitStream($stream, -1, 10 + $filenameHeaderLength);
-        $resource = StreamWrapper::getResource($stream);
+        $stream = new limitStream($stream, -1, 10 + $filenameHeaderLength);
+        $resource = streamWrapper::getResource($stream);
         stream_filter_append($resource, 'zlib.inflate', STREAM_FILTER_READ);
-        $this->stream = $stream->isSeekable() ? new Stream($resource) : new NoSeekStream(new Stream($resource));
+        $this->stream = $stream->isSeekable() ? new stream($resource) : new noSeekStream(new stream($resource));
     }
 
     private function getLengthOfPossibleFilenameHeader(StreamInterface $stream, $header)

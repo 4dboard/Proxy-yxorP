@@ -33,7 +33,7 @@ function uri_for($uri)
     if ($uri instanceof UriInterface) {
         return $uri;
     } elseif (is_string($uri)) {
-        return new Uri($uri);
+        return new uri($uri);
     }
     throw new InvalidArgumentException('URI must be a string or UriInterface');
 }
@@ -46,16 +46,16 @@ function stream_for($resource = '', array $options = [])
             fwrite($stream, $resource);
             fseek($stream, 0);
         }
-        return new Stream($stream, $options);
+        return new stream($stream, $options);
     }
     switch (gettype($resource)) {
         case 'resource':
-            return new Stream($resource, $options);
+            return new stream($resource, $options);
         case 'object':
             if ($resource instanceof StreamInterface) {
                 return $resource;
             } elseif ($resource instanceof Iterator) {
-                return new PumpStream(function () use ($resource) {
+                return new pumpStream(function () use ($resource) {
                     if (!$resource->valid()) {
                         return false;
                     }
@@ -68,10 +68,10 @@ function stream_for($resource = '', array $options = [])
             }
             break;
         case 'NULL':
-            return new Stream(fopen('php://temp', 'r+'), $options);
+            return new stream(fopen('php://temp', 'r+'), $options);
     }
     if (is_callable($resource)) {
-        return new PumpStream($resource, $options);
+        return new pumpStream($resource, $options);
     }
     throw new InvalidArgumentException('Invalid resource type: ' . gettype($resource));
 }
@@ -151,9 +151,9 @@ function modify_request(RequestInterface $request, array $changes)
         $uri = $uri->withQuery($changes['query']);
     }
     if ($request instanceof ServerRequestInterface) {
-        return (new ServerRequest(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion(), $request->getServerParams()))->withParsedBody($request->getParsedBody())->withQueryParams($request->getQueryParams())->withCookieParams($request->getCookieParams())->withUploadedFiles($request->getUploadedFiles());
+        return (new serverRequest(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion(), $request->getServerParams()))->withParsedBody($request->getParsedBody())->withQueryParams($request->getQueryParams())->withCookieParams($request->getCookieParams())->withUploadedFiles($request->getUploadedFiles());
     }
-    return new Request(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion());
+    return new request(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion());
 }
 
 function rewind_body(MessageInterface $message)
@@ -266,7 +266,7 @@ function parse_request($message)
     }
     $parts = explode(' ', $data['start-line'], 3);
     $version = isset($parts[2]) ? explode('/', $parts[2])[1] : '1.1';
-    $request = new Request($parts[0], $matches[1] === '/' ? _parse_request_uri($parts[1], $data['headers']) : $parts[1], $data['headers'], $data['body'], $version);
+    $request = new request($parts[0], $matches[1] === '/' ? _parse_request_uri($parts[1], $data['headers']) : $parts[1], $data['headers'], $data['body'], $version);
     return $matches[1] === '/' ? $request : $request->withRequestTarget($parts[1]);
 }
 
@@ -277,7 +277,7 @@ function parse_response($message)
         throw new InvalidArgumentException('Invalid response string: ' . $data['start-line']);
     }
     $parts = explode(' ', $data['start-line'], 3);
-    return new Response($parts[1], $data['headers'], $data['body'], explode('/', $parts[0])[1], isset($parts[2]) ? $parts[2] : null);
+    return new response($parts[1], $data['headers'], $data['body'], explode('/', $parts[0])[1], isset($parts[2]) ? $parts[2] : null);
 }
 
 function parse_query($str, $urlEncoding = true)
@@ -383,11 +383,11 @@ function _parse_message($message)
     }
     list($startLine, $rawHeaders) = $headerParts;
     if (preg_match("/(?:^HTTP\/|^[A-Z]+ \S+ HTTP\/)(\d+(?:\.\d+)?)/i", $startLine, $matches) && $matches[1] === '1.0') {
-        $rawHeaders = preg_replace(Rfc7230::HEADER_FOLD_REGEX, ' ', $rawHeaders);
+        $rawHeaders = preg_replace(rfc7230::HEADER_FOLD_REGEX, ' ', $rawHeaders);
     }
-    $count = preg_match_all(Rfc7230::HEADER_REGEX, $rawHeaders, $headerLines, PREG_SET_ORDER);
+    $count = preg_match_all(rfc7230::HEADER_REGEX, $rawHeaders, $headerLines, PREG_SET_ORDER);
     if ($count !== substr_count($rawHeaders, "\n")) {
-        if (preg_match(Rfc7230::HEADER_FOLD_REGEX, $rawHeaders)) {
+        if (preg_match(rfc7230::HEADER_FOLD_REGEX, $rawHeaders)) {
             throw new InvalidArgumentException('Invalid header syntax: Obsolete line folding');
         }
         throw new InvalidArgumentException('Invalid header syntax');

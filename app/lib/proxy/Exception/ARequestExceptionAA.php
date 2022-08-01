@@ -4,7 +4,7 @@ use Exception;
 use yxorP\app\lib\Psr\Http\Message\RequestInterface;
 use yxorP\app\lib\Psr\Http\Message\ResponseInterface;
 use yxorP\app\lib\Psr\Http\Message\UriInterface;
-use yxorP\app\lib\proxy\Promise\PromiseInterface;
+use yxorP\app\lib\proxy\Promise\promiseInterface;
 use function yxorP\app\lib\proxy\Psr7\get_message_body_summary;
 
 class aRequestExceptionAa extends aaTransferException
@@ -15,7 +15,7 @@ class aRequestExceptionAa extends aaTransferException
 
     public function __construct($message, RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $handlerContext = [])
     {
-        $code = $response && !($response instanceof PromiseInterface) ? $response->getStatusCode() : 0;
+        $code = $response && !($response instanceof promiseInterface) ? $response->getStatusCode() : 0;
         parent::__construct($message, $code, $previous);
         $this->request = $request;
         $this->response = $response;

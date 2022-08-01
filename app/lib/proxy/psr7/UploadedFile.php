@@ -5,7 +5,7 @@ use RuntimeException;
 use yxorP\app\lib\Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\Psr\Http\Message\UploadedFileInterface;
 
-class UploadedFile implements UploadedFileInterface
+class uploadedFile implements UploadedFileInterface
 {
     private static $errors = [UPLOAD_ERR_OK, UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_NO_FILE, UPLOAD_ERR_NO_CACHE_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION,];
     private $clientFilename;
@@ -36,7 +36,7 @@ class UploadedFile implements UploadedFileInterface
         if ($this->file) {
             $this->moved = php_sapi_name() === 'cli' ? rename($this->file, $targetPath) : move_uploaded_file($this->file, $targetPath);
         } else {
-            copy_to_stream($this->getStream(), new LazyOpenStream($targetPath, 'w'));
+            copy_to_stream($this->getStream(), new lazyOpenStream($targetPath, 'w'));
             $this->moved = true;
         }
         if (false === $this->moved) {
@@ -55,7 +55,7 @@ class UploadedFile implements UploadedFileInterface
         if ($this->stream instanceof StreamInterface) {
             return $this->stream;
         }
-        return new LazyOpenStream($this->file, 'r+');
+        return new lazyOpenStream($this->file, 'r+');
     }
 
     public function getSize()
@@ -83,7 +83,7 @@ class UploadedFile implements UploadedFileInterface
         if (false === is_int($error)) {
             throw new InvalidArgumentException('Upload file error status must be an integer');
         }
-        if (false === in_array($error, UploadedFile::$errors)) {
+        if (false === in_array($error, uploadedFile::$errors)) {
             throw new InvalidArgumentException('Invalid error status for UploadedFile');
         }
         $this->error = $error;
@@ -128,7 +128,7 @@ class UploadedFile implements UploadedFileInterface
         if (is_string($streamOrFile)) {
             $this->file = $streamOrFile;
         } elseif (is_resource($streamOrFile)) {
-            $this->stream = new Stream($streamOrFile);
+            $this->stream = new stream($streamOrFile);
         } elseif ($streamOrFile instanceof StreamInterface) {
             $this->stream = $streamOrFile;
         } else {

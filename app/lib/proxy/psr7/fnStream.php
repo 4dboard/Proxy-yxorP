@@ -21,7 +21,7 @@ use yxorP\app\lib\Psr\Http\Message\StreamInterface;
  * @property $_fn_close
  * @property $_fn___toString
  */
-class FnStream implements StreamInterface
+class fnStream implements StreamInterface
 {
     private static $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
 
