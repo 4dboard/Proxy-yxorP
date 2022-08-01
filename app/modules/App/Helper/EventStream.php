@@ -8,7 +8,7 @@ namespace App\Helper;
  */
 class eventStream extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     public

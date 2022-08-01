@@ -4,7 +4,7 @@ namespace App\Helper;
 
 class auth extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     public

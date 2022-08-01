@@ -7,7 +7,7 @@ use Firebase\JWT\Key;
 
 class jWT extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
 

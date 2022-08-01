@@ -4,7 +4,7 @@ namespace System\Helper;
 
 class Log extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     protected

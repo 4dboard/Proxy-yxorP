@@ -11,7 +11,7 @@ use RobThree\Auth\TwoFactorAuth;
 
 class TWFA extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     protected

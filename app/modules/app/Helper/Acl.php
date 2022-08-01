@@ -5,7 +5,7 @@ namespace App\Helper;
 
 class acl extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     protected

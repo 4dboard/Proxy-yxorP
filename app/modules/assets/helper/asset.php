@@ -6,7 +6,7 @@ use simpleImageLib as SimpleImage;
 
 class Asset extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     public

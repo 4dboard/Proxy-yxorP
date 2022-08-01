@@ -4,7 +4,7 @@ namespace System\Helper;
 
 class revisions extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     protected

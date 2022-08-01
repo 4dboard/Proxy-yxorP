@@ -3,7 +3,7 @@
 namespace System\Helper;
 class locales extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     protected

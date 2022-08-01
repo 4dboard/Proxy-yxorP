@@ -1,8 +1,8 @@
 <?php
 
-namespace \yxorP\app\lib\lime\Helper;
+namespace \yxorP\app\lib\lime\helper;
 
-use \yxorP\app\lib\lime\Helper;
+use \yxorP\app\lib\lime\helper;
 use function \yxorP\app\lib\lime\fetch_from_array;
 use function session_destroy;
 use function session_name;

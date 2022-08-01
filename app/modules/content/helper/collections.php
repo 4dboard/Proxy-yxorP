@@ -4,7 +4,7 @@ namespace Collections\Helper;
 
 class collections extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     public

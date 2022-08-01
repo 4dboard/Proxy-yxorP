@@ -6,7 +6,7 @@ use ArrayObject;
 
 class settings extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     public

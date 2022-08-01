@@ -8,7 +8,7 @@ namespace App\Helper;
  */
 class i18n extends \
 
-\yxorP\app\lib\lime\Helper
+\yxorP\app\lib\lime\helper
 {
 
     public
