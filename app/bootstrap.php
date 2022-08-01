@@ -6,7 +6,7 @@ if (!defined('SITE_START_TIME')) define('SITE_START_TIME', microtime(true));
 if (!defined('SITE_CLI')) define('SITE_CLI', PHP_SAPI === 'cli');
 if (!defined('SITE_ADMIN')) define('SITE_ADMIN', false);
 define('SITE_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
-include_once(__DIR__ . DIRECTORY_SEPARATOR . 'yP.php');
+include_once(__DIR__ . DIRECTORY_SEPARATOR . 'dotEnv.php');
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'yP.php');
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . '_autoload.php');
 dotEnv::load(SITE_DIR);
