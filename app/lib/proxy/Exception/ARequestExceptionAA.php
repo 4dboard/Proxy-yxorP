@@ -7,6 +7,8 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
+echo 1;
+
 class aRequestExceptionAa extends aaTransferException
 {
     private $request;
@@ -53,11 +55,6 @@ class aRequestExceptionAa extends aaTransferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
-    public static function getResponseBodySummary(responseInterface $response)
-    {
-        return get_message_body_summary($response);
-    }
-
     private static function obfuscateUri(uriInterface $uri)
     {
         $userInfo = $uri->getUserInfo();
@@ -65,6 +62,11 @@ class aRequestExceptionAa extends aaTransferException
             return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
         }
         return $uri;
+    }
+
+    public static function getResponseBodySummary(responseInterface $response)
+    {
+        return get_message_body_summary($response);
     }
 
     public function getRequest()
