@@ -201,5 +201,5 @@
         accessTypes: words("not-accessible accessible-for-notify read-only" +
             " read-create read-write"),
         multiLineStrings: true
-  });
+    });
 });
