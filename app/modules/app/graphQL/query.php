@@ -17,8 +17,7 @@ class query extends appAware
     public $directives;
     protected bool $initialized = false;
 
-    public
-    function process($query = '{}', $variables = null)
+    public function process($query = '{}', $variables = null)
     {
 
         if (!$this->initialized) {
@@ -56,12 +55,10 @@ class query extends appAware
                 }
             }
         }
-
         return $result;
     }
 
-    public
-    function init()
+    public function init()
     {
 
         if ($this->initialized) return;
