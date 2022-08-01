@@ -24,7 +24,7 @@ interface cacheItemPoolInterface
      *
      * @return cacheItemInterface
      *   The corresponding Cache Item.
-     *@throws invalidArgumentException
+     * @throws invalidArgumentException
      *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
      *   MUST be thrown.
      *
@@ -42,7 +42,7 @@ interface cacheItemPoolInterface
      *   each item. A Cache item will be returned for each key, even if that
      *   key is not found. However, if no keys are specified then an empty
      *   traversable MUST be returned instead.
-     *@throws invalidArgumentException
+     * @throws invalidArgumentException
      *   If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException
      *   MUST be thrown.
      *
@@ -61,7 +61,7 @@ interface cacheItemPoolInterface
      *
      * @return bool
      *   True if item exists in the cache, false otherwise.
-     *@throws invalidArgumentException
+     * @throws invalidArgumentException
      *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
      *   MUST be thrown.
      *
@@ -84,7 +84,7 @@ interface cacheItemPoolInterface
      *
      * @return bool
      *   True if the item was successfully removed. False if there was an error.
-     *@throws invalidArgumentException
+     * @throws invalidArgumentException
      *   If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException
      *   MUST be thrown.
      *
@@ -99,7 +99,7 @@ interface cacheItemPoolInterface
      *
      * @return bool
      *   True if the items were successfully removed. False if there was an error.
-     *@throws invalidArgumentException
+     * @throws invalidArgumentException
      *   If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException
      *   MUST be thrown.
      *
