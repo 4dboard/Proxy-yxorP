@@ -389,9 +389,13 @@ class helpers
     {
 
         /**
-         * Loading the app.php file.
+         * Requiring the APP library.
          */
-        self::loadApp();
+        require PATH_SITE_BOOTSTRAP;
+        /**
+         * Storing the app object in the cache store.
+         */
+        store::handler(YXORP_APP, App::instance());
 
         /**
          * Reading the file and then calling the env function on each line.
@@ -401,7 +405,18 @@ class helpers
         /**
          * Installing the plugin.
          */
-        self::install();
+
+        /**
+         * It's defining the `YXORP_SITE_SYSTEM_INSTALL` constant as `true` .
+         */
+        define(YXORP_SITE_SYSTEM_INSTALL, true);
+
+        /**
+         * It's copying the files from the `local` directory to the `APP` directory.
+         */
+
+        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . SITE_CONTENT)) self::migrate(PATH_SITE_LOCAL, PATH_DIR_APP);
+
 
         /**
          * Defining a constant called store::handler(YXORP_SERVER) and setting it to the value of $req.
@@ -470,23 +485,6 @@ class helpers
     }
 
     /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     *
-     */
-    public static function loadApp(): void
-    {
-        /**
-         * Requiring the APP library.
-         */
-        require PATH_SITE_BOOTSTRAP;
-        /**
-         * Storing the app object in the cache store.
-         */
-        store::handler(YXORP_APP, App::instance());
-    }
-
-    /**
      * @param $line
      * @return void
      * A function that takes a string as a parameter and returns nothing.
@@ -508,28 +506,6 @@ class helpers
          * Replacing all the new lines with null.
          */
         store::handler(($name . EXT_ENV), $value);
-    }
-
-    /**
-     * @return void
-     *
-     * It creates a new user with the credentials defined in the `.env` file
-     * A static method that is being called.
-     *
-     */
-    public static function install(): void
-    {
-        /**
-         * It's defining the `YXORP_SITE_SYSTEM_INSTALL` constant as `true` .
-         */
-        define(YXORP_SITE_SYSTEM_INSTALL, true);
-
-        /**
-         * It's copying the files from the `local` directory to the `APP` directory.
-         */
-
-        if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . SITE_CONTENT)) self::migrate(PATH_SITE_LOCAL, PATH_DIR_APP);
-
     }
 
     /**
@@ -558,6 +534,25 @@ class helpers
         closedir($root);
     }
 
+    /**
+     * @return void
+     * A method that takes an array as a parameter and returns nothing.
+     *
+     */
+    public static function loadApp(): void
+    {
+    }
+
+    /**
+     * @return void
+     *
+     * It creates a new user with the credentials defined in the `.env` file
+     * A static method that is being called.
+     *
+     */
+    public static function install(): void
+    {
+    }
 
     public static function contains($str, array $arr): bool
     {
