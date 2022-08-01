@@ -33,7 +33,7 @@
         },
         get: function (key) {
 
-            var args = arguments.length == 1 ? [] : Array.prototype.slice.call(arguments, 1);
+            var args = arguments.length === 1 ? [] : Array.prototype.slice.call(arguments, 1);
 
             if (!this.__data[key]) {
                 return this.printf(key, args);

@@ -54,7 +54,7 @@
         var cm = this.cm;
         var hScale = (cm.getWrapperElement().clientHeight - cm.display.barHeight - this.buttonHeight * 2) /
             cm.getScrollerElement().scrollHeight
-        if (hScale != this.hScale) {
+        if (hScale !== this.hScale) {
             this.hScale = hScale;
             return true;
         }
@@ -76,11 +76,11 @@
         var curLine = null, curLineObj = null;
 
         function getY(pos, top) {
-            if (curLine != pos.line) {
+            if (curLine !== pos.line) {
                 curLine = pos.line
                 curLineObj = cm.getLineHandle(pos.line)
                 var visual = cm.getLineHandleVisualStart(curLineObj)
-                if (visual != curLineObj) {
+                if (visual !== curLineObj) {
                     curLine = cm.getLineNumber(visual)
                     curLineObj = visual
                 }

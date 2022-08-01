@@ -111,7 +111,7 @@
                 if (stream.eatSpace()) return null;
                 var style = state.tokenize(stream, state);
 
-                if (style != "comment" && state.context && state.context.align === null && state.context.type != "pattern") {
+                if (style !== "comment" && state.context && state.context.align === null && state.context.type !== "pattern") {
                     state.context.align = true;
                 }
 

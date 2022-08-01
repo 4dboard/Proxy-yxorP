@@ -79,7 +79,7 @@ export default {
     computed: {
         countIndicator() {
             return Math.abs((this.maxlength || 0) - (this.val || '').length);
-            ;
+
         }
     },
 

@@ -157,7 +157,7 @@
             // strikethrough and mdash handling
             if (ch === "-" && stream.eat("-")) {
                 // if strikethrough looks ugly, change CSS.
-                if (stream.peek() != ' ')
+                if (stream.peek() !== ' ')
                     return chain(stream, state, twTokenStrike);
                 // mdash
                 if (stream.peek() === ' ')

@@ -321,7 +321,7 @@
 
         function tag(stream, state) {
             var captures;
-            if (captures = stream.match(/^(\w(?:[-:\w]*\w)?)\/?/)) {
+            if (captures === stream.match(/^(\w(?:[-:\w]*\w)?)\/?/)) {
                 state.lastTag = captures[1].toLowerCase();
                 if (state.lastTag === 'script') {
                     state.scriptType = 'application/javascript';
@@ -393,11 +393,7 @@
                     if (stream.peek() === '=' || stream.peek() === '!') {
                         state.inAttributeName = false;
                         state.jsState = CodeMirror.startState(jsMode);
-                        if (state.lastTag === 'script' && stream.current().trim().toLowerCase() === 'type') {
-                            state.attributeIsType = true;
-                        } else {
-                            state.attributeIsType = false;
-                        }
+                        state.attributeIsType = state.lastTag === 'script' && stream.current().trim().toLowerCase() === 'type';
                     }
                     return 'attribute';
                 }
@@ -465,7 +461,7 @@
         function dot(stream, state) {
             if (stream.eat('.')) {
                 var innerMode = null;
-                if (state.lastTag === 'script' && state.scriptType.toLowerCase().indexOf('javascript') != -1) {
+                if (state.lastTag === 'script' && state.scriptType.toLowerCase().indexOf('javascript') !== -1) {
                     innerMode = state.scriptType.toLowerCase().replace(/"|'/g, '');
                 } else if (state.lastTag === 'style') {
                     innerMode = 'css';

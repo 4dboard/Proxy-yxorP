@@ -224,7 +224,7 @@
             } else if (type === "closePlugin") {
                 var err = false;
                 if (curState.context) {
-                    err = curState.context.pluginName != pluginName;
+                    err = curState.context.pluginName !== pluginName;
                     popContext();
                 } else {
                     err = true;
@@ -232,7 +232,7 @@
                 if (err) setStyle = "error";
                 return cont(endcloseplugin(err));
             } else if (type === "string") {
-                if (!curState.context || curState.context.name != "!cdata") pushContext("!cdata");
+                if (!curState.context || curState.context.name !== "!cdata") pushContext("!cdata");
                 if (curState.tokenize === inText) popContext();
                 return cont();
             } else return cont();
@@ -297,7 +297,7 @@
 
                 setStyle = type = pluginName = null;
                 var style = state.tokenize(stream, state);
-                if ((style || type) && style != "comment") {
+                if ((style || type) && style !== "comment") {
                     curState = state;
                     while (true) {
                         var comb = state.cc.pop() || element;

@@ -23,7 +23,7 @@
 
         var self = this;
         CodeMirror.on(this.inner, "mousedown", function (e) {
-            if (e.which != 1) return;
+            if (e.which !== 1) return;
             CodeMirror.e_preventDefault(e);
             var axis = self.orientation === "horizontal" ? "pageX" : "pageY";
             var start = e[axis], startpos = self.pos;
@@ -34,7 +34,7 @@
             }
 
             function move(e) {
-                if (e.which != 1) return done();
+                if (e.which !== 1) return done();
                 self.moveTo(startpos + (e[axis] - start) * (self.total / self.size));
             }
 
@@ -56,7 +56,7 @@
             var moved = CodeMirror.wheelEventPixels(e)[self.orientation === "horizontal" ? "x" : "y"];
             var oldPos = self.pos;
             self.moveTo(self.pos + moved);
-            if (self.pos != oldPos) CodeMirror.e_preventDefault(e);
+            if (self.pos !== oldPos) CodeMirror.e_preventDefault(e);
         }
 
         CodeMirror.on(this.node, "mousewheel", onWheel);
@@ -80,7 +80,7 @@
     var minButtonSize = 10;
 
     Bar.prototype.update = function (scrollSize, clientSize, barSize) {
-        var sizeChanged = this.screen != clientSize || this.total != scrollSize || this.size != barSize
+        var sizeChanged = this.screen !== clientSize || this.total !== scrollSize || this.size !== barSize
         if (sizeChanged) {
             this.screen = clientSize;
             this.total = scrollSize;

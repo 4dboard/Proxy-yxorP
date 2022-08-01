@@ -255,10 +255,10 @@
                     stream.next();
                     return "punctuation";
                 }
-            } else if ("[](){}".indexOf(ch) != -1) {
+            } else if ("[](){}".indexOf(ch) !== -1) {
                 stream.next();
                 return "bracket";
-            } else if (".,".indexOf(ch) != -1) {
+            } else if (".,".indexOf(ch) !== -1) {
                 stream.next();
                 return "punctuation";
             } else if (stream.match("end")) {

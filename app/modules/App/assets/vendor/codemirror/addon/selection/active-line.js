@@ -38,9 +38,9 @@
     }
 
     function sameArray(a, b) {
-        if (a.length != b.length) return false;
+        if (a.length !== b.length) return false;
         for (var i = 0; i < a.length; i++)
-            if (a[i] != b[i]) return false;
+            if (a[i] !== b[i]) return false;
         return true;
     }
 
@@ -49,10 +49,10 @@
         for (var i = 0; i < ranges.length; i++) {
             var range = ranges[i];
             var option = cm.getOption("styleActiveLine");
-            if (typeof option === "object" && option.nonEmpty ? range.anchor.line != range.head.line : !range.empty())
+            if (typeof option === "object" && option.nonEmpty ? range.anchor.line !== range.head.line : !range.empty())
                 continue
             var line = cm.getLineHandleVisualStart(range.head.line);
-            if (active[active.length - 1] != line) active.push(line);
+            if (active[active.length - 1] !== line) active.push(line);
         }
         if (sameArray(cm.state.activeLines, active)) return;
         cm.operation(function () {

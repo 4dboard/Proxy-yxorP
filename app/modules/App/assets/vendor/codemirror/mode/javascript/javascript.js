@@ -115,7 +115,7 @@
                 stream.skipToEnd()
                 return ret("comment", "comment")
             } else if (isOperatorChar.test(ch)) {
-                if (ch != ">" || !state.lexical || state.lexical.type != ">") {
+                if (ch !== ">" || !state.lexical || state.lexical.type !== ">") {
                     if (stream.eat("=")) {
                         if (ch === "!" || ch === "=") stream.eat("=")
                     } else if (/[<>*+\-|&?]/.test(ch)) {
@@ -128,7 +128,7 @@
             } else if (wordRE.test(ch)) {
                 stream.eatWhile(wordRE);
                 var word = stream.current()
-                if (state.lastType != ".") {
+                if (state.lastType !== ".") {
                     if (keywords.propertyIsEnumerable(word)) {
                         var kw = keywords[word]
                         return ret(kw.type, kw.style, word)
@@ -219,7 +219,7 @@
                     for (; ; --pos) {
                         if (pos === 0) return
                         var next = stream.string.charAt(pos - 1)
-                        if (next === ch && stream.string.charAt(pos - 2) != "\\") {
+                        if (next === ch && stream.string.charAt(pos - 2) !== "\\") {
                             pos--;
                             break
                         }
@@ -403,7 +403,7 @@
                 if (type === wanted) return cont();
                 else if (wanted === ";" || type === "}" || type === ")" || type === "]") return pass();
                 else return cont(exp);
-            };
+            }
             return exp;
         }
 
@@ -470,7 +470,7 @@
         }
 
         function parenExpr(type) {
-            if (type != "(") return pass()
+            if (type !== "(") return pass()
             return cont(pushlex(")"), maybeexpression, expect(")"), poplex)
         }
 
@@ -538,8 +538,8 @@
         }
 
         function quasi(type, value) {
-            if (type != "quasi") return pass();
-            if (value.slice(value.length - 2) != "${") return cont(quasi);
+            if (type !== "quasi") return pass();
+            if (value.slice(value.length - 2) !== "${") return cont(quasi);
             return cont(maybeexpression, continueQuasi);
         }
 
@@ -627,7 +627,7 @@
         }
 
         function getterSetter(type) {
-            if (type != "variable") return pass(afterprop);
+            if (type !== "variable") return pass(afterprop);
             cx.marked = "property";
             return cont(functiondef);
         }
@@ -742,8 +742,8 @@
         }
 
         function quasiType(type, value) {
-            if (type != "quasi") return pass();
-            if (value.slice(value.length - 2) != "${") return cont(quasiType);
+            if (type !== "quasi") return pass();
+            if (value.slice(value.length - 2) !== "${") return cont(quasiType);
             return cont(typeexpr, continueQuasiType);
         }
 
@@ -1061,7 +1061,7 @@
                     state.indented = stream.indentation();
                     findFatArrow(stream, state);
                 }
-                if (state.tokenize != tokenComment && stream.eatSpace()) return null;
+                if (state.tokenize !== tokenComment && stream.eatSpace()) return null;
                 var style = state.tokenize(stream, state);
                 if (type === "comment") return style;
                 state.lastType = type === "operator" && (content === "++" || content === "--") ? "incdec" : type;
@@ -1070,13 +1070,13 @@
 
             indent: function (state, textAfter) {
                 if (state.tokenize === tokenComment || state.tokenize === tokenQuasi) return CodeMirror.Pass;
-                if (state.tokenize != tokenBase) return 0;
+                if (state.tokenize !== tokenBase) return 0;
                 var firstChar = textAfter && textAfter.charAt(0), lexical = state.lexical, top
                 // Kludge to prevent 'maybelse' from blocking lexical scope pops
                 if (!/^\s*else\b/.test(textAfter)) for (var i = state.cc.length - 1; i >= 0; --i) {
                     var c = state.cc[i];
                     if (c === poplex) lexical = lexical.prev;
-                    else if (c != maybeelse && c != popcontext) break;
+                    else if (c !== maybeelse && c !== popcontext) break;
                 }
                 while ((lexical.type === "stat" || lexical.type === "form") &&
                 (firstChar === "}" || ((top = state.cc[state.cc.length - 1]) &&
@@ -1092,7 +1092,7 @@
                 else if (type === "form") return lexical.indented + indentUnit;
                 else if (type === "stat")
                     return lexical.indented + (isContinuedStatement(state, textAfter) ? statementIndent || indentUnit : 0);
-                else if (lexical.info === "switch" && !closing && parserConfig.doubleIndentSwitch != false)
+                else if (lexical.info === "switch" && !closing && parserConfig.doubleIndentSwitch !== false)
                     return lexical.indented + (/^(?:case|default)\b/.test(textAfter) ? indentUnit : 2 * indentUnit);
                 else if (lexical.align) return lexical.column + (closing ? 0 : 1);
                 else return lexical.indented + (closing ? 0 : indentUnit);

@@ -233,7 +233,7 @@
             var completions = [], after = "";
             var from = data.start, to = data.end;
             if (cm.getRange(Pos(from.line, from.ch - 2), from) === "[\"" &&
-                cm.getRange(to, Pos(to.line, to.ch + 2)) != "\"]")
+                cm.getRange(to, Pos(to.line, to.ch + 2)) !== "\"]")
                 after = "\"]";
 
             for (var i = 0; i < data.completions.length; ++i) {
@@ -308,9 +308,9 @@
         if (cm.somethingSelected()) return;
         var state = cm.getTokenAt(cm.getCursor()).state;
         var inner = CodeMirror.innerMode(cm.getMode(), state);
-        if (inner.mode.name != "javascript") return;
+        if (inner.mode.name !== "javascript") return;
         var lex = inner.state.lexical;
-        if (lex.info != "call") return;
+        if (lex.info !== "call") return;
 
         var ch, argPos = lex.pos || 0, tabSize = cm.getOption("tabSize");
         for (var line = cm.getCursor().line, e = Math.max(0, line - 9), found = false; line >= e; --line) {
@@ -357,7 +357,7 @@
             if (i) tip.appendChild(document.createTextNode(", "));
             var arg = tp.args[i];
             tip.appendChild(elt("span", cls + "farg" + (i === pos ? " " + cls + "farg-current" : ""), arg.name || "?"));
-            if (arg.type != "?") {
+            if (arg.type !== "?") {
                 tip.appendChild(document.createTextNode(":\u00a0"));
                 tip.appendChild(elt("span", cls + "type", arg.type));
             }
@@ -388,7 +388,7 @@
         }
 
         // Parse arguments
-        if (text.charAt(pos) != ")") for (; ;) {
+        if (text.charAt(pos) !== ")") for (; ;) {
             var name = text.slice(pos).match(/^([^, \(\[\{]+): /);
             if (name) {
                 pos += name[0].length;
@@ -449,7 +449,7 @@
 
     function moveTo(ts, curDoc, doc, start, end) {
         doc.doc.setSelection(start, end);
-        if (curDoc != doc && ts.options.switchToDoc) {
+        if (curDoc !== doc && ts.options.switchToDoc) {
             closeArgHints(ts);
             ts.options.switchToDoc(doc.name, doc.doc);
         }
@@ -536,7 +536,7 @@
         }
         for (var file in perFile) {
             var known = ts.docs[file], chs = perFile[file];
-            ;
+
             if (!known) continue;
             chs.sort(function (a, b) {
                 return cmpPos(b.start, a.start);
@@ -586,7 +586,7 @@
         }
         for (var name in ts.docs) {
             var cur = ts.docs[name];
-            if (cur.changed && cur != doc) {
+            if (cur.changed && cur !== doc) {
                 files.push({type: "full", name: cur.name, text: docValue(ts, cur)});
                 cur.changed = null;
             }

@@ -94,7 +94,7 @@
 
         function startString(quote, stream, state) {
             var tripleQuoted = false;
-            if (quote != "/" && stream.eat(quote)) {
+            if (quote !== "/" && stream.eat(quote)) {
                 if (stream.eat(quote)) tripleQuoted = true;
                 else return "string";
             }

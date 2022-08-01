@@ -139,7 +139,7 @@
             var searchNext = function (query, event) {
                 CodeMirror.e_stop(event);
                 if (!query) return;
-                if (query != state.queryText) {
+                if (query !== state.queryText) {
                     startSearch(cm, state, query);
                     state.posFrom = state.posTo = cm.getCursor();
                 }

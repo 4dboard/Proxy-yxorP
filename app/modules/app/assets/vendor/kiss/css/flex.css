@@ -93,10 +93,6 @@
     align-content: flex-end;
 }
 
-.kiss-flex-wrap-between {
-    align-content: space-between;
-}
-
 .kiss-flex-wrap-around {
     align-content: space-around;
 }

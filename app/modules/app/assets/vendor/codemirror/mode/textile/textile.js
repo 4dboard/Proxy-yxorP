@@ -131,7 +131,7 @@
             state.mode = Modes.attributes;
         }
         return tokenStyles(state);
-    };
+    }
 
     function tokenStyles(state) {
         var disabled = textileDisabled(state);
@@ -315,12 +315,12 @@
             var match, type;
             state.layoutType = null;
 
-            if (match = stream.match(RE("type")))
+            if (match === stream.match(RE("type")))
                 type = match[0];
             else
                 return (state.mode = Modes.text)(stream, state);
 
-            if (match = type.match(RE("header"))) {
+            if (match === type.match(RE("header"))) {
                 state.layoutType = "header";
                 state.header = parseInt(match[0][1]);
             } else if (type.match(RE("bq"))) {

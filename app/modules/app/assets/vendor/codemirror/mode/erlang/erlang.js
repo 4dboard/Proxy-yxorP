@@ -212,7 +212,7 @@
                 } else if (stream.match(/\s*\(/, false)) {
                     // 'put' and 'erlang:put' are bifs, 'foo:put' is not
                     if (is_member(w, bifWords) &&
-                        ((peekToken(state).token != ":") ||
+                        ((peekToken(state).token !== ":") ||
                             (peekToken(state, 2).token === "erlang"))) {
                         return rval(state, stream, "builtin");
                     } else if (is_member(w, guardWords)) {

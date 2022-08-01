@@ -129,7 +129,7 @@
                 state.startOfLine = false;
                 // dont record comment line as we only want to measure comment line with
                 // the opening comment block
-                if (style && style != "commentLine") {
+                if (style && style !== "commentLine") {
                     state.previousToken = {style: style, indented: state.indented};
                 }
                 // if current state is ruby and the previous token is not `,` reset the
@@ -138,7 +138,7 @@
                     stream.backUp(1);
                     var ch = stream.peek();
                     stream.next();
-                    if (ch && ch != ",") {
+                    if (ch && ch !== ",") {
                         state.tokenize = html;
                     }
                 }

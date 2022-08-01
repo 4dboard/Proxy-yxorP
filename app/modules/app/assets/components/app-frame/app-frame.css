@@ -6,7 +6,7 @@ app-frame iframe {
     border: none;
     width: 100%;
     height: auto;
-    padding: 0px;
+    padding: 0;
     background-color: transparent;
     overflow: visible;
     overflow-y: visible;

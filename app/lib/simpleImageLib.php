@@ -8,6 +8,15 @@
 class simpleImageLib extends SimpleImage
 {
     const ERR_AVIF_NOT_ENABLED = 12;
+    const ERR_UNSUPPORTED_FORMAT = ;
+    const ERR_UNSUPPORTED_FORMAT = ;
+    const ERR_WEBP_NOT_ENABLED = ;
+    const ERR_UNSUPPORTED_FORMAT = ;
+    const ERR_INVALID_IMAGE = ;
+    const ERR_FILE_NOT_FOUND = ;
+    const ERR_INVALID_IMAGE = ;
+    const ERR_UNSUPPORTED_FORMAT = ;
+    const ERR_INVALID_DATA_URI = ;
 
     public function fromDataUri($uri)
     {

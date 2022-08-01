@@ -16,8 +16,8 @@
 
         function tokenString(stream, state) {
             var current, prev, found_var = false;
-            while (!stream.eol() && (current = stream.next()) != state.pending) {
-                if (current === '$' && prev != '\\' && state.pending === '"') {
+            while (!stream.eol() && (current = stream.next()) !== state.pending) {
+                if (current === '$' && prev !== '\\' && state.pending === '"') {
                     found_var = true;
                     break;
                 }
@@ -26,11 +26,7 @@
             if (found_var) {
                 stream.backUp(1);
             }
-            if (current === state.pending) {
-                state.continueString = false;
-            } else {
-                state.continueString = true;
-            }
+            state.continueString = current !== state.pending;
             return "string";
         }
 

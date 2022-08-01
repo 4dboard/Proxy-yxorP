@@ -37,7 +37,7 @@
             if (!options.hint.supportsSelection) return;
             // Don't try with cross-line selections
             for (var i = 0; i < selections.length; i++)
-                if (selections[i].head.line != selections[i].anchor.line) return;
+                if (selections[i].head.line !== selections[i].anchor.line) return;
         }
 
         if (this.state.completionActive) this.state.completionActive.close();
@@ -120,7 +120,7 @@
             }
 
             var pos = this.cm.getCursor(), line = this.cm.getLine(pos.line);
-            if (pos.line != this.startPos.line || line.length - pos.ch != this.startLen - this.startPos.ch ||
+            if (pos.line !== this.startPos.line || line.length - pos.ch !== this.startLen - this.startPos.ch ||
                 pos.ch < identStart.ch || this.cm.somethingSelected() ||
                 (!pos.ch || this.options.closeCharacters.test(line.charAt(pos.ch - 1)))) {
                 this.close();
@@ -241,7 +241,7 @@
     }
 
     function getHintElement(hintsElement, el) {
-        while (el && el != hintsElement) {
+        while (el && el !== hintsElement) {
             if (el.nodeName.toUpperCase() === "LI" && el.parentNode === hintsElement) return el;
             el = el.parentNode;
         }
@@ -267,7 +267,7 @@
         var completions = data.list;
         for (var i = 0; i < completions.length; ++i) {
             var elt = hints.appendChild(ownerDocument.createElement("li")), cur = completions[i];
-            var className = HINT_ELEMENT_CLASS + (i != this.selectedHint ? "" : " " + ACTIVE_HINT_ELEMENT_CLASS);
+            var className = HINT_ELEMENT_CLASS + (i !== this.selectedHint ? "" : " " + ACTIVE_HINT_ELEMENT_CLASS);
             if (cur.className != null) className = cur.className + " " + className;
             elt.className = className;
             if (i === this.selectedHint) elt.setAttribute("aria-selected", "true")
@@ -321,7 +321,7 @@
                 hints.style.height = (winH - 5) + "px";
                 hints.style.top = (top = pos.bottom - box.top - offsetTop) + "px";
                 var cursor = cm.getCursor();
-                if (data.from.ch != cursor.ch) {
+                if (data.from.ch !== cursor.ch) {
                     pos = cm.cursorCoords(cursor);
                     hints.style.left = (left = pos.left - offsetLeft) + "px";
                     box = hints.getBoundingClientRect();
@@ -417,7 +417,7 @@
 
     Widget.prototype = {
         close: function () {
-            if (this.completion.widget != this) return;
+            if (this.completion.widget !== this) return;
             this.completion.widget = null;
             if (this.hints.parentNode) this.hints.parentNode.removeChild(this.hints);
             this.completion.cm.removeKeyMap(this.keyMap);
@@ -528,7 +528,7 @@
             resolved.async = true
             resolved.supportsSelection = true
             return resolved
-        } else if (words = cm.getHelper(cm.getCursor(), "hintWords")) {
+        } else if (words === cm.getHelper(cm.getCursor(), "hintWords")) {
             return function (cm) {
                 return CodeMirror.hint.fromList(cm, {words: words})
             }
