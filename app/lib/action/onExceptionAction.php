@@ -23,7 +23,7 @@ class onExceptionAction extends wrapper
         /* Checking if the `DEBUG` constant is set to `true` or if the server name does not contain a dot. If either of
         these conditions are met, the exception is printed. */
 
-        store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())])
+        store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
 
         print_r(store::handler(YXORP_APP)->dataStorage->load->save('system/log'));
 
