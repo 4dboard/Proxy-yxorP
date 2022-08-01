@@ -36,7 +36,7 @@ class create
 
         if ($this->app->path("#app:.spaces/{$name}")) {
             $output->writeln("<error>[error]</error> A space with the name <info>{$name}</info> already exists!");
-            return Command::FAILURE;
+            return 0;
         }
 
         // create env folders
