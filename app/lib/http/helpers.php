@@ -534,25 +534,6 @@ class helpers
         closedir($root);
     }
 
-    /**
-     * @return void
-     * A method that takes an array as a parameter and returns nothing.
-     *
-     */
-    public static function loadApp(): void
-    {
-    }
-
-    /**
-     * @return void
-     *
-     * It creates a new user with the credentials defined in the `.env` file
-     * A static method that is being called.
-     *
-     */
-    public static function install(): void
-    {
-    }
 
     public static function contains($str, array $arr): bool
     {
