@@ -37,9 +37,6 @@ $this->on('app.search', function ($search, $findings) {
 
     $users = $this->dataStorage->find('system/users', ['filter' => ['$or' => [['name' => ['$regex' => $search, '$options' => 'i']], ['label' => ['$regex' => $search, '$options' => 'i']]]], 'limit' => 5])->toArray();
 
-    foreach ($users as $user) {
-
-        $findings[] = ['title' => isset($user['name']) && $user['name'] ? "{$user['name']} ({$user['user']})" : $user['user'], 'route' => $this->routeUrl("/system/users/user/{$user['_id']}"), 'group' => 'Users', 'icon' => 'system:assets/icons/users.svg'];
-    }
+    foreach ($users as $user) $findings[] = ['title' => isset($user['name']) && $user['name'] ? "{$user['name']} ({$user['user']})" : $user['user'], 'route' => $this->routeUrl("/system/users/user/{$user['_id']}"), 'group' => 'Users', 'icon' => 'system:assets/icons/users.svg'];
 
 });
