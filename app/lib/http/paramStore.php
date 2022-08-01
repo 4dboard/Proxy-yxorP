@@ -103,6 +103,19 @@ class paramStore
     }
 
     /**
+     * Normalizing the key.
+     */
+
+    private function normalizeKey($key)
+    {
+        /**
+         * Checking if the `$case_sensitive` variable is true, and if it is, it will return the `$key` parameter. If it is
+         * not, it will return the `$key` parameter in lowercase.
+         */
+        return $this->case_sensitive ? $key : strtolower($key);
+    }
+
+    /**
      * Checking if the `$key` parameter is in the `$data` variable.
      */
 
@@ -163,18 +176,5 @@ class paramStore
          * Returning the `$data` variable as a JSON string.
          */
         return json_encode($this->data);
-    }
-
-    /**
-     * Normalizing the key.
-     */
-
-    private function normalizeKey($key)
-    {
-        /**
-         * Checking if the `$case_sensitive` variable is true, and if it is, it will return the `$key` parameter. If it is
-         * not, it will return the `$key` parameter in lowercase.
-         */
-        return $this->case_sensitive ? $key : strtolower($key);
     }
 }
