@@ -2,10 +2,10 @@
 
 namespace Assets\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 use ArrayObject;
 
-class Assets extends App
+class Assets extends app
 {
 
 

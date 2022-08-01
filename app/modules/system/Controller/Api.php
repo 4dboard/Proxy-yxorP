@@ -2,14 +2,14 @@
 
 namespace System\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 use ArrayObject;
 use OpenApi\Generator;
 use Symfony\Component\Finder\Finder;
 use function file_exists;
 use function str_replace;
 
-class Api extends App
+class Api extends app
 {
 
     public function index()
@@ -86,11 +86,6 @@ class Api extends App
         $this->cache();
 
         return ['success' => true];
-    }
-
-    protected function cache()
-    {
-        $this->helper('api')->cache();
     }
 
     public function save()
@@ -213,6 +208,11 @@ class Api extends App
         $this->layout = 'app:layouts/raw.php';
 
         return $this->render('system:views/api/graphql-viewer.php', compact('apiKey', 'bgColor', 'primaryColor', 'textColor'));
+    }
+
+    protected function cache()
+    {
+        $this->helper('api')->cache();
     }
 
     protected function before()

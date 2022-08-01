@@ -2,9 +2,9 @@
 
 namespace System\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 
-class Users extends App
+class Users extends app
 {
 
     public function index()

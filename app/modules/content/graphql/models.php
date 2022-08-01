@@ -2,8 +2,8 @@
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ObjectType;
-use App\GraphQL\Types\JsonType;
-use App\GraphQL\Types\FieldTypes;
+use App\GraphQL\Types\jsonType;
+use App\GraphQL\Types\fieldTypes;
 
 $models = $app->module('content')->models();
 $collections = array_filter($models, function ($m) {
@@ -28,7 +28,7 @@ foreach ($collections as $name => &$meta) {
                     '_id' => Type::nonNull(Type::string()),
                     '_created' => Type::nonNull(Type::int()),
                     '_modified' => Type::nonNull(Type::int())
-                ], FieldTypes::buildFieldsDefinitions($meta));
+                ], fieldTypes::buildFieldsDefinitions($meta));
 
                 return $fields;
             }
@@ -38,11 +38,11 @@ foreach ($collections as $name => &$meta) {
             '_id' => Type::string(),
             'limit' => Type::int(),
             'skip' => Type::int(),
-            'sort' => JsonType::instance(),
+            'sort' => jsonType::instance(),
             'locale' => ['type' => Type::string(), 'defaultValue' => 'default'],
             'populate' => ['type' => Type::int(), 'defaultValue' => 0],
             'projection' => ['type' => Type::string(), 'defaultValue' => ''],
-            'filter' => ['type' => JsonType::instance(), 'defaultValue' => '']
+            'filter' => ['type' => jsonType::instance(), 'defaultValue' => '']
         ],
 
         'resolve' => function ($root, $args) use ($app, $name) {
@@ -105,7 +105,7 @@ foreach ($singletons as $name => &$meta) {
                     '_id' => Type::string(),
                     '_created' => Type::int(),
                     '_modified' => Type::int()
-                ], FieldTypes::buildFieldsDefinitions($meta));
+                ], fieldTypes::buildFieldsDefinitions($meta));
 
                 return $fields;
             }

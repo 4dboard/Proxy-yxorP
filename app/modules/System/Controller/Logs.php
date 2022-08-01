@@ -2,9 +2,9 @@
 
 namespace System\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 
-class Logs extends App
+class Logs extends app
 {
 
     public function index()

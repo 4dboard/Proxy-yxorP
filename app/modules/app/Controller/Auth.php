@@ -6,7 +6,7 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class Auth extends Base
+class auth extends base
 {
 
     protected $layout = 'app:layouts/canvas.php';

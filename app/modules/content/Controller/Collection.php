@@ -2,10 +2,10 @@
 
 namespace Content\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 use ArrayObject;
 
-class Collection extends App
+class Collection extends app
 {
 
 

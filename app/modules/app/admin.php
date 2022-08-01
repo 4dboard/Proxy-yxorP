@@ -8,12 +8,12 @@ $this->helpers['theme'] = 'App\\Helper\\Theme';
 $this->helpers['twfa'] = 'App\\Helper\\TWFA';
 
 // Register routes
-$this->bindClass('App\\Controller\\Auth', '/auth');
-$this->bindClass('App\\Controller\\Utils', '/utils');
+$this->bindClass('App\\Controller\\auth', '/auth');
+$this->bindClass('App\\Controller\\utils', '/utils');
 
 $this->bind('/', function () {
 
-    return $this->invoke('App\\Controller\\Dashboard', 'index');
+    return $this->invoke('App\\Controller\\dashboard', 'index');
 });
 
 // global event stream for long polling

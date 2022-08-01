@@ -5,24 +5,14 @@ namespace App\GraphQL\Types;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 
-class FieldTypes {
+class fieldTypes
+{
 
     protected static $types = [];
     protected static $names = [];
 
-    private static function getName($name) {
-
-        if (!isset(self::$names[$name])) {
-            self::$names[$name] = 0;
-        } else {
-            self::$names[$name]++;
-            $name .= self::$names[$name];
-        }
-
-        return $name;
-    }
-
-    public static function buildFieldsDefinitions($meta) {
+    public static function buildFieldsDefinitions($meta)
+    {
 
         $fields = [];
 
@@ -47,7 +37,13 @@ class FieldTypes {
         return $fields;
     }
 
-    protected static function getType($field) {
+    public static function instance($field)
+    {
+        self::getType($field);
+    }
+
+    protected static function getType($field)
+    {
 
         $def = [];
 
@@ -69,24 +65,32 @@ class FieldTypes {
                 $def['type'] = Type::int();
                 break;
             case 'layout':
-                $def['type'] = JsonType::instance();
+                $def['type'] = jsonType::instance();
                 break;
             case 'set':
                 $def['type'] = new ObjectType([
-                    'name' => self::getName('Set'.ucfirst($field['name'])),
+                    'name' => self::getName('Set' . ucfirst($field['name'])),
                     'fields' => self::buildFieldsDefinitions($field['opts'])
                 ]);
                 break;
 
             default:
-                $def['type'] = JsonType::instance();
+                $def['type'] = jsonType::instance();
         }
 
         return count($def) ? $def : null;
     }
 
+    private static function getName($name)
+    {
 
-    public static function instance($field) {
-        self::getType($field);
+        if (!isset(self::$names[$name])) {
+            self::$names[$name] = 0;
+        } else {
+            self::$names[$name]++;
+            $name .= self::$names[$name];
+        }
+
+        return $name;
     }
 }

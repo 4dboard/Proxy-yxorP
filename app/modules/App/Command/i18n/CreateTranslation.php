@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreateTranslation extends Command
+class createTranslation extends Command
 {
 
     protected static $defaultName = 'app:i18n:create';

@@ -2,10 +2,10 @@
 
 namespace System\Controller\Users;
 
-use App\Controller\App;
+use App\Controller\app;
 use ArrayObject;
 
-class Roles extends App
+class Roles extends app
 {
 
     public function index()

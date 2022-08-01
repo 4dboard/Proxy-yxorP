@@ -6,7 +6,7 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class Authenticated extends Base
+class authenticated extends base
 {
 
     protected $user;

@@ -2,21 +2,24 @@
 
 namespace System\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 
-class Settings extends App {
+class Settings extends app
+{
 
-    public function index() {
+    public function index()
+    {
         return $this->render('system:views/settings.php');
     }
 
-    public function info() {
+    public function info()
+    {
 
         if (!$this->isAllowed('app/system/info')) {
             return $this->stop(401);
         }
 
-        $addons = array_filter(array_keys($this->app['modules']->getArrayCopy()), fn($name) => !in_array($name, ['app', 'assets', 'content','system']));
+        $addons = array_filter(array_keys($this->app['modules']->getArrayCopy()), fn($name) => !in_array($name, ['app', 'assets', 'content', 'system']));
 
         return $this->render('system:views/info.php', compact('addons'));
     }

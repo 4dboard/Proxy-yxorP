@@ -2,10 +2,10 @@
 
 namespace Content\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 use ArrayObject;
 
-class Singleton extends App
+class Singleton extends app
 {
 
 

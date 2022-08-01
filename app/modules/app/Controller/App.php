@@ -6,11 +6,13 @@ namespace App\Controller;
  * Class Controller
  * @package App
  */
-class App extends Authenticated {
+class app extends authenticated
+{
 
     protected $layout = 'app:layouts/app.php';
 
-    protected function render(string $view, array $params = []): mixed {
+    protected function render(string $view, array $params = []): mixed
+    {
 
         $this->app->trigger('app.layout.render');
 

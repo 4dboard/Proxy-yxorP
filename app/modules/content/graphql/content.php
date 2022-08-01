@@ -2,21 +2,21 @@
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ObjectType;
-use App\GraphQL\Types\JsonType;
+use App\GraphQL\Types\jsonType;
 
 $gql->queries['fields']['content'] = [
 
-    'type' => Type::listOf(JsonType::instance()),
+    'type' => Type::listOf(jsonType::instance()),
 
     'args' => [
         'model' => Type::nonNull(Type::string()),
         'limit' => Type::int(),
         'skip' => Type::int(),
-        'sort' => JsonType::instance(),
+        'sort' => jsonType::instance(),
         'locale' => ['type' => Type::string(), 'defaultValue' => 'default'],
         'populate' => ['type' => Type::int(), 'defaultValue' => 0],
         'projection' => ['type' => Type::string(), 'defaultValue' => ''],
-        'filter' => ['type' => JsonType::instance(), 'defaultValue' => []]
+        'filter' => ['type' => jsonType::instance(), 'defaultValue' => []]
     ],
 
     'resolve' => function ($root, $args) use ($app) {

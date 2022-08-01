@@ -2,10 +2,10 @@
 
 namespace Content\Controller;
 
-use App\Controller\App;
+use App\Controller\app;
 use ArrayObject;
 
-class Models extends App
+class Models extends app
 {
 
     public function create()
