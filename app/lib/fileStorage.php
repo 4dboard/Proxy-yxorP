@@ -1,15 +1,15 @@
-<?php use League\Flysystem\Filesystem;
-use League\Flysystem\MountManager;
+<?php use League\Flysystem\filesystem;
+use League\Flysystem\mountManager;
 
 class fileStorage
 {
     protected array $config = [];
     protected array $storages = [];
-    protected MountManager $manager;
+    protected mountManager $manager;
 
     public function __construct(array $config = [])
     {
-        $this->manager = new MountManager();
+        $this->manager = new mountManager();
         foreach ($config as $name => $_config) {
             $this->addStorage($name, $_config);
         }
@@ -24,23 +24,23 @@ class fileStorage
         return $this;
     }
 
-    protected function initStorage(string $name): Filesystem
+    protected function initStorage(string $name): filesystem
     {
         static $mountMethod;
         if (!$mountMethod) {
-            $mountMethod = new ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
+            $mountMethod = new ReflectionMethod('League\Flysystem\mountManager', 'mountFilesystem');
             $mountMethod->setAccessible(true);
         }
         $config = $this->config[$name];
         $adapter = new ReflectionClass($config['adapter']);
-        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+        $this->storages[$name] = new filesystem($adapter->newInstanceArgs($config['args'] ?: []));
         if (isset($config['mount']) && $config['mount']) {
             $mountMethod->invokeArgs($this->manager, [$name, $this->storages[$name]]);
         }
         return $this->storages[$name];
     }
 
-    public function use(string $name): ?Filesystem
+    public function use(string $name): ?filesystem
     {
         if (!isset($this->storages[$name]) && isset($this->config[$name])) {
             $this->initStorage($name);

@@ -2,8 +2,8 @@
 
 namespace App\Helper;
 
-use Firebase\JWT\JWT as JWTLIB;
-use Firebase\JWT\Key;
+use Firebase\JWT\jWT as JWTLIB;
+use Firebase\JWT\key;
 
 class jWT extends \
 
@@ -29,6 +29,6 @@ class jWT extends \
     public
     function decode(string $token, ?string $key = null)
     {
-        return JWTLIB::decode($token, new Key($key ?? $this->app->retrieve('sec-key'), 'HS256'));
+        return JWTLIB::decode($token, new key($key ?? $this->app->retrieve('sec-key'), 'HS256'));
     }
 }

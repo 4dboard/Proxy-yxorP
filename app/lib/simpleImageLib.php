@@ -1,4 +1,4 @@
-<?php use claviska\SimpleImage;
+<?php use claviska\simpleImage;
 
 /**
  * @property array|false $exif
@@ -6,7 +6,7 @@
  * @property mixed $mimeType
  * @property false|GdImage|resource $image
  */
-class simpleImageLib extends SimpleImage
+class simpleImageLib extends simpleImage
 {
     const ERR_AVIF_NOT_ENABLED = 12;
 

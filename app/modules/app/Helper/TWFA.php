@@ -5,7 +5,7 @@ namespace App\Helper;
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
-use BaconQrCode\Writer;
+use BaconQrCode\writer;
 use RobThree\Auth\Providers\Qr\IQRCodeProvider;
 use RobThree\Auth\TwoFactorAuth;
 
@@ -61,7 +61,7 @@ class TWFAQRCodeRenderer implements IQRCodeProvider
             new SvgImageBackEnd()
         );
 
-        $writer = new Writer($renderer);
+        $writer = new writer($renderer);
 
         return $writer->writeString($qrtext); // Return image
     }
