@@ -48,7 +48,7 @@
                             <li class="kiss-nav-divider"></li>
 
                             <?php foreach ($links as $link): ?>
-                                <li class="<?= (strpos($this->request->route, $link['route']) === 0) ? 'active' : '' ?>">
+                                <li class="<?= (str_starts_with($this->request->route, $link['route'])) ? 'active' : '' ?>">
                                     <a href="<?= $this->route($link['route']) ?>" aria-label="<?= t($link['label']) ?>"
                                        kiss-tooltip="right">
                                         <kiss-svg src="<?= $this->base($link['icon']) ?>" width="25"
@@ -131,7 +131,7 @@
                 <li><a class="kiss-flex kiss-flex-middle kiss-color-danger" href="<?= $this->route('/auth/logout') ?>">
                         <icon class="kiss-margin-small-right">power_settings_new</icon> <?= t('Logout') ?></a></li>
             </ul>
-            </navlist>
+        </kiss-navlist>
     </kiss-content>
 </kiss-popoutmenu>
 
@@ -169,7 +169,7 @@
                             <?php endif ?>
 
                             <?php foreach ($links as $link): ?>
-                                <li class="<?= (strpos($this->request->route, $link['route']) === 0) ? 'active' : '' ?>">
+                                <li class="<?= (str_starts_with($this->request->route, $link['route'])) ? 'active' : '' ?>">
                                     <a href="<?= $this->route($link['route']) ?>">
                                         <kiss-svg class="kiss-margin-small-right"
                                                   src="<?= $this->base($link['icon']) ?>" width="25"
