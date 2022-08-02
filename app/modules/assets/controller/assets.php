@@ -1,6 +1,6 @@
 <?php
 
-namespace Assets\Controller;
+namespace yxorP\app\modules\assets\Controller;
 
 use App\Controller\app;
 use Exception;

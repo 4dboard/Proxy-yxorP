@@ -1,7 +1,8 @@
 <?php
 
-namespace Assets\Helper;
+namespace yxorP\app\modules\assets\Helper;
 
+use helper;
 use simpleImageLib as SimpleImage;
 use function call_user_func_array;
 use function explode;
@@ -9,11 +10,8 @@ use function floor;
 use function preg_match;
 use function str_replace;
 use function strpos;
-use const yxorP\app\lib\http\helper;
 
-class Asset extends \
-
-helper
+class Asset extends helper
 {
 
     public

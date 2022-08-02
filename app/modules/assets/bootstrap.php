@@ -6,7 +6,7 @@ include_once(__DIR__ . '/lib/vendor/autoload.php');
 include_once(__DIR__ . '/lib/sVGSanitizer.php');
 
 // Register Helpers
-$this->helpers['asset'] = 'Assets\\Helper\\Asset';
+$this->helpers['asset'] = 'yxorP\app\modules\assets\\Helper\\Asset';
 
 // load admin related code
 $this->on('app.admin.init', function () {

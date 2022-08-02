@@ -21,7 +21,7 @@ $this->bind('/assets/link/:id', function ($params) {
     $this->reroute($url);
 });
 
-$this->bindClass('Assets\\Controller\\assets', '/assets');
+$this->bindClass('yxorP\app\modules\assets\\Controller\\assets', '/assets');
 
 $this->helper('menus')->addLink('modules', [
     'label' => 'Assets',
