@@ -1,11 +1,11 @@
-<?php namespace MemoryStorage;
+<?php namespace yxorP\app\lib\http;
 
 use Redis;
 use redisLite;
 use function call_user_func;
 use function is_callable;
 
-class client
+class yxorP\app\lib\http\memoryStorage
 {
     protected $driver;
     protected $key;
