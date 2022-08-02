@@ -14,8 +14,6 @@ use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use yxorP\app\lib\psr\http\message\requestInterface;
-use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\streamInterface;
 use function is_array;
 
