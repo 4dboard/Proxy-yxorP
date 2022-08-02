@@ -54,8 +54,7 @@ class acl extends helper
         return false;
     }
 
-    protected
-    function initialize()
+    protected function initialize()
     {
 
         $this->roles = $this->app->memory->get('app.roles.permissions', function () {
