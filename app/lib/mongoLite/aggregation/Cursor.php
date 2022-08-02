@@ -1,6 +1,6 @@
 <?php
 
-namespace MongoLite\Aggregation;
+namespace yxorP\app\lib\http\mongoLite\Aggregation;
 
 use Closure;
 use Iterator;
@@ -32,45 +32,6 @@ class Cursor implements Iterator
     public function toArray(): array
     {
         return $this->getData();
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function rewind(): void
-    {
-
-        if ($this->position !== false) {
-            $this->position = 0;
-        }
-    }
-
-    public function current(): array
-    {
-
-        return $this->data[$this->position];
-    }
-
-    public function key(): int
-    {
-        return $this->position;
-    }
-
-    public function next(): void
-    {
-        ++$this->position;
-    }
-
-    public function valid(): bool
-    {
-
-        if ($this->position === false) {
-
-            $this->data = $this->getData();
-            $this->position = 0;
-        }
-
-        return isset($this->data[$this->position]);
     }
 
     /**
@@ -136,6 +97,45 @@ class Cursor implements Iterator
 
             return 0;
         };
+    }
+
+    /**
+     * Iterator implementation
+     */
+    public function rewind(): void
+    {
+
+        if ($this->position !== false) {
+            $this->position = 0;
+        }
+    }
+
+    public function current(): array
+    {
+
+        return $this->data[$this->position];
+    }
+
+    public function key(): int
+    {
+        return $this->position;
+    }
+
+    public function next(): void
+    {
+        ++$this->position;
+    }
+
+    public function valid(): bool
+    {
+
+        if ($this->position === false) {
+
+            $this->data = $this->getData();
+            $this->position = 0;
+        }
+
+        return isset($this->data[$this->position]);
     }
 
 }

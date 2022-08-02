@@ -1,4 +1,4 @@
-<?php namespace MongoLite;
+<?php namespace yxorP\app\lib\http\mongoLite;
 
 use Iterator;
 use PDO;

@@ -1,9 +1,9 @@
-<?php namespace MongoLite;
+<?php namespace yxorP\app\lib\http\mongoLite;
 
 use ErrorException;
 use InvalidArgumentException;
-use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
 use PDO;
+use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
 use function array_intersect;
 use function array_intersect_key;
 use function array_keys;
