@@ -78,12 +78,10 @@ class yP
      */
     private function init(?array $request): void
     {
-
-        echo 6;
         /**
          * Checking if the files exist in the directory.
          */
-        foreach (array('http', 'minify', 'parser', 'psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
+        foreach (array('http', 'minify', 'parser', 'psr') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
