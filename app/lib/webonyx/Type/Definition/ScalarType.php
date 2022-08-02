@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Type\Definition;
+namespace yxorP\app\lib\graphQL\Type\Definition;
 
-use yxorP\app\lib\psr\graphQL\Language\AST\ScalarTypeDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\ScalarTypeExtensionNode;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Language\AST\ScalarTypeDefinitionNode;
+use yxorP\app\lib\graphQL\Language\AST\ScalarTypeExtensionNode;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use function is_string;
 
 /**

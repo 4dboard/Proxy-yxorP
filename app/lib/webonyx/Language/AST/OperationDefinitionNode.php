@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Language\AST;
+namespace yxorP\app\lib\graphQL\Language\AST;
 
 class OperationDefinitionNode extends Node implements ExecutableDefinitionNode, HasSelectionSetInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Executor\Promise\Adapter;
+namespace yxorP\app\lib\graphQL\Executor\Promise\Adapter;
 
 use Exception;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use SplQueue;
 use Throwable;
 use function is_object;
@@ -17,7 +17,7 @@ use function method_exists;
  *
  * Note:
  * Library users are not supposed to use SyncPromise class in their resolvers.
- * Instead they should use yxorP\app\lib\psr\graphQL\Deferred which enforces $executor callback in the constructor.
+ * Instead they should use yxorP\app\lib\graphQL\Deferred which enforces $executor callback in the constructor.
  *
  * Root SyncPromise without explicit $executor will never resolve (actually throw while trying).
  * The whole point of Deferred is to ensure it never happens and that any resolver creates

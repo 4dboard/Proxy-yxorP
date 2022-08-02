@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Type\Definition;
+namespace yxorP\app\lib\graphQL\Type\Definition;
 
-use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\psr\graphQL\Language\AST\TypeDefinitionNodeInterface;
-use yxorP\app\lib\psr\graphQL\Language\AST\TypeExtensionNodeInterface;
-use yxorP\app\lib\psr\graphQL\Type\Introspection;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\graphQL\Language\AST\TypeDefinitionNodeInterface;
+use yxorP\app\lib\graphQL\Language\AST\TypeExtensionNodeInterface;
+use yxorP\app\lib\graphQL\Type\Introspection;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use JsonSerializable;
 use ReflectionClass;
 use function array_keys;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Language;
+namespace yxorP\app\lib\graphQL\Language;
 
 /**
  * Represents a range of characters represented by a lexical token

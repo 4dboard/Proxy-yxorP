@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Error;
+namespace yxorP\app\lib\graphQL\Error;
 
 use Countable;
 use ErrorException;
-use yxorP\app\lib\psr\graphQL\Language\AST\Node;
-use yxorP\app\lib\psr\graphQL\Language\Source;
-use yxorP\app\lib\psr\graphQL\Language\SourceLocation;
-use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
-use yxorP\app\lib\psr\graphQL\Type\Definition\WrappingType;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Language\AST\Node;
+use yxorP\app\lib\graphQL\Language\Source;
+use yxorP\app\lib\graphQL\Language\SourceLocation;
+use yxorP\app\lib\graphQL\Type\Definition\Type;
+use yxorP\app\lib\graphQL\Type\Definition\WrappingType;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use Throwable;
 use function addcslashes;
 use function array_filter;

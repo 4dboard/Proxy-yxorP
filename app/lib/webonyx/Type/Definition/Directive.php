@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Type\Definition;
+namespace yxorP\app\lib\graphQL\Type\Definition;
 
-use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\psr\graphQL\Language\AST\DirectiveDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\DirectiveLocation;
+use yxorP\app\lib\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\graphQL\Language\AST\DirectiveDefinitionNode;
+use yxorP\app\lib\graphQL\Language\DirectiveLocation;
 use function array_key_exists;
 use function is_array;
 

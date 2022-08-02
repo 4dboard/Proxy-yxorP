@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Language\AST;
+namespace yxorP\app\lib\graphQL\Language\AST;
 
-use yxorP\app\lib\psr\graphQL\Language\Source;
-use yxorP\app\lib\psr\graphQL\Language\Token;
+use yxorP\app\lib\graphQL\Language\Source;
+use yxorP\app\lib\graphQL\Language\Token;
 
 /**
  * Contains a range of UTF-8 character offsets and token references that

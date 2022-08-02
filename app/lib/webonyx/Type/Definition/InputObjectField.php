@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Type\Definition;
+namespace yxorP\app\lib\graphQL\Type\Definition;
 
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\psr\graphQL\Error\Warning;
-use yxorP\app\lib\psr\graphQL\Language\AST\InputValueDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Type\Schema;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\graphQL\Error\Warning;
+use yxorP\app\lib\graphQL\Language\AST\InputValueDefinitionNode;
+use yxorP\app\lib\graphQL\Type\Schema;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use function array_key_exists;
 use function sprintf;
 

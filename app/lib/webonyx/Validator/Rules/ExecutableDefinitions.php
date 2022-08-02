@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
+namespace yxorP\app\lib\graphQL\Validator\Rules;
 
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\ExecutableDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\psr\graphQL\Language\AST\TypeSystemDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\Visitor;
-use yxorP\app\lib\psr\graphQL\Language\VisitorOperation;
-use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\graphQL\Language\AST\ExecutableDefinitionNode;
+use yxorP\app\lib\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\graphQL\Language\AST\TypeSystemDefinitionNode;
+use yxorP\app\lib\graphQL\Language\Visitor;
+use yxorP\app\lib\graphQL\Language\VisitorOperation;
+use yxorP\app\lib\graphQL\Validator\ValidationContext;
 use function sprintf;
 
 /**

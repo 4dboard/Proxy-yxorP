@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
+namespace yxorP\app\lib\graphQL\Validator\Rules;
 
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Language\AST\DirectiveDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\DirectiveNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\InputValueDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\psr\graphQL\Language\Visitor;
-use yxorP\app\lib\psr\graphQL\Language\VisitorOperation;
-use yxorP\app\lib\psr\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\psr\graphQL\Type\Definition\FieldArgument;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
-use yxorP\app\lib\psr\graphQL\Validator\ASTValidationContext;
-use yxorP\app\lib\psr\graphQL\Validator\SDLValidationContext;
-use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Language\AST\DirectiveDefinitionNode;
+use yxorP\app\lib\graphQL\Language\AST\DirectiveNode;
+use yxorP\app\lib\graphQL\Language\AST\InputValueDefinitionNode;
+use yxorP\app\lib\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\graphQL\Language\Visitor;
+use yxorP\app\lib\graphQL\Language\VisitorOperation;
+use yxorP\app\lib\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\graphQL\Type\Definition\FieldArgument;
+use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Validator\ASTValidationContext;
+use yxorP\app\lib\graphQL\Validator\SDLValidationContext;
+use yxorP\app\lib\graphQL\Validator\ValidationContext;
 use function array_map;
 use function in_array;
 use function sprintf;

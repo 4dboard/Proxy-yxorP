@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Error;
+namespace yxorP\app\lib\graphQL\Error;
 
 use LogicException;
 

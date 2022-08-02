@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Utils;
+namespace yxorP\app\lib\graphQL\Utils;
 
 use Exception;
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Language\AST\Node;
-use yxorP\app\lib\psr\graphQL\Type\Definition\EnumType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\InputObjectType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\InputType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\ListOfType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\NonNull;
-use yxorP\app\lib\psr\graphQL\Type\Definition\ScalarType;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Language\AST\Node;
+use yxorP\app\lib\graphQL\Type\Definition\EnumType;
+use yxorP\app\lib\graphQL\Type\Definition\InputObjectType;
+use yxorP\app\lib\graphQL\Type\Definition\InputType;
+use yxorP\app\lib\graphQL\Type\Definition\ListOfType;
+use yxorP\app\lib\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\graphQL\Type\Definition\ScalarType;
 use stdClass;
 use Throwable;
 use Traversable;

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Type\Definition;
+namespace yxorP\app\lib\graphQL\Type\Definition;
 
 use ArrayObject;
 use Exception;
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\psr\graphQL\Language\AST\EnumTypeDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\EnumTypeExtensionNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\EnumValueNode;
-use yxorP\app\lib\psr\graphQL\Language\AST\Node;
-use yxorP\app\lib\psr\graphQL\Utils\MixedStore;
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\graphQL\Language\AST\EnumTypeDefinitionNode;
+use yxorP\app\lib\graphQL\Language\AST\EnumTypeExtensionNode;
+use yxorP\app\lib\graphQL\Language\AST\EnumValueNode;
+use yxorP\app\lib\graphQL\Language\AST\Node;
+use yxorP\app\lib\graphQL\Utils\MixedStore;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use function is_array;
 use function is_int;
 use function is_string;

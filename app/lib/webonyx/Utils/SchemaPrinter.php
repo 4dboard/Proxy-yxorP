@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Utils;
+namespace yxorP\app\lib\graphQL\Utils;
 
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Language\Printer;
-use yxorP\app\lib\psr\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\psr\graphQL\Type\Definition\EnumType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\InputObjectType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\InterfaceType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\ScalarType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
-use yxorP\app\lib\psr\graphQL\Type\Definition\UnionType;
-use yxorP\app\lib\psr\graphQL\Type\Introspection;
-use yxorP\app\lib\psr\graphQL\Type\Schema;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Language\Printer;
+use yxorP\app\lib\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\graphQL\Type\Definition\EnumType;
+use yxorP\app\lib\graphQL\Type\Definition\InputObjectType;
+use yxorP\app\lib\graphQL\Type\Definition\InterfaceType;
+use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\graphQL\Type\Definition\ScalarType;
+use yxorP\app\lib\graphQL\Type\Definition\Type;
+use yxorP\app\lib\graphQL\Type\Definition\UnionType;
+use yxorP\app\lib\graphQL\Type\Introspection;
+use yxorP\app\lib\graphQL\Type\Schema;
 use function array_filter;
 use function array_keys;
 use function array_map;

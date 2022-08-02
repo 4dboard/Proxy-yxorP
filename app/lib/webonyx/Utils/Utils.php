@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Utils;
+namespace yxorP\app\lib\graphQL\Utils;
 
 use ErrorException;
 use Exception;
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\psr\graphQL\Error\Warning;
-use yxorP\app\lib\psr\graphQL\Language\AST\Node;
-use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
-use yxorP\app\lib\psr\graphQL\Type\Definition\WrappingType;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\graphQL\Error\Warning;
+use yxorP\app\lib\graphQL\Language\AST\Node;
+use yxorP\app\lib\graphQL\Type\Definition\Type;
+use yxorP\app\lib\graphQL\Type\Definition\WrappingType;
 use InvalidArgumentException;
 use LogicException;
 use stdClass;

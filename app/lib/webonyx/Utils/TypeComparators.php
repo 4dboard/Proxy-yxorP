@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Utils;
+namespace yxorP\app\lib\graphQL\Utils;
 
-use yxorP\app\lib\psr\graphQL\Type\Definition\AbstractType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\CompositeType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\ImplementingType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\ListOfType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\NonNull;
-use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
-use yxorP\app\lib\psr\graphQL\Type\Schema;
+use yxorP\app\lib\graphQL\Type\Definition\AbstractType;
+use yxorP\app\lib\graphQL\Type\Definition\CompositeType;
+use yxorP\app\lib\graphQL\Type\Definition\ImplementingType;
+use yxorP\app\lib\graphQL\Type\Definition\ListOfType;
+use yxorP\app\lib\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\graphQL\Type\Definition\Type;
+use yxorP\app\lib\graphQL\Type\Schema;
 
 class TypeComparators
 {

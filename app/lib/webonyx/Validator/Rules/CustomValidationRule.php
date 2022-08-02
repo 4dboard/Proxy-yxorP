@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
+namespace yxorP\app\lib\graphQL\Validator\Rules;
 
-use yxorP\app\lib\psr\graphQL\Error\Error;
-use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Validator\ValidationContext;
 
 class CustomValidationRule extends ValidationRule
 {

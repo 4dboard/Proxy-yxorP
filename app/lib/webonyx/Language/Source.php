@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Language;
+namespace yxorP\app\lib\graphQL\Language;
 
-use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\graphQL\Utils\Utils;
 use function is_string;
 use function json_decode;
 use function mb_strlen;

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\psr\graphQL\Type\Validation;
+namespace yxorP\app\lib\graphQL\Type\Validation;
 
-use yxorP\app\lib\psr\graphQL\Language\AST\InputValueDefinitionNode;
-use yxorP\app\lib\psr\graphQL\Type\Definition\InputObjectField;
-use yxorP\app\lib\psr\graphQL\Type\Definition\InputObjectType;
-use yxorP\app\lib\psr\graphQL\Type\Definition\NonNull;
-use yxorP\app\lib\psr\graphQL\Type\SchemaValidationContext;
+use yxorP\app\lib\graphQL\Language\AST\InputValueDefinitionNode;
+use yxorP\app\lib\graphQL\Type\Definition\InputObjectField;
+use yxorP\app\lib\graphQL\Type\Definition\InputObjectType;
+use yxorP\app\lib\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\graphQL\Type\SchemaValidationContext;
 use function array_map;
 use function array_pop;
 use function array_slice;
