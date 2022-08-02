@@ -21,7 +21,6 @@ use IteratorIterator;
 use MongoDB\Driver\Monitoring\CommandFailedEvent;
 use MongoDB\Driver\Monitoring\CommandStartedEvent;
 use MongoDB\Driver\Monitoring\CommandSubscriber;
-use MongoDB\Driver\Monitoring\CommandSucceededEvent;
 use ReturnTypeWillChange;
 use yxorP\app\lib\data\mongoDB\Exception\ResumeTokenException;
 use yxorP\app\lib\http\mongoDB\BSON\Serializable;
