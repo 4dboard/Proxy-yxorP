@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Log;
+namespace yxorP\app\lib\psr\log;
 
 /**
  * This is a simple Logger implementation that other Loggers can inherit from.
