@@ -5,7 +5,7 @@ namespace App\RestApi;
 use appAware;
 use function call_user_func;
 use function is_callable;
-use const yxorP\app\lib\lime\appAware;
+use const yxorP\app\lib\http\appAware;
 
 class query extends
 

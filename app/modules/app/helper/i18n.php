@@ -5,7 +5,7 @@ namespace App\Helper;
 
 use function array_merge;
 use function vsprintf;
-use const yxorP\app\lib\lime\helper;
+use const yxorP\app\lib\http\helper;
 
 /**
  * I18n class. Manage translations

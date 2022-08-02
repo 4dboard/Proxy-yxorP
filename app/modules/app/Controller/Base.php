@@ -6,7 +6,7 @@ use appAware;
 use function get_class;
 use function str_replace;
 use function strtolower;
-use const yxorP\app\lib\lime\appAware;
+use const yxorP\app\lib\http\appAware;
 
 /**
  * Class Controller

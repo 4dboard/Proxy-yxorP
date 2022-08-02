@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\lime;
+<?php namespace yxorP\app\lib\http;
 
 use ArrayAccess;
 use ArrayObject;
@@ -98,7 +98,7 @@ class App implements ArrayAccess
         $this->registry['base_url'] = rtrim($this->registry['base_url'], '/');
         $this->registry['base_route'] = rtrim($this->registry['base_route'], '/');
         self::$apps[$this['app.name']] = $this;
-        $this->helpers = new ArrayObject(array_merge(['cache' => '\yxorP\app\lib\lime\\Helper\\cache', 'fs' => '\yxorP\app\lib\lime\\Helper\\Filesystem', 'session' => '\yxorP\app\lib\lime\\Helper\\session', 'utils' => '\yxorP\app\lib\lime\\Helper\\utils'], $this->registry['helpers']));
+        $this->helpers = new ArrayObject(array_merge(['cache' => '\yxorP\app\lib\http\\Helper\\cache', 'fs' => '\yxorP\app\lib\http\\Helper\\Filesystem', 'session' => '\yxorP\app\lib\http\\Helper\\session', 'utils' => '\yxorP\app\lib\http\\Helper\\utils'], $this->registry['helpers']));
         spl_autoload_register(function ($class) use ($self) {
             foreach ($self->retrieve('autoload', []) as $dir) {
                 $class_file = $dir . '/' . str_replace('\\', '/', $class) . '.php';

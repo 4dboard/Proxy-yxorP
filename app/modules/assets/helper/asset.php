@@ -9,7 +9,7 @@ use function floor;
 use function preg_match;
 use function str_replace;
 use function strpos;
-use const yxorP\app\lib\lime\helper;
+use const yxorP\app\lib\http\helper;
 
 class Asset extends \
 

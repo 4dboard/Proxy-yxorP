@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\lime\helper;
+namespace yxorP\app\lib\http\helper;
 
 use RecursiveDirectoryIterator;
 use function call_user_func;

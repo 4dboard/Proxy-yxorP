@@ -4,7 +4,7 @@ namespace App\Command\Cache;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use yxorP\app\lib\lime\app;
+use yxorP\app\lib\http\app;
 
 class flush
 {

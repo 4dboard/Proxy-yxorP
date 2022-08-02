@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\lime;
+<?php namespace yxorP\app\lib\http;
 
 use function fpassthru;
 use function header;

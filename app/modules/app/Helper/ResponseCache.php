@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-use yxorP\app\lib\lime\appAware;
+use yxorP\app\lib\http\appAware;
 
 /**
  * @property mixed $response

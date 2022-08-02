@@ -1,7 +1,7 @@
 <?php
 
 // Register helpers
-use yxorP\app\lib\lime\request;
+use yxorP\app\lib\http\request;
 
 $this->helpers['admin'] = 'App\\Helper\\admin';
 $this->helpers['eventStream'] = 'App\\Helper\\eventStream';

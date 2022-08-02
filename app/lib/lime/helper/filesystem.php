@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\lime\helper;
+namespace yxorP\app\lib\http\helper;
 
 use DirectoryIterator;
 use Exception;

@@ -4,7 +4,7 @@ namespace App\Helper;
 
 use function pathinfo;
 use function strtolower;
-use const yxorP\app\lib\lime\helper;
+use const yxorP\app\lib\http\helper;
 
 class theme extends \
 

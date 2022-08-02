@@ -1,12 +1,12 @@
 <?php
 
-namespace yxorP\app\lib\lime\helper;
+namespace yxorP\app\lib\http\helper;
 
 use function preg_match;
 
 /**
  * Class Utils
- * @package \yxorP\app\lib\lime\helper
+ * @package \yxorP\app\lib\http\helper
  */
 class utils extends Helper
 {
