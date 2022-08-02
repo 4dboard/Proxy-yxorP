@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\modules\app\Controller;
+namespace yxorP\app\modules\app\controller;
 
 class dashboard extends app
 {

@@ -2,7 +2,7 @@
 
 namespace yxorP\app\modules\system\controller;
 
-use yxorP\app\modules\app\Controller\app;
+use yxorP\app\modules\app\controller\app;
 use Exception;
 use function preg_match;
 

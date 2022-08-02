@@ -2,7 +2,7 @@
 
 namespace yxorP\app\modules\assets\Controller;
 
-use yxorP\app\modules\app\Controller\app;
+use yxorP\app\modules\app\controller\app;
 use Exception;
 use function gd_info;
 use function is_countable;

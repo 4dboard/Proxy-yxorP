@@ -22,9 +22,7 @@ class create
 
     protected function configure(): void
     {
-        $this
-            ->setHelp('This command creates a new app space /.spaces folder')
-            ->addArgument('name', InputArgument::REQUIRED, 'What is the name of the new space?');
+        $this->setHelp('This command creates a new app space /.spaces folder')->addArgument('name', InputArgument::REQUIRED, 'What is the name of the new space?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

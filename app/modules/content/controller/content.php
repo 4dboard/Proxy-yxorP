@@ -2,7 +2,7 @@
 
 namespace Content\Controller;
 
-use yxorP\app\modules\app\Controller\app;
+use yxorP\app\modules\app\controller\app;
 
 class content extends app
 {
