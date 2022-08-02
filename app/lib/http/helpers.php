@@ -33,6 +33,7 @@ class helpers
         }
         return $headers;
     }
+
     public static function vid_player($url, string $width = '100%', string $height = '100%', bool|int $extension = 0): string
     {
         $html5 = 0;
