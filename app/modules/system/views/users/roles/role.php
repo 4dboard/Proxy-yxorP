@@ -38,7 +38,9 @@ foreach ($permissions as $key => $meta) if (isset($meta['component'])) $componen
 
                 <div class="kiss-margin">
                     <label><?= t('Info') ?></label>
-                    <textarea class="kiss-input kiss-textarea" style="height:150px;" v-model="role.info"></textarea>
+                    <label>
+                        <textarea class="kiss-input kiss-textarea" style="height:150px;" v-model="role.info"></textarea>
+                    </label>
                 </div>
 
                 <div class="kiss-margin kiss-margin-large-top kiss-size-4"><strong><?= t('Permissions') ?></strong>

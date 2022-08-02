@@ -28,7 +28,7 @@
 
 <article>
     <h2>Smarty mode</h2>
-    <form><textarea id="code" name="code">
+    <form><label for="code"></label><textarea id="code" name="code">
 {extends file="parent.tpl"}
 {include file="template.tpl"}
 
@@ -69,7 +69,7 @@
 
     <h3>Smarty 2, custom delimiters</h3>
 
-    <form><textarea id="code2" name="code2">
+    <form><label for="code2"></label><textarea id="code2" name="code2">
 {--extends file="parent.tpl"--}
 {--include file="template.tpl"--}
 
@@ -93,7 +93,7 @@
 
     <h3>Smarty 3</h3>
 
-    <textarea id="code3" name="code3">
+    <label for="code3"></label><textarea id="code3" name="code3">
 Nested tags {$foo={counter one=1 two={inception}}+3} are now valid in Smarty 3.
 
 <script>

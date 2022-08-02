@@ -30,7 +30,7 @@
 <article>
     <h2>C-like mode</h2>
 
-    <div><textarea id="c-code">
+    <div><label for="c-code"></label><textarea id="c-code">
 /* C demo code */
 
 #include <zmq.h>
@@ -100,7 +100,7 @@ void* zmq_thread_init(void* zmq_context, int signal_fd) {
 
     <h2>C++ example</h2>
 
-    <div><textarea id="cpp-code">
+    <div><label for="cpp-code"></label><textarea id="cpp-code">
 #include <iostream>
 #include "mystuff/util.h"
 
@@ -143,7 +143,7 @@ void Class::Method2(MyType<T, V>* value) {
 
     <h2>Objective-C example</h2>
 
-    <div><textarea id="objectivec-code">
+    <div><label for="objectivec-code"></label><textarea id="objectivec-code">
 /*
 This is a longer comment
 That spans two lines
@@ -183,7 +183,7 @@ NS_ENUM(SomeValues) {
 
     <h2>Java example</h2>
 
-    <div><textarea id="java-code">
+    <div><label for="java-code"></label><textarea id="java-code">
 import com.demo.util.MyType;
 import com.demo.util.MyInterface;
 
@@ -215,7 +215,7 @@ public class Class<T, V> implements MyInterface {
 
     <h2>Scala example</h2>
 
-    <div><textarea id="scala-code">
+    <div><label for="scala-code"></label><textarea id="scala-code">
 object FilterTest extends App {
   def filter(xs: List[Int], threshold: Int) = {
     def process(ys: List[Int]): List[Int] =
@@ -230,7 +230,7 @@ object FilterTest extends App {
 
     <h2>Kotlin mode</h2>
 
-    <div><textarea id="kotlin-code">
+    <div><label for="kotlin-code"></label><textarea id="kotlin-code">
 package org.wasabi.http
 
 import java.util.concurrent.Executors
@@ -282,7 +282,7 @@ public class HttpServer(private val appServer: AppServer) {
 
     <h2>Ceylon mode</h2>
 
-    <div><textarea id="ceylon-code">
+    <div><label for="ceylon-code"></label><textarea id="ceylon-code">
 "Produces the [[stream|Iterable]] that results from repeated
  application of the given [[function|next]] to the given
  [[first]] element of the stream, until the function first

@@ -102,7 +102,9 @@
 
                 <div class="kiss-margin">
                     <label><?= t('Info') ?></label>
-                    <textarea class="kiss-input kiss-textarea" style="height:100px;" v-model="model.info"></textarea>
+                    <label>
+                        <textarea class="kiss-input kiss-textarea" style="height:100px;" v-model="model.info"></textarea>
+                    </label>
                 </div>
 
                 <div class="kiss-margin kiss-margin-large-top">
