@@ -18,7 +18,7 @@ spl_autoload_register(function ($class) {
     if (file_exists($class_path)) include_once($class_path);
 });
 
-yxorPapp\lib/yP::autoLoader(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR);
+yxorPapp\lib / yP::autoLoader(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR);
 
 class App
 {
