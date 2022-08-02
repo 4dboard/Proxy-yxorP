@@ -12,7 +12,7 @@ if (strpos($SITE_DIR, $SITE_DOCUMENT_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'
 if (PHP_SAPI === 'cli-server') {
     $file = $_SERVER['SCRIPT_FILENAME'];
     $path = pathinfo($file);
-    $index = realpath($path['dirname'] . DIRECTORY_SEPARATOR.'index.php');
+    $index = realpath($path['dirname'] . DIRECTORY_SEPARATOR . 'index.php');
     $_SERVER['PATH_INFO'] = explode('?', $_SERVER['REQUEST_URI'] ?? '')[0];
     if (is_file($file) && $path['extension'] != 'php') return false;
     if (is_file($index) && $index != __FILE__) {
