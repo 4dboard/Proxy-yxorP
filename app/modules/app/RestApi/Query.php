@@ -64,7 +64,7 @@ class query extends appAware
 
         $params = [];
 
-        if ($path === $pattern)   return true;
+        if ($path === $pattern) return true;
 
         $regex = $this->getRegex($pattern);
 
