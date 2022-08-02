@@ -28,22 +28,6 @@ class VariablesInAllowedPosition extends ValidationRule
      */
     public $varDefMap;
 
-    /**
-     * A var type is allowed if it is the same or more strict than the expected
-     * type. It can be more strict if the variable type is non-null when the
-     * expected type is nullable. If both are list types, the variable item type can
-     * be more strict than the expected item type.
-     */
-    public static function badVarPosMessage($varName, $varType, $expectedType)
-    {
-        return sprintf(
-            'Variable "$%s" of type "%s" used in position expecting type "%s".',
-            $varName,
-            $varType,
-            $expectedType
-        );
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         return [
@@ -112,5 +96,21 @@ class VariablesInAllowedPosition extends ValidationRule
         }
 
         return TypeComparators::isTypeSubTypeOf($schema, $varType, $locationType);
+    }
+
+    /**
+     * A var type is allowed if it is the same or more strict than the expected
+     * type. It can be more strict if the variable type is non-null when the
+     * expected type is nullable. If both are list types, the variable item type can
+     * be more strict than the expected item type.
+     */
+    public static function badVarPosMessage($varName, $varType, $expectedType)
+    {
+        return sprintf(
+            'Variable "$%s" of type "%s" used in position expecting type "%s".',
+            $varName,
+            $varType,
+            $expectedType
+        );
     }
 }

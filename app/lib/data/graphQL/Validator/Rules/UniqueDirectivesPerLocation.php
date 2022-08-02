@@ -22,11 +22,6 @@ use function sprintf;
  */
 class UniqueDirectivesPerLocation extends ValidationRule
 {
-    public static function duplicateDirectiveMessage($directiveName)
-    {
-        return sprintf('The directive "%s" can only be used once at this location.', $directiveName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         return $this->getASTVisitor($context);
@@ -87,6 +82,11 @@ class UniqueDirectivesPerLocation extends ValidationRule
                 }
             },
         ];
+    }
+
+    public static function duplicateDirectiveMessage($directiveName)
+    {
+        return sprintf('The directive "%s" can only be used once at this location.', $directiveName);
     }
 
     public function getSDLVisitor(SDLValidationContext $context)

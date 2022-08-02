@@ -47,16 +47,6 @@ use function sprintf;
 
 class KnownDirectives extends ValidationRule
 {
-    public static function unknownDirectiveMessage($directiveName)
-    {
-        return sprintf('Unknown directive "%s".', $directiveName);
-    }
-
-    public static function misplacedDirectiveMessage($directiveName, $location)
-    {
-        return sprintf('Directive "%s" may not be used on "%s".', $directiveName, $location);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         return $this->getASTVisitor($context);
@@ -127,9 +117,9 @@ class KnownDirectives extends ValidationRule
         ];
     }
 
-    public function getSDLVisitor(SDLValidationContext $context)
+    public static function unknownDirectiveMessage($directiveName)
     {
-        return $this->getASTVisitor($context);
+        return sprintf('Unknown directive "%s".', $directiveName);
     }
 
     /**
@@ -195,5 +185,15 @@ class KnownDirectives extends ValidationRule
         }
 
         throw new Exception('Unknown directive location: ' . get_class($appliedTo));
+    }
+
+    public static function misplacedDirectiveMessage($directiveName, $location)
+    {
+        return sprintf('Directive "%s" may not be used on "%s".', $directiveName, $location);
+    }
+
+    public function getSDLVisitor(SDLValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
     }
 }

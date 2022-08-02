@@ -24,11 +24,6 @@ class UniqueInputFieldNames extends ValidationRule
     /** @var array<array<string, NameNode>> */
     public $knownNameStack;
 
-    public static function duplicateInputFieldMessage($fieldName)
-    {
-        return sprintf('There can be only one input field named "%s".', $fieldName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         return $this->getASTVisitor($context);
@@ -64,6 +59,11 @@ class UniqueInputFieldNames extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
+    }
+
+    public static function duplicateInputFieldMessage($fieldName)
+    {
+        return sprintf('There can be only one input field named "%s".', $fieldName);
     }
 
     public function getSDLVisitor(SDLValidationContext $context)

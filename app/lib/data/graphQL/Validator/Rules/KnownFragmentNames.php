@@ -12,14 +12,6 @@ use function sprintf;
 
 class KnownFragmentNames extends ValidationRule
 {
-    /**
-     * @param string $fragName
-     */
-    public static function unknownFragmentMessage($fragName)
-    {
-        return sprintf('Unknown fragment "%s".', $fragName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         return [
@@ -36,5 +28,13 @@ class KnownFragmentNames extends ValidationRule
                 ));
             },
         ];
+    }
+
+    /**
+     * @param string $fragName
+     */
+    public static function unknownFragmentMessage($fragName)
+    {
+        return sprintf('Unknown fragment "%s".', $fragName);
     }
 }

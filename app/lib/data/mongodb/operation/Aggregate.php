@@ -18,6 +18,8 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
+use stdClass;
+use Traversable;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -29,8 +31,6 @@ use yxorP\app\lib\http\mongoDB\Driver\WriteConcern;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
 use yxorP\app\lib\http\mongoDB\Exception\UnexpectedValueException;
 use yxorP\app\lib\http\mongoDB\Exception\UnsupportedException;
-use stdClass;
-use Traversable;
 use function current;
 use function is_array;
 use function is_bool;
@@ -306,18 +306,6 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
     }
 
     /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server)
-    {
-        return $this->createCommandDocument();
-    }
-
-    /**
      * Create the aggregate command document.
      *
      * @return array
@@ -399,5 +387,17 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
         }
 
         return $server->executeReadWriteCommand($this->databaseName, $command, $options);
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server)
+    {
+        return $this->createCommandDocument();
     }
 }

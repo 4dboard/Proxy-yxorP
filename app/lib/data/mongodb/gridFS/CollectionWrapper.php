@@ -18,14 +18,14 @@
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
 use ArrayIterator;
+use MultipleIterator;
+use stdClass;
 use yxorP\app\lib\http\mongoDB\collection;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Manager;
 use yxorP\app\lib\http\mongoDB\Driver\ReadPreference;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
 use yxorP\app\lib\http\mongoDB\updateResult;
-use MultipleIterator;
-use stdClass;
 use function abs;
 use function count;
 use function is_numeric;
@@ -258,37 +258,6 @@ class CollectionWrapper
     }
 
     /**
-     * Inserts a document into the files collection.
-     *
-     * The file document should be inserted after all chunks have been inserted.
-     *
-     * @param array|object $file File document
-     */
-    public function insertFile($file)
-    {
-        if (!$this->checkedIndexes) {
-            $this->ensureIndexes();
-        }
-
-        $this->filesCollection->insertOne($file);
-    }
-
-    /**
-     * Updates the filename field in the file document for a given ID.
-     *
-     * @param mixed $id
-     * @param string $filename
-     * @return updateResult
-     */
-    public function updateFilenameForId($id, $filename)
-    {
-        return $this->filesCollection->updateOne(
-            ['_id' => $id],
-            ['$set' => ['filename' => (string)$filename]]
-        );
-    }
-
-    /**
      * Ensure indexes on the files and chunks collections exist.
      *
      * This method is called once before the first write operation on a GridFS
@@ -384,5 +353,36 @@ class CollectionWrapper
         }
 
         $this->chunksCollection->createIndex($expectedIndex, ['unique' => true]);
+    }
+
+    /**
+     * Inserts a document into the files collection.
+     *
+     * The file document should be inserted after all chunks have been inserted.
+     *
+     * @param array|object $file File document
+     */
+    public function insertFile($file)
+    {
+        if (!$this->checkedIndexes) {
+            $this->ensureIndexes();
+        }
+
+        $this->filesCollection->insertOne($file);
+    }
+
+    /**
+     * Updates the filename field in the file document for a given ID.
+     *
+     * @param mixed $id
+     * @param string $filename
+     * @return updateResult
+     */
+    public function updateFilenameForId($id, $filename)
+    {
+        return $this->filesCollection->updateOne(
+            ['_id' => $id],
+            ['$set' => ['filename' => (string)$filename]]
+        );
     }
 }

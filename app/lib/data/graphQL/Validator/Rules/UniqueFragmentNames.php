@@ -18,11 +18,6 @@ class UniqueFragmentNames extends ValidationRule
     /** @var NameNode[] */
     public $knownFragmentNames;
 
-    public static function duplicateFragmentNameMessage($fragName)
-    {
-        return sprintf('There can be only one fragment named "%s".', $fragName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $this->knownFragmentNames = [];
@@ -45,5 +40,10 @@ class UniqueFragmentNames extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
+    }
+
+    public static function duplicateFragmentNameMessage($fragName)
+    {
+        return sprintf('There can be only one fragment named "%s".', $fragName);
     }
 }

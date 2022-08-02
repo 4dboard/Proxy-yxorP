@@ -511,18 +511,6 @@ class Printer
         return $maybeString ? '  ' . str_replace("\n", "\n  ", $maybeString) : '';
     }
 
-    public function addDescription(callable $cb)
-    {
-        return function ($node) use ($cb): string {
-            return $this->join([$node->description, $cb($node)], "\n");
-        };
-    }
-
-    public function manyList($start, $list, $separator, $end)
-    {
-        return $this->length($list) === 0 ? null : ($start . $this->join($list, $separator) . $end);
-    }
-
     /**
      * Print a block string in the indented block form by adding a leading and
      * trailing blank line. However, if a block string starts with whitespace and is
@@ -535,5 +523,17 @@ class Printer
         return ($value[0] === ' ' || $value[0] === "\t") && strpos($value, "\n") === false
             ? ('"""' . preg_replace('/"$/', "\"\n", $escaped) . '"""')
             : ('"""' . "\n" . ($isDescription ? $escaped : $this->indent($escaped)) . "\n" . '"""');
+    }
+
+    public function addDescription(callable $cb)
+    {
+        return function ($node) use ($cb): string {
+            return $this->join([$node->description, $cb($node)], "\n");
+        };
+    }
+
+    public function manyList($start, $list, $separator, $end)
+    {
+        return $this->length($list) === 0 ? null : ($start . $this->join($list, $separator) . $end);
     }
 }

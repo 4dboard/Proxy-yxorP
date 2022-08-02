@@ -29,19 +29,6 @@ use function sprintf;
  */
 class KnownArgumentNamesOnDirectives extends ValidationRule
 {
-    /**
-     * @param string[] $suggestedArgs
-     */
-    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs)
-    {
-        $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
-        if (isset($suggestedArgs[0])) {
-            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
-        }
-
-        return $message;
-    }
-
     public function getSDLVisitor(SDLValidationContext $context)
     {
         return $this->getASTVisitor($context);
@@ -106,6 +93,19 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
+    }
+
+    /**
+     * @param string[] $suggestedArgs
+     */
+    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs)
+    {
+        $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
+        if (isset($suggestedArgs[0])) {
+            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
+        }
+
+        return $message;
     }
 
     public function getVisitor(ValidationContext $context)

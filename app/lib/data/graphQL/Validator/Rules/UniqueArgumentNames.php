@@ -20,11 +20,6 @@ class UniqueArgumentNames extends ValidationRule
     /** @var NameNode[] */
     public $knownArgNames;
 
-    public static function duplicateArgMessage($argName)
-    {
-        return sprintf('There can be only one argument named "%s".', $argName);
-    }
-
     public function getSDLVisitor(SDLValidationContext $context)
     {
         return $this->getASTVisitor($context);
@@ -55,6 +50,11 @@ class UniqueArgumentNames extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
+    }
+
+    public static function duplicateArgMessage($argName)
+    {
+        return sprintf('There can be only one argument named "%s".', $argName);
     }
 
     public function getVisitor(ValidationContext $context)

@@ -29,18 +29,6 @@ class NoFragmentCycles extends ValidationRule
     /** @var (int|null)[] */
     public $spreadPathIndexByName;
 
-    /**
-     * @param string[] $spreadNames
-     */
-    public static function cycleErrorMessage($fragName, array $spreadNames = [])
-    {
-        return sprintf(
-            'Cannot spread fragment "%s" within itself%s.',
-            $fragName,
-            count($spreadNames) > 0 ? ' via ' . implode(', ', $spreadNames) : ''
-        );
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         // Tracks already visited fragments to maintain O(N) and to ensure that cycles
@@ -108,5 +96,17 @@ class NoFragmentCycles extends ValidationRule
         }
 
         $this->spreadPathIndexByName[$fragmentName] = null;
+    }
+
+    /**
+     * @param string[] $spreadNames
+     */
+    public static function cycleErrorMessage($fragName, array $spreadNames = [])
+    {
+        return sprintf(
+            'Cannot spread fragment "%s" within itself%s.',
+            $fragName,
+            count($spreadNames) > 0 ? ' via ' . implode(', ', $spreadNames) : ''
+        );
     }
 }

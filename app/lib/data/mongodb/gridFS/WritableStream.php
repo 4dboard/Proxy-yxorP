@@ -17,12 +17,12 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
+use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\Binary;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
 use yxorP\app\lib\http\mongoDB\BSON\UTCDateTime;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
-use stdClass;
 use function array_intersect_key;
 use function hash_final;
 use function hash_init;

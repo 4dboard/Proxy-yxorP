@@ -16,11 +16,6 @@ class UniqueVariableNames extends ValidationRule
     /** @var NameNode[] */
     public $knownVariableNames;
 
-    public static function duplicateVariableMessage($variableName)
-    {
-        return sprintf('There can be only one variable named "%s".', $variableName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $this->knownVariableNames = [];
@@ -41,5 +36,10 @@ class UniqueVariableNames extends ValidationRule
                 }
             },
         ];
+    }
+
+    public static function duplicateVariableMessage($variableName)
+    {
+        return sprintf('There can be only one variable named "%s".', $variableName);
     }
 }

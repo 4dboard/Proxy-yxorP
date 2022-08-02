@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator;
 
+use SplObjectStorage;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
@@ -21,7 +22,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
 use yxorP\app\lib\data\graphQL\Type\Definition\OutputType;
 use yxorP\app\lib\data\graphQL\Type\Schema;
 use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
-use SplObjectStorage;
 use function array_merge;
 use function array_pop;
 use function assert;
@@ -79,6 +79,44 @@ class ValidationContext extends ASTValidationContext
             }
             $usages = array_merge(...$allUsages);
             $this->recursiveVariableUsages[$operation] = $usages;
+        }
+
+        return $usages;
+    }
+
+    /**
+     * @return mixed[][] List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     */
+    private function getVariableUsages(HasSelectionSetInterface $node)
+    {
+        $usages = $this->variableUsages[$node] ?? null;
+
+        if ($usages === null) {
+            $newUsages = [];
+            $typeInfo = new TypeInfo($this->schema);
+            Visitor::visit(
+                $node,
+                Visitor::visitWithTypeInfo(
+                    $typeInfo,
+                    [
+                        NodeKind::VARIABLE_DEFINITION => static function (): bool {
+                            return false;
+                        },
+                        NodeKind::VARIABLE => static function (VariableNode $variable) use (
+                            &$newUsages,
+                            $typeInfo
+                        ): void {
+                            $newUsages[] = [
+                                'node' => $variable,
+                                'type' => $typeInfo->getInputType(),
+                                'defaultValue' => $typeInfo->getDefaultValue(),
+                            ];
+                        },
+                    ]
+                )
+            );
+            $usages = $newUsages;
+            $this->variableUsages[$node] = $usages;
         }
 
         return $usages;
@@ -222,43 +260,5 @@ class ValidationContext extends ASTValidationContext
     public function getArgument()
     {
         return $this->typeInfo->getArgument();
-    }
-
-    /**
-     * @return mixed[][] List of ['node' => VariableNode, 'type' => ?InputObjectType]
-     */
-    private function getVariableUsages(HasSelectionSetInterface $node)
-    {
-        $usages = $this->variableUsages[$node] ?? null;
-
-        if ($usages === null) {
-            $newUsages = [];
-            $typeInfo = new TypeInfo($this->schema);
-            Visitor::visit(
-                $node,
-                Visitor::visitWithTypeInfo(
-                    $typeInfo,
-                    [
-                        NodeKind::VARIABLE_DEFINITION => static function (): bool {
-                            return false;
-                        },
-                        NodeKind::VARIABLE => static function (VariableNode $variable) use (
-                            &$newUsages,
-                            $typeInfo
-                        ): void {
-                            $newUsages[] = [
-                                'node' => $variable,
-                                'type' => $typeInfo->getInputType(),
-                                'defaultValue' => $typeInfo->getDefaultValue(),
-                            ];
-                        },
-                    ]
-                )
-            );
-            $usages = $newUsages;
-            $this->variableUsages[$node] = $usages;
-        }
-
-        return $usages;
     }
 }

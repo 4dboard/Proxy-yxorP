@@ -16,13 +16,6 @@ class NoUnusedVariables extends ValidationRule
     /** @var VariableDefinitionNode[] */
     public $variableDefs;
 
-    public static function unusedVariableMessage($varName, $opName = null)
-    {
-        return $opName
-            ? sprintf('Variable "$%s" is never used in operation "%s".', $varName, $opName)
-            : sprintf('Variable "$%s" is never used.', $varName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $this->variableDefs = [];
@@ -62,5 +55,12 @@ class NoUnusedVariables extends ValidationRule
                 $this->variableDefs[] = $def;
             },
         ];
+    }
+
+    public static function unusedVariableMessage($varName, $opName = null)
+    {
+        return $opName
+            ? sprintf('Variable "$%s" is never used in operation "%s".', $varName, $opName)
+            : sprintf('Variable "$%s" is never used.', $varName);
     }
 }

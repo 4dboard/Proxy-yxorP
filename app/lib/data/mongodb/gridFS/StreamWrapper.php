@@ -17,8 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
-use yxorP\app\lib\http\mongoDB\BSON\UTCDateTime;
 use stdClass;
+use yxorP\app\lib\http\mongoDB\BSON\UTCDateTime;
 use function explode;
 use function in_array;
 use function is_integer;
@@ -140,6 +140,55 @@ class StreamWrapper
     }
 
     /**
+     * Initialize the protocol from the given path.
+     *
+     * @param string $path
+     * @see StreamWrapper::stream_open()
+     */
+    private function initProtocol($path)
+    {
+        $parts = explode('://', $path, 2);
+        $this->protocol = $parts[0] ?: 'gridfs';
+    }
+
+    /**
+     * Initialize the internal stream for reading.
+     *
+     * @return boolean
+     * @see StreamWrapper::stream_open()
+     */
+    private function initReadableStream()
+    {
+        $context = stream_context_get_options($this->context);
+
+        $this->stream = new ReadableStream(
+            $context[$this->protocol]['collectionWrapper'],
+            $context[$this->protocol]['file']
+        );
+
+        return true;
+    }
+
+    /**
+     * Initialize the internal stream for writing.
+     *
+     * @return boolean
+     * @see StreamWrapper::stream_open()
+     */
+    private function initWritableStream()
+    {
+        $context = stream_context_get_options($this->context);
+
+        $this->stream = new WritableStream(
+            $context[$this->protocol]['collectionWrapper'],
+            $context[$this->protocol]['filename'],
+            $context[$this->protocol]['options']
+        );
+
+        return true;
+    }
+
+    /**
      * Read bytes from the stream.
      *
      * Note: this method may return a string smaller than the requested length
@@ -223,6 +272,32 @@ class StreamWrapper
     }
 
     /**
+     * Returns a stat template with default values.
+     *
+     * @return array
+     */
+    private function getStatTemplate()
+    {
+        return [
+            // phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
+            0 => 0, 'dev' => 0,
+            1 => 0, 'ino' => 0,
+            2 => 0, 'mode' => 0,
+            3 => 0, 'nlink' => 0,
+            4 => 0, 'uid' => 0,
+            5 => 0, 'gid' => 0,
+            6 => -1, 'rdev' => -1,
+            7 => 0, 'size' => 0,
+            8 => 0, 'atime' => 0,
+            9 => 0, 'mtime' => 0,
+            10 => 0, 'ctime' => 0,
+            11 => -1, 'blksize' => -1,
+            12 => -1, 'blocks' => -1,
+            // phpcs:enable
+        ];
+    }
+
+    /**
      * Return the current position of the stream.
      *
      * @see http://php.net/manual/en/streamwrapper.stream-tell.php
@@ -247,80 +322,5 @@ class StreamWrapper
         }
 
         return $this->stream->writeBytes($data);
-    }
-
-    /**
-     * Initialize the protocol from the given path.
-     *
-     * @param string $path
-     * @see StreamWrapper::stream_open()
-     */
-    private function initProtocol($path)
-    {
-        $parts = explode('://', $path, 2);
-        $this->protocol = $parts[0] ?: 'gridfs';
-    }
-
-    /**
-     * Initialize the internal stream for reading.
-     *
-     * @return boolean
-     * @see StreamWrapper::stream_open()
-     */
-    private function initReadableStream()
-    {
-        $context = stream_context_get_options($this->context);
-
-        $this->stream = new ReadableStream(
-            $context[$this->protocol]['collectionWrapper'],
-            $context[$this->protocol]['file']
-        );
-
-        return true;
-    }
-
-    /**
-     * Initialize the internal stream for writing.
-     *
-     * @return boolean
-     * @see StreamWrapper::stream_open()
-     */
-    private function initWritableStream()
-    {
-        $context = stream_context_get_options($this->context);
-
-        $this->stream = new WritableStream(
-            $context[$this->protocol]['collectionWrapper'],
-            $context[$this->protocol]['filename'],
-            $context[$this->protocol]['options']
-        );
-
-        return true;
-    }
-
-    /**
-     * Returns a stat template with default values.
-     *
-     * @return array
-     */
-    private function getStatTemplate()
-    {
-        return [
-            // phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
-            0 => 0, 'dev' => 0,
-            1 => 0, 'ino' => 0,
-            2 => 0, 'mode' => 0,
-            3 => 0, 'nlink' => 0,
-            4 => 0, 'uid' => 0,
-            5 => 0, 'gid' => 0,
-            6 => -1, 'rdev' => -1,
-            7 => 0, 'size' => 0,
-            8 => 0, 'atime' => 0,
-            9 => 0, 'mtime' => 0,
-            10 => 0, 'ctime' => 0,
-            11 => -1, 'blksize' => -1,
-            12 => -1, 'blocks' => -1,
-            // phpcs:enable
-        ];
     }
 }

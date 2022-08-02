@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
+use stdClass;
 use yxorP\app\lib\http\mongoDB\collection;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -32,7 +33,6 @@ use yxorP\app\lib\http\mongoDB\GridFS\Exception\StreamException;
 use yxorP\app\lib\http\mongoDB\Model\BSONArray;
 use yxorP\app\lib\http\mongoDB\Model\BSONDocument;
 use yxorP\app\lib\http\mongoDB\Operation\Find;
-use stdClass;
 use function array_intersect_key;
 use function fopen;
 use function get_resource_type;

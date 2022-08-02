@@ -21,36 +21,6 @@ use function sprintf;
 
 class FieldsOnCorrectType extends ValidationRule
 {
-    /**
-     * @param string $fieldName
-     * @param string $type
-     * @param string[] $suggestedTypeNames
-     * @param string[] $suggestedFieldNames
-     *
-     * @return string
-     */
-    public static function undefinedFieldMessage(
-        $fieldName,
-        $type,
-        array $suggestedTypeNames,
-        array $suggestedFieldNames
-    )
-    {
-        $message = sprintf('Cannot query field "%s" on type "%s".', $fieldName, $type);
-
-        if ($suggestedTypeNames) {
-            $suggestions = Utils::quotedOrList($suggestedTypeNames);
-
-            $message .= sprintf(' Did you mean to use an inline fragment on %s?', $suggestions);
-        } elseif (count($suggestedFieldNames) > 0) {
-            $suggestions = Utils::quotedOrList($suggestedFieldNames);
-
-            $message .= sprintf(' Did you mean %s?', $suggestions);
-        }
-
-        return $message;
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         return [
@@ -163,5 +133,35 @@ class FieldsOnCorrectType extends ValidationRule
 
         // Otherwise, must be a Union type, which does not define fields.
         return [];
+    }
+
+    /**
+     * @param string $fieldName
+     * @param string $type
+     * @param string[] $suggestedTypeNames
+     * @param string[] $suggestedFieldNames
+     *
+     * @return string
+     */
+    public static function undefinedFieldMessage(
+        $fieldName,
+        $type,
+        array $suggestedTypeNames,
+        array $suggestedFieldNames
+    )
+    {
+        $message = sprintf('Cannot query field "%s" on type "%s".', $fieldName, $type);
+
+        if ($suggestedTypeNames) {
+            $suggestions = Utils::quotedOrList($suggestedTypeNames);
+
+            $message .= sprintf(' Did you mean to use an inline fragment on %s?', $suggestions);
+        } elseif (count($suggestedFieldNames) > 0) {
+            $suggestions = Utils::quotedOrList($suggestedFieldNames);
+
+            $message .= sprintf(' Did you mean %s?', $suggestions);
+        }
+
+        return $message;
     }
 }

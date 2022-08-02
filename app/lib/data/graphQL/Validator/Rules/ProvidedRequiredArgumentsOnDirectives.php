@@ -28,12 +28,6 @@ use function array_filter;
  */
 class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
 {
-    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type)
-    {
-        return 'Directive "@' . $directiveName . '" argument "' . $argName
-            . '" of type "' . $type . '" is required but not provided.';
-    }
-
     public function getSDLVisitor(SDLValidationContext $context)
     {
         return $this->getASTVisitor($context);
@@ -119,6 +113,12 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
                 },
             ],
         ];
+    }
+
+    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type)
+    {
+        return 'Directive "@' . $directiveName . '" argument "' . $argName
+            . '" of type "' . $type . '" is required but not provided.';
     }
 
     public function getVisitor(ValidationContext $context)

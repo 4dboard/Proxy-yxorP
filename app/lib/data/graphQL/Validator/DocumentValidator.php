@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Validator;
 
 use Exception;
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\Visitor;
@@ -45,7 +46,6 @@ use yxorP\app\lib\data\graphQL\Validator\Rules\ValidationRule;
 use yxorP\app\lib\data\graphQL\Validator\Rules\ValuesOfCorrectType;
 use yxorP\app\lib\data\graphQL\Validator\Rules\VariablesAreInputTypes;
 use yxorP\app\lib\data\graphQL\Validator\Rules\VariablesInAllowedPosition;
-use Throwable;
 use function array_filter;
 use function array_merge;
 use function count;
@@ -340,14 +340,6 @@ class DocumentValidator
         return self::$sdlRules;
     }
 
-    public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
-    {
-        $errors = self::validateSDL($documentAST, $schema);
-        if (count($errors) > 0) {
-            throw new Error(self::combineErrorMessages($errors));
-        }
-    }
-
     /**
      * @param Error[] $errors
      */
@@ -359,5 +351,13 @@ class DocumentValidator
         }
 
         return $str;
+    }
+
+    public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
+    {
+        $errors = self::validateSDL($documentAST, $schema);
+        if (count($errors) > 0) {
+            throw new Error(self::combineErrorMessages($errors));
+        }
     }
 }

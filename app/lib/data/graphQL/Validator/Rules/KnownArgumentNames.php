@@ -21,19 +21,6 @@ use function sprintf;
  */
 class KnownArgumentNames extends ValidationRule
 {
-    /**
-     * @param string[] $suggestedArgs
-     */
-    public static function unknownArgMessage($argName, $fieldName, $typeName, array $suggestedArgs)
-    {
-        $message = sprintf('Unknown argument "%s" on field "%s" of type "%s".', $argName, $fieldName, $typeName);
-        if (isset($suggestedArgs[0])) {
-            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
-        }
-
-        return $message;
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $knownArgumentNamesOnDirectives = new KnownArgumentNamesOnDirectives();
@@ -72,5 +59,18 @@ class KnownArgumentNames extends ValidationRule
                     return;
                 },
             ];
+    }
+
+    /**
+     * @param string[] $suggestedArgs
+     */
+    public static function unknownArgMessage($argName, $fieldName, $typeName, array $suggestedArgs)
+    {
+        $message = sprintf('Unknown argument "%s" on field "%s" of type "%s".', $argName, $fieldName, $typeName);
+        if (isset($suggestedArgs[0])) {
+            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
+        }
+
+        return $message;
     }
 }

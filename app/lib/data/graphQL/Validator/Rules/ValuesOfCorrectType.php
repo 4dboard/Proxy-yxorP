@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\EnumValueNode;
@@ -30,7 +31,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
 use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
-use Throwable;
 use function array_combine;
 use function array_keys;
 use function array_map;
@@ -46,41 +46,6 @@ use function sprintf;
  */
 class ValuesOfCorrectType extends ValidationRule
 {
-    public static function badArgumentValueMessage($typeName, $valueName, $fieldName, $argName, $message = null)
-    {
-        return sprintf('Field "%s" argument "%s" requires type %s, found %s', $fieldName, $argName, $typeName, $valueName) .
-            ($message ? sprintf('; %s', $message) : '.');
-    }
-
-    public static function badValueMessage($typeName, $valueName, $message = null)
-    {
-        return sprintf('Expected type %s, found %s', $typeName, $valueName) .
-            ($message ? "; ${message}" : '.');
-    }
-
-    public static function requiredFieldMessage($typeName, $fieldName, $fieldTypeName)
-    {
-        return sprintf('Field %s.%s of required type %s was not provided.', $typeName, $fieldName, $fieldTypeName);
-    }
-
-    public static function unknownFieldMessage($typeName, $fieldName, $message = null)
-    {
-        return sprintf('Field "%s" is not defined by type %s', $fieldName, $typeName) .
-            ($message ? sprintf('; %s', $message) : '.');
-    }
-
-    private static function getBadValueMessage($typeName, $valueName, $message = null, $context = null, $fieldName = null)
-    {
-        if ($context) {
-            $arg = $context->getArgument();
-            if ($arg) {
-                return self::badArgumentValueMessage($typeName, $valueName, $fieldName, $arg->name, $message);
-            }
-        }
-
-        return self::badValueMessage($typeName, $valueName, $message);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $fieldName = '';
@@ -211,6 +176,30 @@ class ValuesOfCorrectType extends ValidationRule
         ];
     }
 
+    private static function getBadValueMessage($typeName, $valueName, $message = null, $context = null, $fieldName = null)
+    {
+        if ($context) {
+            $arg = $context->getArgument();
+            if ($arg) {
+                return self::badArgumentValueMessage($typeName, $valueName, $fieldName, $arg->name, $message);
+            }
+        }
+
+        return self::badValueMessage($typeName, $valueName, $message);
+    }
+
+    public static function badArgumentValueMessage($typeName, $valueName, $fieldName, $argName, $message = null)
+    {
+        return sprintf('Field "%s" argument "%s" requires type %s, found %s', $fieldName, $argName, $typeName, $valueName) .
+            ($message ? sprintf('; %s', $message) : '.');
+    }
+
+    public static function badValueMessage($typeName, $valueName, $message = null)
+    {
+        return sprintf('Expected type %s, found %s', $typeName, $valueName) .
+            ($message ? "; ${message}" : '.');
+    }
+
     /**
      * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $node
      */
@@ -286,5 +275,16 @@ class ValuesOfCorrectType extends ValidationRule
 
             return $suggestions ? 'Did you mean the enum value ' . Utils::orList($suggestions) . '?' : null;
         }
+    }
+
+    public static function requiredFieldMessage($typeName, $fieldName, $fieldTypeName)
+    {
+        return sprintf('Field %s.%s of required type %s was not provided.', $typeName, $fieldName, $fieldTypeName);
+    }
+
+    public static function unknownFieldMessage($typeName, $fieldName, $message = null)
+    {
+        return sprintf('Field "%s" is not defined by type %s', $fieldName, $typeName) .
+            ($message ? sprintf('; %s', $message) : '.');
     }
 }

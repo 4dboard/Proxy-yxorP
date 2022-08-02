@@ -16,16 +16,6 @@ use yxorP\app\lib\data\graphQL\Validator\SDLValidationContext;
  */
 class LoneSchemaDefinition extends ValidationRule
 {
-    public static function canNotDefineSchemaWithinExtensionMessage()
-    {
-        return 'Cannot define a new schema within a schema extension.';
-    }
-
-    public static function schemaDefinitionNotAloneMessage()
-    {
-        return 'Must provide only one schema definition.';
-    }
-
     public function getSDLVisitor(SDLValidationContext $context)
     {
         $oldSchema = $context->getSchema();
@@ -55,5 +45,15 @@ class LoneSchemaDefinition extends ValidationRule
                 ++$schemaDefinitionsCount;
             },
         ];
+    }
+
+    public static function canNotDefineSchemaWithinExtensionMessage()
+    {
+        return 'Cannot define a new schema within a schema extension.';
+    }
+
+    public static function schemaDefinitionNotAloneMessage()
+    {
+        return 'Must provide only one schema definition.';
     }
 }

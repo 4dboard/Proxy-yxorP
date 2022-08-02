@@ -21,11 +21,6 @@ class NoUnusedFragments extends ValidationRule
     /** @var FragmentDefinitionNode[] */
     public $fragmentDefs;
 
-    public static function unusedFragMessage($fragName)
-    {
-        return sprintf('Fragment "%s" is never used.', $fragName);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $this->operationDefs = [];
@@ -66,5 +61,10 @@ class NoUnusedFragments extends ValidationRule
                 },
             ],
         ];
+    }
+
+    public static function unusedFragMessage($fragName)
+    {
+        return sprintf('Fragment "%s" is never used.', $fragName);
     }
 }

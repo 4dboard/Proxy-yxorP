@@ -50,11 +50,6 @@ class QueryComplexity extends QuerySecurityRule
         $this->setMaxQueryComplexity($maxQueryComplexity);
     }
 
-    public static function maxQueryComplexityErrorMessage($max, $count)
-    {
-        return sprintf('Max query complexity should be %d but got %d.', $max, $count);
-    }
-
     public function getVisitor(ValidationContext $context)
     {
         $this->context = $context;
@@ -104,44 +99,6 @@ class QueryComplexity extends QuerySecurityRule
                 ],
             ]
         );
-    }
-
-    public function getRawVariableValues()
-    {
-        return $this->rawVariableValues;
-    }
-
-    /**
-     * @param mixed[]|null $rawVariableValues
-     */
-    public function setRawVariableValues(?array $rawVariableValues = null)
-    {
-        $this->rawVariableValues = $rawVariableValues ?? [];
-    }
-
-    public function getQueryComplexity()
-    {
-        return $this->complexity;
-    }
-
-    public function getMaxQueryComplexity()
-    {
-        return $this->maxQueryComplexity;
-    }
-
-    /**
-     * Set max query complexity. If equal to 0 no check is done. Must be greater or equal to 0.
-     */
-    public function setMaxQueryComplexity($maxQueryComplexity)
-    {
-        $this->checkIfGreaterOrEqualToZero('maxQueryComplexity', $maxQueryComplexity);
-
-        $this->maxQueryComplexity = (int)$maxQueryComplexity;
-    }
-
-    protected function isEnabled()
-    {
-        return $this->getMaxQueryComplexity() !== self::DISABLED;
     }
 
     private function fieldComplexity($node, $complexity = 0)
@@ -265,6 +222,19 @@ class QueryComplexity extends QuerySecurityRule
         return false;
     }
 
+    public function getRawVariableValues()
+    {
+        return $this->rawVariableValues;
+    }
+
+    /**
+     * @param mixed[]|null $rawVariableValues
+     */
+    public function setRawVariableValues(?array $rawVariableValues = null)
+    {
+        $this->rawVariableValues = $rawVariableValues ?? [];
+    }
+
     private function buildFieldArguments(FieldNode $node)
     {
         $rawVariableValues = $this->getRawVariableValues();
@@ -296,5 +266,35 @@ class QueryComplexity extends QuerySecurityRule
         }
 
         return $args;
+    }
+
+    public function getQueryComplexity()
+    {
+        return $this->complexity;
+    }
+
+    public function getMaxQueryComplexity()
+    {
+        return $this->maxQueryComplexity;
+    }
+
+    /**
+     * Set max query complexity. If equal to 0 no check is done. Must be greater or equal to 0.
+     */
+    public function setMaxQueryComplexity($maxQueryComplexity)
+    {
+        $this->checkIfGreaterOrEqualToZero('maxQueryComplexity', $maxQueryComplexity);
+
+        $this->maxQueryComplexity = (int)$maxQueryComplexity;
+    }
+
+    public static function maxQueryComplexityErrorMessage($max, $count)
+    {
+        return sprintf('Max query complexity should be %d but got %d.', $max, $count);
+    }
+
+    protected function isEnabled()
+    {
+        return $this->getMaxQueryComplexity() !== self::DISABLED;
     }
 }

@@ -6,12 +6,12 @@ namespace yxorP\app\lib\data\graphQL\Language;
 
 use ArrayObject;
 use Exception;
+use SplFixedArray;
+use stdClass;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeList;
 use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
-use SplFixedArray;
-use stdClass;
 use function array_pop;
 use function count;
 use function func_get_args;

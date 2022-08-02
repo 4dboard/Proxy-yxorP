@@ -195,41 +195,6 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
     }
 
     /**
-     * @see https://php.net/iteratoriterator.current
-     * @return mixed
-     */
-    #[ReturnTypeWillChange]
-    public function current()
-    {
-        return $this->isValid ? parent::current() : null;
-    }
-
-    /**
-     * @see https://php.net/iteratoriterator.rewind
-     * @return void
-     */
-    #[ReturnTypeWillChange]
-    public function rewind()
-    {
-        if ($this->isRewindNop) {
-            return;
-        }
-
-        parent::rewind();
-        $this->onIteration(false);
-    }
-
-    /**
-     * @see https://php.net/iteratoriterator.valid
-     * @return boolean
-     */
-    #[ReturnTypeWillChange]
-    public function valid()
-    {
-        return $this->isValid;
-    }
-
-    /**
      * Return whether the iterator is positioned at the end of the batch.
      *
      * @return boolean
@@ -308,5 +273,40 @@ class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
         }
 
         return $resumeToken;
+    }
+
+    /**
+     * @see https://php.net/iteratoriterator.current
+     * @return mixed
+     */
+    #[ReturnTypeWillChange]
+    public function current()
+    {
+        return $this->isValid ? parent::current() : null;
+    }
+
+    /**
+     * @see https://php.net/iteratoriterator.rewind
+     * @return void
+     */
+    #[ReturnTypeWillChange]
+    public function rewind()
+    {
+        if ($this->isRewindNop) {
+            return;
+        }
+
+        parent::rewind();
+        $this->onIteration(false);
+    }
+
+    /**
+     * @see https://php.net/iteratoriterator.valid
+     * @return boolean
+     */
+    #[ReturnTypeWillChange]
+    public function valid()
+    {
+        return $this->isValid;
     }
 }

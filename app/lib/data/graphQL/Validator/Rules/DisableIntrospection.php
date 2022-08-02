@@ -21,11 +21,6 @@ class DisableIntrospection extends QuerySecurityRule
         $this->setEnabled($enabled);
     }
 
-    public static function introspectionDisabledMessage()
-    {
-        return 'GraphQL introspection is not allowed, but the query contained __schema or __type';
-    }
-
     public function setEnabled($enabled)
     {
         $this->isEnabled = $enabled;
@@ -48,6 +43,11 @@ class DisableIntrospection extends QuerySecurityRule
                 },
             ]
         );
+    }
+
+    public static function introspectionDisabledMessage()
+    {
+        return 'GraphQL introspection is not allowed, but the query contained __schema or __type';
     }
 
     protected function isEnabled()
