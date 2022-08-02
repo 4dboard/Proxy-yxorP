@@ -57,7 +57,7 @@ class App
             return $client;
         });
         $app->service('memory', function () use ($config) {
-            $client = new yxorP\app\lib\http\memoryStorage\client($config['memory']['server'], array_merge(['key' => $config['sec-key']], $config['memory']['options']));
+            $client = new yxorP\app\lib\http\memoryStorage($config['memory']['server'], array_merge(['key' => $config['sec-key']], $config['memory']['options']));
             return $client;
         });
         $app->service('mailer', function () use ($app, $config) {
