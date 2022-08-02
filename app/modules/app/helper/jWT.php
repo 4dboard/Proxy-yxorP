@@ -7,7 +7,8 @@ use yxorP\app\lib\data\firebase\jWT as JWTLIB;
 use yxorP\app\lib\data\firebase\key;
 use const yxorP\app\lib\http\helper;
 
-class jWT extends    helper{
+class jWT extends helper
+{
 
 
     /**

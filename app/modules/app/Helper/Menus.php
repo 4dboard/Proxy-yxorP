@@ -6,7 +6,8 @@ use helper;
 use SplPriorityQueue;
 use const yxorP\app\lib\http\helper;
 
-class menus extends    helper{
+class menus extends helper
+{
 
     protected
     array $menus = [];

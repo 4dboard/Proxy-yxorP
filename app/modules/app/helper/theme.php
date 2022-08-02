@@ -7,7 +7,8 @@ use function pathinfo;
 use function strtolower;
 use const yxorP\app\lib\http\helper;
 
-class theme extends    helper{
+class theme extends helper
+{
 
     protected
     array $vars;

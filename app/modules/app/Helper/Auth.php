@@ -5,7 +5,8 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 use const yxorP\app\lib\http\helper;
 
-class auth extends    helper{
+class auth extends helper
+{
 
     public
     string $sessionKey = 'app.auth.user';

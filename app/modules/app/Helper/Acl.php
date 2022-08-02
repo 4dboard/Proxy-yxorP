@@ -6,7 +6,8 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 use const yxorP\app\lib\http\helper;
 
-class acl extends    helper{
+class acl extends helper
+{
 
     protected
     array $roles = [];

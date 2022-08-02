@@ -11,7 +11,8 @@ use const yxorP\app\lib\http\helper;
 /**
  * I18n class. Manage translations
  */
-class i18n extends    helper{
+class i18n extends helper
+{
 
     public
     static array $locales = [
