@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Language;
+namespace yxorP\app\lib\psr\graphQL\Language;
 
 /**
  * List of available directive locations
