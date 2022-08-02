@@ -35,6 +35,7 @@ use function is_integer;
 use function is_string;
 use function MongoDB\server_supports_feature;
 use function sprintf;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the createIndexes command.

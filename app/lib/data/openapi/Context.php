@@ -4,6 +4,62 @@ namespace yxorP\app\lib\openapi;
 
 use yxorP\app\lib\openapi\logger\defaultLogger;
 
+/**
+ * @property null $comment
+ * @property null $uses
+ * @property null $uses
+ * @property null $uses
+ * @property null $uses
+ * @property null $trait
+ * @property null $namespace
+ * @property null $namespace
+ * @property null $character
+ * @property null $character
+ * @property null $line
+ * @property null $line
+ * @property null $filename
+ * @property null $filename
+ * @property null $property
+ * @property null $static
+ * @property null $property
+ * @property null $method
+ * @property null $static
+ * @property null $method
+ * @property null $class
+ * @property null $property
+ * @property null $method
+ * @property null $class
+ * @property string|null $namespace
+ * @property string|null $class
+ * @property bool|null $static
+ * @property mixed|null $method
+ * @property mixed|null $line
+ * @property mixed|null $filename
+ * @property defaultLogger $logger
+ * @property int|null $character
+ * @property int|mixed|null $line
+ * @property array|null $annotations
+ * @property string|null $comment
+ * @property int|mixed|null $line
+ * @property int|mixed|null $line
+ * @property string|null $namespace
+ * @property null $property
+ * @property null $property
+ * @property null $property
+ * @property null $property
+ * @property null $property
+ * @property int|mixed|null $line
+ * @property int|mixed|null $line
+ * @property array|null $extends
+ * @property int|mixed|null $line
+ * @property array|null $implements
+ * @property array|string|null $extends
+ * @property int|mixed|null $line
+ * @property array|null $uses
+ * @property array|null $annotations
+ * @property array|null $annotations
+ * @property array|null $annotations
+ */
 class Context
 {
     private $_parent;

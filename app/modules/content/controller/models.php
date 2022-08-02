@@ -5,6 +5,9 @@ namespace Content\Controller;
 use yxorP\app\modules\app\controller\app;
 use function in_array;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ */
 class models extends app
 {
 

@@ -18,6 +18,7 @@ use yxorP\app\lib\openapi\Util;
 
 /**
  * The openapi annotation base class.
+ * @property AbstractAnnotation $property
  */
 abstract class AbstractAnnotation implements JsonSerializable
 {

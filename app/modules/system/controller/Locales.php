@@ -5,6 +5,17 @@ namespace yxorP\app\modules\system\controller;
 use ArrayObject;
 use yxorP\app\modules\app\controller\app;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class locales extends app
 {
 

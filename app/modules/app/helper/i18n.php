@@ -11,6 +11,8 @@ use function vsprintf;
 
 /**
  * I18n class. Manage translations
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
  */
 class i18n extends helperAware
 {

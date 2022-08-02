@@ -6,7 +6,15 @@ use Exception;
 use yxorP\app\modules\app\controller\app;
 use function in_array;
 use function preg_match;
+use function yxorP\app\lib\data\json\json5_decode;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class collection extends app
 {
 

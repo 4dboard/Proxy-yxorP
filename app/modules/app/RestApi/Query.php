@@ -7,6 +7,13 @@ use yxorP\app\lib\http\appAware;
 use function call_user_func;
 use function is_callable;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class query extends appAware
 {
 

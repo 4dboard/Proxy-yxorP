@@ -5,7 +5,28 @@ namespace yxorP\app\modules\system\controller;
 use Exception;
 use yxorP\app\modules\app\controller\app;
 use function preg_match;
+use function yxorP\app\lib\data\json\json5_decode;
 
+/**
+ * @property mixed|null $context
+ * @property mixed|null $context
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class users extends app
 {
 

@@ -4,6 +4,7 @@ namespace yxorP\app\modules\app\controller;
 
 /**
  * Class Controller
+ * @property \yxorP\app\lib\http\App $app
  * @package App
  */
 class app extends authenticated

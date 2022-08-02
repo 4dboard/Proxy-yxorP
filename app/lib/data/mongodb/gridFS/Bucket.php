@@ -63,6 +63,7 @@ use function stream_copy_to_stream;
 use function stream_get_meta_data;
 use function stream_get_wrappers;
 use function urlencode;
+use function yxorP\app\lib\data\mongoDB\apply_type_map_to_document;
 
 /**
  * Bucket provides a public API for interacting with the GridFS files and chunks

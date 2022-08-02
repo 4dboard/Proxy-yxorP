@@ -2,6 +2,10 @@
 use yxorP\app\lib\http\store;
 use yxorP\app\lib\http\wrapper;
 
+/**
+ * @property $name
+ * @property $name
+ */
 class onExceptionAction extends wrapper
 {
     public function onException($e): void

@@ -19,6 +19,13 @@ use function time;
 use function unlink;
 use function unserialize;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class cache extends helperAware
 {
 

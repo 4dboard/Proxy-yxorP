@@ -38,6 +38,10 @@ use function MongoDB\create_field_path_type_map;
 use function MongoDB\is_pipeline;
 use function MongoDB\is_write_concern_acknowledged;
 use function MongoDB\server_supports_feature;
+use function yxorP\app\lib\data\mongoDB\create_field_path_type_map;
+use function yxorP\app\lib\data\mongoDB\is_pipeline;
+use function yxorP\app\lib\data\mongoDB\is_write_concern_acknowledged;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the findAndModify command.

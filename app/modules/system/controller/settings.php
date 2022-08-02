@@ -4,6 +4,9 @@ namespace yxorP\app\modules\system\controller;
 
 use yxorP\app\modules\app\controller\app;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ */
 class settings extends app
 {
 

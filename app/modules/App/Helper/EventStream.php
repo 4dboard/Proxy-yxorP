@@ -8,6 +8,7 @@ use yxorP\app\lib\http\helperAware;
 
 /**
  * @property mixed $dataStorage
+ * @property \yxorP\app\lib\http\App $app
  */
 class eventStream extends helperAware
 {

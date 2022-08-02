@@ -60,6 +60,10 @@ use const PHP_SESSION_ACTIVE;
 use const PHP_URL_PATH;
 
 
+/**
+ * @property mixed $memory
+ * @property mixed $fileStorage
+ */
 class app implements ArrayAccess
 {
     protected static $apps = [];

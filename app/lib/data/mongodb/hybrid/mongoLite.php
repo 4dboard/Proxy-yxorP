@@ -3,6 +3,9 @@
 use yxorP\app\lib\data\mongodb\lite\client as MongoLiteClient;
 use yxorP\app\lib\data\mongodb\lite\collection;
 
+/**
+ * @property mixed $db
+ */
 class mongoLite
 {
     protected MongoLiteClient $client;

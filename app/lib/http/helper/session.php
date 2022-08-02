@@ -11,6 +11,10 @@ use function session_status;
 use function session_write_close;
 use function yxorP\app\lib\http\fetch_from_array;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class session extends helperAware
 {
 

@@ -10,6 +10,9 @@ use yxorP\app\modules\app\graphQL\GraphQL;
 use yxorP\app\modules\app\graphQL\Type\Definition\ObjectType;
 use yxorP\app\modules\app\graphQL\Type\Schema;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ */
 class query extends appAware
 {
 

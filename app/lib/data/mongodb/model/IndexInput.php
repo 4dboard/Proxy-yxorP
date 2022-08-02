@@ -26,6 +26,7 @@ use function is_object;
 use function is_string;
 use function MongoDB\generate_index_name;
 use function sprintf;
+use function yxorP\app\lib\data\mongoDB\generate_index_name;
 
 /**
  * Index input model class.

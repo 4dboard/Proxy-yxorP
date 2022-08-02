@@ -7,6 +7,13 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use yxorP\app\modules\app\controller\app;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class utils extends app
 {
 

@@ -4,6 +4,9 @@ namespace yxorP\app\modules\app\controller;
 
 use ArrayObject;
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ */
 class utils extends app
 {
 

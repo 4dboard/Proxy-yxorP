@@ -8,6 +8,8 @@
  * )
  */
 
+use function yxorP\app\lib\data\json\json5_decode;
+
 $this->on('restApi.config', function ($restApi) {
 
     /**

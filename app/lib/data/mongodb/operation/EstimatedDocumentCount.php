@@ -33,6 +33,7 @@ use yxorP\app\lib\http\mongoDB\Exception\UnsupportedException;
 use function array_intersect_key;
 use function is_integer;
 use function MongoDB\server_supports_feature;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for obtaining an estimated count of documents in a collection

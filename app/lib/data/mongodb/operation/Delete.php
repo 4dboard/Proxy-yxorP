@@ -33,6 +33,8 @@ use function is_object;
 use function is_string;
 use function MongoDB\is_write_concern_acknowledged;
 use function MongoDB\server_supports_feature;
+use function yxorP\app\lib\data\mongoDB\is_write_concern_acknowledged;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the delete command.

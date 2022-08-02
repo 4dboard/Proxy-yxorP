@@ -26,6 +26,7 @@ use function is_array;
 use function is_integer;
 use function is_object;
 use function MongoDB\is_first_key_operator;
+use function yxorP\app\lib\data\mongoDB\is_first_key_operator;
 
 /**
  * Operation for replacing a document with the findAndModify command.

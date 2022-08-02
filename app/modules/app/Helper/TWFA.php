@@ -16,6 +16,11 @@ use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
 use yxorP\app\lib\twoFactor\TwoFactorAuth;
 
 
+/**
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ * @property \yxorP\app\lib\http\App $app
+ */
 class TWFA extends helperAware
 {
 
