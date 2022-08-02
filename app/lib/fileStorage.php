@@ -1,5 +1,5 @@
-<?php use League\Flysystem\filesystem;
-use League\Flysystem\mountManager;
+<?php use yxorP\app\lib\fileFlysystem\filesystem;
+use yxorP\app\lib\fileFlysystem\mountManager;
 
 class fileStorage
 {
@@ -55,7 +55,7 @@ class fileStorage
     {
         static $mountMethod;
         if (!$mountMethod) {
-            $mountMethod = new ReflectionMethod('League\Flysystem\mountManager', 'mountFilesystem');
+            $mountMethod = new ReflectionMethod('yxorP\app\lib\fileFlysystem\mountManager', 'mountFilesystem');
             $mountMethod->setAccessible(true);
         }
         $config = $this->config[$name];
