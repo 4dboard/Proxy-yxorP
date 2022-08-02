@@ -36,14 +36,12 @@ class memoryStorage
         }
     }
 
-    public
-    function flush(): void
+    public function flush(): void
     {
         $this->driver->flushdb();
     }
 
-    public
-    function get(string $key, mixed $default = null, bool $decrypt = false): mixed
+    public function get(string $key, mixed $default = null, bool $decrypt = false): mixed
     {
         $value = $this->driver->get($key);
         if ($value !== false && $decrypt) {
@@ -55,8 +53,7 @@ class memoryStorage
         return $value;
     }
 
-    protected
-    function decrypt(string $value): mixed
+    protected function decrypt(string $value): mixed
     {
         $value = base64_decode($value);
         $iv = substr($value, 0, 16);
@@ -69,8 +66,7 @@ class memoryStorage
         return json_decode(openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv), true);
     }
 
-    public
-    function set(string $key, mixed $value, bool $encrypt = false): void
+    public function set(string $key, mixed $value, bool $encrypt = false): void
     {
         if ($encrypt) {
             $value = $this->encrypt($value);
@@ -78,8 +74,7 @@ class memoryStorage
         $this->driver->set($key, $value);
     }
 
-    protected
-    function encrypt(mixed $value): string
+    protected function encrypt(mixed $value): string
     {
         $str = json_encode($value);
         $key = hash('sha256', $this->key, true);
@@ -89,8 +84,7 @@ class memoryStorage
         return base64_encode($iv . $hash . $ciphertext);
     }
 
-    public
-    function __call($method, $args)
+    public function __call($method, $args)
     {
         return call_user_func_array([$this->driver, $method], $args);
     }
