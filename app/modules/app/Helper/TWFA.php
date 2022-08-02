@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper;
+namespace yxorP\app\modules\app\helper;
 
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper;
+namespace yxorP\app\modules\app\helper;
 
 use SplPriorityQueue;
 use const yxorP\app\lib\http\helper;
