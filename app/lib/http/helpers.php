@@ -114,9 +114,13 @@ class helpers
     public static function define(?array $request): void
     {
         require PATH_SITE_BOOTSTRAP;
+        echo 1;
         print_r(App::instance());
+        echo 1;
         store::handler(YXORP_APP, App::instance());
+        echo 1;
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
+        echo 1;
         define(YXORP_SITE_SYSTEM_INSTALL, true);
         echo 1;
         if (!store::handler(YXORP_APP)->dataStorage->getCollection(YXORP_SITE_SYSTEM_USERS)->count() || !is_dir(PATH_DIR_APP . DIR_STORAGE . SITE_CONTENT)) self::migrate(PATH_SITE_LOCAL, PATH_DIR_APP);
