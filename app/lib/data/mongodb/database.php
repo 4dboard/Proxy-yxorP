@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\psr\http\mongoDB;
+<?php namespace yxorP\app\lib\data\mongoDB;
 
 use Iterator;
 use yxorP\app\lib\http\mongoDB\Driver\Manager;

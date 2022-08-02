@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace yxorP\app\lib\psr\http\mongoDB\GridFS;
+namespace yxorP\app\lib\data\mongoDB\GridFS;
 
 use yxorP\app\lib\http\mongoDB\Driver\CursorInterface;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;

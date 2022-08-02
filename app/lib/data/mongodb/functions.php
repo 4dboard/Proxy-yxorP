@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\psr\http\mongoDB;
+<?php namespace yxorP\app\lib\data\mongoDB;
 
 use yxorP\app\lib\http\mongoDB\BSON\Serializable;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;

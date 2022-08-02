@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace yxorP\app\lib\psr\http\mongoDB\Operation;
+namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use Iterator;
 use yxorP\app\lib\http\mongoDB\Command\ListCollections as ListCollectionsCommand;

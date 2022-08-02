@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\psr\http\mongoDB\Operation;
+namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use Exception;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException;

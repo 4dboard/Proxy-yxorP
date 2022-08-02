@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace yxorP\app\lib\psr\http\mongoDB\Exception;
+namespace yxorP\app\lib\data\mongoDB\Exception;
 
 use yxorP\app\lib\http\mongoDB\Driver\Exception\InvalidArgumentException as DriverInvalidArgumentException;
 use function array_pop;

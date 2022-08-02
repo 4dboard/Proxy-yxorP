@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace yxorP\app\lib\psr\http\mongoDB\Exception;
+namespace yxorP\app\lib\data\mongoDB\Exception;
 
 class UnsupportedException extends RuntimeException
 {

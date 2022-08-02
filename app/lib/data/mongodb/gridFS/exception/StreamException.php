@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\psr\http\mongoDB\GridFS\Exception;
+namespace yxorP\app\lib\data\mongoDB\GridFS\Exception;
 
 use yxorP\app\lib\http\mongoDB\Exception\RuntimeException;
 use function MongoDB\BSON\fromPHP;

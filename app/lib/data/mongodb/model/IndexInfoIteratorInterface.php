@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace yxorP\app\lib\psr\http\mongoDB\Model;
+namespace yxorP\app\lib\data\mongoDB\Model;
 
 use Iterator;
 
