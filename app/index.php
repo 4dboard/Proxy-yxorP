@@ -10,8 +10,6 @@ $SITE_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
 $SITE_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : __DIR__);
 if (strpos($SITE_DIR, $SITE_DOCUMENT_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) $SITE_DOCUMENT_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $SITE_DIR);
 
-echo 6;
-
 if (PHP_SAPI === 'cli-server') {
     $file = $_SERVER['SCRIPT_FILENAME'];
     $path = pathinfo($file);
