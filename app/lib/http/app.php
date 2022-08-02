@@ -59,8 +59,6 @@ use const PHP_SAPI;
 use const PHP_SESSION_ACTIVE;
 use const PHP_URL_PATH;
 
-include(__DIR__ . '/request.php');
-include(__DIR__ . '/response.php');
 
 class app implements ArrayAccess
 {
