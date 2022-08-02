@@ -3621,7 +3621,7 @@
         // A binary search to find the first character whose bounding box
         // starts after the coordinates. If we run across any whose box wrap
         // the coordinates, store that.
-        const chAround = null, boxAround = null;
+        let chAround = null, boxAround = null;
         let ch = findFirst(function (ch) {
             const box = measureCharPrepared(cm, preparedMeasure, ch);
             box.top += widgetHeight;
@@ -7230,7 +7230,7 @@
                         // To avoid memory thrashing when child.lines is huge (e.g. first view of a large file), it's never spliced.
                         // Instead, small slices are taken. They're taken in order because sequential memory accesses are fastest.
                         const remaining = child.lines.length % 25 + 25;
-                        for (const pos = remaining; pos < child.lines.length;) {
+                        for (let pos = remaining; pos < child.lines.length;) {
                             const leaf = new LeafChunk(child.lines.slice(pos, pos += 25));
                             child.height -= leaf.height;
                             this.children.splice(++i, 0, leaf);
@@ -7744,7 +7744,7 @@
         for (var i = 0; i < markers.length; i++) loop(i);
     }
 
-    const nextDocId = 0;
+    let nextDocId = 0;
     const Doc = function (text, mode, firstLine, lineSep, direction) {
         if (!(this instanceof Doc)) {
             return new Doc(text, mode, firstLine, lineSep, direction)
@@ -8349,14 +8349,14 @@
         if (ie) {
             lastDrop = +new Date;
         }
-        const pos = posFromMouse(cm, e, true), files = e.dataTransfer.files;
+        let pos = posFromMouse(cm, e, true), files = e.dataTransfer.files;
         if (!pos || cm.isReadOnly()) {
             return
         }
         // Might be a file drop, in which case we simply extract the text
         // and insert it.
         if (files && files.length && window.FileReader && window.File) {
-            const n = files.length, text = Array(n), read = 0;
+            let n = files.length, text = Array(n), read = 0;
             const markAsReadAndPasteIfAllFilesAreRead = function () {
                 if (++read === n) {
                     operation(cm, function () {

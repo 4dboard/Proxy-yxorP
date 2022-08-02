@@ -8350,7 +8350,7 @@
                 }
                 return !0
             }, Tt = function (e) {
-                const t = void 0;
+                let t = void 0;
                 let r = void 0, o = void 0, i = void 0;
                 yt("beforeSanitizeAttributes", e, null);
                 const a = e.attributes;

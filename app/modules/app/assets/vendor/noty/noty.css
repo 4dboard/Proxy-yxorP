@@ -13,15 +13,6 @@
     opacity: .2
 }
 
-.noty_bar {
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translate(0, 0) translateZ(0) scale(1, 1);
-    -ms-transform: translate(0, 0) scale(1, 1);
-    transform: translate(0, 0) scale(1, 1);
-    -webkit-font-smoothing: subpixel-antialiased;
-    overflow: hidden
-}
-
 @-webkit-keyframes noty_modal_in {
     100% {
         opacity: .3

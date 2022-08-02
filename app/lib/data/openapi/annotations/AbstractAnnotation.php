@@ -479,10 +479,10 @@ abstract class AbstractAnnotation implements JsonSerializable
             }
         }
         if (property_exists($this, 'ref') && $this->ref !== Generator::UNDEFINED && $this->ref !== null) {
-            if (substr($this->ref, 0, 2) === '#/' && count($parents) > 0 && $parents[0] instanceof OpenApi) {
+            if (substr((string)$this->ref, 0, 2) === '#/' && count($parents) > 0 && $parents[0] instanceof OpenApi) {
                 // Internal reference
                 try {
-                    $parents[0]->ref($this->ref);
+                    $parents[0]->ref((string)$this->ref);
                 } catch (Exception $e) {
                     $this->_context->logger->warning($e->getMessage() . ' for ' . $this->identity() . ' in ' . $this->_context, ['exception' => $e]);
                 }

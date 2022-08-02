@@ -71,7 +71,7 @@ class AugmentProperties
                 if ($context->nullable === true) {
                     $property->nullable = true;
                 }
-                $type = strtolower($context->type);
+                $type = strtolower((string)$context->type);
                 if (isset(self::$types[$type])) {
                     $this->applyType($property, static::$types[$type]);
                 } else {

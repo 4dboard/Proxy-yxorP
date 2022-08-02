@@ -18,11 +18,6 @@
     background: rgba(39, 55, 71, 99);
 }
 
-.CodeMirror .CodeMirror-gutters {
-    background: var(--kiss-base-background-color);
-    border-right: 0;
-}
-
 .CodeMirror .CodeMirror-linenumber {
     color: var(--kiss-color-muted);
 }
@@ -95,6 +90,3 @@
     background: #01060e;
 }
 
-.CodeMirror-focused {
-    border-color: var(--kiss-color-primary);
-}

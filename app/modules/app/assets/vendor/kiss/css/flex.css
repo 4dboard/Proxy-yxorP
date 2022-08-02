@@ -25,10 +25,6 @@
     justify-content: flex-end;
 }
 
-.kiss-flex-between {
-    justify-content: space-between;
-}
-
 .kiss-flex-around {
     justify-content: space-around;
 }

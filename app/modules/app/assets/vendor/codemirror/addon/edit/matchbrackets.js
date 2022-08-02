@@ -21,7 +21,7 @@
     }
 
     function findMatchingBracket(cm, where, config) {
-        const line = cm.getLineHandle(where.line), pos = where.ch - 1;
+        let line = cm.getLineHandle(where.line), pos = where.ch - 1;
         let afterCursor = config && config.afterCursor;
         if (afterCursor === null)
             afterCursor = /(^| )cm-fat-cursor($| )/.test(cm.getWrapperElement().className)

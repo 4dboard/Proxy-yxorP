@@ -19,17 +19,7 @@
     padding: 0 4px; /* Horizontal padding of content */
 }
 
-.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-    background-color: white; /* The little square between H and V scrollbars */
-}
-
 /* GUTTER */
-
-.CodeMirror-gutters {
-    border-right: 1px solid #ddd;
-    background-color: #f7f7f7;
-    white-space: nowrap;
-}
 
 .CodeMirror-linenumbers {
 }
@@ -255,41 +245,6 @@
     bottom: 0;
 }
 
-.CodeMirror-gutter-filler {
-    left: 0;
-    bottom: 0;
-}
-
-.CodeMirror-gutters {
-    position: absolute;
-    left: 0;
-    top: 0;
-    min-height: 100%;
-    z-index: 3;
-}
-
-.CodeMirror-gutter {
-    white-space: normal;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: -50px;
-}
-
-.CodeMirror-gutter-wrapper {
-    position: absolute;
-    z-index: 4;
-    background: none !important;
-    border: none !important;
-}
-
-.CodeMirror-gutter-background {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 4;
-}
-
 .CodeMirror-gutter-wrapper ::selection {
     background-color: transparent
 }
@@ -333,12 +288,6 @@
     word-break: normal;
 }
 
-.CodeMirror-linewidget {
-    position: relative;
-    z-index: 2;
-    padding: 0px; /* Force widget margins to stay inside of the container */
-}
-
 .CodeMirror-widget {
 }
 
@@ -351,14 +300,6 @@
 }
 
 /* Force content-box sizing for the elements where we expect it */
-.CodeMirror-scroll,
-.CodeMirror-sizer,
-.CodeMirror-gutter,
-.CodeMirror-gutters,
-.CodeMirror-linenumber {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-}
 
 .CodeMirror-measure {
     position: absolute;
@@ -414,7 +355,7 @@ div.CodeMirror-cursors {
 
 /* Used to force a border model for a node */
 .cm-force-border {
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 @media print {
@@ -425,8 +366,5 @@ div.CodeMirror-cursors {
 }
 
 /* See issue #2901 */
-.cm-tab-wrap-hack:after {
-    content: '';
-}
 
 /* Help users use markselection to safely style text background */

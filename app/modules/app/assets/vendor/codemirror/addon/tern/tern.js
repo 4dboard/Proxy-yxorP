@@ -535,7 +535,7 @@
         });
     }
 
-    const nextChangeOrig = 0;
+    let nextChangeOrig = 0;
 
     function applyChanges(ts, changes) {
         const perFile = Object.create(null);

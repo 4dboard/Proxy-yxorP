@@ -52,7 +52,7 @@
 
         regexp = ensureFlags(regexp, "gm")
         let string, chunk = 1;
-        const line = start.line, last = doc.lastLine();
+        let line = start.line, last = doc.lastLine();
         for (; line <= last;) {
             // This grows the search buffer in exponentially-sized chunks
             // between matches, so that nearby matches are fast and don't
@@ -116,7 +116,7 @@
         regexp = ensureFlags(regexp, "gm")
         let string, chunkSize = 1;
         const endMargin = doc.getLine(start.line).length - start.ch;
-        const line = start.line, first = doc.firstLine();
+        let line = start.line, first = doc.firstLine();
         for (; line >= first;) {
             for (let i = 0; i < chunkSize && line >= first; i++) {
                 const curLine = doc.getLine(line--);

@@ -118,7 +118,7 @@ class Printer
                         return $this->join($node->definitions, "\n\n") . "\n";
                     },
 
-                    NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node): string {
+                    NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node): SelectionSetNode {
                         $op = $node->operation;
                         $name = $node->name;
                         $varDefs = $this->wrap('(', $this->join($node->variableDefinitions, ', '), ')');
@@ -234,7 +234,7 @@ class Printer
                         return '@' . $node->name . $this->wrap('(', $this->join($node->arguments, ', '), ')');
                     },
 
-                    NodeKind::NAMED_TYPE => static function (NamedTypeNode $node): string {
+                    NodeKind::NAMED_TYPE => static function (NamedTypeNode $node): NameNode {
                         // @phpstan-ignore-next-line the printer works bottom up, so this is already a string here
                         return $node->name;
                     },

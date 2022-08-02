@@ -41,7 +41,7 @@ class Property extends Schema
      *
      * @var string
      */
-    public $property = Generator::UNDEFINED;
+    public AbstractAnnotation $property = Generator::UNDEFINED;
     /**
      * Indicates the property is nullable.
      *

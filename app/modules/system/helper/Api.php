@@ -19,6 +19,14 @@ class api extends helperAware
         return array_keys($this->keys);
     }
 
+    protected function initialize()
+    {
+
+        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
+            return $this->cache();
+        });
+    }
+
     public function cache(bool $persistent = true): array
     {
 
@@ -34,13 +42,5 @@ class api extends helperAware
         }
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
-            return $this->cache();
-        });
     }
 }

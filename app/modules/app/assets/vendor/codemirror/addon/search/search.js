@@ -135,7 +135,7 @@
         let q = cm.getSelection() || state.lastQuery;
         if (q instanceof RegExp && q.source === "x^") q = null
         if (persistent && cm.openDialog) {
-            const hiding = null;
+            let hiding = null;
             const searchNext = function (query, event) {
                 CodeMirror.e_stop(event);
                 if (!query) return;
@@ -287,7 +287,7 @@
                     replaceAll(cm, query, text)
                 } else {
                     clearSearch(cm);
-                    const cursor = getSearchCursor(cm, query, cm.getCursor("from"));
+                    let cursor = getSearchCursor(cm, query, cm.getCursor("from"));
                     const advance = function () {
                         const start = cursor.from();
                         let match;
