@@ -2,15 +2,16 @@
 
 namespace yxorP\app\modules\app\helper;
 
+use helper;
 use const yxorP\app\lib\http\helper;
 
 /**
  * @property mixed $dataStorage
  * @property mixed $dataStorage
  */
-class eventStream extends \
+class eventStream extends
 
-helper
+    helper
 {
 
     public

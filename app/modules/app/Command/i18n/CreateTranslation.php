@@ -2,13 +2,13 @@
 
 namespace App\Command\i18n;
 
-use yxorP\app\modules\app\helper\i18n;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use yxorP\app\modules\app\helper\i18n;
 
 class createTranslation extends Command
 {

@@ -2,13 +2,14 @@
 
 namespace yxorP\app\modules\app\helper;
 
+use helper;
 use function pathinfo;
 use function strtolower;
 use const yxorP\app\lib\http\helper;
 
-class theme extends \
+class theme extends
 
-helper
+    helper
 {
 
     protected

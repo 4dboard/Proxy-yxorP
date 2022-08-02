@@ -3,11 +3,12 @@
 namespace yxorP\app\modules\app\helper;
 
 use Exception;
+use helper;
 use const yxorP\app\lib\http\helper;
 
-class csrf extends \
+class csrf extends
 
-helper
+    helper
 {
 
     public

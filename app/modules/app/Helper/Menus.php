@@ -2,12 +2,13 @@
 
 namespace yxorP\app\modules\app\helper;
 
+use helper;
 use SplPriorityQueue;
 use const yxorP\app\lib\http\helper;
 
-class menus extends \
+class menus extends
 
-helper
+    helper
 {
 
     protected
