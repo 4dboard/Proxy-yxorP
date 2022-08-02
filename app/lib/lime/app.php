@@ -1,4 +1,4 @@
-<?php namespace Lime;
+<?php namespace yxorP\app\lib\lime;
 
 use ArrayAccess;
 use ArrayObject;

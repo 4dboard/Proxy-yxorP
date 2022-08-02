@@ -1,4 +1,4 @@
-<?php namespace Lime;
+<?php namespace yxorP\app\lib\lime;
 
 use function array_combine;
 use function array_keys;
