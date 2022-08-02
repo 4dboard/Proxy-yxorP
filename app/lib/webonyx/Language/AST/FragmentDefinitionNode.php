@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Language\AST;
+namespace yxorP\app\lib\psr\graphQL\Language\AST;
 
 class FragmentDefinitionNode extends Node implements ExecutableDefinitionNode, HasSelectionSetInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Utils;
+namespace yxorP\app\lib\psr\graphQL\Utils;
 
 use GraphQL\Error\Error;
 use GraphQL\Executor\Values;

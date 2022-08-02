@@ -12,7 +12,7 @@ use Stringable;
  * reduce boilerplate code that a simple Logger that does the same thing with
  * messages regardless of the error level has to implement.
  */
-trait LoggerTrait
+trait loggerTrait
 {
     /**
      * System is unusable.
@@ -24,7 +24,7 @@ trait LoggerTrait
      */
     public function emergency(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::EMERGENCY, $message, $context);
+        $this->log(logLevel::EMERGENCY, $message, $context);
     }
 
     /**
@@ -36,7 +36,7 @@ trait LoggerTrait
      *
      * @return void
      *
-     * @throws InvalidArgumentException
+     * @throws invalidArgumentException
      */
     abstract public function log($level, string|Stringable $message, array $context = []): void;
 
@@ -53,7 +53,7 @@ trait LoggerTrait
      */
     public function alert(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::ALERT, $message, $context);
+        $this->log(logLevel::ALERT, $message, $context);
     }
 
     /**
@@ -68,7 +68,7 @@ trait LoggerTrait
      */
     public function critical(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::CRITICAL, $message, $context);
+        $this->log(logLevel::CRITICAL, $message, $context);
     }
 
     /**
@@ -82,7 +82,7 @@ trait LoggerTrait
      */
     public function error(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::ERROR, $message, $context);
+        $this->log(logLevel::ERROR, $message, $context);
     }
 
     /**
@@ -98,7 +98,7 @@ trait LoggerTrait
      */
     public function warning(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::WARNING, $message, $context);
+        $this->log(logLevel::WARNING, $message, $context);
     }
 
     /**
@@ -111,7 +111,7 @@ trait LoggerTrait
      */
     public function notice(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::NOTICE, $message, $context);
+        $this->log(logLevel::NOTICE, $message, $context);
     }
 
     /**
@@ -126,7 +126,7 @@ trait LoggerTrait
      */
     public function info(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::INFO, $message, $context);
+        $this->log(logLevel::INFO, $message, $context);
     }
 
     /**
@@ -139,6 +139,6 @@ trait LoggerTrait
      */
     public function debug(string|Stringable $message, array $context = []): void
     {
-        $this->log(LogLevel::DEBUG, $message, $context);
+        $this->log(logLevel::DEBUG, $message, $context);
     }
 }

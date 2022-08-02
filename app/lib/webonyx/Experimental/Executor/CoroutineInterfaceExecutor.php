@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Experimental\Executor;
+namespace yxorP\app\lib\psr\graphQL\Experimental\Executor;
 
 use Generator;
 use GraphQL\Error\Error;

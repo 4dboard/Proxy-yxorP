@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Language;
+namespace yxorP\app\lib\psr\graphQL\Language;
 
 use GraphQL\Utils\Utils;
 use function is_string;

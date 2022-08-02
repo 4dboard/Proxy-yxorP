@@ -5,7 +5,7 @@ namespace yxorP\app\lib\psr\log;
 /**
  * Describes log levels.
  */
-class LogLevel
+class logLevel
 {
     const EMERGENCY = 'emergency';
     const ALERT = 'alert';

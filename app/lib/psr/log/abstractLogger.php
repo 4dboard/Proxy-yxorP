@@ -9,7 +9,7 @@ namespace yxorP\app\lib\psr\log;
  * reduce boilerplate code that a simple Logger that does the same thing with
  * messages regardless of the error level has to implement.
  */
-abstract class AbstractLogger implements LoggerInterface
+abstract class abstractLogger implements loggerInterface
 {
-    use LoggerTrait;
+    use loggerTrait;
 }

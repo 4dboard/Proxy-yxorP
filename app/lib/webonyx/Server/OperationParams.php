@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Server;
+namespace yxorP\app\lib\psr\graphQL\Server;
 
 use function array_change_key_case;
 use function is_string;

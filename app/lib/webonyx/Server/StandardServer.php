@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Server;
+namespace yxorP\app\lib\psr\graphQL\Server;
 
 use GraphQL\Error\DebugFlag;
 use GraphQL\Error\FormattedError;

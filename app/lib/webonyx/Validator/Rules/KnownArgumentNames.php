@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Validator\Rules;
+namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
 use GraphQL\Error\Error;
 use GraphQL\Language\AST\ArgumentNode;

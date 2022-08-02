@@ -19,7 +19,7 @@ use Stringable;
  * See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
  * for the full interface specification.
  */
-interface LoggerInterface
+interface loggerInterface
 {
     /**
      * System is unusable.
@@ -121,7 +121,7 @@ interface LoggerInterface
      *
      * @return void
      *
-     * @throws InvalidArgumentException
+     * @throws invalidArgumentException
      */
     public function log($level, string|Stringable $message, array $context = []): void;
 }

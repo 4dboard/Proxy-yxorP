@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Type\Definition;
+namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
 use GraphQL\Language\AST\ScalarTypeDefinitionNode;
 use GraphQL\Language\AST\ScalarTypeExtensionNode;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Language;
+namespace yxorP\app\lib\psr\graphQL\Language;
 
 use GraphQL\Error\SyntaxError;
 use GraphQL\Language\AST\ArgumentNode;

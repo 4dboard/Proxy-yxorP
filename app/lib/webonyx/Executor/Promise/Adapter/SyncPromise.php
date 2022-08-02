@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Executor\Promise\Adapter;
+namespace yxorP\app\lib\psr\graphQL\Executor\Promise\Adapter;
 
 use Exception;
 use GraphQL\Utils\Utils;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Validator;
+namespace yxorP\app\lib\psr\graphQL\Validator;
 
 class SDLValidationContext extends ASTValidationContext
 {

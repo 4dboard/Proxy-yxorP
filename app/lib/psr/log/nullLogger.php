@@ -12,7 +12,7 @@ use Stringable;
  * is a good way to avoid littering your code with `if ($this->logger) { }`
  * blocks.
  */
-class NullLogger extends AbstractLogger
+class nullLogger extends abstractLogger
 {
     /**
      * Logs with an arbitrary level.
@@ -23,7 +23,7 @@ class NullLogger extends AbstractLogger
      *
      * @return void
      *
-     * @throws InvalidArgumentException
+     * @throws invalidArgumentException
      */
     public function log($level, string|Stringable $message, array $context = []): void
     {

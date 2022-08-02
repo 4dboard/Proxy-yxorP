@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Executor;
+namespace yxorP\app\lib\psr\graphQL\Executor;
 
 use ArrayAccess;
 use ArrayObject;

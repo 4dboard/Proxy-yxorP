@@ -5,14 +5,14 @@ namespace yxorP\app\lib\psr\log;
 /**
  * Describes a logger-aware instance.
  */
-interface LoggerAwareInterface
+interface loggerAwareInterface
 {
     /**
      * Sets a logger instance on the object.
      *
-     * @param LoggerInterface $logger
+     * @param loggerInterface $logger
      *
      * @return void
      */
-    public function setLogger(LoggerInterface $logger): void;
+    public function setLogger(loggerInterface $logger): void;
 }

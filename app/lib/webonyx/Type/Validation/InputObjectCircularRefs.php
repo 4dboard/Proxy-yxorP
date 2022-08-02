@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GraphQL\Type\Validation;
+namespace yxorP\app\lib\psr\graphQL\Type\Validation;
 
 use GraphQL\Language\AST\InputValueDefinitionNode;
 use GraphQL\Type\Definition\InputObjectField;

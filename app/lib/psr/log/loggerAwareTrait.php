@@ -5,21 +5,21 @@ namespace yxorP\app\lib\psr\log;
 /**
  * Basic Implementation of LoggerAwareInterface.
  */
-trait LoggerAwareTrait
+trait loggerAwareTrait
 {
     /**
      * The logger instance.
      *
-     * @var LoggerInterface|null
+     * @var loggerInterface|null
      */
-    protected ?LoggerInterface $logger = null;
+    protected ?loggerInterface $logger = null;
 
     /**
      * Sets a logger.
      *
-     * @param LoggerInterface $logger
+     * @param loggerInterface $logger
      */
-    public function setLogger(LoggerInterface $logger): void
+    public function setLogger(loggerInterface $logger): void
     {
         $this->logger = $logger;
     }
