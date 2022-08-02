@@ -3,19 +3,19 @@
 // Register helpers
 use yxorP\app\lib\http\request;
 
-$this->helpers['admin'] = 'yxorP\app\modules\app\\Helper\\admin';
-$this->helpers['eventStream'] = 'yxorP\app\modules\app\\Helper\\eventStream';
-$this->helpers['menus'] = 'yxorP\app\modules\app\\Helper\\menus';
-$this->helpers['theme'] = 'yxorP\app\modules\app\\Helper\\theme';
-$this->helpers['twfa'] = 'yxorP\app\modules\app\\Helper\\TWFA';
+$this->helpers['admin'] = 'yxorP\\app\\modules\\app\\Helper\\admin';
+$this->helpers['eventStream'] = 'yxorP\\app\\modules\\app\\Helper\\eventStream';
+$this->helpers['menus'] = 'yxorP\\app\\modules\\app\\Helper\\menus';
+$this->helpers['theme'] = 'yxorP\\app\\modules\\app\\Helper\\theme';
+$this->helpers['twfa'] = 'yxorP\\app\\modules\\app\\Helper\\TWFA';
 
 // Register routes
-$this->bindClass('yxorP\app\modules\app\\Controller\\auth', '/auth');
-$this->bindClass('yxorP\app\modules\app\\Controller\\utils', '/utils');
+$this->bindClass('yxorP\\app\\modules\\app\\Controller\\auth', '/auth');
+$this->bindClass('yxorP\\app\\modules\\app\\Controller\\utils', '/utils');
 
 $this->bind('/', function () {
 
-    return $this->invoke('yxorP\app\modules\app\\Controller\\dashboard', 'index');
+    return $this->invoke('yxorP\\app\\modules\\app\\Controller\\dashboard', 'index');
 });
 
 // global event stream for long polling
