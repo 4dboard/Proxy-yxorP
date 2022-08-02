@@ -10,8 +10,7 @@ class query extends appAware
 {
 
     protected array $endpoints = [];
-    protected
-    bool $initialized = false;
+    protected bool $initialized = false;
 
     public function process(string $path, string $method = 'GET', ?string $apiKey = null)
     {
