@@ -4,8 +4,8 @@ namespace MongoLite\Aggregation;
 
 use Closure;
 use Iterator;
-use MongoLite\collection;
-use MongoLite\UtilArrayQuery;
+use yxorP\app\lib\http\mongoLite\collection;
+use yxorP\app\lib\http\mongoLite\UtilArrayQuery;
 
 class Cursor implements Iterator
 {

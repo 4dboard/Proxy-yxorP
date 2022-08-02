@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\http\mongoHybrid;
 
-use MongoDB\BSON\ObjectID;
-use MongoDB\client as MongoDBClient;
-use MongoDB\collection;
-use MongoDB\database;
+use yxorP\app\lib\http\mongoDB\BSON\ObjectID;
+use yxorP\app\lib\http\mongoDB\client as MongoDBClient;
+use yxorP\app\lib\http\mongoDB\collection;
+use yxorP\app\lib\http\mongoDB\database;
 use Throwable;
 use function is_iterable;
 use function is_object;
