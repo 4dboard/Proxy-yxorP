@@ -72,7 +72,7 @@ class ResponseCache extends Helper
     }
 }
 
-class ResponseCacheFileHandler extends AppAware
+class ResponseCacheFileHandler extends appAware
 {
 
     public function cache($request, $response)
@@ -108,7 +108,7 @@ class ResponseCacheFileHandler extends AppAware
     }
 }
 
-class ResponseCacheMemoryeHandler extends AppAware
+class ResponseCacheMemoryeHandler extends appAware
 {
 
     public function cache($request, $response)

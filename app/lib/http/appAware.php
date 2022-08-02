@@ -4,7 +4,7 @@ use function call_user_func_array;
 use function is_callable;
 
 
-class AppAware
+class appAware
 {
     public App $app;
     public mixed $context;
