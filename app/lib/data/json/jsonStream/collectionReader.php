@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\data\jsonStream;
+<?php namespace yxorP\app\lib\data\json\stream;
 
 use Generator;
 use InvalidArgumentException;
