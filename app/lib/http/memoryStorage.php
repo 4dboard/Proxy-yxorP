@@ -4,17 +4,13 @@ use Redis;
 use redisLite;
 use function call_user_func;
 use function is_callable;
-use const app\lib\http\memoryStorage;
 
 class yxorPmemoryStorage
 {
-    protected
-    $driver;
-    protected
-    $key;
+    protected $driver;
+    protected $key;
 
-    public
-    function __construct(string $server, array $options = [])
+    public function __construct(string $server, array $options = [])
     {
         if (strpos($server, 'redis://') === 0) {
             $uri = parse_url($server);
