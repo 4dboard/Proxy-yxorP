@@ -2,13 +2,13 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
-use graphQL\Language\AST\BooleanValueNode;
-use graphQL\Language\AST\FloatValueNode;
-use graphQL\Language\AST\IntValueNode;
-use graphQL\Language\AST\ListValueNode;
-use graphQL\Language\AST\ObjectValueNode;
-use graphQL\Language\AST\StringValueNode;
-use graphQL\Type\Definition\ScalarType;
+use yxorP\app\modules\app\graphQL\Language\AST\BooleanValueNode;
+use yxorP\app\modules\app\graphQL\Language\AST\FloatValueNode;
+use yxorP\app\modules\app\graphQL\Language\AST\IntValueNode;
+use yxorP\app\modules\app\graphQL\Language\AST\ListValueNode;
+use yxorP\app\modules\app\graphQL\Language\AST\ObjectValueNode;
+use yxorP\app\modules\app\graphQL\Language\AST\StringValueNode;
+use yxorP\app\modules\app\graphQL\Type\Definition\ScalarType;
 
 class jsonType extends ScalarType
 {
@@ -41,6 +41,11 @@ class jsonType extends ScalarType
         return $this->identity($value);
     }
 
+    private function identity($value)
+    {
+        return $value;
+    }
+
     public function serialize($value)
     {
         return $this->identity($value);
@@ -69,10 +74,5 @@ class jsonType extends ScalarType
             default:
                 return null;
         }
-    }
-
-    private function identity($value)
-    {
-        return $value;
     }
 }

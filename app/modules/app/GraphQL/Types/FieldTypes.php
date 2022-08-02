@@ -2,8 +2,8 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
-use graphQL\Type\Definition\ObjectType;
-use graphQL\Type\Definition\Type;
+use yxorP\app\modules\app\graphQL\Type\Definition\ObjectType;
+use yxorP\app\modules\app\graphQL\Type\Definition\Type;
 
 class fieldTypes
 {
@@ -35,11 +35,6 @@ class fieldTypes
         }
 
         return $fields;
-    }
-
-    public static function instance($field)
-    {
-        self::getType($field);
     }
 
     protected static function getType($field)
@@ -92,5 +87,10 @@ class fieldTypes
         }
 
         return $name;
+    }
+
+    public static function instance($field)
+    {
+        self::getType($field);
     }
 }

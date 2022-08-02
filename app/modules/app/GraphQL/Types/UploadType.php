@@ -2,11 +2,11 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
-use graphQL\Error\Error;
-use graphQL\Error\InvariantViolation;
-use graphQL\Language\AST\Node;
-use graphQL\Type\Definition\ScalarType;
 use yxorP\app\lib\psr\http\message\uploadedFileInterface;
+use yxorP\app\modules\app\graphQL\Error\Error;
+use yxorP\app\modules\app\graphQL\Error\InvariantViolation;
+use yxorP\app\modules\app\graphQL\Language\AST\Node;
+use yxorP\app\modules\app\graphQL\Type\Definition\ScalarType;
 
 class uploadType extends ScalarType
 {

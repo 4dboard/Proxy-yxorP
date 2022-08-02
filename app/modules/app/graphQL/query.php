@@ -3,9 +3,9 @@
 namespace yxorP\app\modules\app\GraphQL;
 
 use ArrayObject;
-use graphQL\GraphQL;
-use graphQL\Type\Definition\ObjectType;
-use graphQL\Type\Schema;
+use yxorP\app\modules\app\graphQL\GraphQL;
+use yxorP\app\modules\app\graphQL\Type\Definition\ObjectType;
+use yxorP\app\modules\app\graphQL\Type\Schema;
 
 class query extends appAware
 {
