@@ -62,7 +62,6 @@ class yP
         define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
-        echo 6;
         /**
          * It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `self`
          * class.
@@ -80,6 +79,7 @@ class yP
     private function init(?array $request): void
     {
 
+        echo 6;
         /**
          * Checking if the files exist in the directory.
          */
