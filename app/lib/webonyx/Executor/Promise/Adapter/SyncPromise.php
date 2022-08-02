@@ -67,6 +67,15 @@ class SyncPromise
         return self::$queue ?? self::$queue = new SplQueue();
     }
 
+    public static function runQueue(): void
+    {
+        $q = self::$queue;
+        while ($q !== null && !$q->isEmpty()) {
+            $task = $q->dequeue();
+            $task();
+        }
+    }
+
     public function resolve($value): self
     {
         switch ($this->state) {
@@ -127,6 +136,36 @@ class SyncPromise
         return $this;
     }
 
+    /**
+     * @param callable(Throwable) : mixed $onRejected
+     */
+    public function catch(callable $onRejected): self
+    {
+        return $this->then(null, $onRejected);
+    }
+
+    /**
+     * @param callable(mixed) : mixed $onFulfilled
+     * @param callable(Throwable) : mixed $onRejected
+     */
+    public function then(?callable $onFulfilled = null, ?callable $onRejected = null): self
+    {
+        if ($this->state === self::REJECTED && $onRejected === null) {
+            return $this;
+        }
+        if ($this->state === self::FULFILLED && $onFulfilled === null) {
+            return $this;
+        }
+        $tmp = new self();
+        $this->waiting[] = [$tmp, $onFulfilled, $onRejected];
+
+        if ($this->state !== self::PENDING) {
+            $this->enqueueWaitingPromises();
+        }
+
+        return $tmp;
+    }
+
     private function enqueueWaitingPromises(): void
     {
         Utils::invariant(
@@ -159,44 +198,5 @@ class SyncPromise
             });
         }
         $this->waiting = [];
-    }
-
-    public static function runQueue(): void
-    {
-        $q = self::$queue;
-        while ($q !== null && !$q->isEmpty()) {
-            $task = $q->dequeue();
-            $task();
-        }
-    }
-
-    /**
-     * @param callable(Throwable) : mixed $onRejected
-     */
-    public function catch(callable $onRejected): self
-    {
-        return $this->then(null, $onRejected);
-    }
-
-    /**
-     * @param callable(mixed) : mixed $onFulfilled
-     * @param callable(Throwable) : mixed $onRejected
-     */
-    public function then(?callable $onFulfilled = null, ?callable $onRejected = null): self
-    {
-        if ($this->state === self::REJECTED && $onRejected === null) {
-            return $this;
-        }
-        if ($this->state === self::FULFILLED && $onFulfilled === null) {
-            return $this;
-        }
-        $tmp = new self();
-        $this->waiting[] = [$tmp, $onFulfilled, $onRejected];
-
-        if ($this->state !== self::PENDING) {
-            $this->enqueueWaitingPromises();
-        }
-
-        return $tmp;
     }
 }

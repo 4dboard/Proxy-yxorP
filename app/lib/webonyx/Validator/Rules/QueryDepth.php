@@ -25,6 +25,11 @@ class QueryDepth extends QuerySecurityRule
         $this->setMaxQueryDepth($maxQueryDepth);
     }
 
+    public static function maxQueryDepthErrorMessage($max, $count)
+    {
+        return sprintf('Max query depth should be %d but got %d.', $max, $count);
+    }
+
     public function getVisitor(ValidationContext $context)
     {
         return $this->invokeIfNeeded(
@@ -45,6 +50,26 @@ class QueryDepth extends QuerySecurityRule
                 ],
             ]
         );
+    }
+
+    public function getMaxQueryDepth()
+    {
+        return $this->maxQueryDepth;
+    }
+
+    /**
+     * Set max query depth. If equal to 0 no check is done. Must be greater or equal to 0.
+     */
+    public function setMaxQueryDepth($maxQueryDepth)
+    {
+        $this->checkIfGreaterOrEqualToZero('maxQueryDepth', $maxQueryDepth);
+
+        $this->maxQueryDepth = (int)$maxQueryDepth;
+    }
+
+    protected function isEnabled()
+    {
+        return $this->getMaxQueryDepth() !== self::DISABLED;
     }
 
     private function fieldDepth($node, $depth = 0, $maxDepth = 0)
@@ -89,30 +114,5 @@ class QueryDepth extends QuerySecurityRule
         }
 
         return $maxDepth;
-    }
-
-    public function getMaxQueryDepth()
-    {
-        return $this->maxQueryDepth;
-    }
-
-    /**
-     * Set max query depth. If equal to 0 no check is done. Must be greater or equal to 0.
-     */
-    public function setMaxQueryDepth($maxQueryDepth)
-    {
-        $this->checkIfGreaterOrEqualToZero('maxQueryDepth', $maxQueryDepth);
-
-        $this->maxQueryDepth = (int)$maxQueryDepth;
-    }
-
-    public static function maxQueryDepthErrorMessage($max, $count)
-    {
-        return sprintf('Max query depth should be %d but got %d.', $max, $count);
-    }
-
-    protected function isEnabled()
-    {
-        return $this->getMaxQueryDepth() !== self::DISABLED;
     }
 }

@@ -149,6 +149,61 @@ class BuildClientSchema
     }
 
     /**
+     * @param array<string, mixed> $typeRef
+     */
+    public function getInterfaceType(array $typeRef): InterfaceType
+    {
+        $type = $this->getType($typeRef);
+
+        return InterfaceType::assertInterfaceType($type);
+    }
+
+    /**
+     * @param array<string, mixed> $inputValueIntrospection
+     *
+     * @return array<string, mixed>
+     */
+    public function buildInputValue(array $inputValueIntrospection): array
+    {
+        $type = $this->getInputType($inputValueIntrospection['type']);
+
+        $inputValue = [
+            'description' => $inputValueIntrospection['description'],
+            'type' => $type,
+        ];
+
+        if (isset($inputValueIntrospection['defaultValue'])) {
+            $inputValue['defaultValue'] = AST::valueFromAST(
+                Parser::parseValue($inputValueIntrospection['defaultValue']),
+                $type
+            );
+        }
+
+        return $inputValue;
+    }
+
+    /**
+     * @param array<string, mixed> $directive
+     */
+    public function buildDirective(array $directive): Directive
+    {
+        if (!array_key_exists('args', $directive)) {
+            throw new InvariantViolation('Introspection result missing directive args: ' . json_encode($directive) . '.');
+        }
+        if (!array_key_exists('locations', $directive)) {
+            throw new InvariantViolation('Introspection result missing directive locations: ' . json_encode($directive) . '.');
+        }
+
+        return new Directive([
+            'name' => $directive['name'],
+            'description' => $directive['description'],
+            'args' => $this->buildInputValueDefMap($directive['args']),
+            'isRepeatable' => $directive['isRepeatable'] ?? false,
+            'locations' => $directive['locations'],
+        ]);
+    }
+
+    /**
      * @param array<string, mixed> $type
      */
     private function buildType(array $type): NamedType
@@ -428,40 +483,6 @@ class BuildClientSchema
     /**
      * @param array<string, mixed> $typeRef
      */
-    public function getInterfaceType(array $typeRef): InterfaceType
-    {
-        $type = $this->getType($typeRef);
-
-        return InterfaceType::assertInterfaceType($type);
-    }
-
-    /**
-     * @param array<string, mixed> $inputValueIntrospection
-     *
-     * @return array<string, mixed>
-     */
-    public function buildInputValue(array $inputValueIntrospection): array
-    {
-        $type = $this->getInputType($inputValueIntrospection['type']);
-
-        $inputValue = [
-            'description' => $inputValueIntrospection['description'],
-            'type' => $type,
-        ];
-
-        if (isset($inputValueIntrospection['defaultValue'])) {
-            $inputValue['defaultValue'] = AST::valueFromAST(
-                Parser::parseValue($inputValueIntrospection['defaultValue']),
-                $type
-            );
-        }
-
-        return $inputValue;
-    }
-
-    /**
-     * @param array<string, mixed> $typeRef
-     */
     private function getInputType(array $typeRef): InputType
     {
         $type = $this->getType($typeRef);
@@ -471,26 +492,5 @@ class BuildClientSchema
         }
 
         throw new InvariantViolation('Introspection must provide input type for arguments, but received: ' . json_encode($type) . '.');
-    }
-
-    /**
-     * @param array<string, mixed> $directive
-     */
-    public function buildDirective(array $directive): Directive
-    {
-        if (!array_key_exists('args', $directive)) {
-            throw new InvariantViolation('Introspection result missing directive args: ' . json_encode($directive) . '.');
-        }
-        if (!array_key_exists('locations', $directive)) {
-            throw new InvariantViolation('Introspection result missing directive locations: ' . json_encode($directive) . '.');
-        }
-
-        return new Directive([
-            'name' => $directive['name'],
-            'description' => $directive['description'],
-            'args' => $this->buildInputValueDefMap($directive['args']),
-            'isRepeatable' => $directive['isRepeatable'] ?? false,
-            'locations' => $directive['locations'],
-        ]);
     }
 }

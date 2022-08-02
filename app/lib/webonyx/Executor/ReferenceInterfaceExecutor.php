@@ -130,13 +130,13 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @return ExecutionContext|array<Error>
      */
     protected static function buildExecutionContext(
-        Schema          $schema,
-        DocumentNode    $documentNode,
-                        $rootValue,
-                        $contextValue,
-                        $rawVariableValues,
-        ?string         $operationName = null,
-        ?callable       $fieldResolver = null,
+        Schema                   $schema,
+        DocumentNode             $documentNode,
+                                 $rootValue,
+                                 $contextValue,
+                                 $rawVariableValues,
+        ?string                  $operationName = null,
+        ?callable                $fieldResolver = null,
         ?PromiseAdapterInterface $promiseAdapter = null
     )
     {
@@ -202,6 +202,32 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
             $fieldResolver,
             $promiseAdapter
         );
+    }
+
+    /**
+     * Implements the logic to compute the key of a given fields entry
+     */
+    protected static function getFieldEntryKey(FieldNode $node): string
+    {
+        return $node->alias === null ? $node->name->value : $node->alias->value;
+    }
+
+    /**
+     * Differentiate empty objects from empty lists.
+     *
+     * @see https://github.com/webonyx/graphql-php/issues/59
+     *
+     * @param array<mixed>|mixed $results
+     *
+     * @return array<mixed>|stdClass|mixed
+     */
+    protected static function fixResultsIfEmptyArray($results)
+    {
+        if ($results === []) {
+            return new stdClass();
+        }
+
+        return $results;
     }
 
     public function doExecute(): Promise
@@ -405,14 +431,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         );
 
         return !isset($include['if']) || $include['if'] !== false;
-    }
-
-    /**
-     * Implements the logic to compute the key of a given fields entry
-     */
-    protected static function getFieldEntryKey(FieldNode $node): string
-    {
-        return $node->alias === null ? $node->name->value : $node->alias->value;
     }
 
     /**
@@ -1176,24 +1194,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     protected function isPromise($value): bool
     {
         return $value instanceof Promise || $this->exeContext->promiseAdapter->isThenable($value);
-    }
-
-    /**
-     * Differentiate empty objects from empty lists.
-     *
-     * @see https://github.com/webonyx/graphql-php/issues/59
-     *
-     * @param array<mixed>|mixed $results
-     *
-     * @return array<mixed>|stdClass|mixed
-     */
-    protected static function fixResultsIfEmptyArray($results)
-    {
-        if ($results === []) {
-            return new stdClass();
-        }
-
-        return $results;
     }
 
     /**

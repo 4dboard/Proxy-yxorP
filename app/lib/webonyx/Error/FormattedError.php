@@ -95,66 +95,6 @@ class FormattedError
     }
 
     /**
-     * Render a helpful description of the location of the error in the GraphQL
-     * Source document.
-     *
-     * @return string
-     */
-    private static function highlightSourceAtLocation(Source $source, SourceLocation $location)
-    {
-        $line = $location->line;
-        $lineOffset = $source->locationOffset->line - 1;
-        $columnOffset = self::getColumnOffset($source, $location);
-        $contextLine = $line + $lineOffset;
-        $contextColumn = $location->column + $columnOffset;
-        $prevLineNum = (string)($contextLine - 1);
-        $lineNum = (string)$contextLine;
-        $nextLineNum = (string)($contextLine + 1);
-        $padLen = strlen($nextLineNum);
-        $lines = preg_split('/\r\n|[\n\r]/', $source->body);
-
-        $lines[0] = self::whitespace($source->locationOffset->column - 1) . $lines[0];
-
-        $outputLines = [
-            sprintf('%s (%s:%s)', $source->name, $contextLine, $contextColumn),
-            $line >= 2 ? (self::lpad($padLen, $prevLineNum) . ': ' . $lines[$line - 2]) : null,
-            self::lpad($padLen, $lineNum) . ': ' . $lines[$line - 1],
-            self::whitespace(2 + $padLen + $contextColumn - 1) . '^',
-            $line < count($lines) ? self::lpad($padLen, $nextLineNum) . ': ' . $lines[$line] : null,
-        ];
-
-        return implode("\n", array_filter($outputLines));
-    }
-
-    /**
-     * @return int
-     */
-    private static function getColumnOffset(Source $source, SourceLocation $location)
-    {
-        return $location->line === 1 ? $source->locationOffset->column - 1 : 0;
-    }
-
-    /**
-     * @param int $len
-     *
-     * @return string
-     */
-    private static function whitespace($len)
-    {
-        return str_repeat(' ', $len);
-    }
-
-    /**
-     * @param int $len
-     *
-     * @return string
-     */
-    private static function lpad($len, $str)
-    {
-        return self::whitespace($len - mb_strlen($str)) . $str;
-    }
-
-    /**
      * Prepares final error formatter taking in account $debug flags.
      * If initial formatter is not set, FormattedError::createFromException is used
      */
@@ -414,5 +354,65 @@ class FormattedError
             'severity' => $e->getSeverity(),
             'trace' => self::toSafeTrace($e),
         ];
+    }
+
+    /**
+     * Render a helpful description of the location of the error in the GraphQL
+     * Source document.
+     *
+     * @return string
+     */
+    private static function highlightSourceAtLocation(Source $source, SourceLocation $location)
+    {
+        $line = $location->line;
+        $lineOffset = $source->locationOffset->line - 1;
+        $columnOffset = self::getColumnOffset($source, $location);
+        $contextLine = $line + $lineOffset;
+        $contextColumn = $location->column + $columnOffset;
+        $prevLineNum = (string)($contextLine - 1);
+        $lineNum = (string)$contextLine;
+        $nextLineNum = (string)($contextLine + 1);
+        $padLen = strlen($nextLineNum);
+        $lines = preg_split('/\r\n|[\n\r]/', $source->body);
+
+        $lines[0] = self::whitespace($source->locationOffset->column - 1) . $lines[0];
+
+        $outputLines = [
+            sprintf('%s (%s:%s)', $source->name, $contextLine, $contextColumn),
+            $line >= 2 ? (self::lpad($padLen, $prevLineNum) . ': ' . $lines[$line - 2]) : null,
+            self::lpad($padLen, $lineNum) . ': ' . $lines[$line - 1],
+            self::whitespace(2 + $padLen + $contextColumn - 1) . '^',
+            $line < count($lines) ? self::lpad($padLen, $nextLineNum) . ': ' . $lines[$line] : null,
+        ];
+
+        return implode("\n", array_filter($outputLines));
+    }
+
+    /**
+     * @return int
+     */
+    private static function getColumnOffset(Source $source, SourceLocation $location)
+    {
+        return $location->line === 1 ? $source->locationOffset->column - 1 : 0;
+    }
+
+    /**
+     * @param int $len
+     *
+     * @return string
+     */
+    private static function whitespace($len)
+    {
+        return str_repeat(' ', $len);
+    }
+
+    /**
+     * @param int $len
+     *
+     * @return string
+     */
+    private static function lpad($len, $str)
+    {
+        return self::whitespace($len - mb_strlen($str)) . $str;
     }
 }

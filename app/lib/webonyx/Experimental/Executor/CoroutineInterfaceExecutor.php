@@ -146,6 +146,33 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         );
     }
 
+    private static function resultToArray($value, $emptyObjectAsStdClass = true)
+    {
+        if ($value instanceof stdClass) {
+            $array = (array)$value;
+            foreach ($array as $propertyName => $propertyValue) {
+                $array[$propertyName] = self::resultToArray($propertyValue);
+            }
+
+            if ($emptyObjectAsStdClass && count($array) === 0) {
+                return new stdClass();
+            }
+
+            return $array;
+        }
+
+        if (is_array($value)) {
+            $array = [];
+            foreach ($value as $key => $item) {
+                $array[$key] = self::resultToArray($item);
+            }
+
+            return $array;
+        }
+
+        return $value;
+    }
+
     public function doExecute(): Promise
     {
         $this->rootResult = new stdClass();
@@ -211,6 +238,24 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
+     * @internal
+     */
+    public function addError($error)
+    {
+        $this->errors[] = $error;
+    }
+
+    /**
+     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
+     * @internal
+     *
+     */
+    public function evaluate(ValueNodeInterface $valueNode, InputType $type)
+    {
+        return AST::valueFromAST($valueNode, $type, $this->variableValues);
+    }
+
+    /**
      * @param object|null $value
      * @param Error[] $errors
      */
@@ -229,33 +274,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         }
 
         return new ExecutionResult($value, $errors);
-    }
-
-    private static function resultToArray($value, $emptyObjectAsStdClass = true)
-    {
-        if ($value instanceof stdClass) {
-            $array = (array)$value;
-            foreach ($array as $propertyName => $propertyValue) {
-                $array[$propertyName] = self::resultToArray($propertyValue);
-            }
-
-            if ($emptyObjectAsStdClass && count($array) === 0) {
-                return new stdClass();
-            }
-
-            return $array;
-        }
-
-        if (is_array($value)) {
-            $array = [];
-            foreach ($value as $key => $item) {
-                $array[$key] = self::resultToArray($item);
-            }
-
-            return $array;
-        }
-
-        return $value;
     }
 
     private function findFieldDefinition(CoroutineContext $ctx)
@@ -456,14 +474,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     private function isPromise($value)
     {
         return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
-    }
-
-    /**
-     * @internal
-     */
-    public function addError($error)
-    {
-        $this->errors[] = $error;
     }
 
     /**
@@ -958,15 +968,5 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
 
         $doResolve = $this->doResolve;
         $doResolve($this->finishExecute($this->rootResult, $this->errors));
-    }
-
-    /**
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
-     * @internal
-     *
-     */
-    public function evaluate(ValueNodeInterface $valueNode, InputType $type)
-    {
-        return AST::valueFromAST($valueNode, $type, $this->variableValues);
     }
 }

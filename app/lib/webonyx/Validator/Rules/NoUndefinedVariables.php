@@ -17,6 +17,13 @@ use function sprintf;
  */
 class NoUndefinedVariables extends ValidationRule
 {
+    public static function undefinedVarMessage($varName, $opName = null)
+    {
+        return $opName
+            ? sprintf('Variable "$%s" is not defined by operation "%s".', $varName, $opName)
+            : sprintf('Variable "$%s" is not defined.', $varName);
+    }
+
     public function getVisitor(ValidationContext $context)
     {
         $variableNameDefined = [];
@@ -53,12 +60,5 @@ class NoUndefinedVariables extends ValidationRule
                 $variableNameDefined[$def->variable->name->value] = true;
             },
         ];
-    }
-
-    public static function undefinedVarMessage($varName, $opName = null)
-    {
-        return $opName
-            ? sprintf('Variable "$%s" is not defined by operation "%s".', $varName, $opName)
-            : sprintf('Variable "$%s" is not defined.', $varName);
     }
 }
