@@ -14,8 +14,7 @@ use function strtolower;
 class base extends appAware
 {
 
-    protected
-        $layout = false;
+    protected $layout = false;
 
     /**
      * @return string
