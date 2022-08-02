@@ -10,8 +10,7 @@ use function strtolower;
 class theme extends helper
 {
 
-    protected
-    array $vars;
+    protected array $vars;
     protected ?string $title = null;
     protected ?string $favicon = null;
     protected ?string $logo = null;

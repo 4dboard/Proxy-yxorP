@@ -9,8 +9,7 @@ use helper;
 class acl extends helper
 {
 
-    protected
-    array $roles = [];
+    protected array $roles = [];
 
     public function roles(): array
     {

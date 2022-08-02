@@ -9,8 +9,7 @@ use function is_callable;
 class query extends appAware
 {
 
-    protected
-    array $endpoints = [];
+    protected array $endpoints = [];
     protected
     bool $initialized = false;
 
