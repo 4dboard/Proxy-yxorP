@@ -5,7 +5,7 @@ use redisLite;
 use function call_user_func;
 use function is_callable;
 
-class yxorPmemoryStorage
+class memoryStorage
 {
     protected $driver;
     protected $key;
