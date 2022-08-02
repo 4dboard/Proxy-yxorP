@@ -32,15 +32,11 @@ class query extends appAware
             }
         }
 
-        if ($handler && is_callable($handler)) {
-            return call_user_func($handler, $params, $this->app);
-        }
+        if ($handler && is_callable($handler)) return call_user_func($handler, $params, $this->app);
 
         // custom file based route
         // normalize path
-        if (strpos($path, '../') !== false) {
-            $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
-        }
+        if (strpos($path, '../') !== false) $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
 
         if ($file = $this->app->path('#config:api/' . trim($path, '/') . '.php')) {
 
