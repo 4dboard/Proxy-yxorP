@@ -913,8 +913,6 @@ class Helper extends AppAware
 {
 }
 
-include(__DIR__ . '/helper/session.php');
-include(__DIR__ . '/helper/cache.php');
 function fetch_from_array(array &$array, ?string $index = null, mixed $default = null)
 {
     if (is_null($index)) {
