@@ -9,7 +9,7 @@ class DirectiveNode extends Node
     /** @var string */
     public $kind = NodeKind::DIRECTIVE;
 
-    /** @var NameNode */
+    /** @var NameNodeInterface */
     public $name;
 
     /** @var NodeList<ArgumentNode> */

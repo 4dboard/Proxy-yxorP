@@ -6,58 +6,58 @@ namespace GraphQL\Language;
 
 use GraphQL\Error\SyntaxError;
 use GraphQL\Language\AST\ArgumentNode;
-use GraphQL\Language\AST\BooleanValueNode;
-use GraphQL\Language\AST\DefinitionNode;
+use GraphQL\Language\AST\BooleanValueNodeInterface;
+use GraphQL\Language\AST\DefinitionNodeInterface;
 use GraphQL\Language\AST\DirectiveDefinitionNode;
 use GraphQL\Language\AST\DirectiveNode;
 use GraphQL\Language\AST\DocumentNode;
-use GraphQL\Language\AST\EnumTypeDefinitionNode;
-use GraphQL\Language\AST\EnumTypeExtensionNode;
+use GraphQL\Language\AST\EnumTypeDefinitionNodeInterface;
+use GraphQL\Language\AST\EnumTypeExtensionNodeInterface;
 use GraphQL\Language\AST\EnumValueDefinitionNode;
-use GraphQL\Language\AST\EnumValueNode;
-use GraphQL\Language\AST\ExecutableDefinitionNode;
+use GraphQL\Language\AST\EnumValueNodeInterface;
+use GraphQL\Language\AST\ExecutableDefinitionNodeInterface;
 use GraphQL\Language\AST\FieldDefinitionNode;
-use GraphQL\Language\AST\FieldNode;
-use GraphQL\Language\AST\FloatValueNode;
+use GraphQL\Language\AST\FieldNodeInterface;
+use GraphQL\Language\AST\FloatValueNodeInterface;
 use GraphQL\Language\AST\FragmentDefinitionNode;
-use GraphQL\Language\AST\FragmentSpreadNode;
-use GraphQL\Language\AST\InlineFragmentNode;
-use GraphQL\Language\AST\InputObjectTypeDefinitionNode;
-use GraphQL\Language\AST\InputObjectTypeExtensionNode;
+use GraphQL\Language\AST\FragmentSpreadNodeInterface;
+use GraphQL\Language\AST\InlineFragmentNodeInterface;
+use GraphQL\Language\AST\InputObjectTypeDefinitionNodeInterface;
+use GraphQL\Language\AST\InputObjectTypeExtensionNodeInterface;
 use GraphQL\Language\AST\InputValueDefinitionNode;
-use GraphQL\Language\AST\InterfaceTypeDefinitionNode;
-use GraphQL\Language\AST\InterfaceTypeExtensionNode;
-use GraphQL\Language\AST\IntValueNode;
-use GraphQL\Language\AST\ListTypeNode;
-use GraphQL\Language\AST\ListValueNode;
+use GraphQL\Language\AST\InterfaceTypeDefinitionNodeInterface;
+use GraphQL\Language\AST\InterfaceTypeExtensionNodeInterface;
+use GraphQL\Language\AST\IntValueNodeInterface;
+use GraphQL\Language\AST\ListTypeNodeInterface;
+use GraphQL\Language\AST\ListValueNodeInterface;
 use GraphQL\Language\AST\Location;
-use GraphQL\Language\AST\NamedTypeNode;
-use GraphQL\Language\AST\NameNode;
+use GraphQL\Language\AST\NamedTypeNodeInterface;
+use GraphQL\Language\AST\NameNodeInterface;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\NodeList;
 use GraphQL\Language\AST\NonNullTypeNode;
-use GraphQL\Language\AST\NullValueNode;
+use GraphQL\Language\AST\NullValueNodeInterface;
 use GraphQL\Language\AST\ObjectFieldNode;
 use GraphQL\Language\AST\ObjectTypeDefinitionNode;
 use GraphQL\Language\AST\ObjectTypeExtensionNode;
-use GraphQL\Language\AST\ObjectValueNode;
+use GraphQL\Language\AST\ObjectValueNodeInterface;
 use GraphQL\Language\AST\OperationDefinitionNode;
 use GraphQL\Language\AST\OperationTypeDefinitionNode;
 use GraphQL\Language\AST\ScalarTypeDefinitionNode;
 use GraphQL\Language\AST\ScalarTypeExtensionNode;
 use GraphQL\Language\AST\SchemaDefinitionNode;
 use GraphQL\Language\AST\SchemaTypeExtensionNode;
-use GraphQL\Language\AST\SelectionNode;
+use GraphQL\Language\AST\SelectionNodeInterface;
 use GraphQL\Language\AST\SelectionSetNode;
-use GraphQL\Language\AST\StringValueNode;
-use GraphQL\Language\AST\TypeExtensionNode;
-use GraphQL\Language\AST\TypeNode;
-use GraphQL\Language\AST\TypeSystemDefinitionNode;
+use GraphQL\Language\AST\StringValueNodeInterface;
+use GraphQL\Language\AST\TypeExtensionNodeInterface;
+use GraphQL\Language\AST\TypeNodeInterface;
+use GraphQL\Language\AST\TypeSystemDefinitionNodeInterface;
 use GraphQL\Language\AST\UnionTypeDefinitionNode;
 use GraphQL\Language\AST\UnionTypeExtensionNode;
-use GraphQL\Language\AST\ValueNode;
+use GraphQL\Language\AST\ValueNodeInterface;
 use GraphQL\Language\AST\VariableDefinitionNode;
-use GraphQL\Language\AST\VariableNode;
+use GraphQL\Language\AST\VariableNodeInterface;
 use function count;
 use function sprintf;
 
@@ -66,44 +66,44 @@ use function sprintf;
  *
  * Those magic functions allow partial parsing:
  *
- * @method static NameNode name(Source|string $source, bool[] $options = [])
+ * @method static NameNodeInterface name(Source|string $source, bool[] $options = [])
  * @method static DocumentNode document(Source|string $source, bool[] $options = [])
- * @method static ExecutableDefinitionNode|TypeSystemDefinitionNode definition(Source|string $source, bool[] $options = [])
- * @method static ExecutableDefinitionNode executableDefinition(Source|string $source, bool[] $options = [])
+ * @method static ExecutableDefinitionNodeInterface|TypeSystemDefinitionNodeInterface definition(Source|string $source, bool[] $options = [])
+ * @method static ExecutableDefinitionNodeInterface executableDefinition(Source|string $source, bool[] $options = [])
  * @method static OperationDefinitionNode operationDefinition(Source|string $source, bool[] $options = [])
  * @method static string operationType(Source|string $source, bool[] $options = [])
  * @method static NodeList<VariableDefinitionNode> variableDefinitions(Source|string $source, bool[] $options = [])
  * @method static VariableDefinitionNode variableDefinition(Source|string $source, bool[] $options = [])
- * @method static VariableNode variable(Source|string $source, bool[] $options = [])
+ * @method static VariableNodeInterface variable(Source|string $source, bool[] $options = [])
  * @method static SelectionSetNode selectionSet(Source|string $source, bool[] $options = [])
  * @method static mixed selection(Source|string $source, bool[] $options = [])
- * @method static FieldNode field(Source|string $source, bool[] $options = [])
+ * @method static FieldNodeInterface field(Source|string $source, bool[] $options = [])
  * @method static NodeList<ArgumentNode> arguments(Source|string $source, bool[] $options = [])
  * @method static NodeList<ArgumentNode> constArguments(Source|string $source, bool[] $options = [])
  * @method static ArgumentNode argument(Source|string $source, bool[] $options = [])
  * @method static ArgumentNode constArgument(Source|string $source, bool[] $options = [])
- * @method static FragmentSpreadNode|InlineFragmentNode fragment(Source|string $source, bool[] $options = [])
+ * @method static FragmentSpreadNodeInterface|InlineFragmentNodeInterface fragment(Source|string $source, bool[] $options = [])
  * @method static FragmentDefinitionNode fragmentDefinition(Source|string $source, bool[] $options = [])
- * @method static NameNode fragmentName(Source|string $source, bool[] $options = [])
- * @method static BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|NullValueNode|ObjectValueNode|StringValueNode|VariableNode valueLiteral(Source|string $source, bool[] $options = [])
- * @method static BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|NullValueNode|ObjectValueNode|StringValueNode constValueLiteral(Source|string $source, bool[] $options = [])
- * @method static StringValueNode stringLiteral(Source|string $source, bool[] $options = [])
- * @method static BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|StringValueNode constValue(Source|string $source, bool[] $options = [])
- * @method static BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode variableValue(Source|string $source, bool[] $options = [])
- * @method static ListValueNode array(Source|string $source, bool[] $options = [])
- * @method static ListValueNode constArray(Source|string $source, bool[] $options = [])
- * @method static ObjectValueNode object(Source|string $source, bool[] $options = [])
- * @method static ObjectValueNode constObject(Source|string $source, bool[] $options = [])
+ * @method static NameNodeInterface fragmentName(Source|string $source, bool[] $options = [])
+ * @method static BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|ListValueNodeInterface|NullValueNodeInterface|ObjectValueNodeInterface|StringValueNodeInterface|VariableNodeInterface valueLiteral(Source|string $source, bool[] $options = [])
+ * @method static BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|ListValueNodeInterface|NullValueNodeInterface|ObjectValueNodeInterface|StringValueNodeInterface constValueLiteral(Source|string $source, bool[] $options = [])
+ * @method static StringValueNodeInterface stringLiteral(Source|string $source, bool[] $options = [])
+ * @method static BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|StringValueNodeInterface constValue(Source|string $source, bool[] $options = [])
+ * @method static BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface|StringValueNodeInterface|VariableNodeInterface variableValue(Source|string $source, bool[] $options = [])
+ * @method static ListValueNodeInterface array(Source|string $source, bool[] $options = [])
+ * @method static ListValueNodeInterface constArray(Source|string $source, bool[] $options = [])
+ * @method static ObjectValueNodeInterface object(Source|string $source, bool[] $options = [])
+ * @method static ObjectValueNodeInterface constObject(Source|string $source, bool[] $options = [])
  * @method static ObjectFieldNode objectField(Source|string $source, bool[] $options = [])
  * @method static ObjectFieldNode constObjectField(Source|string $source, bool[] $options = [])
  * @method static NodeList<DirectiveNode> directives(Source|string $source, bool[] $options = [])
  * @method static NodeList<DirectiveNode> constDirectives(Source|string $source, bool[] $options = [])
  * @method static DirectiveNode directive(Source|string $source, bool[] $options = [])
  * @method static DirectiveNode constDirective(Source|string $source, bool[] $options = [])
- * @method static ListTypeNode|NamedTypeNode|NonNullTypeNode typeReference(Source|string $source, bool[] $options = [])
- * @method static NamedTypeNode namedType(Source|string $source, bool[] $options = [])
- * @method static TypeSystemDefinitionNode typeSystemDefinition(Source|string $source, bool[] $options = [])
- * @method static StringValueNode|null description(Source|string $source, bool[] $options = [])
+ * @method static ListTypeNodeInterface|NamedTypeNodeInterface|NonNullTypeNode typeReference(Source|string $source, bool[] $options = [])
+ * @method static NamedTypeNodeInterface namedType(Source|string $source, bool[] $options = [])
+ * @method static TypeSystemDefinitionNodeInterface typeSystemDefinition(Source|string $source, bool[] $options = [])
+ * @method static StringValueNodeInterface|null description(Source|string $source, bool[] $options = [])
  * @method static SchemaDefinitionNode schemaDefinition(Source|string $source, bool[] $options = [])
  * @method static OperationTypeDefinitionNode operationTypeDefinition(Source|string $source, bool[] $options = [])
  * @method static ScalarTypeDefinitionNode scalarTypeDefinition(Source|string $source, bool[] $options = [])
@@ -113,25 +113,25 @@ use function sprintf;
  * @method static FieldDefinitionNode fieldDefinition(Source|string $source, bool[] $options = [])
  * @method static NodeList<InputValueDefinitionNode> argumentsDefinition(Source|string $source, bool[] $options = [])
  * @method static InputValueDefinitionNode inputValueDefinition(Source|string $source, bool[] $options = [])
- * @method static InterfaceTypeDefinitionNode interfaceTypeDefinition(Source|string $source, bool[] $options = [])
+ * @method static InterfaceTypeDefinitionNodeInterface interfaceTypeDefinition(Source|string $source, bool[] $options = [])
  * @method static UnionTypeDefinitionNode unionTypeDefinition(Source|string $source, bool[] $options = [])
  * @method static NodeList<NamedTypeNode> unionMemberTypes(Source|string $source, bool[] $options = [])
- * @method static EnumTypeDefinitionNode enumTypeDefinition(Source|string $source, bool[] $options = [])
+ * @method static EnumTypeDefinitionNodeInterface enumTypeDefinition(Source|string $source, bool[] $options = [])
  * @method static NodeList<EnumValueDefinitionNode> enumValuesDefinition(Source|string $source, bool[] $options = [])
  * @method static EnumValueDefinitionNode enumValueDefinition(Source|string $source, bool[] $options = [])
- * @method static InputObjectTypeDefinitionNode inputObjectTypeDefinition(Source|string $source, bool[] $options = [])
+ * @method static InputObjectTypeDefinitionNodeInterface inputObjectTypeDefinition(Source|string $source, bool[] $options = [])
  * @method static NodeList<InputValueDefinitionNode> inputFieldsDefinition(Source|string $source, bool[] $options = [])
- * @method static TypeExtensionNode typeExtension(Source|string $source, bool[] $options = [])
+ * @method static TypeExtensionNodeInterface typeExtension(Source|string $source, bool[] $options = [])
  * @method static SchemaTypeExtensionNode schemaTypeExtension(Source|string $source, bool[] $options = [])
  * @method static ScalarTypeExtensionNode scalarTypeExtension(Source|string $source, bool[] $options = [])
  * @method static ObjectTypeExtensionNode objectTypeExtension(Source|string $source, bool[] $options = [])
- * @method static InterfaceTypeExtensionNode interfaceTypeExtension(Source|string $source, bool[] $options = [])
+ * @method static InterfaceTypeExtensionNodeInterface interfaceTypeExtension(Source|string $source, bool[] $options = [])
  * @method static UnionTypeExtensionNode unionTypeExtension(Source|string $source, bool[] $options = [])
- * @method static EnumTypeExtensionNode enumTypeExtension(Source|string $source, bool[] $options = [])
- * @method static InputObjectTypeExtensionNode inputObjectTypeExtension(Source|string $source, bool[] $options = [])
+ * @method static EnumTypeExtensionNodeInterface enumTypeExtension(Source|string $source, bool[] $options = [])
+ * @method static InputObjectTypeExtensionNodeInterface inputObjectTypeExtension(Source|string $source, bool[] $options = [])
  * @method static DirectiveDefinitionNode directiveDefinition(Source|string $source, bool[] $options = [])
  * @method static NodeList<NameNode> directiveLocations(Source|string $source, bool[] $options = [])
- * @method static NameNode directiveLocation(Source|string $source, bool[] $options = [])
+ * @method static NameNodeInterface directiveLocation(Source|string $source, bool[] $options = [])
  */
 class Parser
 {
@@ -285,11 +285,11 @@ class Parser
     }
 
     /**
-     * @return ExecutableDefinitionNode|TypeSystemDefinitionNode
+     * @return ExecutableDefinitionNodeInterface|TypeSystemDefinitionNodeInterface
      *
      * @throws SyntaxError
      */
-    private function parseDefinition(): DefinitionNode
+    private function parseDefinition(): DefinitionNodeInterface
     {
         if ($this->peek(Token::NAME)) {
             switch ($this->lexer->token->value) {
@@ -333,7 +333,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseExecutableDefinition(): ExecutableDefinitionNode
+    private function parseExecutableDefinition(): ExecutableDefinitionNodeInterface
     {
         if ($this->peek(Token::NAME)) {
             switch ($this->lexer->token->value) {
@@ -393,7 +393,7 @@ class Parser
             [
                 'selections' => $this->many(
                     Token::BRACE_L,
-                    function (): SelectionNode {
+                    function (): SelectionNodeInterface {
                         return $this->parseSelection();
                     },
                     Token::BRACE_R
@@ -409,7 +409,7 @@ class Parser
      *   - FragmentSpread
      *   - InlineFragment
      */
-    private function parseSelection(): SelectionNode
+    private function parseSelection(): SelectionNodeInterface
     {
         return $this->peek(Token::SPREAD)
             ? $this->parseFragment()
@@ -417,25 +417,25 @@ class Parser
     }
 
     /**
-     * @return FragmentSpreadNode|InlineFragmentNode
+     * @return FragmentSpreadNodeInterface|InlineFragmentNodeInterface
      *
      * @throws SyntaxError
      */
-    private function parseFragment(): SelectionNode
+    private function parseFragment(): SelectionNodeInterface
     {
         $start = $this->lexer->token;
         $this->expect(Token::SPREAD);
 
         $hasTypeCondition = $this->expectOptionalKeyword('on');
         if (!$hasTypeCondition && $this->peek(Token::NAME)) {
-            return new FragmentSpreadNode([
+            return new FragmentSpreadNodeInterface([
                 'name' => $this->parseFragmentName(),
                 'directives' => $this->parseDirectives(false),
                 'loc' => $this->loc($start),
             ]);
         }
 
-        return new InlineFragmentNode([
+        return new InlineFragmentNodeInterface([
             'typeCondition' => $hasTypeCondition ? $this->parseNamedType() : null,
             'directives' => $this->parseDirectives(false),
             'selectionSet' => $this->parseSelectionSet(),
@@ -462,7 +462,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseFragmentName(): NameNode
+    private function parseFragmentName(): NameNodeInterface
     {
         if ($this->lexer->token->value === 'on') {
             throw $this->unexpected();
@@ -483,11 +483,11 @@ class Parser
      *
      * @throws SyntaxError
      */
-    private function parseName(): NameNode
+    private function parseName(): NameNodeInterface
     {
         $token = $this->expect(Token::NAME);
 
-        return new NameNode([
+        return new NameNodeInterface([
             'value' => $token->value,
             'loc' => $this->loc($token),
         ]);
@@ -573,11 +573,11 @@ class Parser
     }
 
     /**
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|StringValueNode|VariableNode
+     * @return BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|StringValueNodeInterface|VariableNodeInterface
      *
      * @throws SyntaxError
      */
-    private function parseConstValue(): ValueNode
+    private function parseConstValue(): ValueNodeInterface
     {
         return $this->parseValueLiteral(true);
     }
@@ -600,11 +600,11 @@ class Parser
      *
      * EnumValue : Name but not `true`, `false` or `null`
      *
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|StringValueNode|VariableNode|ListValueNode|ObjectValueNode|NullValueNode
+     * @return BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|StringValueNodeInterface|VariableNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface|NullValueNodeInterface
      *
      * @throws SyntaxError
      */
-    private function parseValueLiteral(bool $isConst): ValueNode
+    private function parseValueLiteral(bool $isConst): ValueNodeInterface
     {
         $token = $this->lexer->token;
         switch ($token->kind) {
@@ -615,14 +615,14 @@ class Parser
             case Token::INT:
                 $this->lexer->advance();
 
-                return new IntValueNode([
+                return new IntValueNodeInterface([
                     'value' => $token->value,
                     'loc' => $this->loc($token),
                 ]);
             case Token::FLOAT:
                 $this->lexer->advance();
 
-                return new FloatValueNode([
+                return new FloatValueNodeInterface([
                     'value' => $token->value,
                     'loc' => $this->loc($token),
                 ]);
@@ -633,7 +633,7 @@ class Parser
                 if ($token->value === 'true' || $token->value === 'false') {
                     $this->lexer->advance();
 
-                    return new BooleanValueNode([
+                    return new BooleanValueNodeInterface([
                         'value' => $token->value === 'true',
                         'loc' => $this->loc($token),
                     ]);
@@ -642,13 +642,13 @@ class Parser
                 if ($token->value === 'null') {
                     $this->lexer->advance();
 
-                    return new NullValueNode([
+                    return new NullValueNodeInterface([
                         'loc' => $this->loc($token),
                     ]);
                 } else {
                     $this->lexer->advance();
 
-                    return new EnumValueNode([
+                    return new EnumValueNodeInterface([
                         'value' => $token->value,
                         'loc' => $this->loc($token),
                     ]);
@@ -664,7 +664,7 @@ class Parser
         throw $this->unexpected();
     }
 
-    private function parseArray(bool $isConst): ListValueNode
+    private function parseArray(bool $isConst): ListValueNodeInterface
     {
         $start = $this->lexer->token;
         $parseFn = $isConst
@@ -675,7 +675,7 @@ class Parser
                 return $this->parseVariableValue();
             };
 
-        return new ListValueNode(
+        return new ListValueNodeInterface(
             [
                 'values' => $this->any(Token::BRACKET_L, $parseFn, Token::BRACKET_R),
                 'loc' => $this->loc($start),
@@ -684,9 +684,9 @@ class Parser
     }
 
     /**
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
+     * @return BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface|StringValueNodeInterface|VariableNodeInterface
      */
-    private function parseVariableValue(): ValueNode
+    private function parseVariableValue(): ValueNodeInterface
     {
         return $this->parseValueLiteral(false);
     }
@@ -711,7 +711,7 @@ class Parser
         return new NodeList($nodes);
     }
 
-    private function parseObject(bool $isConst): ObjectValueNode
+    private function parseObject(bool $isConst): ObjectValueNodeInterface
     {
         $start = $this->lexer->token;
         $this->expect(Token::BRACE_L);
@@ -720,7 +720,7 @@ class Parser
             $fields[] = $this->parseObjectField($isConst);
         }
 
-        return new ObjectValueNode([
+        return new ObjectValueNodeInterface([
             'fields' => new NodeList($fields),
             'loc' => $this->loc($start),
         ]);
@@ -742,12 +742,12 @@ class Parser
 
     // Implements the parsing rules in the Fragments section.
 
-    private function parseStringLiteral(): StringValueNode
+    private function parseStringLiteral(): StringValueNodeInterface
     {
         $token = $this->lexer->token;
         $this->lexer->advance();
 
-        return new StringValueNode([
+        return new StringValueNodeInterface([
             'value' => $token->value,
             'block' => $token->kind === Token::BLOCK_STRING,
             'loc' => $this->loc($token),
@@ -757,12 +757,12 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseVariable(): VariableNode
+    private function parseVariable(): VariableNodeInterface
     {
         $start = $this->lexer->token;
         $this->expect(Token::DOLLAR);
 
-        return new VariableNode([
+        return new VariableNodeInterface([
             'name' => $this->parseName(),
             'loc' => $this->loc($start),
         ]);
@@ -788,11 +788,11 @@ class Parser
 
     // Implements the parsing rules in the Values section.
 
-    private function parseNamedType(): NamedTypeNode
+    private function parseNamedType(): NamedTypeNodeInterface
     {
         $start = $this->lexer->token;
 
-        return new NamedTypeNode([
+        return new NamedTypeNodeInterface([
             'name' => $this->parseName(),
             'loc' => $this->loc($start),
         ]);
@@ -801,7 +801,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseField(): FieldNode
+    private function parseField(): FieldNodeInterface
     {
         $start = $this->lexer->token;
         $nameOrAlias = $this->parseName();
@@ -814,7 +814,7 @@ class Parser
             $name = $nameOrAlias;
         }
 
-        return new FieldNode([
+        return new FieldNodeInterface([
             'alias' => $alias,
             'name' => $name,
             'arguments' => $this->parseArguments(false),
@@ -880,18 +880,18 @@ class Parser
     /**
      * Handles the Type: TypeName, ListType, and NonNullType parsing rules.
      *
-     * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
+     * @return ListTypeNodeInterface|NamedTypeNodeInterface|NonNullTypeNode
      *
      * @throws SyntaxError
      */
-    private function parseTypeReference(): TypeNode
+    private function parseTypeReference(): TypeNodeInterface
     {
         $start = $this->lexer->token;
 
         if ($this->skip(Token::BRACKET_L)) {
             $type = $this->parseTypeReference();
             $this->expect(Token::BRACKET_R);
-            $type = new ListTypeNode([
+            $type = new ListTypeNodeInterface([
                 'type' => $type,
                 'loc' => $this->loc($start),
             ]);
@@ -977,7 +977,7 @@ class Parser
      *
      * @throws SyntaxError
      */
-    private function parseTypeSystemDefinition(): TypeSystemDefinitionNode
+    private function parseTypeSystemDefinition(): TypeSystemDefinitionNodeInterface
     {
         // Many definitions begin with a description and require a lookahead.
         $keywordToken = $this->peekDescription()
@@ -1079,7 +1079,7 @@ class Parser
         ]);
     }
 
-    private function parseDescription(): ?StringValueNode
+    private function parseDescription(): ?StringValueNodeInterface
     {
         if ($this->peekDescription()) {
             return $this->parseStringLiteral();
@@ -1235,7 +1235,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseInterfaceTypeDefinition(): InterfaceTypeDefinitionNode
+    private function parseInterfaceTypeDefinition(): InterfaceTypeDefinitionNodeInterface
     {
         $start = $this->lexer->token;
         $description = $this->parseDescription();
@@ -1245,7 +1245,7 @@ class Parser
         $directives = $this->parseDirectives(true);
         $fields = $this->parseFieldsDefinition();
 
-        return new InterfaceTypeDefinitionNode([
+        return new InterfaceTypeDefinitionNodeInterface([
             'name' => $name,
             'directives' => $directives,
             'interfaces' => $interfaces,
@@ -1301,7 +1301,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseEnumTypeDefinition(): EnumTypeDefinitionNode
+    private function parseEnumTypeDefinition(): EnumTypeDefinitionNodeInterface
     {
         $start = $this->lexer->token;
         $description = $this->parseDescription();
@@ -1310,7 +1310,7 @@ class Parser
         $directives = $this->parseDirectives(true);
         $values = $this->parseEnumValuesDefinition();
 
-        return new EnumTypeDefinitionNode([
+        return new EnumTypeDefinitionNodeInterface([
             'name' => $name,
             'directives' => $directives,
             'values' => $values,
@@ -1359,7 +1359,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseInputObjectTypeDefinition(): InputObjectTypeDefinitionNode
+    private function parseInputObjectTypeDefinition(): InputObjectTypeDefinitionNodeInterface
     {
         $start = $this->lexer->token;
         $description = $this->parseDescription();
@@ -1368,7 +1368,7 @@ class Parser
         $directives = $this->parseDirectives(true);
         $fields = $this->parseInputFieldsDefinition();
 
-        return new InputObjectTypeDefinitionNode([
+        return new InputObjectTypeDefinitionNodeInterface([
             'name' => $name,
             'directives' => $directives,
             'fields' => $fields,
@@ -1407,7 +1407,7 @@ class Parser
      *
      * @throws SyntaxError
      */
-    private function parseTypeExtension(): TypeExtensionNode
+    private function parseTypeExtension(): TypeExtensionNodeInterface
     {
         $keywordToken = $this->lexer->lookahead();
 
@@ -1513,7 +1513,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseInterfaceTypeExtension(): InterfaceTypeExtensionNode
+    private function parseInterfaceTypeExtension(): InterfaceTypeExtensionNodeInterface
     {
         $start = $this->lexer->token;
         $this->expectKeyword('extend');
@@ -1529,7 +1529,7 @@ class Parser
             throw $this->unexpected();
         }
 
-        return new InterfaceTypeExtensionNode([
+        return new InterfaceTypeExtensionNodeInterface([
             'name' => $name,
             'directives' => $directives,
             'interfaces' => $interfaces,
@@ -1568,7 +1568,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseEnumTypeExtension(): EnumTypeExtensionNode
+    private function parseEnumTypeExtension(): EnumTypeExtensionNodeInterface
     {
         $start = $this->lexer->token;
         $this->expectKeyword('extend');
@@ -1582,7 +1582,7 @@ class Parser
             throw $this->unexpected();
         }
 
-        return new EnumTypeExtensionNode([
+        return new EnumTypeExtensionNodeInterface([
             'name' => $name,
             'directives' => $directives,
             'values' => $values,
@@ -1593,7 +1593,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseInputObjectTypeExtension(): InputObjectTypeExtensionNode
+    private function parseInputObjectTypeExtension(): InputObjectTypeExtensionNodeInterface
     {
         $start = $this->lexer->token;
         $this->expectKeyword('extend');
@@ -1607,7 +1607,7 @@ class Parser
             throw $this->unexpected();
         }
 
-        return new InputObjectTypeExtensionNode([
+        return new InputObjectTypeExtensionNodeInterface([
             'name' => $name,
             'directives' => $directives,
             'fields' => $fields,
@@ -1661,7 +1661,7 @@ class Parser
     /**
      * @throws SyntaxError
      */
-    private function parseDirectiveLocation(): NameNode
+    private function parseDirectiveLocation(): NameNodeInterface
     {
         $start = $this->lexer->token;
         $name = $this->parseName();
@@ -1685,7 +1685,7 @@ class Parser
      * @param Source|string $source
      * @param bool[] $options
      *
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
+     * @return BooleanValueNodeInterface|EnumValueNodeInterface|FloatValueNodeInterface|IntValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface|StringValueNodeInterface|VariableNodeInterface
      *
      * @api
      */
@@ -1712,7 +1712,7 @@ class Parser
      * @param Source|string $source
      * @param bool[] $options
      *
-     * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
+     * @return ListTypeNodeInterface|NamedTypeNodeInterface|NonNullTypeNode
      *
      * @api
      */

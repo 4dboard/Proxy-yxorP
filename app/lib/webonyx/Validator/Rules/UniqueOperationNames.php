@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace GraphQL\Validator\Rules;
 
 use GraphQL\Error\Error;
-use GraphQL\Language\AST\NameNode;
+use GraphQL\Language\AST\NameNodeInterface;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\OperationDefinitionNode;
 use GraphQL\Language\Visitor;
@@ -15,7 +15,7 @@ use function sprintf;
 
 class UniqueOperationNames extends ValidationRule
 {
-    /** @var NameNode[] */
+    /** @var NameNodeInterface[] */
     public $knownOperationNames;
 
     public function getVisitor(ValidationContext $context)

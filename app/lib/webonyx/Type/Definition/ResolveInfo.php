@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace GraphQL\Type\Definition;
 
-use GraphQL\Language\AST\FieldNode;
+use GraphQL\Language\AST\FieldNodeInterface;
 use GraphQL\Language\AST\FragmentDefinitionNode;
-use GraphQL\Language\AST\FragmentSpreadNode;
-use GraphQL\Language\AST\InlineFragmentNode;
+use GraphQL\Language\AST\FragmentSpreadNodeInterface;
+use GraphQL\Language\AST\InlineFragmentNodeInterface;
 use GraphQL\Language\AST\OperationDefinitionNode;
 use GraphQL\Language\AST\SelectionSetNode;
 use GraphQL\Type\Schema;
@@ -48,7 +48,7 @@ class ResolveInfo
      * AST of all nodes referencing this field in the query.
      *
      * @api
-     * @var FieldNode[]
+     * @var FieldNodeInterface[]
      */
     public $fieldNodes = [];
 
@@ -116,7 +116,7 @@ class ResolveInfo
     private $queryPlan;
 
     /**
-     * @param FieldNode[] $fieldNodes
+     * @param FieldNodeInterface[] $fieldNodes
      * @param string[] $path
      * @param FragmentDefinitionNode[] $fragments
      * @param mixed|null $rootValue
@@ -188,7 +188,7 @@ class ResolveInfo
     {
         $fields = [];
 
-        /** @var FieldNode $fieldNode */
+        /** @var FieldNodeInterface $fieldNode */
         foreach ($this->fieldNodes as $fieldNode) {
             if ($fieldNode->selectionSet === null) {
                 continue;
@@ -210,11 +210,11 @@ class ResolveInfo
     {
         $fields = [];
         foreach ($selectionSet->selections as $selectionNode) {
-            if ($selectionNode instanceof FieldNode) {
+            if ($selectionNode instanceof FieldNodeInterface) {
                 $fields[$selectionNode->name->value] = $descend > 0 && $selectionNode->selectionSet !== null
                     ? $this->foldSelectionSet($selectionNode->selectionSet, $descend - 1)
                     : true;
-            } elseif ($selectionNode instanceof FragmentSpreadNode) {
+            } elseif ($selectionNode instanceof FragmentSpreadNodeInterface) {
                 $spreadName = $selectionNode->name->value;
                 if (isset($this->fragments[$spreadName])) {
                     /** @var FragmentDefinitionNode $fragment */
@@ -224,7 +224,7 @@ class ResolveInfo
                         $fields
                     );
                 }
-            } elseif ($selectionNode instanceof InlineFragmentNode) {
+            } elseif ($selectionNode instanceof InlineFragmentNodeInterface) {
                 $fields = array_merge_recursive(
                     $this->foldSelectionSet($selectionNode->selectionSet, $descend),
                     $fields

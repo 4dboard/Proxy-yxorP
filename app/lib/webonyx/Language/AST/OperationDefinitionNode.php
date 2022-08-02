@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace GraphQL\Language\AST;
 
-class OperationDefinitionNode extends Node implements ExecutableDefinitionNode, HasSelectionSet
+class OperationDefinitionNode extends Node implements ExecutableDefinitionNodeInterface, HasSelectionSetInterface
 {
     /** @var string */
     public $kind = NodeKind::OPERATION_DEFINITION;
 
-    /** @var NameNode|null */
+    /** @var NameNodeInterface|null */
     public $name;
 
     /** @var string (oneOf 'query', 'mutation', 'subscription')) */

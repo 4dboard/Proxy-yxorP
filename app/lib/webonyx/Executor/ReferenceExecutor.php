@@ -13,13 +13,13 @@ use GraphQL\Error\Warning;
 use GraphQL\Executor\Promise\Promise;
 use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\Language\AST\DocumentNode;
-use GraphQL\Language\AST\FieldNode;
+use GraphQL\Language\AST\FieldNodeInterface;
 use GraphQL\Language\AST\FragmentDefinitionNode;
-use GraphQL\Language\AST\FragmentSpreadNode;
-use GraphQL\Language\AST\InlineFragmentNode;
+use GraphQL\Language\AST\FragmentSpreadNodeInterface;
+use GraphQL\Language\AST\InlineFragmentNodeInterface;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\OperationDefinitionNode;
-use GraphQL\Language\AST\SelectionNode;
+use GraphQL\Language\AST\SelectionNodeInterface;
 use GraphQL\Language\AST\SelectionSetNode;
 use GraphQL\Type\Definition\AbstractType;
 use GraphQL\Type\Definition\Directive;
@@ -331,7 +331,7 @@ class ReferenceExecutor implements ExecutorImplementation
         $exeContext = $this->exeContext;
         foreach ($selectionSet->selections as $selection) {
             switch (true) {
-                case $selection instanceof FieldNode:
+                case $selection instanceof FieldNodeInterface:
                     if (!$this->shouldIncludeNode($selection)) {
                         break;
                     }
@@ -341,7 +341,7 @@ class ReferenceExecutor implements ExecutorImplementation
                     }
                     $fields[$name][] = $selection;
                     break;
-                case $selection instanceof InlineFragmentNode:
+                case $selection instanceof InlineFragmentNodeInterface:
                     if (!$this->shouldIncludeNode($selection) ||
                         !$this->doesFragmentConditionMatch($selection, $runtimeType)
                     ) {
@@ -354,7 +354,7 @@ class ReferenceExecutor implements ExecutorImplementation
                         $visitedFragmentNames
                     );
                     break;
-                case $selection instanceof FragmentSpreadNode:
+                case $selection instanceof FragmentSpreadNodeInterface:
                     $fragName = $selection->name->value;
 
                     if (($visitedFragmentNames[$fragName] ?? false) === true || !$this->shouldIncludeNode($selection)) {
@@ -383,9 +383,9 @@ class ReferenceExecutor implements ExecutorImplementation
      * Determines if a field should be included based on the @include and @skip
      * directives, where @skip has higher precedence than @include.
      *
-     * @param FragmentSpreadNode|FieldNode|InlineFragmentNode $node
+     * @param FragmentSpreadNodeInterface|FieldNodeInterface|InlineFragmentNodeInterface $node
      */
-    protected function shouldIncludeNode(SelectionNode $node): bool
+    protected function shouldIncludeNode(SelectionNodeInterface $node): bool
     {
         $variableValues = $this->exeContext->variableValues;
         $skipDirective = Directive::skipDirective();
@@ -410,7 +410,7 @@ class ReferenceExecutor implements ExecutorImplementation
     /**
      * Implements the logic to compute the key of a given fields entry
      */
-    protected static function getFieldEntryKey(FieldNode $node): string
+    protected static function getFieldEntryKey(FieldNodeInterface $node): string
     {
         return $node->alias === null ? $node->name->value : $node->alias->value;
     }
@@ -418,7 +418,7 @@ class ReferenceExecutor implements ExecutorImplementation
     /**
      * Determines if a fragment is applicable to the given type.
      *
-     * @param FragmentDefinitionNode|InlineFragmentNode $fragment
+     * @param FragmentDefinitionNode|InlineFragmentNodeInterface $fragment
      */
     protected function doesFragmentConditionMatch(Node $fragment, ObjectType $type): bool
     {
@@ -644,11 +644,11 @@ class ReferenceExecutor implements ExecutorImplementation
      * @return Throwable|Promise|mixed
      */
     protected function resolveFieldValueOrError(
-        FieldDefinition $fieldDef,
-        FieldNode       $fieldNode,
-        callable        $resolveFn,
-                        $rootValue,
-        ResolveInfo     $info
+        FieldDefinition    $fieldDef,
+        FieldNodeInterface $fieldNode,
+        callable           $resolveFn,
+                           $rootValue,
+        ResolveInfo        $info
     )
     {
         try {

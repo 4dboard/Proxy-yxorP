@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GraphQL\Language\AST;
 
-class SchemaDefinitionNode extends Node implements TypeSystemDefinitionNode
+class SchemaDefinitionNode extends Node implements TypeSystemDefinitionNodeInterface
 {
     /** @var string */
     public $kind = NodeKind::SCHEMA_DEFINITION;

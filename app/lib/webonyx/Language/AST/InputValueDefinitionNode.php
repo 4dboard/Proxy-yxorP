@@ -9,18 +9,18 @@ class InputValueDefinitionNode extends Node
     /** @var string */
     public $kind = NodeKind::INPUT_VALUE_DEFINITION;
 
-    /** @var NameNode */
+    /** @var NameNodeInterface */
     public $name;
 
-    /** @var NamedTypeNode|ListTypeNode|NonNullTypeNode */
+    /** @var NamedTypeNodeInterface|ListTypeNodeInterface|NonNullTypeNode */
     public $type;
 
-    /** @var VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode|null */
+    /** @var VariableNodeInterface|NullValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|EnumValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface|null */
     public $defaultValue;
 
     /** @var NodeList<DirectiveNode> */
     public $directives;
 
-    /** @var StringValueNode|null */
+    /** @var StringValueNodeInterface|null */
     public $description;
 }

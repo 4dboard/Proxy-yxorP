@@ -6,12 +6,12 @@ namespace GraphQL\Type\Definition;
 
 use Exception;
 use GraphQL\Error\Error;
-use GraphQL\Language\AST\BooleanValueNode;
-use GraphQL\Language\AST\FloatValueNode;
-use GraphQL\Language\AST\IntValueNode;
+use GraphQL\Language\AST\BooleanValueNodeInterface;
+use GraphQL\Language\AST\FloatValueNodeInterface;
+use GraphQL\Language\AST\IntValueNodeInterface;
 use GraphQL\Language\AST\Node;
-use GraphQL\Language\AST\NullValueNode;
-use GraphQL\Language\AST\StringValueNode;
+use GraphQL\Language\AST\NullValueNodeInterface;
+use GraphQL\Language\AST\StringValueNodeInterface;
 
 /*
 export type GraphQLLeafType =
@@ -50,7 +50,7 @@ interface LeafType
      *
      * In the case of an invalid node or value this method must throw an Exception
      *
-     * @param IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|NullValueNode $valueNode
+     * @param IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|NullValueNodeInterface $valueNode
      * @param mixed[]|null $variables
      *
      * @return mixed

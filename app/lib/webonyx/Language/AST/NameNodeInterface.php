@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GraphQL\Language\AST;
 
-class NameNode extends Node implements TypeNode
+class NameNodeInterface extends Node implements TypeNodeInterface
 {
     /** @var string */
     public $kind = NodeKind::NAME;

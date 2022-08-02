@@ -10,6 +10,6 @@ namespace GraphQL\Language\AST;
  *
  * @property SelectionSetNode $selectionSet
  */
-interface HasSelectionSet
+interface HasSelectionSetInterface
 {
 }

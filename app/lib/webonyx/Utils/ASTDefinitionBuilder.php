@@ -7,22 +7,22 @@ namespace GraphQL\Utils;
 use GraphQL\Error\Error;
 use GraphQL\Executor\Values;
 use GraphQL\Language\AST\DirectiveDefinitionNode;
-use GraphQL\Language\AST\EnumTypeDefinitionNode;
+use GraphQL\Language\AST\EnumTypeDefinitionNodeInterface;
 use GraphQL\Language\AST\EnumValueDefinitionNode;
 use GraphQL\Language\AST\FieldDefinitionNode;
-use GraphQL\Language\AST\InputObjectTypeDefinitionNode;
+use GraphQL\Language\AST\InputObjectTypeDefinitionNodeInterface;
 use GraphQL\Language\AST\InputValueDefinitionNode;
-use GraphQL\Language\AST\InterfaceTypeDefinitionNode;
-use GraphQL\Language\AST\ListTypeNode;
-use GraphQL\Language\AST\NamedTypeNode;
-use GraphQL\Language\AST\NameNode;
+use GraphQL\Language\AST\InterfaceTypeDefinitionNodeInterface;
+use GraphQL\Language\AST\ListTypeNodeInterface;
+use GraphQL\Language\AST\NamedTypeNodeInterface;
+use GraphQL\Language\AST\NameNodeInterface;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\NodeList;
 use GraphQL\Language\AST\NonNullTypeNode;
 use GraphQL\Language\AST\ObjectTypeDefinitionNode;
 use GraphQL\Language\AST\ScalarTypeDefinitionNode;
-use GraphQL\Language\AST\TypeDefinitionNode;
-use GraphQL\Language\AST\TypeNode;
+use GraphQL\Language\AST\TypeDefinitionNodeInterface;
+use GraphQL\Language\AST\TypeNodeInterface;
 use GraphQL\Language\AST\UnionTypeDefinitionNode;
 use GraphQL\Language\Token;
 use GraphQL\Type\Definition\CustomScalarType;
@@ -43,7 +43,7 @@ use function sprintf;
 
 class ASTDefinitionBuilder
 {
-    /** @var array<string, Node&TypeDefinitionNode> */
+    /** @var array<string, Node&TypeDefinitionNodeInterface> */
     private $typeDefinitionsMap;
 
     /** @var callable */
@@ -61,7 +61,7 @@ class ASTDefinitionBuilder
     /**
      * code sniffer doesn't understand this syntax. Pr with a fix here: waiting on https://github.com/squizlabs/PHP_CodeSniffer/pull/2919
      * phpcs:disable Squiz.Commenting.FunctionComment.SpacingAfterParamType
-     * @param array<string, Node&TypeDefinitionNode> $typeDefinitionsMap
+     * @param array<string, Node&TypeDefinitionNodeInterface> $typeDefinitionsMap
      * @param array<string, bool> $options
      */
     public function __construct(
@@ -88,7 +88,7 @@ class ASTDefinitionBuilder
             'isRepeatable' => $directiveNode->repeatable,
             'locations' => Utils::map(
                 $directiveNode->locations,
-                static function (NameNode $node): string {
+                static function (NameNodeInterface $node): string {
                     return $node->value;
                 }
             ),
@@ -170,9 +170,9 @@ class ASTDefinitionBuilder
         );
     }
 
-    private function buildWrappedType(TypeNode $typeNode): Type
+    private function buildWrappedType(TypeNodeInterface $typeNode): Type
     {
-        if ($typeNode instanceof ListTypeNode) {
+        if ($typeNode instanceof ListTypeNodeInterface) {
             return Type::listOf($this->buildWrappedType($typeNode->type));
         }
 
@@ -242,7 +242,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode|EnumTypeDefinitionNode|ScalarTypeDefinitionNode|InputObjectTypeDefinitionNode|UnionTypeDefinitionNode $def
+     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNodeInterface|EnumTypeDefinitionNodeInterface|ScalarTypeDefinitionNode|InputObjectTypeDefinitionNodeInterface|UnionTypeDefinitionNode $def
      *
      * @return CustomScalarType|EnumType|InputObjectType|InterfaceType|ObjectType|UnionType
      *
@@ -253,15 +253,15 @@ class ASTDefinitionBuilder
         switch (true) {
             case $def instanceof ObjectTypeDefinitionNode:
                 return $this->makeTypeDef($def);
-            case $def instanceof InterfaceTypeDefinitionNode:
+            case $def instanceof InterfaceTypeDefinitionNodeInterface:
                 return $this->makeInterfaceDef($def);
-            case $def instanceof EnumTypeDefinitionNode:
+            case $def instanceof EnumTypeDefinitionNodeInterface:
                 return $this->makeEnumDef($def);
             case $def instanceof UnionTypeDefinitionNode:
                 return $this->makeUnionDef($def);
             case $def instanceof ScalarTypeDefinitionNode:
                 return $this->makeScalarDef($def);
-            case $def instanceof InputObjectTypeDefinitionNode:
+            case $def instanceof InputObjectTypeDefinitionNodeInterface:
                 return $this->makeInputObjectDef($def);
             default:
                 throw new Error(sprintf('Type kind of %s not supported.', $def->kind));
@@ -284,7 +284,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode $def
+     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNodeInterface $def
      *
      * @return array<string, array<string, mixed>>
      */
@@ -335,7 +335,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode $def
+     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNodeInterface $def
      *
      * @return array<int, Type>
      */
@@ -346,13 +346,13 @@ class ASTDefinitionBuilder
         // validation with validateSchema() will produce more actionable results.
         return Utils::map(
             $def->interfaces,
-            function (NamedTypeNode $iface): Type {
+            function (NamedTypeNodeInterface $iface): Type {
                 return $this->buildType($iface);
             }
         );
     }
 
-    private function makeInterfaceDef(InterfaceTypeDefinitionNode $def): InterfaceType
+    private function makeInterfaceDef(InterfaceTypeDefinitionNodeInterface $def): InterfaceType
     {
         return new InterfaceType([
             'name' => $def->name->value,
@@ -367,7 +367,7 @@ class ASTDefinitionBuilder
         ]);
     }
 
-    private function makeEnumDef(EnumTypeDefinitionNode $def): EnumType
+    private function makeEnumDef(EnumTypeDefinitionNodeInterface $def): EnumType
     {
         return new EnumType([
             'name' => $def->name->value,
@@ -421,7 +421,7 @@ class ASTDefinitionBuilder
         ]);
     }
 
-    private function makeInputObjectDef(InputObjectTypeDefinitionNode $def): InputObjectType
+    private function makeInputObjectDef(InputObjectTypeDefinitionNodeInterface $def): InputObjectType
     {
         return new InputObjectType([
             'name' => $def->name->value,
@@ -445,15 +445,15 @@ class ASTDefinitionBuilder
         switch (true) {
             case $def instanceof ObjectTypeDefinitionNode:
                 return new ObjectType($config);
-            case $def instanceof InterfaceTypeDefinitionNode:
+            case $def instanceof InterfaceTypeDefinitionNodeInterface:
                 return new InterfaceType($config);
-            case $def instanceof EnumTypeDefinitionNode:
+            case $def instanceof EnumTypeDefinitionNodeInterface:
                 return new EnumType($config);
             case $def instanceof UnionTypeDefinitionNode:
                 return new UnionType($config);
             case $def instanceof ScalarTypeDefinitionNode:
                 return new CustomScalarType($config);
-            case $def instanceof InputObjectTypeDefinitionNode:
+            case $def instanceof InputObjectTypeDefinitionNodeInterface:
                 return new InputObjectType($config);
             default:
                 throw new Error(sprintf('Type kind of %s not supported.', $def->kind));

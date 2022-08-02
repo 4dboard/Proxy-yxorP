@@ -8,9 +8,9 @@ use ArrayObject;
 use Exception;
 use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
-use GraphQL\Language\AST\EnumTypeDefinitionNode;
-use GraphQL\Language\AST\EnumTypeExtensionNode;
-use GraphQL\Language\AST\EnumValueNode;
+use GraphQL\Language\AST\EnumTypeDefinitionNodeInterface;
+use GraphQL\Language\AST\EnumTypeExtensionNodeInterface;
+use GraphQL\Language\AST\EnumValueNodeInterface;
 use GraphQL\Language\AST\Node;
 use GraphQL\Utils\MixedStore;
 use GraphQL\Utils\Utils;
@@ -21,9 +21,9 @@ use function sprintf;
 
 class EnumType extends Type implements InputType, OutputType, LeafType, NullableType, NamedType
 {
-    /** @var EnumTypeDefinitionNode|null */
+    /** @var EnumTypeDefinitionNodeInterface|null */
     public $astNode;
-    /** @var EnumTypeExtensionNode[] */
+    /** @var EnumTypeExtensionNodeInterface[] */
     public $extensionASTNodes;
     /**
      * Lazily initialized.
@@ -184,7 +184,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
-        if ($valueNode instanceof EnumValueNode) {
+        if ($valueNode instanceof EnumValueNodeInterface) {
             $lookup = $this->getNameLookup();
             if (isset($lookup[$valueNode->value])) {
                 $enumValue = $lookup[$valueNode->value];

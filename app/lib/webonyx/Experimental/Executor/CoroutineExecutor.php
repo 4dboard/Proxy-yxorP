@@ -15,7 +15,7 @@ use GraphQL\Executor\Promise\PromiseAdapter;
 use GraphQL\Executor\Values;
 use GraphQL\Language\AST\DocumentNode;
 use GraphQL\Language\AST\SelectionSetNode;
-use GraphQL\Language\AST\ValueNode;
+use GraphQL\Language\AST\ValueNodeInterface;
 use GraphQL\Type\Definition\AbstractType;
 use GraphQL\Type\Definition\CompositeType;
 use GraphQL\Type\Definition\EnumType;
@@ -42,7 +42,7 @@ use function is_array;
 use function is_string;
 use function sprintf;
 
-class CoroutineExecutor implements Runtime, ExecutorImplementation
+class CoroutineExecutor implements RuntimeInterface, ExecutorImplementation
 {
     /** @var object */
     private static $undefined;
@@ -965,7 +965,7 @@ class CoroutineExecutor implements Runtime, ExecutorImplementation
      * @internal
      *
      */
-    public function evaluate(ValueNode $valueNode, InputType $type)
+    public function evaluate(ValueNodeInterface $valueNode, InputType $type)
     {
         return AST::valueFromAST($valueNode, $type, $this->variableValues);
     }

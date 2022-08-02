@@ -9,9 +9,9 @@ class ArgumentNode extends Node
     /** @var string */
     public $kind = NodeKind::ARGUMENT;
 
-    /** @var VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode */
+    /** @var VariableNodeInterface|NullValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|EnumValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface */
     public $value;
 
-    /** @var NameNode */
+    /** @var NameNodeInterface */
     public $name;
 }
