@@ -6,9 +6,9 @@ namespace GraphQL\Validator\Rules;
 
 use GraphQL\Error\Error;
 use GraphQL\Language\AST\DocumentNode;
-use GraphQL\Language\AST\ExecutableDefinitionNodeInterface;
+use GraphQL\Language\AST\ExecutableDefinitionNode;
 use GraphQL\Language\AST\NodeKind;
-use GraphQL\Language\AST\TypeSystemDefinitionNodeInterface;
+use GraphQL\Language\AST\TypeSystemDefinitionNode;
 use GraphQL\Language\Visitor;
 use GraphQL\Language\VisitorOperation;
 use GraphQL\Validator\ValidationContext;
@@ -26,9 +26,9 @@ class ExecutableDefinitions extends ValidationRule
     {
         return [
             NodeKind::DOCUMENT => static function (DocumentNode $node) use ($context): VisitorOperation {
-                /** @var ExecutableDefinitionNodeInterface|TypeSystemDefinitionNodeInterface $definition */
+                /** @var ExecutableDefinitionNode|TypeSystemDefinitionNode $definition */
                 foreach ($node->definitions as $definition) {
-                    if ($definition instanceof ExecutableDefinitionNodeInterface) {
+                    if ($definition instanceof ExecutableDefinitionNode) {
                         continue;
                     }
 

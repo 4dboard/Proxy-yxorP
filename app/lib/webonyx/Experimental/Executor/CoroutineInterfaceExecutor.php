@@ -9,9 +9,9 @@ use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Error\Warning;
 use GraphQL\Executor\ExecutionResult;
-use GraphQL\Executor\ExecutorImplementation;
+use GraphQL\Executor\ExecutorImplementationInterface;
 use GraphQL\Executor\Promise\Promise;
-use GraphQL\Executor\Promise\PromiseAdapter;
+use GraphQL\Executor\Promise\PromiseAdapterInterface;
 use GraphQL\Executor\Values;
 use GraphQL\Language\AST\DocumentNode;
 use GraphQL\Language\AST\SelectionSetNode;
@@ -42,7 +42,7 @@ use function is_array;
 use function is_string;
 use function sprintf;
 
-class CoroutineExecutor implements RuntimeInterface, ExecutorImplementation
+class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementationInterface
 {
     /** @var object */
     private static $undefined;
@@ -53,7 +53,7 @@ class CoroutineExecutor implements RuntimeInterface, ExecutorImplementation
     /** @var callable */
     private $fieldResolver;
 
-    /** @var PromiseAdapter */
+    /** @var PromiseAdapterInterface */
     private $promiseAdapter;
 
     /** @var mixed|null */
@@ -96,14 +96,14 @@ class CoroutineExecutor implements RuntimeInterface, ExecutorImplementation
     private $doResolve;
 
     public function __construct(
-        PromiseAdapter $promiseAdapter,
-        Schema         $schema,
-        DocumentNode   $documentNode,
-                       $rootValue,
-                       $contextValue,
-                       $rawVariableValues,
-        ?string        $operationName,
-        callable       $fieldResolver
+        PromiseAdapterInterface $promiseAdapter,
+        Schema                  $schema,
+        DocumentNode            $documentNode,
+                                $rootValue,
+                                $contextValue,
+                                $rawVariableValues,
+        ?string                 $operationName,
+        callable                $fieldResolver
     )
     {
         if (self::$undefined === null) {
@@ -124,14 +124,14 @@ class CoroutineExecutor implements RuntimeInterface, ExecutorImplementation
     }
 
     public static function create(
-        PromiseAdapter $promiseAdapter,
-        Schema         $schema,
-        DocumentNode   $documentNode,
-                       $rootValue,
-                       $contextValue,
-                       $variableValues,
-        ?string        $operationName,
-        callable       $fieldResolver
+        PromiseAdapterInterface $promiseAdapter,
+        Schema                  $schema,
+        DocumentNode            $documentNode,
+                                $rootValue,
+                                $contextValue,
+                                $variableValues,
+        ?string                 $operationName,
+        callable                $fieldResolver
     )
     {
         return new static(

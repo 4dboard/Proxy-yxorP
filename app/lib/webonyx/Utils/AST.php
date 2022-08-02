@@ -8,27 +8,27 @@ use ArrayAccess;
 use Exception;
 use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
-use GraphQL\Language\AST\BooleanValueNodeInterface;
+use GraphQL\Language\AST\BooleanValueNode;
 use GraphQL\Language\AST\DocumentNode;
-use GraphQL\Language\AST\EnumValueNodeInterface;
-use GraphQL\Language\AST\FloatValueNodeInterface;
-use GraphQL\Language\AST\IntValueNodeInterface;
-use GraphQL\Language\AST\ListTypeNodeInterface;
-use GraphQL\Language\AST\ListValueNodeInterface;
+use GraphQL\Language\AST\EnumValueNode;
+use GraphQL\Language\AST\FloatValueNode;
+use GraphQL\Language\AST\IntValueNode;
+use GraphQL\Language\AST\ListTypeNode;
+use GraphQL\Language\AST\ListValueNode;
 use GraphQL\Language\AST\Location;
-use GraphQL\Language\AST\NamedTypeNodeInterface;
-use GraphQL\Language\AST\NameNodeInterface;
+use GraphQL\Language\AST\NamedTypeNode;
+use GraphQL\Language\AST\NameNode;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\NodeList;
 use GraphQL\Language\AST\NonNullTypeNode;
-use GraphQL\Language\AST\NullValueNodeInterface;
+use GraphQL\Language\AST\NullValueNode;
 use GraphQL\Language\AST\ObjectFieldNode;
-use GraphQL\Language\AST\ObjectValueNodeInterface;
+use GraphQL\Language\AST\ObjectValueNode;
 use GraphQL\Language\AST\OperationDefinitionNode;
-use GraphQL\Language\AST\StringValueNodeInterface;
+use GraphQL\Language\AST\StringValueNode;
 use GraphQL\Language\AST\ValueNodeInterface;
-use GraphQL\Language\AST\VariableNodeInterface;
+use GraphQL\Language\AST\VariableNode;
 use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\IDType;
 use GraphQL\Type\Definition\InputObjectType;
@@ -147,7 +147,7 @@ class AST
      *
      * @param Type|mixed|null $value
      *
-     * @return ObjectValueNodeInterface|ListValueNodeInterface|BooleanValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|EnumValueNodeInterface|StringValueNodeInterface|NullValueNodeInterface|null
+     * @return ObjectValueNode|ListValueNode|BooleanValueNode|IntValueNode|FloatValueNode|EnumValueNode|StringValueNode|NullValueNode|null
      *
      * @api
      */
@@ -155,7 +155,7 @@ class AST
     {
         if ($type instanceof NonNull) {
             $astValue = self::astFromValue($value, $type->getWrappedType());
-            if ($astValue instanceof NullValueNodeInterface) {
+            if ($astValue instanceof NullValueNode) {
                 return null;
             }
 
@@ -163,7 +163,7 @@ class AST
         }
 
         if ($value === null) {
-            return new NullValueNodeInterface([]);
+            return new NullValueNode([]);
         }
 
         // Convert PHP array to GraphQL list. If the GraphQLType is a list, but
@@ -181,7 +181,7 @@ class AST
                     $valuesNodes[] = $itemNode;
                 }
 
-                return new ListValueNodeInterface(['values' => new NodeList($valuesNodes)]);
+                return new ListValueNode(['values' => new NodeList($valuesNodes)]);
             }
 
             return self::astFromValue($value, $itemType);
@@ -227,12 +227,12 @@ class AST
                 }
 
                 $fieldNodes[] = new ObjectFieldNode([
-                    'name' => new NameNodeInterface(['value' => $fieldName]),
+                    'name' => new NameNode(['value' => $fieldName]),
                     'value' => $fieldNode,
                 ]);
             }
 
-            return new ObjectValueNodeInterface(['fields' => new NodeList($fieldNodes)]);
+            return new ObjectValueNode(['fields' => new NodeList($fieldNodes)]);
         }
 
         if ($type instanceof ScalarType || $type instanceof EnumType) {
@@ -249,35 +249,35 @@ class AST
 
             // Others serialize based on their corresponding PHP scalar types.
             if (is_bool($serialized)) {
-                return new BooleanValueNodeInterface(['value' => $serialized]);
+                return new BooleanValueNode(['value' => $serialized]);
             }
             if (is_int($serialized)) {
-                return new IntValueNodeInterface(['value' => (string)$serialized]);
+                return new IntValueNode(['value' => (string)$serialized]);
             }
             if (is_float($serialized)) {
                 // int cast with == used for performance reasons
                 // phpcs:ignore
                 if ((int)$serialized == $serialized) {
-                    return new IntValueNodeInterface(['value' => (string)$serialized]);
+                    return new IntValueNode(['value' => (string)$serialized]);
                 }
 
-                return new FloatValueNodeInterface(['value' => (string)$serialized]);
+                return new FloatValueNode(['value' => (string)$serialized]);
             }
             if (is_string($serialized)) {
                 // Enum types use Enum literals.
                 if ($type instanceof EnumType) {
-                    return new EnumValueNodeInterface(['value' => $serialized]);
+                    return new EnumValueNode(['value' => $serialized]);
                 }
 
                 // ID types can use Int literals.
                 $asInt = (int)$serialized;
                 if ($type instanceof IDType && (string)$asInt === $serialized) {
-                    return new IntValueNodeInterface(['value' => $serialized]);
+                    return new IntValueNode(['value' => $serialized]);
                 }
 
                 // Use json_encode, which uses the same string encoding as GraphQL,
                 // then remove the quotes.
-                return new StringValueNodeInterface(['value' => $serialized]);
+                return new StringValueNode(['value' => $serialized]);
             }
 
             throw new InvariantViolation('Cannot convert value to AST: ' . Utils::printSafe($serialized));
@@ -305,7 +305,7 @@ class AST
      * | Enum Value           | Mixed         |
      * | Null Value           | null          |
      *
-     * @param VariableNodeInterface|NullValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|EnumValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface|null $valueNode
+     * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode|null $valueNode
      * @param mixed[]|null $variables
      *
      * @return mixed[]|stdClass|null
@@ -325,7 +325,7 @@ class AST
         }
 
         if ($type instanceof NonNull) {
-            if ($valueNode instanceof NullValueNodeInterface) {
+            if ($valueNode instanceof NullValueNode) {
                 // Invalid: intentionally return no value.
                 return $undefined;
             }
@@ -333,12 +333,12 @@ class AST
             return self::valueFromAST($valueNode, $type->getWrappedType(), $variables);
         }
 
-        if ($valueNode instanceof NullValueNodeInterface) {
+        if ($valueNode instanceof NullValueNode) {
             // This is explicitly returning the value null.
             return null;
         }
 
-        if ($valueNode instanceof VariableNodeInterface) {
+        if ($valueNode instanceof VariableNode) {
             $variableName = $valueNode->name->value;
 
             if (!$variables || !array_key_exists($variableName, $variables)) {
@@ -360,7 +360,7 @@ class AST
         if ($type instanceof ListOfType) {
             $itemType = $type->getWrappedType();
 
-            if ($valueNode instanceof ListValueNodeInterface) {
+            if ($valueNode instanceof ListValueNode) {
                 $coercedValues = [];
                 $itemNodes = $valueNode->values;
                 foreach ($itemNodes as $itemNode) {
@@ -394,7 +394,7 @@ class AST
         }
 
         if ($type instanceof InputObjectType) {
-            if (!$valueNode instanceof ObjectValueNodeInterface) {
+            if (!$valueNode instanceof ObjectValueNode) {
                 // Invalid: intentionally return no value.
                 return $undefined;
             }
@@ -409,7 +409,7 @@ class AST
             );
             foreach ($fields as $field) {
                 $fieldName = $field->name;
-                /** @var VariableNodeInterface|NullValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|EnumValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface $fieldNode */
+                /** @var VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $fieldNode */
                 $fieldNode = $fieldNodes[$fieldName] ?? null;
 
                 if ($fieldNode === null || self::isMissingVariable($fieldNode->value, $variables)) {
@@ -439,7 +439,7 @@ class AST
         }
 
         if ($type instanceof EnumType) {
-            if (!$valueNode instanceof EnumValueNodeInterface) {
+            if (!$valueNode instanceof EnumValueNode) {
                 return $undefined;
             }
             $enumValue = $type->getValue($valueNode->value);
@@ -468,14 +468,14 @@ class AST
      * Returns true if the provided valueNode is a variable which is not defined
      * in the set of variables.
      *
-     * @param VariableNodeInterface|NullValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|EnumValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface $valueNode
+     * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $valueNode
      * @param mixed[] $variables
      *
      * @return bool
      */
     private static function isMissingVariable(ValueNodeInterface $valueNode, $variables)
     {
-        return $valueNode instanceof VariableNodeInterface &&
+        return $valueNode instanceof VariableNode &&
             (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
     }
 
@@ -507,24 +507,24 @@ class AST
     public static function valueFromASTUntyped($valueNode, ?array $variables = null)
     {
         switch (true) {
-            case $valueNode instanceof NullValueNodeInterface:
+            case $valueNode instanceof NullValueNode:
                 return null;
-            case $valueNode instanceof IntValueNodeInterface:
+            case $valueNode instanceof IntValueNode:
                 return (int)$valueNode->value;
-            case $valueNode instanceof FloatValueNodeInterface:
+            case $valueNode instanceof FloatValueNode:
                 return (float)$valueNode->value;
-            case $valueNode instanceof StringValueNodeInterface:
-            case $valueNode instanceof EnumValueNodeInterface:
-            case $valueNode instanceof BooleanValueNodeInterface:
+            case $valueNode instanceof StringValueNode:
+            case $valueNode instanceof EnumValueNode:
+            case $valueNode instanceof BooleanValueNode:
                 return $valueNode->value;
-            case $valueNode instanceof ListValueNodeInterface:
+            case $valueNode instanceof ListValueNode:
                 return array_map(
                     static function ($node) use ($variables) {
                         return self::valueFromASTUntyped($node, $variables);
                     },
                     iterator_to_array($valueNode->values)
                 );
-            case $valueNode instanceof ObjectValueNodeInterface:
+            case $valueNode instanceof ObjectValueNode:
                 return array_combine(
                     array_map(
                         static function ($field): string {
@@ -539,7 +539,7 @@ class AST
                         iterator_to_array($valueNode->fields)
                     )
                 );
-            case $valueNode instanceof VariableNodeInterface:
+            case $valueNode instanceof VariableNode:
                 $variableName = $valueNode->name->value;
 
                 return $variables && isset($variables[$variableName])
@@ -553,7 +553,7 @@ class AST
     /**
      * Returns type definition for given AST Type node
      *
-     * @param NamedTypeNodeInterface|ListTypeNodeInterface|NonNullTypeNode $inputTypeNode
+     * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
      *
      * @return Type|null
      *
@@ -563,7 +563,7 @@ class AST
      */
     public static function typeFromAST(Schema $schema, $inputTypeNode)
     {
-        if ($inputTypeNode instanceof ListTypeNodeInterface) {
+        if ($inputTypeNode instanceof ListTypeNode) {
             $innerType = self::typeFromAST($schema, $inputTypeNode->type);
 
             return $innerType ? new ListOfType($innerType) : null;
@@ -573,7 +573,7 @@ class AST
 
             return $innerType ? new NonNull($innerType) : null;
         }
-        if ($inputTypeNode instanceof NamedTypeNodeInterface) {
+        if ($inputTypeNode instanceof NamedTypeNode) {
             return $schema->getType($inputTypeNode->name->value);
         }
 
@@ -629,7 +629,7 @@ class AST
                     return null;
                 }
                 $operation = $node;
-            } elseif ($node->name instanceof NameNodeInterface && $node->name->value === $operationName) {
+            } elseif ($node->name instanceof NameNode && $node->name->value === $operationName) {
                 return $node;
             }
         }

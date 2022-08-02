@@ -7,9 +7,9 @@ namespace GraphQL\Validator\Rules;
 use ArrayObject;
 use GraphQL\Error\Error;
 use GraphQL\Executor\Values;
-use GraphQL\Language\AST\FieldNodeInterface;
-use GraphQL\Language\AST\FragmentSpreadNodeInterface;
-use GraphQL\Language\AST\InlineFragmentNodeInterface;
+use GraphQL\Language\AST\FieldNode;
+use GraphQL\Language\AST\FragmentSpreadNode;
+use GraphQL\Language\AST\InlineFragmentNode;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\OperationDefinitionNode;
@@ -115,7 +115,7 @@ class QueryComplexity extends QuerySecurityRule
     private function nodeComplexity(Node $node, $complexity = 0)
     {
         switch (true) {
-            case $node instanceof FieldNodeInterface:
+            case $node instanceof FieldNode:
                 // default values
                 $args = [];
                 $complexityFn = FieldDefinition::DEFAULT_COMPLEXITY_FN;
@@ -146,14 +146,14 @@ class QueryComplexity extends QuerySecurityRule
                 $complexity += $complexityFn($childrenComplexity, $args);
                 break;
 
-            case $node instanceof InlineFragmentNodeInterface:
+            case $node instanceof InlineFragmentNode:
                 // node has children?
                 if (isset($node->selectionSet)) {
                     $complexity = $this->fieldComplexity($node, $complexity);
                 }
                 break;
 
-            case $node instanceof FragmentSpreadNodeInterface:
+            case $node instanceof FragmentSpreadNode:
                 $fragment = $this->getFragment($node);
 
                 if ($fragment !== null) {
@@ -165,7 +165,7 @@ class QueryComplexity extends QuerySecurityRule
         return $complexity;
     }
 
-    private function astFieldInfo(FieldNodeInterface $field)
+    private function astFieldInfo(FieldNode $field)
     {
         $fieldName = $this->getFieldName($field);
         $astFieldInfo = [null, null];
@@ -181,7 +181,7 @@ class QueryComplexity extends QuerySecurityRule
         return $astFieldInfo;
     }
 
-    private function directiveExcludesField(FieldNodeInterface $node)
+    private function directiveExcludesField(FieldNode $node)
     {
         foreach ($node->directives as $directiveNode) {
             if ($directiveNode->name->value === 'deprecated') {
@@ -235,7 +235,7 @@ class QueryComplexity extends QuerySecurityRule
         $this->rawVariableValues = $rawVariableValues ?? [];
     }
 
-    private function buildFieldArguments(FieldNodeInterface $node)
+    private function buildFieldArguments(FieldNode $node)
     {
         $rawVariableValues = $this->getRawVariableValues();
         $astFieldInfo = $this->astFieldInfo($node);

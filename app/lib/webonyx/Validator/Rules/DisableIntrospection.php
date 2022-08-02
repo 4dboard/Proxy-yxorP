@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace GraphQL\Validator\Rules;
 
 use GraphQL\Error\Error;
-use GraphQL\Language\AST\FieldNodeInterface;
+use GraphQL\Language\AST\FieldNode;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Validator\ValidationContext;
 
@@ -31,7 +31,7 @@ class DisableIntrospection extends QuerySecurityRule
         return $this->invokeIfNeeded(
             $context,
             [
-                NodeKind::FIELD => static function (FieldNodeInterface $node) use ($context): void {
+                NodeKind::FIELD => static function (FieldNode $node) use ($context): void {
                     if ($node->name->value !== '__type' && $node->name->value !== '__schema') {
                         return;
                     }

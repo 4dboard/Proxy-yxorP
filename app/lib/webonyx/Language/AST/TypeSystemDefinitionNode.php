@@ -11,8 +11,8 @@ namespace GraphQL\Language\AST;
  * | TypeExtensionNode
  * | DirectiveDefinitionNode
  *
- * @property NameNodeInterface $name
+ * @property NameNode $name
  */
-interface TypeSystemDefinitionNodeInterface extends DefinitionNodeInterface
+interface TypeSystemDefinitionNode extends DefinitionNode
 {
 }
