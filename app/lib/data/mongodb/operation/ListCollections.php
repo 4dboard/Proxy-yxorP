@@ -17,7 +17,6 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
-use yxorP\app\lib\data\mongoDB\Model\CollectionInfoCommandIterator;
 use yxorP\app\lib\http\mongoDB\command\ListCollections as ListCollectionsCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;

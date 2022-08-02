@@ -1,6 +1,5 @@
 <?php namespace yxorP\app\lib\data\mongoDB;
 
-use MongoDB\Driver\WriteResult;
 use yxorP\app\lib\http\mongoDB\Driver\WriteResult;
 use yxorP\app\lib\http\mongoDB\Exception\BadMethodCallException;
 
