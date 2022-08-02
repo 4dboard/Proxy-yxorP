@@ -53,14 +53,6 @@ class acl extends helperAware
         return false;
     }
 
-    protected function initialize()
-    {
-
-        $this->roles = $this->app->memory->get('app.roles.permissions', function () {
-            return $this->cache();
-        });
-    }
-
     public function cache(): array
     {
 
@@ -77,5 +69,13 @@ class acl extends helperAware
         $this->app->memory->set('app.roles.permissions', $cache);
 
         return $cache;
+    }
+
+    protected function initialize()
+    {
+
+        $this->roles = $this->app->memory->get('app.roles.permissions', function () {
+            return $this->cache();
+        });
     }
 }
