@@ -47,7 +47,6 @@ class yP
     public function __construct(string $root, array|null $request = null)
     {
 
-
         /**
          * Defining the root directory of the website.
          */
@@ -68,7 +67,6 @@ class yP
          */
         if (!self::$instance) (self::$instance = $this)->init($request, $root);
 
-
     }
 
     /**
@@ -78,11 +76,11 @@ class yP
      */
     private function init(?array $request): void
     {
+
         /**
          * Checking if the files exist in the directory.
          */
         foreach (array('http', 'minify', 'parser', 'psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
-
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
@@ -109,7 +107,6 @@ class yP
      */
     public static function autoLoader(string $root): void
     {
-        echo $root;
         /**
          * Creating an empty array.
          */
