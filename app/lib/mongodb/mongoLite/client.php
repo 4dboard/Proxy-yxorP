@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http\mongoLite;
+<?php namespace yxorP\app\lib\http\mongodb\mongoLite;
 
 use DirectoryIterator;
 use function rtrim;
