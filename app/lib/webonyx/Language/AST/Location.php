@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Language\AST;
 
-use GraphQL\Language\Source;
-use GraphQL\Language\Token;
+use yxorP\app\lib\psr\graphQL\Language\Source;
+use yxorP\app\lib\psr\graphQL\Language\Token;
 
 /**
  * Contains a range of UTF-8 character offsets and token references that

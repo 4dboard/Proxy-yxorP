@@ -6,7 +6,7 @@ namespace yxorP\app\lib\psr\graphQL\Language\AST;
 
 use ArrayAccess;
 use Countable;
-use GraphQL\Utils\AST;
+use yxorP\app\lib\psr\graphQL\Utils\AST;
 use IteratorAggregate;
 use Traversable;
 use function array_merge;

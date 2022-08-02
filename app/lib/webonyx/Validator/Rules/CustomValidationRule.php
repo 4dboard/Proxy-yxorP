@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
-use GraphQL\Error\Error;
-use GraphQL\Validator\ValidationContext;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
 
 class CustomValidationRule extends ValidationRule
 {
