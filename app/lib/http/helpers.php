@@ -115,6 +115,7 @@ class helpers
     {
         require PATH_SITE_BOOTSTRAP;
         echo 1;
+        print_r(App::instance());
         echo 1;
         store::handler(YXORP_APP, App::instance());
         echo 1;
