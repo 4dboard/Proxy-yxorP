@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace yxorP\app\lib\graphQL\Language\AST;
+
+class EnumTypeDefinitionNode extends Node implements TypeDefinitionNodeInterface
+{
+    /** @var string */
+    public $kind = NodeKind::ENUM_TYPE_DEFINITION;
+
+    /** @var NameNode */
+    public $name;
+
+    /** @var NodeList<DirectiveNode> */
+    public $directives;
+
+    /** @var NodeList<EnumValueDefinitionNode> */
+    public $values;
+
+    /** @var StringValueNode|null */
+    public $description;
+}

@@ -1,0 +1,15 @@
+<?php
+
+namespace yxorP\app\lib\annotation\attribute;
+
+/**
+ * Annotation that can be used to signal to the parser
+ * to check the types of all declared attributes during the parsing process.
+ *
+ * @Annotation
+ */
+final class attributes
+{
+    /** @var array<attribute> */
+    public $value;
+}

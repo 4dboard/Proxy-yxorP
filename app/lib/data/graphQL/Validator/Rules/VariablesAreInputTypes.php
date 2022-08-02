@@ -1,0 +1,42 @@
+<?php
+
+declare(strict_types=1);
+
+namespace yxorP\app\lib\graphQL\Validator\Rules;
+
+use yxorP\app\lib\graphQL\Error\Error;
+use yxorP\app\lib\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\graphQL\Language\AST\VariableDefinitionNode;
+use yxorP\app\lib\graphQL\Language\Printer;
+use yxorP\app\lib\graphQL\Type\Definition\Type;
+use yxorP\app\lib\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\graphQL\Validator\ValidationContext;
+use function sprintf;
+
+class VariablesAreInputTypes extends ValidationRule
+{
+    public static function nonInputTypeOnVarMessage($variableName, $typeName)
+    {
+        return sprintf('Variable "$%s" cannot be non-input type "%s".', $variableName, $typeName);
+    }
+
+    public function getVisitor(ValidationContext $context)
+    {
+        return [
+            NodeKind::VARIABLE_DEFINITION => static function (VariableDefinitionNode $node) use ($context): void {
+                $type = TypeInfo::typeFromAST($context->getSchema(), $node->type);
+
+                // If the variable type is not an input type, return an error.
+                if (!$type || Type::isInputType($type)) {
+                    return;
+                }
+
+                $variableName = $node->variable->name->value;
+                $context->reportError(new Error(
+                    self::nonInputTypeOnVarMessage($variableName, Printer::doPrint($node->type)),
+                    [$node->type]
+                ));
+            },
+        ];
+    }
+}
