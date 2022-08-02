@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace yxorP\app\lib\scancode\Renderer\Eye;
 
 use BaconQrCode\Renderer\Path\Path;
-use yxorP\app\lib\scancode\Renderer\Path\Path;
 
 /**
  * Renders the eyes in their default square shape.

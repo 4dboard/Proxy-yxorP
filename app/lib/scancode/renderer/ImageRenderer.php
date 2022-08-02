@@ -14,8 +14,6 @@ use yxorP\app\lib\scancode\Encoder\matrixUtil;
 use yxorP\app\lib\scancode\Encoder\qrCode;
 use yxorP\app\lib\scancode\Renderer\Image\ImageBackEndInterface;
 use yxorP\app\lib\scancode\Renderer\Path\Path;
-use yxorP\app\lib\scancode\Renderer\RendererStyle\EyeFill;
-use yxorP\app\lib\scancode\Renderer\RendererStyle\RendererStyle;
 
 final class ImageRenderer implements RendererInterface
 {

@@ -9,8 +9,6 @@ use BaconQrCode\Common\Version;
 use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Exception\WriterException;
 use yxorP\app\lib\scancode\common\bitArray;
-use yxorP\app\lib\scancode\common\errorCorrectionLevel;
-use yxorP\app\lib\scancode\Exception\WriterException;
 
 /**
  * Matrix utility.

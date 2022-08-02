@@ -5,7 +5,6 @@ namespace yxorP\app\lib\scancode\Renderer;
 
 use BaconQrCode\Encoder\QrCode;
 use BaconQrCode\Exception\InvalidArgumentException;
-use yxorP\app\lib\scancode\Encoder\qrCode;
 
 final class PlainTextRenderer implements RendererInterface
 {
