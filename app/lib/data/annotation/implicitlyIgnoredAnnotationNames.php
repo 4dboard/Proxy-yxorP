@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\app\lib\annotation;
+namespace yxorP\app\lib\data\annotation;
 
 
 final class implicitlyIgnoredAnnotationNames

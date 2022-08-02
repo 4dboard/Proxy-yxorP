@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\annotation\attribute;
+namespace yxorP\app\lib\data\annotation\attribute;
 
 use InvalidArgumentException;
 use function get_class;

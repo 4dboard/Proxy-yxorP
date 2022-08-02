@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\annotation\attribute;
+namespace yxorP\app\lib\data\annotation\attribute;
 
 /**
  * Annotation that can be used to signal to the parser

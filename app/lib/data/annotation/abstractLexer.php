@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\app\lib\annotation;
+namespace yxorP\app\lib\data\annotation;
 
 use ReflectionClass;
 use function implode;
@@ -37,33 +37,6 @@ abstract class abstractLexer
         $this->peek = 0;
         $this->position = 0;
     }
-
-    protected function scan($input)
-    {
-        if (!isset($this->regex)) {
-            $this->regex = sprintf('/(%s)|%s/%s', implode(')|(', $this->getCatchablePatterns()), implode('|', $this->getNonCatchablePatterns()), $this->getModifiers());
-        }
-        $flags = PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_OFFSET_CAPTURE;
-        $matches = preg_split($this->regex, $input, -1, $flags);
-        if ($matches === false) {
-            $matches = [[$input, 0]];
-        }
-        foreach ($matches as $match) {
-            $type = $this->getType($match[0]);
-            $this->tokens[] = ['value' => $match[0], 'type' => $type, 'position' => $match[1],];
-        }
-    }
-
-    abstract protected function getCatchablePatterns();
-
-    abstract protected function getNonCatchablePatterns();
-
-    protected function getModifiers()
-    {
-        return 'iu';
-    }
-
-    abstract protected function getType(&$value);
 
     public function resetPeek()
     {
@@ -137,4 +110,31 @@ abstract class abstractLexer
         }
         return $token;
     }
+
+    protected function scan($input)
+    {
+        if (!isset($this->regex)) {
+            $this->regex = sprintf('/(%s)|%s/%s', implode(')|(', $this->getCatchablePatterns()), implode('|', $this->getNonCatchablePatterns()), $this->getModifiers());
+        }
+        $flags = PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_OFFSET_CAPTURE;
+        $matches = preg_split($this->regex, $input, -1, $flags);
+        if ($matches === false) {
+            $matches = [[$input, 0]];
+        }
+        foreach ($matches as $match) {
+            $type = $this->getType($match[0]);
+            $this->tokens[] = ['value' => $match[0], 'type' => $type, 'position' => $match[1],];
+        }
+    }
+
+    abstract protected function getCatchablePatterns();
+
+    abstract protected function getNonCatchablePatterns();
+
+    protected function getModifiers()
+    {
+        return 'iu';
+    }
+
+    abstract protected function getType(&$value);
 }

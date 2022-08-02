@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\annotation\attribute;
+namespace yxorP\app\lib\data\annotation\attribute;
 
 use RuntimeException;
 use function is_array;

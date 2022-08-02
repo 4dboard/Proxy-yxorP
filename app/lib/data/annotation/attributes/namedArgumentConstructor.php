@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\lib\annotation\attribute;
+namespace yxorP\app\lib\data\annotation\attribute;
 
 /**
  * Annotation that indicates that the annotated class should be constructed with a named argument call.

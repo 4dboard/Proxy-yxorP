@@ -3,8 +3,8 @@
 namespace yxorP\app\lib\openapi;
 
 use Exception;
-use yxorP\app\lib\annotation\attributeRegistry;
-use yxorP\app\lib\annotation\docParser;
+use yxorP\app\lib\data\annotation\attributeRegistry;
+use yxorP\app\lib\data\annotation\docParser;
 
 if (class_exists(AnnotationRegistry::class, true)) {
     AnnotationRegistry::registerLoader(function (string $class): bool {

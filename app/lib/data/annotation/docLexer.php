@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\annotation;
+<?php namespace yxorP\app\lib\data\annotation;
 
 use function ctype_alpha;
 use function is_numeric;

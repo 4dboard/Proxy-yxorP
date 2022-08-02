@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\annotation;
+<?php namespace yxorP\app\lib\data\annotation;
 
 
 use ReflectionClass;

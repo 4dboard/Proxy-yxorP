@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\annotation;
+<?php namespace yxorP\app\lib\data\annotation;
 
 
 use ReflectionClass;
@@ -6,11 +6,11 @@ use ReflectionProperty;
 use RuntimeException;
 use stdClass;
 use Throwable;
-use yxorP\app\lib\annotation\attribute\attribute;
-use yxorP\app\lib\annotation\attribute\attributes;
-use yxorP\app\lib\annotation\attribute\enum;
-use yxorP\app\lib\annotation\attribute\namedArgumentConstructor;
-use yxorP\app\lib\annotation\attribute\target;
+use yxorP\app\lib\data\annotation\attribute\attribute;
+use yxorP\app\lib\data\annotation\attribute\attributes;
+use yxorP\app\lib\data\annotation\attribute\enum;
+use yxorP\app\lib\data\annotation\attribute\namedArgumentConstructor;
+use yxorP\app\lib\data\annotation\attribute\target;
 use function array_keys;
 use function array_map;
 use function array_pop;
