@@ -12,7 +12,7 @@ if (!defined('SITE_ADMIN')) define('SITE_ADMIN', false);
 define('SITE_DIR', str_replace(DIRECTORY_SEPARATOR, '/', __DIR__));
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'yP.php');
 include_once(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'dotEnv.php');
-
+echo 1;
 spl_autoload_register(function ($class) {
     $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
