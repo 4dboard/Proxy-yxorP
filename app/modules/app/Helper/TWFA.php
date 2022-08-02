@@ -14,8 +14,7 @@ use yxorP\app\lib\twoFactor\TwoFactorAuth;
 class TWFA extends helper
 {
 
-    protected
-    TwoFactorAuth $tfa;
+    protected TwoFactorAuth $tfa;
 
     public function createSecret(int $length = 160)
     {
