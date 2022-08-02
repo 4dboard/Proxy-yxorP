@@ -2,12 +2,12 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
-use graphQL\Language\AST\BooleanValueNodeInterface;
-use graphQL\Language\AST\FloatValueNodeInterface;
-use graphQL\Language\AST\IntValueNodeInterface;
-use graphQL\Language\AST\ListValueNodeInterface;
-use graphQL\Language\AST\ObjectValueNodeInterface;
-use graphQL\Language\AST\StringValueNodeInterface;
+use graphQL\Language\AST\BooleanValueNode;
+use graphQL\Language\AST\FloatValueNode;
+use graphQL\Language\AST\IntValueNode;
+use graphQL\Language\AST\ListValueNode;
+use graphQL\Language\AST\ObjectValueNode;
+use graphQL\Language\AST\StringValueNode;
 use graphQL\Type\Definition\ScalarType;
 
 class jsonType extends ScalarType
@@ -50,13 +50,13 @@ class jsonType extends ScalarType
     {
 
         switch ($valueNode) {
-            case ($valueNode instanceof StringValueNodeInterface):
-            case ($valueNode instanceof BooleanValueNodeInterface):
+            case ($valueNode instanceof StringValueNode):
+            case ($valueNode instanceof BooleanValueNode):
                 return $valueNode->value;
-            case ($valueNode instanceof IntValueNodeInterface):
-            case ($valueNode instanceof FloatValueNodeInterface):
+            case ($valueNode instanceof IntValueNode):
+            case ($valueNode instanceof FloatValueNode):
                 return floatval($valueNode->value);
-            case ($valueNode instanceof ObjectValueNodeInterface):
+            case ($valueNode instanceof ObjectValueNode):
             {
                 $value = [];
                 foreach ($valueNode->fields as $field) {
@@ -64,7 +64,7 @@ class jsonType extends ScalarType
                 }
                 return $value;
             }
-            case ($valueNode instanceof ListValueNodeInterface):
+            case ($valueNode instanceof ListValueNode):
                 return array_map([$this, 'parseLiteral'], $valueNode->values);
             default:
                 return null;

@@ -9,9 +9,9 @@ class ObjectFieldNode extends Node
     /** @var string */
     public $kind = NodeKind::OBJECT_FIELD;
 
-    /** @var NameNodeInterface */
+    /** @var NameNode */
     public $name;
 
-    /** @var VariableNodeInterface|NullValueNodeInterface|IntValueNodeInterface|FloatValueNodeInterface|StringValueNodeInterface|BooleanValueNodeInterface|EnumValueNodeInterface|ListValueNodeInterface|ObjectValueNodeInterface */
+    /** @var VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode */
     public $value;
 }

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace GraphQL\Validator\Rules;
 
 use GraphQL\Error\Error;
-use GraphQL\Language\AST\FieldNodeInterface;
-use GraphQL\Language\AST\FragmentSpreadNodeInterface;
-use GraphQL\Language\AST\InlineFragmentNodeInterface;
+use GraphQL\Language\AST\FieldNode;
+use GraphQL\Language\AST\FragmentSpreadNode;
+use GraphQL\Language\AST\InlineFragmentNode;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\OperationDefinitionNode;
@@ -61,7 +61,7 @@ class QueryDepth extends QuerySecurityRule
     private function nodeDepth(Node $node, $depth = 0, $maxDepth = 0)
     {
         switch (true) {
-            case $node instanceof FieldNodeInterface:
+            case $node instanceof FieldNode:
                 // node has children?
                 if ($node->selectionSet !== null) {
                     // update maxDepth if needed
@@ -72,14 +72,14 @@ class QueryDepth extends QuerySecurityRule
                 }
                 break;
 
-            case $node instanceof InlineFragmentNodeInterface:
+            case $node instanceof InlineFragmentNode:
                 // node has children?
                 if ($node->selectionSet !== null) {
                     $maxDepth = $this->fieldDepth($node, $depth, $maxDepth);
                 }
                 break;
 
-            case $node instanceof FragmentSpreadNodeInterface:
+            case $node instanceof FragmentSpreadNode:
                 $fragment = $this->getFragment($node);
 
                 if ($fragment !== null) {

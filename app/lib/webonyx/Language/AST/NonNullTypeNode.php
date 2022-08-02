@@ -9,6 +9,6 @@ class NonNullTypeNode extends Node implements TypeNodeInterface
     /** @var string */
     public $kind = NodeKind::NON_NULL_TYPE;
 
-    /** @var NamedTypeNodeInterface|ListTypeNodeInterface */
+    /** @var NamedTypeNode|ListTypeNode */
     public $type;
 }

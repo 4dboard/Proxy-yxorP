@@ -8,19 +8,19 @@ use Exception;
 use GraphQL\Error\Error;
 use GraphQL\Language\AST\DirectiveDefinitionNode;
 use GraphQL\Language\AST\DirectiveNode;
-use GraphQL\Language\AST\EnumTypeDefinitionNodeInterface;
-use GraphQL\Language\AST\EnumTypeExtensionNodeInterface;
+use GraphQL\Language\AST\EnumTypeDefinitionNode;
+use GraphQL\Language\AST\EnumTypeExtensionNode;
 use GraphQL\Language\AST\EnumValueDefinitionNode;
 use GraphQL\Language\AST\FieldDefinitionNode;
-use GraphQL\Language\AST\FieldNodeInterface;
+use GraphQL\Language\AST\FieldNode;
 use GraphQL\Language\AST\FragmentDefinitionNode;
-use GraphQL\Language\AST\FragmentSpreadNodeInterface;
-use GraphQL\Language\AST\InlineFragmentNodeInterface;
-use GraphQL\Language\AST\InputObjectTypeDefinitionNodeInterface;
-use GraphQL\Language\AST\InputObjectTypeExtensionNodeInterface;
+use GraphQL\Language\AST\FragmentSpreadNode;
+use GraphQL\Language\AST\InlineFragmentNode;
+use GraphQL\Language\AST\InputObjectTypeDefinitionNode;
+use GraphQL\Language\AST\InputObjectTypeExtensionNode;
 use GraphQL\Language\AST\InputValueDefinitionNode;
-use GraphQL\Language\AST\InterfaceTypeDefinitionNodeInterface;
-use GraphQL\Language\AST\InterfaceTypeExtensionNodeInterface;
+use GraphQL\Language\AST\InterfaceTypeDefinitionNode;
+use GraphQL\Language\AST\InterfaceTypeExtensionNode;
 use GraphQL\Language\AST\Node;
 use GraphQL\Language\AST\NodeKind;
 use GraphQL\Language\AST\NodeList;
@@ -141,11 +141,11 @@ class KnownDirectives extends ValidationRule
                         return DirectiveLocation::SUBSCRIPTION;
                 }
                 break;
-            case $appliedTo instanceof FieldNodeInterface:
+            case $appliedTo instanceof FieldNode:
                 return DirectiveLocation::FIELD;
-            case $appliedTo instanceof FragmentSpreadNodeInterface:
+            case $appliedTo instanceof FragmentSpreadNode:
                 return DirectiveLocation::FRAGMENT_SPREAD;
-            case $appliedTo instanceof InlineFragmentNodeInterface:
+            case $appliedTo instanceof InlineFragmentNode:
                 return DirectiveLocation::INLINE_FRAGMENT;
             case $appliedTo instanceof FragmentDefinitionNode:
                 return DirectiveLocation::FRAGMENT_DEFINITION;
@@ -162,24 +162,24 @@ class KnownDirectives extends ValidationRule
                 return DirectiveLocation::OBJECT;
             case $appliedTo instanceof FieldDefinitionNode:
                 return DirectiveLocation::FIELD_DEFINITION;
-            case $appliedTo instanceof InterfaceTypeDefinitionNodeInterface:
-            case $appliedTo instanceof InterfaceTypeExtensionNodeInterface:
+            case $appliedTo instanceof InterfaceTypeDefinitionNode:
+            case $appliedTo instanceof InterfaceTypeExtensionNode:
                 return DirectiveLocation::IFACE;
             case $appliedTo instanceof UnionTypeDefinitionNode:
             case $appliedTo instanceof UnionTypeExtensionNode:
                 return DirectiveLocation::UNION;
-            case $appliedTo instanceof EnumTypeDefinitionNodeInterface:
-            case $appliedTo instanceof EnumTypeExtensionNodeInterface:
+            case $appliedTo instanceof EnumTypeDefinitionNode:
+            case $appliedTo instanceof EnumTypeExtensionNode:
                 return DirectiveLocation::ENUM;
             case $appliedTo instanceof EnumValueDefinitionNode:
                 return DirectiveLocation::ENUM_VALUE;
-            case $appliedTo instanceof InputObjectTypeDefinitionNodeInterface:
-            case $appliedTo instanceof InputObjectTypeExtensionNodeInterface:
+            case $appliedTo instanceof InputObjectTypeDefinitionNode:
+            case $appliedTo instanceof InputObjectTypeExtensionNode:
                 return DirectiveLocation::INPUT_OBJECT;
             case $appliedTo instanceof InputValueDefinitionNode:
                 $parentNode = $ancestors[count($ancestors) - 3];
 
-                return $parentNode instanceof InputObjectTypeDefinitionNodeInterface
+                return $parentNode instanceof InputObjectTypeDefinitionNode
                     ? DirectiveLocation::INPUT_FIELD_DEFINITION
                     : DirectiveLocation::ARGUMENT_DEFINITION;
         }

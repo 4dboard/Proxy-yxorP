@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace GraphQL\Language\AST;
 
-class FragmentDefinitionNode extends Node implements ExecutableDefinitionNodeInterface, HasSelectionSetInterface
+class FragmentDefinitionNode extends Node implements ExecutableDefinitionNode, HasSelectionSetInterface
 {
     /** @var string */
     public $kind = NodeKind::FRAGMENT_DEFINITION;
 
-    /** @var NameNodeInterface */
+    /** @var NameNode */
     public $name;
 
     /**
@@ -20,7 +20,7 @@ class FragmentDefinitionNode extends Node implements ExecutableDefinitionNodeInt
      */
     public $variableDefinitions;
 
-    /** @var NamedTypeNodeInterface */
+    /** @var NamedTypeNode */
     public $typeCondition;
 
     /** @var NodeList<DirectiveNode> */

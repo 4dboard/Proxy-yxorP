@@ -9,7 +9,7 @@ class ScalarTypeExtensionNode extends Node implements TypeExtensionNodeInterface
     /** @var string */
     public $kind = NodeKind::SCALAR_TYPE_EXTENSION;
 
-    /** @var NameNodeInterface */
+    /** @var NameNode */
     public $name;
 
     /** @var NodeList<DirectiveNode> */
