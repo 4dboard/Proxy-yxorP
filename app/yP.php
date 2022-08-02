@@ -109,6 +109,7 @@ class yP
      */
     public static function autoLoader(string $root): void
     {
+        echo 3;
         /**
          * Creating an empty array.
          */
