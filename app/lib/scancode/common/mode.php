@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\common;
 
-use yxorP\app\lib\enum\abstractEnum;
+use yxorP\app\lib\data\enum\abstractEnum;
 
 /**
  * Enum representing various modes in which data can be encoded to bits.

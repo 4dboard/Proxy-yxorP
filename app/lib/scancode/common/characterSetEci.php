@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\scancode\common;
 
 use BaconQrCode\Exception\InvalidArgumentException;
-use yxorP\app\lib\enum\abstractEnum;
+use yxorP\app\lib\data\enum\abstractEnum;
 
 /**
  * Encapsulates a Character Set ECI, according to "Extended Channel Interpretations" 5.3.1.1 of ISO 18004.

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\app\lib\enum;
+namespace yxorP\app\lib\data\enum;
 
-use yxorP\app\lib\enum\exception\cloneNotSupportedException;
-use yxorP\app\lib\enum\exception\serializeNotSupportedException;
-use yxorP\app\lib\enum\exception\unserializeNotSupportedException;
+use yxorP\app\lib\data\enum\exception\cloneNotSupportedException;
+use yxorP\app\lib\data\enum\exception\serializeNotSupportedException;
+use yxorP\app\lib\data\enum\exception\unserializeNotSupportedException;
 
 final class nullValue
 {

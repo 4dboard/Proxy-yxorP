@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\app\lib\enum;
+namespace yxorP\app\lib\data\enum;
 
 use ReflectionClass;
-use yxorP\app\lib\enum\exception\cloneNotSupportedException;
-use yxorP\app\lib\enum\exception\illegalArgumentException;
-use yxorP\app\lib\enum\exception\mismatchException;
-use yxorP\app\lib\enum\exception\serializeNotSupportedException;
-use yxorP\app\lib\enum\exception\unserializeNotSupportedException;
+use yxorP\app\lib\data\enum\exception\cloneNotSupportedException;
+use yxorP\app\lib\data\enum\exception\illegalArgumentException;
+use yxorP\app\lib\data\enum\exception\mismatchException;
+use yxorP\app\lib\data\enum\exception\serializeNotSupportedException;
+use yxorP\app\lib\data\enum\exception\unserializeNotSupportedException;
 
 abstract class abstractEnum
 {

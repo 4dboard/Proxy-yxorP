@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\app\lib\enum;
+namespace yxorP\app\lib\data\enum;
 
 use IteratorAggregate;
 use Serializable;
 use Traversable;
-use yxorP\app\lib\enum\exception\expectationException;
-use yxorP\app\lib\enum\exception\illegalArgumentException;
+use yxorP\app\lib\data\enum\exception\expectationException;
+use yxorP\app\lib\data\enum\exception\illegalArgumentException;
 
 final class enumMap implements Serializable, IteratorAggregate
 {

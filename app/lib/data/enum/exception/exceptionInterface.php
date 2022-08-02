@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace yxorP\app\lib\enum\exception;
+namespace yxorP\app\lib\data\enum\exception;
 
 use Throwable;
 

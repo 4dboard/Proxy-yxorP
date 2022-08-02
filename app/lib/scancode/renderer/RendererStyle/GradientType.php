@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\Renderer\RendererStyle;
 
-use yxorP\app\lib\enum\abstractEnum;
+use yxorP\app\lib\data\enum\abstractEnum;
 
 /**
  * @method static self VERTICAL()

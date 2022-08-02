@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\scancode\common;
 
 use BaconQrCode\Exception\OutOfBoundsException;
-use yxorP\app\lib\enum\abstractEnum;
+use yxorP\app\lib\data\enum\abstractEnum;
 
 /**
  * Enum representing the four error correction levels.
