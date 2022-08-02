@@ -114,7 +114,7 @@ class yP
         /**
          * Loading all the PHP files in the directory.
          */
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if (str_contains($path, 'Interface') && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if ((str_contains($path, 'Interface') || str_contains($path, 'Interface') )&& str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
         /**
          * Loading all the classes in the classes folder.
          */
