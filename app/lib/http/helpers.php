@@ -121,6 +121,7 @@ class helpers
         store::handler(VAR_SERVER, $request ?: $_SERVER);
         define('YXORP_SITE_DOMAIN', domain::domain_host());
         define('YXORP_SITE_SUB_DOMAIN', domain::domain_sub());
+        echo 1;
         foreach ([TARGET_BUTTON_HOVER => VAR_BUTTON_HOVER, TARGET_BUTTON => VAR_BUTTON, TARGET_LINK_HOVER => VAR_LINK_HOVER, TARGET_LINK_VISITED => VAR_LINK_VISITED, TARGET_LINK => VAR_LINK, TARGET_HTML_MENU => VAR_HTML_MENU, TARGET_MENU => VAR_MENU, TARGET_FOOT_HTML => VAR_FOOT_HTML, TARGET_FOOT => VAR_FOOT, TARGET_HEAD => VAR_HEAD, TARGET_HEAD_HTML => VAR_HEAD_HTML, TARGET_MENU => VAR_MENU, TARGET_MENU_HTML => VAR_MENU_HTML, TARGET_BG_COLOR => VAR_BG_COLOR, TARGET_BG_IMG => VAR_BG_IMG, TARGET_JS => VAR_JS, TARGET_CSS => VAR_CSS, VAR_TARGET_PATTERN => VAR_PATTERN, VAR_TARGET_REPLACE => VAR_REPLACE, YXORP_TARGET_PLUGINS => VAR_PLUGINS, YXORP_TARGET_CSS => VAR_CSS, YXORP_TARGET_JS => VAR_JS] as $key => $value) store::handler($key, store::handler(SITE_DETAILS, store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_COLLECTIONS . CHAR_SLASH . SITE_SITES, [SITE_HOST => strtok(YXORP_SITE_DOMAIN, CHAR_COLON)]))[$value]);
         define('YXORP_TARGET_URL', (store::handler(SITE_DETAILS))[SITE_TARGET]);
         define('YXORP_domain_target', domain::domain_host_target());
@@ -131,7 +132,6 @@ class helpers
         foreach ([YXORP_GLOBAL_PATTERN => VAR_PATTERN, YXORP_GLOBAL_REPLACE => VAR_REPLACE, YXORP_GLOBAL_CSS => VAR_CSS, YXORP_GLOBAL_JS => VAR_JS] as $key => $value) store::handler($key, store::handler(SITE_DETAILS_GLOBAL, store::handler(YXORP_APP)->dataStorage->findOne(SITE_CONTENT . CHAR_SLASH . SITE_SINGLETONS, [SITE_MODULE => SITE_SETTINGS]))[$value]);
         if (!is_file(PATH_COOKIE_JAR)) file_put_contents(PATH_COOKIE_JAR, '[]');
         store::handler(VAR_PROXY, new client([VAR_COOKIES => new fileCookieJar(PATH_COOKIE_JAR, TRUE), VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_IDN_CONVERSION => true]));
-        echo 1;
     }
 
     public static function env($line): void
