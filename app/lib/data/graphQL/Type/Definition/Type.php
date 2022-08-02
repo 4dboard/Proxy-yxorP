@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
+use JsonSerializable;
+use ReflectionClass;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\TypeDefinitionNodeInterface;
 use yxorP\app\lib\data\graphQL\Language\AST\TypeExtensionNodeInterface;
 use yxorP\app\lib\data\graphQL\Type\Introspection;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use JsonSerializable;
-use ReflectionClass;
 use function array_keys;
 use function array_merge;
 use function assert;

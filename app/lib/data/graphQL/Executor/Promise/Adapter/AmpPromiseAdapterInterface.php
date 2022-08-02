@@ -8,31 +8,14 @@ use Amp\Deferred;
 use Amp\Failure;
 use Amp\Promise as AmpPromise;
 use Amp\Success;
+use Throwable;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
-use Throwable;
 use function Amp\Promise\all;
 use function array_replace;
 
 class AmpPromiseAdapterInterface implements PromiseAdapterInterface
 {
-    private static function resolveWithCallable(Deferred $deferred, callable $callback, $argument): void
-    {
-        try {
-            $result = $callback($argument);
-        } catch (Throwable $exception) {
-            $deferred->fail($exception);
-
-            return;
-        }
-
-        if ($result instanceof Promise) {
-            $result = $result->adoptedPromise;
-        }
-
-        $deferred->resolve($result);
-    }
-
     /**
      * @inheritdoc
      */
@@ -72,6 +55,23 @@ class AmpPromiseAdapterInterface implements PromiseAdapterInterface
         $adoptedPromise->onResolve($onResolve);
 
         return new Promise($deferred->promise(), $this);
+    }
+
+    private static function resolveWithCallable(Deferred $deferred, callable $callback, $argument): void
+    {
+        try {
+            $result = $callback($argument);
+        } catch (Throwable $exception) {
+            $deferred->fail($exception);
+
+            return;
+        }
+
+        if ($result instanceof Promise) {
+            $result = $result->adoptedPromise;
+        }
+
+        $deferred->resolve($result);
     }
 
     /**

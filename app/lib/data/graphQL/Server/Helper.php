@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Server;
 
+use JsonSerializable;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\StreamInterface;
 use yxorP\app\lib\data\graphQL\Error\DebugFlag;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\FormattedError;
@@ -18,11 +23,6 @@ use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\Parser;
 use yxorP\app\lib\data\graphQL\Utils\AST;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use JsonSerializable;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\StreamInterface;
 use function count;
 use function file_get_contents;
 use function header;
@@ -111,6 +111,14 @@ class Helper
     }
 
     /**
+     * @return bool|string
+     */
+    private function readRawBody()
+    {
+        return file_get_contents('php://input');
+    }
+
+    /**
      * Parses normalized request params and returns instance of OperationParams
      * or array of OperationParams in case of batch operation.
      *
@@ -165,225 +173,6 @@ class Helper
         }
 
         return $result;
-    }
-
-    /**
-     * Checks validity of OperationParams extracted from HTTP request and returns an array of errors
-     * if params are invalid (or empty array when params are valid)
-     *
-     * @return array<int, RequestError>
-     *
-     * @api
-     */
-    public function validateOperationParams(OperationParams $params)
-    {
-        $errors = [];
-        if (!$params->query && !$params->queryId) {
-            $errors[] = new RequestError('GraphQL Request must include at least one of those two parameters: "query" or "queryId"');
-        }
-
-        if ($params->query && $params->queryId) {
-            $errors[] = new RequestError('GraphQL Request parameters "query" and "queryId" are mutually exclusive');
-        }
-
-        if ($params->query !== null && !is_string($params->query)) {
-            $errors[] = new RequestError(
-                'GraphQL Request parameter "query" must be string, but got ' .
-                Utils::printSafeJson($params->query)
-            );
-        }
-
-        if ($params->queryId !== null && !is_string($params->queryId)) {
-            $errors[] = new RequestError(
-                'GraphQL Request parameter "queryId" must be string, but got ' .
-                Utils::printSafeJson($params->queryId)
-            );
-        }
-
-        if ($params->operation !== null && !is_string($params->operation)) {
-            $errors[] = new RequestError(
-                'GraphQL Request parameter "operation" must be string, but got ' .
-                Utils::printSafeJson($params->operation)
-            );
-        }
-
-        if ($params->variables !== null && (!is_array($params->variables) || isset($params->variables[0]))) {
-            $errors[] = new RequestError(
-                'GraphQL Request parameter "variables" must be object or JSON string parsed to object, but got ' .
-                Utils::printSafeJson($params->getOriginalInput('variables'))
-            );
-        }
-
-        return $errors;
-    }
-
-    /**
-     * Executes batched GraphQL operations with shared promise queue
-     * (thus, effectively batching deferreds|promises of all queries at once)
-     *
-     * @param OperationParams[] $operations
-     *
-     * @return ExecutionResult|ExecutionResult[]|Promise
-     *
-     * @api
-     */
-    public function executeBatch(ServerConfig $config, array $operations)
-    {
-        $promiseAdapter = $config->getPromiseAdapter() ?? Executor::getPromiseAdapter();
-        $result = [];
-
-        foreach ($operations as $operation) {
-            $result[] = $this->promiseToExecuteOperation($promiseAdapter, $config, $operation, true);
-        }
-
-        $result = $promiseAdapter->all($result);
-
-        // Wait for promised results when using sync promises
-        if ($promiseAdapter instanceof SyncPromiseAdapterInterface) {
-            $result = $promiseAdapter->wait($result);
-        }
-
-        return $result;
-    }
-
-    /**
-     * Send response using standard PHP `header()` and `echo`.
-     *
-     * @param Promise|ExecutionResult|ExecutionResult[] $result
-     * @param bool $exitWhenDone
-     *
-     * @api
-     */
-    public function sendResponse($result, $exitWhenDone = false)
-    {
-        if ($result instanceof Promise) {
-            $result->then(function ($actualResult) use ($exitWhenDone): void {
-                $this->doSendResponse($actualResult, $exitWhenDone);
-            });
-        } else {
-            $this->doSendResponse($result, $exitWhenDone);
-        }
-    }
-
-    /**
-     * @param mixed[]|JsonSerializable $jsonSerializable
-     * @param int $httpStatus
-     * @param bool $exitWhenDone
-     */
-    public function emitResponse($jsonSerializable, $httpStatus, $exitWhenDone)
-    {
-        $body = json_encode($jsonSerializable);
-        header('Content-Type: application/json', true, $httpStatus);
-        echo $body;
-
-        if ($exitWhenDone) {
-            exit;
-        }
-    }
-
-    /**
-     * Converts PSR-7 request to OperationParams[]
-     *
-     * @return OperationParams[]|OperationParams
-     *
-     * @throws RequestError
-     *
-     * @api
-     */
-    public function parsePsrRequest(RequestInterface $request)
-    {
-        if ($request->getMethod() === 'GET') {
-            $bodyParams = [];
-        } else {
-            $contentType = $request->getHeader('content-type');
-
-            if (!isset($contentType[0])) {
-                throw new RequestError('Missing "Content-Type" header');
-            }
-
-            if (stripos($contentType[0], 'application/graphql') !== false) {
-                $bodyParams = ['query' => (string)$request->getBody()];
-            } elseif (stripos($contentType[0], 'application/json') !== false) {
-                $bodyParams = $request instanceof ServerRequestInterface
-                    ? $request->getParsedBody()
-                    : json_decode((string)$request->getBody(), true);
-
-                if ($bodyParams === null) {
-                    throw new InvariantViolation(
-                        $request instanceof ServerRequestInterface
-                            ? 'Expected to receive a parsed body for "application/json" PSR-7 request but got null'
-                            : 'Expected to receive a JSON array in body for "application/json" PSR-7 request'
-                    );
-                }
-
-                if (!is_array($bodyParams)) {
-                    throw new RequestError(
-                        'GraphQL Server expects JSON object or array, but got ' .
-                        Utils::printSafeJson($bodyParams)
-                    );
-                }
-            } else {
-                if ($request instanceof ServerRequestInterface) {
-                    $bodyParams = $request->getParsedBody();
-                }
-
-                if (!isset($bodyParams)) {
-                    $bodyParams = $this->decodeContent((string)$request->getBody(), $contentType[0]);
-                }
-            }
-        }
-
-        parse_str(html_entity_decode($request->getUri()->getQuery()), $queryParams);
-
-        return $this->parseRequestParams(
-            $request->getMethod(),
-            $bodyParams,
-            $queryParams
-        );
-    }
-
-    /**
-     * Converts query execution result to PSR-7 response
-     *
-     * @param Promise|ExecutionResult|ExecutionResult[] $result
-     *
-     * @return Promise|ResponseInterface
-     *
-     * @api
-     */
-    public function toPsrResponse($result, ResponseInterface $response, StreamInterface $writableBodyStream)
-    {
-        if ($result instanceof Promise) {
-            return $result->then(function ($actualResult) use ($response, $writableBodyStream) {
-                return $this->doConvertToPsrResponse($actualResult, $response, $writableBodyStream);
-            });
-        }
-
-        return $this->doConvertToPsrResponse($result, $response, $writableBodyStream);
-    }
-
-    /**
-     * @return array<string, mixed>
-     *
-     * @throws RequestError
-     */
-    protected function decodeContent(string $rawBody, string $contentType): array
-    {
-        parse_str($rawBody, $bodyParams);
-
-        if (!is_array($bodyParams)) {
-            throw new RequestError('Unexpected content type: ' . Utils::printSafeJson($contentType));
-        }
-
-        return $bodyParams;
-    }
-
-    /**
-     * @return bool|string
-     */
-    private function readRawBody()
-    {
-        return file_get_contents('php://input');
     }
 
     /**
@@ -481,6 +270,56 @@ class Helper
     }
 
     /**
+     * Checks validity of OperationParams extracted from HTTP request and returns an array of errors
+     * if params are invalid (or empty array when params are valid)
+     *
+     * @return array<int, RequestError>
+     *
+     * @api
+     */
+    public function validateOperationParams(OperationParams $params)
+    {
+        $errors = [];
+        if (!$params->query && !$params->queryId) {
+            $errors[] = new RequestError('GraphQL Request must include at least one of those two parameters: "query" or "queryId"');
+        }
+
+        if ($params->query && $params->queryId) {
+            $errors[] = new RequestError('GraphQL Request parameters "query" and "queryId" are mutually exclusive');
+        }
+
+        if ($params->query !== null && !is_string($params->query)) {
+            $errors[] = new RequestError(
+                'GraphQL Request parameter "query" must be string, but got ' .
+                Utils::printSafeJson($params->query)
+            );
+        }
+
+        if ($params->queryId !== null && !is_string($params->queryId)) {
+            $errors[] = new RequestError(
+                'GraphQL Request parameter "queryId" must be string, but got ' .
+                Utils::printSafeJson($params->queryId)
+            );
+        }
+
+        if ($params->operation !== null && !is_string($params->operation)) {
+            $errors[] = new RequestError(
+                'GraphQL Request parameter "operation" must be string, but got ' .
+                Utils::printSafeJson($params->operation)
+            );
+        }
+
+        if ($params->variables !== null && (!is_array($params->variables) || isset($params->variables[0]))) {
+            $errors[] = new RequestError(
+                'GraphQL Request parameter "variables" must be object or JSON string parsed to object, but got ' .
+                Utils::printSafeJson($params->getOriginalInput('variables'))
+            );
+        }
+
+        return $errors;
+    }
+
+    /**
      * @return mixed
      *
      * @throws RequestError
@@ -571,6 +410,54 @@ class Helper
         return $validationRules;
     }
 
+    /**
+     * Executes batched GraphQL operations with shared promise queue
+     * (thus, effectively batching deferreds|promises of all queries at once)
+     *
+     * @param OperationParams[] $operations
+     *
+     * @return ExecutionResult|ExecutionResult[]|Promise
+     *
+     * @api
+     */
+    public function executeBatch(ServerConfig $config, array $operations)
+    {
+        $promiseAdapter = $config->getPromiseAdapter() ?? Executor::getPromiseAdapter();
+        $result = [];
+
+        foreach ($operations as $operation) {
+            $result[] = $this->promiseToExecuteOperation($promiseAdapter, $config, $operation, true);
+        }
+
+        $result = $promiseAdapter->all($result);
+
+        // Wait for promised results when using sync promises
+        if ($promiseAdapter instanceof SyncPromiseAdapterInterface) {
+            $result = $promiseAdapter->wait($result);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Send response using standard PHP `header()` and `echo`.
+     *
+     * @param Promise|ExecutionResult|ExecutionResult[] $result
+     * @param bool $exitWhenDone
+     *
+     * @api
+     */
+    public function sendResponse($result, $exitWhenDone = false)
+    {
+        if ($result instanceof Promise) {
+            $result->then(function ($actualResult) use ($exitWhenDone): void {
+                $this->doSendResponse($actualResult, $exitWhenDone);
+            });
+        } else {
+            $this->doSendResponse($result, $exitWhenDone);
+        }
+    }
+
     private function doSendResponse($result, $exitWhenDone)
     {
         $httpStatus = $this->resolveHttpStatus($result);
@@ -615,6 +502,119 @@ class Helper
         }
 
         return $httpStatus;
+    }
+
+    /**
+     * @param mixed[]|JsonSerializable $jsonSerializable
+     * @param int $httpStatus
+     * @param bool $exitWhenDone
+     */
+    public function emitResponse($jsonSerializable, $httpStatus, $exitWhenDone)
+    {
+        $body = json_encode($jsonSerializable);
+        header('Content-Type: application/json', true, $httpStatus);
+        echo $body;
+
+        if ($exitWhenDone) {
+            exit;
+        }
+    }
+
+    /**
+     * Converts PSR-7 request to OperationParams[]
+     *
+     * @return OperationParams[]|OperationParams
+     *
+     * @throws RequestError
+     *
+     * @api
+     */
+    public function parsePsrRequest(RequestInterface $request)
+    {
+        if ($request->getMethod() === 'GET') {
+            $bodyParams = [];
+        } else {
+            $contentType = $request->getHeader('content-type');
+
+            if (!isset($contentType[0])) {
+                throw new RequestError('Missing "Content-Type" header');
+            }
+
+            if (stripos($contentType[0], 'application/graphql') !== false) {
+                $bodyParams = ['query' => (string)$request->getBody()];
+            } elseif (stripos($contentType[0], 'application/json') !== false) {
+                $bodyParams = $request instanceof ServerRequestInterface
+                    ? $request->getParsedBody()
+                    : json_decode((string)$request->getBody(), true);
+
+                if ($bodyParams === null) {
+                    throw new InvariantViolation(
+                        $request instanceof ServerRequestInterface
+                            ? 'Expected to receive a parsed body for "application/json" PSR-7 request but got null'
+                            : 'Expected to receive a JSON array in body for "application/json" PSR-7 request'
+                    );
+                }
+
+                if (!is_array($bodyParams)) {
+                    throw new RequestError(
+                        'GraphQL Server expects JSON object or array, but got ' .
+                        Utils::printSafeJson($bodyParams)
+                    );
+                }
+            } else {
+                if ($request instanceof ServerRequestInterface) {
+                    $bodyParams = $request->getParsedBody();
+                }
+
+                if (!isset($bodyParams)) {
+                    $bodyParams = $this->decodeContent((string)$request->getBody(), $contentType[0]);
+                }
+            }
+        }
+
+        parse_str(html_entity_decode($request->getUri()->getQuery()), $queryParams);
+
+        return $this->parseRequestParams(
+            $request->getMethod(),
+            $bodyParams,
+            $queryParams
+        );
+    }
+
+    /**
+     * @return array<string, mixed>
+     *
+     * @throws RequestError
+     */
+    protected function decodeContent(string $rawBody, string $contentType): array
+    {
+        parse_str($rawBody, $bodyParams);
+
+        if (!is_array($bodyParams)) {
+            throw new RequestError('Unexpected content type: ' . Utils::printSafeJson($contentType));
+        }
+
+        return $bodyParams;
+    }
+
+    /**
+     * Converts query execution result to PSR-7 response
+     *
+     * @param Promise|ExecutionResult|ExecutionResult[] $result
+     *
+     * @return Promise|ResponseInterface
+     *
+     * @api
+     */
+    public function toPsrResponse($result, ResponseInterface $response, StreamInterface $writableBodyStream)
+    {
+        if ($result instanceof Promise) {
+            return $result->then(function ($actualResult) use ($response, $writableBodyStream) {
+                return $this->doConvertToPsrResponse($actualResult, $response, $writableBodyStream);
+            });
+        }
+
+        return $this->doConvertToPsrResponse($result, $response, $writableBodyStream);
     }
 
     private function doConvertToPsrResponse($result, ResponseInterface $response, StreamInterface $writableBodyStream)

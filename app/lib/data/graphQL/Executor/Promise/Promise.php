@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor\Promise;
 
+use React\Promise\Promise as ReactPromise;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromise;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use React\Promise\Promise as ReactPromise;
 
 /**
  * Convenience wrapper for promises represented by Promise Adapter

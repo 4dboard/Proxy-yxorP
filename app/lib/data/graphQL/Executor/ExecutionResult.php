@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor;
 
+use JsonSerializable;
 use yxorP\app\lib\data\graphQL\Error\DebugFlag;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\FormattedError;
-use JsonSerializable;
 use function array_map;
 use function count;
 

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Utils;
 
 use ArrayAccess;
-use yxorP\app\lib\data\graphQL\Type\Definition\EnumValueDefinition;
 use InvalidArgumentException;
 use SplObjectStorage;
+use yxorP\app\lib\data\graphQL\Type\Definition\EnumValueDefinition;
 use function array_key_exists;
 use function array_search;
 use function array_splice;

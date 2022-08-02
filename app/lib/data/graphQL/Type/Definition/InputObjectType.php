@@ -58,6 +58,29 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
         return $this->fields[$name];
     }
 
+    protected function initializeFields(): void
+    {
+        $this->fields = [];
+        $fields = $this->config['fields'] ?? [];
+        if (is_callable($fields)) {
+            $fields = $fields();
+        }
+
+        if (!is_iterable($fields)) {
+            throw new InvariantViolation(
+                sprintf('%s fields must be an iterable or a callable which returns such an iterable.', $this->name)
+            );
+        }
+
+        foreach ($fields as $name => $field) {
+            if ($field instanceof Type || is_callable($field)) {
+                $field = ['type' => $field];
+            }
+            $field = new InputObjectField($field + ['name' => $name]);
+            $this->fields[$field->name] = $field;
+        }
+    }
+
     /**
      * Validates type config and throws if one of type options is invalid.
      * Note: this method is shallow, it won't validate object fields and their arguments.
@@ -91,28 +114,5 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
         }
 
         return $this->fields;
-    }
-
-    protected function initializeFields(): void
-    {
-        $this->fields = [];
-        $fields = $this->config['fields'] ?? [];
-        if (is_callable($fields)) {
-            $fields = $fields();
-        }
-
-        if (!is_iterable($fields)) {
-            throw new InvariantViolation(
-                sprintf('%s fields must be an iterable or a callable which returns such an iterable.', $this->name)
-            );
-        }
-
-        foreach ($fields as $name => $field) {
-            if ($field instanceof Type || is_callable($field)) {
-                $field = ['type' => $field];
-            }
-            $field = new InputObjectField($field + ['name' => $name]);
-            $this->fields[$field->name] = $field;
-        }
     }
 }

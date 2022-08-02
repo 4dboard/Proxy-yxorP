@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Executor\Values;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
@@ -34,7 +35,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
 use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;
 use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
-use Throwable;
 use function array_reverse;
 use function implode;
 use function is_array;
@@ -94,68 +94,6 @@ class ASTDefinitionBuilder
             ),
             'astNode' => $directiveNode,
         ]);
-    }
-
-    /**
-     * @param string|(Node &NamedTypeNode)|(Node&TypeDefinitionNode) $ref
-     */
-    public function buildType($ref): Type
-    {
-        if (is_string($ref)) {
-            return $this->internalBuildType($ref);
-        }
-
-        return $this->internalBuildType($ref->name->value, $ref);
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function buildField(FieldDefinitionNode $field): array
-    {
-        return [
-            // Note: While this could make assertions to get the correctly typed
-            // value, that would throw immediately while type system validation
-            // with validateSchema() will produce more actionable results.
-            'type' => $this->buildWrappedType($field->type),
-            'description' => $this->getDescription($field),
-            'args' => $this->makeInputValues($field->arguments),
-            'deprecationReason' => $this->getDeprecationReason($field),
-            'astNode' => $field,
-        ];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function buildInputField(InputValueDefinitionNode $value): array
-    {
-        $type = $this->buildWrappedType($value->type);
-
-        $config = [
-            'name' => $value->name->value,
-            'type' => $type,
-            'description' => $this->getDescription($value),
-            'astNode' => $value,
-        ];
-
-        if ($value->defaultValue !== null) {
-            $config['defaultValue'] = $value->defaultValue;
-        }
-
-        return $config;
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function buildEnumValue(EnumValueDefinitionNode $value): array
-    {
-        return [
-            'description' => $this->getDescription($value),
-            'deprecationReason' => $this->getDeprecationReason($value),
-            'astNode' => $value,
-        ];
     }
 
     /**
@@ -243,6 +181,18 @@ class ASTDefinitionBuilder
         }
 
         return $this->buildType($typeNode);
+    }
+
+    /**
+     * @param string|(Node &NamedTypeNode)|(Node&TypeDefinitionNode) $ref
+     */
+    public function buildType($ref): Type
+    {
+        if (is_string($ref)) {
+            return $this->internalBuildType($ref);
+        }
+
+        return $this->internalBuildType($ref->name->value, $ref);
     }
 
     /**
@@ -349,6 +299,23 @@ class ASTDefinitionBuilder
                 return $this->buildField($field);
             }
         );
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function buildField(FieldDefinitionNode $field): array
+    {
+        return [
+            // Note: While this could make assertions to get the correctly typed
+            // value, that would throw immediately while type system validation
+            // with validateSchema() will produce more actionable results.
+            'type' => $this->buildWrappedType($field->type),
+            'description' => $this->getDescription($field),
+            'args' => $this->makeInputValues($field->arguments),
+            'deprecationReason' => $this->getDeprecationReason($field),
+            'astNode' => $field,
+        ];
     }
 
     /**
@@ -491,5 +458,38 @@ class ASTDefinitionBuilder
             default:
                 throw new Error(sprintf('Type kind of %s not supported.', $def->kind));
         }
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function buildInputField(InputValueDefinitionNode $value): array
+    {
+        $type = $this->buildWrappedType($value->type);
+
+        $config = [
+            'name' => $value->name->value,
+            'type' => $type,
+            'description' => $this->getDescription($value),
+            'astNode' => $value,
+        ];
+
+        if ($value->defaultValue !== null) {
+            $config['defaultValue'] = $value->defaultValue;
+        }
+
+        return $config;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function buildEnumValue(EnumValueDefinitionNode $value): array
+    {
+        return [
+            'description' => $this->getDescription($value),
+            'deprecationReason' => $this->getDeprecationReason($value),
+            'astNode' => $value,
+        ];
     }
 }

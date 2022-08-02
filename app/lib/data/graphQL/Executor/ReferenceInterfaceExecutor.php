@@ -7,6 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Executor;
 use ArrayAccess;
 use ArrayObject;
 use Exception;
+use RuntimeException;
+use SplObjectStorage;
+use stdClass;
+use Throwable;
+use Traversable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Error\Warning;
@@ -36,11 +41,6 @@ use yxorP\app\lib\data\graphQL\Type\Introspection;
 use yxorP\app\lib\data\graphQL\Type\Schema;
 use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use RuntimeException;
-use SplObjectStorage;
-use stdClass;
-use Throwable;
-use Traversable;
 use function array_keys;
 use function array_merge;
 use function array_reduce;
@@ -202,32 +202,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
             $fieldResolver,
             $promiseAdapter
         );
-    }
-
-    /**
-     * Implements the logic to compute the key of a given fields entry
-     */
-    protected static function getFieldEntryKey(FieldNode $node): string
-    {
-        return $node->alias === null ? $node->name->value : $node->alias->value;
-    }
-
-    /**
-     * Differentiate empty objects from empty lists.
-     *
-     * @see https://github.com/webonyx/graphql-php/issues/59
-     *
-     * @param array<mixed>|mixed $results
-     *
-     * @return array<mixed>|stdClass|mixed
-     */
-    protected static function fixResultsIfEmptyArray($results)
-    {
-        if ($results === []) {
-            return new stdClass();
-        }
-
-        return $results;
     }
 
     public function doExecute(): Promise
@@ -431,6 +405,14 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         );
 
         return !isset($include['if']) || $include['if'] !== false;
+    }
+
+    /**
+     * Implements the logic to compute the key of a given fields entry
+     */
+    protected static function getFieldEntryKey(FieldNode $node): string
+    {
+        return $node->alias === null ? $node->name->value : $node->alias->value;
     }
 
     /**
@@ -1194,6 +1176,24 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     protected function isPromise($value): bool
     {
         return $value instanceof Promise || $this->exeContext->promiseAdapter->isThenable($value);
+    }
+
+    /**
+     * Differentiate empty objects from empty lists.
+     *
+     * @see https://github.com/webonyx/graphql-php/issues/59
+     *
+     * @param array<mixed>|mixed $results
+     *
+     * @return array<mixed>|stdClass|mixed
+     */
+    protected static function fixResultsIfEmptyArray($results)
+    {
+        if ($results === []) {
+            return new stdClass();
+        }
+
+        return $results;
     }
 
     /**

@@ -63,53 +63,6 @@ class SchemaPrinter
     /**
      * @param array<string, bool> $options
      */
-    public static function printType(Type $type, array $options = []): string
-    {
-        if ($type instanceof ScalarType) {
-            return static::printScalar($type, $options);
-        }
-
-        if ($type instanceof ObjectType) {
-            return static::printObject($type, $options);
-        }
-
-        if ($type instanceof InterfaceType) {
-            return static::printInterface($type, $options);
-        }
-
-        if ($type instanceof UnionType) {
-            return static::printUnion($type, $options);
-        }
-
-        if ($type instanceof EnumType) {
-            return static::printEnum($type, $options);
-        }
-
-        if ($type instanceof InputObjectType) {
-            return static::printInputObject($type, $options);
-        }
-
-        throw new Error(sprintf('Unknown type: %s.', Utils::printSafe($type)));
-    }
-
-    /**
-     * @param array<string, bool> $options
-     *
-     * @api
-     */
-    public static function printIntrospectionSchema(Schema $schema, array $options = []): string
-    {
-        return static::printFilteredSchema(
-            $schema,
-            [Directive::class, 'isSpecifiedDirective'],
-            [Introspection::class, 'isIntrospectionType'],
-            $options
-        );
-    }
-
-    /**
-     * @param array<string, bool> $options
-     */
     protected static function printFilteredSchema(Schema $schema, callable $directiveFilter, callable $typeFilter, array $options): string
     {
         $directives = array_filter($schema->getDirectives(), $directiveFilter);
@@ -362,6 +315,38 @@ class SchemaPrinter
     /**
      * @param array<string, bool> $options
      */
+    public static function printType(Type $type, array $options = []): string
+    {
+        if ($type instanceof ScalarType) {
+            return static::printScalar($type, $options);
+        }
+
+        if ($type instanceof ObjectType) {
+            return static::printObject($type, $options);
+        }
+
+        if ($type instanceof InterfaceType) {
+            return static::printInterface($type, $options);
+        }
+
+        if ($type instanceof UnionType) {
+            return static::printUnion($type, $options);
+        }
+
+        if ($type instanceof EnumType) {
+            return static::printEnum($type, $options);
+        }
+
+        if ($type instanceof InputObjectType) {
+            return static::printInputObject($type, $options);
+        }
+
+        throw new Error(sprintf('Unknown type: %s.', Utils::printSafe($type)));
+    }
+
+    /**
+     * @param array<string, bool> $options
+     */
     protected static function printScalar(ScalarType $type, array $options): string
     {
         return sprintf('%sscalar %s', static::printDescription($options, $type), $type->name);
@@ -504,5 +489,20 @@ class SchemaPrinter
                     )
                 )
             );
+    }
+
+    /**
+     * @param array<string, bool> $options
+     *
+     * @api
+     */
+    public static function printIntrospectionSchema(Schema $schema, array $options = []): string
+    {
+        return static::printFilteredSchema(
+            $schema,
+            [Directive::class, 'isSpecifiedDirective'],
+            [Introspection::class, 'isIntrospectionType'],
+            $options
+        );
     }
 }

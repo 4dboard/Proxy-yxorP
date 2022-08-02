@@ -30,6 +30,16 @@ abstract class TypeWithFields extends Type implements HasFieldsType
         return isset($this->fields[$name]);
     }
 
+    private function initializeFields(): void
+    {
+        if (isset($this->fields)) {
+            return;
+        }
+
+        $fields = $this->config['fields'] ?? [];
+        $this->fields = FieldDefinition::defineFieldMap($this, $fields);
+    }
+
     public function findField(string $name): ?FieldDefinition
     {
         $this->initializeFields();
@@ -67,15 +77,5 @@ abstract class TypeWithFields extends Type implements HasFieldsType
         $this->initializeFields();
 
         return array_keys($this->fields);
-    }
-
-    private function initializeFields(): void
-    {
-        if (isset($this->fields)) {
-            return;
-        }
-
-        $fields = $this->config['fields'] ?? [];
-        $this->fields = FieldDefinition::defineFieldMap($this, $fields);
     }
 }

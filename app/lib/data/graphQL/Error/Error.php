@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Error;
 
 use Exception;
+use JsonSerializable;
+use Throwable;
+use Traversable;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
 use yxorP\app\lib\data\graphQL\Language\Source;
 use yxorP\app\lib\data\graphQL\Language\SourceLocation;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use JsonSerializable;
-use Throwable;
-use Traversable;
 use function array_filter;
 use function array_map;
 use function array_values;

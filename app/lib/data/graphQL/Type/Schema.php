@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Type;
 
 use Generator;
+use InvalidArgumentException;
+use Traversable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\GraphQL;
@@ -20,8 +22,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
 use yxorP\app\lib\data\graphQL\Utils\InterfaceImplementations;
 use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use InvalidArgumentException;
-use Traversable;
 use function array_map;
 use function get_class;
 use function implode;

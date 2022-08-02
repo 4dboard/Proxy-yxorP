@@ -242,47 +242,6 @@ class TypeInfo
     }
 
     /**
-     * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
-     *
-     * @throws InvariantViolation
-     */
-    public static function typeFromAST(Schema $schema, $inputTypeNode): ?Type
-    {
-        return AST::typeFromAST($schema, $inputTypeNode);
-    }
-
-    /**
-     * Not exactly the same as the executor's definition of getFieldDef, in this
-     * statically evaluated environment we do not always have an Object type,
-     * and need to handle Interface and Union types.
-     */
-    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
-    {
-        $name = $fieldNode->name->value;
-        $schemaMeta = Introspection::schemaMetaFieldDef();
-        if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
-            return $schemaMeta;
-        }
-
-        $typeMeta = Introspection::typeMetaFieldDef();
-        if ($name === $typeMeta->name && $schema->getQueryType() === $parentType) {
-            return $typeMeta;
-        }
-        $typeNameMeta = Introspection::typeNameMetaFieldDef();
-        if ($name === $typeNameMeta->name && $parentType instanceof CompositeType) {
-            return $typeNameMeta;
-        }
-
-        if ($parentType instanceof ObjectType ||
-            $parentType instanceof InterfaceType
-        ) {
-            return $parentType->findField($name);
-        }
-
-        return null;
-    }
-
-    /**
      * @return (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
@@ -434,6 +393,47 @@ class TypeInfo
     public function getParentType(): ?CompositeType
     {
         return $this->parentTypeStack[count($this->parentTypeStack) - 1] ?? null;
+    }
+
+    /**
+     * Not exactly the same as the executor's definition of getFieldDef, in this
+     * statically evaluated environment we do not always have an Object type,
+     * and need to handle Interface and Union types.
+     */
+    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
+    {
+        $name = $fieldNode->name->value;
+        $schemaMeta = Introspection::schemaMetaFieldDef();
+        if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
+            return $schemaMeta;
+        }
+
+        $typeMeta = Introspection::typeMetaFieldDef();
+        if ($name === $typeMeta->name && $schema->getQueryType() === $parentType) {
+            return $typeMeta;
+        }
+        $typeNameMeta = Introspection::typeNameMetaFieldDef();
+        if ($name === $typeNameMeta->name && $parentType instanceof CompositeType) {
+            return $typeNameMeta;
+        }
+
+        if ($parentType instanceof ObjectType ||
+            $parentType instanceof InterfaceType
+        ) {
+            return $parentType->findField($name);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
+     *
+     * @throws InvariantViolation
+     */
+    public static function typeFromAST(Schema $schema, $inputTypeNode): ?Type
+    {
+        return AST::typeFromAST($schema, $inputTypeNode);
     }
 
     public function getDirective(): ?Directive

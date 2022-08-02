@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor;
 
+use stdClass;
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
@@ -40,8 +42,6 @@ use yxorP\app\lib\data\graphQL\Utils\AST;
 use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
 use yxorP\app\lib\data\graphQL\Utils\Value;
-use stdClass;
-use Throwable;
 use function array_key_exists;
 use function array_map;
 use function count;

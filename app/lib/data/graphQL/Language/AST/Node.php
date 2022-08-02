@@ -63,6 +63,30 @@ abstract class Node
         return $this->cloneValue($this);
     }
 
+    /**
+     * @param string|NodeList|Location|Node|(Node|NodeList|Location)[] $value
+     *
+     * @return string|NodeList|Location|Node
+     */
+    private function cloneValue($value)
+    {
+        if (is_array($value)) {
+            $cloned = [];
+            foreach ($value as $key => $arrValue) {
+                $cloned[$key] = $this->cloneValue($arrValue);
+            }
+        } elseif ($value instanceof self) {
+            $cloned = clone $value;
+            foreach (get_object_vars($cloned) as $prop => $propValue) {
+                $cloned->{$prop} = $this->cloneValue($propValue);
+            }
+        } else {
+            $cloned = $value;
+        }
+
+        return $cloned;
+    }
+
     public function __toString(): string
     {
         $tmp = $this->toArray(true);
@@ -89,30 +113,6 @@ abstract class Node
         }
 
         return $tmp;
-    }
-
-    /**
-     * @param string|NodeList|Location|Node|(Node|NodeList|Location)[] $value
-     *
-     * @return string|NodeList|Location|Node
-     */
-    private function cloneValue($value)
-    {
-        if (is_array($value)) {
-            $cloned = [];
-            foreach ($value as $key => $arrValue) {
-                $cloned[$key] = $this->cloneValue($arrValue);
-            }
-        } elseif ($value instanceof self) {
-            $cloned = clone $value;
-            foreach (get_object_vars($cloned) as $prop => $propValue) {
-                $cloned->{$prop} = $this->cloneValue($propValue);
-            }
-        } else {
-            $cloned = $value;
-        }
-
-        return $cloned;
     }
 
     /**

@@ -6,9 +6,9 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 
 use ArrayAccess;
 use Countable;
-use yxorP\app\lib\data\graphQL\Utils\AST;
 use IteratorAggregate;
 use Traversable;
+use yxorP\app\lib\data\graphQL\Utils\AST;
 use function array_merge;
 use function array_splice;
 use function count;

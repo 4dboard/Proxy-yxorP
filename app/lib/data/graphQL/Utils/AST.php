@@ -6,6 +6,9 @@ namespace yxorP\app\lib\data\graphQL\Utils;
 
 use ArrayAccess;
 use Exception;
+use stdClass;
+use Throwable;
+use Traversable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
@@ -38,9 +41,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\NonNull;
 use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;
 use yxorP\app\lib\data\graphQL\Type\Schema;
-use stdClass;
-use Throwable;
-use Traversable;
 use function array_combine;
 use function array_key_exists;
 use function array_map;
@@ -465,6 +465,21 @@ class AST
     }
 
     /**
+     * Returns true if the provided valueNode is a variable which is not defined
+     * in the set of variables.
+     *
+     * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $valueNode
+     * @param mixed[] $variables
+     *
+     * @return bool
+     */
+    private static function isMissingVariable(ValueNodeInterface $valueNode, $variables)
+    {
+        return $valueNode instanceof VariableNode &&
+            (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
+    }
+
+    /**
      * Produces a PHP value given a GraphQL Value AST.
      *
      * Unlike `valueFromAST()`, no type is provided. The resulting PHP value
@@ -620,20 +635,5 @@ class AST
         }
 
         return $operation;
-    }
-
-    /**
-     * Returns true if the provided valueNode is a variable which is not defined
-     * in the set of variables.
-     *
-     * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $valueNode
-     * @param mixed[] $variables
-     *
-     * @return bool
-     */
-    private static function isMissingVariable(ValueNodeInterface $valueNode, $variables)
-    {
-        return $valueNode instanceof VariableNode &&
-            (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
     }
 }

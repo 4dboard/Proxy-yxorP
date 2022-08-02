@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Server;
 
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\DebugFlag;
 use yxorP\app\lib\data\graphQL\Error\FormattedError;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
-use Throwable;
 use function is_array;
 
 /**

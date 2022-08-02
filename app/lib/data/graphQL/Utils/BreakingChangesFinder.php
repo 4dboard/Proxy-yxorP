@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use TypeError;
 use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
 use yxorP\app\lib\data\graphQL\Type\Definition\EnumType;
 use yxorP\app\lib\data\graphQL\Type\Definition\FieldArgument;
@@ -22,7 +23,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;
 use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
 use yxorP\app\lib\data\graphQL\Type\Schema;
-use TypeError;
 use function array_flip;
 use function array_key_exists;
 use function array_keys;
@@ -151,6 +151,40 @@ class BreakingChangesFinder
     }
 
     /**
+     * @return string
+     *
+     * @throws TypeError
+     */
+    private static function typeKindName(Type $type)
+    {
+        if ($type instanceof ScalarType) {
+            return 'a Scalar type';
+        }
+
+        if ($type instanceof ObjectType) {
+            return 'an Object type';
+        }
+
+        if ($type instanceof InterfaceType) {
+            return 'an Interface type';
+        }
+
+        if ($type instanceof UnionType) {
+            return 'a Union type';
+        }
+
+        if ($type instanceof EnumType) {
+            return 'an Enum type';
+        }
+
+        if ($type instanceof InputObjectType) {
+            return 'an Input type';
+        }
+
+        throw new TypeError('unknown type ' . $type->name);
+    }
+
+    /**
      * @return string[][]
      */
     public static function findFieldsThatChangedTypeOnObjectOrInterfaceTypes(
@@ -204,6 +238,44 @@ class BreakingChangesFinder
         }
 
         return $breakingChanges;
+    }
+
+    /**
+     * @return bool
+     */
+    private static function isChangeSafeForObjectOrInterfaceField(
+        Type $oldType,
+        Type $newType
+    )
+    {
+        if ($oldType instanceof NamedType) {
+            return // if they're both named types, see if their names are equivalent
+                ($newType instanceof NamedType && $oldType->name === $newType->name) ||
+                // moving from nullable to non-null of the same underlying type is safe
+                ($newType instanceof NonNull &&
+                    self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType())
+                );
+        }
+
+        if ($oldType instanceof ListOfType) {
+            return // if they're both lists, make sure the underlying types are compatible
+                ($newType instanceof ListOfType &&
+                    self::isChangeSafeForObjectOrInterfaceField(
+                        $oldType->getWrappedType(),
+                        $newType->getWrappedType()
+                    )) ||
+                // moving from nullable to non-null of the same underlying type is safe
+                ($newType instanceof NonNull &&
+                    self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType()));
+        }
+
+        if ($oldType instanceof NonNull) {
+            // if they're both non-null, make sure the underlying types are compatible
+            return $newType instanceof NonNull &&
+                self::isChangeSafeForObjectOrInterfaceField($oldType->getWrappedType(), $newType->getWrappedType());
+        }
+
+        return false;
     }
 
     /**
@@ -284,6 +356,48 @@ class BreakingChangesFinder
             'breakingChanges' => $breakingChanges,
             'dangerousChanges' => $dangerousChanges,
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    private static function isChangeSafeForInputObjectFieldOrFieldArg(
+        Type $oldType,
+        Type $newType
+    )
+    {
+        if ($oldType instanceof NamedType) {
+            if (!$newType instanceof NamedType) {
+                return false;
+            }
+
+            // if they're both named types, see if their names are equivalent
+            return $oldType->name === $newType->name;
+        }
+
+        if ($oldType instanceof ListOfType) {
+            // if they're both lists, make sure the underlying types are compatible
+            return $newType instanceof ListOfType &&
+                self::isChangeSafeForInputObjectFieldOrFieldArg(
+                    $oldType->getWrappedType(),
+                    $newType->getWrappedType()
+                );
+        }
+
+        if ($oldType instanceof NonNull) {
+            return // if they're both non-null, make sure the underlying types are
+                // compatible
+                ($newType instanceof NonNull &&
+                    self::isChangeSafeForInputObjectFieldOrFieldArg(
+                        $oldType->getWrappedType(),
+                        $newType->getWrappedType()
+                    )) ||
+                // moving from non-null to nullable of the same underlying type is safe
+                !($newType instanceof NonNull) &&
+                self::isChangeSafeForInputObjectFieldOrFieldArg($oldType->getWrappedType(), $newType);
+        }
+
+        return false;
     }
 
     /**
@@ -540,6 +654,16 @@ class BreakingChangesFinder
         return $removedDirectives;
     }
 
+    private static function getDirectiveMapForSchema(Schema $schema)
+    {
+        return Utils::keyMap(
+            $schema->getDirectives(),
+            static function ($dir) {
+                return $dir->name;
+            }
+        );
+    }
+
     public static function findRemovedDirectiveArgs(Schema $oldSchema, Schema $newSchema)
     {
         $removedDirectiveArgs = [];
@@ -577,6 +701,16 @@ class BreakingChangesFinder
         }
 
         return $removedArgs;
+    }
+
+    private static function getArgumentMapForDirective(Directive $directive)
+    {
+        return Utils::keyMap(
+            $directive->args ?? [],
+            static function ($arg) {
+                return $arg->name;
+            }
+        );
     }
 
     public static function findAddedNonNullDirectiveArgs(Schema $oldSchema, Schema $newSchema)
@@ -811,140 +945,6 @@ class BreakingChangesFinder
         }
 
         return $typesAddedToUnion;
-    }
-
-    /**
-     * @return string
-     *
-     * @throws TypeError
-     */
-    private static function typeKindName(Type $type)
-    {
-        if ($type instanceof ScalarType) {
-            return 'a Scalar type';
-        }
-
-        if ($type instanceof ObjectType) {
-            return 'an Object type';
-        }
-
-        if ($type instanceof InterfaceType) {
-            return 'an Interface type';
-        }
-
-        if ($type instanceof UnionType) {
-            return 'a Union type';
-        }
-
-        if ($type instanceof EnumType) {
-            return 'an Enum type';
-        }
-
-        if ($type instanceof InputObjectType) {
-            return 'an Input type';
-        }
-
-        throw new TypeError('unknown type ' . $type->name);
-    }
-
-    /**
-     * @return bool
-     */
-    private static function isChangeSafeForObjectOrInterfaceField(
-        Type $oldType,
-        Type $newType
-    )
-    {
-        if ($oldType instanceof NamedType) {
-            return // if they're both named types, see if their names are equivalent
-                ($newType instanceof NamedType && $oldType->name === $newType->name) ||
-                // moving from nullable to non-null of the same underlying type is safe
-                ($newType instanceof NonNull &&
-                    self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType())
-                );
-        }
-
-        if ($oldType instanceof ListOfType) {
-            return // if they're both lists, make sure the underlying types are compatible
-                ($newType instanceof ListOfType &&
-                    self::isChangeSafeForObjectOrInterfaceField(
-                        $oldType->getWrappedType(),
-                        $newType->getWrappedType()
-                    )) ||
-                // moving from nullable to non-null of the same underlying type is safe
-                ($newType instanceof NonNull &&
-                    self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType()));
-        }
-
-        if ($oldType instanceof NonNull) {
-            // if they're both non-null, make sure the underlying types are compatible
-            return $newType instanceof NonNull &&
-                self::isChangeSafeForObjectOrInterfaceField($oldType->getWrappedType(), $newType->getWrappedType());
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    private static function isChangeSafeForInputObjectFieldOrFieldArg(
-        Type $oldType,
-        Type $newType
-    )
-    {
-        if ($oldType instanceof NamedType) {
-            if (!$newType instanceof NamedType) {
-                return false;
-            }
-
-            // if they're both named types, see if their names are equivalent
-            return $oldType->name === $newType->name;
-        }
-
-        if ($oldType instanceof ListOfType) {
-            // if they're both lists, make sure the underlying types are compatible
-            return $newType instanceof ListOfType &&
-                self::isChangeSafeForInputObjectFieldOrFieldArg(
-                    $oldType->getWrappedType(),
-                    $newType->getWrappedType()
-                );
-        }
-
-        if ($oldType instanceof NonNull) {
-            return // if they're both non-null, make sure the underlying types are
-                // compatible
-                ($newType instanceof NonNull &&
-                    self::isChangeSafeForInputObjectFieldOrFieldArg(
-                        $oldType->getWrappedType(),
-                        $newType->getWrappedType()
-                    )) ||
-                // moving from non-null to nullable of the same underlying type is safe
-                !($newType instanceof NonNull) &&
-                self::isChangeSafeForInputObjectFieldOrFieldArg($oldType->getWrappedType(), $newType);
-        }
-
-        return false;
-    }
-
-    private static function getDirectiveMapForSchema(Schema $schema)
-    {
-        return Utils::keyMap(
-            $schema->getDirectives(),
-            static function ($dir) {
-                return $dir->name;
-            }
-        );
-    }
-
-    private static function getArgumentMapForDirective(Directive $directive)
-    {
-        return Utils::keyMap(
-            $directive->args ?? [],
-            static function ($arg) {
-                return $arg->name;
-            }
-        );
     }
 }
 

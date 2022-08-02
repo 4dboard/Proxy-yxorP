@@ -73,6 +73,20 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
         return $lookup[$name] ?? null;
     }
 
+    private function getNameLookup(): ArrayObject
+    {
+        if (!$this->nameLookup) {
+            /** @var ArrayObject<string, EnumValueDefinition> $lookup */
+            $lookup = new ArrayObject();
+            foreach ($this->getValues() as $value) {
+                $lookup[$value->name] = $value;
+            }
+            $this->nameLookup = $lookup;
+        }
+
+        return $this->nameLookup;
+    }
+
     /**
      * @return EnumValueDefinition[]
      */
@@ -126,6 +140,22 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
         }
 
         throw new Error('Cannot serialize value as enum: ' . Utils::printSafe($value));
+    }
+
+    /**
+     * Actually returns a MixedStore<mixed, EnumValueDefinition>, PHPStan won't let us type it that way
+     */
+    private function getValueLookup(): MixedStore
+    {
+        if (!isset($this->valueLookup)) {
+            $this->valueLookup = new MixedStore();
+
+            foreach ($this->getValues() as $valueName => $value) {
+                $this->valueLookup->offsetSet($value->value, $value);
+            }
+        }
+
+        return $this->valueLookup;
     }
 
     /**
@@ -191,35 +221,5 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
                 )
             );
         }
-    }
-
-    private function getNameLookup(): ArrayObject
-    {
-        if (!$this->nameLookup) {
-            /** @var ArrayObject<string, EnumValueDefinition> $lookup */
-            $lookup = new ArrayObject();
-            foreach ($this->getValues() as $value) {
-                $lookup[$value->name] = $value;
-            }
-            $this->nameLookup = $lookup;
-        }
-
-        return $this->nameLookup;
-    }
-
-    /**
-     * Actually returns a MixedStore<mixed, EnumValueDefinition>, PHPStan won't let us type it that way
-     */
-    private function getValueLookup(): MixedStore
-    {
-        if (!isset($this->valueLookup)) {
-            $this->valueLookup = new MixedStore();
-
-            foreach ($this->getValues() as $valueName => $value) {
-                $this->valueLookup->offsetSet($value->value, $value);
-            }
-        }
-
-        return $this->valueLookup;
     }
 }

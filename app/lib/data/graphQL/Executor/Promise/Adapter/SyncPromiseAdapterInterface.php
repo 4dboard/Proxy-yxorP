@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
-use Throwable;
 use function count;
 
 /**
