@@ -193,7 +193,7 @@ class FormattedError
     {
         $internalErrorMessage = $internalErrorMessage ?? self::$internalErrorMessage;
 
-        if ($exception instanceof ClientAware) {
+        if ($exception instanceof ClientAwareInterface) {
             $formattedError = [
                 'message' => $exception->isClientSafe() ? $exception->getMessage() : $internalErrorMessage,
                 'extensions' => [
@@ -261,7 +261,7 @@ class FormattedError
             }
         }
 
-        $isUnsafe = !$e instanceof ClientAware || !$e->isClientSafe();
+        $isUnsafe = !$e instanceof ClientAwareInterface || !$e->isClientSafe();
 
         if (($debugFlag & DebugFlag::RETHROW_UNSAFE_EXCEPTIONS) !== 0 && $isUnsafe && $e->getPrevious() !== null) {
             throw $e->getPrevious();
