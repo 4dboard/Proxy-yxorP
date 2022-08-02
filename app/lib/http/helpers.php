@@ -114,6 +114,7 @@ class helpers
     public static function define(?array $request): void
     {
         require PATH_SITE_BOOTSTRAP;
+        print(YXORP_APP);
         store::handler(YXORP_APP, App::instance());
         echo 1;
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
