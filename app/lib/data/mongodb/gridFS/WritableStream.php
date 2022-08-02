@@ -17,9 +17,6 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
-use MongoDB\BSON\Binary;
-use MongoDB\BSON\ObjectId;
-use MongoDB\BSON\UTCDateTime;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\Binary;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
@@ -39,7 +36,6 @@ use function MongoDB\is_string_array;
 use function sprintf;
 use function strlen;
 use function substr;
-use function yxorP\app\lib\data\mongoDB\is_string_array;
 
 /**
  * WritableStream abstracts the process of writing a GridFS file.
