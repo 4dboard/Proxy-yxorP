@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\data\mongodb\Hybrid;
+<?php namespace yxorP\app\lib\data\mongodb\hybrid;
 
 use Throwable;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectID;

@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\data\mongodb\Hybrid;
+<?php namespace yxorP\app\lib\data\mongodb\hybrid;
 
 use yxorP\app\lib\data\mongodb\Lite\client as MongoLiteClient;
 use yxorP\app\lib\data\mongodb\Lite\collection;
