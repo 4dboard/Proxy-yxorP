@@ -2,8 +2,8 @@
 
 namespace App\Helper;
 
-use Firebase\JWT\jWT as JWTLIB;
-use Firebase\JWT\key;
+use yxorP\app\lib\data\firebase\jWT as JWTLIB;
+use yxorP\app\lib\data\firebase\key;
 use const yxorP\app\lib\http\helper;
 
 class jWT extends \

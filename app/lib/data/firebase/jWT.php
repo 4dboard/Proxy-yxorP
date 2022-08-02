@@ -1,4 +1,4 @@
-<?php namespace Firebase\JWT;
+<?php namespace yxorP\app\lib\data\firebase;
 
 use DateTime;
 use DomainException;
