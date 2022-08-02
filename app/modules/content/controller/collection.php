@@ -2,8 +2,8 @@
 
 namespace Content\Controller;
 
-use yxorP\app\modules\app\controller\app;
 use Exception;
+use yxorP\app\modules\app\controller\app;
 use function in_array;
 use function preg_match;
 

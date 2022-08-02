@@ -2,8 +2,8 @@
 
 namespace yxorP\app\modules\system\controller\users;
 
-use yxorP\app\modules\app\controller\app;
 use ArrayObject;
+use yxorP\app\modules\app\controller\app;
 use function is_array;
 use function strtolower;
 
@@ -63,6 +63,11 @@ class roles extends app
         $this->cache();
 
         return ['success' => true];
+    }
+
+    protected function cache()
+    {
+        $this->helper('acl')->cache();
     }
 
     public function save()
@@ -136,11 +141,6 @@ class roles extends app
         ])->toArray();
 
         return $roles;
-    }
-
-    protected function cache()
-    {
-        $this->helper('acl')->cache();
     }
 
     protected function before()

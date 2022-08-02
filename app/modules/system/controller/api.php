@@ -2,10 +2,10 @@
 
 namespace yxorP\app\modules\system\controller;
 
-use yxorP\app\modules\app\controller\app;
 use ArrayObject;
-use yxorP\app\lib\openapi\Generator;
 use Symfony\Component\Finder\Finder;
+use yxorP\app\lib\openapi\Generator;
+use yxorP\app\modules\app\controller\app;
 use function file_exists;
 use function str_replace;
 
@@ -86,6 +86,11 @@ class api extends app
         $this->cache();
 
         return ['success' => true];
+    }
+
+    protected function cache()
+    {
+        $this->helper('api')->cache();
     }
 
     public function save()
@@ -208,11 +213,6 @@ class api extends app
         $this->layout = 'app:layouts/raw.php';
 
         return $this->render('system:views/api/graphql-viewer.php', compact('apiKey', 'bgColor', 'primaryColor', 'textColor'));
-    }
-
-    protected function cache()
-    {
-        $this->helper('api')->cache();
     }
 
     protected function before()

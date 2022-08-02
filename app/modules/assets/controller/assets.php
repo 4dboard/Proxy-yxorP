@@ -2,8 +2,8 @@
 
 namespace yxorP\app\modules\assets\Controller;
 
-use yxorP\app\modules\app\controller\app;
 use Exception;
+use yxorP\app\modules\app\controller\app;
 use function gd_info;
 use function is_countable;
 use function preg_match;

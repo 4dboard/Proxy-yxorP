@@ -2,8 +2,8 @@
 
 namespace yxorP\app\modules\system\controller;
 
-use yxorP\app\modules\app\controller\app;
 use ArrayObject;
+use yxorP\app\modules\app\controller\app;
 
 class locales extends app
 {
@@ -69,6 +69,11 @@ class locales extends app
         return ['success' => true];
     }
 
+    protected function cache()
+    {
+        $this->helper('locales')->cache();
+    }
+
     public function save()
     {
 
@@ -127,11 +132,6 @@ class locales extends app
         ])->toArray();
 
         return $locales;
-    }
-
-    protected function cache()
-    {
-        $this->helper('locales')->cache();
     }
 
     protected function before()
