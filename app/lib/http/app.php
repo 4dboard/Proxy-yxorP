@@ -376,10 +376,10 @@ class app implements ArrayAccess
             $this->trigger("app.render.view/{$____template}", [&$____template, &$_____slots]);
         }
         $____layout = $this->layout;
-        if (strpos($____template, ' with ') !== false) {
+        if (str_contains($____template, ' with ')) {
             list($____template, $____layout) = explode(' with ', $____template, 2);
         }
-        if (strpos($____template, ':') !== false && $____file = $this->path($____template)) {
+        if (str_contains($____template, ':') && $____file = $this->path($____template)) {
             $____template = $____file;
         }
         $extend = function ($from) use (&$____layout) {
@@ -390,7 +390,7 @@ class app implements ArrayAccess
         include $____template;
         $output = ob_get_clean();
         if ($____layout) {
-            if (strpos($____layout, ':') !== false && $____file = $this->path($____layout)) {
+            if (str_contains($____layout, ':') && $____file = $this->path($____layout)) {
                 $____layout = $____file;
             }
             $content_for_layout = $output;
@@ -462,9 +462,8 @@ class app implements ArrayAccess
         if (is_array($src)) {
             extract($src, EXTR_OVERWRITE);
         }
-        $ispath = strpos($src, ':') !== false && !preg_match('#^(/|http:|https:)//#', $src);
-        $output = '<script src="' . ($ispath ? $this->pathToUrl($src) : $src) . ($version ? "?ver={$version}" : "") . '" type="' . $type . '" ' . $load . '></script>';
-        return $output;
+        $ispath = str_contains($src, ':') && !preg_match('#^(/|http:|https:)//#', $src);
+        return '<script src="' . ($ispath ? $this->pathToUrl($src) : $src) . ($version ? "?ver={$version}" : "") . '" type="' . $type . '" ' . $load . '></script>';
     }
 
     public function style(mixed $href, ?string $version = null): string
@@ -476,9 +475,8 @@ class app implements ArrayAccess
         if (is_array($href)) {
             extract($href, EXTR_OVERWRITE);
         }
-        $ispath = strpos($src, ':') !== false && !preg_match('#^(|http:|https:)//#', $src);
-        $output = '<link href="' . ($ispath ? $this->pathToUrl($src) : $src) . ($version ? "?ver={$version}" : "") . '" type="' . $type . '" rel="' . $rel . '">';
-        return $output;
+        $ispath = str_contains($src, ':') && !preg_match('#^(|http:|https:)//#', $src);
+        return '<link href="' . ($ispath ? $this->pathToUrl($src) : $src) . ($version ? "?ver={$version}" : "") . '" type="' . $type . '" rel="' . $rel . '">';
     }
 
     public function get(string $path, mixed $callback, bool $condition = true): void
@@ -494,10 +492,10 @@ class app implements ArrayAccess
         if (!isset($this->routes[$path])) {
             $this->routes[$path] = [];
         }
-        if (is_object($callback) && $callback instanceof Closure) {
+        if ($callback instanceof Closure) {
             $callback = $callback->bindTo($this, $this);
         }
-        if (substr($path, -2) === '/*' && !isset($this->routes[substr($path, 0, -2)])) {
+        if (str_ends_with($path, '/*') && !isset($this->routes[substr($path, 0, -2)])) {
             $this->bind(substr($path, 0, -2), $callback, $condition);
         }
         $this->routes[$path] = $callback;
