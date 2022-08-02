@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\modules\app\command\Spaces;
+namespace yxorP\app\modules\app\command\spaces;
 
 use Cockpit;
 use Symfony\Component\Console\Input\InputArgument;
