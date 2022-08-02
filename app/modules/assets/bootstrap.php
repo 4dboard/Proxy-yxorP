@@ -22,8 +22,7 @@ $this->on('app.api.request', function () {
 $this->module('assets')->extend([
 
     'assets' => function (array $options = []) {
-        $assets = $this->app->dataStorage->find('assets', $options)->toArray();
-        return $assets;
+        return $this->app->dataStorage->find('assets', $options)->toArray();
     },
 
     'update' => function ($assets) {

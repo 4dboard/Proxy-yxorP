@@ -33,7 +33,7 @@ $this->on('app.user.disguise', function (array &$user) {
     unset($user['password'], $user['apiKey'], $user['_reset_token']);
 });
 
-$this->on('app.cli.init', function ($cli) {
+$this->on('app.cli.init', function () {
     $app = $this;
     include(__DIR__ . '/cli.php');
 });

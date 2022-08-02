@@ -13,11 +13,11 @@ $this->bind('/assets/link/:id', function ($params) {
     $asset = $this->dataStorage->findOne('assets', ['_id' => $params['id']]);
     $path = trim($asset['path'] ?? '', '/');
 
-    if (!$asset || !$this->fileStorage->fileExists("uploads://{$path}")) {
+    if (!$asset || !$this->fileStorage->fileExists("uploads://$path")) {
         return false;
     }
 
-    $url = $this->fileStorage->getURL("uploads://{$path}");
+    $url = $this->fileStorage->getURL("uploads://$path");
     $this->reroute($url);
 });
 

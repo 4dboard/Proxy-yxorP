@@ -17,14 +17,12 @@ $app = $this;
 
 // GraphQl service
 $this->service('gql', function () use ($app) {
-    $gql = new yxorP\app\modules\app\graphQL\query($app);
-    return $gql;
+    return new yxorP\app\modules\app\graphQL\query($app);
 });
 
 // Rest Api service
 $this->service('restApi', function () use ($app) {
-    $restApi = new yxorP\app\modules\app\RestApi\query($app);
-    return $restApi;
+    return new yxorP\app\modules\app\RestApi\query($app);
 });
 
 $this->bind('/api/*', function ($params) {
@@ -40,7 +38,7 @@ $this->bind('/api/*', function ($params) {
         'role' => null
     ];
 
-    if (preg_match('/^USR-/', $token)) {
+    if (str_starts_with($token, 'USR-')) {
 
         $user = $this->dataStorage->findOne('system/users', ['apiKey' => $token]);
 

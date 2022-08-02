@@ -12,13 +12,17 @@
                 <div class="kiss-text-bold kiss-text-caption kiss-margin-bottom"><?= t('Welcome') ?></div>
 
                 <div class="kiss-margin">
-                    <input class="kiss-input" type="text" placeholder="<?= t('Username or Email') ?>"
-                           v-model="auth.user" autocomplete="off" autofocus required>
+                    <label>
+                        <input class="kiss-input" type="text" placeholder="<?= t('Username or Email') ?>"
+                               v-model="auth.user" autocomplete="off" autofocus required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
-                    <input class="kiss-input" type="password" autocomplete="current-password"
-                           placeholder="<?= t('Password') ?>" v-model="auth.password" required>
+                    <label>
+                        <input class="kiss-input" type="password" autocomplete="current-password"
+                               placeholder="<?= t('Password') ?>" v-model="auth.password" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">

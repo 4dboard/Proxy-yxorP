@@ -81,7 +81,7 @@ $this->on('app.admin.request', function (request $request) {
 
     if (in_array($request->route, ['/check-session', '/app-event-stream'])) {
 
-        $status = $user ? true : false;
+        $status = (bool)$user;
         $start = $this->helper('session')->read('app.session.start', 0);
 
         // check for inactivity: 45min by default
@@ -103,7 +103,7 @@ $this->on('app.admin.request', function (request $request) {
 
     $locale = $user && isset($user['i18n']) && $user['i18n'] ? $user['i18n'] : $i18n->locale;
 
-    if ($translationspath = $this->path("#config:i18n/App/{$locale}.php")) {
+    if ($translationspath = $this->path("#config:i18n/App/$locale.php")) {
 
         $i18n->locale = $locale;
 
@@ -111,7 +111,7 @@ $this->on('app.admin.request', function (request $request) {
 
             $name = basename($m->_dir);
 
-            if ($translationspath = $this->path("#config:i18n/{$name}/{$locale}.php")) {
+            if ($translationspath = $this->path("#config:i18n/$name/$locale.php")) {
                 $i18n->load($translationspath, $locale);
             }
         }
