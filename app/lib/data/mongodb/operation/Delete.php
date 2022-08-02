@@ -163,6 +163,24 @@ class Delete implements ExecutableInterface, ExplainableInterface
     }
 
     /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server)
+    {
+        $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
+
+        if (isset($this->options['writeConcern'])) {
+            $cmd['writeConcern'] = $this->options['writeConcern'];
+        }
+
+        return $cmd;
+    }
+
+    /**
      * Create options for the delete command.
      *
      * Note that these options are different from the bulk write options, which
@@ -204,23 +222,5 @@ class Delete implements ExecutableInterface, ExplainableInterface
         }
 
         return $options;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server)
-    {
-        $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
-
-        if (isset($this->options['writeConcern'])) {
-            $cmd['writeConcern'] = $this->options['writeConcern'];
-        }
-
-        return $cmd;
     }
 }

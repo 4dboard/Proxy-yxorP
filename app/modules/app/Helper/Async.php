@@ -103,6 +103,34 @@ unlink(__FILE__);
         return $processId;
     }
 
+    public function finished($processId, &$error = null)
+    {
+
+        $processId = str_replace('..', '', $processId);
+        $file = $this->app->path("#storage:async/{$processId}.php");
+
+        if ($file) {
+            $exit = explode('-', basename($file, '.php'))[1];
+
+            if (time() > $exit) {
+
+                // do something
+                unlink($file);
+                $error = 'timeout';
+                return true;
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+
+    public function possible()
+    {
+        return $this->isExecAvailable() || function_exists('fsockopen');
+    }
+
     protected function execInBackground($scriptfile)
     {
 
@@ -146,34 +174,6 @@ unlink(__FILE__);
         $disabled_functions = explode(',', ini_get('disable_functions'));
 
         return !in_array('exec', $disabled_functions) && strlen(trim(exec($this->phpPath . ' -v')));
-    }
-
-    public function finished($processId, &$error = null)
-    {
-
-        $processId = str_replace('..', '', $processId);
-        $file = $this->app->path("#storage:async/{$processId}.php");
-
-        if ($file) {
-            $exit = explode('-', basename($file, '.php'))[1];
-
-            if (time() > $exit) {
-
-                // do something
-                unlink($file);
-                $error = 'timeout';
-                return true;
-            }
-
-            return false;
-        }
-
-        return true;
-    }
-
-    public function possible()
-    {
-        return $this->isExecAvailable() || function_exists('fsockopen');
     }
 
     protected function initialize()

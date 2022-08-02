@@ -18,6 +18,23 @@ use function yxorP\app\lib\proxy\promise\all;
 
 class AmpPromiseAdapterInterface implements PromiseAdapterInterface
 {
+    private static function resolveWithCallable(Deferred $deferred, callable $callback, $argument): void
+    {
+        try {
+            $result = $callback($argument);
+        } catch (Throwable $exception) {
+            $deferred->fail($exception);
+
+            return;
+        }
+
+        if ($result instanceof Promise) {
+            $result = $result->adoptedPromise;
+        }
+
+        $deferred->resolve($result);
+    }
+
     /**
      * @inheritdoc
      */
@@ -57,23 +74,6 @@ class AmpPromiseAdapterInterface implements PromiseAdapterInterface
         $adoptedPromise->onResolve($onResolve);
 
         return new Promise($deferred->promise(), $this);
-    }
-
-    private static function resolveWithCallable(Deferred $deferred, callable $callback, $argument): void
-    {
-        try {
-            $result = $callback($argument);
-        } catch (Throwable $exception) {
-            $deferred->fail($exception);
-
-            return;
-        }
-
-        if ($result instanceof Promise) {
-            $result = $result->adoptedPromise;
-        }
-
-        $deferred->resolve($result);
     }
 
     /**

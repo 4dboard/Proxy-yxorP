@@ -263,27 +263,6 @@ class MapReduce implements ExecutableInterface
     }
 
     /**
-     * @param string|array|object $out
-     * @return void
-     */
-    private function checkOutDeprecations($out)
-    {
-        if (is_string($out)) {
-            return;
-        }
-
-        $out = (array)$out;
-
-        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
-            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
-        }
-
-        if (isset($out['sharded']) && !$out['sharded']) {
-            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
-        }
-    }
-
-    /**
      * Execute the operation.
      *
      * @param Server $server
@@ -330,6 +309,27 @@ class MapReduce implements ExecutableInterface
         $getIterator = $this->createGetIteratorCallable($result, $server);
 
         return new mapReduceResult($getIterator, $result);
+    }
+
+    /**
+     * @param string|array|object $out
+     * @return void
+     */
+    private function checkOutDeprecations($out)
+    {
+        if (is_string($out)) {
+            return;
+        }
+
+        $out = (array)$out;
+
+        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
+            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
+        }
+
+        if (isset($out['sharded']) && !$out['sharded']) {
+            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
+        }
     }
 
     /**

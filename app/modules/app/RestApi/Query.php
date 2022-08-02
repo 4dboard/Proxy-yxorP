@@ -67,6 +67,12 @@ class query extends appAware
         $this->initialized = true;
     }
 
+    public function addEndPoint(string $path, array $methods = [])
+    {
+
+        $this->endpoints[$path] = $methods;
+    }
+
     protected function isPathMatching($path, $pattern, &$params = null)
     {
 
@@ -117,11 +123,5 @@ class query extends appAware
         $patternAsRegex = "@^" . $pattern . "$@D";
 
         return $patternAsRegex;
-    }
-
-    public function addEndPoint(string $path, array $methods = [])
-    {
-
-        $this->endpoints[$path] = $methods;
     }
 }
