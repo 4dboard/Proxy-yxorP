@@ -7,7 +7,6 @@ use function array_merge;
 use function array_values;
 use function explode;
 use function file_get_contents;
-use function getallheaders;
 use function implode;
 use function in_array;
 use function is_string;
@@ -56,7 +55,7 @@ class request
 
     public static function fromGlobalRequest(array $config = []): self
     {
-        $config = array_merge(['site_url' => '', 'base_url' => '/', 'base_route' => '', 'route' => $_SERVER['PATH_INFO'] ?? '/', 'request' => $_REQUEST, 'method' => $_SERVER['REQUEST_METHOD'] ?? 'GET', 'post' => $_POST, 'cookies' => $_COOKIE, 'query' => $_GET, 'files' => $_FILES, 'server' => $_SERVER, 'headers' => function_exists('getallheaders') ? getallheaders() : self::getAllHeaders($_SERVER)], $config);
+        $config = array_merge(['site_url' => '', 'base_url' => '/', 'base_route' => '', 'route' => $_SERVER['PATH_INFO'] ?? '/', 'request' => $_REQUEST, 'method' => $_SERVER['REQUEST_METHOD'] ?? 'GET', 'post' => $_POST, 'cookies' => $_COOKIE, 'query' => $_GET, 'files' => $_FILES, 'server' => $_SERVER, 'headers' => function_exists('helpers::getallheaders') ? helpers::getallheaders() : self::getAllHeaders($_SERVER)], $config);
         if ((isset($_SERVER['CONTENT_TYPE']) && stripos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) || (isset($_SERVER['HTTP_CONTENT_TYPE']) && stripos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') !== false)) {
             if ($json = json_decode(@file_get_contents('php://input'), true)) {
                 $config['body'] = $json;
