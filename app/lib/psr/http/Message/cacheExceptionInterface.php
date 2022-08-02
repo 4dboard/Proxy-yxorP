@@ -7,6 +7,6 @@ use Throwable;
 /**
  * Exception interface for all exceptions thrown by an Implementing Library.
  */
-interface cacheException extends Throwable
+interface cacheExceptionInterface extends Throwable
 {
 }
