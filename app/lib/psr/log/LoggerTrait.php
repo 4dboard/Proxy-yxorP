@@ -36,7 +36,7 @@ trait LoggerTrait
      *
      * @return void
      *
-     * @throws \Psr\Log\InvalidArgumentException
+     * @throws \yxorP\app\lib\psr\log\InvalidArgumentException
      */
     abstract public function log($level, string|Stringable $message, array $context = []): void;
 

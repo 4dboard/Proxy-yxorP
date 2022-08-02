@@ -121,7 +121,7 @@ interface LoggerInterface
      *
      * @return void
      *
-     * @throws \Psr\Log\InvalidArgumentException
+     * @throws \yxorP\app\lib\psr\log\InvalidArgumentException
      */
     public function log($level, string|Stringable $message, array $context = []): void;
 }
