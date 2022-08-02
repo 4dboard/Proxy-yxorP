@@ -19,7 +19,7 @@ namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
 use yxorP\app\lib\http\mongoDB\BSON\JavascriptInterface;
-use yxorP\app\lib\http\mongoDB\Driver\Command;
+use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\ReadConcern;
 use yxorP\app\lib\http\mongoDB\Driver\ReadPreference;

@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-namespace yxorP\app\lib\data\mongoDB\Command;
+namespace yxorP\app\lib\data\mongoDB\command;
 
-use yxorP\app\lib\http\mongoDB\Driver\Command;
+use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
 use yxorP\app\lib\http\mongoDB\Driver\Session;

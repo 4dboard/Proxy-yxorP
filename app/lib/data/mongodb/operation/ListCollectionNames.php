@@ -18,7 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use Iterator;
-use yxorP\app\lib\http\mongoDB\Command\ListCollections as ListCollectionsCommand;
+use yxorP\app\lib\http\mongoDB\command\ListCollections as ListCollectionsCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;

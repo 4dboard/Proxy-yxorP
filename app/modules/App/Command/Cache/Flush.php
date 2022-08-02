@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\app\modules\app\Command\Cache;
+namespace yxorP\app\modules\app\command\Cache;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace yxorP\app\modules\app\Command\i18n;
+namespace yxorP\app\modules\app\command\i18n;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\command\command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

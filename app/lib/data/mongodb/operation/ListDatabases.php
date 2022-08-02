@@ -17,7 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
-use yxorP\app\lib\http\mongoDB\Command\ListDatabases as ListDatabasesCommand;
+use yxorP\app\lib\http\mongoDB\command\ListDatabases as ListDatabasesCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
