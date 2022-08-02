@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Helper;
+namespace yxorP\app\modules\app\helper;
 
 use function array_merge;
 use function vsprintf;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper;
+namespace yxorP\app\modules\app\helper;
 
 use helper;
 use yxorP\app\lib\data\firebase\jWT as JWTLIB;

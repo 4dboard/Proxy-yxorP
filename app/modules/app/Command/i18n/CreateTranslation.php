@@ -2,7 +2,7 @@
 
 namespace App\Command\i18n;
 
-use App\Helper\i18n;
+use yxorP\app\modules\app\helper\i18n;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\Command\Command;
