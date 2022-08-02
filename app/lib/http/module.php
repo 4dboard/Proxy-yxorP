@@ -4,7 +4,7 @@ use Closure;
 use function call_user_func_array;
 use function is_callable;
 
-class Module extends appAware
+class module extends appAware
 {
     public ?string $_dir = null;
     public ?string $_bootfile = null;
