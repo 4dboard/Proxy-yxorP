@@ -4,7 +4,7 @@ namespace yxorP\app\modules\system\helper;
 
 use helper;
 
-class api extends helper
+class api extends helperAware
 {
 
     protected array $keys = [];

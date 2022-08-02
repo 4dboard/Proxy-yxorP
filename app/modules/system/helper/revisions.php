@@ -4,7 +4,7 @@ namespace yxorP\app\modules\system\helper;
 
 use helper;
 
-class revisions extends helper
+class revisions extends helperAware
 {
 
     protected $storage;

@@ -8,7 +8,7 @@ use function preg_match;
  * Class Utils
  * @package \yxorP\app\lib\http\helper
  */
-class utils extends Helper
+class utils extends helperAware
 {
 
     /**

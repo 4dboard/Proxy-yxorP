@@ -4,7 +4,7 @@ namespace yxorP\app\modules\system\helper;
 
 use helper;
 
-class Log extends helper
+class Log extends helperAware
 {
 
     protected array $channels = [];

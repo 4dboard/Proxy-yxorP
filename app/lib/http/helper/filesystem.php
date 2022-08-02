@@ -24,7 +24,7 @@ use function rename;
 use function strpos;
 use function strtr;
 
-class Filesystem extends Helper
+class Filesystem extends helperAware
 {
 
     /**

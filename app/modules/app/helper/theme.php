@@ -7,7 +7,7 @@ use function pathinfo;
 use function strtolower;
 
 
-class theme extends helper
+class theme extends helperAware
 {
 
     protected array $vars;

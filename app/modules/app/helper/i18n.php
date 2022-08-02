@@ -11,7 +11,7 @@ use function vsprintf;
 /**
  * I18n class. Manage translations
  */
-class i18n extends helper
+class i18n extends helperAware
 {
 
     public

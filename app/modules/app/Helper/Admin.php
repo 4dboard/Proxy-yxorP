@@ -5,7 +5,7 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 
 
-class admin extends helper
+class admin extends helperAware
 {
 
     public function lockResourceId($resourceId, $user = null)

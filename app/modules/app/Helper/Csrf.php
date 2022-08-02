@@ -6,7 +6,7 @@ use Exception;
 use helper;
 
 
-class csrf extends helper
+class csrf extends helperAware
 {
 
     public function token(string $key, bool $generate = false, ?int $expire = null): string

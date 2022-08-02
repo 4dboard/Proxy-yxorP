@@ -35,7 +35,7 @@ use function var_export;
  *    file_put_contents(COCKPIT_DIR."/debug.txt", $test);
  * ', ['test' => 222]);
  */
-class async extends Helper
+class async extends helperAware
 {
 
     public $phpPath = null;

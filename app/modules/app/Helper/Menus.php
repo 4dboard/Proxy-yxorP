@@ -6,7 +6,7 @@ use helper;
 use SplPriorityQueue;
 
 
-class menus extends helper
+class menus extends helperAware
 {
 
     protected array $menus = [];

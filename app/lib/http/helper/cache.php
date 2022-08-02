@@ -18,7 +18,7 @@ use function time;
 use function unlink;
 use function unserialize;
 
-class cache extends Helper
+class cache extends helperAware
 {
 
     public ?string $prefix = null;

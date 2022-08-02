@@ -11,7 +11,7 @@ use function preg_match;
 use function str_replace;
 use function strpos;
 
-class Asset extends helper
+class Asset extends helperAware
 {
 
     public function image(array $options = [], bool $asPath = false)

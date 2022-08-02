@@ -8,7 +8,7 @@ use RecursiveIteratorIterator;
 use Throwable;
 use yxorP\app\lib\html\store;
 
-class system extends helper
+class system extends helperAware
 {
 
     public function try(callable $callback, $rescue = null, $report = true)

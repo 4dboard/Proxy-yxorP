@@ -5,7 +5,7 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 
 
-class auth extends helper
+class auth extends helperAware
 {
 
     public

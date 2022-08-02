@@ -6,7 +6,7 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 
 
-class acl extends helper
+class acl extends helperAware
 {
 
     protected array $roles = [];

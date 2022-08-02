@@ -7,7 +7,7 @@ use yxorP\app\lib\http\appAware;
 /**
  * @property mixed $response
  */
-class ResponseCache extends Helper
+class ResponseCache extends helperAware
 {
 
     protected $cacheHandler = null;

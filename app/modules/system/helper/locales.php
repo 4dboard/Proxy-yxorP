@@ -5,7 +5,7 @@ namespace yxorP\app\modules\system\helper;
 use helper;
 use Throwable;
 
-class locales extends helper
+class locales extends helperAware
 {
 
     protected array $locales = [];

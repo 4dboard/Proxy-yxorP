@@ -6,7 +6,7 @@ use ArrayObject;
 use helper;
 use function array_filter;
 
-class settings extends helper
+class settings extends helperAware
 {
 
     public function groups(bool $filter = false): ArrayObject

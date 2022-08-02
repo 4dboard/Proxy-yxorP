@@ -10,7 +10,7 @@ use function session_status;
 use function session_write_close;
 use function yxorP\app\lib\http\fetch_from_array;
 
-class session extends Helper
+class session extends helperAware
 {
 
     public string $name;

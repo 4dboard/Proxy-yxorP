@@ -11,7 +11,7 @@ use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
 use yxorP\app\lib\twoFactor\TwoFactorAuth;
 
 
-class TWFA extends helper
+class TWFA extends helperAware
 {
 
     protected TwoFactorAuth $tfa;

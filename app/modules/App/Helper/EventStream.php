@@ -8,7 +8,7 @@ use helper;
 /**
  * @property mixed $dataStorage
  */
-class eventStream extends helper
+class eventStream extends helperAware
 {
 
     public function cleanup()
