@@ -225,13 +225,13 @@
     ];
 
     foreach ($this['modules'] as $name => $module) {
-        $paths[$name] = $this->baseUrl("{$name}:");
+        $paths[$name] = $this->baseUrl("$name:");
     }
 
     $locales = [];
 
     foreach ($this->helper('locales')->locales(true) as $i18n => $loc) {
-        $locales[$i18n] = $loc['name'] ? $loc['name'] : $i18n;
+        $locales[$i18n] = $loc['name'] ?: $i18n;
     }
 
     ?>
