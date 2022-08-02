@@ -3,10 +3,11 @@
 namespace Collections\Helper;
 
 
+use helper;
 
-class collections extends \
+class collections extends
 
-helper
+    helper
 {
 
     public
