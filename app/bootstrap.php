@@ -20,6 +20,8 @@ spl_autoload_register(function ($class) {
 
 yP::autoLoader(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR);
 
+echo 2;
+
 class App
 {
     protected static $instance = [];
