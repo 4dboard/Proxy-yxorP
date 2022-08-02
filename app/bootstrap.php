@@ -20,7 +20,6 @@ spl_autoload_register(function ($class) {
 
 yP::autoLoader(__DIR__ . '/lib/' . DIRECTORY_SEPARATOR);
 
-echo 2;
 
 class App
 {
