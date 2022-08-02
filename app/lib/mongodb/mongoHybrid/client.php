@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http\mongoHybrid;
+<?php namespace yxorP\app\lib\http\mongodb\mongoHybrid;
 class client
 {
     public ?string $type = null;

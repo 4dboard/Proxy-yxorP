@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http\mongoHybrid;
+<?php namespace yxorP\app\lib\http\mongodb\mongoHybrid;
 
 use yxorP\app\lib\http\mongoLite\client as MongoLiteClient;
 use yxorP\app\lib\http\mongoLite\collection;

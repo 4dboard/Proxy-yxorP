@@ -1,10 +1,10 @@
-<?php namespace yxorP\app\lib\http\mongoHybrid;
+<?php namespace yxorP\app\lib\http\mongodb\mongoHybrid;
 
+use Throwable;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectID;
 use yxorP\app\lib\http\mongoDB\client as MongoDBClient;
 use yxorP\app\lib\http\mongoDB\collection;
 use yxorP\app\lib\http\mongoDB\database;
-use Throwable;
 use function is_iterable;
 use function is_object;
 use function json_decode;
