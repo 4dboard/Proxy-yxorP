@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator;
+namespace yxorP\app\lib\data\graphQL\Validator;
 
-use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\graphQL\Language\AST\FieldNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentSpreadNode;
-use yxorP\app\lib\graphQL\Language\AST\HasSelectionSetInterface;
-use yxorP\app\lib\graphQL\Language\AST\InlineFragmentNode;
-use yxorP\app\lib\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\graphQL\Language\AST\OperationDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\SelectionSetNode;
-use yxorP\app\lib\graphQL\Language\AST\VariableNode;
-use yxorP\app\lib\graphQL\Language\Visitor;
-use yxorP\app\lib\graphQL\Type\Definition\CompositeType;
-use yxorP\app\lib\graphQL\Type\Definition\FieldDefinition;
-use yxorP\app\lib\graphQL\Type\Definition\InputType;
-use yxorP\app\lib\graphQL\Type\Definition\OutputType;
-use yxorP\app\lib\graphQL\Type\Schema;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\data\graphQL\Language\AST\HasSelectionSetInterface;
+use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\data\graphQL\Language\AST\OperationDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\data\graphQL\Language\AST\VariableNode;
+use yxorP\app\lib\data\graphQL\Language\Visitor;
+use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
+use yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition;
+use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
+use yxorP\app\lib\data\graphQL\Type\Definition\OutputType;
+use yxorP\app\lib\data\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
 use SplObjectStorage;
 use function array_merge;
 use function array_pop;

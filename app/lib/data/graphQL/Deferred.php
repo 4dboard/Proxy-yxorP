@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL;
+namespace yxorP\app\lib\data\graphQL;
 
-use yxorP\app\lib\graphQL\Executor\Promise\Adapter\SyncPromise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromise;
 
 class Deferred extends SyncPromise
 {

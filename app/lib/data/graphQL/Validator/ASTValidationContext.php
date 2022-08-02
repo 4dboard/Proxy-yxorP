@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator;
+namespace yxorP\app\lib\data\graphQL\Validator;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\data\graphQL\Type\Schema;
 
 abstract class ASTValidationContext
 {

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator\Rules;
+namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\graphQL\Language\AST\NullValueNode;
-use yxorP\app\lib\graphQL\Language\AST\OperationDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\ValueNodeInterface;
-use yxorP\app\lib\graphQL\Language\AST\VariableDefinitionNode;
-use yxorP\app\lib\graphQL\Type\Definition\NonNull;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Type\Schema;
-use yxorP\app\lib\graphQL\Utils\TypeComparators;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
-use yxorP\app\lib\graphQL\Utils\Utils;
-use yxorP\app\lib\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\data\graphQL\Language\AST\NullValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\OperationDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface;
+use yxorP\app\lib\data\graphQL\Language\AST\VariableDefinitionNode;
+use yxorP\app\lib\data\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Utils\TypeComparators;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
 use function sprintf;
 
 class VariablesInAllowedPosition extends ValidationRule

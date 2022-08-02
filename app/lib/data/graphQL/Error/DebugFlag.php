@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Error;
+namespace yxorP\app\lib\data\graphQL\Error;
 
 /**
  * Collection of flags for [error debugging](error-handling.md#debugging-tools).

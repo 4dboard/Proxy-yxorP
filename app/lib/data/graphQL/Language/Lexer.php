@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Language;
+namespace yxorP\app\lib\data\graphQL\Language;
 
-use yxorP\app\lib\graphQL\Error\SyntaxError;
-use yxorP\app\lib\graphQL\Utils\BlockString;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\SyntaxError;
+use yxorP\app\lib\data\graphQL\Utils\BlockString;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function chr;
 use function hexdec;
 use function mb_convert_encoding;

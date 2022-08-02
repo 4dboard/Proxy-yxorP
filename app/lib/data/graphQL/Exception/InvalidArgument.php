@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Exception;
+namespace yxorP\app\lib\data\graphQL\Exception;
 
 use InvalidArgumentException;
 use function gettype;

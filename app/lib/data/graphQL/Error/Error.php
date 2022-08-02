@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Error;
+namespace yxorP\app\lib\data\graphQL\Error;
 
 use Exception;
-use yxorP\app\lib\graphQL\Language\AST\Node;
-use yxorP\app\lib\graphQL\Language\Source;
-use yxorP\app\lib\graphQL\Language\SourceLocation;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Language\AST\Node;
+use yxorP\app\lib\data\graphQL\Language\Source;
+use yxorP\app\lib\data\graphQL\Language\SourceLocation;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use JsonSerializable;
 use Throwable;
 use Traversable;

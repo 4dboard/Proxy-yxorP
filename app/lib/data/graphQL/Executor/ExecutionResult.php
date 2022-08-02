@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor;
+namespace yxorP\app\lib\data\graphQL\Executor;
 
-use yxorP\app\lib\graphQL\Error\DebugFlag;
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Error\FormattedError;
+use yxorP\app\lib\data\graphQL\Error\DebugFlag;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Error\FormattedError;
 use JsonSerializable;
 use function array_map;
 use function count;

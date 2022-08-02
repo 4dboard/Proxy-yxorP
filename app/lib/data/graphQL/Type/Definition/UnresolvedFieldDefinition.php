@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use function is_array;
 use function sprintf;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Language\AST;
+namespace yxorP\app\lib\data\graphQL\Language\AST;
 
 class VariableDefinitionNode extends Node implements DefinitionNode
 {

@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Server;
+namespace yxorP\app\lib\data\graphQL\Server;
 
-use yxorP\app\lib\graphQL\Error\DebugFlag;
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Error\FormattedError;
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\graphQL\Executor\ExecutionResult;
-use yxorP\app\lib\graphQL\Executor\Executor;
-use yxorP\app\lib\graphQL\Executor\Promise\Adapter\SyncPromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Executor\Promise\Promise;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
-use yxorP\app\lib\graphQL\GraphQL;
-use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\graphQL\Language\Parser;
-use yxorP\app\lib\graphQL\Utils\AST;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\DebugFlag;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Error\FormattedError;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
+use yxorP\app\lib\data\graphQL\Executor\Executor;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\GraphQL;
+use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\data\graphQL\Language\Parser;
+use yxorP\app\lib\data\graphQL\Utils\AST;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use JsonSerializable;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor\Promise\Adapter;
+namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
-use yxorP\app\lib\graphQL\Executor\Promise\Promise;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use React\Promise\Promise as ReactPromise;
 use React\Promise\PromiseInterface as ReactPromiseInterface;
 use function React\Promise\all;

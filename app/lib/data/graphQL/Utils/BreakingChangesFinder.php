@@ -6,22 +6,22 @@ declare(strict_types=1);
  * Utility for finding breaking/dangerous changes between two schemas.
  */
 
-namespace yxorP\app\lib\graphQL\Utils;
+namespace yxorP\app\lib\data\graphQL\Utils;
 
-use yxorP\app\lib\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\graphQL\Type\Definition\EnumType;
-use yxorP\app\lib\graphQL\Type\Definition\FieldArgument;
-use yxorP\app\lib\graphQL\Type\Definition\ImplementingType;
-use yxorP\app\lib\graphQL\Type\Definition\InputObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\InterfaceType;
-use yxorP\app\lib\graphQL\Type\Definition\ListOfType;
-use yxorP\app\lib\graphQL\Type\Definition\NamedType;
-use yxorP\app\lib\graphQL\Type\Definition\NonNull;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\ScalarType;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Type\Definition\UnionType;
-use yxorP\app\lib\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\data\graphQL\Type\Definition\EnumType;
+use yxorP\app\lib\data\graphQL\Type\Definition\FieldArgument;
+use yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InputObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ListOfType;
+use yxorP\app\lib\data\graphQL\Type\Definition\NamedType;
+use yxorP\app\lib\data\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
+use yxorP\app\lib\data\graphQL\Type\Schema;
 use TypeError;
 use function array_flip;
 use function array_key_exists;

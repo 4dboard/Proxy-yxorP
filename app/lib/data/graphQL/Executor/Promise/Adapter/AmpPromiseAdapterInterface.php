@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor\Promise\Adapter;
+namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
 use Amp\Deferred;
 use Amp\Failure;
 use Amp\Promise as AmpPromise;
 use Amp\Success;
-use yxorP\app\lib\graphQL\Executor\Promise\Promise;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
 use Throwable;
 use function Amp\Promise\all;
 use function array_replace;

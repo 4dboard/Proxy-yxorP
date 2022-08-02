@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
-use yxorP\app\lib\graphQL\Language\AST\FieldNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentSpreadNode;
-use yxorP\app\lib\graphQL\Language\AST\InlineFragmentNode;
-use yxorP\app\lib\graphQL\Language\AST\OperationDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\SelectionSetNode;
-use yxorP\app\lib\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\OperationDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\data\graphQL\Type\Schema;
 use function array_merge_recursive;
 
 /**

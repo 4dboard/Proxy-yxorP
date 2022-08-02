@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL;
+namespace yxorP\app\lib\data\graphQL;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Executor\ExecutionResult;
-use yxorP\app\lib\graphQL\Executor\Executor;
-use yxorP\app\lib\graphQL\Executor\Promise\Adapter\SyncPromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Executor\Promise\Promise;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Executor\ReferenceInterfaceExecutor;
-use yxorP\app\lib\graphQL\Experimental\Executor\CoroutineInterfaceExecutor;
-use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\graphQL\Language\Parser;
-use yxorP\app\lib\graphQL\Language\Source;
-use yxorP\app\lib\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\graphQL\Type\Definition\ScalarType;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Type\Schema as SchemaType;
-use yxorP\app\lib\graphQL\Validator\DocumentValidator;
-use yxorP\app\lib\graphQL\Validator\Rules\QueryComplexity;
-use yxorP\app\lib\graphQL\Validator\Rules\ValidationRule;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
+use yxorP\app\lib\data\graphQL\Executor\Executor;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Executor\ReferenceInterfaceExecutor;
+use yxorP\app\lib\data\graphQL\Experimental\Executor\CoroutineInterfaceExecutor;
+use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\data\graphQL\Language\Parser;
+use yxorP\app\lib\data\graphQL\Language\Source;
+use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Schema as SchemaType;
+use yxorP\app\lib\data\graphQL\Validator\DocumentValidator;
+use yxorP\app\lib\data\graphQL\Validator\Rules\QueryComplexity;
+use yxorP\app\lib\data\graphQL\Validator\Rules\ValidationRule;
 use function array_values;
 use function count;
 use function trigger_error;
@@ -199,7 +199,7 @@ class GraphQL
     )
     {
         trigger_error(
-            __METHOD__ . ' is deprecated, use yxorP\app\lib\graphQL::executeQuery()->toArray() as a quick replacement',
+            __METHOD__ . ' is deprecated, use yxorP\app\lib\data\graphQL::executeQuery()->toArray() as a quick replacement',
             E_USER_DEPRECATED
         );
 
@@ -247,7 +247,7 @@ class GraphQL
     )
     {
         trigger_error(
-            __METHOD__ . ' is deprecated, use yxorP\app\lib\graphQL::executeQuery() as a quick replacement',
+            __METHOD__ . ' is deprecated, use yxorP\app\lib\data\graphQL::executeQuery() as a quick replacement',
             E_USER_DEPRECATED
         );
 

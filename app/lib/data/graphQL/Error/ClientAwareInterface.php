@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Error;
+namespace yxorP\app\lib\data\graphQL\Error;
 
 /**
  * This interface is used for [default error formatting](error-handling.md).

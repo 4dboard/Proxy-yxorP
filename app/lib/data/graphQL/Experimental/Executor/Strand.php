@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Experimental\Executor;
+namespace yxorP\app\lib\data\graphQL\Experimental\Executor;
 
 use Generator;
 

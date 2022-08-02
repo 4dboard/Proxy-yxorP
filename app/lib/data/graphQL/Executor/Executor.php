@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor;
+namespace yxorP\app\lib\data\graphQL\Executor;
 
 use ArrayAccess;
 use Closure;
-use yxorP\app\lib\graphQL\Executor\Promise\Adapter\SyncPromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Executor\Promise\Promise;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\graphQL\Type\Definition\ResolveInfo;
-use yxorP\app\lib\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\data\graphQL\Type\Definition\ResolveInfo;
+use yxorP\app\lib\data\graphQL\Type\Schema;
 use function is_array;
 use function is_object;
 

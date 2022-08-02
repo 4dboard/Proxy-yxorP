@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator\Rules;
+namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\graphQL\Language\AST\SchemaDefinitionNode;
-use yxorP\app\lib\graphQL\Validator\SDLValidationContext;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\data\graphQL\Language\AST\SchemaDefinitionNode;
+use yxorP\app\lib\data\graphQL\Validator\SDLValidationContext;
 
 /**
  * Lone Schema definition

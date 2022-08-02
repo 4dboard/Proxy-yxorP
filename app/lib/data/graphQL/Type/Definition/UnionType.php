@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\graphQL\Language\AST\UnionTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\UnionTypeExtensionNode;
-use yxorP\app\lib\graphQL\Type\Schema;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Language\AST\UnionTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\UnionTypeExtensionNode;
+use yxorP\app\lib\data\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function is_array;
 use function is_callable;
 use function is_string;

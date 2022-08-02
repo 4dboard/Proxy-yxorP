@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
 use Exception;
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\IntValueNode;
-use yxorP\app\lib\graphQL\Language\AST\Node;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\IntValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\Node;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function floor;
 use function is_bool;
 use function is_float;

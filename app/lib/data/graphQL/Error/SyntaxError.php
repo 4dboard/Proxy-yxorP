@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Error;
+namespace yxorP\app\lib\data\graphQL\Error;
 
-use yxorP\app\lib\graphQL\Language\Source;
+use yxorP\app\lib\data\graphQL\Language\Source;
 use function sprintf;
 
 class SyntaxError extends Error

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator\Rules;
+namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
-use yxorP\app\lib\graphQL\Validator\SDLValidationContext;
-use yxorP\app\lib\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\data\graphQL\Validator\SDLValidationContext;
+use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
 use function class_alias;
 
 abstract class ValidationRule

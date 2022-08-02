@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator\Rules;
+namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\FragmentSpreadNode;
-use yxorP\app\lib\graphQL\Language\AST\InlineFragmentNode;
-use yxorP\app\lib\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\graphQL\Type\Definition\AbstractType;
-use yxorP\app\lib\graphQL\Type\Definition\CompositeType;
-use yxorP\app\lib\graphQL\Type\Definition\InterfaceType;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\UnionType;
-use yxorP\app\lib\graphQL\Type\Schema;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
-use yxorP\app\lib\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\data\graphQL\Type\Definition\AbstractType;
+use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
+use yxorP\app\lib\data\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
 use function sprintf;
 
 class PossibleFragmentSpreads extends ValidationRule

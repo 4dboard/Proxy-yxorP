@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type;
+namespace yxorP\app\lib\data\graphQL\Type;
 
 class TypeKind
 {

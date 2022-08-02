@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Language;
+namespace yxorP\app\lib\data\graphQL\Language;
 
 use JsonSerializable;
 

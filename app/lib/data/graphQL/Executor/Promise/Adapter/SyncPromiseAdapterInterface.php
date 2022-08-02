@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor\Promise\Adapter;
+namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\graphQL\Executor\ExecutionResult;
-use yxorP\app\lib\graphQL\Executor\Promise\Promise;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use Throwable;
 use function count;
 

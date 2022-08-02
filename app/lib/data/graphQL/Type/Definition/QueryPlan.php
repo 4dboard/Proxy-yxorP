@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Executor\Values;
-use yxorP\app\lib\graphQL\Language\AST\FieldNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentSpreadNode;
-use yxorP\app\lib\graphQL\Language\AST\InlineFragmentNode;
-use yxorP\app\lib\graphQL\Language\AST\SelectionSetNode;
-use yxorP\app\lib\graphQL\Type\Introspection;
-use yxorP\app\lib\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Executor\Values;
+use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\data\graphQL\Type\Introspection;
+use yxorP\app\lib\data\graphQL\Type\Schema;
 use function array_diff_key;
 use function array_filter;
 use function array_intersect_key;

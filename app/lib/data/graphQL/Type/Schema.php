@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type;
+namespace yxorP\app\lib\data\graphQL\Type;
 
 use Generator;
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\graphQL\GraphQL;
-use yxorP\app\lib\graphQL\Language\AST\SchemaDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\SchemaTypeExtensionNode;
-use yxorP\app\lib\graphQL\Type\Definition\AbstractType;
-use yxorP\app\lib\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\graphQL\Type\Definition\ImplementingType;
-use yxorP\app\lib\graphQL\Type\Definition\InterfaceType;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Type\Definition\UnionType;
-use yxorP\app\lib\graphQL\Utils\InterfaceImplementations;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\GraphQL;
+use yxorP\app\lib\data\graphQL\Language\AST\SchemaDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SchemaTypeExtensionNode;
+use yxorP\app\lib\data\graphQL\Type\Definition\AbstractType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
+use yxorP\app\lib\data\graphQL\Utils\InterfaceImplementations;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use InvalidArgumentException;
 use Traversable;
 use function array_map;

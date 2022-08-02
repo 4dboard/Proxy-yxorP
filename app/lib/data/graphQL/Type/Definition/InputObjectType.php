@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\graphQL\Language\AST\InputObjectTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\InputObjectTypeExtensionNode;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Language\AST\InputObjectTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InputObjectTypeExtensionNode;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function count;
 use function is_callable;
 use function is_iterable;

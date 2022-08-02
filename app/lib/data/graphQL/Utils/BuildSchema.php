@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Utils;
+namespace yxorP\app\lib\data\graphQL\Utils;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\DirectiveDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\DocumentNode;
-use yxorP\app\lib\graphQL\Language\AST\EnumTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\InputObjectTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\InterfaceTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\ObjectTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\ScalarTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\SchemaDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\TypeDefinitionNodeInterface;
-use yxorP\app\lib\graphQL\Language\AST\UnionTypeDefinitionNode;
-use yxorP\app\lib\graphQL\Language\Parser;
-use yxorP\app\lib\graphQL\Language\Source;
-use yxorP\app\lib\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Type\Schema;
-use yxorP\app\lib\graphQL\Validator\DocumentValidator;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\EnumTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InputObjectTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InterfaceTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\ObjectTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\ScalarTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SchemaDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\TypeDefinitionNodeInterface;
+use yxorP\app\lib\data\graphQL\Language\AST\UnionTypeDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\Parser;
+use yxorP\app\lib\data\graphQL\Language\Source;
+use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Validator\DocumentValidator;
 use function array_map;
 use function sprintf;
 

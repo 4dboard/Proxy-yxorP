@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Utils;
+namespace yxorP\app\lib\data\graphQL\Utils;
 
 /**
  * A way to keep track of pairs of things when the ordering of the pair does

@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator\Rules;
+namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\ArgumentNode;
-use yxorP\app\lib\graphQL\Language\AST\FieldNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentSpreadNode;
-use yxorP\app\lib\graphQL\Language\AST\InlineFragmentNode;
-use yxorP\app\lib\graphQL\Language\AST\Node;
-use yxorP\app\lib\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\graphQL\Language\AST\SelectionSetNode;
-use yxorP\app\lib\graphQL\Language\Printer;
-use yxorP\app\lib\graphQL\Type\Definition\CompositeType;
-use yxorP\app\lib\graphQL\Type\Definition\InterfaceType;
-use yxorP\app\lib\graphQL\Type\Definition\ListOfType;
-use yxorP\app\lib\graphQL\Type\Definition\NonNull;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Utils\PairSet;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
-use yxorP\app\lib\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\Node;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\data\graphQL\Language\Printer;
+use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ListOfType;
+use yxorP\app\lib\data\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Utils\PairSet;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
 use SplObjectStorage;
 use function array_keys;
 use function array_map;

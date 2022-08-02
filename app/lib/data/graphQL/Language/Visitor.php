@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Language;
+namespace yxorP\app\lib\data\graphQL\Language;
 
 use ArrayObject;
 use Exception;
-use yxorP\app\lib\graphQL\Language\AST\Node;
-use yxorP\app\lib\graphQL\Language\AST\NodeKind;
-use yxorP\app\lib\graphQL\Language\AST\NodeList;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Language\AST\Node;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeList;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
 use SplFixedArray;
 use stdClass;
 use function array_pop;

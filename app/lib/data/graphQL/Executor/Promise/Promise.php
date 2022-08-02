@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor\Promise;
+namespace yxorP\app\lib\data\graphQL\Executor\Promise;
 
-use yxorP\app\lib\graphQL\Executor\Promise\Adapter\SyncPromise;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromise;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use React\Promise\Promise as ReactPromise;
 
 /**

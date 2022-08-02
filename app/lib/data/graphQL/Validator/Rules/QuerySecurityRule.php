@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Validator\Rules;
+namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
 use ArrayObject;
-use yxorP\app\lib\graphQL\Language\AST\FieldNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\FragmentSpreadNode;
-use yxorP\app\lib\graphQL\Language\AST\InlineFragmentNode;
-use yxorP\app\lib\graphQL\Language\AST\SelectionSetNode;
-use yxorP\app\lib\graphQL\Type\Definition\HasFieldsType;
-use yxorP\app\lib\graphQL\Type\Definition\InputObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Type\Introspection;
-use yxorP\app\lib\graphQL\Utils\TypeInfo;
-use yxorP\app\lib\graphQL\Validator\ValidationContext;
+use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\data\graphQL\Type\Definition\HasFieldsType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InputObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Introspection;
+use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
 use InvalidArgumentException;
 use function class_alias;
 use function sprintf;

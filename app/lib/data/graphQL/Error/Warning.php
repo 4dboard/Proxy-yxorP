@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Error;
+namespace yxorP\app\lib\data\graphQL\Error;
 
-use yxorP\app\lib\graphQL\Exception\InvalidArgument;
+use yxorP\app\lib\data\graphQL\Exception\InvalidArgument;
 use function is_int;
 use function trigger_error;
 use const E_USER_WARNING;

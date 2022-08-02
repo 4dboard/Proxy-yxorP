@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Experimental\Executor;
+namespace yxorP\app\lib\data\graphQL\Experimental\Executor;
 
-use yxorP\app\lib\graphQL\Language\AST\FieldNode;
-use yxorP\app\lib\graphQL\Language\AST\SelectionSetNode;
-use yxorP\app\lib\graphQL\Language\AST\ValueNodeInterface;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\ResolveInfo;
+use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ResolveInfo;
 
 /**
  * @internal

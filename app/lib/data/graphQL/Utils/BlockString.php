@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Utils;
+namespace yxorP\app\lib\data\graphQL\Utils;
 
 use function array_pop;
 use function array_shift;

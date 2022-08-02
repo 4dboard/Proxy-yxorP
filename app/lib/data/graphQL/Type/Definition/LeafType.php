@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
 use Exception;
-use yxorP\app\lib\graphQL\Error\Error;
-use yxorP\app\lib\graphQL\Language\AST\BooleanValueNode;
-use yxorP\app\lib\graphQL\Language\AST\FloatValueNode;
-use yxorP\app\lib\graphQL\Language\AST\IntValueNode;
-use yxorP\app\lib\graphQL\Language\AST\Node;
-use yxorP\app\lib\graphQL\Language\AST\NullValueNode;
-use yxorP\app\lib\graphQL\Language\AST\StringValueNode;
+use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FloatValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\IntValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\Node;
+use yxorP\app\lib\data\graphQL\Language\AST\NullValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\StringValueNode;
 
 /*
 export type GraphQLLeafType =

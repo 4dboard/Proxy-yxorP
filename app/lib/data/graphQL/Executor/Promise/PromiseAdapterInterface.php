@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Executor\Promise;
+namespace yxorP\app\lib\data\graphQL\Executor\Promise;
 
 use Throwable;
 

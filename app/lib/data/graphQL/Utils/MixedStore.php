@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Utils;
+namespace yxorP\app\lib\data\graphQL\Utils;
 
 use ArrayAccess;
-use yxorP\app\lib\graphQL\Type\Definition\EnumValueDefinition;
+use yxorP\app\lib\data\graphQL\Type\Definition\EnumValueDefinition;
 use InvalidArgumentException;
 use SplObjectStorage;
 use function array_key_exists;

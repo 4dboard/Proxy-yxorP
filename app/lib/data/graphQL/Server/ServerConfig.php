@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Server;
+namespace yxorP\app\lib\data\graphQL\Server;
 
-use yxorP\app\lib\graphQL\Error\DebugFlag;
-use yxorP\app\lib\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\graphQL\Executor\Promise\PromiseAdapterInterface;
-use yxorP\app\lib\graphQL\Type\Schema;
-use yxorP\app\lib\graphQL\Utils\Utils;
-use yxorP\app\lib\graphQL\Validator\Rules\ValidationRule;
+use yxorP\app\lib\data\graphQL\Error\DebugFlag;
+use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
+use yxorP\app\lib\data\graphQL\Type\Schema;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Validator\Rules\ValidationRule;
 use function is_array;
 use function is_callable;
 use function method_exists;

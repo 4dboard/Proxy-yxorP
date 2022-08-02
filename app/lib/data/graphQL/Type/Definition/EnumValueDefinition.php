@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type\Definition;
+namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
-use yxorP\app\lib\graphQL\Language\AST\EnumValueDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\EnumValueDefinitionNode;
 
 class EnumValueDefinition
 {

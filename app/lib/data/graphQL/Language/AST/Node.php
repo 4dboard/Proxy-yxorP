@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Language\AST;
+namespace yxorP\app\lib\data\graphQL\Language\AST;
 
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function count;
 use function get_object_vars;
 use function is_array;

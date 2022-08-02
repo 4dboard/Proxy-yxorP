@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Language\AST;
+namespace yxorP\app\lib\data\graphQL\Language\AST;
 
 use ArrayAccess;
 use Countable;
-use yxorP\app\lib\graphQL\Utils\AST;
+use yxorP\app\lib\data\graphQL\Utils\AST;
 use IteratorAggregate;
 use Traversable;
 use function array_merge;

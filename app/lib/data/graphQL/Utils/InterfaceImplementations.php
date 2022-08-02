@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Utils;
+namespace yxorP\app\lib\data\graphQL\Utils;
 
-use yxorP\app\lib\graphQL\Type\Definition\InterfaceType;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 
 /**
  * A way to track interface implementations.

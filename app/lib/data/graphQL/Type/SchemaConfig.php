@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace yxorP\app\lib\graphQL\Type;
+namespace yxorP\app\lib\data\graphQL\Type;
 
-use yxorP\app\lib\graphQL\Language\AST\SchemaDefinitionNode;
-use yxorP\app\lib\graphQL\Language\AST\SchemaTypeExtensionNode;
-use yxorP\app\lib\graphQL\Type\Definition\Directive;
-use yxorP\app\lib\graphQL\Type\Definition\ObjectType;
-use yxorP\app\lib\graphQL\Type\Definition\Type;
-use yxorP\app\lib\graphQL\Utils\Utils;
+use yxorP\app\lib\data\graphQL\Language\AST\SchemaDefinitionNode;
+use yxorP\app\lib\data\graphQL\Language\AST\SchemaTypeExtensionNode;
+use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function count;
 use function is_callable;
 
