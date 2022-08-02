@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL;
+namespace yxorP\app\modules\app\GraphQL;
 
 use ArrayObject;
 use graphQL\GraphQL;

@@ -23,7 +23,7 @@ $this->service('gql', function () use ($app) {
 
 // Rest Api service
 $this->service('restApi', function () use ($app) {
-    $restApi = new App\RestApi\query($app);
+    $restApi = new yxorP\app\modules\app\RestApi\query($app);
     return $restApi;
 });
 

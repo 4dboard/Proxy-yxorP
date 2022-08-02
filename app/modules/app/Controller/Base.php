@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace yxorP\app\modules\app\Controller;
 
 use appAware;
 use function get_class;

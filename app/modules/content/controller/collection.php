@@ -2,7 +2,7 @@
 
 namespace Content\Controller;
 
-use App\Controller\app;
+use yxorP\app\modules\app\Controller\app;
 use Exception;
 use function in_array;
 use function preg_match;

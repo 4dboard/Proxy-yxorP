@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command\i18n;
+namespace yxorP\app\modules\app\Command\i18n;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -68,7 +68,7 @@ class createTranslation extends Command
                 if (!$file->isFile() || !in_array($file->getExtension(), $extensions)) continue;
                 $contents = file_get_contents($file->getRealPath());
 
-                preg_match_all('/(?:{{ t|<\?=t|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
+                preg_match_all('/(?:{{ t|<\?=t|yxorP\app\modules\app\.i18n\.get|yxorP\app\modules\app\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
 
                 if (!isset($matches[2])) continue;
                 foreach ($matches[2] as &$string) $strings[$string] = $string;

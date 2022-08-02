@@ -1,6 +1,6 @@
 <?php
 
-namespace App\RestApi;
+namespace yxorP\app\modules\app\RestApi;
 
 use appAware;
 use function call_user_func;

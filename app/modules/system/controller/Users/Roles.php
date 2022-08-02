@@ -2,7 +2,7 @@
 
 namespace yxorP\app\modules\system\controller\users;
 
-use App\Controller\app;
+use yxorP\app\modules\app\Controller\app;
 use ArrayObject;
 use function is_array;
 use function strtolower;

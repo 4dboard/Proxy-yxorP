@@ -1,14 +1,14 @@
 <?php
 
 // Register Helpers
-$this->helpers['app'] = 'App\\Helper\\app';
-$this->helpers['acl'] = 'App\\Helper\\acl';
-$this->helpers['async'] = 'App\\Helper\\async';
-$this->helpers['auth'] = 'App\\Helper\\auth';
-$this->helpers['csrf'] = 'App\\Helper\\csrf';
-$this->helpers['i18n'] = 'App\\Helper\\i18n';
-$this->helpers['rspc'] = 'App\\Helper\\ResponseCache';
-$this->helpers['jwt'] = 'App\\Helper\\jWT';
+$this->helpers['app'] = 'yxorP\app\modules\app\\Helper\\app';
+$this->helpers['acl'] = 'yxorP\app\modules\app\\Helper\\acl';
+$this->helpers['async'] = 'yxorP\app\modules\app\\Helper\\async';
+$this->helpers['auth'] = 'yxorP\app\modules\app\\Helper\\auth';
+$this->helpers['csrf'] = 'yxorP\app\modules\app\\Helper\\csrf';
+$this->helpers['i18n'] = 'yxorP\app\modules\app\\Helper\\i18n';
+$this->helpers['rspc'] = 'yxorP\app\modules\app\\Helper\\ResponseCache';
+$this->helpers['jwt'] = 'yxorP\app\modules\app\\Helper\\jWT';
 
 include_once(__DIR__ . '/functions.php');
 

@@ -2,7 +2,7 @@
 
 namespace yxorP\app\modules\system\controller;
 
-use App\Controller\app;
+use yxorP\app\modules\app\Controller\app;
 use ArrayObject;
 use yxorP\app\lib\openapi\Generator;
 use Symfony\Component\Finder\Finder;

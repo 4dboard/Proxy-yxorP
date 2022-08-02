@@ -2,7 +2,7 @@
 
 namespace Content\Controller;
 
-use App\Controller\app;
+use yxorP\app\modules\app\Controller\app;
 use function in_array;
 
 class models extends app
