@@ -7,7 +7,6 @@ use helper;
 
 /**
  * @property mixed $dataStorage
- * @property mixed $dataStorage
  */
 class eventStream extends helper
 {

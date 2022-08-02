@@ -543,13 +543,9 @@ class i18n extends helper
     public function get(string $key, ?string $alternative = null, ?string $lang = null): ?string
     {
 
-        if (!$lang) {
-            $lang = $this->locale;
-        }
+        if (!$lang) $lang = $this->locale;
 
-        if (!$alternative) {
-            $alternative = $key;
-        }
+        if (!$alternative) $alternative = $key;
 
         return isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative;
     }
@@ -565,13 +561,9 @@ class i18n extends helper
     public function getstr(string $key, array $params = [], ?string $alternative = null, ?string $lang = null): ?string
     {
 
-        if (!$lang) {
-            $lang = $this->locale;
-        }
+        if (!$lang) $lang = $this->locale;
 
-        if (!$alternative) {
-            $alternative = $key;
-        }
+        if (!$alternative) $alternative = $key;
 
         return vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
     }
@@ -585,15 +577,11 @@ class i18n extends helper
     public function load(string $langfile, ?string $lang = null): bool
     {
 
-        if (!$lang) {
-            $lang = $this->locale;
-        }
+        if (!$lang) $lang = $this->locale;
 
         if ($path = $this->app->path($langfile)) {
 
-            if (!isset($this->_languages[$lang])) {
-                $this->_languages[$lang] = [];
-            }
+            if (!isset($this->_languages[$lang])) $this->_languages[$lang] = [];
 
             $langtable = include($path);
 
@@ -613,9 +601,7 @@ class i18n extends helper
     public function data(?string $lang = null): array
     {
 
-        if ($lang) {
-            return isset($this->_languages[$lang]) ? $this->_languages[$lang] : [];
-        }
+        if ($lang) return isset($this->_languages[$lang]) ? $this->_languages[$lang] : [];
 
         return $this->_languages;
     }
@@ -628,8 +614,6 @@ class i18n extends helper
 
         $locale = $this->app->getClientLang();
 
-        if ($locale) {
-            $this->locale = $locale;
-        }
+        if ($locale) $this->locale = $locale;
     }
 }
