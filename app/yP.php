@@ -62,6 +62,8 @@ class yP
         define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_MIME_TYPES);
 
+        print_r(PATH_SITE_BOOTSTRAP);
+
         /**
          * It's checking if the `$instance` variable is null, and if it is, it's setting it to a new instance of the `self`
          * class.
@@ -82,7 +84,7 @@ class yP
          * Checking if the files exist in the directory.
          */
         foreach (array('http', 'minify', 'parser', 'psr', 'proxy') as $_asset) self::autoLoader(DIR_ROOT . DIR_APP . DIR_LIB . $_asset);        // Reporting
-        
+
         /**
          * It's defining a constant called `DIR_ROOT` and setting it to the value of `$root` with a `DIRECTORY_SEPARATOR`
          * appended to it.
