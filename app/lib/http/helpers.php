@@ -179,6 +179,13 @@ class helpers
         store::handler(($name . EXT_ENV), $value);
     }
 
+    public static function migrate(string $src, string $dst): void
+    {
+        $root = opendir($src);
+        @mkdir($dst, 0744);
+        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
+        closedir($root);
+    }
 
     public static function envLoad(string $dir = '.'): bool
     {
@@ -216,14 +223,6 @@ class helpers
             $vars = self::envParse($str, false);
         }
         return $vars;
-    }
-
-    public static function migrate(string $src, string $dst): void
-    {
-        $root = opendir($src);
-        @mkdir($dst, 0744);
-        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
-        closedir($root);
     }
 
     public static function contains($str, array $arr): bool
