@@ -114,6 +114,7 @@ class helpers
     public static function define(?array $request): void
     {
         echo PATH_SITE_BOOTSTRAP;
+        echo 2;
         require PATH_SITE_BOOTSTRAP;
         echo 1;
         print_r(App::instance());
