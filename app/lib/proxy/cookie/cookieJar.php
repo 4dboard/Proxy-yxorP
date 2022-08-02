@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\cookie;
 
 use ArrayIterator;
+use ReturnTypeWillChange;
 use RuntimeException;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;

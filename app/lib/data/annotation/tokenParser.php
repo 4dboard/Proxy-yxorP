@@ -27,7 +27,6 @@ class tokenParser
     public function __construct($contents)
     {
         $this->tokens = token_get_all($contents);
-        token_get_all("<?php\n/**\n *\n */");
         $this->numTokens = count($this->tokens);
     }
 

@@ -2135,7 +2135,6 @@
                         return s
                     }(e, o, r);
                     if (Zn(e) && (l.ctx.renderer = ne), function (e, t = !1) {
-                        Xr = t;
                         const {props: n, children: o} = e.vnode, r = Yr(e);
                         (function (e, t, n, o = !1) {
                             const r = {}, s = {};
@@ -8082,7 +8081,7 @@
 
     /*! @license DOMPurify 2.3.3 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.3.3/LICENSE */
     !function (e, t) {
-        "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = e || self).DOMPurify = t();
+        "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e || self).DOMPurify = t();
     }(undefined, (function () {
         let e = Object.hasOwnProperty, t = Object.setPrototypeOf;
         const n = Object.isFrozen;
@@ -8297,7 +8296,7 @@
                     const r = g(e, /^[\r\n\t ]+/);
                     n = r && r[0];
                 }
-                "application/xhtml+xml" === Qe && (e = '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>' + e + "</body></html>");
+                "application/xhtml+xml" === Qe && (e = '<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title></head><body>' + e + "</body></html>");
                 const i = oe ? oe.createHTML(e) : e;
                 if (Ze === $e) try {
                     t = (new $).parseFromString(i, Qe);

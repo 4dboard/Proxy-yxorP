@@ -7,6 +7,11 @@ use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
 use helper;
+use yxorP\app\lib\http\helperAware;
+use yxorP\app\lib\scancode\Renderer\Image\SvgImageBackEnd;
+use yxorP\app\lib\scancode\Renderer\ImageRenderer;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\RendererStyle;
+use yxorP\app\lib\scancode\writer;
 use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
 use yxorP\app\lib\twoFactor\TwoFactorAuth;
 

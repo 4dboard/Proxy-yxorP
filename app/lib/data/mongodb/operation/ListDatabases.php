@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use yxorP\app\lib\data\mongoDB\Model\DatabaseInfoLegacyIterator;
 use yxorP\app\lib\http\mongoDB\command\ListDatabases as ListDatabasesCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -66,7 +67,7 @@ class ListDatabases implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return DatabaseInfoIterator
+     * @return DatabaseInfoLegacyIterator
      * @throws UnexpectedValueException if the command response was malformed
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()

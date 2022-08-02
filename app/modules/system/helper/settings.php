@@ -4,6 +4,7 @@ namespace yxorP\app\modules\system\helper;
 
 use ArrayObject;
 use helper;
+use yxorP\app\lib\http\helperAware;
 use function array_filter;
 
 class settings extends helperAware

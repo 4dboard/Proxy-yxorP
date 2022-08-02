@@ -19,6 +19,8 @@ namespace yxorP\app\lib\data\mongoDB\Model;
 
 use ArrayObject;
 use JsonSerializable;
+use MongoDB\BSON\Unserializable;
+use ReturnTypeWillChange;
 use yxorP\app\lib\http\mongoDB\BSON\Serializable;
 use yxorP\app\lib\http\mongoDB\BSON\Unserializable;
 use function array_values;

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Language;
 
 use JsonSerializable;
+use ReturnTypeWillChange;
 
 class SourceLocation implements JsonSerializable
 {

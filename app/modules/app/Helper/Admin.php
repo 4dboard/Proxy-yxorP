@@ -2,7 +2,8 @@
 
 namespace yxorP\app\modules\app\helper;
 
-use helper;
+use yxorP\app\lib\data\graphQL\Server\Helper;
+use yxorP\app\lib\http\helperAware;
 
 
 class admin extends helperAware

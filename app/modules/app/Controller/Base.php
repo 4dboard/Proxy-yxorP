@@ -2,7 +2,8 @@
 
 namespace yxorP\app\modules\app\controller;
 
-use appAware;
+use yxorP\app\lib\http\appAware;
+use yxorP\app\lib\http\appAware;
 use function get_class;
 use function str_replace;
 use function strtolower;

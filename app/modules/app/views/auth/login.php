@@ -66,7 +66,9 @@
                 <form class="kiss-margin-top" @submit.prevent="verify2FA" v-if="!loading">
                     <div>
                         <label>2FA Code:</label>
-                        <input class="kiss-input" type="text" placeholder="Code" v-model="twofaCode" autofocus required>
+                        <label>
+                            <input class="kiss-input" type="text" placeholder="Code" v-model="twofaCode" autofocus required>
+                        </label>
                     </div>
                     <div class="kiss-margin-top">
                         <button class="kiss-button kiss-button-outline kiss-button-primary kiss-width-1-1">{{

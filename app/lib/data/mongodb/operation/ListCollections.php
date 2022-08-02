@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use yxorP\app\lib\data\mongoDB\Model\CollectionInfoCommandIterator;
 use yxorP\app\lib\http\mongoDB\command\ListCollections as ListCollectionsCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -70,7 +71,7 @@ class ListCollections implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return CollectionInfoIterator
+     * @return CollectionInfoCommandIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */

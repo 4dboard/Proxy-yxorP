@@ -20,6 +20,7 @@ namespace yxorP\app\lib\data\mongoDB\Model;
 use Closure;
 use Iterator;
 use IteratorIterator;
+use ReturnTypeWillChange;
 use Traversable;
 
 /**

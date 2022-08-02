@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Model;
 
 use ArrayAccess;
+use ReturnTypeWillChange;
 use yxorP\app\lib\http\mongoDB\Exception\BadMethodCallException;
 use function array_key_exists;
 

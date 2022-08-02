@@ -2,7 +2,8 @@
 
 namespace yxorP\app\modules\app\RestApi;
 
-use appAware;
+use yxorP\app\lib\http\appAware;
+use yxorP\app\lib\http\appAware;
 use function call_user_func;
 use function is_callable;
 

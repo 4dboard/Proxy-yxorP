@@ -3,6 +3,7 @@
 namespace yxorP\app\modules\app\helper;
 
 use yxorP\app\lib\http\appAware;
+use yxorP\app\lib\http\helperAware;
 
 /**
  * @property mixed $response

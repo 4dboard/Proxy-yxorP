@@ -18,6 +18,12 @@
 namespace yxorP\app\lib\data\mongoDB\Model;
 
 use IteratorIterator;
+use MongoDB\Driver\Monitoring\CommandFailedEvent;
+use MongoDB\Driver\Monitoring\CommandStartedEvent;
+use MongoDB\Driver\Monitoring\CommandSubscriber;
+use MongoDB\Driver\Monitoring\CommandSucceededEvent;
+use ReturnTypeWillChange;
+use yxorP\app\lib\data\mongoDB\Exception\ResumeTokenException;
 use yxorP\app\lib\http\mongoDB\BSON\Serializable;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Monitoring\commandFailedEvent;
@@ -44,7 +50,7 @@ use function MongoDB\Driver\Monitoring\removeSubscriber;
  *
  * @internal
  */
-class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber
+class ChangeStreamIterator extends IteratorIterator implements CommandSubscriber, \MongoDB\Driver\Monitoring\Subscriber, \MongoDB\Driver\Monitoring\Subscriber
 {
     /** @var integer */
     private $batchPosition = 0;

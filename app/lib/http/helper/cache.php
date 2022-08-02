@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\http\helper;
 
 use RecursiveDirectoryIterator;
+use yxorP\app\lib\http\helperAware;
 use function call_user_func;
 use function file_exists;
 use function file_get_contents;

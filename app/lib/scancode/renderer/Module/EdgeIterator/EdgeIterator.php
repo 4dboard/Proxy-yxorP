@@ -6,6 +6,7 @@ namespace yxorP\app\lib\scancode\Renderer\Module\EdgeIterator;
 use BaconQrCode\Encoder\ByteMatrix;
 use IteratorAggregate;
 use Traversable;
+use yxorP\app\lib\scancode\Encoder\byteMatrix;
 
 /**
  * Edge iterator based on potrace.

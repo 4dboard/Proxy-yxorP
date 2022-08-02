@@ -17,13 +17,17 @@
 
                 <div class="kiss-margin" :class="{'kiss-disabled': locale._id}">
                     <label><?= t('i18n') ?></label>
-                    <input class="kiss-input" type="text" pattern="[a-zA-Z0-9_]+" v-model="locale.i18n"
-                           :disabled="locale._id" required>
+                    <label>
+                        <input class="kiss-input" type="text" pattern="[a-zA-Z0-9_]+" v-model="locale.i18n"
+                               :disabled="locale._id" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
                     <label><?= t('Name') ?></label>
-                    <input class="kiss-input" type="text" v-model="locale.name" required>
+                    <label>
+                        <input class="kiss-input" type="text" v-model="locale.name" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">

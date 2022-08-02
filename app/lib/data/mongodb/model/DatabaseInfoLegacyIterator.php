@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Model;
 
 
+use ReturnTypeWillChange;
 use function current;
 use function key;
 use function next;

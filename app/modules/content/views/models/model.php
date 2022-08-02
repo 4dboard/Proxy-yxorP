@@ -86,18 +86,24 @@
                 <kiss-grid cols="2@m" class="kiss-margin">
                     <div :class="{'kiss-disabled': isUpdate}">
                         <label><?= t('Name') ?></label>
-                        <input class="kiss-input" type="text" pattern="[a-zA-Z0-9_]+" v-model="model.name"
-                               :disabled="isUpdate" required>
+                        <label>
+                            <input class="kiss-input" type="text" pattern="[a-zA-Z0-9_]+" v-model="model.name"
+                                   :disabled="isUpdate" required>
+                        </label>
                     </div>
                     <div>
                         <label><?= t('Display name') ?></label>
-                        <input class="kiss-input" type="text" v-model="model.label">
+                        <label>
+                            <input class="kiss-input" type="text" v-model="model.label">
+                        </label>
                     </div>
                 </kiss-grid>
 
                 <div class="kiss-margin">
                     <label><?= t('Group') ?></label>
-                    <input class="kiss-input" type="text" list="model-groups" v-model="model.group">
+                    <label>
+                        <input class="kiss-input" type="text" list="model-groups" v-model="model.group">
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
@@ -129,14 +135,18 @@
                                                 visibility
                                             </icon>
                                         </div>
-                                        <div class="kiss-width-1-4"><input type="text"
-                                                                           class="kiss-input kiss-input-small"
-                                                                           v-model="element.name"
-                                                                           placeholder="<?= t('Name') ?>"></div>
-                                        <div class="kiss-margin-small-left kiss-flex-1"><input type="url"
-                                                                                               class="kiss-input kiss-input-small"
-                                                                                               v-model="element.uri"
-                                                                                               placeholder="https://...">
+                                        <div class="kiss-width-1-4"><label>
+                                                <input type="text"
+                                                                                   class="kiss-input kiss-input-small"
+                                                                                   v-model="element.name"
+                                                                                   placeholder="<?= t('Name') ?>">
+                                            </label></div>
+                                        <div class="kiss-margin-small-left kiss-flex-1"><label>
+                                                <input type="url"
+                                                                                                       class="kiss-input kiss-input-small"
+                                                                                                       v-model="element.uri"
+                                                                                                       placeholder="https://...">
+                                            </label>
                                         </div>
                                         <a class="kiss-margin-small-left kiss-color-danger"
                                            @click="model.preview.splice(model.preview.indexOf(element), 1)">

@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
 use JsonSerializable;
 use ReflectionClass;
+use ReturnTypeWillChange;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\TypeDefinitionNodeInterface;
 use yxorP\app\lib\data\graphQL\Language\AST\TypeExtensionNodeInterface;
@@ -24,7 +25,7 @@ use const E_USER_DEPRECATED;
  * Registry of standard GraphQL types
  * and a base class for all other types.
  */
-abstract class Type implements JsonSerializable
+abstract class Type extends \yxorP\app\lib\data\graphQL\Type\Definition\UnionType implements JsonSerializable, \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType, \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType, \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType, \yxorP\app\lib\data\graphQL\Type\Definition\NullableType
 {
     public const STRING = 'String';
     public const INT = 'Int';

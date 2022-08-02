@@ -2,6 +2,7 @@
 
 use ErrorException;
 use InvalidArgumentException;
+use MongoDB\BSON\ObjectId;
 use PDO;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
 use function array_intersect;

@@ -3,6 +3,7 @@
 namespace yxorP\app\modules\system\helper;
 
 use helper;
+use yxorP\app\lib\http\helperAware;
 
 class Log extends helperAware
 {

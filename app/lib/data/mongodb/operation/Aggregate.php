@@ -18,8 +18,13 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
+use MongoDB\Driver\Command;
+use MongoDB\Driver\ReadConcern;
+use MongoDB\Driver\ReadPreference;
+use MongoDB\Driver\WriteConcern;
 use stdClass;
 use Traversable;
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -258,7 +263,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return Traversable
+     * @return Cursor
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if read concern or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)

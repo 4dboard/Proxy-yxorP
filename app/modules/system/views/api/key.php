@@ -30,7 +30,9 @@ $roles = $this->helper('acl')->roles();
 
                 <div class="kiss-margin" v-if="key.key != 'public'">
                     <label><?= t('Name') ?></label>
-                    <input class="kiss-input" type="text" v-model="key.name" required>
+                    <label>
+                        <input class="kiss-input" type="text" v-model="key.name" required>
+                    </label>
                 </div>
 
                 <kiss-card class="kiss-margin kiss-padding kiss-position-relative" theme="bordered contrast">
@@ -44,10 +46,12 @@ $roles = $this->helper('acl')->roles();
                                 <div class="kiss-text-capitalize kiss-text-bold"
                                      :class="{'kiss-color-muted': !key.role}">{{ key.role || t('No role set') }}
                                 </div>
-                                <select class="kiss-input kiss-select" v-model="key.role">
-                                    <option value="">No role</option>
-                                    <option v-for="role in roles" :value="role.appid">{{ role.name }}</option>
-                                </select>
+                                <label>
+                                    <select class="kiss-input kiss-select" v-model="key.role">
+                                        <option value="">No role</option>
+                                        <option v-for="role in roles" :value="role.appid">{{ role.name }}</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="kiss-margin-left kiss-flex-1 kiss-align-right"><a
                                     href="<?= $this->route('/system/users/roles') ?>">

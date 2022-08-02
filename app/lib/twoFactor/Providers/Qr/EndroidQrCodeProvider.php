@@ -10,6 +10,9 @@ use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelMedium;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelQuartile;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
+use yxorP\app\lib\file\ColorExtractor\color;
+use yxorP\app\lib\scancode\common\errorCorrectionLevel;
+use yxorP\app\lib\scancode\Encoder\qrCode;
 
 class EndroidQrCodeProvider implements IQRCodeProviderInterface
 {

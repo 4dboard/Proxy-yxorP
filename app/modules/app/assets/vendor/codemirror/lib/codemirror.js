@@ -3638,29 +3638,16 @@
 
         let baseX, sticky, outside = false;
         // If a box around the coordinates was found, use that
-        if (boxAround) {
-            // Distinguish coordinates nearer to the left or right side of the box
-            const atLeft = x - boxAround.left < boxAround.right - x, atStart = atLeft === ltr;
-            ch = chAround + (atStart ? 0 : 1);
-            sticky = atStart ? "after" : "before";
-            baseX = atLeft ? boxAround.left : boxAround.right;
-        } else {
-            // (Adjust for extended bound, if necessary.)
-            if (!ltr && (ch === end || ch === begin)) {
-                ch++;
-            }
-            // To determine which side to associate with, get the box to the
-            // left of the character and compare it's vertical position to the
-            // coordinates
-            sticky = ch === 0 ? "after" : ch === lineObj.text.length ? "before" :
-                (measureCharPrepared(cm, preparedMeasure, ch - (ltr ? 1 : 0)).bottom + widgetHeight <= y) === ltr ?
-                    "after" : "before";
-            // Now get accurate coordinates for this place, in order to get a
-            // base X position
-            const coords = cursorCoords(cm, Pos(lineNo, ch, sticky), "line", lineObj, preparedMeasure);
-            baseX = coords.left;
-            outside = y < coords.top ? -1 : y >= coords.bottom ? 1 : 0;
+         // (Adjust for extended bound, if necessary.)
+        if (!ltr && (ch === end || ch === begin)) {
+            ch++;
         }
+        sticky = ch === 0 ? "after" : ch === lineObj.text.length ? "before" :
+            (measureCharPrepared(cm, preparedMeasure, ch - (ltr ? 1 : 0)).bottom + widgetHeight <= y) === ltr ?
+                "after" : "before";
+        const coords = cursorCoords(cm, Pos(lineNo, ch, sticky), "line", lineObj, preparedMeasure);
+        baseX = coords.left;
+        outside = y < coords.top ? -1 : y >= coords.bottom ? 1 : 0;
 
         ch = skipExtendingChars(lineObj.text, ch, 1);
         return PosWithInfo(lineNo, ch, sticky, outside, x - baseX)
@@ -4014,7 +4001,6 @@
             } else {
                 diff = n - oldN;
             }
-            oldN += diff;
             newN += diff;
         }
         while (visualLineNo(cm.doc, newN) !== newN) {

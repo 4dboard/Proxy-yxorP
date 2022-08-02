@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Model;
 
 use Iterator;
+use ReturnTypeWillChange;
 
 /**
  * CollectionInfoIterator interface.

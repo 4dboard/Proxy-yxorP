@@ -27,13 +27,17 @@ foreach ($permissions as $key => $meta) if (isset($meta['component'])) $componen
 
                 <div class="kiss-margin" :class="{'kiss-disabled': role._id}">
                     <label><?= t('APPID') ?></label>
-                    <input class="kiss-input" type="text" pattern="[a-zA-Z0-9_]+" v-model="role.appid"
-                           :disabled="role._id" required>
+                    <label>
+                        <input class="kiss-input" type="text" pattern="[a-zA-Z0-9_]+" v-model="role.appid"
+                               :disabled="role._id" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
                     <label><?= t('Name') ?></label>
-                    <input class="kiss-input" type="text" v-model="role.name" required>
+                    <label>
+                        <input class="kiss-input" type="text" v-model="role.name" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">

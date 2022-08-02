@@ -115,7 +115,7 @@
 
 </script>
 
-<input id="apiKey" type="text" placeholder="API Key" value="<?= ($apiKey ? $apiKey : '') ?>">
+<label for="apiKey"></label><input id="apiKey" type="text" placeholder="API Key" value="<?= ($apiKey ? $apiKey : '') ?>">
 
 <style>
 

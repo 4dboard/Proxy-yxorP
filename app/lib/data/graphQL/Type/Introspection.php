@@ -389,7 +389,6 @@ class Introspection
                             'type' => Type::nonNull(Type::string()),
                             'resolve' => static function ($inputValue): string {
                                 /** @var FieldArgument|InputObjectField $inputValue */
-                                $inputValue = $inputValue;
 
                                 return $inputValue->name;
                             },
@@ -398,7 +397,6 @@ class Introspection
                             'type' => Type::string(),
                             'resolve' => static function ($inputValue): ?string {
                                 /** @var FieldArgument|InputObjectField $inputValue */
-                                $inputValue = $inputValue;
 
                                 return $inputValue->description;
                             },
@@ -417,7 +415,6 @@ class Introspection
                                 'A GraphQL-formatted string representing the default value for this input value.',
                             'resolve' => static function ($inputValue): ?string {
                                 /** @var FieldArgument|InputObjectField $inputValue */
-                                $inputValue = $inputValue;
 
                                 return !$inputValue->defaultValueExists()
                                     ? null

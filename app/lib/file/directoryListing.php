@@ -54,6 +54,6 @@ class directoryListing implements IteratorAggregate
 
     public function getIterator(): Traversable
     {
-        return $this->listing instanceof Traversable ? $this->listing : new ArrayIterator($this->listing);
+        return $this->listing instanceof Traversable ? $this->listing : new ArrayIterator((int)$this->listing);
     }
 }

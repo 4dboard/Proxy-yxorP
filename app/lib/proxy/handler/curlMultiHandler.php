@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
 use BadMethodCallException;
+use CurlMultiHandle;
 use yxorP\app\lib\proxy\promise as P;
 use yxorP\app\lib\proxy\promise\promise;
 use yxorP\app\lib\proxy\utils;

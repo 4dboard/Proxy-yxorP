@@ -11,6 +11,12 @@ use BaconQrCode\Common\ReedSolomonCodec;
 use BaconQrCode\Common\Version;
 use BaconQrCode\Exception\WriterException;
 use SplFixedArray;
+use yxorP\app\lib\scancode\common\bitArray;
+use yxorP\app\lib\scancode\common\characterSetEci;
+use yxorP\app\lib\scancode\common\errorCorrectionLevel;
+use yxorP\app\lib\scancode\common\mode;
+use yxorP\app\lib\scancode\common\reedSolomonCodec;
+use yxorP\app\lib\scancode\Exception\WriterException;
 
 /**
  * Encoder.

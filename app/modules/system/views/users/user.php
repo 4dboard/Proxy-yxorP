@@ -47,7 +47,9 @@ if (!isset($user['twofa'])) $user['twofa'] = ['enabled' => false, 'secret' => $t
 
                 <div class="kiss-margin">
                     <label><?= t('Name') ?></label>
-                    <input class="kiss-input" type="text" v-model="user.name" autocomplete="off" autofocus required>
+                    <label>
+                        <input class="kiss-input" type="text" v-model="user.name" autocomplete="off" autofocus required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
@@ -56,7 +58,9 @@ if (!isset($user['twofa'])) $user['twofa'] = ['enabled' => false, 'secret' => $t
                             trip_origin
                         </icon>
                     </label>
-                    <input class="kiss-input" type="text" v-model="user.user" autocomplete="off" required>
+                    <label>
+                        <input class="kiss-input" type="text" v-model="user.user" autocomplete="off" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
@@ -65,7 +69,9 @@ if (!isset($user['twofa'])) $user['twofa'] = ['enabled' => false, 'secret' => $t
                             trip_origin
                         </icon>
                     </label>
-                    <input class="kiss-input" type="email" v-model="user.email" autocomplete="off" required>
+                    <label>
+                        <input class="kiss-input" type="email" v-model="user.email" autocomplete="off" required>
+                    </label>
                 </div>
 
                 <div class="kiss-margin">
@@ -74,28 +80,34 @@ if (!isset($user['twofa'])) $user['twofa'] = ['enabled' => false, 'secret' => $t
                               v-if="!user._id">trip_origin
                         </icon>
                     </label>
-                    <input class="kiss-input" type="password" v-model="user.password"
-                           :placeholder="user._id ? '<?= t('Keep current password') ?>':''" :required="!user._id"
-                           autocomplete="off">
+                    <label>
+                        <input class="kiss-input" type="password" v-model="user.password"
+                               :placeholder="user._id ? '<?= t('Keep current password') ?>':''" :required="!user._id"
+                               autocomplete="off">
+                    </label>
                 </div>
 
                 <?php if (!isset($user['_id']) || $user['_id'] != $this['user/_id']): ?>
                     <div class="kiss-margin-large">
                         <label><?= t('Role') ?></label>
-                        <select class="kiss-select kiss-input" v-model="user.role" required>
-                            <option value=""></option>
-                            <option :value="role.appid" v-for="role in roles">{{ role.name }}</option>
-                        </select>
+                        <label>
+                            <select class="kiss-select kiss-input" v-model="user.role" required>
+                                <option value=""></option>
+                                <option :value="role.appid" v-for="role in roles">{{ role.name }}</option>
+                            </select>
+                        </label>
                     </div>
                 <?php endif ?>
 
                 <div class="kiss-margin" v-if="languages.length > 1">
                     <label><?= t('Admin UI language') ?></label>
-                    <select class="kiss-input" type="password" v-model="user.i18n">
-                        <?php foreach ($languages as $lang): ?>
-                            <option value="<?= $lang['i18n'] ?>"><?= $lang['language'] ?></option>
-                        <?php endforeach ?>
-                    </select>
+                    <label>
+                        <select class="kiss-input" type="password" v-model="user.i18n">
+                            <?php foreach ($languages as $lang): ?>
+                                <option value="<?= $lang['i18n'] ?>"><?= $lang['language'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </label>
                 </div>
 
                 <kiss-card class="kiss-margin kiss-margin-large-top kiss-padding"

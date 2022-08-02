@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Model;
 
 use Iterator;
+use ReturnTypeWillChange;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
 use yxorP\app\lib\http\mongoDB\Exception\UnexpectedValueException;
 use function is_array;

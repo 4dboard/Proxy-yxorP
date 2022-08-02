@@ -17,6 +17,9 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use MongoDB\Driver\WriteConcern;
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
+use yxorP\app\lib\data\mongoDB\insertOneResult;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;

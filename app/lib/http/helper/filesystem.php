@@ -6,6 +6,7 @@ use DirectoryIterator;
 use Exception;
 use FilesystemIterator;
 use SplFileObject;
+use yxorP\app\lib\http\helperAware;
 use function call_user_func_array;
 use function count;
 use function dirname;

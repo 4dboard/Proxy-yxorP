@@ -26,9 +26,11 @@
                     <icon class="kiss-margin-xsmall-right">language</icon>
                     <span
                         class="kiss-size-small kiss-text-caption kiss-text-bolder">{{ App._locales[this.locale] }}</span>
-                    <select v-model="locale">
-                        <option :value="i18n" v-for="(label,i18n) in App._locales">{{label}}</option>
-                    </select>
+                    <label>
+                        <select v-model="locale">
+                            <option :value="i18n" v-for="(label,i18n) in App._locales">{{label}}</option>
+                        </select>
+                    </label>
                 </kiss-card>
                 <div>
                     <a class="kiss-size-large" kiss-popoutmenu="#model-menu-actions">
@@ -40,8 +42,10 @@
             <form class="kiss-flex kiss-flex-middle" v-if="fieldTypes && ((!loading && items.length) || filter)"
                   @submit.prevent="filter = txtFilter">
 
-                <input type="text" class="kiss-input kiss-flex-1 kiss-margin-xsmall-right"
-                       :placeholder="t('Filter items...')" v-model="txtFilter">
+                <label>
+                    <input type="text" class="kiss-input kiss-flex-1 kiss-margin-xsmall-right"
+                           :placeholder="t('Filter items...')" v-model="txtFilter">
+                </label>
 
                 <div class="kiss-button-group kiss-margin-small-left">
                     <button type="button" class="kiss-button" @click="filter = ''"
@@ -70,7 +74,9 @@
                     <tr>
                         <th fixed="left" class="kiss-align-center" width="70">
                             <div class="kiss-flex kiss-flex-middle">
-                                <input class="kiss-checkbox" type="checkbox" @click="toggleAllSelect">
+                                <label>
+                                    <input class="kiss-checkbox" type="checkbox" @click="toggleAllSelect">
+                                </label>
                                 <span class="kiss-margin-small-left">ID</span>
                             </div>
                         </th>
@@ -119,7 +125,9 @@
                     <tr v-for="item in items">
                         <td fixed="left" class="kiss-align-center">
                             <div class="kiss-flex kiss-flex-middle">
-                                <input class="kiss-checkbox" type="checkbox" v-model="selected" :value="item._id">
+                                <label>
+                                    <input class="kiss-checkbox" type="checkbox" v-model="selected" :value="item._id">
+                                </label>
                                 <a class="kiss-badge kiss-link-muted kiss-margin-small-left"
                                    :href="$route(`/content/collection/item/${model.name}/${item._id}`)"
                                    :title="item._id">...{{ item._id.substr(-5) }}</a>
@@ -196,9 +204,11 @@
                                 <li v-for="field in model.fields">
                                     <div class="kiss-flex kiss-flex-middle"
                                          :class="field.__visible === false ? 'kiss-color-muted':''">
-                                        <div class="kiss-margin-small-right"><input class="kiss-checkbox"
-                                                                                    type="checkbox"
-                                                                                    v-model="field.__visible"></div>
+                                        <div class="kiss-margin-small-right"><label>
+                                                <input class="kiss-checkbox"
+                                                                                            type="checkbox"
+                                                                                            v-model="field.__visible">
+                                            </label></div>
                                         <div>{{ field.label || field.name}}</div>
                                     </div>
                                 </li>
@@ -222,9 +232,11 @@
                             <div class="kiss-margin-small-left kiss-overlay-input">
                                 <span
                                     class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
-                                <select v-model="page" @change="load(page)" v-if="pages > 1">
-                                    <option v-for="p in pages" :value="p">{{ p }}</option>
-                                </select>
+                                <label>
+                                    <select v-model="page" @change="load(page)" v-if="pages > 1">
+                                        <option v-for="p in pages" :value="p">{{ p }}</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="kiss-margin-small-left kiss-size-small">
                                 <a class="kiss-margin-small-right" v-if="(page - 1) >= 1"

@@ -7,6 +7,7 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 use ArrayAccess;
 use Countable;
 use IteratorAggregate;
+use ReturnTypeWillChange;
 use Traversable;
 use yxorP\app\lib\data\graphQL\Utils\AST;
 use function array_merge;

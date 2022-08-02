@@ -9,6 +9,7 @@ use Amp\Failure;
 use Amp\Promise as AmpPromise;
 use Amp\Success;
 use Throwable;
+use yxorP\app\lib\data\graphQL\Deferred;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
 use function Amp\Promise\all;

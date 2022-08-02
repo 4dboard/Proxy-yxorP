@@ -20,6 +20,7 @@ namespace yxorP\app\lib\data\mongoDB\Model;
 use Countable;
 use Iterator;
 use IteratorIterator;
+use ReturnTypeWillChange;
 use Traversable;
 use function count;
 use function current;

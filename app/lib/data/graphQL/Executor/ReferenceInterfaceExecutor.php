@@ -188,7 +188,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         if (count($errors) > 0) {
             return $errors;
         }
-        Utils::invariant($operation, 'Has operation if no errors.');
+        Utils::invariant((bool)$operation, 'Has operation if no errors.');
         Utils::invariant($variableValues !== null, 'Has variables if no errors.');
 
         return new ExecutionContext(
@@ -892,7 +892,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     )
     {
         $exeContext = $this->exeContext;
-        $typeCandidate = $returnType->resolveType($result, $exeContext->contextValue, $info);
+        $typeCandidate = $returnType->resolveType((object)$result, $exeContext->contextValue, $info);
 
         if ($typeCandidate === null) {
             $runtimeType = static::defaultTypeResolver($result, $exeContext->contextValue, $info, $returnType);

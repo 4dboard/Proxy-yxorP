@@ -13,6 +13,16 @@ use BaconQrCode\Renderer\RendererStyle\Fill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
 use RuntimeException;
+use yxorP\app\lib\scancode\Renderer\Color\Rgb;
+use yxorP\app\lib\scancode\Renderer\Image\EpsImageBackEnd;
+use yxorP\app\lib\scancode\Renderer\Image\ImageBackEndInterface;
+use yxorP\app\lib\scancode\Renderer\Image\ImagickImageBackEnd;
+use yxorP\app\lib\scancode\Renderer\Image\SvgImageBackEnd;
+use yxorP\app\lib\scancode\Renderer\ImageRenderer;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\EyeFill;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\Fill;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\RendererStyle;
+use yxorP\app\lib\scancode\writer;
 
 class BaconQrCodeProvider implements IQRCodeProviderInterface
 {

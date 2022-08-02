@@ -2,6 +2,7 @@
 
 namespace yxorP\app\modules\app\helper;
 
+use yxorP\app\lib\http\helperAware;
 use function exec;
 use function explode;
 use function fclose;

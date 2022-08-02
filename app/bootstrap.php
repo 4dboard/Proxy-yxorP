@@ -2,6 +2,8 @@
 
 namespace yxorP\app\lib;
 
+use fileStorage;
+use Mailer;
 use yxorP\app\lib\http\memoryStorage;
 use function yxorP\autoLoader;
 

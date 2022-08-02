@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\http\helper;
 
+use yxorP\app\lib\http\helperAware;
 use function preg_match;
 
 /**

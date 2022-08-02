@@ -942,7 +942,7 @@
                             var l = e ? e(c, a, o + "", n, t, f) : T, s = l === T;
                             if (s) {
                                 var h = ff(a), p = !h && af(a), _ = !h && !p && _f(a), l = a;
-                                h || p || _ ? ff(c) ? l = c : hu(c) ? l = Ur(c) : p ? (s = false, l = Ir(a, true)) : _ ? (s = false, l = zr(a, true)) : l = [] : xu(a) || of(a) ? (l = c, of(c) ? l = Ou(c) : du(c) && !_u(c) || (l = Ae(a))) : s = false
+                                h || p || _ ? ff(c) ? c : hu(c) ? Ur(c) : p ? (s = false, Ir(a, true)) : _ ? (s = false, zr(a, true)) : [] : xu(a) || of(a) ? (c, of(c) ? Ou(c) : du(c) && !_u(c) || (Ae(a))) : s = false
                             }
                             s && (f.set(a, l), Yt(l, a, r, e, f), f.delete(a)), it(n, o, l)
                         }
@@ -1196,7 +1196,6 @@
 
             function Ir(n, t) {
                 if (t) return n.slice();
-                var r = n.length, r = gi ? gi(r) : new n.constructor(r);
                 return n.copy(r), r
             }
 
@@ -1285,8 +1284,6 @@
 
             function $r(n) {
                 return fr(function (t, r) {
-                    var e = -1, u = r.length, i = 1 < u ? r[u - 1] : T, o = 2 < u ? r[2] : T,
-                        i = 3 < n.length && typeof i == "function" ? (u--, i) : T;
                     for (o && Oe(r[0], r[1], o) && (i = 3 > u ? T : i, u = 1), t = Qu(t); ++e < u;) (o = r[e]) && n(t, o, e, i);
                     return t
                 })
@@ -1504,7 +1501,6 @@
                 const t = Yu[n];
                 return function (n, r) {
                     if (n = Su(n), (r = null == r ? 0 : Ci(Eu(r), 292)) && Wi(n)) {
-                        var e = (Iu(n) + "e").split("e"), e = t(e[0] + "e" + (+e[1] + r)), e = (Iu(e) + "e").split("e");
                         return +(e[0] + "e" + (+e[1] - r))
                     }
                     return t(n)
@@ -1625,7 +1621,6 @@
             }
 
             function ye() {
-                var n = An.iteratee || Fu, n = n === Fu ? qt : n;
                 return arguments.length ? n(arguments[0], arguments[1]) : n
             }
 
@@ -2354,7 +2349,6 @@
                 let t = Ve(n);
                 return hu(t) && (t = T), br(wt(n, 1, hu, true), ye(t, 2))
             }), Wo = fr(function (n) {
-                var t = Ve(n), t = typeof t == "function" ? t : T;
                 return br(wt(n, 1, hu, true), T, t)
             }), Bo = fr(function (n, t) {
                 return hu(n) ? yt(n, t) : []
@@ -2365,10 +2359,8 @@
                 return hu(t) && (t = T),
                     mr(i(n, hu), ye(t, 2))
             }), Co = fr(function (n) {
-                var t = Ve(n), t = typeof t == "function" ? t : T;
                 return mr(i(n, hu), T, t)
             }), Do = fr(He), Mo = fr(function (n) {
-                var t = n.length, t = 1 < t ? n[t - 1] : T, t = typeof t == "function" ? (n.pop(), t) : T;
                 return Je(n, t)
             }), To = pe(function (n) {
                 function t(t) {
@@ -2410,11 +2402,11 @@
                 return $n.Date.now()
             }, Ho = fr(function (n, t, r) {
                 var e = 1;
-                if (r.length) var u = L(r, de(Ho)), e = 32 | e;
+                if (r.length)
                 return fe(n, e, t, r, u)
             }), Jo = fr(function (n, t, r) {
                 var e = 3;
-                if (r.length) var u = L(r, de(Jo)), e = 32 | e;
+                if (r.length)
                 return fe(t, e, n, r, u)
             }), Yo = fr(function (n, t) {
                 return dt(n, 1, t)
@@ -2753,7 +2745,6 @@
                 return null == n || n !== n ? t : n
             },An.divide = nc,An.endsWith = function (n, t, r) {
                 n = Iu(n), t = yr(t);
-                var e = n.length, e = r = r === T ? e : pt(Eu(r), 0, e);
                 return r -= t.length, 0 <= r && n.slice(r, e) === t
             },An.eq = lu,An.escape = function (n) {
                 return (n = Iu(n)) && H.test(n) ? n.replace(K, nt) : n
@@ -2973,8 +2964,7 @@
                 return (n = Iu(n)) && (r || t === T) ? n.replace(on, "") : n && (t = yr(t)) ? (n = M(n), t = I(n, M(t)), Or(n, t).join("")) : n
             },An.truncate = function (n, t) {
                 var r = 30, e = "...";
-                if (du(t)) var u = "separator" in t ? t.separator : u, r = "length" in t ? Eu(t.length) : r,
-                    e = "omission" in t ? yr(t.omission) : e;
+                if (du(t))
                 n = Iu(n);
                 var i = n.length;
                 if (Rn.test(n)) var o = M(n), i = o.length;
@@ -3059,7 +3049,7 @@
                     }
 
                     var o = this.__wrapped__, f = e ? [1] : arguments, c = o instanceof Un, l = f[0], s = c || ff(o);
-                    s && r && typeof l == "function" && 1 !== l.length && (c = s = false);
+                    s && r && typeof l == "function" && 1 !== l.length && (c = false);
                     var h = this.__chain__, p = !!this.__actions__.length, l = i && !h, c = c && !p;
                     return !i && s ? (o = c ? o : new Un(this), o = n.apply(o, f), o.__actions__.push({
                         func: Qe,

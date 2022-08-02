@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\data\mongodb\hybrid;
 
+use MongoDB\BSON\ObjectId;
 use Throwable;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectID;
 use yxorP\app\lib\http\mongoDB\client as MongoDBClient;

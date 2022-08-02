@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use Iterator;
+use yxorP\app\lib\data\mongoDB\Model\CallbackIterator;
 use yxorP\app\lib\http\mongoDB\command\ListCollections as ListCollectionsCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -66,11 +67,11 @@ class ListCollectionNames implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return Iterator
+     * @return CallbackIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server): Iterator
+    public function execute(Server $server): CallbackIterator
     {
         return new CallbackIterator(
             $this->listCollections->execute($server),

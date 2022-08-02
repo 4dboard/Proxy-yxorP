@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\http\helper;
 
+use yxorP\app\lib\http\helperAware;
 use function session_destroy;
 use function session_name;
 use function session_regenerate_id;

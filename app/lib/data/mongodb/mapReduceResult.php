@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\data\mongoDB;
 
 use IteratorAggregate;
+use ReturnTypeWillChange;
 use stdClass;
 use function call_user_func;
 

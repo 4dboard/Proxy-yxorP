@@ -21,7 +21,9 @@
             <div class="kiss-margin-large" v-if="!loading && models.length">
 
                 <div class="kiss-margin">
-                    <input type="text" class="kiss-input" :placeholder="t('Filter models...')" v-model="filter">
+                    <label>
+                        <input type="text" class="kiss-input" :placeholder="t('Filter models...')" v-model="filter">
+                    </label>
                 </div>
 
                 <div class="kiss-margin-large-top" v-if="singletons.length">
@@ -124,10 +126,12 @@
                                 <div class="kiss-size-4" :class="{'kiss-color-muted': !group, 'kiss-text-bold': group}">
                                     {{ group || t('All groups') }}
                                 </div>
-                                <select v-model="group">
-                                    <option :value="null">{{t('All')}}</option>
-                                    <option :selected="group === name" v-for="name in groups">{{ name }}</option>
-                                </select>
+                                <label>
+                                    <select v-model="group">
+                                        <option :value="null">{{t('All')}}</option>
+                                        <option :selected="group === name" v-for="name in groups">{{ name }}</option>
+                                    </select>
+                                </label>
                             </div>
                         </div>
                         <div class="kiss-flex-1"></div>

@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\openapi;
 
 use Exception;
+use yxorP\app\lib\data\annotation\annotationRegistry;
 use yxorP\app\lib\data\annotation\attributeRegistry;
 use yxorP\app\lib\data\annotation\docParser;
 

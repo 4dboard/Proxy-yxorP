@@ -5,6 +5,7 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 use yxorP\app\lib\data\firebase\jWT as JWTLIB;
 use yxorP\app\lib\data\firebase\key;
+use yxorP\app\lib\http\helperAware;
 
 
 class jWT extends helperAware

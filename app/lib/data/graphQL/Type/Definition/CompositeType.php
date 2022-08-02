@@ -11,6 +11,6 @@ GraphQLInterfaceType |
 GraphQLUnionType;
 */
 
-interface CompositeType
+interface CompositeType extends \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType, \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType
 {
 }

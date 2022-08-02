@@ -15,8 +15,10 @@
 
                 <form class="kiss-flex kiss-flex-middle kiss-margin-large-bottom" @submit.prevent="filter = txtFilter">
 
-                    <input type="text" class="kiss-input kiss-flex-1 kiss-margin-xsmall-right"
-                           :placeholder="t('Filter users...')" v-model="txtFilter">
+                    <label>
+                        <input type="text" class="kiss-input kiss-flex-1 kiss-margin-xsmall-right"
+                               :placeholder="t('Filter users...')" v-model="txtFilter">
+                    </label>
 
                     <div class="kiss-button-group kiss-margin-small-left">
                         <button type="button" class="kiss-button" @click="filter = ''"
@@ -62,9 +64,11 @@
                             <div class="kiss-margin-small-left kiss-overlay-input">
                                 <span
                                     class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
-                                <select v-model="page" @change="load(page)" v-if="pages > 1">
-                                    <option v-for="p in pages" :value="p">{{ p }}</option>
-                                </select>
+                                <label>
+                                    <select v-model="page" @change="load(page)" v-if="pages > 1">
+                                        <option v-for="p in pages" :value="p">{{ p }}</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="kiss-margin-small-left kiss-size-small">
                                 <a class="kiss-margin-small-right" v-if="(page - 1) >= 1"

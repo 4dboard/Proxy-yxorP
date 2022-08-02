@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Utils;
 
 use ArrayAccess;
 use InvalidArgumentException;
+use ReturnTypeWillChange;
 use SplObjectStorage;
 use yxorP\app\lib\data\graphQL\Type\Definition\EnumValueDefinition;
 use function array_key_exists;

@@ -4,6 +4,7 @@ namespace yxorP\app\modules\system\helper;
 
 use helper;
 use Throwable;
+use yxorP\app\lib\http\helperAware;
 
 class locales extends helperAware
 {

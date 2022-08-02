@@ -1,6 +1,9 @@
 <?php namespace yxorP\app\lib\data\mongoDB;
 
 use Iterator;
+use MongoDB\Driver\Exception\ConnectionException;
+use ReturnTypeWillChange;
+use yxorP\app\lib\data\mongoDB\Model\ChangeStreamIterator;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\ConnectionException;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\ServerException;

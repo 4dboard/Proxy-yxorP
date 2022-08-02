@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Error;
 
 use Exception;
 use JsonSerializable;
+use ReturnTypeWillChange;
 use Throwable;
 use Traversable;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;

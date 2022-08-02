@@ -1661,20 +1661,20 @@ init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/a
                                             src="https://user-images.githubusercontent.com/6468571/177675430-db10d3c6-ca87-47e6-8327-8f9723a2d2ab.png"
                                             alt="image" style="max-width: 100%;"></a></p>
                                 <ul class="contains-task-list">
-                                    <li class="task-list-item"><input type="checkbox" id="" disabled=""
-                                                                      class="task-list-item-checkbox" checked="">
+                                    <li class="task-list-item"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                            class="task-list-item-checkbox" checked="">
                                         Front-end
                                     </li>
-                                    <li class="task-list-item"><input type="checkbox" id="" disabled=""
-                                                                      class="task-list-item-checkbox" checked="">
+                                    <li class="task-list-item"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                            class="task-list-item-checkbox" checked="">
                                         Combine Proxy Engines
                                     </li>
-                                    <li class="task-list-item"><input type="checkbox" id="" disabled=""
-                                                                      class="task-list-item-checkbox" checked=""> Allow
+                                    <li class="task-list-item"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                            class="task-list-item-checkbox" checked=""> Allow
                                         Multi-tent rendering
                                     </li>
-                                    <li class="task-list-item"><input type="checkbox" id="" disabled=""
-                                                                      class="task-list-item-checkbox" checked=""> Build
+                                    <li class="task-list-item"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                            class="task-list-item-checkbox" checked=""> Build
                                         Caching
                                     </li>
                                 </ul>
@@ -1689,144 +1689,144 @@ init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/a
                                 </h2>
                                 <ul class="contains-task-list">
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Develop
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Develop
                                             Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon)
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Foundation</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Foundation</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> API Service</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> API Service</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> TxT DB</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> TxT DB</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Login</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Login</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Registration
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Registration
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Admin</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Admin</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Who is Online
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Who is Online
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Documentation
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Documentation
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Tables</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Tables</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Users</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Users</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Notes</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Notes</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Tasks</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Tasks</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Chat</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Chat</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Notes</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Notes</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Data Scheme</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Data Scheme</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> API Endpoints
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> API Endpoints
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Functions</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Functions</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> UI</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> UI</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Tasks</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Tasks</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Data Scheme</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Data Scheme</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> API Endpoints
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> API Endpoints
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Functions</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Functions</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> UI</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> UI</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Chat</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Chat</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Data Scheme</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Data Scheme</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> API Endpoints
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> API Endpoints
                                         </p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Functions</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Functions</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> UI</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> UI</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Testing</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Testing</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Versions</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Versions</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox" checked=""> Owners</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox" checked=""> Owners</p>
                                     </li>
                                     <li class="task-list-item">
-                                        <p dir="auto"><input type="checkbox" id="" disabled=""
-                                                             class="task-list-item-checkbox"> Crate details</p>
+                                        <p dir="auto"><label for=""></label><input type="checkbox" id="" disabled=""
+                                                                                   class="task-list-item-checkbox"> Crate details</p>
                                     </li>
                                 </ul>
                                 <p dir="auto"><a target="_blank" rel="noopener noreferrer"

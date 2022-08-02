@@ -8,6 +8,9 @@ use BaconQrCode\Common\Version;
 use BaconQrCode\Encoder\Encoder;
 use BaconQrCode\Exception\InvalidArgumentException;
 use BaconQrCode\Renderer\RendererInterface;
+use yxorP\app\lib\scancode\common\errorCorrectionLevel;
+use yxorP\app\lib\scancode\Encoder\encoder;
+use yxorP\app\lib\scancode\Renderer\RendererInterface;
 
 final class writer
 {

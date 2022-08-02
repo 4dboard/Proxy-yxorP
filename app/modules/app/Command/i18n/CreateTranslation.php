@@ -2,6 +2,7 @@
 
 namespace yxorP\app\modules\app\command\i18n;
 
+use MongoDB\Driver\Command;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\command\command;
