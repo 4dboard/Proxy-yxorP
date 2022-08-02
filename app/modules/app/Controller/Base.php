@@ -19,8 +19,7 @@ class base extends appAware
     /**
      * @return string
      */
-    public
-    function index()
+    public function index()
     {
         return 'Please implement the index action';
     }
@@ -28,8 +27,7 @@ class base extends appAware
     /**
      * @param $app
      */
-    protected
-    function initialize()
+    protected function initialize()
     {
 
         $controller = strtolower(str_replace('\\', '.', get_class($this)));
@@ -42,8 +40,7 @@ class base extends appAware
     /**
      *
      */
-    protected
-    function before()
+    protected function before()
     {
     }
 
@@ -52,8 +49,7 @@ class base extends appAware
      * @param array $params
      * @return mixed
      */
-    protected
-    function render(string $view, array $params = []): mixed
+    protected function render(string $view, array $params = []): mixed
     {
 
         $view .= $this->layout ? " with " . $this->layout : "";
@@ -65,8 +61,7 @@ class base extends appAware
      * @param $path
      * @return mixed
      */
-    protected
-    function path(string $path): mixed
+    protected function path(string $path): mixed
     {
         return $this->app->path($path);
     }
@@ -76,8 +71,7 @@ class base extends appAware
      * @param null $default
      * @return Mixed
      */
-    protected
-    function param(string $key, mixed $default = null)
+    protected function param(string $key, mixed $default = null)
     {
         return $this->app->request->param($key, $default);
     }
@@ -86,8 +80,7 @@ class base extends appAware
      * @param $module
      * @return mixed
      */
-    protected
-    function module(string $module): mixed
+    protected function module(string $module): mixed
     {
         return $this->app->module($module);
     }
@@ -96,8 +89,7 @@ class base extends appAware
      * @param $name
      * @return mixed
      */
-    protected
-    function helper(string $name): mixed
+    protected function helper(string $name): mixed
     {
         return $this->app->helper($name);
     }
@@ -105,8 +97,7 @@ class base extends appAware
     /**
      *
      */
-    protected
-    function stop(mixed $data = null, mixed $status = null)
+    protected function stop(mixed $data = null, mixed $status = null)
     {
         return $this->app->stop($data, $status);
     }
