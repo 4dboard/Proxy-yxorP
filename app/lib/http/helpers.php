@@ -113,10 +113,8 @@ class helpers
 
     public static function define(?array $request): void
     {
-
-
-        print_r($request);
         require PATH_SITE_BOOTSTRAP;
+        print_r(YXORP_APP);
         store::handler(YXORP_APP, App::instance());
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
         define(YXORP_SITE_SYSTEM_INSTALL, true);
