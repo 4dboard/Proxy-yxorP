@@ -25,9 +25,7 @@ class theme extends helper
             return null;
         }
 
-        if ($this->title) {
-            return $this->title;
-        }
+        if ($this->title) return $this->title;
 
         return $this->app->retrieve('app.name');
     }
@@ -39,9 +37,7 @@ class theme extends helper
             $this->favicon = $this->pathToUrl($url);
             $ext = strtolower(pathinfo($this->favicon, PATHINFO_EXTENSION));
 
-            if ($ext != 'svg') {
-                return null;
-            }
+            if ($ext != 'svg') return null;
 
             if ($ext === 'svg' && $color) {
                 $path = $this->app->path($url);
@@ -53,13 +49,9 @@ class theme extends helper
             return null;
         }
 
-        if ($this->favicon) {
-            return $this->favicon;
-        }
+        if ($this->favicon) return $this->favicon;
 
-        if ($this->app->path('#config:favicon.png')) {
-            return $this->app->pathToUrl('#config:favicon.png');
-        }
+        if ($this->app->path('#config:favicon.png')) return $this->app->pathToUrl('#config:favicon.png');
 
         return $this->pathToUrl('#app:favicon.png');
     }
@@ -72,13 +64,9 @@ class theme extends helper
             return null;
         }
 
-        if ($this->logo) {
-            return $this->logo;
-        }
+        if ($this->logo) return $this->logo;
 
-        if ($this->app->path('#config:logo.svg')) {
-            return $this->app->pathToUrl('#config:logo.svg');
-        }
+        if ($this->app->path('#config:logo.svg')) return $this->app->pathToUrl('#config:logo.svg');
 
         return $this->baseUrl('app:assets/logo.svg');
     }
@@ -107,9 +95,7 @@ class theme extends helper
 
         $this->app->trigger('app.layout.assets', [&$assets, $this->app->retrieve('app.version'), $context]);
 
-        if ($this->app->path('#config:theme.css')) {
-            $assets[] = '#config:theme.css';
-        }
+        if ($this->app->path('#config:theme.css')) $assets[] = '#config:theme.css';
 
         return $this->app->assets($assets, $this->app->retrieve('app.version'));
     }
