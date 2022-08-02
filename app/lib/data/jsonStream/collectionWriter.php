@@ -1,4 +1,4 @@
-<?php namespace JSONStream;
+<?php namespace yxorP\app\lib\data\jsonStream;
 class collectionWriter
 {
     protected $resource;
