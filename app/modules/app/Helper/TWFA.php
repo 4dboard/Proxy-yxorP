@@ -6,13 +6,14 @@ use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
-use RobThree\Auth\Providers\Qr\IQRCodeProviderInterface;
-use RobThree\Auth\TwoFactorAuth;
+use helper;
+use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
+use yxorP\app\lib\twoFactor\TwoFactorAuth;
 use const yxorP\app\lib\lime\helper;
 
-class TWFA extends \
+class TWFA extends
 
-helper
+    helper
 {
 
     protected
