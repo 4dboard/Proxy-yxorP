@@ -48,8 +48,6 @@ class yP
     {
 
 
-        echo 6;
-
         /**
          * Defining the root directory of the website.
          */
@@ -69,6 +67,8 @@ class yP
          * class.
          */
         if (!self::$instance) (self::$instance = $this)->init($request, $root);
+        echo 6;
+
 
     }
 
