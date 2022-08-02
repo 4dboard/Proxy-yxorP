@@ -8,7 +8,6 @@ class store
     {
         if (!$GLOBALS[CACHE_KEY]) $GLOBALS[CACHE_KEY] = ['init'];
 
-        echo $name;
         return self::check($name, $value, $func, $varibles);
     }
 
