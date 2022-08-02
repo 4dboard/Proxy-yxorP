@@ -4,14 +4,13 @@ use Redis;
 use redisLite;
 use function call_user_func;
 use function is_callable;
-use const app\lib\http\memoryStorage;
 
 class yxorPmemoryStorage
 {
     protected
-    $driver;
+        $driver;
     protected
-    $key;
+        $key;
 
     public
     function __construct(string $server, array $options = [])
