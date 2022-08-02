@@ -22,7 +22,7 @@ class serverRequest extends request implements serverRequestInterface
     public static function fromGlobals()
     {
         $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
-        $headers = getallheaders();
+        $headers = helpers::getallheaders();
         $uri = self::getUriFromGlobals();
         $body = new cachingStream(new lazyOpenStream('php://input', 'r+'));
         $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? str_replace('HTTP/', '', $_SERVER['SERVER_PROTOCOL']) : '1.1';
