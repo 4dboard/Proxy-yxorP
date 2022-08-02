@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\data\mongodb\Lite;
+<?php namespace yxorP\app\lib\data\mongodb\lite;
 
 use PDO;
 use function array_merge;
