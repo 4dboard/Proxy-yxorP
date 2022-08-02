@@ -4,7 +4,7 @@ namespace yxorP\app\modules\system\controller;
 
 use App\Controller\app;
 use ArrayObject;
-use OpenApi\Generator;
+use yxorP\app\lib\openapi\Generator;
 use Symfony\Component\Finder\Finder;
 use function file_exists;
 use function str_replace;
