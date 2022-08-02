@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\json;
+<?php namespace yxorP\app\lib\data\json;
 
 use function sprintf;
 
