@@ -71,6 +71,33 @@ class SMTP
         return false;
     }
 
+    protected function edebug($str, $level = 0)
+    {
+        if ($level > $this->do_debug) {
+            return;
+        }
+        if ($this->Debugoutput instanceof loggerInterface) {
+            $this->Debugoutput->debug($str);
+            return;
+        }
+        if (is_callable($this->Debugoutput) && !in_array($this->Debugoutput, ['error_log', 'html', 'echo'])) {
+            call_user_func($this->Debugoutput, $str, $level);
+            return;
+        }
+        switch ($this->Debugoutput) {
+            case 'error_log':
+                error_log($str);
+                break;
+            case 'html':
+                echo gmdate('Y-m-d H:i:s'), ' ', htmlentities(preg_replace('/[\r\n]+/', '', $str), ENT_QUOTES, 'UTF-8'), "<br>\n";
+                break;
+            case 'echo':
+            default:
+                $str = preg_replace('/\r\n|\r/m', "\n", $str);
+                echo gmdate('Y-m-d H:i:s'), "\t", trim(str_replace("\n", "\n                   \t                  ", trim($str))), "\n";
+        }
+    }
+
     public function close()
     {
         $this->setError('');
@@ -81,6 +108,89 @@ class SMTP
             $this->smtp_conn = null;
             $this->edebug('Connection: closed', self::DEBUG_CONNECTION);
         }
+    }
+
+    protected function getSMTPConnection($host, $port = null, $timeout = 30, $options = [])
+    {
+        static $streamok;
+        if (null === $streamok) {
+            $streamok = function_exists('stream_socket_client');
+        }
+        $errno = 0;
+        $errstr = '';
+        if ($streamok) {
+            $socket_context = stream_context_create($options);
+            set_error_handler([$this, 'errorHandler']);
+            $connection = stream_socket_client($host . ':' . $port, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $socket_context);
+        } else {
+            $this->edebug('Connection: stream_socket_client not available, falling back to fsockopen', self::DEBUG_CONNECTION);
+            set_error_handler([$this, 'errorHandler']);
+            $connection = fsockopen($host, $port, $errno, $errstr, $timeout);
+        }
+        restore_error_handler();
+        if (!is_resource($connection)) {
+            $this->setError('Failed to connect to server', '', (string)$errno, $errstr);
+            $this->edebug('SMTP ERROR: ' . $this->error['error'] . ": $errstr ($errno)", self::DEBUG_CLIENT);
+            return false;
+        }
+        if (strpos(PHP_OS, 'WIN') !== 0) {
+            $max = (int)ini_get('max_execution_time');
+            if (0 !== $max && $timeout > $max && strpos(ini_get('disable_functions'), 'set_time_limit') === false) {
+                @set_time_limit($timeout);
+            }
+            stream_set_timeout($connection, $timeout, 0);
+        }
+        return $connection;
+    }
+
+    protected function get_lines()
+    {
+        if (!is_resource($this->smtp_conn)) {
+            return '';
+        }
+        $data = '';
+        $endtime = 0;
+        stream_set_timeout($this->smtp_conn, $this->Timeout);
+        if ($this->Timelimit > 0) {
+            $endtime = time() + $this->Timelimit;
+        }
+        $selR = [$this->smtp_conn];
+        $selW = null;
+        while (is_resource($this->smtp_conn) && !feof($this->smtp_conn)) {
+            set_error_handler([$this, 'errorHandler']);
+            $n = stream_select($selR, $selW, $selW, $this->Timelimit);
+            restore_error_handler();
+            if ($n === false) {
+                $message = $this->getError()['detail'];
+                $this->edebug('SMTP -> get_lines(): select failed (' . $message . ')', self::DEBUG_LOWLEVEL);
+                if (stripos($message, 'interrupted system call') !== false) {
+                    $this->edebug('SMTP -> get_lines(): retrying stream_select', self::DEBUG_LOWLEVEL);
+                    $this->setError('');
+                    continue;
+                }
+                break;
+            }
+            if (!$n) {
+                $this->edebug('SMTP -> get_lines(): select timed-out in (' . $this->Timelimit . ' sec)', self::DEBUG_LOWLEVEL);
+                break;
+            }
+            $str = @fgets($this->smtp_conn, self::MAX_REPLY_LENGTH);
+            $this->edebug('SMTP INBOUND: "' . trim($str) . '"', self::DEBUG_LOWLEVEL);
+            $data .= $str;
+            if (!isset($str[3]) || $str[3] === ' ' || $str[3] === "\r" || $str[3] === "\n") {
+                break;
+            }
+            $info = stream_get_meta_data($this->smtp_conn);
+            if ($info['timed_out']) {
+                $this->edebug('SMTP -> get_lines(): stream timed-out (' . $this->Timeout . ' sec)', self::DEBUG_LOWLEVEL);
+                break;
+            }
+            if ($endtime && time() > $endtime) {
+                $this->edebug('SMTP -> get_lines(): timelimit reached (' . $this->Timelimit . ' sec)', self::DEBUG_LOWLEVEL);
+                break;
+            }
+        }
+        return $data;
     }
 
     public function getError()
@@ -102,6 +212,40 @@ class SMTP
             $this->error = $err;
         }
         return $noerror;
+    }
+
+    protected function sendCommand($command, $commandstring, $expect)
+    {
+        if (!$this->connected()) {
+            $this->setError("Called $command without being connected");
+            return false;
+        }
+        if ((strpos($commandstring, "\n") !== false) || (strpos($commandstring, "\r") !== false)) {
+            $this->setError("Command '$command' contained line breaks");
+            return false;
+        }
+        $this->client_send($commandstring . static::LE, $command);
+        $this->last_reply = $this->get_lines();
+        $matches = [];
+        if (preg_match('/^([\d]{3})[ -](?:([\d]\\.[\d]\\.[\d]{1,2}) )?/', $this->last_reply, $matches)) {
+            $code = (int)$matches[1];
+            $code_ex = (count($matches) > 2 ? $matches[2] : null);
+            $detail = preg_replace("/{$code}[ -]" . ($code_ex ? str_replace('.', '\\.', $code_ex) . ' ' : '') . '/m', '', $this->last_reply);
+        } else {
+            $code = (int)substr($this->last_reply, 0, 3);
+            $code_ex = null;
+            $detail = substr($this->last_reply, 4);
+        }
+        $this->edebug('SERVER -> CLIENT: ' . $this->last_reply, self::DEBUG_SERVER);
+        if (!in_array($code, (array)$expect, true)) {
+            $this->setError("$command command failed", $detail, $code, $code_ex);
+            $this->edebug('SMTP ERROR: ' . $this->error['error'] . ': ' . $this->last_reply, self::DEBUG_CLIENT);
+            return false;
+        }
+        if ($command !== 'RSET') {
+            $this->setError('');
+        }
+        return true;
     }
 
     public function client_send($data, $command = '')
@@ -213,6 +357,23 @@ class SMTP
         return true;
     }
 
+    protected function hmac($data, $key)
+    {
+        if (function_exists('hash_hmac')) {
+            return hash_hmac('md5', $data, $key);
+        }
+        $bytelen = 64;
+        if (strlen($key) > $bytelen) {
+            $key = pack('H*', md5($key));
+        }
+        $key = str_pad($key, $bytelen, chr(0x00));
+        $ipad = str_pad('', $bytelen, chr(0x36));
+        $opad = str_pad('', $bytelen, chr(0x5c));
+        $k_ipad = $key ^ $ipad;
+        $k_opad = $key ^ $opad;
+        return md5($k_opad . pack('H*', md5($k_ipad . $data)));
+    }
+
     public function data($msg_data)
     {
         if (!$this->sendCommand('DATA', 'DATA', 354)) {
@@ -259,6 +420,24 @@ class SMTP
         return $result;
     }
 
+    protected function recordLastTransactionID()
+    {
+        $reply = $this->getLastReply();
+        if (empty($reply)) {
+            $this->last_smtp_transaction_id = null;
+        } else {
+            $this->last_smtp_transaction_id = false;
+            foreach ($this->smtp_transaction_id_patterns as $smtp_transaction_id_pattern) {
+                $matches = [];
+                if (preg_match($smtp_transaction_id_pattern, $reply, $matches)) {
+                    $this->last_smtp_transaction_id = trim($matches[1]);
+                    break;
+                }
+            }
+        }
+        return $this->last_smtp_transaction_id;
+    }
+
     public function getLastReply()
     {
         return $this->last_reply;
@@ -273,6 +452,52 @@ class SMTP
             return false;
         }
         return $this->sendHello('HELO', $host);
+    }
+
+    protected function sendHello($hello, $host)
+    {
+        $noerror = $this->sendCommand($hello, $hello . ' ' . $host, 250);
+        $this->helo_rply = $this->last_reply;
+        if ($noerror) {
+            $this->parseHelloFields($hello);
+        } else {
+            $this->server_caps = null;
+        }
+        return $noerror;
+    }
+
+    protected function parseHelloFields($type)
+    {
+        $this->server_caps = [];
+        $lines = explode("\n", $this->helo_rply);
+        foreach ($lines as $n => $s) {
+            $s = trim(substr($s, 4));
+            if (empty($s)) {
+                continue;
+            }
+            $fields = explode(' ', $s);
+            if (!empty($fields)) {
+                if (!$n) {
+                    $name = $type;
+                    $fields = $fields[0];
+                } else {
+                    $name = array_shift($fields);
+                    switch ($name) {
+                        case 'SIZE':
+                            $fields = ($fields ? $fields[0] : 0);
+                            break;
+                        case 'AUTH':
+                            if (!is_array($fields)) {
+                                $fields = [];
+                            }
+                            break;
+                        default:
+                            $fields = true;
+                    }
+                }
+                $this->server_caps[$name] = $fields;
+            }
+        }
     }
 
     public function mail($from)
@@ -396,231 +621,6 @@ class SMTP
     public function getLastTransactionID()
     {
         return $this->last_smtp_transaction_id;
-    }
-
-    protected function edebug($str, $level = 0)
-    {
-        if ($level > $this->do_debug) {
-            return;
-        }
-        if ($this->Debugoutput instanceof loggerInterface) {
-            $this->Debugoutput->debug($str);
-            return;
-        }
-        if (is_callable($this->Debugoutput) && !in_array($this->Debugoutput, ['error_log', 'html', 'echo'])) {
-            call_user_func($this->Debugoutput, $str, $level);
-            return;
-        }
-        switch ($this->Debugoutput) {
-            case 'error_log':
-                error_log($str);
-                break;
-            case 'html':
-                echo gmdate('Y-m-d H:i:s'), ' ', htmlentities(preg_replace('/[\r\n]+/', '', $str), ENT_QUOTES, 'UTF-8'), "<br>\n";
-                break;
-            case 'echo':
-            default:
-                $str = preg_replace('/\r\n|\r/m', "\n", $str);
-                echo gmdate('Y-m-d H:i:s'), "\t", trim(str_replace("\n", "\n                   \t                  ", trim($str))), "\n";
-        }
-    }
-
-    protected function getSMTPConnection($host, $port = null, $timeout = 30, $options = [])
-    {
-        static $streamok;
-        if (null === $streamok) {
-            $streamok = function_exists('stream_socket_client');
-        }
-        $errno = 0;
-        $errstr = '';
-        if ($streamok) {
-            $socket_context = stream_context_create($options);
-            set_error_handler([$this, 'errorHandler']);
-            $connection = stream_socket_client($host . ':' . $port, $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT, $socket_context);
-        } else {
-            $this->edebug('Connection: stream_socket_client not available, falling back to fsockopen', self::DEBUG_CONNECTION);
-            set_error_handler([$this, 'errorHandler']);
-            $connection = fsockopen($host, $port, $errno, $errstr, $timeout);
-        }
-        restore_error_handler();
-        if (!is_resource($connection)) {
-            $this->setError('Failed to connect to server', '', (string)$errno, $errstr);
-            $this->edebug('SMTP ERROR: ' . $this->error['error'] . ": $errstr ($errno)", self::DEBUG_CLIENT);
-            return false;
-        }
-        if (strpos(PHP_OS, 'WIN') !== 0) {
-            $max = (int)ini_get('max_execution_time');
-            if (0 !== $max && $timeout > $max && strpos(ini_get('disable_functions'), 'set_time_limit') === false) {
-                @set_time_limit($timeout);
-            }
-            stream_set_timeout($connection, $timeout, 0);
-        }
-        return $connection;
-    }
-
-    protected function get_lines()
-    {
-        if (!is_resource($this->smtp_conn)) {
-            return '';
-        }
-        $data = '';
-        $endtime = 0;
-        stream_set_timeout($this->smtp_conn, $this->Timeout);
-        if ($this->Timelimit > 0) {
-            $endtime = time() + $this->Timelimit;
-        }
-        $selR = [$this->smtp_conn];
-        $selW = null;
-        while (is_resource($this->smtp_conn) && !feof($this->smtp_conn)) {
-            set_error_handler([$this, 'errorHandler']);
-            $n = stream_select($selR, $selW, $selW, $this->Timelimit);
-            restore_error_handler();
-            if ($n === false) {
-                $message = $this->getError()['detail'];
-                $this->edebug('SMTP -> get_lines(): select failed (' . $message . ')', self::DEBUG_LOWLEVEL);
-                if (stripos($message, 'interrupted system call') !== false) {
-                    $this->edebug('SMTP -> get_lines(): retrying stream_select', self::DEBUG_LOWLEVEL);
-                    $this->setError('');
-                    continue;
-                }
-                break;
-            }
-            if (!$n) {
-                $this->edebug('SMTP -> get_lines(): select timed-out in (' . $this->Timelimit . ' sec)', self::DEBUG_LOWLEVEL);
-                break;
-            }
-            $str = @fgets($this->smtp_conn, self::MAX_REPLY_LENGTH);
-            $this->edebug('SMTP INBOUND: "' . trim($str) . '"', self::DEBUG_LOWLEVEL);
-            $data .= $str;
-            if (!isset($str[3]) || $str[3] === ' ' || $str[3] === "\r" || $str[3] === "\n") {
-                break;
-            }
-            $info = stream_get_meta_data($this->smtp_conn);
-            if ($info['timed_out']) {
-                $this->edebug('SMTP -> get_lines(): stream timed-out (' . $this->Timeout . ' sec)', self::DEBUG_LOWLEVEL);
-                break;
-            }
-            if ($endtime && time() > $endtime) {
-                $this->edebug('SMTP -> get_lines(): timelimit reached (' . $this->Timelimit . ' sec)', self::DEBUG_LOWLEVEL);
-                break;
-            }
-        }
-        return $data;
-    }
-
-    protected function sendCommand($command, $commandstring, $expect)
-    {
-        if (!$this->connected()) {
-            $this->setError("Called $command without being connected");
-            return false;
-        }
-        if ((strpos($commandstring, "\n") !== false) || (strpos($commandstring, "\r") !== false)) {
-            $this->setError("Command '$command' contained line breaks");
-            return false;
-        }
-        $this->client_send($commandstring . static::LE, $command);
-        $this->last_reply = $this->get_lines();
-        $matches = [];
-        if (preg_match('/^([\d]{3})[ -](?:([\d]\\.[\d]\\.[\d]{1,2}) )?/', $this->last_reply, $matches)) {
-            $code = (int)$matches[1];
-            $code_ex = (count($matches) > 2 ? $matches[2] : null);
-            $detail = preg_replace("/{$code}[ -]" . ($code_ex ? str_replace('.', '\\.', $code_ex) . ' ' : '') . '/m', '', $this->last_reply);
-        } else {
-            $code = (int)substr($this->last_reply, 0, 3);
-            $code_ex = null;
-            $detail = substr($this->last_reply, 4);
-        }
-        $this->edebug('SERVER -> CLIENT: ' . $this->last_reply, self::DEBUG_SERVER);
-        if (!in_array($code, (array)$expect, true)) {
-            $this->setError("$command command failed", $detail, $code, $code_ex);
-            $this->edebug('SMTP ERROR: ' . $this->error['error'] . ': ' . $this->last_reply, self::DEBUG_CLIENT);
-            return false;
-        }
-        if ($command !== 'RSET') {
-            $this->setError('');
-        }
-        return true;
-    }
-
-    protected function hmac($data, $key)
-    {
-        if (function_exists('hash_hmac')) {
-            return hash_hmac('md5', $data, $key);
-        }
-        $bytelen = 64;
-        if (strlen($key) > $bytelen) {
-            $key = pack('H*', md5($key));
-        }
-        $key = str_pad($key, $bytelen, chr(0x00));
-        $ipad = str_pad('', $bytelen, chr(0x36));
-        $opad = str_pad('', $bytelen, chr(0x5c));
-        $k_ipad = $key ^ $ipad;
-        $k_opad = $key ^ $opad;
-        return md5($k_opad . pack('H*', md5($k_ipad . $data)));
-    }
-
-    protected function recordLastTransactionID()
-    {
-        $reply = $this->getLastReply();
-        if (empty($reply)) {
-            $this->last_smtp_transaction_id = null;
-        } else {
-            $this->last_smtp_transaction_id = false;
-            foreach ($this->smtp_transaction_id_patterns as $smtp_transaction_id_pattern) {
-                $matches = [];
-                if (preg_match($smtp_transaction_id_pattern, $reply, $matches)) {
-                    $this->last_smtp_transaction_id = trim($matches[1]);
-                    break;
-                }
-            }
-        }
-        return $this->last_smtp_transaction_id;
-    }
-
-    protected function sendHello($hello, $host)
-    {
-        $noerror = $this->sendCommand($hello, $hello . ' ' . $host, 250);
-        $this->helo_rply = $this->last_reply;
-        if ($noerror) {
-            $this->parseHelloFields($hello);
-        } else {
-            $this->server_caps = null;
-        }
-        return $noerror;
-    }
-
-    protected function parseHelloFields($type)
-    {
-        $this->server_caps = [];
-        $lines = explode("\n", $this->helo_rply);
-        foreach ($lines as $n => $s) {
-            $s = trim(substr($s, 4));
-            if (empty($s)) {
-                continue;
-            }
-            $fields = explode(' ', $s);
-            if (!empty($fields)) {
-                if (!$n) {
-                    $name = $type;
-                    $fields = $fields[0];
-                } else {
-                    $name = array_shift($fields);
-                    switch ($name) {
-                        case 'SIZE':
-                            $fields = ($fields ? $fields[0] : 0);
-                            break;
-                        case 'AUTH':
-                            if (!is_array($fields)) {
-                                $fields = [];
-                            }
-                            break;
-                        default:
-                            $fields = true;
-                    }
-                }
-                $this->server_caps[$name] = $fields;
-            }
-        }
     }
 
     protected function errorHandler($errno, $errmsg, $errfile = '', $errline = 0)

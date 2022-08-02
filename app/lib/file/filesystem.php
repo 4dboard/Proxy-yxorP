@@ -42,6 +42,22 @@ class filesystem implements filesystemOperatorInterface
         $this->adapter->writeStream($this->pathNormalizer->normalizePath($location), $contents, $this->config->extend($config));
     }
 
+    private function assertIsResource($contents): void
+    {
+        if (is_resource($contents) === false) {
+            throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received " . gettype($contents));
+        } elseif ($type = get_resource_type($contents) !== 'stream') {
+            throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received resource of type " . $type);
+        }
+    }
+
+    private function rewindStream($resource): void
+    {
+        if (ftell($resource) !== 0 && stream_get_meta_data($resource)['seekable']) {
+            rewind($resource);
+        }
+    }
+
     public function read(string $location): string
     {
         return $this->adapter->read($this->pathNormalizer->normalizePath($location));
@@ -106,21 +122,5 @@ class filesystem implements filesystemOperatorInterface
     public function visibility(string $path): string
     {
         return $this->adapter->visibility($this->pathNormalizer->normalizePath($path))->visibility();
-    }
-
-    private function assertIsResource($contents): void
-    {
-        if (is_resource($contents) === false) {
-            throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received " . gettype($contents));
-        } elseif ($type = get_resource_type($contents) !== 'stream') {
-            throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received resource of type " . $type);
-        }
-    }
-
-    private function rewindStream($resource): void
-    {
-        if (ftell($resource) !== 0 && stream_get_meta_data($resource)['seekable']) {
-            rewind($resource);
-        }
     }
 }

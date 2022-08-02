@@ -45,62 +45,6 @@ final class cachedReader
         return $this->loadedAnnotations[$cacheKey] = $annots;
     }
 
-    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
-    {
-        foreach ($this->getPropertyAnnotations($property) as $annot) {
-            if ($annot instanceof $annotationName) {
-                return $annot;
-            }
-        }
-        return null;
-    }
-
-    public function getPropertyAnnotations(ReflectionProperty $property)
-    {
-        $class = $property->getDeclaringClass();
-        $cacheKey = $class->getName() . '$' . $property->getName();
-        if (isset($this->loadedAnnotations[$cacheKey])) {
-            return $this->loadedAnnotations[$cacheKey];
-        }
-        $annots = $this->fetchFromCache($cacheKey, $class);
-        if ($annots === false) {
-            $annots = $this->delegate->getPropertyAnnotations($property);
-            $this->saveToCache($cacheKey, $annots);
-        }
-        return $this->loadedAnnotations[$cacheKey] = $annots;
-    }
-
-    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
-    {
-        foreach ($this->getMethodAnnotations($method) as $annot) {
-            if ($annot instanceof $annotationName) {
-                return $annot;
-            }
-        }
-        return null;
-    }
-
-    public function getMethodAnnotations(ReflectionMethod $method)
-    {
-        $class = $method->getDeclaringClass();
-        $cacheKey = $class->getName() . '#' . $method->getName();
-        if (isset($this->loadedAnnotations[$cacheKey])) {
-            return $this->loadedAnnotations[$cacheKey];
-        }
-        $annots = $this->fetchFromCache($cacheKey, $class);
-        if ($annots === false) {
-            $annots = $this->delegate->getMethodAnnotations($method);
-            $this->saveToCache($cacheKey, $annots);
-        }
-        return $this->loadedAnnotations[$cacheKey] = $annots;
-    }
-
-    public function clearLoadedAnnotations()
-    {
-        $this->loadedAnnotations = [];
-        $this->loadedFilemtimes = [];
-    }
-
     private function fetchFromCache($cacheKey, ReflectionClass $class)
     {
         $data = $this->cache->fetch($cacheKey);
@@ -157,5 +101,61 @@ final class cachedReader
             return;
         }
         $this->cache->save('[C]' . $cacheKey, time());
+    }
+
+    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
+    {
+        foreach ($this->getPropertyAnnotations($property) as $annot) {
+            if ($annot instanceof $annotationName) {
+                return $annot;
+            }
+        }
+        return null;
+    }
+
+    public function getPropertyAnnotations(ReflectionProperty $property)
+    {
+        $class = $property->getDeclaringClass();
+        $cacheKey = $class->getName() . '$' . $property->getName();
+        if (isset($this->loadedAnnotations[$cacheKey])) {
+            return $this->loadedAnnotations[$cacheKey];
+        }
+        $annots = $this->fetchFromCache($cacheKey, $class);
+        if ($annots === false) {
+            $annots = $this->delegate->getPropertyAnnotations($property);
+            $this->saveToCache($cacheKey, $annots);
+        }
+        return $this->loadedAnnotations[$cacheKey] = $annots;
+    }
+
+    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
+    {
+        foreach ($this->getMethodAnnotations($method) as $annot) {
+            if ($annot instanceof $annotationName) {
+                return $annot;
+            }
+        }
+        return null;
+    }
+
+    public function getMethodAnnotations(ReflectionMethod $method)
+    {
+        $class = $method->getDeclaringClass();
+        $cacheKey = $class->getName() . '#' . $method->getName();
+        if (isset($this->loadedAnnotations[$cacheKey])) {
+            return $this->loadedAnnotations[$cacheKey];
+        }
+        $annots = $this->fetchFromCache($cacheKey, $class);
+        if ($annots === false) {
+            $annots = $this->delegate->getMethodAnnotations($method);
+            $this->saveToCache($cacheKey, $annots);
+        }
+        return $this->loadedAnnotations[$cacheKey] = $annots;
+    }
+
+    public function clearLoadedAnnotations()
+    {
+        $this->loadedAnnotations = [];
+        $this->loadedFilemtimes = [];
     }
 }

@@ -13,6 +13,37 @@ class colorExtractor
         $this->palette = $palette;
     }
 
+    public function extract($colorCount = 1)
+    {
+        if (!$this->isInitialized()) {
+            $this->initialize();
+        }
+        return self::mergeColors($this->sortedColors, $colorCount, 100 / $colorCount);
+    }
+
+    protected function isInitialized()
+    {
+        return $this->sortedColors !== null;
+    }
+
+    protected function initialize()
+    {
+        $queue = new SplPriorityQueue();
+        $this->sortedColors = new SplFixedArray(count($this->palette));
+        $i = 0;
+        foreach ($this->palette as $color => $count) {
+            $labColor = self::intColorToLab($color);
+            $queue->insert($color, (sqrt($labColor['a'] * $labColor['a'] + $labColor['b'] * $labColor['b']) ?: 1) * (1 - $labColor['L'] / 200) * sqrt($count));
+            ++$i;
+        }
+        $i = 0;
+        while ($queue->valid()) {
+            $this->sortedColors[$i] = $queue->current();
+            $queue->next();
+            ++$i;
+        }
+    }
+
     protected static function intColorToLab($color)
     {
         return self::xyzToLab(self::srgbToXyz(self::rgbToSrgb(['R' => ($color >> 16) & 0xFF, 'G' => ($color >> 8) & 0xFF, 'B' => $color & 0xFF,])));
@@ -120,36 +151,5 @@ class colorExtractor
         $Sh = 1 + .015 * $Cbp * $T;
         $Rt = -sin(2 * $sigmaDelta) * $Rc;
         return sqrt(pow($LpDelta / $Sl, 2) + pow($CpDelta / $Sc, 2) + pow($HpDelta / $Sh, 2) + $Rt * ($CpDelta / $Sc) * ($HpDelta / $Sh));
-    }
-
-    public function extract($colorCount = 1)
-    {
-        if (!$this->isInitialized()) {
-            $this->initialize();
-        }
-        return self::mergeColors($this->sortedColors, $colorCount, 100 / $colorCount);
-    }
-
-    protected function isInitialized()
-    {
-        return $this->sortedColors !== null;
-    }
-
-    protected function initialize()
-    {
-        $queue = new SplPriorityQueue();
-        $this->sortedColors = new SplFixedArray(count($this->palette));
-        $i = 0;
-        foreach ($this->palette as $color => $count) {
-            $labColor = self::intColorToLab($color);
-            $queue->insert($color, (sqrt($labColor['a'] * $labColor['a'] + $labColor['b'] * $labColor['b']) ?: 1) * (1 - $labColor['L'] / 200) * sqrt($count));
-            ++$i;
-        }
-        $i = 0;
-        while ($queue->valid()) {
-            $this->sortedColors[$i] = $queue->current();
-            $queue->next();
-            ++$i;
-        }
     }
 }

@@ -14,6 +14,29 @@ class mountManager implements filesystemOperatorInterface
         $this->mountFilesystems($filesystems);
     }
 
+    private function mountFilesystems(array $filesystems): void
+    {
+        foreach ($filesystems as $key => $filesystem) {
+            $this->guardAgainstInvalidMount($key, $filesystem);
+            $this->mountFilesystem($key, $filesystem);
+        }
+    }
+
+    private function guardAgainstInvalidMount($key, $filesystem): void
+    {
+        if (!is_string($key)) {
+            throw unableToMountFilesystem::becauseTheKeyIsNotValid($key);
+        }
+        if (!$filesystem instanceof filesystemOperatorInterface) {
+            throw unableToMountFilesystem::becauseTheFilesystemWasNotValid($filesystem);
+        }
+    }
+
+    private function mountFilesystem(string $key, filesystemOperatorInterface $filesystem): void
+    {
+        $this->filesystems[$key] = $filesystem;
+    }
+
     public function fileExists(string $location): bool
     {
         [$filesystem, $path] = $this->determineFilesystemAndPath($location);
@@ -22,6 +45,18 @@ class mountManager implements filesystemOperatorInterface
         } catch (Throwable $exception) {
             throw unableToCheckFileExistence::forLocation($location, $exception);
         }
+    }
+
+    private function determineFilesystemAndPath(string $path): array
+    {
+        if (strpos($path, '://') < 1) {
+            throw unableToResolveFilesystemMount::becauseTheSeparatorIsMissing($path);
+        }
+        [$mountIdentifier, $mountPath] = explode('://', $path, 2);
+        if (!array_key_exists($mountIdentifier, $this->filesystems)) {
+            throw unableToResolveFilesystemMount::becauseTheMountWasNotRegistered($mountIdentifier);
+        }
+        return [$this->filesystems[$mountIdentifier], $mountPath, $mountIdentifier];
     }
 
     public function has(string $location): bool
@@ -135,11 +170,50 @@ class mountManager implements filesystemOperatorInterface
         $sourceFilesystem === $destinationFilesystem ? $this->moveInTheSameFilesystem($sourceFilesystem, $sourcePath, $destinationPath, $source, $destination) : $this->moveAcrossFilesystems($source, $destination);
     }
 
+    private function moveInTheSameFilesystem(filesystemOperatorInterface $sourceFilesystem, string $sourcePath, string $destinationPath, string $source, string $destination): void
+    {
+        try {
+            $sourceFilesystem->move($sourcePath, $destinationPath);
+        } catch (unableToMoveFile $exception) {
+            throw unableToMoveFile::fromLocationTo($source, $destination, $exception);
+        }
+    }
+
+    private function moveAcrossFilesystems(string $source, string $destination): void
+    {
+        try {
+            $this->copy($source, $destination);
+            $this->delete($source);
+        } catch (unableToCopyFile|unableToDeleteFile $exception) {
+            throw unableToMoveFile::fromLocationTo($source, $destination, $exception);
+        }
+    }
+
     public function copy(string $source, string $destination, array $config = []): void
     {
         [$sourceFilesystem, $sourcePath] = $this->determineFilesystemAndPath($source);
         [$destinationFilesystem, $destinationPath] = $this->determineFilesystemAndPath($destination);
         $sourceFilesystem === $destinationFilesystem ? $this->copyInSameFilesystem($sourceFilesystem, $sourcePath, $destinationPath, $source, $destination) : $this->copyAcrossFilesystem($config['visibility'] ?? null, $sourceFilesystem, $sourcePath, $destinationFilesystem, $destinationPath, $source, $destination);
+    }
+
+    private function copyInSameFilesystem(filesystemOperatorInterface $sourceFilesystem, string $sourcePath, string $destinationPath, string $source, string $destination): void
+    {
+        try {
+            $sourceFilesystem->copy($sourcePath, $destinationPath);
+        } catch (unableToCopyFile $exception) {
+            throw unableToCopyFile::fromLocationTo($source, $destination, $exception);
+        }
+    }
+
+    private function copyAcrossFilesystem(?string $visibility, filesystemOperatorInterface $sourceFilesystem, string $sourcePath, filesystemOperatorInterface $destinationFilesystem, string $destinationPath, string $source, string $destination): void
+    {
+        try {
+            $visibility = $visibility ?? $sourceFilesystem->visibility($sourcePath);
+            $stream = $sourceFilesystem->readStream($sourcePath);
+            $destinationFilesystem->writeStream($destinationPath, $stream, compact('visibility'));
+        } catch (unableToRetrieveMetadata|unableToReadFile|unableToWriteFile $exception) {
+            throw unableToCopyFile::fromLocationTo($source, $destination, $exception);
+        }
     }
 
     public function visibility(string $location): string
@@ -175,80 +249,6 @@ class mountManager implements filesystemOperatorInterface
             $filesystem->delete($path);
         } catch (unableToDeleteFile $exception) {
             throw unableToDeleteFile::atLocation($location, '', $exception);
-        }
-    }
-
-    private function mountFilesystems(array $filesystems): void
-    {
-        foreach ($filesystems as $key => $filesystem) {
-            $this->guardAgainstInvalidMount($key, $filesystem);
-            $this->mountFilesystem($key, $filesystem);
-        }
-    }
-
-    private function guardAgainstInvalidMount($key, $filesystem): void
-    {
-        if (!is_string($key)) {
-            throw unableToMountFilesystem::becauseTheKeyIsNotValid($key);
-        }
-        if (!$filesystem instanceof filesystemOperatorInterface) {
-            throw unableToMountFilesystem::becauseTheFilesystemWasNotValid($filesystem);
-        }
-    }
-
-    private function mountFilesystem(string $key, filesystemOperatorInterface $filesystem): void
-    {
-        $this->filesystems[$key] = $filesystem;
-    }
-
-    private function determineFilesystemAndPath(string $path): array
-    {
-        if (strpos($path, '://') < 1) {
-            throw unableToResolveFilesystemMount::becauseTheSeparatorIsMissing($path);
-        }
-        [$mountIdentifier, $mountPath] = explode('://', $path, 2);
-        if (!array_key_exists($mountIdentifier, $this->filesystems)) {
-            throw unableToResolveFilesystemMount::becauseTheMountWasNotRegistered($mountIdentifier);
-        }
-        return [$this->filesystems[$mountIdentifier], $mountPath, $mountIdentifier];
-    }
-
-    private function moveInTheSameFilesystem(filesystemOperatorInterface $sourceFilesystem, string $sourcePath, string $destinationPath, string $source, string $destination): void
-    {
-        try {
-            $sourceFilesystem->move($sourcePath, $destinationPath);
-        } catch (unableToMoveFile $exception) {
-            throw unableToMoveFile::fromLocationTo($source, $destination, $exception);
-        }
-    }
-
-    private function moveAcrossFilesystems(string $source, string $destination): void
-    {
-        try {
-            $this->copy($source, $destination);
-            $this->delete($source);
-        } catch (unableToCopyFile|unableToDeleteFile $exception) {
-            throw unableToMoveFile::fromLocationTo($source, $destination, $exception);
-        }
-    }
-
-    private function copyInSameFilesystem(filesystemOperatorInterface $sourceFilesystem, string $sourcePath, string $destinationPath, string $source, string $destination): void
-    {
-        try {
-            $sourceFilesystem->copy($sourcePath, $destinationPath);
-        } catch (unableToCopyFile $exception) {
-            throw unableToCopyFile::fromLocationTo($source, $destination, $exception);
-        }
-    }
-
-    private function copyAcrossFilesystem(?string $visibility, filesystemOperatorInterface $sourceFilesystem, string $sourcePath, filesystemOperatorInterface $destinationFilesystem, string $destinationPath, string $source, string $destination): void
-    {
-        try {
-            $visibility = $visibility ?? $sourceFilesystem->visibility($sourcePath);
-            $stream = $sourceFilesystem->readStream($sourcePath);
-            $destinationFilesystem->writeStream($destinationPath, $stream, compact('visibility'));
-        } catch (unableToRetrieveMetadata|unableToReadFile|unableToWriteFile $exception) {
-            throw unableToCopyFile::fromLocationTo($source, $destination, $exception);
         }
     }
 }

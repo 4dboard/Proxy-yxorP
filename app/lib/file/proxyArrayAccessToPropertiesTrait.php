@@ -13,6 +13,11 @@ trait proxyArrayAccessToPropertiesTrait
         return isset($this->{$property});
     }
 
+    private function formatPropertyName(string $offset): string
+    {
+        return str_replace('_', '', lcfirst(ucwords($offset, '_')));
+    }
+
     #[ReturnTypeWillChange] public function offsetGet($offset)
     {
         $property = $this->formatPropertyName((string)$offset);
@@ -27,10 +32,5 @@ trait proxyArrayAccessToPropertiesTrait
     #[ReturnTypeWillChange] public function offsetUnset($offset): void
     {
         throw new RuntimeException('Properties can not be manipulated');
-    }
-
-    private function formatPropertyName(string $offset): string
-    {
-        return str_replace('_', '', lcfirst(ucwords($offset, '_')));
     }
 }

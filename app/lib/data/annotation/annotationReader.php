@@ -69,71 +69,6 @@ class annotationReader
         return $this->parser->parse($class->getDocComment(), 'class ' . $class->getName());
     }
 
-    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
-    {
-        $annotations = $this->getPropertyAnnotations($property);
-        foreach ($annotations as $annotation) {
-            if ($annotation instanceof $annotationName) {
-                return $annotation;
-            }
-        }
-        return null;
-    }
-
-    public function getPropertyAnnotations(ReflectionProperty $property)
-    {
-        $class = $property->getDeclaringClass();
-        $context = 'property ' . $class->getName() . '::$' . $property->getName();
-        $this->parser->setTarget(target::TARGET_PROPERTY);
-        $this->parser->setImports($this->getPropertyImports($property));
-        $this->parser->setIgnoredAnnotationNames($this->getIgnoredAnnotationNames($class));
-        $this->parser->setIgnoredAnnotationNamespaces(self::$globalIgnoredNamespaces);
-        return $this->parser->parse($property->getDocComment(), $context);
-    }
-
-    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
-    {
-        $annotations = $this->getMethodAnnotations($method);
-        foreach ($annotations as $annotation) {
-            if ($annotation instanceof $annotationName) {
-                return $annotation;
-            }
-        }
-        return null;
-    }
-
-    public function getMethodAnnotations(ReflectionMethod $method)
-    {
-        $class = $method->getDeclaringClass();
-        $context = 'method ' . $class->getName() . '::' . $method->getName() . '()';
-        $this->parser->setTarget(target::TARGET_METHOD);
-        $this->parser->setImports($this->getMethodImports($method));
-        $this->parser->setIgnoredAnnotationNames($this->getIgnoredAnnotationNames($class));
-        $this->parser->setIgnoredAnnotationNamespaces(self::$globalIgnoredNamespaces);
-        return $this->parser->parse($method->getDocComment(), $context);
-    }
-
-    public function getFunctionAnnotation(ReflectionFunction $function, string $annotationName)
-    {
-        $annotations = $this->getFunctionAnnotations($function);
-        foreach ($annotations as $annotation) {
-            if ($annotation instanceof $annotationName) {
-                return $annotation;
-            }
-        }
-        return null;
-    }
-
-    public function getFunctionAnnotations(ReflectionFunction $function): array
-    {
-        $context = 'function ' . $function->getName();
-        $this->parser->setTarget(target::TARGET_FUNCTION);
-        $this->parser->setImports($this->getImports($function));
-        $this->parser->setIgnoredAnnotationNames($this->getIgnoredAnnotationNames($function));
-        $this->parser->setIgnoredAnnotationNamespaces(self::$globalIgnoredNamespaces);
-        return $this->parser->parse($function->getDocComment(), $context);
-    }
-
     private function getImports($reflection): array
     {
         $type = $reflection instanceof ReflectionClass ? 'class' : 'function';
@@ -174,6 +109,28 @@ class annotationReader
         return $this->ignoredAnnotationNames[$type][$name];
     }
 
+    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
+    {
+        $annotations = $this->getPropertyAnnotations($property);
+        foreach ($annotations as $annotation) {
+            if ($annotation instanceof $annotationName) {
+                return $annotation;
+            }
+        }
+        return null;
+    }
+
+    public function getPropertyAnnotations(ReflectionProperty $property)
+    {
+        $class = $property->getDeclaringClass();
+        $context = 'property ' . $class->getName() . '::$' . $property->getName();
+        $this->parser->setTarget(target::TARGET_PROPERTY);
+        $this->parser->setImports($this->getPropertyImports($property));
+        $this->parser->setIgnoredAnnotationNames($this->getIgnoredAnnotationNames($class));
+        $this->parser->setIgnoredAnnotationNamespaces(self::$globalIgnoredNamespaces);
+        return $this->parser->parse($property->getDocComment(), $context);
+    }
+
     private function getPropertyImports(ReflectionProperty $property)
     {
         $class = $property->getDeclaringClass();
@@ -188,6 +145,28 @@ class annotationReader
         return array_merge($classImports, $traitImports);
     }
 
+    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
+    {
+        $annotations = $this->getMethodAnnotations($method);
+        foreach ($annotations as $annotation) {
+            if ($annotation instanceof $annotationName) {
+                return $annotation;
+            }
+        }
+        return null;
+    }
+
+    public function getMethodAnnotations(ReflectionMethod $method)
+    {
+        $class = $method->getDeclaringClass();
+        $context = 'method ' . $class->getName() . '::' . $method->getName() . '()';
+        $this->parser->setTarget(target::TARGET_METHOD);
+        $this->parser->setImports($this->getMethodImports($method));
+        $this->parser->setIgnoredAnnotationNames($this->getIgnoredAnnotationNames($class));
+        $this->parser->setIgnoredAnnotationNamespaces(self::$globalIgnoredNamespaces);
+        return $this->parser->parse($method->getDocComment(), $context);
+    }
+
     private function getMethodImports(ReflectionMethod $method)
     {
         $class = $method->getDeclaringClass();
@@ -200,5 +179,26 @@ class annotationReader
             $traitImports = array_merge($traitImports, $this->phpParser->parseUseStatements($trait));
         }
         return array_merge($classImports, $traitImports);
+    }
+
+    public function getFunctionAnnotation(ReflectionFunction $function, string $annotationName)
+    {
+        $annotations = $this->getFunctionAnnotations($function);
+        foreach ($annotations as $annotation) {
+            if ($annotation instanceof $annotationName) {
+                return $annotation;
+            }
+        }
+        return null;
+    }
+
+    public function getFunctionAnnotations(ReflectionFunction $function): array
+    {
+        $context = 'function ' . $function->getName();
+        $this->parser->setTarget(target::TARGET_FUNCTION);
+        $this->parser->setImports($this->getImports($function));
+        $this->parser->setIgnoredAnnotationNames($this->getIgnoredAnnotationNames($function));
+        $this->parser->setIgnoredAnnotationNamespaces(self::$globalIgnoredNamespaces);
+        return $this->parser->parse($function->getDocComment(), $context);
     }
 }
