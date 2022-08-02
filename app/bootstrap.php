@@ -20,7 +20,7 @@ spl_autoload_register(function ($class) {
 
 echo 1;
 
-yP::autoLoader(__DIR__ . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR);
+yP::autoLoader(__DIR__ . '/lib/' . DIRECTORY_SEPARATOR);
 
 echo 2;
 
