@@ -12,14 +12,12 @@ use helper;
 class eventStream extends helper
 {
 
-    public
-    function cleanup()
+    public function cleanup()
     {
         $this->app->dataStorage->remove('app/events/stream', ['_created' => ['$lt' => strtotime('-5 minutes')]]);
     }
 
-    public
-    function getEvents(int $sinceTime)
+    public function getEvents(int $sinceTime)
     {
 
         $events = $this->dataStorage->find('app/events/stream', [
@@ -30,8 +28,7 @@ class eventStream extends helper
         return $events;
     }
 
-    public
-    function add(string $event, $data, array $options)
+    public function add(string $event, $data, array $options)
     {
 
         $evt = [

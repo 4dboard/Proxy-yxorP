@@ -14,8 +14,7 @@ use function strpos;
 class Asset extends helper
 {
 
-    public
-    function image(array $options = [], bool $asPath = false)
+    public function image(array $options = [], bool $asPath = false)
     {
 
         $options = array_merge([

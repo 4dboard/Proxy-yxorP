@@ -12,8 +12,7 @@ class menus extends helper
     protected
     array $menus = [];
 
-    public
-    function addLink(string $menu, array $link): void
+    public function addLink(string $menu, array $link): void
     {
 
         if (!isset($this->menus[$menu])) {
@@ -36,8 +35,7 @@ class menus extends helper
         $this->menus[$menu][] = $link;
     }
 
-    public
-    function menu(string $name, bool $grouped = false): array
+    public function menu(string $name, bool $grouped = false): array
     {
 
         if (!isset($this->menus[$name]) || !count($this->menus[$name])) {

@@ -12,8 +12,7 @@ class acl extends helper
     protected
     array $roles = [];
 
-    public
-    function roles(): array
+    public function roles(): array
     {
 
         $roles = [
@@ -31,8 +30,7 @@ class acl extends helper
         return $roles;
     }
 
-    public
-    function isAllowed(string $permission, ?string $role = null): bool
+    public function isAllowed(string $permission, ?string $role = null): bool
     {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
@@ -44,8 +42,7 @@ class acl extends helper
         return isset($this->roles[$role]['permissions'][$permission]) && $this->roles[$role]['permissions'][$permission];
     }
 
-    public
-    function isSuperAdmin($role = null)
+    public function isSuperAdmin($role = null)
     {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
@@ -66,8 +63,7 @@ class acl extends helper
         });
     }
 
-    public
-    function cache(): array
+    public function cache(): array
     {
 
         $cache = [];
