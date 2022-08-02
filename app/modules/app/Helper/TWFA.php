@@ -6,7 +6,7 @@ use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
-use RobThree\Auth\Providers\Qr\IQRCodeProvider;
+use RobThree\Auth\Providers\Qr\IQRCodeProviderInterface;
 use RobThree\Auth\TwoFactorAuth;
 use const yxorP\app\lib\lime\helper;
 
@@ -46,7 +46,7 @@ helper
     }
 }
 
-class TWFAQRCodeRenderer implements IQRCodeProvider
+class TWFAQRCodeRenderer implements IQRCodeProviderInterface
 {
 
     public function getMimeType(): string
