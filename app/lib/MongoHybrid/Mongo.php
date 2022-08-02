@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\psr\http\mongoHybrid;
+<?php namespace yxorP\app\lib\http\mongoHybrid;
 
 use MongoDB\BSON\ObjectID;
 use MongoDB\client as MongoDBClient;
