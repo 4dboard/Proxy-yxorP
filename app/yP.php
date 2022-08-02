@@ -14,6 +14,8 @@ error_reporting(1);
  */
 include 'constants.php';
 
+echo 1;
+
 /**
  * It's importing the `Client` class from the `Bugsnag` namespace, the `RuntimeException` class from the `RuntimeException` namespace, the `cache` class from the `http` namespace, the `helpers` class from the `http` namespace, the `RulesParser` class from the `parser` namespace.
  */
