@@ -14,7 +14,6 @@ use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
 use function Amp\Promise\all;
 use function array_replace;
-use function yxorP\app\lib\proxy\promise\all;
 
 class AmpPromiseAdapterInterface implements PromiseAdapterInterface
 {

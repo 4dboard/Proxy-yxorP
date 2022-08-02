@@ -24,7 +24,6 @@ use yxorP\app\lib\data\graphQL\Language\Parser;
 use yxorP\app\lib\data\graphQL\Utils\AST;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
 use yxorP\app\lib\psr\http\message\requestInterface;
-use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\serverRequestInterface;
 use yxorP\app\lib\psr\http\message\streamInterface;
 use function count;
