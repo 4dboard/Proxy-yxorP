@@ -38,6 +38,43 @@ class yP
     private array $listeners = [];
 
 
+    public static function envLoad(string $dir = '.'): bool
+    {
+        $config = is_file($dir) ? $dir : "{$dir}/.env";
+        if (file_exists($config)) {
+            $vars = self::envParse(file_get_contents($config));
+            foreach ($vars as $key => $value) {
+                $_ENV[$key] = $value;
+                putenv("{$key}={$value}");
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static function envParse(string $str, bool $expand = true): array
+    {
+        $lines = explode("\n", $str);
+        $vars = [];
+        foreach ($lines as &$line) {
+            $line = trim($line);
+            if (!$line) continue;
+            if ($line[0] === '#') continue;
+            if (!strpos($line, '=')) continue;
+            list($name, $value) = explode('=', $line, 2);
+            $value = trim($value, '"\' ');
+            $name = trim($name);
+            $vars[$name] = $value;
+        }
+        if ($expand) {
+            $envs = array_merge(getenv(), $vars);
+            foreach ($envs as $key => $value) {
+                $str = str_replace('${' . $key . '}', $value, $str);
+            }
+            $vars = self::envParse($str, false);
+        }
+        return $vars;
+    }
     /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
      * @param string $root

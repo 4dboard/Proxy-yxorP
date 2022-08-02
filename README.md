@@ -64,20 +64,26 @@ function as a proxy and is capable of altering the contents of several websites.
 creation. The Admin, the system's principal backend, controls this component (GUI). It is common knowledge that yxorP is
 one of the web proxy systems that, compared to other web proxy systems now available on the market, enables users to
 tailor their surfing experience in the most ways. yxorP is among the most flexible web proxy solutions in terms of
-browsing capabilities. Moreover, yxorP is one of the first web proxy systems ever created. This is due to its
+browsing capabilities. 
+
+Moreover, yxorP is one of the first web proxy systems ever created. This is due to its
 event-driven architecture and emphasis on its plugin-based design, rather than its built-in features, which are the most
 essential and defining components that enable customization and extension of its capabilities. Due to its versatility
 and scalability, this is the case. Because they provide customization and expansion of a product's capabilities, the
 built-in features are the most distinguishing and significant aspects. This is due to its adaptable and expandable
 qualities, which has led to the current circumstance. This is due to the fact that the inherent characteristics are the
 most fundamental and distinctive characteristics, allowing for the change and expansion of its capabilities. This is the
-reason behind the present situation. In addition to a graphical user interface (GUI) and a back-end content management
+reason behind the present situation. 
+
+In addition to a graphical user interface (GUI) and a back-end content management
 system (CMS), yxorP has a number of additional distinguishing features. These qualities include a number of additional
 characteristics that separate it in a variety of ways from its competitors. These distinctive characteristics, such as
 the product's quality, set it apart from its rivals. Currently, the hostname of the request being processed is utilized
 to search the backend for website-specific requirements. Then, using these criteria, the best website is selected and
 any required revisions are made. The user may spin the website's content using the pre-integrated article-spinning
-engine of the application. The user has access to this option. This activity is undertaken in accordance with the user's
+engine of the application. 
+
+The user has access to this option. This activity is undertaken in accordance with the user's
 preferences. Flat-file caching solutions are about 500 times faster than memory-based caching systems such as Memcache
 or Redis. This is accomplished by reducing the overall number of serialization and deserialization operations, which
 results in a cache that operates much faster. Due to a recent update, the most thorough version of yxorP may now be
