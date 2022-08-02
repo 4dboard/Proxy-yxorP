@@ -1,7 +1,7 @@
-<?php namespace yxorP\app\lib\http\mongodb\mongoHybrid;
+<?php namespace yxorP\app\lib\data\mongodb\Hybrid;
 
-use yxorP\app\lib\http\mongodb\mongoLite\client as MongoLiteClient;
-use yxorP\app\lib\http\mongodb\mongoLite\collection;
+use yxorP\app\lib\data\mongodb\Lite\client as MongoLiteClient;
+use yxorP\app\lib\data\mongodb\Lite\collection;
 
 class mongoLite
 {

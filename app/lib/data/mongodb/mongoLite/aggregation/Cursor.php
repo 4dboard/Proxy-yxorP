@@ -1,11 +1,11 @@
 <?php
 
-namespace yxorP\app\lib\http\mongodb\mongoLite\Aggregation;
+namespace yxorP\app\lib\data\mongodb\Lite\Aggregation;
 
 use Closure;
 use Iterator;
-use yxorP\app\lib\http\mongodb\mongoLite\collection;
-use yxorP\app\lib\http\mongodb\mongoLite\UtilArrayQuery;
+use yxorP\app\lib\data\mongodb\Lite\collection;
+use yxorP\app\lib\data\mongodb\Lite\UtilArrayQuery;
 
 class Cursor implements Iterator
 {

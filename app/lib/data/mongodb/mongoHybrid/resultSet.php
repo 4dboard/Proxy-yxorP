@@ -1,4 +1,4 @@
-<?php namespace yxorP\app\lib\http\mongodb\mongoHybrid;
+<?php namespace yxorP\app\lib\data\mongodb\Hybrid;
 
 use ArrayObject;
 
