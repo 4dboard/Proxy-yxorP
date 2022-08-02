@@ -7,6 +7,8 @@ class store
     final public static function handler(string $name, mixed $value = null, ?string $func = null, array $varibles = []): mixed
     {
         if (!$GLOBALS[CACHE_KEY]) $GLOBALS[CACHE_KEY] = ['init'];
+
+        echo $name;
         return self::check($name, $value, $func, $varibles);
     }
 
