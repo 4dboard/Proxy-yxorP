@@ -1,194 +1,202 @@
-<?php namespace yxorP\app\lib\http;
+<?php namespace yxorP\app\lib\lime;
 
-use JetBrains\PhpStorm\Pure;
-use yxorP;
+use function array_combine;
+use function array_keys;
+use function array_map;
+use function array_merge;
+use function array_values;
+use function explode;
+use function file_get_contents;
+use function implode;
+use function in_array;
+use function is_string;
+use function preg_match;
+use function rtrim;
+use function settype;
+use function stripos;
+use function strlen;
+use function strpos;
+use function strtolower;
+use function substr;
+use function trim;
 
 class request
 {
-    public ParamStore $params;
-    public ParamStore $headers;
-    public ParamStore $post;
-    public ParamStore $get;
-    public ParamStore $files;
-    private string $method;
-    private string $protocol_version = '1.1';
-    private $body;
-    private $prepared_body;
+    public array $request = [];
+    public array $post = [];
+    public array $query = [];
+    public array $files = [];
+    public array $cookies = [];
+    public array $headers = [];
+    public array $server = [];
+    public array $body = [];
+    public string $site_url = '';
+    public string $base_url = '';
+    public string $base_route = '';
+    public string $route = '/';
+    public string $method = 'GET';
+    public bool $stopped = false;
 
-    public function __construct($method, $url, $body = null)
+    public function __construct(array $config = [])
     {
-        $this->params = new ParamStore();
-        $this->headers = new ParamStore();
-        $this->post = new ParamStore(null, true);
-        $this->get = new ParamStore(null, true);
-        $this->files = new ParamStore(null, true);
-        $this->setMethod($method);
-        $this->setUrl($url);
-        $this->setBody($body);
-        $this->prepare();
+        $this->request = $config['request'] ?? [];
+        $this->method = $config['method'] ?? 'GET';
+        $this->post = $config['post'] ?? [];
+        $this->query = $config['query'] ?? [];
+        $this->server = $config['server'] ?? [];
+        $this->body = $config['body'] ?? [];
+        $this->headers = $config['headers'] ?? [];
+        $this->cookies = $config['cookies'] ?? [];
+        $this->site_url = $config['site_url'] ?? '';
+        $this->base_url = $config['base_url'] ?? '';
+        $this->base_route = $config['base_route'] ?? '';
+        $this->route = $config['route'] ?? '/';
     }
 
-    public function setUrl($url): void
+    public static function fromGlobalRequest(array $config = []): self
     {
-        $query = parse_url($url, PHP_URL_QUERY);
-        if ($query) {
-            $url = str_replace('?' . $query, CHAR_EMPTY_STRING, $url);
-            $url = preg_replace(REG_ONE, CHAR_EMPTY_STRING, $url);
-            $result = self::parseQuery($query);
-            $this->get->replace($result);
-        }
-        $this->url = $url;
-        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
-    }
-
-    public static function parseQuery($query): array
-    {
-        $result = array();
-        parse_str($query, $result);
-        return $result;
-    }
-
-    public function setBody($body, $content_type = 0): void
-    {
-        $this->post->clear();
-        $this->files->clear();
-        if (is_array($body)) $body = http_build_query($body);
-        $this->body = (string)$body;
-        if ($content_type) $this->headers->set(VAR_CONTENT_TYPE, $content_type);
-        $this->prepare();
-    }
-
-    public function prepare(): void
-    {
-        if ($this->files->all()) {
-            $boundary = self::generateBoundary();
-            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
-            $this->headers->set(VAR_CONTENT_TYPE, 'multipart/form-data; boundary=' . $boundary);
-        } else if ($this->post->all()) {
-            $this->prepared_body = http_build_query($this->post->all());
-            $this->headers->set(VAR_CONTENT_TYPE, VAR_APPLICATION_URLENCODED);
-        } else {
-            $this->headers->set(VAR_CONTENT_TYPE, $this->detectContentType($this->body));
-            $this->prepared_body = $this->body;
-        }
-        $len = strlen($this->prepared_body);
-        if ($len > 0) $this->headers->set(VAR_CONTENT_LENGTH, $len); else {
-            $this->headers->remove(VAR_CONTENT_LENGTH);
-            $this->headers->remove(VAR_CONTENT_TYPE);
-        }
-    }
-
-    private static function generateBoundary(): string
-    {
-        return '-----' . md5(microtime() . mt_rand());
-    }
-
-    public static function buildPostBody($fields, $files, $boundary = null): string
-    {
-        $part_field = "--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n";
-        $part_file = "--%s\r\nContent-Disposition: form-data; name=\"%s\"; filename=\"%s\"\r\nContent-Type: %s\r\n\r\n";
-        if (!$boundary) $boundary = self::generateBoundary();
-        $body = CHAR_EMPTY_STRING;
-        foreach ($fields as $name => $value) if (is_array($value)) {
-            foreach ($value as $v) {
-                $body .= sprintf($part_field, $boundary, (string)$name, $v);
-                $body .= "$v\r\n";
-            }
-        } else {
-            $body .= sprintf($part_field, $boundary, $name, $value);
-            $body .= "$value\r\n";
-        }
-        foreach ($files as $name => $values) {
-            if (!is_array($values[VAR_CACHE_NAME])) {
-                $multiValues = array_map(static function ($a) {
-                    return (array)$a;
-                }, $values);
-                $fieldName = $name;
-            } else {
-                $multiValues = $values;
-                $fieldName = (string)$name;
-            }
-            foreach (array_keys($multiValues[VAR_CACHE_NAME]) as $key) {
-                if (!$multiValues[VAR_CACHE_NAME][$key] || $multiValues[VAR_ERROR][$key] !== 0 || !is_readable($multiValues[VAR_CACHE_NAME][$key])) {
-                    continue;
-                }
-                $body .= sprintf($part_file, $boundary, $fieldName, $multiValues['name'][$key], $multiValues[VAR_TYPE][$key]);
-                $body .= file_get_contents($multiValues[VAR_CACHE_NAME][$key]);
-                $body .= "\r\n";
+        $config = array_merge(['site_url' => '', 'base_url' => '/', 'base_route' => '', 'route' => $_SERVER['PATH_INFO'] ?? '/', 'request' => $_REQUEST, 'method' => $_SERVER['REQUEST_METHOD'] ?? 'GET', 'post' => $_POST, 'cookies' => $_COOKIE, 'query' => $_GET, 'files' => $_FILES, 'server' => $_SERVER, 'headers' => function_exists('helpers::getallheaders') ? helpers::getallheaders() : self::getAllHeaders($_SERVER)], $config);
+        if ((isset($_SERVER['CONTENT_TYPE']) && stripos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) || (isset($_SERVER['HTTP_CONTENT_TYPE']) && stripos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') !== false)) {
+            if ($json = json_decode(@file_get_contents('php://input'), true)) {
+                $config['body'] = $json;
+                $config['request'] = array_merge($config['request'], $json);
             }
         }
-        $body .= "--$boundary--\r\n\r\n";
-        return $body;
-    }
-
-    private function detectContentType($data): string
-    {
-        $content_type = 'application/octet-stream';
-        if (preg_match('/^{\s*"[^"]+"\s*:/', $data)) $content_type = 'application/json'; else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data)) $content_type = 'application/xml'; else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data)) $content_type = VAR_APPLICATION_URLENCODED;
-        return $content_type;
-    }
-
-    public static function createFromGlobals(): request
-    {
-        $method = (store::handler(VAR_SERVER))[YXORP_REQUEST_METHOD];
-        $scheme = (isset(store::handler(VAR_SERVER)[VAR_HTTPS]) && (store::handler(VAR_SERVER))[VAR_HTTPS]) ? VAR_HTTPS : VAR_HTTP;
-        $url = $scheme . ':' . YXORP_PROXY_URL;
-        $request = new request($method, $url);
-        foreach (store::handler(VAR_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
-            $name = substr($name, 5);
-            $name = str_replace(CHAR_UNDER, ' ', $name);
-            $name = ucwords(strtolower($name));
-            $name = str_replace(' ', ' - ', $name);
-            $request->headers->set($name, $value);
-        }
-        $request->params->set(VAR_USER_IP, (store::handler(VAR_SERVER))[YXORP_REMOTE_ADDR]);
-        if (count($_FILES) > 0) {
-            $request->post->replace($_POST);
-            $request->files->replace($_FILES);
-        } else if (count($_POST) > 0) $request->post->replace($_POST);
-        $request->prepare();
+        $request = new self($config);
         return $request;
     }
 
-    public function getMethod(): string
+    public static function getAllHeaders(array $server): array
     {
-        return $this->method;
-    }
-
-    public function setMethod($method): void
-    {
-        $this->method = strtoupper($method);
-    }
-
-    #[Pure] public function getUrl(): string
-    {
-        return YXORP_PROXY_URL;
-    }
-
-    public function getProtocolVersion(): string
-    {
-        return $this->protocol_version;
-    }
-
-    public function getRawHeaders(): string
-    {
-        $result = array();
-        $headers = $this->headers->all();
-        ksort($headers);
-        foreach ($headers as $name => $values) foreach ((array)$values as $value) {
-            $name = implode(CHAR_DASH, array_map(VAR_UCFIRST, explode(CHAR_DASH, $name)));
-            $result[] = sprintf("%s: %s", $name, $value);
+        if (!$server) {
+            $server = $_SERVER;
         }
-        return implode("\r\n", $result);
+        $headers = [];
+        $copy_server = ['CONTENT_TYPE' => 'Content-Type', 'CONTENT_LENGTH' => 'Content-Length', 'CONTENT_MD5' => 'Content-Md5',];
+        foreach ($server as $key => $value) {
+            if (substr($key, 0, 5) === 'HTTP_') {
+                $key = substr($key, 5);
+                if (!isset($copy_server[$key]) || !isset($server[$key])) {
+                    $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', $key))));
+                    $headers[$key] = $value;
+                }
+            } elseif (isset($copy_server[$key])) {
+                $headers[$copy_server[$key]] = $value;
+            }
+        }
+        if (!isset($headers['Authorization'])) {
+            if (isset($server['REDIRECT_HTTP_AUTHORIZATION'])) {
+                $headers['Authorization'] = $server['REDIRECT_HTTP_AUTHORIZATION'];
+            } elseif (isset($server['PHP_AUTH_USER'])) {
+                $basic_pass = isset($server['PHP_AUTH_PW']) ? $server['PHP_AUTH_PW'] : '';
+                $headers['Authorization'] = 'Basic ' . base64_encode($server['PHP_AUTH_USER'] . ':' . $basic_pass);
+            } elseif (isset($server['PHP_AUTH_DIGEST'])) {
+                $headers['Authorization'] = $server['PHP_AUTH_DIGEST'];
+            }
+        }
+        return $headers;
     }
 
-    public function getRawBody(): string
+    public function param(?string $index = null, mixed $default = null, mixed $source = null): mixed
     {
-        return $this->prepared_body;
+        $src = $source ? $source : $this->request;
+        $cast = null;
+        if (strpos($index, ':') !== false) {
+            list($index, $cast) = explode(':', $index, 2);
+        }
+        $value = fetch_from_array($src, $index, $default);
+        if ($cast && $value !== null) {
+            if (in_array($cast, ['bool', 'boolean']) && is_string($value) && in_array($cast, ['true', 'false'])) {
+                $value = $value === 'true' ? true : false;
+            }
+            settype($value, $cast);
+        }
+        return $value;
     }
 
-    public function getUri()
+    public function getClientIp(): ?string
     {
-        return call_user_func_array(array($this, "getUrl"), func_get_args());
+        if (isset($this->server['HTTP_X_FORWARDED_FOR'])) {
+            return $this->server['HTTP_X_FORWARDED_FOR'];
+        } elseif (isset($this->server['HTTP_CLIENT_IP'])) {
+            return $this->server['HTTP_CLIENT_IP'];
+        } elseif (isset($this->server['REMOTE_ADDR'])) {
+            return $this->server['REMOTE_ADDR'];
+        }
+        return null;
+    }
+
+    public function getClientLang(string $default = 'en'): string
+    {
+        if (!isset($this->server['HTTP_ACCEPT_LANGUAGE'])) {
+            return $default;
+        }
+        return strtolower(substr($this->server['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+    }
+
+    public function is(string $type): bool
+    {
+        switch (strtolower($type)) {
+            case 'ajax':
+                return ((isset($this->server['HTTP_X_REQUESTED_WITH']) && ($this->server['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest')) || (isset($this->server['CONTENT_TYPE']) && stripos($this->server['CONTENT_TYPE'], 'application/json') !== false) || (isset($this->server['HTTP_CONTENT_TYPE']) && stripos($this->server['HTTP_CONTENT_TYPE'], 'application/json') !== false));
+            case 'mobile':
+                $mobileDevices = ['midp', '240x320', 'blackberry', 'netfront', 'nokia', 'panasonic', 'portalmmm', 'sharp', 'sie-', 'sonyericsson', 'symbian', 'windows ce', 'benq', 'mda', 'mot-', 'opera mini', 'philips', 'pocket pc', 'sagem', 'samsung', 'sda', 'sgh-', 'vodafone', 'xda', 'iphone', 'ipod', 'android'];
+                return preg_match('/(' . implode('|', $mobileDevices) . ')/i', strtolower($this->server['HTTP_USER_AGENT']));
+            case 'post':
+                return (isset($this->server['REQUEST_METHOD']) && strtolower($this->server['REQUEST_METHOD']) === 'post');
+            case 'get':
+                return (isset($this->server['REQUEST_METHOD']) && strtolower($this->server['REQUEST_METHOD']) === 'get');
+            case 'put':
+                return (isset($this->server['REQUEST_METHOD']) && strtolower($this->server['REQUEST_METHOD']) === 'put');
+            case 'delete':
+                return (isset($this->server['REQUEST_METHOD']) && strtolower($this->server['REQUEST_METHOD']) === 'delete');
+            case 'ssl':
+                return (!empty($this->server['HTTPS']) && $this->server['HTTPS'] !== 'off');
+            case 'preflight':
+                return (isset($this->server['REQUEST_METHOD']) && strtolower($this->server['REQUEST_METHOD']) === 'options');
+            case 'cors':
+                if (!isset($this->headers['Origin'])) {
+                    return false;
+                }
+                return $this->headers['Origin'] === $this->getSiteUrl();
+        }
+        return false;
+    }
+
+    public function getSiteUrl(bool $withpath = false): string
+    {
+        $url = $this->site_url;
+        if ($withpath) {
+            $path = dirname($this->server['SCRIPT_NAME']);
+            if ($path === '/' || substr($url, -1 * strlen($path)) === $path) {
+                $path = '';
+            }
+            $url .= $path;
+        }
+        return rtrim($url, '/');
+    }
+
+    public function getBearerToken(): ?string
+    {
+        $headers = null;
+        $token = null;
+        $server = $this->server;
+        if (isset($server['Authorization'])) {
+            $headers = trim($server['Authorization']);
+        } elseif (isset($server['HTTP_AUTHORIZATION'])) {
+            $headers = trim($server['HTTP_AUTHORIZATION']);
+        } else {
+            $requestHeaders = $this->headers;
+            $requestHeaders = array_combine(array_map('ucwords', array_keys($requestHeaders)), array_values($requestHeaders));
+            if (isset($requestHeaders['Authorization'])) {
+                $headers = trim($requestHeaders['Authorization']);
+            }
+        }
+        if ($headers) {
+            if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
+                $token = $matches[1];
+            }
+        }
+        return $token;
     }
 }
