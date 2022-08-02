@@ -6,7 +6,7 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 use function array_merge;
 use function vsprintf;
-use const yxorP\app\lib\http\helper;
+
 
 /**
  * I18n class. Manage translations
