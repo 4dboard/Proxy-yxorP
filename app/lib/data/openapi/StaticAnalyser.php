@@ -19,12 +19,6 @@ class StaticAnalyser
         return $this->fromTokens($tokens, new Context(['filename' => $filename], $context));
     }
 
-    public function fromCode(string $code, Context $context): Analysis
-    {
-        $tokens = token_get_all($code);
-        return $this->fromTokens($tokens, $context);
-    }
-
     protected function fromTokens(array $tokens, Context $parseContext): Analysis
     {
         $analyser = new Analyser();
@@ -391,5 +385,11 @@ class StaticAnalyser
             }
         }
         return $statements;
+    }
+
+    public function fromCode(string $code, Context $context): Analysis
+    {
+        $tokens = token_get_all($code);
+        return $this->fromTokens($tokens, $context);
     }
 }

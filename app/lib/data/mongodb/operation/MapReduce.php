@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
+use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\JavascriptInterface;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -30,7 +31,6 @@ use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
 use yxorP\app\lib\http\mongoDB\Exception\UnexpectedValueException;
 use yxorP\app\lib\http\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\mapReduceResult;
-use stdClass;
 use function current;
 use function is_array;
 use function is_bool;
@@ -254,6 +254,27 @@ class MapReduce implements ExecutableInterface
     }
 
     /**
+     * @param string|array|object $out
+     * @return void
+     */
+    private function checkOutDeprecations($out)
+    {
+        if (is_string($out)) {
+            return;
+        }
+
+        $out = (array)$out;
+
+        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
+            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
+        }
+
+        if (isset($out['sharded']) && !$out['sharded']) {
+            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
+        }
+    }
+
+    /**
      * Execute the operation.
      *
      * @param Server $server
@@ -300,27 +321,6 @@ class MapReduce implements ExecutableInterface
         $getIterator = $this->createGetIteratorCallable($result, $server);
 
         return new mapReduceResult($getIterator, $result);
-    }
-
-    /**
-     * @param string|array|object $out
-     * @return void
-     */
-    private function checkOutDeprecations($out)
-    {
-        if (is_string($out)) {
-            return;
-        }
-
-        $out = (array)$out;
-
-        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
-            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
-        }
-
-        if (isset($out['sharded']) && !$out['sharded']) {
-            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
-        }
     }
 
     /**

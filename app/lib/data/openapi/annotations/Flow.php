@@ -6,9 +6,9 @@
 
 namespace yxorP\app\lib\openapi\annotations;
 
-use yxorP\app\lib\openapi\Generator;
 use ReturnTypeWillChange;
 use stdClass;
+use yxorP\app\lib\openapi\Generator;
 
 /**
  * Configuration details for a supported OAuth Flow

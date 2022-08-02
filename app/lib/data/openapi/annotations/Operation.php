@@ -6,8 +6,8 @@
 
 namespace yxorP\app\lib\openapi\annotations;
 
-use yxorP\app\lib\openapi\Generator;
 use ReturnTypeWillChange;
+use yxorP\app\lib\openapi\Generator;
 
 /**
  * @Annotation

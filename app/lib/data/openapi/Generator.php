@@ -41,12 +41,6 @@ class Generator
         };
     }
 
-    public static function scan(iterable $sources, array $options = []): OpenApi
-    {
-        $config = $options + ['aliases' => null, 'namespaces' => null, 'analyser' => null, 'analysis' => null, 'processors' => null, 'logger' => null, 'validate' => true,];
-        return (new Generator($config['logger']))->setAliases($config['aliases'])->setNamespaces($config['namespaces'])->setAnalyser($config['analyser'])->setProcessors($config['processors'])->generate($sources, $config['analysis'], $config['validate']);
-    }
-
     public function getAliases(): array
     {
         $aliases = null !== $this->aliases ? $this->aliases : Analyser::$defaultImports;
@@ -74,6 +68,12 @@ class Generator
         return $this;
     }
 
+    public static function scan(iterable $sources, array $options = []): OpenApi
+    {
+        $config = $options + ['aliases' => null, 'namespaces' => null, 'analyser' => null, 'analysis' => null, 'processors' => null, 'logger' => null, 'validate' => true,];
+        return (new Generator($config['logger']))->setAliases($config['aliases'])->setNamespaces($config['namespaces'])->setAnalyser($config['analyser'])->setProcessors($config['processors'])->generate($sources, $config['analysis'], $config['validate']);
+    }
+
     public function generate(iterable $sources, ?Analysis $analysis = null, bool $validate = true): OpenApi
     {
         $rootContext = new Context(['logger' => $this->getLogger()]);
@@ -94,6 +94,27 @@ class Generator
     public function getLogger(): ?loggerInterface
     {
         return $this->logger ?: new DefaultLogger();
+    }
+
+    protected function scanSources(iterable $sources, Analysis $analysis, Context $rootContext): void
+    {
+        $analyser = $this->getAnalyser();
+        foreach ($sources as $source) {
+            if (is_iterable($source)) {
+                $this->scanSources($source, $analysis, $rootContext);
+            } else {
+                $resolvedSource = $source instanceof SplFileInfo ? $source->getPathname() : realpath($source);
+                if (!$resolvedSource) {
+                    $rootContext->logger->warning(sprintf('Skipping invalid source: %s', $source));
+                    continue;
+                }
+                if (is_dir($resolvedSource)) {
+                    $this->scanSources(Util::finder($resolvedSource), $analysis, $rootContext);
+                } else {
+                    $analysis->addAnalysis($analyser->fromFile($resolvedSource, $rootContext));
+                }
+            }
+        }
     }
 
     public function getAnalyser(): StaticAnalyser
@@ -153,26 +174,5 @@ class Generator
         }, $this->getProcessors());
         $this->setProcessors($processors);
         return $this;
-    }
-
-    protected function scanSources(iterable $sources, Analysis $analysis, Context $rootContext): void
-    {
-        $analyser = $this->getAnalyser();
-        foreach ($sources as $source) {
-            if (is_iterable($source)) {
-                $this->scanSources($source, $analysis, $rootContext);
-            } else {
-                $resolvedSource = $source instanceof SplFileInfo ? $source->getPathname() : realpath($source);
-                if (!$resolvedSource) {
-                    $rootContext->logger->warning(sprintf('Skipping invalid source: %s', $source));
-                    continue;
-                }
-                if (is_dir($resolvedSource)) {
-                    $this->scanSources(Util::finder($resolvedSource), $analysis, $rootContext);
-                } else {
-                    $analysis->addAnalysis($analyser->fromFile($resolvedSource, $rootContext));
-                }
-            }
-        }
     }
 }

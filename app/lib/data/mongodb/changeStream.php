@@ -54,26 +54,6 @@ class changeStream implements Iterator
         }
     }
 
-    public function getCursorId()
-    {
-        return $this->iterator->getInnerIterator()->getId();
-    }
-
-    public function getResumeToken()
-    {
-        return $this->iterator->getResumeToken();
-    }
-
-    #[ReturnTypeWillChange] public function rewind()
-    {
-        try {
-            $this->iterator->rewind();
-            $this->onIteration(false);
-        } catch (RuntimeException $e) {
-            $this->resumeOrThrow($e);
-        }
-    }
-
     private function onIteration($incrementKey)
     {
         if ((string)$this->getCursorId() === '0') {
@@ -86,6 +66,11 @@ class changeStream implements Iterator
             $this->key++;
         }
         $this->hasAdvanced = true;
+    }
+
+    public function getCursorId()
+    {
+        return $this->iterator->getInnerIterator()->getId();
     }
 
     private function resumeOrThrow(RuntimeException $exception)
@@ -119,5 +104,20 @@ class changeStream implements Iterator
         $this->iterator = call_user_func($this->resumeCallable, $this->getResumeToken(), $this->hasAdvanced);
         $this->iterator->rewind();
         $this->onIteration($this->hasAdvanced);
+    }
+
+    public function getResumeToken()
+    {
+        return $this->iterator->getResumeToken();
+    }
+
+    #[ReturnTypeWillChange] public function rewind()
+    {
+        try {
+            $this->iterator->rewind();
+            $this->onIteration(false);
+        } catch (RuntimeException $e) {
+            $this->resumeOrThrow($e);
+        }
     }
 }

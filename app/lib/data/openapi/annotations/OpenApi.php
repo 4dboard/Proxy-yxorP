@@ -113,54 +113,6 @@ class OpenApi extends AbstractAnnotation
     public $_analysis = Generator::UNDEFINED;
 
     /**
-     * Recursive helper for ref().
-     */
-    private static function resolveRef(string $ref, string $resolved, $container, array $mapping)
-    {
-        if ($ref === $resolved) {
-            return $container;
-        }
-        $path = substr($ref, strlen($resolved));
-        $slash = strpos($path, '/');
-
-        $subpath = $slash === false ? $path : substr($path, 0, $slash);
-        $property = Util::refDecode($subpath);
-        $unresolved = $slash === false ? $resolved . $subpath : $resolved . $subpath . '/';
-
-        if (is_object($container)) {
-            if (property_exists($container, $property) === false) {
-                throw new Exception('$ref "' . $ref . '" not found');
-            }
-            if ($slash === false) {
-                return $container->$property;
-            }
-            $mapping = [];
-            if ($container instanceof AbstractAnnotation) {
-                foreach ($container::$_nested as $nestedClass => $nested) {
-                    if (is_string($nested) === false && count($nested) === 2 && $nested[0] === $property) {
-                        $mapping[$nestedClass] = $nested[1];
-                    }
-                }
-            }
-
-            return self::resolveRef($ref, $unresolved, $container->$property, $mapping);
-        } elseif (is_array($container)) {
-            if (array_key_exists($property, $container)) {
-                return self::resolveRef($ref, $unresolved, $container[$property], []);
-            }
-            foreach ($mapping as $nestedClass => $keyField) {
-                foreach ($container as $key => $item) {
-                    if (is_numeric($key) && is_object($item) && $item instanceof $nestedClass && (string)$item->$keyField === $property) {
-                        return self::resolveRef($ref, $unresolved, $item, []);
-                    }
-                }
-            }
-        }
-
-        throw new Exception('$ref "' . $unresolved . '" not found');
-    }
-
-    /**
      * @inheritdoc
      */
     public function validate(array $parents = null, array $skip = null, string $ref = ''): bool
@@ -207,5 +159,53 @@ class OpenApi extends AbstractAnnotation
         }
 
         return $this->resolveRef($ref, '#/', $this, []);
+    }
+
+    /**
+     * Recursive helper for ref().
+     */
+    private static function resolveRef(string $ref, string $resolved, $container, array $mapping)
+    {
+        if ($ref === $resolved) {
+            return $container;
+        }
+        $path = substr($ref, strlen($resolved));
+        $slash = strpos($path, '/');
+
+        $subpath = $slash === false ? $path : substr($path, 0, $slash);
+        $property = Util::refDecode($subpath);
+        $unresolved = $slash === false ? $resolved . $subpath : $resolved . $subpath . '/';
+
+        if (is_object($container)) {
+            if (property_exists($container, $property) === false) {
+                throw new Exception('$ref "' . $ref . '" not found');
+            }
+            if ($slash === false) {
+                return $container->$property;
+            }
+            $mapping = [];
+            if ($container instanceof AbstractAnnotation) {
+                foreach ($container::$_nested as $nestedClass => $nested) {
+                    if (is_string($nested) === false && count($nested) === 2 && $nested[0] === $property) {
+                        $mapping[$nestedClass] = $nested[1];
+                    }
+                }
+            }
+
+            return self::resolveRef($ref, $unresolved, $container->$property, $mapping);
+        } elseif (is_array($container)) {
+            if (array_key_exists($property, $container)) {
+                return self::resolveRef($ref, $unresolved, $container[$property], []);
+            }
+            foreach ($mapping as $nestedClass => $keyField) {
+                foreach ($container as $key => $item) {
+                    if (is_numeric($key) && is_object($item) && $item instanceof $nestedClass && (string)$item->$keyField === $property) {
+                        return self::resolveRef($ref, $unresolved, $item, []);
+                    }
+                }
+            }
+        }
+
+        throw new Exception('$ref "' . $unresolved . '" not found');
     }
 }

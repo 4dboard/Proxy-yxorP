@@ -8,13 +8,13 @@ namespace yxorP\app\lib\openapi\annotations;
 
 use Exception;
 use JsonSerializable;
+use ReturnTypeWillChange;
+use stdClass;
+use Symfony\Component\Yaml\Yaml;
 use yxorP\app\lib\openapi\analyser;
 use yxorP\app\lib\openapi\Context;
 use yxorP\app\lib\openapi\Generator;
 use yxorP\app\lib\openapi\Util;
-use ReturnTypeWillChange;
-use stdClass;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * The openapi annotation base class.

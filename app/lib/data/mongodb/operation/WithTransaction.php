@@ -3,9 +3,9 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use Exception;
+use Throwable;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Session;
-use Throwable;
 use function call_user_func;
 use function time;
 

@@ -66,6 +66,14 @@ class Util
         return !empty($relativePath) ? trim($relativePath, '/') : $fullPath;
     }
 
+    private static function removePrefix(string $str, string $prefix): ?string
+    {
+        if (substr($str, 0, strlen($prefix)) == $prefix) {
+            return substr($str, strlen($prefix));
+        }
+        return null;
+    }
+
     public static function refEncode(string $raw): string
     {
         return str_replace('/', '~1', str_replace('~', '~0', $raw));
@@ -83,13 +91,5 @@ class Util
             $short[] = '@' . str_replace('OpenApi\\Annotations\\', 'OA\\', $class);
         }
         return is_array($classes) ? $short : array_pop($short);
-    }
-
-    private static function removePrefix(string $str, string $prefix): ?string
-    {
-        if (substr($str, 0, strlen($prefix)) == $prefix) {
-            return substr($str, strlen($prefix));
-        }
-        return null;
     }
 }

@@ -3,17 +3,12 @@
 namespace yxorP\app\lib\openapi;
 
 use Exception;
-use yxorP\app\lib\openapi\annotations as OA;
 use stdClass;
+use yxorP\app\lib\openapi\annotations as OA;
 
 class Serializer
 {
     private static $VALID_ANNOTATIONS = [OA\AdditionalProperties::class, OA\Attachable::class, OA\Components::class, OA\Contact::class, OA\Delete::class, OA\Discriminator::class, OA\Examples::class, OA\ExternalDocumentation::class, OA\Flow::class, OA\Get::class, OA\Head::class, OA\Header::class, OA\Info::class, OA\Items::class, OA\JsonContent::class, OA\License::class, OA\Link::class, OA\MediaType::class, OA\OpenApi::class, OA\Operation::class, OA\Options::class, OA\Parameter::class, OA\Patch::class, OA\PathItem::class, OA\Post::class, OA\Property::class, OA\Put::class, OA\RequestBody::class, OA\Response::class, OA\Schema::class, OA\SecurityScheme::class, OA\Server::class, OA\ServerVariable::class, OA\Tag::class, OA\Trace::class, OA\Xml::class, OA\XmlContent::class,];
-
-    public static function isValidAnnotationClass($className)
-    {
-        return in_array($className, static::$VALID_ANNOTATIONS);
-    }
 
     public function serialize(OA\AbstractAnnotation $annotation)
     {
@@ -28,12 +23,9 @@ class Serializer
         return $this->doDeserialize(json_decode($jsonString), $className);
     }
 
-    public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
+    public static function isValidAnnotationClass($className)
     {
-        if (!$this->isValidAnnotationClass($className)) {
-            throw new Exception($className . ' is not defined in OpenApi PHP Annotations');
-        }
-        return $this->doDeserialize(json_decode(file_get_contents($filename)), $className);
+        return in_array($className, static::$VALID_ANNOTATIONS);
     }
 
     protected function doDeserialize(stdClass $c, string $class)
@@ -106,5 +98,13 @@ class Serializer
             return $this->doDeserialize($value, $type);
         }
         return $value;
+    }
+
+    public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
+    {
+        if (!$this->isValidAnnotationClass($className)) {
+            throw new Exception($className . ' is not defined in OpenApi PHP Annotations');
+        }
+        return $this->doDeserialize(json_decode(file_get_contents($filename)), $className);
     }
 }
