@@ -313,6 +313,18 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
     }
 
     /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server)
+    {
+        return $this->createCommandDocument();
+    }
+
+    /**
      * Create the aggregate command document.
      *
      * @return array
@@ -394,17 +406,5 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
         }
 
         return $server->executeReadWriteCommand($this->databaseName, $command, $options);
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server)
-    {
-        return $this->createCommandDocument();
     }
 }

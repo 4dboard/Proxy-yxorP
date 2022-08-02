@@ -43,23 +43,6 @@ class models extends app
         return $this->render('content:views/models/model.php', compact('model', 'isUpdate', 'groups'));
     }
 
-    protected function getGroups()
-    {
-
-        $groups = [];
-
-        foreach ($this->module('content')->models() as $name => $meta) {
-
-            if ($meta['group'] && !in_array($meta['group'], $groups)) {
-                $groups[] = $meta['group'];
-            }
-        }
-
-        sort($groups);
-
-        return $groups;
-    }
-
     public function edit($name = null)
     {
 
@@ -232,5 +215,22 @@ class models extends app
         $this->module('content')->saveModel($name, $model);
 
         return $model;
+    }
+
+    protected function getGroups()
+    {
+
+        $groups = [];
+
+        foreach ($this->module('content')->models() as $name => $meta) {
+
+            if ($meta['group'] && !in_array($meta['group'], $groups)) {
+                $groups[] = $meta['group'];
+            }
+        }
+
+        sort($groups);
+
+        return $groups;
     }
 }
