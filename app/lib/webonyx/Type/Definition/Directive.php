@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Language\AST\DirectiveDefinitionNode;
-use GraphQL\Language\DirectiveLocation;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Language\AST\DirectiveDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\DirectiveLocation;
 use function array_key_exists;
 use function is_array;
 

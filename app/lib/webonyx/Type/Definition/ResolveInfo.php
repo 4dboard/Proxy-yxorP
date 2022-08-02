@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Language\AST\FieldNode;
-use GraphQL\Language\AST\FragmentDefinitionNode;
-use GraphQL\Language\AST\FragmentSpreadNode;
-use GraphQL\Language\AST\InlineFragmentNode;
-use GraphQL\Language\AST\OperationDefinitionNode;
-use GraphQL\Language\AST\SelectionSetNode;
-use GraphQL\Type\Schema;
+use yxorP\app\lib\psr\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\FragmentDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\OperationDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\psr\graphQL\Type\Schema;
 use function array_merge_recursive;
 
 /**

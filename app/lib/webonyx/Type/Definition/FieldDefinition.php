@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Error\Error;
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Error\Warning;
-use GraphQL\Language\AST\FieldDefinitionNode;
-use GraphQL\Type\Schema;
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Error\Warning;
+use yxorP\app\lib\psr\graphQL\Language\AST\FieldDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Type\Schema;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use function is_array;
 use function is_callable;
 use function is_iterable;

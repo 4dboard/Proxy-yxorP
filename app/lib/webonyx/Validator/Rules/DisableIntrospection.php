@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
-use GraphQL\Error\Error;
-use GraphQL\Language\AST\FieldNode;
-use GraphQL\Language\AST\NodeKind;
-use GraphQL\Validator\ValidationContext;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
 
 class DisableIntrospection extends QuerySecurityRule
 {

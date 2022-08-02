@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Type\Schema;
+use yxorP\app\lib\psr\graphQL\Type\Schema;
 
 class NonNull extends Type implements WrappingType, OutputType, InputType
 {

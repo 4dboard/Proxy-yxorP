@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
-use GraphQL\Error\Error;
-use GraphQL\Language\AST\DocumentNode;
-use GraphQL\Language\AST\ExecutableDefinitionNode;
-use GraphQL\Language\AST\NodeKind;
-use GraphQL\Language\AST\TypeSystemDefinitionNode;
-use GraphQL\Language\Visitor;
-use GraphQL\Language\VisitorOperation;
-use GraphQL\Validator\ValidationContext;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Language\AST\DocumentNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\ExecutableDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\psr\graphQL\Language\AST\TypeSystemDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\Visitor;
+use yxorP\app\lib\psr\graphQL\Language\VisitorOperation;
+use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
 use function sprintf;
 
 /**

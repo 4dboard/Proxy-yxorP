@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
 use Exception;
-use GraphQL\Error\Error;
-use GraphQL\Language\AST\BooleanValueNode;
-use GraphQL\Language\AST\FloatValueNode;
-use GraphQL\Language\AST\IntValueNode;
-use GraphQL\Language\AST\Node;
-use GraphQL\Language\AST\NullValueNode;
-use GraphQL\Language\AST\StringValueNode;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Language\AST\BooleanValueNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\FloatValueNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\IntValueNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\Node;
+use yxorP\app\lib\psr\graphQL\Language\AST\NullValueNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\StringValueNode;
 
 /*
 export type GraphQLLeafType =

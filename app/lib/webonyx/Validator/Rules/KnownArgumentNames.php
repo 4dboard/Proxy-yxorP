@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
-use GraphQL\Error\Error;
-use GraphQL\Language\AST\ArgumentNode;
-use GraphQL\Language\AST\NodeKind;
-use GraphQL\Type\Definition\Type;
-use GraphQL\Utils\Utils;
-use GraphQL\Validator\ValidationContext;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Language\AST\ArgumentNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
 use function array_map;
 use function sprintf;
 

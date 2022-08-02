@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Validation;
 
-use GraphQL\Language\AST\InputValueDefinitionNode;
-use GraphQL\Type\Definition\InputObjectField;
-use GraphQL\Type\Definition\InputObjectType;
-use GraphQL\Type\Definition\NonNull;
-use GraphQL\Type\SchemaValidationContext;
+use yxorP\app\lib\psr\graphQL\Language\AST\InputValueDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Type\Definition\InputObjectField;
+use yxorP\app\lib\psr\graphQL\Type\Definition\InputObjectType;
+use yxorP\app\lib\psr\graphQL\Type\Definition\NonNull;
+use yxorP\app\lib\psr\graphQL\Type\SchemaValidationContext;
 use function array_map;
 use function array_pop;
 use function array_slice;

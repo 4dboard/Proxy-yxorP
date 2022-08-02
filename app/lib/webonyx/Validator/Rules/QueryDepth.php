@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
-use GraphQL\Error\Error;
-use GraphQL\Language\AST\FieldNode;
-use GraphQL\Language\AST\FragmentSpreadNode;
-use GraphQL\Language\AST\InlineFragmentNode;
-use GraphQL\Language\AST\Node;
-use GraphQL\Language\AST\NodeKind;
-use GraphQL\Language\AST\OperationDefinitionNode;
-use GraphQL\Language\AST\SelectionSetNode;
-use GraphQL\Validator\ValidationContext;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Language\AST\FieldNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\FragmentSpreadNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\InlineFragmentNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\Node;
+use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\psr\graphQL\Language\AST\OperationDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\SelectionSetNode;
+use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
 use function sprintf;
 
 class QueryDepth extends QuerySecurityRule

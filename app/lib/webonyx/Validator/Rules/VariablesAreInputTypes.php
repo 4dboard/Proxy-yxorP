@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Validator\Rules;
 
-use GraphQL\Error\Error;
-use GraphQL\Language\AST\NodeKind;
-use GraphQL\Language\AST\VariableDefinitionNode;
-use GraphQL\Language\Printer;
-use GraphQL\Type\Definition\Type;
-use GraphQL\Utils\TypeInfo;
-use GraphQL\Validator\ValidationContext;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Language\AST\NodeKind;
+use yxorP\app\lib\psr\graphQL\Language\AST\VariableDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\Printer;
+use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
+use yxorP\app\lib\psr\graphQL\Utils\TypeInfo;
+use yxorP\app\lib\psr\graphQL\Validator\ValidationContext;
 use function sprintf;
 
 class VariablesAreInputTypes extends ValidationRule

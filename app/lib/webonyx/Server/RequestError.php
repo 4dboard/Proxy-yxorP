@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\psr\graphQL\Server;
 
 use Exception;
-use GraphQL\Error\ClientAwareInterface;
+use yxorP\app\lib\psr\graphQL\Error\ClientAwareInterface;
 
 class RequestError extends Exception implements ClientAwareInterface
 {

@@ -6,12 +6,12 @@ namespace yxorP\app\lib\psr\graphQL\Utils;
 
 use ErrorException;
 use Exception;
-use GraphQL\Error\Error;
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Error\Warning;
-use GraphQL\Language\AST\Node;
-use GraphQL\Type\Definition\Type;
-use GraphQL\Type\Definition\WrappingType;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Error\Warning;
+use yxorP\app\lib\psr\graphQL\Language\AST\Node;
+use yxorP\app\lib\psr\graphQL\Type\Definition\Type;
+use yxorP\app\lib\psr\graphQL\Type\Definition\WrappingType;
 use InvalidArgumentException;
 use LogicException;
 use stdClass;

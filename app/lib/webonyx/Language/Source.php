@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Language;
 
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use function is_string;
 use function json_decode;
 use function mb_strlen;

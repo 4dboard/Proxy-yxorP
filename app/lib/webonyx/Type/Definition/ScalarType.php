@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Language\AST\ScalarTypeDefinitionNode;
-use GraphQL\Language\AST\ScalarTypeExtensionNode;
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Language\AST\ScalarTypeDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Language\AST\ScalarTypeExtensionNode;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use function is_string;
 
 /**

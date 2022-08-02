@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Server;
 
-use GraphQL\Error\DebugFlag;
-use GraphQL\Error\FormattedError;
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Executor\ExecutionResult;
-use GraphQL\Executor\Promise\Promise;
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Error\DebugFlag;
+use yxorP\app\lib\psr\graphQL\Error\FormattedError;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Executor\ExecutionResult;
+use yxorP\app\lib\psr\graphQL\Executor\Promise\Promise;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;

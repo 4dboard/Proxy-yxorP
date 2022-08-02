@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
 
 interface HasFieldsType
 {

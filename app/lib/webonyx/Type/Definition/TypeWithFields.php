@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use function array_keys;
 
 abstract class TypeWithFields extends Type implements HasFieldsType

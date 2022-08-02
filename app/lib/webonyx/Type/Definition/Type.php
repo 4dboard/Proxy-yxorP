@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Language\AST\TypeDefinitionNodeInterface;
-use GraphQL\Language\AST\TypeExtensionNodeInterface;
-use GraphQL\Type\Introspection;
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Language\AST\TypeDefinitionNodeInterface;
+use yxorP\app\lib\psr\graphQL\Language\AST\TypeExtensionNodeInterface;
+use yxorP\app\lib\psr\graphQL\Type\Introspection;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use JsonSerializable;
 use ReflectionClass;
 use function array_keys;

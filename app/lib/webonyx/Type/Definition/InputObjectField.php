@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\psr\graphQL\Type\Definition;
 
-use GraphQL\Error\Error;
-use GraphQL\Error\InvariantViolation;
-use GraphQL\Error\Warning;
-use GraphQL\Language\AST\InputValueDefinitionNode;
-use GraphQL\Type\Schema;
-use GraphQL\Utils\Utils;
+use yxorP\app\lib\psr\graphQL\Error\Error;
+use yxorP\app\lib\psr\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\psr\graphQL\Error\Warning;
+use yxorP\app\lib\psr\graphQL\Language\AST\InputValueDefinitionNode;
+use yxorP\app\lib\psr\graphQL\Type\Schema;
+use yxorP\app\lib\psr\graphQL\Utils\Utils;
 use function array_key_exists;
 use function sprintf;
 

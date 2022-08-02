@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\psr\graphQL\Utils;
 
 use ArrayAccess;
-use GraphQL\Type\Definition\EnumValueDefinition;
+use yxorP\app\lib\psr\graphQL\Type\Definition\EnumValueDefinition;
 use InvalidArgumentException;
 use SplObjectStorage;
 use function array_key_exists;
