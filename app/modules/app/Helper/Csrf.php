@@ -6,10 +6,7 @@ use Exception;
 use helper;
 use const yxorP\app\lib\http\helper;
 
-class csrf extends
-
-    helper
-{
+class csrf extends    helper{
 
     public
     function token(string $key, bool $generate = false, ?int $expire = null): string

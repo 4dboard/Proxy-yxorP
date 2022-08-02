@@ -5,10 +5,7 @@ namespace yxorP\app\modules\app\helper;
 use helper;
 use const yxorP\app\lib\http\helper;
 
-class admin extends
-
-    helper
-{
+class admin extends    helper{
 
     public
     function lockResourceId($resourceId, $user = null)

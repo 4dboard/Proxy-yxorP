@@ -9,10 +9,7 @@ use const yxorP\app\lib\http\helper;
  * @property mixed $dataStorage
  * @property mixed $dataStorage
  */
-class eventStream extends
-
-    helper
-{
+class eventStream extends    helper{
 
     public
     function cleanup()
