@@ -21,6 +21,7 @@ use ArrayIterator;
 use JetBrains\PhpStorm\Pure;
 use MongoDB\Driver\Command;
 use MongoDB\Driver\ReadConcern;
+use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 use stdClass;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
@@ -44,6 +45,8 @@ use function is_string;
 use function MongoDB\create_field_path_type_map;
 use function MongoDB\is_last_pipeline_operator_write;
 use function sprintf;
+use function yxorP\app\lib\data\mongoDB\create_field_path_type_map;
+use function yxorP\app\lib\data\mongoDB\is_last_pipeline_operator_write;
 
 /**
  * Operation for the aggregate command.

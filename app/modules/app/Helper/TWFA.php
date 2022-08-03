@@ -8,6 +8,7 @@ use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
 use helper;
 use yxorP\app\lib\http\helperAware;
+use yxorP\app\lib\scancode\writer;
 use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
 use yxorP\app\lib\twoFactor\TwoFactorAuth;
 

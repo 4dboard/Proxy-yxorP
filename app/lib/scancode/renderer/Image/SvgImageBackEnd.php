@@ -15,11 +15,15 @@ use BaconQrCode\Renderer\Path\Path;
 use BaconQrCode\Renderer\RendererStyle\Gradient;
 use BaconQrCode\Renderer\RendererStyle\GradientType;
 use XMLWriter;
+use yxorP\app\lib\scancode\Renderer\Color\Alpha;
 use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 use yxorP\app\lib\scancode\Renderer\Path\Close;
 use yxorP\app\lib\scancode\Renderer\Path\Curve;
 use yxorP\app\lib\scancode\Renderer\Path\EllipticArc;
 use yxorP\app\lib\scancode\Renderer\Path\Line;
+use yxorP\app\lib\scancode\Renderer\Path\Move;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\Gradient;
 use yxorP\app\lib\scancode\Renderer\RendererStyle\GradientType;
 
 final class SvgImageBackEnd implements ImageBackEndInterface
@@ -53,7 +57,7 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         }
     }
 
-    public function new(int $size, ColorInterface $backgroundColor): void
+    public function new(int $size, ColorInterface|ColorInterface $backgroundColor): void
     {
         $this->xmlWriter = new XMLWriter();
         $this->xmlWriter->openMemory();
@@ -170,7 +174,7 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         --$this->currentStack;
     }
 
-    public function drawPathWithColor(Path|Path $path, ColorInterface $color): void
+    public function drawPathWithColor(Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path, ColorInterface $color): void
     {
         if (null === $this->xmlWriter) {
             throw new RuntimeException('No image has been started');
@@ -238,12 +242,12 @@ final class SvgImageBackEnd implements ImageBackEndInterface
     }
 
     public function drawPathWithGradient(
-        Path|Path $path,
-        Gradient  $gradient,
-        float     $x,
-        float     $y,
-        float     $width,
-        float     $height
+        Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path,
+        Gradient                                              $gradient,
+        float                                                 $x,
+        float                                                 $y,
+        float                                                 $width,
+        float                                                 $height
     ): void
     {
         if (null === $this->xmlWriter) {

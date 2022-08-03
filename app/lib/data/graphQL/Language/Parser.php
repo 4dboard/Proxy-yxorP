@@ -140,10 +140,10 @@ class Parser
     private Lexer $lexer;
 
     /**
-     * @param bool $source
+     * @param string|Source $source
      * @param bool[] $options
      */
-    public function __construct(bool $source, array $options = [])
+    public function __construct(string|\yxorP\app\lib\data\graphQL\Language\Source $source, array $options = [])
     {
         $sourceObj = $source instanceof Source ? $source : new Source($source);
         $this->lexer = new Lexer($sourceObj, $options);

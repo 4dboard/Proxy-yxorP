@@ -7,6 +7,7 @@ use BaconQrCode\Encoder\ByteMatrix;
 use BaconQrCode\Exception\InvalidArgumentException;
 use BaconQrCode\Renderer\Path\Path;
 use yxorP\app\lib\scancode\Encoder\byteMatrix;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
 
 /**
  * Renders individual modules as dots.
@@ -31,7 +32,7 @@ final class DotsModule implements ModuleInterface
         $this->size = $size;
     }
 
-    public function createPath(ByteMatrix $matrix): Path
+    public function createPath(ByteMatrix|ByteMatrix $matrix): Path
     {
         $width = $matrix->getWidth();
         $height = $matrix->getHeight();

@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
+use yxorP\app\lib\data\mongoDB\updateResult;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
@@ -27,6 +28,8 @@ use function is_array;
 use function is_object;
 use function MongoDB\is_first_key_operator;
 use function MongoDB\is_pipeline;
+use function yxorP\app\lib\data\mongoDB\is_first_key_operator;
+use function yxorP\app\lib\data\mongoDB\is_pipeline;
 
 /**
  * Operation for updating a single document with the update command.

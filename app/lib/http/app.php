@@ -62,6 +62,7 @@ use const PHP_URL_PATH;
 /**
  * @property mixed $memory
  * @property mixed $fileStorage
+ * @property mixed $dataStorage
  */
 class app implements ArrayAccess
 {
@@ -304,7 +305,7 @@ class app implements ArrayAccess
         return $this;
     }
 
-    public function set(string $key, mixed $value): app
+    public function set(string $key, mixed $value): bool
     {
         $keys = explode('/', $key);
         if (count($keys) > 5) return false;

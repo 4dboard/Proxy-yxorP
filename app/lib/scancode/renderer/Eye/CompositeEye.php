@@ -26,12 +26,12 @@ final class CompositeEye implements EyeInterface
         $this->internalEye = $internalEye;
     }
 
-    public function getExternalPath(): Path
+    public function getExternalPath(): \yxorP\app\lib\scancode\Renderer\Eye\Path
     {
         return $this->externalEye->getExternalPath();
     }
 
-    public function getInternalPath(): Path
+    public function getInternalPath(): \yxorP\app\lib\scancode\Renderer\Eye\Path
     {
         return $this->internalEye->getInternalPath();
     }

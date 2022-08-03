@@ -6,6 +6,7 @@ namespace yxorP\app\lib\scancode\Renderer\RendererStyle;
 use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Renderer\Color\ColorInterface;
 use JetBrains\PhpStorm\Pure;
+use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 
 final class EyeFill
 {

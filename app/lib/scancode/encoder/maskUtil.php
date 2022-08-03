@@ -5,6 +5,7 @@ namespace yxorP\app\lib\scancode\Encoder;
 
 use BaconQrCode\Common\BitUtils;
 use BaconQrCode\Exception\InvalidArgumentException;
+use yxorP\app\lib\scancode\common\bitUtils;
 
 /**
  * Mask utility.

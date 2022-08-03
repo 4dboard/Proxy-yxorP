@@ -13,6 +13,7 @@ use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function React\Promise\all;
 use function React\Promise\reject;
 use function React\Promise\resolve;
+use function yxorP\app\lib\proxy\promise\all;
 
 class ReactPromiseAdapterInterface implements PromiseAdapterInterface
 {

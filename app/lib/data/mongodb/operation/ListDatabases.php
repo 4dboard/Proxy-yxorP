@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use yxorP\app\lib\data\mongoDB\Model\DatabaseInfoLegacyIterator;
 use yxorP\app\lib\http\mongoDB\command\ListDatabases as ListDatabasesCommand;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;

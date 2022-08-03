@@ -2,8 +2,13 @@
 
 use Iterator;
 use JetBrains\PhpStorm\ArrayShape;
+use MongoDB\Driver\Manager;
 use Throwable;
 use yxorP\app\lib\data\mongoDB\Model\BSONArray;
+use yxorP\app\lib\data\mongoDB\Model\BSONDocument;
+use yxorP\app\lib\data\mongoDB\Operation\DropDatabase;
+use yxorP\app\lib\data\mongoDB\Operation\ListDatabaseNames;
+use yxorP\app\lib\data\mongoDB\Operation\Watch;
 use yxorP\app\lib\http\mongoDB\Driver\Manager;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
 use yxorP\app\lib\http\mongoDB\Exception\UnexpectedValueException;

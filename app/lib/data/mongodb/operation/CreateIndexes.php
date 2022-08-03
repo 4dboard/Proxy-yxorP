@@ -17,6 +17,10 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use MongoDB\Driver\Command;
+use MongoDB\Driver\WriteConcern;
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
+use yxorP\app\lib\data\mongoDB\Model\IndexInput;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -31,6 +35,7 @@ use function is_integer;
 use function is_string;
 use function MongoDB\server_supports_feature;
 use function sprintf;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the createIndexes command.

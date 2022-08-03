@@ -20,6 +20,8 @@ namespace yxorP\app\lib\data\mongoDB\GridFS;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use MongoDB\BSON\Binary;
+use MongoDB\BSON\ObjectId;
+use MongoDB\BSON\UTCDateTime;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\Binary;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
@@ -39,6 +41,7 @@ use function MongoDB\is_string_array;
 use function sprintf;
 use function strlen;
 use function substr;
+use function yxorP\app\lib\data\mongoDB\is_string_array;
 
 /**
  * WritableStream abstracts the process of writing a GridFS file.
@@ -293,7 +296,7 @@ class WritableStream
      * which point a chunk document will be inserted and the buffer reset.
      *
      * @param string $data Binary data to write
-     * @return int
+     * @return void
      */
     public function writeBytes(string $data)
     {

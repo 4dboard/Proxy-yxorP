@@ -7,6 +7,8 @@ use BaconQrCode\Encoder\ByteMatrix;
 use BaconQrCode\Renderer\Module\EdgeIterator\EdgeIterator;
 use BaconQrCode\Renderer\Path\Path;
 use yxorP\app\lib\scancode\Encoder\byteMatrix;
+use yxorP\app\lib\scancode\Renderer\Module\EdgeIterator\EdgeIterator;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
 
 /**
  * Groups modules together to a single path.
@@ -27,7 +29,7 @@ final class SquareModule implements ModuleInterface
         return self::$instance ?: self::$instance = new self();
     }
 
-    public function createPath(ByteMatrix $matrix): Path
+    public function createPath(ByteMatrix|ByteMatrix $matrix): Path
     {
         $path = new Path();
 

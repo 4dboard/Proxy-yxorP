@@ -34,10 +34,10 @@ class Source
      * be "Foo.graphql" and location to be `{ line: 40, column: 0 }`.
      * line and column in locationOffset are 1-indexed
      *
-     * @param string $body
+     * @param bool $body
      * @param string|null $name
      */
-    public function __construct(string $body, string $name = null, ?SourceLocation $location = null)
+    public function __construct(bool $body, string $name = null, ?SourceLocation $location = null)
     {
         Utils::invariant(
             is_string($body),

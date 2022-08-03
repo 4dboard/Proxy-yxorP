@@ -7,7 +7,9 @@ use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Renderer\Color\ColorInterface;
 use BaconQrCode\Renderer\Path\Path;
 use BaconQrCode\Renderer\RendererStyle\Gradient;
+use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 use yxorP\app\lib\scancode\Renderer\Path\Path;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\Gradient;
 
 /**
  * Interface for back ends able to to produce path based images.

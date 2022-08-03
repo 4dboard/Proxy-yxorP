@@ -42,7 +42,7 @@ class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
         return $writer->write($this->qrCodeInstance($qrtext, $size), $logo)->getString();
     }
 
-    protected function qrCodeInstance($qrtext, $size): QrCode
+    protected function qrCodeInstance($qrtext, $size): \yxorP\app\lib\twoFactor\Providers\Qr\QrCode
     {
         $qrCode = parent::qrCodeInstance($qrtext, $size);
 

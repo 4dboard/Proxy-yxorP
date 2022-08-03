@@ -20,6 +20,7 @@ namespace yxorP\app\lib\data\mongoDB\Operation;
 use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\data\mongoDB\deleteResult;
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\deleteResult;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -33,6 +34,8 @@ use function is_object;
 use function is_string;
 use function MongoDB\is_write_concern_acknowledged;
 use function MongoDB\server_supports_feature;
+use function yxorP\app\lib\data\mongoDB\is_write_concern_acknowledged;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the delete command.

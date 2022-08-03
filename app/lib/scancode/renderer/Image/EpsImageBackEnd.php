@@ -17,10 +17,17 @@ use BaconQrCode\Renderer\Path\Move;
 use BaconQrCode\Renderer\Path\Path;
 use BaconQrCode\Renderer\RendererStyle\Gradient;
 use BaconQrCode\Renderer\RendererStyle\GradientType;
+use yxorP\app\lib\scancode\Renderer\Color\Alpha;
 use yxorP\app\lib\scancode\Renderer\Color\Cmyk;
+use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 use yxorP\app\lib\scancode\Renderer\Color\Gray;
+use yxorP\app\lib\scancode\Renderer\Color\Rgb;
+use yxorP\app\lib\scancode\Renderer\Path\Close;
+use yxorP\app\lib\scancode\Renderer\Path\Curve;
 use yxorP\app\lib\scancode\Renderer\Path\EllipticArc;
 use yxorP\app\lib\scancode\Renderer\Path\Line;
+use yxorP\app\lib\scancode\Renderer\Path\Move;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
 use yxorP\app\lib\scancode\Renderer\RendererStyle\Gradient;
 use yxorP\app\lib\scancode\Renderer\RendererStyle\GradientType;
 
@@ -160,7 +167,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         $this->eps .= "Q\n";
     }
 
-    public function drawPathWithColor(Path|Path $path, ColorInterface $color): void
+    public function drawPathWithColor(Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path, ColorInterface $color): void
     {
         if (null === $this->eps) {
             throw new RuntimeException('No image has been started');
@@ -222,12 +229,12 @@ final class EpsImageBackEnd implements ImageBackEndInterface
     }
 
     public function drawPathWithGradient(
-        Path|Path $path,
-        Gradient  $gradient,
-        float     $x,
-        float     $y,
-        float     $width,
-        float     $height
+        Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path,
+        Gradient                                                                                          $gradient,
+        float                                                                                             $x,
+        float                                                                                             $y,
+        float                                                                                             $width,
+        float                                                                                             $height
     ): void
     {
         if (null === $this->eps) {

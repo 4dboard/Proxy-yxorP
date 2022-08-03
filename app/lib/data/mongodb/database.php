@@ -2,8 +2,21 @@
 
 use Iterator;
 use JetBrains\PhpStorm\ArrayShape;
+use MongoDB\Driver\Manager;
 use MongoDB\Driver\ReadConcern;
+use MongoDB\Driver\ReadPreference;
+use MongoDB\Driver\WriteConcern;
+use yxorP\app\lib\data\mongoDB\Model\BSONArray;
 use yxorP\app\lib\data\mongoDB\Model\BSONDocument;
+use yxorP\app\lib\data\mongoDB\Operation\Aggregate;
+use yxorP\app\lib\data\mongoDB\Operation\CreateCollection;
+use yxorP\app\lib\data\mongoDB\Operation\DatabaseCommand;
+use yxorP\app\lib\data\mongoDB\Operation\DropCollection;
+use yxorP\app\lib\data\mongoDB\Operation\DropDatabase;
+use yxorP\app\lib\data\mongoDB\Operation\ListCollectionNames;
+use yxorP\app\lib\data\mongoDB\Operation\ModifyCollection;
+use yxorP\app\lib\data\mongoDB\Operation\RenameCollection;
+use yxorP\app\lib\data\mongoDB\Operation\Watch;
 use yxorP\app\lib\http\mongoDB\Driver\Manager;
 use yxorP\app\lib\http\mongoDB\Driver\ReadConcern;
 use yxorP\app\lib\http\mongoDB\Driver\ReadPreference;

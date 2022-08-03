@@ -110,7 +110,7 @@ class SMTP
         }
     }
 
-    protected function getSMTPConnection($host, $port = null, $timeout = 30, $options = []): resource
+    protected function getSMTPConnection($host, $port = null, $timeout = 30, $options = []): bool
     {
         static $streamok;
         if (null === $streamok) {

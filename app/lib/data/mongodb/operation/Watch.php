@@ -17,7 +17,16 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use MongoDB\BSON\TimestampInterface;
+use MongoDB\Driver\Manager;
+use MongoDB\Driver\Monitoring\CommandFailedEvent;
+use MongoDB\Driver\Monitoring\CommandStartedEvent;
+use MongoDB\Driver\Monitoring\CommandSubscriber;
+use MongoDB\Driver\Monitoring\CommandSucceededEvent;
+use MongoDB\Driver\ReadPreference;
+use yxorP\app\lib\data\mongoDB\changeStream;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
+use yxorP\app\lib\data\mongoDB\Model\ChangeStreamIterator;
 use yxorP\app\lib\http\mongoDB\BSON\TimestampInterface;
 use yxorP\app\lib\http\mongoDB\changeStream;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
@@ -43,6 +52,8 @@ use function MongoDB\Driver\Monitoring\addSubscriber;
 use function MongoDB\Driver\Monitoring\removeSubscriber;
 use function MongoDB\select_server;
 use function MongoDB\server_supports_feature;
+use function yxorP\app\lib\data\mongoDB\select_server;
+use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for creating a change stream with the aggregate command.
