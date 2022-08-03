@@ -9,7 +9,6 @@ use BaconQrCode\Common\Version;
 use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Exception\WriterException;
 use JetBrains\PhpStorm\Pure;
-use yxorP\app\lib\scancode\common\bitArray;
 
 /**
  * Matrix utility.

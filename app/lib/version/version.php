@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace yxorP\app\lib\version;
+
 use JetBrains\PhpStorm\Pure;
 
 class version

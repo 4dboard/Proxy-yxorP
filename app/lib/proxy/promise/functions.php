@@ -1,7 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\promise;
 
 use ArrayIterator;
-use Exception;
 use Iterator;
 use Throwable;
 
