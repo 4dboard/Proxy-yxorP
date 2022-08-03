@@ -123,8 +123,8 @@ class InsertMany implements ExecutableInterface
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->documents = $documents;
         $this->options = $options;
     }
@@ -133,7 +133,7 @@ class InsertMany implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return \yxorP\app\lib\http\mongoDB\insertManyResult
+     * @return insertManyResult
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()

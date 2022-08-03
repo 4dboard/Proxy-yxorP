@@ -88,7 +88,7 @@ class FieldDefinition
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $type
+     * @param Type $type
      * @param (callable():mixed[])|mixed[] $fields
      *
      * @return array<string, self>

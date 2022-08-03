@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
@@ -36,7 +37,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getASTVisitor(ASTValidationContext $context): array
     {

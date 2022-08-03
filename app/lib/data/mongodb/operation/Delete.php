@@ -123,8 +123,8 @@ class Delete implements ExecutableInterface, ExplainableInterface
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->filter = $filter;
         $this->limit = $limit;
         $this->options = $options;
@@ -134,7 +134,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return \yxorP\app\lib\http\mongoDB\deleteResult
+     * @return deleteResult
      * @throws UnsupportedException if hint or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()

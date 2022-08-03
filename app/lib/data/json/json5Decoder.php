@@ -53,7 +53,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     public static function decode($source, $associative = false, $depth = 512, $options = 0)
     {
@@ -106,7 +106,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function comment()
     {
@@ -121,7 +121,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function nextOrFail($c): void
     {
@@ -132,7 +132,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function throwSyntaxError($message)
     {
@@ -181,7 +181,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function blockComment()
     {
@@ -199,7 +199,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function obj()
     {
@@ -240,7 +240,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function string()
     {
@@ -317,7 +317,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function identifier(): array|string|null
     {
@@ -331,7 +331,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function arr()
     {
@@ -364,7 +364,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function number()
     {
@@ -428,7 +428,7 @@ final class json5Decoder
     }
 
     /**
-     * @throws \yxorP\app\lib\data\json\syntaxError
+     * @throws syntaxError
      */
     private function word()
     {

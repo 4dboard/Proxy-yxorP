@@ -5,11 +5,12 @@ namespace yxorP\app\lib\version;
 use Composer\InstalledVersions;
 use yxorP\app\lib\version\Exception\providedPackageException;
 use yxorP\app\lib\version\Exception\replacedPackageException;
+use yxorP\app\lib\version\Exception\versionMissingExceptionInterface;
 
 class prettyVersions
 {
     /**
-     * @throws \yxorP\app\lib\version\Exception\versionMissingExceptionInterface
+     * @throws versionMissingExceptionInterface
      */
     public static function getVersion(string $packageName): version
     {
@@ -19,7 +20,7 @@ class prettyVersions
     }
 
     /**
-     * @throws \yxorP\app\lib\version\Exception\versionMissingExceptionInterface
+     * @throws versionMissingExceptionInterface
      */
     protected static function checkProvidedPackages(string $packageName): void
     {
@@ -37,7 +38,7 @@ class prettyVersions
     }
 
     /**
-     * @throws \yxorP\app\lib\version\Exception\versionMissingExceptionInterface
+     * @throws versionMissingExceptionInterface
      */
     protected static function checkReplacedPackages(string $packageName): void
     {

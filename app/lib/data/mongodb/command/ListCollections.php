@@ -92,7 +92,7 @@ class ListCollections implements Executable
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        $this->databaseName = (string)$databaseName;
+        $this->databaseName = $databaseName;
         $this->options = $options;
     }
 

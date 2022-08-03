@@ -131,8 +131,8 @@ class Count implements ExecutableInterface, ExplainableInterface
             unset($options['readConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->filter = $filter;
         $this->options = $options;
     }

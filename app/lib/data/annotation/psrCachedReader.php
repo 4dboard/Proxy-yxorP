@@ -2,6 +2,7 @@
 
 
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Cache\invalidArgumentExceptionInterface;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -50,7 +51,7 @@ final class psrCachedReader implements readerInterface
     }
 
     /**
-     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     * @throws invalidArgumentExceptionInterface
      */
     private function fetchFromCache(string $cacheKey, ReflectionClass $class, string $method, Reflector $reflector): array
     {
@@ -63,7 +64,7 @@ final class psrCachedReader implements readerInterface
     }
 
     /**
-     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     * @throws invalidArgumentExceptionInterface
      */
     private function refresh(string $cacheKey, ReflectionClass $class): bool
     {

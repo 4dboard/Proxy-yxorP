@@ -38,9 +38,9 @@ class zipStream
     }
 
     /**
-     * @throws \yxorP\app\lib\zipStream\exception\fileNotReadableException
-     * @throws \yxorP\app\lib\zipStream\exception\invalidOptionException
-     * @throws \yxorP\app\lib\zipStream\exception\fileNotFoundException
+     * @throws fileNotReadableException
+     * @throws invalidOptionException
+     * @throws fileNotFoundException
      */
     public function addFileFromPath($name, $path, $opt = array(), $storage_method = "deflate")
     {
@@ -65,7 +65,7 @@ class zipStream
     }
 
     /**
-     * @throws \yxorP\app\lib\zipStream\exception\invalidOptionException
+     * @throws invalidOptionException
      */
     protected function addLargeFile($name, $path, $opt = array())
     {
@@ -208,7 +208,7 @@ class zipStream
     }
 
     /**
-     * @throws \yxorP\app\lib\zipStream\exception\streamNotReadableException
+     * @throws streamNotReadableException
      */
     public function addFileFromStream($name, $stream, $opt = array(), $storage_method = self::METHOD_DEFLATE)
     {

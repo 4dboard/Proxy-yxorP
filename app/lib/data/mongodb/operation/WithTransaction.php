@@ -49,7 +49,7 @@ class WithTransaction
      *
      * @param Session $session A session object as retrieved by Client::startSession
      * @return void
-     * @throws \Throwable
+     * @throws Throwable
      * @see client::startSession
      */
     public function execute(Session $session)

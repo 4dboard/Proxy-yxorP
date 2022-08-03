@@ -200,8 +200,8 @@ class ValuesOfCorrectType extends ValidationRule
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Validator\ValidationContext $context
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $node
+     * @param ValidationContext $context
+     * @param ValueNodeInterface $node
      * @param $fieldName
      */
     private function isValidScalar(ValidationContext $context, ValueNodeInterface $node, $fieldName)
@@ -260,7 +260,7 @@ class ValuesOfCorrectType extends ValidationRule
 
     /**
      * @param $type
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $node
+     * @param ValueNodeInterface $node
      * @return string|void|null
      */
     private function enumTypeSuggestion($type, ValueNodeInterface $node)

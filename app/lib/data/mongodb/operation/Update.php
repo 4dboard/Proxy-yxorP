@@ -169,8 +169,8 @@ class Update implements ExecutableInterface, ExplainableInterface
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->filter = $filter;
         $this->update = $update;
         $this->options = $options;

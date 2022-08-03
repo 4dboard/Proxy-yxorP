@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\proxy;
 
+use Closure;
 use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\proxy\handler\curlHandler;
@@ -54,7 +55,7 @@ function debug_resource($value = null): resource
     return fopen('php://output', 'w');
 }
 
-function choose_handler(): streamHandler|curlHandler|curlMultiHandler|\Closure
+function choose_handler(): streamHandler|curlHandler|curlMultiHandler|Closure
 {
     $handler = null;
     if (function_exists('curl_multi_exec') && function_exists('curl_exec')) {

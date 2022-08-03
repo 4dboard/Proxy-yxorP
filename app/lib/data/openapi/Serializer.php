@@ -16,7 +16,7 @@ class Serializer
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function deserialize(string $jsonString, string $className)
     {
@@ -104,7 +104,7 @@ class Serializer
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
     {

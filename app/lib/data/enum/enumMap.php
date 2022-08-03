@@ -18,7 +18,7 @@ final class enumMap implements Serializable, IteratorAggregate
     private int $size = 0;
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\expectationException
+     * @throws expectationException
      */
     public function expect(string $keyType, string $valueType, bool $allowNullValues): void
     {
@@ -52,7 +52,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     public function containsKey(abstractEnum $key): bool
     {
@@ -61,7 +61,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     private function checkKeyType(abstractEnum $key): void
     {
@@ -71,7 +71,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     public function get(abstractEnum $key)
     {
@@ -88,7 +88,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     public function remove(abstractEnum $key)
     {
@@ -141,7 +141,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     public function unserialize($serialized): void
     {
@@ -155,7 +155,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     public function __construct(string $keyType, string $valueType, bool $allowNullValues)
     {
@@ -170,7 +170,7 @@ final class enumMap implements Serializable, IteratorAggregate
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     public function put(abstractEnum $key, $value)
     {

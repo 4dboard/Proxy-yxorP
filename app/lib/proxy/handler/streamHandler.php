@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
+use Closure;
 use Exception;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
@@ -7,12 +8,15 @@ use RuntimeException;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\promise\fulfilledPromise;
+use yxorP\app\lib\proxy\promise\promiseInterface;
+use yxorP\app\lib\proxy\promise\rejectedPromise;
 use yxorP\app\lib\proxy\psr7;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\proxy\utils;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\streamInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\default_ca_bundle;
 use function yxorP\app\lib\proxy\headers_from_lines;
@@ -25,7 +29,7 @@ class streamHandler
 {
     private array $lastHeaders = [];
 
-    public function __invoke(requestInterface $request, array $options): fulfilledPromise|\yxorP\app\lib\proxy\promise\rejectedPromise|\yxorP\app\lib\proxy\promise\promiseInterface
+    public function __invoke(requestInterface $request, array $options): fulfilledPromise|rejectedPromise|promiseInterface
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);
@@ -50,7 +54,7 @@ class streamHandler
         }
     }
 
-    private function createResponse(requestInterface $request, array $options, $stream, $startTime): fulfilledPromise|\yxorP\app\lib\proxy\promise\rejectedPromise|\yxorP\app\lib\proxy\promise\promiseInterface
+    private function createResponse(requestInterface $request, array $options, $stream, $startTime): fulfilledPromise|rejectedPromise|promiseInterface
     {
         $hdrs = $this->lastHeaders;
         $this->lastHeaders = [];
@@ -202,7 +206,7 @@ class streamHandler
         return $context;
     }
 
-    private function resolveHost(requestInterface $request, array $options): \yxorP\app\lib\psr\http\message\uriInterface
+    private function resolveHost(requestInterface $request, array $options): uriInterface
     {
         $uri = $request->getUri();
         if (isset($options['force_ip_resolve']) && !filter_var($uri->getHost(), FILTER_VALIDATE_IP)) {
@@ -318,7 +322,7 @@ class streamHandler
         }
     }
 
-    private function callArray(array $functions): \Closure
+    private function callArray(array $functions): Closure
     {
         return function () use ($functions) {
             $args = func_get_args();

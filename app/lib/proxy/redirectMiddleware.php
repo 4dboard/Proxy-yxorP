@@ -7,6 +7,7 @@ use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\proxy\psr7;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
 class redirectMiddleware
 {
@@ -96,7 +97,7 @@ class redirectMiddleware
         return Psr7\modify_request($request, $modify);
     }
 
-    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols): psr7\uri|\yxorP\app\lib\psr\http\message\uriInterface
+    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols): psr7\uri|uriInterface
     {
         $location = Psr7\uriResolver::resolve($request->getUri(), new Psr7\uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {

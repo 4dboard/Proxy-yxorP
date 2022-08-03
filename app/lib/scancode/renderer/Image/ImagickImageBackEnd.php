@@ -19,7 +19,10 @@ use BaconQrCode\Renderer\RendererStyle\Gradient;
 use BaconQrCode\Renderer\RendererStyle\GradientType;
 use Imagick;
 use ImagickDraw;
+use ImagickDrawException;
+use ImagickException;
 use ImagickPixel;
+use ImagickPixelException;
 use yxorP\app\lib\scancode\Renderer\Color\Alpha;
 use yxorP\app\lib\scancode\Renderer\Color\Cmyk;
 use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
@@ -82,8 +85,8 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickException
-     * @throws \ImagickPixelException
+     * @throws ImagickException
+     * @throws ImagickPixelException
      */
     public function new(int $size, ColorInterface|ColorInterface $backgroundColor): void
     {
@@ -131,7 +134,7 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickException
+     * @throws ImagickException
      */
     public function push(): void
     {
@@ -144,7 +147,7 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickException
+     * @throws ImagickException
      */
     public function pop(): void
     {
@@ -157,7 +160,7 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickDrawException
+     * @throws ImagickDrawException
      */
     public function drawPathWithColor(Path $path, ColorInterface|ColorInterface $color): void
     {
@@ -170,8 +173,8 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickException
-     * @throws \ImagickPixelException
+     * @throws ImagickException
+     * @throws ImagickPixelException
      */
     public function drawPathWithGradient(
         Path     $path,
@@ -191,7 +194,7 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickException
+     * @throws ImagickException
      */
     public function done(): string
     {
@@ -211,7 +214,7 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickPixelException
+     * @throws ImagickPixelException
      */
     private function getColorPixel(ColorInterface $color): ImagickPixel
     {
@@ -304,8 +307,8 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
-     * @throws \ImagickPixelException
-     * @throws \ImagickException
+     * @throws ImagickPixelException
+     * @throws ImagickException
      */
     private function createGradientFill(Gradient $gradient, float $x, float $y, float $width, float $height): string
     {

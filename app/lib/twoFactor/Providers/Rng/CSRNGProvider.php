@@ -2,11 +2,13 @@
 
 namespace yxorP\app\lib\twoFactor\Providers\Rng;
 
+use Exception;
+
 class CSRNGProvider implements IRNGProviderInterface
 {
     /**
      * {@inheritdoc}
-     * @throws \Exception
+     * @throws Exception
      */
     public function getRandomBytes(int $bytecount): string
     {

@@ -14,7 +14,7 @@ class indexLite
     protected SQLite3 $db;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(string $path, array $options = [])
     {

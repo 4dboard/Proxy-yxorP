@@ -9,7 +9,7 @@ class HashRNGProvider implements IRNGProviderInterface
 
     /**
      * @param string $algorithm
-     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
+     * @throws RNGException
      */
     public function __construct(string $algorithm = 'sha256')
     {

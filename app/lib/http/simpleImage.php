@@ -18,7 +18,7 @@ class simpleImage
     protected $exif;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct($image = '', $flags = [])
     {
@@ -39,7 +39,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function setFlag($flag, $value)
     {
@@ -50,7 +50,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function fromDataUri($uri): static
     {
@@ -71,7 +71,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function fromFile($file): static
     {
@@ -122,7 +122,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[ArrayShape(['red' => "int", 'green' => "int", 'blue' => "int", 'alpha' => "mixed"])] public static function adjustColor($color, $red, $green, $blue, $alpha): array
     {
@@ -131,7 +131,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[ArrayShape(['red' => "int", 'green' => "int", 'blue' => "int", 'alpha' => "mixed"])] public static function normalizeColor($color): array
     {
@@ -191,7 +191,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function fromString($string): static
     {
@@ -199,7 +199,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function toDataUri($mimeType = null, $quality = 100): string
     {
@@ -208,7 +208,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[ArrayShape(['data' => "false|string", 'mimeType' => "mixed"])] protected function generate($mimeType = null, $quality = 100): array
     {
@@ -254,7 +254,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function toDownload($filename, $mimeType = null, $quality = 100): static
     {
@@ -270,7 +270,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function toFile($file, $mimeType = null, $quality = 100): static
     {
@@ -282,7 +282,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function toScreen($mimeType = null, $quality = 100): static
     {
@@ -293,7 +293,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function toString($mimeType = null, $quality = 100)
     {
@@ -374,7 +374,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     protected function allocateColor($color): bool|int
     {
@@ -457,7 +457,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     function duotone($lightColor, $darkColor): static
     {
@@ -528,7 +528,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function textBox($text, $options): static
     {
@@ -677,7 +677,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function text($text, $options, &$boundary = null): static
     {
@@ -765,7 +765,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function overlay($overlay, $anchor = 'center', $opacity = 1, $xOffset = 0, $yOffset = 0, $calculateOffsetFromEdge = false): static
     {
@@ -897,7 +897,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function ellipse($x, $y, $width, $height, $color, $thickness = 1): static
     {
@@ -955,7 +955,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function roundedRectangle($x1, $y1, $x2, $y2, $radius, $color, $thickness = 1): static
     {
@@ -990,7 +990,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function arc($x, $y, $width, $height, $start, $end, $color, $thickness = 1): static
     {
@@ -1031,7 +1031,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function colorize($color): static
     {
@@ -1114,7 +1114,7 @@ class simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function extractColors($count = 5, $backgroundColor = null): array
     {

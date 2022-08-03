@@ -6,7 +6,7 @@ class simpleImageLib extends simpleImage
     const ERR_AVIF_NOT_ENABLED = 12;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function fromDataUri($uri): static
     {
@@ -27,7 +27,7 @@ class simpleImageLib extends simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function fromFile($file): static
     {
@@ -84,7 +84,7 @@ class simpleImageLib extends simpleImage
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[ArrayShape(['data' => "false|string", 'mimeType' => "mixed"])] protected function generate($mimeType = null, $quality = 100): array
     {

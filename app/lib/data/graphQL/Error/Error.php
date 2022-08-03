@@ -207,7 +207,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @return array
      *
-     * @throws \Exception
+     * @throws Exception
      * @codeCoverageIgnore
      * @deprecated Use FormattedError::createFromException() instead
      */
@@ -359,7 +359,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed[] data which can be serialized by <b>json_encode</b>,
+     * @return array data which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
     #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "\mixed[]|null", 'locations' => "mixed"])] #[ReturnTypeWillChange]

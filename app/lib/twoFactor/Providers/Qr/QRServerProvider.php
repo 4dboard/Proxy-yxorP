@@ -31,7 +31,7 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
      * @param string $bgcolor
      * @param string $color
      * @param string $format
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws QRException
      */
     public function __construct(bool $verifyssl = false, string $errorcorrectionlevel = 'L', int $margin = 4, int $qzone = 1, string $bgcolor = 'ffffff', string $color = '000000', string $format = 'png')
     {
@@ -51,7 +51,7 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
 
     /**
      * {@inheritdoc}
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws QRException
      */
     public function getMimeType(): string
     {

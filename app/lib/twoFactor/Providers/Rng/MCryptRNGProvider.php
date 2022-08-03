@@ -17,7 +17,7 @@ class MCryptRNGProvider implements IRNGProviderInterface
 
     /**
      * {@inheritdoc}
-     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
+     * @throws RNGException
      */
     public function getRandomBytes(int $bytecount): string
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
+use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Executor\Values;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
@@ -62,9 +63,9 @@ class QueryPlan
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ObjectType $parentType
+     * @param ObjectType $parentType
      * @param FieldNode[] $fieldNodes
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function analyzeQueryPlan(ObjectType $parentType, iterable $fieldNodes): void
     {
@@ -106,13 +107,13 @@ class QueryPlan
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode $selectionSet
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $parentType
+     * @param SelectionSetNode $selectionSet
+     * @param Type $parentType
      * @param array $implementors
      *
      * @return array
      *
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function analyzeSelectionSet(SelectionSetNode $selectionSet, Type $parentType, array &$implementors): array
     {
@@ -162,12 +163,12 @@ class QueryPlan
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $type
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode $selectionSet
+     * @param Type $type
+     * @param SelectionSetNode $selectionSet
      * @param array $implementors
      *
      * @return array
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function analyzeSubFields(Type $type, SelectionSetNode $selectionSet, array &$implementors = []): array
     {

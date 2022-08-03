@@ -20,7 +20,7 @@ final class nullValue
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\cloneNotSupportedException
+     * @throws cloneNotSupportedException
      */
     final public function __clone()
     {
@@ -28,7 +28,7 @@ final class nullValue
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\serializeNotSupportedException
+     * @throws serializeNotSupportedException
      */
     final public function __sleep(): array
     {
@@ -36,7 +36,7 @@ final class nullValue
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\unserializeNotSupportedException
+     * @throws unserializeNotSupportedException
      */
     final public function __wakeup(): void
     {

@@ -15,7 +15,7 @@ class ImageChartsQRCodeProvider extends BaseHTTPQRCodeProvider
      * @param bool $verifyssl
      * @param string $errorcorrectionlevel
      * @param int $margin
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws QRException
      */
     public function __construct(bool $verifyssl = false, string $errorcorrectionlevel = 'L', int $margin = 1)
     {

@@ -19,7 +19,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
      * @param string $errorcorrectionlevel
      * @param int $margin
      * @param string $encoding
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws QRException
      */
     public function __construct(bool $verifyssl = false, string $errorcorrectionlevel = 'L', int $margin = 4, string $encoding = 'UTF-8')
     {

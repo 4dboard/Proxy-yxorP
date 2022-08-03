@@ -11,12 +11,12 @@ final class Gradient
     /**
      * @var ColorInterface
      */
-    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|\yxorP\app\lib\scancode\Renderer\Color\ColorInterface $startColor;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|ColorInterface $startColor;
 
     /**
      * @var ColorInterface
      */
-    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|\yxorP\app\lib\scancode\Renderer\Color\ColorInterface $endColor;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|ColorInterface $endColor;
 
     /**
      * @var GradientType

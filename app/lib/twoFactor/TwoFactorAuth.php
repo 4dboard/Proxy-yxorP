@@ -1,12 +1,14 @@
 <?php namespace yxorP\app\lib\twoFactor;
 
 use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
+use yxorP\app\lib\twoFactor\Providers\Qr\QRException;
 use yxorP\app\lib\twoFactor\Providers\Qr\QRServerProvider;
 use yxorP\app\lib\twoFactor\Providers\Rng\CSRNGProvider;
 use yxorP\app\lib\twoFactor\Providers\Rng\HashRNGProvider;
 use yxorP\app\lib\twoFactor\Providers\Rng\IRNGProviderInterface;
 use yxorP\app\lib\twoFactor\Providers\Rng\MCryptRNGProvider;
 use yxorP\app\lib\twoFactor\Providers\Rng\OpenSSLRNGProvider;
+use yxorP\app\lib\twoFactor\Providers\Rng\RNGException;
 use yxorP\app\lib\twoFactor\Providers\Time\HttpTimeProvider;
 use yxorP\app\lib\twoFactor\Providers\Time\ITimeProviderInterface;
 use yxorP\app\lib\twoFactor\Providers\Time\LocalMachineTimeProvider;
@@ -27,7 +29,7 @@ class TwoFactorAuth
     private ?ITimeProviderInterface $timeprovider = null;
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws TwoFactorAuthException
      */
     public function __construct($issuer = null, $digits = 6, $period = 30, $algorithm = 'sha1', IQRCodeProviderInterface $qrcodeprovider = null, IRNGProviderInterface $rngprovider = null, ITimeProviderInterface $timeprovider = null)
     {
@@ -53,8 +55,8 @@ class TwoFactorAuth
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws RNGException
+     * @throws TwoFactorAuthException
      */
     public function createSecret($bits = 80, $requirecryptosecure = true): string
     {
@@ -72,7 +74,7 @@ class TwoFactorAuth
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws TwoFactorAuthException
      */
     public function getRngProvider(): MCryptRNGProvider|OpenSSLRNGProvider|HashRNGProvider|IRNGProviderInterface|CSRNGProvider|null
     {
@@ -140,7 +142,7 @@ class TwoFactorAuth
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws TwoFactorAuthException
      */
     public function getCode($secret, $time = null): string
     {
@@ -154,7 +156,7 @@ class TwoFactorAuth
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws TwoFactorAuthException
      */
     private function base32Decode($value): string
     {
@@ -180,8 +182,8 @@ class TwoFactorAuth
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws QRException
+     * @throws TwoFactorAuthException
      */
     public function getQRCodeImageAsDataUri($label, $secret, $size = 200): string
     {
@@ -206,7 +208,7 @@ class TwoFactorAuth
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws TwoFactorAuthException
      */
     public function ensureCorrectTime(array $timeproviders = null, $leniency = 5)
     {

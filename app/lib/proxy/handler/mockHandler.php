@@ -7,7 +7,10 @@ use OutOfBoundsException;
 use ReturnTypeWillChange;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\handlerStack;
+use yxorP\app\lib\proxy\promise\fulfilledPromise;
+use yxorP\app\lib\proxy\promise\promise;
 use yxorP\app\lib\proxy\promise\promiseInterface;
+use yxorP\app\lib\proxy\promise\rejectedPromise;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
@@ -38,7 +41,7 @@ class mockHandler implements Countable
         return handlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(requestInterface $request, array $options): \yxorP\app\lib\proxy\promise\promise|\yxorP\app\lib\proxy\promise\fulfilledPromise|\yxorP\app\lib\proxy\promise\rejectedPromise|promiseInterface
+    public function __invoke(requestInterface $request, array $options): promise|fulfilledPromise|rejectedPromise|promiseInterface
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');

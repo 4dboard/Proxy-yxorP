@@ -6,6 +6,7 @@ use DirectoryIterator;
 use Exception;
 use FilesystemIterator;
 use SplFileObject;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 use function call_user_func_array;
 use function count;
@@ -26,17 +27,17 @@ use function strpos;
 use function strtr;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
  */
 class Filesystem extends helperAware
 {
@@ -153,7 +154,7 @@ class Filesystem extends helperAware
      * @param string $newpath
      * @param bool|true $overwrite
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function rename(string $path, string $newpath, bool $overwrite = true): bool
     {

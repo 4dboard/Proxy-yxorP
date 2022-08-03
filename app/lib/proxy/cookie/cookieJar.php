@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\cookie;
 
 use ArrayIterator;
+use Exception;
 use ReturnTypeWillChange;
 use RuntimeException;
 use yxorP\app\lib\psr\http\message\requestInterface;
@@ -124,7 +125,7 @@ class cookieJar implements cookieJarInterface
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function toArray(): array
     {

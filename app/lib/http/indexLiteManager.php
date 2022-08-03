@@ -15,7 +15,7 @@ class indexLiteManager
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function createIndex(string $name, array $options): indexLite
     {

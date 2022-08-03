@@ -35,7 +35,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
 
     /**
      * {@inheritdoc}
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws QRException
      */
     public function getMimeType(): string
     {

@@ -112,7 +112,7 @@ class promise implements promiseInterface
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function wait($unwrap = true)
     {
@@ -128,7 +128,7 @@ class promise implements promiseInterface
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function waitIfPending()
     {
@@ -148,7 +148,7 @@ class promise implements promiseInterface
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function invokeWaitFn()
     {

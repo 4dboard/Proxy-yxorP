@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use Exception;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveNode;
 use yxorP\app\lib\data\graphQL\Language\AST\EnumValueNode;
@@ -235,7 +236,7 @@ class TypeInfo
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type&InputType)|null
+     * @return InputType|null (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
     {
@@ -369,7 +370,7 @@ class TypeInfo
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\OutputType|null (Type & OutputType) | null
+     * @return OutputType|null (Type & OutputType) | null
      */
     public function getType(): ?OutputType
     {
@@ -377,7 +378,7 @@ class TypeInfo
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType|null (CompositeType & Type) | null
+     * @return CompositeType|null (CompositeType & Type) | null
      */
     public function getParentType(): ?CompositeType
     {
@@ -416,11 +417,11 @@ class TypeInfo
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
+     * @param Schema $schema
      * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
      *
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
-     * @throws \Exception
+     * @return Type|null
+     * @throws Exception
      */
     public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ?Type
     {
@@ -438,7 +439,7 @@ class TypeInfo
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type & InputType) | null
+     * @return InputType|null (Type & InputType) | null
      */
     public function getInputType(): ?InputType
     {

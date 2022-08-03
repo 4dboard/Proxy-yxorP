@@ -13,6 +13,7 @@ use yxorP\app\lib\data\graphQL\Type\Definition\AbstractType;
 use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
 use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Type;
 use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
 use yxorP\app\lib\data\graphQL\Type\Schema;
 use yxorP\app\lib\data\graphQL\Utils\TypeInfo;
@@ -136,7 +137,7 @@ class PossibleFragmentSpreads extends ValidationRule
         );
     }
 
-    private function getFragmentType(ValidationContext $context, $name): CompositeType|\yxorP\app\lib\data\graphQL\Type\Definition\Type|null
+    private function getFragmentType(ValidationContext $context, $name): CompositeType|Type|null
     {
         $frag = $context->getFragment($name);
         if ($frag) {

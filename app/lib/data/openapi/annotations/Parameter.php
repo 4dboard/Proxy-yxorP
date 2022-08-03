@@ -6,6 +6,7 @@
 
 namespace yxorP\app\lib\openapi\annotations;
 
+use Exception;
 use yxorP\app\lib\openapi\Generator;
 
 /**
@@ -209,7 +210,7 @@ class Parameter extends AbstractAnnotation
 
     /**
      * @inheritdoc
-     * @throws \Exception
+     * @throws Exception
      */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {

@@ -68,7 +68,7 @@ class SyncPromise
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function resolve($value): self
     {
@@ -80,7 +80,7 @@ class SyncPromise
                 if (is_object($value) && method_exists($value, 'then')) {
                     $value->then(
                     /**
-                     * @throws \Exception
+                     * @throws Exception
                      */ function ($resolvedValue): void {
                         $this->resolve($resolvedValue);
                     },
@@ -109,7 +109,7 @@ class SyncPromise
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function reject($reason): self
     {
@@ -189,7 +189,7 @@ class SyncPromise
     /**
      * @param callable|null $onFulfilled
      * @param callable|null $onRejected
-     * @return \yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromise
+     * @return SyncPromise
      */
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null): self
     {

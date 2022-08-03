@@ -38,11 +38,11 @@ class Value
      * Given a type and any value, return a runtime value coerced to match the type.
      *
      * @param $value
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @param InputType $type
      * @param null $blameNode
      * @param array|null $path
      * @return array
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public static function coerceValue($value, InputType $type, $blameNode = null, ?array $path = null): array
     {

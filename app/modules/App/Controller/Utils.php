@@ -3,6 +3,7 @@
 namespace yxorP\app\modules\app\controller;
 
 use ArrayObject;
+use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 
 /**
@@ -12,7 +13,7 @@ class utils extends app
 {
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     #[ArrayShape(['token' => "string"])] public function generateToken($length = 20): array
     {

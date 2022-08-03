@@ -195,13 +195,13 @@ class DocumentValidator
      * This uses a specialized visitor which runs multiple visitors in parallel,
      * while maintaining the visitor skip and break API.
      *
-     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
-     * @param \yxorP\app\lib\data\graphQL\Utils\TypeInfo $typeInfo
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\DocumentNode $documentNode
+     * @param Schema $schema
+     * @param TypeInfo $typeInfo
+     * @param DocumentNode $documentNode
      * @param ValidationRule[] $rules
      *
      * @return Error[]
-     * @throws \Exception
+     * @throws Exception
      */
     public static function visitUsingRules(Schema $schema, TypeInfo $typeInfo, DocumentNode $documentNode, array $rules): array
     {
@@ -279,10 +279,10 @@ class DocumentValidator
      * Deprecated. Rely on validation for documents co
      * ntaining literal values.
      *
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $type
+     * @param Type $type
      * @param $valueNode
      * @return Error[]
-     * @throws \Exception
+     * @throws Exception
      * @deprecated
      */
     public static function isValidLiteralValue(Type $type, $valueNode): array
@@ -299,7 +299,7 @@ class DocumentValidator
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public static function assertValidSDL(DocumentNode $documentAST)
     {
@@ -364,7 +364,7 @@ class DocumentValidator
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
     {

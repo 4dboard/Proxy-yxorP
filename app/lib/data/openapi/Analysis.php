@@ -100,7 +100,7 @@ class Analysis
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function unregisterProcessor($processor): void
     {
@@ -277,7 +277,7 @@ class Analysis
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function getContext($annotation): Context
     {
@@ -300,7 +300,7 @@ class Analysis
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function split(): stdClass
     {
@@ -316,7 +316,7 @@ class Analysis
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function merged(): Analysis
     {

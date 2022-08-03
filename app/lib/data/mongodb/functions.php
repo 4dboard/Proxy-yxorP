@@ -4,6 +4,7 @@ use MongoDB\Driver\Manager;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 use ReflectionClass;
+use ReflectionException;
 use yxorP\app\lib\data\mongoDB\Operation\WithTransaction;
 use yxorP\app\lib\http\mongoDB\BSON\Serializable;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -173,7 +174,7 @@ function is_string_array($input): bool
 }
 
 /**
- * @throws \ReflectionException
+ * @throws ReflectionException
  */
 function recursive_copy($element)
 {

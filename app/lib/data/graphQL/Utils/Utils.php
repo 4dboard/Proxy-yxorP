@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use Closure;
 use ErrorException;
 use Exception;
 use InvalidArgumentException;
@@ -555,7 +556,7 @@ class Utils
      *
      * @return callable
      */
-    public static function withErrorHandling(callable $fn, array &$errors): callable|\Closure
+    public static function withErrorHandling(callable $fn, array &$errors): callable|Closure
     {
         return static function () use ($fn, &$errors) {
             // Catch custom errors (to report them in query results)

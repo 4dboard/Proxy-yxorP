@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\data\annotation;
 
 use ReflectionClass;
+use ReflectionException;
 use function implode;
 use function in_array;
 use function preg_split;
@@ -126,7 +127,7 @@ abstract class abstractLexer
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function getLiteral($token)
     {

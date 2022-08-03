@@ -13,8 +13,8 @@ use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
 interface RuntimeInterface
 {
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @param ValueNodeInterface $valueNode
+     * @param InputType $type
      */
     public function evaluate(ValueNodeInterface $valueNode, InputType $type);
 

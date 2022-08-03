@@ -255,8 +255,8 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
             unset($options['batchSize']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = isset($collectionName) ? (string)$collectionName : null;
+        $this->databaseName = $databaseName;
+        $this->collectionName = isset($collectionName) ? $collectionName : null;
         $this->pipeline = $pipeline;
         $this->options = $options;
     }

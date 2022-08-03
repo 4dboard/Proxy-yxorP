@@ -75,7 +75,7 @@ class DropIndexes implements ExecutableInterface
      */
     public function __construct(string $databaseName, string $collectionName, string $indexName, array $options = [])
     {
-        $indexName = (string)$indexName;
+        $indexName = $indexName;
 
         if ($indexName === '') {
             throw new InvalidArgumentException('$indexName cannot be empty');
@@ -101,8 +101,8 @@ class DropIndexes implements ExecutableInterface
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->indexName = $indexName;
         $this->options = $options;
     }

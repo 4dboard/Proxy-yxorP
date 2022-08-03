@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Experimental\Executor;
 
+use Exception;
 use Generator;
 use SplQueue;
 use stdClass;
@@ -20,6 +21,7 @@ use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
 use yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface;
 use yxorP\app\lib\data\graphQL\Type\Definition\AbstractType;
+use yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition;
 use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
 use yxorP\app\lib\data\graphQL\Type\Definition\LeafType;
@@ -252,7 +254,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         return $value;
     }
 
-    private function findFieldDefinition(CoroutineContext $ctx): \yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition
+    private function findFieldDefinition(CoroutineContext $ctx): FieldDefinition
     {
         if ($ctx->shared->fieldName === Introspection::SCHEMA_FIELD_NAME && $ctx->type === $this->schema->getQueryType()) {
             return Introspection::schemaMetaFieldDef();
@@ -787,9 +789,9 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Experimental\Executor\CoroutineContext $ctx
+     * @param CoroutineContext $ctx
      * @param $value
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\AbstractType $abstractType
+     * @param AbstractType $abstractType
      *
      * @return Generator|ObjectType|Type|null
      */
@@ -954,10 +956,10 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
-     * @return array|array[]|null[]|\stdClass|\stdClass[]|null
-     * @throws \Exception
+     * @param ValueNodeInterface $valueNode
+     * @param InputType $type
+     * @return array|array[]|null[]|stdClass|stdClass[]|null
+     * @throws Exception
      * @internal
      */
     public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null

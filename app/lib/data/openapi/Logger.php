@@ -2,12 +2,13 @@
 
 namespace yxorP\app\lib\openapi;
 
+use Closure;
 use Exception;
 
 class Logger
 {
     public static Logger $instance;
-    public \Closure $log;
+    public Closure $log;
 
     protected function __construct()
     {

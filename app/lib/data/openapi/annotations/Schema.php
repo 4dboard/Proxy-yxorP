@@ -6,6 +6,7 @@
 
 namespace yxorP\app\lib\openapi\annotations;
 
+use Exception;
 use yxorP\app\lib\openapi\Generator;
 
 /**
@@ -325,7 +326,7 @@ class Schema extends AbstractAnnotation
     public string $const = Generator::UNDEFINED;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {

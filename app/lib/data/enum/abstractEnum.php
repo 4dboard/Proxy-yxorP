@@ -21,7 +21,7 @@ abstract class abstractEnum
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     final public static function __callStatic(string $name, array $arguments): self
     {
@@ -29,7 +29,7 @@ abstract class abstractEnum
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     * @throws illegalArgumentException
      */
     final public static function valueOf(string $name): self
     {
@@ -107,7 +107,7 @@ abstract class abstractEnum
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\cloneNotSupportedException
+     * @throws cloneNotSupportedException
      */
     final public function __clone()
     {
@@ -115,7 +115,7 @@ abstract class abstractEnum
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\serializeNotSupportedException
+     * @throws serializeNotSupportedException
      */
     final public function __sleep(): array
     {
@@ -123,7 +123,7 @@ abstract class abstractEnum
     }
 
     /**
-     * @throws \yxorP\app\lib\data\enum\exception\unserializeNotSupportedException
+     * @throws unserializeNotSupportedException
      */
     final public function __wakeup(): void
     {

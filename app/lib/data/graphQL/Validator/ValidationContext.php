@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator;
 
+use Exception;
 use JetBrains\PhpStorm\Pure;
 use SplObjectStorage;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
@@ -18,6 +19,8 @@ use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
 use yxorP\app\lib\data\graphQL\Language\AST\VariableNode;
 use yxorP\app\lib\data\graphQL\Language\Visitor;
 use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
+use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
+use yxorP\app\lib\data\graphQL\Type\Definition\FieldArgument;
 use yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition;
 use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
 use yxorP\app\lib\data\graphQL\Type\Definition\OutputType;
@@ -86,9 +89,9 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\HasSelectionSetInterface $node
+     * @param HasSelectionSetInterface $node
      * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
-     * @throws \Exception
+     * @throws Exception
      */
     private function getVariableUsages(HasSelectionSetInterface $node): ?array
     {
@@ -163,7 +166,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\HasSelectionSetInterface $node
+     * @param HasSelectionSetInterface $node
      *
      * @return FragmentSpreadNode[]
      */
@@ -224,7 +227,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType|null (CompositeType & Type) | null
+     * @return CompositeType|null (CompositeType & Type) | null
      */
     public function getParentType(): ?CompositeType
     {
@@ -232,7 +235,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type & InputType) | null
+     * @return InputType|null (Type & InputType) | null
      */
     public function getInputType(): ?InputType
     {
@@ -240,7 +243,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type&InputType)|null
+     * @return InputType|null (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
     {
@@ -255,12 +258,12 @@ class ValidationContext extends ASTValidationContext
         return $this->typeInfo->getFieldDef();
     }
 
-    #[Pure] public function getDirective(): ?\yxorP\app\lib\data\graphQL\Type\Definition\Directive
+    #[Pure] public function getDirective(): ?Directive
     {
         return $this->typeInfo->getDirective();
     }
 
-    #[Pure] public function getArgument(): ?\yxorP\app\lib\data\graphQL\Type\Definition\FieldArgument
+    #[Pure] public function getArgument(): ?FieldArgument
     {
         return $this->typeInfo->getArgument();
     }

@@ -550,9 +550,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param mixed $rootValue
      * @param array<string|int> $path
      *
-     * @return array|Throwable|mixed|null
+     * @return stdClass|array|\Promise|object|null
      */
-    protected function resolveField(ObjectType $parentType, mixed $rootValue, ArrayObject $fieldNodes, array $path): mixed
+    protected function resolveField(ObjectType $parentType, mixed $rootValue, ArrayObject $fieldNodes, array $path): stdClass|array|\Promise|null|object
     {
         $exeContext = $this->exeContext;
         $fieldNode = $fieldNodes[0];

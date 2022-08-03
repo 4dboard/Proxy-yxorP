@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\proxy;
 
+use Closure;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 use function yxorP\app\lib\proxy\promise\rejection_for;
@@ -31,7 +32,7 @@ class retryMiddleware
         return $fn($request, $options)->then($this->onFulfilled($request, $options), $this->onRejected($request, $options));
     }
 
-    private function onFulfilled(requestInterface $req, array $options): \Closure
+    private function onFulfilled(requestInterface $req, array $options): Closure
     {
         return function ($value) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, $value, null)) {
@@ -47,7 +48,7 @@ class retryMiddleware
         return $this($request, $options);
     }
 
-    private function onRejected(requestInterface $req, array $options): \Closure
+    private function onRejected(requestInterface $req, array $options): Closure
     {
         return function ($reason) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, null, $reason)) {

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use TypeError;
 use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
@@ -598,7 +599,7 @@ class BreakingChangesFinder
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private static function getDirectiveMapForSchema(Schema $schema): array
     {
@@ -650,7 +651,7 @@ class BreakingChangesFinder
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private static function getArgumentMapForDirective(Directive $directive): array
     {

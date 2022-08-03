@@ -114,7 +114,7 @@ class QueryComplexity extends QuerySecurityRule
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function nodeComplexity(Node $node, $complexity = 0)
     {
@@ -186,7 +186,7 @@ class QueryComplexity extends QuerySecurityRule
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function directiveExcludesField(FieldNode $node): mixed
     {
@@ -241,7 +241,7 @@ class QueryComplexity extends QuerySecurityRule
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function buildFieldArguments(FieldNode $node): array
     {

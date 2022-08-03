@@ -2,10 +2,12 @@
 
 use Exception;
 use InvalidArgumentException;
+use Throwable;
 use yxorP\app\lib\proxy\cookie\cookieJar;
 use yxorP\app\lib\proxy\promise;
 use yxorP\app\lib\proxy\psr7;
 use yxorP\app\lib\psr\http\message\requestInterface;
+use yxorP\app\lib\psr\http\message\uriInterface;
 
 class client implements clientInterface
 {
@@ -102,7 +104,7 @@ class client implements clientInterface
         return $result;
     }
 
-    private function buildUri($uri, array $config): psr7\uri|\yxorP\app\lib\psr\http\message\uriInterface
+    private function buildUri($uri, array $config): psr7\uri|uriInterface
     {
         $uri = Psr7\uri_for($uri === null ? '' : $uri);
         if (isset($config['base_uri'])) {
@@ -229,7 +231,7 @@ class client implements clientInterface
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function request($method, $uri = '', array $options = [])
     {
@@ -238,7 +240,7 @@ class client implements clientInterface
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function send(requestInterface $request, array $options = [])
     {

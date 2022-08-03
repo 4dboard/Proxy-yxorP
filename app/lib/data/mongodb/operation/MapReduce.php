@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
+use Closure;
 use MongoDB\BSON\JavascriptInterface;
 use MongoDB\Driver\Command;
 use MongoDB\Driver\ReadConcern;
@@ -254,8 +255,8 @@ class MapReduce implements ExecutableInterface
 
         $this->checkOutDeprecations($out);
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->map = $map;
         $this->reduce = $reduce;
         $this->out = $out;
@@ -400,7 +401,7 @@ class MapReduce implements ExecutableInterface
      * @return callable
      * @throws UnexpectedValueException if the command response was malformed
      */
-    private function createGetIteratorCallable(stdClass $result, Server $server): callable|\Closure
+    private function createGetIteratorCallable(stdClass $result, Server $server): callable|Closure
     {
         // Inline results can be wrapped with an ArrayIterator
         if (isset($result->results) && is_array($result->results)) {

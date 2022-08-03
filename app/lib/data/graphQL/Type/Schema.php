@@ -176,8 +176,7 @@ class Schema
         }
 
         foreach ($types as $index => $type) {
-            $type = self::resolveType($type);
-            yield $type;
+            yield self::resolveType($type);
         }
     }
 
@@ -269,7 +268,7 @@ class Schema
     /**
      * Returns schema query type
      *
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
+     * @return Type|null
      *
      * @api
      */
@@ -397,7 +396,7 @@ class Schema
      *
      * This operation requires full schema scan. Do not use in production environment.
      *
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $abstractType
+     * @param Type $abstractType
      *
      * @return array
      *
@@ -477,8 +476,8 @@ class Schema
     /**
      * Returns true if the given type is a sub type of the given abstract type.
      *
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\AbstractType $abstractType
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $maybeSubType
+     * @param AbstractType $abstractType
+     * @param ImplementingType $maybeSubType
      *
      * @return bool
      * @api

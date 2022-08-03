@@ -8,6 +8,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use JsonSerializable;
 use ReflectionClass;
 use ReturnTypeWillChange;
+use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\TypeDefinitionNodeInterface;
 use yxorP\app\lib\data\graphQL\Language\AST\TypeExtensionNodeInterface;
@@ -300,7 +301,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public function assertValid()
     {

@@ -23,7 +23,7 @@ class annotationReader
     private array $ignoredAnnotationNames = [];
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     public function __construct(?docParser $parser = null)
     {

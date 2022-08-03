@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Utils;
 
 use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
+use yxorP\app\lib\data\graphQL\Error\SyntaxError;
 use yxorP\app\lib\data\graphQL\Language\Parser;
 use yxorP\app\lib\data\graphQL\Type\Definition\CustomScalarType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
@@ -262,9 +263,7 @@ class BuildClientSchema
      */
     private function getOutputType(array $typeRef): OutputType
     {
-        $type = $this->getType($typeRef);
-
-        return $type;
+        return $this->getType($typeRef);
 
         throw new InvariantViolation('Introspection must provide output type for fields, but received: ' . json_encode($type) . '.');
     }
@@ -438,7 +437,7 @@ class BuildClientSchema
      * @param array<string, mixed> $inputValueIntrospection
      *
      * @return array<string, mixed>
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws SyntaxError
      */
     #[ArrayShape(['description' => "mixed", 'type' => "\yxorP\app\lib\data\graphQL\Type\Definition\InputType", 'defaultValue' => "mixed"])] public function buildInputValue(array $inputValueIntrospection): array
     {

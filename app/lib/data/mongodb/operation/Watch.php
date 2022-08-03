@@ -23,6 +23,7 @@ use MongoDB\Driver\Monitoring\CommandFailedEvent;
 use MongoDB\Driver\Monitoring\CommandStartedEvent;
 use MongoDB\Driver\Monitoring\CommandSubscriber;
 use MongoDB\Driver\Monitoring\CommandSucceededEvent;
+use MongoDB\Driver\Monitoring\Subscriber;
 use MongoDB\Driver\ReadPreference;
 use yxorP\app\lib\data\mongoDB\changeStream;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
@@ -66,7 +67,7 @@ use function yxorP\app\lib\data\mongoDB\server_supports_feature;
  * @see https://docs.mongodb.com/manual/changeStreams/
  */
 class Watch implements ExecutableInterface, /* @internal */
-    CommandSubscriber, \MongoDB\Driver\Monitoring\Subscriber, \MongoDB\Driver\Monitoring\Subscriber
+    CommandSubscriber, Subscriber, Subscriber
 {
     public const FULL_DOCUMENT_DEFAULT = 'default';
     public const FULL_DOCUMENT_UPDATE_LOOKUP = 'updateLookup';

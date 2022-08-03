@@ -424,7 +424,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @param array $skip (prevent stack overflow, when traversing an infinite dependency graph)
      * @param string $ref
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {
@@ -544,7 +544,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @param string $type The annotations property type
      * @param mixed $value The property value
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     private function validateType(string $type, mixed $value): bool
     {
@@ -575,7 +575,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @param string $type The property type
      * @param mixed $value The value to validate
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     private function validateDefaultTypes(string $type, mixed $value): bool
     {

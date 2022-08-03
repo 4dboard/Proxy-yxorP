@@ -1251,20 +1251,12 @@ class PHPMailer
 
     public function encodeQ($str, $position = 'text'): array|string
     {
-        $pattern = '';
         $encoded = str_replace(["\r", "\n"], '', $str);
-        switch (strtolower($position)) {
-            case 'phrase':
-                $pattern = '^A-Za-z0-9!*+\/ -';
-                break;
-            case 'comment':
-                $pattern = '\(\)"';
-                break;
-            case 'text':
-            default:
-                $pattern = '\000-\011\013\014\016-\037\075\077\137\177-\377' . $pattern;
-                break;
-        }
+        $pattern = match (strtolower($position)) {
+            'phrase' => '^A-Za-z0-9!*+\/ -',
+            'comment' => '\(\)"',
+            default => '\000-\011\013\014\016-\037\075\077\137\177-\377' . $pattern,
+        };
         $matches = [];
         if (preg_match_all("/[{$pattern}]/", $encoded, $matches)) {
             $eqkey = array_search('=', $matches[0], true);

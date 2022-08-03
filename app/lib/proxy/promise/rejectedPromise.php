@@ -42,7 +42,7 @@ class rejectedPromise implements promiseInterface
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function wait($unwrap = true, $defaultDelivery = null)
     {

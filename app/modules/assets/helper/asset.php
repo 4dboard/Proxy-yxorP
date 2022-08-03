@@ -2,6 +2,7 @@
 
 namespace yxorP\app\modules\assets\Helper;
 
+use Exception;
 use simpleImageLib as SimpleImage;
 use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
@@ -217,7 +218,7 @@ class Img
     protected SimpleImage $image;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct($img)
     {

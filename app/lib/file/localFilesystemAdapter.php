@@ -258,7 +258,7 @@ class localFilesystemAdapter implements filesystemAdapterInterface
     {
         return match ($file->getType()) {
             'dir' => @rmdir((string)$file->getRealPath()),
-            'link' => @unlink((string)$file->getPathname()),
+            'link' => @unlink($file->getPathname()),
             default => @unlink((string)$file->getRealPath()),
         };
     }

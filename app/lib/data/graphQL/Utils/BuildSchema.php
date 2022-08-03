@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Utils;
 
 use yxorP\app\lib\data\graphQL\Error\Error;
+use yxorP\app\lib\data\graphQL\Error\SyntaxError;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\EnumTypeDefinitionNode;
@@ -62,8 +63,8 @@ class BuildSchema
      *
      * @return Schema
      *
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws Error
+     * @throws SyntaxError
      * @api
      */
     public static function build(Source|DocumentNode|string $source, ?callable $typeConfigDecorator = null, array $options = []): Schema
@@ -107,7 +108,7 @@ class BuildSchema
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public function buildSchema(): Schema
     {

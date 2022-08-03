@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
+use Exception;
 use React\Promise\Promise as ReactPromise;
 use React\Promise\PromiseInterface as ReactPromiseInterface;
 use Throwable;
@@ -76,7 +77,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
-     * @throws \Exception
+     * @throws Exception
      */
     public function all(array $promisesOrValues): Promise
     {

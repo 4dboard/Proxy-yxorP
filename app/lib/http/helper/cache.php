@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\http\helper;
 
 use RecursiveDirectoryIterator;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 use function call_user_func;
 use function file_exists;
@@ -20,11 +21,11 @@ use function unlink;
 use function unserialize;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
  */
 class cache extends helperAware
 {

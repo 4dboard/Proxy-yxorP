@@ -4,6 +4,7 @@
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use ReflectionClass;
+use ReflectionException;
 use ReflectionProperty;
 use RuntimeException;
 use stdClass;
@@ -78,7 +79,7 @@ final class docParser
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     private function collectAnnotationMetadata(string $name): void
     {
@@ -203,7 +204,7 @@ final class docParser
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function Annotations(): array
     {
@@ -233,7 +234,7 @@ final class docParser
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function Annotation()
     {
@@ -382,7 +383,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function match(int $token): void
     {
@@ -408,7 +409,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function Identifier(): string
     {
@@ -426,7 +427,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function matchAny(array $tokens): void
     {
@@ -462,7 +463,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function MethodCall(): array
     {
@@ -479,7 +480,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     #[ArrayShape(['named_arguments' => "array", 'positional_arguments' => "array"])] private function Values(): array
     {
@@ -506,7 +507,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function Value()
     {
@@ -518,7 +519,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function FieldAssignment(): stdClass
     {
@@ -532,7 +533,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function PlainValue()
     {
@@ -570,7 +571,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function Arrayx(): array
     {
@@ -601,7 +602,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function ArrayEntry(): array
     {
@@ -620,7 +621,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function Constant()
     {
@@ -687,7 +688,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function resolvePositionalValues(array $arguments, string $name): array
     {
@@ -723,7 +724,7 @@ S
     }
 
     /**
-     * @throws \yxorP\app\lib\data\annotation\annotationException
+     * @throws annotationException
      */
     private function instantiateAnnotiation(string $originalName, string $context, string $name, array $arguments)
     {

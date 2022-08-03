@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\http\helper;
 
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 use function session_destroy;
 use function session_name;
@@ -12,8 +13,8 @@ use function session_write_close;
 use function yxorP\app\lib\http\fetch_from_array;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
  */
 class session extends helperAware
 {

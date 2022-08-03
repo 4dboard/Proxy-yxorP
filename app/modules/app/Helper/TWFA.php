@@ -10,7 +10,10 @@ use helper;
 use yxorP\app\lib\http\helperAware;
 use yxorP\app\lib\scancode\writer;
 use yxorP\app\lib\twoFactor\Providers\Qr\IQRCodeProviderInterface;
+use yxorP\app\lib\twoFactor\Providers\Qr\QRException;
+use yxorP\app\lib\twoFactor\Providers\Rng\RNGException;
 use yxorP\app\lib\twoFactor\TwoFactorAuth;
+use yxorP\app\lib\twoFactor\TwoFactorAuthException;
 
 
 /**
@@ -24,8 +27,8 @@ class TWFA extends helperAware
     protected TwoFactorAuth $tfa;
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws RNGException
+     * @throws TwoFactorAuthException
      */
     public function createSecret(int $length = 160): string
     {
@@ -33,8 +36,8 @@ class TWFA extends helperAware
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws QRException
+     * @throws TwoFactorAuthException
      */
     public function getQRCodeImageAsDataUri(string $secret, int $size = 150): string
     {
@@ -42,8 +45,8 @@ class TWFA extends helperAware
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws QRException
+     * @throws TwoFactorAuthException
      */
     public function getQRCodeImage(string $secret, int $size = 150): string|bool
     {
@@ -57,7 +60,7 @@ class TWFA extends helperAware
     }
 
     /**
-     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     * @throws TwoFactorAuthException
      */
     protected function initialize()
     {

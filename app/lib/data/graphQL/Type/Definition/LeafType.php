@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
+use Exception;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
 
@@ -44,12 +45,12 @@ interface LeafType
      *
      * In the case of an invalid node or value this method must throw an Exception
      *
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $valueNode
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return mixed
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null): mixed;
 }

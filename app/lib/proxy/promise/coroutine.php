@@ -37,7 +37,7 @@ final class coroutine implements promiseInterface
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function wait($unwrap = true)
     {

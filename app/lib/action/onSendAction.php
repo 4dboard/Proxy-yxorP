@@ -4,7 +4,7 @@ use yxorP\app\lib\http\wrapper;
 class onSendAction extends wrapper
 {
     /**
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function onSend(): void
     {

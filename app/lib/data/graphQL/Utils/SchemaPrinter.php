@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Utils;
 
 use JetBrains\PhpStorm\Pure;
+use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\Printer;
 use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
@@ -310,7 +311,7 @@ class SchemaPrinter
 
     /**
      * @throws Error
-     * @throws \Throwable
+     * @throws Throwable
      */
     protected static function printInputValue($arg): string
     {
@@ -400,7 +401,7 @@ class SchemaPrinter
 
     /**
      * @throws Error
-     * @throws \Throwable
+     * @throws Throwable
      */
     protected static function printDeprecated($fieldOrEnumVal): string
     {

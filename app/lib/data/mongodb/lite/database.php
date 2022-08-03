@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\data\mongodb\lite;
 
 use ErrorException;
+use Exception;
 use InvalidArgumentException;
 use MongoDB\BSON\ObjectId;
 use PDO;
@@ -166,7 +167,7 @@ class UtilArrayQuery
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function buildCondition(mixed $criteria, string $concat = ' && '): string
     {
@@ -229,7 +230,7 @@ class UtilArrayQuery
     }
 
     /**
-     * @throws \ErrorException
+     * @throws ErrorException
      */
     public static function check(mixed $value, array $condition): bool
     {
@@ -244,7 +245,7 @@ class UtilArrayQuery
     }
 
     /**
-     * @throws \ErrorException
+     * @throws ErrorException
      */
     private static function evaluate(string $func, mixed $a, mixed $b): int|bool
     {
@@ -378,7 +379,7 @@ function fuzzy_search(string $search, string $text, $distance = 3): float
 }
 
 /**
- * @throws \Exception
+ * @throws Exception
  */
 function createMongoDbLikeId(): string
 {

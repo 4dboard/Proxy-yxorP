@@ -5,6 +5,7 @@ use LogicException;
 use OutOfBoundsException;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Cache\invalidArgumentExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use RuntimeException;
@@ -117,7 +118,7 @@ class cachedKeySet implements ArrayAccess
     }
 
     /**
-     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     * @throws invalidArgumentExceptionInterface
      */
     private function getCacheItem(): CacheItemInterface
     {
@@ -128,7 +129,7 @@ class cachedKeySet implements ArrayAccess
     }
 
     /**
-     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     * @throws invalidArgumentExceptionInterface
      */
     private function rateLimitExceeded(): bool
     {

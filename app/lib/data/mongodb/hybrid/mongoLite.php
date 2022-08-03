@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\data\mongodb\hybrid;
 
+use Closure;
 use yxorP\app\lib\data\mongodb\lite\client as MongoLiteClient;
 use yxorP\app\lib\data\mongodb\lite\collection;
 
@@ -104,7 +105,7 @@ class mongoLite
         return new resultSet($this, $docs);
     }
 
-    public function getFindTermFilter($term): \Closure
+    public function getFindTermFilter($term): Closure
     {
         $terms = str_getcsv(trim($term), ' ');
         $filter = function ($doc) use ($term) {

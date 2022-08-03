@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
+use Exception;
 use Throwable;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Executor\ExecutionResult;
@@ -52,7 +53,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
-     * @throws \Exception
+     * @throws Exception
      */
     public function create(callable $resolver): Promise
     {
@@ -78,7 +79,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
-     * @throws \Exception
+     * @throws Exception
      */
     public function createFulfilled(mixed $value = null): Promise
     {
@@ -89,7 +90,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
-     * @throws \Exception
+     * @throws Exception
      */
     public function createRejected(Throwable $reason): Promise
     {
@@ -100,7 +101,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
-     * @throws \Exception
+     * @throws Exception
      */
     public function all(array $promisesOrValues): Promise
     {

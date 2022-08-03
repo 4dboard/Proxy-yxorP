@@ -602,7 +602,7 @@ class sVGSanitizer
      */
     public function minify(bool $shouldMinify = false)
     {
-        $this->minifyXML = (bool)$shouldMinify;
+        $this->minifyXML = $shouldMinify;
     }
 
     /**
@@ -612,6 +612,6 @@ class sVGSanitizer
      */
     public function removeXMLTag(bool $removeXMLTag = false)
     {
-        $this->removeXMLTag = (bool)$removeXMLTag;
+        $this->removeXMLTag = $removeXMLTag;
     }
 }

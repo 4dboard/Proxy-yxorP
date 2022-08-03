@@ -56,7 +56,7 @@ class response implements responseInterface
     public function withStatus(int $code, string $reasonPhrase = ''): response
     {
         $this->assertStatusCodeIsInteger($code);
-        $code = (int)$code;
+        $code = $code;
         $this->assertStatusCodeRange($code);
         $new = clone $this;
         $new->statusCode = $code;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Executor;
 
+use Exception;
 use stdClass;
 use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
@@ -43,12 +44,12 @@ class Values
      * variable definitions and arbitrary input. If the input cannot be coerced
      * to match the variable definitions, a Error will be thrown.
      *
-     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
+     * @param Schema $schema
      * @param VariableDefinitionNode[] $varDefNodes
      * @param array $inputs
      *
      * @return array
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public static function getVariableValues(Schema $schema, array $varDefNodes, array $inputs): array
     {
@@ -142,12 +143,12 @@ class Values
      *
      * If the directive does not exist on the node, returns undefined.
      *
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Directive $directiveDef
+     * @param Directive $directiveDef
      * @param EnumValueDefinitionNode|FieldDefinitionNode|FieldNode|FragmentSpreadNode|InlineFragmentNode $node
      * @param null $variableValues
      *
      * @return array|null
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public static function getDirectiveValues(Directive $directiveDef, EnumValueDefinitionNode|InlineFragmentNode|FieldNode|FieldDefinitionNode|FragmentSpreadNode $node, $variableValues = null): ?array
     {
@@ -203,7 +204,7 @@ class Values
      * @return array
      *
      * @throws Error
-     * @throws \Exception
+     * @throws Exception
      */
     public static function getArgumentValuesForMap(Directive|FieldDefinition $fieldDefinition, array $argumentValueMap, array $variableValues = null, Node $referenceNode = null): array
     {
@@ -287,13 +288,13 @@ class Values
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @param ValueNodeInterface $valueNode
+     * @param InputType $type
      * @param array|null $variables
      *
      * @return array|stdClass|null
      *
-     * @throws \Exception
+     * @throws Exception
      * @codeCoverageIgnore
      * @deprecated as of 8.0 (Moved to \GraphQL\Utils\AST::valueFromAST)
      */
@@ -304,11 +305,11 @@ class Values
 
     /**
      * @param array $value
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @param InputType $type
      *
      * @return string[]
      *
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      * @codeCoverageIgnore
      * @deprecated as of 0.12 (Use coerceValue() directly for richer information)
      */

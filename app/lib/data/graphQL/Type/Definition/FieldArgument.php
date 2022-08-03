@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
 use JetBrains\PhpStorm\Pure;
+use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\InputValueDefinitionNode;
 use yxorP\app\lib\data\graphQL\Type\Schema;
@@ -100,7 +101,7 @@ class FieldArgument
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     public function assertValid(FieldDefinition $parentField, Type $parentType)
     {

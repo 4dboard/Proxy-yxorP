@@ -118,7 +118,7 @@ class Lexer
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws SyntaxError
      */
     public function lookahead(): Token
     {
@@ -534,7 +534,7 @@ class Lexer
 
     /**
      * Returns string with all digits + changes current string cursor position to point to the first char after digits
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws SyntaxError
      */
     private function readDigits(): string
     {
@@ -566,8 +566,8 @@ class Lexer
      * Reads a block string token from the source file.
      *
      * """("?"?(\\"""|\\(?!=""")|[^"\\]))*"""
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws SyntaxError
+     * @throws SyntaxError
      */
     private function readBlockString($line, $col, Token $prev): Token
     {
@@ -638,7 +638,7 @@ class Lexer
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws SyntaxError
      */
     private function assertValidBlockStringCharacterCode($code, $position)
     {
@@ -780,7 +780,7 @@ class Lexer
     }
 
     /**
-     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws SyntaxError
      */
     private function assertValidStringCharacterCode($code, $position)
     {

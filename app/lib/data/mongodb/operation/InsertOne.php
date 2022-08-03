@@ -97,8 +97,8 @@ class InsertOne implements ExecutableInterface
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string)$databaseName;
-        $this->collectionName = (string)$collectionName;
+        $this->databaseName = $databaseName;
+        $this->collectionName = $collectionName;
         $this->document = $document;
         $this->options = $options;
     }
@@ -107,7 +107,7 @@ class InsertOne implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return \yxorP\app\lib\http\mongoDB\insertOneResult
+     * @return insertOneResult
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()

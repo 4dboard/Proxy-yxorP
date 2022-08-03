@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Language;
 
+use Closure;
+use Exception;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
@@ -98,7 +100,7 @@ class Printer
      *
      * That means the AST is manipulated in such a way that it no longer
      * resembles the well-formed result of parsing.
-     * @throws \Exception
+     * @throws Exception
      */
     public function printAST($ast)
     {
@@ -467,7 +469,7 @@ class Printer
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function join($maybeArray, $separator = ''): string
     {
@@ -514,7 +516,7 @@ class Printer
         return $maybeString ? '  ' . str_replace("\n", "\n  ", $maybeString) : '';
     }
 
-    public function addDescription(callable $cb): \Closure
+    public function addDescription(callable $cb): Closure
     {
         return function ($node) use ($cb): string {
             return $this->join([$node->description, $cb($node)], "\n");

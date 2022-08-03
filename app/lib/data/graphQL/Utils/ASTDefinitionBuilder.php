@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
@@ -81,7 +82,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function buildDirective(DirectiveDefinitionNode $directiveNode): Directive
     {
@@ -144,9 +145,9 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\NodeList $values
+     * @param NodeList $values
      * @return array<string, array<string, mixed>>
-     * @throws \Exception
+     * @throws Exception
      */
     private function makeInputValues(NodeList $values): array
     {
@@ -191,8 +192,8 @@ class ASTDefinitionBuilder
 
     /**
      * @param string|(Node &NamedTypeNode)|(Node&TypeDefinitionNode) $ref
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @return Type
+     * @throws Error
      */
     public function buildType($ref): Type
     {
@@ -205,9 +206,9 @@ class ASTDefinitionBuilder
 
     /**
      * @param string $typeName
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node|null $typeNode
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @param Node|null $typeNode
+     * @return Type
+     * @throws Error
      */
     private function internalBuildType(string $typeName, ?Node $typeNode = null): Type
     {
@@ -251,11 +252,11 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
+     * @param Node $def
      *
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
+     * @return Type
      *
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function makeSchemaDef(Node $def): Type
     {
@@ -286,7 +287,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
+     * @param Node $def
      *
      * @return array<string, array<string, mixed>>
      */
@@ -324,9 +325,9 @@ class ASTDefinitionBuilder
      * Given a collection of directives, returns the string value for the
      * deprecation reason.
      *
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $node
+     * @param Node $node
      * @return string|null
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function getDeprecationReason(Node $node): ?string
     {
@@ -342,7 +343,7 @@ class ASTDefinitionBuilder
      * @param InterfaceTypeDefinitionNode|ObjectTypeDefinitionNode $def
      *
      * @return array<int, Type>
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function makeImplementedInterfaces(InterfaceTypeDefinitionNode|ObjectTypeDefinitionNode $def): array
     {
@@ -439,12 +440,12 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
+     * @param Node $def
      * @param array<string, mixed> $config
      *
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
+     * @return Type
      *
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      */
     private function makeSchemaDefFromConfig(Node $def, array $config): Type
     {

@@ -146,11 +146,11 @@ class AST
      * | null          | NullValue            |
      *
      * @param Type|mixed|null $value
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @param InputType $type
      * @return ObjectValueNode|ListValueNode|BooleanValueNode|IntValueNode|FloatValueNode|EnumValueNode|StringValueNode|NullValueNode|null
      *
-     * @throws \Throwable
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Throwable
+     * @throws Error
      * @api
      */
     public static function astFromValue(mixed $value, InputType $type): NullValueNode|ListValueNode|StringValueNode|IntValueNode|FloatValueNode|BooleanValueNode|EnumValueNode|ObjectValueNode|null
@@ -307,13 +307,13 @@ class AST
      * | Enum Value           | Mixed         |
      * | Null Value           | null          |
      *
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface|null $valueNode
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $type
+     * @param ValueNodeInterface|null $valueNode
+     * @param Type $type
      * @param array|null $variables
      *
      * @return array|stdClass|null
      *
-     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws Error
      * @api
      */
     public static function valueFromAST(?ValueNodeInterface $valueNode, Type $type, ?array $variables = null): array|stdClass|null
@@ -467,7 +467,7 @@ class AST
      * Returns true if the provided valueNode is a variable which is not defined
      * in the set of variables.
      *
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
+     * @param ValueNodeInterface $valueNode
      * @param array $variables
      *
      * @return bool
@@ -612,7 +612,7 @@ class AST
      *
      * If a name is not provided, an operation is only returned if the document has exactly one.
      *
-     * @throws \Exception
+     * @throws Exception
      * @api
      */
     public static function getOperationAST(DocumentNode $document, ?string $operationName = null): ?OperationDefinitionNode

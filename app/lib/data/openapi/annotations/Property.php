@@ -39,7 +39,7 @@ class Property extends Schema
     /**
      * The key into Schema->properties array.
      *
-     * @var \yxorP\app\lib\openapi\annotations\AbstractAnnotation
+     * @var AbstractAnnotation
      */
     public AbstractAnnotation $property = Generator::UNDEFINED;
     /**
