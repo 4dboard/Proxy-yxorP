@@ -319,6 +319,18 @@ class Find implements ExecutableInterface, ExplainableInterface
     }
 
     /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server): array
+    {
+        return $this->createCommandDocument();
+    }
+
+    /**
      * Create options for the find query.
      *
      * Note that these are separate from the options for executing the command,
@@ -381,18 +393,6 @@ class Find implements ExecutableInterface, ExplainableInterface
         }
 
         return $options;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server): array
-    {
-        return $this->createCommandDocument();
     }
 
     /**

@@ -207,6 +207,91 @@ class Parser
     }
 
     /**
+     * Given a string containing a GraphQL value (ex. `[42]`), parse the AST for
+     * that value.
+     * Throws `GraphQL\Error\SyntaxError` if a syntax error is encountered.
+     *
+     * This is useful within tools that operate upon GraphQL Values directly and
+     * in isolation of complete GraphQL documents.
+     *
+     * Consider providing the results to the utility function: `GraphQL\Utils\AST::valueFromAST()`.
+     *
+     * @param string|Source $source
+     * @param bool[] $options
+     *
+     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
+     *
+     * @throws SyntaxError
+     * @api
+     */
+    public static function parseValue(Source|string $source, array $options = []): VariableNode|ListValueNode|StringValueNode|IntValueNode|ValueNodeInterface|FloatValueNode|BooleanValueNode|EnumValueNode|ObjectValueNode
+    {
+        $parser = new Parser($source, $options);
+        $parser->expect(Token::SOF);
+        $value = $parser->parseValueLiteral(false);
+        $parser->expect(Token::EOF);
+
+        return $value;
+    }
+
+    /**
+     * Given a string containing a GraphQL Type (ex. `[Int!]`), parse the AST for
+     * that type.
+     * Throws `GraphQL\Error\SyntaxError` if a syntax error is encountered.
+     *
+     * This is useful within tools that operate upon GraphQL Types directly and
+     * in isolation of complete GraphQL documents.
+     *
+     * Consider providing the results to the utility function: `GraphQL\Utils\AST::typeFromAST()`.
+     *
+     * @param string|Source $source
+     * @param bool[] $options
+     *
+     * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
+     *
+     * @throws SyntaxError
+     * @api
+     */
+    public static function parseType(Source|string $source, array $options = []): NonNullTypeNode|ListTypeNode|NamedTypeNode|TypeNodeInterface
+    {
+        $parser = new Parser($source, $options);
+        $parser->expect(Token::SOF);
+        $type = $parser->parseTypeReference();
+        $parser->expect(Token::EOF);
+
+        return $type;
+    }
+
+    /**
+     * Parse partial source by delegating calls to the internal parseX methods.
+     *
+     * @param bool[] $arguments
+     *
+     * @throws SyntaxError
+     */
+    public static function __callStatic(string $name, array $arguments)
+    {
+        $parser = new Parser(...$arguments);
+        $parser->expect(Token::SOF);
+
+        $type = match ($name) {
+            'arguments', 'valueLiteral', 'array', 'object', 'objectField', 'directives', 'directive' => $parser->{'parse' . $name}(false),
+            'constArguments' => $parser->parseArguments(true),
+            'constValueLiteral' => $parser->parseValueLiteral(true),
+            'constArray' => $parser->parseArray(true),
+            'constObject' => $parser->parseObject(true),
+            'constObjectField' => $parser->parseObjectField(true),
+            'constDirectives' => $parser->parseDirectives(true),
+            'constDirective' => $parser->parseDirective(true),
+            default => $parser->{'parse' . $name}(),
+        };
+
+        $parser->expect(Token::EOF);
+
+        return $type;
+    }
+
+    /**
      * Implements the parsing rules in the Document section.
      *
      * @throws SyntaxError
@@ -477,6 +562,8 @@ class Parser
         return $this->parseName();
     }
 
+    // Implements the parsing rules in the Operations section.
+
     private function unexpected(?Token $atToken = null): SyntaxError
     {
         $token = $atToken ?? $this->lexer->token;
@@ -511,8 +598,6 @@ class Parser
 
         return null;
     }
-
-    // Implements the parsing rules in the Operations section.
 
     /**
      * @throws SyntaxError
@@ -700,6 +785,8 @@ class Parser
         return $this->parseValueLiteral(false);
     }
 
+    // Implements the parsing rules in the Fragments section.
+
     /**
      * Returns a possibly empty list of parse nodes, determined by
      * the parseFn. This list begins with a lex token of openKind
@@ -755,7 +842,7 @@ class Parser
         ]);
     }
 
-    // Implements the parsing rules in the Fragments section.
+    // Implements the parsing rules in the Values section.
 
     private function parseStringLiteral(): StringValueNode
     {
@@ -800,8 +887,6 @@ class Parser
             'loc' => $this->loc($start),
         ]);
     }
-
-    // Implements the parsing rules in the Values section.
 
     /**
      * @throws SyntaxError
@@ -878,6 +963,8 @@ class Parser
             : new NodeList([]);
     }
 
+    // Implements the parsing rules in the Directives section.
+
     /**
      * @throws SyntaxError
      */
@@ -931,6 +1018,8 @@ class Parser
         return $type;
     }
 
+    // Implements the parsing rules in the Types section.
+
     /**
      * @throws SyntaxError
      */
@@ -961,8 +1050,6 @@ class Parser
         ]);
     }
 
-    // Implements the parsing rules in the Directives section.
-
     /**
      * If the next token is a keyword with the given value, advance the lexer.
      * Otherwise, throw an error.
@@ -982,6 +1069,8 @@ class Parser
 
         $this->lexer->advance();
     }
+
+    // Implements the parsing rules in the Type Definition section.
 
     /**
      * TypeSystemDefinition :
@@ -1033,8 +1122,6 @@ class Parser
         throw $this->unexpected($keywordToken);
     }
 
-    // Implements the parsing rules in the Types section.
-
     #[Pure] private function peekDescription(): bool
     {
         return $this->peek(Token::STRING) || $this->peek(Token::BLOCK_STRING);
@@ -1063,8 +1150,6 @@ class Parser
             'loc' => $this->loc($start),
         ]);
     }
-
-    // Implements the parsing rules in the Type Definition section.
 
     /**
      * @throws SyntaxError
@@ -1684,90 +1769,5 @@ class Parser
         }
 
         throw $this->unexpected($start);
-    }
-
-    /**
-     * Given a string containing a GraphQL value (ex. `[42]`), parse the AST for
-     * that value.
-     * Throws `GraphQL\Error\SyntaxError` if a syntax error is encountered.
-     *
-     * This is useful within tools that operate upon GraphQL Values directly and
-     * in isolation of complete GraphQL documents.
-     *
-     * Consider providing the results to the utility function: `GraphQL\Utils\AST::valueFromAST()`.
-     *
-     * @param string|Source $source
-     * @param bool[] $options
-     *
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
-     *
-     * @throws SyntaxError
-     * @api
-     */
-    public static function parseValue(Source|string $source, array $options = []): VariableNode|ListValueNode|StringValueNode|IntValueNode|ValueNodeInterface|FloatValueNode|BooleanValueNode|EnumValueNode|ObjectValueNode
-    {
-        $parser = new Parser($source, $options);
-        $parser->expect(Token::SOF);
-        $value = $parser->parseValueLiteral(false);
-        $parser->expect(Token::EOF);
-
-        return $value;
-    }
-
-    /**
-     * Given a string containing a GraphQL Type (ex. `[Int!]`), parse the AST for
-     * that type.
-     * Throws `GraphQL\Error\SyntaxError` if a syntax error is encountered.
-     *
-     * This is useful within tools that operate upon GraphQL Types directly and
-     * in isolation of complete GraphQL documents.
-     *
-     * Consider providing the results to the utility function: `GraphQL\Utils\AST::typeFromAST()`.
-     *
-     * @param string|Source $source
-     * @param bool[] $options
-     *
-     * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
-     *
-     * @throws SyntaxError
-     * @api
-     */
-    public static function parseType(Source|string $source, array $options = []): NonNullTypeNode|ListTypeNode|NamedTypeNode|TypeNodeInterface
-    {
-        $parser = new Parser($source, $options);
-        $parser->expect(Token::SOF);
-        $type = $parser->parseTypeReference();
-        $parser->expect(Token::EOF);
-
-        return $type;
-    }
-
-    /**
-     * Parse partial source by delegating calls to the internal parseX methods.
-     *
-     * @param bool[] $arguments
-     *
-     * @throws SyntaxError
-     */
-    public static function __callStatic(string $name, array $arguments)
-    {
-        $parser = new Parser(...$arguments);
-        $parser->expect(Token::SOF);
-
-        $type = match ($name) {
-            'arguments', 'valueLiteral', 'array', 'object', 'objectField', 'directives', 'directive' => $parser->{'parse' . $name}(false),
-            'constArguments' => $parser->parseArguments(true),
-            'constValueLiteral' => $parser->parseValueLiteral(true),
-            'constArray' => $parser->parseArray(true),
-            'constObject' => $parser->parseObject(true),
-            'constObjectField' => $parser->parseObjectField(true),
-            'constDirectives' => $parser->parseDirectives(true),
-            'constDirective' => $parser->parseDirective(true),
-            default => $parser->{'parse' . $name}(),
-        };
-
-        $parser->expect(Token::EOF);
-
-        return $type;
     }
 }

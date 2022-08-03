@@ -41,46 +41,6 @@ final class maskUtil
     }
 
     /**
-     * Helper function for applyMaskPenaltyRule1.
-     *
-     * We need this for doing this calculation in both vertical and horizontal
-     * orders respectively.
-     */
-    private static function applyMaskPenaltyRule1Internal(byteMatrix $matrix, bool $isHorizontal): int
-    {
-        $penalty = 0;
-        $iLimit = $isHorizontal ? $matrix->getHeight() : $matrix->getWidth();
-        $jLimit = $isHorizontal ? $matrix->getWidth() : $matrix->getHeight();
-        $array = $matrix->getArray();
-
-        for ($i = 0; $i < $iLimit; ++$i) {
-            $numSameBitCells = 0;
-            $prevBit = -1;
-
-            for ($j = 0; $j < $jLimit; $j++) {
-                $bit = $isHorizontal ? $array[$i][$j] : $array[$j][$i];
-
-                if ($bit === $prevBit) {
-                    ++$numSameBitCells;
-                } else {
-                    if ($numSameBitCells >= 5) {
-                        $penalty += self::N1 + ($numSameBitCells - 5);
-                    }
-
-                    $numSameBitCells = 1;
-                    $prevBit = $bit;
-                }
-            }
-
-            if ($numSameBitCells >= 5) {
-                $penalty += self::N1 + ($numSameBitCells - 5);
-            }
-        }
-
-        return $penalty;
-    }
-
-    /**
      * Applies mask penalty rule 2 and returns the penalty.
      *
      * Finds 2x2 blocks with the same color and gives penalty to them. This is
@@ -269,5 +229,45 @@ final class maskUtil
         }
 
         return 0 == $intermediate;
+    }
+
+    /**
+     * Helper function for applyMaskPenaltyRule1.
+     *
+     * We need this for doing this calculation in both vertical and horizontal
+     * orders respectively.
+     */
+    private static function applyMaskPenaltyRule1Internal(byteMatrix $matrix, bool $isHorizontal): int
+    {
+        $penalty = 0;
+        $iLimit = $isHorizontal ? $matrix->getHeight() : $matrix->getWidth();
+        $jLimit = $isHorizontal ? $matrix->getWidth() : $matrix->getHeight();
+        $array = $matrix->getArray();
+
+        for ($i = 0; $i < $iLimit; ++$i) {
+            $numSameBitCells = 0;
+            $prevBit = -1;
+
+            for ($j = 0; $j < $jLimit; $j++) {
+                $bit = $isHorizontal ? $array[$i][$j] : $array[$j][$i];
+
+                if ($bit === $prevBit) {
+                    ++$numSameBitCells;
+                } else {
+                    if ($numSameBitCells >= 5) {
+                        $penalty += self::N1 + ($numSameBitCells - 5);
+                    }
+
+                    $numSameBitCells = 1;
+                    $prevBit = $bit;
+                }
+            }
+
+            if ($numSameBitCells >= 5) {
+                $penalty += self::N1 + ($numSameBitCells - 5);
+            }
+        }
+
+        return $penalty;
     }
 }

@@ -151,6 +151,20 @@ final class matrixUtil
     }
 
     /**
+     * Removes the position detection patterns from a matrix.
+     *
+     * This can be useful if you need to render those patterns separately.
+     */
+    public static function removePositionDetectionPatterns(byteMatrix $matrix): void
+    {
+        $pdpWidth = count(self::POSITION_DETECTION_PATTERN[0]);
+
+        self::removePositionDetectionPattern(0, 0, $matrix);
+        self::removePositionDetectionPattern($matrix->getWidth() - $pdpWidth, 0, $matrix);
+        self::removePositionDetectionPattern(0, $matrix->getWidth() - $pdpWidth, $matrix);
+    }
+
+    /**
      * Embeds basic patterns into a matrix.
      */
     private static function embedBasicPatterns(Version $version, byteMatrix $matrix): void
@@ -491,20 +505,6 @@ final class matrixUtil
         if ($dataBits->getSize() !== $bitIndex) {
             throw new WriterException('Not all bits consumed (' . $bitIndex . ' out of ' . $dataBits->getSize() . ')');
         }
-    }
-
-    /**
-     * Removes the position detection patterns from a matrix.
-     *
-     * This can be useful if you need to render those patterns separately.
-     */
-    public static function removePositionDetectionPatterns(byteMatrix $matrix): void
-    {
-        $pdpWidth = count(self::POSITION_DETECTION_PATTERN[0]);
-
-        self::removePositionDetectionPattern(0, 0, $matrix);
-        self::removePositionDetectionPattern($matrix->getWidth() - $pdpWidth, 0, $matrix);
-        self::removePositionDetectionPattern(0, $matrix->getWidth() - $pdpWidth, $matrix);
     }
 
     private static function removePositionDetectionPattern(int $xStart, int $yStart, byteMatrix $matrix): void

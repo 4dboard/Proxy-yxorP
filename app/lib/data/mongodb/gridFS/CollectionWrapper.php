@@ -261,6 +261,37 @@ class CollectionWrapper
     }
 
     /**
+     * Inserts a document into the files collection.
+     *
+     * The file document should be inserted after all chunks have been inserted.
+     *
+     * @param object|array $file File document
+     */
+    public function insertFile(object|array $file)
+    {
+        if (!$this->checkedIndexes) {
+            $this->ensureIndexes();
+        }
+
+        $this->filesCollection->insertOne($file);
+    }
+
+    /**
+     * Updates the filename field in the file document for a given ID.
+     *
+     * @param mixed $id
+     * @param string $filename
+     * @return updateResult
+     */
+    public function updateFilenameForId(mixed $id, string $filename): updateResult
+    {
+        return $this->filesCollection->updateOne(
+            ['_id' => $id],
+            ['$set' => ['filename' => (string)$filename]]
+        );
+    }
+
+    /**
      * Ensure indexes on the files and chunks collections exist.
      *
      * This method is called once before the first write operation on a GridFS
@@ -356,36 +387,5 @@ class CollectionWrapper
         }
 
         $this->chunksCollection->createIndex($expectedIndex, ['unique' => true]);
-    }
-
-    /**
-     * Inserts a document into the files collection.
-     *
-     * The file document should be inserted after all chunks have been inserted.
-     *
-     * @param object|array $file File document
-     */
-    public function insertFile(object|array $file)
-    {
-        if (!$this->checkedIndexes) {
-            $this->ensureIndexes();
-        }
-
-        $this->filesCollection->insertOne($file);
-    }
-
-    /**
-     * Updates the filename field in the file document for a given ID.
-     *
-     * @param mixed $id
-     * @param string $filename
-     * @return updateResult
-     */
-    public function updateFilenameForId(mixed $id, string $filename): updateResult
-    {
-        return $this->filesCollection->updateOne(
-            ['_id' => $id],
-            ['$set' => ['filename' => (string)$filename]]
-        );
     }
 }

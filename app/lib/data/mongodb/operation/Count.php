@@ -166,6 +166,18 @@ class Count implements ExecutableInterface, ExplainableInterface
     }
 
     /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server): array
+    {
+        return $this->createCommandDocument();
+    }
+
+    /**
      * Create the count command document.
      *
      * @return array
@@ -218,17 +230,5 @@ class Count implements ExecutableInterface, ExplainableInterface
         }
 
         return $options;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server): array
-    {
-        return $this->createCommandDocument();
     }
 }

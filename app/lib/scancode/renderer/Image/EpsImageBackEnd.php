@@ -82,46 +82,6 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         );
     }
 
-    private function getColorSetString(ColorInterface $color): string
-    {
-        if ($color instanceof Rgb) {
-            return $this->getColorString($color) . ' rgb';
-        }
-
-        if ($color instanceof Cmyk) {
-            return $this->getColorString($color) . ' cmyk';
-        }
-
-        if ($color instanceof Gray) {
-            return $this->getColorString($color) . ' gray';
-        }
-
-        return $this->getColorSetString($color->toCmyk());
-    }
-
-    private function getColorString(ColorInterface $color): string
-    {
-        if ($color instanceof Rgb) {
-            return sprintf('%s %s %s', $color->getRed() / 255, $color->getGreen() / 255, $color->getBlue() / 255);
-        }
-
-        if ($color instanceof Cmyk) {
-            return sprintf(
-                '%s %s %s %s',
-                $color->getCyan() / 100,
-                $color->getMagenta() / 100,
-                $color->getYellow() / 100,
-                $color->getBlack() / 100
-            );
-        }
-
-        if ($color instanceof Gray) {
-            return sprintf('%s', $color->getGray() / 100);
-        }
-
-        return $this->getColorString($color->toCmyk());
-    }
-
     public function scale(float $size): void
     {
         if (null === $this->eps) {
@@ -184,6 +144,83 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         );
     }
 
+    public function drawPathWithGradient(
+        Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path,
+        Gradient                                                                                          $gradient,
+        float                                                                                             $x,
+        float                                                                                             $y,
+        float                                                                                             $width,
+        float                                                                                             $height
+    ): void
+    {
+        if (null === $this->eps) {
+            throw new RuntimeException('No image has been started');
+        }
+
+        $fromX = 0;
+        $fromY = 0;
+        $this->eps .= wordwrap(
+            'q n ' . $this->drawPathOperations($path, $fromX, $fromY) . "\n",
+            75,
+            "\n "
+        );
+
+        $this->createGradientFill($gradient, $x, $y, $width, $height);
+    }
+
+    public function done(): string
+    {
+        if (null === $this->eps) {
+            throw new RuntimeException('No image has been started');
+        }
+
+        $this->eps .= "%%TRAILER\nend restore\n%%EOF";
+        $blob = $this->eps;
+        $this->eps = null;
+
+        return $blob;
+    }
+
+    private function getColorSetString(ColorInterface $color): string
+    {
+        if ($color instanceof Rgb) {
+            return $this->getColorString($color) . ' rgb';
+        }
+
+        if ($color instanceof Cmyk) {
+            return $this->getColorString($color) . ' cmyk';
+        }
+
+        if ($color instanceof Gray) {
+            return $this->getColorString($color) . ' gray';
+        }
+
+        return $this->getColorSetString($color->toCmyk());
+    }
+
+    private function getColorString(ColorInterface $color): string
+    {
+        if ($color instanceof Rgb) {
+            return sprintf('%s %s %s', $color->getRed() / 255, $color->getGreen() / 255, $color->getBlue() / 255);
+        }
+
+        if ($color instanceof Cmyk) {
+            return sprintf(
+                '%s %s %s %s',
+                $color->getCyan() / 100,
+                $color->getMagenta() / 100,
+                $color->getYellow() / 100,
+                $color->getBlack() / 100
+            );
+        }
+
+        if ($color instanceof Gray) {
+            return sprintf('%s', $color->getGray() / 100);
+        }
+
+        return $this->getColorString($color->toCmyk());
+    }
+
     private function drawPathOperations(iterable $ops, &$fromX, &$fromY): string
     {
         $pathData = [];
@@ -226,30 +263,6 @@ final class EpsImageBackEnd implements ImageBackEndInterface
         }
 
         return implode(' ', $pathData);
-    }
-
-    public function drawPathWithGradient(
-        Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path,
-        Gradient                                                                                          $gradient,
-        float                                                                                             $x,
-        float                                                                                             $y,
-        float                                                                                             $width,
-        float                                                                                             $height
-    ): void
-    {
-        if (null === $this->eps) {
-            throw new RuntimeException('No image has been started');
-        }
-
-        $fromX = 0;
-        $fromY = 0;
-        $this->eps .= wordwrap(
-            'q n ' . $this->drawPathOperations($path, $fromX, $fromY) . "\n",
-            75,
-            "\n "
-        );
-
-        $this->createGradientFill($gradient, $x, $y, $width, $height);
     }
 
     private function createGradientFill(Gradient $gradient, float $x, float $y, float $width, float $height): void
@@ -373,18 +386,5 @@ final class EpsImageBackEnd implements ImageBackEndInterface
             . sprintf("  /C1 [ %s ]\n", $this->getColorString($endColor))
             . "  /N 1\n"
             . " >>\n>>\nshfill\nQ\n";
-    }
-
-    public function done(): string
-    {
-        if (null === $this->eps) {
-            throw new RuntimeException('No image has been started');
-        }
-
-        $this->eps .= "%%TRAILER\nend restore\n%%EOF";
-        $blob = $this->eps;
-        $this->eps = null;
-
-        return $blob;
     }
 }

@@ -41,6 +41,29 @@ class cachedKeySet implements ArrayAccess
         $this->setCacheKeys();
     }
 
+    public function offsetGet($keyId): key
+    {
+        if (!$this->keyIdExists($keyId)) {
+            throw new OutOfBoundsException('Key ID not found');
+        }
+        return $this->keySet[$keyId];
+    }
+
+    public function offsetExists($keyId): bool
+    {
+        return $this->keyIdExists($keyId);
+    }
+
+    public function offsetSet($offset, $value): void
+    {
+        throw new LogicException('Method not implemented');
+    }
+
+    public function offsetUnset($offset): void
+    {
+        throw new LogicException('Method not implemented');
+    }
+
     private function setCacheKeys(): void
     {
         if (empty($this->jwksUri)) {
@@ -59,14 +82,6 @@ class cachedKeySet implements ArrayAccess
             }
             $this->rateLimitCacheKey = $rateLimitKey;
         }
-    }
-
-    public function offsetGet($keyId): key
-    {
-        if (!$this->keyIdExists($keyId)) {
-            throw new OutOfBoundsException('Key ID not found');
-        }
-        return $this->keySet[$keyId];
     }
 
     private function keyIdExists(string $keyId): bool
@@ -131,20 +146,5 @@ class cachedKeySet implements ArrayAccess
         $cacheItem->set($callsPerMinute);
         $this->cache->save($cacheItem);
         return false;
-    }
-
-    public function offsetExists($keyId): bool
-    {
-        return $this->keyIdExists($keyId);
-    }
-
-    public function offsetSet($offset, $value): void
-    {
-        throw new LogicException('Method not implemented');
-    }
-
-    public function offsetUnset($offset): void
-    {
-        throw new LogicException('Method not implemented');
     }
 }

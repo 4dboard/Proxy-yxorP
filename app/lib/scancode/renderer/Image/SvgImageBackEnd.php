@@ -98,18 +98,6 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $this->xmlWriter->endElement();
     }
 
-    private function getColorString(ColorInterface $color): string
-    {
-        $color = $color->toRgb();
-
-        return sprintf(
-            '#%02x%02x%02x',
-            $color->getRed(),
-            $color->getGreen(),
-            $color->getBlue()
-        );
-    }
-
     public function scale(float $size): void
     {
         if (null === $this->xmlWriter) {
@@ -196,6 +184,59 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $this->xmlWriter->endElement();
     }
 
+    public function drawPathWithGradient(
+        Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path,
+        Gradient                                              $gradient,
+        float                                                 $x,
+        float                                                 $y,
+        float                                                 $width,
+        float                                                 $height
+    ): void
+    {
+        if (null === $this->xmlWriter) {
+            throw new RuntimeException('No image has been started');
+        }
+
+        $gradientId = $this->createGradientFill($gradient, $x, $y, $width, $height);
+        $this->startPathElement($path);
+        $this->xmlWriter->writeAttribute('fill', 'url(#' . $gradientId . ')');
+        $this->xmlWriter->endElement();
+    }
+
+    public function done(): string
+    {
+        if (null === $this->xmlWriter) {
+            throw new RuntimeException('No image has been started');
+        }
+
+        foreach ($this->stack as $openElements) {
+            for ($i = $openElements; $i > 0; --$i) {
+                $this->xmlWriter->endElement();
+            }
+        }
+
+        $this->xmlWriter->endDocument();
+        $blob = $this->xmlWriter->outputMemory(true);
+        $this->xmlWriter = null;
+        $this->stack = null;
+        $this->currentStack = null;
+        $this->gradientCount = null;
+
+        return $blob;
+    }
+
+    private function getColorString(ColorInterface $color): string
+    {
+        $color = $color->toRgb();
+
+        return sprintf(
+            '#%02x%02x%02x',
+            $color->getRed(),
+            $color->getGreen(),
+            $color->getBlue()
+        );
+    }
+
     private function startPathElement(Path $path): void
     {
         $pathData = [];
@@ -239,25 +280,6 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $this->xmlWriter->startElement('path');
         $this->xmlWriter->writeAttribute('fill-rule', 'evenodd');
         $this->xmlWriter->writeAttribute('d', implode('', $pathData));
-    }
-
-    public function drawPathWithGradient(
-        Path|Path|\yxorP\app\lib\scancode\Renderer\Image\Path $path,
-        Gradient                                              $gradient,
-        float                                                 $x,
-        float                                                 $y,
-        float                                                 $width,
-        float                                                 $height
-    ): void
-    {
-        if (null === $this->xmlWriter) {
-            throw new RuntimeException('No image has been started');
-        }
-
-        $gradientId = $this->createGradientFill($gradient, $x, $y, $width, $height);
-        $this->startPathElement($path);
-        $this->xmlWriter->writeAttribute('fill', 'url(#' . $gradientId . ')');
-        $this->xmlWriter->endElement();
     }
 
     private function createGradientFill(Gradient $gradient, float $x, float $y, float $width, float $height): string
@@ -338,27 +360,5 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $this->xmlWriter->endElement();
 
         return $id;
-    }
-
-    public function done(): string
-    {
-        if (null === $this->xmlWriter) {
-            throw new RuntimeException('No image has been started');
-        }
-
-        foreach ($this->stack as $openElements) {
-            for ($i = $openElements; $i > 0; --$i) {
-                $this->xmlWriter->endElement();
-            }
-        }
-
-        $this->xmlWriter->endDocument();
-        $blob = $this->xmlWriter->outputMemory(true);
-        $this->xmlWriter = null;
-        $this->stack = null;
-        $this->currentStack = null;
-        $this->gradientCount = null;
-
-        return $blob;
     }
 }
