@@ -6,9 +6,6 @@ namespace yxorP\app\lib\scancode\Renderer\Eye;
 use BaconQrCode\Encoder\ByteMatrix;
 use BaconQrCode\Renderer\Module\ModuleInterface;
 use BaconQrCode\Renderer\Path\Path;
-use yxorP\app\lib\scancode\Encoder\byteMatrix;
-use yxorP\app\lib\scancode\Renderer\Module\ModuleInterface;
-use yxorP\app\lib\scancode\Renderer\Path\Path;
 
 /**
  * Renders an eye based on a module renderer.

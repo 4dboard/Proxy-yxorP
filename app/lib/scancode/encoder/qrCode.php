@@ -6,7 +6,6 @@ namespace yxorP\app\lib\scancode\Encoder;
 use BaconQrCode\Common\ErrorCorrectionLevel;
 use BaconQrCode\Common\Mode;
 use BaconQrCode\Common\Version;
-use yxorP\app\lib\scancode\common\errorCorrectionLevel;
 use yxorP\app\lib\scancode\common\mode;
 
 /**
