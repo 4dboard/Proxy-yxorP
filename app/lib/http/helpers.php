@@ -6,6 +6,12 @@ use yxorP\app\lib\proxy\cookie\fileCookieJar;
 
 class helpers
 {
+
+    public static function fnmatch(string $pattern, string $string): bool
+    {
+        return preg_match("#^" . strtr(preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.']) . "$#i", $string);
+    }
+
     public static function getallheaders(): array
     {
         $headers = array();

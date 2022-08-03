@@ -7,6 +7,7 @@ use Exception;
 use FilesystemIterator;
 use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
+use yxorp\app\lib\http\helpers;
 use function call_user_func_array;
 use function count;
 use function dirname;
@@ -69,7 +70,7 @@ class filesystem extends helperAware
 
         foreach ($iter as $file) {
             if ($file->isDot()) continue;
-            if ($pattern && !fnmatch($pattern, $file->getBasename())) continue;
+            if ($pattern && !helpers::fnmatch($pattern, $file->getBasename())) continue;
             $lst[] = $file->isDir() ? clone $file : new FileObject($file->getRealPath());
         }
 
