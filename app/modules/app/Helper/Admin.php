@@ -2,7 +2,6 @@
 
 namespace yxorP\app\modules\app\helper;
 
-use yxorP\app\lib\data\graphQL\Server\Helper;
 use yxorP\app\lib\http\helperAware;
 
 

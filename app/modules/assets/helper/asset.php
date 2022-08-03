@@ -2,7 +2,6 @@
 
 namespace yxorP\app\modules\assets\Helper;
 
-use yxorP\app\lib\data\graphQL\Server\Helper;
 use simpleImageLib as SimpleImage;
 use yxorP\app\lib\http\helperAware;
 use function call_user_func_array;
