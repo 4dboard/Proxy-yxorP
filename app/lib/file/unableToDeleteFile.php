@@ -8,7 +8,7 @@ use Throwable;
 
 final class unableToDeleteFile extends RuntimeException implements filesystemOperationFailedInterface
 {
-    private $location = '';
+    private string $location = '';
     private $reason;
 
     #[Pure] public static function atLocation(string $location, string $reason = '', Throwable $previous = null): unableToDeleteFile

@@ -24,7 +24,7 @@ final class errorCorrectionLevel extends abstractEnum
     /**
      * @var int
      */
-    private $bits;
+    private int $bits;
 
     protected function __construct(int $bits)
     {

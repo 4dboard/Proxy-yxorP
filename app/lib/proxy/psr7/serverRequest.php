@@ -7,12 +7,12 @@ use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
 class serverRequest extends request implements serverRequestInterface
 {
-    private $attributes = [];
-    private $cookieParams = [];
-    private $parsedBody;
-    private $queryParams = [];
-    private $serverParams;
-    private $uploadedFiles = [];
+    private array $attributes = [];
+    private array $cookieParams = [];
+    private array|null|object $parsedBody;
+    private array $queryParams = [];
+    private array $serverParams;
+    private array $uploadedFiles = [];
 
     public function __construct($method, $uri, array $headers = [], $body = null, $version = '1.1', array $serverParams = [])
     {
@@ -87,7 +87,7 @@ class serverRequest extends request implements serverRequestInterface
         return $new;
     }
 
-    public function withParsedBody($data)
+    public function withParsedBody(object|array|null $data)
     {
         $new = clone $this;
         $new->parsedBody = $data;
@@ -173,28 +173,28 @@ class serverRequest extends request implements serverRequestInterface
         return $this->attributes;
     }
 
-    public function getAttribute($attribute, $default = null)
+    public function getAttribute(string $name, mixed $default = null)
     {
-        if (false === array_key_exists($attribute, $this->attributes)) {
+        if (false === array_key_exists($name, $this->attributes)) {
             return $default;
         }
-        return $this->attributes[$attribute];
+        return $this->attributes[$name];
     }
 
-    public function withAttribute($attribute, $value)
+    public function withAttribute(string $name, mixed $value)
     {
         $new = clone $this;
-        $new->attributes[$attribute] = $value;
+        $new->attributes[$name] = $value;
         return $new;
     }
 
-    public function withoutAttribute($attribute)
+    public function withoutAttribute(string $name)
     {
-        if (false === array_key_exists($attribute, $this->attributes)) {
+        if (false === array_key_exists($name, $this->attributes)) {
             return $this;
         }
         $new = clone $this;
-        unset($new->attributes[$attribute]);
+        unset($new->attributes[$name]);
         return $new;
     }
 }

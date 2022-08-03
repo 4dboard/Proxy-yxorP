@@ -45,19 +45,19 @@ use function sprintf;
 class ASTDefinitionBuilder
 {
     /** @var array<string, Node&TypeDefinitionNodeInterface> */
-    private $typeDefinitionsMap;
+    private array $typeDefinitionsMap;
 
     /** @var callable */
     private $typeConfigDecorator;
 
     /** @var array<string, bool> */
-    private $options;
+    private array $options;
 
     /** @var callable */
     private $resolveType;
 
     /** @var array<string, Type> */
-    private $cache;
+    private array $cache;
 
     /**
      * code sniffer doesn't understand this syntax. Pr with a fix here: waiting on https://github.com/squizlabs/PHP_CodeSniffer/pull/2919

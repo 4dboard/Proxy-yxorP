@@ -11,11 +11,11 @@ namespace yxorP\app\lib\data\annotation\attribute;
 final class attribute
 {
     /** @var string */
-    public $name;
+    public string $name;
 
     /** @var string */
-    public $type;
+    public string $type;
 
     /** @var bool */
-    public $required = false;
+    public bool $required = false;
 }

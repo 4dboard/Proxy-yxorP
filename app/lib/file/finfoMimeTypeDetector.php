@@ -10,10 +10,10 @@ use const PATHINFO_EXTENSION;
 class finfoMimeTypeDetector implements mimeTypeDetectorInterface
 {
     private const INCONCLUSIVE_MIME_TYPES = ['application/x-empty', 'text/plain', 'text/x-asm', 'application/octet-stream', 'inode/x-empty',];
-    private $finfo;
-    private $extensionMap;
-    private $bufferSampleSize;
-    private $inconclusiveMimetypes;
+    private finfo $finfo;
+    private generatedExtensionToMimeTypeMap|extensionToMimeTypeMapInterface $extensionMap;
+    private ?int $bufferSampleSize;
+    private array $inconclusiveMimetypes;
 
     public function __construct(string $magicFile = '', extensionToMimeTypeMapInterface $extensionMap = null, ?int $bufferSampleSize = null, array $inconclusiveMimetypes = self::INCONCLUSIVE_MIME_TYPES)
     {

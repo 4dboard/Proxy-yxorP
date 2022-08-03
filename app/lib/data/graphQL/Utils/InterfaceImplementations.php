@@ -15,10 +15,10 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 class InterfaceImplementations
 {
     /** @var array<int, ObjectType> */
-    private $objects;
+    private array $objects;
 
     /** @var array<int, InterfaceType> */
-    private $interfaces;
+    private array $interfaces;
 
     /**
      * @param array<int, ObjectType> $objects

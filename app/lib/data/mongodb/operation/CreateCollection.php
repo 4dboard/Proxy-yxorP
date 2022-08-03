@@ -46,13 +46,13 @@ class CreateCollection implements ExecutableInterface
     public const NO_PADDING = 2;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $options = [];
+    private array $options = [];
 
     /**
      * Constructs a create command.

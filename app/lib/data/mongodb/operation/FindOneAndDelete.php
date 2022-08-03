@@ -35,7 +35,7 @@ use function is_object;
 class FindOneAndDelete implements ExecutableInterface, ExplainableInterface
 {
     /** @var FindAndModify */
-    private $findAndModify;
+    private FindAndModify $findAndModify;
 
     /**
      * Constructs a findAndModify command for deleting a document.

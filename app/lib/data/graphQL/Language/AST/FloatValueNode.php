@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class FloatValueNode extends Node implements ValueNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::FLOAT;
+    public string $kind = NodeKind::FLOAT;
 
     /** @var string */
-    public $value;
+    public string $value;
 }

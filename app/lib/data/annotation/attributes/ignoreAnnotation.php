@@ -17,7 +17,7 @@ use function sprintf;
 final class ignoreAnnotation
 {
     /** @phpstan-var list<string> */
-    public $names;
+    public mixed $names;
 
     /**
      * @throws RuntimeException

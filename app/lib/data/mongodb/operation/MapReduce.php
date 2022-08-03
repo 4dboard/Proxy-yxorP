@@ -56,22 +56,22 @@ use const E_USER_DEPRECATED;
 class MapReduce implements ExecutableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var JavascriptInterface */
-    private $map;
+    private JavascriptInterface $map;
 
     /** @var JavascriptInterface */
-    private $reduce;
+    private JavascriptInterface $reduce;
 
     /** @var array|object|string */
-    private $out;
+    private string|array|object $out;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a mapReduce command.

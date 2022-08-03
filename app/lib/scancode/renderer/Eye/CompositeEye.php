@@ -14,12 +14,12 @@ final class CompositeEye implements EyeInterface
     /**
      * @var EyeInterface
      */
-    private $externalEye;
+    private EyeInterface $externalEye;
 
     /**
      * @var EyeInterface
      */
-    private $internalEye;
+    private EyeInterface $internalEye;
 
     public function __construct(EyeInterface $externalEye, EyeInterface $internalEye)
     {

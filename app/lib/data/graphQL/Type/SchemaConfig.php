@@ -29,31 +29,31 @@ use function is_callable;
 class SchemaConfig
 {
     /** @var ObjectType|null */
-    public $query;
+    public ?ObjectType $query;
 
     /** @var ObjectType|null */
-    public $mutation;
+    public ?ObjectType $mutation;
 
     /** @var ObjectType|null */
-    public $subscription;
+    public ?ObjectType $subscription;
 
     /** @var Type[]|callable */
     public $types = [];
 
     /** @var Directive[]|null */
-    public $directives;
+    public ?array $directives;
 
     /** @var callable|null */
     public $typeLoader;
 
     /** @var SchemaDefinitionNode|null */
-    public $astNode;
+    public ?SchemaDefinitionNode $astNode;
 
     /** @var bool */
-    public $assumeValid = false;
+    public bool $assumeValid = false;
 
     /** @var SchemaTypeExtensionNode[] */
-    public $extensionASTNodes = [];
+    public array $extensionASTNodes = [];
 
     /**
      * Converts an array of options to instance of SchemaConfig

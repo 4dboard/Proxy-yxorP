@@ -14,10 +14,10 @@ use yxorP\app\lib\data\graphQL\Utils\Utils;
 class Promise
 {
     /** @var SyncPromise|ReactPromise */
-    public $adoptedPromise;
+    public mixed $adoptedPromise;
 
     /** @var PromiseAdapterInterface */
-    private $adapter;
+    private PromiseAdapterInterface $adapter;
 
     /**
      * @param mixed $adoptedPromise

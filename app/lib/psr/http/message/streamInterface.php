@@ -86,7 +86,7 @@ interface streamInterface
      *     SEEK_END: Set position to end-of-stream plus offset.
      * @throws RuntimeException on failure.
      */
-    public function seek($offset, $whence = SEEK_SET);
+    public function seek(int $offset, int $whence = SEEK_SET);
 
     /**
      * Seek to the beginning of the stream.
@@ -114,7 +114,7 @@ interface streamInterface
      * @return int Returns the number of bytes written to the stream.
      * @throws RuntimeException on failure.
      */
-    public function write($string);
+    public function write(string $string);
 
     /**
      * Returns whether or not the stream is readable.
@@ -133,7 +133,7 @@ interface streamInterface
      *     if no bytes are available.
      * @throws RuntimeException if an error occurs.
      */
-    public function read($length);
+    public function read(int $length);
 
     /**
      * Returns the remaining contents in a string

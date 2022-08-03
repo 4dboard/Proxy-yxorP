@@ -59,37 +59,37 @@ class localFilesystemAdapter implements filesystemAdapterInterface
     /**
      * @var pathPrefixer
      */
-    private $prefixer;
+    private pathPrefixer $prefixer;
 
     /**
      * @var int
      */
-    private $writeFlags;
+    private int $writeFlags;
 
     /**
      * @var int
      */
-    private $linkHandling;
+    private int $linkHandling;
 
     /**
      * @var visibilityConverterInterface
      */
-    private $visibility;
+    private visibilityConverterInterface|portableVisibilityConverter $visibility;
 
     /**
      * @var mimeTypeDetectorInterface
      */
-    private $mimeTypeDetector;
+    private fallbackMimeTypeDetector|mimeTypeDetectorInterface $mimeTypeDetector;
 
     /**
      * @var string
      */
-    private $rootLocation;
+    private string $rootLocation;
 
     /**
      * @var bool
      */
-    private $rootLocationIsSetup = false;
+    private bool $rootLocationIsSetup = false;
 
     public function __construct(
         string                       $location,
@@ -148,9 +148,9 @@ class localFilesystemAdapter implements filesystemAdapterInterface
     }
 
     /**
-     * @param resource|string $contents
+     * @param string $contents
      */
-    private function writeToFile(string $path, $contents, config $config): void
+    private function writeToFile(string $path, string $contents, config $config): void
     {
         $prefixedLocation = $this->prefixer->prefixPath($path);
         $this->ensureRootDirectoryExists();

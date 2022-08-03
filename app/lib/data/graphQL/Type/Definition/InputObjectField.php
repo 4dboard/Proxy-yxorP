@@ -16,19 +16,19 @@ use function sprintf;
 class InputObjectField
 {
     /** @var string */
-    public $name;
+    public string $name;
 
     /** @var mixed|null */
-    public $defaultValue;
+    public mixed $defaultValue;
 
     /** @var string|null */
-    public $description;
+    public ?string $description;
     /** @var InputValueDefinitionNode|null */
-    public $astNode;
+    public ?InputValueDefinitionNode $astNode;
     /** @var array */
-    public $config;
+    public array $config;
     /** @var Type&InputType */
-    private $type;
+    private InputType&Type $type;
 
     /**
      * @param array $opts

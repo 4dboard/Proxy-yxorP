@@ -21,7 +21,7 @@ final class DotsModule implements ModuleInterface
     /**
      * @var float
      */
-    private $size;
+    private float $size;
 
     public function __construct(float $size)
     {

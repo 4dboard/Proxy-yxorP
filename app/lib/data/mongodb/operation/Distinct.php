@@ -45,19 +45,19 @@ use function MongoDB\create_field_path_type_map;
 class Distinct implements ExecutableInterface, ExplainableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var string */
-    private $fieldName;
+    private string $fieldName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a distinct command.

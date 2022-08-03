@@ -49,22 +49,22 @@ use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 class Update implements ExecutableInterface, ExplainableInterface
 {
     /** @var integer */
-    private static $wireVersionForHint = 8;
+    private static int $wireVersionForHint = 8;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var array|object */
-    private $update;
+    private array|object $update;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a update command.

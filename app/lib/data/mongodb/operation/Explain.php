@@ -45,16 +45,16 @@ class Explain implements ExecutableInterface
     public const VERBOSITY_QUERY = 'queryPlanner';
 
     /** @var integer */
-    private static $wireVersionForAggregate = 7;
+    private static int $wireVersionForAggregate = 7;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var ExplainableInterface */
-    private $explainable;
+    private ExplainableInterface $explainable;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs an explain command for explainable operations.

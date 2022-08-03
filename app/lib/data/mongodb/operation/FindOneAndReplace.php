@@ -40,7 +40,7 @@ class FindOneAndReplace implements ExecutableInterface, ExplainableInterface
     public const RETURN_DOCUMENT_AFTER = 2;
 
     /** @var FindAndModify */
-    private $findAndModify;
+    private FindAndModify $findAndModify;
 
     /**
      * Constructs a findAndModify command for replacing a document.

@@ -8,8 +8,8 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 
 class cookieJar implements cookieJarInterface
 {
-    private $cookies = [];
-    private $strictMode;
+    private array $cookies = [];
+    private mixed $strictMode;
 
     public function __construct($strictMode = false, $cookieArray = [])
     {

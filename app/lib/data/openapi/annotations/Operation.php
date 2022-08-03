@@ -21,11 +21,11 @@ abstract class Operation extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_required = ['responses'];
+    public static array $_required = ['responses'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'path' => 'string',
         'method' => 'string',
         'tags' => '[string]',
@@ -36,7 +36,7 @@ abstract class Operation extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Parameter::class => ['parameters'],
         Response::class => ['responses', 'response'],
         ExternalDocumentation::class => 'externalDocs',
@@ -49,40 +49,40 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var string
      */
-    public $path = Generator::UNDEFINED;
+    public string $path = Generator::UNDEFINED;
     /**
      * A list of tags for API documentation control.
      * Tags can be used for logical grouping of operations by resources or any other qualifier.
      *
      * @var string[]
      */
-    public $tags = Generator::UNDEFINED;
+    public string|array $tags = Generator::UNDEFINED;
     /**
      * Key in the OpenApi "Path Item Object" for this operation.
      * Allowed values: 'get', 'post', put', 'patch', 'delete', 'options', 'head' and 'trace'.
      *
      * @var string
      */
-    public $method = Generator::UNDEFINED;
+    public string $method = Generator::UNDEFINED;
     /**
      * A short summary of what the operation does.
      *
      * @var string
      */
-    public $summary = Generator::UNDEFINED;
+    public string $summary = Generator::UNDEFINED;
     /**
      * A verbose explanation of the operation behavior.
      * CommonMark syntax MAY be used for rich text representation.
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * Additional external documentation for this operation.
      *
      * @var ExternalDocumentation
      */
-    public $externalDocs = Generator::UNDEFINED;
+    public string|ExternalDocumentation $externalDocs = Generator::UNDEFINED;
     /**
      * Unique string used to identify the operation.
      * The id must be unique among all operations described in the API.
@@ -90,7 +90,7 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var string
      */
-    public $operationId = Generator::UNDEFINED;
+    public string $operationId = Generator::UNDEFINED;
     /**
      * A list of parameters that are applicable for this operation.
      * If a parameter is already defined at the Path Item, the new definition will override it but can never remove it.
@@ -100,7 +100,7 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var Parameter[]
      */
-    public $parameters = Generator::UNDEFINED;
+    public string|array $parameters = Generator::UNDEFINED;
     /**
      * The request body applicable for this operation.
      * The requestBody is only supported in HTTP methods where the HTTP 1.1 specification RFC7231 has explicitly defined semantics for request bodies.
@@ -108,13 +108,13 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var RequestBody
      */
-    public $requestBody = Generator::UNDEFINED;
+    public string|RequestBody $requestBody = Generator::UNDEFINED;
     /**
      * The list of possible responses as they are returned from executing this operation.
      *
      * @var Response[]
      */
-    public $responses = Generator::UNDEFINED;
+    public string|array $responses = Generator::UNDEFINED;
     /**
      * A map of possible out-of band callbacks related to the parent operation.
      * The key is a unique identifier for the Callback Object.
@@ -123,7 +123,7 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var callable[]
      */
-    public $callbacks = Generator::UNDEFINED;
+    public string|array $callbacks = Generator::UNDEFINED;
     /**
      * Declares this operation to be deprecated.
      * Consumers should refrain from usage of the declared operation.
@@ -131,7 +131,7 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var bool
      */
-    public $deprecated = Generator::UNDEFINED;
+    public string|bool $deprecated = Generator::UNDEFINED;
     /**
      * A declaration of which security mechanisms can be used for this operation.
      * The list of values includes alternative security requirement objects that can be used.
@@ -141,14 +141,14 @@ abstract class Operation extends AbstractAnnotation
      *
      * @var array
      */
-    public $security = Generator::UNDEFINED;
+    public string|array $security = Generator::UNDEFINED;
     /**
      * An alternative server array to service this operation.
      * If an alternative server object is specified at the Path Item Object or Root level, it will be overridden by this value.
      *
      * @var Server[]
      */
-    public $servers = Generator::UNDEFINED;
+    public string|array $servers = Generator::UNDEFINED;
 
     /**
      * @inheritdoc

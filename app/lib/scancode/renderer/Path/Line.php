@@ -10,12 +10,12 @@ final class Line implements OperationInterface
     /**
      * @var float
      */
-    private $x;
+    private float $x;
 
     /**
      * @var float
      */
-    private $y;
+    private float $y;
 
     public function __construct(float $x, float $y)
     {

@@ -97,7 +97,7 @@ class Mailer
 
 class Mailer_Message
 {
-    public $mail;
+    public \PHPMailer $mail;
 
     public function __construct(PHPMailer $mail)
     {

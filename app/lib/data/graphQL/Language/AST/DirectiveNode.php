@@ -7,11 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class DirectiveNode extends Node
 {
     /** @var string */
-    public $kind = NodeKind::DIRECTIVE;
+    public string $kind = NodeKind::DIRECTIVE;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<ArgumentNode> */
-    public $arguments;
+    public NodeList $arguments;
 }

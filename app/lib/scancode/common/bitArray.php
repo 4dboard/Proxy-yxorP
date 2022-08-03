@@ -16,14 +16,14 @@ final class bitArray
      *
      * @var SplFixedArray<int>
      */
-    private $bits;
+    private SplFixedArray $bits;
 
     /**
      * Size of the bit array in bits.
      *
      * @var int
      */
-    private $size;
+    private int $size;
 
     /**
      * Creates a new bit array with a given size.

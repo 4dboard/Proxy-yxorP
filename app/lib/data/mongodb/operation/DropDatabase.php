@@ -38,10 +38,10 @@ use function is_array;
 class DropDatabase implements ExecutableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a dropDatabase command.

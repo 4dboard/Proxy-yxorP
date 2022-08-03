@@ -5,7 +5,7 @@ namespace yxorP\app\lib\twoFactor\Providers\Rng;
 class MCryptRNGProvider implements IRNGProviderInterface
 {
     /** @var int */
-    private $source;
+    private int $source;
 
     /**
      * @param int $source

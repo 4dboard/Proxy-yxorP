@@ -36,22 +36,22 @@ use function count;
 class ValidationContext extends ASTValidationContext
 {
     /** @var TypeInfo */
-    private $typeInfo;
+    private TypeInfo $typeInfo;
 
     /** @var FragmentDefinitionNode[] */
-    private $fragments;
+    private array $fragments;
 
     /** @var SplObjectStorage */
-    private $fragmentSpreads;
+    private SplObjectStorage $fragmentSpreads;
 
     /** @var SplObjectStorage */
-    private $recursivelyReferencedFragments;
+    private SplObjectStorage $recursivelyReferencedFragments;
 
     /** @var SplObjectStorage */
-    private $variableUsages;
+    private SplObjectStorage $variableUsages;
 
     /** @var SplObjectStorage */
-    private $recursiveVariableUsages;
+    private SplObjectStorage $recursiveVariableUsages;
 
     #[Pure] public function __construct(Schema $schema, DocumentNode $ast, TypeInfo $typeInfo)
     {
@@ -200,7 +200,7 @@ class ValidationContext extends ASTValidationContext
      *
      * @return FragmentDefinitionNode|null
      */
-    public function getFragment($name)
+    public function getFragment(string $name)
     {
         $fragments = $this->fragments;
         if (!$fragments) {

@@ -7,20 +7,20 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class InterfaceTypeDefinitionNode extends Node implements TypeDefinitionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::INTERFACE_TYPE_DEFINITION;
+    public string $kind = NodeKind::INTERFACE_TYPE_DEFINITION;
 
     /** @var NameNode */
     public $name;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var NodeList<NamedTypeNode> */
-    public $interfaces;
+    public NodeList $interfaces;
 
     /** @var NodeList<FieldDefinitionNode> */
-    public $fields;
+    public NodeList $fields;
 
     /** @var StringValueNode|null */
-    public $description;
+    public ?StringValueNode $description;
 }

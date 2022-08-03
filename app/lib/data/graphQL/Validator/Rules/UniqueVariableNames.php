@@ -15,7 +15,7 @@ use function sprintf;
 class UniqueVariableNames extends ValidationRule
 {
     /** @var NameNode[] */
-    public $knownVariableNames;
+    public array $knownVariableNames;
 
     #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {

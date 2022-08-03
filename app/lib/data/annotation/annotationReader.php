@@ -13,14 +13,14 @@ use function ini_get;
 
 class annotationReader
 {
-    private static $globalImports = ['ignoreannotation' => Annotation\IgnoreAnnotation::class,];
-    private static $globalIgnoredNames = implicitlyIgnoredAnnotationNames::LIST;
-    private static $globalIgnoredNamespaces = [];
-    private $parser;
-    private $preParser;
-    private $phpParser;
-    private $imports = [];
-    private $ignoredAnnotationNames = [];
+    private static array $globalImports = ['ignoreannotation' => Annotation\IgnoreAnnotation::class,];
+    private static array $globalIgnoredNames = implicitlyIgnoredAnnotationNames::LIST;
+    private static array $globalIgnoredNamespaces = [];
+    private docParser $parser;
+    private docParser $preParser;
+    private phpParser $phpParser;
+    private array $imports = [];
+    private array $ignoredAnnotationNames = [];
 
     /**
      * @throws \yxorP\app\lib\data\annotation\annotationException

@@ -7,17 +7,17 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class EnumTypeDefinitionNode extends Node implements TypeDefinitionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::ENUM_TYPE_DEFINITION;
+    public string $kind = NodeKind::ENUM_TYPE_DEFINITION;
 
     /** @var NameNode */
     public $name;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var NodeList<EnumValueDefinitionNode> */
-    public $values;
+    public NodeList $values;
 
     /** @var StringValueNode|null */
-    public $description;
+    public ?StringValueNode $description;
 }

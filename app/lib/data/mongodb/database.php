@@ -31,14 +31,14 @@ use function strlen;
 
 class database
 {
-    private static $defaultTypeMap = ['array' => BSONArray::class, 'document' => BSONDocument::class, 'root' => BSONDocument::class,];
-    private static $wireVersionForReadConcernWithWriteStage = 8;
-    private $databaseName;
-    private $manager;
-    private $readConcern;
-    private $readPreference;
-    private $typeMap;
-    private $writeConcern;
+    private static array $defaultTypeMap = ['array' => BSONArray::class, 'document' => BSONDocument::class, 'root' => BSONDocument::class,];
+    private static int $wireVersionForReadConcernWithWriteStage = 8;
+    private string $databaseName;
+    private Manager $manager;
+    private \yxorP\app\lib\data\mongoDB\ReadConcern $readConcern;
+    private ReadPreference $readPreference;
+    private array $typeMap;
+    private \yxorP\app\lib\data\mongoDB\WriteConcern $writeConcern;
 
     public function __construct(Manager $manager, $databaseName, array $options = [])
     {

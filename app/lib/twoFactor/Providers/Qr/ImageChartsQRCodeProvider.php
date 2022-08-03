@@ -6,10 +6,10 @@ namespace yxorP\app\lib\twoFactor\Providers\Qr;
 class ImageChartsQRCodeProvider extends BaseHTTPQRCodeProvider
 {
     /** @var string */
-    public $errorcorrectionlevel;
+    public string $errorcorrectionlevel;
 
     /** @var int */
-    public $margin;
+    public int $margin;
 
     /**
      * @param bool $verifyssl

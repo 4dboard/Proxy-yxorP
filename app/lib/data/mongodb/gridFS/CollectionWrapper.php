@@ -39,19 +39,19 @@ use function sprintf;
 class CollectionWrapper
 {
     /** @var string */
-    private $bucketName;
+    private string $bucketName;
 
     /** @var collection */
-    private $chunksCollection;
+    private collection $chunksCollection;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var boolean */
-    private $checkedIndexes = false;
+    private bool $checkedIndexes = false;
 
     /** @var collection */
-    private $filesCollection;
+    private collection $filesCollection;
 
     /**
      * Constructs a GridFS collection wrapper.

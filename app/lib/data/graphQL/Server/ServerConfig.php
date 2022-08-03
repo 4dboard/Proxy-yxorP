@@ -32,7 +32,7 @@ use function ucfirst;
 class ServerConfig
 {
     /** @var Schema|null */
-    private $schema;
+    private ?Schema $schema;
     /** @var mixed|callable */
     private $context;
     /** @var mixed|callable */
@@ -42,15 +42,15 @@ class ServerConfig
     /** @var callable|null */
     private $errorsHandler;
     /** @var int */
-    private $debugFlag = DebugFlag::NONE;
+    private int $debugFlag = DebugFlag::NONE;
     /** @var bool */
-    private $queryBatching = false;
+    private bool $queryBatching = false;
     /** @var ValidationRule[]|callable|null */
     private $validationRules;
     /** @var callable|null */
     private $fieldResolver;
     /** @var PromiseAdapterInterface|null */
-    private $promiseAdapter;
+    private ?PromiseAdapterInterface $promiseAdapter;
     /** @var callable|null */
     private $persistentQueryLoader;
 

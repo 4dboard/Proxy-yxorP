@@ -7,7 +7,7 @@ use ReflectionProperty;
 
 class simpleAnnotationReader implements readerInterface
 {
-    private $parser;
+    private docParser $parser;
 
     public function __construct()
     {

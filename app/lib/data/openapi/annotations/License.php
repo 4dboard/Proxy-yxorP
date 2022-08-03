@@ -19,24 +19,24 @@ class License extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'name' => 'string',
         'url' => 'string',
     ];
     /**
      * @inheritdoc
      */
-    public static $_required = ['name'];
+    public static array $_required = ['name'];
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Info::class,
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -44,11 +44,11 @@ class License extends AbstractAnnotation
      *
      * @var string
      */
-    public $name = Generator::UNDEFINED;
+    public string $name = Generator::UNDEFINED;
     /**
      * A URL to the license used for the API.
      *
      * @var string
      */
-    public $url = Generator::UNDEFINED;
+    public string $url = Generator::UNDEFINED;
 }

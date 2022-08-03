@@ -43,7 +43,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @var PairSet
      */
-    private $comparedFragmentPairs;
+    private PairSet $comparedFragmentPairs;
 
     /**
      * A cache for the "field map" and list of fragment names found in any given
@@ -52,7 +52,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @var SplObjectStorage
      */
-    private $cachedFieldsAndFragmentNames;
+    private SplObjectStorage $cachedFieldsAndFragmentNames;
 
     #[ArrayShape([NodeKind::SELECTION_SET => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
@@ -90,7 +90,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function findConflictsWithinSelectionSet(
         ValidationContext $context,
-                          $parentType,
+        CompositeType     $parentType,
         SelectionSetNode  $selectionSet
     )
     {
@@ -154,7 +154,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function getFieldsAndFragmentNames(
         ValidationContext $context,
-                          $parentType,
+        CompositeType     $parentType,
         SelectionSetNode  $selectionSet
     )
     {
@@ -242,7 +242,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function internalCollectFieldsAndFragmentNames(
         ValidationContext $context,
-                          $parentType,
+        CompositeType     $parentType,
         SelectionSetNode  $selectionSet,
         array             &$astAndDefs,
         array             &$fragmentNames
@@ -345,8 +345,8 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function findConflict(
         ValidationContext $context,
-                          $parentFieldsAreMutuallyExclusive,
-                          $responseName,
+        bool              $parentFieldsAreMutuallyExclusive,
+        string            $responseName,
         array             $field1,
         array             $field2
     )
@@ -435,7 +435,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @return bool
      */
-    private function sameArguments($arguments1, $arguments2)
+    private function sameArguments(array $arguments1, array $arguments2)
     {
         if (count($arguments1) !== count($arguments2)) {
             return false;
@@ -507,10 +507,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function findConflictsBetweenSubSelectionSets(
         ValidationContext $context,
-                          $areMutuallyExclusive,
-                          $parentType1,
+        bool              $areMutuallyExclusive,
+        CompositeType     $parentType1,
         SelectionSetNode  $selectionSet1,
-                          $parentType2,
+        CompositeType     $parentType2,
         SelectionSetNode  $selectionSet2
     )
     {
@@ -603,7 +603,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     private function collectConflictsBetween(
         ValidationContext $context,
         array             &$conflicts,
-                          $parentFieldsAreMutuallyExclusive,
+        bool              $parentFieldsAreMutuallyExclusive,
         array             $fieldMap1,
         array             $fieldMap2
     )
@@ -654,9 +654,9 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         ValidationContext $context,
         array             &$conflicts,
         array             &$comparedFragments,
-                          $areMutuallyExclusive,
+        bool              $areMutuallyExclusive,
         array             $fieldMap,
-                          $fragmentName
+        string            $fragmentName
     )
     {
         if (isset($comparedFragments[$fragmentName])) {
@@ -740,9 +740,9 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     private function collectConflictsBetweenFragments(
         ValidationContext $context,
         array             &$conflicts,
-                          $areMutuallyExclusive,
-                          $fragmentName1,
-                          $fragmentName2
+        bool              $areMutuallyExclusive,
+        string            $fragmentName1,
+        string            $fragmentName2
     )
     {
         // No need to compare a fragment to itself.
@@ -828,7 +828,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function subfieldConflicts(
         array     $conflicts,
-                  $responseName,
+        string    $responseName,
         FieldNode $ast1,
         FieldNode $ast2
     )
@@ -868,7 +868,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * @param string $responseName
      * @param string $reason
      */
-    public static function fieldsConflictMessage($responseName, $reason)
+    public static function fieldsConflictMessage(string $responseName, string $reason)
     {
         $reasonMessage = self::reasonMessage($reason);
 

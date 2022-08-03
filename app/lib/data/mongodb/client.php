@@ -21,14 +21,14 @@ use function is_string;
 
 class client
 {
-    private static $defaultTypeMap = ['array' => BSONArray::class, 'document' => BSONDocument::class, 'root' => BSONDocument::class,];
-    private static $handshakeSeparator = ' / ';
+    private static array $defaultTypeMap = ['array' => BSONArray::class, 'document' => BSONDocument::class, 'root' => BSONDocument::class,];
+    private static string $handshakeSeparator = ' / ';
     private static $version;
-    private $manager;
+    private Manager $manager;
     private $readConcern;
     private $readPreference;
-    private $uri;
-    private $typeMap;
+    private string $uri;
+    private ?array $typeMap;
     private $writeConcern;
 
     public function __construct($uri = 'mongodb://127.0.0.1/', array $uriOptions = [], array $driverOptions = [])

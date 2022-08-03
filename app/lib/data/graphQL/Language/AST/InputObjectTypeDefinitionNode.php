@@ -7,17 +7,17 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class InputObjectTypeDefinitionNode extends Node implements TypeDefinitionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::INPUT_OBJECT_TYPE_DEFINITION;
+    public string $kind = NodeKind::INPUT_OBJECT_TYPE_DEFINITION;
 
     /** @var NameNode */
     public $name;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var NodeList<InputValueDefinitionNode> */
-    public $fields;
+    public NodeList $fields;
 
     /** @var StringValueNode|null */
-    public $description;
+    public ?StringValueNode $description;
 }

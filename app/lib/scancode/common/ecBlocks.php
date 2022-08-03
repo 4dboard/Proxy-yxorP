@@ -19,14 +19,14 @@ final class ecBlocks
      *
      * @var int
      */
-    private $ecCodewordsPerBlock;
+    private int $ecCodewordsPerBlock;
 
     /**
      * List of EC blocks.
      *
      * @var ecBlock[]
      */
-    private $ecBlocks;
+    private array $ecBlocks;
 
     public function __construct(int $ecCodewordsPerBlock, ecBlock ...$ecBlocks)
     {

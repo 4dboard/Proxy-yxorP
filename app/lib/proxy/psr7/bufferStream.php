@@ -5,8 +5,8 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 
 class bufferStream implements streamInterface
 {
-    private $hwm;
-    private $buffer = '';
+    private mixed $hwm;
+    private string $buffer = '';
 
     public function __construct($hwm = 16384)
     {
@@ -60,7 +60,7 @@ class bufferStream implements streamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         throw new RuntimeException('Cannot seek a BufferStream');
     }
@@ -75,7 +75,7 @@ class bufferStream implements streamInterface
         throw new RuntimeException('Cannot determine the position of a BufferStream');
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         $currentLength = strlen($this->buffer);
         if ($length >= $currentLength) {
@@ -88,7 +88,7 @@ class bufferStream implements streamInterface
         return $result;
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         $this->buffer .= $string;
         if (strlen($this->buffer) >= $this->hwm) {

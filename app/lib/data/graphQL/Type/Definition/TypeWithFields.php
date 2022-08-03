@@ -14,7 +14,7 @@ abstract class TypeWithFields extends Type implements HasFieldsType
      *
      * @var array<string, FieldDefinition>
      */
-    private $fields;
+    private array $fields;
 
     public function getField(string $name): FieldDefinition
     {

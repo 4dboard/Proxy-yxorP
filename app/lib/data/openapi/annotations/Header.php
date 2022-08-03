@@ -17,25 +17,25 @@ class Header extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_required = ['header', 'schema'];
+    public static array $_required = ['header', 'schema'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'header' => 'string',
         'description' => 'string',
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Schema::class => 'schema',
         Attachable::class => ['attachables'],
     ];
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Components::class,
         Response::class,
     ];
@@ -44,33 +44,33 @@ class Header extends AbstractAnnotation
      *
      * @var string
      */
-    public $ref = Generator::UNDEFINED;
+    public string $ref = Generator::UNDEFINED;
     /**
      * @var string
      */
-    public $header = Generator::UNDEFINED;
+    public string $header = Generator::UNDEFINED;
     /**
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * A brief description of the parameter. This could contain examples of use. CommonMark syntax MAY be used for rich text representation.
      *
      * @var bool
      */
-    public $required = Generator::UNDEFINED;
+    public string|bool $required = Generator::UNDEFINED;
     /**
      * Schema object.
      *
      * @var Schema
      */
-    public $schema = Generator::UNDEFINED;
+    public Schema|string $schema = Generator::UNDEFINED;
     /**
      * Specifies that a parameter is deprecated and SHOULD be transitioned out of usage.
      *
      * @var bool
      */
-    public $deprecated = Generator::UNDEFINED;
+    public string|bool $deprecated = Generator::UNDEFINED;
     /**
      * Sets the ability to pass empty-valued parameters.
      * This is valid only for query parameters and allows sending a parameter with an empty value.
@@ -79,5 +79,5 @@ class Header extends AbstractAnnotation
      *
      * @var bool
      */
-    public $allowEmptyValue = Generator::UNDEFINED;
+    public string|bool $allowEmptyValue = Generator::UNDEFINED;
 }

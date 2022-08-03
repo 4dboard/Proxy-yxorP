@@ -21,31 +21,31 @@ use yxorP\app\lib\data\graphQL\Type\Schema;
 class ExecutionContext
 {
     /** @var Schema */
-    public $schema;
+    public Schema $schema;
 
     /** @var FragmentDefinitionNode[] */
-    public $fragments;
+    public array $fragments;
 
     /** @var mixed */
-    public $rootValue;
+    public mixed $rootValue;
 
     /** @var mixed */
-    public $contextValue;
+    public mixed $contextValue;
 
     /** @var OperationDefinitionNode */
-    public $operation;
+    public OperationDefinitionNode $operation;
 
     /** @var array */
-    public $variableValues;
+    public array $variableValues;
 
     /** @var callable */
     public $fieldResolver;
 
     /** @var Error[] */
-    public $errors;
+    public array $errors;
 
     /** @var PromiseAdapterInterface */
-    public $promiseAdapter;
+    public PromiseAdapterInterface $promiseAdapter;
 
     public function __construct(
         $schema,

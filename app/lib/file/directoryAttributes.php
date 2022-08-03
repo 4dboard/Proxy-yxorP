@@ -8,11 +8,11 @@ class directoryAttributes implements storageAttributesInterface
 {
     use proxyArrayAccessToPropertiesTrait;
 
-    private $type = storageAttributesInterface::TYPE_DIRECTORY;
-    private $path;
-    private $visibility;
-    private $lastModified;
-    private $extraMetadata;
+    private string $type = storageAttributesInterface::TYPE_DIRECTORY;
+    private string $path;
+    private ?string $visibility;
+    private ?int $lastModified;
+    private array $extraMetadata;
 
     public function __construct(string $path, ?string $visibility = null, ?int $lastModified = null, array $extraMetadata = [])
     {

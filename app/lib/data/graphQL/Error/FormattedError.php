@@ -44,7 +44,7 @@ use function strlen;
 class FormattedError
 {
     /** @var string */
-    private static $internalErrorMessage = 'Internal server error';
+    private static string $internalErrorMessage = 'Internal server error';
 
     /**
      * Set default error message for internal errors formatted using createFormattedError().

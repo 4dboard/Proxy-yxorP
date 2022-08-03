@@ -7,14 +7,14 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class InlineFragmentNode extends Node implements SelectionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::INLINE_FRAGMENT;
+    public string $kind = NodeKind::INLINE_FRAGMENT;
 
     /** @var NamedTypeNode */
-    public $typeCondition;
+    public NamedTypeNode $typeCondition;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var SelectionSetNode */
-    public $selectionSet;
+    public SelectionSetNode $selectionSet;
 }

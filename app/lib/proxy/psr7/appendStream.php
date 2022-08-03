@@ -7,10 +7,10 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 
 class appendStream implements streamInterface
 {
-    private $streams = [];
-    private $seekable = true;
-    private $current = 0;
-    private $pos = 0;
+    private array $streams = [];
+    private bool $seekable = true;
+    private int $current = 0;
+    private int $pos = 0;
 
     public function __construct(array $streams = [])
     {
@@ -55,7 +55,7 @@ class appendStream implements streamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         if (!$this->seekable) {
             throw new RuntimeException('This AppendStream is not seekable');
@@ -83,7 +83,7 @@ class appendStream implements streamInterface
         return !$this->streams || ($this->current >= count($this->streams) - 1 && $this->streams[$this->current]->eof());
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         $buffer = '';
         $total = count($this->streams) - 1;
@@ -157,7 +157,7 @@ class appendStream implements streamInterface
         return false;
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         throw new RuntimeException('Cannot write to an AppendStream');
     }

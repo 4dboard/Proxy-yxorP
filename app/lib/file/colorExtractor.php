@@ -7,7 +7,7 @@ use SplPriorityQueue;
 
 class colorExtractor
 {
-    protected $palette;
+    protected palette $palette;
     protected $sortedColors;
 
     public function __construct(palette $palette)

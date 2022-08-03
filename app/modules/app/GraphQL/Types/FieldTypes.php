@@ -8,8 +8,8 @@ use yxorP\app\modules\app\graphQL\Type\Definition\Type;
 class fieldTypes
 {
 
-    protected static $types = [];
-    protected static $names = [];
+    protected static array $types = [];
+    protected static array $names = [];
 
     public static function buildFieldsDefinitions($meta)
     {

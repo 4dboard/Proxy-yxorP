@@ -74,19 +74,19 @@ use function sprintf;
 class DocumentValidator
 {
     /** @var ValidationRule[] */
-    private static $rules = [];
+    private static array $rules = [];
 
     /** @var ValidationRule[]|null */
-    private static $defaultRules;
+    private static ?array $defaultRules;
 
     /** @var QuerySecurityRule[]|null */
-    private static $securityRules;
+    private static ?array $securityRules;
 
     /** @var ValidationRule[]|null */
-    private static $sdlRules;
+    private static ?array $sdlRules;
 
     /** @var bool */
-    private static $initRules = false;
+    private static bool $initRules = false;
 
     /**
      * Primary method for query validation. See class description for details.
@@ -227,7 +227,7 @@ class DocumentValidator
      *
      * @api
      */
-    public static function getRule($name)
+    public static function getRule(string $name)
     {
         $rules = static::allRules();
 

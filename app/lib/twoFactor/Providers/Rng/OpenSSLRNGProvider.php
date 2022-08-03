@@ -5,7 +5,7 @@ namespace yxorP\app\lib\twoFactor\Providers\Rng;
 class OpenSSLRNGProvider implements IRNGProviderInterface
 {
     /** @var bool */
-    private $requirestrong;
+    private bool $requirestrong;
 
     /**
      * @param bool $requirestrong

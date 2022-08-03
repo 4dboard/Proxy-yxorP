@@ -6,7 +6,7 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 
 class seekException extends RuntimeException implements proxyException
 {
-    private $stream;
+    private streamInterface $stream;
 
     #[Pure] public function __construct(streamInterface $stream, $pos = 0, $msg = '')
     {

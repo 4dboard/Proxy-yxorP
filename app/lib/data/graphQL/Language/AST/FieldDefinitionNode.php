@@ -7,20 +7,20 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class FieldDefinitionNode extends Node
 {
     /** @var string */
-    public $kind = NodeKind::FIELD_DEFINITION;
+    public string $kind = NodeKind::FIELD_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<InputValueDefinitionNode> */
-    public $arguments;
+    public NodeList $arguments;
 
     /** @var NamedTypeNode|ListTypeNode|NonNullTypeNode */
-    public $type;
+    public NamedTypeNode|ListTypeNode|NonNullTypeNode $type;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var StringValueNode|null */
-    public $description;
+    public ?StringValueNode $description;
 }

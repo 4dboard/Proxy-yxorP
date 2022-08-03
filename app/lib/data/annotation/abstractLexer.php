@@ -17,9 +17,9 @@ abstract class abstractLexer
     public $lookahead;
     public $token;
     private $input;
-    private $tokens = [];
-    private $position = 0;
-    private $peek = 0;
+    private array $tokens = [];
+    private int $position = 0;
+    private int $peek = 0;
     private $regex;
 
     public function setInput($input)

@@ -8,7 +8,7 @@ class module extends appAware
 {
     public ?string $_dir = null;
     public ?string $_bootfile = null;
-    protected $apis = [];
+    protected array $apis = [];
 
     public function bindApp(App $app)
     {

@@ -24,15 +24,15 @@ use const JSON_OBJECT_AS_ARRAY;
 final class json5Decoder
 {
     private $json;
-    private $length;
-    private $at = 0;
-    private $currentByte;
-    private $lineNumber = 1;
-    private $associative = false;
-    private $maxDepth = 512;
-    private $castBigIntToString = false;
-    private $depth = 1;
-    private $currentLineStartsAt = 0;
+    private int $length;
+    private int $at = 0;
+    private mixed $currentByte;
+    private int $lineNumber = 1;
+    private mixed $associative = false;
+    private mixed $maxDepth = 512;
+    private mixed $castBigIntToString = false;
+    private int $depth = 1;
+    private int $currentLineStartsAt = 0;
 
     private function __construct($json, $associative = false, $depth = 512, $castBigIntToString = false)
     {

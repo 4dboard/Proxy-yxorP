@@ -24,7 +24,7 @@ use function substr;
 class auth extends base
 {
 
-    protected $layout = 'app:layouts/canvas.php';
+    protected bool $layout = 'app:layouts/canvas.php';
 
     public function login()
     {

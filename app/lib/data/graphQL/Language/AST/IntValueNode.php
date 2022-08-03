@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class IntValueNode extends Node implements ValueNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::INT;
+    public string $kind = NodeKind::INT;
 
     /** @var string */
-    public $value;
+    public string $value;
 }

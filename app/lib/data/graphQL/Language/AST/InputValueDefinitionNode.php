@@ -7,20 +7,20 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class InputValueDefinitionNode extends Node
 {
     /** @var string */
-    public $kind = NodeKind::INPUT_VALUE_DEFINITION;
+    public string $kind = NodeKind::INPUT_VALUE_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NamedTypeNode|ListTypeNode|NonNullTypeNode */
-    public $type;
+    public NamedTypeNode|ListTypeNode|NonNullTypeNode $type;
 
     /** @var VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode|null */
-    public $defaultValue;
+    public ObjectValueNode|EnumValueNode|FloatValueNode|BooleanValueNode|null|StringValueNode|IntValueNode|VariableNode|NullValueNode|ListValueNode $defaultValue;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var StringValueNode|null */
-    public $description;
+    public ?StringValueNode $description;
 }

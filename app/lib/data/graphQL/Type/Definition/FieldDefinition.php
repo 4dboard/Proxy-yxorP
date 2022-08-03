@@ -24,10 +24,10 @@ class FieldDefinition
     public const DEFAULT_COMPLEXITY_FN = 'GraphQL\Type\Definition\FieldDefinition::defaultComplexity';
 
     /** @var string */
-    public $name;
+    public mixed $name;
 
     /** @var FieldArgument[] */
-    public $args;
+    public array $args;
 
     /**
      * Callback for resolving field value given parent value.
@@ -46,23 +46,23 @@ class FieldDefinition
     public $mapFn;
 
     /** @var string|null */
-    public $description;
+    public mixed $description;
 
     /** @var string|null */
-    public $deprecationReason;
+    public mixed $deprecationReason;
 
     /** @var FieldDefinitionNode|null */
-    public $astNode;
+    public mixed $astNode;
 
     /**
      * Original field definition config
      *
      * @var array
      */
-    public $config;
+    public array $config;
 
     /** @var OutputType&Type */
-    private $type;
+    private OutputType&Type $type;
 
     /** @var callable|string */
     private $complexityFn;

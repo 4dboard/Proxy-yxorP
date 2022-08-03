@@ -41,19 +41,19 @@ use function is_integer;
 class ListIndexes implements ExecutableInterface
 {
     /** @var integer */
-    private static $errorCodeDatabaseNotFound = 60;
+    private static int $errorCodeDatabaseNotFound = 60;
 
     /** @var integer */
-    private static $errorCodeNamespaceNotFound = 26;
+    private static int $errorCodeNamespaceNotFound = 26;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a listIndexes command.

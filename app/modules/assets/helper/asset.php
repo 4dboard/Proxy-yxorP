@@ -215,7 +215,7 @@ class Asset extends helperAware
 class Img
 {
 
-    protected $image;
+    protected SimpleImage $image;
 
     /**
      * @throws \Exception

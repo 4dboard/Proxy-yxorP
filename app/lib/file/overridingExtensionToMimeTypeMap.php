@@ -1,8 +1,8 @@
 <?php namespace yxorP\app\lib\file\MimeTypeDetection;
 class overridingExtensionToMimeTypeMap implements extensionToMimeTypeMapInterface
 {
-    private $innerMap;
-    private $overrides;
+    private extensionToMimeTypeMapInterface $innerMap;
+    private array $overrides;
 
     public function __construct(extensionToMimeTypeMapInterface $innerMap, array $overrides)
     {

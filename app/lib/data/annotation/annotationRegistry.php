@@ -12,10 +12,10 @@ use const DIRECTORY_SEPARATOR;
 
 final class annotationRegistry
 {
-    private static $autoloadNamespaces = [];
-    private static $loaders = [];
-    private static $failedToAutoload = [];
-    private static $registerFileUsed = false;
+    private static array $autoloadNamespaces = [];
+    private static array $loaders = [];
+    private static array $failedToAutoload = [];
+    private static bool $registerFileUsed = false;
 
     public static function reset(): void
     {

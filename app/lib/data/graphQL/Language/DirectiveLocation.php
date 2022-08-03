@@ -33,7 +33,7 @@ class DirectiveLocation
     const INPUT_FIELD_DEFINITION = 'INPUT_FIELD_DEFINITION';
 
     /** @var string[] */
-    private static $locations = [
+    private static array $locations = [
         self::QUERY => self::QUERY,
         self::MUTATION => self::MUTATION,
         self::SUBSCRIPTION => self::SUBSCRIPTION,

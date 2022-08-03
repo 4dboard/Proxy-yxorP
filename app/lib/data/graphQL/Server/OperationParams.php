@@ -28,37 +28,37 @@ class OperationParams
      * @api
      * @var string
      */
-    public $queryId;
+    public string $queryId;
 
     /**
      * @api
      * @var string
      */
-    public $query;
+    public string $query;
 
     /**
      * @api
      * @var string
      */
-    public $operation;
+    public string $operation;
 
     /**
      * @api
      * @var array|null
      */
-    public $variables;
+    public ?array $variables;
 
     /**
      * @api
      * @var array|null
      */
-    public $extensions;
+    public ?array $extensions;
 
     /** @var array */
-    private $originalInput;
+    private array $originalInput;
 
     /** @var bool */
-    private $readOnly;
+    private bool $readOnly;
 
     /**
      * Creates an instance from given array

@@ -47,34 +47,34 @@ use function substr;
 class WritableStream
 {
     /** @var integer */
-    private static $defaultChunkSizeBytes = 261120;
+    private static int $defaultChunkSizeBytes = 261120;
 
     /** @var string */
-    private $buffer = '';
+    private string $buffer = '';
 
     /** @var integer */
-    private $chunkOffset = 0;
+    private int $chunkOffset = 0;
 
     /** @var integer */
-    private $chunkSize;
+    private int $chunkSize;
 
     /** @var boolean */
-    private $disableMD5;
+    private bool $disableMD5;
 
     /** @var CollectionWrapper */
-    private $collectionWrapper;
+    private CollectionWrapper $collectionWrapper;
 
     /** @var array */
-    private $file;
+    private array $file;
 
     /** @var resource */
     private $hashCtx;
 
     /** @var boolean */
-    private $isClosed = false;
+    private bool $isClosed = false;
 
     /** @var integer */
-    private $length = 0;
+    private int $length = 0;
 
     /**
      * Constructs a writable GridFS stream.

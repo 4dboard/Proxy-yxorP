@@ -7,19 +7,19 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class OperationDefinitionNode extends Node implements ExecutableDefinitionNode, HasSelectionSetInterface
 {
     /** @var string */
-    public $kind = NodeKind::OPERATION_DEFINITION;
+    public string $kind = NodeKind::OPERATION_DEFINITION;
 
     /** @var NameNode|null */
-    public $name;
+    public ?NameNode $name;
 
     /** @var string (oneOf 'query', 'mutation', 'subscription')) */
-    public $operation;
+    public string $operation;
 
     /** @var NodeList<VariableDefinitionNode> */
-    public $variableDefinitions;
+    public NodeList $variableDefinitions;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var SelectionSetNode */
     public $selectionSet;

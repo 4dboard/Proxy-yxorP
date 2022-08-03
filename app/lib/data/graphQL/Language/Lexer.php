@@ -44,52 +44,52 @@ class Lexer
     private const TOKEN_BRACE_R = 125;
 
     /** @var Source */
-    public $source;
+    public Source $source;
 
     /** @var bool[] */
-    public $options;
+    public array $options;
 
     /**
      * The previously focused non-ignored token.
      *
      * @var Token
      */
-    public $lastToken;
+    public Token $lastToken;
 
     /**
      * The currently focused non-ignored token.
      *
      * @var Token
      */
-    public $token;
+    public Token $token;
 
     /**
      * The (1-indexed) line containing the current token.
      *
      * @var int
      */
-    public $line;
+    public int $line;
 
     /**
      * The character offset at which the current line begins.
      *
      * @var int
      */
-    public $lineStart;
+    public int $lineStart;
 
     /**
      * Current cursor position for UTF8 encoding of the source
      *
      * @var int
      */
-    private $position;
+    private int $position;
 
     /**
      * Current cursor position for ASCII representation of the source
      *
      * @var int
      */
-    private $byteStreamPosition;
+    private int $byteStreamPosition;
 
     /**
      * @param bool[] $options

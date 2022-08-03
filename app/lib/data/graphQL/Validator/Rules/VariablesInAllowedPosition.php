@@ -27,7 +27,7 @@ class VariablesInAllowedPosition extends ValidationRule
      *
      * @var VariableDefinitionNode[]
      */
-    public $varDefMap;
+    public array $varDefMap;
 
     #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
@@ -83,7 +83,7 @@ class VariablesInAllowedPosition extends ValidationRule
      * @param ValueNodeInterface|null $varDefaultValue
      * @param mixed $locationDefaultValue
      */
-    private function allowedVariableUsage(Schema $schema, Type $varType, $varDefaultValue, Type $locationType, $locationDefaultValue): bool
+    private function allowedVariableUsage(Schema $schema, Type $varType, ?ValueNodeInterface $varDefaultValue, Type $locationType, mixed $locationDefaultValue): bool
     {
         if ($locationType instanceof NonNull && !$varType instanceof NonNull) {
             $hasNonNullVariableDefaultValue = $varDefaultValue && !$varDefaultValue instanceof NullValueNode;

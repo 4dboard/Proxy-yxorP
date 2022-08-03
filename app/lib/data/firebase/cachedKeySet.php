@@ -13,20 +13,20 @@ use function strlen;
 
 class cachedKeySet implements ArrayAccess
 {
-    private $jwksUri;
-    private $httpClient;
-    private $httpFactory;
-    private $cache;
-    private $expiresAfter;
+    private string $jwksUri;
+    private ClientInterface $httpClient;
+    private RequestFactoryInterface $httpFactory;
+    private CacheItemPoolInterface $cache;
+    private ?int $expiresAfter;
     private $cacheItem;
     private $keySet;
     private $cacheKey;
-    private $cacheKeyPrefix = 'jwks';
-    private $maxKeyLength = 64;
-    private $rateLimit;
+    private string $cacheKeyPrefix = 'jwks';
+    private int $maxKeyLength = 64;
+    private bool $rateLimit;
     private $rateLimitCacheKey;
-    private $maxCallsPerMinute = 10;
-    private $defaultAlg;
+    private int $maxCallsPerMinute = 10;
+    private ?string $defaultAlg;
 
     public function __construct(string $jwksUri, ClientInterface $httpClient, RequestFactoryInterface $httpFactory, CacheItemPoolInterface $cache, int $expiresAfter = null, bool $rateLimit = false, string $defaultAlg = null)
     {

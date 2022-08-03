@@ -8,8 +8,8 @@ use Throwable;
 
 final class unableToReadFile extends RuntimeException implements filesystemOperationFailedInterface
 {
-    private $location = '';
-    private $reason = '';
+    private string $location = '';
+    private string $reason = '';
 
     #[Pure] public static function fromLocation(string $location, string $reason = '', Throwable $previous = null): unableToReadFile
     {

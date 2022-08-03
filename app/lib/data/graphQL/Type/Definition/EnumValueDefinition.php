@@ -9,22 +9,22 @@ use yxorP\app\lib\data\graphQL\Language\AST\EnumValueDefinitionNode;
 class EnumValueDefinition
 {
     /** @var string */
-    public $name;
+    public mixed $name;
 
     /** @var mixed */
-    public $value;
+    public mixed $value;
 
     /** @var string|null */
-    public $deprecationReason;
+    public mixed $deprecationReason;
 
     /** @var string|null */
-    public $description;
+    public mixed $description;
 
     /** @var EnumValueDefinitionNode|null */
-    public $astNode;
+    public mixed $astNode;
 
     /** @var array */
-    public $config;
+    public array $config;
 
     /**
      * @param array $config

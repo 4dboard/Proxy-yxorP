@@ -9,9 +9,9 @@ use function yxorP\app\lib\proxy\psr7\get_message_body_summary;
 
 class aRequestException extends transferException
 {
-    private $request;
-    private $response;
-    private $handlerContext;
+    private requestInterface $request;
+    private ?responseInterface $response;
+    private array $handlerContext;
 
     public function __construct($message, requestInterface $request, responseInterface $response = null, Exception $previous = null, array $handlerContext = [])
     {

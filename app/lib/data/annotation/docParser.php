@@ -45,20 +45,20 @@ use const PHP_VERSION_ID;
 
 final class docParser
 {
-    private static $classIdentifiers = [docLexer::T_IDENTIFIER, docLexer::T_TRUE, docLexer::T_FALSE, docLexer::T_NULL,];
+    private static array $classIdentifiers = [docLexer::T_IDENTIFIER, docLexer::T_TRUE, docLexer::T_FALSE, docLexer::T_NULL,];
     private static $metadataParser;
-    private static $annotationMetadata = [Annotation\Target::class => ['is_annotation' => true, 'has_constructor' => true, 'has_named_argument_constructor' => false, 'properties' => [], 'targets_literal' => 'ANNOTATION_CLASS', 'targets' => target::TARGET_CLASS, 'default_property' => 'value', 'attribute_types' => ['value' => ['required' => false, 'type' => 'array', 'array_type' => 'string', 'value' => 'array<string>',],],], Annotation\Attribute::class => ['is_annotation' => true, 'has_constructor' => false, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_ANNOTATION', 'targets' => target::TARGET_ANNOTATION, 'default_property' => 'name', 'properties' => ['name' => 'name', 'type' => 'type', 'required' => 'required',], 'attribute_types' => ['value' => ['required' => true, 'type' => 'string', 'value' => 'string',], 'type' => ['required' => true, 'type' => 'string', 'value' => 'string',], 'required' => ['required' => false, 'type' => 'boolean', 'value' => 'boolean',],],], Annotation\Attributes::class => ['is_annotation' => true, 'has_constructor' => false, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_CLASS', 'targets' => target::TARGET_CLASS, 'default_property' => 'value', 'properties' => ['value' => 'value'], 'attribute_types' => ['value' => ['type' => 'array', 'required' => true, 'array_type' => Annotation\Attribute::class, 'value' => 'array<' . Annotation\Attribute::class . '>',],],], Annotation\Enum::class => ['is_annotation' => true, 'has_constructor' => true, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_PROPERTY', 'targets' => target::TARGET_PROPERTY, 'default_property' => 'value', 'properties' => ['value' => 'value'], 'attribute_types' => ['value' => ['type' => 'array', 'required' => true,], 'literal' => ['type' => 'array', 'required' => false,],],], Annotation\NamedArgumentConstructor::class => ['is_annotation' => true, 'has_constructor' => false, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_CLASS', 'targets' => target::TARGET_CLASS, 'default_property' => null, 'properties' => [], 'attribute_types' => [],],];
-    private static $typeMap = ['float' => 'double', 'bool' => 'boolean', 'Boolean' => 'boolean', 'int' => 'integer',];
-    private $lexer;
+    private static array $annotationMetadata = [Annotation\Target::class => ['is_annotation' => true, 'has_constructor' => true, 'has_named_argument_constructor' => false, 'properties' => [], 'targets_literal' => 'ANNOTATION_CLASS', 'targets' => target::TARGET_CLASS, 'default_property' => 'value', 'attribute_types' => ['value' => ['required' => false, 'type' => 'array', 'array_type' => 'string', 'value' => 'array<string>',],],], Annotation\Attribute::class => ['is_annotation' => true, 'has_constructor' => false, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_ANNOTATION', 'targets' => target::TARGET_ANNOTATION, 'default_property' => 'name', 'properties' => ['name' => 'name', 'type' => 'type', 'required' => 'required',], 'attribute_types' => ['value' => ['required' => true, 'type' => 'string', 'value' => 'string',], 'type' => ['required' => true, 'type' => 'string', 'value' => 'string',], 'required' => ['required' => false, 'type' => 'boolean', 'value' => 'boolean',],],], Annotation\Attributes::class => ['is_annotation' => true, 'has_constructor' => false, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_CLASS', 'targets' => target::TARGET_CLASS, 'default_property' => 'value', 'properties' => ['value' => 'value'], 'attribute_types' => ['value' => ['type' => 'array', 'required' => true, 'array_type' => Annotation\Attribute::class, 'value' => 'array<' . Annotation\Attribute::class . '>',],],], Annotation\Enum::class => ['is_annotation' => true, 'has_constructor' => true, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_PROPERTY', 'targets' => target::TARGET_PROPERTY, 'default_property' => 'value', 'properties' => ['value' => 'value'], 'attribute_types' => ['value' => ['type' => 'array', 'required' => true,], 'literal' => ['type' => 'array', 'required' => false,],],], Annotation\NamedArgumentConstructor::class => ['is_annotation' => true, 'has_constructor' => false, 'has_named_argument_constructor' => false, 'targets_literal' => 'ANNOTATION_CLASS', 'targets' => target::TARGET_CLASS, 'default_property' => null, 'properties' => [], 'attribute_types' => [],],];
+    private static array $typeMap = ['float' => 'double', 'bool' => 'boolean', 'Boolean' => 'boolean', 'int' => 'integer',];
+    private docLexer $lexer;
     private $target;
-    private $isNestedAnnotation = false;
-    private $imports = [];
-    private $classExists = [];
-    private $ignoreNotImportedAnnotations = false;
-    private $namespaces = [];
-    private $ignoredAnnotationNames = [];
-    private $ignoredAnnotationNamespaces = [];
-    private $context = '';
+    private bool $isNestedAnnotation = false;
+    private array $imports = [];
+    private array $classExists = [];
+    private bool $ignoreNotImportedAnnotations = false;
+    private array $namespaces = [];
+    private array $ignoredAnnotationNames = [];
+    private array $ignoredAnnotationNamespaces = [];
+    private string $context = '';
 
     #[Pure] public function __construct()
     {

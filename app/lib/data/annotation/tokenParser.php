@@ -20,9 +20,9 @@ use const T_WHITESPACE;
 
 class tokenParser
 {
-    private $tokens;
-    private $numTokens;
-    private $pointer = 0;
+    private array $tokens;
+    private int $numTokens;
+    private int $pointer = 0;
 
     public function __construct($contents)
     {

@@ -18,24 +18,24 @@ class ServerVariable extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Server::class,
     ];
     /**
      * @inheritdoc
      */
-    public static $_required = ['default'];
+    public static array $_required = ['default'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'default' => 'string',
         'description' => 'string',
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -43,32 +43,32 @@ class ServerVariable extends AbstractAnnotation
      *
      * @var string
      */
-    public $serverVariable = Generator::UNDEFINED;
+    public string $serverVariable = Generator::UNDEFINED;
     /**
      * An enumeration of string values to be used if the substitution options are from a limited set.
      *
      * @var string[]
      */
-    public $enum = Generator::UNDEFINED;
+    public string|array $enum = Generator::UNDEFINED;
     /**
      * The default value to use for substitution, and to send, if an alternate value is not supplied.
      * Unlike the Schema Object's default, this value must be provided by the consumer.
      *
      * @var string
      */
-    public $default = Generator::UNDEFINED;
+    public string $default = Generator::UNDEFINED;
     /**
      * A map between a variable name and its value.
      * The value is used for substitution in the server's URL template.
      *
      * @var array
      */
-    public $variables = Generator::UNDEFINED;
+    public string|array $variables = Generator::UNDEFINED;
     /**
      * An optional description for the server variable.
      * CommonMark syntax MAY be used for rich text representation.
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
 }

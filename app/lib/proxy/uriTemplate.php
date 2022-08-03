@@ -1,9 +1,9 @@
 <?php namespace yxorP\app\lib\proxy;
 class uriTemplate
 {
-    private static $operatorHash = ['' => ['prefix' => '', 'joiner' => ',', 'query' => false], '+' => ['prefix' => '', 'joiner' => ',', 'query' => false], '#' => ['prefix' => '#', 'joiner' => ',', 'query' => false], '.' => ['prefix' => '.', 'joiner' => '.', 'query' => false], '/' => ['prefix' => '/', 'joiner' => '/', 'query' => false], ';' => ['prefix' => ';', 'joiner' => ';', 'query' => true], '?' => ['prefix' => '?', 'joiner' => '&', 'query' => true], '&' => ['prefix' => '&', 'joiner' => '&', 'query' => true]];
-    private static $delims = [':', '/', '?', '#', '[', ']', '@', '!', '$', '&', '\'', '(', ')', '*', '+', ',', ';', '='];
-    private static $delimsPct = ['%3A', '%2F', '%3F', '%23', '%5B', '%5D', '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C', '%3B', '%3D'];
+    private static array $operatorHash = ['' => ['prefix' => '', 'joiner' => ',', 'query' => false], '+' => ['prefix' => '', 'joiner' => ',', 'query' => false], '#' => ['prefix' => '#', 'joiner' => ',', 'query' => false], '.' => ['prefix' => '.', 'joiner' => '.', 'query' => false], '/' => ['prefix' => '/', 'joiner' => '/', 'query' => false], ';' => ['prefix' => ';', 'joiner' => ';', 'query' => true], '?' => ['prefix' => '?', 'joiner' => '&', 'query' => true], '&' => ['prefix' => '&', 'joiner' => '&', 'query' => true]];
+    private static array $delims = [':', '/', '?', '#', '[', ']', '@', '!', '$', '&', '\'', '(', ')', '*', '+', ',', ';', '='];
+    private static array $delimsPct = ['%3A', '%2F', '%3F', '%23', '%5B', '%5D', '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C', '%3B', '%3D'];
     private $variables;
 
     public function expand($template, array $variables)

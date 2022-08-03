@@ -17,7 +17,7 @@ use function sprintf;
 class UniqueFragmentNames extends ValidationRule
 {
     /** @var NameNode[] */
-    public $knownFragmentNames;
+    public array $knownFragmentNames;
 
     #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {

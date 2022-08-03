@@ -40,7 +40,7 @@ use function yxorP\app\lib\data\mongoDB\is_pipeline;
 class UpdateMany implements ExecutableInterface, ExplainableInterface
 {
     /** @var Update */
-    private $update;
+    private Update $update;
 
     /**
      * Constructs an update command.

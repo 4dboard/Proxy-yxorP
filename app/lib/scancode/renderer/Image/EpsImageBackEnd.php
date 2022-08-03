@@ -34,7 +34,7 @@ final class EpsImageBackEnd implements ImageBackEndInterface
     /**
      * @var string|null
      */
-    private $eps;
+    private ?string $eps;
 
     public function new(int $size, ColorInterface $backgroundColor): void
     {

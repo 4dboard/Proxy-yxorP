@@ -57,16 +57,16 @@ class BulkWrite implements ExecutableInterface
     public const UPDATE_ONE = 'updateOne';
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array[] */
-    private $operations;
+    private array $operations;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a bulk write operation.

@@ -11,13 +11,13 @@ use Exception;
 class HttpTimeProvider implements ITimeProviderInterface
 {
     /** @var string */
-    public $url;
+    public string $url;
 
     /** @var string */
-    public $expectedtimeformat;
+    public string $expectedtimeformat;
 
     /** @var array */
-    public $options;
+    public ?array $options;
 
     /**
      * @param string $url

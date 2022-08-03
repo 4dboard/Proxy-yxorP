@@ -8,7 +8,7 @@ use yxorP\app\lib\psr\http\message\requestInterface;
 class handlerStack
 {
     private $handler;
-    private $stack = [];
+    private array $stack = [];
     private $cached;
 
     public function __construct(callable $handler = null)

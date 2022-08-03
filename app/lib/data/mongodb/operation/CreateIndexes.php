@@ -44,19 +44,19 @@ use function sprintf;
 class CreateIndexes implements ExecutableInterface
 {
     /** @var integer */
-    private static $wireVersionForCommitQuorum = 9;
+    private static int $wireVersionForCommitQuorum = 9;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $indexes = [];
+    private array $indexes = [];
 
     /** @var array */
-    private $options = [];
+    private array $options = [];
 
     /**
      * Constructs a createIndexes command.

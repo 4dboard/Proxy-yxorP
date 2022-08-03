@@ -48,31 +48,31 @@ use function sprintf;
 class TypeInfo
 {
     /** @var Schema */
-    private $schema;
+    private Schema $schema;
 
     /** @var array<(OutputType&Type)|null> */
-    private $typeStack;
+    private array $typeStack;
 
     /** @var array<(CompositeType&Type)|null> */
-    private $parentTypeStack;
+    private array $parentTypeStack;
 
     /** @var array<(InputType&Type)|null> */
-    private $inputTypeStack;
+    private array $inputTypeStack;
 
     /** @var array<FieldDefinition> */
-    private $fieldDefStack;
+    private array $fieldDefStack;
 
     /** @var array */
-    private $defaultValueStack;
+    private array $defaultValueStack;
 
     /** @var Directive|null */
-    private $directive;
+    private ?Directive $directive;
 
     /** @var FieldArgument|null */
-    private $argument;
+    private ?FieldArgument $argument;
 
     /** @var mixed */
-    private $enumValue;
+    private mixed $enumValue;
 
     /**
      * @param Type|null $initialType

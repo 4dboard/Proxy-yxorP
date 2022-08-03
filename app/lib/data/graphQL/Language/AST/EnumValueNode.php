@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class EnumValueNode extends Node implements ValueNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::ENUM;
+    public string $kind = NodeKind::ENUM;
 
     /** @var string */
-    public $value;
+    public string $value;
 }

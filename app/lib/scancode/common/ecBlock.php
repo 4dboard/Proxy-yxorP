@@ -16,14 +16,14 @@ final class ecBlock
      *
      * @var int
      */
-    private $count;
+    private int $count;
 
     /**
      * Number of data codewords.
      *
      * @var int
      */
-    private $dataCodewords;
+    private int $dataCodewords;
 
     public function __construct(int $count, int $dataCodewords)
     {

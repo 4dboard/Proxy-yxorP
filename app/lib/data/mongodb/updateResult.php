@@ -5,7 +5,7 @@ use yxorP\app\lib\http\mongoDB\Exception\BadMethodCallException;
 
 class updateResult
 {
-    private $writeResult;
+    private WriteResult $writeResult;
     private $isAcknowledged;
 
     public function __construct(WriteResult $writeResult)

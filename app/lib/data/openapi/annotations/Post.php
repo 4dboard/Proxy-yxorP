@@ -14,11 +14,11 @@ class Post extends Operation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         PathItem::class,
     ];
     /**
      * @inheritdoc
      */
-    public $method = 'post';
+    public string $method = 'post';
 }
