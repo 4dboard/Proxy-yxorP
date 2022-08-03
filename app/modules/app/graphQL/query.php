@@ -3,13 +3,14 @@
 namespace yxorP\app\modules\app\GraphQL;
 
 use ArrayObject;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\appAware;
 use yxorP\app\modules\app\graphQL\GraphQL;
 use yxorP\app\modules\app\graphQL\Type\Definition\ObjectType;
 use yxorP\app\modules\app\graphQL\Type\Schema;
 
 /**
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
  */
 class query extends appAware
 {

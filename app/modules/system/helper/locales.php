@@ -4,13 +4,14 @@ namespace yxorP\app\modules\system\helper;
 
 use helper;
 use Throwable;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
  */
 class locales extends helperAware
 {
@@ -100,6 +101,14 @@ class locales extends helperAware
         return $locales;
     }
 
+    protected function initialize()
+    {
+
+        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
+            return $this->cache();
+        });
+    }
+
     public function cache(bool $persistent = true): array
     {
 
@@ -134,13 +143,5 @@ class locales extends helperAware
         }
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
-            return $this->cache();
-        });
     }
 }

@@ -4,12 +4,13 @@ namespace yxorP\app\modules\system\helper;
 
 use ArrayObject;
 use helper;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 use function array_filter;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
  */
 class settings extends helperAware
 {

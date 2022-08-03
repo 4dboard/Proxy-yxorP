@@ -77,6 +77,11 @@ class roles extends app
         return ['success' => true];
     }
 
+    protected function cache()
+    {
+        $this->helper('acl')->cache();
+    }
+
     public function save()
     {
 
@@ -148,11 +153,6 @@ class roles extends app
         ])->toArray();
 
         return $roles;
-    }
-
-    protected function cache()
-    {
-        $this->helper('acl')->cache();
     }
 
     protected function before()

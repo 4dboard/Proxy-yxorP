@@ -3,6 +3,7 @@
 namespace yxorP\app\modules\assets\Helper;
 
 use simpleImageLib as SimpleImage;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 use function call_user_func_array;
 use function explode;
@@ -12,23 +13,23 @@ use function str_replace;
 use function strpos;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
  */
 class Asset extends helperAware
 {

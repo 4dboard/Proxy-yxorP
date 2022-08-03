@@ -3,13 +3,14 @@
 namespace yxorP\app\modules\system\helper;
 
 use helper;
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
  */
 class api extends helperAware
 {
@@ -24,6 +25,14 @@ class api extends helperAware
     public function keys(): array
     {
         return array_keys($this->keys);
+    }
+
+    protected function initialize()
+    {
+
+        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
+            return $this->cache();
+        });
     }
 
     public function cache(bool $persistent = true): array
@@ -41,13 +50,5 @@ class api extends helperAware
         }
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
-            return $this->cache();
-        });
     }
 }

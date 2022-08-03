@@ -2,17 +2,18 @@
 
 namespace yxorP\app\modules\app\RestApi;
 
+use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\appAware;
 use yxorP\app\lib\http\appAware;
 use function call_user_func;
 use function is_callable;
 
 /**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
+ * @property App $app
  */
 class query extends appAware
 {
@@ -67,12 +68,6 @@ class query extends appAware
         $this->initialized = true;
     }
 
-    public function addEndPoint(string $path, array $methods = [])
-    {
-
-        $this->endpoints[$path] = $methods;
-    }
-
     protected function isPathMatching($path, $pattern, &$params = null)
     {
 
@@ -123,5 +118,11 @@ class query extends appAware
         $patternAsRegex = "@^" . $pattern . "$@D";
 
         return $patternAsRegex;
+    }
+
+    public function addEndPoint(string $path, array $methods = [])
+    {
+
+        $this->endpoints[$path] = $methods;
     }
 }
