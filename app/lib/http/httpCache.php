@@ -5,7 +5,7 @@ use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP;
 
-class cache
+class httpCache
 {
     public static function get(?string $key = null): void
     {

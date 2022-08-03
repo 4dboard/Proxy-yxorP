@@ -151,7 +151,7 @@ class helpers
 
     public static function assetLoader(string $root): void
     {
-        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) cache::set(file_get_contents($path));
+        foreach (glob($root . DIRECTORY_SEPARATOR . "*") as $path) if (is_dir($path)) self::assetLoader($path); else if (str_contains(YXORP_REQUEST_URI, basename($path))) httpCache::set(file_get_contents($path));
     }
 
     public static function MIME(): string

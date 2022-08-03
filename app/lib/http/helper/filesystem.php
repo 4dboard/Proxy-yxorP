@@ -28,18 +28,8 @@ use function strtr;
 
 /**
  * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
  */
-class Filesystem extends helperAware
+class filesystem extends helperAware
 {
 
     /**

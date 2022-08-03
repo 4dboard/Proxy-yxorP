@@ -22,12 +22,8 @@ use function unserialize;
 
 /**
  * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
  */
-class cache extends helperAware
+class helperCache extends helperAware
 {
 
     public ?string $prefix = null;
