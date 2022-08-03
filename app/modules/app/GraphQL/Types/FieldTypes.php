@@ -2,6 +2,7 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 use yxorP\app\modules\app\graphQL\Type\Definition\ObjectType;
 use yxorP\app\modules\app\graphQL\Type\Definition\Type;
 

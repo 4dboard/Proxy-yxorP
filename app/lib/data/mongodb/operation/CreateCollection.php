@@ -17,6 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use MongoDB\Driver\Command;
+use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -222,9 +224,9 @@ class CreateCollection implements ExecutableInterface
     /**
      * Create the create command.
      *
-     * @return \yxorP\app\lib\data\mongoDB\Operation\Command
+     * @return \yxorP\app\lib\http\mongoDB\Driver\command
      */
-    private function createCommand(): \yxorP\app\lib\data\mongoDB\Operation\Command
+    private function createCommand(): command
     {
         $cmd = ['create' => $this->collectionName];
 

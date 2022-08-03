@@ -7,6 +7,9 @@ use BaconQrCode\Encoder\ByteMatrix;
 use BaconQrCode\Exception\InvalidArgumentException;
 use BaconQrCode\Renderer\Module\EdgeIterator\EdgeIterator;
 use BaconQrCode\Renderer\Path\Path;
+use yxorP\app\lib\scancode\Encoder\byteMatrix;
+use yxorP\app\lib\scancode\Renderer\Module\EdgeIterator\EdgeIterator;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
 
 /**
  * Rounds the corners of module groups.

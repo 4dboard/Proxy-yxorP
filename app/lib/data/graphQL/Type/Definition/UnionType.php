@@ -14,7 +14,7 @@ use function is_callable;
 use function is_string;
 use function sprintf;
 
-class UnionType extends Type implements AbstractType, OutputType, CompositeType, NullableType, NamedType
+abstract class UnionType extends Type implements AbstractType, OutputType, CompositeType, NullableType, NamedType
 {
     /** @var UnionTypeDefinitionNode */
     public $astNode;

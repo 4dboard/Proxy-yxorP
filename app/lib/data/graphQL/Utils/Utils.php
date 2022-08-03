@@ -488,12 +488,12 @@ class Utils
     /**
      * UTF-8 compatible chr()
      *
-     * @param string $ord
+     * @param int|float $ord
      * @param string $encoding
      *
      * @return string
      */
-    public static function chr(string $ord, string $encoding = 'UTF-8'): string
+    public static function chr(int|float $ord, string $encoding = 'UTF-8'): string
     {
         if ($encoding === 'UCS-4BE') {
             return pack('N', $ord);

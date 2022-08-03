@@ -45,7 +45,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage(string $qrtext, int $size): bool|string
+    public function getQRCodeImage(string $qrtext, int $size): string
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }

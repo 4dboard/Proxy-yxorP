@@ -11,7 +11,7 @@ use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function is_callable;
 use function sprintf;
 
-class CustomScalarType extends ScalarType
+abstract class CustomScalarType extends ScalarType
 {
     /**
      * @param mixed $value

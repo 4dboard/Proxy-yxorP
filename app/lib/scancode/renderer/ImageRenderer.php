@@ -10,6 +10,12 @@ use BaconQrCode\Renderer\Image\ImageBackEndInterface;
 use BaconQrCode\Renderer\Path\Path;
 use BaconQrCode\Renderer\RendererStyle\EyeFill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
+use yxorP\app\lib\scancode\Encoder\matrixUtil;
+use yxorP\app\lib\scancode\Encoder\qrCode;
+use yxorP\app\lib\scancode\Renderer\Image\ImageBackEndInterface;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\EyeFill;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\RendererStyle;
 
 final class ImageRenderer implements RendererInterface
 {
@@ -32,7 +38,7 @@ final class ImageRenderer implements RendererInterface
     /**
      * @throws InvalidArgumentException if matrix width doesn't match height
      */
-    public function render(QrCode $qrCode): string
+    public function render(QrCode|QrCode $qrCode): string
     {
         $size = $this->rendererStyle->getSize();
         $margin = $this->rendererStyle->getMargin();

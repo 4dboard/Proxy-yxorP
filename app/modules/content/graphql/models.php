@@ -2,6 +2,7 @@
 
 use graphQL\Type\Definition\ObjectType;
 use graphQL\Type\Definition\Type;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 use yxorP\app\modules\app\graphQL\types\fieldTypes;
 use yxorP\app\modules\app\graphQL\types\jsonType;
 

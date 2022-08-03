@@ -8,7 +8,7 @@ class simpleImageLib extends simpleImage
     /**
      * @throws \Exception
      */
-    public function fromDataUri($uri): simpleImageLib|static
+    public function fromDataUri($uri): static
     {
         preg_match('/^data:(.*?);/', $uri, $matches);
         if (!count($matches)) {
@@ -29,7 +29,7 @@ class simpleImageLib extends simpleImage
     /**
      * @throws \Exception
      */
-    public function fromFile($file): simpleImageLib|static
+    public function fromFile($file): static
     {
         $handle = @fopen($file, 'r');
         if ($handle === false) {

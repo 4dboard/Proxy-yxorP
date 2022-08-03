@@ -271,7 +271,7 @@ class SchemaValidationContext
         );
 
         return Utils::filter(
-            $subNodes,
+            (array)$subNodes,
             static function ($argNode) use ($argName): bool {
                 return $argNode->name->value === $argName;
             }
@@ -591,7 +591,7 @@ class SchemaValidationContext
             return $typeNode->fields;
         });
 
-        return Utils::filter($subNodes, static function ($fieldNode) use ($fieldName): bool {
+        return Utils::filter((array)$subNodes, static function ($fieldNode) use ($fieldName): bool {
             return $fieldNode->name->value === $fieldName;
         });
     }
@@ -745,7 +745,7 @@ class SchemaValidationContext
             return $typeNode->interfaces;
         });
 
-        return Utils::filter($subNodes, static function (NamedTypeNode $ifaceNode) use ($shouldBeInterface): bool {
+        return Utils::filter((array)$subNodes, static function (NamedTypeNode $ifaceNode) use ($shouldBeInterface): bool {
             return $ifaceNode->name->value === $shouldBeInterface->name;
         });
     }
@@ -982,7 +982,7 @@ class SchemaValidationContext
             return $unionNode->types;
         });
 
-        return Utils::filter($subNodes, static function ($typeNode) use ($typeName): bool {
+        return Utils::filter((array)$subNodes, static function ($typeNode) use ($typeName): bool {
             return $typeNode->name->value === $typeName;
         });
     }
@@ -1044,7 +1044,7 @@ class SchemaValidationContext
             return $enumNode->values;
         });
 
-        return Utils::filter($subNodes, static function ($valueNode) use ($valueName): bool {
+        return Utils::filter((array)$subNodes, static function ($valueNode) use ($valueName): bool {
             return $valueNode->name->value === $valueName;
         });
     }

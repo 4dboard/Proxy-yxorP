@@ -19,8 +19,12 @@ namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
 use JetBrains\PhpStorm\Pure;
+use MongoDB\Driver\Command;
+use MongoDB\Driver\ReadConcern;
+use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 use stdClass;
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;

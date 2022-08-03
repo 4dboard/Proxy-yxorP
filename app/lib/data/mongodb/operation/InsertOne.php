@@ -17,6 +17,9 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use MongoDB\Driver\WriteConcern;
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
+use yxorP\app\lib\data\mongoDB\insertOneResult;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -104,12 +107,12 @@ class InsertOne implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return \yxorP\app\lib\data\mongoDB\Operation\insertOneResult
+     * @return \yxorP\app\lib\http\mongoDB\insertOneResult
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\insertOneResult
+    public function execute(Server $server): insertOneResult
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if (isset($this->options['writeConcern']) && $inTransaction) {

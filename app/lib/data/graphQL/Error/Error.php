@@ -371,7 +371,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @return string
      */
-    public function __toString()
+    #[ReturnTypeWillChange] public function __toString()
     {
         return FormattedError::printError($this);
     }

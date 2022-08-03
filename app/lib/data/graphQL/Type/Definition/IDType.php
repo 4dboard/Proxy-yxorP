@@ -15,7 +15,7 @@ use function is_object;
 use function is_string;
 use function method_exists;
 
-class IDType extends ScalarType
+abstract class IDType extends ScalarType
 {
     /** @var string */
     public $name = 'ID';

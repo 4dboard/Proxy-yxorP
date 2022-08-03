@@ -18,6 +18,9 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use EmptyIterator;
+use MongoDB\Driver\Command;
+use MongoDB\Driver\Exception\CommandException;
+use yxorP\app\lib\data\mongoDB\Model\IndexInfoIteratorIterator;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\commandException;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -101,10 +104,10 @@ class ListIndexes implements ExecutableInterface
      * listIndexes command.
      *
      * @param Server $server
-     * @return \yxorP\app\lib\data\mongoDB\Operation\IndexInfoIteratorIterator
+     * @return \yxorP\app\lib\http\mongoDB\Model\IndexInfoIteratorIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    private function executeCommand(Server $server): \yxorP\app\lib\data\mongoDB\Operation\IndexInfoIteratorIterator
+    private function executeCommand(Server $server): IndexInfoIteratorIterator
     {
         $cmd = ['listIndexes' => $this->collectionName];
 

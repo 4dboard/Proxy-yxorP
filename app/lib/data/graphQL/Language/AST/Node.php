@@ -35,7 +35,7 @@ use function json_encode;
  * | ListTypeNode
  * | NonNullTypeNode
  */
-abstract class Node
+abstract class Node extends \yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode
 {
     /** @var Location|null */
     public ?Location $loc;

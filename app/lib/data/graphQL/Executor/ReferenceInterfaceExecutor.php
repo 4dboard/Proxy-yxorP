@@ -268,7 +268,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @throws Error
      */
-    protected function getOperationRootType(Schema $schema, OperationDefinitionNode $operation): ObjectType
+    protected function getOperationRootType(Schema $schema, OperationDefinitionNode $operation): Type
     {
         switch ($operation->operation) {
             case 'query':

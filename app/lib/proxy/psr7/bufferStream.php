@@ -88,7 +88,7 @@ class bufferStream implements streamInterface
         return $result;
     }
 
-    public function write(string $string): bool|int
+    public function write(string $string): int
     {
         $this->buffer .= $string;
         if (strlen($this->buffer) >= $this->hwm) {

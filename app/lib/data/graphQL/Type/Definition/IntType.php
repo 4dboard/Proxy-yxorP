@@ -15,7 +15,7 @@ use function is_float;
 use function is_int;
 use function is_numeric;
 
-class IntType extends ScalarType
+abstract class IntType extends ScalarType
 {
     // As per the GraphQL Spec, Integers are only treated as valid when a valid
     // 32-bit signed integer, providing the broadest support across platforms.

@@ -14,7 +14,7 @@ use function is_iterable;
 use function is_string;
 use function sprintf;
 
-class InputObjectType extends Type implements InputType, NullableType, NamedType
+abstract abstract class InputObjectType extends Type implements InputType, NullableType, NamedType
 {
     /** @var InputObjectTypeDefinitionNode|null */
     public $astNode;

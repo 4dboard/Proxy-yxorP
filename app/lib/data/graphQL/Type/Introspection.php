@@ -87,7 +87,7 @@ class Introspection
                     'queryType' => [
                         'description' => 'The type that query operations will be rooted at.',
                         'type' => new NonNull(self::_type()),
-                        'resolve' => static function (Schema $schema): ?ObjectType {
+                        'resolve' => static function (Schema $schema): Type {
                             return $schema->getQueryType();
                         },
                     ],

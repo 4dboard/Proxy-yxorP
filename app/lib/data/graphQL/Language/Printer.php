@@ -118,7 +118,7 @@ class Printer
                         return $this->join($node->definitions, "\n\n") . "\n";
                     },
 
-                    NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node): SelectionSetNode {
+                    NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node): string {
                         $op = $node->operation;
                         $name = $node->name;
                         $varDefs = $this->wrap('(', $this->join($node->variableDefinitions, ', '), ')');

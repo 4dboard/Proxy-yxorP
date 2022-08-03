@@ -19,7 +19,7 @@ use function is_int;
 use function is_string;
 use function sprintf;
 
-class EnumType extends Type implements InputType, OutputType, LeafType, NullableType, NamedType
+abstract class EnumType extends Type implements InputType, OutputType, LeafType, NullableType, NamedType
 {
     /** @var EnumTypeDefinitionNode|null */
     public $astNode;

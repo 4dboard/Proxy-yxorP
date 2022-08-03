@@ -17,6 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
+use yxorP\app\lib\data\mongoDB\updateResult;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;

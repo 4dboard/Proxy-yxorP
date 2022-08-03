@@ -304,7 +304,7 @@ class app implements ArrayAccess
         return $this;
     }
 
-    public function set(string $key, mixed $value): bool
+    public function set(string $key, mixed $value): app
     {
         $keys = explode('/', $key);
         if (count($keys) > 5) return false;

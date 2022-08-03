@@ -16,7 +16,7 @@ use function is_float;
 use function is_int;
 use function is_numeric;
 
-class FloatType extends ScalarType
+abstract class FloatType extends ScalarType
 {
     /** @var string */
     public $name = Type::FLOAT;

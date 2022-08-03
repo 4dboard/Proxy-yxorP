@@ -20,8 +20,19 @@ use BaconQrCode\Renderer\RendererStyle\GradientType;
 use Imagick;
 use ImagickDraw;
 use ImagickPixel;
+use yxorP\app\lib\scancode\Renderer\Color\Alpha;
+use yxorP\app\lib\scancode\Renderer\Color\Cmyk;
+use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
+use yxorP\app\lib\scancode\Renderer\Color\Gray;
+use yxorP\app\lib\scancode\Renderer\Color\Rgb;
+use yxorP\app\lib\scancode\Renderer\Path\Close;
 use yxorP\app\lib\scancode\Renderer\Path\Curve;
+use yxorP\app\lib\scancode\Renderer\Path\EllipticArc;
+use yxorP\app\lib\scancode\Renderer\Path\Line;
 use yxorP\app\lib\scancode\Renderer\Path\Move;
+use yxorP\app\lib\scancode\Renderer\Path\Path;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\Gradient;
+use yxorP\app\lib\scancode\Renderer\RendererStyle\GradientType;
 
 final class ImagickImageBackEnd implements ImageBackEndInterface
 {

@@ -188,7 +188,7 @@ class serverRequest extends request implements serverRequestInterface
         return $new;
     }
 
-    public function withoutAttribute(string $name): serverRequest|static
+    public function withoutAttribute(string $name): static
     {
         if (false === array_key_exists($name, $this->attributes)) {
             return $this;

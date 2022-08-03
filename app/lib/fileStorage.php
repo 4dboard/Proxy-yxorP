@@ -32,7 +32,6 @@ class fileStorage
         static $mountMethod;
         if (!$mountMethod) {
             $mountMethod = new ReflectionMethod('yxorP\app\lib\file\Flysystem\mountManager', 'mountFilesystem');
-            $mountMethod->setAccessible(true);
         }
         $config = $this->config[$name];
         $adapter = new ReflectionClass($config['adapter']);

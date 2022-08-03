@@ -3,6 +3,8 @@
 namespace yxorP\app\modules\app\GraphQL;
 
 use ArrayObject;
+use yxorP\app\lib\data\graphQL\GraphQL;
+use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\appAware;
 use yxorP\app\modules\app\graphQL\GraphQL;

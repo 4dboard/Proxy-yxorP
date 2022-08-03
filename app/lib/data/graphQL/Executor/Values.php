@@ -153,7 +153,7 @@ class Values
     {
         if (isset($node->directives) && $node->directives instanceof NodeList) {
             $directiveNode = Utils::find(
-                $node->directives,
+                (array)$node->directives,
                 static function (DirectiveNode $directive) use ($directiveDef): bool {
                     return $directive->name->value === $directiveDef->name;
                 }

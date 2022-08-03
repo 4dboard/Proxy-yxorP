@@ -11,7 +11,7 @@ use yxorP\app\lib\data\graphQL\Language\AST\Node;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
 use function is_bool;
 
-class BooleanType extends ScalarType
+abstract class BooleanType extends ScalarType
 {
     /** @var string */
     public $name = Type::BOOLEAN;

@@ -18,6 +18,8 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use JetBrains\PhpStorm\ArrayShape;
+use MongoDB\Driver\WriteConcern;
+use yxorP\app\lib\data\mongoDB\deleteResult;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\deleteResult;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
@@ -131,12 +133,12 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return \yxorP\app\lib\data\mongoDB\Operation\deleteResult
+     * @return \yxorP\app\lib\http\mongoDB\deleteResult
      * @throws UnsupportedException if hint or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\deleteResult
+    public function execute(Server $server): deleteResult
     {
         /* CRUD spec requires a client-side error when using "hint" with an
          * unacknowledged write concern on an unsupported server. */

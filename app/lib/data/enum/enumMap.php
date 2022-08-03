@@ -216,4 +216,14 @@ final class enumMap implements Serializable, IteratorAggregate
             yield $key => $this->unmaskNull($this->values[$key->ordinal()]);
         }
     }
+
+    public function __serialize(): array
+    {
+        // TODO: Implement __serialize() method.
+    }
+
+    public function __unserialize(array $data): void
+    {
+        // TODO: Implement __unserialize() method.
+    }
 }

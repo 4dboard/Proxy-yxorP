@@ -7,7 +7,7 @@ namespace yxorP\app\lib\data\graphQL\Type\Definition;
 use yxorP\app\lib\data\graphQL\Type\Schema;
 use function is_callable;
 
-class ListOfType extends Type implements WrappingType, OutputType, NullableType, InputType
+abstract class ListOfType extends Type implements WrappingType, OutputType, NullableType, InputType
 {
     /** @var callable():Type|Type */
     public $ofType;
