@@ -4,6 +4,7 @@ namespace yxorP\app\modules\app\controller;
 
 use yxorP\app\lib\http\appAware;
 use yxorP\app\lib\http\appAware;
+use yxorP\app\lib\http\helperAware;
 use function get_class;
 use function str_replace;
 use function strtolower;
@@ -96,7 +97,7 @@ class base extends appAware
      * @param string $name
      * @return \yxorP\app\lib\http\helperAware
      */
-    protected function helper(string $name): \yxorP\app\lib\http\helperAware
+    protected function helper(string $name): helperAware
     {
         return $this->app->helper($name);
     }

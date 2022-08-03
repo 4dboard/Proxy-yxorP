@@ -3,8 +3,6 @@
 namespace yxorP\app\modules\app\graphQL\types;
 
 use JetBrains\PhpStorm\Pure;
-use yxorP\app\lib\data\graphQL\Language\AST\FloatValueNode;
-use yxorP\app\lib\data\graphQL\Language\AST\ObjectValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\StringValueNode;
 use yxorP\app\modules\app\graphQL\Language\AST\BooleanValueNode;
 use yxorP\app\modules\app\graphQL\Language\AST\FloatValueNode;

@@ -14,7 +14,6 @@ use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\writer;
 use RuntimeException;
 use yxorP\app\lib\scancode\Renderer\Image\ImageBackEndInterface;
-use yxorP\app\lib\scancode\Renderer\Image\ImagickImageBackEnd;
 
 class BaconQrCodeProvider implements IQRCodeProviderInterface
 {

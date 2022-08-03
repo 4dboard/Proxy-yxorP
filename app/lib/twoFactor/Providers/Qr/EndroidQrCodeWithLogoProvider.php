@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\twoFactor\Providers\Qr;
 
 use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 
 class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
@@ -41,7 +42,7 @@ class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
         return $writer->write($this->qrCodeInstance($qrtext, $size), $logo)->getString();
     }
 
-    protected function qrCodeInstance($qrtext, $size): \Endroid\QrCode\QrCode
+    protected function qrCodeInstance($qrtext, $size): QrCode
     {
         $qrCode = parent::qrCodeInstance($qrtext, $size);
 

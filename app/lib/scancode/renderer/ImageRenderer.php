@@ -10,7 +10,6 @@ use BaconQrCode\Renderer\Image\ImageBackEndInterface;
 use BaconQrCode\Renderer\Path\Path;
 use BaconQrCode\Renderer\RendererStyle\EyeFill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
-use yxorP\app\lib\scancode\Encoder\qrCode;
 
 final class ImageRenderer implements RendererInterface
 {

@@ -7,7 +7,6 @@ use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Renderer\Color\ColorInterface;
 use BaconQrCode\Renderer\Color\Gray;
 use JetBrains\PhpStorm\Pure;
-use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 
 final class Fill
 {
