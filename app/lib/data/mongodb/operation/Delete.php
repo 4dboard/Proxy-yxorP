@@ -85,14 +85,14 @@ class Delete implements ExecutableInterface, ExplainableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to delete documents
+     * @param object|array $filter Query by which to delete documents
      * @param integer $limit The number of matching documents to
      *                                     delete. Must be 0 or 1, for all or a
      *                                     single document, respectively.
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, $limit, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, int $limit, array $options = [])
     {
         if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');

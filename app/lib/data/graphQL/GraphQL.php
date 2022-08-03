@@ -71,22 +71,22 @@ class GraphQL
      *    queries which are validated before persisting and assumed valid during execution)
      *
      * @param string|DocumentNode $source
-     * @param mixed $rootValue
-     * @param mixed $contextValue
+     * @param mixed|null $rootValue
+     * @param mixed|null $contextValue
      * @param array|null $variableValues
      * @param ValidationRule[] $validationRules
      *
      * @api
      */
     public static function executeQuery(
-        SchemaType $schema,
-                   $source,
-                   $rootValue = null,
-                   $contextValue = null,
-                   $variableValues = null,
-        ?string    $operationName = null,
-        ?callable  $fieldResolver = null,
-        ?array     $validationRules = null
+        SchemaType          $schema,
+        DocumentNode|string $source,
+        mixed               $rootValue = null,
+        mixed               $contextValue = null,
+        array               $variableValues = null,
+        ?string             $operationName = null,
+        ?callable           $fieldResolver = null,
+        ?array              $validationRules = null
     ): ExecutionResult
     {
         $promiseAdapter = new SyncPromiseAdapterInterface();
@@ -111,8 +111,8 @@ class GraphQL
      * Useful for Async PHP platforms.
      *
      * @param string|DocumentNode $source
-     * @param mixed $rootValue
-     * @param mixed $context
+     * @param mixed|null $rootValue
+     * @param mixed|null $context
      * @param array|null $variableValues
      * @param ValidationRule[]|null $validationRules
      *
@@ -121,10 +121,10 @@ class GraphQL
     public static function promiseToExecute(
         PromiseAdapterInterface $promiseAdapter,
         SchemaType              $schema,
-                                $source,
-                                $rootValue = null,
-                                $context = null,
-                                $variableValues = null,
+        DocumentNode|string     $source,
+        mixed                   $rootValue = null,
+        mixed                   $context = null,
+        array                   $variableValues = null,
         ?string                 $operationName = null,
         ?callable               $fieldResolver = null,
         ?array                  $validationRules = null
@@ -179,8 +179,8 @@ class GraphQL
 
     /**
      * @param string|DocumentNode $source
-     * @param mixed $rootValue
-     * @param mixed $contextValue
+     * @param mixed|null $rootValue
+     * @param mixed|null $contextValue
      * @param array|null $variableValues
      *
      * @return Promise|array
@@ -190,12 +190,12 @@ class GraphQL
      *
      */
     public static function execute(
-        SchemaType $schema,
-                   $source,
-                   $rootValue = null,
-                   $contextValue = null,
-                   $variableValues = null,
-        ?string    $operationName = null
+        SchemaType          $schema,
+        DocumentNode|string $source,
+        mixed               $rootValue = null,
+        mixed               $contextValue = null,
+        array               $variableValues = null,
+        ?string             $operationName = null
     )
     {
         trigger_error(
@@ -227,8 +227,8 @@ class GraphQL
 
     /**
      * @param string|DocumentNode $source
-     * @param mixed $rootValue
-     * @param mixed $contextValue
+     * @param mixed|null $rootValue
+     * @param mixed|null $contextValue
      * @param array|null $variableValues
      *
      * @return ExecutionResult|Promise
@@ -238,12 +238,12 @@ class GraphQL
      *
      */
     public static function executeAndReturnResult(
-        SchemaType $schema,
-                   $source,
-                   $rootValue = null,
-                   $contextValue = null,
-                   $variableValues = null,
-        ?string    $operationName = null
+        SchemaType          $schema,
+        DocumentNode|string $source,
+        mixed               $rootValue = null,
+        mixed               $contextValue = null,
+        array               $variableValues = null,
+        ?string             $operationName = null
     )
     {
         trigger_error(

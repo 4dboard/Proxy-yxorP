@@ -20,7 +20,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function isThenable($value);
+    public function isThenable(mixed $value);
 
     /**
      * Converts thenable of the underlying platform into GraphQL\Executor\Promise\Promise instance
@@ -31,7 +31,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function convertThenable($thenable);
+    public function convertThenable(object $thenable);
 
     /**
      * Accepts our Promise wrapper, extracts adopted promise out of it and executes actual `then` logic described
@@ -58,13 +58,13 @@ interface PromiseAdapterInterface
     /**
      * Creates a fulfilled Promise for a value if the value is not a promise.
      *
-     * @param mixed $value
+     * @param mixed|null $value
      *
      * @return Promise
      *
      * @api
      */
-    public function createFulfilled($value = null);
+    public function createFulfilled(mixed $value = null);
 
     /**
      * Creates a rejected promise for a reason if the reason is not a promise. If

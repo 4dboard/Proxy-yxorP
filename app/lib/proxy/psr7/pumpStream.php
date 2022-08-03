@@ -123,7 +123,7 @@ class pumpStream implements streamInterface
         }
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         if (!$key) {
             return $this->metadata;

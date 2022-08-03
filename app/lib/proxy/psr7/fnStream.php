@@ -130,7 +130,7 @@ class fnStream implements streamInterface
         return call_user_func($this->_fn_getContents);
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         return call_user_func($this->_fn_getMetadata, $key);
     }

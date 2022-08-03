@@ -49,11 +49,11 @@ class StandardServer
     /**
      * Creates new instance of a standard GraphQL HTTP server
      *
-     * @param ServerConfig|array $config
+     * @param array|ServerConfig $config
      *
      * @api
      */
-    public function __construct($config)
+    public function __construct(ServerConfig|array $config)
     {
         if (is_array($config)) {
             $config = ServerConfig::create($config);
@@ -77,7 +77,7 @@ class StandardServer
      * @throws \Throwable
      * @api
      */
-    public static function send500Error($error, $debug = DebugFlag::NONE, $exitWhenDone = false)
+    public static function send500Error(Throwable $error, int $debug = DebugFlag::NONE, bool $exitWhenDone = false)
     {
         $response = [
             'errors' => [FormattedError::createFromException($error, $debug)],
@@ -96,12 +96,12 @@ class StandardServer
      * See `executeRequest()` if you prefer to emit response yourself
      * (e.g. using Response object of some framework)
      *
-     * @param OperationParams|OperationParams[] $parsedBody
+     * @param OperationParams|OperationParams[]|null $parsedBody
      * @param bool $exitWhenDone
      *
      * @api
      */
-    public function handleRequest($parsedBody = null, $exitWhenDone = false)
+    public function handleRequest(OperationParams|array $parsedBody = null, bool $exitWhenDone = false)
     {
         $result = $this->executeRequest($parsedBody);
         $this->helper->sendResponse($result, $exitWhenDone);

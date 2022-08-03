@@ -56,7 +56,7 @@ class BuildSchema
      * A helper function to build a GraphQLSchema directly from a source
      * document.
      *
-     * @param DocumentNode|Source|string $source
+     * @param string|DocumentNode|Source $source
      * @param callable|null $typeConfigDecorator
      * @param array<string, bool> $options
      *
@@ -66,7 +66,7 @@ class BuildSchema
      * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      * @api
      */
-    public static function build($source, ?callable $typeConfigDecorator = null, array $options = [])
+    public static function build(Source|DocumentNode|string $source, ?callable $typeConfigDecorator = null, array $options = [])
     {
         $doc = $source instanceof DocumentNode
             ? $source
@@ -219,7 +219,7 @@ class BuildSchema
      *
      * @throws Error
      */
-    private function getOperationTypes($schemaDef)
+    private function getOperationTypes(SchemaDefinitionNode $schemaDef)
     {
         $opTypes = [];
 

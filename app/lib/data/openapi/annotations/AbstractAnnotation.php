@@ -138,7 +138,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @return AbstractAnnotation
      */
-    private function nested($annotation, Context $nestedContext)
+    private function nested(AbstractAnnotation $annotation, Context $nestedContext)
     {
         if (property_exists($annotation, '_context') && $annotation->_context === $this->_context) {
             $annotation->_context = $nestedContext;
@@ -274,7 +274,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @param object $object
      */
-    public function mergeProperties($object): void
+    public function mergeProperties(object $object): void
     {
         $defaultValues = get_class_vars(get_class($this));
         $currentValues = get_object_vars($this);
@@ -546,7 +546,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @return bool
      * @throws \Exception
      */
-    private function validateType(string $type, $value): bool
+    private function validateType(string $type, mixed $value): bool
     {
         if (str_starts_with($type, '[') && str_ends_with($type, ']')) { // Array of a specified type?
             if ($this->validateType('array', $value) === false) {
@@ -577,7 +577,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @return bool
      * @throws \Exception
      */
-    private function validateDefaultTypes(string $type, $value): bool
+    private function validateDefaultTypes(string $type, mixed $value): bool
     {
         return match ($type) {
             'string' => is_string($value),
@@ -614,11 +614,11 @@ abstract class AbstractAnnotation implements JsonSerializable
     /**
      * Recursively validate all annotation properties.
      *
-     * @param array|object $fields
+     * @param object|array $fields
      * @param array $parents the path of annotations above this annotation in the tree
      * @param array $skip List of objects already validated
      */
-    private static function _validate($fields, array $parents, array $skip, string $baseRef): bool
+    private static function _validate(object|array $fields, array $parents, array $skip, string $baseRef): bool
     {
         $valid = true;
         $blacklist = [];

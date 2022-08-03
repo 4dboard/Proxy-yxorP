@@ -81,17 +81,17 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * @param Node|Node[]|Traversable|null $nodes
      * @param array $positions
      * @param array|null $path
-     * @param Throwable $previous
+     * @param Throwable|null $previous
      * @param array $extensions
      */
     public function __construct(
-        $message = '',
-        $nodes = null,
-        ?Source $source = null,
-        array $positions = [],
-        $path = null,
-        $previous = null,
-        array $extensions = []
+        string    $message = '',
+                  $nodes = null,
+        ?Source   $source = null,
+        array     $positions = [],
+        array     $path = null,
+        Throwable $previous = null,
+        array     $extensions = []
     )
     {
         parent::__construct($message, 0, $previous);
@@ -153,7 +153,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @return Error
      */
-    public static function createLocatedError($error, $nodes = null, $path = null)
+    public static function createLocatedError(mixed $error, array $nodes = null, array $path = null)
     {
         if ($error instanceof self) {
             if ($error->path !== null && $error->nodes !== null && count($error->nodes) !== 0) {

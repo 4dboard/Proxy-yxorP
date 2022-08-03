@@ -37,7 +37,7 @@ class AmpPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function isThenable($value): bool
+    public function isThenable(mixed $value): bool
     {
         return $value instanceof AmpPromise;
     }
@@ -45,7 +45,7 @@ class AmpPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function convertThenable($thenable): Promise
+    public function convertThenable(object $thenable): Promise
     {
         return new Promise($thenable, $this);
     }
@@ -97,7 +97,7 @@ class AmpPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function createFulfilled($value = null): Promise
+    public function createFulfilled(mixed $value = null): Promise
     {
         $promise = new Success($value);
 

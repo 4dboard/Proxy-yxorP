@@ -55,11 +55,11 @@ class DeleteOne implements ExecutableInterface, ExplainableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to delete documents
+     * @param object|array $filter Query by which to delete documents
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, array $options = [])
     {
         $this->delete = new Delete($databaseName, $collectionName, $filter, 1, $options);
     }

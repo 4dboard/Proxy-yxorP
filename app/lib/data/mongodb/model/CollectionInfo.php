@@ -157,7 +157,7 @@ class CollectionInfo implements ArrayAccess
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function offsetExists($key)
+    public function offsetExists(mixed $key)
     {
         return array_key_exists($key, $this->info);
     }
@@ -170,7 +170,7 @@ class CollectionInfo implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($key)
+    public function offsetGet(mixed $key)
     {
         return $this->info[$key];
     }
@@ -185,7 +185,7 @@ class CollectionInfo implements ArrayAccess
      * @return void
      */
     #[ReturnTypeWillChange]
-    public function offsetSet($key, $value)
+    public function offsetSet(mixed $key, mixed $value)
     {
         throw BadMethodCallException::classIsImmutable(self::class);
     }
@@ -199,7 +199,7 @@ class CollectionInfo implements ArrayAccess
      * @return void
      */
     #[ReturnTypeWillChange]
-    public function offsetUnset($key)
+    public function offsetUnset(mixed $key)
     {
         throw BadMethodCallException::classIsImmutable(self::class);
     }

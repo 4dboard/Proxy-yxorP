@@ -166,7 +166,7 @@ class ReadableStream
      * @return string
      * @throws InvalidArgumentException if $length is negative
      */
-    public function readBytes($length)
+    public function readBytes(int $length)
     {
         if ($length < 0) {
             throw new InvalidArgumentException(sprintf('$length must be >= 0; given: %d', $length));
@@ -266,7 +266,7 @@ class ReadableStream
      * @param integer $offset
      * @throws InvalidArgumentException if $offset is out of range
      */
-    public function seek($offset)
+    public function seek(int $offset)
     {
         if ($offset < 0 || $offset > $this->file->length) {
             throw new InvalidArgumentException(sprintf('$offset must be >= 0 and <= %d; given: %d', $this->file->length, $offset));

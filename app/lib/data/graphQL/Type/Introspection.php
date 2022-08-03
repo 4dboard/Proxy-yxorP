@@ -46,7 +46,7 @@ class Introspection
      *
      * @return bool
      */
-    public static function isIntrospectionType($type)
+    public static function isIntrospectionType(Type $type)
     {
         return array_key_exists($type->name, self::getTypes());
     }

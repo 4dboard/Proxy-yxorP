@@ -92,7 +92,7 @@ class MixedStore implements ArrayAccess
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         if ($offset === false) {
             return $this->falseValueIsSet;
@@ -138,7 +138,7 @@ class MixedStore implements ArrayAccess
      * @return mixed Can return all value types.
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset)
     {
         if ($offset === true) {
             return $this->trueValue;
@@ -185,7 +185,7 @@ class MixedStore implements ArrayAccess
      *  The value to set.
      *  </p>
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if ($offset === false) {
             $this->falseValue = $value;
@@ -219,7 +219,7 @@ class MixedStore implements ArrayAccess
      * The offset to unset.
      * </p>
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         if ($offset === true) {
             $this->trueValue = null;

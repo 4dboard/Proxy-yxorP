@@ -70,7 +70,7 @@ class DropIndexes implements ExecutableInterface
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $indexName, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, string $indexName, array $options = [])
     {
         $indexName = (string)$indexName;
 

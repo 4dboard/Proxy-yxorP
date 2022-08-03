@@ -60,7 +60,7 @@ class ListCollections implements ExecutableInterface
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, array $options = [])
+    public function __construct(string $databaseName, array $options = [])
     {
         $this->databaseName = (string)$databaseName;
         $this->listCollections = new ListCollectionsCommand($databaseName, ['nameOnly' => false] + $options);

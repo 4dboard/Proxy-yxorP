@@ -97,7 +97,7 @@ class bufferStream implements streamInterface
         return strlen($string);
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         if ($key === 'hwm') {
             return $this->hwm;

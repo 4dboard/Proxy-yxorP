@@ -90,12 +90,12 @@ class FindOneAndUpdate implements ExecutableInterface, ExplainableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to filter documents
-     * @param array|object $update Update to apply to the matched document
+     * @param object|array $filter Query by which to filter documents
+     * @param object|array $update Update to apply to the matched document
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, $update, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, object|array $update, array $options = [])
     {
         if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');

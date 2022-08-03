@@ -162,7 +162,7 @@ class appendStream implements streamInterface
         throw new RuntimeException('Cannot write to an AppendStream');
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         return $key ? null : [];
     }

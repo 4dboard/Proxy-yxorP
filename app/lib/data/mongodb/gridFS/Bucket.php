@@ -141,7 +141,7 @@ class Bucket
      * @param array $options Bucket options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct(Manager $manager, $databaseName, array $options = [])
+    public function __construct(Manager $manager, string $databaseName, array $options = [])
     {
         $options += [
             'bucketName' => self::$defaultBucketName,
@@ -239,7 +239,7 @@ class Bucket
      * @throws FileNotFoundException if no file could be selected
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function delete($id)
+    public function delete(mixed $id)
     {
         $file = $this->collectionWrapper->findFileById($id);
         $this->collectionWrapper->deleteFileAndChunksById($id);
@@ -269,7 +269,7 @@ class Bucket
      * @throws StreamException if the file could not be uploaded
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function downloadToStream($id, $destination)
+    public function downloadToStream(mixed $id, $destination)
     {
         if (!is_resource($destination) || get_resource_type($destination) != "stream") {
             throw InvalidArgumentException::invalidType('$destination', $destination, 'resource');
@@ -289,7 +289,7 @@ class Bucket
      * @throws FileNotFoundException if no file could be selected
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function openDownloadStream($id)
+    public function openDownloadStream(mixed $id)
     {
         $file = $this->collectionWrapper->findFileById($id);
 
@@ -369,7 +369,7 @@ class Bucket
      * @throws StreamException if the file could not be uploaded
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function downloadToStreamByName($filename, $destination, array $options = [])
+    public function downloadToStreamByName(string $filename, $destination, array $options = [])
     {
         if (!is_resource($destination) || get_resource_type($destination) != "stream") {
             throw InvalidArgumentException::invalidType('$destination', $destination, 'resource');
@@ -406,7 +406,7 @@ class Bucket
      * @throws FileNotFoundException if no file could be selected
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function openDownloadStreamByName($filename, array $options = [])
+    public function openDownloadStreamByName(string $filename, array $options = [])
     {
         $options += ['revision' => -1];
 
@@ -434,7 +434,7 @@ class Bucket
      * Finds documents from the GridFS bucket's files collection matching the
      * query.
      *
-     * @param array|object $filter Query by which to filter documents
+     * @param object|array $filter Query by which to filter documents
      * @param array $options Additional options
      * @return Cursor
      * @throws UnsupportedException if options are not supported by the selected server
@@ -442,7 +442,7 @@ class Bucket
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see Find::__construct() for supported options
      */
-    public function find($filter = [], array $options = [])
+    public function find(object|array $filter = [], array $options = [])
     {
         return $this->collectionWrapper->findFiles($filter, $options);
     }
@@ -451,7 +451,7 @@ class Bucket
      * Finds a single document from the GridFS bucket's files collection
      * matching the query.
      *
-     * @param array|object $filter Query by which to filter documents
+     * @param object|array $filter Query by which to filter documents
      * @param array $options Additional options
      * @return array|object|null
      * @throws UnsupportedException if options are not supported by the selected server
@@ -459,7 +459,7 @@ class Bucket
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see FindOne::__construct() for supported options
      */
-    public function findOne($filter = [], array $options = [])
+    public function findOne(object|array $filter = [], array $options = [])
     {
         return $this->collectionWrapper->findOneFile($filter, $options);
     }
@@ -605,7 +605,7 @@ class Bucket
      * @throws FileNotFoundException if no file could be selected
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function rename($id, $newFilename)
+    public function rename(mixed $id, string $newFilename)
     {
         $updateResult = $this->collectionWrapper->updateFilenameForId($id, $newFilename);
 
@@ -649,7 +649,7 @@ class Bucket
      * @return mixed ID of the newly created GridFS file
      * @throws \yxorP\app\lib\data\mongoDB\GridFS\Exception\CorruptFileException
      */
-    public function uploadFromStream($filename, $source, array $options = [])
+    public function uploadFromStream(string $filename, $source, array $options = [])
     {
         if (!is_resource($source) || get_resource_type($source) != "stream") {
             throw InvalidArgumentException::invalidType('$source', $source, 'resource');
@@ -686,7 +686,7 @@ class Bucket
      * @param array $options Upload options
      * @return resource
      */
-    public function openUploadStream($filename, array $options = [])
+    public function openUploadStream(string $filename, array $options = [])
     {
         $options += ['chunkSizeBytes' => $this->chunkSizeBytes];
 

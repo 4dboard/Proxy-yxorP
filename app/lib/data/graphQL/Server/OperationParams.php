@@ -124,7 +124,7 @@ class OperationParams
      *
      * @api
      */
-    public function getOriginalInput($key)
+    public function getOriginalInput(string $key)
     {
         return $this->originalInput[$key] ?? null;
     }

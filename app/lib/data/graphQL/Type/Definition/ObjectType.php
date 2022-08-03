@@ -106,7 +106,7 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      *
      * @throws InvariantViolation
      */
-    public static function assertObjectType($type): self
+    public static function assertObjectType(mixed $type): self
     {
         Utils::invariant(
             $type instanceof self,
@@ -162,7 +162,7 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      *
      * @return bool|Deferred|null
      */
-    public function isTypeOf($value, $context, ResolveInfo $info)
+    public function isTypeOf(mixed $value, mixed $context, ResolveInfo $info)
     {
         return isset($this->config['isTypeOf'])
             ? $this->config['isTypeOf'](

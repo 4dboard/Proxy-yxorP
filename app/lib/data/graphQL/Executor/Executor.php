@@ -71,7 +71,7 @@ class Executor
      *
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
-     * @param array|ArrayAccess|null $variableValues
+     * @param ArrayAccess|array|null $variableValues
      * @param string|null $operationName
      *
      * @return ExecutionResult|Promise
@@ -79,13 +79,13 @@ class Executor
      * @api
      */
     public static function execute(
-        Schema       $schema,
-        DocumentNode $documentNode,
-                     $rootValue = null,
-                     $contextValue = null,
-                     $variableValues = null,
-                     $operationName = null,
-        ?callable    $fieldResolver = null
+        Schema            $schema,
+        DocumentNode      $documentNode,
+        mixed             $rootValue = null,
+        mixed             $contextValue = null,
+        ArrayAccess|array $variableValues = null,
+        string            $operationName = null,
+        ?callable         $fieldResolver = null
     )
     {
         // TODO: deprecate (just always use SyncAdapter here) and have `promiseToExecute()` for other cases
@@ -134,10 +134,10 @@ class Executor
         PromiseAdapterInterface $promiseAdapter,
         Schema                  $schema,
         DocumentNode            $documentNode,
-                                $rootValue = null,
-                                $contextValue = null,
-                                $variableValues = null,
-                                $operationName = null,
+        mixed                   $rootValue = null,
+        mixed                   $contextValue = null,
+        array                   $variableValues = null,
+        string                  $operationName = null,
         ?callable               $fieldResolver = null
     )
     {
@@ -170,7 +170,7 @@ class Executor
      *
      * @return mixed|null
      */
-    public static function defaultFieldResolver($objectValue, $args, $contextValue, ResolveInfo $info)
+    public static function defaultFieldResolver(mixed $objectValue, array $args, mixed $contextValue, ResolveInfo $info)
     {
         $fieldName = $info->fieldName;
         $property = null;

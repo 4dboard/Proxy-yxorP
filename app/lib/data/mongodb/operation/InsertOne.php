@@ -66,11 +66,11 @@ class InsertOne implements ExecutableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array|object $document Document to insert
+     * @param object|array $document Document to insert
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $document, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $document, array $options = [])
     {
         if (!is_array($document) && !is_object($document)) {
             throw InvalidArgumentException::invalidType('$document', $document, 'array or object');

@@ -58,11 +58,11 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
     }
 
     /**
-     * @param string|array $name
+     * @param array|string $name
      *
      * @return EnumValueDefinition|null
      */
-    public function getValue($name)
+    public function getValue(array|string $name)
     {
         $lookup = $this->getNameLookup();
 
@@ -131,7 +131,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
      *
      * @throws Error
      */
-    public function serialize($value)
+    public function serialize(mixed $value)
     {
         $lookup = $this->getValueLookup();
         if (isset($lookup[$value])) {
@@ -164,7 +164,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
      *
      * @throws Error
      */
-    public function parseValue($value)
+    public function parseValue(mixed $value)
     {
         $lookup = $this->getNameLookup();
         if (isset($lookup[$value])) {

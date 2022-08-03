@@ -32,7 +32,7 @@ values as specified by
      *
      * @throws Error
      */
-    public function serialize($value): float
+    public function serialize(mixed $value): float
     {
         $float = is_numeric($value) || is_bool($value)
             ? (float)$value
@@ -53,7 +53,7 @@ values as specified by
      *
      * @throws Error
      */
-    public function parseValue($value): float
+    public function parseValue(mixed $value): float
     {
         $float = is_float($value) || is_int($value)
             ? (float)$value

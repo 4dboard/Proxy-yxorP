@@ -162,7 +162,7 @@ class FieldDefinition
      *
      * @return FieldDefinition
      */
-    public static function create($field)
+    public static function create(array $field)
     {
         return new self($field);
     }
@@ -177,7 +177,7 @@ class FieldDefinition
      *
      * @return int
      */
-    public static function defaultComplexity($childrenComplexity)
+    public static function defaultComplexity(int $childrenComplexity)
     {
         return $childrenComplexity + 1;
     }
@@ -187,7 +187,7 @@ class FieldDefinition
      *
      * @return FieldArgument|null
      */
-    public function getArg($name)
+    public function getArg(string $name)
     {
         foreach ($this->args ?? [] as $arg) {
             /** @var FieldArgument $arg */

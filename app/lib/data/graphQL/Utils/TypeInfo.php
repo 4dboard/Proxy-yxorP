@@ -77,7 +77,7 @@ class TypeInfo
     /**
      * @param Type|null $initialType
      */
-    public function __construct(Schema $schema, $initialType = null)
+    public function __construct(Schema $schema, Type $initialType = null)
     {
         $this->schema = $schema;
         $this->typeStack = [];
@@ -165,7 +165,7 @@ class TypeInfo
      *
      * @return Type[]|null
      */
-    public static function extractTypes($type, ?array $typeMap = null)
+    public static function extractTypes(?Type $type, ?array $typeMap = null)
     {
         if (!$typeMap) {
             $typeMap = [];
@@ -420,12 +420,12 @@ class TypeInfo
 
     /**
      * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
-     * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
+     * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
      *
      * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
      * @throws \Exception
      */
-    public static function typeFromAST(Schema $schema, $inputTypeNode): ?Type
+    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ?Type
     {
         return AST::typeFromAST($schema, $inputTypeNode);
     }

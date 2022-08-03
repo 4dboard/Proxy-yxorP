@@ -27,7 +27,7 @@ class StreamException extends RuntimeException
      * @param resource $source
      * @param resource $destination
      */
-    public static function downloadFromIdFailed($id, $source, $destination): self
+    public static function downloadFromIdFailed(mixed $id, $source, $destination): self
     {
         $idString = toJSON(fromPHP(['_id' => $id]));
         $sourceMetadata = stream_get_meta_data($source);

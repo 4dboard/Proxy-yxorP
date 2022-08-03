@@ -54,7 +54,7 @@ class FormattedError
      *
      * @api
      */
-    public static function setInternalErrorMessage($msg)
+    public static function setInternalErrorMessage(string $msg)
     {
         self::$internalErrorMessage = $msg;
     }
@@ -141,7 +141,7 @@ class FormattedError
      *
      * @return string
      */
-    private static function whitespace($len)
+    private static function whitespace(int $len)
     {
         return str_repeat(' ', $len);
     }
@@ -151,7 +151,7 @@ class FormattedError
      *
      * @return string
      */
-    #[Pure] private static function lpad($len, $str)
+    #[Pure] private static function lpad(int $len, $str)
     {
         return self::whitespace($len - mb_strlen($str)) . $str;
     }
@@ -181,7 +181,7 @@ class FormattedError
      * This method only exposes exception message when exception implements ClientAware interface
      * (or when debug flags are passed).
      *
-     * For a list of available debug flags @param string $internalErrorMessage
+     * For a list of available debug flags @param string|null $internalErrorMessage
      *
      * @return array
      *
@@ -191,7 +191,7 @@ class FormattedError
      *
      * @api
      */
-    public static function createFromException(Throwable $exception, int $debug = DebugFlag::NONE, $internalErrorMessage = null): array
+    public static function createFromException(Throwable $exception, int $debug = DebugFlag::NONE, string $internalErrorMessage = null): array
     {
         $internalErrorMessage = $internalErrorMessage ?? self::$internalErrorMessage;
 
@@ -302,7 +302,7 @@ class FormattedError
      *
      * @api
      */
-    public static function toSafeTrace($error)
+    public static function toSafeTrace(Throwable $error)
     {
         $trace = $error->getTrace();
 
@@ -342,7 +342,7 @@ class FormattedError
      *
      * @return string
      */
-    public static function printVar($var)
+    public static function printVar(mixed $var)
     {
         if ($var instanceof Type) {
             // FIXME: Replace with schema printer call
@@ -386,7 +386,7 @@ class FormattedError
      * @deprecated as of v0.8.0
      *
      */
-    #[ArrayShape(['message' => "string", 'locations' => "array[]"])] public static function create($error, array $locations = [])
+    #[ArrayShape(['message' => "string", 'locations' => "array[]"])] public static function create(string $error, array $locations = [])
     {
         $formatted = ['message' => $error];
 

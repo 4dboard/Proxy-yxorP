@@ -56,11 +56,11 @@ class ExecutionResult implements JsonSerializable
     private $errorsHandler;
 
     /**
-     * @param array $data
+     * @param array|null $data
      * @param Error[] $errors
      * @param array $extensions
      */
-    public function __construct($data = null, array $errors = [], array $extensions = [])
+    public function __construct(array $data = null, array $errors = [], array $extensions = [])
     {
         $this->data = $data;
         $this->errors = $errors;

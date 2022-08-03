@@ -61,7 +61,7 @@ class Values
      * @return array
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    public static function getVariableValues(Schema $schema, $varDefNodes, array $inputs)
+    public static function getVariableValues(Schema $schema, array $varDefNodes, array $inputs)
     {
         $errors = [];
         $coercedValues = [];
@@ -154,13 +154,13 @@ class Values
      * If the directive does not exist on the node, returns undefined.
      *
      * @param \yxorP\app\lib\data\graphQL\Type\Definition\Directive $directiveDef
-     * @param FragmentSpreadNode|FieldNode|InlineFragmentNode|EnumValueDefinitionNode|FieldDefinitionNode $node
+     * @param EnumValueDefinitionNode|FieldDefinitionNode|FieldNode|FragmentSpreadNode|InlineFragmentNode $node
      * @param null $variableValues
      *
      * @return array|null
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    public static function getDirectiveValues(Directive $directiveDef, $node, $variableValues = null)
+    public static function getDirectiveValues(Directive $directiveDef, EnumValueDefinitionNode|InlineFragmentNode|FieldNode|FieldDefinitionNode|FragmentSpreadNode $node, $variableValues = null)
     {
         if (isset($node->directives) && $node->directives instanceof NodeList) {
             $directiveNode = Utils::find(
@@ -182,15 +182,15 @@ class Values
      * Prepares an object map of argument values given a list of argument
      * definitions and list of argument AST nodes.
      *
-     * @param FieldDefinition|Directive $def
-     * @param FieldNode|DirectiveNode $node
-     * @param array $variableValues
+     * @param Directive|FieldDefinition $def
+     * @param DirectiveNode|FieldNode $node
+     * @param array|null $variableValues
      *
      * @return array
      *
      * @throws Error
      */
-    public static function getArgumentValues($def, $node, $variableValues = null)
+    public static function getArgumentValues(Directive|FieldDefinition $def, FieldNode|DirectiveNode $node, array $variableValues = null)
     {
         if (count($def->args) === 0) {
             return [];
@@ -206,9 +206,9 @@ class Values
     }
 
     /**
-     * @param FieldDefinition|Directive $fieldDefinition
+     * @param Directive|FieldDefinition $fieldDefinition
      * @param ArgumentNode[] $argumentValueMap
-     * @param array $variableValues
+     * @param array|null $variableValues
      * @param Node|null $referenceNode
      *
      * @return array
@@ -216,7 +216,7 @@ class Values
      * @throws Error
      * @throws \Exception
      */
-    public static function getArgumentValuesForMap($fieldDefinition, $argumentValueMap, $variableValues = null, $referenceNode = null)
+    public static function getArgumentValuesForMap(Directive|FieldDefinition $fieldDefinition, array $argumentValueMap, array $variableValues = null, Node $referenceNode = null)
     {
         $argumentDefinitions = $fieldDefinition->args;
         $coercedValues = [];
@@ -323,7 +323,7 @@ class Values
      * @codeCoverageIgnore
      * @deprecated as of 0.12 (Use coerceValue() directly for richer information)
      */
-    public static function isValidPHPValue($value, InputType $type)
+    public static function isValidPHPValue(array $value, InputType $type)
     {
         $errors = Value::coerceValue($value, $type)['errors'];
 

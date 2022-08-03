@@ -152,11 +152,11 @@ class MapReduce implements ExecutableInterface
      * @param string $collectionName Collection name
      * @param JavascriptInterface $map Map function
      * @param JavascriptInterface $reduce Reduce function
-     * @param string|array|object $out Output specification
+     * @param object|array|string $out Output specification
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, JavascriptInterface $map, JavascriptInterface $reduce, $out, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, JavascriptInterface $map, JavascriptInterface $reduce, object|array|string $out, array $options = [])
     {
         if (!is_string($out) && !is_array($out) && !is_object($out)) {
             throw InvalidArgumentException::invalidType('$out', $out, 'string or array or object');
@@ -307,10 +307,10 @@ class MapReduce implements ExecutableInterface
     }
 
     /**
-     * @param string|array|object $out
+     * @param object|array|string $out
      * @return void
      */
-    private function checkOutDeprecations($out)
+    private function checkOutDeprecations(object|array|string $out)
     {
         if (is_string($out)) {
             return;
@@ -364,7 +364,7 @@ class MapReduce implements ExecutableInterface
      * @param boolean $hasOutputCollection
      * @return array
      */
-    private function createOptions($hasOutputCollection)
+    private function createOptions(bool $hasOutputCollection)
     {
         $options = [];
 

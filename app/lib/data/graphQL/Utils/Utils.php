@@ -60,7 +60,7 @@ class Utils
      *
      * @return bool
      */
-    public static function isInvalid($value)
+    public static function isInvalid(mixed $value)
     {
         return self::undefined() === $value;
     }
@@ -79,7 +79,7 @@ class Utils
      *
      * @return object
      */
-    public static function assign($obj, array $vars, array $requiredKeys = [])
+    public static function assign(object $obj, array $vars, array $requiredKeys = [])
     {
         foreach ($requiredKeys as $key) {
             if (!isset($vars[$key])) {
@@ -106,7 +106,7 @@ class Utils
      *
      * @return mixed|null
      */
-    public static function find($iterable, callable $predicate)
+    public static function find(array $iterable, callable $predicate)
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -126,7 +126,7 @@ class Utils
      * @param bool $test
      * @param string $message
      */
-    public static function invariant($test, $message = '')
+    public static function invariant(bool $test, string $message = '')
     {
         if (!$test) {
             if (func_num_args() > 2) {
@@ -146,7 +146,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function filter($iterable, callable $predicate): array
+    public static function filter(array $iterable, callable $predicate): array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -176,7 +176,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function map($iterable, callable $fn): array
+    public static function map(array $iterable, callable $fn): array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -198,7 +198,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function mapKeyValue($iterable, callable $fn): array
+    public static function mapKeyValue(array $iterable, callable $fn): array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -221,7 +221,7 @@ class Utils
      *
      * @throws Exception
      */
-    public static function keyMap($iterable, callable $keyFn): array
+    public static function keyMap(array $iterable, callable $keyFn): array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -244,7 +244,7 @@ class Utils
     /**
      * @param array $iterable
      */
-    public static function each($iterable, callable $fn): void
+    public static function each(array $iterable, callable $fn): void
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -272,7 +272,7 @@ class Utils
      *
      * @return array[]
      */
-    public static function groupBy($iterable, callable $keyFn): array
+    public static function groupBy(array $iterable, callable $keyFn): array
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -295,7 +295,7 @@ class Utils
      *
      * @return array
      */
-    public static function keyValMap($iterable, callable $keyFn, callable $valFn): array
+    public static function keyValMap(array $iterable, callable $keyFn, callable $valFn): array
     {
         $map = [];
         foreach ($iterable as $item) {
@@ -308,7 +308,7 @@ class Utils
     /**
      * @param array $iterable
      */
-    public static function every($iterable, callable $predicate): bool
+    public static function every(array $iterable, callable $predicate): bool
     {
         foreach ($iterable as $key => $value) {
             if (!$predicate($value, $key)) {
@@ -322,7 +322,7 @@ class Utils
     /**
      * @param array $iterable
      */
-    public static function some($iterable, callable $predicate): bool
+    public static function some(array $iterable, callable $predicate): bool
     {
         foreach ($iterable as $key => $value) {
             if ($predicate($value, $key)) {
@@ -338,7 +338,7 @@ class Utils
      *
      * @return string
      */
-    public static function getVariableType($var)
+    public static function getVariableType(mixed $var)
     {
         if ($var instanceof Type) {
             // FIXME: Replace with schema printer call
@@ -357,7 +357,7 @@ class Utils
      *
      * @return string
      */
-    public static function printSafeJson($var)
+    public static function printSafeJson(mixed $var)
     {
         if ($var instanceof stdClass) {
             $var = (array)$var;
@@ -392,7 +392,7 @@ class Utils
      *
      * @return string
      */
-    public static function printSafe($var)
+    public static function printSafe(mixed $var)
     {
         if ($var instanceof Type) {
             return $var->toString();
@@ -437,7 +437,7 @@ class Utils
      *
      * @return mixed
      */
-    public static function charCodeAt($string, $position)
+    public static function charCodeAt(string $string, int $position)
     {
         $char = mb_substr($string, $position, 1, 'UTF-8');
 
@@ -452,7 +452,7 @@ class Utils
      *
      * @return mixed
      */
-    public static function ord($char, $encoding = 'UTF-8')
+    public static function ord(string $char, string $encoding = 'UTF-8')
     {
         if (!$char && $char !== '0') {
             return 0;
@@ -472,7 +472,7 @@ class Utils
      *
      * @return string
      */
-    public static function printCharCode($code)
+    public static function printCharCode(?int $code)
     {
         if ($code === null) {
             return '<EOF>';
@@ -493,7 +493,7 @@ class Utils
      *
      * @return string
      */
-    public static function chr($ord, $encoding = 'UTF-8')
+    public static function chr(string $ord, string $encoding = 'UTF-8')
     {
         if ($encoding === 'UCS-4BE') {
             return pack('N', $ord);
@@ -509,7 +509,7 @@ class Utils
      *
      * @throws Error
      */
-    public static function assertValidName($name)
+    public static function assertValidName(string $name)
     {
         $error = self::isValidNameError($name);
         if ($error) {
@@ -525,7 +525,7 @@ class Utils
      *
      * @return Error|null
      */
-    public static function isValidNameError($name, $node = null)
+    public static function isValidNameError(string $name, Node $node = null)
     {
         self::invariant(is_string($name), 'Expected string');
 
@@ -631,7 +631,7 @@ class Utils
      *
      * @return string[]
      */
-    public static function suggestionList($input, array $options)
+    public static function suggestionList(string $input, array $options)
     {
         $optionsByDistance = [];
         $threshold = mb_strlen($input) * 0.4 + 1;

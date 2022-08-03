@@ -63,7 +63,7 @@ class CollectionWrapper
      * @throws InvalidArgumentException
      * @see collection::__construct() for supported options
      */
-    public function __construct(Manager $manager, $databaseName, $bucketName, array $collectionOptions = [])
+    public function __construct(Manager $manager, string $databaseName, string $bucketName, array $collectionOptions = [])
     {
         $this->databaseName = (string)$databaseName;
         $this->bucketName = (string)$bucketName;
@@ -77,7 +77,7 @@ class CollectionWrapper
      *
      * @param mixed $id
      */
-    public function deleteChunksByFilesId($id)
+    public function deleteChunksByFilesId(mixed $id)
     {
         $this->chunksCollection->deleteMany(['files_id' => $id]);
     }
@@ -87,7 +87,7 @@ class CollectionWrapper
      *
      * @param mixed $id
      */
-    public function deleteFileAndChunksById($id)
+    public function deleteFileAndChunksById(mixed $id)
     {
         $this->filesCollection->deleteOne(['_id' => $id]);
         $this->chunksCollection->deleteMany(['files_id' => $id]);
@@ -109,7 +109,7 @@ class CollectionWrapper
      * @param integer $fromChunk Starting chunk (inclusive)
      * @return Cursor
      */
-    public function findChunksByFileId($id, $fromChunk = 0)
+    public function findChunksByFileId(mixed $id, int $fromChunk = 0)
     {
         return $this->chunksCollection->find(
             [
@@ -141,7 +141,7 @@ class CollectionWrapper
      * @see Bucket::openDownloadStreamByName()
      * @see Bucket::downloadToStreamByName()
      */
-    public function findFileByFilenameAndRevision($filename, $revision)
+    public function findFileByFilenameAndRevision(string $filename, int $revision)
     {
         $filename = (string)$filename;
         $revision = (integer)$revision;
@@ -170,7 +170,7 @@ class CollectionWrapper
      * @param mixed $id
      * @return stdClass|null
      */
-    public function findFileById($id)
+    public function findFileById(mixed $id)
     {
         return $this->filesCollection->findOne(
             ['_id' => $id],
@@ -181,12 +181,12 @@ class CollectionWrapper
     /**
      * Finds documents from the GridFS bucket's files collection.
      *
-     * @param array|object $filter Query by which to filter documents
+     * @param object|array $filter Query by which to filter documents
      * @param array $options Additional options
      * @return Cursor
      * @see Find::__construct() for supported options
      */
-    public function findFiles($filter, array $options = [])
+    public function findFiles(object|array $filter, array $options = [])
     {
         return $this->filesCollection->find($filter, $options);
     }
@@ -194,11 +194,11 @@ class CollectionWrapper
     /**
      * Finds a single document from the GridFS bucket's files collection.
      *
-     * @param array|object $filter Query by which to filter documents
+     * @param object|array $filter Query by which to filter documents
      * @param array $options Additional options
      * @return array|object|null
      */
-    public function findOneFile($filter, array $options = [])
+    public function findOneFile(object|array $filter, array $options = [])
     {
         return $this->filesCollection->findOne($filter, $options);
     }
@@ -246,9 +246,9 @@ class CollectionWrapper
     /**
      * Inserts a document into the chunks collection.
      *
-     * @param array|object $chunk Chunk document
+     * @param object|array $chunk Chunk document
      */
-    public function insertChunk($chunk)
+    public function insertChunk(object|array $chunk)
     {
         if (!$this->checkedIndexes) {
             $this->ensureIndexes();
@@ -360,9 +360,9 @@ class CollectionWrapper
      *
      * The file document should be inserted after all chunks have been inserted.
      *
-     * @param array|object $file File document
+     * @param object|array $file File document
      */
-    public function insertFile($file)
+    public function insertFile(object|array $file)
     {
         if (!$this->checkedIndexes) {
             $this->ensureIndexes();
@@ -378,7 +378,7 @@ class CollectionWrapper
      * @param string $filename
      * @return updateResult
      */
-    public function updateFilenameForId($id, $filename)
+    public function updateFilenameForId(mixed $id, string $filename)
     {
         return $this->filesCollection->updateOne(
             ['_id' => $id],

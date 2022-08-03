@@ -118,11 +118,11 @@ class InterfaceType extends TypeWithFields implements AbstractType, OutputType, 
      * Resolves concrete ObjectType for given object value
      *
      * @param object $objectValue
-     * @param mixed $context
+     * @param array $context
      *
      * @return Type|null
      */
-    public function resolveType($objectValue, $context, ResolveInfo $info)
+    public function resolveType(object $objectValue, array $context, ResolveInfo $info)
     {
         if (isset($this->config['resolveType'])) {
             $fn = $this->config['resolveType'];

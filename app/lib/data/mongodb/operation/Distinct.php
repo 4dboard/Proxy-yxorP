@@ -80,11 +80,11 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
      * @param string $fieldName Field for which to return distinct values
-     * @param array|object $filter Query by which to filter documents
+     * @param object|array $filter Query by which to filter documents
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $fieldName, $filter = [], array $options = [])
+    public function __construct(string $databaseName, string $collectionName, string $fieldName, object|array $filter = [], array $options = [])
     {
         if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');

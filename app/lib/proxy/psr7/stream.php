@@ -34,7 +34,7 @@ class stream implements streamInterface
         $this->uri = $this->getMetadata('uri');
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         if (!isset($this->stream)) {
             return $key ? null : [];

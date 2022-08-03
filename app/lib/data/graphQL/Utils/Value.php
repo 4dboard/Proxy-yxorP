@@ -233,17 +233,17 @@ class Value
      * @param string $message
      * @param Node $blameNode
      * @param array|null $path
-     * @param string $subMessage
-     * @param Exception|Throwable|null $originalError
+     * @param string|null $subMessage
+     * @param Throwable|Exception|null $originalError
      *
      * @return Error
      */
     private static function coercionError(
-        $message,
-        $blameNode,
-        ?array $path = null,
-        $subMessage = null,
-        $originalError = null
+        string              $message,
+        Node                $blameNode,
+        ?array              $path = null,
+        string              $subMessage = null,
+        Throwable|Exception $originalError = null
     )
     {
         $pathStr = self::printPath($path);
@@ -288,7 +288,7 @@ class Value
      *
      * @return array (mixed|null)[]
      */
-    #[ArrayShape(['errors' => "null", 'value' => "mixed"])] private static function ofValue($value)
+    #[ArrayShape(['errors' => "null", 'value' => "mixed"])] private static function ofValue(mixed $value)
     {
         return ['errors' => null, 'value' => $value];
     }
@@ -299,7 +299,7 @@ class Value
      *
      * @return array (mixed|null)[]
      */
-    #[ArrayShape(['prev' => "mixed", 'key' => "mixed"])] private static function atPath($prev, $key)
+    #[ArrayShape(['prev' => "mixed", 'key' => "mixed"])] private static function atPath(mixed $prev, mixed $key)
     {
         return ['prev' => $prev, 'key' => $key];
     }
@@ -310,7 +310,7 @@ class Value
      *
      * @return Error[]
      */
-    private static function add($errors, $moreErrors)
+    private static function add(array $errors, array|Error $moreErrors)
     {
         return array_merge($errors, is_array($moreErrors) ? $moreErrors : [$moreErrors]);
     }

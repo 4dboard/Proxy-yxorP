@@ -21,7 +21,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function isThenable($value)
+    public function isThenable(mixed $value)
     {
         return $value instanceof SyncPromise;
     }
@@ -29,7 +29,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function convertThenable($thenable)
+    public function convertThenable(object $thenable)
     {
         if (!$thenable instanceof SyncPromise) {
             // End-users should always use Deferred (and don't use SyncPromise directly)
@@ -80,7 +80,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
      * @inheritdoc
      * @throws \Exception
      */
-    public function createFulfilled($value = null)
+    public function createFulfilled(mixed $value = null)
     {
         $promise = new SyncPromise();
 

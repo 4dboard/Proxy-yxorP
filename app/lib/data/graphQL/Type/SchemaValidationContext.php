@@ -110,9 +110,9 @@ class SchemaValidationContext
 
     /**
      * @param string $message
-     * @param Node[]|Node|TypeNodeInterface|TypeDefinitionNodeInterface|null $nodes
+     * @param Node|Node[]|TypeDefinitionNodeInterface|TypeNodeInterface|null $nodes
      */
-    public function reportError($message, $nodes = null)
+    public function reportError(string $message, TypeDefinitionNodeInterface|array|Node|TypeNodeInterface $nodes = null)
     {
         $nodes = array_filter($nodes && is_array($nodes) ? $nodes : [$nodes]);
         $this->addError(new Error($message, $nodes));
@@ -121,7 +121,7 @@ class SchemaValidationContext
     /**
      * @param Error $error
      */
-    private function addError($error)
+    private function addError(Error $error)
     {
         $this->errors[] = $error;
     }
@@ -132,7 +132,7 @@ class SchemaValidationContext
      *
      * @return NamedTypeNode|TypeDefinitionNodeInterface|null
      */
-    private function getOperationTypeNode($type, $operation)
+    private function getOperationTypeNode(Type $type, string $operation)
     {
         $astNode = $this->schema->getAstNode();
 
@@ -244,9 +244,9 @@ class SchemaValidationContext
     }
 
     /**
-     * @param Type|Directive|FieldDefinition|EnumValueDefinition|InputObjectField $node
+     * @param Directive|EnumValueDefinition|FieldDefinition|InputObjectField|Type $node
      */
-    private function validateName($node)
+    private function validateName(Directive|FieldDefinition|InputObjectField|EnumValueDefinition|Type $node)
     {
         // Ensure names are valid, however introspection types opt out.
         $error = Utils::isValidNameError($node->name, $node->astNode);
@@ -264,7 +264,7 @@ class SchemaValidationContext
      * @return InputValueDefinitionNode[]
      * @throws \Exception
      */
-    private function getAllDirectiveArgNodes(Directive $directive, $argName)
+    private function getAllDirectiveArgNodes(Directive $directive, string $argName)
     {
         $subNodes = $this->getAllSubNodes(
             $directive,
@@ -282,9 +282,9 @@ class SchemaValidationContext
     }
 
     /**
-     * @param Schema|ObjectType|InterfaceType|UnionType|EnumType|Directive $obj
+     * @param Directive|EnumType|InterfaceType|ObjectType|Schema|UnionType $obj
      */
-    private function getAllSubNodes($obj, callable $getter): NodeList
+    private function getAllSubNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType $obj, callable $getter): NodeList
     {
         $result = new NodeList([]);
         foreach ($this->getAllNodes($obj) as $astNode) {
@@ -304,11 +304,11 @@ class SchemaValidationContext
     }
 
     /**
-     * @param Schema|ObjectType|InterfaceType|UnionType|EnumType|InputObjectType|Directive $obj
+     * @param Directive|EnumType|InputObjectType|InterfaceType|ObjectType|Schema|UnionType $obj
      *
      * @return ObjectTypeDefinitionNode[]|ObjectTypeExtensionNode[]|InterfaceTypeDefinitionNode[]|InterfaceTypeExtensionNode[]
      */
-    private function getAllNodes($obj)
+    private function getAllNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType|InputObjectType $obj)
     {
         if ($obj instanceof Schema) {
             $astNode = $obj->getAstNode();
@@ -331,7 +331,7 @@ class SchemaValidationContext
      * @return \yxorP\app\lib\data\graphQL\Language\AST\TypeNodeInterface|null
      * @throws \Exception
      */
-    private function getDirectiveArgTypeNode(Directive $directive, $argName): ?TypeNodeInterface
+    private function getDirectiveArgTypeNode(Directive $directive, string $argName): ?TypeNodeInterface
     {
         $argNode = $this->getAllDirectiveArgNodes($directive, $argName)[0];
 
@@ -341,7 +341,7 @@ class SchemaValidationContext
     /**
      * @param NodeList<DirectiveNode> $directives
      */
-    private function validateDirectivesAtLocation($directives, string $location)
+    private function validateDirectivesAtLocation(NodeList $directives, string $location)
     {
         /** @var array<string, array<int, DirectiveNode>> $potentiallyDuplicateDirectives */
         $potentiallyDuplicateDirectives = [];
@@ -401,7 +401,7 @@ class SchemaValidationContext
      *
      * @return NodeList<DirectiveNode>
      */
-    private function getDirectives($object)
+    private function getDirectives(Schema|Type $object)
     {
         return $this->getAllSubNodes($object, static function ($node) {
             return $node->directives;
@@ -482,9 +482,9 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      */
-    private function validateFields($type)
+    private function validateFields(InterfaceType|ObjectType $type)
     {
         $fieldMap = $type->getFields();
 
@@ -582,13 +582,13 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
      * @return FieldDefinitionNode[]
      * @throws \Exception
      */
-    private function getAllFieldNodes($type, $fieldName)
+    private function getAllFieldNodes(InterfaceType|ObjectType $type, string $fieldName)
     {
         $subNodes = $this->getAllSubNodes($type, static function ($typeNode) {
             return $typeNode->fields;
@@ -600,12 +600,12 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
      * @return \yxorP\app\lib\data\graphQL\Language\AST\TypeNodeInterface|null
      */
-    private function getFieldTypeNode($type, $fieldName): ?TypeNodeInterface
+    private function getFieldTypeNode(InterfaceType|ObjectType $type, string $fieldName): ?TypeNodeInterface
     {
         $fieldNode = $this->getFieldNode($type, $fieldName);
 
@@ -613,12 +613,12 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
      * @return FieldDefinitionNode|null
      */
-    private function getFieldNode($type, $fieldName)
+    private function getFieldNode(InterfaceType|ObjectType $type, string $fieldName)
     {
         $nodes = $this->getAllFieldNodes($type, $fieldName);
 
@@ -626,13 +626,13 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      * @param string $argName
      *
      * @return InputValueDefinitionNode[]
      */
-    private function getAllFieldArgNodes($type, $fieldName, $argName)
+    private function getAllFieldArgNodes(InterfaceType|ObjectType $type, string $fieldName, string $argName)
     {
         $argNodes = [];
         $fieldNode = $this->getFieldNode($type, $fieldName);
@@ -650,13 +650,13 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      * @param string $argName
      *
      * @return \yxorP\app\lib\data\graphQL\Language\AST\TypeNodeInterface|null
      */
-    private function getFieldArgTypeNode($type, $fieldName, $argName): ?TypeNodeInterface
+    private function getFieldArgTypeNode(InterfaceType|ObjectType $type, string $fieldName, string $argName): ?TypeNodeInterface
     {
         $fieldArgNode = $this->getFieldArgNode($type, $fieldName, $argName);
 
@@ -664,13 +664,13 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      * @param string $argName
      *
      * @return InputValueDefinitionNode|null
      */
-    private function getFieldArgNode($type, $fieldName, $argName)
+    private function getFieldArgNode(InterfaceType|ObjectType $type, string $fieldName, string $argName)
     {
         $nodes = $this->getAllFieldArgNodes($type, $fieldName, $argName);
 
@@ -979,7 +979,7 @@ class SchemaValidationContext
      * @return NamedTypeNode[]
      * @throws \Exception
      */
-    private function getUnionMemberTypeNodes(UnionType $union, $typeName)
+    private function getUnionMemberTypeNodes(UnionType $union, string $typeName)
     {
         $subNodes = $this->getAllSubNodes($union, static function ($unionNode) {
             return $unionNode->types;
@@ -1041,7 +1041,7 @@ class SchemaValidationContext
      * @return EnumValueDefinitionNode[]
      * @throws \Exception
      */
-    private function getEnumValueNodes(EnumType $enum, $valueName)
+    private function getEnumValueNodes(EnumType $enum, string $valueName)
     {
         $subNodes = $this->getAllSubNodes($enum, static function ($enumNode) {
             return $enumNode->values;

@@ -150,7 +150,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setQuery($query)
+    public function setQuery(?ObjectType $query)
     {
         $this->query = $query;
 
@@ -174,7 +174,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setMutation($mutation)
+    public function setMutation(?ObjectType $mutation)
     {
         $this->mutation = $mutation;
 
@@ -198,7 +198,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setSubscription($subscription)
+    public function setSubscription(?ObjectType $subscription)
     {
         $this->subscription = $subscription;
 
@@ -216,13 +216,13 @@ class SchemaConfig
     }
 
     /**
-     * @param Type[]|callable $types
+     * @param callable|Type[] $types
      *
      * @return SchemaConfig
      *
      * @api
      */
-    public function setTypes($types)
+    public function setTypes(callable|array $types)
     {
         $this->types = $types;
 
@@ -288,7 +288,7 @@ class SchemaConfig
      *
      * @return SchemaConfig
      */
-    public function setAssumeValid($assumeValid)
+    public function setAssumeValid(bool $assumeValid)
     {
         $this->assumeValid = $assumeValid;
 

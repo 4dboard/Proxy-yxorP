@@ -27,7 +27,7 @@ class BooleanType extends ScalarType
      *
      * @param mixed $value
      */
-    public function serialize($value): bool
+    public function serialize(mixed $value): bool
     {
         return (bool)$value;
     }
@@ -39,7 +39,7 @@ class BooleanType extends ScalarType
      *
      * @throws Error
      */
-    public function parseValue($value)
+    public function parseValue(mixed $value)
     {
         if (is_bool($value)) {
             return $value;
