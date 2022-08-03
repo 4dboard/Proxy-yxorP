@@ -1,4 +1,6 @@
-<?php class redisLite
+<?php use yxorp\app\lib\http\helpers;
+
+class redisLite
 {
     protected string $path;
     protected object $connection;
@@ -44,9 +46,7 @@
                 $keys[] = $record["key"];
             }
         } else {
-            $matcher = function_exists('fnmatch') ? 'fnmatch' : function ($pattern, $string) {
-                return preg_match("#^" . strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.')) . "$#i", $string);
-            };
+            $matcher = helpers::fnmatch();
             foreach ($res as $record) {
                 if ($matcher($pattern, $record["key"])) {
                     $keys[] = $record["key"];
