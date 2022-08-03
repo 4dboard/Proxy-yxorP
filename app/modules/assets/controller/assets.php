@@ -290,12 +290,12 @@ class assets extends app
 
             $mime = null;
 
-            if (strpos($this->app->request->headers['Accept'] ?? '', 'image/avif') !== false) {
+            if (str_contains($this->app->request->headers['Accept'] ?? '', 'image/avif')) {
                 $gdinfo = gd_info();
                 $mime = isset($gdinfo['AVIF Support']) && $gdinfo['AVIF Support'] ? 'avif' : null;
             }
 
-            if (!$mime && strpos($this->app->request->headers['Accept'] ?? '', 'image/webp') !== false) {
+            if (!$mime && str_contains($this->app->request->headers['Accept'] ?? '', 'image/webp')) {
                 $gdinfo = gd_info();
                 $mime = isset($gdinfo['WebP Support']) && $gdinfo['WebP Support'] ? 'webp' : null;
             }

@@ -22,7 +22,7 @@ final class utils
             if ($asciiHost === false) {
                 $errorBitSet = $info['errors'] ?? 0;
                 $errorConstants = array_filter(array_keys(get_defined_constants()), function ($name) {
-                    return substr($name, 0, 11) === 'IDNA_ERROR_';
+                    return str_starts_with($name, 'IDNA_ERROR_');
                 });
                 $errors = [];
                 foreach ($errorConstants as $errorConstant) {

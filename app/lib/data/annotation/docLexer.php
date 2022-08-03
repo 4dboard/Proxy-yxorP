@@ -65,7 +65,7 @@ final class docLexer extends abstractLexer
             return $this->withCase[$lowerValue];
         }
         if (is_numeric($value)) {
-            return strpos($value, '.') !== false || stripos($value, 'e') !== false ? self::T_FLOAT : self::T_INTEGER;
+            return str_contains($value, '.') || stripos($value, 'e') !== false ? self::T_FLOAT : self::T_INTEGER;
         }
         return $type;
     }

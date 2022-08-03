@@ -58,7 +58,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
     }
 
     /**
-     * @param string|mixed[] $name
+     * @param string|array $name
      *
      * @return EnumValueDefinition|null
      */
@@ -176,7 +176,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
     }
 
     /**
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return null
      *

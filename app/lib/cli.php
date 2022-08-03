@@ -16,12 +16,12 @@
             for ($i = 0; $i < count($args); $i++) {
                 $a = $args[$i];
                 $b = $args[$i + 1] ?? null;
-                if (substr($a, 0, 2) === '--') {
+                if (str_starts_with($a, '--')) {
                     $k = substr($a, 2);
-                    if ($b && substr($b, 0, 1) !== '-') $opts[$k] = $b; else $opts[$k] = true;
-                } elseif (substr($a, 0, 1) === '-') {
+                    if ($b && !str_starts_with($b, '-')) $opts[$k] = $b; else $opts[$k] = true;
+                } elseif (str_starts_with($a, '-')) {
                     $k = substr($a, 1);
-                    if ($b && substr($b, 0, 1) !== '-') $opts[$k] = $b; else $opts[$k] = true;
+                    if ($b && !str_starts_with($b, '-')) $opts[$k] = $b; else $opts[$k] = true;
                 }
             }
         }

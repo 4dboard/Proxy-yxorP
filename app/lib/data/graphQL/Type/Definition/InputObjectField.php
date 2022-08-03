@@ -25,13 +25,13 @@ class InputObjectField
     public $description;
     /** @var InputValueDefinitionNode|null */
     public $astNode;
-    /** @var mixed[] */
+    /** @var array */
     public $config;
     /** @var Type&InputType */
     private $type;
 
     /**
-     * @param mixed[] $opts
+     * @param array $opts
      */
     public function __construct(array $opts)
     {

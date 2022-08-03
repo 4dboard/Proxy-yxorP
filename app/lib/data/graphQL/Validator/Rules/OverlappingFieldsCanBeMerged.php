@@ -86,7 +86,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @param CompositeType $parentType
      *
-     * @return mixed[]
+     * @return array
      */
     private function findConflictsWithinSelectionSet(
         ValidationContext $context,
@@ -150,7 +150,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @param CompositeType $parentType
      *
-     * @return mixed[]|SplObjectStorage
+     * @return array|SplObjectStorage
      */
     private function getFieldsAndFragmentNames(
         ValidationContext $context,
@@ -237,7 +237,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * as well as a list of nested fragment names referenced via fragment spreads.
      *
      * @param CompositeType $parentType
-     * @param mixed[][][] $astAndDefs
+     * @param array[][] $astAndDefs
      * @param bool[] $fragmentNames
      */
     private function internalCollectFieldsAndFragmentNames(
@@ -291,8 +291,8 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     /**
      * Collect all Conflicts "within" one collection of fields.
      *
-     * @param mixed[][] $conflicts
-     * @param mixed[][] $fieldMap
+     * @param array[] $conflicts
+     * @param array[] $fieldMap
      */
     private function collectConflictsWithin(
         ValidationContext $context,
@@ -338,10 +338,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @param bool $parentFieldsAreMutuallyExclusive
      * @param string $responseName
-     * @param mixed[] $field1
-     * @param mixed[] $field2
+     * @param array $field1
+     * @param array $field2
      *
-     * @return mixed[]|null
+     * @return array|null
      */
     private function findConflict(
         ValidationContext $context,
@@ -371,8 +371,8 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
             );
 
         // The return type for each field.
-        $type1 = $def1 === null ? null : $def1->getType();
-        $type2 = $def2 === null ? null : $def2->getType();
+        $type1 = $def1?->getType();
+        $type2 = $def2?->getType();
 
         if (!$areMutuallyExclusive) {
             // Two aliases must refer to the same field.
@@ -503,7 +503,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * @param CompositeType $parentType1
      * @param CompositeType $parentType2
      *
-     * @return mixed[][]
+     * @return array[]
      */
     private function findConflictsBetweenSubSelectionSets(
         ValidationContext $context,
@@ -595,10 +595,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * provided collection of fields. This is true because this validator traverses
      * each individual selection set.
      *
-     * @param mixed[][] $conflicts
+     * @param array[] $conflicts
      * @param bool $parentFieldsAreMutuallyExclusive
-     * @param mixed[] $fieldMap1
-     * @param mixed[] $fieldMap2
+     * @param array $fieldMap1
+     * @param array $fieldMap2
      */
     private function collectConflictsBetween(
         ValidationContext $context,
@@ -644,10 +644,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Collect all conflicts found between a set of fields and a fragment reference
      * including via spreading in any nested fragments.
      *
-     * @param mixed[][] $conflicts
+     * @param array[] $conflicts
      * @param bool[] $comparedFragments
      * @param bool $areMutuallyExclusive
-     * @param mixed[][] $fieldMap
+     * @param array[] $fieldMap
      * @param string $fragmentName
      */
     private function collectConflictsBetweenFieldsAndFragment(
@@ -707,7 +707,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Given a reference to a fragment, return the represented collection of fields
      * as well as a list of nested fragment names referenced via fragment spreads.
      *
-     * @return mixed[]|SplObjectStorage
+     * @return array|SplObjectStorage
      */
     private function getReferencedFieldsAndFragmentNames(
         ValidationContext      $context,
@@ -732,7 +732,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Collect all conflicts found between two fragments, including via spreading in
      * any nested fragments.
      *
-     * @param mixed[][] $conflicts
+     * @param array[] $conflicts
      * @param bool $areMutuallyExclusive
      * @param string $fragmentName1
      * @param string $fragmentName2
@@ -821,10 +821,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Given a series of Conflicts which occurred between two sub-fields, generate
      * a single Conflict.
      *
-     * @param mixed[][] $conflicts
+     * @param array[] $conflicts
      * @param string $responseName
      *
-     * @return mixed[]|null
+     * @return array|null
      */
     private function subfieldConflicts(
         array     $conflicts,

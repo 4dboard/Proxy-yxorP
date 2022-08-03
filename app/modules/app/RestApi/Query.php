@@ -45,7 +45,7 @@ class query extends appAware
 
         // custom file based route
         // normalize path
-        if (strpos($path, '../') !== false) $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
+        if (str_contains($path, '../')) $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
 
         if ($file = $this->app->path('#config:api/' . trim($path, '/') . '.php')) {
 

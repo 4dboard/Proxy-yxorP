@@ -135,7 +135,7 @@ class AugmentSchemas
             foreach ($analysis->annotations as $annotation) {
                 if (property_exists($annotation, 'ref') && $annotation->ref !== Generator::UNDEFINED && $annotation->ref !== null) {
                     foreach ($updatedRefs as $origRef => $updatedRef) {
-                        if (0 === strpos($annotation->ref, $origRef)) {
+                        if (str_starts_with($annotation->ref, $origRef)) {
                             $annotation->ref = str_replace($origRef, $updatedRef, $annotation->ref);
                         }
                     }

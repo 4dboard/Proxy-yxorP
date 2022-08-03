@@ -128,8 +128,8 @@ class Helper
      * Returned value is a suitable input for `executeOperation` or `executeBatch` (if array)
      *
      * @param string $method
-     * @param mixed[] $bodyParams
-     * @param mixed[] $queryParams
+     * @param array $bodyParams
+     * @param array $queryParams
      *
      * @return OperationParams|OperationParams[]
      *
@@ -387,7 +387,7 @@ class Helper
     /**
      * @param string $operationType
      *
-     * @return mixed[]|null
+     * @return array|null
      */
     private function resolveValidationRules(
         ServerConfig    $config,
@@ -468,7 +468,7 @@ class Helper
     }
 
     /**
-     * @param ExecutionResult|mixed[] $result
+     * @param ExecutionResult|array $result
      *
      * @return int
      */
@@ -508,7 +508,7 @@ class Helper
     }
 
     /**
-     * @param mixed[]|JsonSerializable $jsonSerializable
+     * @param array|JsonSerializable $jsonSerializable
      * @param int $httpStatus
      * @param bool $exitWhenDone
      */

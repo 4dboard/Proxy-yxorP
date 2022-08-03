@@ -44,17 +44,17 @@ class OperationParams
 
     /**
      * @api
-     * @var mixed[]|null
+     * @var array|null
      */
     public $variables;
 
     /**
      * @api
-     * @var mixed[]|null
+     * @var array|null
      */
     public $extensions;
 
-    /** @var mixed[] */
+    /** @var array */
     private $originalInput;
 
     /** @var bool */
@@ -63,7 +63,7 @@ class OperationParams
     /**
      * Creates an instance from given array
      *
-     * @param mixed[] $params
+     * @param array $params
      *
      * @api
      */

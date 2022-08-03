@@ -70,7 +70,7 @@ values as specified by
     }
 
     /**
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return float
      *

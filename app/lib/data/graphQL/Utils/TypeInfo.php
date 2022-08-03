@@ -62,7 +62,7 @@ class TypeInfo
     /** @var array<FieldDefinition> */
     private $fieldDefStack;
 
-    /** @var array<mixed> */
+    /** @var array */
     private $defaultValueStack;
 
     /** @var Directive|null */
@@ -283,9 +283,7 @@ class TypeInfo
                     $fieldDef = self::getFieldDefinition($schema, $parentType, $node);
                 }
                 $fieldType = null;
-                if ($fieldDef) {
-                    $fieldType = $fieldDef->getType();
-                }
+                $fieldType = $fieldDef?->getType();
                 $this->fieldDefStack[] = $fieldDef;
                 $this->typeStack[] = Type::isOutputType($fieldType) ? $fieldType : null;
                 break;
@@ -334,9 +332,7 @@ class TypeInfo
                             return $arg->name === $node->name->value;
                         }
                     );
-                    if ($argDef !== null) {
-                        $argType = $argDef->getType();
-                    }
+                    $argType = $argDef?->getType();
                 }
                 $this->argument = $argDef;
                 $this->defaultValueStack[] = $argDef && $argDef->defaultValueExists() ? $argDef->defaultValue : Utils::undefined();
@@ -362,7 +358,7 @@ class TypeInfo
                 if ($objectType instanceof InputObjectType) {
                     $tmp = $objectType->getFields();
                     $inputField = $tmp[$node->name->value] ?? null;
-                    $inputFieldType = $inputField ? $inputField->getType() : null;
+                    $inputFieldType = $inputField?->getType();
                 }
                 $this->defaultValueStack[] = $inputField && $inputField->defaultValueExists() ? $inputField->defaultValue : Utils::undefined();
                 $this->inputTypeStack[] = Type::isInputType($inputFieldType) ? $inputFieldType : null;

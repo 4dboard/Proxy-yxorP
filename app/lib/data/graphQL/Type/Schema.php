@@ -78,7 +78,7 @@ class Schema
     private $validationErrors;
 
     /**
-     * @param mixed[]|SchemaConfig $config
+     * @param array|SchemaConfig $config
      *
      * @api
      */

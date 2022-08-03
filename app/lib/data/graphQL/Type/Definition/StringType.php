@@ -66,7 +66,7 @@ represent free-form human-readable text.';
     }
 
     /**
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return string
      *

@@ -148,7 +148,7 @@ class SchemaValidationContext
             }
         }
 
-        return $operationTypeNode ? $operationTypeNode->type : ($type ? $type->astNode : null);
+        return $operationTypeNode ? $operationTypeNode->type : ($type?->astNode);
     }
 
     public function validateDirectives()
@@ -329,7 +329,7 @@ class SchemaValidationContext
     {
         $argNode = $this->getAllDirectiveArgNodes($directive, $argName)[0];
 
-        return $argNode ? $argNode->type : null;
+        return $argNode?->type;
     }
 
     /**
@@ -608,7 +608,7 @@ class SchemaValidationContext
     {
         $fieldNode = $this->getFieldNode($type, $fieldName);
 
-        return $fieldNode ? $fieldNode->type : null;
+        return $fieldNode?->type;
     }
 
     /**
@@ -659,7 +659,7 @@ class SchemaValidationContext
     {
         $fieldArgNode = $this->getFieldArgNode($type, $fieldName, $argName);
 
-        return $fieldArgNode ? $fieldArgNode->type : null;
+        return $fieldArgNode?->type;
     }
 
     /**
@@ -1066,7 +1066,7 @@ class SchemaValidationContext
                         $fieldName,
                         Utils::printSafe($field->getType())
                     ),
-                    $field->astNode ? $field->astNode->type : null
+                    $field->astNode?->type
                 );
             }
 

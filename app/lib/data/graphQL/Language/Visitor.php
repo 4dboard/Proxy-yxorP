@@ -174,7 +174,7 @@ class Visitor
      *
      * @param Node|ArrayObject|stdClass $root
      * @param callable[] $visitor
-     * @param mixed[]|null $keyMap
+     * @param array|null $keyMap
      *
      * @return Node|mixed
      *

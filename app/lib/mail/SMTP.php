@@ -133,9 +133,9 @@ class SMTP
             $this->edebug('SMTP ERROR: ' . $this->error['error'] . ": $errstr ($errno)", self::DEBUG_CLIENT);
             return false;
         }
-        if (strpos(PHP_OS, 'WIN') !== 0) {
+        if (!str_starts_with(PHP_OS, 'WIN')) {
             $max = (int)ini_get('max_execution_time');
-            if (0 !== $max && $timeout > $max && strpos(ini_get('disable_functions'), 'set_time_limit') === false) {
+            if (0 !== $max && $timeout > $max && !str_contains(ini_get('disable_functions'), 'set_time_limit')) {
                 @set_time_limit($timeout);
             }
             stream_set_timeout($connection, $timeout, 0);
@@ -220,7 +220,7 @@ class SMTP
             $this->setError("Called $command without being connected");
             return false;
         }
-        if ((strpos($commandstring, "\n") !== false) || (strpos($commandstring, "\r") !== false)) {
+        if ((str_contains($commandstring, "\n")) || (str_contains($commandstring, "\r"))) {
             $this->setError("Command '$command' contained line breaks");
             return false;
         }
@@ -382,7 +382,7 @@ class SMTP
         $lines = explode("\n", str_replace(["\r\n", "\r"], "\n", $msg_data));
         $field = substr($lines[0], 0, strpos($lines[0], ':'));
         $in_headers = false;
-        if (!empty($field) && strpos($field, ' ') === false) {
+        if (!empty($field) && !str_contains($field, ' ')) {
             $in_headers = true;
         }
         foreach ($lines as $line) {
@@ -448,7 +448,7 @@ class SMTP
         if ($this->sendHello('EHLO', $host)) {
             return true;
         }
-        if (substr($this->helo_rply, 0, 3) == '421') {
+        if (str_starts_with($this->helo_rply, '421')) {
             return false;
         }
         return $this->sendHello('HELO', $host);
@@ -513,11 +513,11 @@ class SMTP
         } else {
             $dsn = strtoupper($dsn);
             $notify = [];
-            if (strpos($dsn, 'NEVER') !== false) {
+            if (str_contains($dsn, 'NEVER')) {
                 $notify[] = 'NEVER';
             } else {
                 foreach (['SUCCESS', 'FAILURE', 'DELAY'] as $value) {
-                    if (strpos($dsn, $value) !== false) {
+                    if (str_contains($dsn, $value)) {
                         $notify[] = $value;
                     }
                 }

@@ -47,7 +47,7 @@ class SchemaExtender
     /** @var Type[] */
     protected static $extendTypeCache;
 
-    /** @var mixed[] */
+    /** @var array */
     protected static $typeExtensionsMap;
 
     /** @var ASTDefinitionBuilder */
@@ -370,7 +370,7 @@ class SchemaExtender
     /**
      * @param InterfaceType|ObjectType $type
      *
-     * @return mixed[]
+     * @return array
      *
      * @throws Error
      */
@@ -426,7 +426,7 @@ class SchemaExtender
     /**
      * @param FieldArgument[] $args
      *
-     * @return mixed[]
+     * @return array
      */
     protected static function extendArgs(array $args): array
     {
@@ -515,7 +515,7 @@ class SchemaExtender
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     protected static function extendValueMap(EnumType $type): array
     {
@@ -566,7 +566,7 @@ class SchemaExtender
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     protected static function extendInputFieldMap(InputObjectType $type): array
     {

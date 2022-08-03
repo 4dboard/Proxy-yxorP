@@ -38,7 +38,7 @@ class Value
      * Given a type and any value, return a runtime value coerced to match the type.
      *
      * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
-     * @param mixed[] $path
+     * @param array $path
      */
     public static function coerceValue($value, InputType $type, $blameNode = null, ?array $path = null)
     {
@@ -228,7 +228,7 @@ class Value
     /**
      * @param string $message
      * @param Node $blameNode
-     * @param mixed[]|null $path
+     * @param array|null $path
      * @param string $subMessage
      * @param Exception|Throwable|null $originalError
      *
@@ -260,7 +260,7 @@ class Value
     /**
      * Build a string describing the path into the value where the error was found
      *
-     * @param mixed[]|null $path
+     * @param array|null $path
      *
      * @return string
      */

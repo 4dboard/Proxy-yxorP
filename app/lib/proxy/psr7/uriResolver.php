@@ -111,7 +111,7 @@ final class uriResolver
         }
         $targetSegments[] = $targetLastSegment;
         $relativePath = str_repeat('../', count($sourceSegments)) . implode('/', $targetSegments);
-        if ('' === $relativePath || false !== strpos(explode('/', $relativePath, 2)[0], ':')) {
+        if ('' === $relativePath || str_contains(explode('/', $relativePath, 2)[0], ':')) {
             $relativePath = "./$relativePath";
         } elseif ('/' === $relativePath[0]) {
             if ($base->getAuthority() != '' && $base->getPath() === '') {

@@ -129,7 +129,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return mixed[]
+     * @return array
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)

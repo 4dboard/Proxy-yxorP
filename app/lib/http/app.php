@@ -167,7 +167,7 @@ class app implements ArrayAccess
     public function baseUrl(string $path): string
     {
         $url = '';
-        if (strpos($path, ':') === false) {
+        if (!str_contains($path, ':')) {
             $url .= $this->registry['base_url'] . '/' . ltrim($path, '/');
         } else {
             $url = $this->pathToUrl($path);
@@ -175,7 +175,7 @@ class app implements ArrayAccess
         return $url;
     }
 
-    public function pathToUrl(string $path, bool $full = false): mixed
+    public function pathToUrl(string $path, bool $full = false): string|bool
     {
         $url = false;
         if ($file = $this->path($path)) {
@@ -191,7 +191,7 @@ class app implements ArrayAccess
         return $url;
     }
 
-    public function path(): mixed
+    public function path(): mixed|\static
     {
         $args = func_get_args();
         switch (count($args)) {
@@ -240,8 +240,8 @@ class app implements ArrayAccess
 
     public function reroute(string $path): void
     {
-        if (strpos($path, '://') === false) {
-            if (substr($path, 0, 1) != '/') {
+        if (!str_contains($path, '://')) {
+            if (!str_starts_with($path, '/')) {
                 $path = '/' . $path;
             }
             $path = $this->routeUrl($path);
@@ -600,14 +600,14 @@ class app implements ArrayAccess
         } else {
             foreach ($this->routes as $route => $callback) {
                 $params = [];
-                if (substr($route, 0, 1) === '#' && substr($route, -1) === '#') {
+                if (str_starts_with($route, '#') && substr($route, -1) === '#') {
                     if (preg_match($route, $path, $matches)) {
                         $params[':captures'] = array_slice($matches, 1);
                         $found = $this->render_route($route, $params);
                         break;
                     }
                 }
-                if (strpos($route, '*') !== false) {
+                if (str_contains($route, '*')) {
                     $pattern = '#^' . str_replace('\*', '(.*)', preg_quote($route, '#')) . '#';
                     if (preg_match($pattern, $path, $matches)) {
                         $params[':splat'] = array_slice($matches, 1);
@@ -615,13 +615,13 @@ class app implements ArrayAccess
                         break;
                     }
                 }
-                if (strpos($route, ':') !== false) {
+                if (str_contains($route, ':')) {
                     $parts_p = explode('/', $path);
                     $parts_r = explode('/', $route);
                     if (count($parts_p) === count($parts_r)) {
                         $matched = true;
                         foreach ($parts_r as $index => $part) {
-                            if (':' === substr($part, 0, 1)) {
+                            if (str_starts_with($part, ':')) {
                                 $params[substr($part, 1)] = $parts_p[$index];
                                 continue;
                             }

@@ -74,7 +74,7 @@ class Utils
 
     /**
      * @param object $obj
-     * @param mixed[] $vars
+     * @param array $vars
      * @param string[] $requiredKeys
      *
      * @return object
@@ -102,7 +102,7 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
      * @return mixed|null
      */
@@ -140,9 +140,9 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
-     * @return array<mixed>
+     * @return array
      *
      * @throws Exception
      */
@@ -170,9 +170,9 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
-     * @return array<mixed>
+     * @return array
      *
      * @throws Exception
      */
@@ -192,9 +192,9 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
-     * @return array<mixed>
+     * @return array
      *
      * @throws Exception
      */
@@ -215,9 +215,9 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
-     * @return array<mixed>
+     * @return array
      *
      * @throws Exception
      */
@@ -242,7 +242,7 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      */
     public static function each($iterable, callable $fn): void
     {
@@ -268,9 +268,9 @@ class Utils
      *
      * $keyFn is also allowed to return array of keys. Then value will be added to all arrays with given keys
      *
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
-     * @return array<array<mixed>>
+     * @return array[]
      */
     public static function groupBy($iterable, callable $keyFn): array
     {
@@ -291,9 +291,9 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      *
-     * @return array<mixed>
+     * @return array
      */
     public static function keyValMap($iterable, callable $keyFn, callable $valFn): array
     {
@@ -306,7 +306,7 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      */
     public static function every($iterable, callable $predicate): bool
     {
@@ -320,7 +320,7 @@ class Utils
     }
 
     /**
-     * @param iterable<mixed> $iterable
+     * @param array $iterable
      */
     public static function some($iterable, callable $predicate): bool
     {

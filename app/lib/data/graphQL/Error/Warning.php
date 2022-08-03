@@ -27,7 +27,7 @@ final class Warning
     /** @var int */
     private static $enableWarnings = self::ALL;
 
-    /** @var mixed[] */
+    /** @var array */
     private static $warned = [];
 
     /** @var callable|null */

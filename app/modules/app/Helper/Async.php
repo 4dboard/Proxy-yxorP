@@ -129,7 +129,7 @@ unlink(__FILE__);
 
         $cmd = $this->phpPath . " -f $scriptfile";
 
-        if (substr(php_uname(), 0, 7) === "Windows") {
+        if (str_starts_with(php_uname(), "Windows")) {
             pclose(popen("start /B " . $cmd, "r"));
         } else {
             exec($cmd . " > /dev/null &");

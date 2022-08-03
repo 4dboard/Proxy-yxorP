@@ -102,7 +102,7 @@ class collection
         return count($result);
     }
 
-    public function remove(mixed $criteria): mixed
+    public function remove(mixed $criteria): int|bool
     {
         $sql = 'DELETE FROM `' . $this->name . '` WHERE document_criteria("' . $this->database->registerCriteriaFunction($criteria) . '", document)';
         return $this->database->connection->exec($sql);

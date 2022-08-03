@@ -11,7 +11,7 @@ class helpers
         $headers = array();
         $copy_server = array('CONTENT_TYPE' => 'Content-Type', 'CONTENT_LENGTH' => 'Content-Length', 'CONTENT_MD5' => 'Content-Md5',);
         foreach ($_SERVER as $key => $value) {
-            if (substr($key, 0, 5) === 'HTTP_') {
+            if (str_starts_with($key, 'HTTP_')) {
                 $key = substr($key, 5);
                 if (!isset($copy_server[$key]) || !isset($_SERVER[$key])) {
                     $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', $key))));

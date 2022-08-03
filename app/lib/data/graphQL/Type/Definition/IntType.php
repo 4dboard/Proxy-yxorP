@@ -95,7 +95,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
     }
 
     /**
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return int
      *

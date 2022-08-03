@@ -28,7 +28,7 @@ final class enum
     /**
      * Literal target declaration.
      *
-     * @var mixed[]
+     * @var array
      */
     public $literal;
 

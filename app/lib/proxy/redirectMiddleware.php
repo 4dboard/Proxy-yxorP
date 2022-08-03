@@ -43,7 +43,7 @@ class redirectMiddleware
 
     public function checkRedirect(requestInterface $request, array $options, responseInterface $response)
     {
-        if (substr($response->getStatusCode(), 0, 1) != '3' || !$response->hasHeader('Location')) {
+        if (!str_starts_with($response->getStatusCode(), '3') || !$response->hasHeader('Location')) {
             return $response;
         }
         $this->guardMax($request, $options);

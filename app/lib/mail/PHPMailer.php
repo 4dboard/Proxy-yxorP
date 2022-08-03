@@ -130,7 +130,7 @@ class PHPMailer
         if (null !== $exceptions) {
             $this->exceptions = (bool)$exceptions;
         }
-        $this->Debugoutput = (strpos(PHP_SAPI, 'cli') !== false ? 'echo' : 'html');
+        $this->Debugoutput = (str_contains(PHP_SAPI, 'cli') ? 'echo' : 'html');
     }
 
     public static function getLE()
@@ -302,7 +302,7 @@ class PHPMailer
             return false;
         }
         $readable = file_exists($path);
-        if (strpos($path, '\\\\') !== 0) {
+        if (!str_starts_with($path, '\\\\')) {
             $readable = $readable && is_readable($path);
         }
         return $readable;
@@ -1362,7 +1362,7 @@ class PHPMailer
         if (empty($host) || !is_string($host) || strlen($host) > 256 || !preg_match('/^([a-zA-Z\d.-]*|\[[a-fA-F\d:]+\])$/', $host)) {
             return false;
         }
-        if (strlen($host) > 2 && substr($host, 0, 1) === '[' && substr($host, -1, 1) === ']') {
+        if (strlen($host) > 2 && str_starts_with($host, '[') && substr($host, -1, 1) === ']') {
             return filter_var(substr($host, 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
         }
         if (is_numeric(str_replace('.', '', $host))) {
@@ -1495,7 +1495,7 @@ class PHPMailer
         $signHeader = preg_replace('/\r\n[ \t]+/', ' ', $signHeader);
         $lines = explode(self::CRLF, $signHeader);
         foreach ($lines as $key => $line) {
-            if (strpos($line, ':') === false) {
+            if (!str_contains($line, ':')) {
                 continue;
             }
             list($heading, $value) = explode(':', $line, 2);
@@ -1635,7 +1635,7 @@ class PHPMailer
         $length = strlen($string);
         for ($i = 0; $i < $length; ++$i) {
             $c = $string[$i];
-            if (!ctype_alnum($c) && strpos('@_-.', $c) === false) {
+            if (!ctype_alnum($c) && !str_contains('@_-.', $c)) {
                 return false;
             }
         }
@@ -1664,7 +1664,7 @@ class PHPMailer
             $list = explode(',', $addrstr);
             foreach ($list as $address) {
                 $address = trim($address);
-                if (strpos($address, '<') === false) {
+                if (!str_contains($address, '<')) {
                     if (static::validateAddress($address)) {
                         $addresses[] = ['name' => '', 'address' => $address,];
                     }
@@ -1696,7 +1696,7 @@ class PHPMailer
         if (is_callable($patternselect) && !is_string($patternselect)) {
             return call_user_func($patternselect, $address);
         }
-        if (strpos($address, "\n") !== false || strpos($address, "\r") !== false) {
+        if (str_contains($address, "\n") || str_contains($address, "\r")) {
             return false;
         }
         switch ($patternselect) {
@@ -2138,7 +2138,7 @@ class PHPMailer
 
     public function addCustomHeader($name, $value = null)
     {
-        if (null === $value && strpos($name, ':') !== false) {
+        if (null === $value && str_contains($name, ':')) {
             list($name, $value) = explode(':', $name, 2);
         }
         $name = trim($name);
@@ -2182,7 +2182,7 @@ class PHPMailer
                     $message = str_replace($images[0][$imgindex], $images[1][$imgindex] . '="cid:' . $cid . '"', $message);
                     continue;
                 }
-                if (!empty($basedir) && (strpos($url, '..') === false) && 0 !== strpos($url, 'cid:') && !preg_match('#^[a-z][a-z0-9+.-]*:?//#i', $url)) {
+                if (!empty($basedir) && (!str_contains($url, '..')) && !str_starts_with($url, 'cid:') && !preg_match('#^[a-z][a-z0-9+.-]*:?//#i', $url)) {
                     $filename = static::mb_pathinfo($url, PATHINFO_BASENAME);
                     $directory = dirname($url);
                     if ('.' === $directory) {

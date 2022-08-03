@@ -31,7 +31,7 @@ class QueryComplexity extends QuerySecurityRule
     /** @var int */
     private $maxQueryComplexity;
 
-    /** @var mixed[]|null */
+    /** @var array|null */
     private $rawVariableValues = [];
 
     /** @var ArrayObject */
@@ -227,7 +227,7 @@ class QueryComplexity extends QuerySecurityRule
     }
 
     /**
-     * @param mixed[]|null $rawVariableValues
+     * @param array|null $rawVariableValues
      */
     public function setRawVariableValues(?array $rawVariableValues = null)
     {

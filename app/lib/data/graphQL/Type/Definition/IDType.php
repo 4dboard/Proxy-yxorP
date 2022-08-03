@@ -62,7 +62,7 @@ When expected as an input type, any string (such as `"4"`) or integer
     }
 
     /**
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return string
      *

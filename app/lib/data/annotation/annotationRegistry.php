@@ -64,7 +64,7 @@ final class annotationRegistry
             return false;
         }
         foreach (self::$autoloadNamespaces as $namespace => $dirs) {
-            if (strpos($class, $namespace) !== 0) {
+            if (!str_starts_with($class, $namespace)) {
                 continue;
             }
             $file = str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';

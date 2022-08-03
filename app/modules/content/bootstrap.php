@@ -20,7 +20,7 @@ $this->module('content')->extend([
     '_models' => [],
     '_refs' => [],
 
-    'createModel' => function (string $name, array $data = []): mixed {
+    'createModel' => function (string $name, array $data = []): array|bool {
 
         if (!trim($name)) {
             return false;
@@ -65,7 +65,7 @@ $this->module('content')->extend([
         return $model;
     },
 
-    'updateModel' => function (string $name, array $data): mixed {
+    'updateModel' => function (string $name, array $data): array|bool {
 
         if (!$this->exists($name)) {
             return false;
@@ -149,7 +149,7 @@ $this->module('content')->extend([
         return $this->app->path("#storage:content/{$name}.model.php");
     },
 
-    'model' => function (string $name): mixed {
+    'model' => function (string $name): bool {
 
         if (!isset($this->_models[$name])) {
 

@@ -43,7 +43,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * An array describing the JSON-path into the execution response which
      * corresponds to this error. Only included for errors during execution.
      *
-     * @var mixed[]|null
+     * @var array|null
      */
     public $path;
     /**
@@ -54,7 +54,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     public $nodes;
     /** @var string */
     protected $category;
-    /** @var mixed[]|null */
+    /** @var array|null */
     protected $extensions;
     /**
      * Lazily initialized.
@@ -79,10 +79,10 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @param string $message
      * @param Node|Node[]|Traversable|null $nodes
-     * @param mixed[] $positions
-     * @param mixed[]|null $path
+     * @param array $positions
+     * @param array|null $path
      * @param Throwable $previous
-     * @param mixed[] $extensions
+     * @param array $extensions
      */
     public function __construct(
         $message = '',
@@ -149,7 +149,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @param mixed $error
      * @param Node[]|null $nodes
-     * @param mixed[]|null $path
+     * @param array|null $path
      *
      * @return Error
      */
@@ -195,7 +195,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     public static function formatError(Error $error)
     {
@@ -205,7 +205,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * Returns array representation of error suitable for serialization
      *
-     * @return mixed[]
+     * @return array
      *
      * @codeCoverageIgnore
      * @deprecated Use FormattedError::createFromException() instead
@@ -337,7 +337,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * Returns an array describing the path from the root value to the field which produced this error.
      * Only included for execution errors.
      *
-     * @return mixed[]|null
+     * @return array|null
      *
      * @api
      */
@@ -347,7 +347,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     public function getExtensions()
     {

@@ -183,7 +183,7 @@ class FormattedError
      *
      * For a list of available debug flags @param string $internalErrorMessage
      *
-     * @return mixed[]
+     * @return array
      *
      * @throws Throwable
      *
@@ -239,9 +239,9 @@ class FormattedError
 
     /**
      * Decorates spec-compliant $formattedError with debug entries according to $debug flags
-     * (@param mixed[] $formattedError
+     * (@param array $formattedError
      *
-     * @return mixed[]
+     * @return array
      *
      * @throws Throwable
      * @see \GraphQL\Error\DebugFlag for available flags)
@@ -298,7 +298,7 @@ class FormattedError
      *
      * @param Throwable $error
      *
-     * @return mixed[]
+     * @return array
      *
      * @api
      */
@@ -382,7 +382,7 @@ class FormattedError
      * @param string $error
      * @param SourceLocation[] $locations
      *
-     * @return mixed[]
+     * @return array
      * @deprecated as of v0.8.0
      *
      */
@@ -403,7 +403,7 @@ class FormattedError
     }
 
     /**
-     * @return mixed[]
+     * @return array
      *
      * @codeCoverageIgnore
      * @deprecated as of v0.10.0, use general purpose method createFromException() instead

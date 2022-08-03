@@ -35,7 +35,7 @@ class ExecutionContext
     /** @var OperationDefinitionNode */
     public $operation;
 
-    /** @var mixed[] */
+    /** @var array */
     public $variableValues;
 
     /** @var callable */

@@ -78,14 +78,14 @@ class Asset extends helperAware
         }
 
         // normalize path
-        if (strpos($src, '../') !== false) {
+        if (str_contains($src, '../')) {
             $src = implode('/', array_filter(explode('/', $src), fn($s) => trim($s, '.')));
         }
 
         $src = rawurldecode($src);
         $asset = null;
 
-        if (strpos($src, 'assets://') === 0) {
+        if (str_starts_with($src, 'assets://')) {
             $asset = ['path' => str_replace('assets://', '', $src)];
         } elseif (!preg_match('/\.(png|jpg|jpeg|gif|svg|webp|avif)$/i', $src)) {
             $asset = $this->app->dataStorage->findOne('assets', ['_id' => $src]);

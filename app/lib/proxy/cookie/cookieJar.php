@@ -155,7 +155,7 @@ class cookieJar implements cookieJarInterface
                 if (!$sc->getDomain()) {
                     $sc->setDomain($request->getUri()->getHost());
                 }
-                if (0 !== strpos($sc->getPath(), '/')) {
+                if (!str_starts_with($sc->getPath(), '/')) {
                     $sc->setPath($this->getCookiePathFromRequest($request));
                 }
                 $this->setCookie($sc);
@@ -169,7 +169,7 @@ class cookieJar implements cookieJarInterface
         if ('' === $uriPath) {
             return '/';
         }
-        if (0 !== strpos($uriPath, '/')) {
+        if (!str_starts_with($uriPath, '/')) {
             return '/';
         }
         if ('/' === $uriPath) {

@@ -50,7 +50,7 @@ class CoroutineContextShared
 
     /**
      * @param FieldNode[] $fieldNodes
-     * @param mixed[]|null $argumentValueMap
+     * @param array|null $argumentValueMap
      */
     public function __construct(array $fieldNodes, string $fieldName, string $resultName, ?array $argumentValueMap)
     {

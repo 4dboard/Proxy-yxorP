@@ -140,7 +140,7 @@ class setCookie
         if ($cookiePath === '/' || $cookiePath === $requestPath) {
             return true;
         }
-        if (0 !== strpos($requestPath, $cookiePath)) {
+        if (!str_starts_with($requestPath, $cookiePath)) {
             return false;
         }
         if (substr($cookiePath, -1, 1) === '/') {

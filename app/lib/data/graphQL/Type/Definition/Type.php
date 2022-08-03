@@ -49,7 +49,7 @@ abstract class Type extends \yxorP\app\lib\data\graphQL\Type\Definition\UnionTyp
     /** @var TypeDefinitionNodeInterface|null */
     public $astNode;
 
-    /** @var mixed[] */
+    /** @var array */
     public $config;
 
     /** @var TypeExtensionNodeInterface[] */

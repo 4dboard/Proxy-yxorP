@@ -15,7 +15,7 @@ interface AbstractType
      * Resolves concrete ObjectType for given object value
      *
      * @param object $objectValue
-     * @param mixed[] $context
+     * @param array $context
      *
      * @return mixed
      */

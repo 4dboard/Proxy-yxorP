@@ -192,7 +192,7 @@ class SchemaPrinter
         // Format a multi-line block quote to account for leading space.
         $hasLeadingSpace = isset($lines[0]) &&
             (
-                substr($lines[0], 0, 1) === ' ' ||
+                str_starts_with($lines[0], ' ') ||
                 substr($lines[0], 0, 1) === '\t'
             );
         if (!$hasLeadingSpace) {

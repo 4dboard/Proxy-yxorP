@@ -426,7 +426,7 @@ class sVGSanitizer
      */
     protected function isAriaAttribute($attributeName)
     {
-        return strpos($attributeName, 'aria-') === 0;
+        return str_starts_with($attributeName, 'aria-');
     }
 
     /**
@@ -438,7 +438,7 @@ class sVGSanitizer
      */
     protected function isDataAttribute($attributeName)
     {
-        return strpos($attributeName, 'data-') === 0;
+        return str_starts_with($attributeName, 'data-');
     }
 
     /**
@@ -516,7 +516,7 @@ class sVGSanitizer
     protected function isUseTagDirty(DOMElement $element)
     {
         $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
-        if ($xlinks && substr($xlinks, 0, 1) !== '#') {
+        if ($xlinks && !str_starts_with($xlinks, '#')) {
             return true;
         }
 

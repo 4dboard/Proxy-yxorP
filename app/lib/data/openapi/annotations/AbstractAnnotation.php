@@ -243,7 +243,7 @@ abstract class AbstractAnnotation implements JsonSerializable
 
         $parent = $class;
         // only consider the immediate OpenApi parent
-        while (0 !== strpos($parent, 'OpenApi\\Annotations\\') && $parent = get_parent_class($parent)) {
+        while (!str_starts_with($parent, 'OpenApi\\Annotations\\') && $parent = get_parent_class($parent)) {
             if ($kvp = static::matchNested($parent)) {
                 return $kvp;
             }
@@ -480,7 +480,7 @@ abstract class AbstractAnnotation implements JsonSerializable
             }
         }
         if (property_exists($this, 'ref') && $this->ref !== Generator::UNDEFINED && $this->ref !== null) {
-            if (substr((string)$this->ref, 0, 2) === '#/' && count($parents) > 0 && $parents[0] instanceof OpenApi) {
+            if (str_starts_with((string)$this->ref, '#/') && count($parents) > 0 && $parents[0] instanceof OpenApi) {
                 // Internal reference
                 try {
                     $parents[0]->ref((string)$this->ref);
@@ -543,7 +543,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      */
     private function validateType(string $type, $value): bool
     {
-        if (substr($type, 0, 1) === '[' && substr($type, -1) === ']') { // Array of a specified type?
+        if (str_starts_with($type, '[') && substr($type, -1) === ']') { // Array of a specified type?
             if ($this->validateType('array', $value) === false) {
                 return false;
             }

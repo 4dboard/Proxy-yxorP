@@ -35,7 +35,7 @@ class Serializer
             if ($property === '$ref') {
                 $property = 'ref';
             }
-            if (substr($property, 0, 2) === 'x-') {
+            if (str_starts_with($property, 'x-')) {
                 if ($annotation->x === Generator::UNDEFINED) {
                     $annotation->x = [];
                 }
@@ -86,7 +86,7 @@ class Serializer
     {
         $isAnnotationClass = is_string($type) && is_subclass_of(trim($type, '[]'), OA\AbstractAnnotation::class);
         if ($isAnnotationClass) {
-            $isArray = strpos($type, '[') === 0 && substr($type, -1) === ']';
+            $isArray = str_starts_with($type, '[') && substr($type, -1) === ']';
             if ($isArray) {
                 $annotationArr = [];
                 $class = trim($type, '[]');

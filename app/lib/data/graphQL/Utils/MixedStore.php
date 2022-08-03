@@ -30,7 +30,7 @@ class MixedStore implements ArrayAccess
     /** @var EnumValueDefinition[] */
     private $standardStore;
 
-    /** @var mixed[] */
+    /** @var array */
     private $floatStore;
 
     /** @var SplObjectStorage */

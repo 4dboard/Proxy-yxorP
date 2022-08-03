@@ -31,7 +31,7 @@ class mongoLite
 
     public function dropCollection(string $name, ?string $db = null)
     {
-        if (strpos($name, '/') !== false) {
+        if (str_contains($name, '/')) {
             list($db, $name) = explode('/', $name, 2);
         }
         if (!$db) {
@@ -43,7 +43,7 @@ class mongoLite
 
     public function renameCollection(string $name, string $newname, ?string $db = null): bool
     {
-        if (strpos($name, '/') !== false) {
+        if (str_contains($name, '/')) {
             list($db, $name) = explode('/', $name, 2);
         }
         if (!$db) {
@@ -67,7 +67,7 @@ class mongoLite
 
     public function getCollection(string $name, ?string $db = null): collection
     {
-        if (strpos($name, '/') !== false) {
+        if (str_contains($name, '/')) {
             list($db, $name) = explode('/', $name, 2);
         }
         if (!$db) {

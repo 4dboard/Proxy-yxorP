@@ -38,7 +38,7 @@ class CustomScalarType extends ScalarType
     }
 
     /**
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return mixed
      *

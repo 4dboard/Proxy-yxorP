@@ -38,7 +38,7 @@ class QueryPlan
     /** @var array<string, mixed> */
     private $queryPlan = [];
 
-    /** @var mixed[] */
+    /** @var array */
     private $variableValues;
 
     /** @var FragmentDefinitionNode[] */
@@ -49,9 +49,9 @@ class QueryPlan
 
     /**
      * @param FieldNode[] $fieldNodes
-     * @param mixed[] $variableValues
+     * @param array $variableValues
      * @param FragmentDefinitionNode[] $fragments
-     * @param mixed[] $options
+     * @param array $options
      */
     public function __construct(ObjectType $parentType, Schema $schema, iterable $fieldNodes, array $variableValues, array $fragments, array $options = [])
     {
@@ -106,9 +106,9 @@ class QueryPlan
 
     /**
      * @param InterfaceType|ObjectType $parentType
-     * @param mixed[] $implementors
+     * @param array $implementors
      *
-     * @return mixed[]
+     * @return array
      *
      * @throws Error
      */
@@ -160,9 +160,9 @@ class QueryPlan
     }
 
     /**
-     * @param mixed[] $implementors
+     * @param array $implementors
      *
-     * @return mixed[]
+     * @return array
      */
     private function analyzeSubFields(Type $type, SelectionSetNode $selectionSet, array &$implementors = []): array
     {
@@ -183,11 +183,11 @@ class QueryPlan
     }
 
     /**
-     * @param mixed[] $fields
-     * @param mixed[] $subfields
-     * @param mixed[] $implementors
+     * @param array $fields
+     * @param array $subfields
+     * @param array $implementors
      *
-     * @return mixed[]
+     * @return array
      */
     private function mergeFields(Type $parentType, Type $type, array $fields, array $subfields, array &$implementors): array
     {
@@ -220,10 +220,10 @@ class QueryPlan
      *
      * @see https://stackoverflow.com/a/25712428
      *
-     * @param mixed[] $array1
-     * @param mixed[] $array2
+     * @param array $array1
+     * @param array $array2
      *
-     * @return mixed[]
+     * @return array
      */
     private function arrayMergeDeep(array $array1, array $array2): array
     {
@@ -245,7 +245,7 @@ class QueryPlan
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     public function queryPlan(): array
     {

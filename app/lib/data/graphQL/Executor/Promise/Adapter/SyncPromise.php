@@ -41,7 +41,7 @@ class SyncPromise
     /**
      * Promises created in `then` method of this promise and awaiting for resolution of this promise
      *
-     * @var mixed[][]
+     * @var array[]
      */
     private $waiting = [];
 

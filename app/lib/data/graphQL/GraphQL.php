@@ -73,7 +73,7 @@ class GraphQL
      * @param string|DocumentNode $source
      * @param mixed $rootValue
      * @param mixed $contextValue
-     * @param mixed[]|null $variableValues
+     * @param array|null $variableValues
      * @param ValidationRule[] $validationRules
      *
      * @api
@@ -113,7 +113,7 @@ class GraphQL
      * @param string|DocumentNode $source
      * @param mixed $rootValue
      * @param mixed $context
-     * @param mixed[]|null $variableValues
+     * @param array|null $variableValues
      * @param ValidationRule[]|null $validationRules
      *
      * @api
@@ -181,9 +181,9 @@ class GraphQL
      * @param string|DocumentNode $source
      * @param mixed $rootValue
      * @param mixed $contextValue
-     * @param mixed[]|null $variableValues
+     * @param array|null $variableValues
      *
-     * @return Promise|mixed[]
+     * @return Promise|array
      *
      * @codeCoverageIgnore
      * @deprecated Use executeQuery()->toArray() instead
@@ -229,7 +229,7 @@ class GraphQL
      * @param string|DocumentNode $source
      * @param mixed $rootValue
      * @param mixed $contextValue
-     * @param mixed[]|null $variableValues
+     * @param array|null $variableValues
      *
      * @return ExecutionResult|Promise
      *

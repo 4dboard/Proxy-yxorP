@@ -81,7 +81,7 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
     private $interfaceMap;
 
     /**
-     * @param mixed[] $config
+     * @param array $config
      */
     public function __construct(array $config)
     {

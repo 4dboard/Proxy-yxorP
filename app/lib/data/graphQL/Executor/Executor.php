@@ -71,7 +71,7 @@ class Executor
      *
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
-     * @param array<mixed>|ArrayAccess|null $variableValues
+     * @param array|ArrayAccess|null $variableValues
      * @param string|null $operationName
      *
      * @return ExecutionResult|Promise
@@ -123,7 +123,7 @@ class Executor
      *
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
-     * @param array<mixed>|null $variableValues
+     * @param array|null $variableValues
      * @param string|null $operationName
      *
      * @return Promise

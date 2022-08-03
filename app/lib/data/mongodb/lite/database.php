@@ -53,7 +53,7 @@ class Database
         $this->connection->sqliteCreateFunction('document_key', function ($key, $document) {
             $document = json_decode($document, true);
             $val = '';
-            if (strpos($key, '.') !== false) {
+            if (str_contains($key, '.')) {
                 $keys = explode('.', $key);
                 switch (count($keys)) {
                     case 2:
@@ -199,10 +199,10 @@ class UtilArrayQuery
                     break;
                 default:
                     $d = '$document';
-                    if (strpos($key, '(') !== false || strpos($key, '"') !== false || strpos($key, "'") !== false) {
+                    if (str_contains($key, '(') || str_contains($key, '"') || str_contains($key, "'")) {
                         throw new InvalidArgumentException('Unallowed characters used in filter keys');
                     }
-                    if (strpos($key, '.') !== false) {
+                    if (str_contains($key, '.')) {
                         $keys = explode('.', $key);
                         foreach ($keys as $k) {
                             $d .= '[\'' . $k . '\']';
@@ -242,7 +242,7 @@ class UtilArrayQuery
         return true;
     }
 
-    private static function evaluate(string $func, mixed $a, mixed $b): mixed
+    private static function evaluate(string $func, mixed $a, mixed $b): int|bool
     {
         $r = false;
         if (is_null($a) && $func != '$exists') {
@@ -361,7 +361,7 @@ function fuzzy_search(string $search, string $text, $distance = 3): float
     $score = 0;
     foreach ($needles as $needle) {
         foreach ($tokens as $token) {
-            if (strpos($token, $needle) !== false) {
+            if (str_contains($token, $needle)) {
                 $score += 1;
             } else {
                 $d = levenshtein_utf8($needle, $token);

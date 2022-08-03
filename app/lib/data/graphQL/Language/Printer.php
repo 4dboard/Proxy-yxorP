@@ -281,7 +281,7 @@ class Printer
 
                     NodeKind::FIELD_DEFINITION => $this->addDescription(function (FieldDefinitionNode $def): string {
                         $noIndent = Utils::every($def->arguments, static function (string $arg): bool {
-                            return strpos($arg, "\n") === false;
+                            return !str_contains($arg, "\n");
                         });
 
                         return $def->name
@@ -450,7 +450,7 @@ class Printer
 
                     NodeKind::DIRECTIVE_DEFINITION => $this->addDescription(function (DirectiveDefinitionNode $def): string {
                         $noIndent = Utils::every($def->arguments, static function (string $arg): bool {
-                            return strpos($arg, "\n") === false;
+                            return !str_contains($arg, "\n");
                         });
 
                         return 'directive @'
@@ -520,7 +520,7 @@ class Printer
     {
         $escaped = str_replace('"""', '\\"""', $value);
 
-        return ($value[0] === ' ' || $value[0] === "\t") && strpos($value, "\n") === false
+        return ($value[0] === ' ' || $value[0] === "\t") && !str_contains($value, "\n")
             ? ('"""' . preg_replace('/"$/', "\"\n", $escaped) . '"""')
             : ('"""' . "\n" . ($isDescription ? $escaped : $this->indent($escaped)) . "\n" . '"""');
     }

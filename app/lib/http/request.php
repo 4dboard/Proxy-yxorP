@@ -73,7 +73,7 @@ class request
         $headers = [];
         $copy_server = ['CONTENT_TYPE' => 'Content-Type', 'CONTENT_LENGTH' => 'Content-Length', 'CONTENT_MD5' => 'Content-Md5',];
         foreach ($server as $key => $value) {
-            if (substr($key, 0, 5) === 'HTTP_') {
+            if (str_starts_with($key, 'HTTP_')) {
                 $key = substr($key, 5);
                 if (!isset($copy_server[$key]) || !isset($server[$key])) {
                     $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', $key))));
@@ -100,7 +100,7 @@ class request
     {
         $src = $source ?: $this->request;
         $cast = null;
-        if (strpos($index, ':') !== false) {
+        if (str_contains($index, ':')) {
             list($index, $cast) = explode(':', $index, 2);
         }
         $value = fetch_from_array($src, $index, $default);

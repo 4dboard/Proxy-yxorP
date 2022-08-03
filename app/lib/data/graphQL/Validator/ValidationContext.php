@@ -64,7 +64,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return mixed[][] List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
      */
     public function getRecursiveVariableUsages(OperationDefinitionNode $operation)
     {
@@ -86,7 +86,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return mixed[][] List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
      */
     private function getVariableUsages(HasSelectionSetInterface $node)
     {

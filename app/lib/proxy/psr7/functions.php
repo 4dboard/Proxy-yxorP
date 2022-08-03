@@ -108,7 +108,7 @@ function normalize_header($header)
     $result = [];
     foreach ($header as $value) {
         foreach ((array)$value as $v) {
-            if (strpos($v, ',') === false) {
+            if (!str_contains($v, ',')) {
                 $result[] = $v;
                 continue;
             }

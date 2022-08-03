@@ -8,7 +8,7 @@ class uriTemplate
 
     public function expand($template, array $variables)
     {
-        if (false === strpos($template, '{')) {
+        if (!str_contains($template, '{')) {
             return $template;
         }
         $template1 = $template;

@@ -82,7 +82,7 @@ interface PromiseAdapterInterface
      * Given an array of promises (or values), returns a promise that is fulfilled when all the
      * items in the array are fulfilled.
      *
-     * @param Promise[]|mixed[] $promisesOrValues Promises or values.
+     * @param Promise[]|array $promisesOrValues Promises or values.
      *
      * @return Promise
      *

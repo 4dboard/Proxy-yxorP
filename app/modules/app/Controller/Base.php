@@ -95,9 +95,9 @@ class base extends appAware
 
     /**
      * @param $name
-     * @return mixed
+     * @return \yxorP\app\lib\http\helperAware
      */
-    protected function helper(string $name): mixed
+    protected function helper(string $name): \yxorP\app\lib\http\helperAware
     {
         return $this->app->helper($name);
     }

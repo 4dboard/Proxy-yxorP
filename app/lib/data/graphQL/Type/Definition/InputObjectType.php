@@ -28,7 +28,7 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
     private $fields;
 
     /**
-     * @param mixed[] $config
+     * @param array $config
      */
     public function __construct(array $config)
     {

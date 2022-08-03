@@ -57,7 +57,7 @@ class FieldDefinition
     /**
      * Original field definition config
      *
-     * @var mixed[]
+     * @var array
      */
     public $config;
 
@@ -68,7 +68,7 @@ class FieldDefinition
     private $complexityFn;
 
     /**
-     * @param mixed[] $config
+     * @param array $config
      */
     protected function __construct(array $config)
     {
@@ -157,7 +157,7 @@ class FieldDefinition
     }
 
     /**
-     * @param mixed[] $field
+     * @param array $field
      *
      * @return FieldDefinition
      */

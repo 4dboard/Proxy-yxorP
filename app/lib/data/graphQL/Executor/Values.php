@@ -55,9 +55,9 @@ class Values
      * to match the variable definitions, a Error will be thrown.
      *
      * @param VariableDefinitionNode[] $varDefNodes
-     * @param mixed[] $inputs
+     * @param array $inputs
      *
-     * @return mixed[]
+     * @return array
      */
     public static function getVariableValues(Schema $schema, $varDefNodes, array $inputs)
     {
@@ -152,9 +152,9 @@ class Values
      * If the directive does not exist on the node, returns undefined.
      *
      * @param FragmentSpreadNode|FieldNode|InlineFragmentNode|EnumValueDefinitionNode|FieldDefinitionNode $node
-     * @param mixed[]|null $variableValues
+     * @param array|null $variableValues
      *
-     * @return mixed[]|null
+     * @return array|null
      */
     public static function getDirectiveValues(Directive $directiveDef, $node, $variableValues = null)
     {
@@ -180,9 +180,9 @@ class Values
      *
      * @param FieldDefinition|Directive $def
      * @param FieldNode|DirectiveNode $node
-     * @param mixed[] $variableValues
+     * @param array $variableValues
      *
-     * @return mixed[]
+     * @return array
      *
      * @throws Error
      */
@@ -204,10 +204,10 @@ class Values
     /**
      * @param FieldDefinition|Directive $fieldDefinition
      * @param ArgumentNode[] $argumentValueMap
-     * @param mixed[] $variableValues
+     * @param array $variableValues
      * @param Node|null $referenceNode
      *
-     * @return mixed[]
+     * @return array
      *
      * @throws Error
      */
@@ -295,9 +295,9 @@ class Values
     /**
      * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $valueNode
      * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
-     * @return mixed[]|stdClass|null
+     * @return array|stdClass|null
      *
      * @codeCoverageIgnore
      * @deprecated as of 8.0 (Moved to \GraphQL\Utils\AST::valueFromAST)
@@ -309,7 +309,7 @@ class Values
     }
 
     /**
-     * @param mixed[] $value
+     * @param array $value
      * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
      *
      * @return string[]

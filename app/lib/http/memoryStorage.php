@@ -12,7 +12,7 @@ class memoryStorage
 
     public function __construct(string $server, array $options = [])
     {
-        if (strpos($server, 'redis://') === 0) {
+        if (str_starts_with($server, 'redis://')) {
             $uri = parse_url($server);
             $options = array_merge(['host' => $uri['host'], 'port' => $uri['port'] ?? 6379, 'auth' => null, 'timeout' => 1,], $options);
             $this->driver = new Redis();
@@ -28,7 +28,7 @@ class memoryStorage
                 $this->driver->select($options['db']);
             }
             $this->driver->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
-        } elseif (strpos($server, 'redislite://') === 0) {
+        } elseif (str_starts_with($server, 'redislite://')) {
             $this->driver = new redisLite(str_replace('redislite://', '', $server), $options);
         }
         if (isset($options['key']) && is_string($options['key'])) {

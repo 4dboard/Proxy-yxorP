@@ -43,11 +43,11 @@ class Directive
     /** @var DirectiveDefinitionNode|null */
     public $astNode;
 
-    /** @var mixed[] */
+    /** @var array */
     public $config;
 
     /**
-     * @param mixed[] $config
+     * @param array $config
      */
     public function __construct(array $config)
     {

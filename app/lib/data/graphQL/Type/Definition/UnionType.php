@@ -34,7 +34,7 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
     private $possibleTypeNames;
 
     /**
-     * @param mixed[] $config
+     * @param array $config
      */
     public function __construct(array $config)
     {

@@ -6,11 +6,11 @@ class client
 
     public function __construct(string $server, array $options = [], array $driverOptions = [])
     {
-        if (strpos($server, 'mongodb://') === 0 || strpos($server, 'mongodb+srv://') === 0) {
+        if (str_starts_with($server, 'mongodb://') || str_starts_with($server, 'mongodb+srv://')) {
             $this->driver = new mongo($server, $options, $driverOptions);
             $this->type = 'mongodb';
         }
-        if (strpos($server, 'mongolite://') === 0) {
+        if (str_starts_with($server, 'mongolite://')) {
             $this->driver = new mongoLite($server, $options);
             $this->type = 'mongolite';
         }
@@ -21,7 +21,7 @@ class client
         return $this->driver->getCollection($name, $db)->drop();
     }
 
-    public function renameCollection(string $name, string $newname, ?string $db = null): mixed
+    public function renameCollection(string $name, string $newname, ?string $db = null): bool
     {
         return $this->driver->renameCollection($name, $newname, $db);
     }

@@ -25,7 +25,7 @@ class ExecutionResult implements JsonSerializable
      * Data collected from resolvers during query execution
      *
      * @api
-     * @var mixed[]
+     * @var array
      */
     public $data;
 
@@ -45,7 +45,7 @@ class ExecutionResult implements JsonSerializable
      * Conforms to
      *
      * @api
-     * @var mixed[]
+     * @var array
      */
     public $extensions;
 
@@ -56,9 +56,9 @@ class ExecutionResult implements JsonSerializable
     private $errorsHandler;
 
     /**
-     * @param mixed[] $data
+     * @param array $data
      * @param Error[] $errors
-     * @param mixed[] $extensions
+     * @param array $extensions
      */
     public function __construct($data = null, array $errors = [], array $extensions = [])
     {
@@ -113,7 +113,7 @@ class ExecutionResult implements JsonSerializable
     }
 
     /**
-     * @return mixed[]
+     * @return array
      */
     public function jsonSerialize(): array
     {
@@ -127,7 +127,7 @@ class ExecutionResult implements JsonSerializable
      * If debug argument is passed, output of error formatter is enriched which debugging information
      * ("debugMessage", "trace" keys depending on flags).
      *
-     * $debug argument must sum of flags from @return mixed[]
+     * $debug argument must sum of flags from @return array
      *
      * @see \GraphQL\Error\DebugFlag
      *

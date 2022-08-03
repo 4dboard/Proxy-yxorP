@@ -69,7 +69,7 @@ class Util
 
     private static function removePrefix(string $str, string $prefix): ?string
     {
-        if (substr($str, 0, strlen($prefix)) == $prefix) {
+        if (str_starts_with($str, $prefix)) {
             return substr($str, strlen($prefix));
         }
         return null;

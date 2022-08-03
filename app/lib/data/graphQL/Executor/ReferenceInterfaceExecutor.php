@@ -76,7 +76,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     /**
      * @param mixed $rootValue
      * @param mixed $contextValue
-     * @param array<mixed>|Traversable $variableValues
+     * @param array|Traversable $variableValues
      */
     public static function create(
         PromiseAdapterInterface $promiseAdapter,
@@ -126,7 +126,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @param mixed $rootValue
      * @param mixed $contextValue
-     * @param array<mixed>|Traversable $rawVariableValues
+     * @param array|Traversable $rawVariableValues
      *
      * @return ExecutionContext|array<Error>
      */
@@ -229,7 +229,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @param mixed $rootValue
      *
-     * @return array<mixed>|Promise|stdClass|null
+     * @return array|Promise|stdClass|null
      */
     protected function executeOperation(OperationDefinitionNode $operation, $rootValue)
     {
@@ -445,7 +445,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param mixed $rootValue
      * @param array<string|int> $path
      *
-     * @return array<mixed>|Promise|stdClass
+     * @return array|Promise|stdClass
      */
     protected function executeFieldsSerially(ObjectType $parentType, $rootValue, array $path, ArrayObject $fields)
     {
@@ -490,7 +490,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * If the callback does not return a Promise, then this function will also not
      * return a Promise.
      *
-     * @param array<mixed> $values
+     * @param array $values
      * @param Promise|mixed|null $initialValue
      *
      * @return Promise|mixed|null
@@ -550,7 +550,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param mixed $rootValue
      * @param array<string|int> $path
      *
-     * @return array<mixed>|Throwable|mixed|null
+     * @return array|Throwable|mixed|null
      */
     protected function resolveField(ObjectType $parentType, $rootValue, ArrayObject $fieldNodes, array $path)
     {
@@ -673,7 +673,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param array<string|int> $path
      * @param mixed $result
      *
-     * @return array<mixed>|Promise|stdClass|null
+     * @return array|Promise|stdClass|null
      */
     protected function completeValueCatchingError(
         Type        $returnType,
@@ -734,7 +734,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param array<string|int> $path
      * @param mixed $result
      *
-     * @return array<mixed>|mixed|Promise|null
+     * @return array|mixed|Promise|null
      *
      * @throws Error
      * @throws Throwable
@@ -817,9 +817,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Complete a list value by completing each item in the list with the inner type.
      *
      * @param array<string|int> $path
-     * @param array<mixed>|Traversable $results
+     * @param array|Traversable $results
      *
-     * @return array<mixed>|Promise|stdClass
+     * @return array|Promise|stdClass
      *
      * @throws Exception
      */
@@ -876,9 +876,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * of that value, then complete the value for that type.
      *
      * @param array<string|int> $path
-     * @param array<mixed> $result
+     * @param array $result
      *
-     * @return array<mixed>|Promise|stdClass
+     * @return array|Promise|stdClass
      *
      * @throws Error
      */
@@ -1015,7 +1015,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param array<string|int> $path
      * @param mixed $result
      *
-     * @return array<mixed>|Promise|stdClass
+     * @return array|Promise|stdClass
      *
      * @throws Error
      */
@@ -1066,7 +1066,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     }
 
     /**
-     * @param array<mixed> $result
+     * @param array $result
      *
      * @return Error
      */
@@ -1086,7 +1086,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param array<string|int> $path
      * @param mixed $result
      *
-     * @return array<mixed>|Promise|stdClass
+     * @return array|Promise|stdClass
      *
      * @throws Error
      */
@@ -1140,7 +1140,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param mixed $rootValue
      * @param array<string|int> $path
      *
-     * @return Promise|stdClass|array<mixed>
+     * @return Promise|stdClass|array
      */
     protected function executeFields(ObjectType $parentType, $rootValue, array $path, ArrayObject $fields)
     {
@@ -1182,9 +1182,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @see https://github.com/webonyx/graphql-php/issues/59
      *
-     * @param array<mixed>|mixed $results
+     * @param array|mixed $results
      *
-     * @return array<mixed>|stdClass|mixed
+     * @return array|stdClass|mixed
      */
     #[Pure] protected static function fixResultsIfEmptyArray($results)
     {

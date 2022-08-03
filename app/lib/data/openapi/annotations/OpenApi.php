@@ -153,7 +153,7 @@ class OpenApi extends AbstractAnnotation
      */
     public function ref(string $ref)
     {
-        if (substr($ref, 0, 2) !== '#/') {
+        if (!str_starts_with($ref, '#/')) {
             // @todo Add support for external (http) refs?
             throw new Exception('Unsupported $ref "' . $ref . '", it should start with "#/"');
         }

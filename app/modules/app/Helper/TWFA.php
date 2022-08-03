@@ -32,7 +32,7 @@ class TWFA extends helperAware
         return $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
     }
 
-    public function getQRCodeImage(string $secret, int $size = 150): mixed
+    public function getQRCodeImage(string $secret, int $size = 150): string|bool
     {
         $uri = $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
         return file_get_contents($uri);

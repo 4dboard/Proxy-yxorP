@@ -266,7 +266,7 @@ class Context
         $append = false;
         foreach ($comment as $line) {
             $line = ltrim($line, "\t *");
-            if (substr($line, 0, 1) === '@') {
+            if (str_starts_with($line, '@')) {
                 break;
             }
             if ($append) {

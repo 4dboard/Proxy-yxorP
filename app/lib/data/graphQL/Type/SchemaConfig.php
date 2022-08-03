@@ -59,7 +59,7 @@ class SchemaConfig
      * Converts an array of options to instance of SchemaConfig
      * (or just returns empty config when array is not passed).
      *
-     * @param mixed[] $options
+     * @param array $options
      *
      * @return SchemaConfig
      *

@@ -80,7 +80,7 @@ class AST
      *
      * This is a reverse operation for AST::toArray($node)
      *
-     * @param mixed[] $node
+     * @param array $node
      *
      * @api
      */
@@ -118,7 +118,7 @@ class AST
     /**
      * Convert AST node to serializable array
      *
-     * @return mixed[]
+     * @return array
      *
      * @api
      */
@@ -306,9 +306,9 @@ class AST
      * | Null Value           | null          |
      *
      * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode|null $valueNode
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
-     * @return mixed[]|stdClass|null
+     * @return array|stdClass|null
      *
      * @throws Exception
      *
@@ -423,7 +423,7 @@ class AST
                 }
 
                 $fieldValue = self::valueFromAST(
-                    $fieldNode !== null ? $fieldNode->value : null,
+                    $fieldNode?->value,
                     $field->getType(),
                     $variables
                 );
@@ -469,7 +469,7 @@ class AST
      * in the set of variables.
      *
      * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $valueNode
-     * @param mixed[] $variables
+     * @param array $variables
      *
      * @return bool
      */
@@ -496,7 +496,7 @@ class AST
      * | Null                 | null          |
      *
      * @param Node $valueNode
-     * @param mixed[]|null $variables
+     * @param array|null $variables
      *
      * @return mixed
      *

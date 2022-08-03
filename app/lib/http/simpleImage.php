@@ -562,14 +562,14 @@ class simpleImage
         $boxWidth = abs($boxText[4] - $boxText[0]);
         $boxHeight = abs($boxText[5] - $boxText[1]);
         if ($calculateOffsetFromEdge == true) {
-            if (strpos($anchor, 'bottom') !== false) $yOffset *= -1;
-            if (strpos($anchor, 'right') !== false) $xOffset *= -1;
+            if (str_contains($anchor, 'bottom')) $yOffset *= -1;
+            if (str_contains($anchor, 'right')) $xOffset *= -1;
         }
         if ($baselineAlign == true) {
             $boxFull = imagettfbbox($size, $angle, $fontFile, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');
-            if (strpos($anchor, 'bottom') !== false) {
+            if (str_contains($anchor, 'bottom')) {
                 $yOffset -= $boxFull[1];
-            } elseif (strpos($anchor, 'top') !== false) {
+            } elseif (str_contains($anchor, 'top')) {
                 $yOffset += abs($boxFull[5]) - $boxHeight;
             } else {
                 $boxFullHeight = abs($boxFull[1]) + abs($boxFull[5]);
@@ -635,14 +635,14 @@ class simpleImage
         $spaceY = $this->getHeight() - $overlay->getHeight();
         $x = ($spaceX / 2) + ($calculateOffsetFromEdge ? 0 : $xOffset);
         $y = ($spaceY / 2) + ($calculateOffsetFromEdge ? 0 : $yOffset);
-        if (strpos($anchor, 'top') !== false) {
+        if (str_contains($anchor, 'top')) {
             $y = $yOffset;
-        } elseif (strpos($anchor, 'bottom') !== false) {
+        } elseif (str_contains($anchor, 'bottom')) {
             $y = $spaceY + ($calculateOffsetFromEdge ? -$yOffset : $yOffset);
         }
-        if (strpos($anchor, 'left') !== false) {
+        if (str_contains($anchor, 'left')) {
             $x = $xOffset;
-        } elseif (strpos($anchor, 'right') !== false) {
+        } elseif (str_contains($anchor, 'right')) {
             $x = $spaceX + ($calculateOffsetFromEdge ? -$xOffset : $xOffset);
         }
         self::imageCopyMergeAlpha($this->image, $overlay->image, $x, $y, 0, 0, $overlay->getWidth(), $overlay->getHeight(), $opacity);

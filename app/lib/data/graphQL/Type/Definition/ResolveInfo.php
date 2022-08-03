@@ -104,7 +104,7 @@ class ResolveInfo
      * Array of variables passed to query execution.
      *
      * @api
-     * @var mixed[]
+     * @var array
      */
     public $variableValues = [];
 
@@ -120,7 +120,7 @@ class ResolveInfo
      * @param string[] $path
      * @param FragmentDefinitionNode[] $fragments
      * @param mixed|null $rootValue
-     * @param mixed[] $variableValues
+     * @param array $variableValues
      */
     public function __construct(
         FieldDefinition          $fieldDefinition,
@@ -236,7 +236,7 @@ class ResolveInfo
     }
 
     /**
-     * @param mixed[] $options
+     * @param array $options
      */
     public function lookAhead(array $options = []): QueryPlan
     {

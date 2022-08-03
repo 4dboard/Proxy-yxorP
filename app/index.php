@@ -8,7 +8,7 @@ require(__DIR__ . '/bootstrap.php');
 $SITE_SPACE_DIR = __DIR__;
 $SITE_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
 $SITE_DOCUMENT_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : __DIR__);
-if (strpos($SITE_DIR, $SITE_DOCUMENT_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) $SITE_DOCUMENT_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $SITE_DIR);
+if (!str_starts_with($SITE_DIR, $SITE_DOCUMENT_ROOT) && isset($_SERVER['SCRIPT_NAME'])) $SITE_DOCUMENT_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $SITE_DIR);
 
 if (PHP_SAPI === 'cli-server') {
     $file = $_SERVER['SCRIPT_FILENAME'];
@@ -30,7 +30,7 @@ if (PHP_SAPI === 'cli-server') {
     $SITE_BASE_ROUTE = $SITE_BASE_URL;
     $SITE_ROUTE = preg_replace('#' . preg_quote($SITE_BASE_URL, '#') . '#', '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
 }
-if ($SITE_ROUTE && substr($SITE_ROUTE, 0, 2) === '/:') {
+if ($SITE_ROUTE && str_starts_with($SITE_ROUTE, '/:')) {
     $parts = explode('/', $SITE_ROUTE);
     $env = substr($parts[1], 1);
     $spaceDir = __DIR__ . "/.spaces/{$env}";
@@ -46,7 +46,7 @@ if ($SITE_ROUTE === '') {
 }
 define('SITE_DOCUMENT_ROOT', $SITE_DOCUMENT_ROOT);
 define('SITE_BASE_URL', $SITE_BASE_URL);
-define('SITE_API_REQUEST', strpos($SITE_ROUTE, '/api/') === 0 ? 1 : 0);
+define('SITE_API_REQUEST', str_starts_with($SITE_ROUTE, '/api/') ? 1 : 0);
 $app = App::instance($SITE_SPACE_DIR, ['base_route' => $SITE_BASE_ROUTE, 'base_url' => $SITE_BASE_URL]);
 $app->on('error', function ($error) {
     if (!isset($this->request)) return;

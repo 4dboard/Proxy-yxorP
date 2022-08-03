@@ -26,7 +26,7 @@ abstract class ValidationRule
     /**
      * Returns structure suitable for GraphQL\Language\Visitor
      *
-     * @return mixed[]
+     * @return array
      * @see \GraphQL\Language\Visitor
      *
      */
@@ -38,7 +38,7 @@ abstract class ValidationRule
     /**
      * Returns structure suitable for GraphQL\Language\Visitor
      *
-     * @return mixed[]
+     * @return array
      * @see \GraphQL\Language\Visitor
      *
      */

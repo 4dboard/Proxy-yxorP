@@ -58,7 +58,7 @@ class ServerConfig
      * Converts an array of options to instance of ServerConfig
      * (or just returns empty config when array is not passed).
      *
-     * @param mixed[] $config
+     * @param array $config
      *
      * @return ServerConfig
      *

@@ -639,7 +639,7 @@ class Introspection
      *        Whether to include descriptions in the introspection result.
      *        Default: true
      *
-     * @return array<string, array<mixed>>|null
+     * @return array<string, array>|null
      *
      * @api
      */

@@ -49,7 +49,7 @@ class StandardServer
     /**
      * Creates new instance of a standard GraphQL HTTP server
      *
-     * @param ServerConfig|mixed[] $config
+     * @param ServerConfig|array $config
      *
      * @api
      */

@@ -37,7 +37,7 @@ class auth extends base
 
         $redirectTo = $this->param('to', '/');
 
-        if (substr($redirectTo, 0, 1) !== '/') {
+        if (!str_starts_with($redirectTo, '/')) {
             $redirectTo = '/';
         }
 

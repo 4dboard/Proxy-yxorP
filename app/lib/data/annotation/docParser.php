@@ -94,7 +94,7 @@ final class docParser
         $class = new ReflectionClass($name);
         $docComment = $class->getDocComment();
         $constructor = $class->getConstructor();
-        $metadata = ['default_property' => null, 'has_constructor' => $constructor !== null && $constructor->getNumberOfParameters() > 0, 'constructor_args' => [], 'properties' => [], 'property_types' => [], 'attribute_types' => [], 'targets_literal' => null, 'targets' => target::TARGET_ALL, 'is_annotation' => strpos($docComment, '@Annotation') !== false,];
+        $metadata = ['default_property' => null, 'has_constructor' => $constructor !== null && $constructor->getNumberOfParameters() > 0, 'constructor_args' => [], 'properties' => [], 'property_types' => [], 'attribute_types' => [], 'targets_literal' => null, 'targets' => target::TARGET_ALL, 'is_annotation' => str_contains($docComment, '@Annotation'),];
         $metadata['has_named_argument_constructor'] = $metadata['has_constructor'] && $class->implementsInterface(namedArgumentConstructorAnnotationInterface::class);
         if ($metadata['is_annotation']) {
             self::$metadataParser->setTarget(target::TARGET_CLASS);
@@ -125,11 +125,11 @@ final class docParser
                         continue;
                     }
                     $attribute = new attribute();
-                    $attribute->required = (strpos($propertyComment, '@Required') !== false);
+                    $attribute->required = (str_contains($propertyComment, '@Required'));
                     $attribute->name = $property->name;
-                    $attribute->type = (strpos($propertyComment, '@var') !== false && preg_match('/@var\s+([^\s]+)/', $propertyComment, $matches)) ? $matches[1] : 'mixed';
+                    $attribute->type = (str_contains($propertyComment, '@var') && preg_match('/@var\s+([^\s]+)/', $propertyComment, $matches)) ? $matches[1] : 'mixed';
                     $this->collectAttributeTypeMetadata($metadata, $attribute);
-                    if (strpos($propertyComment, '@Enum') === false) {
+                    if (!str_contains($propertyComment, '@Enum')) {
                         continue;
                     }
                     $context = 'property ' . $class->name . '::$' . $property->name;
@@ -584,7 +584,7 @@ S
     private function Constant()
     {
         $identifier = $this->Identifier();
-        if (!defined($identifier) && strpos($identifier, '::') !== false && $identifier[0] !== '\\') {
+        if (!defined($identifier) && str_contains($identifier, '::') && $identifier[0] !== '\\') {
             [$className, $const] = explode('::', $identifier);
             $pos = strpos($className, '\\');
             $alias = ($pos === false) ? $className : substr($className, 0, $pos);

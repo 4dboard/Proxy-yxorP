@@ -33,7 +33,7 @@ use function json_encode;
 
 class BuildClientSchema
 {
-    /** @var array<string, mixed[]> */
+    /** @var array<string, array> */
     private $introspection;
 
     /** @var array<string, bool> */
@@ -43,7 +43,7 @@ class BuildClientSchema
     private $typeMap;
 
     /**
-     * @param array<string, mixed[]> $introspectionQuery
+     * @param array<string, array> $introspectionQuery
      * @param array<string, bool> $options
      */
     public function __construct(array $introspectionQuery, array $options = [])
@@ -73,7 +73,7 @@ class BuildClientSchema
      *
      *          Default: false
      *
-     * @param array<string, mixed[]> $introspectionQuery
+     * @param array<string, array> $introspectionQuery
      * @param array<string, bool> $options
      *
      * @api
