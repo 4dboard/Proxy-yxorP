@@ -19,7 +19,9 @@ namespace yxorP\app\lib\data\mongoDB\GridFS;
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use MongoDB\Driver\CursorInterface;
 use stdClass;
+use yxorP\app\lib\data\mongoDB\GridFS\Exception\CorruptFileException;
 use yxorP\app\lib\http\mongoDB\Driver\CursorInterface;
 use yxorP\app\lib\http\mongoDB\Exception\InvalidArgumentException;
 use yxorP\app\lib\http\mongoDB\GridFS\Exception\CorruptFileException;

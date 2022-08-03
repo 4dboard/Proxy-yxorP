@@ -14,7 +14,7 @@ use function is_scalar;
 use function is_string;
 use function method_exists;
 
-class StringType extends ScalarType
+abstract class StringType extends ScalarType
 {
     /** @var string */
     public $name = Type::STRING;

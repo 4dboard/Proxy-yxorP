@@ -151,7 +151,7 @@ class ASTDefinitionBuilder
     private function makeInputValues(NodeList $values): array
     {
         return Utils::keyValMap(
-            $values,
+            (array)$values,
             static function (InputValueDefinitionNode $value): string {
                 return $value->name->value;
             },

@@ -19,6 +19,9 @@ namespace yxorP\app\lib\data\mongoDB\GridFS;
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use MongoDB\BSON\Binary;
+use MongoDB\BSON\ObjectId;
+use MongoDB\BSON\UTCDateTime;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\Binary;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
@@ -292,7 +295,7 @@ class WritableStream
      * which point a chunk document will be inserted and the buffer reset.
      *
      * @param string $data Binary data to write
-     * @return void
+     * @return int
      */
     public function writeBytes(string $data)
     {

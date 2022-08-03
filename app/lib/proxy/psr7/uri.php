@@ -201,7 +201,7 @@ class uri implements uriInterface
         });
     }
 
-    public function withQuery(string $query): uri|static
+    public function withQuery(string $query): static
     {
         $query = $this->filterQueryAndFragment($query);
         if ($this->query === $query) {
@@ -302,7 +302,7 @@ class uri implements uriInterface
         return $this->fragment;
     }
 
-    public function withScheme(string $scheme): uri|static
+    public function withScheme(string $scheme): static
     {
         $scheme = $this->filterScheme($scheme);
         if ($this->scheme === $scheme) {
@@ -315,7 +315,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withUserInfo(string $user, string $password = null): uri|static
+    public function withUserInfo(string $user, string $password = null): static
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
@@ -330,7 +330,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withHost(string $host): uri|static
+    public function withHost(string $host): static
     {
         $host = $this->filterHost($host);
         if ($this->host === $host) {
@@ -342,7 +342,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withPort(?int $port): uri|static
+    public function withPort(?int $port): static
     {
         $port = $this->filterPort($port);
         if ($this->port === $port) {
@@ -355,7 +355,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withPath(string $path): uri|static
+    public function withPath(string $path): static
     {
         $path = $this->filterPath($path);
         if ($this->path === $path) {
@@ -367,7 +367,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withFragment(string $fragment): uri|static
+    public function withFragment(string $fragment): static
     {
         $fragment = $this->filterQueryAndFragment($fragment);
         if ($this->fragment === $fragment) {

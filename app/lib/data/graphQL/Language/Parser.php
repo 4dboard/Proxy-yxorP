@@ -140,10 +140,10 @@ class Parser
     private Lexer $lexer;
 
     /**
-     * @param string|Source $source
+     * @param bool $source
      * @param bool[] $options
      */
-    public function __construct(Source|string $source, array $options = [])
+    public function __construct(bool $source, array $options = [])
     {
         $sourceObj = $source instanceof Source ? $source : new Source($source);
         $this->lexer = new Lexer($sourceObj, $options);

@@ -3,7 +3,12 @@
 namespace yxorP\app\modules\app\graphQL\types;
 
 use JetBrains\PhpStorm\Pure;
+use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\FloatValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\IntValueNode;
+use yxorP\app\lib\data\graphQL\Language\AST\ListValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\StringValueNode;
+use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 use yxorP\app\modules\app\graphQL\Language\AST\BooleanValueNode;
 use yxorP\app\modules\app\graphQL\Language\AST\FloatValueNode;
 use yxorP\app\modules\app\graphQL\Language\AST\IntValueNode;

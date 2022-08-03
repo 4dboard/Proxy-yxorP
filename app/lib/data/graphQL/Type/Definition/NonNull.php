@@ -6,7 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
 use yxorP\app\lib\data\graphQL\Type\Schema;
 
-class NonNull extends Type implements WrappingType, OutputType, InputType
+abstract class NonNull extends Type implements WrappingType, OutputType, InputType
 {
     /** @var callable():(NullableType&Type)|(NullableType&Type) */
     private $ofType;

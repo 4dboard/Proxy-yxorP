@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\data\mongodb\hybrid;
 
 use JetBrains\PhpStorm\ArrayShape;
+use MongoDB\BSON\ObjectId;
 use Throwable;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectID;
 use yxorP\app\lib\http\mongoDB\client as MongoDBClient;

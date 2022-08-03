@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
 use JetBrains\PhpStorm\Pure;
+use MongoDB\BSON\UTCDateTime;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\UTCDateTime;
 use function explode;
