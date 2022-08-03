@@ -46,9 +46,8 @@ class redisLite
                 $keys[] = $record["key"];
             }
         } else {
-            $matcher = helpers::fnmatch();
             foreach ($res as $record) {
-                if ($matcher($pattern, $record["key"])) {
+                if (helpers::fnmatch($pattern, $record["key"])) {
                     $keys[] = $record["key"];
                 }
             }
