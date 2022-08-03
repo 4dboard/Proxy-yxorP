@@ -1,6 +1,5 @@
 <?php namespace yxorP\app\lib\data\firebase;
 
-use DateTime;
 use DateTimeInterface;
 use DomainException;
 use Exception;

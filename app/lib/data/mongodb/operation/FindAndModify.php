@@ -17,7 +17,6 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
-use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -36,9 +35,7 @@ use function MongoDB\create_field_path_type_map;
 use function MongoDB\is_pipeline;
 use function MongoDB\is_write_concern_acknowledged;
 use function MongoDB\server_supports_feature;
-use function yxorP\app\lib\data\mongoDB\create_field_path_type_map;
 use function yxorP\app\lib\data\mongoDB\is_pipeline;
-use function yxorP\app\lib\data\mongoDB\is_write_concern_acknowledged;
 
 /**
  * Operation for the findAndModify command.
@@ -251,18 +248,6 @@ class FindAndModify implements ExecutableInterface, ExplainableInterface
     }
 
     /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server): array
-    {
-        return $this->createCommandDocument();
-    }
-
-    /**
      * Create the findAndModify command document.
      *
      * @return array
@@ -318,5 +303,17 @@ class FindAndModify implements ExecutableInterface, ExplainableInterface
         }
 
         return $options;
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server): array
+    {
+        return $this->createCommandDocument();
     }
 }

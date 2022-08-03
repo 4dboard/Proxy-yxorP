@@ -42,7 +42,6 @@ use function is_string;
 use function MongoDB\create_field_path_type_map;
 use function MongoDB\is_mapreduce_output_inline;
 use function trigger_error;
-use function yxorP\app\lib\data\mongoDB\create_field_path_type_map;
 use function yxorP\app\lib\data\mongoDB\is_mapreduce_output_inline;
 use const E_USER_DEPRECATED;
 
@@ -258,6 +257,27 @@ class MapReduce implements ExecutableInterface
     }
 
     /**
+     * @param object|array|string $out
+     * @return void
+     */
+    private function checkOutDeprecations(object|array|string $out)
+    {
+        if (is_string($out)) {
+            return;
+        }
+
+        $out = (array)$out;
+
+        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
+            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
+        }
+
+        if (isset($out['sharded']) && !$out['sharded']) {
+            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
+        }
+    }
+
+    /**
      * Execute the operation.
      *
      * @param Server $server
@@ -304,27 +324,6 @@ class MapReduce implements ExecutableInterface
         $getIterator = $this->createGetIteratorCallable($result, $server);
 
         return new mapReduceResult($getIterator, $result);
-    }
-
-    /**
-     * @param object|array|string $out
-     * @return void
-     */
-    private function checkOutDeprecations(object|array|string $out)
-    {
-        if (is_string($out)) {
-            return;
-        }
-
-        $out = (array)$out;
-
-        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
-            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
-        }
-
-        if (isset($out['sharded']) && !$out['sharded']) {
-            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
-        }
     }
 
     /**

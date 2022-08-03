@@ -1,6 +1,5 @@
 <?php namespace yxorP\app\lib\data\mongoDB;
 
-use MongoDB\Driver\Manager;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 use ReflectionClass;
