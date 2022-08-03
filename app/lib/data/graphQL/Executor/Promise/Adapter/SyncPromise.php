@@ -82,8 +82,8 @@ class SyncPromise
                     /**
                      * @throws \Exception
                      */ function ($resolvedValue): void {
-                            $this->resolve($resolvedValue);
-                        },
+                        $this->resolve($resolvedValue);
+                    },
                         function ($reason): void {
                             $this->reject($reason);
                         }

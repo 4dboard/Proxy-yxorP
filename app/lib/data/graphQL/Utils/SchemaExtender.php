@@ -550,6 +550,51 @@ class SchemaExtender
         return $newValueMap;
     }
 
+    /**
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
+     */
+    protected static function extendMaybeNamedType(?NamedType $type = null): ?Type
+    {
+        if ($type !== null) {
+            return static::extendNamedType($type);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param DirectiveDefinitionNode[] $directiveDefinitions
+     *
+     * @return Directive[]
+     */
+    protected static function getMergedDirectives(Schema $schema, array $directiveDefinitions): array
+    {
+        $existingDirectives = array_map(static function (Directive $directive): Directive {
+            return static::extendDirective($directive);
+        }, $schema->getDirectives());
+
+        Utils::invariant(count($existingDirectives) > 0, 'schema must have default directives');
+
+        return array_merge(
+            $existingDirectives,
+            array_map(static function (DirectiveDefinitionNode $directive): Directive {
+                return static::$astBuilder->buildDirective($directive);
+            }, $directiveDefinitions)
+        );
+    }
+
+    protected static function extendDirective(Directive $directive): Directive
+    {
+        return new Directive([
+            'name' => $directive->name,
+            'description' => $directive->description,
+            'locations' => $directive->locations,
+            'args' => static::extendArgs($directive->args),
+            'astNode' => $directive->astNode,
+            'isRepeatable' => $directive->isRepeatable,
+        ]);
+    }
+
     protected static function extendInputObjectType(InputObjectType $type): InputObjectType
     {
         return new InputObjectType([
@@ -601,50 +646,5 @@ class SchemaExtender
         }
 
         return $newFieldMap;
-    }
-
-    /**
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
-     */
-    protected static function extendMaybeNamedType(?NamedType $type = null): ?Type
-    {
-        if ($type !== null) {
-            return static::extendNamedType($type);
-        }
-
-        return null;
-    }
-
-    /**
-     * @param DirectiveDefinitionNode[] $directiveDefinitions
-     *
-     * @return Directive[]
-     */
-    protected static function getMergedDirectives(Schema $schema, array $directiveDefinitions): array
-    {
-        $existingDirectives = array_map(static function (Directive $directive): Directive {
-            return static::extendDirective($directive);
-        }, $schema->getDirectives());
-
-        Utils::invariant(count($existingDirectives) > 0, 'schema must have default directives');
-
-        return array_merge(
-            $existingDirectives,
-            array_map(static function (DirectiveDefinitionNode $directive): Directive {
-                return static::$astBuilder->buildDirective($directive);
-            }, $directiveDefinitions)
-        );
-    }
-
-    protected static function extendDirective(Directive $directive): Directive
-    {
-        return new Directive([
-            'name' => $directive->name,
-            'description' => $directive->description,
-            'locations' => $directive->locations,
-            'args' => static::extendArgs($directive->args),
-            'astNode' => $directive->astNode,
-            'isRepeatable' => $directive->isRepeatable,
-        ]);
     }
 }

@@ -579,7 +579,7 @@ class Parser
     }
 
     /**
-* @return ValueNodeInterface
+     * @return ValueNodeInterface
      *
      * @throws SyntaxError
      */

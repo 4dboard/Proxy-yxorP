@@ -25,7 +25,6 @@ use yxorP\app\lib\data\graphQL\Utils\AST;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\serverRequestInterface;
-use yxorP\app\lib\psr\http\message\streamInterface;
 use function count;
 use function file_get_contents;
 use function header;
@@ -191,7 +190,7 @@ class Helper
         PromiseAdapterInterface $promiseAdapter,
         ServerConfig            $config,
         OperationParams         $op,
-        bool $isBatch = false
+        bool                    $isBatch = false
     ): Promise
     {
         try {
@@ -376,7 +375,7 @@ class Helper
         ServerConfig    $config,
         OperationParams $params,
         DocumentNode    $doc,
-        string $operationType
+        string          $operationType
     ): mixed
     {
         $context = $config->getContext();
@@ -397,7 +396,7 @@ class Helper
         ServerConfig    $config,
         OperationParams $params,
         DocumentNode    $doc,
-        string $operationType
+        string          $operationType
     ): ?array
     {
         // Allow customizing validation rules per operation:

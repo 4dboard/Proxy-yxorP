@@ -286,7 +286,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-* @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
      *
      * @return array<string, array<string, mixed>>
      */
@@ -439,7 +439,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-* @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
      * @param array<string, mixed> $config
      *
      * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type

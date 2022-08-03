@@ -6,7 +6,6 @@ namespace yxorP\app\lib\data\graphQL\Utils;
 
 use yxorP\app\lib\data\graphQL\Type\Definition\AbstractType;
 use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
-use yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType;
 use yxorP\app\lib\data\graphQL\Type\Definition\ListOfType;
 use yxorP\app\lib\data\graphQL\Type\Definition\NonNull;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;

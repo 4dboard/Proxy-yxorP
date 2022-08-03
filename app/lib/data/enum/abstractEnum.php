@@ -5,7 +5,6 @@ namespace yxorP\app\lib\data\enum;
 use ReflectionClass;
 use yxorP\app\lib\data\enum\exception\cloneNotSupportedException;
 use yxorP\app\lib\data\enum\exception\illegalArgumentException;
-use yxorP\app\lib\data\enum\exception\mismatchException;
 use yxorP\app\lib\data\enum\exception\serializeNotSupportedException;
 use yxorP\app\lib\data\enum\exception\unserializeNotSupportedException;
 

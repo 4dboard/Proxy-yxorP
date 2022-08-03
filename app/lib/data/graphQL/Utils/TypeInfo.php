@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
-use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveNode;
 use yxorP\app\lib\data\graphQL\Language\AST\EnumValueNode;
@@ -26,7 +25,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\EnumType;
 use yxorP\app\lib\data\graphQL\Type\Definition\FieldArgument;
 use yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition;
 use yxorP\app\lib\data\graphQL\Type\Definition\HasFieldsType;
-use yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InputObjectType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
@@ -34,7 +32,6 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ListOfType;
 use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 use yxorP\app\lib\data\graphQL\Type\Definition\OutputType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;
-use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
 use yxorP\app\lib\data\graphQL\Type\Definition\WrappingType;
 use yxorP\app\lib\data\graphQL\Type\Introspection;
 use yxorP\app\lib\data\graphQL\Type\Schema;
@@ -238,49 +235,6 @@ class TypeInfo
     }
 
     /**
-     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
-     * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
-     *
-     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
-     * @throws \Exception
-     */
-    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ?Type
-    {
-        return AST::typeFromAST($schema, $inputTypeNode);
-    }
-
-    /**
-     * Not exactly the same as the executor's definition of getFieldDef, in this
-     * statically evaluated environment we do not always have an Object type,
-     * and need to handle Interface and Union types.
-     */
-    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
-    {
-        $name = $fieldNode->name->value;
-        $schemaMeta = Introspection::schemaMetaFieldDef();
-        if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
-            return $schemaMeta;
-        }
-
-        $typeMeta = Introspection::typeMetaFieldDef();
-        if ($name === $typeMeta->name && $schema->getQueryType() === $parentType) {
-            return $typeMeta;
-        }
-        $typeNameMeta = Introspection::typeNameMetaFieldDef();
-        if ($name === $typeNameMeta->name) {
-            return $typeNameMeta;
-        }
-
-        if ($parentType instanceof ObjectType ||
-            $parentType instanceof InterfaceType
-        ) {
-            return $parentType->findField($name);
-        }
-
-        return null;
-    }
-
-    /**
      * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
@@ -428,6 +382,49 @@ class TypeInfo
     public function getParentType(): ?CompositeType
     {
         return $this->parentTypeStack[count($this->parentTypeStack) - 1] ?? null;
+    }
+
+    /**
+     * Not exactly the same as the executor's definition of getFieldDef, in this
+     * statically evaluated environment we do not always have an Object type,
+     * and need to handle Interface and Union types.
+     */
+    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
+    {
+        $name = $fieldNode->name->value;
+        $schemaMeta = Introspection::schemaMetaFieldDef();
+        if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
+            return $schemaMeta;
+        }
+
+        $typeMeta = Introspection::typeMetaFieldDef();
+        if ($name === $typeMeta->name && $schema->getQueryType() === $parentType) {
+            return $typeMeta;
+        }
+        $typeNameMeta = Introspection::typeNameMetaFieldDef();
+        if ($name === $typeNameMeta->name) {
+            return $typeNameMeta;
+        }
+
+        if ($parentType instanceof ObjectType ||
+            $parentType instanceof InterfaceType
+        ) {
+            return $parentType->findField($name);
+        }
+
+        return null;
+    }
+
+    /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
+     * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
+     *
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
+     * @throws \Exception
+     */
+    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ?Type
+    {
+        return AST::typeFromAST($schema, $inputTypeNode);
     }
 
     public function getDirective(): ?Directive

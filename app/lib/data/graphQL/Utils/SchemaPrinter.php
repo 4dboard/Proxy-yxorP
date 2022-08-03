@@ -449,6 +449,21 @@ class SchemaPrinter
 
     /**
      * @param array<string, bool> $options
+     *
+     * @api
+     */
+    public static function printIntrospectionSchema(Schema $schema, array $options = []): string
+    {
+        return static::printFilteredSchema(
+            $schema,
+            [Directive::class, 'isSpecifiedDirective'],
+            [Introspection::class, 'isIntrospectionType'],
+            $options
+        );
+    }
+
+    /**
+     * @param array<string, bool> $options
      */
     protected static function printEnum(EnumType $type, array $options): string
     {
@@ -496,20 +511,5 @@ class SchemaPrinter
                     )
                 )
             );
-    }
-
-    /**
-     * @param array<string, bool> $options
-     *
-     * @api
-     */
-    public static function printIntrospectionSchema(Schema $schema, array $options = []): string
-    {
-        return static::printFilteredSchema(
-            $schema,
-            [Directive::class, 'isSpecifiedDirective'],
-            [Introspection::class, 'isIntrospectionType'],
-            $options
-        );
     }
 }
