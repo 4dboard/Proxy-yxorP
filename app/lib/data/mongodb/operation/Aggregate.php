@@ -21,7 +21,6 @@ use ArrayIterator;
 use JetBrains\PhpStorm\Pure;
 use MongoDB\Driver\Command;
 use MongoDB\Driver\ReadConcern;
-use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 use stdClass;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;

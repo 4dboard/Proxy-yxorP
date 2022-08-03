@@ -22,7 +22,6 @@ use MongoDB\Driver\Manager;
 use MongoDB\Driver\ReadPreference;
 use MultipleIterator;
 use stdClass;
-use yxorP\app\lib\data\mongoDB\updateResult;
 use yxorP\app\lib\http\mongoDB\collection;
 use yxorP\app\lib\http\mongoDB\Driver\Cursor;
 use yxorP\app\lib\http\mongoDB\Driver\Manager;

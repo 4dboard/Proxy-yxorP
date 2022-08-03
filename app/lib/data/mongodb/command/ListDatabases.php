@@ -17,8 +17,6 @@
 
 namespace yxorP\app\lib\data\mongoDB\command;
 
-use MongoDB\Driver\Command;
-use mysql_xdevapi\Executable;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
