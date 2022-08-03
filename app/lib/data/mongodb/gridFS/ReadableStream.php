@@ -52,7 +52,7 @@ class ReadableStream
     /** @var integer */
     private int $chunkOffset = 0;
 
-    /** @var CursorInterface|null */
+    /** @var \yxorP\app\lib\data\mongoDB\GridFS\CursorInterface|null */
     private ?CursorInterface $chunksIterator;
 
     /** @var CollectionWrapper */
