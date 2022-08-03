@@ -5,7 +5,6 @@ namespace yxorP\app\lib\http\helper;
 use DirectoryIterator;
 use Exception;
 use FilesystemIterator;
-use SplFileObject;
 use yxorP\app\lib\http\App;
 use yxorP\app\lib\http\helperAware;
 use function call_user_func_array;
@@ -13,18 +12,14 @@ use function count;
 use function dirname;
 use function explode;
 use function file_exists;
-use function filesize;
 use function func_get_args;
 use function getcwd;
 use function is_dir;
 use function is_file;
 use function is_link;
 use function mkdir;
-use function preg_match;
-use function preg_quote;
 use function rename;
 use function strpos;
-use function strtr;
 
 /**
  * @property App $app
@@ -182,33 +177,3 @@ class filesystem extends helperAware
 
 }
 
-/**
- * Use custom FileObject to prevent "too many files open" error
- */
-class FileObject
-{
-
-    protected string $path;
-    protected $fileObject;
-
-    public function __construct(string $path)
-    {
-        $this->path = $path;
-    }
-
-    public function getSize(): int
-    {
-        return filesize($this->path);
-    }
-
-    public function __call($method, $args)
-    {
-        if (!isset($this->fileObject)) $this->fileObject = new SplFileObject($this->path);
-        return call_user_func_array([$this->fileObject, $method], $args);
-    }
-}
-
-function fnmatch(string $pattern, string $string): bool
-{
-    return preg_match("#^" . strtr(preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.']) . "$#i", $string);
-}
