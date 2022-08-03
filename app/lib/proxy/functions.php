@@ -76,7 +76,7 @@ function default_user_agent()
 {
     static $defaultAgent = '';
     if (!$defaultAgent) {
-        $defaultAgent = 'ProxyHttp/' . client::VERSION;
+        $defaultAgent = 'ProxyHttp/' . clientInterface::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }

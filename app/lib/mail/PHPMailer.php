@@ -1147,7 +1147,7 @@ class PHPMailer
                 } else {
                     $encoded = base64_encode($str);
                     $maxlen -= $maxlen % 4;
-                    $encoded = trim(chunk_split($encoded, $maxlen, "\n"));
+                    $encoded = trim(chunk_split($encoded, $maxlen));
                 }
                 $encoded = preg_replace('/^(.*)$/m', ' =?' . $charset . "?$encoding?\\1?=", $encoded);
                 break;
@@ -1241,8 +1241,7 @@ class PHPMailer
             if (false === $file_buffer) {
                 throw new Exception($this->lang('file_open') . $path, self::STOP_CONTINUE);
             }
-            $file_buffer = $this->encodeString($file_buffer, $encoding);
-            return $file_buffer;
+            return $this->encodeString($file_buffer, $encoding);
         } catch (Exception $exc) {
             $this->setError($exc->getMessage());
             $this->edebug($exc->getMessage());
@@ -1265,8 +1264,7 @@ class PHPMailer
 
     public function createHeader()
     {
-        $result = '';
-        $result .= $this->headerLine('Date', '' === $this->MessageDate ? self::rfcDate() : $this->MessageDate);
+        $result = $this->headerLine('Date', '' === $this->MessageDate ? self::rfcDate() : $this->MessageDate);
         if ('mail' !== $this->Mailer) {
             if ($this->SingleTo) {
                 foreach ($this->to as $toaddr) {
@@ -1834,7 +1832,7 @@ class PHPMailer
                     }
                     if ($tls) {
                         if (!$this->smtp->startTLS()) {
-                            $message = $this->getSmtpErrorMessage('connect_host');
+                            $message = $this->getSmtpErrorMessage();
                             throw new Exception($message);
                         }
                         $this->smtp->hello($hello);
@@ -1855,7 +1853,7 @@ class PHPMailer
             throw $lastexception;
         }
         if ($this->exceptions) {
-            $message = $this->getSmtpErrorMessage('connect_host');
+            $message = $this->getSmtpErrorMessage();
             throw new Exception($message);
         }
         return false;
@@ -1869,9 +1867,9 @@ class PHPMailer
         return $this->smtp;
     }
 
-    private function getSmtpErrorMessage($base_key)
+    private function getSmtpErrorMessage()
     {
-        $message = $this->lang($base_key);
+        $message = $this->lang('connect_host');
         $error = $this->smtp->getError();
         if (!empty($error['error'])) {
             $message .= ' ' . $error['error'];

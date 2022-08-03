@@ -91,8 +91,7 @@ class Mailer
                 $mail->addBCC($email);
             }
         }
-        $msg = new Mailer_Message($mail);
-        return $msg;
+        return new Mailer_Message($mail);
     }
 }
 
@@ -118,7 +117,7 @@ class Mailer_Message
     public function setFrom(string $email, ?string $name = null): void
     {
         $this->mail->From = $email;
-        $this->mail->FromName = $name ? $name : $email;
+        $this->mail->FromName = $name ?: $email;
     }
 
     public function addReplyTo(string $email, string $name = ''): void

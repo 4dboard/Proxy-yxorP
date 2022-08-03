@@ -5,7 +5,7 @@ if (PHP_SAPI !== 'cli') {
     exit('Script needs to be run from Command Line Interface (cli)');
 }
 
-define('SITE_CLI', true);
+const SITE_CLI = true;
 
 require __DIR__ . '/bootstrap.php';
 

@@ -148,11 +148,9 @@ class roles extends app
 
         $this->helper('session')->close();
 
-        $roles = $this->app->dataStorage->find('system/roles', [
+        return $this->app->dataStorage->find('system/roles', [
             'sort' => ['name' => 1]
         ])->toArray();
-
-        return $roles;
     }
 
     protected function before()

@@ -88,12 +88,12 @@ class fileCacheReader implements readerInterface
     private function saveCacheFile($path, $data)
     {
         if (!is_writable($this->dir)) {
-            throw new InvalidArgumentException(sprintf(<<<S
+            throw new InvalidArgumentException(<<<S
 The directory "%s" is not writable. Both the webserver and the console user need access.
 You can manage access rights for multiple users with "chmod +a".
 If your system does not support this, check out the acl package.,
 S
-            ));
+            );
         }
         $tempfile = tempnam($this->dir, uniqid('', true));
         if ($tempfile === false) {

@@ -229,7 +229,7 @@ class QueryPlan
     {
         $merged = $array1;
 
-        foreach ($array2 as $key => & $value) {
+        foreach ($array2 as $key => $value) {
             if (is_numeric($key)) {
                 if (!in_array($value, $merged, true)) {
                     $merged[] = $value;

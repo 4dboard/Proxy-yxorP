@@ -35,8 +35,7 @@ class indexLiteManager
 
     public function index(string $name): indexLite
     {
-        $index = new indexLite("{$this->path}/$name.idx");
-        return $index;
+        return new indexLite("{$this->path}/$name.idx");
     }
 
     public function removeIndex(string $name)

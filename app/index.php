@@ -3,7 +3,7 @@
 date_default_timezone_set('UTC');
 
 define('SITE_START_TIME', microtime(true));
-define('SITE_ADMIN', true);
+const SITE_ADMIN = true;
 require(__DIR__ . '/bootstrap.php');
 $SITE_SPACE_DIR = __DIR__;
 $SITE_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);

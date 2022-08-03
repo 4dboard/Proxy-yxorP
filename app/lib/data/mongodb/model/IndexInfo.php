@@ -109,7 +109,7 @@ class IndexInfo implements ArrayAccess
      */
     public function is2dSphere()
     {
-        return array_search('2dsphere', $this->getKey(), true) !== false;
+        return in_array('2dsphere', $this->getKey(), true);
     }
 
     /**
@@ -129,7 +129,7 @@ class IndexInfo implements ArrayAccess
      */
     public function isGeoHaystack()
     {
-        return array_search('geoHaystack', $this->getKey(), true) !== false;
+        return in_array('geoHaystack', $this->getKey(), true);
     }
 
     /**
@@ -150,7 +150,7 @@ class IndexInfo implements ArrayAccess
      */
     public function isText()
     {
-        return array_search('text', $this->getKey(), true) !== false;
+        return in_array('text', $this->getKey(), true);
     }
 
     /**

@@ -86,7 +86,7 @@ class simpleImageLib extends simpleImage
         switch ($mimeType) {
             case 'image/gif':
                 imagesavealpha($this->image, true);
-                imagegif($this->image, null);
+                imagegif($this->image);
                 break;
             case 'image/jpeg':
                 imageinterlace($this->image, true);

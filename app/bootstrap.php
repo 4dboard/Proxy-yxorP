@@ -52,22 +52,18 @@ class App
             $visibility = yxorP\app\lib\file\Flysystem\UnixVisibility\portableVisibilityConverter::fromArray(['file' => ['public' => 0644, 'private' => 0644,], 'dir' => ['public' => 0755, 'private' => 0755,],]);
             $storages = array_replace_recursive(['#app' => ['adapter' => 'yxorP\app\lib\file\Flysystem\Local\localFilesystemAdapter', 'args' => [$app->path('#app:')], 'mount' => true, 'url' => $app->pathToUrl('#app:', true)], 'root' => ['adapter' => 'yxorP\app\lib\file\Flysystem\Local\localFilesystemAdapter', 'args' => [$app->path('#root:')], 'mount' => true, 'url' => $app->pathToUrl('#root:', true)], 'cache' => ['adapter' => 'yxorP\app\lib\file\Flysystem\Local\localFilesystemAdapter', 'args' => [$app->path('#cache:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#cache:', true)], 'cache' => ['adapter' => 'yxorP\app\lib\file\Flysystem\Local\localFilesystemAdapter', 'args' => [$app->path('#cache:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#cache:', true)], 'uploads' => ['adapter' => 'yxorP\app\lib\file\Flysystem\Local\localFilesystemAdapter', 'args' => [$app->path('#uploads:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#uploads:', true)], '#uploads' => ['adapter' => 'yxorP\app\lib\file\Flysystem\Local\localFilesystemAdapter', 'args' => [$app->path('#uploads:'), $visibility], 'mount' => true, 'url' => $app->pathToUrl('#uploads:', true)],], $config['fileStorage'] ?? []);
             $app->trigger('app.filestorage.init', [&$storages]);
-            $filestorage = new fileStorage($storages);
-            return $filestorage;
+            return new fileStorage($storages);
         });
         $app->service('dataStorage', function () use ($config) {
-            $client = new MongoHybrid\client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
-            return $client;
+            return new MongoHybrid\client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
         });
         $app->service('memory', function () use ($config) {
-            $client = new memoryStorage($config['memory']['server'], array_merge(['key' => $config['sec-key']], $config['memory']['options']));
-            return $client;
+            return new memoryStorage($config['memory']['server'], array_merge(['key' => $config['sec-key']], $config['memory']['options']));
         });
         $app->service('mailer', function () use ($app, $config) {
-            $options = isset($config['mailer']) ? $config['mailer'] : [];
+            $options = $config['mailer'] ?? [];
             if (is_string($options)) parse_str($options, (array)$options);
-            $mailer = new Mailer($options['transport'] ?? 'mail', $options);
-            return $mailer;
+            return new Mailer($options['transport'] ?? 'mail', $options);
         });
         $modulesPaths = ["{$appDir}/modules", "{$appDir}/addons"];
         if ($appDir != $envDir) $modulesPaths[] = $config['paths']['#addons'];

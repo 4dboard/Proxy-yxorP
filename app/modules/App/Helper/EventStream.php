@@ -21,12 +21,10 @@ class eventStream extends helperAware
     public function getEvents(int $sinceTime)
     {
 
-        $events = $this->dataStorage->find('app/events/stream', [
+        return $this->dataStorage->find('app/events/stream', [
             'filter' => ['_created' => ['$gte' => $sinceTime]],
             'sort' => ['_created' => -1]
         ])->toArray();
-
-        return $events;
     }
 
     #[ArrayShape(['type' => "string", 'data' => "", 'options' => "array", '_created' => "int"])] public function add(string $event, $data, array $options)

@@ -305,7 +305,7 @@ class SchemaPrinter
 
     protected static function printInputValue($arg): string
     {
-        $argDecl = $arg->name . ': ' . (string)$arg->getType();
+        $argDecl = $arg->name . ': ' . $arg->getType();
         if ($arg->defaultValueExists()) {
             $argDecl .= ' = ' . Printer::doPrint(AST::astFromValue($arg->defaultValue, $arg->getType()));
         }
@@ -388,7 +388,7 @@ class SchemaPrinter
                 static function ($f, $i) use ($options): string {
                     return static::printDescription($options, $f, '  ', !$i) . '  ' .
                         $f->name . static::printArgs($options, $f->args, '  ') . ': ' .
-                        (string)$f->getType() . static::printDeprecated($f);
+                        $f->getType() . static::printDeprecated($f);
                 },
                 $fields,
                 array_keys($fields)

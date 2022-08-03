@@ -41,7 +41,7 @@ class auth extends base
             $redirectTo = '/';
         }
 
-        $redirectTo = htmlspecialchars($this->routeUrl($redirectTo), ENT_QUOTES, 'UTF-8');
+        $redirectTo = htmlspecialchars($this->routeUrl($redirectTo), ENT_QUOTES);
 
         $this->helper('theme')->pageClass('login-page');
 
@@ -128,8 +128,8 @@ class auth extends base
     public function validate2FA()
     {
 
-        $code = $this->param('code', null);
-        $token = $this->param('token', null);
+        $code = $this->param('code');
+        $token = $this->param('token');
 
         try {
             $user = (array)$this->app->helper('jwt')->decode($token);

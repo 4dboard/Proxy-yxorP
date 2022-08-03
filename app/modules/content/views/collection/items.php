@@ -18,7 +18,7 @@
                 </div>
                 <div class="kiss-margin-small-right">
                     <div
-                        class="kiss-size-5 kiss-text-bold"><?= $this->escape($model['label'] ? $model['label'] : $model['name']) ?></div>
+                        class="kiss-size-5 kiss-text-bold"><?= $this->escape($model['label'] ?: $model['name']) ?></div>
                 </div>
 
                 <kiss-card class="kiss-overlay-input kiss-padding-small kiss-margin-small-right"

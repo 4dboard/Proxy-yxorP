@@ -9,7 +9,7 @@ class curlHandler
 
     #[Pure] #[Pure] public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new curlFactory(3);
+        $this->factory = $options['handle_factory'] ?? new curlFactory(3);
     }
 
     public function __invoke(requestInterface $request, array $options)

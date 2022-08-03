@@ -25,7 +25,7 @@ class helpers
             if (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
                 $headers['Authorization'] = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
             } elseif (isset($_SERVER['PHP_AUTH_USER'])) {
-                $basic_pass = isset($_SERVER['PHP_AUTH_PW']) ? $_SERVER['PHP_AUTH_PW'] : '';
+                $basic_pass = $_SERVER['PHP_AUTH_PW'] ?? '';
                 $headers['Authorization'] = 'Basic ' . base64_encode($_SERVER['PHP_AUTH_USER'] . ':' . $basic_pass);
             } elseif (isset($_SERVER['PHP_AUTH_DIGEST'])) {
                 $headers['Authorization'] = $_SERVER['PHP_AUTH_DIGEST'];
@@ -103,7 +103,7 @@ class helpers
         return $scheme . ':' . $abs;
     }
 
-    public static function fetch_from_array(array &$array, ?string $index = null, mixed $default = null)
+    public static function fetch_from_array(array $array, ?string $index = null, mixed $default = null)
     {
         if (is_null($index)) {
             return $array;

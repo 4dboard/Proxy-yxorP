@@ -4,7 +4,6 @@ class uriTemplate
     private static $operatorHash = ['' => ['prefix' => '', 'joiner' => ',', 'query' => false], '+' => ['prefix' => '', 'joiner' => ',', 'query' => false], '#' => ['prefix' => '#', 'joiner' => ',', 'query' => false], '.' => ['prefix' => '.', 'joiner' => '.', 'query' => false], '/' => ['prefix' => '/', 'joiner' => '/', 'query' => false], ';' => ['prefix' => ';', 'joiner' => ';', 'query' => true], '?' => ['prefix' => '?', 'joiner' => '&', 'query' => true], '&' => ['prefix' => '&', 'joiner' => '&', 'query' => true]];
     private static $delims = [':', '/', '?', '#', '[', ']', '@', '!', '$', '&', '\'', '(', ')', '*', '+', ',', ';', '='];
     private static $delimsPct = ['%3A', '%2F', '%3F', '%23', '%5B', '%5D', '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C', '%3B', '%3D'];
-    private $template;
     private $variables;
 
     public function expand($template, array $variables)
@@ -12,9 +11,9 @@ class uriTemplate
         if (false === strpos($template, '{')) {
             return $template;
         }
-        $this->template = $template;
+        $template1 = $template;
         $this->variables = $variables;
-        return preg_replace_callback('/{([^}]+)}/', [$this, 'expandMatch'], $this->template);
+        return preg_replace_callback('/{([^}]+)}/', [$this, 'expandMatch'], $template1);
     }
 
     private function expandMatch(array $matches)

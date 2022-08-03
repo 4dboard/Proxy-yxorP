@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\data\firebase;
 
 use DateTime;
+use DateTimeInterface;
 use DomainException;
 use Exception;
 use InvalidArgumentException;
@@ -93,10 +94,10 @@ class jWT
             throw new signatureInvalidException('Signature verification failed');
         }
         if (isset($payload->nbf) && $payload->nbf > ($timestamp + static::$leeway)) {
-            throw new beforeValidException('Cannot handle token prior to ' . date(DateTime::ISO8601, $payload->nbf));
+            throw new beforeValidException('Cannot handle token prior to ' . date(DateTimeInterface::ISO8601, $payload->nbf));
         }
         if (isset($payload->iat) && $payload->iat > ($timestamp + static::$leeway)) {
-            throw new beforeValidException('Cannot handle token prior to ' . date(DateTime::ISO8601, $payload->iat));
+            throw new beforeValidException('Cannot handle token prior to ' . date(DateTimeInterface::ISO8601, $payload->iat));
         }
         if (isset($payload->exp) && ($timestamp - static::$leeway) >= $payload->exp) {
             throw new expiredException('Expired token');
@@ -128,7 +129,7 @@ class jWT
     private static function handleJsonError(int $errno): void
     {
         $messages = [JSON_ERROR_DEPTH => 'Maximum stack depth exceeded', JSON_ERROR_STATE_MISMATCH => 'Invalid or malformed JSON', JSON_ERROR_CTRL_CHAR => 'Unexpected control character found', JSON_ERROR_SYNTAX => 'Syntax error, malformed JSON', JSON_ERROR_UTF8 => 'Malformed UTF-8 characters'];
-        throw new DomainException(isset($messages[$errno]) ? $messages[$errno] : 'Unknown JSON error: ' . $errno);
+        throw new DomainException($messages[$errno] ?? 'Unknown JSON error: ' . $errno);
     }
 
     private static function getKey($keyOrKeyArray, ?string $kid): key

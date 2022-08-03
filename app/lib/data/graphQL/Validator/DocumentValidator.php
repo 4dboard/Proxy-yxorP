@@ -182,9 +182,9 @@ class DocumentValidator
 
         if (self::$securityRules === null) {
             self::$securityRules = [
-                DisableIntrospection::class => new DisableIntrospection(DisableIntrospection::DISABLED), // DEFAULT DISABLED
-                QueryDepth::class => new QueryDepth(QueryDepth::DISABLED), // default disabled
-                QueryComplexity::class => new QueryComplexity(QueryComplexity::DISABLED), // default disabled
+                DisableIntrospection::class => new DisableIntrospection(QuerySecurityRule::DISABLED), // DEFAULT DISABLED
+                QueryDepth::class => new QueryDepth(QuerySecurityRule::DISABLED), // default disabled
+                QueryComplexity::class => new QueryComplexity(QuerySecurityRule::DISABLED), // default disabled
             ];
         }
 

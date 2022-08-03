@@ -76,8 +76,8 @@ $this->module('assets')->extend([
             for ($i = 0; $i < count($files['name']); $i++) {
 
                 $_file = $this->app->path('#cache:') . '/' . $files['name'][$i];
-                $_isAllowed = $allowed === true ? true : preg_match("/\.({$allowed})$/i", $_file);
-                $_sizeAllowed = $max_size ? filesize($files['cache_name'][$i]) < $max_size : true;
+                $_isAllowed = $allowed === true || preg_match("/\.({$allowed})$/i", $_file);
+                $_sizeAllowed = !$max_size || filesize($files['cache_name'][$i]) < $max_size;
 
                 if (!$files['error'][$i] && $_isAllowed && $_sizeAllowed && move_uploaded_file($files['cache_name'][$i], $_file)) {
 

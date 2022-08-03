@@ -130,17 +130,13 @@ class models extends app
             return $this->stop(['error' => "Model {$model['name']} already exists."], 412);
         }
 
-        $model = $this->module('content')->saveModel($model['name'], $model);
-
-        return $model;
+        return $this->module('content')->saveModel($model['name'], $model);
     }
 
     public function load()
     {
 
-        $models = array_values($this->module('content')->models());
-
-        return $models;
+        return array_values($this->module('content')->models());
     }
 
     public function saveItem($model = null)
@@ -195,9 +191,7 @@ class models extends app
             }
         }
 
-        $item = $this->module('content')->saveItem($model['name'], $item, ['user' => $this->user]);
-
-        return $item;
+        return $this->module('content')->saveItem($model['name'], $item, ['user' => $this->user]);
     }
 
     public function clone($model = null)

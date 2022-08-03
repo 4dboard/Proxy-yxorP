@@ -27,7 +27,7 @@ class jWK
             throw new InvalidArgumentException('JWK Set did not contain any keys');
         }
         foreach ($jwks['keys'] as $k => $v) {
-            $kid = isset($v['kid']) ? $v['kid'] : $k;
+            $kid = $v['kid'] ?? $k;
             if ($key = self::parseKey($v, $defaultAlg)) {
                 $keys[(string)$kid] = $key;
             }
@@ -83,8 +83,7 @@ class jWK
         $rsaPublicKey = chr(0) . $rsaPublicKey;
         $rsaPublicKey = chr(3) . self::encodeLength(strlen($rsaPublicKey)) . $rsaPublicKey;
         $rsaPublicKey = pack('Ca*a*', 48, self::encodeLength(strlen($rsaOID . $rsaPublicKey)), $rsaOID . $rsaPublicKey);
-        $rsaPublicKey = "-----BEGIN PUBLIC KEY-----\r\n" . chunk_split(base64_encode($rsaPublicKey), 64) . '-----END PUBLIC KEY-----';
-        return $rsaPublicKey;
+        return "-----BEGIN PUBLIC KEY-----\r\n" . chunk_split(base64_encode($rsaPublicKey), 64) . '-----END PUBLIC KEY-----';
     }
 
     private static function encodeLength(int $length): string

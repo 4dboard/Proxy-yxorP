@@ -72,7 +72,7 @@ class createTranslation extends Command
                 preg_match_all('/(?:{{ t|<\?=t|yxorP\app\modules\app\.i18n\.get|yxorP\app\modules\app\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
 
                 if (!isset($matches[2])) continue;
-                foreach ($matches[2] as &$string) $strings[$string] = $string;
+                foreach ($matches[2] as $string) $strings[$string] = $string;
             }
 
             if (count($strings)) {

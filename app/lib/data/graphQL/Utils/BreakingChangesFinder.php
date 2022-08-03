@@ -216,7 +216,7 @@ class BreakingChangesFinder
                         'description' => "${typeName}.${fieldName} was removed.",
                     ];
                 } else {
-                    $oldFieldType = $oldTypeFieldsDef[$fieldName]->getType();
+                    $oldFieldType = $fieldDefinition->getType();
                     $newFieldType = $newTypeFieldsDef[$fieldName]->getType();
                     $isSafe = self::isChangeSafeForObjectOrInterfaceField(
                         $oldFieldType,
@@ -556,7 +556,7 @@ class BreakingChangesFinder
                     }
                     // Check if arg was added to the field
                     foreach ($newTypeFields[$fieldName]->args as $newTypeFieldArgDef) {
-                        $oldArgs = $oldTypeFields[$fieldName]->args;
+                        $oldArgs = $oldField->args;
                         $oldArgDef = Utils::find(
                             $oldArgs,
                             static function ($arg) use ($newTypeFieldArgDef): bool {

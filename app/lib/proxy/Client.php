@@ -59,16 +59,16 @@ class client implements clientInterface
             throw new InvalidArgumentException('Magic request methods require a URI and optional options array');
         }
         $uri = $args[0];
-        $opts = isset($args[1]) ? $args[1] : [];
+        $opts = $args[1] ?? [];
         return substr($method, -5) === 'Async' ? $this->requestAsync(substr($method, 0, -5), $uri, $opts) : $this->request($method, $uri, $opts);
     }
 
     public function requestAsync($method, $uri = '', array $options = [])
     {
         $options = $this->prepareDefaults($options);
-        $headers = isset($options['headers']) ? $options['headers'] : [];
-        $body = isset($options['body']) ? $options['body'] : null;
-        $version = isset($options['version']) ? $options['version'] : '1.1';
+        $headers = $options['headers'] ?? [];
+        $body = $options['body'] ?? null;
+        $version = $options['version'] ?? '1.1';
         $uri = $this->buildUri($uri, $options);
         if (is_array($body)) {
             $this->invalidBody();
@@ -150,7 +150,7 @@ class client implements clientInterface
             if (isset($options['multipart'])) {
                 throw new InvalidArgumentException('You cannot use ' . 'form_params and multipart at the same time. Use the ' . 'form_params option if you want to send application/' . 'x-www-form-urlencoded requests, and the multipart ' . 'option to send multipart/form-data requests.');
             }
-            $options['body'] = http_build_query($options['form_params'], '', '&');
+            $options['body'] = http_build_query($options['form_params']);
             unset($options['form_params']);
             $options['_conditional'] = Psr7\_caseless_remove(['Content-Type'], $options['_conditional']);
             $options['_conditional']['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -248,6 +248,6 @@ class client implements clientInterface
 
     public function getConfig($option = null)
     {
-        return $option === null ? $this->config : (isset($this->config[$option]) ? $this->config[$option] : null);
+        return $option === null ? $this->config : ($this->config[$option] ?? null);
     }
 }

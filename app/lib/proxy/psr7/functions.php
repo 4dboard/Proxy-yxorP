@@ -152,9 +152,9 @@ function modify_request(requestInterface $request, array $changes)
         $uri = $uri->withQuery($changes['query']);
     }
     if ($request instanceof serverRequestInterface) {
-        return (new serverRequest(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion(), $request->getServerParams()))->withParsedBody($request->getParsedBody())->withQueryParams($request->getQueryParams())->withCookieParams($request->getCookieParams())->withUploadedFiles($request->getUploadedFiles());
+        return (new serverRequest($changes['method'] ?? $request->getMethod(), $uri, $headers, $changes['body'] ?? $request->getBody(), $changes['version'] ?? $request->getProtocolVersion(), $request->getServerParams()))->withParsedBody($request->getParsedBody())->withQueryParams($request->getQueryParams())->withCookieParams($request->getCookieParams())->withUploadedFiles($request->getUploadedFiles());
     }
-    return new request(isset($changes['method']) ? $changes['method'] : $request->getMethod(), $uri, $headers, isset($changes['body']) ? $changes['body'] : $request->getBody(), isset($changes['version']) ? $changes['version'] : $request->getProtocolVersion());
+    return new request($changes['method'] ?? $request->getMethod(), $uri, $headers, $changes['body'] ?? $request->getBody(), $changes['version'] ?? $request->getProtocolVersion());
 }
 
 function rewind_body(messageInterface $message)
@@ -278,7 +278,7 @@ function parse_response($message)
         throw new InvalidArgumentException('Invalid response string: ' . $data['start-line']);
     }
     $parts = explode(' ', $data['start-line'], 3);
-    return new response($parts[1], $data['headers'], $data['body'], explode('/', $parts[0])[1], isset($parts[2]) ? $parts[2] : null);
+    return new response($parts[1], $data['headers'], $data['body'], explode('/', $parts[0])[1], $parts[2] ?? null);
 }
 
 function parse_query($str, $urlEncoding = true)
@@ -363,7 +363,7 @@ function mimetype_from_extension($extension)
 {
     static $mimetypes = ['3gp' => 'video/3gpp', '7z' => 'application/x-7z-compressed', 'aac' => 'audio/x-aac', 'ai' => 'application/postscript', 'aif' => 'audio/x-aiff', 'asc' => 'text/plain', 'asf' => 'video/x-ms-asf', 'atom' => 'application/atom+xml', 'avi' => 'video/x-msvideo', 'bmp' => 'image/bmp', 'bz2' => 'application/x-bzip2', 'cer' => 'application/pkix-cert', 'crl' => 'application/pkix-crl', 'crt' => 'application/x-x509-ca-cert', 'css' => 'text/css', 'csv' => 'text/csv', 'cu' => 'application/cu-seeme', 'deb' => 'application/x-debian-package', 'doc' => 'application/msword', 'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'dvi' => 'application/x-dvi', 'eot' => 'application/vnd.ms-fontobject', 'eps' => 'application/postscript', 'epub' => 'application/epub+zip', 'etx' => 'text/x-setext', 'flac' => 'audio/flac', 'flv' => 'video/x-flv', 'gif' => 'image/gif', 'gz' => 'application/gzip', 'htm' => 'text/html', 'html' => 'text/html', 'ico' => 'image/x-icon', 'ics' => 'text/calendar', 'ini' => 'text/plain', 'iso' => 'application/x-iso9660-image', 'jar' => 'application/java-archive', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'js' => 'text/javascript', 'json' => 'application/json', 'latex' => 'application/x-latex', 'log' => 'text/plain', 'm4a' => 'audio/mp4', 'm4v' => 'video/mp4', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'mov' => 'video/quicktime', 'mkv' => 'video/x-matroska', 'mp3' => 'audio/mpeg', 'mp4' => 'video/mp4', 'mp4a' => 'audio/mp4', 'mp4v' => 'video/mp4', 'mpe' => 'video/mpeg', 'mpeg' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mpg4' => 'video/mp4', 'oga' => 'audio/ogg', 'ogg' => 'audio/ogg', 'ogv' => 'video/ogg', 'ogx' => 'application/ogg', 'pbm' => 'image/x-portable-bitmap', 'pdf' => 'application/pdf', 'pgm' => 'image/x-portable-graymap', 'png' => 'image/png', 'pnm' => 'image/x-portable-anymap', 'ppm' => 'image/x-portable-pixmap', 'ppt' => 'application/vnd.ms-powerpoint', 'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'ps' => 'application/postscript', 'qt' => 'video/quicktime', 'rar' => 'application/x-rar-compressed', 'ras' => 'image/x-cmu-raster', 'rss' => 'application/rss+xml', 'rtf' => 'application/rtf', 'sgm' => 'text/sgml', 'sgml' => 'text/sgml', 'svg' => 'image/svg+xml', 'swf' => 'application/x-shockwave-flash', 'tar' => 'application/x-tar', 'tif' => 'image/tiff', 'tiff' => 'image/tiff', 'torrent' => 'application/x-bittorrent', 'ttf' => 'application/x-font-ttf', 'txt' => 'text/plain', 'wav' => 'audio/x-wav', 'webm' => 'video/webm', 'webp' => 'image/webp', 'wma' => 'audio/x-ms-wma', 'wmv' => 'video/x-ms-wmv', 'woff' => 'application/x-font-woff', 'wsdl' => 'application/wsdl+xml', 'xbm' => 'image/x-xbitmap', 'xls' => 'application/vnd.ms-excel', 'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'xml' => 'application/xml', 'xpm' => 'image/x-xpixmap', 'xwd' => 'image/x-xwindowdump', 'yaml' => 'text/yaml', 'yml' => 'text/yaml', 'zip' => 'application/zip',];
     $extension = strtolower($extension);
-    return isset($mimetypes[$extension]) ? $mimetypes[$extension] : null;
+    return $mimetypes[$extension] ?? null;
 }
 
 #[ArrayShape(['start-line' => "mixed|string", 'headers' => "array", 'body' => "mixed|string"])] function _parse_message($message)

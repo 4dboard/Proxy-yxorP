@@ -34,7 +34,7 @@ trait aStreamDecoratorTrait
             }
             return $this->getContents();
         } catch (Exception $e) {
-            trigger_error('StreamDecorator::__toString exception: ' . (string)$e, E_USER_ERROR);
+            trigger_error('StreamDecorator::__toString exception: ' . $e, E_USER_ERROR);
             return '';
         }
     }

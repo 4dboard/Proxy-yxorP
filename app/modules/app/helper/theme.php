@@ -92,9 +92,7 @@ class theme extends helperAware
     {
 
         $theme = $this->app->retrieve('theme/default', 'auto');
-        $theme = $this->app->helper('auth')->getUser('theme', $theme);
-
-        return $theme;
+        return $this->app->helper('auth')->getUser('theme', $theme);
     }
 
     public function assets(array $assets = [], ?string $context = null)

@@ -203,7 +203,7 @@ class app implements ArrayAccess
                 $parts = explode(':', $file, 2);
                 if (count($parts) === 2) {
                     if (!isset($this->paths[$parts[0]])) return null;
-                    foreach ($this->paths[$parts[0]] as &$path) {
+                    foreach ($this->paths[$parts[0]] as $path) {
                         if (file_exists($path . $parts[1])) {
                             return $path . $parts[1];
                         }
@@ -360,7 +360,7 @@ class app implements ArrayAccess
     public function on(string|array $event, mixed $callback, int $priority = 0): self
     {
         if (is_array($event)) {
-            foreach ($event as &$evt) {
+            foreach ($event as $evt) {
                 $this->on($evt, $callback, $priority);
             }
             return $this;
@@ -515,10 +515,10 @@ class app implements ArrayAccess
     public function bindClass(string $class, ?string $alias = null): void
     {
         $self = $this;
-        $clean = ltrim($alias ? $alias : trim(strtolower(str_replace("\\", "/", $class)), "\\"), '/');
+        $clean = ltrim($alias ?: trim(strtolower(str_replace("\\", "/", $class)), "\\"), '/');
         $this->bind("/{$clean}/*", function () use ($self, $class, $clean) {
             $parts = explode('/', trim(preg_replace("#$clean#", "", $self->request->route, 1), '/'));
-            $action = isset($parts[0]) ? $parts[0] : "index";
+            $action = $parts[0] ?? "index";
             $params = count($parts) > 1 ? array_slice($parts, 1) : [];
             return $self->invoke($class, $action, $params);
         });
@@ -537,11 +537,11 @@ class app implements ArrayAccess
     public function bindNamespace(string $namespace, ?string $alias = null): void
     {
         $self = $this;
-        $clean = $alias ? $alias : trim(strtolower(str_replace("\\", "/", $namespace)), "\\");
+        $clean = $alias ?: trim(strtolower(str_replace("\\", "/", $namespace)), "\\");
         $this->bind('/' . $clean . '/*', function () use ($self, $namespace, $clean) {
             $parts = explode('/', trim(preg_replace("#$clean#", "", $self["route"], 1), '/'));
             $class = $namespace . '\\' . $parts[0];
-            $action = isset($parts[1]) ? $parts[1] : "index";
+            $action = $parts[1] ?? "index";
             $params = count($parts) > 2 ? array_slice($parts, 2) : [];
             return $self->invoke($class, $action, $params);
         });
@@ -625,7 +625,7 @@ class app implements ArrayAccess
                                 $params[substr($part, 1)] = $parts_p[$index];
                                 continue;
                             }
-                            if ($parts_p[$index] != $parts_r[$index]) {
+                            if ($parts_p[$index] != $part) {
                                 $matched = false;
                                 break;
                             }
@@ -663,7 +663,7 @@ class app implements ArrayAccess
 
     public function req_is(string $type): bool
     {
-        return isset($this->request) ? $this->request->is($type) : false;
+        return isset($this->request) && $this->request->is($type);
     }
 
     public function getClientIp(): string
@@ -792,7 +792,7 @@ class app implements ArrayAccess
 
     public function offsetGet($key): mixed
     {
-        $value = $this->retrieve($key, null);
+        $value = $this->retrieve($key);
         if (!is_null($value)) {
             return ($value instanceof Closure) ? $value($this) : $value;
         }

@@ -84,26 +84,24 @@ class mongoLite
 
     public function find(string $collection, array $options = []): resultSet
     {
-        $filter = isset($options['filter']) ? $options['filter'] : null;
+        $filter = $options['filter'] ?? null;
         $fields = isset($options['fields']) && $options['fields'] ? $options['fields'] : null;
-        $limit = isset($options['limit']) ? $options['limit'] : null;
-        $sort = isset($options['sort']) ? $options['sort'] : null;
-        $skip = isset($options['skip']) ? $options['skip'] : null;
+        $limit = $options['limit'] ?? null;
+        $sort = $options['sort'] ?? null;
+        $skip = $options['skip'] ?? null;
         $cursor = $this->getCollection($collection)->find($filter, $fields);
         if ($limit) $cursor->limit($limit);
         if ($sort) $cursor->sort($sort);
         if ($skip) $cursor->skip($skip);
         $docs = $cursor->toArray();
-        $resultSet = new resultSet($this, $docs);
-        return $resultSet;
+        return new resultSet($this, $docs);
     }
 
     public function aggregate(string $collection, array $pipeline)
     {
         $cursor = $this->getCollection($collection)->aggregate($pipeline);
         $docs = $cursor->toArray();
-        $resultSet = new resultSet($this, $docs);
-        return $resultSet;
+        return new resultSet($this, $docs);
     }
 
     public function getFindTermFilter($term)

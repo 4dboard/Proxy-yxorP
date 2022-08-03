@@ -787,15 +787,15 @@ class Lexer
      *
      * @param int $charCount
      * @param bool $advance
-     * @param null $byteStreamPosition
      *
      * @return (string|int)[]
      */
-    private function readChars($charCount, $advance = false, $byteStreamPosition = null)
+    private function readChars($charCount, $advance = false)
     {
+        $byteStreamPosition = null;
         $result = '';
         $totalBytes = 0;
-        $byteOffset = $byteStreamPosition ?? $this->byteStreamPosition;
+        $byteOffset = null ?? $this->byteStreamPosition;
 
         for ($i = 0; $i < $charCount; $i++) {
             [$char, $code, $bytes] = $this->readChar(false, $byteOffset);

@@ -126,7 +126,7 @@ trait messageTrait
     public function getBody()
     {
         if (!$this->stream) {
-            $this->stream = stream_for('');
+            $this->stream = stream_for();
         }
         return $this->stream;
     }

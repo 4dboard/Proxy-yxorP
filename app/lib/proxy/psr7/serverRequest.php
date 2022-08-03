@@ -22,7 +22,7 @@ class serverRequest extends request implements serverRequestInterface
 
     public static function fromGlobals()
     {
-        $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
         $headers = helpers::getallheaders();
         $uri = self::getUriFromGlobals();
         $body = new cachingStream(new lazyOpenStream('php://input', 'r+'));
@@ -75,8 +75,8 @@ class serverRequest extends request implements serverRequestInterface
         if (false === $parts) {
             return [null, null];
         }
-        $host = isset($parts['host']) ? $parts['host'] : null;
-        $port = isset($parts['port']) ? $parts['port'] : null;
+        $host = $parts['host'] ?? null;
+        $port = $parts['port'] ?? null;
         return [$host, $port];
     }
 
@@ -118,7 +118,6 @@ class serverRequest extends request implements serverRequestInterface
                 $normalized[$key] = self::createUploadedFileFromSpec($value);
             } elseif (is_array($value)) {
                 $normalized[$key] = self::normalizeFiles($value);
-                continue;
             } else {
                 throw new InvalidArgumentException('Invalid value in files specification');
             }

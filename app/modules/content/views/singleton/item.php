@@ -14,7 +14,7 @@
         </div>
         <div class="kiss-margin-small-right">
             <div
-                class="kiss-size-5 kiss-text-bold"><?= $this->escape($model['label'] ? $model['label'] : $model['name']) ?></div>
+                class="kiss-size-5 kiss-text-bold"><?= $this->escape($model['label'] ?: $model['name']) ?></div>
         </div>
         <div>
             <a class="kiss-size-large" kiss-popoutmenu="#model-item-menu-actions">

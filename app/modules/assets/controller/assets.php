@@ -43,10 +43,10 @@ class assets extends app
             'sort' => ['_created' => -1]
         ], $this->param('options', []));
 
-        if ($limit = $this->param('limit', null)) $options['limit'] = $limit;
-        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
-        if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
-        if ($folder = $this->param('folder', null)) $options['folder'] = $folder;
+        if ($limit = $this->param('limit')) $options['limit'] = $limit;
+        if ($sort = $this->param('sort')) $options['sort'] = $sort;
+        if ($skip = $this->param('skip')) $options['skip'] = $skip;
+        if ($folder = $this->param('folder')) $options['folder'] = $folder;
 
         if (isset($options['filter']) && (is_string($options['filter']) || is_countable($options['filter']))) {
 
@@ -226,15 +226,13 @@ class assets extends app
     {
 
         $folders = $this->module('assets')->folders(['sort' => ['name' => 1]]);
-        $folders = $this->helper('utils')->buildTreeList($folders, ['parent_id_column_name' => '_p']);
-
-        return $folders;
+        return $this->helper('utils')->buildTreeList($folders, ['parent_id_column_name' => '_p']);
     }
 
     public function saveFolder()
     {
 
-        $name = $this->param('name', null);
+        $name = $this->param('name');
         $parent = $this->param('parent', '');
 
         if (!$name) return;
@@ -305,15 +303,15 @@ class assets extends app
 
         $options = [
             'src' => $id,
-            'fp' => $this->param('fp', null),
+            'fp' => $this->param('fp'),
             'mode' => $this->param('m', 'thumbnail'),
             'mime' => $mime,
             'filters' => (array)$this->param('f', []),
-            'width' => intval($this->param('w', null)),
-            'height' => intval($this->param('h', null)),
+            'width' => intval($this->param('w')),
+            'height' => intval($this->param('h')),
             'quality' => intval($this->param('q', 30)),
             'rebuild' => intval($this->param('r', false)),
-            'timestamp' => $this->param('t', null),
+            'timestamp' => $this->param('t'),
         ];
 
         $thumbUrl = $this->helper('asset')->image($options);

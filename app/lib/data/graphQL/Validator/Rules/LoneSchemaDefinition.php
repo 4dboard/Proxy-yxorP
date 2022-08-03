@@ -20,14 +20,12 @@ class LoneSchemaDefinition extends ValidationRule
     #[ArrayShape([NodeKind::SCHEMA_DEFINITION => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context)
     {
         $oldSchema = $context->getSchema();
-        $alreadyDefined = $oldSchema !== null
-            ? (
+        $alreadyDefined = $oldSchema !== null && ((
                 $oldSchema->getAstNode() !== null ||
                 $oldSchema->getQueryType() !== null ||
                 $oldSchema->getMutationType() !== null ||
                 $oldSchema->getSubscriptionType() !== null
-            )
-            : false;
+            ));
 
         $schemaDefinitionsCount = 0;
 

@@ -109,9 +109,9 @@ class TwoFactorAuth
         return $this->timeprovider;
     }
 
-    private function getTimeSlice($time = null, $offset = 0)
+    private function getTimeSlice($time = null)
     {
-        return (int)floor($time / $this->period) + ($offset * $this->period);
+        return (int)floor($time / $this->period) + (0 * $this->period);
     }
 
     private function codeEquals($safe, $user)

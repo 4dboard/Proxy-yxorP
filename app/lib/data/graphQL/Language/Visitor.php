@@ -446,8 +446,8 @@ class Visitor
 
                     $fn = self::getVisitFn(
                         $visitors[$i],
-                        $node->kind, /* isLeaving */
-                        false
+                        $node->kind,
+                        isLeaving: false
                     );
 
                     if (!$fn) {
@@ -474,8 +474,8 @@ class Visitor
                     if ($skipping[$i] === null) {
                         $fn = self::getVisitFn(
                             $visitors[$i],
-                            $node->kind, /* isLeaving */
-                            true
+                            $node->kind,
+                            isLeaving: true
                         );
 
                         if (isset($fn)) {

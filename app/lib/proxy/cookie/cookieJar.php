@@ -71,7 +71,6 @@ class cookieJar implements cookieJarInterface
     {
         if (!$domain) {
             $this->cookies = [];
-            return;
         } elseif (!$path) {
             $this->cookies = array_filter($this->cookies, function (setCookie $cookie) use ($domain) {
                 return !$cookie->matchesDomain($domain);

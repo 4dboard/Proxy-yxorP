@@ -15,7 +15,7 @@
             $opts = [];
             for ($i = 0; $i < count($args); $i++) {
                 $a = $args[$i];
-                $b = isset($args[$i + 1]) ? $args[$i + 1] : null;
+                $b = $args[$i + 1] ?? null;
                 if (substr($a, 0, 2) === '--') {
                     $k = substr($a, 2);
                     if ($b && substr($b, 0, 1) !== '-') $opts[$k] = $b; else $opts[$k] = true;
@@ -26,7 +26,7 @@
             }
         }
         if (!$name) return $opts;
-        return isset($opts[$name]) ? $opts[$name] : $default;
+        return $opts[$name] ?? $default;
     }
 
     public static function writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void

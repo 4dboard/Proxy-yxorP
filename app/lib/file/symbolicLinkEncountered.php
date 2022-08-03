@@ -11,7 +11,7 @@ final class symbolicLinkEncountered extends RuntimeException implements filesyst
 
     #[Pure] public static function atLocation(string $pathName): symbolicLinkEncountered
     {
-        $e = new static("Unsupported symbolic link encountered at location $pathName");
+        $e = new symbolicLinkEncountered("Unsupported symbolic link encountered at location $pathName");
         $e->location = $pathName;
         return $e;
     }

@@ -7,7 +7,7 @@ class resultSet extends ArrayObject
     protected mongo|mongoLite $driver;
     protected array $cache = [];
 
-    public function __construct(mongo|mongoLite $driver, array &$documents)
+    public function __construct(mongo|mongoLite $driver, array $documents)
     {
         $this->driver = $driver;
         $this->cache = [];

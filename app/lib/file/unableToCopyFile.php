@@ -13,7 +13,7 @@ final class unableToCopyFile extends RuntimeException implements filesystemOpera
 
     #[Pure] public static function fromLocationTo(string $sourcePath, string $destinationPath, Throwable $previous = null): unableToCopyFile
     {
-        $e = new static("Unable to copy file from $sourcePath to $destinationPath", 0, $previous);
+        $e = new unableToCopyFile("Unable to copy file from $sourcePath to $destinationPath", 0, $previous);
         $e->source = $sourcePath;
         $e->destination = $destinationPath;
         return $e;

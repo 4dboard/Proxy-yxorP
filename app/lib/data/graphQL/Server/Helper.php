@@ -205,7 +205,7 @@ class Helper
                 $errors = Utils::map(
                     $errors,
                     static function (RequestError $err): Error {
-                        return Error::createLocatedError($err, null, null);
+                        return Error::createLocatedError($err);
                     }
                 );
 

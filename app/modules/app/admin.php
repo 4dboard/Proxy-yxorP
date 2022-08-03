@@ -179,7 +179,7 @@ $this->on('after', function () {
          */
 
         $DURATION_TIME = microtime(true) - SITE_START_TIME;
-        $MEMORY_USAGE = memory_get_peak_usage(false) / 1024 / 1024;
+        $MEMORY_USAGE = memory_get_peak_usage() / 1024 / 1024;
 
         $this->response->headers["SITE_DURATION_TIME"] = "{$DURATION_TIME}SEC";
         $this->response->headers["SITE_MEMORY_USAGE"] = "{$MEMORY_USAGE}MB";

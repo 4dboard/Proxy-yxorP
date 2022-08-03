@@ -159,12 +159,10 @@ class api extends app
 
         $this->helper('session')->close();
 
-        $keys = $this->app->dataStorage->find('system/api_keys', [
+        return $this->app->dataStorage->find('system/api_keys', [
             'filter' => ['key' => ['$ne' => 'public']],
             'sort' => ['name' => 1]
         ])->toArray();
-
-        return $keys;
     }
 
     public function openapi()

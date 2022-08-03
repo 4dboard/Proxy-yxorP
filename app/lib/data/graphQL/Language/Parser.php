@@ -677,7 +677,7 @@ class Parser
 
         return new ListValueNode(
             [
-                'values' => $this->any(Token::BRACKET_L, $parseFn, Token::BRACKET_R),
+                'values' => $this->any($parseFn),
                 'loc' => $this->loc($start),
             ]
         );
@@ -699,12 +699,12 @@ class Parser
      *
      * @throws SyntaxError
      */
-    private function any(string $openKind, callable $parseFn, string $closeKind): NodeList
+    private function any(callable $parseFn): NodeList
     {
-        $this->expect($openKind);
+        $this->expect(Token::BRACKET_L);
 
         $nodes = [];
-        while (!$this->skip($closeKind)) {
+        while (!$this->skip(Token::BRACKET_R)) {
             $nodes[] = $parseFn($this);
         }
 
@@ -1193,7 +1193,7 @@ class Parser
     private function parseArgumentsDefinition(): NodeList
     {
         /** @var NodeList<InputValueDefinitionNode&Node> $nodeList */
-        $nodeList = $this->peek(Token::PAREN_L)
+        return $this->peek(Token::PAREN_L)
             ? $this->many(
                 Token::PAREN_L,
                 function (): InputValueDefinitionNode {
@@ -1202,8 +1202,6 @@ class Parser
                 Token::PAREN_R
             )
             : new NodeList([]);
-
-        return $nodeList;
     }
 
     /**
@@ -1325,7 +1323,7 @@ class Parser
     private function parseEnumValuesDefinition(): NodeList
     {
         /** @var NodeList<EnumValueDefinitionNode&Node> $nodeList */
-        $nodeList = $this->peek(Token::BRACE_L)
+        return $this->peek(Token::BRACE_L)
             ? $this->many(
                 Token::BRACE_L,
                 function (): EnumValueDefinitionNode {
@@ -1334,8 +1332,6 @@ class Parser
                 Token::BRACE_R
             )
             : new NodeList([]);
-
-        return $nodeList;
     }
 
     /**
@@ -1383,7 +1379,7 @@ class Parser
     private function parseInputFieldsDefinition(): NodeList
     {
         /** @var NodeList<InputValueDefinitionNode&Node> $nodeList */
-        $nodeList = $this->peek(Token::BRACE_L)
+        return $this->peek(Token::BRACE_L)
             ? $this->many(
                 Token::BRACE_L,
                 function (): InputValueDefinitionNode {
@@ -1392,8 +1388,6 @@ class Parser
                 Token::BRACE_R
             )
             : new NodeList([]);
-
-        return $nodeList;
     }
 
     /**

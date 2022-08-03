@@ -13,7 +13,7 @@ final class unableToWriteFile extends RuntimeException implements filesystemOper
 
     #[Pure] public static function atLocation(string $location, string $reason = '', Throwable $previous = null): unableToWriteFile
     {
-        $e = new static(rtrim("Unable to write file at location: {$location}. {$reason}"), 0, $previous);
+        $e = new unableToWriteFile(rtrim("Unable to write file at location: {$location}. {$reason}"), 0, $previous);
         $e->location = $location;
         $e->reason = $reason;
         return $e;

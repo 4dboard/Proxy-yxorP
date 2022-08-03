@@ -200,15 +200,14 @@ class FieldDefinition
 
     public function __isset(string $name): bool
     {
-        switch ($name) {
-            case 'type':
-                Warning::warnOnce(
-                    "The public getter for 'type' on FieldDefinition has been deprecated and will be removed" .
-                    " in the next major version. Please update your code to use the 'getType' method.",
-                    Warning::WARNING_CONFIG_DEPRECATION
-                );
+        if ($name == 'type') {
+            Warning::warnOnce(
+                "The public getter for 'type' on FieldDefinition has been deprecated and will be removed" .
+                " in the next major version. Please update your code to use the 'getType' method.",
+                Warning::WARNING_CONFIG_DEPRECATION
+            );
 
-                return isset($this->type);
+            return isset($this->type);
         }
 
         return isset($this->$name);

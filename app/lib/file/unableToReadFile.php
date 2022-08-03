@@ -13,7 +13,7 @@ final class unableToReadFile extends RuntimeException implements filesystemOpera
 
     #[Pure] public static function fromLocation(string $location, string $reason = '', Throwable $previous = null): unableToReadFile
     {
-        $e = new static(rtrim("Unable to read file from location: {$location}. {$reason}"), 0, $previous);
+        $e = new unableToReadFile(rtrim("Unable to read file from location: {$location}. {$reason}"), 0, $previous);
         $e->location = $location;
         $e->reason = $reason;
         return $e;

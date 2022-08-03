@@ -57,7 +57,7 @@ class streamHandler
         $parts = explode(' ', array_shift($hdrs), 3);
         $ver = explode('/', $parts[0])[1];
         $status = $parts[1];
-        $reason = isset($parts[2]) ? $parts[2] : null;
+        $reason = $parts[2] ?? null;
         $headers = headers_from_lines($hdrs);
         list($stream, $headers) = $this->checkDecode($options, $headers, $stream);
         $stream = Psr7\stream_for($stream);
@@ -78,7 +78,7 @@ class streamHandler
         if ($sink !== $stream) {
             $this->drain($stream, $sink, $response->getHeaderLine('Content-Length'));
         }
-        $this->invokeStats($options, $request, $startTime, $response, null);
+        $this->invokeStats($options, $request, $startTime, $response);
         return new fulfilledPromise($response);
     }
 
@@ -112,16 +112,15 @@ class streamHandler
         if (!empty($options['stream'])) {
             return $stream;
         }
-        $sink = isset($options['sink']) ? $options['sink'] : fopen('php://temp', 'r+');
+        $sink = $options['sink'] ?? fopen('php://temp', 'r+');
         return is_string($sink) ? new Psr7\lazyOpenStream($sink, 'w+') : Psr7\stream_for($sink);
     }
 
-    private function drain(streamInterface $source, streamInterface $sink, $contentLength)
+    private function drain(streamInterface $source, streamInterface $sink, $contentLength): void
     {
         Psr7\copy_to_stream($source, $sink, (strlen($contentLength) > 0 && (int)$contentLength > 0) ? (int)$contentLength : -1);
         $sink->seek(0);
         $source->close();
-        return $sink;
     }
 
     private function invokeStats(array $options, requestInterface $request, $startTime, responseInterface $response = null, $error = null)

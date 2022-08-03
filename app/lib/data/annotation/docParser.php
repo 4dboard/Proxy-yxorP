@@ -262,10 +262,10 @@ final class docParser
                 if ($this->isIgnoredAnnotation($name)) {
                     return false;
                 }
-                throw annotationException::semanticalError(sprintf(<<<S
+                throw annotationException::semanticalError(<<<S
 The annotation "@%s" in %s was never imported. Did you maybe forget to add a "use" statement for this annotation?
 S
-                ));
+                );
             }
         }
         $name = ltrim($name, '\\');
@@ -279,21 +279,21 @@ S
             if ($this->isIgnoredAnnotation($originalName) || $this->isIgnoredAnnotation($name)) {
                 return false;
             }
-            throw annotationException::semanticalError(sprintf(<<<S
+            throw annotationException::semanticalError(<<<S
 The class "%s" is not annotated with @Annotation.
 Are you sure this class can be used as annotation?
 If so, then you need to add @Annotation to the _class_ doc comment of "%s".
 If it is indeed no annotation, then you need to add @IgnoreAnnotation("%s") to the _class_ doc comment of %s.
 S
-            ));
+            );
         }
         $target = $this->isNestedAnnotation ? target::TARGET_ANNOTATION : $this->target;
         $this->isNestedAnnotation = true;
         if ((self::$annotationMetadata[$name]['targets'] & $target) === 0 && $target) {
-            throw annotationException::semanticalError(sprintf(<<<S
+            throw annotationException::semanticalError(<<<S
 Annotation @%s is not allowed to be declared on %s. You may only use this annotation on these code elements: %s.
 S
-            ));
+            );
         }
         $arguments = $this->MethodCall();
         $values = $this->resolvePositionalValues($arguments, $name);
@@ -339,12 +339,12 @@ S
             }
             foreach ($values as $property => $value) {
                 if (!isset(self::$annotationMetadata[$name]['constructor_args'][$property])) {
-                    throw annotationException::creationError(sprintf(<<<S
+                    throw annotationException::creationError(<<<S
 The annotation @%s declared on %s does not have a property named "%s"
 that can be set through its named arguments constructor.
 Available named arguments: %s
 S
-                    ));
+                    );
                 }
                 $positionalValues[self::$annotationMetadata[$name]['constructor_args'][$property]['position']] = $value;
             }
@@ -357,11 +357,11 @@ S
         foreach ($values as $property => $value) {
             if (!isset(self::$annotationMetadata[$name]['properties'][$property])) {
                 if ($property !== 'value') {
-                    throw annotationException::creationError(sprintf(<<<S
+                    throw annotationException::creationError(<<<S
 The annotation @%s declared on %s does not have a property named "%s".
 Available properties: %s
 S
-                    ));
+                    );
                 }
                 $property = self::$annotationMetadata[$name]['default_property'];
                 if (!$property) {
@@ -373,17 +373,18 @@ S
         return $instance;
     }
 
-    private function match(int $token): bool
+    private function match(int $token): void
     {
         if (!$this->lexer->isNextToken($token)) {
             throw $this->syntaxError($this->lexer->getLiteral($token));
         }
-        return $this->lexer->moveNext();
+        $this->lexer->moveNext();
     }
 
-    private function syntaxError(string $expected, ?array $token = null): annotationException
+    private function syntaxError(string $expected): annotationException
     {
-        if ($token === null) {
+        $token = null;
+        if (null === null) {
             $token = $this->lexer->lookahead;
         }
         $message = sprintf('Expected %s, got ', $expected);
@@ -410,12 +411,12 @@ S
         return $className;
     }
 
-    private function matchAny(array $tokens): bool
+    private function matchAny(array $tokens): void
     {
         if (!$this->lexer->isNextTokenAny($tokens)) {
             throw $this->syntaxError(implode(' or ', array_map([$this->lexer, 'getLiteral'], $tokens)));
         }
-        return $this->lexer->moveNext();
+        $this->lexer->moveNext();
     }
 
     private function classExists(string $fqcn): bool

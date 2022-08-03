@@ -17,9 +17,9 @@
         api-key-value="<?= $apiKey ?>"
     <?php endif ?>
 
-    bg-color="<?= ($bgColor ? $bgColor : '#10131a') ?>"
-    text-color="<?= ($textColor ? $textColor : '#fafafa') ?>"
-    primary-color="<?= ($primaryColor ? $primaryColor : '#0e8fff') ?>"
+    bg-color="<?= ($bgColor ?: '#10131a') ?>"
+    text-color="<?= ($textColor ?: '#fafafa') ?>"
+    primary-color="<?= ($primaryColor ?: '#0e8fff') ?>"
 ></rapi-doc>
 
 <script type="module" src="<?= $this->base('system:assets/vendor/rapidoc.js') ?>"></script>

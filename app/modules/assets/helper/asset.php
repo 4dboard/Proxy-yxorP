@@ -264,7 +264,7 @@ class Img
             if ($targetRatio > $currentRatio) {
                 $this->image->resize(null, $height);
             } else {
-                $this->image->resize($width, null);
+                $this->image->resize($width);
             }
 
             $anchor = explode(' ', $anchor);

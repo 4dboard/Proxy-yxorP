@@ -15,8 +15,8 @@ class pumpStream implements streamInterface
     public function __construct(callable $source, array $options = [])
     {
         $this->source = $source;
-        $this->size = isset($options['size']) ? $options['size'] : null;
-        $this->metadata = isset($options['metadata']) ? $options['metadata'] : [];
+        $this->size = $options['size'] ?? null;
+        $this->metadata = $options['metadata'] ?? [];
         $this->buffer = new bufferStream();
     }
 
@@ -128,6 +128,6 @@ class pumpStream implements streamInterface
         if (!$key) {
             return $this->metadata;
         }
-        return isset($this->metadata[$key]) ? $this->metadata[$key] : null;
+        return $this->metadata[$key] ?? null;
     }
 }

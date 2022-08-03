@@ -14,7 +14,7 @@ $singletons = array_filter($models, function ($m) {
 });
 
 // register collections
-foreach ($collections as $name => &$meta) {
+foreach ($collections as $name => $meta) {
 
     $_name = $name . 'Model';
 
@@ -24,13 +24,11 @@ foreach ($collections as $name => &$meta) {
             'name' => $_name,
             'fields' => function () use ($meta, $app, $_name) {
 
-                $fields = array_merge([
+                return array_merge([
                     '_id' => Type::nonNull(Type::string()),
                     '_created' => Type::nonNull(Type::int()),
                     '_modified' => Type::nonNull(Type::int())
                 ], fieldTypes::buildFieldsDefinitions($meta));
-
-                return $fields;
             }
         ])),
 
@@ -91,7 +89,7 @@ foreach ($collections as $name => &$meta) {
 }
 
 // register singletons
-foreach ($singletons as $name => &$meta) {
+foreach ($singletons as $name => $meta) {
 
     $_name = $name . 'Model';
 
@@ -101,13 +99,11 @@ foreach ($singletons as $name => &$meta) {
             'name' => $_name,
             'fields' => function () use ($meta, $app, $_name) {
 
-                $fields = array_merge([
+                return array_merge([
                     '_id' => Type::string(),
                     '_created' => Type::int(),
                     '_modified' => Type::int()
                 ], fieldTypes::buildFieldsDefinitions($meta));
-
-                return $fields;
             }
         ]),
 

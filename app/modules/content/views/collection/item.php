@@ -11,7 +11,7 @@
             <div class="kiss-flex kiss-flex-middle">
                 <div class="kiss-flex kiss-position-relative">
                     <span class="kiss-badge"
-                          style="<?= ($model['color'] ? "background:{$model['color']};border-color:{$model['color']}" : "") ?>"><?= $this->escape($model['label'] ? $model['label'] : $model['name']) ?></span>
+                          style="<?= ($model['color'] ? "background:{$model['color']};border-color:{$model['color']}" : "") ?>"><?= $this->escape($model['label'] ?: $model['name']) ?></span>
                     <a class="kiss-cover" href="<?= $this->route("/content/collection/items/{$model['name']}") ?>"></a>
                 </div>
                 <div class="kiss-margin-small-left kiss-size-5 kiss-text-bold">

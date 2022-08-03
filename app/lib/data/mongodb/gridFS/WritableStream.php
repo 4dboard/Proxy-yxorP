@@ -227,9 +227,9 @@ class WritableStream
     }
 
     /**
-     * @return mixed
+     * @return void
      */
-    private function fileCollectionInsert()
+    private function fileCollectionInsert(): void
     {
         $this->file['length'] = $this->length;
         $this->file['uploadDate'] = new UTCDateTime();
@@ -246,7 +246,6 @@ class WritableStream
             throw $e;
         }
 
-        return $this->file['_id'];
     }
 
     /**

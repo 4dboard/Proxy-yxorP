@@ -102,7 +102,7 @@ final class ImageRenderer implements RendererInterface
             90,
             $modulePath
         );
-        $modulePath = $this->drawEye(
+        return $this->drawEye(
             $externalPath,
             $internalPath,
             $fill->getBottomLeftEyeFill(),
@@ -111,8 +111,6 @@ final class ImageRenderer implements RendererInterface
             -90,
             $modulePath
         );
-
-        return $modulePath;
     }
 
     private function drawEye(

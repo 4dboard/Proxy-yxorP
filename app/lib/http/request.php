@@ -62,8 +62,7 @@ class request
                 $config['request'] = array_merge($config['request'], $json);
             }
         }
-        $request = new self($config);
-        return $request;
+        return new self($config);
     }
 
     public static function getAllHeaders(array $server): array
@@ -88,7 +87,7 @@ class request
             if (isset($server['REDIRECT_HTTP_AUTHORIZATION'])) {
                 $headers['Authorization'] = $server['REDIRECT_HTTP_AUTHORIZATION'];
             } elseif (isset($server['PHP_AUTH_USER'])) {
-                $basic_pass = isset($server['PHP_AUTH_PW']) ? $server['PHP_AUTH_PW'] : '';
+                $basic_pass = $server['PHP_AUTH_PW'] ?? '';
                 $headers['Authorization'] = 'Basic ' . base64_encode($server['PHP_AUTH_USER'] . ':' . $basic_pass);
             } elseif (isset($server['PHP_AUTH_DIGEST'])) {
                 $headers['Authorization'] = $server['PHP_AUTH_DIGEST'];
@@ -99,7 +98,7 @@ class request
 
     public function param(?string $index = null, mixed $default = null, mixed $source = null): mixed
     {
-        $src = $source ? $source : $this->request;
+        $src = $source ?: $this->request;
         $cast = null;
         if (strpos($index, ':') !== false) {
             list($index, $cast) = explode(':', $index, 2);
@@ -107,7 +106,7 @@ class request
         $value = fetch_from_array($src, $index, $default);
         if ($cast && $value !== null) {
             if (in_array($cast, ['bool', 'boolean']) && is_string($value) && in_array($cast, ['true', 'false'])) {
-                $value = $value === 'true' ? true : false;
+                $value = $value === 'true';
             }
             settype($value, $cast);
         }

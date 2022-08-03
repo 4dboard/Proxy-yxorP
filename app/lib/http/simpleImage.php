@@ -74,10 +74,10 @@ class simpleImage
             $color = ['red' => hexdec($red), 'green' => hexdec($green), 'blue' => hexdec($blue), 'alpha' => $alpha];
         }
         if (is_array($color)) {
-            $color['red'] = isset($color['red']) ? $color['red'] : 0;
-            $color['green'] = isset($color['green']) ? $color['green'] : 0;
-            $color['blue'] = isset($color['blue']) ? $color['blue'] : 0;
-            $color['alpha'] = isset($color['alpha']) ? $color['alpha'] : 1;
+            $color['red'] = $color['red'] ?? 0;
+            $color['green'] = $color['green'] ?? 0;
+            $color['blue'] = $color['blue'] ?? 0;
+            $color['alpha'] = $color['alpha'] ?? 1;
             return ['red' => (int)self::keepWithin((int)$color['red'], 0, 255), 'green' => (int)self::keepWithin((int)$color['green'], 0, 255), 'blue' => (int)self::keepWithin((int)$color['blue'], 0, 255), 'alpha' => self::keepWithin($color['alpha'], 0, 1)];
         }
         throw new Exception("Invalid color value: $color", self::ERR_INVALID_COLOR);
@@ -274,7 +274,7 @@ class simpleImage
 
     public function getExif()
     {
-        return isset($this->exif) ? $this->exif : null;
+        return $this->exif ?? null;
     }
 
     public function flip($direction)
@@ -420,7 +420,7 @@ class simpleImage
 
     public function fitToWidth($width)
     {
-        return $this->resize($width, null);
+        return $this->resize($width);
     }
 
     public function maxColors($max, $dither = true)
@@ -656,7 +656,7 @@ class simpleImage
         if ($targetRatio > $currentRatio) {
             $this->resize(null, $height);
         } else {
-            $this->resize($width, null);
+            $this->resize($width);
         }
         switch ($anchor) {
             case 'top':
@@ -756,7 +756,7 @@ class simpleImage
             imageellipse($this->image, $x, $y, $width, $height, $tempColor);
         } else {
             $tempImage = new simpleImage();
-            $tempImage->fromNew($this->getWidth(), $this->getHeight(), 'transparent');
+            $tempImage->fromNew($this->getWidth(), $this->getHeight());
             $tempColor = $tempImage->allocateColor($color);
             imagefilledellipse($tempImage->image, $x, $y, $width + $thickness, $height + $thickness, $tempColor);
             $tempColor = (self::normalizeColor($color)['red'] == 255) ? 'blue' : 'red';
@@ -814,7 +814,7 @@ class simpleImage
             $radius = floor($radius);
             $thickness = self::keepWithin($thickness, 1, min(($x2 - $x1) / 2, ($y2 - $y1) / 2));
             $tempImage = new simpleImage();
-            $tempImage->fromNew($this->getWidth(), $this->getHeight(), 'transparent');
+            $tempImage->fromNew($this->getWidth(), $this->getHeight());
             $tempImage->roundedRectangle($x1, $y1, $x2, $y2, $radius, $color, 'filled');
             $tempColor = (self::normalizeColor($color)['red'] == 255) ? 'blue' : 'red';
             $radius = $radius - $thickness;
@@ -836,7 +836,7 @@ class simpleImage
             imagearc($this->image, $x, $y, $width, $height, $start, $end, $tempColor);
         } else {
             $tempImage = new simpleImage();
-            $tempImage->fromNew($this->getWidth(), $this->getHeight(), 'transparent');
+            $tempImage->fromNew($this->getWidth(), $this->getHeight());
             $tempColor = $tempImage->allocateColor($color);
             imagefilledarc($tempImage->image, $x, $y, $width + $thickness, $height + $thickness, $start, $end, $tempColor, IMG_ARC_PIE);
             $tempColor = (self::normalizeColor($color)['red'] == 255) ? 'blue' : 'red';
@@ -971,7 +971,7 @@ class simpleImage
         switch ($mimeType) {
             case 'image/gif':
                 imagesavealpha($this->image, true);
-                imagegif($this->image, null);
+                imagegif($this->image);
                 break;
             case 'image/jpeg':
                 imageinterlace($this->image, true);
@@ -1058,11 +1058,10 @@ class simpleImage
         return $newText;
     }
 
-    private function excludeInsideColor($x, $y, $borderColor)
+    private function excludeInsideColor($x, $y, $borderColor): void
     {
         $borderColor = $this->allocateColor($borderColor);
         $transparent = $this->allocateColor('transparent');
         imagefilltoborder($this->image, $x, $y, $borderColor, $transparent);
-        return $this;
     }
 }

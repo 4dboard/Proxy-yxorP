@@ -156,16 +156,14 @@ class mongo
         } else {
             $docs = [];
         }
-        $resultSet = new resultSet($this, $docs);
-        return $resultSet;
+        return new resultSet($this, $docs);
     }
 
     public function aggregate(string $collection, array $pipeline)
     {
         $cursor = $this->getCollection($collection)->aggregate($pipeline);
         $docs = $cursor->toArray();
-        $resultSet = new resultSet($this, $docs);
-        return $resultSet;
+        return new resultSet($this, $docs);
     }
 
     #[ArrayShape(['$or' => "array", '$where' => "string"])] public function getFindTermFilter($term)

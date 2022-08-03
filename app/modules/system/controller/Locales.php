@@ -138,11 +138,9 @@ class locales extends app
 
         $this->helper('session')->close();
 
-        $locales = $this->app->dataStorage->find('system/locales', [
+        return $this->app->dataStorage->find('system/locales', [
             'sort' => ['name' => 1]
         ])->toArray();
-
-        return $locales;
     }
 
     protected function before()

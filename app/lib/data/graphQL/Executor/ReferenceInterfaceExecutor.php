@@ -252,7 +252,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
                         if ($error instanceof Error) {
                             $this->exeContext->addError($error);
 
-                            return $this->exeContext->promiseAdapter->createFulfilled(null);
+                            return $this->exeContext->promiseAdapter->createFulfilled();
                         }
 
                         return null;
@@ -594,15 +594,13 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
             $rootValue,
             $info
         );
-        $result = $this->completeValueCatchingError(
+        return $this->completeValueCatchingError(
             $returnType,
             $fieldNodes,
             $info,
             $path,
             $result
         );
-
-        return $result;
     }
 
     /**
@@ -825,7 +823,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @throws Exception
      */
-    protected function completeListValue(ListOfType $returnType, ArrayObject $fieldNodes, ResolveInfo $info, array $path, &$results)
+    protected function completeListValue(ListOfType $returnType, ArrayObject $fieldNodes, ResolveInfo $info, array $path, $results)
     {
         $itemType = $returnType->getWrappedType();
         Utils::invariant(
@@ -860,7 +858,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @throws Exception
      */
-    protected function completeLeafValue(LeafType $returnType, &$result)
+    protected function completeLeafValue(LeafType $returnType, $result)
     {
         try {
             return $returnType->serialize($result);
@@ -1096,7 +1094,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ObjectType  $returnType,
         ArrayObject $fieldNodes,
         array       $path,
-                    &$result
+                    $result
     )
     {
         $subFieldNodes = $this->collectSubFields($returnType, $fieldNodes);
@@ -1228,7 +1226,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         $runtimeTypeOrName,
         AbstractType $returnType,
         ResolveInfo $info,
-        &$result
+        $result
     ): ObjectType
     {
         $runtimeType = is_string($runtimeTypeOrName)

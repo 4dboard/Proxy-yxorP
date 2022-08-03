@@ -14,12 +14,12 @@ final class unableToRetrieveMetadata extends RuntimeException implements filesys
 
     public static function lastModified(string $location, string $reason = '', Throwable $previous = null): self
     {
-        return static::create($location, fileAttributes::ATTRIBUTE_LAST_MODIFIED, $reason, $previous);
+        return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_LAST_MODIFIED, $reason, $previous);
     }
 
     #[Pure] public static function create(string $location, string $type, string $reason = '', Throwable $previous = null): self
     {
-        $e = new static("Unable to retrieve the $type for file at location: $location. {$reason}", 0, $previous);
+        $e = new unableToRetrieveMetadata("Unable to retrieve the $type for file at location: $location. {$reason}", 0, $previous);
         $e->reason = $reason;
         $e->location = $location;
         $e->metadataType = $type;
@@ -28,17 +28,17 @@ final class unableToRetrieveMetadata extends RuntimeException implements filesys
 
     public static function visibility(string $location, string $reason = '', Throwable $previous = null): self
     {
-        return static::create($location, fileAttributes::ATTRIBUTE_VISIBILITY, $reason, $previous);
+        return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_VISIBILITY, $reason, $previous);
     }
 
     public static function fileSize(string $location, string $reason = '', Throwable $previous = null): self
     {
-        return static::create($location, fileAttributes::ATTRIBUTE_FILE_SIZE, $reason, $previous);
+        return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_FILE_SIZE, $reason, $previous);
     }
 
     public static function mimeType(string $location, string $reason = '', Throwable $previous = null): self
     {
-        return static::create($location, fileAttributes::ATTRIBUTE_MIME_TYPE, $reason, $previous);
+        return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_MIME_TYPE, $reason, $previous);
     }
 
     public function reason(): string

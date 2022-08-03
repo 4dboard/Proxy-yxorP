@@ -56,7 +56,6 @@ class KnownArgumentNames extends ValidationRule
                         [$node]
                     ));
 
-                    return;
                 },
             ];
     }

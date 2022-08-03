@@ -115,9 +115,7 @@ class query extends appAware
         );
 
         // Add start and end matching
-        $patternAsRegex = "@^" . $pattern . "$@D";
-
-        return $patternAsRegex;
+        return "@^" . $pattern . "$@D";
     }
 
     public function addEndPoint(string $path, array $methods = [])

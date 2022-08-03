@@ -88,7 +88,7 @@ class Context
         if (isset($position['line'])) {
             $context->line = $position['line'];
         }
-        $caller = isset($backtrace[$index + 1]) ? $backtrace[$index + 1] : null;
+        $caller = $backtrace[$index + 1] ?? null;
         if (isset($caller['function'])) {
             $context->method = $caller['function'];
             if (isset($caller['type']) && $caller['type'] === '::') {

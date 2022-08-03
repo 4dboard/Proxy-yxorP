@@ -549,7 +549,7 @@ class i18n extends helperAware
 
         if (!$alternative) $alternative = $key;
 
-        return isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative;
+        return $this->_languages[$lang][$key] ?? $alternative;
     }
 
     /**
@@ -567,7 +567,7 @@ class i18n extends helperAware
 
         if (!$alternative) $alternative = $key;
 
-        return vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
+        return vsprintf($this->_languages[$lang][$key] ?? $alternative, $params);
     }
 
     /**
@@ -603,7 +603,7 @@ class i18n extends helperAware
     public function data(?string $lang = null): array
     {
 
-        if ($lang) return isset($this->_languages[$lang]) ? $this->_languages[$lang] : [];
+        if ($lang) return $this->_languages[$lang] ?? [];
 
         return $this->_languages;
     }

@@ -327,7 +327,7 @@ class sVGSanitizer
     {
         if (!version_compare(phpversion(), '8.0.0', '>=')) {
             // Turn off the entity loader
-            $this->xmlLoaderValue = libxml_disable_entity_loader(true);
+            $this->xmlLoaderValue = libxml_disable_entity_loader();
         }
 
         // Suppress the errors because we don't really have to worry about formation before cleansing
@@ -386,7 +386,6 @@ class sVGSanitizer
             if (strtolower($currentElement->tagName) === 'use') {
                 if ($this->isUseTagDirty($currentElement)) {
                     $currentElement->parentNode->removeChild($currentElement);
-                    continue;
                 }
             }
         }

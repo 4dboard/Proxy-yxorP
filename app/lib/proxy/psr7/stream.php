@@ -25,7 +25,7 @@ class stream implements streamInterface
         if (isset($options['size'])) {
             $this->size = $options['size'];
         }
-        $this->customMetadata = isset($options['metadata']) ? $options['metadata'] : [];
+        $this->customMetadata = $options['metadata'] ?? [];
         $this->stream = $stream;
         $meta = stream_get_meta_data($this->stream);
         $this->seekable = $meta['seekable'];
@@ -44,7 +44,7 @@ class stream implements streamInterface
             return $this->customMetadata[$key];
         }
         $meta = stream_get_meta_data($this->stream);
-        return isset($meta[$key]) ? $meta[$key] : null;
+        return $meta[$key] ?? null;
     }
 
     public function __destruct()

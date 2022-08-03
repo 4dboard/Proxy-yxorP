@@ -229,7 +229,7 @@ class users extends app
         }
 
         $users = $this->app->dataStorage->find('system/users', $options)->toArray();
-        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($users) : $this->app->dataStorage->count('system/users', isset($options['filter']) ? $options['filter'] : []);
+        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($users) : $this->app->dataStorage->count('system/users', $options['filter'] ?? []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
         $page = 1;
 

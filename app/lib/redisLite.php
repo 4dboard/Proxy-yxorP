@@ -162,13 +162,12 @@
         if ($index < 0) {
             $index = count($list) - abs($index);
         }
-        return isset($list[$index]) ? $list[$index] : null;
+        return $list[$index] ?? null;
     }
 
     public function hgetall(string $key): array
     {
-        $set = $this->get($key, []);
-        return $set;
+        return $this->get($key, []);
     }
 
     public function hexists(string $key, string $field): bool
@@ -222,7 +221,7 @@
     public function hget(string $key, string $field, mixed $default = null): mixed
     {
         $set = $this->get($key, []);
-        return isset($set[$field]) ? $set[$field] : $default;
+        return $set[$field] ?? $default;
     }
 
     public function hset(string $key, string $field, mixed $value): void
@@ -239,7 +238,7 @@
         $values = [];
         for ($i = 1; $i < count($fields); $i++) {
             $field = $fields[$i];
-            $values[] = isset($set[$field]) ? $set[$field] : null;
+            $values[] = $set[$field] ?? null;
         }
         return $values;
     }
@@ -250,7 +249,7 @@
         $args = func_get_args();
         for ($i = 1; $i < count($args); $i++) {
             $field = $args[$i];
-            $value = isset($args[($i + 1)]) ? $args[($i + 1)] : null;
+            $value = $args[($i + 1)] ?? null;
             $set[$field] = $value;
             $i = $i + 1;
         }

@@ -313,7 +313,7 @@ class curlFactory implements curlFactoryInterface
                     list($sslKey) = $options['ssl_key'];
                 }
             }
-            $sslKey = isset($sslKey) ? $sslKey : $options['ssl_key'];
+            $sslKey = $sslKey ?? $options['ssl_key'];
             if (!file_exists($sslKey)) {
                 throw new InvalidArgumentException("SSL private key not found: {$sslKey}");
             }

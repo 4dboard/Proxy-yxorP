@@ -13,7 +13,7 @@ final class unableToCreateDirectory extends RuntimeException implements filesyst
     #[Pure] public static function atLocation(string $dirname, string $errorMessage = ''): unableToCreateDirectory
     {
         $message = "Unable to create a directory at {$dirname}. {$errorMessage}";
-        $e = new static(rtrim($message));
+        $e = new unableToCreateDirectory(rtrim($message));
         $e->location = $dirname;
         return $e;
     }
@@ -21,7 +21,7 @@ final class unableToCreateDirectory extends RuntimeException implements filesyst
     #[Pure] public static function dueToFailure(string $dirname, Throwable $previous): unableToCreateDirectory
     {
         $message = "Unable to create a directory at {$dirname}";
-        $e = new static($message, 0, $previous);
+        $e = new unableToCreateDirectory($message, 0, $previous);
         $e->location = $dirname;
         return $e;
     }

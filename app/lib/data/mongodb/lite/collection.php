@@ -53,7 +53,7 @@ class collection
     protected function _insert(array &$document): mixed
     {
         $table = $this->name;
-        $document['_id'] = isset($document['_id']) ? $document['_id'] : createMongoDbLikeId();
+        $document['_id'] = $document['_id'] ?? createMongoDbLikeId();
         $data = ['document' => json_encode($document, JSON_UNESCAPED_UNICODE)];
         $fields = [];
         $values = [];
@@ -92,9 +92,9 @@ class collection
         $sql = 'SELECT id, document FROM `' . $this->name . '` WHERE document_criteria("' . $this->database->registerCriteriaFunction($criteria) . '", document)';
         $stmt = $conn->query($sql);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($result as &$doc) {
+        foreach ($result as $doc) {
             $_doc = json_decode($doc['document'], true);
-            $document = $merge ? array_merge($_doc, isset($data['$set']) ? $data['$set'] : []) : $data;
+            $document = $merge ? array_merge($_doc, $data['$set'] ?? []) : $data;
             $document['_id'] = $_doc['_id'];
             $sql = 'UPDATE `' . $this->name . '` SET document=' . $conn->quote(json_encode($document, JSON_UNESCAPED_UNICODE)) . ' WHERE id=' . $doc['id'];
             $conn->exec($sql);
@@ -121,7 +121,7 @@ class collection
     public function findOne(mixed $criteria = null, ?array $projection = null): ?array
     {
         $items = $this->find($criteria, $projection)->limit(1)->toArray();
-        return isset($items[0]) ? $items[0] : null;
+        return $items[0] ?? null;
     }
 
     #[Pure] #[Pure] public function aggregate(array $pipeline): Aggregation\Cursor

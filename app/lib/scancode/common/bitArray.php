@@ -81,7 +81,7 @@ final class bitArray
         }
 
         $result = ($bitsOffset << 5) + bitUtils::numberOfTrailingZeros($currentBits);
-        return $result > $this->size ? $this->size : $result;
+        return min($result, $this->size);
     }
 
     /**
@@ -107,7 +107,7 @@ final class bitArray
         }
 
         $result = ($bitsOffset << 5) + bitUtils::numberOfTrailingZeros($currentBits);
-        return $result > $this->size ? $this->size : $result;
+        return min($result, $this->size);
     }
 
     /**

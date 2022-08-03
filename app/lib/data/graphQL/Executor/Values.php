@@ -224,7 +224,7 @@ class Values
             if ($argumentValueNode instanceof VariableNode) {
                 $variableName = $argumentValueNode->name->value;
                 $hasValue = array_key_exists($variableName, $variableValues ?? []);
-                $isNull = $hasValue ? $variableValues[$variableName] === null : false;
+                $isNull = $hasValue && $variableValues[$variableName] === null;
             } else {
                 $hasValue = $argumentValueNode !== null;
                 $isNull = $argumentValueNode instanceof NullValueNode;

@@ -93,7 +93,7 @@ class mockHandler implements Countable
     private function invokeStats(requestInterface $request, array $options, responseInterface $response = null, $reason = null)
     {
         if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $transferTime = $options['transfer_time'] ?? 0;
             $stats = new transferStats($request, $response, $transferTime, $reason);
             call_user_func($options['on_stats'], $stats);
         }

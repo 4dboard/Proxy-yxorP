@@ -37,7 +37,7 @@ class cursor implements Iterator
             $stmt = $this->collection->database->connection->query(implode(' ', $sql));
         }
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
-        return intval(isset($res['C']) ? $res['C'] : 0);
+        return intval($res['C'] ?? 0);
     }
 
     public function limit(?int $limit): self
@@ -101,7 +101,7 @@ class cursor implements Iterator
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $documents = [];
         if (!$this->projection) {
-            foreach ($result as &$doc) {
+            foreach ($result as $doc) {
                 $documents[] = json_decode($doc['document'], true);
             }
         } else {
@@ -114,7 +114,7 @@ class cursor implements Iterator
                     $exclude[$key] = 1;
                 }
             }
-            foreach ($result as &$doc) {
+            foreach ($result as $doc) {
                 $item = json_decode($doc['document'], true);
                 $id = $item['_id'];
                 if ($exclude) {
@@ -159,7 +159,7 @@ class cursor implements Iterator
     }
 }
 
-function array_key_intersect(&$a, &$b): array
+function array_key_intersect($a, $b): array
 {
     $array = [];
     foreach ($a as $key => $value) {

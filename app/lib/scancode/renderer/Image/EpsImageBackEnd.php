@@ -68,9 +68,9 @@ final class EpsImageBackEnd implements ImageBackEndInterface
 
         $this->eps .= wordwrap(
             '0 0 m'
-            . sprintf(' %s 0 l', (string)$size)
-            . sprintf(' %s %s l', (string)$size, (string)$size)
-            . sprintf(' 0 %s l', (string)$size)
+            . sprintf(' %s 0 l', $size)
+            . sprintf(' %s %s l', $size, $size)
+            . sprintf(' 0 %s l', $size)
             . ' z'
             . ' ' . $this->getColorSetString($backgroundColor) . " f\n",
             75,

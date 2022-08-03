@@ -74,7 +74,6 @@ class Analysis
                         $this->addAnnotation($item, $context);
                     }
                 }
-                continue;
             } elseif (is_array($value)) {
                 foreach ($value as $item) {
                     if ($item instanceof AbstractAnnotation) {
@@ -89,7 +88,7 @@ class Analysis
 
     public static function registerProcessor($processor): void
     {
-        array_push(self::processors(), $processor);
+        self::processors()[] = $processor;
     }
 
     public static function &processors()
@@ -188,12 +187,12 @@ class Analysis
 
     public function getSuperClasses(string $class, bool $direct = false): array
     {
-        $classDefinition = isset($this->classes[$class]) ? $this->classes[$class] : null;
+        $classDefinition = $this->classes[$class] ?? null;
         if (!$classDefinition || empty($classDefinition['extends'])) {
             return [];
         }
         $extends = $classDefinition['extends'];
-        $extendsDefinition = isset($this->classes[$extends]) ? $this->classes[$extends] : null;
+        $extendsDefinition = $this->classes[$extends] ?? null;
         if (!$extendsDefinition) {
             return [];
         }
@@ -211,7 +210,7 @@ class Analysis
         $definitions = [];
         foreach ($sources as $sourze) {
             if (isset($this->classes[$sourze]) || isset($this->traits[$sourze])) {
-                $definition = isset($this->classes[$sourze]) ? $this->classes[$sourze] : $this->traits[$sourze];
+                $definition = $this->classes[$sourze] ?? $this->traits[$sourze];
                 if (isset($definition['traits'])) {
                     foreach ($definition['traits'] as $trait) {
                         if (array_key_exists($trait, $this->traits)) {

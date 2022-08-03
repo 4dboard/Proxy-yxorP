@@ -23,7 +23,7 @@ class module extends appAware
 
     public function __get($name)
     {
-        return isset($this->apis[$name]) ? $this->apis[$name] : null;
+        return $this->apis[$name] ?? null;
     }
 
     public function __set($name, $value)

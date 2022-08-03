@@ -57,16 +57,16 @@ class Database
                 $keys = explode('.', $key);
                 switch (count($keys)) {
                     case 2:
-                        $val = isset($document[$keys[0]][$keys[1]]) ? $document[$keys[0]][$keys[1]] : '';
+                        $val = $document[$keys[0]][$keys[1]] ?? '';
                         break;
                     case 3:
-                        $val = isset($document[$keys[0]][$keys[1]][$keys[2]]) ? $document[$keys[0]][$keys[1]][$keys[2]] : '';
+                        $val = $document[$keys[0]][$keys[1]][$keys[2]] ?? '';
                         break;
                     default:
-                        $val = isset($document[$keys[0]]) ? $document[$keys[0]] : '';
+                        $val = $document[$keys[0]] ?? '';
                 }
             } else {
-                $val = isset($document[$key]) ? $document[$key] : '';
+                $val = $document[$key] ?? '';
             }
             return is_array($val) || is_object($val) ? json_encode($val) : $val;
         }, 2);
@@ -178,14 +178,14 @@ class UtilArrayQuery
                 case '$and':
                     $_fn = [];
                     foreach ($value as $v) {
-                        $_fn[] = self::buildCondition($v, ' && ');
+                        $_fn[] = self::buildCondition($v);
                     }
                     $fn[] = '(' . implode(' && ', $_fn) . ')';
                     break;
                 case '$or':
                     $_fn = [];
                     foreach ($value as $v) {
-                        $_fn[] = self::buildCondition($v, ' && ');
+                        $_fn[] = self::buildCondition($v);
                     }
                     $fn[] = '(' . implode(' || ', $_fn) . ')';
                     break;
@@ -233,7 +233,7 @@ class UtilArrayQuery
     public static function check(mixed $value, array $condition): bool
     {
         $keys = array_keys($condition);
-        foreach ($keys as &$key) {
+        foreach ($keys as $key) {
             if ($key === '$options') continue;
             if (!self::evaluate($key, $value, $condition[$key])) {
                 return false;
@@ -279,14 +279,14 @@ class UtilArrayQuery
                 if (is_array($a)) {
                     $r = is_array($b) ? count(array_intersect($a, $b)) : false;
                 } else {
-                    $r = is_array($b) ? in_array($a, $b) : false;
+                    $r = is_array($b) && in_array($a, $b);
                 }
                 break;
             case '$nin':
                 if (is_array($a)) {
-                    $r = is_array($b) ? (count(array_intersect($a, $b)) === 0) : false;
+                    $r = is_array($b) && count(array_intersect($a, $b)) === 0;
                 } else {
-                    $r = is_array($b) ? (in_array($a, $b) === false) : false;
+                    $r = is_array($b) && in_array($a, $b) === false;
                 }
                 break;
             case '$has':

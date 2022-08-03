@@ -29,7 +29,7 @@ class curlMultiHandler
 
     #[Pure] public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new curlFactory(50);
+        $this->factory = $options['handle_factory'] ?? new curlFactory(50);
         if (isset($options['select_timeout'])) {
             $this->selectTimeout = $options['select_timeout'];
         } elseif ($selectTimeout = getenv('PROXY_CURL_SELECT_TIMEOUT')) {
@@ -37,7 +37,7 @@ class curlMultiHandler
         } else {
             $this->selectTimeout = 1;
         }
-        $this->options = isset($options['options']) ? $options['options'] : [];
+        $this->options = $options['options'] ?? [];
     }
 
     public function __get($name)

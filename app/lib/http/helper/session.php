@@ -28,7 +28,7 @@ class session extends helperAware
 
         if (session_status() != PHP_SESSION_ACTIVE) {
 
-            $this->name = $name ? $name : $this->app["session.name"];
+            $this->name = $name ?: $this->app["session.name"];
 
             session_name($this->name);
             session_start();

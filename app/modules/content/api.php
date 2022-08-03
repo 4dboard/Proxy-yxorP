@@ -108,7 +108,7 @@ $this->on('restApi.config', function ($restApi) {
                 $process['populate'] = $populate;
             }
 
-            $item = $app->module('content')->item($model, $filter ? $filter : [], $fields, $process);
+            $item = $app->module('content')->item($model, $filter ?: [], $fields, $process);
 
             if ($item) {
                 $app->trigger('content.api.item', [&$item, $model]);

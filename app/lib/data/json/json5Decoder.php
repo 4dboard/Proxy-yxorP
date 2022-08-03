@@ -122,12 +122,12 @@ final class json5Decoder
         }
     }
 
-    private function nextOrFail($c)
+    private function nextOrFail($c): void
     {
         if ($c !== $this->currentByte) {
             $this->throwSyntaxError(sprintf('Expected %s instead of %s', self::renderChar($c), self::renderChar($this->currentChar())));
         }
-        return $this->next();
+        $this->next();
     }
 
     private function throwSyntaxError($message)
@@ -320,10 +320,9 @@ final class json5Decoder
         if ($match === null) {
             $this->throwSyntaxError('Bad identifier as unquoted key');
         }
-        $unescaped = preg_replace_callback('/(?:\\\\u[0-9A-Fa-f]{4})+/', function ($m) {
+        return preg_replace_callback('/(?:\\\\u[0-9A-Fa-f]{4})+/', function ($m) {
             return json_decode('"' . $m[0] . '"');
         }, $match);
-        return $unescaped;
     }
 
     private function arr()
@@ -371,8 +370,7 @@ final class json5Decoder
             return ($sign === '-') ? -INF : INF;
         }
         if ($this->currentByte === 'N') {
-            $number = $this->word();
-            return $number;
+            return $this->word();
         }
         if ($this->currentByte === '0') {
             $string .= $this->currentByte;
