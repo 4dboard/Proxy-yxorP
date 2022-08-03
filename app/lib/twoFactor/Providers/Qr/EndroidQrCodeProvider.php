@@ -34,7 +34,7 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         $this->errorcorrectionlevel = $this->handleErrorCorrectionLevel($errorcorrectionlevel);
     }
 
-    private function handleColor($color): \yxorP\app\lib\twoFactor\Providers\Qr\Color|array
+    #[Pure] private function handleColor($color): \yxorP\app\lib\twoFactor\Providers\Qr\Color|array
     {
         $split = str_split($color, 2);
         $r = hexdec($split[0]);

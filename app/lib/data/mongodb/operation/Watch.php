@@ -96,10 +96,10 @@ class Watch implements ExecutableInterface, /* @internal */
     /** @var boolean */
     private bool $hasResumed = false;
 
-    /** @var Manager */
+    /** @var \yxorP\app\lib\data\mongoDB\Operation\Manager */
     private Manager $manager;
 
-    /** @var TimestampInterface */
+    /** @var \yxorP\app\lib\data\mongoDB\Operation\TimestampInterface */
     private TimestampInterface $operationTime;
 
     /** @var array */
@@ -172,12 +172,11 @@ class Watch implements ExecutableInterface, /* @internal */
      * for the collection name. A cluster-level change stream may be created by
      * specifying null for both the database and collection name.
      *
-     * @param Manager $manager Manager instance from the driver
+     * @param \yxorP\app\lib\data\mongoDB\Operation\Manager $manager Manager instance from the driver
      * @param string|null $databaseName Database name
      * @param string|null $collectionName Collection name
      * @param array $pipeline List of pipeline operations
      * @param array $options Command options
-     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct(Manager $manager, ?string $databaseName, ?string $collectionName, array $pipeline, array $options = [])
     {
@@ -235,7 +234,7 @@ class Watch implements ExecutableInterface, /* @internal */
 
         $this->manager = $manager;
         $this->databaseName = (string)$databaseName;
-        $this->collectionName = isset($collectionName) ? (string)$collectionName : null;
+        $this->collectionName = isset($collectionName) ? $collectionName : null;
         $this->pipeline = $pipeline;
 
         $this->aggregate = $this->createAggregate();
@@ -339,7 +338,8 @@ class Watch implements ExecutableInterface, /* @internal */
      * Execute the operation.
      *
      * @param Server $server
-     * @return changeStream
+     * @return \yxorP\app\lib\data\mongoDB\Operation\changeStream
+     * @throws \yxorP\app\lib\data\mongoDB\Exception\UnsupportedException
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\changeStream|changeStream
@@ -356,16 +356,20 @@ class Watch implements ExecutableInterface, /* @internal */
      * Create a ChangeStreamIterator by executing the aggregate command.
      *
      * @param Server $server
-     * @return ChangeStreamIterator
+     * @return \yxorP\app\lib\data\mongoDB\Operation\ChangeStreamIterator
+     * @throws \yxorP\app\lib\data\mongoDB\Exception\UnsupportedException
      */
     private function createChangeStreamIterator(Server $server): \yxorP\app\lib\data\mongoDB\Operation\ChangeStreamIterator|ChangeStreamIterator
     {
-        return new ChangeStreamIterator(
-            $this->executeAggregate($server),
-            $this->firstBatchSize,
-            $this->getInitialResumeToken(),
-            $this->postBatchResumeToken
-        );
+        try {
+            return new ChangeStreamIterator(
+                $this->executeAggregate($server),
+                $this->firstBatchSize,
+                $this->getInitialResumeToken(),
+                $this->postBatchResumeToken
+            );
+        } catch (UnsupportedException $e) {
+        }
     }
 
     /**
@@ -376,7 +380,6 @@ class Watch implements ExecutableInterface, /* @internal */
      *
      * @param Server $server
      * @return Cursor
-     * @throws UnsupportedException
      */
     private function executeAggregate(Server $server): Cursor
     {
@@ -418,8 +421,8 @@ class Watch implements ExecutableInterface, /* @internal */
      * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resume-process
      * @param object|array|null $resumeToken
      * @param bool $hasAdvanced
-     * @return ChangeStreamIterator
-     * @throws InvalidArgumentException
+     * @return \yxorP\app\lib\data\mongoDB\Operation\ChangeStreamIterator
+     * @throws \yxorP\app\lib\data\mongoDB\Exception\UnsupportedException
      */
     private function resume(object|array $resumeToken = null, bool $hasAdvanced = false): \yxorP\app\lib\data\mongoDB\Operation\ChangeStreamIterator|ChangeStreamIterator
     {
@@ -445,7 +448,7 @@ class Watch implements ExecutableInterface, /* @internal */
             $this->changeStreamOptions[$resumeOption] = $resumeToken;
         }
 
-        if ($resumeToken === null && $this->operationTime !== null) {
+        if ($resumeToken === null) {
             $this->changeStreamOptions['startAtOperationTime'] = $this->operationTime;
         }
 

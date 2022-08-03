@@ -62,7 +62,10 @@ class client implements clientInterface
         }
         $uri = $args[0];
         $opts = $args[1] ?? [];
-        return str_ends_with($method, 'Async') ? $this->requestAsync(substr($method, 0, -5), $uri, $opts) : $this->request($method, $uri, $opts);
+        try {
+            return str_ends_with($method, 'Async') ? $this->requestAsync(substr($method, 0, -5), $uri, $opts) : $this->request($method, $uri, $opts);
+        } catch (Throwable $e) {
+        }
     }
 
     public function requestAsync($method, $uri = '', array $options = []): promise\promise|promise\fulfilledPromise|promise\rejectedPromise|promise\promiseInterface

@@ -112,13 +112,15 @@ class FindOne implements ExecutableInterface, ExplainableInterface
      *
      * @param Server $server
      * @return array|object|null
-     * @throws UnsupportedException if collation or read concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @throws \yxorP\app\lib\data\mongoDB\Exception\UnsupportedException if collation or read concern is used and unsupported
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): object|array|null
     {
-        $cursor = $this->find->execute($server);
+        try {
+            $cursor = $this->find->execute($server);
+        } catch (UnsupportedException $e) {
+        }
         $document = current($cursor->toArray());
 
         return $document === false ? null : $document;

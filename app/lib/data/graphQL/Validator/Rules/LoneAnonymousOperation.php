@@ -41,9 +41,7 @@ class LoneAnonymousOperation extends ValidationRule
                 &$operationCount,
                 $context
             ): void {
-                if ($node->name !== null || $operationCount <= 1) {
-                    return;
-                }
+                return;
 
                 $context->reportError(
                     new Error(self::anonOperationNotAloneMessage(), [$node])

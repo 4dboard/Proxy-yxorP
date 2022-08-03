@@ -102,7 +102,10 @@ class FindOneAndDelete implements ExecutableInterface, ExplainableInterface
      */
     public function execute(Server $server): object|array|null
     {
-        return $this->findAndModify->execute($server);
+        try {
+            return $this->findAndModify->execute($server);
+        } catch (\yxorP\app\lib\data\mongoDB\Exception\UnsupportedException $e) {
+        }
     }
 
     /**

@@ -53,7 +53,10 @@ class collection
     protected function _insert(array &$document): mixed
     {
         $table = $this->name;
-        $document['_id'] = $document['_id'] ?? createMongoDbLikeId();
+        try {
+            $document['_id'] = $document['_id'] ?? createMongoDbLikeId();
+        } catch (\Exception $e) {
+        }
         $data = ['document' => json_encode($document, JSON_UNESCAPED_UNICODE)];
         $fields = [];
         $values = [];

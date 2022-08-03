@@ -151,7 +151,10 @@ class SchemaValidationContext
 
     public function validateDirectives()
     {
-        $this->validateDirectiveDefinitions();
+        try {
+            $this->validateDirectiveDefinitions();
+        } catch (Exception $e) {
+        }
 
         // Validate directives that are used on the schema
         $this->validateDirectivesAtLocation(
@@ -425,10 +428,16 @@ class SchemaValidationContext
 
             if ($type instanceof ObjectType) {
                 // Ensure fields are valid
-                $this->validateFields($type);
+                try {
+                    $this->validateFields($type);
+                } catch (Exception $e) {
+                }
 
                 // Ensure objects implement the interfaces they claim to.
-                $this->validateInterfaces($type);
+                try {
+                    $this->validateInterfaces($type);
+                } catch (Exception $e) {
+                }
 
                 // Ensure directives are valid
                 $this->validateDirectivesAtLocation(
@@ -437,10 +446,16 @@ class SchemaValidationContext
                 );
             } elseif ($type instanceof InterfaceType) {
                 // Ensure fields are valid.
-                $this->validateFields($type);
+                try {
+                    $this->validateFields($type);
+                } catch (Exception $e) {
+                }
 
                 // Ensure interfaces implement the interfaces they claim to.
-                $this->validateInterfaces($type);
+                try {
+                    $this->validateInterfaces($type);
+                } catch (Exception $e) {
+                }
 
                 // Ensure directives are valid
                 $this->validateDirectivesAtLocation(
@@ -608,7 +623,10 @@ class SchemaValidationContext
      */
     private function getFieldTypeNode(InterfaceType|ObjectType $type, string $fieldName): ?TypeNodeInterface
     {
-        $fieldNode = $this->getFieldNode($type, $fieldName);
+        try {
+            $fieldNode = $this->getFieldNode($type, $fieldName);
+        } catch (Exception $e) {
+        }
 
         return $fieldNode?->type;
     }
@@ -637,7 +655,10 @@ class SchemaValidationContext
     private function getAllFieldArgNodes(InterfaceType|ObjectType $type, string $fieldName, string $argName): array
     {
         $argNodes = [];
-        $fieldNode = $this->getFieldNode($type, $fieldName);
+        try {
+            $fieldNode = $this->getFieldNode($type, $fieldName);
+        } catch (Exception $e) {
+        }
         if ($fieldNode) {
             foreach ($fieldNode->arguments as $node) {
                 if ($node->name->value !== $argName) {
@@ -807,18 +828,21 @@ class SchemaValidationContext
 
             // Assert interface field exists on type.
             if (!$typeField) {
-                $this->reportError(
-                    sprintf(
-                        'Interface field %s.%s expected but %s does not provide it.',
-                        $iface->name,
-                        $fieldName,
-                        $type->name
-                    ),
-                    array_merge(
-                        [$this->getFieldNode($iface, $fieldName)],
-                        $this->getAllNodes($type)
-                    )
-                );
+                try {
+                    $this->reportError(
+                        sprintf(
+                            'Interface field %s.%s expected but %s does not provide it.',
+                            $iface->name,
+                            $fieldName,
+                            $type->name
+                        ),
+                        array_merge(
+                            [$this->getFieldNode($iface, $fieldName)],
+                            $this->getAllNodes($type)
+                        )
+                    );
+                } catch (Exception $e) {
+                }
                 continue;
             }
 
@@ -861,20 +885,23 @@ class SchemaValidationContext
 
                 // Assert interface field arg exists on type field.
                 if (!$typeArg) {
-                    $this->reportError(
-                        sprintf(
-                            'Interface field argument %s.%s(%s:) expected but %s.%s does not provide it.',
-                            $iface->name,
-                            $fieldName,
-                            $argName,
-                            $type->name,
-                            $fieldName
-                        ),
-                        [
-                            $this->getFieldArgNode($iface, $fieldName, $argName),
-                            $this->getFieldNode($type, $fieldName),
-                        ]
-                    );
+                    try {
+                        $this->reportError(
+                            sprintf(
+                                'Interface field argument %s.%s(%s:) expected but %s.%s does not provide it.',
+                                $iface->name,
+                                $fieldName,
+                                $argName,
+                                $type->name,
+                                $fieldName
+                            ),
+                            [
+                                $this->getFieldArgNode($iface, $fieldName, $argName),
+                                $this->getFieldNode($type, $fieldName),
+                            ]
+                        );
+                    } catch (Exception $e) {
+                    }
                     continue;
                 }
 
@@ -919,20 +946,23 @@ class SchemaValidationContext
                     continue;
                 }
 
-                $this->reportError(
-                    sprintf(
-                        'Object field %s.%s includes required argument %s that is missing from the Interface field %s.%s.',
-                        $type->name,
-                        $fieldName,
-                        $argName,
-                        $iface->name,
-                        $fieldName
-                    ),
-                    [
-                        $this->getFieldArgNode($type, $fieldName, $argName),
-                        $this->getFieldNode($iface, $fieldName),
-                    ]
-                );
+                try {
+                    $this->reportError(
+                        sprintf(
+                            'Object field %s.%s includes required argument %s that is missing from the Interface field %s.%s.',
+                            $type->name,
+                            $fieldName,
+                            $argName,
+                            $iface->name,
+                            $fieldName
+                        ),
+                        [
+                            $this->getFieldArgNode($type, $fieldName, $argName),
+                            $this->getFieldNode($iface, $fieldName),
+                        ]
+                    );
+                } catch (Exception $e) {
+                }
             }
         }
     }
@@ -952,10 +982,13 @@ class SchemaValidationContext
 
         foreach ($memberTypes as $memberType) {
             if (isset($includedTypeNames[$memberType->name])) {
-                $this->reportError(
-                    sprintf('Union type %s can only include type %s once.', $union->name, $memberType->name),
-                    $this->getUnionMemberTypeNodes($union, $memberType->name)
-                );
+                try {
+                    $this->reportError(
+                        sprintf('Union type %s can only include type %s once.', $union->name, $memberType->name),
+                        $this->getUnionMemberTypeNodes($union, $memberType->name)
+                    );
+                } catch (Exception $e) {
+                }
                 continue;
             }
             $includedTypeNames[$memberType->name] = true;
@@ -963,14 +996,17 @@ class SchemaValidationContext
                 continue;
             }
 
-            $this->reportError(
-                sprintf(
-                    'Union type %s can only include Object types, it cannot include %s.',
-                    $union->name,
-                    Utils::printSafe($memberType)
-                ),
-                $this->getUnionMemberTypeNodes($union, Utils::printSafe($memberType))
-            );
+            try {
+                $this->reportError(
+                    sprintf(
+                        'Union type %s can only include Object types, it cannot include %s.',
+                        $union->name,
+                        Utils::printSafe($memberType)
+                    ),
+                    $this->getUnionMemberTypeNodes($union, Utils::printSafe($memberType))
+                );
+            } catch (Exception $e) {
+            }
         }
     }
 
@@ -1007,7 +1043,10 @@ class SchemaValidationContext
             $valueName = $enumValue->name;
 
             // Ensure no duplicates
-            $allNodes = $this->getEnumValueNodes($enumType, $valueName);
+            try {
+                $allNodes = $this->getEnumValueNodes($enumType, $valueName);
+            } catch (Exception $e) {
+            }
             if ($allNodes && count($allNodes) > 1) {
                 $this->reportError(
                     sprintf('Enum type %s can include value %s only once.', $enumType->name, $valueName),

@@ -28,9 +28,9 @@ final class json5Decoder
     private int $at = 0;
     private mixed $currentByte;
     private int $lineNumber = 1;
-    private mixed $associative = false;
-    private mixed $maxDepth = 512;
-    private mixed $castBigIntToString = false;
+    private mixed $associative;
+    private mixed $maxDepth;
+    private mixed $castBigIntToString;
     private int $depth = 1;
     private int $currentLineStartsAt = 0;
 
@@ -80,20 +80,26 @@ final class json5Decoder
     private function value()
     {
         $this->white();
-        return match ($this->currentByte) {
-            '{' => $this->obj(),
-            '[' => $this->arr(),
-            '"', "'" => $this->string(),
-            '-', '+', '.' => $this->number(),
-            default => is_numeric($this->currentByte) ? $this->number() : $this->word(),
-        };
+        try {
+            return match ($this->currentByte) {
+                '{' => $this->obj(),
+                '[' => $this->arr(),
+                '"', "'" => $this->string(),
+                '-', '+', '.' => $this->number(),
+                default => is_numeric($this->currentByte) ? $this->number() : $this->word(),
+            };
+        } catch (syntaxError $e) {
+        }
     }
 
     private function white()
     {
         while ($this->currentByte !== null) {
             if ($this->currentByte === '/') {
-                $this->comment();
+                try {
+                    $this->comment();
+                } catch (syntaxError $e) {
+                }
             } elseif (preg_match('/^[ \t\r\n\v\f\xA0]/', $this->currentByte) === 1) {
                 $this->next();
             } elseif (ord($this->currentByte) === 0xC2 && ord($this->peek()) === 0xA0) {

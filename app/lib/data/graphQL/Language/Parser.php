@@ -143,7 +143,7 @@ class Parser
      * @param string|Source $source
      * @param bool[] $options
      */
-    public function __construct(string|\yxorP\app\lib\data\graphQL\Language\Source $source, array $options = [])
+    public function __construct(string|Source $source, array $options = [])
     {
         $sourceObj = new Source($source);
         $this->lexer = new Lexer($sourceObj, $options);
@@ -364,7 +364,10 @@ class Parser
         $match = $this->lexer->token->kind === $kind;
 
         if ($match) {
-            $this->lexer->advance();
+            try {
+                $this->lexer->advance();
+            } catch (SyntaxError $e) {
+            }
         }
 
         return $match;
@@ -542,7 +545,10 @@ class Parser
     {
         $token = $this->lexer->token;
         if ($token->kind === Token::NAME && $token->value === $value) {
-            $this->lexer->advance();
+            try {
+                $this->lexer->advance();
+            } catch (SyntaxError $e) {
+            }
 
             return true;
         }
@@ -846,7 +852,10 @@ class Parser
     private function parseStringLiteral(): StringValueNode
     {
         $token = $this->lexer->token;
-        $this->lexer->advance();
+        try {
+            $this->lexer->advance();
+        } catch (SyntaxError $e) {
+        }
 
         return new StringValueNode([
             'value' => $token->value,
@@ -1230,7 +1239,10 @@ class Parser
             // Optional leading ampersand
             $this->skip(Token::AMP);
             do {
-                $types[] = $this->parseNamedType();
+                try {
+                    $types[] = $this->parseNamedType();
+                } catch (SyntaxError $e) {
+                }
             } while ($this->skip(Token::AMP) ||
             // Legacy support for the SDL?
             (($this->lexer->options['allowLegacySDLImplementsInterfaces'] ?? false) && $this->peek(Token::NAME))
@@ -1395,7 +1407,10 @@ class Parser
             // Optional leading pipe
             $this->skip(Token::PIPE);
             do {
-                $types[] = $this->parseNamedType();
+                try {
+                    $types[] = $this->parseNamedType();
+                } catch (SyntaxError $e) {
+                }
             } while ($this->skip(Token::PIPE));
         }
 

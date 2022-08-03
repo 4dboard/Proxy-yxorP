@@ -130,9 +130,7 @@ class Printer
 
                         // Anonymous queries with no directives or variable definitions can use
                         // the query short form.
-                        return $name === null && strlen($directives ?? '') === 0 && !$varDefs && $op === 'query'
-                            ? $selectionSet
-                            : $this->join([$op, $this->join([$name, $varDefs]), $directives, $selectionSet], ' ');
+                        return $this->join([$op, $this->join([$name, $varDefs]), $directives, $selectionSet], ' ');
                     },
 
                     NodeKind::VARIABLE_DEFINITION => function (VariableDefinitionNode $node): string {
@@ -502,9 +500,12 @@ class Printer
      */
     public function block($array): string
     {
-        return $array && $this->length($array)
-            ? "{\n" . $this->indent($this->join($array, "\n")) . "\n}"
-            : '';
+        try {
+            return $array && $this->length($array)
+                ? "{\n" . $this->indent($this->join($array, "\n")) . "\n}"
+                : '';
+        } catch (Exception $e) {
+        }
     }
 
     public function length($maybeArray): int
@@ -526,7 +527,10 @@ class Printer
 
     public function manyList($start, $list, $separator, $end): ?string
     {
-        return $this->length($list) === 0 ? null : ($start . $this->join($list, $separator) . $end);
+        try {
+            return $this->length($list) === 0 ? null : ($start . $this->join($list, $separator) . $end);
+        } catch (Exception $e) {
+        }
     }
 
     /**

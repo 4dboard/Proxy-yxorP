@@ -296,7 +296,10 @@ class Analysis
 
     public function unmerged(): Analysis
     {
-        return $this->split()->unmerged;
+        try {
+            return $this->split()->unmerged;
+        } catch (Exception $e) {
+        }
     }
 
     /**

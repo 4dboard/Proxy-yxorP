@@ -191,15 +191,18 @@ class SchemaExtender
             }, $typeDefinitionMap)
         );
 
-        return new Schema([
-            'query' => $operationTypes['query'],
-            'mutation' => $operationTypes['mutation'],
-            'subscription' => $operationTypes['subscription'],
-            'types' => $types,
-            'directives' => static::getMergedDirectives($schema, $directiveDefinitions),
-            'astNode' => $schema->getAstNode(),
-            'extensionASTNodes' => $schemaExtensionASTNodes,
-        ]);
+        try {
+            return new Schema([
+                'query' => $operationTypes['query'],
+                'mutation' => $operationTypes['mutation'],
+                'subscription' => $operationTypes['subscription'],
+                'types' => $types,
+                'directives' => static::getMergedDirectives($schema, $directiveDefinitions),
+                'astNode' => $schema->getAstNode(),
+                'extensionASTNodes' => $schemaExtensionASTNodes,
+            ]);
+        } catch (\Exception $e) {
+        }
     }
 
     /**

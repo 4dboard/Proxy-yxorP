@@ -50,7 +50,10 @@ class KnownDirectives extends ValidationRule
 {
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
-        return $this->getASTVisitor($context);
+        try {
+            return $this->getASTVisitor($context);
+        } catch (Exception $e) {
+        }
     }
 
     /**
@@ -150,20 +153,6 @@ class KnownDirectives extends ValidationRule
                 return DirectiveLocation::FIELD;
             case $appliedTo instanceof FragmentSpreadNode:
                 return DirectiveLocation::FRAGMENT_SPREAD;
-            case $appliedTo instanceof SchemaDefinitionNode:
-                return DirectiveLocation::SCHEMA;
-            case $appliedTo instanceof ScalarTypeDefinitionNode:
-                return DirectiveLocation::SCALAR;
-            case $appliedTo instanceof ObjectTypeDefinitionNode:
-                return DirectiveLocation::OBJECT;
-            case $appliedTo instanceof InterfaceTypeDefinitionNode:
-                return DirectiveLocation::IFACE;
-            case $appliedTo instanceof UnionTypeDefinitionNode:
-                return DirectiveLocation::UNION;
-            case $appliedTo instanceof EnumTypeDefinitionNode:
-                return DirectiveLocation::ENUM;
-            case $appliedTo instanceof InputObjectTypeDefinitionNode:
-                return DirectiveLocation::INPUT_OBJECT;
         }
 
         throw new Exception('Unknown directive location: ' . get_class($appliedTo));
@@ -176,6 +165,9 @@ class KnownDirectives extends ValidationRule
 
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
-        return $this->getASTVisitor($context);
+        try {
+            return $this->getASTVisitor($context);
+        } catch (Exception $e) {
+        }
     }
 }

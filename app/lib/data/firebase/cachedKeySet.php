@@ -89,14 +89,20 @@ class cachedKeySet implements ArrayAccess
     {
         $keySetToCache = null;
         if (null === $this->keySet) {
-            $item = $this->getCacheItem();
+            try {
+                $item = $this->getCacheItem();
+            } catch (invalidArgumentExceptionInterface $e) {
+            }
             if ($item->isHit()) {
                 $this->keySet = $item->get();
             }
         }
         if (!isset($this->keySet[$keyId])) {
-            if ($this->rateLimitExceeded()) {
-                return false;
+            try {
+                if ($this->rateLimitExceeded()) {
+                    return false;
+                }
+            } catch (invalidArgumentExceptionInterface $e) {
             }
             $request = $this->httpFactory->createRequest('get', $this->jwksUri);
             $jwksResponse = $this->httpClient->sendRequest($request);
@@ -107,7 +113,10 @@ class cachedKeySet implements ArrayAccess
             }
         }
         if ($keySetToCache) {
-            $item = $this->getCacheItem();
+            try {
+                $item = $this->getCacheItem();
+            } catch (invalidArgumentExceptionInterface $e) {
+            }
             $item->set($keySetToCache);
             if ($this->expiresAfter) {
                 $item->expiresAfter($this->expiresAfter);

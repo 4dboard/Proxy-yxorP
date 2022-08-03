@@ -158,11 +158,14 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
             return $this->promiseAdapter->createFulfilled($this->finishExecute(null, $this->errors));
         }
 
-        [$errors, $coercedVariableValues] = Values::getVariableValues(
-            $this->schema,
-            $this->collector->operation->variableDefinitions ?? [],
-            $this->rawVariableValues ?? []
-        );
+        try {
+            [$errors, $coercedVariableValues] = Values::getVariableValues(
+                $this->schema,
+                $this->collector->operation->variableDefinitions ?? [],
+                $this->rawVariableValues ?? []
+            );
+        } catch (Error $e) {
+        }
 
         if (count($errors ?? []) > 0) {
             return $this->promiseAdapter->createFulfilled($this->finishExecute(null, $errors));

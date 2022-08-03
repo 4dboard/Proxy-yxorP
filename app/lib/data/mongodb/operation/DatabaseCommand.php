@@ -39,7 +39,7 @@ class DatabaseCommand implements ExecutableInterface
     /** @var string */
     private string $databaseName;
 
-    /** @var array|Command|object */
+    /** @var \yxorP\app\lib\data\mongoDB\Operation\command|array|object */
     private command|array|object $command;
 
     /** @var array */

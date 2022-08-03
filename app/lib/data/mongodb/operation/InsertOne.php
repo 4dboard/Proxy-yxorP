@@ -107,9 +107,7 @@ class InsertOne implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return insertOneResult
-     * @throws UnsupportedException if write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\insertOneResult
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): insertOneResult

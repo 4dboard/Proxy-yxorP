@@ -225,7 +225,10 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         // field and its descendants will be omitted, and sibling fields will still
         // be executed. An execution which encounters errors will still result in a
         // resolved Promise.
-        $data = $this->executeOperation($this->exeContext->operation, $this->exeContext->rootValue);
+        try {
+            $data = $this->executeOperation($this->exeContext->operation, $this->exeContext->rootValue);
+        } catch (Error $e) {
+        }
         $result = $this->buildResponse($data);
 
         // Note: we deviate here from the reference implementation a bit by always returning promise
@@ -340,8 +343,11 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         foreach ($selectionSet->selections as $selection) {
             switch (true) {
                 case $selection instanceof FieldNode:
-                    if (!$this->shouldIncludeNode($selection)) {
-                        break;
+                    try {
+                        if (!$this->shouldIncludeNode($selection)) {
+                            break;
+                        }
+                    } catch (Error $e) {
                     }
                     $name = static::getFieldEntryKey($selection);
                     if (!isset($fields[$name])) {
@@ -350,10 +356,13 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
                     $fields[$name][] = $selection;
                     break;
                 case $selection instanceof InlineFragmentNode:
-                    if (!$this->shouldIncludeNode($selection) ||
-                        !$this->doesFragmentConditionMatch($selection, $runtimeType)
-                    ) {
-                        break;
+                    try {
+                        if (!$this->shouldIncludeNode($selection) ||
+                            !$this->doesFragmentConditionMatch($selection, $runtimeType)
+                        ) {
+                            break;
+                        }
+                    } catch (Error $e) {
                     }
                     $this->collectFields(
                         $runtimeType,
@@ -365,14 +374,20 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
                 case $selection instanceof FragmentSpreadNode:
                     $fragName = $selection->name->value;
 
-                    if (($visitedFragmentNames[$fragName] ?? false) === true || !$this->shouldIncludeNode($selection)) {
-                        break;
+                    try {
+                        if (($visitedFragmentNames[$fragName] ?? false) === true || !$this->shouldIncludeNode($selection)) {
+                            break;
+                        }
+                    } catch (Error $e) {
                     }
                     $visitedFragmentNames[$fragName] = true;
                     /** @var FragmentDefinitionNode|null $fragment */
                     $fragment = $exeContext->fragments[$fragName] ?? null;
-                    if ($fragment === null || !$this->doesFragmentConditionMatch($fragment, $runtimeType)) {
-                        break;
+                    try {
+                        if ($fragment === null || !$this->doesFragmentConditionMatch($fragment, $runtimeType)) {
+                            break;
+                        }
+                    } catch (Exception $e) {
                     }
                     $this->collectFields(
                         $runtimeType,
@@ -537,9 +552,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
             return $value;
         }
         if ($this->exeContext->promiseAdapter->isThenable($value)) {
-            $promise = $this->exeContext->promiseAdapter->convertThenable($value);
-
-            return $promise;
+            return $this->exeContext->promiseAdapter->convertThenable($value);
         }
 
         return null;
@@ -1112,7 +1125,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param mixed $result
      *
      * @return array|Promise|stdClass
-     *
      */
     protected function collectAndExecuteSubfields(
         ObjectType  $returnType,
@@ -1123,7 +1135,10 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     {
         $subFieldNodes = $this->collectSubFields($returnType, $fieldNodes);
 
-        return $this->executeFields($returnType, $result, $path, $subFieldNodes);
+        try {
+            return $this->executeFields($returnType, $result, $path, $subFieldNodes);
+        } catch (Error $e) {
+        }
     }
 
     /**

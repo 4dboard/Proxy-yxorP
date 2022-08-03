@@ -16,7 +16,7 @@ use yxorP\app\lib\scancode\Renderer\Path\Path;
 final class ModuleEye implements EyeInterface
 {
     /**
-     * @var ModuleInterface
+     * @var \yxorP\app\lib\scancode\Renderer\Eye\ModuleInterface
      */
     private ModuleInterface $module;
 

@@ -13,7 +13,10 @@ class CleanUnmerged
 {
     public function __invoke(Analysis $analysis)
     {
-        $split = $analysis->split();
+        try {
+            $split = $analysis->split();
+        } catch (\Exception $e) {
+        }
         $merged = $split->merged->annotations;
         $unmerged = $split->unmerged->annotations;
 

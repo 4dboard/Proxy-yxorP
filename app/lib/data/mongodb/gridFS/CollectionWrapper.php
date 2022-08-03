@@ -280,7 +280,7 @@ class CollectionWrapper
      *
      * @param mixed $id
      * @param string $filename
-     * @return updateResult
+     * @return \yxorP\app\lib\data\mongoDB\GridFS\updateResult
      */
     public function updateFilenameForId(mixed $id, string $filename): updateResult
     {

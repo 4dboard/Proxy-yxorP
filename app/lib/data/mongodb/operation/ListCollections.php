@@ -71,8 +71,7 @@ class ListCollections implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return CollectionInfoCommandIterator
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\CollectionInfoCommandIterator
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): CollectionInfoCommandIterator

@@ -97,7 +97,7 @@ class Bucket
     /** @var string */
     private string $databaseName;
 
-    /** @var Manager */
+    /** @var \yxorP\app\lib\data\mongoDB\GridFS\Manager */
     private Manager $manager;
 
     /** @var string */
@@ -143,10 +143,9 @@ class Bucket
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param Manager $manager Manager instance from the driver
+     * @param \yxorP\app\lib\data\mongoDB\GridFS\Manager $manager Manager instance from the driver
      * @param string $databaseName Database name
      * @param array $options Bucket options
-     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct(Manager $manager, string $databaseName, array $options = [])
     {

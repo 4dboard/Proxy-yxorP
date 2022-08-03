@@ -101,9 +101,8 @@ class ReplaceOne implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return updateResult
-     * @throws UnsupportedException if collation is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\updateResult
+     * @throws \yxorP\app\lib\data\mongoDB\Exception\UnsupportedException if collation is used and unsupported
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): updateResult

@@ -217,18 +217,21 @@ class ValuesOfCorrectType extends ValidationRule
         $type = Type::getNamedType($locationType);
 
         if (!$type instanceof ScalarType) {
-            $context->reportError(
-                new Error(
-                    self::getBadValueMessage(
-                        (string)$locationType,
-                        Printer::doPrint($node),
-                        $this->enumTypeSuggestion($type, $node),
-                        $context,
-                        $fieldName
-                    ),
-                    $node
-                )
-            );
+            try {
+                $context->reportError(
+                    new Error(
+                        self::getBadValueMessage(
+                            (string)$locationType,
+                            Printer::doPrint($node),
+                            $this->enumTypeSuggestion($type, $node),
+                            $context,
+                            $fieldName
+                        ),
+                        $node
+                    )
+                );
+            } catch (\Exception $e) {
+            }
 
             return;
         }
@@ -239,22 +242,25 @@ class ValuesOfCorrectType extends ValidationRule
             $type->parseLiteral($node);
         } catch (Throwable $error) {
             // Ensure a reference to the original error is maintained.
-            $context->reportError(
-                new Error(
-                    self::getBadValueMessage(
-                        (string)$locationType,
-                        Printer::doPrint($node),
-                        $error->getMessage(),
-                        $context,
-                        $fieldName
-                    ),
-                    $node,
-                    null,
-                    [],
-                    null,
-                    $error
-                )
-            );
+            try {
+                $context->reportError(
+                    new Error(
+                        self::getBadValueMessage(
+                            (string)$locationType,
+                            Printer::doPrint($node),
+                            $error->getMessage(),
+                            $context,
+                            $fieldName
+                        ),
+                        $node,
+                        null,
+                        [],
+                        null,
+                        $error
+                    )
+                );
+            } catch (\Exception $e) {
+            }
         }
     }
 
@@ -266,15 +272,18 @@ class ValuesOfCorrectType extends ValidationRule
     private function enumTypeSuggestion($type, ValueNodeInterface $node)
     {
         if ($type instanceof EnumType) {
-            $suggestions = Utils::suggestionList(
-                Printer::doPrint($node),
-                array_map(
-                    static function (EnumValueDefinition $value): string {
-                        return $value->name;
-                    },
-                    $type->getValues()
-                )
-            );
+            try {
+                $suggestions = Utils::suggestionList(
+                    Printer::doPrint($node),
+                    array_map(
+                        static function (EnumValueDefinition $value): string {
+                            return $value->name;
+                        },
+                        $type->getValues()
+                    )
+                );
+            } catch (\Exception $e) {
+            }
 
             return $suggestions ? 'Did you mean the enum value ' . Utils::orList($suggestions) . '?' : null;
         }

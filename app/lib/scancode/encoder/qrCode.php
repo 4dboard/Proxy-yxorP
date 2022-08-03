@@ -29,7 +29,7 @@ final class qrCode
     /**
      * EC level of the QR code.
      *
-     * @var ErrorCorrectionLevel
+     * @var \yxorP\app\lib\scancode\Encoder\ErrorCorrectionLevel
      */
     private ErrorCorrectionLevel $errorCorrectionLevel;
 
@@ -45,7 +45,7 @@ final class qrCode
      *
      * @var int
      */
-    private int $maskPattern = -1;
+    private int $maskPattern;
 
     /**
      * Matrix of the QR code.

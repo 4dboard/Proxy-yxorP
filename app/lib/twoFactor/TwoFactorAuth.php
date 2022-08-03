@@ -103,7 +103,10 @@ class TwoFactorAuth
         for ($i = -$discrepancy; $i <= $discrepancy; $i++) {
             $ts = $timestamp + ($i * $this->period);
             $slice = $this->getTimeSlice($ts);
-            $timeslice = $this->codeEquals($this->getCode($secret, $ts), $code) ? $slice : $timeslice;
+            try {
+                $timeslice = $this->codeEquals($this->getCode($secret, $ts), $code) ? $slice : $timeslice;
+            } catch (TwoFactorAuthException $e) {
+            }
         }
         return $timeslice > 0;
     }

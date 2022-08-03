@@ -630,7 +630,7 @@ class AST
                     return null;
                 }
                 $operation = $node;
-            } elseif ($node->name instanceof NameNode && $node->name->value === $operationName) {
+            } elseif ($node->name->value === $operationName) {
                 return $node;
             }
         }

@@ -161,7 +161,10 @@ class BuildSchema
 
         $directives = array_map(
             static function (DirectiveDefinitionNode $def) use ($DefinitionBuilder): Directive {
-                return $DefinitionBuilder->buildDirective($def);
+                try {
+                    return $DefinitionBuilder->buildDirective($def);
+                } catch (\Exception $e) {
+                }
             },
             $directiveDefs
         );

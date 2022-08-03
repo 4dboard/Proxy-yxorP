@@ -176,7 +176,10 @@ class promise implements promiseInterface
         $this->waitList = null;
         foreach ($waitList as $result) {
             while (true) {
-                $result->waitIfPending();
+                try {
+                    $result->waitIfPending();
+                } catch (Exception $e) {
+                }
                 if ($result->result instanceof promise) {
                     $result = $result->result;
                 } else {

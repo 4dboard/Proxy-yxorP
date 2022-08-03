@@ -67,10 +67,10 @@ class MapReduce implements ExecutableInterface
     /** @var string */
     private string $collectionName;
 
-    /** @var JavascriptInterface */
+    /** @var \yxorP\app\lib\data\mongoDB\Operation\JavascriptInterface */
     private JavascriptInterface $map;
 
-    /** @var JavascriptInterface */
+    /** @var \yxorP\app\lib\data\mongoDB\Operation\JavascriptInterface */
     private JavascriptInterface $reduce;
 
     /** @var array|object|string */
@@ -156,11 +156,10 @@ class MapReduce implements ExecutableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param JavascriptInterface $map Map function
-     * @param JavascriptInterface $reduce Reduce function
+     * @param \yxorP\app\lib\data\mongoDB\Operation\JavascriptInterface $map Map function
+     * @param \yxorP\app\lib\data\mongoDB\Operation\JavascriptInterface $reduce Reduce function
      * @param object|array|string $out Output specification
      * @param array $options Command options
-     * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct(string $databaseName, string $collectionName, JavascriptInterface $map, JavascriptInterface $reduce, object|array|string $out, array $options = [])
     {
@@ -333,7 +332,7 @@ class MapReduce implements ExecutableInterface
     /**
      * Create the mapReduce command.
      *
-     * @return Command
+     * @return \yxorP\app\lib\data\mongoDB\Operation\command
      */
     private function createCommand(): command
     {

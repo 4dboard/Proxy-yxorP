@@ -104,7 +104,6 @@ class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterfac
      *
      * @param Server $server
      * @return integer
-     * @throws UnsupportedException if collation or read concern is used and unsupported
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): int

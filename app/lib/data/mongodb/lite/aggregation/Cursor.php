@@ -31,7 +31,10 @@ class Cursor implements Iterator
      */
     public function toArray(): array
     {
-        return $this->getData();
+        try {
+            return $this->getData();
+        } catch (\Exception $e) {
+        }
     }
 
     /**
@@ -132,7 +135,10 @@ class Cursor implements Iterator
 
         if ($this->position === false) {
 
-            $this->data = $this->getData();
+            try {
+                $this->data = $this->getData();
+            } catch (\Exception $e) {
+            }
             $this->position = 0;
         }
 

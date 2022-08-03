@@ -215,15 +215,18 @@ class GraphQL
         );
 
         $promiseAdapter = Executor::getPromiseAdapter();
-        $result = self::promiseToExecute(
-            $promiseAdapter,
-            $schema,
-            $source,
-            $rootValue,
-            $contextValue,
-            $variableValues,
-            $operationName
-        );
+        try {
+            $result = self::promiseToExecute(
+                $promiseAdapter,
+                $schema,
+                $source,
+                $rootValue,
+                $contextValue,
+                $variableValues,
+                $operationName
+            );
+        } catch (\Exception $e) {
+        }
 
         if ($promiseAdapter instanceof SyncPromiseAdapterInterface) {
             $result = $promiseAdapter->wait($result)->toArray();
@@ -263,15 +266,18 @@ class GraphQL
         );
 
         $promiseAdapter = Executor::getPromiseAdapter();
-        $result = self::promiseToExecute(
-            $promiseAdapter,
-            $schema,
-            $source,
-            $rootValue,
-            $contextValue,
-            $variableValues,
-            $operationName
-        );
+        try {
+            $result = self::promiseToExecute(
+                $promiseAdapter,
+                $schema,
+                $source,
+                $rootValue,
+                $contextValue,
+                $variableValues,
+                $operationName
+            );
+        } catch (\Exception $e) {
+        }
 
         if ($promiseAdapter instanceof SyncPromiseAdapterInterface) {
             $result = $promiseAdapter->wait($result);

@@ -256,7 +256,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
         }
 
         $this->databaseName = $databaseName;
-        $this->collectionName = isset($collectionName) ? $collectionName : null;
+        $this->collectionName = $collectionName ?? null;
         $this->pipeline = $pipeline;
         $this->options = $options;
     }

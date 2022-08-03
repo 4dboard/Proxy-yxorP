@@ -296,7 +296,7 @@ class WritableStream
      * which point a chunk document will be inserted and the buffer reset.
      *
      * @param string $data Binary data to write
-     * @return void
+     * @return int
      */
     public function writeBytes(string $data): int
     {

@@ -61,7 +61,7 @@ class Schema
      *
      * @var Type[]
      */
-    private array $resolvedTypes = [];
+    private array $resolvedTypes;
     /**
      * Lazily initialised.
      *

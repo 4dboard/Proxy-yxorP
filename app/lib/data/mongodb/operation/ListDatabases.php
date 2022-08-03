@@ -67,9 +67,7 @@ class ListDatabases implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return DatabaseInfoLegacyIterator
-     * @throws UnexpectedValueException if the command response was malformed
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\DatabaseInfoLegacyIterator
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): DatabaseInfoLegacyIterator

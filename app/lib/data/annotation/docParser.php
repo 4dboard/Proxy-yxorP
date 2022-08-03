@@ -187,7 +187,10 @@ final class docParser
         $this->context = $context;
         $this->lexer->setInput(trim(substr($input, $pos), '* /'));
         $this->lexer->moveNext();
-        return $this->Annotations();
+        try {
+            return $this->Annotations();
+        } catch (annotationException $e) {
+        }
     }
 
     private function findInitialTokenPosition($input): ?int
@@ -204,7 +207,7 @@ final class docParser
     }
 
     /**
-     * @throws annotationException
+     * @return array
      */
     private function Annotations(): array
     {
@@ -224,7 +227,11 @@ final class docParser
                 continue;
             }
             $this->isNestedAnnotation = false;
-            $annot = $this->Annotation();
+            try {
+                $annot = $this->Annotation();
+            } catch (ReflectionException $e) {
+            } catch (annotationException $e) {
+            }
             if ($annot === false) {
                 continue;
             }
@@ -238,7 +245,7 @@ final class docParser
      * @throws ReflectionException
      * @throws annotationException
      */
-    private function Annotation()
+    private function Annotation(): mixed
     {
         $this->match(docLexer::T_AT);
         $name = $this->Identifier();
@@ -413,7 +420,8 @@ S
     }
 
     /**
-     * @throws annotationException
+     * @return string
+     * @throws \yxorP\app\lib\data\annotation\annotationException
      */
     private function Identifier(): string
     {
@@ -423,7 +431,11 @@ S
         $this->lexer->moveNext();
         $className = $this->lexer->token['value'];
         while ($this->lexer->lookahead !== null && $this->lexer->lookahead['position'] === ($this->lexer->token['position'] + strlen($this->lexer->token['value'])) && $this->lexer->isNextToken(docLexer::T_NAMESPACE_SEPARATOR)) {
-            $this->match(docLexer::T_NAMESPACE_SEPARATOR);
+            try {
+                $this->match(docLexer::T_NAMESPACE_SEPARATOR);
+            } catch (ReflectionException $e) {
+            } catch (annotationException $e) {
+            }
             $this->matchAny(self::$classIdentifiers);
             $className .= '\\' . $this->lexer->token['value'];
         }
@@ -467,7 +479,8 @@ S
     }
 
     /**
-     * @throws annotationException
+     * @return array
+     * @throws \yxorP\app\lib\data\annotation\annotationException
      */
     private function MethodCall(): array
     {
@@ -475,22 +488,35 @@ S
         if (!$this->lexer->isNextToken(docLexer::T_OPEN_PARENTHESIS)) {
             return $values;
         }
-        $this->match(docLexer::T_OPEN_PARENTHESIS);
+        try {
+            $this->match(docLexer::T_OPEN_PARENTHESIS);
+        } catch (ReflectionException $e) {
+        } catch (annotationException $e) {
+        }
         if (!$this->lexer->isNextToken(docLexer::T_CLOSE_PARENTHESIS)) {
             $values = $this->Values();
         }
-        $this->match(docLexer::T_CLOSE_PARENTHESIS);
+        try {
+            $this->match(docLexer::T_CLOSE_PARENTHESIS);
+        } catch (ReflectionException $e) {
+        } catch (annotationException $e) {
+        }
         return $values;
     }
 
     /**
-     * @throws annotationException
+     * @return array
+     * @throws \yxorP\app\lib\data\annotation\annotationException
      */
     #[ArrayShape(['named_arguments' => "array", 'positional_arguments' => "array"])] private function Values(): array
     {
         $values = [$this->Value()];
         while ($this->lexer->isNextToken(docLexer::T_COMMA)) {
-            $this->match(docLexer::T_COMMA);
+            try {
+                $this->match(docLexer::T_COMMA);
+            } catch (ReflectionException $e) {
+            } catch (annotationException $e) {
+            }
             if ($this->lexer->isNextToken(docLexer::T_CLOSE_PARENTHESIS)) {
                 break;
             }
@@ -523,13 +549,22 @@ S
     }
 
     /**
-     * @throws annotationException
+     * @return \stdClass
+     * @throws \yxorP\app\lib\data\annotation\annotationException
      */
     private function FieldAssignment(): stdClass
     {
-        $this->match(docLexer::T_IDENTIFIER);
+        try {
+            $this->match(docLexer::T_IDENTIFIER);
+        } catch (ReflectionException $e) {
+        } catch (annotationException $e) {
+        }
         $fieldName = $this->lexer->token['value'];
-        $this->match(docLexer::T_EQUALS);
+        try {
+            $this->match(docLexer::T_EQUALS);
+        } catch (ReflectionException $e) {
+        } catch (annotationException $e) {
+        }
         $item = new stdClass();
         $item->name = $fieldName;
         $item->value = $this->PlainValue();
@@ -537,7 +572,8 @@ S
     }
 
     /**
-     * @throws annotationException
+     * @return array|bool|float|int|mixed|string|null
+     * @throws \yxorP\app\lib\data\annotation\annotationException
      */
     private function PlainValue()
     {
@@ -545,29 +581,57 @@ S
             return $this->Arrayx();
         }
         if ($this->lexer->isNextToken(docLexer::T_AT)) {
-            return $this->Annotation();
+            try {
+                return $this->Annotation();
+            } catch (ReflectionException $e) {
+            } catch (annotationException $e) {
+            }
         }
         if ($this->lexer->isNextToken(docLexer::T_IDENTIFIER)) {
             return $this->Constant();
         }
         switch ($this->lexer->lookahead['type']) {
             case docLexer::T_STRING:
-                $this->match(docLexer::T_STRING);
+                try {
+                    $this->match(docLexer::T_STRING);
+                } catch (ReflectionException $e) {
+                } catch (annotationException $e) {
+                }
                 return $this->lexer->token['value'];
             case docLexer::T_INTEGER:
-                $this->match(docLexer::T_INTEGER);
+                try {
+                    $this->match(docLexer::T_INTEGER);
+                } catch (ReflectionException $e) {
+                } catch (annotationException $e) {
+                }
                 return (int)$this->lexer->token['value'];
             case docLexer::T_FLOAT:
-                $this->match(docLexer::T_FLOAT);
+                try {
+                    $this->match(docLexer::T_FLOAT);
+                } catch (ReflectionException $e) {
+                } catch (annotationException $e) {
+                }
                 return (float)$this->lexer->token['value'];
             case docLexer::T_TRUE:
-                $this->match(docLexer::T_TRUE);
+                try {
+                    $this->match(docLexer::T_TRUE);
+                } catch (ReflectionException $e) {
+                } catch (annotationException $e) {
+                }
                 return true;
             case docLexer::T_FALSE:
-                $this->match(docLexer::T_FALSE);
+                try {
+                    $this->match(docLexer::T_FALSE);
+                } catch (ReflectionException $e) {
+                } catch (annotationException $e) {
+                }
                 return false;
             case docLexer::T_NULL:
-                $this->match(docLexer::T_NULL);
+                try {
+                    $this->match(docLexer::T_NULL);
+                } catch (ReflectionException $e) {
+                } catch (annotationException $e) {
+                }
                 return null;
             default:
                 throw $this->syntaxError('PlainValue');
@@ -575,25 +639,42 @@ S
     }
 
     /**
-     * @throws annotationException
+     * @return array
+     * @throws \yxorP\app\lib\data\annotation\annotationException
      */
     private function Arrayx(): array
     {
         $array = $values = [];
-        $this->match(docLexer::T_OPEN_CURLY_BRACES);
+        try {
+            $this->match(docLexer::T_OPEN_CURLY_BRACES);
+        } catch (ReflectionException $e) {
+        } catch (annotationException $e) {
+        }
         if ($this->lexer->isNextToken(docLexer::T_CLOSE_CURLY_BRACES)) {
-            $this->match(docLexer::T_CLOSE_CURLY_BRACES);
+            try {
+                $this->match(docLexer::T_CLOSE_CURLY_BRACES);
+            } catch (ReflectionException $e) {
+            } catch (annotationException $e) {
+            }
             return $array;
         }
         $values[] = $this->ArrayEntry();
         while ($this->lexer->isNextToken(docLexer::T_COMMA)) {
-            $this->match(docLexer::T_COMMA);
+            try {
+                $this->match(docLexer::T_COMMA);
+            } catch (ReflectionException $e) {
+            } catch (annotationException $e) {
+            }
             if ($this->lexer->isNextToken(docLexer::T_CLOSE_CURLY_BRACES)) {
                 break;
             }
             $values[] = $this->ArrayEntry();
         }
-        $this->match(docLexer::T_CLOSE_CURLY_BRACES);
+        try {
+            $this->match(docLexer::T_CLOSE_CURLY_BRACES);
+        } catch (ReflectionException $e) {
+        } catch (annotationException $e) {
+        }
         foreach ($values as $value) {
             [$key, $val] = $value;
             if ($key !== null) {

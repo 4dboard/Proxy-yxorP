@@ -33,7 +33,10 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
 {
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
-        return $this->getASTVisitor($context);
+        try {
+            return $this->getASTVisitor($context);
+        } catch (Exception $e) {
+        }
     }
 
     /**
@@ -115,6 +118,9 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
 
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
-        return $this->getASTVisitor($context);
+        try {
+            return $this->getASTVisitor($context);
+        } catch (Exception $e) {
+        }
     }
 }

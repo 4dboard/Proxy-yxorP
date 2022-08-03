@@ -140,19 +140,17 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
     {
         $rendererStyleArgs = array($size, $this->borderWidth);
 
-        if (is_array($this->backgroundColour)) {
-            $rendererStyleArgs = array_merge($rendererStyleArgs, array(
-                null,
-                null,
-                Fill::withForegroundColor(
-                    new Rgb(...$this->backgroundColour),
-                    new Rgb(...$this->foregroundColour),
-                    new EyeFill(null, null),
-                    new EyeFill(null, null),
-                    new EyeFill(null, null)
-                )
-            ));
-        }
+        $rendererStyleArgs = array_merge($rendererStyleArgs, array(
+            null,
+            null,
+            Fill::withForegroundColor(
+                new Rgb(...$this->backgroundColour),
+                new Rgb(...$this->foregroundColour),
+                new EyeFill(null, null),
+                new EyeFill(null, null),
+                new EyeFill(null, null)
+            )
+        ));
 
         $writer = new writer(new ImageRenderer(
             new RendererStyle(...$rendererStyleArgs),

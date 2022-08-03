@@ -9,7 +9,7 @@ class OperationDefinitionNode extends Node implements ExecutableDefinitionNode, 
     /** @var string */
     public string $kind = NodeKind::OPERATION_DEFINITION;
 
-    /** @var NameNode|null */
+    /** @var NameNode */
     public NameNode $name;
 
     /** @var string (oneOf 'query', 'mutation', 'subscription')) */

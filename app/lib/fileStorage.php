@@ -19,7 +19,10 @@ class fileStorage
     {
         $this->config[$name] = $config;
         if (isset($config['mount']) && $config['mount']) {
-            $this->initStorage($name);
+            try {
+                $this->initStorage($name);
+            } catch (ReflectionException $e) {
+            }
         }
         return $this;
     }
@@ -45,7 +48,10 @@ class fileStorage
     public function use(string $name): ?filesystem
     {
         if (!isset($this->storages[$name]) && isset($this->config[$name])) {
-            $this->initStorage($name);
+            try {
+                $this->initStorage($name);
+            } catch (ReflectionException $e) {
+            }
         }
         return $this->storages[$name] ?? null;
     }

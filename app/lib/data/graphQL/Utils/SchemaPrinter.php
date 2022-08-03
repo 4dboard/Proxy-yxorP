@@ -162,15 +162,21 @@ class SchemaPrinter
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Directive $directive
      * @param array<string, bool> $options
+     * @return string
      */
     protected static function printDirective(Directive $directive, array $options): string
     {
-        return static::printDescription($options, $directive)
-            . 'directive @' . $directive->name
-            . static::printArgs($options, $directive->args)
-            . ($directive->isRepeatable ? ' repeatable' : '')
-            . ' on ' . implode(' | ', $directive->locations);
+        try {
+            return static::printDescription($options, $directive)
+                . 'directive @' . $directive->name
+                . static::printArgs($options, $directive->args)
+                . ($directive->isRepeatable ? ' repeatable' : '')
+                . ' on ' . implode(' | ', $directive->locations);
+        } catch (Error $e) {
+        } catch (Throwable $e) {
+        }
     }
 
     /**
@@ -284,7 +290,7 @@ class SchemaPrinter
      * @throws Error
      * @throws Throwable
      */
-    protected static function printArgs(array $options, $args, $indentation = ''): string
+    protected static function printArgs(array $options, $args, string $indentation = ''): string
     {
         if (!$args) {
             return '';
@@ -365,7 +371,9 @@ class SchemaPrinter
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ObjectType $type
      * @param array<string, bool> $options
+     * @return string
      */
     protected static function printObject(ObjectType $type, array $options): string
     {
@@ -382,8 +390,12 @@ class SchemaPrinter
             )
             : '';
 
-        return static::printDescription($options, $type) .
-            sprintf("type %s%s {\n%s\n}", $type->name, $implementedInterfaces, static::printFields($options, $type));
+        try {
+            return static::printDescription($options, $type) .
+                sprintf("type %s%s {\n%s\n}", $type->name, $implementedInterfaces, static::printFields($options, $type));
+        } catch (Error $e) {
+        } catch (Throwable $e) {
+        }
     }
 
     /**
@@ -430,7 +442,9 @@ class SchemaPrinter
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType $type
      * @param array<string, bool> $options
+     * @return string
      */
     protected static function printInterface(InterfaceType $type, array $options): string
     {
@@ -447,8 +461,12 @@ class SchemaPrinter
             )
             : '';
 
-        return static::printDescription($options, $type) .
-            sprintf("interface %s%s {\n%s\n}", $type->name, $implementedInterfaces, static::printFields($options, $type));
+        try {
+            return static::printDescription($options, $type) .
+                sprintf("interface %s%s {\n%s\n}", $type->name, $implementedInterfaces, static::printFields($options, $type));
+        } catch (Error $e) {
+        } catch (Throwable $e) {
+        }
     }
 
     /**
@@ -479,12 +497,18 @@ class SchemaPrinter
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\EnumType $type
      * @param array<string, bool> $options
+     * @return string
      */
     protected static function printEnum(EnumType $type, array $options): string
     {
-        return static::printDescription($options, $type) .
-            sprintf("enum %s {\n%s\n}", $type->name, static::printEnumValues($type->getValues(), $options));
+        try {
+            return static::printDescription($options, $type) .
+                sprintf("enum %s {\n%s\n}", $type->name, static::printEnumValues($type->getValues(), $options));
+        } catch (Error $e) {
+        } catch (Throwable $e) {
+        }
     }
 
     /**

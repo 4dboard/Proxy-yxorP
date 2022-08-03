@@ -145,13 +145,15 @@ class FindOneAndReplace implements ExecutableInterface, ExplainableInterface
      *
      * @param Server $server
      * @return array|object|null
-     * @throws UnsupportedException if collation or write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @throws \yxorP\app\lib\data\mongoDB\Exception\UnsupportedException if collation or write concern is used and unsupported
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): object|array|null
     {
-        return $this->findAndModify->execute($server);
+        try {
+            return $this->findAndModify->execute($server);
+        } catch (UnsupportedException $e) {
+        }
     }
 
     /**

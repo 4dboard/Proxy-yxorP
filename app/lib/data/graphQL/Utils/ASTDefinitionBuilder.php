@@ -187,7 +187,10 @@ class ASTDefinitionBuilder
             return Type::nonNull($this->buildWrappedType($typeNode->type));
         }
 
-        return $this->buildType($typeNode);
+        try {
+            return $this->buildType($typeNode);
+        } catch (Error $e) {
+        }
     }
 
     /**
@@ -299,7 +302,10 @@ class ASTDefinitionBuilder
                 return $field->name->value;
             },
             function (FieldDefinitionNode $field): array {
-                return $this->buildField($field);
+                try {
+                    return $this->buildField($field);
+                } catch (Error $e) {
+                }
             }
         );
     }
@@ -311,16 +317,19 @@ class ASTDefinitionBuilder
      */
     #[ArrayShape(['type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'args' => "mixed", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\FieldDefinitionNode"])] public function buildField(FieldDefinitionNode $field): array
     {
-        return [
-            // Note: While this could make assertions to get the correctly typed
-            // value, that would throw immediately while type system validation
-            // with validateSchema() will produce more actionable results.
-            'type' => $this->buildWrappedType($field->type),
-            'description' => $this->getDescription($field),
-            'args' => $this->makeInputValues($field->arguments),
-            'deprecationReason' => $this->getDeprecationReason($field),
-            'astNode' => $field,
-        ];
+        try {
+            return [
+                // Note: While this could make assertions to get the correctly typed
+                // value, that would throw immediately while type system validation
+                // with validateSchema() will produce more actionable results.
+                'type' => $this->buildWrappedType($field->type),
+                'description' => $this->getDescription($field),
+                'args' => $this->makeInputValues($field->arguments),
+                'deprecationReason' => $this->getDeprecationReason($field),
+                'astNode' => $field,
+            ];
+        } catch (Error $e) {
+        }
     }
 
     /**
@@ -386,11 +395,14 @@ class ASTDefinitionBuilder
                     return $enumValue->name->value;
                 },
                 function ($enumValue): array {
-                    return [
-                        'description' => $this->getDescription($enumValue),
-                        'deprecationReason' => $this->getDeprecationReason($enumValue),
-                        'astNode' => $enumValue,
-                    ];
+                    try {
+                        return [
+                            'description' => $this->getDescription($enumValue),
+                            'deprecationReason' => $this->getDeprecationReason($enumValue),
+                            'astNode' => $enumValue,
+                        ];
+                    } catch (Error $e) {
+                    }
                 }
             ),
             'astNode' => $def,

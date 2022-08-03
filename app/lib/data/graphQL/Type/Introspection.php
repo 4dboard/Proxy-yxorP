@@ -621,6 +621,7 @@ class Introspection
      * This is the inverse of BuildClientSchema::build(). The primary use case is outside
      * of the server context, for instance when doing schema comparisons.
      *
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
      * @param array<string, bool> $options
      *      Available options:
      *      - descriptions
@@ -638,10 +639,13 @@ class Introspection
     {
         $optionsWithDefaults = array_merge(['directiveIsRepeatable' => true], $options);
 
-        $result = GraphQL::executeQuery(
-            $schema,
-            self::getIntrospectionQuery($optionsWithDefaults)
-        );
+        try {
+            $result = GraphQL::executeQuery(
+                $schema,
+                self::getIntrospectionQuery($optionsWithDefaults)
+            );
+        } catch (Exception $e) {
+        }
 
         return $result->data;
     }

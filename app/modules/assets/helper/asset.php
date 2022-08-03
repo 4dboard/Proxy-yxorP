@@ -177,7 +177,10 @@ class Asset extends helperAware
                 $this->app->fileStorage->delete($thumbpath);
             }
 
-            $img = new Img($src);
+            try {
+                $img = new Img($src);
+            } catch (Exception $e) {
+            }
             $img->{$method}($width, $height, $fp);
 
             // Apply image filters
@@ -240,12 +243,18 @@ class Img
 
     public function base64data($format = null, $quality = 100): string
     {
-        return $this->image->toDataUri($format, $quality);
+        try {
+            return $this->image->toDataUri($format, $quality);
+        } catch (Exception $e) {
+        }
     }
 
     public function show($format = null, $quality = 100)
     {
-        $this->image->toScreen($format, $quality);
+        try {
+            $this->image->toScreen($format, $quality);
+        } catch (Exception $e) {
+        }
     }
 
     public function blur($passes = 1, $type = 'gaussian'): SimpleImage

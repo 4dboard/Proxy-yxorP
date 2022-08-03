@@ -141,7 +141,10 @@ class PossibleFragmentSpreads extends ValidationRule
     {
         $frag = $context->getFragment($name);
         if ($frag) {
-            $type = TypeInfo::typeFromAST($context->getSchema(), $frag->typeCondition);
+            try {
+                $type = TypeInfo::typeFromAST($context->getSchema(), $frag->typeCondition);
+            } catch (\Exception $e) {
+            }
             if ($type instanceof CompositeType) {
                 return $type;
             }

@@ -67,7 +67,7 @@ class version
         return $this->getShortReference();
     }
 
-    public function __toString(): string
+    #[Pure] public function __toString(): string
     {
         return $this->getPrettyVersion();
     }

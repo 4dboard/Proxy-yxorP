@@ -125,7 +125,7 @@ final class EllipticArc implements OperationInterface
      * @param float $fromY
      * @return array
      */
-    public function toCurves(float $fromX, float $fromY): array
+    #[Pure] public function toCurves(float $fromX, float $fromY): array
     {
         if (sqrt(($fromX - $this->x) ** 2 + ($fromY - $this->y) ** 2) < self::ZERO_TOLERANCE) {
             return [];

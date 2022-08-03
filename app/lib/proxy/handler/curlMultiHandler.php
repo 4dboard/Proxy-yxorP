@@ -25,7 +25,7 @@ class curlMultiHandler
     private $active;
     private array $handles = [];
     private array $delays = [];
-    private mixed $options = [];
+    private mixed $options;
 
     #[Pure] public function __construct(array $options = [])
     {

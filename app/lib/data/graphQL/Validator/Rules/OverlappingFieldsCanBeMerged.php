@@ -282,6 +282,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     /**
      * Collect all Conflicts "within" one collection of fields.
      *
+     * @param \yxorP\app\lib\data\graphQL\Validator\ValidationContext $context
      * @param array[] $conflicts
      * @param array[] $fieldMap
      */
@@ -306,13 +307,16 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
 
             for ($i = 0; $i < $fieldsLength; $i++) {
                 for ($j = $i + 1; $j < $fieldsLength; $j++) {
-                    $conflict = $this->findConflict(
-                        $context,
-                        false, // within one collection is never mutually exclusive
-                        $responseName,
-                        $fields[$i],
-                        $fields[$j]
-                    );
+                    try {
+                        $conflict = $this->findConflict(
+                            $context,
+                            false, // within one collection is never mutually exclusive
+                            $responseName,
+                            $fields[$i],
+                            $fields[$j]
+                        );
+                    } catch (\Exception $e) {
+                    }
                     if (!$conflict) {
                         continue;
                     }
@@ -445,8 +449,11 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
                 return false;
             }
 
-            if (!$this->sameValue($argument1->value, $argument2->value)) {
-                return false;
+            try {
+                if (!$this->sameValue($argument1->value, $argument2->value)) {
+                    return false;
+                }
+            } catch (\Exception $e) {
             }
         }
 
@@ -623,13 +630,16 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
             $fields2Length = count($fields2);
             for ($i = 0; $i < $fields1Length; $i++) {
                 for ($j = 0; $j < $fields2Length; $j++) {
-                    $conflict = $this->findConflict(
-                        $context,
-                        $parentFieldsAreMutuallyExclusive,
-                        $responseName,
-                        $fields1[$i],
-                        $fields2[$j]
-                    );
+                    try {
+                        $conflict = $this->findConflict(
+                            $context,
+                            $parentFieldsAreMutuallyExclusive,
+                            $responseName,
+                            $fields1[$i],
+                            $fields2[$j]
+                        );
+                    } catch (\Exception $e) {
+                    }
                     if (!$conflict) {
                         continue;
                     }

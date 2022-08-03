@@ -187,11 +187,9 @@ class ValidationContext extends ASTValidationContext
                     if ($selection instanceof FragmentSpreadNode) {
                         $spreads[] = $selection;
                     } else {
-                        assert($selection instanceof InlineFragmentNode);
+                        assert(false);
                         $selectionSet = $selection->selectionSet;
-                        if ($selectionSet !== null) {
-                            $setsToVisit[] = $selectionSet;
-                        }
+                        $setsToVisit[] = $selectionSet;
                     }
                 }
             }

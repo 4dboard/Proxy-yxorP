@@ -300,15 +300,21 @@ class TypeInfo
             case $node instanceof InlineFragmentNode:
             case $node instanceof FragmentDefinitionNode:
                 $typeConditionNode = $node->typeCondition;
+            try {
                 $outputType = self::typeFromAST(
                     $schema,
                     $typeConditionNode
                 );
-                $this->typeStack[] = Type::isOutputType($outputType) ? $outputType : null;
+            } catch (Exception $e) {
+            }
+            $this->typeStack[] = Type::isOutputType($outputType) ? $outputType : null;
                 break;
 
             case $node instanceof VariableDefinitionNode:
-                $inputType = self::typeFromAST($schema, $node->type);
+                try {
+                    $inputType = self::typeFromAST($schema, $node->type);
+                } catch (Exception $e) {
+                }
                 $this->inputTypeStack[] = Type::isInputType($inputType) ? $inputType : null; // push
                 break;
 

@@ -71,8 +71,6 @@ class DeleteOne implements ExecutableInterface, ExplainableInterface
      *
      * @param Server $server
      * @return \yxorP\app\lib\data\mongoDB\Operation\deleteResult
-     * @throws UnsupportedException if collation is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\deleteResult

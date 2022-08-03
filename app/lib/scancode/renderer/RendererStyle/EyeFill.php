@@ -15,11 +15,11 @@ final class EyeFill
      */
     private static ?EyeFill $inherit;
     /**
-     * @var ColorInterface|null
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|null
      */
     private ?ColorInterface $externalColor;
     /**
-     * @var ColorInterface|null
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|null
      */
     private ?ColorInterface $internalColor;
 

@@ -20,7 +20,7 @@ use yxorP\app\lib\scancode\Renderer\RendererStyle\RendererStyle;
 final class ImageRenderer implements RendererInterface
 {
     /**
-     * @var RendererStyle
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle
      */
     private RendererStyle $rendererStyle;
 

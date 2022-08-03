@@ -89,7 +89,10 @@ class Database
         }
         if (is_array($criteria)) {
             $fn = null;
-            eval('$fn = function($document) { return ' . UtilArrayQuery::buildCondition($criteria) . '; };');
+            try {
+                eval('$fn = function($document) { return ' . UtilArrayQuery::buildCondition($criteria) . '; };');
+            } catch (Exception $e) {
+            }
             $this->document_criterias[$id] = $fn;
             return $id;
         }

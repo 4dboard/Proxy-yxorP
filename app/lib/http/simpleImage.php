@@ -116,9 +116,12 @@ class simpleImage
         return in_array($flag, array_keys($this->flags)) ? $this->flags[$flag] : null;
     }
 
-    public static function darkenColor($color, $amount): array
+    #[ArrayShape(['red' => "int", 'green' => "int", 'blue' => "int", 'alpha' => "mixed"])] public static function darkenColor($color, $amount): array
     {
-        return self::adjustColor($color, -$amount, -$amount, -$amount, 0);
+        try {
+            return self::adjustColor($color, -$amount, -$amount, -$amount, 0);
+        } catch (Exception $e) {
+        }
     }
 
     /**
@@ -177,9 +180,12 @@ class simpleImage
         return $value;
     }
 
-    public static function lightenColor($color, $amount): array
+    #[ArrayShape(['red' => "int", 'green' => "int", 'blue' => "int", 'alpha' => "mixed"])] public static function lightenColor($color, $amount): array
     {
-        return self::adjustColor($color, $amount, $amount, $amount, 0);
+        try {
+            return self::adjustColor($color, $amount, $amount, $amount, 0);
+        } catch (Exception $e) {
+        }
     }
 
     public function __destruct()
@@ -367,7 +373,10 @@ class simpleImage
 
     public function rotate($angle, $backgroundColor = 'transparent'): static
     {
-        $backgroundColor = $this->allocateColor($backgroundColor);
+        try {
+            $backgroundColor = $this->allocateColor($backgroundColor);
+        } catch (Exception $e) {
+        }
         $this->image = imagerotate($this->image, -(self::keepWithin($angle, -360, 360)), $backgroundColor);
         imagecolortransparent($this->image, imagecolorallocatealpha($this->image, 0, 0, 0, 127));
         return $this;
@@ -496,7 +505,10 @@ class simpleImage
 
     public function dot($x, $y, $color): static
     {
-        $color = $this->allocateColor($color);
+        try {
+            $color = $this->allocateColor($color);
+        } catch (Exception $e) {
+        }
         imagesetpixel($this->image, $x, $y, $color);
         return $this;
     }
@@ -658,14 +670,20 @@ class simpleImage
     public function fill($color): static
     {
         $this->rectangle(0, 0, $this->getWidth(), $this->getHeight(), 'white', 'filled');
-        $color = $this->allocateColor($color);
+        try {
+            $color = $this->allocateColor($color);
+        } catch (Exception $e) {
+        }
         imagefill($this->image, 0, 0, $color);
         return $this;
     }
 
     public function rectangle($x1, $y1, $x2, $y2, $color, $thickness = 1): static
     {
-        $color = $this->allocateColor($color);
+        try {
+            $color = $this->allocateColor($color);
+        } catch (Exception $e) {
+        }
         if ($thickness === 'filled') {
             imagesetthickness($this->image, 1);
             imagefilledrectangle($this->image, $x1, $y1, $x2, $y2, $color);
@@ -890,7 +908,10 @@ class simpleImage
         $y1 = 0;
         $x2 = $this->getWidth();
         $y2 = $this->getHeight() - 1;
-        $color = $this->allocateColor($color);
+        try {
+            $color = $this->allocateColor($color);
+        } catch (Exception $e) {
+        }
         imagesetthickness($this->image, $thickness * 2);
         imagerectangle($this->image, $x1, $y1, $x2, $y2, $color);
         return $this;
@@ -923,14 +944,23 @@ class simpleImage
 
     private function excludeInsideColor($x, $y, $borderColor): void
     {
-        $borderColor = $this->allocateColor($borderColor);
-        $transparent = $this->allocateColor('transparent');
+        try {
+            $borderColor = $this->allocateColor($borderColor);
+        } catch (Exception $e) {
+        }
+        try {
+            $transparent = $this->allocateColor('transparent');
+        } catch (Exception $e) {
+        }
         imagefilltoborder($this->image, $x, $y, $borderColor, $transparent);
     }
 
     public function line($x1, $y1, $x2, $y2, $color, $thickness = 1): static
     {
-        $color = $this->allocateColor($color);
+        try {
+            $color = $this->allocateColor($color);
+        } catch (Exception $e) {
+        }
         imagesetthickness($this->image, $thickness);
         imageline($this->image, $x1, $y1, $x2, $y2, $color);
         return $this;
@@ -938,7 +968,10 @@ class simpleImage
 
     public function polygon($vertices, $color, $thickness = 1): static
     {
-        $color = $this->allocateColor($color);
+        try {
+            $color = $this->allocateColor($color);
+        } catch (Exception $e) {
+        }
         $points = [];
         foreach ($vertices as $vals) {
             $points[] = $vals['x'];

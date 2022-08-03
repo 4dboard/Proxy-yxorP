@@ -66,8 +66,7 @@ class ListCollectionNames implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return CallbackIterator
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\CallbackIterator
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): CallbackIterator

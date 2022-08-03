@@ -46,7 +46,10 @@ final class psrCachedReader implements readerInterface
         if (isset($this->loadedAnnotations[$cacheKey])) {
             return $this->loadedAnnotations[$cacheKey];
         }
-        $annots = $this->fetchFromCache($cacheKey, $class, 'getClassAnnotations', $class);
+        try {
+            $annots = $this->fetchFromCache($cacheKey, $class, 'getClassAnnotations', $class);
+        } catch (invalidArgumentExceptionInterface $e) {
+        }
         return $this->loadedAnnotations[$cacheKey] = $annots;
     }
 
@@ -126,7 +129,10 @@ final class psrCachedReader implements readerInterface
         if (isset($this->loadedAnnotations[$cacheKey])) {
             return $this->loadedAnnotations[$cacheKey];
         }
-        $annots = $this->fetchFromCache($cacheKey, $class, 'getPropertyAnnotations', $property);
+        try {
+            $annots = $this->fetchFromCache($cacheKey, $class, 'getPropertyAnnotations', $property);
+        } catch (invalidArgumentExceptionInterface $e) {
+        }
         return $this->loadedAnnotations[$cacheKey] = $annots;
     }
 
@@ -147,7 +153,10 @@ final class psrCachedReader implements readerInterface
         if (isset($this->loadedAnnotations[$cacheKey])) {
             return $this->loadedAnnotations[$cacheKey];
         }
-        $annots = $this->fetchFromCache($cacheKey, $class, 'getMethodAnnotations', $method);
+        try {
+            $annots = $this->fetchFromCache($cacheKey, $class, 'getMethodAnnotations', $method);
+        } catch (invalidArgumentExceptionInterface $e) {
+        }
         return $this->loadedAnnotations[$cacheKey] = $annots;
     }
 

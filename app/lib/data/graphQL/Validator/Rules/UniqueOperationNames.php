@@ -27,15 +27,13 @@ class UniqueOperationNames extends ValidationRule
             NodeKind::OPERATION_DEFINITION => function (OperationDefinitionNode $node) use ($context): VisitorOperation {
                 $operationName = $node->name;
 
-                if ($operationName !== null) {
-                    if (!isset($this->knownOperationNames[$operationName->value])) {
-                        $this->knownOperationNames[$operationName->value] = $operationName;
-                    } else {
-                        $context->reportError(new Error(
-                            self::duplicateOperationNameMessage($operationName->value),
-                            [$this->knownOperationNames[$operationName->value], $operationName]
-                        ));
-                    }
+                if (!isset($this->knownOperationNames[$operationName->value])) {
+                    $this->knownOperationNames[$operationName->value] = $operationName;
+                } else {
+                    $context->reportError(new Error(
+                        self::duplicateOperationNameMessage($operationName->value),
+                        [$this->knownOperationNames[$operationName->value], $operationName]
+                    ));
                 }
 
                 return Visitor::skipNode();

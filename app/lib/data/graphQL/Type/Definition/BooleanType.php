@@ -56,7 +56,7 @@ abstract class BooleanType extends ScalarType
      * @return bool
      * @throws Error
      */
-    public function parseLiteral(Node $valueNode, ?array $variables = null)
+    public function parseLiteral(Node $valueNode, ?array $variables = null): bool
     {
         if (!$valueNode instanceof BooleanValueNode) {
             // Intentionally without message, as all information already in wrapped Exception

@@ -106,7 +106,10 @@ class QueryComplexity extends QuerySecurityRule
     {
         if (isset($node->selectionSet) && $node->selectionSet instanceof SelectionSetNode) {
             foreach ($node->selectionSet->selections as $childNode) {
-                $complexity = $this->nodeComplexity($childNode, $complexity);
+                try {
+                    $complexity = $this->nodeComplexity($childNode, $complexity);
+                } catch (Error $e) {
+                }
             }
         }
 

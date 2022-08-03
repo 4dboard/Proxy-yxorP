@@ -306,7 +306,10 @@ class DocumentValidator
      */
     public static function assertValidSDL(DocumentNode $documentAST)
     {
-        $errors = self::validateSDL($documentAST);
+        try {
+            $errors = self::validateSDL($documentAST);
+        } catch (Exception $e) {
+        }
         if (count($errors) > 0) {
             throw new Error(self::combineErrorMessages($errors));
         }
@@ -371,7 +374,10 @@ class DocumentValidator
      */
     public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
     {
-        $errors = self::validateSDL($documentAST, $schema);
+        try {
+            $errors = self::validateSDL($documentAST, $schema);
+        } catch (Exception $e) {
+        }
         if (count($errors) > 0) {
             throw new Error(self::combineErrorMessages($errors));
         }

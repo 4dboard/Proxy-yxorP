@@ -63,7 +63,7 @@ class FieldDefinition
     public array $config;
 
     /** @var Type */
-    private $type;
+    private Type $type;
 
     /** @var callable|string */
     private $complexityFn;
@@ -163,7 +163,7 @@ class FieldDefinition
      *
      * @return FieldDefinition
      */
-    public static function create(array $field): FieldDefinition
+    #[Pure] public static function create(array $field): FieldDefinition
     {
         return new self($field);
     }

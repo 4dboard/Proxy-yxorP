@@ -58,19 +58,25 @@ class Values
         foreach ($varDefNodes as $varDefNode) {
             $varName = $varDefNode->variable->name->value;
             /** @var InputType|Type $varType */
-            $varType = TypeInfo::typeFromAST($schema, $varDefNode->type);
+            try {
+                $varType = TypeInfo::typeFromAST($schema, $varDefNode->type);
+            } catch (Exception $e) {
+            }
 
             if (!Type::isInputType($varType)) {
                 // Must use input types for variables. This should be caught during
                 // validation, however is checked again here for safety.
-                $errors[] = new Error(
-                    sprintf(
-                        'Variable "$%s" expected value of type "%s" which cannot be used as an input type.',
-                        $varName,
-                        Printer::doPrint($varDefNode->type)
-                    ),
-                    [$varDefNode->type]
-                );
+                try {
+                    $errors[] = new Error(
+                        sprintf(
+                            'Variable "$%s" expected value of type "%s" which cannot be used as an input type.',
+                            $varName,
+                            Printer::doPrint($varDefNode->type)
+                        ),
+                        [$varDefNode->type]
+                    );
+                } catch (Exception $e) {
+                }
             } else {
                 $hasValue = array_key_exists($varName, $inputs);
                 $value = $hasValue ? $inputs[$varName] : Utils::undefined();

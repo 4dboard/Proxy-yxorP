@@ -64,24 +64,29 @@ class BreakingChangesFinder
      * Given two schemas, returns an Array containing descriptions of all the types
      * of breaking changes covered by the other functions down below.
      *
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $oldSchema
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $newSchema
      * @return string[][]
      */
     public static function findBreakingChanges(Schema $oldSchema, Schema $newSchema): array
     {
-        return array_merge(
-            self::findRemovedTypes($oldSchema, $newSchema),
-            self::findTypesThatChangedKind($oldSchema, $newSchema),
-            self::findFieldsThatChangedTypeOnObjectOrInterfaceTypes($oldSchema, $newSchema),
-            self::findFieldsThatChangedTypeOnInputObjectTypes($oldSchema, $newSchema)['breakingChanges'],
-            self::findTypesRemovedFromUnions($oldSchema, $newSchema),
-            self::findValuesRemovedFromEnums($oldSchema, $newSchema),
-            self::findArgChanges($oldSchema, $newSchema)['breakingChanges'],
-            self::findInterfacesRemovedFromObjectTypes($oldSchema, $newSchema),
-            self::findRemovedDirectives($oldSchema, $newSchema),
-            self::findRemovedDirectiveArgs($oldSchema, $newSchema),
-            self::findAddedNonNullDirectiveArgs($oldSchema, $newSchema),
-            self::findRemovedDirectiveLocations($oldSchema, $newSchema)
-        );
+        try {
+            return array_merge(
+                self::findRemovedTypes($oldSchema, $newSchema),
+                self::findTypesThatChangedKind($oldSchema, $newSchema),
+                self::findFieldsThatChangedTypeOnObjectOrInterfaceTypes($oldSchema, $newSchema),
+                self::findFieldsThatChangedTypeOnInputObjectTypes($oldSchema, $newSchema)['breakingChanges'],
+                self::findTypesRemovedFromUnions($oldSchema, $newSchema),
+                self::findValuesRemovedFromEnums($oldSchema, $newSchema),
+                self::findArgChanges($oldSchema, $newSchema)['breakingChanges'],
+                self::findInterfacesRemovedFromObjectTypes($oldSchema, $newSchema),
+                self::findRemovedDirectives($oldSchema, $newSchema),
+                self::findRemovedDirectiveArgs($oldSchema, $newSchema),
+                self::findAddedNonNullDirectiveArgs($oldSchema, $newSchema),
+                self::findRemovedDirectiveLocations($oldSchema, $newSchema)
+            );
+        } catch (Exception $e) {
+        }
     }
 
     /**
@@ -621,7 +626,10 @@ class BreakingChangesFinder
     public static function findRemovedDirectiveArgs(Schema $oldSchema, Schema $newSchema): array
     {
         $removedDirectiveArgs = [];
-        $oldSchemaDirectiveMap = self::getDirectiveMapForSchema($oldSchema);
+        try {
+            $oldSchemaDirectiveMap = self::getDirectiveMapForSchema($oldSchema);
+        } catch (Exception $e) {
+        }
 
         foreach ($newSchema->getDirectives() as $newDirective) {
             if (!isset($oldSchemaDirectiveMap[$newDirective->name])) {
@@ -645,7 +653,10 @@ class BreakingChangesFinder
     public static function findRemovedArgsForDirectives(Directive $oldDirective, Directive $newDirective): array
     {
         $removedArgs = [];
-        $newArgMap = self::getArgumentMapForDirective($newDirective);
+        try {
+            $newArgMap = self::getArgumentMapForDirective($newDirective);
+        } catch (Exception $e) {
+        }
         foreach ($oldDirective->args as $arg) {
             if (isset($newArgMap[$arg->name])) {
                 continue;
@@ -673,28 +684,34 @@ class BreakingChangesFinder
     public static function findAddedNonNullDirectiveArgs(Schema $oldSchema, Schema $newSchema): array
     {
         $addedNonNullableArgs = [];
-        $oldSchemaDirectiveMap = self::getDirectiveMapForSchema($oldSchema);
+        try {
+            $oldSchemaDirectiveMap = self::getDirectiveMapForSchema($oldSchema);
+        } catch (Exception $e) {
+        }
 
         foreach ($newSchema->getDirectives() as $newDirective) {
             if (!isset($oldSchemaDirectiveMap[$newDirective->name])) {
                 continue;
             }
 
-            foreach (self::findAddedArgsForDirective(
-                $oldSchemaDirectiveMap[$newDirective->name],
-                $newDirective
-            ) as $arg) {
-                if (!$arg->isRequired()) {
-                    continue;
+            try {
+                foreach (self::findAddedArgsForDirective(
+                    $oldSchemaDirectiveMap[$newDirective->name],
+                    $newDirective
+                ) as $arg) {
+                    if (!$arg->isRequired()) {
+                        continue;
+                    }
+                    $addedNonNullableArgs[] = [
+                        'type' => self::BREAKING_CHANGE_REQUIRED_DIRECTIVE_ARG_ADDED,
+                        'description' => sprintf(
+                            'A required arg %s on directive %s was added',
+                            $arg->name,
+                            $newDirective->name
+                        ),
+                    ];
                 }
-                $addedNonNullableArgs[] = [
-                    'type' => self::BREAKING_CHANGE_REQUIRED_DIRECTIVE_ARG_ADDED,
-                    'description' => sprintf(
-                        'A required arg %s on directive %s was added',
-                        $arg->name,
-                        $newDirective->name
-                    ),
-                ];
+            } catch (Exception $e) {
             }
         }
 
