@@ -7,14 +7,14 @@ use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
 class uploadedFile implements uploadedFileInterface
 {
-    private static $errors = [UPLOAD_ERR_OK, UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_NO_FILE, UPLOAD_ERR_NO_CACHE_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION,];
-    private $clientFilename;
-    private $clientMediaType;
-    private $error;
+    private static array $errors = [UPLOAD_ERR_OK, UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_NO_FILE, UPLOAD_ERR_NO_CACHE_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION,];
+    private ?string $clientFilename;
+    private ?string $clientMediaType;
+    private int $error;
     private $file;
-    private $moved = false;
-    private $size;
-    private $stream;
+    private bool $moved = false;
+    private ?int $size;
+    private lazyOpenStream|streamInterface $stream;
 
     public function __construct($streamOrFile, $size, $errorStatus, $clientFilename = null, $clientMediaType = null)
     {

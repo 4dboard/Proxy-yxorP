@@ -16,11 +16,11 @@ use function time;
 
 final class psrCachedReader implements readerInterface
 {
-    private $delegate;
-    private $cache;
-    private $debug;
-    private $loadedAnnotations = [];
-    private $loadedFilemtimes = [];
+    private readerInterface $delegate;
+    private CacheItemPoolInterface $cache;
+    private bool $debug;
+    private array $loadedAnnotations = [];
+    private array $loadedFilemtimes = [];
 
     public function __construct(readerInterface $reader, CacheItemPoolInterface $cache, bool $debug = false)
     {

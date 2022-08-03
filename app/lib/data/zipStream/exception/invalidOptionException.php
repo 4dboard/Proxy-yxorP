@@ -20,7 +20,7 @@ class invalidOptionException extends exception
      * @param string[] $expectedValues - All possible Values
      * @param String $givenValue
      */
-    #[Pure] public function __construct($optionName, $expectedValues = array(), $givenValue)
+    #[Pure] public function __construct(string $optionName, $expectedValues = array(), $givenValue)
     {
         parent::__construct("Invalid Option $optionName. EXPECTED: " . implode(", ",
                 $expectedValues) . " GIVEN: $givenValue");

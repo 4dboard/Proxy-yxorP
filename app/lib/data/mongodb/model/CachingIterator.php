@@ -41,16 +41,16 @@ use function reset;
 class CachingIterator implements Countable, Iterator
 {
     /** @var array */
-    private $items = [];
+    private array $items = [];
 
     /** @var Iterator */
-    private $iterator;
+    private Iterator|Traversable|IteratorIterator $iterator;
 
     /** @var boolean */
-    private $iteratorAdvanced = false;
+    private bool $iteratorAdvanced = false;
 
     /** @var boolean */
-    private $iteratorExhausted = false;
+    private bool $iteratorExhausted = false;
 
     /**
      * Initialize the iterator and stores the first item in the cache. This

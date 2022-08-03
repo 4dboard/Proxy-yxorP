@@ -8,15 +8,15 @@ class POP3
     const DEBUG_OFF = 0;
     const DEBUG_SERVER = 1;
     const DEBUG_CLIENT = 2;
-    public $do_debug = self::DEBUG_OFF;
+    public int $do_debug = self::DEBUG_OFF;
     public $host;
     public $port;
     public $tval;
     public $username;
     public $password;
     protected $pop_conn;
-    protected $connected = false;
-    protected $errors = [];
+    protected bool $connected = false;
+    protected array $errors = [];
 
     public static function popBeforeSmtp($host, $port = false, $timeout = false, $username = '', $password = '', $debug_level = 0)
     {

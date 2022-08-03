@@ -31,10 +31,10 @@ if (class_exists(AnnotationRegistry::class, true)) {
 
 class Analyser
 {
-    public static $whitelist = ['OpenApi\\Annotations\\'];
-    public static $defaultImports = ['oa' => 'OpenApi\\Annotations'];
+    public static array $whitelist = ['OpenApi\\Annotations\\'];
+    public static array $defaultImports = ['oa' => 'OpenApi\\Annotations'];
     public static $context;
-    public $docParser;
+    public ?docParser $docParser;
 
     public function __construct(?docParser $docParser = null)
     {

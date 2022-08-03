@@ -42,7 +42,7 @@ class limitStream implements streamInterface
         return $this->stream->tell() - $this->offset;
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         if ($whence !== SEEK_SET || $offset < 0) {
             throw new RuntimeException(sprintf('Cannot seek to offset %s with whence %s', $offset, $whence));
@@ -56,7 +56,7 @@ class limitStream implements streamInterface
         $this->stream->seek($offset);
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         if ($this->limit === -1) {
             return $this->stream->read($length);

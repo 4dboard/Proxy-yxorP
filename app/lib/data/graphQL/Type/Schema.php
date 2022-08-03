@@ -53,29 +53,29 @@ use function sprintf;
 class Schema
 {
     /** @var SchemaTypeExtensionNode[] */
-    public $extensionASTNodes = [];
+    public array $extensionASTNodes = [];
     /** @var SchemaConfig */
-    private $config;
+    private array|SchemaConfig $config;
     /**
      * Contains currently resolved schema types
      *
      * @var Type[]
      */
-    private $resolvedTypes = [];
+    private array $resolvedTypes = [];
     /**
      * Lazily initialised.
      *
      * @var array<string, InterfaceImplementations>
      */
-    private $implementationsMap;
+    private array $implementationsMap;
     /**
      * True when $resolvedTypes contain all possible schema types
      *
      * @var bool
      */
-    private $fullyLoaded = false;
+    private bool $fullyLoaded = false;
     /** @var Error[] */
-    private $validationErrors;
+    private array $validationErrors;
 
     /**
      * @param array|SchemaConfig $config

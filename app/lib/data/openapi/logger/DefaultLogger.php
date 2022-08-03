@@ -13,7 +13,7 @@ use yxorP\app\lib\psr\log\logLevel;
 
 class DefaultLogger extends abstractLogger implements loggerInterface
 {
-    public function log($level, $message, array $context = []): void
+    public function log(mixed $level, $message, array $context = []): void
     {
         // BC: delegate to the static instance
         if (in_array($level, [logLevel::NOTICE, logLevel::INFO, logLevel::DEBUG])) {

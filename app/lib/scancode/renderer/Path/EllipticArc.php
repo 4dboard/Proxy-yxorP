@@ -12,37 +12,37 @@ final class EllipticArc implements OperationInterface
     /**
      * @var float
      */
-    private $xRadius;
+    private int|float $xRadius;
 
     /**
      * @var float
      */
-    private $yRadius;
+    private int|float $yRadius;
 
     /**
      * @var float
      */
-    private $xAxisAngle;
+    private int|float $xAxisAngle;
 
     /**
      * @var bool
      */
-    private $largeArc;
+    private bool $largeArc;
 
     /**
      * @var bool
      */
-    private $sweep;
+    private bool $sweep;
 
     /**
      * @var float
      */
-    private $x;
+    private float $x;
 
     /**
      * @var float
      */
-    private $y;
+    private float $y;
 
     public function __construct(
         float $xRadius,

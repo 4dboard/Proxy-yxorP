@@ -5,7 +5,7 @@ namespace yxorP\app\lib\twoFactor\Providers\Qr;
 abstract class BaseHTTPQRCodeProvider implements IQRCodeProviderInterface
 {
     /** @var bool */
-    protected $verifyssl;
+    protected bool $verifyssl;
 
     /**
      * @param string $url

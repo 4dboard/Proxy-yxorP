@@ -10,17 +10,17 @@ final class Gradient
     /**
      * @var ColorInterface
      */
-    private $startColor;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|\yxorP\app\lib\scancode\Renderer\Color\ColorInterface $startColor;
 
     /**
      * @var ColorInterface
      */
-    private $endColor;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|\yxorP\app\lib\scancode\Renderer\Color\ColorInterface $endColor;
 
     /**
      * @var GradientType
      */
-    private $type;
+    private GradientType $type;
 
     public function __construct(ColorInterface $startColor, ColorInterface $endColor, GradientType $type)
     {

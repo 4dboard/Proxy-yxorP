@@ -4,11 +4,11 @@ use Throwable;
 
 class eachPromise implements promisorInterface
 {
-    private $pending = [];
-    private $iterable;
-    private $concurrency;
-    private $onFulfilled;
-    private $onRejected;
+    private array $pending = [];
+    private \ArrayIterator|\Iterator $iterable;
+    private mixed $concurrency;
+    private mixed $onFulfilled;
+    private mixed $onRejected;
     private $aggregate;
     private $mutex;
 

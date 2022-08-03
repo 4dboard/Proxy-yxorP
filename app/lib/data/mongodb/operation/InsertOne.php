@@ -41,16 +41,16 @@ use function is_object;
 class InsertOne implements ExecutableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $document;
+    private array|object $document;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs an insert command.

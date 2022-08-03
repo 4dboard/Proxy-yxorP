@@ -23,17 +23,17 @@ class Discriminator extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_required = ['propertyName'];
+    public static array $_required = ['propertyName'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'propertyName' => 'string',
     ];
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Schema::class,
         Property::class,
         AdditionalProperties::class,
@@ -44,7 +44,7 @@ class Discriminator extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -52,11 +52,11 @@ class Discriminator extends AbstractAnnotation
      *
      * @var string
      */
-    public $propertyName = Generator::UNDEFINED;
+    public string $propertyName = Generator::UNDEFINED;
     /**
      * An object to hold mappings between payload values and schema names or references.
      *
      * @var string[]
      */
-    public $mapping = Generator::UNDEFINED;
+    public string|array $mapping = Generator::UNDEFINED;
 }

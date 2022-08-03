@@ -10,12 +10,12 @@ class stream implements streamInterface
     const READABLE_MODES = '/r|a\+|ab\+|w\+|wb\+|x\+|xb\+|c\+|cb\+/';
     const WRITABLE_MODES = '/a|w|r\+|rb\+|rw|x|c/';
     private $stream;
-    private $size;
-    private $seekable;
-    private $readable;
-    private $writable;
-    private $uri;
-    private $customMetadata;
+    private mixed $size;
+    private mixed $seekable;
+    private bool $readable;
+    private bool $writable;
+    private mixed $uri;
+    private mixed $customMetadata;
 
     public function __construct($stream, $options = [])
     {
@@ -84,7 +84,7 @@ class stream implements streamInterface
         }
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         $whence = (int)$whence;
         if (!isset($this->stream)) {
@@ -169,7 +169,7 @@ class stream implements streamInterface
         $this->seek(0);
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -190,7 +190,7 @@ class stream implements streamInterface
         return $string;
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');

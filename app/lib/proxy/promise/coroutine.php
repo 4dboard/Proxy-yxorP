@@ -8,7 +8,7 @@ final class coroutine implements promiseInterface
 {
     private $currentPromise;
     private $generator;
-    private $result;
+    private promise $result;
 
     public function __construct(callable $generatorFn)
     {

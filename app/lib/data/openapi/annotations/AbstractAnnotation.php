@@ -27,7 +27,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @var array
      */
-    public static $_required = [];
+    public static array $_required = [];
     /**
      * Specify the type of the property.
      * Examples:
@@ -39,7 +39,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @var array
      */
-    public static $_types = [];
+    public static array $_types = [];
     /**
      * Declarative mapping of Annotation types to properties.
      * Examples:
@@ -49,19 +49,19 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @var array
      */
-    public static $_nested = [];
+    public static array $_nested = [];
     /**
      * Reverse mapping of $_nested with the allowed parent annotations.
      *
      * @var string[]
      */
-    public static $_parents = [];
+    public static array $_parents = [];
     /**
      * List of properties are blacklisted from the JSON output.
      *
      * @var array
      */
-    public static $_blacklist = ['_context', '_unmerged', 'attachables'];
+    public static array $_blacklist = ['_context', '_unmerged', 'attachables'];
     /**
      * While the OpenAPI Specification tries to accommodate most use cases, additional data can be added to extend the specification at certain points.
      * For further details see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#specificationExtensions
@@ -69,22 +69,22 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @var array
      */
-    public $x = Generator::UNDEFINED;
+    public string|array $x = Generator::UNDEFINED;
     /**
      * Arbitrary attachables for this annotation.
      * These will be ignored but can be used for custom processing.
      */
-    public $attachables = Generator::UNDEFINED;
+    public string $attachables = Generator::UNDEFINED;
     /**
      * @var Context
      */
-    public $_context;
+    public mixed $_context;
     /**
      * Annotations that couldn't be merged by mapping or postprocessing.
      *
      * @var array
      */
-    public $_unmerged = [];
+    public array $_unmerged = [];
 
     public function __construct(array $properties)
     {

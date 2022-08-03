@@ -18,7 +18,7 @@ class WithTransaction
     private $callback;
 
     /** @var array */
-    private $transactionOptions;
+    private array $transactionOptions;
 
     /**
      * @param callable $callback A callback that will be invoked within the transaction

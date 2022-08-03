@@ -38,7 +38,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
     protected static $standardTypes;
 
     /** @var Type[] */
-    private static $builtInTypes;
+    private static array $builtInTypes;
 
     /** @var string */
     public $name;

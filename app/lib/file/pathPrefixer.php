@@ -9,8 +9,8 @@ use function substr;
 
 final class pathPrefixer
 {
-    private $prefix = '';
-    private $separator = '/';
+    private string $prefix = '';
+    private string $separator = '/';
 
     public function __construct(string $prefix, string $separator = '/')
     {

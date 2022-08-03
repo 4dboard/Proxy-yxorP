@@ -18,7 +18,7 @@ class fileNotReadableException extends exception
      *
      * @param String $path - The path which wasn't found
      */
-    #[Pure] public function __construct($path)
+    #[Pure] public function __construct(string $path)
     {
         parent::__construct("Ths file with the path $path isn't readable.");
     }

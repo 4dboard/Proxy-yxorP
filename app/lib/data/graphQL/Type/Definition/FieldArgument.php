@@ -17,22 +17,22 @@ use function sprintf;
 class FieldArgument
 {
     /** @var string */
-    public $name;
+    public mixed $name;
 
     /** @var mixed */
-    public $defaultValue;
+    public mixed $defaultValue;
 
     /** @var string|null */
-    public $description;
+    public mixed $description;
 
     /** @var InputValueDefinitionNode|null */
-    public $astNode;
+    public mixed $astNode;
 
     /** @var array */
-    public $config;
+    public array $config;
 
     /** @var Type&InputType */
-    private $type;
+    private InputType&Type $type;
 
     /** @param array $def */
     public function __construct(array $def)

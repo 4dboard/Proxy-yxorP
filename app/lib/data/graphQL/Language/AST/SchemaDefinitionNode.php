@@ -7,11 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class SchemaDefinitionNode extends Node implements TypeSystemDefinitionNode
 {
     /** @var string */
-    public $kind = NodeKind::SCHEMA_DEFINITION;
+    public string $kind = NodeKind::SCHEMA_DEFINITION;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var NodeList<OperationTypeDefinitionNode> */
-    public $operationTypes;
+    public NodeList $operationTypes;
 }

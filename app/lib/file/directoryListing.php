@@ -9,7 +9,7 @@ use Traversable;
 
 class directoryListing implements IteratorAggregate
 {
-    private $listing;
+    private iterable $listing;
 
     public function __construct(iterable $listing)
     {

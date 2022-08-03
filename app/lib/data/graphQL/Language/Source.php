@@ -15,16 +15,16 @@ use const PREG_OFFSET_CAPTURE;
 class Source
 {
     /** @var string */
-    public $body;
+    public string $body;
 
     /** @var int */
-    public $length;
+    public int $length;
 
     /** @var string */
-    public $name;
+    public string $name;
 
     /** @var SourceLocation */
-    public $locationOffset;
+    public SourceLocation $locationOffset;
 
     /**
      * A representation of source input to GraphQL.

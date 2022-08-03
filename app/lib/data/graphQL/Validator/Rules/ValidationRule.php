@@ -11,7 +11,7 @@ use function class_alias;
 abstract class ValidationRule
 {
     /** @var string */
-    protected $name;
+    protected string $name;
 
     public function getName()
     {

@@ -18,7 +18,7 @@ class Xml extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'name' => 'string',
         'namespace' => 'string',
         'prefix' => 'string',
@@ -28,7 +28,7 @@ class Xml extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         AdditionalProperties::class,
         Schema::class,
         Property::class,
@@ -39,7 +39,7 @@ class Xml extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -47,29 +47,29 @@ class Xml extends AbstractAnnotation
      *
      * @var string
      */
-    public $name = Generator::UNDEFINED;
+    public string $name = Generator::UNDEFINED;
     /**
      * The URL of the namespace definition. Value SHOULD be in the form of a URL.
      *
      * @var string
      */
-    public $namespace = Generator::UNDEFINED;
+    public string $namespace = Generator::UNDEFINED;
     /**
      * The prefix to be used for the name.
      *
      * @var string
      */
-    public $prefix = Generator::UNDEFINED;
+    public string $prefix = Generator::UNDEFINED;
     /**
      * Declares whether the property definition translates to an attribute instead of an element. Default value is false.
      *
      * @var bool
      */
-    public $attribute = Generator::UNDEFINED;
+    public string|bool $attribute = Generator::UNDEFINED;
     /**
      * MAY be used only for an array definition. Signifies whether the array is wrapped (for example, <books><book/><book/></books>) or unwrapped (<book/><book/>). Default value is false. The definition takes effect only when defined alongside type being array (outside the items).
      *
      * @var bool
      */
-    public $wrapped = Generator::UNDEFINED;
+    public string|bool $wrapped = Generator::UNDEFINED;
 }

@@ -11,8 +11,8 @@ use yxorP\app\lib\http\app;
 class create
 {
 
-    protected static $defaultName = 'app:spaces:create';
-    protected $app = null;
+    protected static string $defaultName = 'app:spaces:create';
+    protected ?app $app = null;
 
     public function __construct(App $app)
     {

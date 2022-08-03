@@ -19,11 +19,11 @@ class Parameter extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_required = ['name', 'in'];
+    public static array $_required = ['name', 'in'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'name' => 'string',
         'in' => ['query', 'header', 'path', 'cookie'],
         'description' => 'string',
@@ -33,7 +33,7 @@ class Parameter extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Schema::class => 'schema',
         Examples::class => ['examples', 'example'],
         Attachable::class => ['attachables'],
@@ -41,7 +41,7 @@ class Parameter extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Components::class,
         PathItem::class,
         Operation::class,
@@ -59,13 +59,13 @@ class Parameter extends AbstractAnnotation
      *
      * @var string
      */
-    public $ref = Generator::UNDEFINED;
+    public string $ref = Generator::UNDEFINED;
     /**
      * The key into Components->parameters or PathItem->parameters array.
      *
      * @var string
      */
-    public $parameter = Generator::UNDEFINED;
+    public string $parameter = Generator::UNDEFINED;
     /**
      * The name of the parameter.
      * Parameter names are case sensitive.
@@ -75,14 +75,14 @@ class Parameter extends AbstractAnnotation
      *
      * @var string
      */
-    public $name = Generator::UNDEFINED;
+    public string $name = Generator::UNDEFINED;
     /**
      * The location of the parameter.
      * Possible values are "query", "header", "path" or "cookie".
      *
      * @var string
      */
-    public $in = Generator::UNDEFINED;
+    public string $in = Generator::UNDEFINED;
     /**
      * A brief description of the parameter.
      * This could contain examples of use.
@@ -90,7 +90,7 @@ class Parameter extends AbstractAnnotation
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * Determines whether this parameter is mandatory.
      * If the parameter location is "path", this property is required and its value must be true.
@@ -98,13 +98,13 @@ class Parameter extends AbstractAnnotation
      *
      * @var bool
      */
-    public $required = Generator::UNDEFINED;
+    public string|bool $required = Generator::UNDEFINED;
     /**
      * Specifies that a parameter is deprecated and should be transitioned out of usage.
      *
      * @var bool
      */
-    public $deprecated = Generator::UNDEFINED;
+    public string|bool $deprecated = Generator::UNDEFINED;
     /**
      * Sets the ability to pass empty-valued parameters.
      * This is valid only for query parameters and allows sending a parameter with an empty value.
@@ -112,14 +112,14 @@ class Parameter extends AbstractAnnotation
      *
      * @var bool
      */
-    public $allowEmptyValue = Generator::UNDEFINED;
+    public string|bool $allowEmptyValue = Generator::UNDEFINED;
     /**
      * Describes how the parameter value will be serialized depending on the type of the parameter value.
      * Default values (based on value of in): for query - form; for path - simple; for header - simple; for cookie - form.
      *
      * @var string
      */
-    public $style = Generator::UNDEFINED;
+    public string $style = Generator::UNDEFINED;
     /**
      * When this is true, parameter values of type array or object generate separate parameters for each value of the array or key-value pair of the map.
      * For other types of parameters this property has no effect.
@@ -128,7 +128,7 @@ class Parameter extends AbstractAnnotation
      *
      * @var bool
      */
-    public $explode = Generator::UNDEFINED;
+    public string|bool $explode = Generator::UNDEFINED;
     /**
      * Determines whether the parameter value should allow reserved characters, as defined by RFC3986 :/?#[]@!$&'()*+,;= to be included without percent-encoding.
      * This property only applies to parameters with an in value of query.
@@ -136,13 +136,13 @@ class Parameter extends AbstractAnnotation
      *
      * @var bool
      */
-    public $allowReserved = Generator::UNDEFINED;
+    public string|bool $allowReserved = Generator::UNDEFINED;
     /**
      * The schema defining the type used for the parameter.
      *
      * @var Schema
      */
-    public $schema = Generator::UNDEFINED;
+    public Schema|string $schema = Generator::UNDEFINED;
     /**
      * Example of the media type.
      * The example should match the specified schema and encoding properties if present.
@@ -150,7 +150,7 @@ class Parameter extends AbstractAnnotation
      * Furthermore, if referencing a schema which contains an example, the example value shall override the example provided by the schema.
      * To represent examples of media types that cannot naturally be represented in JSON or YAML, a string value can contain the example with escaping where necessary.
      */
-    public $example = Generator::UNDEFINED;
+    public string $example = Generator::UNDEFINED;
     /**
      * Examples of the media type.
      * Each example should contain a value in the correct format as specified in the parameter encoding.
@@ -159,7 +159,7 @@ class Parameter extends AbstractAnnotation
      *
      * @var array
      */
-    public $examples = Generator::UNDEFINED;
+    public string|array $examples = Generator::UNDEFINED;
     /**
      * A map containing the representations for the parameter.
      * The key is the media type and the value describes it.
@@ -167,45 +167,45 @@ class Parameter extends AbstractAnnotation
      *
      * @var MediaType[]
      */
-    public $content = Generator::UNDEFINED;
+    public string|array $content = Generator::UNDEFINED;
     /**
      * Path-style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2.7.
      */
-    public $matrix = Generator::UNDEFINED;
+    public string $matrix = Generator::UNDEFINED;
     /**
      * Label style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2.5.
      */
-    public $label = Generator::UNDEFINED;
+    public string $label = Generator::UNDEFINED;
     /**
      * Form style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2.8
      * This option replaces collectionFormat with a csv (when explode is false) or multi (when explode is true) value from OpenAPI 2.0.
      */
-    public $form = Generator::UNDEFINED;
+    public string $form = Generator::UNDEFINED;
     /**
      * Simple style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2.2
      * This option replaces collectionFormat with a csv value from OpenAPI 2.0.
      *
      * @var array
      */
-    public $simple = Generator::UNDEFINED;
+    public string|array $simple = Generator::UNDEFINED;
     /**
      * Space separated array values.
      * This option replaces collectionFormat equal to ssv from OpenAPI 2.0.
      *
      * @var array
      */
-    public $spaceDelimited = Generator::UNDEFINED;
+    public string|array $spaceDelimited = Generator::UNDEFINED;
     /**
      * Pipe separated array values.
      * This option replaces collectionFormat equal to pipes from OpenAPI 2.0.
      *
      * @var array
      */
-    public $pipeDelimited = Generator::UNDEFINED;
+    public string|array $pipeDelimited = Generator::UNDEFINED;
     /**
      * Provides a simple way of rendering nested objects using form parameters.
      */
-    public $deepObject = Generator::UNDEFINED;
+    public string $deepObject = Generator::UNDEFINED;
 
     /**
      * @inheritdoc

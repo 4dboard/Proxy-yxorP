@@ -19,7 +19,7 @@ class curlFactory implements curlFactoryInterface
 {
     const CURL_VERSION_STR = 'curl_version';
     const LOW_CURL_VERSION_NUMBER = '7.21.2';
-    private $handles = [];
+    private array $handles = [];
     private $maxHandles;
 
     public function __construct($maxHandles)

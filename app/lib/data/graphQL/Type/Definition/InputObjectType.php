@@ -25,7 +25,7 @@ class InputObjectType extends Type implements InputType, NullableType, NamedType
      *
      * @var InputObjectField[]
      */
-    private $fields;
+    private array $fields;
 
     /**
      * @param array $config

@@ -7,8 +7,8 @@ class cachingStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
-    private $remoteStream;
-    private $skipReadBytes = 0;
+    private streamInterface $remoteStream;
+    private int $skipReadBytes = 0;
 
     public function __construct(streamInterface $stream, streamInterface $target = null)
     {
@@ -21,7 +21,7 @@ class cachingStream implements streamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         if ($whence === SEEK_SET) {
             $byte = $offset;
@@ -64,7 +64,7 @@ class cachingStream implements streamInterface
         return $this->stream->eof() && $this->remoteStream->eof();
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         $data = $this->stream->read($length);
         $remaining = $length - strlen($data);
@@ -81,7 +81,7 @@ class cachingStream implements streamInterface
         return $data;
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         $overflow = (strlen($string) + $this->tell()) - $this->remoteStream->tell();
         if ($overflow > 0) {

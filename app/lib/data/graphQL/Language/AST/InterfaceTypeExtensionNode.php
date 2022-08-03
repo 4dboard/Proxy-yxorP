@@ -7,17 +7,17 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class InterfaceTypeExtensionNode extends Node implements TypeExtensionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::INTERFACE_TYPE_EXTENSION;
+    public string $kind = NodeKind::INTERFACE_TYPE_EXTENSION;
 
     /** @var NameNode */
     public $name;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var NodeList<InterfaceTypeDefinitionNode> */
-    public $interfaces;
+    public NodeList $interfaces;
 
     /** @var NodeList<FieldDefinitionNode> */
-    public $fields;
+    public NodeList $fields;
 }

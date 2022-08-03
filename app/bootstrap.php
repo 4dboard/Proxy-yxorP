@@ -26,7 +26,7 @@ yP::autoLoader(__DIR__ . '/lib/' . DIRECTORY_SEPARATOR);
 
 class App
 {
-    protected static $instance = [];
+    protected static array $instance = [];
 
     public static function instance(?string $envDir = null, array $config = []): lime\app
     {

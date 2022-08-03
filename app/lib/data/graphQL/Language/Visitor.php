@@ -110,7 +110,7 @@ use function json_encode;
 class Visitor
 {
     /** @var string[][] */
-    public static $visitorKeys = [
+    public static array $visitorKeys = [
         NodeKind::NAME => [],
         NodeKind::DOCUMENT => ['definitions'],
         NodeKind::OPERATION_DEFINITION => ['name', 'variableDefinitions', 'directives', 'selectionSet'],

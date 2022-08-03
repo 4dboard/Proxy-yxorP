@@ -48,22 +48,22 @@ use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 class Delete implements ExecutableInterface, ExplainableInterface
 {
     /** @var integer */
-    private static $wireVersionForHint = 9;
+    private static int $wireVersionForHint = 9;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var integer */
-    private $limit;
+    private ?int $limit;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a delete command.

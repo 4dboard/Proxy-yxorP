@@ -10,12 +10,12 @@ use yxorP\app\lib\data\enum\exception\illegalArgumentException;
 
 final class enumMap implements Serializable, IteratorAggregate
 {
-    private $keyType;
-    private $valueType;
-    private $allowNullValues;
-    private $keyUniverse;
-    private $values;
-    private $size = 0;
+    private string|abstractEnum $keyType;
+    private string $valueType;
+    private bool $allowNullValues;
+    private array $keyUniverse;
+    private array $values;
+    private int $size = 0;
 
     /**
      * @throws \yxorP\app\lib\data\enum\exception\expectationException

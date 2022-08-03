@@ -9,7 +9,7 @@ use function get_class;
 
 class indexedReader implements readerInterface
 {
-    private $delegate;
+    private readerInterface $delegate;
 
     public function __construct(readerInterface $reader)
     {

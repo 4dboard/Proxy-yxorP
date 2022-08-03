@@ -22,10 +22,10 @@ use function sprintf;
 class NoFragmentCycles extends ValidationRule
 {
     /** @var bool[] */
-    public $visitedFrags;
+    public array $visitedFrags;
 
     /** @var FragmentSpreadNode[] */
-    public $spreadPath;
+    public array $spreadPath;
 
     /** @var (int|null)[] */
     public $spreadPathIndexByName;

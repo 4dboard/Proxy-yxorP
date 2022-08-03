@@ -45,52 +45,52 @@ use function sprintf;
 class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementationInterface
 {
     /** @var object */
-    private static $undefined;
+    private static mixed $undefined;
 
     /** @var Schema */
-    private $schema;
+    private Schema $schema;
 
     /** @var callable */
     private $fieldResolver;
 
     /** @var PromiseAdapterInterface */
-    private $promiseAdapter;
+    private PromiseAdapterInterface $promiseAdapter;
 
     /** @var mixed|null */
-    private $rootValue;
+    private mixed $rootValue;
 
     /** @var mixed|null */
-    private $contextValue;
+    private mixed $contextValue;
 
     /** @var mixed|null */
-    private $rawVariableValues;
+    private mixed $rawVariableValues;
 
     /** @var mixed|null */
-    private $variableValues;
+    private mixed $variableValues;
 
     /** @var DocumentNode */
-    private $documentNode;
+    private DocumentNode $documentNode;
 
     /** @var string|null */
-    private $operationName;
+    private ?string $operationName;
 
     /** @var Collector|null */
-    private $collector;
+    private ?Collector $collector;
 
     /** @var array<Error> */
-    private $errors;
+    private array $errors;
 
     /** @var SplQueue */
-    private $queue;
+    private SplQueue $queue;
 
     /** @var SplQueue */
-    private $schedule;
+    private SplQueue $schedule;
 
     /** @var stdClass|null */
-    private $rootResult;
+    private ?stdClass $rootResult;
 
     /** @var int|null */
-    private $pending;
+    private ?int $pending;
 
     /** @var callable */
     private $doResolve;
@@ -213,7 +213,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      * @param object|null $value
      * @param Error[] $errors
      */
-    private function finishExecute($value, array $errors): ExecutionResult
+    private function finishExecute(?object $value, array $errors): ExecutionResult
     {
         $this->rootResult = null;
         $this->errors = [];
@@ -369,7 +369,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      * @param string[] $path
      * @param mixed $returnValue
      */
-    private function completeValueFast(CoroutineContext $ctx, Type $type, $value, array $path, &$returnValue): bool
+    private function completeValueFast(CoroutineContext $ctx, Type $type, mixed $value, array $path, mixed &$returnValue): bool
     {
         // special handling of Throwable inherited from JS reference implementation, but makes no sense in this PHP
         if ($this->isPromise($value) || $value instanceof Throwable) {
@@ -452,7 +452,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      *
      * @return bool
      */
-    private function isPromise($value)
+    private function isPromise(mixed $value)
     {
         return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
     }
@@ -472,7 +472,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      *
      * @return mixed
      */
-    private function completeValue(CoroutineContext $ctx, Type $type, $value, array $path, ?array $nullFence)
+    private function completeValue(CoroutineContext $ctx, Type $type, mixed $value, array $path, ?array $nullFence)
     {
         $nonNull = false;
         $returnValue = null;

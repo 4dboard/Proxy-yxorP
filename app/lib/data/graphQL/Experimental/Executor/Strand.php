@@ -12,19 +12,19 @@ use Generator;
 class Strand
 {
     /** @var Generator */
-    public $current;
+    public Generator $current;
 
     /** @var Generator[] */
-    public $stack;
+    public array $stack;
 
     /** @var int */
-    public $depth;
+    public int $depth;
 
     /** @var bool|null */
-    public $success;
+    public ?bool $success;
 
     /** @var mixed */
-    public $value;
+    public mixed $value;
 
     public function __construct(Generator $coroutine)
     {

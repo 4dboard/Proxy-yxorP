@@ -39,20 +39,20 @@ use function sprintf;
 class Collector
 {
     /** @var OperationDefinitionNode|null */
-    public $operation = null;
+    public ?OperationDefinitionNode $operation = null;
     /** @var FragmentDefinitionNode[] */
-    public $fragments = [];
+    public array $fragments = [];
     /** @var ObjectType|null */
-    public $rootType;
+    public ?ObjectType $rootType;
     /** @var Schema */
-    private $schema;
+    private Schema $schema;
     /** @var RuntimeInterface */
-    private $runtime;
+    private RuntimeInterface $runtime;
     /** @var FieldNode[][] */
-    private $fields;
+    private array $fields;
 
     /** @var array<string, bool> */
-    private $visitedFragments;
+    private array $visitedFragments;
 
     public function __construct(Schema $schema, RuntimeInterface $runtime)
     {

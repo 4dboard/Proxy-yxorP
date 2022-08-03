@@ -16,7 +16,7 @@ class Property extends Schema
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         AdditionalProperties::class,
         Schema::class,
         JsonContent::class,
@@ -27,7 +27,7 @@ class Property extends Schema
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Discriminator::class => 'discriminator',
         Items::class => 'items',
         Property::class => ['properties', 'property'],
@@ -47,5 +47,5 @@ class Property extends Schema
      *
      * @var bool
      */
-    public $nullable = Generator::UNDEFINED;
+    public string|bool $nullable = Generator::UNDEFINED;
 }

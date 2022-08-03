@@ -41,10 +41,10 @@ use function is_array;
 class StandardServer
 {
     /** @var ServerConfig */
-    private $config;
+    private ServerConfig $config;
 
     /** @var Helper */
-    private $helper;
+    private Helper $helper;
 
     /**
      * Creates new instance of a standard GraphQL HTTP server

@@ -10,17 +10,17 @@ final class Rgb implements ColorInterface
     /**
      * @var int
      */
-    private $red;
+    private int $red;
 
     /**
      * @var int
      */
-    private $green;
+    private int $green;
 
     /**
      * @var int
      */
-    private $blue;
+    private int $blue;
 
     /**
      * @param int $red the red amount of the color, 0 to 255

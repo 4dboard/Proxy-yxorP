@@ -21,15 +21,15 @@ class Flow extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_required = ['scopes', 'flow'];
+    public static array $_required = ['scopes', 'flow'];
     /**
      * @inheritdoc
      */
-    public static $_blacklist = ['_context', '_unmerged'];
+    public static array $_blacklist = ['_context', '_unmerged'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'flow' => ['implicit', 'password', 'authorizationCode', 'clientCredentials'],
         'refreshUrl' => 'string',
         'authorizationUrl' => 'string',
@@ -38,13 +38,13 @@ class Flow extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         SecurityScheme::class,
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -53,31 +53,31 @@ class Flow extends AbstractAnnotation
      *
      * @var string
      */
-    public $authorizationUrl = Generator::UNDEFINED;
+    public string $authorizationUrl = Generator::UNDEFINED;
     /**
      * The token URL to be used for this flow.
      * This must be in the form of a url.
      *
      * @var string
      */
-    public $tokenUrl = Generator::UNDEFINED;
+    public string $tokenUrl = Generator::UNDEFINED;
     /**
      * The URL to be used for obtaining refresh tokens.
      * This must be in the form of a url.
      *
      * @var string
      */
-    public $refreshUrl = Generator::UNDEFINED;
+    public string $refreshUrl = Generator::UNDEFINED;
     /**
      * Flow name. One of ['implicit', 'password', 'authorizationCode', 'clientCredentials'].
      *
      * @var string
      */
-    public $flow = Generator::UNDEFINED;
+    public string $flow = Generator::UNDEFINED;
     /**
      * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
      */
-    public $scopes = Generator::UNDEFINED;
+    public string $scopes = Generator::UNDEFINED;
 
     /** @inheritdoc */
     #[ReturnTypeWillChange]

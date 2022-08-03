@@ -45,13 +45,13 @@ class StreamWrapper
     public $context;
 
     /** @var string|null */
-    private $mode;
+    private ?string $mode;
 
     /** @var string|null */
-    private $protocol;
+    private ?string $protocol;
 
     /** @var ReadableStream|WritableStream|null */
-    private $stream;
+    private WritableStream|ReadableStream|null $stream;
 
     /**
      * Register the GridFS stream wrapper.

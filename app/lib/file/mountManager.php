@@ -7,7 +7,7 @@ use function sprintf;
 
 class mountManager implements filesystemOperatorInterface
 {
-    private $filesystems = [];
+    private array $filesystems = [];
 
     public function __construct(array $filesystems = [])
     {

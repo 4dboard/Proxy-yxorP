@@ -23,7 +23,7 @@ use function yxorP\app\lib\proxy\promise\rejection_for;
 
 class streamHandler
 {
-    private $lastHeaders = [];
+    private array $lastHeaders = [];
 
     public function __invoke(requestInterface $request, array $options)
     {

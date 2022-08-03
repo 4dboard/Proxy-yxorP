@@ -15,13 +15,13 @@ use function in_array;
 class changeStream implements Iterator
 {
     public const CURSOR_NOT_FOUND = 43;
-    private static $cursorNotFound = 43;
-    private static $resumableErrorCodes = [6, 7, 89, 91, 189, 262, 9001, 10107, 11600, 11602, 13435, 13436, 63, 150, 13388, 234, 133,];
-    private static $wireVersionForResumableChangeStreamError = 9;
+    private static int $cursorNotFound = 43;
+    private static array $resumableErrorCodes = [6, 7, 89, 91, 189, 262, 9001, 10107, 11600, 11602, 13435, 13436, 63, 150, 13388, 234, 133,];
+    private static int $wireVersionForResumableChangeStreamError = 9;
     private $resumeCallable;
-    private $iterator;
-    private $key = 0;
-    private $hasAdvanced = false;
+    private \yxorP\app\lib\data\mongoDB\ChangeStreamIterator $iterator;
+    private int $key = 0;
+    private bool $hasAdvanced = false;
 
     public function __construct(ChangeStreamIterator $iterator, callable $resumeCallable)
     {

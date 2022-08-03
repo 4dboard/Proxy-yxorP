@@ -8,9 +8,9 @@ class request implements requestInterface
 {
     use messageTrait;
 
-    private $method;
-    private $requestTarget;
-    private $uri;
+    private string $method;
+    private string $requestTarget;
+    private mixed $uri;
 
     public function __construct($method, $uri, array $headers = [], $body = null, $version = '1.1')
     {
@@ -70,7 +70,7 @@ class request implements requestInterface
         return $target;
     }
 
-    public function withRequestTarget($requestTarget)
+    public function withRequestTarget(mixed $requestTarget)
     {
         if (preg_match('#\s#', $requestTarget)) {
             throw new InvalidArgumentException('Invalid request target provided; cannot contain whitespace');
@@ -85,7 +85,7 @@ class request implements requestInterface
         return $this->method;
     }
 
-    public function withMethod($method)
+    public function withMethod(string $method)
     {
         $this->assertMethod($method);
         $new = clone $this;
@@ -98,7 +98,7 @@ class request implements requestInterface
         return $this->uri;
     }
 
-    public function withUri(uriInterface $uri, $preserveHost = false)
+    public function withUri(uriInterface $uri, bool $preserveHost = false)
     {
         if ($uri === $this->uri) {
             return $this;

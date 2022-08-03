@@ -5,8 +5,8 @@ use yxorP\app\lib\http\mongoDB\Exception\BadMethodCallException;
 
 class bulkWriteResult
 {
-    private $writeResult;
-    private $insertedIds;
+    private WriteResult $writeResult;
+    private array $insertedIds;
     private $isAcknowledged;
 
     public function __construct(WriteResult $writeResult, array $insertedIds)

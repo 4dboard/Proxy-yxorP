@@ -11,5 +11,5 @@ namespace yxorP\app\lib\data\annotation\attribute;
 final class attributes
 {
     /** @var array<attribute> */
-    public $value;
+    public array $value;
 }

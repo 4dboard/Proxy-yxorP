@@ -34,7 +34,7 @@ class KnownFragmentNames extends ValidationRule
     /**
      * @param string $fragName
      */
-    public static function unknownFragmentMessage($fragName)
+    public static function unknownFragmentMessage(string $fragName)
     {
         return sprintf('Unknown fragment "%s".', $fragName);
     }

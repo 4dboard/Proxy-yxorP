@@ -16,12 +16,12 @@ use yxorP\app\lib\scancode\common\errorCorrectionLevel;
 
 class EndroidQrCodeProvider implements IQRCodeProviderInterface
 {
-    public $bgcolor;
-    public $color;
-    public $margin;
-    public $errorcorrectionlevel;
+    public array|\yxorP\app\lib\twoFactor\Providers\Qr\Color $bgcolor;
+    public array|\yxorP\app\lib\twoFactor\Providers\Qr\Color $color;
+    public mixed $margin;
+    public ErrorCorrectionLevelMedium|ErrorCorrectionLevelQuartile|ErrorCorrectionLevelHigh|ErrorCorrectionLevelLow $errorcorrectionlevel;
 
-    protected $endroid4 = false;
+    protected bool $endroid4 = false;
 
     public function __construct($bgcolor = 'ffffff', $color = '000000', $margin = 0, $errorcorrectionlevel = 'H')
     {

@@ -19,7 +19,7 @@ use function sprintf;
 class UniqueArgumentNames extends ValidationRule
 {
     /** @var NameNode[] */
-    public $knownArgNames;
+    public array $knownArgNames;
 
     public function getSDLVisitor(SDLValidationContext $context)
     {

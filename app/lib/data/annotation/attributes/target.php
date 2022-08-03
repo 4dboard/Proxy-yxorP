@@ -28,7 +28,7 @@ final class target
     public const TARGET_ALL = 31;
 
     /** @var array<string, int> */
-    private static $map = [
+    private static array $map = [
         'ALL' => self::TARGET_ALL,
         'CLASS' => self::TARGET_CLASS,
         'METHOD' => self::TARGET_METHOD,
@@ -38,21 +38,21 @@ final class target
     ];
 
     /** @phpstan-var list<string> */
-    public $value;
+    public mixed $value;
 
     /**
      * Targets as bitmask.
      *
      * @var int
      */
-    public $targets;
+    public int $targets;
 
     /**
      * Literal target declaration.
      *
      * @var string
      */
-    public $literal;
+    public string $literal;
 
     /**
      * @throws InvalidArgumentException

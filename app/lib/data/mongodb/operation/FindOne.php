@@ -34,7 +34,7 @@ use function current;
 class FindOne implements ExecutableInterface, ExplainableInterface
 {
     /** @var Find */
-    private $find;
+    private Find $find;
 
     /**
      * Constructs a find command for finding a single document.

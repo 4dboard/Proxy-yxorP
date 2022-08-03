@@ -38,7 +38,7 @@ use function array_key_exists;
 class IndexInfoIteratorIterator extends IteratorIterator implements IndexInfoIteratorInterface
 {
     /** @var string|null $ns */
-    private $ns;
+    private ?string $ns;
 
     /**
      * @param string|null $ns

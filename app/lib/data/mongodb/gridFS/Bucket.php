@@ -69,50 +69,50 @@ use function urlencode;
 class Bucket
 {
     /** @var string */
-    private static $defaultBucketName = 'fs';
+    private static string $defaultBucketName = 'fs';
 
     /** @var integer */
-    private static $defaultChunkSizeBytes = 261120;
+    private static int $defaultChunkSizeBytes = 261120;
 
     /** @var array */
-    private static $defaultTypeMap = [
+    private static array $defaultTypeMap = [
         'array' => BSONArray::class,
         'document' => BSONDocument::class,
         'root' => BSONDocument::class,
     ];
 
     /** @var string */
-    private static $streamWrapperProtocol = 'gridfs';
+    private static string $streamWrapperProtocol = 'gridfs';
 
     /** @var CollectionWrapper */
-    private $collectionWrapper;
+    private CollectionWrapper $collectionWrapper;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var Manager */
-    private $manager;
+    private Manager $manager;
 
     /** @var string */
-    private $bucketName;
+    private string $bucketName;
 
     /** @var boolean */
-    private $disableMD5;
+    private bool $disableMD5;
 
     /** @var integer */
-    private $chunkSizeBytes;
+    private int $chunkSizeBytes;
 
     /** @var ReadConcern */
-    private $readConcern;
+    private \yxorP\app\lib\data\mongoDB\GridFS\ReadConcern|ReadConcern $readConcern;
 
     /** @var ReadPreference */
-    private $readPreference;
+    private \yxorP\app\lib\data\mongoDB\GridFS\ReadPreference|ReadPreference $readPreference;
 
     /** @var array */
-    private $typeMap;
+    private array $typeMap;
 
     /** @var WriteConcern */
-    private $writeConcern;
+    private WriteConcern $writeConcern;
 
     /**
      * Constructs a GridFS bucket.

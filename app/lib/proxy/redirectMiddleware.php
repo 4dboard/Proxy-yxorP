@@ -12,7 +12,7 @@ class redirectMiddleware
 {
     const HISTORY_HEADER = 'X-Proxy-Redirect-History';
     const STATUS_HISTORY_HEADER = 'X-Proxy-Redirect-Status-History';
-    public static $defaultSettings = ['max' => 5, 'protocols' => ['http', 'https'], 'strict' => false, 'referer' => false, 'track_redirects' => false,];
+    public static array $defaultSettings = ['max' => 5, 'protocols' => ['http', 'https'], 'strict' => false, 'referer' => false, 'track_redirects' => false,];
     private $nextHandler;
 
     public function __construct(callable $nextHandler)

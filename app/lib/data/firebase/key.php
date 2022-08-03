@@ -10,7 +10,7 @@ use function is_string;
 class key
 {
     private $keyMaterial;
-    private $algorithm;
+    private string $algorithm;
 
     public function __construct($keyMaterial, string $algorithm)
     {

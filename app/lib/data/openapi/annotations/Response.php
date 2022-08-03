@@ -19,17 +19,17 @@ class Response extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_required = ['description'];
+    public static array $_required = ['description'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'description' => 'string',
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         MediaType::class => ['content', 'mediaType'],
         Header::class => ['headers', 'header'],
         Link::class => ['links', 'link'],
@@ -38,7 +38,7 @@ class Response extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Components::class,
         Operation::class,
         Get::class,
@@ -55,20 +55,20 @@ class Response extends AbstractAnnotation
      *
      * @var string
      */
-    public $ref = Generator::UNDEFINED;
+    public string $ref = Generator::UNDEFINED;
     /**
      * The key into Operations->responses array.
      *
      * @var string a HTTP Status Code or "default"
      */
-    public $response = Generator::UNDEFINED;
+    public string $response = Generator::UNDEFINED;
     /**
      * A short description of the response.
      * CommonMark syntax may be used for rich text representation.
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * Maps a header name to its definition.
      * RFC7230 states header names are case insensitive. https://tools.ietf.org/html/rfc7230#page-22
@@ -76,7 +76,7 @@ class Response extends AbstractAnnotation
      *
      * @var Header[]
      */
-    public $headers = Generator::UNDEFINED;
+    public string|array $headers = Generator::UNDEFINED;
     /**
      * A map containing descriptions of potential response payloads.
      * The key is a media type or media type range and the value describes it.
@@ -84,12 +84,12 @@ class Response extends AbstractAnnotation
      *
      * @var MediaType[]
      */
-    public $content = Generator::UNDEFINED;
+    public string|array $content = Generator::UNDEFINED;
     /**
      * A map of operations links that can be followed from the response.
      * The key of the map is a short name for the link, following the naming constraints of the names for Component Objects.
      *
      * @var array
      */
-    public $links = Generator::UNDEFINED;
+    public string|array $links = Generator::UNDEFINED;
 }

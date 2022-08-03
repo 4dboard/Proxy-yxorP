@@ -71,19 +71,19 @@ final class characterSetEci extends abstractEnum
     /**
      * @var array<int, self>|null
      */
-    private static $valueToEci;
+    private static ?array $valueToEci;
     /**
      * @var array<string, self>|null
      */
-    private static $nameToEci;
+    private static ?array $nameToEci;
     /**
      * @var int[]
      */
-    private $values;
+    private array $values;
     /**
      * @var string[]
      */
-    private $otherEncodingNames;
+    private array $otherEncodingNames;
 
     public function __construct(array $values, string ...$otherEncodingNames)
     {

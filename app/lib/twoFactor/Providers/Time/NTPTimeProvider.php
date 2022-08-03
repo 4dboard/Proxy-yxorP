@@ -10,13 +10,13 @@ use Exception;
 class NTPTimeProvider implements ITimeProviderInterface
 {
     /** @var string */
-    public $host;
+    public string $host;
 
     /** @var int */
-    public $port;
+    public int $port;
 
     /** @var int */
-    public $timeout;
+    public int $timeout;
 
     /**
      * @param string $host

@@ -7,17 +7,17 @@ use yxorP\app\lib\psr\http\message\uriInterface;
 class uri implements uriInterface
 {
     const HTTP_DEFAULT_HOST = 'localhost';
-    private static $defaultPorts = ['http' => 80, 'https' => 443, 'ftp' => 21, 'gopher' => 70, 'nntp' => 119, 'news' => 119, 'telnet' => 23, 'tn3270' => 23, 'imap' => 143, 'pop' => 110, 'ldap' => 389,];
-    private static $charUnreserved = 'a-zA-Z0-9_\-\.~';
-    private static $charSubDelims = '!\$&\'\(\)\*\+,;=';
-    private static $replaceQuery = ['=' => '%3D', '&' => '%26'];
-    private $scheme = '';
-    private $userInfo = '';
-    private $host = '';
-    private $port;
-    private $path = '';
-    private $query = '';
-    private $fragment = '';
+    private static array $defaultPorts = ['http' => 80, 'https' => 443, 'ftp' => 21, 'gopher' => 70, 'nntp' => 119, 'news' => 119, 'telnet' => 23, 'tn3270' => 23, 'imap' => 143, 'pop' => 110, 'ldap' => 389,];
+    private static string $charUnreserved = 'a-zA-Z0-9_\-\.~';
+    private static string $charSubDelims = '!\$&\'\(\)\*\+,;=';
+    private static array $replaceQuery = ['=' => '%3D', '&' => '%26'];
+    private string $scheme = '';
+    private string $userInfo = '';
+    private string $host = '';
+    private ?int $port;
+    private string $path = '';
+    private string $query = '';
+    private string $fragment = '';
 
     public function __construct($uri = '')
     {

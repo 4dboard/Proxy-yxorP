@@ -41,7 +41,7 @@ use function yxorP\app\lib\data\mongoDB\generate_index_name;
 class IndexInput implements Serializable
 {
     /** @var array */
-    private $index;
+    private array $index;
 
     /**
      * @param array $index Index specification

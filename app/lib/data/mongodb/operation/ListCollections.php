@@ -34,10 +34,10 @@ use yxorP\app\lib\http\mongoDB\Model\CollectionInfoIterator;
 class ListCollections implements ExecutableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var ListCollectionsCommand */
-    private $listCollections;
+    private ListCollectionsCommand $listCollections;
 
     /**
      * Constructs a listCollections command.

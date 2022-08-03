@@ -9,7 +9,7 @@ use yxorP\app\lib\psr\http\message\requestInterface;
 
 class client implements clientInterface
 {
-    private $config;
+    private mixed $config;
 
     public function __construct(array $config = [])
     {

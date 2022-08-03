@@ -52,19 +52,19 @@ use function yxorP\app\lib\data\mongoDB\is_write_concern_acknowledged;
 class FindAndModify implements ExecutableInterface, ExplainableInterface
 {
     /** @var integer */
-    private static $wireVersionForHint = 9;
+    private static int $wireVersionForHint = 9;
 
     /** @var integer */
-    private static $wireVersionForUnsupportedOptionServerSideError = 8;
+    private static int $wireVersionForUnsupportedOptionServerSideError = 8;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a findAndModify command.

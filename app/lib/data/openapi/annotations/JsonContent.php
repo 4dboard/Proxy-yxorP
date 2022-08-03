@@ -20,11 +20,11 @@ class JsonContent extends Schema
     /**
      * @inheritdoc
      */
-    public static $_parents = [];
+    public static array $_parents = [];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Discriminator::class => 'discriminator',
         Items::class => 'items',
         Property::class => ['properties', 'property'],
@@ -36,9 +36,9 @@ class JsonContent extends Schema
     /**
      * @var object
      */
-    public $example = Generator::UNDEFINED;
+    public string $example = Generator::UNDEFINED;
     /**
      * @var object
      */
-    public $examples = Generator::UNDEFINED;
+    public string|object $examples = Generator::UNDEFINED;
 }

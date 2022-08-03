@@ -11,9 +11,9 @@ use yxorP\app\lib\data\enum\exception\unserializeNotSupportedException;
 
 abstract class abstractEnum
 {
-    private static $values = [];
-    private static $allValuesLoaded = [];
-    private static $constants = [];
+    private static array $values = [];
+    private static array $allValuesLoaded = [];
+    private static array $constants = [];
     private $name;
     private $ordinal;
 

@@ -36,12 +36,12 @@ final class mode extends abstractEnum
     /**
      * @var int[]
      */
-    private $characterCountBitsForVersions;
+    private array $characterCountBitsForVersions;
 
     /**
      * @var int
      */
-    private $bits;
+    private int $bits;
 
     protected function __construct(array $characterCountBitsForVersions, int $bits)
     {

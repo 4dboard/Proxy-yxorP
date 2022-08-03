@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class ObjectValueNode extends Node implements ValueNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::OBJECT;
+    public string $kind = NodeKind::OBJECT;
 
     /** @var NodeList<ObjectFieldNode> */
-    public $fields;
+    public NodeList $fields;
 }

@@ -13,13 +13,13 @@ use yxorP\app\lib\openapi\Generator;
  */
 class Examples extends AbstractAnnotation
 {
-    public static $_types = [
+    public static array $_types = [
         'summary' => 'string',
         'description' => 'string',
         'externalValue' => 'string',
     ];
-    public static $_required = ['summary'];
-    public static $_parents = [
+    public static array $_required = ['summary'];
+    public static array $_parents = [
         Components::class,
         Parameter::class,
         MediaType::class,
@@ -29,7 +29,7 @@ class Examples extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -37,19 +37,19 @@ class Examples extends AbstractAnnotation
      *
      * @var string
      */
-    public $ref = Generator::UNDEFINED;
+    public string $ref = Generator::UNDEFINED;
     /**
      * The key into Components->examples array.
      *
      * @var string
      */
-    public $example = Generator::UNDEFINED;
+    public string $example = Generator::UNDEFINED;
     /**
      * Short description for the example.
      *
      * @var string
      */
-    public $summary = Generator::UNDEFINED;
+    public string $summary = Generator::UNDEFINED;
     /**
      * Embedded literal example. The value field and externalValue field are
      * mutually exclusive. To represent examples of media types that cannot
@@ -58,7 +58,7 @@ class Examples extends AbstractAnnotation
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * Embedded literal example.
      * The value field and externalValue field are mutually exclusive.
@@ -68,7 +68,7 @@ class Examples extends AbstractAnnotation
      *
      * @var string
      */
-    public $value = Generator::UNDEFINED;
+    public string $value = Generator::UNDEFINED;
     /**
      * A URL that points to the literal example. This provides the
      * capability to reference examples that cannot easily be included
@@ -77,5 +77,5 @@ class Examples extends AbstractAnnotation
      *
      * @var string
      */
-    public $externalValue = Generator::UNDEFINED;
+    public string $externalValue = Generator::UNDEFINED;
 }

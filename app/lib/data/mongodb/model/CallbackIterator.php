@@ -31,10 +31,10 @@ use Traversable;
 class CallbackIterator implements Iterator
 {
     /** @var Closure */
-    private $callback;
+    private Closure $callback;
 
     /** @var Iterator */
-    private $iterator;
+    private Iterator|Traversable|IteratorIterator $iterator;
 
     public function __construct(Traversable $traversable, Closure $callback)
     {

@@ -74,12 +74,12 @@ class FieldsOnCorrectType extends ValidationRule
      * suggest them, sorted by how often the type is referenced, starting
      * with Interfaces.
      *
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
      * @return string[]
      */
-    private function getSuggestedTypeNames(Schema $schema, $type, $fieldName)
+    private function getSuggestedTypeNames(Schema $schema, InterfaceType|ObjectType $type, string $fieldName)
     {
         if (Type::isAbstractType($type)) {
             $suggestedObjectTypes = [];
@@ -119,12 +119,12 @@ class FieldsOnCorrectType extends ValidationRule
      * For the field name provided, determine if there are any similar field names
      * that may be the result of a typo.
      *
-     * @param ObjectType|InterfaceType $type
+     * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
      * @return array|string[]
      */
-    private function getSuggestedFieldNames(Schema $schema, $type, $fieldName)
+    private function getSuggestedFieldNames(Schema $schema, InterfaceType|ObjectType $type, string $fieldName)
     {
         if ($type instanceof ObjectType || $type instanceof InterfaceType) {
             $possibleFieldNames = $type->getFieldNames();
@@ -145,10 +145,10 @@ class FieldsOnCorrectType extends ValidationRule
      * @return string
      */
     public static function undefinedFieldMessage(
-        $fieldName,
-        $type,
-        array $suggestedTypeNames,
-        array $suggestedFieldNames
+        string $fieldName,
+        string $type,
+        array  $suggestedTypeNames,
+        array  $suggestedFieldNames
     )
     {
         $message = sprintf('Cannot query field "%s" on type "%s".', $fieldName, $type);

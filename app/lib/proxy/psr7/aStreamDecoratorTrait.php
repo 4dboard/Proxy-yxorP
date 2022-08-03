@@ -44,7 +44,7 @@ trait aStreamDecoratorTrait
         return $this->stream->isSeekable();
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         $this->stream->seek($offset, $whence);
     }
@@ -105,12 +105,12 @@ trait aStreamDecoratorTrait
         $this->seek(0);
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         return $this->stream->read($length);
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         return $this->stream->write($string);
     }

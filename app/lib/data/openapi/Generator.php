@@ -12,11 +12,11 @@ use yxorP\app\lib\psr\log\loggerInterface;
 class Generator
 {
     public const UNDEFINED = '@OA\Generator::UNDEFINED🙈';
-    protected $aliases = null;
-    protected $namespaces = null;
-    protected $analyser;
-    protected $processors = null;
-    protected $logger = null;
+    protected ?array $aliases = null;
+    protected ?array $namespaces = null;
+    protected StaticAnalyser $analyser;
+    protected ?array $processors = null;
+    protected ?loggerInterface $logger = null;
     private $configStack;
 
     public function __construct(?loggerInterface $logger = null)

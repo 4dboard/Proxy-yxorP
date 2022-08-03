@@ -17,10 +17,10 @@ use function sprintf;
 class NoUnusedFragments extends ValidationRule
 {
     /** @var OperationDefinitionNode[] */
-    public $operationDefs;
+    public array $operationDefs;
 
     /** @var FragmentDefinitionNode[] */
-    public $fragmentDefs;
+    public array $fragmentDefs;
 
     #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure", NodeKind::DOCUMENT => "\Closure[]"])] public function getVisitor(ValidationContext $context)
     {

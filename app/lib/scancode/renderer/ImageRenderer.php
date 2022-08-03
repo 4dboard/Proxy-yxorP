@@ -20,12 +20,12 @@ final class ImageRenderer implements RendererInterface
     /**
      * @var RendererStyle
      */
-    private $rendererStyle;
+    private RendererStyle $rendererStyle;
 
     /**
      * @var ImageBackEndInterface
      */
-    private $imageBackEnd;
+    private \yxorP\app\lib\scancode\Renderer\ImageBackEndInterface|ImageBackEndInterface $imageBackEnd;
 
     public function __construct(RendererStyle $rendererStyle, ImageBackEndInterface $imageBackEnd)
     {

@@ -19,17 +19,17 @@ class sVGSanitizer
     /**
      * @var DOMDocument
      */
-    protected $xmlDocument;
+    protected DOMDocument $xmlDocument;
 
     /**
      * @var array
      */
-    protected $allowedTags;
+    protected array $allowedTags;
 
     /**
      * @var array
      */
-    protected $allowedAttrs;
+    protected array $allowedAttrs;
 
     /**
      * @var
@@ -39,22 +39,22 @@ class sVGSanitizer
     /**
      * @var bool
      */
-    protected $minifyXML = false;
+    protected bool $minifyXML = false;
 
     /**
      * @var bool
      */
-    protected $removeRemoteReferences = false;
+    protected bool $removeRemoteReferences = false;
 
     /**
      * @var bool
      */
-    protected $removeXMLTag = false;
+    protected bool $removeXMLTag = false;
 
     /**
      * @var int
      */
-    protected $xmlOptions = LIBXML_NOEMPTYTAG;
+    protected int $xmlOptions = LIBXML_NOEMPTYTAG;
 
     /**
      *
@@ -262,7 +262,7 @@ class sVGSanitizer
      * @param string $dirty
      * @return string
      */
-    public function sanitize($dirty)
+    public function sanitize(string $dirty)
     {
         // Don't run on an empty string
         if (empty($dirty)) {
@@ -467,7 +467,7 @@ class sVGSanitizer
      * @param string $value
      * @return string
      */
-    protected function removeNonPrintableCharacters($value)
+    protected function removeNonPrintableCharacters(string $value)
     {
         return trim(preg_replace('/[^ -~]/xu', '', $value));
     }
@@ -540,7 +540,7 @@ class sVGSanitizer
      *
      * @param int $xmlOptions
      */
-    public function setXMLOptions($xmlOptions)
+    public function setXMLOptions(int $xmlOptions)
     {
         $this->xmlOptions = $xmlOptions;
     }
@@ -560,7 +560,7 @@ class sVGSanitizer
      *
      * @param array $allowedTags
      */
-    public function setAllowedTags($allowedTags)
+    public function setAllowedTags(array $allowedTags)
     {
         $this->allowedTags = array_map('strtolower', $allowedTags);
     }
@@ -580,7 +580,7 @@ class sVGSanitizer
      *
      * @param array $allowedAttrs
      */
-    public function setAllowedAttrs($allowedAttrs)
+    public function setAllowedAttrs(array $allowedAttrs)
     {
         $this->allowedAttrs = array_map('strtolower', $allowedAttrs);
     }
@@ -590,7 +590,7 @@ class sVGSanitizer
      *
      * @param bool $removeRemoteRefs
      */
-    public function removeRemoteReferences($removeRemoteRefs = false)
+    public function removeRemoteReferences(bool $removeRemoteRefs = false)
     {
         $this->removeRemoteReferences = $removeRemoteRefs;
     }
@@ -600,7 +600,7 @@ class sVGSanitizer
      *
      * @param bool $shouldMinify
      */
-    public function minify($shouldMinify = false)
+    public function minify(bool $shouldMinify = false)
     {
         $this->minifyXML = (bool)$shouldMinify;
     }
@@ -610,7 +610,7 @@ class sVGSanitizer
      *
      * @param bool $removeXMLTag
      */
-    public function removeXMLTag($removeXMLTag = false)
+    public function removeXMLTag(bool $removeXMLTag = false)
     {
         $this->removeXMLTag = (bool)$removeXMLTag;
     }

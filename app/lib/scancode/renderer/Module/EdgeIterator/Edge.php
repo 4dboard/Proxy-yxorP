@@ -8,37 +8,37 @@ final class Edge
     /**
      * @var bool
      */
-    private $positive;
+    private bool $positive;
 
     /**
      * @var array<int[]>
      */
-    private $points = [];
+    private array $points = [];
 
     /**
      * @var array<int[]>|null
      */
-    private $simplifiedPoints;
+    private ?array $simplifiedPoints;
 
     /**
      * @var int
      */
-    private $minX = PHP_INT_MAX;
+    private int $minX = PHP_INT_MAX;
 
     /**
      * @var int
      */
-    private $minY = PHP_INT_MAX;
+    private int $minY = PHP_INT_MAX;
 
     /**
      * @var int
      */
-    private $maxX = -1;
+    private int $maxX = -1;
 
     /**
      * @var int
      */
-    private $maxY = -1;
+    private int $maxY = -1;
 
     public function __construct(bool $positive)
     {

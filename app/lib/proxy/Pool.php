@@ -8,7 +8,7 @@ use function yxorP\app\lib\proxy\promise\iter_for;
 
 class pool implements promisorInterface
 {
-    private $each;
+    private eachPromise $each;
 
     public function __construct(clientInterface $client, $requests, array $config = [])
     {

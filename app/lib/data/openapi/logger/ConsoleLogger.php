@@ -14,10 +14,10 @@ class ConsoleLogger extends abstractLogger implements loggerInterface
     public const COLOR_STOP = "\033[0m";
 
     /** @var bool */
-    protected $called = false;
+    protected bool $called = false;
 
     /** @var bool */
-    protected $debug;
+    protected bool $debug;
 
     public function __construct(bool $debug = false)
     {
@@ -32,7 +32,7 @@ class ConsoleLogger extends abstractLogger implements loggerInterface
     /**
      * @param array $context additional details; supports custom `prefix` and `exception`
      */
-    public function log($level, $message, array $context = []): void
+    public function log(mixed $level, $message, array $context = []): void
     {
         $this->called = true;
 

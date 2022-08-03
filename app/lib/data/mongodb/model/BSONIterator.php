@@ -34,25 +34,25 @@ use function unpack;
 class BSONIterator implements Iterator
 {
     /** @var integer */
-    private static $bsonSize = 4;
+    private static int $bsonSize = 4;
 
     /** @var string */
-    private $buffer;
+    private string $buffer;
 
     /** @var integer */
-    private $bufferLength;
+    private int $bufferLength;
 
     /** @var mixed */
-    private $current;
+    private mixed $current;
 
     /** @var integer */
-    private $key = 0;
+    private int $key = 0;
 
     /** @var integer */
-    private $position = 0;
+    private int $position = 0;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a BSON Iterator.

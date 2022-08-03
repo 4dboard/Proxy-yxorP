@@ -7,8 +7,8 @@ use function is_callable;
 
 class memoryStorage
 {
-    protected $driver;
-    protected $key;
+    protected Redis|redisLite $driver;
+    protected string $key;
 
     public function __construct(string $server, array $options = [])
     {

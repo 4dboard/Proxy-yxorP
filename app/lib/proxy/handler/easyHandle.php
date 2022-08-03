@@ -10,11 +10,11 @@ final class easyHandle
 {
     public $handle;
     public $sink;
-    public $headers = [];
+    public array $headers = [];
     public $response;
     public $request;
-    public $options = [];
-    public $errno = 0;
+    public array $options = [];
+    public int $errno = 0;
     public $onHeadersException;
 
     public function createResponse()

@@ -7,11 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class SchemaTypeExtensionNode extends Node implements TypeExtensionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::SCHEMA_EXTENSION;
+    public string $kind = NodeKind::SCHEMA_EXTENSION;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 
     /** @var NodeList<OperationTypeDefinitionNode> */
-    public $operationTypes;
+    public NodeList $operationTypes;
 }

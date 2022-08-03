@@ -7,11 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Language;
 class VisitorOperation
 {
     /** @var bool */
-    public $doBreak;
+    public bool $doBreak;
 
     /** @var bool */
-    public $doContinue;
+    public bool $doContinue;
 
     /** @var bool */
-    public $removeNode;
+    public bool $removeNode;
 }

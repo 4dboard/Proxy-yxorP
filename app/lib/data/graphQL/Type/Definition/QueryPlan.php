@@ -30,22 +30,22 @@ use function is_numeric;
 class QueryPlan
 {
     /** @var string[][] */
-    private $types = [];
+    private array $types = [];
 
     /** @var Schema */
-    private $schema;
+    private Schema $schema;
 
     /** @var array<string, mixed> */
-    private $queryPlan = [];
+    private array $queryPlan = [];
 
     /** @var array */
-    private $variableValues;
+    private array $variableValues;
 
     /** @var FragmentDefinitionNode[] */
-    private $fragments;
+    private array $fragments;
 
     /** @var bool */
-    private $groupImplementorFields;
+    private bool $groupImplementorFields;
 
     /**
      * @param FieldNode[] $fieldNodes

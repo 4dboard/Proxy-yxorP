@@ -15,7 +15,7 @@ use yxorP\app\lib\openapi\Generator;
  */
 class OperationId
 {
-    protected $hash;
+    protected bool $hash;
 
     /**
      * @param bool $hash if `true` hash generated ids instead of clear text

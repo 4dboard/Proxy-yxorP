@@ -14,17 +14,17 @@ use yxorP\app\lib\twoFactor\Providers\Time\NTPTimeProvider;
 
 class TwoFactorAuth
 {
-    private static $_base32dict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=';
-    private static $_base32;
-    private static $_base32lookup = array();
-    private static $_supportedalgos = array('sha1', 'sha256', 'sha512', 'md5');
-    private $algorithm;
-    private $period;
-    private $digits;
-    private $issuer;
-    private $qrcodeprovider = null;
-    private $rngprovider = null;
-    private $timeprovider = null;
+    private static string $_base32dict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=';
+    private static array $_base32;
+    private static array $_base32lookup = array();
+    private static array $_supportedalgos = array('sha1', 'sha256', 'sha512', 'md5');
+    private string $algorithm;
+    private int $period;
+    private int $digits;
+    private mixed $issuer;
+    private ?IQRCodeProviderInterface $qrcodeprovider = null;
+    private ?IRNGProviderInterface $rngprovider = null;
+    private ?ITimeProviderInterface $timeprovider = null;
 
     /**
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException

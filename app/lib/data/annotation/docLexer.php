@@ -29,8 +29,8 @@ final class docLexer extends abstractLexer
     public const T_NULL = 111;
     public const T_COLON = 112;
     public const T_MINUS = 113;
-    protected $noCase = ['@' => self::T_AT, ',' => self::T_COMMA, '(' => self::T_OPEN_PARENTHESIS, ')' => self::T_CLOSE_PARENTHESIS, '{' => self::T_OPEN_CURLY_BRACES, '}' => self::T_CLOSE_CURLY_BRACES, '=' => self::T_EQUALS, ':' => self::T_COLON, '-' => self::T_MINUS, '\\' => self::T_NAMESPACE_SEPARATOR,];
-    protected $withCase = ['true' => self::T_TRUE, 'false' => self::T_FALSE, 'null' => self::T_NULL,];
+    protected array $noCase = ['@' => self::T_AT, ',' => self::T_COMMA, '(' => self::T_OPEN_PARENTHESIS, ')' => self::T_CLOSE_PARENTHESIS, '{' => self::T_OPEN_CURLY_BRACES, '}' => self::T_CLOSE_CURLY_BRACES, '=' => self::T_EQUALS, ':' => self::T_COLON, '-' => self::T_MINUS, '\\' => self::T_NAMESPACE_SEPARATOR,];
+    protected array $withCase = ['true' => self::T_TRUE, 'false' => self::T_FALSE, 'null' => self::T_NULL,];
 
     public function nextTokenIsAdjacent(): bool
     {

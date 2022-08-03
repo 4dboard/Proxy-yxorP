@@ -40,22 +40,22 @@ use function is_object;
 class CountDocuments implements ExecutableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var array */
-    private $aggregateOptions;
+    private array $aggregateOptions;
 
     /** @var array */
-    private $countOptions;
+    private array $countOptions;
 
     /** @var Aggregate */
-    private $aggregate;
+    private Aggregate $aggregate;
 
     /**
      * Constructs an aggregate command for counting documents

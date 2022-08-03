@@ -14,10 +14,10 @@ use function time;
 final class cachedReader
 {
     private $delegate;
-    private $cache;
-    private $debug;
-    private $loadedAnnotations = [];
-    private $loadedFilemtimes = [];
+    private Cache $cache;
+    private bool $debug;
+    private array $loadedAnnotations = [];
+    private array $loadedFilemtimes = [];
 
     public function __construct(Cache $cache, $debug = false)
     {

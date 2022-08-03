@@ -39,13 +39,13 @@ use function is_bool;
 class RenameCollection implements ExecutableInterface
 {
     /** @var string */
-    private $fromNamespace;
+    private string $fromNamespace;
 
     /** @var string */
-    private $toNamespace;
+    private string $toNamespace;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a renameCollection command.

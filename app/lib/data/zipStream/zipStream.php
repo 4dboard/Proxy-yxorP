@@ -19,12 +19,12 @@ class zipStream
     const OPTION_OUTPUT_STREAM = 'output_stream';
     const OPTION_CONTENT_TYPE = 'content_type';
     const OPTION_CONTENT_DISPOSITION = 'content_disposition';
-    public $opt = array();
-    public $files = array();
-    public $cdr_ofs = 0;
-    public $ofs = 0;
-    protected $need_headers;
-    protected $output_name;
+    public array $opt = array();
+    public array $files = array();
+    public int $cdr_ofs = 0;
+    public int $ofs = 0;
+    protected bool $need_headers;
+    protected mixed $output_name;
 
     public function __construct($name = null, $opt = array())
     {

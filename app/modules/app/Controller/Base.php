@@ -22,7 +22,7 @@ use function strtolower;
 class base extends appAware
 {
 
-    protected $layout = false;
+    protected bool $layout = false;
 
     /**
      * @return string

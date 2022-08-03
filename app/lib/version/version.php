@@ -8,10 +8,10 @@ class version
     private const SHORT_COMMIT_LENGTH = 7;
     public const NO_VERSION_TEXT = '{no version}';
     public const NO_REFERENCE_TEXT = '{no reference}';
-    private $packageName;
-    private $prettyVersion;
-    private $reference;
-    private $versionIsTagged;
+    private string $packageName;
+    private string $prettyVersion;
+    private string $reference;
+    private bool $versionIsTagged;
 
     public function __construct(string $packageName, ?string $prettyVersion = null, ?string $reference = null)
     {

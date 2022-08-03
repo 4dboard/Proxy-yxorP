@@ -6,12 +6,12 @@ use Throwable;
 
 class promise implements promiseInterface
 {
-    private $state = self::PENDING;
+    private string $state = self::PENDING;
     private $result;
     private $cancelFn;
     private $waitFn;
     private $waitList;
-    private $handlers = [];
+    private array $handlers = [];
 
     public function __construct(callable $waitFn = null, callable $cancelFn = null)
     {

@@ -5,9 +5,9 @@ use JetBrains\PhpStorm\Pure;
 
 class filesystem implements filesystemOperatorInterface
 {
-    private $adapter;
-    private $config;
-    private $pathNormalizer;
+    private filesystemAdapterInterface $adapter;
+    private config $config;
+    private pathNormalizerInterface|whitespacePathNormalizer $pathNormalizer;
 
     #[Pure] public function __construct(filesystemAdapterInterface $adapter, array $config = [], pathNormalizerInterface $pathNormalizer = null)
     {

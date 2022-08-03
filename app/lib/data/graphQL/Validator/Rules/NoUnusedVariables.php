@@ -15,7 +15,7 @@ use function sprintf;
 class NoUnusedVariables extends ValidationRule
 {
     /** @var VariableDefinitionNode[] */
-    public $variableDefs;
+    public array $variableDefs;
 
     #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {

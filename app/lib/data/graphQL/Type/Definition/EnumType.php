@@ -30,7 +30,7 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
      *
      * @var EnumValueDefinition[]
      */
-    private $values;
+    private array $values;
     /**
      * Lazily initialized.
      *
@@ -38,9 +38,9 @@ class EnumType extends Type implements InputType, OutputType, LeafType, Nullable
      *
      * @var MixedStore
      */
-    private $valueLookup;
+    private MixedStore $valueLookup;
     /** @var ArrayObject<string, EnumValueDefinition> */
-    private $nameLookup;
+    private ArrayObject $nameLookup;
 
     public function __construct($config)
     {

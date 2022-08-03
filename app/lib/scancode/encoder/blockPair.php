@@ -15,14 +15,14 @@ final class blockPair
      *
      * @var SplFixedArray<int>
      */
-    private $dataBytes;
+    private SplFixedArray $dataBytes;
 
     /**
      * Error correction bytes in the block.
      *
      * @var SplFixedArray<int>
      */
-    private $errorCorrectionBytes;
+    private SplFixedArray $errorCorrectionBytes;
 
     /**
      * Creates a new block pair.

@@ -10,32 +10,32 @@ final class Curve implements OperationInterface
     /**
      * @var float
      */
-    private $x1;
+    private float $x1;
 
     /**
      * @var float
      */
-    private $y1;
+    private float $y1;
 
     /**
      * @var float
      */
-    private $x2;
+    private float $x2;
 
     /**
      * @var float
      */
-    private $y2;
+    private float $y2;
 
     /**
      * @var float
      */
-    private $x3;
+    private float $x3;
 
     /**
      * @var float
      */
-    private $y3;
+    private float $y3;
 
     public function __construct(float $x1, float $y1, float $x2, float $y2, float $x3, float $y3)
     {

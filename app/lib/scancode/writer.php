@@ -13,7 +13,7 @@ use yxorP\app\lib\scancode\Renderer\RendererInterface;
 
 final class writer
 {
-    private $renderer;
+    private \yxorP\app\lib\scancode\RendererInterface $renderer;
 
     public function __construct(RendererInterface $renderer)
     {

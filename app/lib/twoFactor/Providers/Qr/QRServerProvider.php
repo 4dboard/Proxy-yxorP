@@ -6,22 +6,22 @@ namespace yxorP\app\lib\twoFactor\Providers\Qr;
 class QRServerProvider extends BaseHTTPQRCodeProvider
 {
     /** @var string */
-    public $errorcorrectionlevel;
+    public string $errorcorrectionlevel;
 
     /** @var int */
-    public $margin;
+    public int $margin;
 
     /** @var int */
-    public $qzone;
+    public int $qzone;
 
     /** @var string */
-    public $bgcolor;
+    public string $bgcolor;
 
     /** @var string */
-    public $color;
+    public string $color;
 
     /** @var string */
-    public $format;
+    public string $format;
 
     /**
      * @param bool $verifyssl

@@ -11,13 +11,13 @@ use yxorP\app\lib\data\graphQL\Type\Schema;
 abstract class ASTValidationContext
 {
     /** @var DocumentNode */
-    protected $ast;
+    protected DocumentNode $ast;
 
     /** @var Error[] */
-    protected $errors;
+    protected array $errors;
 
     /** @var Schema */
-    protected $schema;
+    protected ?Schema $schema;
 
     public function __construct(DocumentNode $ast, ?Schema $schema = null)
     {

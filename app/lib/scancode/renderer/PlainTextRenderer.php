@@ -31,7 +31,7 @@ final class PlainTextRenderer implements RendererInterface
     /**
      * @var int
      */
-    private $margin;
+    private int $margin;
 
     public function __construct(int $margin = 2)
     {

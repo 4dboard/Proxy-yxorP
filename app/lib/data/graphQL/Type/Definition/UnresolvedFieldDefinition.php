@@ -11,10 +11,10 @@ use function sprintf;
 class UnresolvedFieldDefinition
 {
     /** @var Type $type */
-    private $type;
+    private Type $type;
 
     /** @var string $name */
-    private $name;
+    private string $name;
 
     /** @var callable(): (FieldDefinition|array<string, mixed>|Type) $resolver */
     private $resolver;

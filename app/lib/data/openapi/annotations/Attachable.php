@@ -17,7 +17,7 @@ class Attachable extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         AdditionalProperties::class,
         Components::class,
         Contact::class,

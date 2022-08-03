@@ -15,7 +15,7 @@ final class ModuleEye implements EyeInterface
     /**
      * @var ModuleInterface
      */
-    private $module;
+    private ModuleInterface $module;
 
     public function __construct(ModuleInterface $module)
     {

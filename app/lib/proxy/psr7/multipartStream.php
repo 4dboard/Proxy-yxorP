@@ -7,7 +7,7 @@ class multipartStream implements streamInterface
 {
     use aStreamDecoratorTrait;
 
-    private $boundary;
+    private mixed $boundary;
 
     public function __construct(array $elements = [], $boundary = null)
     {

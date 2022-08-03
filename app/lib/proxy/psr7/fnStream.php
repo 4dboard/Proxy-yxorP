@@ -25,7 +25,7 @@ use yxorP\app\lib\psr\http\message\streamInterface;
  */
 class fnStream implements streamInterface
 {
-    private static $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
+    private static array $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
 
     public function __construct(array $methods)
     {
@@ -100,7 +100,7 @@ class fnStream implements streamInterface
         call_user_func($this->_fn_rewind);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         call_user_func($this->_fn_seek, $offset, $whence);
     }
@@ -110,7 +110,7 @@ class fnStream implements streamInterface
         return call_user_func($this->_fn_isWritable);
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         return call_user_func($this->_fn_write, $string);
     }
@@ -120,7 +120,7 @@ class fnStream implements streamInterface
         return call_user_func($this->_fn_isReadable);
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         return call_user_func($this->_fn_read, $length);
     }

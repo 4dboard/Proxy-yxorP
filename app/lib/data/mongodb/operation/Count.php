@@ -44,16 +44,16 @@ use function is_string;
 class Count implements ExecutableInterface, ExplainableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a count command.

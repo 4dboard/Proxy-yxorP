@@ -14,7 +14,7 @@ class AdditionalProperties extends Schema
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Schema::class,
         Property::class,
         Items::class,
@@ -26,7 +26,7 @@ class AdditionalProperties extends Schema
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Discriminator::class => 'discriminator',
         Items::class => 'items',
         Property::class => ['properties', 'property'],

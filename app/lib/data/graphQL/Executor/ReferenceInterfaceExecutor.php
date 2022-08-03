@@ -56,13 +56,13 @@ use function sprintf;
 class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
 {
     /** @var object */
-    protected static $UNDEFINED;
+    protected static object $UNDEFINED;
 
     /** @var ExecutionContext */
-    protected $exeContext;
+    protected ExecutionContext $exeContext;
 
     /** @var SplObjectStorage */
-    protected $subFieldCache;
+    protected SplObjectStorage $subFieldCache;
 
     protected function __construct(ExecutionContext $context)
     {
@@ -103,7 +103,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         if (is_array($exeContext)) {
             return new class($promiseAdapter->createFulfilled(new ExecutionResult(null, $exeContext))) implements ExecutorImplementationInterface {
                 /** @var Promise */
-                private $result;
+                private Promise $result;
 
                 public function __construct(Promise $result)
                 {

@@ -5,7 +5,7 @@ namespace yxorP\app\lib\twoFactor\Providers\Rng;
 class HashRNGProvider implements IRNGProviderInterface
 {
     /** @var string */
-    private $algorithm;
+    private mixed $algorithm;
 
     /**
      * @param string $algorithm

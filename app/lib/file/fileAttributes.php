@@ -8,13 +8,13 @@ class fileAttributes implements storageAttributesInterface
 {
     use proxyArrayAccessToPropertiesTrait;
 
-    private $type = storageAttributesInterface::TYPE_FILE;
-    private $path;
-    private $fileSize;
-    private $visibility;
-    private $lastModified;
-    private $mimeType;
-    private $extraMetadata;
+    private string $type = storageAttributesInterface::TYPE_FILE;
+    private string $path;
+    private ?int $fileSize;
+    private ?string $visibility;
+    private ?int $lastModified;
+    private ?string $mimeType;
+    private array $extraMetadata;
 
     public function __construct(string $path, ?int $fileSize = null, ?string $visibility = null, ?int $lastModified = null, ?string $mimeType = null, array $extraMetadata = [])
     {

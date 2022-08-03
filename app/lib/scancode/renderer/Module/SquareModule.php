@@ -15,7 +15,7 @@ final class SquareModule implements ModuleInterface
     /**
      * @var self|null
      */
-    private static $instance;
+    private static ?SquareModule $instance;
 
     private function __construct()
     {

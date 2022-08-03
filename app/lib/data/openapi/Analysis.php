@@ -26,12 +26,12 @@ use yxorP\app\lib\openapi\processors\operationId;
 class Analysis
 {
     private static $processors;
-    public $annotations;
-    public $classes = [];
-    public $traits = [];
-    public $interfaces = [];
+    public SplObjectStorage $annotations;
+    public array $classes = [];
+    public array $traits = [];
+    public array $interfaces = [];
     public $openapi;
-    public $context;
+    public ?Context $context;
 
     public function __construct(array $annotations = [], Context $context = null)
     {

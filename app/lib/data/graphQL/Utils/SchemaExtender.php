@@ -45,13 +45,13 @@ class SchemaExtender
     const SCHEMA_EXTENSION = 'SchemaExtension';
 
     /** @var Type[] */
-    protected static $extendTypeCache;
+    protected static array $extendTypeCache;
 
     /** @var array */
-    protected static $typeExtensionsMap;
+    protected static array $typeExtensionsMap;
 
     /** @var ASTDefinitionBuilder */
-    protected static $astBuilder;
+    protected static ASTDefinitionBuilder $astBuilder;
 
     /**
      * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema

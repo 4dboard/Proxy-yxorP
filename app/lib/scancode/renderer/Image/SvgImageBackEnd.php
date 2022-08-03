@@ -30,22 +30,22 @@ final class SvgImageBackEnd implements ImageBackEndInterface
     /**
      * @var XMLWriter|null
      */
-    private $xmlWriter;
+    private ?XMLWriter $xmlWriter;
 
     /**
      * @var int[]|null
      */
-    private $stack;
+    private ?array $stack;
 
     /**
      * @var int|null
      */
-    private $currentStack;
+    private ?int $currentStack;
 
     /**
      * @var int|null
      */
-    private $gradientCount;
+    private ?int $gradientCount;
 
     public function __construct()
     {

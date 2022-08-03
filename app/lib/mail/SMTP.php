@@ -14,18 +14,18 @@ class SMTP
     const DEBUG_SERVER = 2;
     const DEBUG_CONNECTION = 3;
     const DEBUG_LOWLEVEL = 4;
-    public $do_debug = self::DEBUG_OFF;
-    public $Debugoutput = 'echo';
-    public $do_verp = false;
-    public $Timeout = 300;
-    public $Timelimit = 300;
-    protected $smtp_transaction_id_patterns = ['exim' => '/[\d]{3} OK id=(.*)/', 'sendmail' => '/[\d]{3} 2.0.0 (.*) Message/', 'postfix' => '/[\d]{3} 2.0.0 Ok: queued as (.*)/', 'Microsoft_ESMTP' => '/[0-9]{3} 2.[\d].0 (.*)@(?:.*) Queued mail for delivery/', 'Amazon_SES' => '/[\d]{3} Ok (.*)/', 'SendGrid' => '/[\d]{3} Ok: queued as (.*)/', 'CampaignMonitor' => '/[\d]{3} 2.0.0 OK:([a-zA-Z\d]{48})/', 'Haraka' => '/[\d]{3} Message Queued \((.*)\)/', 'Mailjet' => '/[\d]{3} OK queued as (.*)/',];
+    public int $do_debug = self::DEBUG_OFF;
+    public string $Debugoutput = 'echo';
+    public bool $do_verp = false;
+    public int $Timeout = 300;
+    public int $Timelimit = 300;
+    protected array $smtp_transaction_id_patterns = ['exim' => '/[\d]{3} OK id=(.*)/', 'sendmail' => '/[\d]{3} 2.0.0 (.*) Message/', 'postfix' => '/[\d]{3} 2.0.0 Ok: queued as (.*)/', 'Microsoft_ESMTP' => '/[0-9]{3} 2.[\d].0 (.*)@(?:.*) Queued mail for delivery/', 'Amazon_SES' => '/[\d]{3} Ok (.*)/', 'SendGrid' => '/[\d]{3} Ok: queued as (.*)/', 'CampaignMonitor' => '/[\d]{3} 2.0.0 OK:([a-zA-Z\d]{48})/', 'Haraka' => '/[\d]{3} Message Queued \((.*)\)/', 'Mailjet' => '/[\d]{3} OK queued as (.*)/',];
     protected $last_smtp_transaction_id;
     protected $smtp_conn;
-    protected $error = ['error' => '', 'detail' => '', 'smtp_code' => '', 'smtp_code_ex' => '',];
+    protected array $error = ['error' => '', 'detail' => '', 'smtp_code' => '', 'smtp_code_ex' => '',];
     protected $helo_rply;
     protected $server_caps;
-    protected $last_reply = '';
+    protected string $last_reply = '';
 
     public function connect($host, $port = null, $timeout = 30, $options = [])
     {

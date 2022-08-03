@@ -13,7 +13,7 @@ final class SimpleCircleEye implements EyeInterface
     /**
      * @var self|null
      */
-    private static $instance;
+    private static ?SimpleCircleEye $instance;
 
     private function __construct()
     {

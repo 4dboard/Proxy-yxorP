@@ -9,8 +9,8 @@ use yxorP\app\lib\http\app;
 class flush
 {
 
-    protected static $defaultName = 'app:cache:flush';
-    protected $app = null;
+    protected static string $defaultName = 'app:cache:flush';
+    protected ?app $app = null;
 
     public function __construct(App $app)
     {

@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class NamedTypeNode extends Node implements TypeNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::NAMED_TYPE;
+    public string $kind = NodeKind::NAMED_TYPE;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 }

@@ -5,11 +5,11 @@ use yxorP\app\lib\psr\http\message\responseInterface;
 
 final class transferStats
 {
-    private $request;
-    private $response;
-    private $transferTime;
-    private $handlerStats;
-    private $handlerErrorData;
+    private requestInterface $request;
+    private ?responseInterface $response;
+    private mixed $transferTime;
+    private array $handlerStats;
+    private mixed $handlerErrorData;
 
     public function __construct(requestInterface $request, responseInterface $response = null, $transferTime = null, $handlerErrorData = null, $handlerStats = [])
     {

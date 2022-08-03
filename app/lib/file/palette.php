@@ -7,7 +7,7 @@ use IteratorAggregate;
 
 class palette implements Countable, IteratorAggregate
 {
-    protected $colors;
+    protected array $colors;
 
     protected function __construct()
     {

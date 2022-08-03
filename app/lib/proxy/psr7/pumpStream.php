@@ -7,10 +7,10 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 class pumpStream implements streamInterface
 {
     private $source;
-    private $size;
-    private $tellPos = 0;
-    private $metadata;
-    private $buffer;
+    private mixed $size;
+    private int $tellPos = 0;
+    private mixed $metadata;
+    private bufferStream $buffer;
 
     public function __construct(callable $source, array $options = [])
     {
@@ -60,7 +60,7 @@ class pumpStream implements streamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         throw new RuntimeException('Cannot seek a PumpStream');
     }
@@ -70,7 +70,7 @@ class pumpStream implements streamInterface
         return false;
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         throw new RuntimeException('Cannot write to a PumpStream');
     }
@@ -94,7 +94,7 @@ class pumpStream implements streamInterface
         return !$this->source;
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         $data = $this->buffer->read($length);
         $readLen = strlen($data);

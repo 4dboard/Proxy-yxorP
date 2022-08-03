@@ -66,7 +66,7 @@ use const PHP_URL_PATH;
  */
 class app implements ArrayAccess
 {
-    protected static $apps = [];
+    protected static array $apps = [];
     public ?response $response = null;
     public ?request $request = null;
     public ArrayObject $helpers;

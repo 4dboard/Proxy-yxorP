@@ -27,7 +27,7 @@ class ExecutionResult implements JsonSerializable
      * @api
      * @var array
      */
-    public $data;
+    public ?array $data;
 
     /**
      * Errors registered during query execution.
@@ -38,7 +38,7 @@ class ExecutionResult implements JsonSerializable
      * @api
      * @var Error[]
      */
-    public $errors;
+    public array $errors;
 
     /**
      * User-defined serializable array of extensions included in serialized result.
@@ -47,7 +47,7 @@ class ExecutionResult implements JsonSerializable
      * @api
      * @var array
      */
-    public $extensions;
+    public array $extensions;
 
     /** @var callable */
     private $errorFormatter;

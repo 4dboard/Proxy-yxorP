@@ -8,9 +8,9 @@ use function call_user_func;
 class mapReduceResult implements IteratorAggregate
 {
     private $getIterator;
-    private $executionTimeMS;
-    private $counts;
-    private $timing;
+    private int $executionTimeMS;
+    private array $counts;
+    private array $timing;
 
     public function __construct(callable $getIterator, stdClass $result)
     {

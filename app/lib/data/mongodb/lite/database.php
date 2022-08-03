@@ -158,7 +158,7 @@ class Database
 
 class UtilArrayQuery
 {
-    protected static $closures = [];
+    protected static array $closures = [];
 
     public static function closureCall(string $uid, mixed $doc)
     {

@@ -18,7 +18,7 @@ class Server extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         OpenApi::class,
         PathItem::class,
         Operation::class,
@@ -35,18 +35,18 @@ class Server extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         ServerVariable::class => ['variables', 'serverVariable'],
         Attachable::class => ['attachables'],
     ];
     /**
      * @inheritdoc
      */
-    public static $_required = ['url'];
+    public static array $_required = ['url'];
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'url' => 'string',
         'description' => 'string',
     ];
@@ -57,19 +57,19 @@ class Server extends AbstractAnnotation
      *
      * @var string
      */
-    public $url = Generator::UNDEFINED;
+    public string $url = Generator::UNDEFINED;
     /**
      * An optional string describing the host designated by the URL.
      * CommonMark syntax may be used for rich text representation.
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * A map between a variable name and its value.
      * The value is used for substitution in the server's URL template.
      *
      * @var array
      */
-    public $variables = Generator::UNDEFINED;
+    public string|array $variables = Generator::UNDEFINED;
 }

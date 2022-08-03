@@ -10,7 +10,7 @@ namespace yxorP\app\modules\app\controller;
 class app extends authenticated
 {
 
-    protected $layout = 'app:layouts/app.php';
+    protected bool $layout = 'app:layouts/app.php';
 
     protected function render(string $view, array $params = []): mixed
     {

@@ -19,7 +19,7 @@ class Contact extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'name' => 'string',
         'url' => 'string',
         'email' => 'string',
@@ -27,13 +27,13 @@ class Contact extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Info::class,
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -41,17 +41,17 @@ class Contact extends AbstractAnnotation
      *
      * @var string
      */
-    public $name = Generator::UNDEFINED;
+    public string $name = Generator::UNDEFINED;
     /**
      * The URL pointing to the contact information.
      *
      * @var string
      */
-    public $url = Generator::UNDEFINED;
+    public string $url = Generator::UNDEFINED;
     /**
      * The email address of the contact person/organization.
      *
      * @var string
      */
-    public $email = Generator::UNDEFINED;
+    public string $email = Generator::UNDEFINED;
 }

@@ -53,22 +53,22 @@ use function sprintf;
 class Aggregate implements ExecutableInterface, ExplainableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string|null */
-    private $collectionName;
+    private ?string $collectionName;
 
     /** @var array */
-    private $pipeline;
+    private array $pipeline;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /** @var bool */
-    private $isExplain;
+    private bool $isExplain;
 
     /** @var bool */
-    private $isWrite;
+    private bool $isWrite;
 
     /**
      * Constructs an aggregate command.

@@ -27,7 +27,7 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
      * @var Node[]
      * @phpstan-var array<T>
      */
-    private $nodes;
+    private array $nodes;
 
     /**
      * @param Node[] $nodes

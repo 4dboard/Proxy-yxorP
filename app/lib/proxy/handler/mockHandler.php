@@ -18,7 +18,7 @@ use function yxorP\app\lib\proxy\promise\rejection_for;
 
 class mockHandler implements Countable
 {
-    private $queue = [];
+    private array $queue = [];
     private $lastRequest;
     private $lastOptions;
     private $onFulfilled;

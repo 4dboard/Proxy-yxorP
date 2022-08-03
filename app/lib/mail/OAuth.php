@@ -6,12 +6,12 @@ use yxorP\app\lib\file\OAuth2\Client\Token\AccessToken;
 
 class OAuth implements OAuthTokenProviderInterface
 {
-    protected $provider;
+    protected mixed $provider;
     protected $oauthToken;
-    protected $oauthUserEmail = '';
-    protected $oauthClientSecret = '';
-    protected $oauthClientId = '';
-    protected $oauthRefreshToken = '';
+    protected mixed $oauthUserEmail = '';
+    protected mixed $oauthClientSecret = '';
+    protected mixed $oauthClientId = '';
+    protected mixed $oauthRefreshToken = '';
 
     public function __construct($options)
     {

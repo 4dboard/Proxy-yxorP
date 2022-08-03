@@ -5,7 +5,7 @@ use yxorP\app\lib\http\mongoDB\Exception\BadMethodCallException;
 
 class insertOneResult
 {
-    private $writeResult;
+    private WriteResult $writeResult;
     private $insertedId;
     private $isAcknowledged;
 

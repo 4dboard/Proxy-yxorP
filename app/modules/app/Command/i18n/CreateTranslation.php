@@ -14,8 +14,8 @@ use yxorP\app\modules\app\helper\i18n;
 class createTranslation extends Command
 {
 
-    protected static $defaultName = 'app:i18n:create';
-    protected $app = null;
+    protected static string $defaultName = 'app:i18n:create';
+    protected ?yxorP\app\lib\http\app $app = null;
 
     public function __construct(yxorP\app\lib\http\app $app)
     {

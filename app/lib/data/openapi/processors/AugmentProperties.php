@@ -20,7 +20,7 @@ use yxorP\app\lib\openapi\Util;
  */
 class AugmentProperties
 {
-    public static $types = [
+    public static array $types = [
         'array' => 'array',
         'byte' => ['string', 'byte'],
         'boolean' => 'boolean',

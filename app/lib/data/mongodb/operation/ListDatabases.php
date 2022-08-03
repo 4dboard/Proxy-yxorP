@@ -36,7 +36,7 @@ use yxorP\app\lib\http\mongoDB\Model\DatabaseInfoLegacyIterator;
 class ListDatabases implements ExecutableInterface
 {
     /** @var ListDatabasesCommand */
-    private $listDatabases;
+    private ListDatabasesCommand $listDatabases;
 
     /**
      * Constructs a listDatabases command.

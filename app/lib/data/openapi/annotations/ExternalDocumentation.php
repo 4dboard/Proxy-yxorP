@@ -19,18 +19,18 @@ class ExternalDocumentation extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'description' => 'string',
         'url' => 'string',
     ];
     /**
      * @inheritdoc
      */
-    public static $_required = ['url'];
+    public static array $_required = ['url'];
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         OpenApi::class,
         Tag::class,
         Schema::class,
@@ -52,7 +52,7 @@ class ExternalDocumentation extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Attachable::class => ['attachables'],
     ];
     /**
@@ -60,11 +60,11 @@ class ExternalDocumentation extends AbstractAnnotation
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * The URL for the target documentation.
      *
      * @var string
      */
-    public $url = Generator::UNDEFINED;
+    public string $url = Generator::UNDEFINED;
 }

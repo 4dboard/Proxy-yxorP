@@ -11,7 +11,7 @@ namespace yxorP\app\lib\data\graphQL\Utils;
 class PairSet
 {
     /** @var bool[][] */
-    private $data;
+    private array $data;
 
     public function __construct()
     {

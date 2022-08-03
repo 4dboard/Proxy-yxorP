@@ -10,12 +10,12 @@ final class Alpha implements ColorInterface
     /**
      * @var int
      */
-    private $alpha;
+    private int $alpha;
 
     /**
      * @var ColorInterface
      */
-    private $baseColor;
+    private ColorInterface $baseColor;
 
     /**
      * @param int $alpha the alpha value, 0 to 100

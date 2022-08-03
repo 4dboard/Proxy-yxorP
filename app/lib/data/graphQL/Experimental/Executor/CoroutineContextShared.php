@@ -16,37 +16,37 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ResolveInfo;
 class CoroutineContextShared
 {
     /** @var FieldNode[] */
-    public $fieldNodes;
+    public array $fieldNodes;
 
     /** @var string */
-    public $fieldName;
+    public string $fieldName;
 
     /** @var string */
-    public $resultName;
+    public string $resultName;
 
     /** @var ValueNodeInterface[]|null */
-    public $argumentValueMap;
+    public ?array $argumentValueMap;
 
     /** @var SelectionSetNode|null */
-    public $mergedSelectionSet;
+    public ?SelectionSetNode $mergedSelectionSet;
 
     /** @var ObjectType|null */
-    public $typeGuard1;
+    public ?ObjectType $typeGuard1;
 
     /** @var callable|null */
     public $resolveIfType1;
 
     /** @var mixed */
-    public $argumentsIfType1;
+    public mixed $argumentsIfType1;
 
     /** @var ResolveInfo|null */
-    public $resolveInfoIfType1;
+    public ?ResolveInfo $resolveInfoIfType1;
 
     /** @var ObjectType|null */
-    public $typeGuard2;
+    public ?ObjectType $typeGuard2;
 
     /** @var CoroutineContext[]|null */
-    public $childContextsIfType2;
+    public ?array $childContextsIfType2;
 
     /**
      * @param FieldNode[] $fieldNodes

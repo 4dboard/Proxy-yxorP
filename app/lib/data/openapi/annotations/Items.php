@@ -15,7 +15,7 @@ class Items extends Schema
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Discriminator::class => 'discriminator',
         Items::class => 'items',
         Property::class => ['properties', 'property'],
@@ -28,7 +28,7 @@ class Items extends Schema
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         Property::class,
         AdditionalProperties::class,
         Schema::class,

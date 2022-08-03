@@ -33,7 +33,7 @@ use yxorP\app\lib\http\mongoDB\Exception\UnsupportedException;
 class DeleteOne implements ExecutableInterface, ExplainableInterface
 {
     /** @var Delete */
-    private $delete;
+    private Delete $delete;
 
     /**
      * Constructs a delete command.

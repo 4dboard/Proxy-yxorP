@@ -33,7 +33,7 @@ use yxorP\app\lib\http\mongoDB\Model\CallbackIterator;
 class ListCollectionNames implements ExecutableInterface
 {
     /** @var ListCollectionsCommand */
-    private $listCollections;
+    private ListCollectionsCommand $listCollections;
 
     /**
      * Constructs a listCollections command.

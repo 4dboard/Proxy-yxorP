@@ -71,14 +71,14 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      *
      * @var array<int, InterfaceType>
      */
-    private $interfaces;
+    private array $interfaces;
 
     /**
      * Lazily initialized.
      *
      * @var array<string, InterfaceType>
      */
-    private $interfaceMap;
+    private array $interfaceMap;
 
     /**
      * @param array $config

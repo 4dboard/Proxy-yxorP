@@ -14,31 +14,31 @@ final class Fill
     /**
      * @var self|null
      */
-    private static $default;
+    private static ?Fill $default;
     /**
      * @var ColorInterface
      */
-    private $backgroundColor;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|ColorInterface $backgroundColor;
     /**
      * @var ColorInterface|null
      */
-    private $foregroundColor;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|null|ColorInterface $foregroundColor;
     /**
      * @var Gradient|null
      */
-    private $foregroundGradient;
+    private ?Gradient $foregroundGradient;
     /**
      * @var EyeFill
      */
-    private $topLeftEyeFill;
+    private EyeFill $topLeftEyeFill;
     /**
      * @var EyeFill
      */
-    private $topRightEyeFill;
+    private EyeFill $topRightEyeFill;
     /**
      * @var EyeFill
      */
-    private $bottomLeftEyeFill;
+    private EyeFill $bottomLeftEyeFill;
 
     private function __construct(
         ColorInterface  $backgroundColor,

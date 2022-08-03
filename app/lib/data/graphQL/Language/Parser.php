@@ -137,7 +137,7 @@ use function sprintf;
 class Parser
 {
     /** @var Lexer */
-    private $lexer;
+    private Lexer $lexer;
 
     /**
      * @param string|Source $source

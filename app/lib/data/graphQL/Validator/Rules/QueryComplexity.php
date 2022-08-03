@@ -29,22 +29,22 @@ use function sprintf;
 class QueryComplexity extends QuerySecurityRule
 {
     /** @var int */
-    private $maxQueryComplexity;
+    private int $maxQueryComplexity;
 
     /** @var array|null */
-    private $rawVariableValues = [];
+    private ?array $rawVariableValues = [];
 
     /** @var ArrayObject */
-    private $variableDefs;
+    private ArrayObject $variableDefs;
 
     /** @var ArrayObject */
-    private $fieldNodeAndDefs;
+    private ArrayObject $fieldNodeAndDefs;
 
     /** @var ValidationContext */
-    private $context;
+    private ValidationContext $context;
 
     /** @var int */
-    private $complexity;
+    private int $complexity;
 
     public function __construct($maxQueryComplexity)
     {

@@ -20,12 +20,12 @@ use yxorP\app\lib\psr\http\message\requestInterface;
  */
 class curlMultiHandler
 {
-    private $factory;
-    private $selectTimeout;
+    private mixed $factory;
+    private mixed $selectTimeout;
     private $active;
-    private $handles = [];
-    private $delays = [];
-    private $options = [];
+    private array $handles = [];
+    private array $delays = [];
+    private mixed $options = [];
 
     #[Pure] public function __construct(array $options = [])
     {

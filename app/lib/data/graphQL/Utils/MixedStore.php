@@ -28,43 +28,43 @@ use function is_string;
 class MixedStore implements ArrayAccess
 {
     /** @var EnumValueDefinition[] */
-    private $standardStore;
+    private array $standardStore;
 
     /** @var array */
-    private $floatStore;
+    private array $floatStore;
 
     /** @var SplObjectStorage */
-    private $objectStore;
+    private SplObjectStorage $objectStore;
 
     /** @var callable[] */
-    private $arrayKeys;
+    private array $arrayKeys;
 
     /** @var EnumValueDefinition[] */
-    private $arrayValues;
+    private array $arrayValues;
 
     /** @var callable[] */
-    private $lastArrayKey;
+    private array $lastArrayKey;
 
     /** @var mixed */
-    private $lastArrayValue;
+    private mixed $lastArrayValue;
 
     /** @var mixed */
-    private $nullValue;
+    private mixed $nullValue;
 
     /** @var bool */
-    private $nullValueIsSet;
+    private bool $nullValueIsSet;
 
     /** @var mixed */
-    private $trueValue;
+    private mixed $trueValue;
 
     /** @var bool */
-    private $trueValueIsSet;
+    private bool $trueValueIsSet;
 
     /** @var mixed */
-    private $falseValue;
+    private mixed $falseValue;
 
     /** @var bool */
-    private $falseValueIsSet;
+    private bool $falseValueIsSet;
 
     #[Pure] public function __construct()
     {

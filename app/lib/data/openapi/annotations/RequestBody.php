@@ -20,12 +20,12 @@ class RequestBody extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_types = [
+    public static array $_types = [
         'description' => 'string',
         'required' => 'boolean',
         'request' => 'string',
     ];
-    public static $_parents = [
+    public static array $_parents = [
         Components::class,
         Delete::class,
         Get::class,
@@ -40,17 +40,17 @@ class RequestBody extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         MediaType::class => ['content', 'mediaType'],
         Attachable::class => ['attachables'],
     ];
-    public $ref = Generator::UNDEFINED;
+    public string $ref = Generator::UNDEFINED;
     /**
      * Request body model name.
      *
      * @var string
      */
-    public $request = Generator::UNDEFINED;
+    public string $request = Generator::UNDEFINED;
     /**
      * A brief description of the parameter.
      * This could contain examples of use.
@@ -58,7 +58,7 @@ class RequestBody extends AbstractAnnotation
      *
      * @var string
      */
-    public $description = Generator::UNDEFINED;
+    public string $description = Generator::UNDEFINED;
     /**
      * Determines whether this parameter is mandatory.
      * If the parameter location is "path", this property is required and its value must be true.
@@ -66,7 +66,7 @@ class RequestBody extends AbstractAnnotation
      *
      * @var bool
      */
-    public $required = Generator::UNDEFINED;
+    public string|bool $required = Generator::UNDEFINED;
     /**
      * The content of the request body.
      * The key is a media type or media type range and the value describes it. For requests that match multiple keys,
@@ -74,5 +74,5 @@ class RequestBody extends AbstractAnnotation
      *
      * @var MediaType[]
      */
-    public $content = Generator::UNDEFINED;
+    public string|array $content = Generator::UNDEFINED;
 }

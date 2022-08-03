@@ -8,7 +8,7 @@ use yxorP\app\lib\openapi\annotations as OA;
 
 class Serializer
 {
-    private static $VALID_ANNOTATIONS = [OA\AdditionalProperties::class, OA\Attachable::class, OA\Components::class, OA\Contact::class, OA\Delete::class, OA\Discriminator::class, OA\Examples::class, OA\ExternalDocumentation::class, OA\Flow::class, OA\Get::class, OA\Head::class, OA\Header::class, OA\Info::class, OA\Items::class, OA\JsonContent::class, OA\License::class, OA\Link::class, OA\MediaType::class, OA\OpenApi::class, OA\Operation::class, OA\Options::class, OA\Parameter::class, OA\Patch::class, OA\PathItem::class, OA\Post::class, OA\Property::class, OA\Put::class, OA\RequestBody::class, OA\Response::class, OA\Schema::class, OA\SecurityScheme::class, OA\Server::class, OA\ServerVariable::class, OA\Tag::class, OA\Trace::class, OA\Xml::class, OA\XmlContent::class,];
+    private static array $VALID_ANNOTATIONS = [OA\AdditionalProperties::class, OA\Attachable::class, OA\Components::class, OA\Contact::class, OA\Delete::class, OA\Discriminator::class, OA\Examples::class, OA\ExternalDocumentation::class, OA\Flow::class, OA\Get::class, OA\Head::class, OA\Header::class, OA\Info::class, OA\Items::class, OA\JsonContent::class, OA\License::class, OA\Link::class, OA\MediaType::class, OA\OpenApi::class, OA\Operation::class, OA\Options::class, OA\Parameter::class, OA\Patch::class, OA\PathItem::class, OA\Post::class, OA\Property::class, OA\Put::class, OA\RequestBody::class, OA\Response::class, OA\Schema::class, OA\SecurityScheme::class, OA\Server::class, OA\ServerVariable::class, OA\Tag::class, OA\Trace::class, OA\Xml::class, OA\XmlContent::class,];
 
     public function serialize(OA\AbstractAnnotation $annotation)
     {

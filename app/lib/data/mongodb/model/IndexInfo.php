@@ -41,7 +41,7 @@ use function array_search;
 class IndexInfo implements ArrayAccess
 {
     /** @var array */
-    private $info;
+    private array $info;
 
     /**
      * @param array $info Index info

@@ -6,8 +6,8 @@ use Exception;
 
 class Logger
 {
-    public static $instance;
-    public $log;
+    public static Logger $instance;
+    public \Closure $log;
 
     protected function __construct()
     {

@@ -38,7 +38,7 @@ trait loggerTrait
      *
      * @throws invalidArgumentException
      */
-    abstract public function log($level, string|Stringable $message, array $context = []): void;
+    abstract public function log(mixed $level, string|Stringable $message, array $context = []): void;
 
     /**
      * Action must be taken immediately.

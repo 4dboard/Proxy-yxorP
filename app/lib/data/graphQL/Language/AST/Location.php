@@ -18,35 +18,35 @@ class Location
      *
      * @var int
      */
-    public $start;
+    public int $start;
 
     /**
      * The character offset at which this Node ends.
      *
      * @var int
      */
-    public $end;
+    public int $end;
 
     /**
      * The Token at which this Node begins.
      *
      * @var Token|null
      */
-    public $startToken;
+    public ?Token $startToken;
 
     /**
      * The Token at which this Node ends.
      *
      * @var Token|null
      */
-    public $endToken;
+    public ?Token $endToken;
 
     /**
      * The Source document the AST represents.
      *
      * @var Source|null
      */
-    public $source;
+    public ?Source $source;
 
     public function __construct(?Token $startToken = null, ?Token $endToken = null, ?Source $source = null)
     {

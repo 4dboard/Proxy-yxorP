@@ -7,20 +7,20 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class DirectiveDefinitionNode extends Node implements TypeSystemDefinitionNode
 {
     /** @var string */
-    public $kind = NodeKind::DIRECTIVE_DEFINITION;
+    public string $kind = NodeKind::DIRECTIVE_DEFINITION;
 
     /** @var NameNode */
     public $name;
 
     /** @var StringValueNode|null */
-    public $description;
+    public ?StringValueNode $description;
 
     /** @var NodeList<InputValueDefinitionNode> */
-    public $arguments;
+    public NodeList $arguments;
 
     /** @var bool */
-    public $repeatable;
+    public bool $repeatable;
 
     /** @var NodeList<NameNode> */
-    public $locations;
+    public NodeList $locations;
 }

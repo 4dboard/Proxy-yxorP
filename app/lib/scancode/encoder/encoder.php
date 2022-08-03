@@ -43,7 +43,7 @@ final class encoder
      *
      * @var array
      */
-    private static $codecs = [];
+    private static array $codecs = [];
 
     /**
      * Encodes "content" with the error correction level "ecLevel".

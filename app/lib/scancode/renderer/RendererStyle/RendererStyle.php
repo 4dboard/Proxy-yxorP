@@ -15,27 +15,27 @@ final class RendererStyle
     /**
      * @var int
      */
-    private $size;
+    private int $size;
 
     /**
      * @var int
      */
-    private $margin;
+    private int $margin;
 
     /**
      * @var ModuleInterface
      */
-    private $module;
+    private \yxorP\app\lib\scancode\Renderer\RendererStyle\ModuleInterface|ModuleInterface $module;
 
     /**
      * @var EyeInterface|null
      */
-    private $eye;
+    private EyeInterface|ModuleEye|null $eye;
 
     /**
      * @var Fill
      */
-    private $fill;
+    private Fill $fill;
 
     public function __construct(
         int              $size,

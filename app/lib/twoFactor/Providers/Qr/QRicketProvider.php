@@ -6,16 +6,16 @@ namespace yxorP\app\lib\twoFactor\Providers\Qr;
 class QRicketProvider extends BaseHTTPQRCodeProvider
 {
     /** @var string */
-    public $errorcorrectionlevel;
+    public string $errorcorrectionlevel;
 
     /** @var string */
-    public $bgcolor;
+    public string $bgcolor;
 
     /** @var string */
-    public $color;
+    public string $color;
 
     /** @var string */
-    public $format;
+    public string $format;
 
     /**
      * @param string $errorcorrectionlevel

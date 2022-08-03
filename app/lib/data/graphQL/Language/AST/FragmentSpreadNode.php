@@ -7,11 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class FragmentSpreadNode extends Node implements SelectionNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::FRAGMENT_SPREAD;
+    public string $kind = NodeKind::FRAGMENT_SPREAD;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<DirectiveNode> */
-    public $directives;
+    public NodeList $directives;
 }

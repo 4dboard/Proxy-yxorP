@@ -28,12 +28,12 @@ use function var_export;
 
 class fileCacheReader implements readerInterface
 {
-    private $reader;
-    private $dir;
-    private $debug;
-    private $loadedAnnotations = [];
-    private $classNameHashes = [];
-    private $umask;
+    private readerInterface $reader;
+    private string $dir;
+    private mixed $debug;
+    private array $loadedAnnotations = [];
+    private array $classNameHashes = [];
+    private int $umask;
 
     public function __construct(readerInterface $reader, $cacheDir, $debug = false, $umask = 0002)
     {

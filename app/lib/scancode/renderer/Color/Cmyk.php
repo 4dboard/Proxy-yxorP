@@ -10,22 +10,22 @@ final class Cmyk implements ColorInterface
     /**
      * @var int
      */
-    private $cyan;
+    private int $cyan;
 
     /**
      * @var int
      */
-    private $magenta;
+    private int $magenta;
 
     /**
      * @var int
      */
-    private $yellow;
+    private int $yellow;
 
     /**
      * @var int
      */
-    private $black;
+    private int $black;
 
     /**
      * @param int $cyan the cyan amount, 0 to 100

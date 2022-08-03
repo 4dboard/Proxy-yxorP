@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class DocumentNode extends Node
 {
     /** @var string */
-    public $kind = NodeKind::DOCUMENT;
+    public string $kind = NodeKind::DOCUMENT;
 
     /** @var NodeList<DefinitionNode&Node> */
-    public $definitions;
+    public NodeList $definitions;
 }

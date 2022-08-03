@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class NonNullTypeNode extends Node implements TypeNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::NON_NULL_TYPE;
+    public string $kind = NodeKind::NON_NULL_TYPE;
 
     /** @var NamedTypeNode|ListTypeNode */
-    public $type;
+    public NamedTypeNode|ListTypeNode $type;
 }

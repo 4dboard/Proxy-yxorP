@@ -8,7 +8,7 @@ final class Close implements OperationInterface
     /**
      * @var self|null
      */
-    private static $instance;
+    private static ?Close $instance;
 
     private function __construct()
     {

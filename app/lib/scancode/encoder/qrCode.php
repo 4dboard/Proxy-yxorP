@@ -23,35 +23,35 @@ final class qrCode
      *
      * @var Mode
      */
-    private $mode;
+    private \yxorP\app\lib\scancode\Encoder\Mode|mode $mode;
 
     /**
      * EC level of the QR code.
      *
      * @var ErrorCorrectionLevel
      */
-    private $errorCorrectionLevel;
+    private ErrorCorrectionLevel $errorCorrectionLevel;
 
     /**
      * Version of the QR code.
      *
      * @var Version
      */
-    private $version;
+    private Version $version;
 
     /**
      * Mask pattern of the QR code.
      *
      * @var int
      */
-    private $maskPattern = -1;
+    private int $maskPattern = -1;
 
     /**
      * Matrix of the QR code.
      *
      * @var byteMatrix
      */
-    private $matrix;
+    private byteMatrix $matrix;
 
     public function __construct(
         Mode                 $mode,

@@ -29,7 +29,7 @@ class LogChannel
 {
 
     protected $app;
-    protected $name;
+    protected string $name;
 
     public function __construct(string $name, $app)
     {

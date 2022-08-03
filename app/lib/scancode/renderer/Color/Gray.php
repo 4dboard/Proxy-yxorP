@@ -10,7 +10,7 @@ final class Gray implements ColorInterface
     /**
      * @var int
      */
-    private $gray;
+    private int $gray;
 
     /**
      * @param int $gray the gray value between 0 (black) and 100 (white)

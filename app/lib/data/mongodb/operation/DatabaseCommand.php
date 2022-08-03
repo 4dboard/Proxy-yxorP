@@ -36,13 +36,13 @@ use function is_object;
 class DatabaseCommand implements ExecutableInterface
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var array|Command|object */
-    private $command;
+    private command|array|object $command;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a command.
