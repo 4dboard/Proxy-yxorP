@@ -25,7 +25,7 @@ class bitMatrix
     /**
      * Height of the bit matrix.
      *
-     * @var int
+     * @var int|null
      */
     private ?int $height;
 

@@ -22,7 +22,7 @@ final class qrCode
     /**
      * Mode of the QR code.
      *
-     * @var Mode
+     * @var \yxorP\app\lib\scancode\Encoder\Mode
      */
     private \yxorP\app\lib\scancode\Encoder\Mode|mode $mode;
 

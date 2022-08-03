@@ -191,7 +191,7 @@ class app implements ArrayAccess
         return $url;
     }
 
-    public function path(): mixed|\static
+    public function path(): mixed
     {
         $args = func_get_args();
         switch (count($args)) {

@@ -66,49 +66,49 @@ class PathItem extends AbstractAnnotation
     /**
      * A definition of a GET operation on this path.
      *
-     * @var Get
+     * @var string|Get
      */
     public string|Get $get = Generator::UNDEFINED;
     /**
      * A definition of a PUT operation on this path.
      *
-     * @var Put
+     * @var string|Put
      */
     public string|Put $put = Generator::UNDEFINED;
     /**
      * A definition of a POST operation on this path.
      *
-     * @var Post
+     * @var string|Post
      */
     public string|Post $post = Generator::UNDEFINED;
     /**
      * A definition of a DELETE operation on this path.
      *
-     * @var Delete
+     * @var string|Delete
      */
     public string|Delete $delete = Generator::UNDEFINED;
     /**
      * A definition of a OPTIONS operation on this path.
      *
-     * @var Options
+     * @var string|Options
      */
     public string|Options $options = Generator::UNDEFINED;
     /**
      * A definition of a HEAD operation on this path.
      *
-     * @var Head
+     * @var string|Head
      */
     public string|Head $head = Generator::UNDEFINED;
     /**
      * A definition of a PATCH operation on this path.
      *
-     * @var Patch
+     * @var string|Patch
      */
     public string|Patch $patch = Generator::UNDEFINED;
     /**
      * A definition of a TRACE operation on this path.
      *
-     * @var Trace
+     * @var string|Trace
      */
     public string|Trace $trace = Generator::UNDEFINED;
     /**

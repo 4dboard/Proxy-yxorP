@@ -73,40 +73,40 @@ class Watch implements ExecutableInterface, /* @internal */
     public const FULL_DOCUMENT_UPDATE_LOOKUP = 'updateLookup';
 
     /** @var integer */
-    private static $wireVersionForStartAtOperationTime = 7;
+    private static int $wireVersionForStartAtOperationTime = 7;
 
     /** @var Aggregate */
-    private $aggregate;
+    private Aggregate $aggregate;
 
     /** @var array */
-    private $aggregateOptions;
+    private array $aggregateOptions;
 
     /** @var array */
-    private $changeStreamOptions;
+    private array $changeStreamOptions;
 
     /** @var string|null */
-    private $collectionName;
+    private ?string $collectionName;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var integer|null */
-    private $firstBatchSize;
+    private ?int $firstBatchSize;
 
     /** @var boolean */
-    private $hasResumed = false;
+    private bool $hasResumed = false;
 
     /** @var Manager */
-    private $manager;
+    private Manager $manager;
 
     /** @var TimestampInterface */
-    private $operationTime;
+    private TimestampInterface $operationTime;
 
     /** @var array */
-    private $pipeline;
+    private array $pipeline;
 
     /** @var object|null */
-    private $postBatchResumeToken;
+    private ?object $postBatchResumeToken;
 
     /**
      * Constructs an aggregate command for creating a change stream.
@@ -179,7 +179,7 @@ class Watch implements ExecutableInterface, /* @internal */
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct(Manager $manager, $databaseName, $collectionName, array $pipeline, array $options = [])
+    public function __construct(Manager $manager, ?string $databaseName, ?string $collectionName, array $pipeline, array $options = [])
     {
         if (isset($collectionName) && !isset($databaseName)) {
             throw new InvalidArgumentException('$collectionName should also be null if $databaseName is null');
@@ -248,7 +248,7 @@ class Watch implements ExecutableInterface, /* @internal */
      *
      * @return Aggregate
      */
-    private function createAggregate()
+    private function createAggregate(): Aggregate
     {
         $pipeline = $this->pipeline;
         array_unshift($pipeline, ['$changeStream' => (object)$this->changeStreamOptions]);
@@ -306,7 +306,7 @@ class Watch implements ExecutableInterface, /* @internal */
      * @param Server $server
      * @return boolean
      */
-    private function shouldCaptureOperationTime(Server $server)
+    private function shouldCaptureOperationTime(Server $server): bool
     {
         if ($this->hasResumed) {
             return false;
@@ -340,11 +340,9 @@ class Watch implements ExecutableInterface, /* @internal */
      *
      * @param Server $server
      * @return changeStream
-     * @throws UnsupportedException if collation or read concern is used and unsupported
-     * @throws RuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\changeStream|changeStream
     {
         return new changeStream(
             $this->createChangeStreamIterator($server),
@@ -360,7 +358,7 @@ class Watch implements ExecutableInterface, /* @internal */
      * @param Server $server
      * @return ChangeStreamIterator
      */
-    private function createChangeStreamIterator(Server $server)
+    private function createChangeStreamIterator(Server $server): \yxorP\app\lib\data\mongoDB\Operation\ChangeStreamIterator|ChangeStreamIterator
     {
         return new ChangeStreamIterator(
             $this->executeAggregate($server),
@@ -380,7 +378,7 @@ class Watch implements ExecutableInterface, /* @internal */
      * @return Cursor
      * @throws UnsupportedException
      */
-    private function executeAggregate(Server $server)
+    private function executeAggregate(Server $server): Cursor
     {
         addSubscriber($this);
 
@@ -397,7 +395,7 @@ class Watch implements ExecutableInterface, /* @internal */
      * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#updating-the-cached-resume-token
      * @return array|object|null
      */
-    private function getInitialResumeToken()
+    private function getInitialResumeToken(): object|array|null
     {
         if ($this->firstBatchSize === 0 && isset($this->postBatchResumeToken)) {
             return $this->postBatchResumeToken;
@@ -418,12 +416,12 @@ class Watch implements ExecutableInterface, /* @internal */
      * Resumes a change stream.
      *
      * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resume-process
-     * @param array|object|null $resumeToken
+     * @param object|array|null $resumeToken
      * @param bool $hasAdvanced
      * @return ChangeStreamIterator
      * @throws InvalidArgumentException
      */
-    private function resume($resumeToken = null, $hasAdvanced = false)
+    private function resume(object|array $resumeToken = null, bool $hasAdvanced = false): \yxorP\app\lib\data\mongoDB\Operation\ChangeStreamIterator|ChangeStreamIterator
     {
         if (isset($resumeToken) && !is_array($resumeToken) && !is_object($resumeToken)) {
             throw InvalidArgumentException::invalidType('$resumeToken', $resumeToken, 'array or object');

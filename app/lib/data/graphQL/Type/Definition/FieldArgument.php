@@ -32,8 +32,8 @@ class FieldArgument
     /** @var array */
     public array $config;
 
-    /** @var Type&InputType */
-    private InputType&Type $type;
+    /** @var InputType */
+    private InputType $type;
 
     /** @param array $def */
     public function __construct(array $def)

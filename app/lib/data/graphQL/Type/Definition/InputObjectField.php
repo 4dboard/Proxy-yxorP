@@ -27,8 +27,8 @@ class InputObjectField
     public ?InputValueDefinitionNode $astNode;
     /** @var array */
     public array $config;
-    /** @var Type&InputType */
-    private InputType&Type $type;
+    /** @var InputType */
+    private InputType $type;
 
     /**
      * @param array $opts

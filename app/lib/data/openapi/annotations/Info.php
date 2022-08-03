@@ -65,13 +65,13 @@ class Info extends AbstractAnnotation
     /**
      * The contact information for the exposed API.
      *
-     * @var Contact
+     * @var string|Contact
      */
     public string|Contact $contact = Generator::UNDEFINED;
     /**
      * The license information for the exposed API.
      *
-     * @var License
+     * @var string|License
      */
     public string|License $license = Generator::UNDEFINED;
     /**

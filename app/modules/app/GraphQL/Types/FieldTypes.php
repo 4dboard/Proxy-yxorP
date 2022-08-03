@@ -46,7 +46,6 @@ class fieldTypes
             'text', 'code', 'color', 'date', 'datetime', 'wysiwyg', 'time', 'select' => Type::string(),
             'boolean' => Type::boolean(),
             'number' => Type::int(),
-            'layout' => jsonType::instance(),
             'set' => new ObjectType([
                 'name' => self::getName('Set' . ucfirst($field['name'])),
                 'fields' => self::buildFieldsDefinitions($field['opts'])

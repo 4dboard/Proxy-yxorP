@@ -101,7 +101,7 @@
         'An image: [string !https://www.example.com/image.png (Alt Text)!]');
 
     MT('imageWithUrl',
-        'An image: [string !https://www.example.com/image.png!:http://www.example.com/]');
+        'An image: [string !https://www.example.com/image.png!:https://www.example.com/]');
 
     /*
      * Headers

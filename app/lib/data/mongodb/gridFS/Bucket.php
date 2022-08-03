@@ -109,16 +109,16 @@ class Bucket
     /** @var integer */
     private int $chunkSizeBytes;
 
-    /** @var ReadConcern */
+    /** @var \yxorP\app\lib\data\mongoDB\GridFS\ReadConcern */
     private \yxorP\app\lib\data\mongoDB\GridFS\ReadConcern|ReadConcern $readConcern;
 
-    /** @var ReadPreference */
+    /** @var \yxorP\app\lib\data\mongoDB\GridFS\ReadPreference */
     private \yxorP\app\lib\data\mongoDB\GridFS\ReadPreference|ReadPreference $readPreference;
 
     /** @var array */
     private array $typeMap;
 
-    /** @var WriteConcern */
+    /** @var \yxorP\app\lib\data\mongoDB\GridFS\WriteConcern */
     private WriteConcern $writeConcern;
 
     /**

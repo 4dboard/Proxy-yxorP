@@ -298,7 +298,7 @@ class WritableStream
      * @param string $data Binary data to write
      * @return void
      */
-    public function writeBytes(string $data)
+    public function writeBytes(string $data): int
     {
         if ($this->isClosed) {
             // TODO: Should this be an error condition? e.g. BadMethodCallException

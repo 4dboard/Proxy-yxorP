@@ -81,7 +81,7 @@ abstract class Operation extends AbstractAnnotation
     /**
      * Additional external documentation for this operation.
      *
-     * @var ExternalDocumentation
+     * @var string|ExternalDocumentation
      */
     public string|ExternalDocumentation $externalDocs = Generator::UNDEFINED;
     /**
@@ -107,7 +107,7 @@ abstract class Operation extends AbstractAnnotation
      * The requestBody is only supported in HTTP methods where the HTTP 1.1 specification RFC7231 has explicitly defined semantics for request bodies.
      * In other cases where the HTTP spec is vague, requestBody shall be ignored by consumers.
      *
-     * @var RequestBody
+     * @var string|RequestBody
      */
     public string|RequestBody $requestBody = Generator::UNDEFINED;
     /**
@@ -140,7 +140,7 @@ abstract class Operation extends AbstractAnnotation
      * This definition overrides any declared top-level security.
      * To remove a top-level security declaration, an empty array can be used.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $security = Generator::UNDEFINED;
     /**

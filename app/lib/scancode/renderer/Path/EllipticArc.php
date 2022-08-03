@@ -10,17 +10,17 @@ final class EllipticArc implements OperationInterface
     private const ZERO_TOLERANCE = 1e-05;
 
     /**
-     * @var float
+     * @var int|float
      */
     private int|float $xRadius;
 
     /**
-     * @var float
+     * @var int|float
      */
     private int|float $yRadius;
 
     /**
-     * @var float
+     * @var int|float
      */
     private int|float $xAxisAngle;
 

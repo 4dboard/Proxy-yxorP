@@ -63,7 +63,7 @@ final class version
     /**
      * Alignment pattern centers.
      *
-     * @var SplFixedArray
+     * @var SplFixedArray|array
      */
     private SplFixedArray|array $alignmentPatternCenters;
     /**
@@ -75,7 +75,7 @@ final class version
     /**
      * Total number of codewords.
      *
-     * @var int
+     * @var int|float
      */
     private int|float $totalCodewords;
 

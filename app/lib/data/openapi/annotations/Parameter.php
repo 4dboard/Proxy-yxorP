@@ -141,7 +141,7 @@ class Parameter extends AbstractAnnotation
     /**
      * The schema defining the type used for the parameter.
      *
-     * @var Schema
+     * @var string|Schema
      */
     public Schema|string $schema = Generator::UNDEFINED;
     /**
@@ -158,7 +158,7 @@ class Parameter extends AbstractAnnotation
      * The examples object is mutually exclusive of the example object.
      * Furthermore, if referencing a schema which contains an example, the examples value shall override the example provided by the schema.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $examples = Generator::UNDEFINED;
     /**
@@ -186,21 +186,21 @@ class Parameter extends AbstractAnnotation
      * Simple style parameters defined by https://tools.ietf.org/html/rfc6570#section-3.2.2
      * This option replaces collectionFormat with a csv value from OpenAPI 2.0.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $simple = Generator::UNDEFINED;
     /**
      * Space separated array values.
      * This option replaces collectionFormat equal to ssv from OpenAPI 2.0.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $spaceDelimited = Generator::UNDEFINED;
     /**
      * Pipe separated array values.
      * This option replaces collectionFormat equal to pipes from OpenAPI 2.0.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $pipeDelimited = Generator::UNDEFINED;
     /**

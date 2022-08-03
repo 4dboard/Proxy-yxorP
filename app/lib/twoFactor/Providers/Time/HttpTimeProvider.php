@@ -16,7 +16,7 @@ class HttpTimeProvider implements ITimeProviderInterface
     /** @var string */
     public string $expectedtimeformat;
 
-    /** @var array */
+    /** @var array|null */
     public ?array $options;
 
     /**

@@ -137,7 +137,7 @@ class mongoLite
         return $this->getCollection($collection)->update($criteria, $data);
     }
 
-    public function remove(string $collection, array $filter = [])
+    public function remove(string $collection, array $filter = []): bool|int
     {
         return $this->getCollection($collection)->remove($filter);
     }

@@ -34,7 +34,7 @@ class XmlContent extends Schema
         Attachable::class => ['attachables'],
     ];
     /**
-     * @var object
+     * @var string|object
      */
     public string|object $examples = Generator::UNDEFINED;
 }

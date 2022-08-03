@@ -33,7 +33,7 @@ class CallbackIterator implements Iterator
     /** @var Closure */
     private Closure $callback;
 
-    /** @var Iterator */
+    /** @var Iterator|Traversable|IteratorIterator */
     private Iterator|Traversable|IteratorIterator $iterator;
 
     public function __construct(Traversable $traversable, Closure $callback)

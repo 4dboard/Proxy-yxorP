@@ -89,7 +89,7 @@ class Response extends AbstractAnnotation
      * A map of operations links that can be followed from the response.
      * The key of the map is a short name for the link, following the naming constraints of the names for Component Objects.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $links = Generator::UNDEFINED;
 }

@@ -62,7 +62,7 @@ class Header extends AbstractAnnotation
     /**
      * Schema object.
      *
-     * @var Schema
+     * @var string|Schema
      */
     public Schema|string $schema = Generator::UNDEFINED;
     /**

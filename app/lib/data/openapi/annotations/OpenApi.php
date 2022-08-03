@@ -54,7 +54,7 @@ class OpenApi extends AbstractAnnotation
     /**
      * Provides metadata about the API. The metadata may be used by tooling as required.
      *
-     * @var Info
+     * @var string|Info
      */
     public Info|string $info = Generator::UNDEFINED;
     /**
@@ -73,7 +73,7 @@ class OpenApi extends AbstractAnnotation
     /**
      * An element to hold various components for the specification.
      *
-     * @var Components
+     * @var string|Components
      */
     public string|Components $components = Generator::UNDEFINED;
     /**
@@ -88,7 +88,7 @@ class OpenApi extends AbstractAnnotation
      * Operation Object, only one of Security Requirement Objects in the list needs to
      * be satisfied to authorize the request.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $security = Generator::UNDEFINED;
     /**
@@ -104,11 +104,11 @@ class OpenApi extends AbstractAnnotation
     /**
      * Additional external documentation.
      *
-     * @var ExternalDocumentation
+     * @var string|ExternalDocumentation
      */
     public string|ExternalDocumentation $externalDocs = Generator::UNDEFINED;
     /**
-     * @var Analysis
+     * @var string|Analysis
      */
     public analysis|string $_analysis = Generator::UNDEFINED;
 
@@ -155,7 +155,7 @@ class OpenApi extends AbstractAnnotation
      * @return mixed
      * @throws Exception
      */
-    public function ref(string $ref)
+    public function ref(string $ref): mixed
     {
         if (!str_starts_with($ref, '#/')) {
             // @todo Add support for external (http) refs?

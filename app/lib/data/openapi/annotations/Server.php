@@ -69,7 +69,7 @@ class Server extends AbstractAnnotation
      * A map between a variable name and its value.
      * The value is used for substitution in the server's URL template.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $variables = Generator::UNDEFINED;
 }

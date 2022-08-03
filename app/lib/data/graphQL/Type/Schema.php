@@ -54,7 +54,7 @@ class Schema
 {
     /** @var SchemaTypeExtensionNode[] */
     public array $extensionASTNodes = [];
-    /** @var SchemaConfig */
+    /** @var array|SchemaConfig */
     private array|SchemaConfig $config;
     /**
      * Contains currently resolved schema types

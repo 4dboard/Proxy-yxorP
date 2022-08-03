@@ -16,7 +16,7 @@ abstract class ASTValidationContext
     /** @var Error[] */
     protected array $errors;
 
-    /** @var Schema */
+    /** @var Schema|null */
     protected ?Schema $schema;
 
     public function __construct(DocumentNode $ast, ?Schema $schema = null)

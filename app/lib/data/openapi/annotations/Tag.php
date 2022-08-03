@@ -54,7 +54,7 @@ class Tag extends AbstractAnnotation
     /**
      * Additional external documentation for this tag.
      *
-     * @var ExternalDocumentation
+     * @var string|ExternalDocumentation
      */
     public string|ExternalDocumentation $externalDocs = Generator::UNDEFINED;
 }

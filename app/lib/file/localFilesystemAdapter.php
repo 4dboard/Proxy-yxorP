@@ -72,12 +72,12 @@ class localFilesystemAdapter implements filesystemAdapterInterface
     private int $linkHandling;
 
     /**
-     * @var visibilityConverterInterface
+     * @var portableVisibilityConverter|visibilityConverterInterface
      */
     private visibilityConverterInterface|portableVisibilityConverter $visibility;
 
     /**
-     * @var mimeTypeDetectorInterface
+     * @var fallbackMimeTypeDetector|mimeTypeDetectorInterface
      */
     private fallbackMimeTypeDetector|mimeTypeDetectorInterface $mimeTypeDetector;
 

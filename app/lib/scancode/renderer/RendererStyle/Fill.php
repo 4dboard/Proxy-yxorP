@@ -17,11 +17,11 @@ final class Fill
      */
     private static ?Fill $default;
     /**
-     * @var ColorInterface
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface
      */
     private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|ColorInterface $backgroundColor;
     /**
-     * @var ColorInterface|null
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|null
      */
     private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|null|ColorInterface $foregroundColor;
     /**

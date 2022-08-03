@@ -25,7 +25,7 @@ final class ImageRenderer implements RendererInterface
     private RendererStyle $rendererStyle;
 
     /**
-     * @var ImageBackEndInterface
+     * @var \yxorP\app\lib\scancode\Renderer\ImageBackEndInterface
      */
     private \yxorP\app\lib\scancode\Renderer\ImageBackEndInterface|ImageBackEndInterface $imageBackEnd;
 

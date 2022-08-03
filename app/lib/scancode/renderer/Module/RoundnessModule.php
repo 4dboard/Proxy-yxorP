@@ -21,7 +21,7 @@ final class RoundnessModule implements ModuleInterface
     public const SOFT = .25;
 
     /**
-     * @var float
+     * @var int|float
      */
     private int|float $intensity;
 

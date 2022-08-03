@@ -34,11 +34,11 @@ class JsonContent extends Schema
         Attachable::class => ['attachables'],
     ];
     /**
-     * @var object
+     * @var string
      */
     public string $example = Generator::UNDEFINED;
     /**
-     * @var object
+     * @var string|object
      */
     public string|object $examples = Generator::UNDEFINED;
 }

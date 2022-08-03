@@ -67,7 +67,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * For further details see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#specificationExtensions
      * The keys inside the array will be prefixed with `x-`.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $x = Generator::UNDEFINED;
     /**

@@ -41,7 +41,7 @@ class MediaType extends AbstractAnnotation
     /**
      * The schema defining the type used for the request body.
      *
-     * @var Schema
+     * @var string|Schema
      */
     public Schema|string $schema = Generator::UNDEFINED;
     /**
@@ -57,7 +57,7 @@ class MediaType extends AbstractAnnotation
      * The examples object is mutually exclusive of the example object.
      * Furthermore, if referencing a schema which contains an example, the examples value shall override the example provided by the schema.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $examples = Generator::UNDEFINED;
     /**

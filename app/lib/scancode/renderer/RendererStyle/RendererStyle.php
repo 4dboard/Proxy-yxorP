@@ -25,12 +25,12 @@ final class RendererStyle
     private int $margin;
 
     /**
-     * @var ModuleInterface
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ModuleInterface
      */
     private \yxorP\app\lib\scancode\Renderer\RendererStyle\ModuleInterface|ModuleInterface $module;
 
     /**
-     * @var EyeInterface|null
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\EyeInterface|\yxorP\app\lib\scancode\Renderer\RendererStyle\ModuleEye|null
      */
     private EyeInterface|ModuleEye|null $eye;
 

@@ -60,7 +60,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
     /** @var array|object */
     private array|object $filter;
 
-    /** @var integer */
+    /** @var integer|null */
     private ?int $limit;
 
     /** @var array */

@@ -9,12 +9,12 @@ use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 final class Gradient
 {
     /**
-     * @var ColorInterface
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface
      */
     private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|ColorInterface $startColor;
 
     /**
-     * @var ColorInterface
+     * @var \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface
      */
     private \yxorP\app\lib\scancode\Renderer\RendererStyle\ColorInterface|ColorInterface $endColor;
 

@@ -92,13 +92,13 @@ class Schema extends AbstractAnnotation
     /**
      * An object instance is valid against "maxProperties" if its number of properties is less than, or equal to, the value of this property.
      *
-     * @var int
+     * @var string|int
      */
     public string|int $maxProperties = Generator::UNDEFINED;
     /**
      * An object instance is valid against "minProperties" if its number of properties is greater than, or equal to, the value of this property.
      *
-     * @var int
+     * @var string|int
      */
     public string|int $minProperties = Generator::UNDEFINED;
     /**
@@ -126,7 +126,7 @@ class Schema extends AbstractAnnotation
     /**
      * Required if type is "array". Describes the type of items in the array.
      *
-     * @var Items
+     * @var string|Items
      */
     public Items|string $items = Generator::UNDEFINED;
     /**
@@ -140,7 +140,7 @@ class Schema extends AbstractAnnotation
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor17.
      *
-     * @var number
+     * @var string|number
      */
     public number|string $maximum = Generator::UNDEFINED;
     /**
@@ -152,7 +152,7 @@ class Schema extends AbstractAnnotation
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor21.
      *
-     * @var number
+     * @var string|number
      */
     public number|string $minimum = Generator::UNDEFINED;
     /**
@@ -164,13 +164,13 @@ class Schema extends AbstractAnnotation
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor26.
      *
-     * @var int
+     * @var string|int
      */
     public string|int $maxLength = Generator::UNDEFINED;
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor29.
      *
-     * @var int
+     * @var string|int
      */
     public string|int $minLength = Generator::UNDEFINED;
     /**
@@ -182,13 +182,13 @@ class Schema extends AbstractAnnotation
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor42.
      *
-     * @var int
+     * @var string|int
      */
     public string|int $maxItems = Generator::UNDEFINED;
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor45.
      *
-     * @var int
+     * @var string|int
      */
     public string|int $minItems = Generator::UNDEFINED;
     /**
@@ -200,13 +200,13 @@ class Schema extends AbstractAnnotation
     /**
      * See http://json-schema.org/latest/json-schema-validation.html#anchor76.
      *
-     * @var array
+     * @var string|array
      */
     public string|array $enum = Generator::UNDEFINED;
     /**
      * A numeric instance is valid against "multipleOf" if the result of the division of the instance by this property's value is an integer.
      *
-     * @var number
+     * @var string|number
      */
     public number|string $multipleOf = Generator::UNDEFINED;
     /**
@@ -214,7 +214,7 @@ class Schema extends AbstractAnnotation
      * The discriminator is an object name that is used to differentiate between other schemas which may satisfy the payload description.
      * See Composition and Inheritance for more details.
      *
-     * @var Discriminator
+     * @var string|Discriminator
      */
     public Discriminator|string $discriminator = Generator::UNDEFINED;
     /**
@@ -244,13 +244,13 @@ class Schema extends AbstractAnnotation
      * It has no effect on root schemas.
      * Adds additional metadata to describe the XML representation of this property.
      *
-     * @var Xml
+     * @var string|Xml
      */
     public Xml|string $xml = Generator::UNDEFINED;
     /**
      * Additional external documentation for this schema.
      *
-     * @var ExternalDocumentation
+     * @var string|ExternalDocumentation
      */
     public string|ExternalDocumentation $externalDocs = Generator::UNDEFINED;
     /**

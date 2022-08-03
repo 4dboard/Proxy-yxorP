@@ -81,7 +81,7 @@ class Link extends AbstractAnnotation
     /**
      * A server object to be used by the target operation.
      *
-     * @var Server
+     * @var string|Server
      */
     public string|Server $server = Generator::UNDEFINED;
 }

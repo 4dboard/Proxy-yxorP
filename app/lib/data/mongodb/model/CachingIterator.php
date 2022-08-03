@@ -43,7 +43,7 @@ class CachingIterator implements Countable, Iterator
     /** @var array */
     private array $items = [];
 
-    /** @var Iterator */
+    /** @var Iterator|Traversable|IteratorIterator */
     private Iterator|Traversable|IteratorIterator $iterator;
 
     /** @var boolean */

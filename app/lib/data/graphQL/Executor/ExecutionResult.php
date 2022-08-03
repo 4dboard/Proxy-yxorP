@@ -25,7 +25,7 @@ class ExecutionResult implements JsonSerializable
      * Data collected from resolvers during query execution
      *
      * @api
-     * @var array
+     * @var array|null
      */
     public ?array $data;
 

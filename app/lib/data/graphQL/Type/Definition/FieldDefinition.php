@@ -62,8 +62,8 @@ class FieldDefinition
      */
     public array $config;
 
-    /** @var OutputType&Type */
-    private OutputType&Type $type;
+    /** @var Type */
+    private $type;
 
     /** @var callable|string */
     private $complexityFn;

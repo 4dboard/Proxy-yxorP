@@ -79,7 +79,7 @@ class Token
      * including ignored tokens. <SOF> is always the first node and <EOF>
      * the last.
      *
-     * @var Token
+     * @var Token|null
      */
     public ?Token $prev;
 
