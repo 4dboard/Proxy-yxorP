@@ -17,7 +17,6 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
-use MongoDB\Driver\ReadPreference;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\ReadConcern;

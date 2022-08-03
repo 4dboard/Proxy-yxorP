@@ -17,7 +17,6 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
-use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\ReadPreference;
@@ -29,7 +28,6 @@ use function current;
 use function is_array;
 use function is_string;
 use function MongoDB\server_supports_feature;
-use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the explain command.

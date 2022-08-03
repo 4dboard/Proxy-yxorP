@@ -18,7 +18,6 @@ use yxorP\app\lib\data\graphQL\Language\AST\ObjectFieldNode;
 use yxorP\app\lib\data\graphQL\Language\AST\ObjectValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\StringValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface;
-use yxorP\app\lib\data\graphQL\Language\AST\VariableNode;
 use yxorP\app\lib\data\graphQL\Language\Printer;
 use yxorP\app\lib\data\graphQL\Language\Visitor;
 use yxorP\app\lib\data\graphQL\Language\VisitorOperation;

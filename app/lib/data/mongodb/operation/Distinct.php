@@ -19,7 +19,6 @@ namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\ReadPreference;
-use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\ReadConcern;
@@ -158,18 +157,6 @@ class Distinct implements ExecutableInterface, ExplainableInterface
     }
 
     /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    public function getCommandDocument(Server $server): array
-    {
-        return $this->createCommandDocument();
-    }
-
-    /**
      * Create the distinct command document.
      *
      * @return array
@@ -219,5 +206,17 @@ class Distinct implements ExecutableInterface, ExplainableInterface
         }
 
         return $options;
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server): array
+    {
+        return $this->createCommandDocument();
     }
 }

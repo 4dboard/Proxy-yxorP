@@ -28,7 +28,6 @@ use function preg_match;
 use function preg_match_all;
 use function random_int;
 use function sprintf;
-use function strpos;
 use function strtr;
 use function substr;
 use function trim;

@@ -21,7 +21,6 @@ use ArrayAccess;
 use ReturnTypeWillChange;
 use yxorP\app\lib\http\mongoDB\Exception\BadMethodCallException;
 use function array_key_exists;
-use function array_search;
 
 /**
  * Index information model class.

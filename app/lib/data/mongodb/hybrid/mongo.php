@@ -6,10 +6,6 @@ use yxorP\app\lib\http\mongoDB\BSON\ObjectID;
 use yxorP\app\lib\http\mongoDB\client as MongoDBClient;
 use yxorP\app\lib\http\mongoDB\collection;
 use yxorP\app\lib\http\mongoDB\database;
-use function is_iterable;
-use function is_object;
-use function json_decode;
-use function json_encode;
 use function substr;
 
 class mongo

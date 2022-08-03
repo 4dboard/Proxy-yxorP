@@ -20,9 +20,6 @@ use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\SelectionSetNode;
 use yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface;
 use yxorP\app\lib\data\graphQL\Type\Definition\AbstractType;
-use yxorP\app\lib\data\graphQL\Type\Definition\CompositeType;
-use yxorP\app\lib\data\graphQL\Type\Definition\EnumType;
-use yxorP\app\lib\data\graphQL\Type\Definition\InputObjectType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InputType;
 use yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType;
 use yxorP\app\lib\data\graphQL\Type\Definition\LeafType;
@@ -30,9 +27,7 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ListOfType;
 use yxorP\app\lib\data\graphQL\Type\Definition\NonNull;
 use yxorP\app\lib\data\graphQL\Type\Definition\ObjectType;
 use yxorP\app\lib\data\graphQL\Type\Definition\ResolveInfo;
-use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 use yxorP\app\lib\data\graphQL\Type\Definition\Type;
-use yxorP\app\lib\data\graphQL\Type\Definition\UnionType;
 use yxorP\app\lib\data\graphQL\Type\Introspection;
 use yxorP\app\lib\data\graphQL\Type\Schema;
 use yxorP\app\lib\data\graphQL\Utils\AST;
@@ -146,33 +141,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         );
     }
 
-    private static function resultToArray($value, $emptyObjectAsStdClass = true): array|stdClass
-    {
-        if ($value instanceof stdClass) {
-            $array = (array)$value;
-            foreach ($array as $propertyName => $propertyValue) {
-                $array[$propertyName] = self::resultToArray($propertyValue);
-            }
-
-            if ($emptyObjectAsStdClass && count($array) === 0) {
-                return new stdClass();
-            }
-
-            return $array;
-        }
-
-        if (is_array($value)) {
-            $array = [];
-            foreach ($value as $key => $item) {
-                $array[$key] = self::resultToArray($item);
-            }
-
-            return $array;
-        }
-
-        return $value;
-    }
-
     public function doExecute(): Promise
     {
         $this->rootResult = new stdClass();
@@ -237,26 +205,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
-     * @internal
-     */
-    public function addError($error)
-    {
-        $this->errors[] = $error;
-    }
-
-    /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
-     * @return array|array[]|null[]|\stdClass|\stdClass[]|null
-     * @throws \Exception
-     * @internal
-     */
-    public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null
-    {
-        return AST::valueFromAST($valueNode, $type, $this->variableValues);
-    }
-
-    /**
      * @param object|null $value
      * @param Error[] $errors
      */
@@ -275,6 +223,33 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         }
 
         return new ExecutionResult($value, $errors);
+    }
+
+    private static function resultToArray($value, $emptyObjectAsStdClass = true): array|stdClass
+    {
+        if ($value instanceof stdClass) {
+            $array = (array)$value;
+            foreach ($array as $propertyName => $propertyValue) {
+                $array[$propertyName] = self::resultToArray($propertyValue);
+            }
+
+            if ($emptyObjectAsStdClass && count($array) === 0) {
+                return new stdClass();
+            }
+
+            return $array;
+        }
+
+        if (is_array($value)) {
+            $array = [];
+            foreach ($value as $key => $item) {
+                $array[$key] = self::resultToArray($item);
+            }
+
+            return $array;
+        }
+
+        return $value;
     }
 
     private function findFieldDefinition(CoroutineContext $ctx): \yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition
@@ -475,6 +450,14 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     private function isPromise(mixed $value): bool
     {
         return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
+    }
+
+    /**
+     * @internal
+     */
+    public function addError($error)
+    {
+        $this->errors[] = $error;
     }
 
     /**
@@ -968,5 +951,17 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
 
         $doResolve = $this->doResolve;
         $doResolve($this->finishExecute($this->rootResult, $this->errors));
+    }
+
+    /**
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @return array|array[]|null[]|\stdClass|\stdClass[]|null
+     * @throws \Exception
+     * @internal
+     */
+    public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null
+    {
+        return AST::valueFromAST($valueNode, $type, $this->variableValues);
     }
 }

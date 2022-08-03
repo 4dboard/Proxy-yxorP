@@ -38,7 +38,6 @@ use function key;
 use function MongoDB\is_first_key_operator;
 use function MongoDB\is_pipeline;
 use function sprintf;
-use function yxorP\app\lib\data\mongoDB\is_first_key_operator;
 use function yxorP\app\lib\data\mongoDB\is_pipeline;
 
 /**

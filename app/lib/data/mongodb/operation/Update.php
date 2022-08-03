@@ -18,7 +18,6 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use JetBrains\PhpStorm\ArrayShape;
-use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
 use yxorP\app\lib\http\mongoDB\Driver\Server;
@@ -35,7 +34,6 @@ use function MongoDB\is_first_key_operator;
 use function MongoDB\is_pipeline;
 use function MongoDB\is_write_concern_acknowledged;
 use function MongoDB\server_supports_feature;
-use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 
 /**
  * Operation for the update command.
@@ -205,28 +203,6 @@ class Update implements ExecutableInterface, ExplainableInterface
     }
 
     /**
-     * Returns the command document for this operation.
-     *
-     * @param Server $server
-     * @return array
-     * @see ExplainableInterface::getCommandDocument()
-     */
-    #[ArrayShape(['update' => "string", 'updates' => "array[]", 'writeConcern' => "false|mixed", 'bypassDocumentValidation' => "false|mixed"])] public function getCommandDocument(Server $server): array
-    {
-        $cmd = ['update' => $this->collectionName, 'updates' => [['q' => $this->filter, 'u' => $this->update] + $this->createUpdateOptions()]];
-
-        if (isset($this->options['bypassDocumentValidation'])) {
-            $cmd['bypassDocumentValidation'] = $this->options['bypassDocumentValidation'];
-        }
-
-        if (isset($this->options['writeConcern'])) {
-            $cmd['writeConcern'] = $this->options['writeConcern'];
-        }
-
-        return $cmd;
-    }
-
-    /**
      * Create options for constructing the bulk write.
      *
      * @see https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
@@ -290,5 +266,27 @@ class Update implements ExecutableInterface, ExplainableInterface
         }
 
         return $options;
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see ExplainableInterface::getCommandDocument()
+     */
+    #[ArrayShape(['update' => "string", 'updates' => "array[]", 'writeConcern' => "false|mixed", 'bypassDocumentValidation' => "false|mixed"])] public function getCommandDocument(Server $server): array
+    {
+        $cmd = ['update' => $this->collectionName, 'updates' => [['q' => $this->filter, 'u' => $this->update] + $this->createUpdateOptions()]];
+
+        if (isset($this->options['bypassDocumentValidation'])) {
+            $cmd['bypassDocumentValidation'] = $this->options['bypassDocumentValidation'];
+        }
+
+        if (isset($this->options['writeConcern'])) {
+            $cmd['writeConcern'] = $this->options['writeConcern'];
+        }
+
+        return $cmd;
     }
 }
