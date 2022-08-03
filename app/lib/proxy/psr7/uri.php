@@ -201,7 +201,7 @@ class uri implements uriInterface
         });
     }
 
-    public function withQuery($query)
+    public function withQuery(string $query)
     {
         $query = $this->filterQueryAndFragment($query);
         if ($this->query === $query) {
@@ -302,7 +302,7 @@ class uri implements uriInterface
         return $this->fragment;
     }
 
-    public function withScheme($scheme)
+    public function withScheme(string $scheme)
     {
         $scheme = $this->filterScheme($scheme);
         if ($this->scheme === $scheme) {
@@ -315,7 +315,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withUserInfo($user, $password = null)
+    public function withUserInfo(string $user, string $password = null)
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
@@ -330,7 +330,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withHost($host)
+    public function withHost(string $host)
     {
         $host = $this->filterHost($host);
         if ($this->host === $host) {
@@ -342,7 +342,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withPort($port)
+    public function withPort(?int $port)
     {
         $port = $this->filterPort($port);
         if ($this->port === $port) {
@@ -355,7 +355,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withPath($path)
+    public function withPath(string $path)
     {
         $path = $this->filterPath($path);
         if ($this->path === $path) {
@@ -367,7 +367,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withFragment($fragment)
+    public function withFragment(string $fragment)
     {
         $fragment = $this->filterQueryAndFragment($fragment);
         if ($this->fragment === $fragment) {

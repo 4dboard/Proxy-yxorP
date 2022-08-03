@@ -32,7 +32,7 @@ represent free-form human-readable text.';
      *
      * @throws Error
      */
-    public function serialize($value)
+    public function serialize(mixed $value)
     {
         $canCast = is_scalar($value)
             || (is_object($value) && method_exists($value, '__toString'))
@@ -54,7 +54,7 @@ represent free-form human-readable text.';
      *
      * @throws Error
      */
-    public function parseValue($value)
+    public function parseValue(mixed $value)
     {
         if (!is_string($value)) {
             throw new Error(

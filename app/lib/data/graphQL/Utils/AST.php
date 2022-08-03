@@ -153,7 +153,7 @@ class AST
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      * @api
      */
-    public static function astFromValue($value, InputType $type)
+    public static function astFromValue(mixed $value, InputType $type)
     {
         if ($type instanceof NonNull) {
             $astValue = self::astFromValue($value, $type->getWrappedType());
@@ -472,7 +472,7 @@ class AST
      *
      * @return bool
      */
-    private static function isMissingVariable(ValueNodeInterface $valueNode, $variables)
+    private static function isMissingVariable(ValueNodeInterface $valueNode, array $variables)
     {
         return $valueNode instanceof VariableNode &&
             (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
@@ -503,7 +503,7 @@ class AST
      *
      * @api
      */
-    public static function valueFromASTUntyped($valueNode, ?array $variables = null)
+    public static function valueFromASTUntyped(Node $valueNode, ?array $variables = null)
     {
         switch (true) {
             case $valueNode instanceof NullValueNode:
@@ -552,7 +552,7 @@ class AST
     /**
      * Returns type definition for given AST Type node
      *
-     * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
+     * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
      *
      * @return Type|null
      *
@@ -560,7 +560,7 @@ class AST
      *
      * @api
      */
-    public static function typeFromAST(Schema $schema, $inputTypeNode)
+    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode)
     {
         if ($inputTypeNode instanceof ListTypeNode) {
             $innerType = self::typeFromAST($schema, $inputTypeNode->type);
@@ -580,7 +580,7 @@ class AST
     }
 
     /**
-     * @param string $operationName
+     * @param string|null $operationName
      *
      * @return bool|string
      *
@@ -590,7 +590,7 @@ class AST
      *
      * @api
      */
-    public static function getOperation(DocumentNode $document, $operationName = null)
+    public static function getOperation(DocumentNode $document, string $operationName = null)
     {
         if ($document->definitions) {
             foreach ($document->definitions as $def) {

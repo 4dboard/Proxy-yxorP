@@ -339,12 +339,12 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode $def
+     * @param InterfaceTypeDefinitionNode|ObjectTypeDefinitionNode $def
      *
      * @return array<int, Type>
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    private function makeImplementedInterfaces($def): array
+    private function makeImplementedInterfaces(InterfaceTypeDefinitionNode|ObjectTypeDefinitionNode $def): array
     {
         // Note: While this could make early assertions to get the correctly
         // typed values, that would throw immediately while type system

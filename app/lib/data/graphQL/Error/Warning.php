@@ -56,7 +56,7 @@ final class Warning
      *
      * @api
      */
-    public static function suppress($suppress = true): void
+    public static function suppress(bool|int $suppress = true): void
     {
         if ($suppress === true) {
             self::$enableWarnings = 0;
@@ -81,7 +81,7 @@ final class Warning
      *
      * @api
      */
-    public static function enable($enable = true): void
+    public static function enable(bool|int $enable = true): void
     {
         if ($enable === true) {
             self::$enableWarnings = self::ALL;

@@ -129,7 +129,7 @@ class ResolveInfo
         array                    $path,
         Schema                   $schema,
         array                    $fragments,
-                                 $rootValue,
+        mixed                    $rootValue,
         ?OperationDefinitionNode $operation,
         array                    $variableValues
     )
@@ -184,7 +184,7 @@ class ResolveInfo
      *
      * @api
      */
-    public function getFieldSelection($depth = 0)
+    public function getFieldSelection(int $depth = 0)
     {
         $fields = [];
 

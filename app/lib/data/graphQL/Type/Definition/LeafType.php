@@ -30,7 +30,7 @@ interface LeafType
      *
      * @throws Error
      */
-    public function serialize($value);
+    public function serialize(mixed $value);
 
     /**
      * Parses an externally provided value (query variable) to use as an input
@@ -43,7 +43,7 @@ interface LeafType
      *
      * @throws Error
      */
-    public function parseValue($value);
+    public function parseValue(mixed $value);
 
     /**
      * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input

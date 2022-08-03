@@ -22,7 +22,7 @@ class Promise
     /**
      * @param mixed $adoptedPromise
      */
-    public function __construct($adoptedPromise, PromiseAdapterInterface $adapter)
+    public function __construct(mixed $adoptedPromise, PromiseAdapterInterface $adapter)
     {
         Utils::invariant(!$adoptedPromise instanceof self, 'Expecting promise from adapted system, got ' . self::class);
 

@@ -93,7 +93,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setContext($context)
+    public function setContext(mixed $context)
     {
         $this->context = $context;
 
@@ -115,7 +115,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setRootValue($rootValue)
+    public function setRootValue(mixed $rootValue)
     {
         $this->rootValue = $rootValue;
 
@@ -217,13 +217,13 @@ class ServerConfig
     /**
      * Set validation rules for this server.
      *
-     * @param ValidationRule[]|callable|null $validationRules
+     * @param callable|ValidationRule[]|null $validationRules
      *
      * @return self
      *
      * @api
      */
-    public function setValidationRules($validationRules)
+    public function setValidationRules(callable|array|null $validationRules)
     {
         if (!is_callable($validationRules) && !is_array($validationRules) && $validationRules !== null) {
             throw new InvariantViolation(

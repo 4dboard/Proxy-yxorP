@@ -82,7 +82,7 @@ class Schema
      *
      * @api
      */
-    public function __construct($config)
+    public function __construct(SchemaConfig|array $config)
     {
         if (is_array($config)) {
             $config = SchemaConfig::create($config);
@@ -182,9 +182,9 @@ class Schema
     }
 
     /**
-     * @param Type|callable():Type $type
+     * @param callable():Type|Type $type
      */
-    public static function resolveType($type): Type
+    public static function resolveType(callable|Type $type): Type
     {
         if ($type instanceof Type) {
             return $type;
@@ -256,7 +256,7 @@ class Schema
      *
      * @return ObjectType|null
      */
-    #[Pure] public function getOperationType($operation)
+    #[Pure] public function getOperationType(string $operation)
     {
         return match ($operation) {
             'query' => $this->getQueryType(),

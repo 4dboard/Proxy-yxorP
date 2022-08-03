@@ -137,7 +137,7 @@ class Helper
      *
      * @api
      */
-    public function parseRequestParams($method, array $bodyParams, array $queryParams)
+    public function parseRequestParams(string $method, array $bodyParams, array $queryParams)
     {
         if ($method === 'GET') {
             $result = OperationParams::create($queryParams, true);
@@ -191,7 +191,7 @@ class Helper
         PromiseAdapterInterface $promiseAdapter,
         ServerConfig            $config,
         OperationParams         $op,
-                                $isBatch = false
+        bool $isBatch = false
     )
     {
         try {
@@ -376,7 +376,7 @@ class Helper
         ServerConfig    $config,
         OperationParams $params,
         DocumentNode    $doc,
-                        $operationType
+        string $operationType
     )
     {
         $context = $config->getContext();
@@ -397,7 +397,7 @@ class Helper
         ServerConfig    $config,
         OperationParams $params,
         DocumentNode    $doc,
-                        $operationType
+        string $operationType
     )
     {
         // Allow customizing validation rules per operation:
@@ -449,12 +449,12 @@ class Helper
     /**
      * Send response using standard PHP `header()` and `echo`.
      *
-     * @param Promise|ExecutionResult|ExecutionResult[] $result
+     * @param ExecutionResult|ExecutionResult[]|Promise $result
      * @param bool $exitWhenDone
      *
      * @api
      */
-    public function sendResponse($result, $exitWhenDone = false)
+    public function sendResponse(array|Promise|ExecutionResult $result, bool $exitWhenDone = false)
     {
         if ($result instanceof Promise) {
             $result->then(function ($actualResult) use ($exitWhenDone): void {
@@ -472,11 +472,11 @@ class Helper
     }
 
     /**
-     * @param ExecutionResult|array $result
+     * @param array|ExecutionResult $result
      *
      * @return int
      */
-    private function resolveHttpStatus($result)
+    private function resolveHttpStatus(array|ExecutionResult $result)
     {
         if (is_array($result) && isset($result[0])) {
             Utils::each(
@@ -516,7 +516,7 @@ class Helper
      * @param int $httpStatus
      * @param bool $exitWhenDone
      */
-    public function emitResponse($jsonSerializable, $httpStatus, $exitWhenDone)
+    public function emitResponse(array|JsonSerializable $jsonSerializable, int $httpStatus, bool $exitWhenDone)
     {
         $body = json_encode($jsonSerializable);
         header('Content-Type: application/json', true, $httpStatus);
@@ -607,13 +607,13 @@ class Helper
     /**
      * Converts query execution result to PSR-7 response
      *
-     * @param Promise|ExecutionResult|ExecutionResult[] $result
+     * @param ExecutionResult|ExecutionResult[]|Promise $result
      *
      * @return Promise|ResponseInterface
      *
      * @api
      */
-    public function toPsrResponse($result, ResponseInterface $response, StreamInterface $writableBodyStream)
+    public function toPsrResponse(array|Promise|ExecutionResult $result, ResponseInterface $response, StreamInterface $writableBodyStream)
     {
         if ($result instanceof Promise) {
             return $result->then(function ($actualResult) use ($response, $writableBodyStream) {

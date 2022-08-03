@@ -19,7 +19,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function isThenable($value)
+    public function isThenable(mixed $value)
     {
         return $value instanceof ReactPromiseInterface;
     }
@@ -27,7 +27,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function convertThenable($thenable)
+    public function convertThenable(object $thenable)
     {
         return new Promise($thenable, $this);
     }
@@ -56,7 +56,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function createFulfilled($value = null)
+    public function createFulfilled(mixed $value = null)
     {
         $promise = resolve($value);
 

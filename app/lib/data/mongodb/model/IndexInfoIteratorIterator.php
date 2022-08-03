@@ -43,7 +43,7 @@ class IndexInfoIteratorIterator extends IteratorIterator implements IndexInfoIte
     /**
      * @param string|null $ns
      */
-    public function __construct(Traversable $iterator, $ns = null)
+    public function __construct(Traversable $iterator, string $ns = null)
     {
         parent::__construct($iterator);
 

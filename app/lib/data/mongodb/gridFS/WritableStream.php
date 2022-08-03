@@ -104,7 +104,7 @@ class WritableStream
      * @param array $options Upload options
      * @throws InvalidArgumentException
      */
-    public function __construct(CollectionWrapper $collectionWrapper, $filename, array $options = [])
+    public function __construct(CollectionWrapper $collectionWrapper, string $filename, array $options = [])
     {
         $options += [
             '_id' => new ObjectId(),
@@ -294,7 +294,7 @@ class WritableStream
      * @param string $data Binary data to write
      * @return void
      */
-    public function writeBytes($data)
+    public function writeBytes(string $data)
     {
         if ($this->isClosed) {
             // TODO: Should this be an error condition? e.g. BadMethodCallException

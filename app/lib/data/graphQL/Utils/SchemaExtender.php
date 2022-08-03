@@ -367,7 +367,7 @@ class SchemaExtender
      *
      * @throws Error
      */
-    protected static function extendFieldMap($type): array
+    protected static function extendFieldMap(InterfaceType|ObjectType $type): array
     {
         $newFieldMap = [];
         $oldFieldMap = $type->getFields();

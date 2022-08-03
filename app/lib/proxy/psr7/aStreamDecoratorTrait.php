@@ -65,7 +65,7 @@ trait aStreamDecoratorTrait
         $this->stream->close();
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         return $this->stream->getMetadata($key);
     }
