@@ -8,7 +8,6 @@ use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use RuntimeException;
-use yxorP\app\lib\proxy\clientInterface;
 use function is_null;
 use function strlen;
 

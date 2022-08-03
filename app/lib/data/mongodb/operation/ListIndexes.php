@@ -18,9 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use EmptyIterator;
-use MongoDB\Driver\Command;
 use MongoDB\Driver\Exception\CommandException;
-use yxorP\app\lib\data\mongoDB\Model\IndexInfoIteratorIterator;
 use yxorP\app\lib\http\mongoDB\Driver\command;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\commandException;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
