@@ -109,16 +109,11 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
 
     public function getQRCodeImage($qrText, $size)
     {
-        switch ($this->format) {
-            case 'svg':
-                $backend = new SvgImageBackEnd;
-                break;
-            case 'eps':
-                $backend = new EpsImageBackEnd;
-                break;
-            default:
-                $backend = new ImagickImageBackEnd($this->format);
-        }
+        $backend = match ($this->format) {
+            'svg' => new SvgImageBackEnd,
+            'eps' => new EpsImageBackEnd,
+            default => new ImagickImageBackEnd($this->format),
+        };
 
         $output = $this->getQRCodeByBackend($qrText, $size, $backend);
 

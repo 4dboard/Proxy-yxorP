@@ -386,6 +386,9 @@ class Parser
         ]);
     }
 
+    /**
+     * @throws SyntaxError
+     */
     private function parseSelectionSet(): SelectionSetNode
     {
         $start = $this->lexer->token;
@@ -640,14 +643,13 @@ class Parser
                     ]);
                 }
 
+                $this->lexer->advance();
                 if ($token->value === 'null') {
-                    $this->lexer->advance();
 
                     return new NullValueNode([
                         'loc' => $this->loc($token),
                     ]);
                 } else {
-                    $this->lexer->advance();
 
                     return new EnumValueNode([
                         'value' => $token->value,
@@ -664,6 +666,9 @@ class Parser
         throw $this->unexpected();
     }
 
+    /**
+     * @throws SyntaxError
+     */
     private function parseArray(bool $isConst): ListValueNode
     {
         $start = $this->lexer->token;
@@ -711,6 +716,9 @@ class Parser
         return new NodeList($nodes);
     }
 
+    /**
+     * @throws SyntaxError
+     */
     private function parseObject(bool $isConst): ObjectValueNode
     {
         $start = $this->lexer->token;
@@ -726,6 +734,9 @@ class Parser
         ]);
     }
 
+    /**
+     * @throws SyntaxError
+     */
     private function parseObjectField(bool $isConst): ObjectFieldNode
     {
         $start = $this->lexer->token;
@@ -788,6 +799,9 @@ class Parser
 
     // Implements the parsing rules in the Values section.
 
+    /**
+     * @throws SyntaxError
+     */
     private function parseNamedType(): NamedTypeNode
     {
         $start = $this->lexer->token;
@@ -842,11 +856,16 @@ class Parser
         throw $this->unexpected($operationToken);
     }
 
+    /**
+     * @throws SyntaxError
+     */
     private function parseVariableDefinitions(): NodeList
     {
         return $this->peek(Token::PAREN_L)
             ? $this->many(
-                Token::PAREN_L,
+            /**
+             * @throws SyntaxError
+             */ Token::PAREN_L,
                 function (): VariableDefinitionNode {
                     return $this->parseVariableDefinition();
                 },
@@ -1732,40 +1751,17 @@ class Parser
         $parser = new Parser(...$arguments);
         $parser->expect(Token::SOF);
 
-        switch ($name) {
-            case 'arguments':
-            case 'valueLiteral':
-            case 'array':
-            case 'object':
-            case 'objectField':
-            case 'directives':
-            case 'directive':
-                $type = $parser->{'parse' . $name}(false);
-                break;
-            case 'constArguments':
-                $type = $parser->parseArguments(true);
-                break;
-            case 'constValueLiteral':
-                $type = $parser->parseValueLiteral(true);
-                break;
-            case 'constArray':
-                $type = $parser->parseArray(true);
-                break;
-            case 'constObject':
-                $type = $parser->parseObject(true);
-                break;
-            case 'constObjectField':
-                $type = $parser->parseObjectField(true);
-                break;
-            case 'constDirectives':
-                $type = $parser->parseDirectives(true);
-                break;
-            case 'constDirective':
-                $type = $parser->parseDirective(true);
-                break;
-            default:
-                $type = $parser->{'parse' . $name}();
-        }
+        $type = match ($name) {
+            'arguments', 'valueLiteral', 'array', 'object', 'objectField', 'directives', 'directive' => $parser->{'parse' . $name}(false),
+            'constArguments' => $parser->parseArguments(true),
+            'constValueLiteral' => $parser->parseValueLiteral(true),
+            'constArray' => $parser->parseArray(true),
+            'constObject' => $parser->parseObject(true),
+            'constObjectField' => $parser->parseObjectField(true),
+            'constDirectives' => $parser->parseDirectives(true),
+            'constDirective' => $parser->parseDirective(true),
+            default => $parser->{'parse' . $name}(),
+        };
 
         $parser->expect(Token::EOF);
 

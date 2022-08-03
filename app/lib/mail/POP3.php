@@ -147,14 +147,8 @@ class POP3
     public function disconnect()
     {
         $this->sendString('QUIT');
-        try {
-            $this->getResponse();
-        } catch (Exception $e) {
-        }
-        try {
-            @fclose($this->pop_conn);
-        } catch (Exception $e) {
-        }
+        $this->getResponse();
+        @fclose($this->pop_conn);
         $this->connected = false;
         $this->pop_conn = false;
     }

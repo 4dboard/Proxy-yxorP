@@ -112,7 +112,7 @@ class cookieJar implements cookieJarInterface
 
     public function getCookieByName($name)
     {
-        if ($name === null || !is_scalar($name)) {
+        if (!is_scalar($name)) {
             return null;
         }
         foreach ($this->cookies as $cookie) {
@@ -123,6 +123,9 @@ class cookieJar implements cookieJarInterface
         return null;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function toArray()
     {
         return array_map(function (setCookie $cookie) {

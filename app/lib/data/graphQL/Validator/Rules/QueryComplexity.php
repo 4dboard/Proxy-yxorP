@@ -113,6 +113,9 @@ class QueryComplexity extends QuerySecurityRule
         return $complexity;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     private function nodeComplexity(Node $node, $complexity = 0)
     {
         switch (true) {
@@ -182,6 +185,9 @@ class QueryComplexity extends QuerySecurityRule
         return $astFieldInfo;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     private function directiveExcludesField(FieldNode $node)
     {
         foreach ($node->directives as $directiveNode) {
@@ -234,6 +240,9 @@ class QueryComplexity extends QuerySecurityRule
         $this->rawVariableValues = $rawVariableValues ?? [];
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     private function buildFieldArguments(FieldNode $node)
     {
         $rawVariableValues = $this->getRawVariableValues();

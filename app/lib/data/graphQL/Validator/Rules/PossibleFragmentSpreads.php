@@ -79,7 +79,7 @@ class PossibleFragmentSpreads extends ValidationRule
 
         // Both are object types:
         if ($parentType instanceof ObjectType && $fragType instanceof ObjectType) {
-            return $parentType === $fragType;
+            return false;
         }
 
         // Both are interfaces

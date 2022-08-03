@@ -22,16 +22,28 @@ class TWFA extends helperAware
 
     protected TwoFactorAuth $tfa;
 
+    /**
+     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
+     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     */
     public function createSecret(int $length = 160)
     {
         return $this->tfa->createSecret($length);
     }
 
+    /**
+     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     */
     public function getQRCodeImageAsDataUri(string $secret, int $size = 150): string
     {
         return $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
     }
 
+    /**
+     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
+     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     */
     public function getQRCodeImage(string $secret, int $size = 150): string|bool
     {
         $uri = $this->tfa->getQRCodeImageAsDataUri($this->app['app.name'], $secret, $size);
@@ -43,6 +55,9 @@ class TWFA extends helperAware
         return $this->tfa->verifyCode($secret, $code);
     }
 
+    /**
+     * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
+     */
     protected function initialize()
     {
         $this->tfa = new TwoFactorAuth($this->app['app.name'], 6, 30, 'sha1', new TWFAQRCodeRenderer());

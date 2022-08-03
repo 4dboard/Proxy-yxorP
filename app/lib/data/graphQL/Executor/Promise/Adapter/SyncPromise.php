@@ -67,6 +67,9 @@ class SyncPromise
         return self::$queue ?? self::$queue = new SplQueue();
     }
 
+    /**
+     * @throws \Exception
+     */
     public function resolve($value): self
     {
         switch ($this->state) {
@@ -76,7 +79,9 @@ class SyncPromise
                 }
                 if (is_object($value) && method_exists($value, 'then')) {
                     $value->then(
-                        function ($resolvedValue): void {
+                    /**
+                     * @throws \Exception
+                     */ function ($resolvedValue): void {
                             $this->resolve($resolvedValue);
                         },
                         function ($reason): void {
@@ -103,6 +108,9 @@ class SyncPromise
         return $this;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function reject($reason): self
     {
         if (!$reason instanceof Throwable) {

@@ -38,7 +38,7 @@ final class easyHandle
                 }
             }
         }
-        $this->response = new response($startLine[1], $headers, $this->sink, substr($startLine[0], 5), isset($startLine[2]) ? (string)$startLine[2] : null);
+        $this->response = new response($startLine[1], $headers, $this->sink, substr($startLine[0], 5), isset($startLine[2]) ? $startLine[2] : null);
     }
 
     public function __get($name)

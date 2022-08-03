@@ -13,6 +13,9 @@ class indexLite
     protected string $path;
     protected SQLite3 $db;
 
+    /**
+     * @throws \Exception
+     */
     public function __construct(string $path, array $options = [])
     {
         $this->path = $path;

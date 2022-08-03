@@ -198,55 +198,39 @@ final class SvgImageBackEnd implements ImageBackEndInterface
         $pathData = [];
 
         foreach ($path as $op) {
-            switch (true) {
-                case $op instanceof Move:
-                    $pathData[] = sprintf(
-                        'M%s %s',
-                        round($op->getX(), self::PRECISION),
-                        round($op->getY(), self::PRECISION)
-                    );
-                    break;
-
-                case $op instanceof Line:
-                    $pathData[] = sprintf(
-                        'L%s %s',
-                        round($op->getX(), self::PRECISION),
-                        round($op->getY(), self::PRECISION)
-                    );
-                    break;
-
-                case $op instanceof EllipticArc:
-                    $pathData[] = sprintf(
-                        'A%s %s %s %u %u %s %s',
-                        round($op->getXRadius(), self::PRECISION),
-                        round($op->getYRadius(), self::PRECISION),
-                        round($op->getXAxisAngle(), self::PRECISION),
-                        $op->isLargeArc(),
-                        $op->isSweep(),
-                        round($op->getX(), self::PRECISION),
-                        round($op->getY(), self::PRECISION)
-                    );
-                    break;
-
-                case $op instanceof Curve:
-                    $pathData[] = sprintf(
-                        'C%s %s %s %s %s %s',
-                        round($op->getX1(), self::PRECISION),
-                        round($op->getY1(), self::PRECISION),
-                        round($op->getX2(), self::PRECISION),
-                        round($op->getY2(), self::PRECISION),
-                        round($op->getX3(), self::PRECISION),
-                        round($op->getY3(), self::PRECISION)
-                    );
-                    break;
-
-                case $op instanceof Close:
-                    $pathData[] = 'Z';
-                    break;
-
-                default:
-                    throw new RuntimeException('Unexpected draw operation: ' . get_class($op));
-            }
+            $pathData[] = match (true) {
+                $op instanceof Move => sprintf(
+                    'M%s %s',
+                    round($op->getX(), self::PRECISION),
+                    round($op->getY(), self::PRECISION)
+                ),
+                $op instanceof Line => sprintf(
+                    'L%s %s',
+                    round($op->getX(), self::PRECISION),
+                    round($op->getY(), self::PRECISION)
+                ),
+                $op instanceof EllipticArc => sprintf(
+                    'A%s %s %s %u %u %s %s',
+                    round($op->getXRadius(), self::PRECISION),
+                    round($op->getYRadius(), self::PRECISION),
+                    round($op->getXAxisAngle(), self::PRECISION),
+                    $op->isLargeArc(),
+                    $op->isSweep(),
+                    round($op->getX(), self::PRECISION),
+                    round($op->getY(), self::PRECISION)
+                ),
+                $op instanceof Curve => sprintf(
+                    'C%s %s %s %s %s %s',
+                    round($op->getX1(), self::PRECISION),
+                    round($op->getY1(), self::PRECISION),
+                    round($op->getX2(), self::PRECISION),
+                    round($op->getY2(), self::PRECISION),
+                    round($op->getX3(), self::PRECISION),
+                    round($op->getY3(), self::PRECISION)
+                ),
+                $op instanceof Close => 'Z',
+                default => throw new RuntimeException('Unexpected draw operation: ' . get_class($op)),
+            };
         }
 
         $this->xmlWriter->startElement('path');

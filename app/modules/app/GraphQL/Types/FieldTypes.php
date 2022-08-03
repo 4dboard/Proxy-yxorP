@@ -42,36 +42,17 @@ class fieldTypes
 
         $def = [];
 
-        switch ($field['type']) {
-            case 'text':
-            case 'code':
-            case 'color':
-            case 'date':
-            case 'datetime':
-            case 'wysiwyg':
-            case 'time':
-            case 'select':
-                $def['type'] = Type::string();
-                break;
-            case 'boolean':
-                $def['type'] = Type::boolean();
-                break;
-            case 'number':
-                $def['type'] = Type::int();
-                break;
-            case 'layout':
-                $def['type'] = jsonType::instance();
-                break;
-            case 'set':
-                $def['type'] = new ObjectType([
-                    'name' => self::getName('Set' . ucfirst($field['name'])),
-                    'fields' => self::buildFieldsDefinitions($field['opts'])
-                ]);
-                break;
-
-            default:
-                $def['type'] = jsonType::instance();
-        }
+        $def['type'] = match ($field['type']) {
+            'text', 'code', 'color', 'date', 'datetime', 'wysiwyg', 'time', 'select' => Type::string(),
+            'boolean' => Type::boolean(),
+            'number' => Type::int(),
+            'layout' => jsonType::instance(),
+            'set' => new ObjectType([
+                'name' => self::getName('Set' . ucfirst($field['name'])),
+                'fields' => self::buildFieldsDefinitions($field['opts'])
+            ]),
+            default => jsonType::instance(),
+        };
 
         return count($def) ? $def : null;
     }

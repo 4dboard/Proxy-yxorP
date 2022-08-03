@@ -256,14 +256,11 @@ class localFilesystemAdapter implements filesystemAdapterInterface
 
     protected function deleteFileInfoObject(SplFileInfo $file): bool
     {
-        switch ($file->getType()) {
-            case 'dir':
-                return @rmdir((string)$file->getRealPath());
-            case 'link':
-                return @unlink((string)$file->getPathname());
-            default:
-                return @unlink((string)$file->getRealPath());
-        }
+        return match ($file->getType()) {
+            'dir' => @rmdir((string)$file->getRealPath()),
+            'link' => @unlink((string)$file->getPathname()),
+            default => @unlink((string)$file->getRealPath()),
+        };
     }
 
     public function listContents(string $path, bool $deep): iterable

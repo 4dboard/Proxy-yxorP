@@ -100,6 +100,9 @@ class cachedKeySet implements ArrayAccess
         return true;
     }
 
+    /**
+     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     */
     private function getCacheItem(): CacheItemInterface
     {
         if (is_null($this->cacheItem)) {
@@ -108,6 +111,9 @@ class cachedKeySet implements ArrayAccess
         return $this->cacheItem;
     }
 
+    /**
+     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     */
     private function rateLimitExceeded(): bool
     {
         if (!$this->rateLimit) {

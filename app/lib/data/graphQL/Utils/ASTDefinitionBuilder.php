@@ -80,6 +80,9 @@ class ASTDefinitionBuilder
         $this->cache = Type::getAllBuiltInTypes();
     }
 
+    /**
+     * @throws \Exception
+     */
     public function buildDirective(DirectiveDefinitionNode $directiveNode): Directive
     {
         return new Directive([
@@ -251,22 +254,15 @@ class ASTDefinitionBuilder
      */
     private function makeSchemaDef(Node $def): Type
     {
-        switch (true) {
-            case $def instanceof ObjectTypeDefinitionNode:
-                return $this->makeTypeDef($def);
-            case $def instanceof InterfaceTypeDefinitionNode:
-                return $this->makeInterfaceDef($def);
-            case $def instanceof EnumTypeDefinitionNode:
-                return $this->makeEnumDef($def);
-            case $def instanceof UnionTypeDefinitionNode:
-                return $this->makeUnionDef($def);
-            case $def instanceof ScalarTypeDefinitionNode:
-                return $this->makeScalarDef($def);
-            case $def instanceof InputObjectTypeDefinitionNode:
-                return $this->makeInputObjectDef($def);
-            default:
-                throw new Error(sprintf('Type kind of %s not supported.', $def->kind));
-        }
+        return match (true) {
+            $def instanceof ObjectTypeDefinitionNode => $this->makeTypeDef($def),
+            $def instanceof InterfaceTypeDefinitionNode => $this->makeInterfaceDef($def),
+            $def instanceof EnumTypeDefinitionNode => $this->makeEnumDef($def),
+            $def instanceof UnionTypeDefinitionNode => $this->makeUnionDef($def),
+            $def instanceof ScalarTypeDefinitionNode => $this->makeScalarDef($def),
+            $def instanceof InputObjectTypeDefinitionNode => $this->makeInputObjectDef($def),
+            default => throw new Error(sprintf('Type kind of %s not supported.', $def->kind)),
+        };
     }
 
     private function makeTypeDef(ObjectTypeDefinitionNode $def): ObjectType
@@ -443,22 +439,15 @@ class ASTDefinitionBuilder
      */
     private function makeSchemaDefFromConfig(Node $def, array $config): Type
     {
-        switch (true) {
-            case $def instanceof ObjectTypeDefinitionNode:
-                return new ObjectType($config);
-            case $def instanceof InterfaceTypeDefinitionNode:
-                return new InterfaceType($config);
-            case $def instanceof EnumTypeDefinitionNode:
-                return new EnumType($config);
-            case $def instanceof UnionTypeDefinitionNode:
-                return new UnionType($config);
-            case $def instanceof ScalarTypeDefinitionNode:
-                return new CustomScalarType($config);
-            case $def instanceof InputObjectTypeDefinitionNode:
-                return new InputObjectType($config);
-            default:
-                throw new Error(sprintf('Type kind of %s not supported.', $def->kind));
-        }
+        return match (true) {
+            $def instanceof ObjectTypeDefinitionNode => new ObjectType($config),
+            $def instanceof InterfaceTypeDefinitionNode => new InterfaceType($config),
+            $def instanceof EnumTypeDefinitionNode => new EnumType($config),
+            $def instanceof UnionTypeDefinitionNode => new UnionType($config),
+            $def instanceof ScalarTypeDefinitionNode => new CustomScalarType($config),
+            $def instanceof InputObjectTypeDefinitionNode => new InputObjectType($config),
+            default => throw new Error(sprintf('Type kind of %s not supported.', $def->kind)),
+        };
     }
 
     /**

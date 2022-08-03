@@ -351,7 +351,7 @@ function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
             }
         }
     }
-    return $qs ? (string)substr($qs, 0, -1) : '';
+    return $qs ? substr($qs, 0, -1) : '';
 }
 
 function mimetype_from_filename($filename)
@@ -409,7 +409,7 @@ function _parse_request_uri($path, array $headers)
         return $path;
     }
     $host = $headers[reset($hostKey)][0];
-    $scheme = substr($host, -4) === ':443' ? 'https' : 'http';
+    $scheme = str_ends_with($host, ':443') ? 'https' : 'http';
     return $scheme . '://' . $host . '/' . ltrim($path, '/');
 }
 

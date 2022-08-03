@@ -34,7 +34,7 @@ class csrf extends helperAware
 
         $payload = ['csrf' => $key];
 
-        if ($expire && is_numeric($expire)) {
+        if ($expire) {
             $payload['exp'] = $expire;
         }
 

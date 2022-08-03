@@ -78,6 +78,9 @@ final class docParser
         $this->namespaces[] = $namespace;
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     private function collectAnnotationMetadata(string $name): void
     {
         if (self::$metadataParser === null) {
@@ -200,6 +203,9 @@ final class docParser
         return null;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function Annotations(): array
     {
         $annotations = [];
@@ -227,6 +233,9 @@ final class docParser
         return $annotations;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function Annotation()
     {
         $this->match(docLexer::T_AT);
@@ -373,6 +382,9 @@ S
         return $instance;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function match(int $token): void
     {
         if (!$this->lexer->isNextToken($token)) {
@@ -396,6 +408,9 @@ S
         return annotationException::syntaxError($message);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function Identifier(): string
     {
         if (!$this->lexer->isNextTokenAny(self::$classIdentifiers)) {
@@ -411,6 +426,9 @@ S
         return $className;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function matchAny(array $tokens): void
     {
         if (!$this->lexer->isNextTokenAny($tokens)) {
@@ -444,6 +462,9 @@ S
         return false;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function MethodCall(): array
     {
         $values = [];
@@ -458,6 +479,9 @@ S
         return $values;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     #[ArrayShape(['named_arguments' => "array", 'positional_arguments' => "array"])] private function Values(): array
     {
         $values = [$this->Value()];
@@ -473,7 +497,7 @@ S
         $namedArguments = [];
         $positionalArguments = [];
         foreach ($values as $k => $value) {
-            if (is_object($value) && $value instanceof stdClass) {
+            if ($value instanceof stdClass) {
                 $namedArguments[$value->name] = $value->value;
             } else {
                 $positionalArguments[$k] = $value;
@@ -482,6 +506,9 @@ S
         return ['named_arguments' => $namedArguments, 'positional_arguments' => $positionalArguments];
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function Value()
     {
         $peek = $this->lexer->glimpse();
@@ -491,6 +518,9 @@ S
         return $this->PlainValue();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function FieldAssignment(): stdClass
     {
         $this->match(docLexer::T_IDENTIFIER);
@@ -502,6 +532,9 @@ S
         return $item;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function PlainValue()
     {
         if ($this->lexer->isNextToken(docLexer::T_OPEN_CURLY_BRACES)) {
@@ -537,6 +570,9 @@ S
         }
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function Arrayx(): array
     {
         $array = $values = [];
@@ -565,6 +601,9 @@ S
         return $array;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function ArrayEntry(): array
     {
         $peek = $this->lexer->glimpse();
@@ -581,6 +620,9 @@ S
         return [null, $this->Value()];
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function Constant()
     {
         $identifier = $this->Identifier();
@@ -645,6 +687,9 @@ S
         return $identifier[0] === '\\';
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function resolvePositionalValues(array $arguments, string $name): array
     {
         $positionalArguments = $arguments['positional_arguments'] ?? [];
@@ -678,6 +723,9 @@ S
         return $values;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     private function instantiateAnnotiation(string $originalName, string $context, string $name, array $arguments)
     {
         try {

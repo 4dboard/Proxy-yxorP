@@ -465,7 +465,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private function sameValue(Node $value1, Node $value2)
     {
-        return (!$value1 && !$value2) || (Printer::doPrint($value1) === Printer::doPrint($value2));
+        return (Printer::doPrint($value1) === Printer::doPrint($value2));
     }
 
     /**

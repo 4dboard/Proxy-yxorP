@@ -8,6 +8,9 @@ use yxorP\app\lib\version\Exception\replacedPackageException;
 
 class prettyVersions
 {
+    /**
+     * @throws \yxorP\app\lib\version\Exception\versionMissingExceptionInterface
+     */
     public static function getVersion(string $packageName): version
     {
         self::checkProvidedPackages($packageName);
@@ -15,6 +18,9 @@ class prettyVersions
         return new version($packageName, InstalledVersions::getPrettyVersion($packageName), InstalledVersions::getReference($packageName));
     }
 
+    /**
+     * @throws \yxorP\app\lib\version\Exception\versionMissingExceptionInterface
+     */
     protected static function checkProvidedPackages(string $packageName): void
     {
         if (!method_exists(InstalledVersions::class, 'getAllRawData')) {
@@ -30,6 +36,9 @@ class prettyVersions
         }
     }
 
+    /**
+     * @throws \yxorP\app\lib\version\Exception\versionMissingExceptionInterface
+     */
     protected static function checkReplacedPackages(string $packageName): void
     {
         if (!method_exists(InstalledVersions::class, 'getAllRawData')) {

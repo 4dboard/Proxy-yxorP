@@ -26,7 +26,7 @@ use const E_USER_DEPRECATED;
  * Registry of standard GraphQL types
  * and a base class for all other types.
  */
-abstract class Type extends \yxorP\app\lib\data\graphQL\Type\Definition\UnionType implements JsonSerializable, \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType, \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType, \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType, \yxorP\app\lib\data\graphQL\Type\Definition\NullableType
+abstract class Type extends UnionType implements JsonSerializable, CompositeType, CompositeType, CompositeType, NullableType
 {
     public const STRING = 'String';
     public const INT = 'Int';

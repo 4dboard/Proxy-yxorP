@@ -75,6 +75,10 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         $this->compressionQuality = $compressionQuality;
     }
 
+    /**
+     * @throws \ImagickException
+     * @throws \ImagickPixelException
+     */
     public function new(int $size, ColorInterface $backgroundColor): void
     {
         $this->image = new Imagick();
@@ -87,6 +91,9 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         $this->matrixIndex = 0;
     }
 
+    /**
+     * @throws \ImagickPixelException
+     */
     private function getColorPixel(ColorInterface $color): ImagickPixel
     {
         $alpha = 100;
@@ -161,6 +168,9 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
             ->multiply(TransformationMatrix::rotate($degrees));
     }
 
+    /**
+     * @throws \ImagickException
+     */
     public function push(): void
     {
         if (null === $this->draw) {
@@ -171,6 +181,9 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         $this->matrices[++$this->matrixIndex] = $this->matrices[$this->matrixIndex - 1];
     }
 
+    /**
+     * @throws \ImagickException
+     */
     public function pop(): void
     {
         if (null === $this->draw) {
@@ -181,6 +194,9 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         unset($this->matrices[$this->matrixIndex--]);
     }
 
+    /**
+     * @throws \ImagickDrawException
+     */
     public function drawPathWithColor(Path $path, ColorInterface $color): void
     {
         if (null === $this->draw) {
@@ -240,6 +256,10 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         $this->draw->pathFinish();
     }
 
+    /**
+     * @throws \ImagickException
+     * @throws \ImagickPixelException
+     */
     public function drawPathWithGradient(
         Path     $path,
         Gradient $gradient,
@@ -257,6 +277,10 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         $this->drawPath($path);
     }
 
+    /**
+     * @throws \ImagickPixelException
+     * @throws \ImagickException
+     */
     private function createGradientFill(Gradient $gradient, float $x, float $y, float $width, float $height): string
     {
         list($width, $height) = $this->matrices[$this->matrixIndex]->apply($width, $height);
@@ -325,6 +349,9 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
         return $id;
     }
 
+    /**
+     * @throws \ImagickException
+     */
     public function done(): string
     {
         if (null === $this->draw) {

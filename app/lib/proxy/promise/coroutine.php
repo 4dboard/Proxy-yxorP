@@ -36,6 +36,9 @@ final class coroutine implements promiseInterface
         return $this->result->otherwise($onRejected);
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function wait($unwrap = true)
     {
         return $this->result->wait($unwrap);

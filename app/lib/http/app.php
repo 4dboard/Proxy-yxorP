@@ -139,7 +139,7 @@ class app implements ArrayAccess
         }
         foreach ($this->events as $name => &$list) {
             foreach ($list as &$meta) {
-                if (is_object($meta['fn']) && $meta['fn'] instanceof Closure) {
+                if ($meta['fn'] instanceof Closure) {
                     $meta['fn'] = $meta['fn']->bindTo($this, $this);
                 }
             }
@@ -340,13 +340,11 @@ class app implements ArrayAccess
     public function cache(): mixed
     {
         $args = func_get_args();
-        switch (count($args)) {
-            case 1:
-                return $this->helper('cache')->read($args[0]);
-            case 2:
-                return $this->helper('cache')->write($args[0], $args[1]);
-        }
-        return null;
+        return match (count($args)) {
+            1 => $this->helper('cache')->read($args[0]),
+            2 => $this->helper('cache')->write($args[0], $args[1]),
+            default => null,
+        };
     }
 
     public function helper(string $helper): helperAware
@@ -366,7 +364,7 @@ class app implements ArrayAccess
             return $this;
         }
         if (!isset($this->events[$event])) $this->events[$event] = [];
-        if (is_object($callback) && $callback instanceof Closure) {
+        if ($callback instanceof Closure) {
             $callback = $callback->bindTo($this, $this);
         }
         $this->events[$event][] = ['fn' => $callback, 'prio' => $priority];
@@ -600,7 +598,7 @@ class app implements ArrayAccess
         } else {
             foreach ($this->routes as $route => $callback) {
                 $params = [];
-                if (str_starts_with($route, '#') && substr($route, -1) === '#') {
+                if (str_starts_with($route, '#') && str_ends_with($route, '#')) {
                     if (preg_match($route, $path, $matches)) {
                         $params[':captures'] = array_slice($matches, 1);
                         $found = $this->render_route($route, $params);
@@ -653,7 +651,7 @@ class app implements ArrayAccess
                 return $ret;
             }
         }
-        return $output;
+        return false;
     }
 
     public function param(?string $index = null, mixed $default = null, mixed $source = null): mixed
@@ -796,7 +794,7 @@ class app implements ArrayAccess
         if (!is_null($value)) {
             return ($value instanceof Closure) ? $value($this) : $value;
         }
-        return $value;
+        return null;
     }
 
     public function offsetExists($key): bool

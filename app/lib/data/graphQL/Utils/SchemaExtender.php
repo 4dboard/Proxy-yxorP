@@ -89,11 +89,7 @@ class SchemaExtender
             } elseif ($def instanceof TypeDefinitionNodeInterface) {
                 $typeName = isset($def->name) ? $def->name->value : null;
 
-                try {
-                    $type = $schema->getType($typeName);
-                } catch (Error $error) {
-                    $type = null;
-                }
+                $type = $schema->getType($typeName);
 
                 if ($type) {
                     throw new Error('Type "' . $typeName . '" already exists in the schema. It cannot also be defined in this type definition.', [$def]);
@@ -235,12 +231,6 @@ class SchemaExtender
                 }
                 break;
             case $node instanceof UnionTypeExtensionNode:
-                if (!($type instanceof UnionType)) {
-                    throw new Error(
-                        'Cannot extend non-union type "' . $type->name . '".',
-                        [$node]
-                    );
-                }
                 break;
             case $node instanceof InputObjectTypeExtensionNode:
                 if (!($type instanceof InputObjectType)) {
@@ -267,12 +257,10 @@ class SchemaExtender
                 static::$extendTypeCache[$name] = static::extendObjectType($type);
             } elseif ($type instanceof InterfaceType) {
                 static::$extendTypeCache[$name] = static::extendInterfaceType($type);
-            } elseif ($type instanceof UnionType) {
+            } elseif (true) {
                 static::$extendTypeCache[$name] = static::extendUnionType($type);
-            } elseif ($type instanceof EnumType) {
+            } elseif (false) {
                 static::$extendTypeCache[$name] = static::extendEnumType($type);
-            } elseif ($type instanceof InputObjectType) {
-                static::$extendTypeCache[$name] = static::extendInputObjectType($type);
             }
         }
 
@@ -281,14 +269,13 @@ class SchemaExtender
 
     protected static function isSpecifiedScalarType(Type $type): bool
     {
-        return $type instanceof NamedType &&
-            (
-                $type->name === Type::STRING ||
-                $type->name === Type::INT ||
-                $type->name === Type::FLOAT ||
-                $type->name === Type::BOOLEAN ||
-                $type->name === Type::ID
-            );
+        return (
+            $type->name === Type::STRING ||
+            $type->name === Type::INT ||
+            $type->name === Type::FLOAT ||
+            $type->name === Type::BOOLEAN ||
+            $type->name === Type::ID
+        );
     }
 
     protected static function extendScalarType(ScalarType $type): CustomScalarType
@@ -503,6 +490,9 @@ class SchemaExtender
         return $possibleTypes;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     protected static function extendEnumType(EnumType $type): EnumType
     {
         return new EnumType([

@@ -52,6 +52,9 @@ final class json5Decoder
         return $this->json[$at];
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     public static function decode($source, $associative = false, $depth = 512, $options = 0)
     {
         if (PHP_VERSION_ID >= 70000) {
@@ -77,21 +80,13 @@ final class json5Decoder
     private function value()
     {
         $this->white();
-        switch ($this->currentByte) {
-            case '{':
-                return $this->obj();
-            case '[':
-                return $this->arr();
-            case '"':
-            case "'":
-                return $this->string();
-            case '-':
-            case '+':
-            case '.':
-                return $this->number();
-            default:
-                return is_numeric($this->currentByte) ? $this->number() : $this->word();
-        }
+        return match ($this->currentByte) {
+            '{' => $this->obj(),
+            '[' => $this->arr(),
+            '"', "'" => $this->string(),
+            '-', '+', '.' => $this->number(),
+            default => is_numeric($this->currentByte) ? $this->number() : $this->word(),
+        };
     }
 
     private function white()
@@ -110,6 +105,9 @@ final class json5Decoder
         }
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function comment()
     {
         $this->nextOrFail('/');
@@ -122,6 +120,9 @@ final class json5Decoder
         }
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function nextOrFail($c): void
     {
         if ($c !== $this->currentByte) {
@@ -130,6 +131,9 @@ final class json5Decoder
         $this->next();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function throwSyntaxError($message)
     {
         $str = substr($this->json, $this->currentLineStartsAt, $this->at - $this->currentLineStartsAt);
@@ -176,6 +180,9 @@ final class json5Decoder
         } while ($this->currentByte !== null);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function blockComment()
     {
         do {
@@ -191,6 +198,9 @@ final class json5Decoder
         $this->throwSyntaxError('Unterminated block comment');
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function obj()
     {
         $object = $this->associative ? [] : new stdClass;
@@ -229,6 +239,9 @@ final class json5Decoder
         $this->throwSyntaxError('Invalid object');
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function string()
     {
         $string = '';
@@ -288,32 +301,24 @@ final class json5Decoder
 
     private static function getEscapee($ch)
     {
-        switch ($ch) {
-            case "'":
-                return "'";
-            case '"':
-                return '"';
-            case '\\':
-                return '\\';
-            case '/':
-                return '/';
-            case "\n":
-                return '';
-            case 'b':
-                return chr(8);
-            case 'f':
-                return "\f";
-            case 'n':
-                return "\n";
-            case 'r':
-                return "\r";
-            case 't':
-                return "\t";
-            default:
-                return null;
-        }
+        return match ($ch) {
+            "'" => "'",
+            '"' => '"',
+            '\\' => '\\',
+            '/' => '/',
+            "\n" => '',
+            'b' => chr(8),
+            'f' => "\f",
+            'n' => "\n",
+            'r' => "\r",
+            't' => "\t",
+            default => null,
+        };
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function identifier()
     {
         $match = $this->match('/^(?:[\$_\p{L}\p{Nl}]|\\\\u[0-9A-Fa-f]{4})(?:[\$_\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}‌‍]|\\\\u[0-9A-Fa-f]{4})*/u');
@@ -325,6 +330,9 @@ final class json5Decoder
         }, $match);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function arr()
     {
         $arr = [];
@@ -355,6 +363,9 @@ final class json5Decoder
         $this->throwSyntaxError('Invalid array');
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function number()
     {
         $number = null;
@@ -393,6 +404,7 @@ final class json5Decoder
                 }
                 $number = $string;
                 break;
+            default:
             case 16:
                 if (($match = $this->match('/^[A-Fa-f0-9]+/')) !== null) {
                     $string .= $match;
@@ -415,6 +427,9 @@ final class json5Decoder
         return $asIntOrFloat;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\json\syntaxError
+     */
     private function word()
     {
         switch ($this->currentByte) {

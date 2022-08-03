@@ -44,7 +44,7 @@ class client
 
     public function removeKey(string $collection, string $key): mixed
     {
-        return $this->driver->remove($collection, ['key' => (is_array($key) ? ['$in' => $key] : $key)]);
+        return $this->driver->remove($collection, ['key' => ($key)]);
     }
 
     public function keyExists(string $collection, string $key): mixed

@@ -125,6 +125,9 @@ abstract class abstractLexer
         return null;
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function getLiteral($token)
     {
         $className = static::class;

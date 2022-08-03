@@ -173,6 +173,9 @@ abstract class Operation extends AbstractAnnotation
         return $data;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {
         if (in_array($this, $skip, true)) {

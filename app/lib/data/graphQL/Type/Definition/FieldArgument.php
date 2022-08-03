@@ -99,6 +99,9 @@ class FieldArgument
         return array_key_exists('defaultValue', $this->config);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     public function assertValid(FieldDefinition $parentField, Type $parentType)
     {
         try {

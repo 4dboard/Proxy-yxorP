@@ -111,6 +111,9 @@ class promise implements promiseInterface
         return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function wait($unwrap = true)
     {
         $this->waitIfPending();
@@ -124,6 +127,9 @@ class promise implements promiseInterface
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     private function waitIfPending()
     {
         if ($this->state !== self::PENDING) {
@@ -141,6 +147,9 @@ class promise implements promiseInterface
         }
     }
 
+    /**
+     * @throws \Exception
+     */
     private function invokeWaitFn()
     {
         try {

@@ -147,7 +147,7 @@ abstract class Node
                 }
             } elseif ($propValue instanceof Node) {
                 $tmp = $this->recursiveToArray($propValue);
-            } elseif (is_scalar($propValue) || $propValue === null) {
+            } elseif (is_scalar($propValue)) {
                 $tmp = $propValue;
             } else {
                 $tmp = null;

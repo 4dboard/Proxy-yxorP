@@ -368,10 +368,6 @@ $this->module('content')->extend([
 
     'populate' => function (array $array, $maxlevel = -1, $level = 0, $process = []) {
 
-        if (!is_array($array)) {
-            return $array;
-        }
-
         if (is_numeric($maxlevel) && $maxlevel > -1 && $level > ($maxlevel + 1)) {
             return $array;
         }

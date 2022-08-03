@@ -37,7 +37,7 @@ class finfoMimeTypeDetector implements mimeTypeDetectorInterface
         if ($this->bufferSampleSize === null) {
             return $contents;
         }
-        return (string)substr($contents, 0, $this->bufferSampleSize);
+        return substr($contents, 0, $this->bufferSampleSize);
     }
 
     public function detectMimeTypeFromPath(string $path): ?string

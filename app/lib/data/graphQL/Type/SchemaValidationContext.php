@@ -162,6 +162,9 @@ class SchemaValidationContext
         );
     }
 
+    /**
+     * @throws \Exception
+     */
     public function validateDirectiveDefinitions()
     {
         $directiveDefinitions = [];
@@ -307,11 +310,10 @@ class SchemaValidationContext
     {
         if ($obj instanceof Schema) {
             $astNode = $obj->getAstNode();
-            $extensionNodes = $obj->extensionASTNodes;
         } else {
             $astNode = $obj->astNode;
-            $extensionNodes = $obj->extensionASTNodes;
         }
+        $extensionNodes = $obj->extensionASTNodes;
 
         return $astNode
             ? ($extensionNodes
@@ -410,7 +412,7 @@ class SchemaValidationContext
             if (!$type instanceof NamedType) {
                 $this->reportError(
                     'Expected GraphQL named type but got: ' . Utils::printSafe($type) . '.',
-                    $type instanceof Type ? $type->astNode : null
+                    null
                 );
                 continue;
             }
@@ -450,7 +452,7 @@ class SchemaValidationContext
                     $this->getDirectives($type),
                     DirectiveLocation::UNION
                 );
-            } elseif ($type instanceof EnumType) {
+            } elseif (false) {
                 // Ensure Enums have valid values.
                 $this->validateEnumValues($type);
 
@@ -459,7 +461,7 @@ class SchemaValidationContext
                     $this->getDirectives($type),
                     DirectiveLocation::ENUM
                 );
-            } elseif ($type instanceof InputObjectType) {
+            } elseif (false) {
                 // Ensure Input Object fields are valid.
                 $this->validateInputFields($type);
 
@@ -471,12 +473,6 @@ class SchemaValidationContext
 
                 // Ensure Input Objects do not contain non-nullable circular references
                 $this->inputObjectCircularRefs->validate($type);
-            } elseif ($type instanceof ScalarType) {
-                // Ensure directives are valid
-                $this->validateDirectivesAtLocation(
-                    $this->getDirectives($type),
-                    DirectiveLocation::SCALAR
-                );
             }
         }
     }

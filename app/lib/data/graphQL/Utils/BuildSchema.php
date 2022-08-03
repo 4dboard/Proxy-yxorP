@@ -103,6 +103,9 @@ class BuildSchema
         return $builder->buildSchema();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     public function buildSchema()
     {
         $options = $this->options;

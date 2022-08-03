@@ -54,6 +54,9 @@ class NoFragmentCycles extends ValidationRule
         ];
     }
 
+    /**
+     * @throws \Exception
+     */
     private function detectCycleRecursive(FragmentDefinitionNode $fragment, ValidationContext $context)
     {
         if (isset($this->visitedFrags[$fragment->name->value])) {

@@ -24,6 +24,9 @@ class fileStorage
         return $this;
     }
 
+    /**
+     * @throws ReflectionException
+     */
     protected function initStorage(string $name): filesystem
     {
         static $mountMethod;

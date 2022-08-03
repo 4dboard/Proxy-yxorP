@@ -292,6 +292,9 @@ class DocumentValidator
         return $context->getErrors();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     public static function assertValidSDL(DocumentNode $documentAST)
     {
         $errors = self::validateSDL($documentAST);
@@ -354,6 +357,9 @@ class DocumentValidator
         return $str;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     */
     public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
     {
         $errors = self::validateSDL($documentAST, $schema);

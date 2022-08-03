@@ -177,13 +177,6 @@ class Schema
 
         foreach ($types as $index => $type) {
             $type = self::resolveType($type);
-            if (!$type instanceof Type) {
-                throw new InvariantViolation(sprintf(
-                    'Each entry of schema types must be instance of GraphQL\Type\Definition\Type but entry at %s is %s',
-                    $index,
-                    Utils::printSafe($type)
-                ));
-            }
             yield $type;
         }
     }
@@ -265,16 +258,12 @@ class Schema
      */
     #[Pure] public function getOperationType($operation)
     {
-        switch ($operation) {
-            case 'query':
-                return $this->getQueryType();
-            case 'mutation':
-                return $this->getMutationType();
-            case 'subscription':
-                return $this->getSubscriptionType();
-            default:
-                return null;
-        }
+        return match ($operation) {
+            'query' => $this->getQueryType(),
+            'mutation' => $this->getMutationType(),
+            'subscription' => $this->getSubscriptionType(),
+            default => null,
+        };
     }
 
     /**
@@ -416,9 +405,7 @@ class Schema
      */
     public function getPossibleTypes(Type $abstractType): array
     {
-        return $abstractType instanceof UnionType
-            ? $abstractType->getTypes()
-            : $this->getImplementations($abstractType)->objects();
+        return $abstractType->getTypes();
     }
 
     /**

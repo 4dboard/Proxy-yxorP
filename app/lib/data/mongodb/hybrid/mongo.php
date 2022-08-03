@@ -121,9 +121,6 @@ class mongo
                     }
                 }
             }
-            if (is_object($v) && is_iterable($v)) {
-                $v = json_decode(json_encode($v), true);
-            }
         }
         return $data;
     }

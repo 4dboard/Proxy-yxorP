@@ -245,7 +245,7 @@ class Context
         $summary = '';
         foreach ($lines as $line) {
             $summary .= $line . "\n";
-            if ($line === '' || substr($line, -1) === '.') {
+            if ($line === '' || str_ends_with($line, '.')) {
                 return trim($summary);
             }
         }
@@ -275,7 +275,7 @@ class Context
             } else {
                 $lines[] = $line;
             }
-            $append = (substr($line, -1) === '\\');
+            $append = (str_ends_with($line, '\\'));
         }
         $description = trim(implode("\n", $lines));
         if ($description === '') {

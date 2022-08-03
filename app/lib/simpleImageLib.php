@@ -5,6 +5,9 @@ class simpleImageLib extends simpleImage
 {
     const ERR_AVIF_NOT_ENABLED = 12;
 
+    /**
+     * @throws \Exception
+     */
     public function fromDataUri($uri)
     {
         preg_match('/^data:(.*?);/', $uri, $matches);
@@ -23,6 +26,9 @@ class simpleImageLib extends simpleImage
         return $this;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function fromFile($file)
     {
         $handle = @fopen($file, 'r');
@@ -77,6 +83,9 @@ class simpleImageLib extends simpleImage
         return $this;
     }
 
+    /**
+     * @throws \Exception
+     */
     #[ArrayShape(['data' => "false|string", 'mimeType' => "mixed"])] protected function generate($mimeType = null, $quality = 100)
     {
         $mimeType = $mimeType ?: $this->mimeType;

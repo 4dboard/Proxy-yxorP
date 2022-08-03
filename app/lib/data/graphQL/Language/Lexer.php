@@ -117,6 +117,9 @@ class Lexer
         return $this->token = $this->lookahead();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     */
     public function lookahead()
     {
         $token = $this->token;
@@ -631,6 +634,9 @@ class Lexer
         );
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     */
     private function assertValidBlockStringCharacterCode($code, $position)
     {
         // SourceCharacter
@@ -770,6 +776,9 @@ class Lexer
         );
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     */
     private function assertValidStringCharacterCode($code, $position)
     {
         // SourceCharacter

@@ -45,17 +45,12 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
 
     private function handleErrorCorrectionLevel($level)
     {
-        switch ($level) {
-            case 'L':
-                return $this->endroid4 ? new ErrorCorrectionLevelLow() : ErrorCorrectionLevel::LOW();
-            case 'M':
-                return $this->endroid4 ? new ErrorCorrectionLevelMedium() : ErrorCorrectionLevel::MEDIUM();
-            case 'Q':
-                return $this->endroid4 ? new ErrorCorrectionLevelQuartile() : ErrorCorrectionLevel::QUARTILE();
-            case 'H':
-            default:
-                return $this->endroid4 ? new ErrorCorrectionLevelHigh() : ErrorCorrectionLevel::HIGH();
-        }
+        return match ($level) {
+            'L' => $this->endroid4 ? new ErrorCorrectionLevelLow() : ErrorCorrectionLevel::LOW(),
+            'M' => $this->endroid4 ? new ErrorCorrectionLevelMedium() : ErrorCorrectionLevel::MEDIUM(),
+            'Q' => $this->endroid4 ? new ErrorCorrectionLevelQuartile() : ErrorCorrectionLevel::QUARTILE(),
+            default => $this->endroid4 ? new ErrorCorrectionLevelHigh() : ErrorCorrectionLevel::HIGH(),
+        };
     }
 
     public function getMimeType()

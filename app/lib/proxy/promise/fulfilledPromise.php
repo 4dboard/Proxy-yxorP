@@ -43,7 +43,7 @@ class fulfilledPromise implements promiseInterface
 
     public function wait($unwrap = true, $defaultDelivery = null)
     {
-        return $unwrap ? $this->value : null;
+        return null;
     }
 
     public function getState()

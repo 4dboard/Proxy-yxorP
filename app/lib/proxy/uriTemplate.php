@@ -116,11 +116,11 @@ class uriTemplate
                 $varspec['value'] = substr($value, 0, $colonPos);
                 $varspec['modifier'] = ':';
                 $varspec['position'] = (int)substr($value, $colonPos + 1);
-            } elseif (substr($value, -1) === '*') {
+            } elseif (str_ends_with($value, '*')) {
                 $varspec['modifier'] = '*';
                 $varspec['value'] = substr($value, 0, -1);
             } else {
-                $varspec['value'] = (string)$value;
+                $varspec['value'] = $value;
                 $varspec['modifier'] = '';
             }
             $result['values'][] = $varspec;

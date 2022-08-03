@@ -184,7 +184,7 @@ class SchemaPrinter
         // In some circumstances, a single line can be used for the description.
         if (count($lines) === 1 &&
             mb_strlen($lines[0]) < 70 &&
-            substr($lines[0], -1) !== '"'
+            !str_ends_with($lines[0], '"')
         ) {
             return $description . static::escapeQuote($lines[0]) . "\"\"\"\n";
         }
@@ -303,6 +303,10 @@ class SchemaPrinter
         );
     }
 
+    /**
+     * @throws Error
+     * @throws \Throwable
+     */
     protected static function printInputValue($arg): string
     {
         $argDecl = $arg->name . ': ' . $arg->getType();
@@ -330,17 +334,7 @@ class SchemaPrinter
             return static::printInterface($type, $options);
         }
 
-        if ($type instanceof UnionType) {
-            return static::printUnion($type, $options);
-        }
-
-        if ($type instanceof EnumType) {
-            return static::printEnum($type, $options);
-        }
-
-        if ($type instanceof InputObjectType) {
-            return static::printInputObject($type, $options);
-        }
+        return static::printUnion($type, $options);
 
         throw new Error(sprintf('Unknown type: %s.', Utils::printSafe($type)));
     }
@@ -396,6 +390,10 @@ class SchemaPrinter
         );
     }
 
+    /**
+     * @throws Error
+     * @throws \Throwable
+     */
     protected static function printDeprecated($fieldOrEnumVal): string
     {
         $reason = $fieldOrEnumVal->deprecationReason;

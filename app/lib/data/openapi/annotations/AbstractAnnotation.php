@@ -106,7 +106,7 @@ abstract class AbstractAnnotation implements JsonSerializable
                 $this->$property = $value;
                 if (is_array($value)) {
                     foreach ($value as $key => $annotation) {
-                        if (is_object($annotation) && $annotation instanceof AbstractAnnotation) {
+                        if ($annotation instanceof AbstractAnnotation) {
                             $this->$property[$key] = $this->nested($annotation, $nestedContext);
                         }
                     }
@@ -116,7 +116,7 @@ abstract class AbstractAnnotation implements JsonSerializable
             } elseif (is_array($value)) {
                 $annotations = [];
                 foreach ($value as $annotation) {
-                    if (is_object($annotation) && $annotation instanceof AbstractAnnotation) {
+                    if ($annotation instanceof AbstractAnnotation) {
                         $annotations[] = $annotation;
                     } else {
                         $this->_context->logger->warning('Unexpected field in ' . $this->identity() . ' in ' . $this->_context);
@@ -543,7 +543,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      */
     private function validateType(string $type, $value): bool
     {
-        if (str_starts_with($type, '[') && substr($type, -1) === ']') { // Array of a specified type?
+        if (str_starts_with($type, '[') && str_ends_with($type, ']')) { // Array of a specified type?
             if ($this->validateType('array', $value) === false) {
                 return false;
             }
@@ -572,24 +572,16 @@ abstract class AbstractAnnotation implements JsonSerializable
      */
     private function validateDefaultTypes(string $type, $value): bool
     {
-        switch ($type) {
-            case 'string':
-                return is_string($value);
-            case 'boolean':
-                return is_bool($value);
-            case 'integer':
-                return is_int($value);
-            case 'number':
-                return is_numeric($value);
-            case 'object':
-                return is_object($value);
-            case 'array':
-                return $this->validateArrayType($value);
-            case 'scheme':
-                return in_array($value, ['http', 'https', 'ws', 'wss'], true);
-            default:
-                throw new Exception('Invalid type "' . $type . '"');
-        }
+        return match ($type) {
+            'string' => is_string($value),
+            'boolean' => is_bool($value),
+            'integer' => is_int($value),
+            'number' => is_numeric($value),
+            'object' => is_object($value),
+            'array' => $this->validateArrayType($value),
+            'scheme' => in_array($value, ['http', 'https', 'ws', 'wss'], true),
+            default => throw new Exception('Invalid type "' . $type . '"'),
+        };
     }
 
     /**

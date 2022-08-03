@@ -21,11 +21,17 @@ abstract class abstractEnum
     {
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     final public static function __callStatic(string $name, array $arguments): self
     {
         return static::valueOf($name);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     final public static function valueOf(string $name): self
     {
         if (isset(self::$values[static::class][$name])) {
@@ -98,22 +104,28 @@ abstract class abstractEnum
 
     final public function compareTo(self $other): int
     {
-        if (!$other instanceof static) {
-            throw new mismatchException(sprintf('The passed enum %s is not of the same type as %s', get_class($other), static::class));
-        }
         return $this->ordinal - $other->ordinal;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\cloneNotSupportedException
+     */
     final public function __clone()
     {
         throw new cloneNotSupportedException();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\serializeNotSupportedException
+     */
     final public function __sleep(): array
     {
         throw new serializeNotSupportedException();
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\unserializeNotSupportedException
+     */
     final public function __wakeup(): void
     {
         throw new unserializeNotSupportedException();

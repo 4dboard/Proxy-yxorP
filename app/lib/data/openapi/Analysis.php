@@ -99,6 +99,9 @@ class Analysis
         return self::$processors;
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function unregisterProcessor($processor): void
     {
         $processors =& self::processors();
@@ -273,6 +276,9 @@ class Analysis
         return null;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function getContext($annotation): Context
     {
         if ($annotation instanceof AbstractAnnotation) {
@@ -293,6 +299,9 @@ class Analysis
         return $this->split()->unmerged;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function split()
     {
         $result = new stdClass();
@@ -306,6 +315,9 @@ class Analysis
         return $result;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function merged(): Analysis
     {
         if ($this->openapi === null) {

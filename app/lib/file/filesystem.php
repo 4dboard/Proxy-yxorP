@@ -49,7 +49,7 @@ class filesystem implements filesystemOperatorInterface
         if (is_resource($contents) === false) {
             throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received " . gettype($contents));
         } elseif ($type = get_resource_type($contents) !== 'stream') {
-            throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received resource of type " . $type);
+            throw new invalidStreamProvided("Invalid stream provided, expected stream resource, received resource of type " . true);
         }
     }
 

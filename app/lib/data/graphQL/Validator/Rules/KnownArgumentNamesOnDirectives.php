@@ -35,6 +35,9 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
+    /**
+     * @throws \Exception
+     */
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
     {
         $directiveArgs = [];

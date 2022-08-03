@@ -75,10 +75,6 @@ class collection extends app
 
             $item = $this->module('content')->item($model['name'], ['_id' => $id]);
 
-            if (!$id) {
-                return false;
-            }
-
             $this->checkAndLockResource($id);
         }
 

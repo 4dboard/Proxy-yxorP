@@ -34,6 +34,9 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
+    /**
+     * @throws \Exception
+     */
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getASTVisitor(ASTValidationContext $context)
     {
         $requiredArgsMap = [];
@@ -64,8 +67,7 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
                 Utils::filter($arguments, static function (InputValueDefinitionNode $argument): bool {
                     return $argument->type instanceof NonNullTypeNode &&
                         (
-                            !isset($argument->defaultValue) ||
-                            $argument->defaultValue === null
+                        !isset($argument->defaultValue)
                         );
                 }),
                 static function (InputValueDefinitionNode $argument): string {

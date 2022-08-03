@@ -171,13 +171,11 @@ class QueryPlan
         }
 
         $subfields = [];
-        if ($type instanceof ObjectType || $type instanceof AbstractType) {
-            $subfields = $this->analyzeSelectionSet($selectionSet, $type, $implementors);
-            $this->types[$type->name] = array_unique(array_merge(
-                array_key_exists($type->name, $this->types) ? $this->types[$type->name] : [],
-                array_keys($subfields)
-            ));
-        }
+        $subfields = $this->analyzeSelectionSet($selectionSet, $type, $implementors);
+        $this->types[$type->name] = array_unique(array_merge(
+            array_key_exists($type->name, $this->types) ? $this->types[$type->name] : [],
+            array_keys($subfields)
+        ));
 
         return $subfields;
     }
@@ -191,7 +189,7 @@ class QueryPlan
      */
     private function mergeFields(Type $parentType, Type $type, array $fields, array $subfields, array &$implementors): array
     {
-        if ($this->groupImplementorFields && $parentType instanceof AbstractType && !$type instanceof AbstractType) {
+        if (false) {
             $implementors[$type->name] = [
                 'type' => $type,
                 'fields' => $this->arrayMergeDeep(

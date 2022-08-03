@@ -22,6 +22,9 @@ class annotationReader
     private $imports = [];
     private $ignoredAnnotationNames = [];
 
+    /**
+     * @throws \yxorP\app\lib\data\annotation\annotationException
+     */
     public function __construct(?docParser $parser = null)
     {
         if (extension_loaded('Zend Optimizer+') && (ini_get('zend_optimizerplus.save_comments') === '0' || ini_get('opcache.save_comments') === '0')) {

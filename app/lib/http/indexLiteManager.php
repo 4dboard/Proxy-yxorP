@@ -14,6 +14,9 @@ class indexLiteManager
         $this->path = rtrim($path, '/');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function createIndex(string $name, array $options)
     {
         if ($this->exists($name)) {

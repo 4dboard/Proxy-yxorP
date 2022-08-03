@@ -37,6 +37,11 @@ class zipStream
         $this->need_headers = $name || $this->opt[self::OPTION_SEND_HTTP_HEADERS];
     }
 
+    /**
+     * @throws \yxorP\app\lib\zipStream\exception\fileNotReadableException
+     * @throws \yxorP\app\lib\zipStream\exception\invalidOptionException
+     * @throws \yxorP\app\lib\zipStream\exception\fileNotFoundException
+     */
     public function addFileFromPath($name, $path, $opt = array(), $storage_method = "deflate")
     {
         if (!is_readable($path)) {
@@ -59,6 +64,9 @@ class zipStream
         return ($this->opt[self::OPTION_LARGE_FILE_SIZE] > 0) && ($st['size'] > $this->opt[self::OPTION_LARGE_FILE_SIZE]);
     }
 
+    /**
+     * @throws \yxorP\app\lib\zipStream\exception\invalidOptionException
+     */
     protected function addLargeFile($name, $path, $opt = array())
     {
         $st = stat($path);
@@ -199,6 +207,9 @@ class zipStream
         return $storage_method == self::METHOD_STORE ? self::NOCOMPRESS : self::COMPRESS;
     }
 
+    /**
+     * @throws \yxorP\app\lib\zipStream\exception\streamNotReadableException
+     */
     public function addFileFromStream($name, $stream, $opt = array(), $storage_method = self::METHOD_DEFLATE)
     {
         $block_size = 1048576;

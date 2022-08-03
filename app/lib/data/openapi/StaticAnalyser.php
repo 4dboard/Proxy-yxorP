@@ -60,7 +60,7 @@ class StaticAnalyser
                     continue;
                 }
                 $token = $this->nextToken($tokens, $parseContext);
-                if (is_string($token) && ($token === '(' || $token === '{')) {
+                if (($token === '(' || $token === '{')) {
                     continue;
                 }
                 if (is_array($token) && ($token[1] === 'extends' || $token[1] === 'implements')) {
@@ -277,11 +277,11 @@ class StaticAnalyser
         $nesting = 1;
         while ($token !== false) {
             $token = $this->nextToken($tokens, $parseContext);
-            if (!is_array($token) && '[' === $token) {
+            if ('[' === $token) {
                 ++$nesting;
                 continue;
             }
-            if (!is_array($token) && ']' === $token) {
+            if (']' === $token) {
                 --$nesting;
                 if (!$nesting) {
                     break;

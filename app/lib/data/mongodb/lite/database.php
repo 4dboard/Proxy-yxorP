@@ -55,16 +55,11 @@ class Database
             $val = '';
             if (str_contains($key, '.')) {
                 $keys = explode('.', $key);
-                switch (count($keys)) {
-                    case 2:
-                        $val = $document[$keys[0]][$keys[1]] ?? '';
-                        break;
-                    case 3:
-                        $val = $document[$keys[0]][$keys[1]][$keys[2]] ?? '';
-                        break;
-                    default:
-                        $val = $document[$keys[0]] ?? '';
-                }
+                $val = match (count($keys)) {
+                    2 => $document[$keys[0]][$keys[1]] ?? '',
+                    3 => $document[$keys[0]][$keys[1]][$keys[2]] ?? '',
+                    default => $document[$keys[0]] ?? '',
+                };
             } else {
                 $val = $document[$key] ?? '';
             }
@@ -170,6 +165,9 @@ class UtilArrayQuery
         return call_user_func_array(self::$closures[$uid], [$doc]);
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function buildCondition(mixed $criteria, string $concat = ' && '): string
     {
         $fn = [];
@@ -230,6 +228,9 @@ class UtilArrayQuery
         return count($fn) ? trim(implode($concat, $fn)) : 'true';
     }
 
+    /**
+     * @throws \ErrorException
+     */
     public static function check(mixed $value, array $condition): bool
     {
         $keys = array_keys($condition);
@@ -242,6 +243,9 @@ class UtilArrayQuery
         return true;
     }
 
+    /**
+     * @throws \ErrorException
+     */
     private static function evaluate(string $func, mixed $a, mixed $b): int|bool
     {
         $r = false;
@@ -308,9 +312,6 @@ class UtilArrayQuery
                     $r = !$r;
                 }
                 break;
-            case '$ne':
-                $r = $a != $b;
-                break;
             case '$size':
                 if (!is_array($a)) $a = @json_decode($a, true) ?: [];
                 $r = (int)$b === count($a);
@@ -376,6 +377,9 @@ function fuzzy_search(string $search, string $text, $distance = 3): float
     return $score / count($needles);
 }
 
+/**
+ * @throws \Exception
+ */
 function createMongoDbLikeId(): string
 {
     if (class_exists('MongoDB\\BSON\\ObjectId')) {

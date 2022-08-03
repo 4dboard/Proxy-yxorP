@@ -55,7 +55,7 @@ function rejection_for($reason)
 
 function exception_for($reason)
 {
-    return $reason instanceof Exception || $reason instanceof Throwable ? $reason : new aRejectionException($reason);
+    return $reason instanceof Throwable ? $reason : new aRejectionException($reason);
 }
 
 function iter_for($value)

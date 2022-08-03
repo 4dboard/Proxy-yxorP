@@ -41,6 +41,9 @@ class rejectedPromise implements promiseInterface
         return $p;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function wait($unwrap = true, $defaultDelivery = null)
     {
         if ($unwrap) {

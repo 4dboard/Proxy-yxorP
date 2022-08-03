@@ -15,6 +15,9 @@ class Serializer
         return json_encode($annotation);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deserialize(string $jsonString, string $className)
     {
         if (!$this->isValidAnnotationClass($className)) {
@@ -86,7 +89,7 @@ class Serializer
     {
         $isAnnotationClass = is_string($type) && is_subclass_of(trim($type, '[]'), OA\AbstractAnnotation::class);
         if ($isAnnotationClass) {
-            $isArray = str_starts_with($type, '[') && substr($type, -1) === ']';
+            $isArray = str_starts_with($type, '[') && str_ends_with($type, ']');
             if ($isArray) {
                 $annotationArr = [];
                 $class = trim($type, '[]');
@@ -100,6 +103,9 @@ class Serializer
         return $value;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deserializeFile(string $filename, string $className = OA\OpenApi::class)
     {
         if (!$this->isValidAnnotationClass($className)) {

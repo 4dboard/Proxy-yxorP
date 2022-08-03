@@ -466,6 +466,9 @@ class Printer
         );
     }
 
+    /**
+     * @throws \Exception
+     */
     public function join($maybeArray, $separator = ''): string
     {
         return $maybeArray

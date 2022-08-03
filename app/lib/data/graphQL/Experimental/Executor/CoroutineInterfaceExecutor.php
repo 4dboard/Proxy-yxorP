@@ -595,11 +595,10 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                     ));
                     $returnValue = null;
                 }
-                goto CHECKED_RETURN;
-            } elseif ($type instanceof CompositeType) {
+            } elseif (true) {
                 /** @var ObjectType|null $objectType */
                 $objectType = null;
-                if ($type instanceof InterfaceType || $type instanceof UnionType) {
+                if (true) {
                     $objectType = $type->resolveType($value, $this->contextValue, $ctx->resolveInfo);
 
                     if ($objectType === null) {
@@ -677,7 +676,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                         $returnValue = null;
                         goto CHECKED_RETURN;
                     }
-                } elseif ($type instanceof ObjectType) {
+                } elseif (false) {
                     $objectType = $type;
                 } else {
                     $this->addError(Error::createLocatedError(
@@ -763,7 +762,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                     $ctx->shared->childContextsIfType2 = $childContexts;
                 }
 
-                goto CHECKED_RETURN;
             } else {
                 $this->addError(Error::createLocatedError(
                     sprintf('Unhandled type "%s".', Utils::printSafe($type)),
@@ -772,8 +770,8 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                 ));
 
                 $returnValue = null;
-                goto CHECKED_RETURN;
             }
+            goto CHECKED_RETURN;
         }
 
         CHECKED_RETURN:
@@ -801,8 +799,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      */
     private function resolveTypeSlow(CoroutineContext $ctx, $value, AbstractType $abstractType)
     {
-        if ($value !== null &&
-            is_array($value) &&
+        if (is_array($value) &&
             isset($value['__typename']) &&
             is_string($value['__typename'])
         ) {

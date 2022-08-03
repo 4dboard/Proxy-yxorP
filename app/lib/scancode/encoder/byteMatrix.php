@@ -127,19 +127,11 @@ final class byteMatrix
 
         for ($y = 0; $y < $this->height; $y++) {
             for ($x = 0; $x < $this->width; $x++) {
-                switch ($this->bytes[$y][$x]) {
-                    case 0:
-                        $result .= ' 0';
-                        break;
-
-                    case 1:
-                        $result .= ' 1';
-                        break;
-
-                    default:
-                        $result .= '  ';
-                        break;
-                }
+                $result .= match ($this->bytes[$y][$x]) {
+                    0 => ' 0',
+                    1 => ' 1',
+                    default => '  ',
+                };
             }
 
             $result .= "\n";

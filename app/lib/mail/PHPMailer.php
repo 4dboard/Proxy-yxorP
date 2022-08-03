@@ -188,11 +188,17 @@ class PHPMailer
         $this->Mailer = 'qmail';
     }
 
+    /**
+     * @throws Exception
+     */
     public function addAddress($address, $name = '')
     {
         return $this->addOrEnqueueAnAddress('to', $address, $name);
     }
 
+    /**
+     * @throws Exception
+     */
     protected function addOrEnqueueAnAddress($kind, $address, $name)
     {
         $pos = false;
@@ -371,21 +377,33 @@ class PHPMailer
         return (bool)preg_match('/[\x80-\xFF]/', $text);
     }
 
+    /**
+     * @throws Exception
+     */
     public function addCC($address, $name = '')
     {
         return $this->addOrEnqueueAnAddress('cc', $address, $name);
     }
 
+    /**
+     * @throws Exception
+     */
     public function addBCC($address, $name = '')
     {
         return $this->addOrEnqueueAnAddress('bcc', $address, $name);
     }
 
+    /**
+     * @throws Exception
+     */
     public function addReplyTo($address, $name = '')
     {
         return $this->addOrEnqueueAnAddress('Reply-To', $address, $name);
     }
 
+    /**
+     * @throws Exception
+     */
     public function setFrom($address, $name = '', $auto = true)
     {
         $address = trim($address);
@@ -413,6 +431,9 @@ class PHPMailer
         return $this->lastMessageID;
     }
 
+    /**
+     * @throws Exception
+     */
     public function send()
     {
         try {
@@ -430,6 +451,9 @@ class PHPMailer
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function preSend()
     {
         if ('smtp' === $this->Mailer || ('mail' === $this->Mailer && (PHP_VERSION_ID >= 80000 || stripos(PHP_OS, 'WIN') === 0))) {
@@ -567,6 +591,9 @@ class PHPMailer
         return false;
     }
 
+    /**
+     * @throws Exception
+     */
     public function createBody()
     {
         $body = '';
@@ -898,7 +925,7 @@ class PHPMailer
                             $len -= 2;
                         }
                         $part = substr($word, 0, $len);
-                        $word = (string)substr($word, $len);
+                        $word = substr($word, $len);
                         if ($word !== '') {
                             $message .= $part . sprintf('=%s', static::$LE);
                         } else {
@@ -953,7 +980,7 @@ class PHPMailer
                 } elseif ($dec >= 192) {
                     $maxLength -= $lookBack - $encodedCharPos;
                     $foundSplitPos = true;
-                } elseif ($dec < 192) {
+                } else {
                     $lookBack += 3;
                 }
             } else {
@@ -990,6 +1017,9 @@ class PHPMailer
         return $result;
     }
 
+    /**
+     * @throws Exception
+     */
     public function encodeString($str, $encoding = self::ENCODING_BASE64)
     {
         $encoded = '';
@@ -1025,6 +1055,9 @@ class PHPMailer
         return static::normalizeBreaks(quoted_printable_encode($string));
     }
 
+    /**
+     * @throws Exception
+     */
     protected function attachAll($disposition_type, $boundary)
     {
         $mime = [];
@@ -1231,6 +1264,9 @@ class PHPMailer
         return trim(str_replace(["\r", "\n"], '', $str));
     }
 
+    /**
+     * @throws Exception
+     */
     protected function encodeFile($path, $encoding = self::ENCODING_BASE64)
     {
         try {
@@ -1362,7 +1398,7 @@ class PHPMailer
         if (empty($host) || !is_string($host) || strlen($host) > 256 || !preg_match('/^([a-zA-Z\d.-]*|\[[a-fA-F\d:]+\])$/', $host)) {
             return false;
         }
-        if (strlen($host) > 2 && str_starts_with($host, '[') && substr($host, -1, 1) === ']') {
+        if (strlen($host) > 2 && str_starts_with($host, '[') && str_ends_with($host, ']')) {
             return filter_var(substr($host, 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
         }
         if (is_numeric(str_replace('.', '', $host))) {
@@ -1371,6 +1407,9 @@ class PHPMailer
         return filter_var('http://' . $host, FILTER_VALIDATE_URL) !== false;
     }
 
+    /**
+     * @throws Exception
+     */
     public function DKIM_Add($headers_line, $subject, $body)
     {
         $DKIMsignatureType = 'rsa-sha256';
@@ -1506,6 +1545,9 @@ class PHPMailer
         return implode(self::CRLF, $lines);
     }
 
+    /**
+     * @throws Exception
+     */
     public function DKIM_Sign($signHeader)
     {
         if (!defined('PKCS7_TEXT')) {
@@ -1532,6 +1574,9 @@ class PHPMailer
         return '';
     }
 
+    /**
+     * @throws Exception
+     */
     public function postSend()
     {
         try {
@@ -1563,6 +1608,9 @@ class PHPMailer
         return false;
     }
 
+    /**
+     * @throws Exception
+     */
     protected function sendmailSend($header, $body)
     {
         if ($this->Mailer === 'qmail') {
@@ -1699,16 +1747,11 @@ class PHPMailer
         if (str_contains($address, "\n") || str_contains($address, "\r")) {
             return false;
         }
-        switch ($patternselect) {
-            case 'pcre':
-            case 'pcre8':
-                return (bool)preg_match('/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)' . '((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)' . '(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)' . '([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*' . '(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)' . '(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}' . '|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:' . '|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}' . '|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD', $address);
-            case 'html5':
-                return (bool)preg_match('/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}' . '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD', $address);
-            case 'php':
-            default:
-                return filter_var($address, FILTER_VALIDATE_EMAIL) !== false;
-        }
+        return match ($patternselect) {
+            'pcre', 'pcre8' => (bool)preg_match('/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)' . '((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)' . '(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)' . '([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*' . '(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)' . '(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}' . '|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:' . '|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}' . '|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD', $address),
+            'html5' => (bool)preg_match('/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}' . '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD', $address),
+            default => filter_var($address, FILTER_VALIDATE_EMAIL) !== false,
+        };
     }
 
     protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body, $from, $extra)
@@ -1718,6 +1761,9 @@ class PHPMailer
         }
     }
 
+    /**
+     * @throws Exception
+     */
     protected function smtpSend($header, $body)
     {
         $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
@@ -1770,6 +1816,9 @@ class PHPMailer
         return true;
     }
 
+    /**
+     * @throws Exception
+     */
     public function smtpConnect($options = null)
     {
         if (null === $this->smtp) {
@@ -1880,6 +1929,9 @@ class PHPMailer
         return $message;
     }
 
+    /**
+     * @throws Exception
+     */
     protected function mailSend($header, $body)
     {
         $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
@@ -1962,6 +2014,9 @@ class PHPMailer
         return static::stripTrailingWSP($this->MIMEHeader . $this->mailHeader) . static::$LE . static::$LE . $this->MIMEBody;
     }
 
+    /**
+     * @throws Exception
+     */
     public function addAttachment($path, $name = '', $encoding = self::ENCODING_BASE64, $type = '', $disposition = 'attachment')
     {
         try {
@@ -2018,22 +2073,13 @@ class PHPMailer
                 $ret['filename'] = $pathinfo[3];
             }
         }
-        switch ($options) {
-            case PATHINFO_DIRNAME:
-            case 'dirname':
-                return $ret['dirname'];
-            case PATHINFO_BASENAME:
-            case 'basename':
-                return $ret['basename'];
-            case PATHINFO_EXTENSION:
-            case 'extension':
-                return $ret['extension'];
-            case PATHINFO_FILENAME:
-            case 'filename':
-                return $ret['filename'];
-            default:
-                return $ret;
-        }
+        return match ($options) {
+            PATHINFO_DIRNAME, 'dirname' => $ret['dirname'],
+            PATHINFO_BASENAME, 'basename' => $ret['basename'],
+            PATHINFO_EXTENSION, 'extension' => $ret['extension'],
+            PATHINFO_FILENAME, 'filename' => $ret['filename'],
+            default => $ret,
+        };
     }
 
     public static function _mime_types($ext = '')
@@ -2056,6 +2102,9 @@ class PHPMailer
         return $this->attachment;
     }
 
+    /**
+     * @throws Exception
+     */
     public function addStringAttachment($string, $filename, $encoding = self::ENCODING_BASE64, $type = '', $disposition = 'attachment')
     {
         try {
@@ -2136,6 +2185,9 @@ class PHPMailer
         $this->CustomHeader = [];
     }
 
+    /**
+     * @throws Exception
+     */
     public function addCustomHeader($name, $value = null)
     {
         if (null === $value && str_contains($name, ':')) {
@@ -2158,11 +2210,14 @@ class PHPMailer
         return $this->CustomHeader;
     }
 
+    /**
+     * @throws Exception
+     */
     public function msgHTML($message, $basedir = '', $advanced = false)
     {
         preg_match_all('/(?<!-)(src|background)=["\'](.*)["\']/Ui', $message, $images);
         if (array_key_exists(2, $images)) {
-            if (strlen($basedir) > 1 && '/' !== substr($basedir, -1)) {
+            if (strlen($basedir) > 1 && !str_ends_with($basedir, '/')) {
                 $basedir .= '/';
             }
             foreach ($images[2] as $imgindex => $url) {
@@ -2189,10 +2244,10 @@ class PHPMailer
                         $directory = '';
                     }
                     $cid = substr(hash('sha256', $url), 0, 32) . '@phpmailer.0';
-                    if (strlen($basedir) > 1 && '/' !== substr($basedir, -1)) {
+                    if (strlen($basedir) > 1 && !str_ends_with($basedir, '/')) {
                         $basedir .= '/';
                     }
-                    if (strlen($directory) > 1 && '/' !== substr($directory, -1)) {
+                    if (strlen($directory) > 1 && !str_ends_with($directory, '/')) {
                         $directory .= '/';
                     }
                     if ($this->addEmbeddedImage($basedir . $directory . $filename, $cid, $filename, static::ENCODING_BASE64, static::_mime_types((string)static::mb_pathinfo($filename, PATHINFO_EXTENSION)))) {
@@ -2220,6 +2275,9 @@ class PHPMailer
         return false;
     }
 
+    /**
+     * @throws Exception
+     */
     public function addStringEmbeddedImage($string, $cid, $name = '', $encoding = self::ENCODING_BASE64, $type = '', $disposition = 'inline')
     {
         try {
@@ -2241,6 +2299,9 @@ class PHPMailer
         return true;
     }
 
+    /**
+     * @throws Exception
+     */
     public function addEmbeddedImage($path, $cid, $name = '', $encoding = self::ENCODING_BASE64, $type = '', $disposition = 'inline')
     {
         try {
@@ -2339,6 +2400,9 @@ class PHPMailer
         $this->oauth = $oauth;
     }
 
+    /**
+     * @throws Exception
+     */
     protected function addAnAddress($kind, $address, $name = '')
     {
         if (!in_array($kind, ['to', 'cc', 'bcc', 'Reply-To'])) {

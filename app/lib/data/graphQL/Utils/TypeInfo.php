@@ -207,12 +207,8 @@ class TypeInfo
 
         $nestedTypes = [];
 
-        if ($type instanceof UnionType) {
-            $nestedTypes = $type->getTypes();
-        }
-        if ($type instanceof ImplementingType) {
-            $nestedTypes = array_merge($nestedTypes, $type->getInterfaces());
-        }
+        $nestedTypes = $type->getTypes();
+        $nestedTypes = array_merge($nestedTypes, $type->getInterfaces());
 
         if ($type instanceof HasFieldsType) {
             foreach ($type->getFields() as $field) {
@@ -409,7 +405,7 @@ class TypeInfo
             return $typeMeta;
         }
         $typeNameMeta = Introspection::typeNameMetaFieldDef();
-        if ($name === $typeNameMeta->name && $parentType instanceof CompositeType) {
+        if ($name === $typeNameMeta->name) {
             return $typeNameMeta;
         }
 

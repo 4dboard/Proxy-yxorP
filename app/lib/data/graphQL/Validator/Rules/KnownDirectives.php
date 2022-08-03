@@ -53,6 +53,9 @@ class KnownDirectives extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
+    /**
+     * @throws \Exception
+     */
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
     {
         $locationsMap = [];

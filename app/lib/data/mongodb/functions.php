@@ -171,6 +171,9 @@ function is_string_array($input): bool
     return true;
 }
 
+/**
+ * @throws \ReflectionException
+ */
 function recursive_copy($element)
 {
     if (is_array($element)) {
@@ -200,7 +203,7 @@ function create_field_path_type_map(array $typeMap, string $fieldPath): array
     if (isset($typeMap['root'])) {
         $typeMap['fieldPaths'][$fieldPath] = $typeMap['root'];
     }
-    if (substr($fieldPath, -2, 2) === '.$') {
+    if (str_ends_with($fieldPath, '.$')) {
         $typeMap['fieldPaths'][substr($fieldPath, 0, -2)] = 'array';
     }
     $typeMap['root'] = 'object';

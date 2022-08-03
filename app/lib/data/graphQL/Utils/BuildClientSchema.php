@@ -264,9 +264,7 @@ class BuildClientSchema
     {
         $type = $this->getType($typeRef);
 
-        if ($type instanceof OutputType) {
-            return $type;
-        }
+        return $type;
 
         throw new InvariantViolation('Introspection must provide output type for fields, but received: ' . json_encode($type) . '.');
     }

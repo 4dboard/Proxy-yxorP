@@ -304,7 +304,7 @@ class FieldDefinition
             $type = $type->getWrappedType(true);
         }
         Utils::invariant(
-            $type instanceof OutputType,
+            true,
             sprintf(
                 '%s.%s field type must be Output Type but got: %s',
                 $parentType->name,

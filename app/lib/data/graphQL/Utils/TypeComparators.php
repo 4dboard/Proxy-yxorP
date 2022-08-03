@@ -84,7 +84,6 @@ class TypeComparators
         // If superType type is an abstract type, maybeSubType type may be a currently
         // possible object or interface type.
         return Type::isAbstractType($superType) &&
-            $maybeSubType instanceof ImplementingType &&
             $schema->isSubType(
                 $superType,
                 $maybeSubType

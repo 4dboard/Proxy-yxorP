@@ -324,6 +324,9 @@ class Schema extends AbstractAnnotation
      */
     public $const = Generator::UNDEFINED;
 
+    /**
+     * @throws \Exception
+     */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {
         if ($this->type === 'array' && $this->items === Generator::UNDEFINED) {

@@ -174,7 +174,7 @@ class jWT
     #[Pure] private static function signatureToDER(string $sig): string
     {
         $length = max(1, (int)(strlen($sig) / 2));
-        list($r, $s) = str_split($sig, $length > 0 ? $length : 1);
+        list($r, $s) = str_split($sig, $length);
         $r = ltrim($r, "\x00");
         $s = ltrim($s, "\x00");
         if (ord($r[0]) > 0x7f) {
@@ -242,12 +242,12 @@ class jWT
         if ($keyId !== null) {
             $header['kid'] = $keyId;
         }
-        if (isset($head) && is_array($head)) {
+        if (isset($head)) {
             $header = array_merge($head, $header);
         }
         $segments = [];
-        $segments[] = static::urlsafeB64Encode((string)static::jsonEncode($header));
-        $segments[] = static::urlsafeB64Encode((string)static::jsonEncode($payload));
+        $segments[] = static::urlsafeB64Encode(static::jsonEncode($header));
+        $segments[] = static::urlsafeB64Encode(static::jsonEncode($payload));
         $signing_input = implode('.', $segments);
         $signature = static::sign($signing_input, $key, $alg);
         $segments[] = static::urlsafeB64Encode($signature);
@@ -268,7 +268,7 @@ class jWT
         }
         if ($errno = json_last_error()) {
             self::handleJsonError($errno);
-        } elseif ($json === 'null' && $input !== null) {
+        } elseif ($json === 'null') {
             throw new DomainException('Null result with non-null input');
         }
         if ($json === false) {

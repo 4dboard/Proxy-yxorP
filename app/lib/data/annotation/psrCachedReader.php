@@ -26,7 +26,7 @@ final class psrCachedReader implements readerInterface
     {
         $this->delegate = $reader;
         $this->cache = $cache;
-        $this->debug = (bool)$debug;
+        $this->debug = $debug;
     }
 
     public function getClassAnnotation(ReflectionClass $class, $annotationName)
@@ -49,6 +49,9 @@ final class psrCachedReader implements readerInterface
         return $this->loadedAnnotations[$cacheKey] = $annots;
     }
 
+    /**
+     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     */
     private function fetchFromCache(string $cacheKey, ReflectionClass $class, string $method, Reflector $reflector): array
     {
         $cacheKey = rawurlencode($cacheKey);
@@ -59,6 +62,9 @@ final class psrCachedReader implements readerInterface
         return $item->get();
     }
 
+    /**
+     * @throws \Psr\Cache\invalidArgumentExceptionInterface
+     */
     private function refresh(string $cacheKey, ReflectionClass $class): bool
     {
         $lastModification = $this->getLastModification($class);

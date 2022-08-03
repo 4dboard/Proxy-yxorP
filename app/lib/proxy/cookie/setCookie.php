@@ -143,7 +143,7 @@ class setCookie
         if (!str_starts_with($requestPath, $cookiePath)) {
             return false;
         }
-        if (substr($cookiePath, -1, 1) === '/') {
+        if (str_ends_with($cookiePath, '/')) {
             return true;
         }
         return substr($requestPath, strlen($cookiePath), 1) === '/';

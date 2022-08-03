@@ -60,9 +60,6 @@ class AugmentProperties
         foreach ($properties as $property) {
             $context = $property->_context;
             // Use the property names for @OA\Property()
-            if ($property->property === Generator::UNDEFINED) {
-                $property->property = $context->property;
-            }
             if ($property->ref !== Generator::UNDEFINED) {
                 continue;
             }
@@ -76,7 +73,7 @@ class AugmentProperties
                     $this->applyType($property, static::$types[$type]);
                 } else {
                     $key = strtolower($context->fullyQualifiedName($type));
-                    if ($property->ref === Generator::UNDEFINED && array_key_exists($key, $refs)) {
+                    if (array_key_exists($key, $refs)) {
                         $this->applyRef($property, $refs[$key]);
                         continue;
                     }
@@ -91,7 +88,7 @@ class AugmentProperties
 
                     if (array_key_exists(strtolower($type), static::$types) === false) {
                         $key = strtolower($context->fullyQualifiedName($type));
-                        if ($property->ref === Generator::UNDEFINED && $typeMatches[2] === '' && array_key_exists($key, $refs)) {
+                        if ($typeMatches[2] === '' && array_key_exists($key, $refs)) {
                             if ($isNullable) {
                                 $property->oneOf = [
                                     new Schema([

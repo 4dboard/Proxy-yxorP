@@ -40,7 +40,7 @@ class createTranslation extends Command
         $module = $input->getArgument('module');
 
         $extensions = ['php', 'js'];
-        if ($module && $module === 'System') $module = 'App';
+        if ($module === 'System') $module = 'App';
 
         if ($module && !($this->app->path("#modules:{$module}") || $this->app->path("#addons:{$module}"))) {
             $output->writeln("<error>[x] Module <<{$module}>> does not exists!</error>");
@@ -49,7 +49,7 @@ class createTranslation extends Command
 
         $modules = array_filter($this->app['modules']->getArrayCopy(), function ($m) use ($module) {
             $name = basename($m->_dir);
-            if ($module && $module === 'App' && $name === 'System') return true;
+            if ($module === 'App' && $name === 'System') return true;
             return !$module || $name === $module;
         });
 

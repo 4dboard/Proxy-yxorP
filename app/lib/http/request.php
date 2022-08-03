@@ -105,9 +105,6 @@ class request
         }
         $value = fetch_from_array($src, $index, $default);
         if ($cast && $value !== null) {
-            if (in_array($cast, ['bool', 'boolean']) && is_string($value) && in_array($cast, ['true', 'false'])) {
-                $value = $value === 'true';
-            }
             settype($value, $cast);
         }
         return $value;
@@ -167,7 +164,7 @@ class request
         $url = $this->site_url;
         if ($withpath) {
             $path = dirname($this->server['SCRIPT_NAME']);
-            if ($path === '/' || substr($url, -1 * strlen($path)) === $path) {
+            if ($path === '/' || str_ends_with($url, $path)) {
                 $path = '';
             }
             $url .= $path;

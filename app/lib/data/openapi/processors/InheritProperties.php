@@ -40,9 +40,7 @@ class InheritProperties
                 $existing = [];
                 if (is_array($schema->properties) || $schema->properties instanceof Traversable) {
                     foreach ($schema->properties as $property) {
-                        if ($property->property) {
-                            $existing[] = $property->property;
-                        }
+                        $existing[] = $property->property;
                     }
                 }
                 $classes = $analysis->getSuperClasses($schema->_context->fullyQualifiedName($schema->_context->class));

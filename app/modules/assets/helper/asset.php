@@ -159,7 +159,7 @@ class Asset extends helperAware
             $mode = 'thumbnail';
         }
 
-        if ($mime && in_array($mime, ['avif', 'gif', 'jpeg', 'png', 'webp', 'bmp'])) {
+        if (in_array($mime, ['avif', 'gif', 'jpeg', 'png', 'webp', 'bmp'])) {
             $ext = $mime;
             $mime = "image/{$ext}";
         } else {
@@ -217,6 +217,9 @@ class Img
 
     protected $image;
 
+    /**
+     * @throws \Exception
+     */
     public function __construct($img)
     {
 

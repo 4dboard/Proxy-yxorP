@@ -142,26 +142,17 @@ class Introspection
                         'kind' => [
                             'type' => Type::nonNull(self::_typeKind()),
                             'resolve' => static function (Type $type) {
-                                switch (true) {
-                                    case $type instanceof ListOfType:
-                                        return TypeKind::LIST;
-                                    case $type instanceof NonNull:
-                                        return TypeKind::NON_NULL;
-                                    case $type instanceof ScalarType:
-                                        return TypeKind::SCALAR;
-                                    case $type instanceof ObjectType:
-                                        return TypeKind::OBJECT;
-                                    case $type instanceof EnumType:
-                                        return TypeKind::ENUM;
-                                    case $type instanceof InputObjectType:
-                                        return TypeKind::INPUT_OBJECT;
-                                    case $type instanceof InterfaceType:
-                                        return TypeKind::INTERFACE;
-                                    case $type instanceof UnionType:
-                                        return TypeKind::UNION;
-                                    default:
-                                        throw new Exception('Unknown kind of type: ' . Utils::printSafe($type));
-                                }
+                                return match (true) {
+                                    $type instanceof ListOfType => TypeKind::LIST,
+                                    $type instanceof NonNull => TypeKind::NON_NULL,
+                                    $type instanceof ScalarType => TypeKind::SCALAR,
+                                    $type instanceof ObjectType => TypeKind::OBJECT,
+                                    $type instanceof EnumType => TypeKind::ENUM,
+                                    $type instanceof InputObjectType => TypeKind::INPUT_OBJECT,
+                                    $type instanceof InterfaceType => TypeKind::INTERFACE,
+                                    $type instanceof UnionType => TypeKind::UNION,
+                                    default => throw new Exception('Unknown kind of type: ' . Utils::printSafe($type)),
+                                };
                             },
                         ],
                         'name' => [
@@ -213,7 +204,7 @@ class Introspection
                         'possibleTypes' => [
                             'type' => Type::listOf(Type::nonNull(self::_type())),
                             'resolve' => static function ($type, $args, $context, ResolveInfo $info): ?array {
-                                if ($type instanceof InterfaceType || $type instanceof UnionType) {
+                                if ($type instanceof UnionType) {
                                     return $info->schema->getPossibleTypes($type);
                                 }
 

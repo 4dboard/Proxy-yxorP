@@ -60,7 +60,7 @@ class client implements clientInterface
         }
         $uri = $args[0];
         $opts = $args[1] ?? [];
-        return substr($method, -5) === 'Async' ? $this->requestAsync(substr($method, 0, -5), $uri, $opts) : $this->request($method, $uri, $opts);
+        return str_ends_with($method, 'Async') ? $this->requestAsync(substr($method, 0, -5), $uri, $opts) : $this->request($method, $uri, $opts);
     }
 
     public function requestAsync($method, $uri = '', array $options = [])
@@ -228,12 +228,18 @@ class client implements clientInterface
         return $request;
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function request($method, $uri = '', array $options = [])
     {
         $options[requestOptions::SYNCHRONOUS] = true;
         return $this->requestAsync($method, $uri, $options)->wait();
     }
 
+    /**
+     * @throws \Throwable
+     */
     public function send(requestInterface $request, array $options = [])
     {
         $options[requestOptions::SYNCHRONOUS] = true;

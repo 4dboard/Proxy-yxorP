@@ -241,31 +241,25 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         // in this case is the entire response.
         //
         // Similar to completeValueCatchingError.
-        try {
-            $result = $operation->operation === 'mutation'
-                ? $this->executeFieldsSerially($type, $rootValue, $path, $fields)
-                : $this->executeFields($type, $rootValue, $path, $fields);
-            if ($this->isPromise($result)) {
-                return $result->then(
-                    null,
-                    function ($error): ?Promise {
-                        if ($error instanceof Error) {
-                            $this->exeContext->addError($error);
+        $result = $operation->operation === 'mutation'
+            ? $this->executeFieldsSerially($type, $rootValue, $path, $fields)
+            : $this->executeFields($type, $rootValue, $path, $fields);
+        if ($this->isPromise($result)) {
+            return $result->then(
+                null,
+                function ($error): ?Promise {
+                    if ($error instanceof Error) {
+                        $this->exeContext->addError($error);
 
-                            return $this->exeContext->promiseAdapter->createFulfilled();
-                        }
-
-                        return null;
+                        return $this->exeContext->promiseAdapter->createFulfilled();
                     }
-                );
-            }
 
-            return $result;
-        } catch (Error $error) {
-            $this->exeContext->addError($error);
-
-            return null;
+                    return null;
+                }
+            );
         }
+
+        return $result;
     }
 
     /**
@@ -803,13 +797,8 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         if ($returnType instanceof LeafType) {
             return $this->completeLeafValue($returnType, $result);
         }
-        if ($returnType instanceof AbstractType) {
-            return $this->completeAbstractValue($returnType, $fieldNodes, $info, $path, $result);
-        }
+        return $this->completeAbstractValue($returnType, $fieldNodes, $info, $path, $result);
         // Field type must be Object, Interface or Union and expect sub-selections.
-        if ($returnType instanceof ObjectType) {
-            return $this->completeObjectValue($returnType, $fieldNodes, $info, $path, $result);
-        }
         throw new RuntimeException(sprintf('Cannot complete value of unexpected type "%s".', $returnType));
     }
 
@@ -957,8 +946,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     protected function defaultTypeResolver($value, $contextValue, ResolveInfo $info, AbstractType $abstractType)
     {
         // First, look for `__typename`.
-        if ($value !== null &&
-            (is_array($value) || $value instanceof ArrayAccess) &&
+        if ((is_array($value) || $value instanceof ArrayAccess) &&
             isset($value['__typename']) &&
             is_string($value['__typename'])
         ) {

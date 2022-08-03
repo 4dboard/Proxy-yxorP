@@ -11,6 +11,9 @@ use JetBrains\PhpStorm\ArrayShape;
 class utils extends app
 {
 
+    /**
+     * @throws \Exception
+     */
     #[ArrayShape(['token' => "string"])] public function generateToken($length = 20)
     {
 

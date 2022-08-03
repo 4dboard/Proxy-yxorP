@@ -56,7 +56,7 @@ class theme extends helperAware
 
             if ($ext != 'svg') return null;
 
-            if ($ext === 'svg' && $color) {
+            if ($color) {
                 $path = $this->app->path($url);
                 $svg = file_get_contents($path);
                 $svg = preg_replace('/fill="(.*?)"/', 'fill="' . $color . '"', $svg);

@@ -17,6 +17,9 @@ final class enumMap implements Serializable, IteratorAggregate
     private $values;
     private $size = 0;
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\expectationException
+     */
     public function expect(string $keyType, string $valueType, bool $allowNullValues): void
     {
         if ($keyType !== $this->keyType) {
@@ -48,12 +51,18 @@ final class enumMap implements Serializable, IteratorAggregate
         return $value;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     public function containsKey(abstractEnum $key): bool
     {
         $this->checkKeyType($key);
         return null !== $this->values[$key->ordinal()];
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     private function checkKeyType(abstractEnum $key): void
     {
         if (get_class($key) !== $this->keyType) {
@@ -61,6 +70,9 @@ final class enumMap implements Serializable, IteratorAggregate
         }
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     public function get(abstractEnum $key)
     {
         $this->checkKeyType($key);
@@ -75,6 +87,9 @@ final class enumMap implements Serializable, IteratorAggregate
         return $value;
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     public function remove(abstractEnum $key)
     {
         $this->checkKeyType($key);
@@ -125,6 +140,9 @@ final class enumMap implements Serializable, IteratorAggregate
         return serialize(['keyType' => $this->keyType, 'valueType' => $this->valueType, 'allowNullValues' => $this->allowNullValues, 'values' => $values,]);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     public function unserialize($serialized): void
     {
         $data = unserialize($serialized);
@@ -136,6 +154,9 @@ final class enumMap implements Serializable, IteratorAggregate
         }
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     public function __construct(string $keyType, string $valueType, bool $allowNullValues)
     {
         if (!is_subclass_of($keyType, abstractEnum::class)) {
@@ -148,6 +169,9 @@ final class enumMap implements Serializable, IteratorAggregate
         $this->values = array_fill(0, count($this->keyUniverse), null);
     }
 
+    /**
+     * @throws \yxorP\app\lib\data\enum\exception\illegalArgumentException
+     */
     public function put(abstractEnum $key, $value)
     {
         $this->checkKeyType($key);
@@ -171,26 +195,16 @@ final class enumMap implements Serializable, IteratorAggregate
             }
             return false;
         }
-        switch ($this->valueType) {
-            case 'mixed':
-                return true;
-            case 'bool':
-            case 'boolean':
-                return is_bool($value);
-            case 'int':
-            case 'integer':
-                return is_int($value);
-            case 'float':
-            case 'double':
-                return is_float($value);
-            case 'string':
-                return is_string($value);
-            case 'object':
-                return is_object($value);
-            case 'array':
-                return is_array($value);
-        }
-        return $value instanceof $this->valueType;
+        return match ($this->valueType) {
+            'mixed' => true,
+            'bool', 'boolean' => is_bool($value),
+            'int', 'integer' => is_int($value),
+            'float', 'double' => is_float($value),
+            'string' => is_string($value),
+            'object' => is_object($value),
+            'array' => is_array($value),
+            default => $value instanceof $this->valueType,
+        };
     }
 
     public function getIterator(): Traversable
