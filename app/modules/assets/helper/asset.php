@@ -10,7 +10,6 @@ use function explode;
 use function floor;
 use function preg_match;
 use function str_replace;
-use function strpos;
 
 /**
  * @property App $app

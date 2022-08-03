@@ -109,7 +109,8 @@
                 <div class="kiss-margin">
                     <label><?= t('Info') ?></label>
                     <label>
-                        <textarea class="kiss-input kiss-textarea" style="height:100px;" v-model="model.info"></textarea>
+                        <textarea class="kiss-input kiss-textarea" style="height:100px;"
+                                  v-model="model.info"></textarea>
                     </label>
                 </div>
 
@@ -137,15 +138,15 @@
                                         </div>
                                         <div class="kiss-width-1-4"><label>
                                                 <input type="text"
-                                                                                   class="kiss-input kiss-input-small"
-                                                                                   v-model="element.name"
-                                                                                   placeholder="<?= t('Name') ?>">
+                                                       class="kiss-input kiss-input-small"
+                                                       v-model="element.name"
+                                                       placeholder="<?= t('Name') ?>">
                                             </label></div>
                                         <div class="kiss-margin-small-left kiss-flex-1"><label>
                                                 <input type="url"
-                                                                                                       class="kiss-input kiss-input-small"
-                                                                                                       v-model="element.uri"
-                                                                                                       placeholder="https://...">
+                                                       class="kiss-input kiss-input-small"
+                                                       v-model="element.uri"
+                                                       placeholder="https://...">
                                             </label>
                                         </div>
                                         <a class="kiss-margin-small-left kiss-color-danger"

@@ -1,5 +1,4 @@
 <?php use PHPMailer\PHPMailer\PHPMailer;
-use yxorP\app\lib\mail\PHPMailer;
 
 class Mailer
 {

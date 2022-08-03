@@ -67,7 +67,8 @@
                     <div>
                         <label>2FA Code:</label>
                         <label>
-                            <input class="kiss-input" type="text" placeholder="Code" v-model="twofaCode" autofocus required>
+                            <input class="kiss-input" type="text" placeholder="Code" v-model="twofaCode" autofocus
+                                   required>
                         </label>
                     </div>
                     <div class="kiss-margin-top">

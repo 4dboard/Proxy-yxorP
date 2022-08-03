@@ -45,6 +45,11 @@ class jsonType extends ScalarType
         return $this->identity($value);
     }
 
+    private function identity($value)
+    {
+        return $value;
+    }
+
     #[Pure] public function serialize($value)
     {
         return $this->identity($value);
@@ -73,10 +78,5 @@ class jsonType extends ScalarType
             default:
                 return null;
         }
-    }
-
-    private function identity($value)
-    {
-        return $value;
     }
 }

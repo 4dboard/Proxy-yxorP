@@ -3638,7 +3638,7 @@
 
         let baseX, sticky, outside = false;
         // If a box around the coordinates was found, use that
-         // (Adjust for extended bound, if necessary.)
+        // (Adjust for extended bound, if necessary.)
         if (!ltr && (ch === end || ch === begin)) {
             ch++;
         }

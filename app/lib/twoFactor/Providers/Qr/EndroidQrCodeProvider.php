@@ -12,7 +12,6 @@ use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\file\ColorExtractor\color;
-use yxorP\app\lib\scancode\common\errorCorrectionLevel;
 
 class EndroidQrCodeProvider implements IQRCodeProviderInterface
 {

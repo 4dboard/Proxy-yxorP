@@ -6,7 +6,6 @@ use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use function compact;
 use function is_string;
-use function substr;
 
 /**
  * Class Controller

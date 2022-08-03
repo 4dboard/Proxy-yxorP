@@ -5,7 +5,6 @@ namespace yxorP\app\lib\scancode\Renderer\Module;
 
 use BaconQrCode\Encoder\ByteMatrix;
 use BaconQrCode\Renderer\Path\Path;
-use yxorP\app\lib\scancode\Encoder\byteMatrix;
 
 /**
  * Interface describing how modules should be rendered.

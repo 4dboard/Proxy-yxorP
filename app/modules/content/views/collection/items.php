@@ -206,8 +206,8 @@
                                          :class="field.__visible === false ? 'kiss-color-muted':''">
                                         <div class="kiss-margin-small-right"><label>
                                                 <input class="kiss-checkbox"
-                                                                                            type="checkbox"
-                                                                                            v-model="field.__visible">
+                                                       type="checkbox"
+                                                       v-model="field.__visible">
                                             </label></div>
                                         <div>{{ field.label || field.name}}</div>
                                     </div>

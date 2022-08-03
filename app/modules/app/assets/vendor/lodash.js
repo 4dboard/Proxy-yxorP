@@ -2403,11 +2403,11 @@
             }, Ho = fr(function (n, t, r) {
                 var e = 1;
                 if (r.length)
-                return fe(n, e, t, r, u)
+                    return fe(n, e, t, r, u)
             }), Jo = fr(function (n, t, r) {
                 var e = 3;
                 if (r.length)
-                return fe(t, e, n, r, u)
+                    return fe(t, e, n, r, u)
             }), Yo = fr(function (n, t) {
                 return dt(n, 1, t)
             }), Qo = fr(function (n, t, r) {
@@ -2965,7 +2965,7 @@
             },An.truncate = function (n, t) {
                 var r = 30, e = "...";
                 if (du(t))
-                n = Iu(n);
+                    n = Iu(n);
                 var i = n.length;
                 if (Rn.test(n)) var o = M(n), i = o.length;
                 if (r >= i) return n;
