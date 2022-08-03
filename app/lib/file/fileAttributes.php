@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 
 namespace yxorP\app\lib\file\Flysystem;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
+
 class fileAttributes implements storageAttributesInterface
 {
     use proxyArrayAccessToPropertiesTrait;
@@ -23,7 +26,7 @@ class fileAttributes implements storageAttributesInterface
         $this->extraMetadata = $extraMetadata;
     }
 
-    public static function fromArray(array $attributes): storageAttributesInterface
+    #[Pure] public static function fromArray(array $attributes): storageAttributesInterface
     {
         return new fileAttributes($attributes[storageAttributesInterface::ATTRIBUTE_PATH], $attributes[storageAttributesInterface::ATTRIBUTE_FILE_SIZE] ?? null, $attributes[storageAttributesInterface::ATTRIBUTE_VISIBILITY] ?? null, $attributes[storageAttributesInterface::ATTRIBUTE_LAST_MODIFIED] ?? null, $attributes[storageAttributesInterface::ATTRIBUTE_MIME_TYPE] ?? null, $attributes[storageAttributesInterface::ATTRIBUTE_EXTRA_METADATA] ?? []);
     }
@@ -80,7 +83,7 @@ class fileAttributes implements storageAttributesInterface
         return $clone;
     }
 
-    public function jsonSerialize(): array
+    #[ArrayShape([storageAttributesInterface::ATTRIBUTE_TYPE => "string", storageAttributesInterface::ATTRIBUTE_PATH => "string", storageAttributesInterface::ATTRIBUTE_FILE_SIZE => "int|null", storageAttributesInterface::ATTRIBUTE_VISIBILITY => "null|string", storageAttributesInterface::ATTRIBUTE_LAST_MODIFIED => "int|null", storageAttributesInterface::ATTRIBUTE_MIME_TYPE => "null|string", storageAttributesInterface::ATTRIBUTE_EXTRA_METADATA => "array"])] public function jsonSerialize(): array
     {
         return [storageAttributesInterface::ATTRIBUTE_TYPE => self::TYPE_FILE, storageAttributesInterface::ATTRIBUTE_PATH => $this->path, storageAttributesInterface::ATTRIBUTE_FILE_SIZE => $this->fileSize, storageAttributesInterface::ATTRIBUTE_VISIBILITY => $this->visibility, storageAttributesInterface::ATTRIBUTE_LAST_MODIFIED => $this->lastModified, storageAttributesInterface::ATTRIBUTE_MIME_TYPE => $this->mimeType, storageAttributesInterface::ATTRIBUTE_EXTRA_METADATA => $this->extraMetadata,];
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Error;
 
+use JetBrains\PhpStorm\Pure;
 use LogicException;
 
 /**
@@ -13,7 +14,7 @@ use LogicException;
  */
 class InvariantViolation extends LogicException
 {
-    public static function shouldNotHappen(): self
+    #[Pure] public static function shouldNotHappen(): self
     {
         return new self('This should not have happened');
     }

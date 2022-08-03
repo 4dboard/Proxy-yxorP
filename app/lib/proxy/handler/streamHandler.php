@@ -2,6 +2,7 @@
 
 use Exception;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
@@ -182,7 +183,7 @@ class streamHandler
         });
     }
 
-    private function getDefaultContext(requestInterface $request)
+    #[ArrayShape(['http' => "array"])] private function getDefaultContext(requestInterface $request)
     {
         $headers = '';
         foreach ($request->getHeaders() as $name => $value) {

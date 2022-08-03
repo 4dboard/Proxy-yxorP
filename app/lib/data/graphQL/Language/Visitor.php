@@ -6,6 +6,8 @@ namespace yxorP\app\lib\data\graphQL\Language;
 
 use ArrayObject;
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use SplFixedArray;
 use stdClass;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
@@ -387,7 +389,7 @@ class Visitor
      *
      * @api
      */
-    public static function stop()
+    #[Pure] public static function stop()
     {
         $r = new VisitorOperation();
         $r->doBreak = true;
@@ -402,7 +404,7 @@ class Visitor
      *
      * @api
      */
-    public static function skipNode()
+    #[Pure] public static function skipNode()
     {
         $r = new VisitorOperation();
         $r->doContinue = true;
@@ -417,7 +419,7 @@ class Visitor
      *
      * @api
      */
-    public static function removeNode()
+    #[Pure] public static function removeNode()
     {
         $r = new VisitorOperation();
         $r->removeNode = true;
@@ -430,7 +432,7 @@ class Visitor
      *
      * @return array<string, callable>
      */
-    public static function visitInParallel($visitors)
+    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitInParallel($visitors)
     {
         $visitorsCount = count($visitors);
         $skipping = new SplFixedArray($visitorsCount);
@@ -500,7 +502,7 @@ class Visitor
      * Creates a new visitor instance which maintains a provided TypeInfo instance
      * along with visiting visitor.
      */
-    public static function visitWithTypeInfo(TypeInfo $typeInfo, $visitor)
+    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitWithTypeInfo(TypeInfo $typeInfo, $visitor)
     {
         return [
             'enter' => static function (Node $node) use ($typeInfo, $visitor) {

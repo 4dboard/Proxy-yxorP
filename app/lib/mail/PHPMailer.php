@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\mail;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\psr\log\loggerInterface;
 use const IDNA_CHECK_BIDI;
 use const IDNA_CHECK_CONTEXTJ;
@@ -776,7 +777,7 @@ class PHPMailer
         return str_replace(['=', '+', '/'], '', base64_encode(hash('sha256', $bytes, true)));
     }
 
-    public function getMailMIME()
+    #[Pure] public function getMailMIME()
     {
         $result = '';
         $ismultipart = true;
@@ -967,7 +968,7 @@ class PHPMailer
         return (bool)preg_match('/^(.{' . (self::MAX_LINE_LENGTH + strlen(static::$LE)) . ',})/m', $str);
     }
 
-    protected function getBoundary($boundary, $charSet, $contentType, $encoding)
+    #[Pure] protected function getBoundary($boundary, $charSet, $contentType, $encoding)
     {
         $result = '';
         if ('' === $charSet) {
@@ -1958,7 +1959,7 @@ class PHPMailer
         return $this->language;
     }
 
-    public function getSentMIMEMessage()
+    #[Pure] public function getSentMIMEMessage()
     {
         return static::stripTrailingWSP($this->MIMEHeader . $this->mailHeader) . static::$LE . static::$LE . $this->MIMEBody;
     }

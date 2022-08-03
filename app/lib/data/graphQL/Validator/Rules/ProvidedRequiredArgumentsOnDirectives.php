@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
@@ -33,7 +34,7 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
-    public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getASTVisitor(ASTValidationContext $context)
     {
         $requiredArgsMap = [];
         $schema = $context->getSchema();

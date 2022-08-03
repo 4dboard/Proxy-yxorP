@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Utils;
 
 use ArrayAccess;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use ReturnTypeWillChange;
 use SplObjectStorage;
 use yxorP\app\lib\data\graphQL\Type\Definition\EnumValueDefinition;
@@ -65,7 +66,7 @@ class MixedStore implements ArrayAccess
     /** @var bool */
     private $falseValueIsSet;
 
-    public function __construct()
+    #[Pure] public function __construct()
     {
         $this->standardStore = [];
         $this->floatStore = [];

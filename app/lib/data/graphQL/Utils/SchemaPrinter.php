@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\Printer;
 use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
@@ -134,7 +135,7 @@ class SchemaPrinter
      *
      * When using this naming convention, the schema description can be omitted.
      */
-    protected static function isSchemaOfCommonNames(Schema $schema): bool
+    #[Pure] protected static function isSchemaOfCommonNames(Schema $schema): bool
     {
         $queryType = $schema->getQueryType();
         if ($queryType !== null && $queryType->name !== 'Query') {

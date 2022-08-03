@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\InlineFragmentNode;
@@ -16,7 +17,7 @@ use function sprintf;
 
 class FragmentsOnCompositeTypes extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::INLINE_FRAGMENT => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         return [
             NodeKind::INLINE_FRAGMENT => static function (InlineFragmentNode $node) use ($context): void {

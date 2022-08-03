@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\ReadPreference;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\Driver\command;
@@ -173,7 +174,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createCommandDocument()
+    #[ArrayShape(['distinct' => "string", 'key' => "string", 'maxTimeMS' => "mixed", 'collation' => "object", 'query' => "object"])] private function createCommandDocument()
     {
         $cmd = [
             'distinct' => $this->collectionName,

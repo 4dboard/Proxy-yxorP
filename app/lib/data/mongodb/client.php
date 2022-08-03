@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\data\mongoDB;
 
 use Iterator;
+use JetBrains\PhpStorm\ArrayShape;
 use Throwable;
 use yxorP\app\lib\data\mongoDB\Model\BSONArray;
 use yxorP\app\lib\http\mongoDB\Driver\Manager;
@@ -53,7 +54,7 @@ class client
         $this->writeConcern = $this->manager->getWriteConcern();
     }
 
-    private function mergeDriverInfo(array $driver): array
+    #[ArrayShape(['name' => "string", 'version' => "string", 'platform' => "mixed"])] private function mergeDriverInfo(array $driver): array
     {
         $mergedDriver = ['name' => 'PHPLIB', 'version' => self::getVersion(),];
         if (isset($driver['name'])) {
@@ -86,7 +87,7 @@ class client
         return self::$version;
     }
 
-    public function __debugInfo()
+    #[ArrayShape(['manager' => "\yxorP\app\lib\http\mongoDB\Driver\Manager", 'uri' => "string", 'typeMap' => "array|null", 'writeConcern' => "mixed"])] public function __debugInfo()
     {
         return ['manager' => $this->manager, 'uri' => $this->uri, 'typeMap' => $this->typeMap, 'writeConcern' => $this->writeConcern,];
     }

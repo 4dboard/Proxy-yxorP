@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\Renderer\Path;
 
+use JetBrains\PhpStorm\Pure;
+
 final class Line implements OperationInterface
 {
     /**
@@ -34,7 +36,7 @@ final class Line implements OperationInterface
     /**
      * @return self
      */
-    public function translate(float $x, float $y): OperationInterface
+    #[Pure] public function translate(float $x, float $y): OperationInterface
     {
         return new self($this->x + $x, $this->y + $y);
     }

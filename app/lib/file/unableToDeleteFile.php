@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -10,7 +11,7 @@ final class unableToDeleteFile extends RuntimeException implements filesystemOpe
     private $location = '';
     private $reason;
 
-    public static function atLocation(string $location, string $reason = '', Throwable $previous = null): unableToDeleteFile
+    #[Pure] public static function atLocation(string $location, string $reason = '', Throwable $previous = null): unableToDeleteFile
     {
         $e = new static(rtrim("Unable to delete file located at: {$location}. {$reason}"), 0, $previous);
         $e->location = $location;

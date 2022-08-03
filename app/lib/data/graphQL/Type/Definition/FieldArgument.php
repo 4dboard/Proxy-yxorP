@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\InputValueDefinitionNode;
 use yxorP\app\lib\data\graphQL\Type\Schema;
@@ -60,7 +61,7 @@ class FieldArgument
      *
      * @return FieldArgument[]
      */
-    public static function createMap(array $config): array
+    #[Pure] public static function createMap(array $config): array
     {
         $map = [];
         foreach ($config as $name => $argConfig) {

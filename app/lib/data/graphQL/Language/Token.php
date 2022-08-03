@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Language;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 /**
  * Represents a range of characters represented by a lexical token
  * within a Source.
@@ -107,7 +109,7 @@ class Token
     /**
      * @return (string|int|null)[]
      */
-    public function toArray(): array
+    #[ArrayShape(['kind' => "string", 'value' => "mixed|null|string", 'line' => "int", 'column' => "int"])] public function toArray(): array
     {
         return [
             'kind' => $this->kind,

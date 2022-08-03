@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\Parser;
 use yxorP\app\lib\data\graphQL\Type\Definition\CustomScalarType;
@@ -440,7 +441,7 @@ class BuildClientSchema
      *
      * @return array<string, mixed>
      */
-    public function buildInputValue(array $inputValueIntrospection): array
+    #[ArrayShape(['description' => "mixed", 'type' => "\yxorP\app\lib\data\graphQL\Type\Definition\InputType", 'defaultValue' => "mixed"])] public function buildInputValue(array $inputValueIntrospection): array
     {
         $type = $this->getInputType($inputValueIntrospection['type']);
 

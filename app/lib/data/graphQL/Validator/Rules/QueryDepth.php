@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
@@ -111,7 +112,7 @@ class QueryDepth extends QuerySecurityRule
         return sprintf('Max query depth should be %d but got %d.', $max, $count);
     }
 
-    protected function isEnabled()
+    #[Pure] protected function isEnabled()
     {
         return $this->getMaxQueryDepth() !== self::DISABLED;
     }

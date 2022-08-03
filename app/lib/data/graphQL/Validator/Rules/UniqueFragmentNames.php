@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\NameNode;
@@ -18,7 +19,7 @@ class UniqueFragmentNames extends ValidationRule
     /** @var NameNode[] */
     public $knownFragmentNames;
 
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         $this->knownFragmentNames = [];
 

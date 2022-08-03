@@ -9,6 +9,8 @@
 
 namespace yxorP\app\lib\scancode\common;
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Encapsulates a QR Code's format information, including the data mask used and error correction level.
  */
@@ -150,7 +152,7 @@ class formatInformation
     /**
      * Checks how many bits are different between two integers.
      */
-    public static function numBitsDiffering(int $a, int $b): int
+    #[Pure] public static function numBitsDiffering(int $a, int $b): int
     {
         $a ^= $b;
 
@@ -185,7 +187,7 @@ class formatInformation
     /**
      * Hashes the code of the EC level.
      */
-    public function hashCode(): int
+    #[Pure] public function hashCode(): int
     {
         return ($this->ecLevel->getBits() << 3) | $this->dataMask;
     }

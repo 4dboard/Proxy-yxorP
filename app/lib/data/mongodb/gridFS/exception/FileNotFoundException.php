@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS\Exception;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\http\mongoDB\Exception\RuntimeException;
 use function MongoDB\BSON\fromPHP;
 use function MongoDB\BSON\toJSON;
@@ -32,7 +33,7 @@ class FileNotFoundException extends RuntimeException
      * @param string $namespace Namespace for the files collection
      * @return self
      */
-    public static function byFilenameAndRevision($filename, $revision, $namespace)
+    #[Pure] public static function byFilenameAndRevision($filename, $revision, $namespace)
     {
         return new static(sprintf('File with name "%s" and revision "%d" not found in "%s"', $filename, $revision, $namespace));
     }

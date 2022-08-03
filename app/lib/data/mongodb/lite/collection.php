@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\data\mongodb\lite;
 
+use JetBrains\PhpStorm\Pure;
 use PDO;
 use function array_merge;
 use function count;
@@ -123,7 +124,7 @@ class collection
         return isset($items[0]) ? $items[0] : null;
     }
 
-    public function aggregate(array $pipeline): Aggregation\Cursor
+    #[Pure] #[Pure] public function aggregate(array $pipeline): Aggregation\Cursor
     {
         return new Aggregation\Cursor($this, $pipeline);
     }

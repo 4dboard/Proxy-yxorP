@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -10,7 +11,7 @@ final class unableToReadFile extends RuntimeException implements filesystemOpera
     private $location = '';
     private $reason = '';
 
-    public static function fromLocation(string $location, string $reason = '', Throwable $previous = null): unableToReadFile
+    #[Pure] public static function fromLocation(string $location, string $reason = '', Throwable $previous = null): unableToReadFile
     {
         $e = new static(rtrim("Unable to read file from location: {$location}. {$reason}"), 0, $previous);
         $e->location = $location;

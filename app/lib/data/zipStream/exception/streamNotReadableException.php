@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\zipStream\exception;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\zipStream\exception;
 
 /**
@@ -17,7 +18,7 @@ class streamNotReadableException extends exception
      *
      * @param String fileName - The name of the file which the stream belongs to.
      */
-    public function __construct($fileName)
+    #[Pure] public function __construct($fileName)
     {
         parent::__construct("The stream for $fileName could not be read.");
     }

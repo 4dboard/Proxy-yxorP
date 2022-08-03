@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
 use yxorP\app\lib\data\graphQL\Language\AST\OperationDefinitionNode;
@@ -16,7 +17,7 @@ class NoUnusedVariables extends ValidationRule
     /** @var VariableDefinitionNode[] */
     public $variableDefs;
 
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         $this->variableDefs = [];
 

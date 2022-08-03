@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Exception;
 
+use JetBrains\PhpStorm\Pure;
 use function get_debug_type;
 use function sprintf;
 
@@ -28,7 +29,7 @@ class ResumeTokenException extends RuntimeException
      * @param mixed $value Actual value (used to derive the type)
      * @return self
      */
-    public static function invalidType($value)
+    #[Pure] public static function invalidType($value)
     {
         return new static(sprintf('Expected resume token to have type "array or object" but found "%s"', get_debug_type($value)));
     }
@@ -38,7 +39,7 @@ class ResumeTokenException extends RuntimeException
      *
      * @return self
      */
-    public static function notFound()
+    #[Pure] public static function notFound()
     {
         return new static('Resume token not found in change document');
     }

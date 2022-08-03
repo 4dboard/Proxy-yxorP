@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
+use JetBrains\PhpStorm\Pure;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\UTCDateTime;
 use function explode;
@@ -79,7 +80,7 @@ class StreamWrapper
      *
      * @return stdClass
      */
-    public function getFile()
+    #[Pure] public function getFile()
     {
         return $this->stream->getFile();
     }
@@ -104,7 +105,7 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-eof.php
      * @return boolean
      */
-    public function stream_eof()
+    #[Pure] public function stream_eof()
     {
         if (!$this->stream instanceof ReadableStream) {
             return false;

@@ -5,6 +5,7 @@ namespace yxorP\app\lib\scancode\Renderer\Module\EdgeIterator;
 
 use BaconQrCode\Encoder\ByteMatrix;
 use IteratorAggregate;
+use JetBrains\PhpStorm\Pure;
 use Traversable;
 use yxorP\app\lib\scancode\Encoder\byteMatrix;
 
@@ -64,7 +65,7 @@ final class EdgeIterator implements IteratorAggregate
     /**
      * @return int[]|null
      */
-    private function findNext(int $x, int $y): ?array
+    #[Pure] private function findNext(int $x, int $y): ?array
     {
         $i = $this->width * $y + $x;
 

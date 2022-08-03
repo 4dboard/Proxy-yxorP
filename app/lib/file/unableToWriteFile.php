@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -10,7 +11,7 @@ final class unableToWriteFile extends RuntimeException implements filesystemOper
     private $location = '';
     private $reason;
 
-    public static function atLocation(string $location, string $reason = '', Throwable $previous = null): unableToWriteFile
+    #[Pure] public static function atLocation(string $location, string $reason = '', Throwable $previous = null): unableToWriteFile
     {
         $e = new static(rtrim("Unable to write file at location: {$location}. {$reason}"), 0, $previous);
         $e->location = $location;

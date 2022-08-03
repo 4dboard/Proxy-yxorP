@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\NameNode;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
@@ -29,7 +30,7 @@ class UniqueInputFieldNames extends ValidationRule
         return $this->getASTVisitor($context);
     }
 
-    public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape([NodeKind::OBJECT => "\Closure[]", NodeKind::OBJECT_FIELD => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
     {
         $this->knownNames = [];
         $this->knownNameStack = [];

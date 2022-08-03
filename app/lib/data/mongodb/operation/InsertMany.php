@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\data\mongoDB\insertManyResult;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
@@ -161,7 +162,7 @@ class InsertMany implements ExecutableInterface
      * @see https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
      * @return array
      */
-    private function createBulkWriteOptions()
+    #[ArrayShape(['ordered' => "bool|mixed", 'bypassDocumentValidation' => "bool|mixed"])] private function createBulkWriteOptions()
     {
         $options = ['ordered' => $this->options['ordered']];
 

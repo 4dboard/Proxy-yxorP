@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
 use ArrayObject;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Executor\Values;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
@@ -293,7 +294,7 @@ class QueryComplexity extends QuerySecurityRule
         return sprintf('Max query complexity should be %d but got %d.', $max, $count);
     }
 
-    protected function isEnabled()
+    #[Pure] protected function isEnabled()
     {
         return $this->getMaxQueryComplexity() !== self::DISABLED;
     }

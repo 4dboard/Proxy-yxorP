@@ -5,6 +5,7 @@ namespace yxorP\app\lib\scancode\Renderer\RendererStyle;
 
 use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Renderer\Color\ColorInterface;
+use JetBrains\PhpStorm\Pure;
 
 final class EyeFill
 {
@@ -27,7 +28,7 @@ final class EyeFill
         $this->internalColor = $internalColor;
     }
 
-    public static function uniform(ColorInterface $color): self
+    #[Pure] public static function uniform(ColorInterface $color): self
     {
         return new self($color, $color);
     }

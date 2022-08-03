@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\NamedTypeNode;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
@@ -23,7 +24,7 @@ use function sprintf;
  */
 class KnownTypeNames extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OBJECT_TYPE_DEFINITION => "\Closure", NodeKind::INTERFACE_TYPE_DEFINITION => "\Closure", NodeKind::UNION_TYPE_DEFINITION => "\Closure", NodeKind::INPUT_OBJECT_TYPE_DEFINITION => "\Closure", NodeKind::NAMED_TYPE => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         $skip = static function (): VisitorOperation {
             return Visitor::skipNode();

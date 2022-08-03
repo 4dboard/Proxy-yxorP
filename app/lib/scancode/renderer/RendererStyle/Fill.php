@@ -6,6 +6,7 @@ namespace yxorP\app\lib\scancode\Renderer\RendererStyle;
 use BaconQrCode\Exception\RuntimeException;
 use BaconQrCode\Renderer\Color\ColorInterface;
 use BaconQrCode\Renderer\Color\Gray;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 
 final class Fill
@@ -73,7 +74,7 @@ final class Fill
         );
     }
 
-    public static function withForegroundColor(
+    #[Pure] public static function withForegroundColor(
         ColorInterface $backgroundColor,
         ColorInterface $foregroundColor,
         EyeFill        $topLeftEyeFill,
@@ -91,7 +92,7 @@ final class Fill
         );
     }
 
-    public static function withForegroundGradient(
+    #[Pure] public static function withForegroundGradient(
         ColorInterface $backgroundColor,
         Gradient       $foregroundGradient,
         EyeFill        $topLeftEyeFill,

@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\psr\http\message\uriInterface;
 
 class uri implements uriInterface
@@ -262,7 +263,7 @@ class uri implements uriInterface
         }
     }
 
-    public function __toString()
+    #[Pure] public function __toString()
     {
         return self::composeComponents($this->scheme, $this->getAuthority(), $this->path, $this->query, $this->fragment);
     }

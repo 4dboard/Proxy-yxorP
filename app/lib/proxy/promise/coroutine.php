@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\promise;
 
 use Exception;
+use JetBrains\PhpStorm\Pure;
 use Throwable;
 
 final class coroutine implements promiseInterface
@@ -40,7 +41,7 @@ final class coroutine implements promiseInterface
         return $this->result->wait($unwrap);
     }
 
-    public function getState()
+    #[Pure] public function getState()
     {
         return $this->result->getState();
     }

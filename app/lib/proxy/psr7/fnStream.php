@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use BadMethodCallException;
+use JetBrains\PhpStorm\Pure;
 use LogicException;
 use yxorP\app\lib\psr\http\message\streamInterface;
 
@@ -34,7 +35,7 @@ class fnStream implements streamInterface
         }
     }
 
-    public static function decorate(streamInterface $stream, array $methods)
+    #[Pure] public static function decorate(streamInterface $stream, array $methods)
     {
         foreach (array_diff(self::$slots, array_keys($methods)) as $diff) {
             $methods[$diff] = [$stream, $diff];

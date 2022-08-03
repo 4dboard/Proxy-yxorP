@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
+use JetBrains\PhpStorm\ArrayShape;
 use JsonSerializable;
 use ReflectionClass;
 use ReturnTypeWillChange;
@@ -103,7 +104,7 @@ abstract class Type extends \yxorP\app\lib\data\graphQL\Type\Definition\UnionTyp
      *
      * @return ScalarType[]
      */
-    public static function getStandardTypes()
+    #[ArrayShape([self::ID => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::STRING => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::FLOAT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::INT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::BOOLEAN => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType"])] public static function getStandardTypes()
     {
         return [
             self::ID => static::id(),

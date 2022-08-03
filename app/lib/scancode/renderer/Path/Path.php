@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\scancode\Renderer\Path;
 
 use IteratorAggregate;
+use JetBrains\PhpStorm\Pure;
 use Traversable;
 
 /**
@@ -19,7 +20,7 @@ final class Path implements IteratorAggregate
     /**
      * Moves the drawing operation to a certain position.
      */
-    public function move(float $x, float $y): self
+    #[Pure] public function move(float $x, float $y): self
     {
         $path = clone $this;
         $path->operations[] = new Move($x, $y);
@@ -29,7 +30,7 @@ final class Path implements IteratorAggregate
     /**
      * Draws a line from the current position to another position.
      */
-    public function line(float $x, float $y): self
+    #[Pure] public function line(float $x, float $y): self
     {
         $path = clone $this;
         $path->operations[] = new Line($x, $y);
@@ -39,7 +40,7 @@ final class Path implements IteratorAggregate
     /**
      * Draws an elliptic arc from the current position to another position.
      */
-    public function ellipticArc(
+    #[Pure] public function ellipticArc(
         float $xRadius,
         float $yRadius,
         float $xAxisRotation,
@@ -57,7 +58,7 @@ final class Path implements IteratorAggregate
     /**
      * Draws a curve from the current position to another position.
      */
-    public function curve(float $x1, float $y1, float $x2, float $y2, float $x3, float $y3): self
+    #[Pure] public function curve(float $x1, float $y1, float $x2, float $y2, float $x3, float $y3): self
     {
         $path = clone $this;
         $path->operations[] = new Curve($x1, $y1, $x2, $y2, $x3, $y3);

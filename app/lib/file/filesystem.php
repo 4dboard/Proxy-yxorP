@@ -1,13 +1,15 @@
 <?php declare(strict_types=1);
 
 namespace yxorP\app\lib\file\Flysystem;
+use JetBrains\PhpStorm\Pure;
+
 class filesystem implements filesystemOperatorInterface
 {
     private $adapter;
     private $config;
     private $pathNormalizer;
 
-    public function __construct(filesystemAdapterInterface $adapter, array $config = [], pathNormalizerInterface $pathNormalizer = null)
+    #[Pure] public function __construct(filesystemAdapterInterface $adapter, array $config = [], pathNormalizerInterface $pathNormalizer = null)
     {
         $this->adapter = $adapter;
         $this->config = new config($config);

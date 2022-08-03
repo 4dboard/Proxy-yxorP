@@ -2,13 +2,14 @@
 
 namespace yxorP\app\lib\file\MimeTypeDetection;
 
+use JetBrains\PhpStorm\Pure;
 use const PATHINFO_EXTENSION;
 
 class extensionMimeTypeDetector implements mimeTypeDetectorInterface
 {
     private $extensions;
 
-    public function __construct(extensionToMimeTypeMapInterface $extensions = null)
+    #[Pure] public function __construct(extensionToMimeTypeMapInterface $extensions = null)
     {
         $this->extensions = $extensions ?: new generatedExtensionToMimeTypeMap();
     }

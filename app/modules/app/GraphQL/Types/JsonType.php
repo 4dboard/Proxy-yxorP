@@ -2,6 +2,7 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Language\AST\FloatValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\ObjectValueNode;
 use yxorP\app\lib\data\graphQL\Language\AST\StringValueNode;
@@ -39,7 +40,7 @@ class jsonType extends ScalarType
         return $instance;
     }
 
-    public function parseValue($value)
+    #[Pure] public function parseValue($value)
     {
         return $this->identity($value);
     }
@@ -49,7 +50,7 @@ class jsonType extends ScalarType
         return $value;
     }
 
-    public function serialize($value)
+    #[Pure] public function serialize($value)
     {
         return $this->identity($value);
     }

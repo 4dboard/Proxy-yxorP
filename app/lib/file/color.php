@@ -1,4 +1,6 @@
 <?php namespace yxorP\app\lib\file\ColorExtractor;
+use JetBrains\PhpStorm\ArrayShape;
+
 class color
 {
     public static function fromIntToHex($color, $prependHash = true)
@@ -11,7 +13,7 @@ class color
         return hexdec(ltrim($color, '#'));
     }
 
-    public static function fromIntToRgb($color)
+    #[ArrayShape(['r' => "int", 'g' => "int", 'b' => "int"])] public static function fromIntToRgb($color)
     {
         return ['r' => $color >> 16 & 0xFF, 'g' => $color >> 8 & 0xFF, 'b' => $color & 0xFF,];
     }

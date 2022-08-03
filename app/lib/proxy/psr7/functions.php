@@ -2,6 +2,7 @@
 
 use InvalidArgumentException;
 use Iterator;
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\app\lib\psr\http\message\messageInterface;
 use yxorP\app\lib\psr\http\message\requestInterface;
@@ -365,7 +366,7 @@ function mimetype_from_extension($extension)
     return isset($mimetypes[$extension]) ? $mimetypes[$extension] : null;
 }
 
-function _parse_message($message)
+#[ArrayShape(['start-line' => "mixed|string", 'headers' => "array", 'body' => "mixed|string"])] function _parse_message($message)
 {
     if (!$message) {
         throw new InvalidArgumentException('Invalid message');

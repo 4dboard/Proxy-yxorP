@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\data\mongoDB;
 
 use Iterator;
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\ReadConcern;
 use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\data\mongoDB\Model\BSONDocument;
@@ -64,7 +65,7 @@ class database
         $this->writeConcern = $options['writeConcern'] ?? $this->manager->getWriteConcern();
     }
 
-    public function __debugInfo()
+    #[ArrayShape(['databaseName' => "string", 'manager' => "\yxorP\app\lib\http\mongoDB\Driver\Manager", 'readConcern' => "mixed", 'readPreference' => "mixed", 'typeMap' => "array|string[]", 'writeConcern' => "mixed"])] public function __debugInfo()
     {
         return ['databaseName' => $this->databaseName, 'manager' => $this->manager, 'readConcern' => $this->readConcern, 'readPreference' => $this->readPreference, 'typeMap' => $this->typeMap, 'writeConcern' => $this->writeConcern,];
     }

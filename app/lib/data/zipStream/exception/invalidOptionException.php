@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\zipStream\exception;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\zipStream\exception;
 
 /**
@@ -19,7 +20,7 @@ class invalidOptionException extends exception
      * @param string[] $expectedValues - All possible Values
      * @param String $givenValue
      */
-    public function __construct($optionName, $expectedValues = array(), $givenValue)
+    #[Pure] public function __construct($optionName, $expectedValues = array(), $givenValue)
     {
         parent::__construct("Invalid Option $optionName. EXPECTED: " . implode(", ",
                 $expectedValues) . " GIVEN: $givenValue");

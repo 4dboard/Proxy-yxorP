@@ -10,6 +10,7 @@ use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelMedium;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelQuartile;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\file\ColorExtractor\color;
 use yxorP\app\lib\scancode\common\errorCorrectionLevel;
 
@@ -32,7 +33,7 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         $this->errorcorrectionlevel = $this->handleErrorCorrectionLevel($errorcorrectionlevel);
     }
 
-    private function handleColor($color)
+    #[Pure] private function handleColor($color)
     {
         $split = str_split($color, 2);
         $r = hexdec($split[0]);

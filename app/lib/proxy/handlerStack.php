@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use LogicException;
 use yxorP\app\lib\psr\http\message\requestInterface;
 
@@ -51,7 +52,7 @@ class handlerStack
         return $this->cached;
     }
 
-    public function __toString()
+    #[Pure] #[Pure] public function __toString()
     {
         $depth = 0;
         $stack = [];

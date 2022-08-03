@@ -4,6 +4,7 @@ use DateTime;
 use DomainException;
 use Exception;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use stdClass;
 use UnexpectedValueException;
 use function array_merge;
@@ -147,7 +148,7 @@ class jWT
         return $keyOrKeyArray[$kid];
     }
 
-    public static function constantTimeEquals(string $left, string $right): bool
+    #[Pure] public static function constantTimeEquals(string $left, string $right): bool
     {
         if (function_exists('hash_equals')) {
             return hash_equals($left, $right);
@@ -169,7 +170,7 @@ class jWT
         return strlen($str);
     }
 
-    private static function signatureToDER(string $sig): string
+    #[Pure] private static function signatureToDER(string $sig): string
     {
         $length = max(1, (int)(strlen($sig) / 2));
         list($r, $s) = str_split($sig, $length > 0 ? $length : 1);

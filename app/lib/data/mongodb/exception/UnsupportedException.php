@@ -17,6 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\Exception;
 
+use JetBrains\PhpStorm\Pure;
+
 class UnsupportedException extends RuntimeException
 {
     /**
@@ -24,7 +26,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function allowDiskUseNotSupported()
+    #[Pure] public static function allowDiskUseNotSupported()
     {
         return new static('The "allowDiskUse" option is not supported by the server executing this operation');
     }
@@ -37,7 +39,7 @@ class UnsupportedException extends RuntimeException
      *
      * @deprecated 1.12
      */
-    public static function arrayFiltersNotSupported()
+    #[Pure] public static function arrayFiltersNotSupported()
     {
         return new static('Array filters are not supported by the server executing this operation');
     }
@@ -50,7 +52,7 @@ class UnsupportedException extends RuntimeException
      *
      * @deprecated 1.12
      */
-    public static function collationNotSupported()
+    #[Pure] public static function collationNotSupported()
     {
         return new static('Collations are not supported by the server executing this operation');
     }
@@ -61,7 +63,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function commitQuorumNotSupported()
+    #[Pure] public static function commitQuorumNotSupported()
     {
         return new static('The "commitQuorum" option is not supported by the server executing this operation');
     }
@@ -71,7 +73,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function explainNotSupported()
+    #[Pure] public static function explainNotSupported()
     {
         return new static('Explain is not supported by the server executing this operation');
     }
@@ -81,7 +83,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function hintNotSupported()
+    #[Pure] public static function hintNotSupported()
     {
         return new static('Hint is not supported by the server executing this operation');
     }
@@ -91,7 +93,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function readConcernNotSupported()
+    #[Pure] public static function readConcernNotSupported()
     {
         return new static('Read concern is not supported by the server executing this command');
     }
@@ -101,7 +103,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function readConcernNotSupportedInTransaction()
+    #[Pure] public static function readConcernNotSupportedInTransaction()
     {
         return new static('The "readConcern" option cannot be specified within a transaction. Instead, specify it when starting the transaction.');
     }
@@ -111,7 +113,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function writeConcernNotSupported()
+    #[Pure] public static function writeConcernNotSupported()
     {
         return new static('Write concern is not supported by the server executing this command');
     }
@@ -121,7 +123,7 @@ class UnsupportedException extends RuntimeException
      *
      * @return self
      */
-    public static function writeConcernNotSupportedInTransaction()
+    #[Pure] public static function writeConcernNotSupportedInTransaction()
     {
         return new static('The "writeConcern" option cannot be specified within a transaction. Instead, specify it when starting the transaction.');
     }

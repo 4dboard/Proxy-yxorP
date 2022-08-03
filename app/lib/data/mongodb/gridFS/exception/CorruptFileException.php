@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS\Exception;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\http\mongoDB\Exception\RuntimeException;
 use function sprintf;
 
@@ -28,7 +29,7 @@ class CorruptFileException extends RuntimeException
      * @param integer $expectedIndex Expected index number
      * @return self
      */
-    public static function missingChunk($expectedIndex)
+    #[Pure] public static function missingChunk($expectedIndex)
     {
         return new static(sprintf('Chunk not found for index "%d"', $expectedIndex));
     }
@@ -40,7 +41,7 @@ class CorruptFileException extends RuntimeException
      * @param integer $expectedIndex Expected index number
      * @return self
      */
-    public static function unexpectedIndex($index, $expectedIndex)
+    #[Pure] public static function unexpectedIndex($index, $expectedIndex)
     {
         return new static(sprintf('Expected chunk to have index "%d" but found "%d"', $expectedIndex, $index));
     }
@@ -52,7 +53,7 @@ class CorruptFileException extends RuntimeException
      * @param integer $expectedSize Expected size
      * @return self
      */
-    public static function unexpectedSize($size, $expectedSize)
+    #[Pure] public static function unexpectedSize($size, $expectedSize)
     {
         return new static(sprintf('Expected chunk to have size "%d" but found "%d"', $expectedSize, $size));
     }

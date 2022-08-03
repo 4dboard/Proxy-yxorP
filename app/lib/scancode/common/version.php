@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\scancode\common;
 
 use BaconQrCode\Exception\InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use SplFixedArray;
 
 /**
@@ -81,7 +82,7 @@ final class version
     /**
      * @param int[] $alignmentPatternCenters
      */
-    private function __construct(
+    #[Pure] private function __construct(
         int      $versionNumber,
         array    $alignmentPatternCenters,
         ecBlocks ...$ecBlocks
@@ -523,7 +524,7 @@ final class version
     /**
      * Returns the number of EC blocks for a specific EC level.
      */
-    public function getEcBlocksForLevel(errorCorrectionLevel $ecLevel): ecBlocks
+    #[Pure] public function getEcBlocksForLevel(errorCorrectionLevel $ecLevel): ecBlocks
     {
         return $this->ecBlocks[$ecLevel->ordinal()];
     }

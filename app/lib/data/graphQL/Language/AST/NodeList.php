@@ -7,6 +7,7 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 use ArrayAccess;
 use Countable;
 use IteratorAggregate;
+use JetBrains\PhpStorm\Pure;
 use ReturnTypeWillChange;
 use Traversable;
 use yxorP\app\lib\data\graphQL\Utils\AST;
@@ -44,7 +45,7 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
      * @phpstan-param array<T> $nodes
      * @phpstan-return self<T>
      */
-    public static function create(array $nodes): self
+    #[Pure] public static function create(array $nodes): self
     {
         return new static($nodes);
     }
@@ -104,7 +105,7 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
      * @phpstan-param NodeList<T>|array<T> $list
      * @phpstan-return NodeList<T>
      */
-    public function merge($list): NodeList
+    #[Pure] public function merge($list): NodeList
     {
         if ($list instanceof self) {
             $list = $list->nodes;

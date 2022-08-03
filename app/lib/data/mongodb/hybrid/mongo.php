@@ -1,5 +1,6 @@
 <?php namespace yxorP\app\lib\data\mongodb\hybrid;
 
+use JetBrains\PhpStorm\ArrayShape;
 use Throwable;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectID;
 use yxorP\app\lib\http\mongoDB\client as MongoDBClient;
@@ -167,7 +168,7 @@ class mongo
         return $resultSet;
     }
 
-    public function getFindTermFilter($term)
+    #[ArrayShape(['$or' => "array", '$where' => "string"])] public function getFindTermFilter($term)
     {
         $terms = str_getcsv(trim($term), ' ');
         $filter = ['$where' => "function() { return JSON.stringify(this).indexOf('{$term}') > -1; }"];

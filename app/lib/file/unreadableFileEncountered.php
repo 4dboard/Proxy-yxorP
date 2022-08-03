@@ -2,13 +2,14 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 
 final class unreadableFileEncountered extends RuntimeException implements filesystemExceptionInterface
 {
     private $location;
 
-    public static function atLocation(string $location): unreadableFileEncountered
+    #[Pure] public static function atLocation(string $location): unreadableFileEncountered
     {
         $e = new static("Unreadable file encountered at location {$location}.");
         $e->location = $location;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
 use yxorP\app\lib\data\graphQL\Language\AST\VariableDefinitionNode;
@@ -15,7 +16,7 @@ use function sprintf;
 
 class VariablesAreInputTypes extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         return [
             NodeKind::VARIABLE_DEFINITION => static function (VariableDefinitionNode $node) use ($context): void {

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\Renderer\Path;
 
+use JetBrains\PhpStorm\Pure;
+
 final class Curve implements OperationInterface
 {
     /**
@@ -78,7 +80,7 @@ final class Curve implements OperationInterface
     /**
      * @return self
      */
-    public function translate(float $x, float $y): OperationInterface
+    #[Pure] public function translate(float $x, float $y): OperationInterface
     {
         return new self(
             $this->x1 + $x,

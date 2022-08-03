@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use function array_merge;
 
 class config
@@ -20,12 +21,12 @@ class config
         return $this->options[$property] ?? $default;
     }
 
-    public function extend(array $options): config
+    #[Pure] public function extend(array $options): config
     {
         return new config(array_merge($this->options, $options));
     }
 
-    public function withDefaults(array $defaults): config
+    #[Pure] public function withDefaults(array $defaults): config
     {
         return new config($this->options + $defaults);
     }

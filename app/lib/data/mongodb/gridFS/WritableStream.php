@@ -17,6 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\BSON\Binary;
 use yxorP\app\lib\http\mongoDB\BSON\ObjectId;
@@ -155,7 +157,7 @@ class WritableStream
      * @see http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
      * @return array
      */
-    public function __debugInfo()
+    #[Pure] #[ArrayShape(['bucketName' => "string", 'databaseName' => "string", 'file' => "array"])] public function __debugInfo()
     {
         return [
             'bucketName' => $this->collectionWrapper->getBucketName(),
@@ -267,7 +269,7 @@ class WritableStream
      * @return integer
      * @see WritableStream::getSize()
      */
-    public function tell()
+    #[Pure] public function tell()
     {
         return $this->getSize();
     }

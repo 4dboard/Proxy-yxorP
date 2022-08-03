@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use JetBrains\PhpStorm\ArrayShape;
 use TypeError;
 use yxorP\app\lib\data\graphQL\Type\Definition\Directive;
 use yxorP\app\lib\data\graphQL\Type\Definition\EnumType;
@@ -281,7 +282,7 @@ class BreakingChangesFinder
     /**
      * @return array<string, array<int, array<string, string>>>
      */
-    public static function findFieldsThatChangedTypeOnInputObjectTypes(
+    #[ArrayShape(['breakingChanges' => "array", 'dangerousChanges' => "array"])] public static function findFieldsThatChangedTypeOnInputObjectTypes(
         Schema $oldSchema,
         Schema $newSchema
     )
@@ -486,7 +487,7 @@ class BreakingChangesFinder
      *
      * @return array<string, array<int,array<string, string>>>
      */
-    public static function findArgChanges(
+    #[ArrayShape(['breakingChanges' => "array", 'dangerousChanges' => "array"])] public static function findArgChanges(
         Schema $oldSchema,
         Schema $newSchema
     )

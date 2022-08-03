@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeList;
@@ -20,7 +21,7 @@ class SingleFieldSubscription extends ValidationRule
     /**
      * @return array<string, callable>
      */
-    public function getVisitor(ValidationContext $context): array
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::OPERATION_DEFINITION => static function (OperationDefinitionNode $node) use ($context): VisitorOperation {

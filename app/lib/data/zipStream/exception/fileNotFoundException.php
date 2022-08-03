@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\zipStream\exception;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\zipStream\exception;
 
 /**
@@ -17,7 +18,7 @@ class fileNotFoundException extends exception
      *
      * @param String $path - The path which wasn't found
      */
-    public function __construct($path)
+    #[Pure] public function __construct($path)
     {
         parent::__construct("Ths file with the path $path wasn't found.");
     }

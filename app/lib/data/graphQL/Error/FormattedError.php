@@ -6,6 +6,8 @@ namespace yxorP\app\lib\data\graphQL\Error;
 
 use Countable;
 use ErrorException;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use Throwable;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
 use yxorP\app\lib\data\graphQL\Language\Source;
@@ -149,7 +151,7 @@ class FormattedError
      *
      * @return string
      */
-    private static function lpad($len, $str)
+    #[Pure] private static function lpad($len, $str)
     {
         return self::whitespace($len - mb_strlen($str)) . $str;
     }
@@ -384,7 +386,7 @@ class FormattedError
      * @deprecated as of v0.8.0
      *
      */
-    public static function create($error, array $locations = [])
+    #[ArrayShape(['message' => "string", 'locations' => "array[]"])] public static function create($error, array $locations = [])
     {
         $formatted = ['message' => $error];
 
@@ -407,7 +409,7 @@ class FormattedError
      * @deprecated as of v0.10.0, use general purpose method createFromException() instead
      *
      */
-    public static function createFromPHPError(ErrorException $e)
+    #[ArrayShape(['message' => "string", 'severity' => "int", 'trace' => "mixed[]"])] public static function createFromPHPError(ErrorException $e)
     {
         return [
             'message' => $e->getMessage(),

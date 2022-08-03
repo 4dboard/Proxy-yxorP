@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
@@ -21,7 +22,7 @@ class NoUnusedFragments extends ValidationRule
     /** @var FragmentDefinitionNode[] */
     public $fragmentDefs;
 
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure", NodeKind::DOCUMENT => "\Closure[]"])] public function getVisitor(ValidationContext $context)
     {
         $this->operationDefs = [];
         $this->fragmentDefs = [];

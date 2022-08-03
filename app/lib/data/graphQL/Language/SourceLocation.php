@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Language;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use ReturnTypeWillChange;
 
@@ -37,7 +39,7 @@ class SourceLocation implements JsonSerializable
     /**
      * @return int[]
      */
-    public function toSerializableArray()
+    #[Pure] public function toSerializableArray()
     {
         return $this->toArray();
     }
@@ -45,7 +47,7 @@ class SourceLocation implements JsonSerializable
     /**
      * @return int[]
      */
-    public function toArray()
+    #[ArrayShape(['line' => "int", 'column' => "int"])] public function toArray()
     {
         return [
             'line' => $this->line,

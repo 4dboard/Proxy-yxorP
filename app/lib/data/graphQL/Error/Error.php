@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Error;
 
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
 use JsonSerializable;
 use ReturnTypeWillChange;
 use Throwable;
@@ -210,7 +211,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * @deprecated Use FormattedError::createFromException() instead
      *
      */
-    public function toSerializableArray()
+    #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "mixed[]|null", 'locations' => "mixed"])] public function toSerializableArray()
     {
         $arr = [
             'message' => $this->getMessage(),

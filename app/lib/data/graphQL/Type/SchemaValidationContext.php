@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\DirectiveNode;
@@ -59,7 +60,7 @@ class SchemaValidationContext
     /** @var InputObjectCircularRefs */
     private $inputObjectCircularRefs;
 
-    public function __construct(Schema $schema)
+    #[Pure] public function __construct(Schema $schema)
     {
         $this->schema = $schema;
         $this->inputObjectCircularRefs = new InputObjectCircularRefs($this);

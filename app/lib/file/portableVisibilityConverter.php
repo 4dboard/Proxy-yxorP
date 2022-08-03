@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\file\Flysystem\UnixVisibility;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\file\Flysystem\portableVisibilityGuard;
 use yxorP\app\lib\file\Flysystem\visibility;
 
@@ -52,7 +53,7 @@ class portableVisibilityConverter implements visibilityConverterInterface
     /**
      * @param array<mixed> $permissionMap
      */
-    public static function fromArray(array $permissionMap, string $defaultForDirectories = visibility::PRIVATE): portableVisibilityConverter
+    #[Pure] public static function fromArray(array $permissionMap, string $defaultForDirectories = visibility::PRIVATE): portableVisibilityConverter
     {
         return new portableVisibilityConverter(
             $permissionMap['file']['public'] ?? 0644,

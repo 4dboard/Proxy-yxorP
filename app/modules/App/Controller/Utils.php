@@ -3,6 +3,7 @@
 namespace yxorP\app\modules\app\controller;
 
 use ArrayObject;
+use JetBrains\PhpStorm\ArrayShape;
 
 /**
  * @property \yxorP\app\lib\http\App $app
@@ -10,7 +11,7 @@ use ArrayObject;
 class utils extends app
 {
 
-    public function generateToken($length = 20)
+    #[ArrayShape(['token' => "string"])] public function generateToken($length = 20)
     {
 
         $this->helper('session')->close();

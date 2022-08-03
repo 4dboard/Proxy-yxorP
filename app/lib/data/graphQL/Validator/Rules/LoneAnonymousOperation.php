@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
@@ -21,7 +22,7 @@ use function count;
  */
 class LoneAnonymousOperation extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::DOCUMENT => "\Closure", NodeKind::OPERATION_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         $operationCount = 0;
 

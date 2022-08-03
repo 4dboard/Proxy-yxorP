@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use SplObjectStorage;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
@@ -53,7 +54,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private $cachedFieldsAndFragmentNames;
 
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::SELECTION_SET => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         $this->comparedFragmentPairs = new PairSet();
         $this->cachedFieldsAndFragmentNames = new SplObjectStorage();

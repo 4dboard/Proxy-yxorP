@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
@@ -21,7 +22,7 @@ use function sprintf;
 
 class FieldsOnCorrectType extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::FIELD => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         return [
             NodeKind::FIELD => function (FieldNode $node) use ($context): void {

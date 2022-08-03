@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -16,7 +17,7 @@ final class unableToRetrieveMetadata extends RuntimeException implements filesys
         return static::create($location, fileAttributes::ATTRIBUTE_LAST_MODIFIED, $reason, $previous);
     }
 
-    public static function create(string $location, string $type, string $reason = '', Throwable $previous = null): self
+    #[Pure] public static function create(string $location, string $type, string $reason = '', Throwable $previous = null): self
     {
         $e = new static("Unable to retrieve the $type for file at location: $location. {$reason}", 0, $previous);
         $e->reason = $reason;

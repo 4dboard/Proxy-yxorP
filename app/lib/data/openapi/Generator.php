@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\openapi;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use SplFileInfo;
 use yxorP\app\lib\openapi\annotations\openApi;
 use yxorP\app\lib\openapi\logger\defaultLogger;
@@ -91,7 +92,7 @@ class Generator
         return $analysis->openapi;
     }
 
-    public function getLogger(): ?loggerInterface
+    #[Pure] public function getLogger(): ?loggerInterface
     {
         return $this->logger ?: new DefaultLogger();
     }
@@ -117,7 +118,7 @@ class Generator
         }
     }
 
-    public function getAnalyser(): StaticAnalyser
+    #[Pure] public function getAnalyser(): StaticAnalyser
     {
         return $this->analyser ?: new StaticAnalyser();
     }

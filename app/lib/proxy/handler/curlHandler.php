@@ -1,12 +1,13 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\psr\http\message\requestInterface;
 
 class curlHandler
 {
     private $factory;
 
-    public function __construct(array $options = [])
+    #[Pure] #[Pure] public function __construct(array $options = [])
     {
         $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new curlFactory(3);
     }

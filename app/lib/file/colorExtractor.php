@@ -1,5 +1,7 @@
 <?php namespace yxorP\app\lib\file\ColorExtractor;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use SplFixedArray;
 use SplPriorityQueue;
 
@@ -49,7 +51,7 @@ class colorExtractor
         return self::xyzToLab(self::srgbToXyz(self::rgbToSrgb(['R' => ($color >> 16) & 0xFF, 'G' => ($color >> 8) & 0xFF, 'B' => $color & 0xFF,])));
     }
 
-    protected static function xyzToLab($xyz)
+    #[Pure] #[ArrayShape(['L' => "float|int", 'a' => "float|int", 'b' => "float|int"])] protected static function xyzToLab($xyz)
     {
         $Xn = .95047;
         $Yn = 1;
@@ -62,12 +64,12 @@ class colorExtractor
         return $value > 216 / 24389 ? pow($value, 1 / 3) : 841 * $value / 108 + 4 / 29;
     }
 
-    protected static function srgbToXyz($rgb)
+    #[ArrayShape(['X' => "float", 'Y' => "float", 'Z' => "float"])] protected static function srgbToXyz($rgb)
     {
         return ['X' => (.4124564 * $rgb['R']) + (.3575761 * $rgb['G']) + (.1804375 * $rgb['B']), 'Y' => (.2126729 * $rgb['R']) + (.7151522 * $rgb['G']) + (.0721750 * $rgb['B']), 'Z' => (.0193339 * $rgb['R']) + (.1191920 * $rgb['G']) + (.9503041 * $rgb['B']),];
     }
 
-    protected static function rgbToSrgb($rgb)
+    #[Pure] #[ArrayShape(['R' => "float|int|object", 'G' => "float|int|object", 'B' => "float|int|object"])] protected static function rgbToSrgb($rgb)
     {
         return ['R' => self::rgbToSrgbStep($rgb['R']), 'G' => self::rgbToSrgbStep($rgb['G']), 'B' => self::rgbToSrgbStep($rgb['B']),];
     }

@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Type;
 
 use Generator;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use Traversable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
@@ -262,7 +263,7 @@ class Schema
      *
      * @return ObjectType|null
      */
-    public function getOperationType($operation)
+    #[Pure] public function getOperationType($operation)
     {
         switch ($operation) {
             case 'query':
@@ -523,7 +524,7 @@ class Schema
         return null;
     }
 
-    public function getAstNode(): ?SchemaDefinitionNode
+    #[Pure] public function getAstNode(): ?SchemaDefinitionNode
     {
         return $this->config->getAstNode();
     }

@@ -2,6 +2,7 @@
 
 use BadMethodCallException;
 use CurlMultiHandle;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\proxy\promise as P;
 use yxorP\app\lib\proxy\promise\promise;
 use yxorP\app\lib\proxy\utils;
@@ -26,7 +27,7 @@ class curlMultiHandler
     private $delays = [];
     private $options = [];
 
-    public function __construct(array $options = [])
+    #[Pure] public function __construct(array $options = [])
     {
         $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new curlFactory(50);
         if (isset($options['select_timeout'])) {
@@ -105,7 +106,7 @@ class curlMultiHandler
         }
     }
 
-    private function timeToNext()
+    #[Pure] private function timeToNext()
     {
         $currentTime = utils::currentTime();
         $nextTime = PHP_INT_MAX;

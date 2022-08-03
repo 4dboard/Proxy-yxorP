@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Validator;
 
 use Exception;
+use JetBrains\PhpStorm\Pure;
 use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
@@ -343,7 +344,7 @@ class DocumentValidator
     /**
      * @param Error[] $errors
      */
-    private static function combineErrorMessages(array $errors): string
+    #[Pure] private static function combineErrorMessages(array $errors): string
     {
         $str = '';
         foreach ($errors as $error) {

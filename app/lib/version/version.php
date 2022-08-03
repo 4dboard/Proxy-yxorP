@@ -1,6 +1,8 @@
 <?php declare(strict_types=1);
 
 namespace yxorP\app\lib\version;
+use JetBrains\PhpStorm\Pure;
+
 class version
 {
     private const SHORT_COMMIT_LENGTH = 7;
@@ -24,7 +26,7 @@ class version
         return $this->prettyVersion;
     }
 
-    public function getFullVersion(): string
+    #[Pure] public function getFullVersion(): string
     {
         return $this->prettyVersion . '@' . $this->getReference();
     }
@@ -39,7 +41,7 @@ class version
         return $this->getVersionWithShortReference();
     }
 
-    public function getVersionWithShortReference(): string
+    #[Pure] public function getVersionWithShortReference(): string
     {
         return $this->prettyVersion . '@' . $this->getShortReference();
     }
@@ -54,12 +56,12 @@ class version
         return $this->packageName;
     }
 
-    public function getCommitHash(): string
+    #[Pure] public function getCommitHash(): string
     {
         return $this->getReference();
     }
 
-    public function getShortCommitHash(): string
+    #[Pure] public function getShortCommitHash(): string
     {
         return $this->getShortReference();
     }

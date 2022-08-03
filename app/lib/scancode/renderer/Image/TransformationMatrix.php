@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\Renderer\Image;
 
+use JetBrains\PhpStorm\Pure;
+
 final class TransformationMatrix
 {
     /**
@@ -15,21 +17,21 @@ final class TransformationMatrix
         $this->values = [1, 0, 0, 1, 0, 0];
     }
 
-    public static function scale(float $size): self
+    #[Pure] public static function scale(float $size): self
     {
         $matrix = new self();
         $matrix->values = [$size, 0, 0, $size, 0, 0];
         return $matrix;
     }
 
-    public static function translate(float $x, float $y): self
+    #[Pure] public static function translate(float $x, float $y): self
     {
         $matrix = new self();
         $matrix->values = [1, 0, 0, 1, $x, $y];
         return $matrix;
     }
 
-    public static function rotate(int $degrees): self
+    #[Pure] public static function rotate(int $degrees): self
     {
         $matrix = new self();
         $rad = deg2rad($degrees);
@@ -37,7 +39,7 @@ final class TransformationMatrix
         return $matrix;
     }
 
-    public function multiply(self $other): self
+    #[Pure] public function multiply(self $other): self
     {
         $matrix = new self();
         $matrix->values[0] = $this->values[0] * $other->values[0] + $this->values[2] * $other->values[1];

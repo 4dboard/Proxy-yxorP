@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
 use ArrayObject;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
@@ -40,7 +41,7 @@ abstract class QuerySecurityRule extends ValidationRule
         }
     }
 
-    protected function getFragment(FragmentSpreadNode $fragmentSpread)
+    #[Pure] protected function getFragment(FragmentSpreadNode $fragmentSpread)
     {
         $spreadName = $fragmentSpread->name->value;
         $fragments = $this->getFragments();

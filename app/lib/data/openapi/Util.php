@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\openapi;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Finder\Finder;
 
 class Util
@@ -50,7 +51,7 @@ class Util
         return $finder;
     }
 
-    public static function getRelativePath(string $fullPath, $basePaths): string
+    #[Pure] public static function getRelativePath(string $fullPath, $basePaths): string
     {
         $relativePath = null;
         if (is_string($basePaths)) {
