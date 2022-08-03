@@ -2,6 +2,6 @@
   "name": ".yxorP",
   "version": "1.0.0",
   "dependencies": {
-    
+    "postcss-url": "^10.1.3"
   }
 }
