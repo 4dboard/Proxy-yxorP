@@ -9336,7 +9336,7 @@
             const self = this;
             keys = keys instanceof Array ? keys : [keys];
             self._bindMultiple.call(self, keys, callback, action);
-            return self;
+            return;
         };
 
         /**
@@ -9374,7 +9374,7 @@
             if (self._directMap[keys + ':' + action]) {
                 self._directMap[keys + ':' + action]({}, keys);
             }
-            return self;
+            return;
         };
 
         /**
@@ -9388,7 +9388,7 @@
             const self = this;
             self._callbacks = {};
             self._directMap = {};
-            return self;
+            return;
         };
 
         /**

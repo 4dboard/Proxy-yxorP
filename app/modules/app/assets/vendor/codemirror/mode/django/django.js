@@ -61,7 +61,7 @@
 
             // Ignore completely any stream series that do not match the
             // Django template opening tags.
-            while (stream.next() != null && !stream.match(/\{[{%#]/, false)) {
+            while (stream.next() != null && !stream.match(/{[{%#]/, false)) {
             }
             return null;
         }
@@ -318,14 +318,14 @@
 
         // Mark everything as comment inside the tag and the tag itself.
         function inComment(stream, state) {
-            if (stream.match(/^.*?#\}/)) state.tokenize = tokenBase
+            if (stream.match(/^.*?#}/)) state.tokenize = tokenBase
             else stream.skipToEnd()
             return "comment";
         }
 
         // Mark everything as a comment until the `blockcomment` tag closes.
         function inBlockComment(stream, state) {
-            if (stream.match(/\{%\s*endcomment\s*%\}/, false)) {
+            if (stream.match(/{%\s*endcomment\s*%}/, false)) {
                 state.tokenize = inTag;
                 stream.match("{%");
                 return "tag";

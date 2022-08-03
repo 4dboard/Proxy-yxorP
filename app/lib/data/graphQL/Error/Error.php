@@ -197,7 +197,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @return array
      */
-    public static function formatError(Error $error): array
+    #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "\mixed[]|null", 'locations' => "mixed"])] public static function formatError(Error $error): array
     {
         return $error->toSerializableArray();
     }
@@ -362,7 +362,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * @return mixed[] data which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "\mixed[]|null", 'locations' => "mixed"])] #[ReturnTypeWillChange]
     public function jsonSerialize(): array
     {
         return $this->toSerializableArray();

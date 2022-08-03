@@ -69,7 +69,7 @@ class cachedKeySet implements ArrayAccess
         if (empty($this->jwksUri)) {
             throw new RuntimeException('JWKS URI is empty');
         }
-        $key = preg_replace('|[^a-zA-Z0-9_\.!]|', '', $this->jwksUri);
+        $key = preg_replace('|[^a-zA-Z0-9_.!]|', '', $this->jwksUri);
         $key = $this->cacheKeyPrefix . $key;
         if (strlen($key) > $this->maxKeyLength) {
             $key = substr(hash('sha256', $key), 0, $this->maxKeyLength);

@@ -305,7 +305,7 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-tell.php
      * @return integer The current position of the stream
      */
-    public function stream_tell(): int
+    #[Pure] public function stream_tell(): int
     {
         return $this->stream->tell();
     }

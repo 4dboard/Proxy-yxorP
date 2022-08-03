@@ -76,7 +76,7 @@
             const lowerTagName = tagName.toLowerCase();
             // Don't process the '>' at the end of an end-tag or self-closing tag
             if (!tagName ||
-                tok.type === "string" && (tok.end !== pos.ch || !/[\"\']/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length === 1) ||
+                tok.type === "string" && (tok.end !== pos.ch || !/["']/.test(tok.string.charAt(tok.string.length - 1)) || tok.string.length === 1) ||
                 tok.type === "tag" && tagInfo.close ||
                 tok.string.indexOf("/") === (pos.ch - tok.start - 1) || // match something like <someTagName />
                 dontCloseTags && indexOf(dontCloseTags, lowerTagName) > -1 ||

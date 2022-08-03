@@ -520,13 +520,13 @@
                 return null;
             if (state.chain)
                 return tokenChain(stream, state, state.chain, state.style, state.tail);
-            if (stream.match(/^(\-?((\d[\d_]*)?\.\d+(e[+-]?\d+)?|\d+\.\d*)|0x[\da-fA-F_]+|0b[01_]+|\d[\d_]*(e[+-]?\d+)?)/))
+            if (stream.match(/^(-?((\d[\d_]*)?\.\d+(e[+-]?\d+)?|\d+\.\d*)|0x[\da-fA-F_]+|0b[01_]+|\d[\d_]*(e[+-]?\d+)?)/))
                 return 'number';
             if (stream.match(/^<<(?=[_a-zA-Z])/)) {                  // NOTE: <<SOMETHING\n...\nSOMETHING\n
                 stream.eatWhile(/\w/);
                 return tokenSOMETHING(stream, state, stream.current().substr(2));
             }
-            if (stream.sol() && stream.match(/^\=item(?!\w)/)) {// NOTE: \n=item...\n=cut\n
+            if (stream.sol() && stream.match(/^=item(?!\w)/)) {// NOTE: \n=item...\n=cut\n
                 return tokenSOMETHING(stream, state, '=cut');
             }
             const ch = stream.next();
@@ -659,7 +659,7 @@
             if (ch === "m") {
                 var c = look(stream, -2);
                 if (!(c && /\w/.test(c))) {
-                    c = stream.eat(/[(\[{<\^'"!~\/]/);
+                    c = stream.eat(/[(\[{<^'"!~\/]/);
                     if (c) {
                         if (/[\^'"!~\/]/.test(c)) {
                             return tokenChain(stream, state, [c], RXstyle, RXmodifiers);
@@ -682,7 +682,7 @@
             if (ch === "s") {
                 var c = /[\/>\]})\w]/.test(look(stream, -2));
                 if (!c) {
-                    c = stream.eat(/[(\[{<\^'"!~\/]/);
+                    c = stream.eat(/[(\[{<^'"!~\/]/);
                     if (c) {
                         if (c === "[")
                             return tokenChain(stream, state, ["]", "]"], RXstyle, RXmodifiers);
@@ -699,7 +699,7 @@
             if (ch === "y") {
                 var c = /[\/>\]})\w]/.test(look(stream, -2));
                 if (!c) {
-                    c = stream.eat(/[(\[{<\^'"!~\/]/);
+                    c = stream.eat(/[(\[{<^'"!~\/]/);
                     if (c) {
                         if (c === "[")
                             return tokenChain(stream, state, ["]", "]"], RXstyle, RXmodifiers);
@@ -718,7 +718,7 @@
                 if (!c) {
                     c = stream.eat("r");
                     if (c) {
-                        c = stream.eat(/[(\[{<\^'"!~\/]/);
+                        c = stream.eat(/[(\[{<^'"!~\/]/);
                         if (c) {
                             if (c === "[")
                                 return tokenChain(stream, state, ["]", "]"], RXstyle, RXmodifiers);
@@ -751,7 +751,7 @@
             }
             if (/[$@%]/.test(ch)) {
                 var p = stream.pos;
-                if (stream.eat("^") && stream.eat(/[A-Z]/) || !/[@$%&]/.test(look(stream, -2)) && stream.eat(/[=|\\\-#?@;:&`~\^!\[\]*'"$+.,\/<>()]/)) {
+                if (stream.eat("^") && stream.eat(/[A-Z]/) || !/[@$%&]/.test(look(stream, -2)) && stream.eat(/[=|\\\-#?@;:&`~^!\[\]*'"$+.,\/<>()]/)) {
                     var c = stream.current();
                     if (PERL[c])
                         return "variable-2";
@@ -773,9 +773,9 @@
                     return "comment";
                 }
             }
-            if (/[:+\-\^*$&%@=<>!?|\/~\.]/.test(ch)) {
+            if (/[:+\-^*$&%@=<>!?|\/~.]/.test(ch)) {
                 var p = stream.pos;
-                stream.eatWhile(/[:+\-\^*$&%@=<>!?|\/~\.]/);
+                stream.eatWhile(/[:+\-^*$&%@=<>!?|\/~.]/);
                 if (PERL[stream.current()])
                     return "operator";
                 else

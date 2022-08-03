@@ -60,7 +60,7 @@
     CodeMirror.defineMode("vue-template", function (config, parserConfig) {
         const mustacheOverlay = {
             token: function (stream) {
-                if (stream.match(/^\{\{.*?\}\}/)) return "meta mustache";
+                if (stream.match(/^{{.*?}}/)) return "meta mustache";
                 while (stream.next() && !stream.match("{{", false)) {
                 }
                 return null;

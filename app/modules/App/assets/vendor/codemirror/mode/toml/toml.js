@@ -41,7 +41,7 @@
                             stream.next();
                             stream.next();
                         } else {
-                            stream.match(/^.[^\\\"\']*/);
+                            stream.match(/^.[^\\"']*/);
                         }
                     }
                     return state.lhs ? "property string" : "string"; // Token style
@@ -67,7 +67,7 @@
                     stream.next();
                     state.lhs = false;
                     return null;
-                } else if (!state.lhs && stream.match(/^\d\d\d\d[\d\-\:\.T]*Z/)) {
+                } else if (!state.lhs && stream.match(/^\d\d\d\d[\d\-:.T]*Z/)) {
                     return 'atom'; //date
                 } else if (!state.lhs && (stream.match('true') || stream.match('false'))) {
                     return 'atom';
@@ -75,7 +75,7 @@
                     state.inArray++;
                     stream.next();
                     return 'bracket';
-                } else if (!state.lhs && stream.match(/^\-?\d+(?:\.\d+)?/)) {
+                } else if (!state.lhs && stream.match(/^-?\d+(?:\.\d+)?/)) {
                     return 'number';
                 } else if (!stream.eatSpace()) {
                     stream.next();

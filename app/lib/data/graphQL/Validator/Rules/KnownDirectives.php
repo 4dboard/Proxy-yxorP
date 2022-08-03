@@ -48,7 +48,7 @@ use function sprintf;
 
 class KnownDirectives extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context): array
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
@@ -197,7 +197,7 @@ class KnownDirectives extends ValidationRule
         return sprintf('Directive "%s" may not be used on "%s".', $directiveName, $location);
     }
 
-    public function getSDLVisitor(SDLValidationContext $context): array
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

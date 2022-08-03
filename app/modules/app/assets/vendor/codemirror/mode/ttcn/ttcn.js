@@ -41,7 +41,7 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\[\]{}\(\),;\\:\?\.]/.test(ch)) {
+            if (/[\[\]{}(),;\\:?.]/.test(ch)) {
                 curPunc = ch;
                 return "punctuation";
             }
@@ -54,7 +54,7 @@
                 return "atom ttcn3Macros";
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             if (ch === "/") {
@@ -77,7 +77,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+            stream.eatWhile(/[\w$_\xa1-\uffff]/);
             const cur = stream.current();
 
             if (keywords.propertyIsEnumerable(cur)) return "keyword";

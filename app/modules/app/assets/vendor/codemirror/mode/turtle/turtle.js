@@ -32,7 +32,7 @@
             } else if (ch === "\"" || ch === "'") {
                 state.tokenize = tokenLiteral(ch);
                 return state.tokenize(stream, state);
-            } else if (/[{}\(\),\.;\[\]]/.test(ch)) {
+            } else if (/[{}(),.;\[\]]/.test(ch)) {
                 curPunc = ch;
                 return null;
             } else if (ch === "#") {
@@ -118,12 +118,12 @@
                 if (curPunc === "(") pushContext(state, ")", stream.column());
                 else if (curPunc === "[") pushContext(state, "]", stream.column());
                 else if (curPunc === "{") pushContext(state, "}", stream.column());
-                else if (/[\]\}\)]/.test(curPunc)) {
+                else if (/[\]})]/.test(curPunc)) {
                     while (state.context && state.context.type === "pattern") popContext(state);
                     if (state.context && curPunc === state.context.type) popContext(state);
                 } else if (curPunc === "." && state.context && state.context.type === "pattern") popContext(state);
                 else if (/atom|string|variable/.test(style) && state.context) {
-                    if (/[\}\]]/.test(state.context.type))
+                    if (/[}\]]/.test(state.context.type))
                         pushContext(state, "pattern", stream.column());
                     else if (state.context.type === "pattern" && !state.context.align) {
                         state.context.align = true;
@@ -137,7 +137,7 @@
             indent: function (state, textAfter) {
                 const firstChar = textAfter && textAfter.charAt(0);
                 let context = state.context;
-                if (/[\]\}]/.test(firstChar))
+                if (/[\]}]/.test(firstChar))
                     while (context && context.type === "pattern") context = context.prev;
 
                 const closing = context && firstChar === context.type;

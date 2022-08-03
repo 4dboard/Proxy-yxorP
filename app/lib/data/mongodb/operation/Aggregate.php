@@ -319,7 +319,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server): array
+    #[Pure] public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }

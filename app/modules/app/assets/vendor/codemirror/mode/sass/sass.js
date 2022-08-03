@@ -205,7 +205,7 @@
                 }
 
                 // Numbers
-                if (stream.match(/^-?[0-9\.]+/))
+                if (stream.match(/^-?[0-9.]+/))
                     return "number";
 
                 // Units
@@ -257,7 +257,7 @@
                 }
 
                 if (stream.eatWhile(/[\w-]/)) {
-                    if (stream.match(/ *: *[\w-\+\$#!\("']/, false)) {
+                    if (stream.match(/ *: *[\w-+$#!("']/, false)) {
                         word = stream.current().toLowerCase();
                         const prop = state.prevProp + "-" + word;
                         if (propertyKeywords.hasOwnProperty(prop)) {
@@ -306,7 +306,7 @@
                 }
 
                 // Numbers
-                if (stream.match(/^-?[0-9\.]+/)) {
+                if (stream.match(/^-?[0-9.]+/)) {
                     if (isEndLine(stream)) {
                         state.cursorHalf = 0;
                     }

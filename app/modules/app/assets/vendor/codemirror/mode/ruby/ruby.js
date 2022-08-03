@@ -73,7 +73,7 @@
             } else if (ch === "#") {
                 stream.skipToEnd();
                 return "comment";
-            } else if (ch === "<" && (m = stream.match(/^<([-~])[\`\"\']?([a-zA-Z_?]\w*)[\`\"\']?(?:;|$)/))) {
+            } else if (ch === "<" && (m = stream.match(/^<([-~])[`"']?([a-zA-Z_?]\w*)[`"']?(?:;|$)/))) {
                 return chain(readHereDoc(m[2], m[1]), stream, state);
             } else if (ch === "0") {
                 if (stream.eat("x")) stream.eatWhile(/[\da-fA-F]/);
@@ -94,13 +94,13 @@
                 if (stream.eat('"')) return chain(readQuoted('"', "atom", true), stream, state);
 
                 // :> :>> :< :<< are valid symbols
-                if (stream.eat(/[\<\>]/)) {
-                    stream.eat(/[\<\>]/);
+                if (stream.eat(/[<>]/)) {
+                    stream.eat(/[<>]/);
                     return "atom";
                 }
 
                 // :+ :- :/ :* :| :& :! are valid symbols
-                if (stream.eat(/[\+\-\*\/\&\|\:\!]/)) {
+                if (stream.eat(/[+\-*\/&|:!]/)) {
                     return "atom";
                 }
 
@@ -108,7 +108,7 @@
                 if (stream.eat(/[a-zA-Z$@_\xa1-\uffff]/)) {
                     stream.eatWhile(/[\w$\xa1-\uffff]/);
                     // Only one ? ! = is allowed and only as the last character
-                    stream.eat(/[\?\!\=]/);
+                    stream.eat(/[?!=]/);
                     return "atom";
                 }
                 return "operator";
@@ -127,19 +127,19 @@
                 return "variable-3";
             } else if (/[a-zA-Z_\xa1-\uffff]/.test(ch)) {
                 stream.eatWhile(/[\w\xa1-\uffff]/);
-                stream.eat(/[\?\!]/);
+                stream.eat(/[?!]/);
                 if (stream.eat(":")) return "atom";
                 return "ident";
             } else if (ch === "|" && (state.varList || state.lastTok === "{" || state.lastTok === "do")) {
                 curPunc = "|";
                 return null;
-            } else if (/[\(\)\[\]{}\\;]/.test(ch)) {
+            } else if (/[()\[\]{}\\;]/.test(ch)) {
                 curPunc = ch;
                 return null;
             } else if (ch === "-" && stream.eat(">")) {
                 return "arrow";
-            } else if (/[=+\-\/*:\.^%<>~|]/.test(ch)) {
-                const more = stream.eatWhile(/[=+\-\/*:\.^%<>~|]/);
+            } else if (/[=+\-\/*:.^%<>~|]/.test(ch)) {
+                const more = stream.eatWhile(/[=+\-\/*:.^%<>~|]/);
                 if (ch === "." && !more) curPunc = ".";
                 return "operator";
             } else {
@@ -220,7 +220,7 @@
                             }
                             state.tokenize.push(tokenBaseUntilBrace());
                             break;
-                        } else if (/[@\$]/.test(stream.peek())) {
+                        } else if (/[@$]/.test(stream.peek())) {
                             state.tokenize.push(tokenBaseOnce());
                             break;
                         }
@@ -284,9 +284,9 @@
                 if (curPunc || (style && style !== "comment")) state.lastTok = thisTok;
                 if (curPunc === "|") state.varList = !state.varList;
 
-                if (kwtype === "indent" || /[\(\[\{]/.test(curPunc))
+                if (kwtype === "indent" || /[(\[{]/.test(curPunc))
                     state.context = {prev: state.context, type: curPunc || style, indented: state.indented};
-                else if ((kwtype === "dedent" || /[\)\]\}]/.test(curPunc)) && state.context.prev)
+                else if ((kwtype === "dedent" || /[)\]}]/.test(curPunc)) && state.context.prev)
                     state.context = state.context.prev;
 
                 if (stream.eol())
@@ -304,7 +304,7 @@
                     (state.continuedLine ? config.indentUnit : 0);
             },
 
-            electricInput: /^\s*(?:end|rescue|elsif|else|\})$/,
+            electricInput: /^\s*(?:end|rescue|elsif|else|})$/,
             lineComment: "#",
             fold: "indent"
         };

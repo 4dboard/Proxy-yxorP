@@ -27,10 +27,10 @@
             mediaFeatures = keySet(mediaFeatures_),
             mediaTypes = keySet(mediaTypes_),
             fontProperties = keySet(fontProperties_),
-            operatorsRegexp = /^\s*([.]{2,3}|&&|\|\||\*\*|[?!=:]?=|[-+*\/%<>]=?|\?:|\~)/,
+            operatorsRegexp = /^\s*([.]{2,3}|&&|\|\||\*\*|[?!=:]?=|[-+*\/%<>]=?|\?:|~)/,
             wordOperatorKeywordsRegexp = wordRegexp(wordOperatorKeywords_),
             blockKeywords = keySet(blockKeywords_),
-            vendorPrefixesRegexp = new RegExp(/^\-(moz|ms|o|webkit)-/i),
+            vendorPrefixesRegexp = new RegExp(/^-(moz|ms|o|webkit)-/i),
             commonAtoms = keySet(commonAtoms_);
         let firstWordMatch = "";
         const states = {};
@@ -45,7 +45,7 @@
          * Tokenizers
          */
         function tokenBase(stream, state) {
-            firstWordMatch = stream.string.match(/(^[\w-]+\s*=\s*$)|(^\s*[\w-]+\s*=\s*[\w-])|(^\s*(\.|#|@|\$|\&|\[|\d|\+|::?|\{|\>|~|\/)?\s*[\w-]*([a-z0-9-]|\*|\/\*)(\(|,)?)/);
+            firstWordMatch = stream.string.match(/(^[\w-]+\s*=\s*$)|(^\s*[\w-]+\s*=\s*[\w-])|(^\s*(\.|#|@|\$|&|\[|\d|\+|::?|{|>|~|\/)?\s*[\w-]*([a-z0-9-]|\*|\/\*)([(,])?)/);
             state.context.line.firstWord = firstWordMatch ? firstWordMatch[0].replace(/^\s*/, "") : "";
             state.context.line.indent = stream.indentation();
             ch = stream.peek();
@@ -113,7 +113,7 @@
                 return ["keyword", "mixin"];
             }
             // Block mixins
-            if (stream.match(/^(\+|-)[a-z][\w-]*\(/i)) {
+            if (stream.match(/^([+\-])[a-z][\w-]*\(/i)) {
                 stream.backUp(1);
                 return ["keyword", "block-mixin"];
             }
@@ -122,7 +122,7 @@
                 return ["qualifier", "qualifier"];
             }
             // / Root Reference & Parent Reference
-            if (stream.match(/^(\/|&)(-|_|:|\.|#|[a-z])/)) {
+            if (stream.match(/^([\/&])(-|_|:|\.|#|[a-z])/)) {
                 stream.backUp(1);
                 return ["variable-3", "reference"];
             }
@@ -136,7 +136,7 @@
             // Word
             if (stream.match(/^\$?[-_]*[a-z0-9]+[\w-]*/i)) {
                 // Variable
-                if (stream.match(/^(\.|\[)[\w-\'\"\]]+/i, false)) {
+                if (stream.match(/^([.\[])[\w-'"\]]+/i, false)) {
                     if (!wordIsTag(stream.current())) {
                         stream.match('.');
                         return ["variable-2", "variable-name"];
@@ -149,7 +149,7 @@
                 return ["operator", stream.current()];
             }
             // Delimiters
-            if (/[:;,{}\[\]\(\)]/.test(ch)) {
+            if (/[:;,{}\[\]()]/.test(ch)) {
                 stream.next();
                 return [null, ch];
             }
@@ -196,7 +196,7 @@
          */
         function tokenParenthesized(stream, state) {
             stream.next(); // Must be "("
-            if (!stream.match(/\s*[\"\')]/, false))
+            if (!stream.match(/\s*["')]/, false))
                 state.tokenize = tokenString(")");
             else
                 state.tokenize = null;
@@ -312,7 +312,7 @@
                 return pushContext(state, stream, "interpolation");
             }
             if (endOfLine(stream) && type === "]") {
-                if (!/^\s*(\.|#|:|\[|\*|&)/.test(stream.string) && !wordIsTag(firstWordOfLine(stream))) {
+                if (!/^\s*([.#:\[*&])/.test(stream.string) && !wordIsTag(firstWordOfLine(stream))) {
                     return pushContext(state, stream, "block", 0);
                 }
             }
@@ -323,7 +323,7 @@
                 return pushContext(state, stream, "block", 0);
             }
             if (type === "variable-name") {
-                if (stream.string.match(/^\s?\$[\w-\.\[\]\'\"]+$/) || wordIsBlock(firstWordOfLine(stream))) {
+                if (stream.string.match(/^\s?\$[\w-.\[\]'"]+$/) || wordIsBlock(firstWordOfLine(stream))) {
                     return pushContext(state, stream, "variableName");
                 } else {
                     return pushContext(state, stream, "variableName", 0);
@@ -336,7 +336,7 @@
                 return pushContext(state, stream, "block");
             }
             if (type === "*") {
-                if (endOfLine(stream) || stream.match(/\s*(,|\.|#|\[|:|{)/, false)) {
+                if (endOfLine(stream) || stream.match(/\s*([,.#\[:{])/, false)) {
                     override = "tag";
                     return pushContext(state, stream, "block");
                 }
@@ -408,7 +408,7 @@
                     if (tagVariablesRegexp.test(word)) {
                         if ((startOfLine(stream) && stream.string.match(/=/)) ||
                             (!startOfLine(stream) &&
-                                !stream.string.match(/^(\s*\.|#|\&|\[|\/|>|\*)/) &&
+                                !stream.string.match(/^(\s*\.|#|&|\[|\/|>|\*)/) &&
                                 !wordIsTag(firstWordOfLine(stream)))) {
                             override = "variable-2";
                             if (wordIsBlock(firstWordOfLine(stream))) return "block";
@@ -430,7 +430,7 @@
                 if (word === "return") return pushContext(state, stream, "block", 0);
 
                 // Placeholder selector
-                if (override === "variable-2" && stream.string.match(/^\s?\$[\w-\.\[\]\'\"]+$/)) {
+                if (override === "variable-2" && stream.string.match(/^\s?\$[\w-.\[\]'"]+$/)) {
                     return pushContext(state, stream, "block");
                 }
             }
@@ -449,15 +449,15 @@
                 }
                 if ((stream.string.match(/^[a-z][\w-]*\(/i) && endOfLine(stream)) ||
                     wordIsBlock(firstWordOfLine(stream)) ||
-                    /(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(firstWordOfLine(stream)) ||
-                    (!stream.string.match(/^-?[a-z][\w-\.\[\]\'\"]*\s*=/) &&
+                    /([.#:\[*&>~+\/])/.test(firstWordOfLine(stream)) ||
+                    (!stream.string.match(/^-?[a-z][\w-.\[\]'"]*\s*=/) &&
                         wordIsTag(firstWordOfLine(stream)))) {
                     return pushContext(state, stream, "block");
                 }
-                if (stream.string.match(/^[\$-]?[a-z][\w-\.\[\]\'\"]*\s*=/) ||
+                if (stream.string.match(/^[$-]?[a-z][\w-.\[\]'"]*\s*=/) ||
                     stream.string.match(/^\s*(\(|\)|[0-9])/) ||
                     stream.string.match(/^\s+[a-z][\w-]*\(/i) ||
-                    stream.string.match(/^\s+[\$-]?[a-z]/i)) {
+                    stream.string.match(/^\s+[$-]?[a-z]/i)) {
                     return pushContext(state, stream, "block", 0);
                 }
                 if (endOfLine(stream)) return pushContext(state, stream, "block");
@@ -576,7 +576,7 @@
                 if (startOfLine(stream)) return popContext(state, true);
                 else return pushContext(state, stream, "keyframes");
             }
-            if (type === "unit" && /^[0-9]+\%$/.test(stream.current())) {
+            if (type === "unit" && /^[0-9]+%$/.test(stream.current())) {
                 return pushContext(state, stream, "keyframes");
             }
             if (type === "word") {
@@ -602,11 +602,11 @@
         states.interpolation = function (type, stream, state) {
             if (type === "{") popContext(state) && pushContext(state, stream, "block");
             if (type === "}") {
-                if (stream.string.match(/^\s*(\.|#|:|\[|\*|&|>|~|\+|\/)/i) ||
+                if (stream.string.match(/^\s*([.#:\[*&>~+\/])/i) ||
                     (stream.string.match(/^\s*[a-z]/i) && wordIsTag(firstWordOfLine(stream)))) {
                     return pushContext(state, stream, "block");
                 }
-                if (!stream.string.match(/^(\{|\s*\&)/) ||
+                if (!stream.string.match(/^({|\s*&)/) ||
                     stream.match(/\s*[\w-]/, false)) {
                     return pushContext(state, stream, "block", 0);
                 }
@@ -641,7 +641,7 @@
          * Variable name
          */
         states.variableName = function (type, stream, state) {
-            if (type === "string" || type === "[" || type === "]" || stream.current().match(/^(\.|\$)/)) {
+            if (type === "string" || type === "[" || type === "]" || stream.current().match(/^([.$])/)) {
                 if (stream.current().match(/^\.[\w-]+/i)) override = "variable-2";
                 return "variableName";
             }
@@ -683,20 +683,20 @@
                         ch === ")" && (cx.type === "parens" || cx.type === "atBlock_parens") ||
                         ch === "{" && (cx.type === "at"))) {
                     indent = cx.indent - indentUnit;
-                } else if (!(/(\})/.test(ch))) {
+                } else if (!(/(})/.test(ch))) {
                     if (/@|\$|\d/.test(ch) ||
-                        /^\{/.test(textAfter) ||
-                        /^\s*\/(\/|\*)/.test(textAfter) ||
+                        /^{/.test(textAfter) ||
+                        /^\s*\/([\/*])/.test(textAfter) ||
                         /^\s*\/\*/.test(prevLineFirstWord) ||
-                        /^\s*[\w-\.\[\]\'\"]+\s*(\?|:|\+)?=/i.test(textAfter) ||
-                        /^(\+|-)?[a-z][\w-]*\(/i.test(textAfter) ||
+                        /^\s*[\w-.\[\]'"]+\s*([?:+])?=/i.test(textAfter) ||
+                        /^([+\-])?[a-z][\w-]*\(/i.test(textAfter) ||
                         /^return/.test(textAfter) ||
                         wordIsBlock(lineFirstWord)) {
                         indent = lineIndent;
-                    } else if (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(ch) || wordIsTag(lineFirstWord)) {
-                        if (/\,\s*$/.test(prevLineFirstWord)) {
+                    } else if (/([.#:\[*&>~+\/])/.test(ch) || wordIsTag(lineFirstWord)) {
+                        if (/,\s*$/.test(prevLineFirstWord)) {
                             indent = prevLineIndent;
-                        } else if (/^\s+/.test(line) && (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(prevLineFirstWord) || wordIsTag(prevLineFirstWord))) {
+                        } else if (/^\s+/.test(line) && (/([.#:\[*&>~+\/])/.test(prevLineFirstWord) || wordIsTag(prevLineFirstWord))) {
                             indent = lineIndent <= prevLineIndent ? prevLineIndent : prevLineIndent + indentUnit;
                         } else {
                             indent = lineIndent;
@@ -704,14 +704,14 @@
                     } else if (!/,\s*$/.test(line) && (wordIsVendorPrefix(lineFirstWord) || wordIsProperty(lineFirstWord))) {
                         if (wordIsBlock(prevLineFirstWord)) {
                             indent = lineIndent <= prevLineIndent ? prevLineIndent : prevLineIndent + indentUnit;
-                        } else if (/^\{/.test(prevLineFirstWord)) {
+                        } else if (/^{/.test(prevLineFirstWord)) {
                             indent = lineIndent <= prevLineIndent ? lineIndent : prevLineIndent + indentUnit;
                         } else if (wordIsVendorPrefix(prevLineFirstWord) || wordIsProperty(prevLineFirstWord)) {
                             indent = lineIndent >= prevLineIndent ? prevLineIndent : lineIndent;
-                        } else if (/^(\.|#|:|\[|\*|&|@|\+|\-|>|~|\/)/.test(prevLineFirstWord) ||
+                        } else if (/^([.#:\[*&@+\->~\/])/.test(prevLineFirstWord) ||
                             /=\s*$/.test(prevLineFirstWord) ||
                             wordIsTag(prevLineFirstWord) ||
-                            /^\$[\w-\.\[\]\'\"]/.test(prevLineFirstWord)) {
+                            /^\$[\w-.\[\]'"]/.test(prevLineFirstWord)) {
                             indent = prevLineIndent + indentUnit;
                         } else {
                             indent = lineIndent;

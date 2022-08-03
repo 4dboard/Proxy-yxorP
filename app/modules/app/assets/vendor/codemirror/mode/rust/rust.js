@@ -19,12 +19,12 @@
             {regex: /b?r"/, token: "string", next: "string_raw"},
             {regex: /b?r#+"/, token: "string", next: "string_raw_hash"},
             // character
-            {regex: /'(?:[^'\\]|\\(?:[nrt0'"]|x[\da-fA-F]{2}|u\{[\da-fA-F]{6}\}))'/, token: "string-2"},
+            {regex: /'(?:[^'\\]|\\(?:[nrt0'"]|x[\da-fA-F]{2}|u{[\da-fA-F]{6}}))'/, token: "string-2"},
             // byte
             {regex: /b'(?:[^']|\\(?:['\\nrt0]|x[\da-fA-F]{2}))'/, token: "string-2"},
 
             {
-                regex: /(?:(?:[0-9][0-9_]*)(?:(?:[Ee][+-]?[0-9_]+)|\.[0-9_]+(?:[Ee][+-]?[0-9_]+)?)(?:f32|f64)?)|(?:0(?:b[01_]+|(?:o[0-7_]+)|(?:x[0-9a-fA-F_]+))|(?:[0-9][0-9_]*))(?:u8|u16|u32|u64|i8|i16|i32|i64|isize|usize)?/,
+                regex: /[0-9][0-9_]*(?:[Ee][+-]?[0-9_]+|\.[0-9_]+(?:[Ee][+-]?[0-9_]+)?)(?:f32|f64)?|(?:0(?:b[01_]+|o[0-7_]+|x[0-9a-fA-F_]+)|[0-9][0-9_]*)(?:u8|u16|u32|u64|i8|i16|i32|i64|isize|usize)?/,
                 token: "number"
             },
             {
@@ -44,14 +44,14 @@
                 regex: /\b(fn)(\s+)([a-zA-Z_][a-zA-Z0-9_]*)/,
                 token: ["keyword", null, "def"]
             },
-            {regex: /#!?\[.*\]/, token: "meta"},
+            {regex: /#!?\[.*]/, token: "meta"},
             {regex: /\/\/.*/, token: "comment"},
             {regex: /\/\*/, token: "comment", next: "comment"},
             {regex: /[-+\/*=<>!]+/, token: "operator"},
             {regex: /[a-zA-Z_]\w*!/, token: "variable-3"},
             {regex: /[a-zA-Z_]\w*/, token: "variable"},
-            {regex: /[\{\[\(]/, indent: true},
-            {regex: /[\}\]\)]/, dedent: true}
+            {regex: /[{\[(]/, indent: true},
+            {regex: /[}\])]/, dedent: true}
         ],
         string: [
             {regex: /"/, token: "string", next: "start"},
@@ -71,7 +71,7 @@
         ],
         meta: {
             dontIndentStates: ["comment"],
-            electricInput: /^\s*\}$/,
+            electricInput: /^\s*}$/,
             blockCommentStart: "/*",
             blockCommentEnd: "*/",
             lineComment: "//",

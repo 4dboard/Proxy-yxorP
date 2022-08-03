@@ -361,11 +361,11 @@ interface DomQuery<T extends Node = Node> extends ArrayLike<T> {
 
     on<U>(name: string, callback: EventUtilsCallback<U>): this;
 
-    parent(selector?: string): DomQuery<Node>;
+    parent(selector?: string): DomQuery;
 
-    parents(selector?: string): DomQuery<Node>;
+    parents(selector?: string): DomQuery;
 
-    parentsUntil(selector: DomQuerySelector<T>, filter?: string): DomQuery<Node>;
+    parentsUntil(selector: DomQuerySelector<T>, filter?: string): DomQuery;
 
     prepend(content: DomQuerySelector<T>): this;
 
@@ -2175,7 +2175,7 @@ interface DOMUtils {
     $: DomQueryConstructor;
     $$: {
         <T extends Node>(elm: T | T[] | DomQuery<T>): DomQuery<T>;
-        (elm: string): DomQuery<Node>;
+        (elm: string): DomQuery;
     };
     isBlock: (node: string | Node) => boolean;
     clone: (node: Node, deep: boolean) => Node;

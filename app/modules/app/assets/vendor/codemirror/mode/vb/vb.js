@@ -18,10 +18,10 @@
             return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
         }
 
-        const singleOperators = new RegExp("^[\\+\\-\\*/%&\\\\|\\^~<>!]");
-        const singleDelimiters = new RegExp('^[\\(\\)\\[\\]\\{\\}@,:`=;\\.]');
-        const doubleOperators = new RegExp("^((==)|(<>)|(<=)|(>=)|(<>)|(<<)|(>>)|(//)|(\\*\\*))");
-        const doubleDelimiters = new RegExp("^((\\+=)|(\\-=)|(\\*=)|(%=)|(/=)|(&=)|(\\|=)|(\\^=))");
+        const singleOperators = new RegExp("^[+\\-*/%&\\\\|^~<>!]");
+        const singleDelimiters = new RegExp('^[()\\[\\]{}@,:`=;.]');
+        const doubleOperators = new RegExp("^((==)|(<>)|(<=)|(>=)|(<<)|(>>)|(//)|(\\*\\*))");
+        const doubleDelimiters = new RegExp("^((\\+=)|(-=)|(\\*=)|(%=)|(/=)|(&=)|(\\|=)|(\\^=))");
         const tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
         const identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
 
@@ -75,7 +75,7 @@
 
 
             // Handle Number Literals
-            if (stream.match(/^((&H)|(&O))?[0-9\.a-f]/i, false)) {
+            if (stream.match(/^((&H)|(&O))?[0-9.a-f]/i, false)) {
                 let floatLiteral = false;
                 // Floats
                 if (stream.match(/^\d*\.\d+F?/i)) {

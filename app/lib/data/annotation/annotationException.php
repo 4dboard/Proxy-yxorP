@@ -21,7 +21,7 @@ class annotationException extends Exception
         return new self('[Creation Error] ' . $message, 0, $previous);
     }
 
-    public static function semanticalErrorConstants($identifier, $context = null): annotationException
+    #[Pure] public static function semanticalErrorConstants($identifier, $context = null): annotationException
     {
         return self::semanticalError(sprintf("Couldn't find constant %s%s.", $identifier, $context ? ', ' . $context : ''));
     }
@@ -31,7 +31,7 @@ class annotationException extends Exception
         return new self('[Semantical Error] ' . $message);
     }
 
-    public static function attributeTypeError($attributeName, $annotationName, $context, $expected, $actual): annotationException
+    #[Pure] public static function attributeTypeError($attributeName, $annotationName, $context, $expected, $actual): annotationException
     {
         return self::typeError(sprintf('Attribute "%s" of @%s declared on %s expects %s, but got %s.', $attributeName, $annotationName, $context, $expected, is_object($actual) ? 'an instance of ' . get_class($actual) : gettype($actual)));
     }
@@ -41,7 +41,7 @@ class annotationException extends Exception
         return new self('[Type Error] ' . $message);
     }
 
-    public static function requiredError($attributeName, $annotationName, $context, $expected): annotationException
+    #[Pure] public static function requiredError($attributeName, $annotationName, $context, $expected): annotationException
     {
         return self::typeError(sprintf('Attribute "%s" of @%s declared on %s expects %s. This value should not be null.', $attributeName, $annotationName, $context, $expected));
     }

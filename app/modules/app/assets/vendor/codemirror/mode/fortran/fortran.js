@@ -111,7 +111,7 @@
             "c_long_double_complex", "c_long_long", "c_ptr",
             "c_short", "c_signed_char", "c_size_t", "character",
             "complex", "double", "integer", "logical", "real"]);
-        const isOperatorChar = /[+\-*&=<>\/\:]/;
+        const isOperatorChar = /[+\-*&=<>\/:]/;
         const litOperator = /^\.(and|or|eq|lt|le|gt|ge|ne|not|eqv|neqv)\./i;
 
         function tokenBase(stream, state) {
@@ -129,18 +129,18 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\[\]\(\),]/.test(ch)) {
+            if (/[\[\](),]/.test(ch)) {
                 return null;
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             if (isOperatorChar.test(ch)) {
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             const word = stream.current().toLowerCase();
 
             if (keywords.hasOwnProperty(word)) {

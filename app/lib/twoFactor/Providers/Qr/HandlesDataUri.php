@@ -11,7 +11,7 @@ trait HandlesDataUri
      */
     private function DecodeDataUri(string $datauri): ?array
     {
-        if (preg_match('/data:(?P<mimetype>[\w\.\-\+\/]+);(?P<encoding>\w+),(?P<data>.*)/', $datauri, $m) === 1) {
+        if (preg_match('/data:(?P<mimetype>[\w.\-+\/]+);(?P<encoding>\w+),(?P<data>.*)/', $datauri, $m) === 1) {
             return array(
                 'mimetype' => $m['mimetype'],
                 'encoding' => $m['encoding'],

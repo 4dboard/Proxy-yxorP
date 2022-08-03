@@ -37,7 +37,7 @@ class version
         return $this->reference;
     }
 
-    public function getVersionWithShortCommit(): string
+    #[Pure] public function getVersionWithShortCommit(): string
     {
         return $this->getVersionWithShortReference();
     }
@@ -72,7 +72,7 @@ class version
         return $this->getPrettyVersion();
     }
 
-    public function getPrettyVersion(): string
+    #[Pure] public function getPrettyVersion(): string
     {
         if ($this->versionIsTagged) {
             return $this->prettyVersion;

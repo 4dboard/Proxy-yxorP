@@ -15,7 +15,7 @@
         const indentUnit = config.indentUnit;
         let curPunc;
         const keywords = buildRE(["abs", "acos", "aj", "aj0", "all", "and", "any", "asc", "asin", "asof", "atan", "attr", "avg", "avgs", "bin", "by", "ceiling", "cols", "cor", "cos", "count", "cov", "cross", "csv", "cut", "delete", "deltas", "desc", "dev", "differ", "distinct", "div", "do", "each", "ej", "enlist", "eval", "except", "exec", "exit", "exp", "fby", "fills", "first", "fkeys", "flip", "floor", "from", "get", "getenv", "group", "gtime", "hclose", "hcount", "hdel", "hopen", "hsym", "iasc", "idesc", "if", "ij", "in", "insert", "inter", "inv", "key", "keys", "last", "like", "list", "lj", "load", "log", "lower", "lsq", "ltime", "ltrim", "mavg", "max", "maxs", "mcount", "md5", "mdev", "med", "meta", "min", "mins", "mmax", "mmin", "mmu", "mod", "msum", "neg", "next", "not", "null", "or", "over", "parse", "peach", "pj", "plist", "prd", "prds", "prev", "prior", "rand", "rank", "ratios", "raze", "read0", "read1", "reciprocal", "reverse", "rload", "rotate", "rsave", "rtrim", "save", "scan", "select", "set", "setenv", "show", "signum", "sin", "sqrt", "ss", "ssr", "string", "sublist", "sum", "sums", "sv", "system", "tables", "tan", "til", "trim", "txf", "type", "uj", "ungroup", "union", "update", "upper", "upsert", "value", "var", "view", "views", "vs", "wavg", "where", "where", "while", "within", "wj", "wj1", "wsum", "xasc", "xbar", "xcol", "xcols", "xdesc", "xexp", "xgroup", "xkey", "xlog", "xprev", "xrank"]),
-            E = /[|/&^!+:\\\-*%$=~#;@><,?_\'\"\[\(\]\)\s{}]/;
+            E = /[|/&^!+:\\\-*%$=~#;@><,?_'"\[(\])\s{}]/;
 
         function buildRE(w) {
             return new RegExp("^(" + w.join("|") + ")$");
@@ -52,15 +52,15 @@
                     || stream.match(/^0x[\da-fA-F]*/)
                     || stream.match(/^[01]+[b]{1}/)
                     || stream.match(/^\d+[chijn]{1}/)
-                    || stream.match(/-?\d*(\.\d*)?(e[+\-]?\d+)?(e|f)?/))
+                    || stream.match(/-?\d*(\.\d*)?(e[+\-]?\d+)?([ef])?/))
                     t = "number";
                 return (t && (!(c = stream.peek()) || E.test(c))) ? t : (stream.next(), "error");
             }
             if (/[A-Za-z]|\./.test(c))
                 return stream.eatWhile(/[A-Za-z._\d]/), keywords.test(stream.current()) ? "keyword" : "variable";
-            if (/[|/&^!+:\\\-*%$=~#;@><\.,?_\']/.test(c))
+            if (/[|/&^!+:\\\-*%$=~#;@><.,?_']/.test(c))
                 return null;
-            if (/[{}\(\[\]\)]/.test(c))
+            if (/[{}(\[\])]/.test(c))
                 return null;
             return "error";
         }
@@ -126,12 +126,12 @@
                 if (curPunc === "(") pushContext(state, ")", stream.column());
                 else if (curPunc === "[") pushContext(state, "]", stream.column());
                 else if (curPunc === "{") pushContext(state, "}", stream.column());
-                else if (/[\]\}\)]/.test(curPunc)) {
+                else if (/[\]})]/.test(curPunc)) {
                     while (state.context && state.context.type === "pattern") popContext(state);
                     if (state.context && curPunc === state.context.type) popContext(state);
                 } else if (curPunc === "." && state.context && state.context.type === "pattern") popContext(state);
                 else if (/atom|string|variable/.test(style) && state.context) {
-                    if (/[\}\]]/.test(state.context.type))
+                    if (/[}\]]/.test(state.context.type))
                         pushContext(state, "pattern", stream.column());
                     else if (state.context.type === "pattern" && !state.context.align) {
                         state.context.align = true;
@@ -143,7 +143,7 @@
             indent: function (state, textAfter) {
                 const firstChar = textAfter && textAfter.charAt(0);
                 let context = state.context;
-                if (/[\]\}]/.test(firstChar))
+                if (/[\]}]/.test(firstChar))
                     while (context && context.type === "pattern") context = context.prev;
                 const closing = context && firstChar === context.type;
                 if (!context)

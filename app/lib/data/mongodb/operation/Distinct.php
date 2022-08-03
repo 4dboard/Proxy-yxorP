@@ -167,7 +167,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server): array
+    #[ArrayShape(['distinct' => "string", 'key' => "string", 'maxTimeMS' => "mixed", 'collation' => "object", 'query' => "object"])] public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }

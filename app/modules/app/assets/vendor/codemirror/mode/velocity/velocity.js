@@ -49,7 +49,7 @@
                     return chain(stream, state, tokenString(ch));
             }
             // is it one of the special signs []{}().,;? Separator?
-            else if (/[\[\]{}\(\),;\.]/.test(ch)) {
+            else if (/[\[\]{}(),;.]/.test(ch)) {
                 if (ch === "(" && beforeParams)
                     state.inParams = true;
                 else if (ch === ")") {
@@ -61,7 +61,7 @@
             // start of a number value?
             else if (/\d/.test(ch)) {
                 state.lastTokenWasBuiltin = false;
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             // multi line comment?
@@ -83,7 +83,7 @@
             // variable?
             else if (ch === "$") {
                 stream.eat("!");
-                stream.eatWhile(/[\w\d\$_\.{}-]/);
+                stream.eatWhile(/[\w\d$_.{}-]/);
                 // is it one of the specials?
                 if (specials && specials.propertyIsEnumerable(stream.current())) {
                     return "keyword";
@@ -100,7 +100,7 @@
                 return "operator";
             } else {
                 // get the whole word
-                stream.eatWhile(/[\w\$_{}@]/);
+                stream.eatWhile(/[\w$_{}@]/);
                 const word = stream.current();
                 // is it one of the listed keywords?
                 if (keywords && keywords.propertyIsEnumerable(word))

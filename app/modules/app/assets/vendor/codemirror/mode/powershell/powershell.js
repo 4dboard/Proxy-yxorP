@@ -37,7 +37,7 @@
             /param|process|return|switch|throw|trap|try|until|where|while/
         ], {suffix: notCharacterOrDash});
 
-        const punctuation = /[\[\]{},;`\\\.]|@[({]/;
+        const punctuation = /[\[\]{},;`\\.]|@[({]/;
         const wordOperators = buildRegexp([
             'f',
             /b?not/,
@@ -51,9 +51,9 @@
         const symbolOperators = /[+\-*\/%]=|\+\+|--|\.\.|[+\-*&^%:=!|\/]|<(?!#)|(?!#)>/;
         const operators = buildRegexp([wordOperators, symbolOperators], {suffix: ''});
 
-        const numbers = /^((0x[\da-f]+)|((\d+\.\d+|\d\.|\.\d+|\d+)(e[\+\-]?\d+)?))[ld]?([kmgtp]b)?/i;
+        const numbers = /^((0x[\da-f]+)|((\d+\.\d+|\d\.|\.\d+|\d+)(e[+\-]?\d+)?))[ld]?([kmgtp]b)?/i;
 
-        const identifiers = /^[A-Za-z\_][A-Za-z\-\_\d]*\b/;
+        const identifiers = /^[A-Za-z_][A-Za-z\-_\d]*\b/;
 
         const symbolBuiltins = /[A-Z]:|%|\?/i;
         const namedBuiltins = buildRegexp([

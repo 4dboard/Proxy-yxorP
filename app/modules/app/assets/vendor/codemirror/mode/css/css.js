@@ -80,7 +80,7 @@
                 return ret(null, "select-op");
             } else if (ch === "." && stream.match(/^-?[_a-z][_a-z0-9-]*/i)) {
                 return ret("qualifier", "qualifier");
-            } else if (/[:;{}\[\]\(\)]/.test(ch)) {
+            } else if (/[:;{}\[\]()]/.test(ch)) {
                 return ret(null, ch);
             } else if (stream.match(/^[\w-.]+(?=\()/)) {
                 if (/^(url(-prefix)?|domain|regexp)$/i.test(stream.current())) {
@@ -112,7 +112,7 @@
 
         function tokenParenthesized(stream, state) {
             stream.next(); // Must be '('
-            if (!stream.match(/^\s*[\"\')]/, false))
+            if (!stream.match(/^\s*["')]/, false))
                 state.tokenize = tokenString(")");
             else
                 state.tokenize = null;
@@ -793,7 +793,7 @@
                 }
             },
             ":": function (stream) {
-                if (stream.match(/^\s*\{/, false))
+                if (stream.match(/^\s*{/, false))
                     return [null, null]
                 return false;
             },

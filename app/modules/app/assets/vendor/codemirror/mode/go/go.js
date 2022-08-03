@@ -44,7 +44,7 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\d\.]/.test(ch)) {
+            if (/[\d.]/.test(ch)) {
                 if (ch === ".") {
                     stream.match(/^[0-9]+([eE][\-+]?[0-9]+)?/);
                 } else if (ch === "0") {
@@ -54,7 +54,7 @@
                 }
                 return "number";
             }
-            if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
+            if (/[\[\]{}(),;:.]/.test(ch)) {
                 curPunc = ch;
                 return null;
             }
@@ -72,7 +72,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+            stream.eatWhile(/[\w$_\xa1-\uffff]/);
             const cur = stream.current();
             if (keywords.propertyIsEnumerable(cur)) {
                 if (cur === "case" || cur === "default") curPunc = "case";

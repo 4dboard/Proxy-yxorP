@@ -34,12 +34,12 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
+            if (/[\[\]{}(),;:.]/.test(ch)) {
                 curPunc = ch;
                 return null;
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             if (ch === "/") {
@@ -60,7 +60,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+            stream.eatWhile(/[\w$_\xa1-\uffff]/);
             const cur = stream.current();
             if (keywords.propertyIsEnumerable(cur)) {
                 if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";
@@ -219,7 +219,7 @@
         atoms: words("exit failure success true false null"),
         hooks: {
             "@": function (stream, _state) {
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 return "meta";
             }
         }

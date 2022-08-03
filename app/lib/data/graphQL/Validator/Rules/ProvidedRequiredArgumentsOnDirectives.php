@@ -29,7 +29,7 @@ use function array_filter;
  */
 class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
 {
-    public function getSDLVisitor(SDLValidationContext $context): array
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
@@ -124,7 +124,7 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
             . '" of type "' . $type . '" is required but not provided.';
     }
 
-    public function getVisitor(ValidationContext $context): array
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

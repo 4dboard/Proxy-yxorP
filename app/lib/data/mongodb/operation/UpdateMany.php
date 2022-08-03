@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\data\mongoDB\updateResult;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -117,7 +118,7 @@ class UpdateMany implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server): array
+    #[ArrayShape(['update' => "string", 'updates' => "array[]", 'writeConcern' => "\false|mixed", 'bypassDocumentValidation' => "\false|mixed"])] public function getCommandDocument(Server $server): array
     {
         return $this->update->getCommandDocument($server);
     }

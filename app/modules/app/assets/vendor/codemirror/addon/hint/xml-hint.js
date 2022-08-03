@@ -81,7 +81,7 @@
             if (token.type === "string" || token.string === "=") { // A value
                 var before = cm.getRange(Pos(cur.line, Math.max(0, cur.ch - 60)),
                     Pos(cur.line, token.type === "string" ? token.start : token.end));
-                const atName = before.match(/([^\s\u00a0=<>\"\']+)=$/);
+                const atName = before.match(/([^\s\u00a0=<>"']+)=$/);
                 let atValues;
                 if (!atName || !attrs.hasOwnProperty(atName[1]) || !(atValues = attrs[atName[1]])) return;
                 if (typeof atValues === 'function') atValues = atValues.call(this, cm); // Functions can be used to supply values for autocomplete widget

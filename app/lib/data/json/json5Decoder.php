@@ -154,14 +154,14 @@ final class json5Decoder
         return mb_substr(substr($this->json, $this->at, 4), 0, 1);
     }
 
-    private function next()
+    private function next(): void
     {
         if ($this->currentByte === "\n" || ($this->currentByte === "\r" && $this->peek() !== "\n")) {
             $this->lineNumber++;
             $this->currentLineStartsAt = $this->at + 1;
         }
         $this->at++;
-        return $this->currentByte = $this->getByte($this->at);
+        $this->currentByte = $this->getByte($this->at);
     }
 
     private function peek()

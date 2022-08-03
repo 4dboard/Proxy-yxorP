@@ -23,7 +23,7 @@
             accessTypes = parserConfig.accessTypes || {},
             multiLineStrings = parserConfig.multiLineStrings,
             indentStatements = parserConfig.indentStatements !== false;
-        const isOperatorChar = /[\|\^]/;
+        const isOperatorChar = /[|^]/;
         let curPunc;
 
         function tokenBase(stream, state) {
@@ -32,7 +32,7 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\[\]\(\){}:=,;]/.test(ch)) {
+            if (/[\[\](){}:=,;]/.test(ch)) {
                 curPunc = ch;
                 return "punctuation";
             }
@@ -43,7 +43,7 @@
                 }
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             if (isOperatorChar.test(ch)) {

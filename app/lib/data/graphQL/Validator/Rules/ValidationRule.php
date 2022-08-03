@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
+use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
 use yxorP\app\lib\data\graphQL\Validator\SDLValidationContext;
 use yxorP\app\lib\data\graphQL\Validator\ValidationContext;
 use function class_alias;
@@ -18,7 +20,7 @@ abstract class ValidationRule
         return $this->name === '' || $this->name === null ? static::class : $this->name;
     }
 
-    public function __invoke(ValidationContext $context): array
+    #[ArrayShape([NodeKind::SELECTION_SET => "\Closure"])] public function __invoke(ValidationContext $context): array
     {
         return $this->getVisitor($context);
     }

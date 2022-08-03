@@ -22,8 +22,8 @@
         const builtin = parserConfig.builtin || {};
         const atoms = parserConfig.atoms || {};
 
-        const isSingleOperatorChar = /[;=\(:\),{}.*<>+\-\/^\[\]]/;
-        const isDoubleOperatorChar = /(:=|<=|>=|==|<>|\.\+|\.\-|\.\*|\.\/|\.\^)/;
+        const isSingleOperatorChar = /[;=(:),{}.*<>+\-\/^\[\]]/;
+        const isDoubleOperatorChar = /(:=|<=|>=|==|<>|\.\+|\.-|\.\*|\.\/|\.\^)/;
         const isDigit = /[0-9]/;
         const isNonDigit = /[_a-zA-Z]/;
 

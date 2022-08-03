@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Type\Definition;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Error\Warning;
@@ -70,7 +71,7 @@ class FieldDefinition
     /**
      * @param array $config
      */
-    protected function __construct(array $config)
+    #[Pure] protected function __construct(array $config)
     {
         $this->name = $config['name'];
         $this->resolveFn = $config['resolve'] ?? null;

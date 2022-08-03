@@ -83,7 +83,7 @@
             "elseif else goto menu nicklist status title icon size option text edit " +
             "button check radio box scroll list combo link tab item");
         const functions = parseWords("if elseif else and not or eq ne in ni for foreach while switch");
-        const isOperatorChar = /[+\-*&%=<>!?^\/\|]/;
+        const isOperatorChar = /[+\-*&%=<>!?^\/|]/;
 
         function chain(stream, state, f) {
             state.tokenize = f;
@@ -94,12 +94,12 @@
             const beforeParams = state.beforeParams;
             state.beforeParams = false;
             const ch = stream.next();
-            if (/[\[\]{}\(\),\.]/.test(ch)) {
+            if (/[\[\]{}(),.]/.test(ch)) {
                 if (ch === "(" && beforeParams) state.inParams = true;
                 else if (ch === ")") state.inParams = false;
                 return null;
             } else if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             } else if (ch === "\\") {
                 stream.eat("\\");
@@ -116,7 +116,7 @@
                 stream.eat(/"/);
                 return "keyword";
             } else if (ch === "$") {
-                stream.eatWhile(/[$_a-z0-9A-Z\.:]/);
+                stream.eatWhile(/[$_a-z0-9A-Z.:]/);
                 if (specials && specials.propertyIsEnumerable(stream.current().toLowerCase())) {
                     return "keyword";
                 } else {
@@ -131,7 +131,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             } else {
-                stream.eatWhile(/[\w\$_{}]/);
+                stream.eatWhile(/[\w$_{}]/);
                 const word = stream.current().toLowerCase();
                 if (keywords && keywords.propertyIsEnumerable(word))
                     return "keyword";

@@ -62,7 +62,7 @@
                                 stream.next();
                                 stream.next();
                             } else {
-                                stream.match(/^.[^\\\"\']*/);
+                                stream.match(/^.[^\\"']*/);
                             }
                         }
                         return state.lhs ? "property string" : "string"; // Token style
@@ -76,7 +76,7 @@
                                 state.stack.shift(); // Clear flag
                                 state.commentType = null;
                             } else {
-                                stream.match(/^.[^\*]*/);
+                                stream.match(/^.[^*]*/);
                             }
                         }
                         return "comment";
@@ -174,7 +174,7 @@
                 } else if (stream.match('return')) {
                     return "operator";
                 } else if (stream.match(/^[a-zA-Z_][a-zA-Z0-9_]*/)) {
-                    if (stream.match(/(?=[\(.])/)) {
+                    if (stream.match(/(?=[(.])/)) {
                         return "variable";
                     } else if (stream.match(/(?=[\s\n]*[:=])/)) {
                         return "def";

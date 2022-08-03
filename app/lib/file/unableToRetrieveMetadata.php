@@ -12,7 +12,7 @@ final class unableToRetrieveMetadata extends RuntimeException implements filesys
     private $metadataType;
     private $reason;
 
-    public static function lastModified(string $location, string $reason = '', Throwable $previous = null): self
+    #[Pure] public static function lastModified(string $location, string $reason = '', Throwable $previous = null): self
     {
         return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_LAST_MODIFIED, $reason, $previous);
     }
@@ -26,17 +26,17 @@ final class unableToRetrieveMetadata extends RuntimeException implements filesys
         return $e;
     }
 
-    public static function visibility(string $location, string $reason = '', Throwable $previous = null): self
+    #[Pure] public static function visibility(string $location, string $reason = '', Throwable $previous = null): self
     {
         return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_VISIBILITY, $reason, $previous);
     }
 
-    public static function fileSize(string $location, string $reason = '', Throwable $previous = null): self
+    #[Pure] public static function fileSize(string $location, string $reason = '', Throwable $previous = null): self
     {
         return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_FILE_SIZE, $reason, $previous);
     }
 
-    public static function mimeType(string $location, string $reason = '', Throwable $previous = null): self
+    #[Pure] public static function mimeType(string $location, string $reason = '', Throwable $previous = null): self
     {
         return unableToRetrieveMetadata::create($location, storageAttributesInterface::ATTRIBUTE_MIME_TYPE, $reason, $previous);
     }

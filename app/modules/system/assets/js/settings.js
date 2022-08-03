@@ -10,7 +10,7 @@ export let FieldTypes = {
 
         Object.keys(VueView.components).forEach((c, match, promise) => {
 
-            match = c.match(/^field\-(.*)/);
+            match = c.match(/^field-(.*)/);
 
             if (match && typeof (VueView.components[c]) === 'string') {
 

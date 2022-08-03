@@ -46,7 +46,7 @@ class colorExtractor
         }
     }
 
-    protected static function intColorToLab($color): array
+    #[Pure] #[ArrayShape(['L' => "\float|int", 'a' => "\float|int", 'b' => "\float|int"])] protected static function intColorToLab($color): array
     {
         return self::xyzToLab(self::srgbToXyz(self::rgbToSrgb(['R' => ($color >> 16) & 0xFF, 'G' => ($color >> 8) & 0xFF, 'B' => $color & 0xFF,])));
     }

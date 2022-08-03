@@ -124,7 +124,7 @@ class simpleImage
     /**
      * @throws \Exception
      */
-    public static function adjustColor($color, $red, $green, $blue, $alpha): array
+    #[ArrayShape(['red' => "int", 'green' => "int", 'blue' => "int", 'alpha' => "mixed"])] public static function adjustColor($color, $red, $green, $blue, $alpha): array
     {
         $color = self::normalizeColor($color);
         return self::normalizeColor(['red' => $color['red'] + $red, 'green' => $color['green'] + $green, 'blue' => $color['blue'] + $blue, 'alpha' => $color['alpha'] + $alpha]);

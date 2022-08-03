@@ -48,7 +48,7 @@
         function tokenBase(stream, state) {
             const ch = stream.next();
 
-            if (/[\d\.]/.test(ch)) {
+            if (/[\d.]/.test(ch)) {
                 if (ch === ".") {
                     stream.match(/^[0-9]+([eE][\-+]?[0-9]+)?/);
                 } else if (ch === "0") {
@@ -73,7 +73,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+            stream.eatWhile(/[\w$_\xa1-\uffff]/);
 
             const cur = stream.current().toLowerCase();
             if (keywords.propertyIsEnumerable(cur) ||

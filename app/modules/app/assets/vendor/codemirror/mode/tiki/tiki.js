@@ -52,7 +52,7 @@
                 case "{": //plugin
                     stream.eat("/");
                     stream.eatSpace();
-                    stream.eatWhile(/[^\s\u00a0=\"\'\/?(}]/);
+                    stream.eatWhile(/[^\s\u00a0="'\/?(}]/);
                     state.tokenize = inPlugin;
                     return "tag";
                 case "_": //bold
@@ -150,17 +150,17 @@
                 }
 
                 //here we detect values directly after equal character with no quotes
-                if (!/[\'\"]/.test(peek)) {
+                if (!/['"]/.test(peek)) {
                     state.tokenize = inAttributeNoQuote();
                 }
                 //end detect values
 
                 return "operator";
-            } else if (/[\'\"]/.test(ch)) {
+            } else if (/['"]/.test(ch)) {
                 state.tokenize = inAttribute(ch);
                 return state.tokenize(stream, state);
             } else {
-                stream.eatWhile(/[^\s\u00a0=\"\'\/?]/);
+                stream.eatWhile(/[^\s\u00a0="'\/?]/);
                 return "keyword";
             }
         }

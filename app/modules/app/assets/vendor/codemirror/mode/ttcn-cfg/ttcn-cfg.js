@@ -18,7 +18,7 @@
             externalCommands = parserConfig.externalCommands || {},
             multiLineStrings = parserConfig.multiLineStrings,
             indentStatements = parserConfig.indentStatements !== false;
-        const isOperatorChar = /[\|]/;
+        const isOperatorChar = /[|]/;
         let curPunc;
 
         function tokenBase(stream, state) {
@@ -36,7 +36,7 @@
                 return "comment";
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             if (isOperatorChar.test(ch)) {
@@ -48,7 +48,7 @@
                 return "number sectionTitle";
             }
 
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             const cur = stream.current();
             if (keywords.propertyIsEnumerable(cur)) return "keyword";
             if (fileNCtrlMaskOptions.propertyIsEnumerable(cur))

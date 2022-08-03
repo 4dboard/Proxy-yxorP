@@ -66,7 +66,7 @@
             // *     returns 3: '[####monkey]'
             // *     example 4: sprintf("%d", 123456789012345);
             // *     returns 4: '123456789012345'
-            const regex = /%%|%(\d+\$)?([-+\'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
+            const regex = /%%|%(\d+\$)?([-+'#0 ]*)(\*\d+\$|\*|\d+)?(\.(\*\d+\$|\*|\d+))?([scboxXuideEfFgG])/g;
             const a = arguments;
             let i = 0;
             const format = a[i++];

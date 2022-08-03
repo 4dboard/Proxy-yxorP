@@ -48,15 +48,15 @@
             "and", "andalso", "band", "bnot", "bor", "bsl", "bsr", "bxor",
             "div", "not", "or", "orelse", "rem", "xor"];
 
-        const operatorSymbolRE = /[\+\-\*\/<>=\|:!]/;
+        const operatorSymbolRE = /[+\-*\/<>=|:!]/;
         const operatorSymbolWords = [
             "=", "+", "-", "*", "/", ">", ">=", "<", "=<", "=:=", "==", "=/=", "/=", "||", "<-", "!"];
 
-        const openParenRE = /[<\(\[\{]/;
+        const openParenRE = /[<(\[{]/;
         const openParenWords = [
             "<<", "(", "[", "{"];
 
-        const closeParenRE = /[>\)\]\}]/;
+        const closeParenRE = /[>)\]}]/;
         const closeParenWords = [
             "}", "]", ")", ">>"];
 
@@ -591,7 +591,7 @@
         }
 
         function wordafter(str) {
-            const m = str.match(/,|[a-z]+|\}|\]|\)|>>|\|+|\(/);
+            const m = str.match(/,|[a-z]+|}|]|\)|>>|\|+|\(/);
 
             return truthy(m) && (m.index === 0) ? m[0] : "";
         }

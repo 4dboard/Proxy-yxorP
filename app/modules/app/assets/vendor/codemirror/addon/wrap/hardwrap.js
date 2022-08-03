@@ -62,7 +62,7 @@
         from = cm.clipPos(from);
         to = cm.clipPos(to);
         let column = options.column || 80;
-        const wrapOn = options.wrapOn || /\s\S|-[^\.\d]/;
+        const wrapOn = options.wrapOn || /\s\S|-[^.\d]/;
         const forceBreak = options.forceBreak !== false;
         const killTrailing = options.killTrailingSpace !== false;
         const changes = [];

@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
 use yxorP\app\lib\http\mongoDB\deleteResult;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -86,7 +87,7 @@ class DeleteMany implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server): array
+    #[ArrayShape(['delete' => "string", 'deletes' => "mixed", 'writeConcern' => "mixed"])] public function getCommandDocument(Server $server): array
     {
         return $this->delete->getCommandDocument($server);
     }

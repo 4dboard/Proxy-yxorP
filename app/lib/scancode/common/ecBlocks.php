@@ -45,7 +45,7 @@ final class ecBlocks
     /**
      * Returns the total count of EC codewords.
      */
-    public function getTotalEcCodewords(): int
+    #[Pure] public function getTotalEcCodewords(): int
     {
         return $this->ecCodewordsPerBlock * $this->getNumBlocks();
     }

@@ -35,14 +35,14 @@
             if (ch === '"' || ch === "'") {
                 return startString(ch, stream, state);
             }
-            if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
+            if (/[\[\]{}(),;:.]/.test(ch)) {
                 curPunc = ch;
                 return null;
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 if (stream.eat(/eE/)) {
-                    stream.eat(/\+\-/);
+                    stream.eat(/\+-/);
                     stream.eatWhile(/\d/);
                 }
                 return "number";
@@ -68,9 +68,9 @@
                 stream.eatWhile(/[+\-*&%=<>|~]/);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             if (ch === "@") {
-                stream.eatWhile(/[\w\$_\.]/);
+                stream.eatWhile(/[\w$_.]/);
                 return "meta";
             }
             if (state.lastToken === ".") return "property";
@@ -151,7 +151,7 @@
         }
 
         function tokenVariableDeref(stream, state) {
-            const next = stream.match(/^(\.|[\w\$_]+)/);
+            const next = stream.match(/^(\.|[\w$_]+)/);
             if (!next) {
                 state.tokenize.pop()
                 return state.tokenize[state.tokenize.length - 1](stream, state)
@@ -172,7 +172,7 @@
         }
 
         function expectExpression(last, newline) {
-            return !last || last === "operator" || last === "->" || /[\.\[\{\(,;:]/.test(last) ||
+            return !last || last === "operator" || last === "->" || /[.\[{(,;:]/.test(last) ||
                 last === "newstatement" || last === "keyword" || last === "proplabel" ||
                 (last === "standalone" && !newline);
         }

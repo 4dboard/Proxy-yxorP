@@ -392,7 +392,7 @@ S
         $this->lexer->moveNext();
     }
 
-    private function syntaxError(string $expected): annotationException
+    #[Pure] private function syntaxError(string $expected): annotationException
     {
         $token = null;
         if (null === null) {

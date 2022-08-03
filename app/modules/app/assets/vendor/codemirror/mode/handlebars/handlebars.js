@@ -13,16 +13,16 @@
 
     CodeMirror.defineSimpleMode("handlebars-tags", {
         start: [
-            {regex: /\{\{\{/, push: "handlebars_raw", token: "tag"},
-            {regex: /\{\{!--/, push: "dash_comment", token: "comment"},
-            {regex: /\{\{!/, push: "comment", token: "comment"},
-            {regex: /\{\{/, push: "handlebars", token: "tag"}
+            {regex: /{{{/, push: "handlebars_raw", token: "tag"},
+            {regex: /{{!--/, push: "dash_comment", token: "comment"},
+            {regex: /{{!/, push: "comment", token: "comment"},
+            {regex: /{{/, push: "handlebars", token: "tag"}
         ],
         handlebars_raw: [
-            {regex: /\}\}\}/, pop: true, token: "tag"},
+            {regex: /}}}/, pop: true, token: "tag"},
         ],
         handlebars: [
-            {regex: /\}\}/, pop: true, token: "tag"},
+            {regex: /}}/, pop: true, token: "tag"},
 
             // Double and single quotes
             {regex: /"(?:[^\\"]|\\.)*"?/, token: "string"},
@@ -39,16 +39,16 @@
             {regex: /=|~|@|true|false/, token: "atom"},
 
             // Paths
-            {regex: /(?:\.\.\/)*(?:[A-Za-z_][\w\.]*)+/, token: "variable-2"}
+            {regex: /(?:\.\.\/)*(?:[A-Za-z_][\w.]*)+/, token: "variable-2"}
         ],
         dash_comment: [
-            {regex: /--\}\}/, pop: true, token: "comment"},
+            {regex: /--}}/, pop: true, token: "comment"},
 
             // Commented code
             {regex: /./, token: "comment"}
         ],
         comment: [
-            {regex: /\}\}/, pop: true, token: "comment"},
+            {regex: /}}/, pop: true, token: "comment"},
             {regex: /./, token: "comment"}
         ],
         meta: {
@@ -62,7 +62,7 @@
         if (!parserConfig || !parserConfig.base) return handlebars;
         return CodeMirror.multiplexingMode(
             CodeMirror.getMode(config, parserConfig.base),
-            {open: "{{", close: /\}\}\}?/, mode: handlebars, parseDelimiters: true}
+            {open: "{{", close: /}}}?/, mode: handlebars, parseDelimiters: true}
         );
     });
 

@@ -22,7 +22,7 @@
             return new RegExp("^((" + words.join(")|(") + "))\\b");
         }
 
-        const operators = /^(?:->|=>|\+[+=]?|-[\-=]?|\*[\*=]?|\/[\/=]?|[=!]=|<[><]?=?|>>?=?|%=?|&=?|\|=?|\^=?|\~|!|\?|(or|and|\|\||&&|\?)=)/;
+        const operators = /^(?:->|=>|\+[+=]?|-[\-=]?|\*[*=]?|\/[\/=]?|[=!]=|<[><]?=?|>>?=?|%=?|&=?|\|=?|\^=?|~|!|\?|(or|and|\|\||&&|\?)=)/;
         const delimiters = /^(?:[()\[\]{},:`=;]|\.\.?\.?)/;
         const identifiers = /^[_A-Za-z$][_A-Za-z$0-9]*/;
         const atProp = /^@[_A-Za-z$][_A-Za-z$0-9]*/;
@@ -41,7 +41,7 @@
         indentKeywords = wordRegexp(indentKeywords);
 
 
-        const stringPrefixes = /^('{3}|\"{3}|['\"])/;
+        const stringPrefixes = /^('{3}|"{3}|['"])/;
         const regexPrefixes = /^(\/{3}|\/)/;
         const commonConstants = ["Infinity", "NaN", "undefined", "null", "true", "false", "on", "off", "yes", "no"];
         const constants = wordRegexp(commonConstants);
@@ -91,10 +91,10 @@
             }
 
             // Handle number literals
-            if (stream.match(/^-?[0-9\.]/, false)) {
+            if (stream.match(/^-?[0-9.]/, false)) {
                 let floatLiteral = false;
                 // Floats
-                if (stream.match(/^-?\d*\.\d+(e[\+\-]?\d+)?/i)) {
+                if (stream.match(/^-?\d*\.\d+(e[+\-]?\d+)?/i)) {
                     floatLiteral = true;
                 }
                 if (stream.match(/^-?\d+\.\d*/)) {
@@ -118,7 +118,7 @@
                     intLiteral = true;
                 }
                 // Decimal
-                if (stream.match(/^-?[1-9]\d*(e[\+\-]?\d+)?/)) {
+                if (stream.match(/^-?[1-9]\d*(e[+\-]?\d+)?/)) {
                     intLiteral = true;
                 }
                 // Zero by itself with no other piece of number.

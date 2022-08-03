@@ -43,7 +43,7 @@
         function tokenBase(stream, state) {
 
 
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
 
             const cur = stream.current();
 
@@ -149,7 +149,7 @@
                     else if (!context || context === "@media{") style = "tag";
                 }
 
-                if (context === "rule" && /^[\{\};]$/.test(type))
+                if (context === "rule" && /^[{};]$/.test(type))
                     state.stack.pop();
                 if (type === "{") {
                     if (context === "@media") state.stack[state.stack.length - 1] = "@media{";
@@ -162,7 +162,7 @@
 
             indent: function (state, textAfter) {
                 let n = state.stack.length;
-                if (/^\}/.test(textAfter))
+                if (/^}/.test(textAfter))
                     n -= state.stack[state.stack.length - 1] === "rule" ? 2 : 1;
                 return state.baseIndent + n * indentUnit;
             },

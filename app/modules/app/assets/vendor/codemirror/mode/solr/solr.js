@@ -14,8 +14,8 @@
     CodeMirror.defineMode("solr", function () {
         "use strict";
 
-        const isStringChar = /[^\s\|\!\+\-\*\?\~\^\&\:\(\)\[\]\{\}\"\\]/;
-        const isOperatorChar = /[\|\!\+\-\*\?\~\^\&]/;
+        const isStringChar = /[^\s|!+\-*?~^&:()\[\]{}"\\]/;
+        const isOperatorChar = /[|!+\-*?~^&]/;
         const isOperatorString = /^(OR|AND|NOT|TO)$/i;
 
         function isNumber(word) {
@@ -45,7 +45,7 @@
                 else if (operator === "|")
                     stream.eat(/\|/);
                 else if (operator === "&")
-                    stream.eat(/\&/);
+                    stream.eat(/&/);
                 else if (operator === "^")
                     style += " boost";
 

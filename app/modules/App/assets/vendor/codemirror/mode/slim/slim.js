@@ -186,11 +186,11 @@
         }
 
         function html(stream, state) {
-            if (stream.match(/^#\{/)) {
+            if (stream.match(/^#{/)) {
                 state.tokenize = rubyInQuote("}", state.tokenize);
                 return null;
             }
-            return maybeBackup(stream, state, /[^\\]#\{/, 1, htmlMode.token(stream, state.htmlState));
+            return maybeBackup(stream, state, /[^\\]#{/, 1, htmlMode.token(stream, state.htmlState));
         }
 
         function startHtmlLine(lastTokenize) {
@@ -282,7 +282,7 @@
         }
 
         function sub(stream, state) {
-            if (stream.match(/^#\{/)) {
+            if (stream.match(/^#{/)) {
                 state.tokenize = rubyInQuote("}", state.tokenize);
                 return null;
             }
@@ -412,7 +412,7 @@
         }
 
         function slimAttribute(stream, state) {
-            if (stream.match(/^([\[\{\(])/)) {
+            if (stream.match(/^([\[{(])/)) {
                 return startAttributeWrapperMode(state, closing[RegExp.$1], slimAttribute);
             }
             if (stream.match(attributeNameRegexp)) {
@@ -475,7 +475,7 @@
                     continueLine(state, state.indented);
                     return "lineContinuation";
                 }
-                if (stream.match(/^#\{/, fresh)) {
+                if (stream.match(/^#{/, fresh)) {
                     if (!fresh) return style;
                     state.tokenize = rubyInQuote("}", state.tokenize);
                     return null;

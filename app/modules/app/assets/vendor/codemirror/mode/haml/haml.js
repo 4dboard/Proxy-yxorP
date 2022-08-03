@@ -54,7 +54,7 @@
                 if (ch === "!" && stream.match("!!")) {
                     stream.skipToEnd();
                     return "tag";
-                } else if (stream.match(/^%[\w:#\.]+=/)) {
+                } else if (stream.match(/^%[\w:#.]+=/)) {
                     state.tokenize = ruby;
                     return "hamlTag";
                 } else if (stream.match(/^%[\w:]+/)) {
@@ -67,7 +67,7 @@
 
             if (state.startOfLine || state.previousToken.style === "hamlTag") {
                 if (ch === "#" || ch === ".") {
-                    stream.match(/[\w-#\.]*/);
+                    stream.match(/[\w-#.]*/);
                     return "hamlAttribute";
                 }
             }
@@ -85,7 +85,7 @@
                     state.tokenize = rubyInQuote(")");
                     return state.tokenize(stream, state);
                 } else if (ch === "{") {
-                    if (!stream.match(/^\{%.*/)) {
+                    if (!stream.match(/^{%.*/)) {
                         state.tokenize = rubyInQuote("}");
                         return state.tokenize(stream, state);
                     }

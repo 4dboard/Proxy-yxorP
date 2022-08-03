@@ -25,7 +25,7 @@
     }
 
     function metaHook(stream) {
-        stream.eatWhile(/[\w\$_]/);
+        stream.eatWhile(/[\w$_]/);
         return "meta";
     }
 
@@ -45,7 +45,7 @@
 
         const blockKeywords = words("architecture,entity,begin,case,port,else,elsif,end,for,function,if");
 
-        const isOperatorChar = /[&|~><!\)\(*#%@+\/=?\:;}{,\.\^\-\[\]]/;
+        const isOperatorChar = /[&|~><!)(*#%@+\/=?:;}{,.^\-\[\]]/;
         let curPunc;
 
         function tokenBase(stream, state) {
@@ -62,12 +62,12 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
+            if (/[\[\]{}(),;:.]/.test(ch)) {
                 curPunc = ch;
                 return null;
             }
             if (/[\d']/.test(ch)) {
-                stream.eatWhile(/[\w\.']/);
+                stream.eatWhile(/[\w.']/);
                 return "number";
             }
             if (ch === "-") {
@@ -80,7 +80,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             const cur = stream.current();
             if (keywords.propertyIsEnumerable(cur.toLowerCase())) {
                 if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";

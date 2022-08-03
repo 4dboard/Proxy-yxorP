@@ -98,7 +98,7 @@
             const ch = stream.next();
             if (ch === '"' || ch === "'") {
                 return chain(stream, state, haxeTokenString(ch));
-            } else if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
+            } else if (/[\[\]{}(),;:.]/.test(ch)) {
                 return ret(ch);
             } else if (ch === "0" && stream.eat(/x/i)) {
                 stream.eatWhile(/[\da-f]/i);
@@ -335,7 +335,7 @@
         }
 
         function maybeexpression(type) {
-            if (type.match(/[;\}\)\],]/)) return pass();
+            if (type.match(/[;})\],]/)) return pass();
             return pass(expression);
         }
 
@@ -501,7 +501,7 @@
                 if (stream.eatSpace()) return null;
                 const style = state.tokenize(stream, state);
                 if (type === "comment") return style;
-                state.reAllowed = !!(type === "operator" || type === "keyword c" || type.match(/^[\[{}\(,;:]$/));
+                state.reAllowed = !!(type === "operator" || type === "keyword c" || type.match(/^[\[{}(,;:]$/));
                 state.kwAllowed = type !== '.';
                 return parseHaxe(state, style, type, content, stream);
             },

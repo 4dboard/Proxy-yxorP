@@ -102,7 +102,7 @@ class SchemaPrinter
         );
     }
 
-    protected static function printSchemaDefinition(Schema $schema): string
+    #[Pure] protected static function printSchemaDefinition(Schema $schema): string
     {
         if (static::isSchemaOfCommonNames($schema)) {
             return '';

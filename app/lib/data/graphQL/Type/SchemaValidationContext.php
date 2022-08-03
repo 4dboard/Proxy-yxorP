@@ -129,7 +129,7 @@ class SchemaValidationContext
      *
      * @return NamedTypeNode|TypeDefinitionNodeInterface|null
      */
-    private function getOperationTypeNode(Type $type, string $operation): TypeDefinitionNodeInterface|NamedTypeNode|null
+    #[Pure] private function getOperationTypeNode(Type $type, string $operation): TypeDefinitionNodeInterface|NamedTypeNode|null
     {
         $astNode = $this->schema->getAstNode();
 
@@ -305,7 +305,7 @@ class SchemaValidationContext
      *
      * @return ObjectTypeDefinitionNode[]|ObjectTypeExtensionNode[]|InterfaceTypeDefinitionNode[]|InterfaceTypeExtensionNode[]
      */
-    private function getAllNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType|InputObjectType $obj): array
+    #[Pure] private function getAllNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType|InputObjectType $obj): array
     {
         if ($obj instanceof Schema) {
             $astNode = $obj->getAstNode();

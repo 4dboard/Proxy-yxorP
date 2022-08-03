@@ -30,7 +30,7 @@ use function sprintf;
  */
 class KnownArgumentNamesOnDirectives extends ValidationRule
 {
-    public function getSDLVisitor(SDLValidationContext $context): array
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
@@ -112,7 +112,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
         return $message;
     }
 
-    public function getVisitor(ValidationContext $context): array
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

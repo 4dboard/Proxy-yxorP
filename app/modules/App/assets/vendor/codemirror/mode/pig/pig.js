@@ -67,11 +67,11 @@
             if (ch === '"' || ch === "'")
                 return chain(stream, state, tokenString(ch));
             // is it one of the special chars
-            else if (/[\[\]{}\(\),;\.]/.test(ch))
+            else if (/[\[\]{}(),;.]/.test(ch))
                 return null;
             // is it a number?
             else if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             // multi line comment or operator
@@ -99,7 +99,7 @@
                 return "operator";
             } else {
                 // get the while word
-                stream.eatWhile(/[\w\$_]/);
+                stream.eatWhile(/[\w$_]/);
                 // is it one of the listed keywords?
                 if (keywords && keywords.propertyIsEnumerable(stream.current().toUpperCase())) {
                     //keywords can be used as variables like flatten(group), group.$0 etc..

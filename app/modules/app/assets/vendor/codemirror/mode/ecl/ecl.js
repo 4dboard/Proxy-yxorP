@@ -48,12 +48,12 @@
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
             }
-            if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
+            if (/[\[\]{}(),;:.]/.test(ch)) {
                 curPunc = ch;
                 return null;
             }
             if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             }
             if (ch === "/") {
@@ -70,7 +70,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "operator";
             }
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             const cur = stream.current().toLowerCase();
             if (keyword.propertyIsEnumerable(cur)) {
                 if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";

@@ -2401,11 +2401,11 @@
             }), Go = ki || function () {
                 return $n.Date.now()
             }, Ho = fr(function (n, t, r) {
-                var e = 1;
+                const e = 1;
                 if (r.length)
                     return fe(n, e, t, r, u)
             }), Jo = fr(function (n, t, r) {
-                var e = 3;
+                const e = 3;
                 if (r.length)
                     return fe(t, e, n, r, u)
             }), Yo = fr(function (n, t) {
@@ -2963,7 +2963,8 @@
             },An.trimStart = function (n, t, r) {
                 return (n = Iu(n)) && (r || t === T) ? n.replace(on, "") : n && (t = yr(t)) ? (n = M(n), t = I(n, M(t)), Or(n, t).join("")) : n
             },An.truncate = function (n, t) {
-                var r = 30, e = "...";
+                let r = 30;
+                const e = "...";
                 if (du(t))
                     n = Iu(n);
                 var i = n.length;

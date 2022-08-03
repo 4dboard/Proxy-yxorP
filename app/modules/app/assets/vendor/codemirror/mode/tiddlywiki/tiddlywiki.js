@@ -43,20 +43,20 @@
         };
 
         const isSpaceName = /[\w_\-]/i,
-            reHR = /^\-\-\-\-+$/,                                 // <hr>
+            reHR = /^----+$/,                                 // <hr>
             reWikiCommentStart = /^\/\*\*\*$/,            // /***
             reWikiCommentStop = /^\*\*\*\/$/,             // ***/
             reBlockQuote = /^<<<$/,
 
-            reJsCodeStart = /^\/\/\{\{\{$/,                       // //{{{ js block start
-            reJsCodeStop = /^\/\/\}\}\}$/,                        // //}}} js stop
-            reXmlCodeStart = /^<!--\{\{\{-->$/,           // xml block start
-            reXmlCodeStop = /^<!--\}\}\}-->$/,            // xml stop
+            reJsCodeStart = /^\/\/{{{$/,                       // //{{{ js block start
+            reJsCodeStop = /^\/\/}}}$/,                        // //}}} js stop
+            reXmlCodeStart = /^<!--{{{-->$/,           // xml block start
+            reXmlCodeStop = /^<!--}}}-->$/,            // xml stop
 
-            reCodeBlockStart = /^\{\{\{$/,                        // {{{ TW text div block start
-            reCodeBlockStop = /^\}\}\}$/,                 // }}} TW text stop
+            reCodeBlockStart = /^{{{$/,                        // {{{ TW text div block start
+            reCodeBlockStop = /^}}}$/,                 // }}} TW text stop
 
-            reUntilCodeStop = /.*?\}\}\}/;
+            reUntilCodeStop = /.*?}}}/;
 
         function chain(stream, state, f) {
             state.tokenize = f;
@@ -69,7 +69,7 @@
             state.block = false;        // indicates the start of a code block.
 
             // check start of  blocks
-            if (sol && /[<\/\*{}\-]/.test(ch)) {
+            if (sol && /[<\/*{}\-]/.test(ch)) {
                 if (stream.match(reCodeBlockStart)) {
                     state.block = true;
                     return chain(stream, state, twTokenCode);
@@ -85,7 +85,7 @@
             }
 
             stream.next();
-            if (sol && /[\/\*!#;:>|]/.test(ch)) {
+            if (sol && /[\/*!#;:>|]/.test(ch)) {
                 if (ch === "!") { // tw header
                     stream.skipToEnd();
                     return "header";
@@ -171,7 +171,7 @@
                 return chain(stream, state, twTokenMacro);
 
             // core macro handling
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             return textwords.propertyIsEnumerable(stream.current()) ? "keyword" : null
         }
 
@@ -286,7 +286,7 @@
                 }
             }
 
-            stream.eatWhile(/[\w\$_]/);
+            stream.eatWhile(/[\w$_]/);
             return keywords.propertyIsEnumerable(stream.current()) ? "keyword" : null
         }
 

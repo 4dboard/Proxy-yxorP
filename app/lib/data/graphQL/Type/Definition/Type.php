@@ -182,7 +182,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
      * @deprecated Use method getStandardTypes() instead
      *
      */
-    public static function getInternalTypes(): array
+    #[ArrayShape([self::ID => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::STRING => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::FLOAT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::INT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::BOOLEAN => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType"])] public static function getInternalTypes(): array
     {
         trigger_error(__METHOD__ . ' is deprecated. Use Type::getStandardTypes() instead', E_USER_DEPRECATED);
 

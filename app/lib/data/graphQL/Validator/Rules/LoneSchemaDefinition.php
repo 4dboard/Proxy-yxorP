@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
 use yxorP\app\lib\data\graphQL\Language\AST\SchemaDefinitionNode;
@@ -17,7 +18,7 @@ use yxorP\app\lib\data\graphQL\Validator\SDLValidationContext;
  */
 class LoneSchemaDefinition extends ValidationRule
 {
-    #[ArrayShape([NodeKind::SCHEMA_DEFINITION => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
+    #[Pure] #[ArrayShape([NodeKind::SCHEMA_DEFINITION => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         $oldSchema = $context->getSchema();
         $alreadyDefined = $oldSchema !== null && ((

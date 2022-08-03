@@ -20,9 +20,9 @@
             return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
         }
 
-        const singleOperators = new RegExp("^[\\+\\-\\*/&#!_?\\\\<>=\\'\\[\\]]");
+        const singleOperators = new RegExp("^[+\\-*/&#!_?\\\\<>=\'\\[\\]]");
         const doubleOperators = new RegExp("^(('=)|(<=)|(>=)|('>)|('<)|([[)|(]])|(^$))");
-        const singleDelimiters = new RegExp("^[\\.,:]");
+        const singleDelimiters = new RegExp("^[.,:]");
         const brackets = new RegExp("[()]");
         const identifiers = new RegExp("^[%A-Za-z][A-Za-z0-9]*");
         const commandKeywords = ["break", "close", "do", "else", "for", "goto", "halt", "hang", "if", "job", "kill", "lock", "merge", "new", "open", "quit", "read", "set", "tcommit", "trollback", "tstart", "use", "view", "write", "xecute", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "q", "r", "s", "tc", "tro", "ts", "u", "v", "w", "x"];

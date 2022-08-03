@@ -34,7 +34,7 @@
             "tclvars tell time trace unknown unset update uplevel upvar variable " +
             "vwait");
         const functions = parseWords("if elseif else and not or eq ne in ni for foreach while switch");
-        const isOperatorChar = /[+\-*&%=<>!?^\/\|]/;
+        const isOperatorChar = /[+\-*&%=<>!?^\/|]/;
 
         function chain(stream, state, f) {
             state.tokenize = f;
@@ -47,12 +47,12 @@
             const ch = stream.next();
             if ((ch === '"' || ch === "'") && state.inParams) {
                 return chain(stream, state, tokenString(ch));
-            } else if (/[\[\]{}\(\),;\.]/.test(ch)) {
+            } else if (/[\[\]{}(),;.]/.test(ch)) {
                 if (ch === "(" && beforeParams) state.inParams = true;
                 else if (ch === ")") state.inParams = false;
                 return null;
             } else if (/\d/.test(ch)) {
-                stream.eatWhile(/[\w\.]/);
+                stream.eatWhile(/[\w.]/);
                 return "number";
             } else if (ch === "#") {
                 if (stream.eat("*"))
@@ -65,7 +65,7 @@
                 stream.skipTo(/"/);
                 return "comment";
             } else if (ch === "$") {
-                stream.eatWhile(/[$_a-z0-9A-Z\.{:]/);
+                stream.eatWhile(/[$_a-z0-9A-Z.{:]/);
                 stream.eatWhile(/}/);
                 state.beforeParams = true;
                 return "builtin";
@@ -73,7 +73,7 @@
                 stream.eatWhile(isOperatorChar);
                 return "comment";
             } else {
-                stream.eatWhile(/[\w\$_{}\xa1-\uffff]/);
+                stream.eatWhile(/[\w$_{}\xa1-\uffff]/);
                 const word = stream.current().toLowerCase();
                 if (keywords && keywords.propertyIsEnumerable(word))
                     return "keyword";

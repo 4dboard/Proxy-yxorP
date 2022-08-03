@@ -40,14 +40,14 @@
                 return ret("meta", ch);
             } else if (ch === "#" && stream.eatWhile(/[\w]/)) return ret("atom", "tag");
             else if (ch === "|") return ret("keyword", "separator");
-            else if (ch.match(/[\(\)\[\]\-\.,\+\?>]/)) return ret(null, ch);//if(ch === ">") return ret(null, "endtag"); else
+            else if (ch.match(/[()\[\]\-.,+?>]/)) return ret(null, ch);//if(ch === ">") return ret(null, "endtag"); else
             else if (ch.match(/[\[\]]/)) return ret("rule", ch);
             else if (ch === "\"" || ch === "'") {
                 state.tokenize = tokenString(ch);
                 return state.tokenize(stream, state);
-            } else if (stream.eatWhile(/[a-zA-Z\?\+\d]/)) {
+            } else if (stream.eatWhile(/[a-zA-Z?+\d]/)) {
                 const sc = stream.current();
-                if (sc.substr(sc.length - 1, sc.length).match(/\?|\+/) !== null) stream.backUp(1);
+                if (sc.substr(sc.length - 1, sc.length).match(/[?+]/) !== null) stream.backUp(1);
                 return ret("tag", "tag");
             } else if (ch === "%" || ch === "*") return ret("number", "number");
             else {

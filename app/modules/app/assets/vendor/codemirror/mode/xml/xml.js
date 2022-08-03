@@ -87,13 +87,13 @@
                     } else if (stream.match("--")) {
                         return chain(inBlock("comment", "-->"));
                     } else if (stream.match("DOCTYPE", true, true)) {
-                        stream.eatWhile(/[\w\._\-]/);
+                        stream.eatWhile(/[\w._\-]/);
                         return chain(doctype(1));
                     } else {
                         return null;
                     }
                 } else if (stream.eat("?")) {
-                    stream.eatWhile(/[\w\._\-]/);
+                    stream.eatWhile(/[\w._\-]/);
                     state.tokenize = inBlock("meta", "?>");
                     return "meta";
                 } else {
@@ -110,7 +110,7 @@
                         ok = stream.eatWhile(/[\d]/) && stream.eat(";");
                     }
                 } else {
-                    ok = stream.eatWhile(/[\w\.\-:]/) && stream.eat(";");
+                    ok = stream.eatWhile(/[\w.\-:]/) && stream.eat(";");
                 }
                 return ok ? "atom" : "error";
             } else {
@@ -136,12 +136,12 @@
                 state.tagName = state.tagStart = null;
                 const next = state.tokenize(stream, state);
                 return next ? next + " tag error" : "tag error";
-            } else if (/[\'\"]/.test(ch)) {
+            } else if (/['"]/.test(ch)) {
                 state.tokenize = inAttribute(ch);
                 state.stringStartCol = stream.column();
                 return state.tokenize(stream, state);
             } else {
-                stream.match(/^[^\s\u00a0=<>\"\']*[^\s\u00a0=<>\"\'\/]/);
+                stream.match(/^[^\s\u00a0=<>"']*[^\s\u00a0=<>"'\/]/);
                 return "word";
             }
         }
@@ -377,7 +377,7 @@
                         return state.tagStart + indentUnit * (config.multilineTagIndentFactor || 1);
                 }
                 if (config.alignCDATA && /<!\[CDATA\[/.test(textAfter)) return 0;
-                const tagAfter = textAfter && /^<(\/)?([\w_:\.-]*)/.exec(textAfter);
+                const tagAfter = textAfter && /^<(\/)?([\w_:.-]*)/.exec(textAfter);
                 if (tagAfter && tagAfter[1]) { // Closing tag spotted
                     while (context) {
                         if (context.tagName === tagAfter[2]) {

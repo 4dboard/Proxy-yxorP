@@ -23,7 +23,7 @@ use function sprintf;
  */
 class UniqueDirectivesPerLocation extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context): array
+    #[ArrayShape(['enter' => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
@@ -90,7 +90,7 @@ class UniqueDirectivesPerLocation extends ValidationRule
         return sprintf('The directive "%s" can only be used once at this location.', $directiveName);
     }
 
-    public function getSDLVisitor(SDLValidationContext $context): array
+    #[ArrayShape(['enter' => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

@@ -101,7 +101,7 @@
         ],
         single: [
             {
-                regex: /(?:[^\\']|\\.)/,
+                regex: /[^\\']|\\./,
                 token: "string"
             },
             {
@@ -112,7 +112,7 @@
         ],
         double: [
             {
-                regex: /(?:[^\\"]|\\.)/,
+                regex: /[^\\"]|\\./,
                 token: "string"
             },
             {
@@ -123,7 +123,7 @@
         ],
         array: [
             {
-                regex: /\]/,
+                regex: /]/,
                 token: null,
                 next: "start"
             },

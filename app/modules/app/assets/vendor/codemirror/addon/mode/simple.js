@@ -73,7 +73,7 @@
     }
 
     function toRegex(val, caret) {
-        if (!val) return /(?:)/;
+        if (!val) return //;
         let flags = "";
         if (val instanceof RegExp) {
             if (val.ignoreCase) flags = "i";

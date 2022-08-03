@@ -182,7 +182,7 @@
                 stream.backUp(1);
             }
             // Decimal
-            else if (/[+\-\d\.]/.test(ch)) {
+            else if (/[+\-\d.]/.test(ch)) {
                 if (stream.match(/^[+-]?[0-9]*\.[0-9]*([esdx][+-]?[0-9]+)?/i) ||
                     stream.match(/^[+-]?[0-9]+([esdx][+-]?[0-9]+)/i) ||
                     stream.match(/^[+-]?\d+/)) {
