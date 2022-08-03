@@ -1,0 +1,95 @@
+{
+  "name": "htmlhint",
+  "version": "1.1.4",
+  "description": "The Static Code Analysis Tool for your HTML",
+  "keywords": [
+    "html",
+    "hint",
+    "analysis",
+    "javascript"
+  ],
+  "homepage": "https://htmlhint.com",
+  "bugs": {
+    "url": "https://github.com/htmlhint/HTMLHint/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htmlhint/HTMLHint.git"
+  },
+  "license": "MIT",
+  "main": "dist/htmlhint.js",
+  "module": "dist/core/core.js",
+  "bin": {
+    "htmlhint": "./bin/htmlhint"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc && npm run build:rollup",
+    "build:min": "rollup -c --environment NODE_ENV:production --file dist/htmlhint.min.js",
+    "build:rollup": "npm run build:min && npm run build:unmin",
+    "build:unmin": "rollup -c",
+    "clean": "rimraf dist",
+    "commit": "npx git-cz",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0 && prettier -c .",
+    "lint:fix": "eslint . --fix && npm run prettier",
+    "prepare": "husky install",
+    "prettier": "prettier --write .",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --ignore-unknown --write"
+    ],
+    ".js": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    },
+    "cz-customizable": {
+      "config": "commitizen.config.js"
+    }
+  },
+  "dependencies": {
+    "async": "3.2.3",
+    "chalk": "^4.1.2",
+    "commander": "^9.1.0",
+    "glob": "^7.2.0",
+    "is-glob": "^4.0.3",
+    "node-fetch": "^2.6.2",
+    "strip-json-comments": "3.1.0",
+    "xml": "1.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@types/async": "^3.2.10",
+    "@types/glob": "^7.2.0",
+    "@types/is-glob": "4.0.2",
+    "@types/node-fetch": "^2.5.12",
+    "@types/xml": "^1.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "commitizen": "^4.2.4",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.3",
+    "lint-staged": "^12.1.2",
+    "parse-glob": "3.0.4",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.5.2"
+  }
+}
