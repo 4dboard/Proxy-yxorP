@@ -25,10 +25,10 @@ final class Warning
     public const ALL = 63;
 
     /** @var int */
-    private static $enableWarnings = self::ALL;
+    private static int $enableWarnings = self::ALL;
 
     /** @var array */
-    private static $warned = [];
+    private static array $warned = [];
 
     /** @var callable|null */
     private static $warningHandler;

@@ -35,7 +35,7 @@ use Traversable;
 class CollectionInfoCommandIterator extends IteratorIterator implements CollectionInfoIteratorInterface
 {
     /** @var string|null */
-    private $databaseName;
+    private ?string $databaseName;
 
     /**
      * @param string|null $databaseName

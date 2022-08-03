@@ -64,7 +64,7 @@ use yxorP\app\lib\openapi\logger\defaultLogger;
  */
 class Context
 {
-    private $_parent;
+    private ?Context $_parent;
 
     #[Pure] public function __construct(array $properties = [], ?Context $parent = null)
     {

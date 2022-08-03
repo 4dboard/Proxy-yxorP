@@ -12,15 +12,15 @@ final class EyeFill
     /**
      * @var self|null
      */
-    private static $inherit;
+    private static ?EyeFill $inherit;
     /**
      * @var ColorInterface|null
      */
-    private $externalColor;
+    private ?ColorInterface $externalColor;
     /**
      * @var ColorInterface|null
      */
-    private $internalColor;
+    private ?ColorInterface $internalColor;
 
     public function __construct(?ColorInterface $externalColor, ?ColorInterface $internalColor)
     {

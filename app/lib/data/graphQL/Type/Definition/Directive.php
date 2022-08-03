@@ -21,30 +21,30 @@ class Directive
     public const REASON_ARGUMENT_NAME = 'reason';
 
     /** @var Directive[]|null */
-    public static $internalDirectives;
+    public static ?array $internalDirectives;
 
     // Schema Definitions
 
     /** @var string */
-    public $name;
+    public mixed $name;
 
     /** @var string|null */
-    public $description;
+    public mixed $description;
 
     /** @var FieldArgument[] */
-    public $args = [];
+    public array $args = [];
 
     /** @var bool */
-    public $isRepeatable;
+    public mixed $isRepeatable;
 
     /** @var string[] */
-    public $locations;
+    public array $locations;
 
     /** @var DirectiveDefinitionNode|null */
-    public $astNode;
+    public mixed $astNode;
 
     /** @var array */
-    public $config;
+    public array $config;
 
     /**
      * @param array $config

@@ -7,8 +7,8 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class VariableNode extends Node implements ValueNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::VARIABLE;
+    public string $kind = NodeKind::VARIABLE;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 }

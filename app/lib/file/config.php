@@ -9,7 +9,7 @@ class config
 {
     public const OPTION_VISIBILITY = 'visibility';
     public const OPTION_DIRECTORY_VISIBILITY = 'directory_visibility';
-    private $options;
+    private array $options;
 
     public function __construct(array $options = [])
     {

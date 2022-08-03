@@ -13,25 +13,25 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ResolveInfo;
 class CoroutineContext
 {
     /** @var CoroutineContextShared */
-    public $shared;
+    public CoroutineContextShared $shared;
 
     /** @var ObjectType */
-    public $type;
+    public ObjectType $type;
 
     /** @var mixed */
-    public $value;
+    public mixed $value;
 
     /** @var object */
-    public $result;
+    public object $result;
 
     /** @var string[] */
-    public $path;
+    public array $path;
 
     /** @var ResolveInfo */
-    public $resolveInfo;
+    public ResolveInfo $resolveInfo;
 
     /** @var string[]|null */
-    public $nullFence;
+    public ?array $nullFence;
 
     /**
      * @param mixed $value
@@ -42,8 +42,8 @@ class CoroutineContext
     public function __construct(
         CoroutineContextShared $shared,
         ObjectType             $type,
-                               $value,
-                               $result,
+        mixed                  $value,
+        object                 $result,
         array                  $path,
         ?array                 $nullFence = null
     )

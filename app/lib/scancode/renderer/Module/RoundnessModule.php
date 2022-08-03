@@ -21,7 +21,7 @@ final class RoundnessModule implements ModuleInterface
     /**
      * @var float
      */
-    private $intensity;
+    private int|float $intensity;
 
     public function __construct(float $intensity)
     {

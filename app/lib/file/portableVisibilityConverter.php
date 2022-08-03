@@ -13,27 +13,27 @@ class portableVisibilityConverter implements visibilityConverterInterface
     /**
      * @var int
      */
-    private $filePublic;
+    private int $filePublic;
 
     /**
      * @var int
      */
-    private $filePrivate;
+    private int $filePrivate;
 
     /**
      * @var int
      */
-    private $directoryPublic;
+    private int $directoryPublic;
 
     /**
      * @var int
      */
-    private $directoryPrivate;
+    private int $directoryPrivate;
 
     /**
      * @var string
      */
-    private $defaultForDirectories;
+    private string $defaultForDirectories;
 
     public function __construct(
         int    $filePublic = 0644,

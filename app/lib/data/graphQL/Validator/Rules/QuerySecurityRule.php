@@ -26,7 +26,7 @@ abstract class QuerySecurityRule extends ValidationRule
     public const DISABLED = 0;
 
     /** @var FragmentDefinitionNode[] */
-    private $fragments = [];
+    private array $fragments = [];
 
     /**
      * check if equal to 0 no check is done. Must be greater or equal to 0.
@@ -34,7 +34,7 @@ abstract class QuerySecurityRule extends ValidationRule
      * @param string $name
      * @param int $value
      */
-    protected function checkIfGreaterOrEqualToZero($name, $value)
+    protected function checkIfGreaterOrEqualToZero(string $name, int $value)
     {
         if ($value < 0) {
             throw new InvalidArgumentException(sprintf('$%s argument must be greater or equal to 0.', $name));
@@ -106,7 +106,7 @@ abstract class QuerySecurityRule extends ValidationRule
      */
     protected function collectFieldASTsAndDefs(
         ValidationContext $context,
-                          $parentType,
+        ?Type             $parentType,
         SelectionSetNode  $selectionSet,
         ?ArrayObject      $visitedFragmentNames = null,
         ?ArrayObject      $astAndDefs = null

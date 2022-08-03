@@ -19,10 +19,10 @@ use yxorP\app\lib\scancode\Renderer\RendererStyle\Fill;
 
 class BaconQrCodeProvider implements IQRCodeProviderInterface
 {
-    private $borderWidth = 4; // default from Bacon QR Code
-    private $backgroundColour;
-    private $foregroundColour;
-    private $format;
+    private int $borderWidth = 4; // default from Bacon QR Code
+    private array $backgroundColour;
+    private array $foregroundColour;
+    private string $format;
 
     /**
      * Ensure we using the latest Bacon QR Code and specify default options

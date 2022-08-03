@@ -41,15 +41,15 @@ use function yxorP\app\lib\data\mongoDB\server_supports_feature;
 class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterface
 {
     /** @var int */
-    private static $errorCodeCollectionNotFound = 26;
+    private static int $errorCodeCollectionNotFound = 26;
     /** @var int */
-    private static $wireVersionForCollStats = 12;
+    private static int $wireVersionForCollStats = 12;
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a command to get the estimated number of documents in a

@@ -42,7 +42,7 @@ class FindOneAndUpdate implements ExecutableInterface, ExplainableInterface
     public const RETURN_DOCUMENT_AFTER = 2;
 
     /** @var FindAndModify */
-    private $findAndModify;
+    private FindAndModify $findAndModify;
 
     /**
      * Constructs a findAndModify command for updating a document.

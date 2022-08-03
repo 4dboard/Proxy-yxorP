@@ -23,14 +23,14 @@ use function sprintf;
 final class enum
 {
     /** @phpstan-var list<scalar> */
-    public $value;
+    public mixed $value;
 
     /**
      * Literal target declaration.
      *
      * @var array
      */
-    public $literal;
+    public mixed $literal;
 
     /**
      * @throws InvalidArgumentException

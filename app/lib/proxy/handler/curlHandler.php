@@ -5,7 +5,7 @@ use yxorP\app\lib\psr\http\message\requestInterface;
 
 class curlHandler
 {
-    private $factory;
+    private mixed $factory;
 
     #[Pure] #[Pure] public function __construct(array $options = [])
     {

@@ -30,20 +30,20 @@ class SyncPromise
     const REJECTED = 'rejected';
 
     /** @var SplQueue */
-    public static $queue;
+    public static SplQueue $queue;
 
     /** @var string */
-    public $state = self::PENDING;
+    public string $state = self::PENDING;
 
     /** @var mixed */
-    public $result;
+    public mixed $result;
 
     /**
      * Promises created in `then` method of this promise and awaiting for resolution of this promise
      *
      * @var array[]
      */
-    private $waiting = [];
+    private array $waiting = [];
 
     /**
      * @param callable|null $executor

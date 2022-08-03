@@ -45,23 +45,23 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @var array|null
      */
-    public $path;
+    public ?array $path;
     /**
      * An array of GraphQL AST Nodes corresponding to this error.
      *
      * @var Node[]|null
      */
-    public $nodes;
+    public array|Node|null|Traversable $nodes;
     /** @var string */
-    protected $category;
+    protected string $category;
     /** @var array|null */
-    protected $extensions;
+    protected ?array $extensions;
     /**
      * Lazily initialized.
      *
      * @var SourceLocation[]
      */
-    private $locations;
+    private array $locations;
     /**
      * The source GraphQL document for the first location of this error.
      *
@@ -70,11 +70,11 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @var Source|null
      */
-    private $source;
+    private ?Source $source;
     /** @var int[] */
-    private $positions;
+    private array $positions;
     /** @var bool */
-    private $isClientSafe;
+    private bool $isClientSafe;
 
     /**
      * @param string $message

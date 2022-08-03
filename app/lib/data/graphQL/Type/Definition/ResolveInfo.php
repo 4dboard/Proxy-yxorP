@@ -26,7 +26,7 @@ class ResolveInfo
      * @api
      * @var FieldDefinition
      */
-    public $fieldDefinition;
+    public FieldDefinition $fieldDefinition;
 
     /**
      * The name of the field being resolved.
@@ -34,7 +34,7 @@ class ResolveInfo
      * @api
      * @var string
      */
-    public $fieldName;
+    public mixed $fieldName;
 
     /**
      * Expected return type of the field being resolved.
@@ -42,7 +42,7 @@ class ResolveInfo
      * @api
      * @var Type
      */
-    public $returnType;
+    public Type $returnType;
 
     /**
      * AST of all nodes referencing this field in the query.
@@ -50,7 +50,7 @@ class ResolveInfo
      * @api
      * @var FieldNode[]
      */
-    public $fieldNodes = [];
+    public iterable $fieldNodes = [];
 
     /**
      * Parent type of the field being resolved.
@@ -58,7 +58,7 @@ class ResolveInfo
      * @api
      * @var ObjectType
      */
-    public $parentType;
+    public ObjectType $parentType;
 
     /**
      * Path to this field from the very root value.
@@ -66,7 +66,7 @@ class ResolveInfo
      * @api
      * @var string[]
      */
-    public $path;
+    public array $path;
 
     /**
      * Instance of a schema used for execution.
@@ -74,7 +74,7 @@ class ResolveInfo
      * @api
      * @var Schema
      */
-    public $schema;
+    public Schema $schema;
 
     /**
      * AST of all fragments defined in query.
@@ -82,7 +82,7 @@ class ResolveInfo
      * @api
      * @var FragmentDefinitionNode[]
      */
-    public $fragments = [];
+    public array $fragments = [];
 
     /**
      * Root value passed to query execution.
@@ -90,7 +90,7 @@ class ResolveInfo
      * @api
      * @var mixed
      */
-    public $rootValue;
+    public mixed $rootValue;
 
     /**
      * AST of operation definition node (query, mutation).
@@ -98,7 +98,7 @@ class ResolveInfo
      * @api
      * @var OperationDefinitionNode|null
      */
-    public $operation;
+    public ?OperationDefinitionNode $operation;
 
     /**
      * Array of variables passed to query execution.
@@ -106,14 +106,14 @@ class ResolveInfo
      * @api
      * @var array
      */
-    public $variableValues = [];
+    public array $variableValues = [];
 
     /**
      * Lazily initialized.
      *
      * @var QueryPlan
      */
-    private $queryPlan;
+    private QueryPlan $queryPlan;
 
     /**
      * @param FieldNode[] $fieldNodes

@@ -52,13 +52,13 @@ use function sprintf;
 class SchemaValidationContext
 {
     /** @var Error[] */
-    private $errors = [];
+    private array $errors = [];
 
     /** @var Schema */
-    private $schema;
+    private Schema $schema;
 
     /** @var InputObjectCircularRefs */
-    private $inputObjectCircularRefs;
+    private InputObjectCircularRefs $inputObjectCircularRefs;
 
     #[Pure] public function __construct(Schema $schema)
     {

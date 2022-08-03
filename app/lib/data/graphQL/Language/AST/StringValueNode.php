@@ -7,11 +7,11 @@ namespace yxorP\app\lib\data\graphQL\Language\AST;
 class StringValueNode extends Node implements ValueNodeInterface
 {
     /** @var string */
-    public $kind = NodeKind::STRING;
+    public string $kind = NodeKind::STRING;
 
     /** @var string */
-    public $value;
+    public string $value;
 
     /** @var bool */
-    public $block;
+    public bool $block;
 }

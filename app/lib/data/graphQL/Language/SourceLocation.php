@@ -12,10 +12,10 @@ use ReturnTypeWillChange;
 class SourceLocation implements JsonSerializable
 {
     /** @var int */
-    public $line;
+    public int $line;
 
     /** @var int */
-    public $column;
+    public int $column;
 
     /**
      * @param int $line

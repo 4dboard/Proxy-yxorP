@@ -7,7 +7,7 @@ use const PATHINFO_EXTENSION;
 
 class extensionMimeTypeDetector implements mimeTypeDetectorInterface
 {
-    private $extensions;
+    private extensionToMimeTypeMapInterface|generatedExtensionToMimeTypeMap $extensions;
 
     #[Pure] public function __construct(extensionToMimeTypeMapInterface $extensions = null)
     {

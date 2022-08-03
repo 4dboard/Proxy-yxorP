@@ -31,16 +31,16 @@ use function sprintf;
 class BuildSchema
 {
     /** @var DocumentNode */
-    private $ast;
+    private DocumentNode $ast;
 
     /** @var array<string, TypeDefinitionNodeInterface> */
-    private $nodeMap;
+    private array $nodeMap;
 
     /** @var callable|null */
     private $typeConfigDecorator;
 
     /** @var array<string, bool> */
-    private $options;
+    private array $options;
 
     /**
      * @param array<string, bool> $options

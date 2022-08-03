@@ -26,13 +26,13 @@ class Components extends AbstractAnnotation
     /**
      * @inheritdoc
      */
-    public static $_parents = [
+    public static array $_parents = [
         OpenApi::class,
     ];
     /**
      * @inheritdoc
      */
-    public static $_nested = [
+    public static array $_nested = [
         Schema::class => ['schemas', 'schema'],
         Response::class => ['responses', 'response'],
         Parameter::class => ['parameters', 'parameter'],
@@ -48,53 +48,53 @@ class Components extends AbstractAnnotation
      *
      * @var Schema[]
      */
-    public $schemas = Generator::UNDEFINED;
+    public string|array $schemas = Generator::UNDEFINED;
     /**
      * Reusable Responses.
      *
      * @var Response[]
      */
-    public $responses = Generator::UNDEFINED;
+    public string|array $responses = Generator::UNDEFINED;
     /**
      * Reusable Parameters.
      *
      * @var Parameter[]
      */
-    public $parameters = Generator::UNDEFINED;
+    public string|array $parameters = Generator::UNDEFINED;
     /**
      * Reusable Examples.
      *
      * @var Examples[]
      */
-    public $examples = Generator::UNDEFINED;
+    public string|array $examples = Generator::UNDEFINED;
     /**
      * Reusable Request Bodys.
      *
      * @var RequestBody[]
      */
-    public $requestBodies = Generator::UNDEFINED;
+    public string|array $requestBodies = Generator::UNDEFINED;
     /**
      * Reusable Headers.
      *
      * @var Header[]
      */
-    public $headers = Generator::UNDEFINED;
+    public string|array $headers = Generator::UNDEFINED;
     /**
      * Reusable Security Schemes.
      *
      * @var SecurityScheme[]
      */
-    public $securitySchemes = Generator::UNDEFINED;
+    public string|array $securitySchemes = Generator::UNDEFINED;
     /**
      * Reusable Links.
      *
      * @var Link[]
      */
-    public $links = Generator::UNDEFINED;
+    public string|array $links = Generator::UNDEFINED;
     /**
      * Reusable Callbacks.
      *
      * @var callable[]
      */
-    public $callbacks = Generator::UNDEFINED;
+    public string|array $callbacks = Generator::UNDEFINED;
 }

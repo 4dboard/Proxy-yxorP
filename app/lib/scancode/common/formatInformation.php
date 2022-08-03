@@ -73,14 +73,14 @@ class formatInformation
      *
      * @var errorCorrectionLevel
      */
-    private $ecLevel;
+    private errorCorrectionLevel $ecLevel;
 
     /**
      * Data mask.
      *
      * @var int
      */
-    private $dataMask;
+    private int $dataMask;
 
     protected function __construct(int $formatInfo)
     {

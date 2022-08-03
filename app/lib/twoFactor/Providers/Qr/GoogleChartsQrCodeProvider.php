@@ -6,13 +6,13 @@ namespace yxorP\app\lib\twoFactor\Providers\Qr;
 class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
 {
     /** @var string */
-    public $errorcorrectionlevel;
+    public string $errorcorrectionlevel;
 
     /** @var int */
-    public $margin;
+    public int $margin;
 
     /** @var string */
-    public $encoding;
+    public string $encoding;
 
     /**
      * @param bool $verifyssl

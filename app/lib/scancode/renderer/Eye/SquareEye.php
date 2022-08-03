@@ -13,7 +13,7 @@ final class SquareEye implements EyeInterface
     /**
      * @var self|null
      */
-    private static $instance;
+    private static ?SquareEye $instance;
 
     private function __construct()
     {
