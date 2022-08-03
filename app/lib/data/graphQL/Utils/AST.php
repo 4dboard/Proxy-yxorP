@@ -466,21 +466,6 @@ class AST
     }
 
     /**
-     * Returns true if the provided valueNode is a variable which is not defined
-     * in the set of variables.
-     *
-     * @param ValueNodeInterface $valueNode
-     * @param array $variables
-     *
-     * @return bool
-     */
-    private static function isMissingVariable(ValueNodeInterface $valueNode, array $variables): bool
-    {
-        return $valueNode instanceof VariableNode &&
-            (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
-    }
-
-    /**
      * Produces a PHP value given a GraphQL Value AST.
      *
      * Unlike `valueFromAST()`, no type is provided. The resulting PHP value
@@ -636,5 +621,20 @@ class AST
         }
 
         return $operation;
+    }
+
+    /**
+     * Returns true if the provided valueNode is a variable which is not defined
+     * in the set of variables.
+     *
+     * @param ValueNodeInterface $valueNode
+     * @param array $variables
+     *
+     * @return bool
+     */
+    private static function isMissingVariable(ValueNodeInterface $valueNode, array $variables): bool
+    {
+        return $valueNode instanceof VariableNode &&
+            (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
     }
 }

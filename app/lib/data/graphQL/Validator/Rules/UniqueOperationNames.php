@@ -19,6 +19,11 @@ class UniqueOperationNames extends ValidationRule
     /** @var NameNode[] */
     public array $knownOperationNames;
 
+    public static function duplicateOperationNameMessage($operationName): string
+    {
+        return sprintf('There can be only one operation named "%s".', $operationName);
+    }
+
     #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $this->knownOperationNames = [];
@@ -42,10 +47,5 @@ class UniqueOperationNames extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
-    }
-
-    public static function duplicateOperationNameMessage($operationName): string
-    {
-        return sprintf('There can be only one operation named "%s".', $operationName);
     }
 }

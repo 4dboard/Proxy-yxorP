@@ -216,6 +216,32 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         );
     }
 
+    /**
+     * Implements the logic to compute the key of a given fields entry
+     */
+    protected static function getFieldEntryKey(FieldNode $node): string
+    {
+        return $node->alias === null ? $node->name->value : $node->alias->value;
+    }
+
+    /**
+     * Differentiate empty objects from empty lists.
+     *
+     * @see https://github.com/webonyx/graphql-php/issues/59
+     *
+     * @param array|mixed $results
+     *
+     * @return mixed
+     */
+    #[Pure] protected static function fixResultsIfEmptyArray(mixed $results): mixed
+    {
+        if ($results === []) {
+            return new stdClass();
+        }
+
+        return $results;
+    }
+
     public function doExecute(): Promise
     {
         // Return a Promise that will eventually resolve to the data described by
@@ -430,14 +456,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         );
 
         return !isset($include['if']) || $include['if'] !== false;
-    }
-
-    /**
-     * Implements the logic to compute the key of a given fields entry
-     */
-    protected static function getFieldEntryKey(FieldNode $node): string
-    {
-        return $node->alias === null ? $node->name->value : $node->alias->value;
     }
 
     /**
@@ -1217,24 +1235,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     protected function isPromise(mixed $value): bool
     {
         return $value instanceof Promise || $this->exeContext->promiseAdapter->isThenable($value);
-    }
-
-    /**
-     * Differentiate empty objects from empty lists.
-     *
-     * @see https://github.com/webonyx/graphql-php/issues/59
-     *
-     * @param array|mixed $results
-     *
-     * @return mixed
-     */
-    #[Pure] protected static function fixResultsIfEmptyArray(mixed $results): mixed
-    {
-        if ($results === []) {
-            return new stdClass();
-        }
-
-        return $results;
     }
 
     /**

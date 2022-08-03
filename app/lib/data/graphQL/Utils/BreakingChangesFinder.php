@@ -158,30 +158,6 @@ class BreakingChangesFinder
     }
 
     /**
-     * @param Type $type
-     * @return string
-     *
-     */
-    private static function typeKindName(Type $type): string
-    {
-        if ($type instanceof ScalarType) {
-            return 'a Scalar type';
-        }
-
-        if ($type instanceof ObjectType) {
-            return 'an Object type';
-        }
-
-        if ($type instanceof InterfaceType) {
-            return 'an Interface type';
-        }
-
-        return 'a Union type';
-
-        throw new TypeError('unknown type ' . $type->name);
-    }
-
-    /**
      * @return string[][]
      */
     public static function findFieldsThatChangedTypeOnObjectOrInterfaceTypes(
@@ -235,26 +211,6 @@ class BreakingChangesFinder
         }
 
         return $breakingChanges;
-    }
-
-    /**
-     * @param Type $oldType
-     * @param Type $newType
-     * @return bool
-     */
-    private static function isChangeSafeForObjectOrInterfaceField(
-        Type $oldType,
-        Type $newType
-    ): bool
-    {
-        return // if they're both named types, see if their names are equivalent
-            ($oldType->name === $newType->name) ||
-            // moving from nullable to non-null of the same underlying type is safe
-            ($newType instanceof NonNull &&
-                self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType())
-            );
-
-        return false;
     }
 
     /**
@@ -335,22 +291,6 @@ class BreakingChangesFinder
             'breakingChanges' => $breakingChanges,
             'dangerousChanges' => $dangerousChanges,
         ];
-    }
-
-    /**
-     * @param Type $oldType
-     * @param Type $newType
-     * @return bool
-     */
-    private static function isChangeSafeForInputObjectFieldOrFieldArg(
-        Type $oldType,
-        Type $newType
-    ): bool
-    {
-        // if they're both named types, see if their names are equivalent
-        return $oldType->name === $newType->name;
-
-        return false;
     }
 
     /**
@@ -610,19 +550,6 @@ class BreakingChangesFinder
         return $removedDirectives;
     }
 
-    /**
-     * @throws Exception
-     */
-    private static function getDirectiveMapForSchema(Schema $schema): array
-    {
-        return Utils::keyMap(
-            $schema->getDirectives(),
-            static function ($dir) {
-                return $dir->name;
-            }
-        );
-    }
-
     public static function findRemovedDirectiveArgs(Schema $oldSchema, Schema $newSchema): array
     {
         $removedDirectiveArgs = [];
@@ -666,19 +593,6 @@ class BreakingChangesFinder
         }
 
         return $removedArgs;
-    }
-
-    /**
-     * @throws Exception
-     */
-    private static function getArgumentMapForDirective(Directive $directive): array
-    {
-        return Utils::keyMap(
-            $directive->args ?? [],
-            static function ($arg) {
-                return $arg->name;
-            }
-        );
     }
 
     public static function findAddedNonNullDirectiveArgs(Schema $oldSchema, Schema $newSchema): array
@@ -925,6 +839,92 @@ class BreakingChangesFinder
         }
 
         return $typesAddedToUnion;
+    }
+
+    /**
+     * @param Type $type
+     * @return string
+     *
+     */
+    private static function typeKindName(Type $type): string
+    {
+        if ($type instanceof ScalarType) {
+            return 'a Scalar type';
+        }
+
+        if ($type instanceof ObjectType) {
+            return 'an Object type';
+        }
+
+        if ($type instanceof InterfaceType) {
+            return 'an Interface type';
+        }
+
+        return 'a Union type';
+
+        throw new TypeError('unknown type ' . $type->name);
+    }
+
+    /**
+     * @param Type $oldType
+     * @param Type $newType
+     * @return bool
+     */
+    private static function isChangeSafeForObjectOrInterfaceField(
+        Type $oldType,
+        Type $newType
+    ): bool
+    {
+        return // if they're both named types, see if their names are equivalent
+            ($oldType->name === $newType->name) ||
+            // moving from nullable to non-null of the same underlying type is safe
+            ($newType instanceof NonNull &&
+                self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType())
+            );
+
+        return false;
+    }
+
+    /**
+     * @param Type $oldType
+     * @param Type $newType
+     * @return bool
+     */
+    private static function isChangeSafeForInputObjectFieldOrFieldArg(
+        Type $oldType,
+        Type $newType
+    ): bool
+    {
+        // if they're both named types, see if their names are equivalent
+        return $oldType->name === $newType->name;
+
+        return false;
+    }
+
+    /**
+     * @throws Exception
+     */
+    private static function getDirectiveMapForSchema(Schema $schema): array
+    {
+        return Utils::keyMap(
+            $schema->getDirectives(),
+            static function ($dir) {
+                return $dir->name;
+            }
+        );
+    }
+
+    /**
+     * @throws Exception
+     */
+    private static function getArgumentMapForDirective(Directive $directive): array
+    {
+        return Utils::keyMap(
+            $directive->args ?? [],
+            static function ($arg) {
+                return $arg->name;
+            }
+        );
     }
 }
 

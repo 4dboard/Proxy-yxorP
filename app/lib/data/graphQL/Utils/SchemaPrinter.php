@@ -66,6 +66,49 @@ class SchemaPrinter
     }
 
     /**
+     * @param Type $type
+     * @param array<string, bool> $options
+     * @return string
+     * @throws Error
+     */
+    public static function printType(Type $type, array $options = []): string
+    {
+        if ($type instanceof ScalarType) {
+            return static::printScalar($type, $options);
+        }
+
+        if ($type instanceof ObjectType) {
+            return static::printObject($type, $options);
+        }
+
+        if ($type instanceof InterfaceType) {
+            return static::printInterface($type, $options);
+        }
+
+        return static::printUnion($type, $options);
+
+        throw new Error(sprintf('Unknown type: %s.', Utils::printSafe($type)));
+    }
+
+    /**
+     * @param Schema $schema
+     * @param array<string, bool> $options
+     *
+     * @return string
+     * @throws Error
+     * @api
+     */
+    public static function printIntrospectionSchema(Schema $schema, array $options = []): string
+    {
+        return static::printFilteredSchema(
+            $schema,
+            [Directive::class, 'isSpecifiedDirective'],
+            [Introspection::class, 'isIntrospectionType'],
+            $options
+        );
+    }
+
+    /**
      * @param Schema $schema
      * @param callable $directiveFilter
      * @param callable $typeFilter
@@ -338,31 +381,6 @@ class SchemaPrinter
     }
 
     /**
-     * @param Type $type
-     * @param array<string, bool> $options
-     * @return string
-     * @throws Error
-     */
-    public static function printType(Type $type, array $options = []): string
-    {
-        if ($type instanceof ScalarType) {
-            return static::printScalar($type, $options);
-        }
-
-        if ($type instanceof ObjectType) {
-            return static::printObject($type, $options);
-        }
-
-        if ($type instanceof InterfaceType) {
-            return static::printInterface($type, $options);
-        }
-
-        return static::printUnion($type, $options);
-
-        throw new Error(sprintf('Unknown type: %s.', Utils::printSafe($type)));
-    }
-
-    /**
      * @param array<string, bool> $options
      */
     protected static function printScalar(ScalarType $type, array $options): string
@@ -476,24 +494,6 @@ class SchemaPrinter
     {
         return static::printDescription($options, $type) .
             sprintf('union %s = %s', $type->name, implode(' | ', $type->getTypes()));
-    }
-
-    /**
-     * @param Schema $schema
-     * @param array<string, bool> $options
-     *
-     * @return string
-     * @throws Error
-     * @api
-     */
-    public static function printIntrospectionSchema(Schema $schema, array $options = []): string
-    {
-        return static::printFilteredSchema(
-            $schema,
-            [Directive::class, 'isSpecifiedDirective'],
-            [Introspection::class, 'isIntrospectionType'],
-            $options
-        );
     }
 
     /**

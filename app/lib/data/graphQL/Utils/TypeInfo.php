@@ -235,6 +235,49 @@ class TypeInfo
     }
 
     /**
+     * @param Schema $schema
+     * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
+     *
+     * @return Type|null
+     * @throws Exception
+     */
+    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ?Type
+    {
+        return AST::typeFromAST($schema, $inputTypeNode);
+    }
+
+    /**
+     * Not exactly the same as the executor's definition of getFieldDef, in this
+     * statically evaluated environment we do not always have an Object type,
+     * and need to handle Interface and Union types.
+     */
+    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
+    {
+        $name = $fieldNode->name->value;
+        $schemaMeta = Introspection::schemaMetaFieldDef();
+        if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
+            return $schemaMeta;
+        }
+
+        $typeMeta = Introspection::typeMetaFieldDef();
+        if ($name === $typeMeta->name && $schema->getQueryType() === $parentType) {
+            return $typeMeta;
+        }
+        $typeNameMeta = Introspection::typeNameMetaFieldDef();
+        if ($name === $typeNameMeta->name) {
+            return $typeNameMeta;
+        }
+
+        if ($parentType instanceof ObjectType ||
+            $parentType instanceof InterfaceType
+        ) {
+            return $parentType->findField($name);
+        }
+
+        return null;
+    }
+
+    /**
      * @return InputType|null (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
@@ -300,14 +343,14 @@ class TypeInfo
             case $node instanceof InlineFragmentNode:
             case $node instanceof FragmentDefinitionNode:
                 $typeConditionNode = $node->typeCondition;
-            try {
-                $outputType = self::typeFromAST(
-                    $schema,
-                    $typeConditionNode
-                );
-            } catch (Exception $e) {
-            }
-            $this->typeStack[] = Type::isOutputType($outputType) ? $outputType : null;
+                try {
+                    $outputType = self::typeFromAST(
+                        $schema,
+                        $typeConditionNode
+                    );
+                } catch (Exception $e) {
+                }
+                $this->typeStack[] = Type::isOutputType($outputType) ? $outputType : null;
                 break;
 
             case $node instanceof VariableDefinitionNode:
@@ -386,49 +429,6 @@ class TypeInfo
     public function getParentType(): ?CompositeType
     {
         return $this->parentTypeStack[count($this->parentTypeStack) - 1] ?? null;
-    }
-
-    /**
-     * Not exactly the same as the executor's definition of getFieldDef, in this
-     * statically evaluated environment we do not always have an Object type,
-     * and need to handle Interface and Union types.
-     */
-    private static function getFieldDefinition(Schema $schema, Type $parentType, FieldNode $fieldNode): ?FieldDefinition
-    {
-        $name = $fieldNode->name->value;
-        $schemaMeta = Introspection::schemaMetaFieldDef();
-        if ($name === $schemaMeta->name && $schema->getQueryType() === $parentType) {
-            return $schemaMeta;
-        }
-
-        $typeMeta = Introspection::typeMetaFieldDef();
-        if ($name === $typeMeta->name && $schema->getQueryType() === $parentType) {
-            return $typeMeta;
-        }
-        $typeNameMeta = Introspection::typeNameMetaFieldDef();
-        if ($name === $typeNameMeta->name) {
-            return $typeNameMeta;
-        }
-
-        if ($parentType instanceof ObjectType ||
-            $parentType instanceof InterfaceType
-        ) {
-            return $parentType->findField($name);
-        }
-
-        return null;
-    }
-
-    /**
-     * @param Schema $schema
-     * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
-     *
-     * @return Type|null
-     * @throws Exception
-     */
-    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ?Type
-    {
-        return AST::typeFromAST($schema, $inputTypeNode);
     }
 
     public function getDirective(): ?Directive

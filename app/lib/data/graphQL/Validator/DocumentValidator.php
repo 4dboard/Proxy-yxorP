@@ -357,19 +357,6 @@ class DocumentValidator
     }
 
     /**
-     * @param Error[] $errors
-     */
-    #[Pure] private static function combineErrorMessages(array $errors): string
-    {
-        $str = '';
-        foreach ($errors as $error) {
-            $str .= ($error->getMessage() . "\n\n");
-        }
-
-        return $str;
-    }
-
-    /**
      * @throws Error
      */
     public static function assertValidSDLExtension(DocumentNode $documentAST, Schema $schema)
@@ -381,5 +368,18 @@ class DocumentValidator
         if (count($errors) > 0) {
             throw new Error(self::combineErrorMessages($errors));
         }
+    }
+
+    /**
+     * @param Error[] $errors
+     */
+    #[Pure] private static function combineErrorMessages(array $errors): string
+    {
+        $str = '';
+        foreach ($errors as $error) {
+            $str .= ($error->getMessage() . "\n\n");
+        }
+
+        return $str;
     }
 }

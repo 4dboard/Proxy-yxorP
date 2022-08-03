@@ -19,53 +19,6 @@ class promise implements promiseInterface
         $this->cancelFn = $cancelFn;
     }
 
-    public function resolve($value)
-    {
-        $this->settle(self::FULFILLED, $value);
-    }
-
-    private function settle($state, $value)
-    {
-        if ($this->state !== self::PENDING) {
-            if ($state === $this->state && $value === $this->result) {
-                return;
-            }
-            throw $this->state === $state ? new LogicException("The promise is already {$state}.") : new LogicException("Cannot change a {$this->state} promise to {$state}");
-        }
-        if ($value === $this) {
-            throw new LogicException('Cannot fulfill or reject a promise with itself');
-        }
-        $this->state = $state;
-        $this->result = $value;
-        $handlers = $this->handlers;
-        $this->handlers = null;
-        $this->waitList = $this->waitFn = null;
-        $this->cancelFn = null;
-        if (!$handlers) {
-            return;
-        }
-        if (!method_exists($value, 'then')) {
-            $id = $state === self::FULFILLED ? 1 : 2;
-            queue()->add(static function () use ($id, $value, $handlers) {
-                foreach ($handlers as $handler) {
-                    self::callHandler($id, $value, $handler);
-                }
-            });
-        } elseif ($value instanceof promise && $value->getState() === self::PENDING) {
-            $value->handlers = array_merge($value->handlers, $handlers);
-        } else {
-            $value->then(static function ($value) use ($handlers) {
-                foreach ($handlers as $handler) {
-                    self::callHandler(1, $value, $handler);
-                }
-            }, static function ($reason) use ($handlers) {
-                foreach ($handlers as $handler) {
-                    self::callHandler(2, $reason, $handler);
-                }
-            });
-        }
-    }
-
     private static function callHandler($index, $value, array $handler)
     {
         $promise = $handler[0];
@@ -83,6 +36,11 @@ class promise implements promiseInterface
         } catch (Throwable $reason) {
             $promise->reject($reason);
         }
+    }
+
+    public function resolve($value)
+    {
+        $this->settle(self::FULFILLED, $value);
     }
 
     public function getState(): string
@@ -127,6 +85,73 @@ class promise implements promiseInterface
         }
     }
 
+    public function reject($reason)
+    {
+        $this->settle(self::REJECTED, $reason);
+    }
+
+    public function cancel()
+    {
+        if ($this->state !== self::PENDING) {
+            return;
+        }
+        $this->waitFn = $this->waitList = null;
+        if ($this->cancelFn) {
+            $fn = $this->cancelFn;
+            $this->cancelFn = null;
+            try {
+                $fn();
+            } catch (Throwable $e) {
+                $this->reject($e);
+            }
+        }
+        if ($this->state === self::PENDING) {
+            $this->reject(new cancellationException('Promise has been cancelled'));
+        }
+    }
+
+    private function settle($state, $value)
+    {
+        if ($this->state !== self::PENDING) {
+            if ($state === $this->state && $value === $this->result) {
+                return;
+            }
+            throw $this->state === $state ? new LogicException("The promise is already {$state}.") : new LogicException("Cannot change a {$this->state} promise to {$state}");
+        }
+        if ($value === $this) {
+            throw new LogicException('Cannot fulfill or reject a promise with itself');
+        }
+        $this->state = $state;
+        $this->result = $value;
+        $handlers = $this->handlers;
+        $this->handlers = null;
+        $this->waitList = $this->waitFn = null;
+        $this->cancelFn = null;
+        if (!$handlers) {
+            return;
+        }
+        if (!method_exists($value, 'then')) {
+            $id = $state === self::FULFILLED ? 1 : 2;
+            queue()->add(static function () use ($id, $value, $handlers) {
+                foreach ($handlers as $handler) {
+                    self::callHandler($id, $value, $handler);
+                }
+            });
+        } elseif ($value instanceof promise && $value->getState() === self::PENDING) {
+            $value->handlers = array_merge($value->handlers, $handlers);
+        } else {
+            $value->then(static function ($value) use ($handlers) {
+                foreach ($handlers as $handler) {
+                    self::callHandler(1, $value, $handler);
+                }
+            }, static function ($reason) use ($handlers) {
+                foreach ($handlers as $handler) {
+                    self::callHandler(2, $reason, $handler);
+                }
+            });
+        }
+    }
+
     /**
      * @throws Exception
      */
@@ -165,11 +190,6 @@ class promise implements promiseInterface
         }
     }
 
-    public function reject($reason)
-    {
-        $this->settle(self::REJECTED, $reason);
-    }
-
     private function invokeWaitList()
     {
         $waitList = $this->waitList;
@@ -189,26 +209,6 @@ class promise implements promiseInterface
                     break;
                 }
             }
-        }
-    }
-
-    public function cancel()
-    {
-        if ($this->state !== self::PENDING) {
-            return;
-        }
-        $this->waitFn = $this->waitList = null;
-        if ($this->cancelFn) {
-            $fn = $this->cancelFn;
-            $this->cancelFn = null;
-            try {
-                $fn();
-            } catch (Throwable $e) {
-                $this->reject($e);
-            }
-        }
-        if ($this->state === self::PENDING) {
-            $this->reject(new cancellationException('Promise has been cancelled'));
         }
     }
 }

@@ -30,6 +30,12 @@ use function array_filter;
  */
 class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
 {
+    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type): string
+    {
+        return 'Directive "@' . $directiveName . '" argument "' . $argName
+            . '" of type "' . $type . '" is required but not provided.';
+    }
+
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         try {
@@ -120,12 +126,6 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
                 },
             ],
         ];
-    }
-
-    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type): string
-    {
-        return 'Directive "@' . $directiveName . '" argument "' . $argName
-            . '" of type "' . $type . '" is required but not provided.';
     }
 
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getVisitor(ValidationContext $context): array

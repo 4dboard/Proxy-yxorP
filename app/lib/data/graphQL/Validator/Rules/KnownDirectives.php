@@ -48,6 +48,16 @@ use function sprintf;
 
 class KnownDirectives extends ValidationRule
 {
+    public static function unknownDirectiveMessage($directiveName): string
+    {
+        return sprintf('Unknown directive "%s".', $directiveName);
+    }
+
+    public static function misplacedDirectiveMessage($directiveName, $location): string
+    {
+        return sprintf('Directive "%s" may not be used on "%s".', $directiveName, $location);
+    }
+
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         try {
@@ -124,9 +134,12 @@ class KnownDirectives extends ValidationRule
         ];
     }
 
-    public static function unknownDirectiveMessage($directiveName): string
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
-        return sprintf('Unknown directive "%s".', $directiveName);
+        try {
+            return $this->getASTVisitor($context);
+        } catch (Exception $e) {
+        }
     }
 
     /**
@@ -156,18 +169,5 @@ class KnownDirectives extends ValidationRule
         }
 
         throw new Exception('Unknown directive location: ' . get_class($appliedTo));
-    }
-
-    public static function misplacedDirectiveMessage($directiveName, $location): string
-    {
-        return sprintf('Directive "%s" may not be used on "%s".', $directiveName, $location);
-    }
-
-    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
-    {
-        try {
-            return $this->getASTVisitor($context);
-        } catch (Exception $e) {
-        }
     }
 }

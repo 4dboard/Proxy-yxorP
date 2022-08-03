@@ -27,24 +27,6 @@ class fileStorage
         return $this;
     }
 
-    /**
-     * @throws ReflectionException
-     */
-    protected function initStorage(string $name): filesystem
-    {
-        static $mountMethod;
-        if (!$mountMethod) {
-            $mountMethod = new ReflectionMethod('yxorP\app\lib\file\Flysystem\mountManager', 'mountFilesystem');
-        }
-        $config = $this->config[$name];
-        $adapter = new ReflectionClass($config['adapter']);
-        $this->storages[$name] = new filesystem($adapter->newInstanceArgs($config['args'] ?: []));
-        if (isset($config['mount']) && $config['mount']) {
-            $mountMethod->invokeArgs($this->manager, [$name, $this->storages[$name]]);
-        }
-        return $this->storages[$name];
-    }
-
     public function use(string $name): ?filesystem
     {
         if (!isset($this->storages[$name]) && isset($this->config[$name])) {
@@ -73,5 +55,23 @@ class fileStorage
     public function __call($name, $args)
     {
         return call_user_func_array([$this->manager, $name], $args);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    protected function initStorage(string $name): filesystem
+    {
+        static $mountMethod;
+        if (!$mountMethod) {
+            $mountMethod = new ReflectionMethod('yxorP\app\lib\file\Flysystem\mountManager', 'mountFilesystem');
+        }
+        $config = $this->config[$name];
+        $adapter = new ReflectionClass($config['adapter']);
+        $this->storages[$name] = new filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+        if (isset($config['mount']) && $config['mount']) {
+            $mountMethod->invokeArgs($this->manager, [$name, $this->storages[$name]]);
+        }
+        return $this->storages[$name];
     }
 }

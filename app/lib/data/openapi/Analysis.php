@@ -40,6 +40,32 @@ class Analysis
         $this->addAnnotations($annotations, $context);
     }
 
+    public static function registerProcessor($processor): void
+    {
+        self::processors()[] = $processor;
+    }
+
+    public static function &processors(): array
+    {
+        if (!self::$processors) {
+            self::$processors = [new DocBlockDescriptions(), new MergeIntoOpenApi(), new MergeIntoComponents(), new ExpandClasses(), new ExpandInterfaces(), new ExpandTraits(), new AugmentSchemas(), new AugmentProperties(), new BuildPaths(), new AugmentParameters(), new MergeJsonContent(), new MergeXmlContent(), new OperationId(), new CleanUnmerged(),];
+        }
+        return self::$processors;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function unregisterProcessor($processor): void
+    {
+        $processors =& self::processors();
+        $key = array_search($processor, $processors, true);
+        if ($key === false) {
+            throw new Exception('Given processor was not registered');
+        }
+        unset($processors[$key]);
+    }
+
     public function addAnnotations(array $annotations, ?Context $context): void
     {
         foreach ($annotations as $annotation) {
@@ -84,32 +110,6 @@ class Analysis
                 $this->addAnnotation($value, $context);
             }
         }
-    }
-
-    public static function registerProcessor($processor): void
-    {
-        self::processors()[] = $processor;
-    }
-
-    public static function &processors(): array
-    {
-        if (!self::$processors) {
-            self::$processors = [new DocBlockDescriptions(), new MergeIntoOpenApi(), new MergeIntoComponents(), new ExpandClasses(), new ExpandInterfaces(), new ExpandTraits(), new AugmentSchemas(), new AugmentProperties(), new BuildPaths(), new AugmentParameters(), new MergeJsonContent(), new MergeXmlContent(), new OperationId(), new CleanUnmerged(),];
-        }
-        return self::$processors;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public static function unregisterProcessor($processor): void
-    {
-        $processors =& self::processors();
-        $key = array_search($processor, $processors, true);
-        if ($key === false) {
-            throw new Exception('Given processor was not registered');
-        }
-        unset($processors[$key]);
     }
 
     public function addClassDefinition(array $definition): void

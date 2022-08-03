@@ -116,39 +116,6 @@ class SchemaValidationContext
         $this->addError(new Error($message, $nodes));
     }
 
-    /**
-     * @param Error $error
-     */
-    private function addError(Error $error)
-    {
-        $this->errors[] = $error;
-    }
-
-    /**
-     * @param Type $type
-     * @param string $operation
-     *
-     * @return NamedTypeNode|TypeDefinitionNodeInterface|null
-     */
-    #[Pure] private function getOperationTypeNode(Type $type, string $operation): TypeDefinitionNodeInterface|NamedTypeNode|null
-    {
-        $astNode = $this->schema->getAstNode();
-
-        $operationTypeNode = null;
-        if ($astNode instanceof SchemaDefinitionNode) {
-            $operationTypeNode = null;
-
-            foreach ($astNode->operationTypes as $operationType) {
-                if ($operationType->operation === $operation) {
-                    $operationTypeNode = $operationType;
-                    break;
-                }
-            }
-        }
-
-        return $operationTypeNode ? $operationTypeNode->type : ($type?->astNode);
-    }
-
     public function validateDirectives()
     {
         try {
@@ -242,6 +209,123 @@ class SchemaValidationContext
                 array_filter($nodes)
             );
         }
+    }
+
+    public function validateTypes(): void
+    {
+        $typeMap = $this->schema->getTypeMap();
+        foreach ($typeMap as $typeName => $type) {
+            // Ensure all provided types are in fact GraphQL type.
+            if (!$type instanceof NamedType) {
+                $this->reportError(
+                    'Expected GraphQL named type but got: ' . Utils::printSafe($type) . '.'
+                );
+                continue;
+            }
+
+            $this->validateName($type);
+
+            if ($type instanceof ObjectType) {
+                // Ensure fields are valid
+                try {
+                    $this->validateFields($type);
+                } catch (Exception $e) {
+                }
+
+                // Ensure objects implement the interfaces they claim to.
+                try {
+                    $this->validateInterfaces($type);
+                } catch (Exception $e) {
+                }
+
+                // Ensure directives are valid
+                $this->validateDirectivesAtLocation(
+                    $this->getDirectives($type),
+                    DirectiveLocation::OBJECT
+                );
+            } elseif ($type instanceof InterfaceType) {
+                // Ensure fields are valid.
+                try {
+                    $this->validateFields($type);
+                } catch (Exception $e) {
+                }
+
+                // Ensure interfaces implement the interfaces they claim to.
+                try {
+                    $this->validateInterfaces($type);
+                } catch (Exception $e) {
+                }
+
+                // Ensure directives are valid
+                $this->validateDirectivesAtLocation(
+                    $this->getDirectives($type),
+                    DirectiveLocation::IFACE
+                );
+            } elseif ($type instanceof UnionType) {
+                // Ensure Unions include valid member types.
+                $this->validateUnionMembers($type);
+
+                // Ensure directives are valid
+                $this->validateDirectivesAtLocation(
+                    $this->getDirectives($type),
+                    DirectiveLocation::UNION
+                );
+            } elseif (false) {
+                // Ensure Enums have valid values.
+                $this->validateEnumValues($type);
+
+                // Ensure directives are valid
+                $this->validateDirectivesAtLocation(
+                    $this->getDirectives($type),
+                    DirectiveLocation::ENUM
+                );
+            } elseif (false) {
+                // Ensure Input Object fields are valid.
+                $this->validateInputFields($type);
+
+                // Ensure directives are valid
+                $this->validateDirectivesAtLocation(
+                    $this->getDirectives($type),
+                    DirectiveLocation::INPUT_OBJECT
+                );
+
+                // Ensure Input Objects do not contain non-nullable circular references
+                $this->inputObjectCircularRefs->validate($type);
+            }
+        }
+    }
+
+    /**
+     * @param Error $error
+     */
+    private function addError(Error $error)
+    {
+        $this->errors[] = $error;
+    }
+
+    /**
+     * @param Type $type
+     * @param string $operation
+     *
+     * @return NamedTypeNode|TypeDefinitionNodeInterface|null
+     */
+    #[Pure] private function getOperationTypeNode(Type $type, string $operation): TypeDefinitionNodeInterface|NamedTypeNode|null
+    {
+        $astNode = $this->schema->getAstNode();
+
+        $operationTypeNode = null;
+        if ($astNode instanceof SchemaDefinitionNode) {
+            $operationTypeNode = null;
+
+            foreach ($astNode->operationTypes as $operationType) {
+                if ($operationType->operation === $operation) {
+                    $operationTypeNode = $operationType;
+                    break;
+                }
+            }
+        }
+
+        return $operationTypeNode ? $operationTypeNode->type : ($type?->astNode);
     }
 
     /**
@@ -410,90 +494,6 @@ class SchemaValidationContext
         return $this->getAllSubNodes($object, static function ($node) {
             return $node->directives;
         });
-    }
-
-    public function validateTypes(): void
-    {
-        $typeMap = $this->schema->getTypeMap();
-        foreach ($typeMap as $typeName => $type) {
-            // Ensure all provided types are in fact GraphQL type.
-            if (!$type instanceof NamedType) {
-                $this->reportError(
-                    'Expected GraphQL named type but got: ' . Utils::printSafe($type) . '.'
-                );
-                continue;
-            }
-
-            $this->validateName($type);
-
-            if ($type instanceof ObjectType) {
-                // Ensure fields are valid
-                try {
-                    $this->validateFields($type);
-                } catch (Exception $e) {
-                }
-
-                // Ensure objects implement the interfaces they claim to.
-                try {
-                    $this->validateInterfaces($type);
-                } catch (Exception $e) {
-                }
-
-                // Ensure directives are valid
-                $this->validateDirectivesAtLocation(
-                    $this->getDirectives($type),
-                    DirectiveLocation::OBJECT
-                );
-            } elseif ($type instanceof InterfaceType) {
-                // Ensure fields are valid.
-                try {
-                    $this->validateFields($type);
-                } catch (Exception $e) {
-                }
-
-                // Ensure interfaces implement the interfaces they claim to.
-                try {
-                    $this->validateInterfaces($type);
-                } catch (Exception $e) {
-                }
-
-                // Ensure directives are valid
-                $this->validateDirectivesAtLocation(
-                    $this->getDirectives($type),
-                    DirectiveLocation::IFACE
-                );
-            } elseif ($type instanceof UnionType) {
-                // Ensure Unions include valid member types.
-                $this->validateUnionMembers($type);
-
-                // Ensure directives are valid
-                $this->validateDirectivesAtLocation(
-                    $this->getDirectives($type),
-                    DirectiveLocation::UNION
-                );
-            } elseif (false) {
-                // Ensure Enums have valid values.
-                $this->validateEnumValues($type);
-
-                // Ensure directives are valid
-                $this->validateDirectivesAtLocation(
-                    $this->getDirectives($type),
-                    DirectiveLocation::ENUM
-                );
-            } elseif (false) {
-                // Ensure Input Object fields are valid.
-                $this->validateInputFields($type);
-
-                // Ensure directives are valid
-                $this->validateDirectivesAtLocation(
-                    $this->getDirectives($type),
-                    DirectiveLocation::INPUT_OBJECT
-                );
-
-                // Ensure Input Objects do not contain non-nullable circular references
-                $this->inputObjectCircularRefs->validate($type);
-            }
-        }
     }
 
     /**

@@ -91,46 +91,6 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @param HasSelectionSetInterface $node
-     * @return array|null List of ['node' => VariableNode, 'type' => ?InputObjectType]
-     * @throws Exception
-     */
-    private function getVariableUsages(HasSelectionSetInterface $node): ?array
-    {
-        $usages = $this->variableUsages[$node] ?? null;
-
-        if ($usages === null) {
-            $newUsages = [];
-            $typeInfo = new TypeInfo($this->schema);
-            Visitor::visit(
-                $node,
-                Visitor::visitWithTypeInfo(
-                    $typeInfo,
-                    [
-                        NodeKind::VARIABLE_DEFINITION => static function (): bool {
-                            return false;
-                        },
-                        NodeKind::VARIABLE => static function (VariableNode $variable) use (
-                            &$newUsages,
-                            $typeInfo
-                        ): void {
-                            $newUsages[] = [
-                                'node' => $variable,
-                                'type' => $typeInfo->getInputType(),
-                                'defaultValue' => $typeInfo->getDefaultValue(),
-                            ];
-                        },
-                    ]
-                )
-            );
-            $usages = $newUsages;
-            $this->variableUsages[$node] = $usages;
-        }
-
-        return $usages;
-    }
-
-    /**
      * @param OperationDefinitionNode $operation
      * @return array|null
      */
@@ -267,5 +227,45 @@ class ValidationContext extends ASTValidationContext
     #[Pure] public function getArgument(): ?FieldArgument
     {
         return $this->typeInfo->getArgument();
+    }
+
+    /**
+     * @param HasSelectionSetInterface $node
+     * @return array|null List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @throws Exception
+     */
+    private function getVariableUsages(HasSelectionSetInterface $node): ?array
+    {
+        $usages = $this->variableUsages[$node] ?? null;
+
+        if ($usages === null) {
+            $newUsages = [];
+            $typeInfo = new TypeInfo($this->schema);
+            Visitor::visit(
+                $node,
+                Visitor::visitWithTypeInfo(
+                    $typeInfo,
+                    [
+                        NodeKind::VARIABLE_DEFINITION => static function (): bool {
+                            return false;
+                        },
+                        NodeKind::VARIABLE => static function (VariableNode $variable) use (
+                            &$newUsages,
+                            $typeInfo
+                        ): void {
+                            $newUsages[] = [
+                                'node' => $variable,
+                                'type' => $typeInfo->getInputType(),
+                                'defaultValue' => $typeInfo->getDefaultValue(),
+                            ];
+                        },
+                    ]
+                )
+            );
+            $usages = $newUsages;
+            $this->variableUsages[$node] = $usages;
+        }
+
+        return $usages;
     }
 }

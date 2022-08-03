@@ -102,6 +102,77 @@ class ASTDefinitionBuilder
     }
 
     /**
+     * @param string|(Node &NamedTypeNode)|(Node&TypeDefinitionNode) $ref
+     * @return Type
+     * @throws Error
+     */
+    public function buildType($ref): Type
+    {
+        if (is_string($ref)) {
+            return $this->internalBuildType($ref);
+        }
+
+        return $this->internalBuildType($ref->name->value, $ref);
+    }
+
+    /**
+     * @param FieldDefinitionNode $field
+     * @return array<string, mixed>
+     * @throws Error
+     */
+    #[ArrayShape(['type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'args' => "mixed", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\FieldDefinitionNode"])] public function buildField(FieldDefinitionNode $field): array
+    {
+        try {
+            return [
+                // Note: While this could make assertions to get the correctly typed
+                // value, that would throw immediately while type system validation
+                // with validateSchema() will produce more actionable results.
+                'type' => $this->buildWrappedType($field->type),
+                'description' => $this->getDescription($field),
+                'args' => $this->makeInputValues($field->arguments),
+                'deprecationReason' => $this->getDeprecationReason($field),
+                'astNode' => $field,
+            ];
+        } catch (Error $e) {
+        }
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    #[ArrayShape(['name' => "string", 'type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\InputValueDefinitionNode", 'defaultValue' => "mixed"])] public function buildInputField(InputValueDefinitionNode $value): array
+    {
+        $type = $this->buildWrappedType($value->type);
+
+        $config = [
+            'name' => $value->name->value,
+            'type' => $type,
+            'description' => $this->getDescription($value),
+            'astNode' => $value,
+        ];
+
+        if ($value->defaultValue !== null) {
+            $config['defaultValue'] = $value->defaultValue;
+        }
+
+        return $config;
+    }
+
+    /**
+     * @param EnumValueDefinitionNode $value
+     * @return array<string, mixed>
+     * @throws Error
+     */
+    #[ArrayShape(['description' => "null|string", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\EnumValueDefinitionNode"])] public function buildEnumValue(EnumValueDefinitionNode $value): array
+    {
+        return [
+            'description' => $this->getDescription($value),
+            'deprecationReason' => $this->getDeprecationReason($value),
+            'astNode' => $value,
+        ];
+    }
+
+    /**
      * Given an ast node, returns its string description.
      */
     private function getDescription(Node $node): ?string
@@ -191,20 +262,6 @@ class ASTDefinitionBuilder
             return $this->buildType($typeNode);
         } catch (Error $e) {
         }
-    }
-
-    /**
-     * @param string|(Node &NamedTypeNode)|(Node&TypeDefinitionNode) $ref
-     * @return Type
-     * @throws Error
-     */
-    public function buildType($ref): Type
-    {
-        if (is_string($ref)) {
-            return $this->internalBuildType($ref);
-        }
-
-        return $this->internalBuildType($ref->name->value, $ref);
     }
 
     /**
@@ -308,28 +365,6 @@ class ASTDefinitionBuilder
                 }
             }
         );
-    }
-
-    /**
-     * @param FieldDefinitionNode $field
-     * @return array<string, mixed>
-     * @throws Error
-     */
-    #[ArrayShape(['type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'args' => "mixed", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\FieldDefinitionNode"])] public function buildField(FieldDefinitionNode $field): array
-    {
-        try {
-            return [
-                // Note: While this could make assertions to get the correctly typed
-                // value, that would throw immediately while type system validation
-                // with validateSchema() will produce more actionable results.
-                'type' => $this->buildWrappedType($field->type),
-                'description' => $this->getDescription($field),
-                'args' => $this->makeInputValues($field->arguments),
-                'deprecationReason' => $this->getDeprecationReason($field),
-                'astNode' => $field,
-            ];
-        } catch (Error $e) {
-        }
     }
 
     /**
@@ -472,40 +507,5 @@ class ASTDefinitionBuilder
             $def instanceof InputObjectTypeDefinitionNode => new InputObjectType($config),
             default => throw new Error(sprintf('Type kind of %s not supported.', $def->kind)),
         };
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    #[ArrayShape(['name' => "string", 'type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\InputValueDefinitionNode", 'defaultValue' => "mixed"])] public function buildInputField(InputValueDefinitionNode $value): array
-    {
-        $type = $this->buildWrappedType($value->type);
-
-        $config = [
-            'name' => $value->name->value,
-            'type' => $type,
-            'description' => $this->getDescription($value),
-            'astNode' => $value,
-        ];
-
-        if ($value->defaultValue !== null) {
-            $config['defaultValue'] = $value->defaultValue;
-        }
-
-        return $config;
-    }
-
-    /**
-     * @param EnumValueDefinitionNode $value
-     * @return array<string, mixed>
-     * @throws Error
-     */
-    #[ArrayShape(['description' => "null|string", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\EnumValueDefinitionNode"])] public function buildEnumValue(EnumValueDefinitionNode $value): array
-    {
-        return [
-            'description' => $this->getDescription($value),
-            'deprecationReason' => $this->getDeprecationReason($value),
-            'astNode' => $value,
-        ];
     }
 }

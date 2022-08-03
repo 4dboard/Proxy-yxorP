@@ -38,6 +38,48 @@ class Cursor implements Iterator
     }
 
     /**
+     * Iterator implementation
+     */
+    public function rewind(): void
+    {
+
+        if ($this->position !== false) {
+            $this->position = 0;
+        }
+    }
+
+    public function current(): array
+    {
+
+        return $this->data[$this->position];
+    }
+
+    public function key(): int
+    {
+        return $this->position;
+    }
+
+    public function next(): void
+    {
+        ++$this->position;
+    }
+
+    public function valid(): bool
+    {
+
+        if ($this->position === false) {
+
+            try {
+                $this->data = $this->getData();
+            } catch (\Exception $e) {
+            }
+            $this->position = 0;
+        }
+
+        return isset($this->data[$this->position]);
+    }
+
+    /**
      * Get documents matching criteria
      *
      * @return array
@@ -101,48 +143,6 @@ class Cursor implements Iterator
 
             return 0;
         };
-    }
-
-    /**
-     * Iterator implementation
-     */
-    public function rewind(): void
-    {
-
-        if ($this->position !== false) {
-            $this->position = 0;
-        }
-    }
-
-    public function current(): array
-    {
-
-        return $this->data[$this->position];
-    }
-
-    public function key(): int
-    {
-        return $this->position;
-    }
-
-    public function next(): void
-    {
-        ++$this->position;
-    }
-
-    public function valid(): bool
-    {
-
-        if ($this->position === false) {
-
-            try {
-                $this->data = $this->getData();
-            } catch (\Exception $e) {
-            }
-            $this->position = 0;
-        }
-
-        return isset($this->data[$this->position]);
     }
 
 }

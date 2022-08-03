@@ -78,6 +78,44 @@ final class docParser
         $this->namespaces[] = $namespace;
     }
 
+    public function setIgnoreNotImportedAnnotations($bool)
+    {
+        $this->ignoreNotImportedAnnotations = (bool)$bool;
+    }
+
+    public function setIgnoredAnnotationNames(array $names)
+    {
+        $this->ignoredAnnotationNames = $names;
+    }
+
+    public function setImports(array $imports)
+    {
+        if ($this->namespaces) {
+            throw new RuntimeException('You must either use addNamespace(), or setImports(), but not both.');
+        }
+        $this->imports = $imports;
+    }
+
+    public function setTarget($target)
+    {
+        $this->target = $target;
+    }
+
+    public function parse($input, $context = ''): array
+    {
+        $pos = $this->findInitialTokenPosition($input);
+        if ($pos === null) {
+            return [];
+        }
+        $this->context = $context;
+        $this->lexer->setInput(trim(substr($input, $pos), '* /'));
+        $this->lexer->moveNext();
+        try {
+            return $this->Annotations();
+        } catch (annotationException $e) {
+        }
+    }
+
     /**
      * @throws ReflectionException
      */
@@ -153,44 +191,6 @@ final class docParser
             }
         }
         self::$annotationMetadata[$name] = $metadata;
-    }
-
-    public function setIgnoreNotImportedAnnotations($bool)
-    {
-        $this->ignoreNotImportedAnnotations = (bool)$bool;
-    }
-
-    public function setIgnoredAnnotationNames(array $names)
-    {
-        $this->ignoredAnnotationNames = $names;
-    }
-
-    public function setImports(array $imports)
-    {
-        if ($this->namespaces) {
-            throw new RuntimeException('You must either use addNamespace(), or setImports(), but not both.');
-        }
-        $this->imports = $imports;
-    }
-
-    public function setTarget($target)
-    {
-        $this->target = $target;
-    }
-
-    public function parse($input, $context = ''): array
-    {
-        $pos = $this->findInitialTokenPosition($input);
-        if ($pos === null) {
-            return [];
-        }
-        $this->context = $context;
-        $this->lexer->setInput(trim(substr($input, $pos), '* /'));
-        $this->lexer->moveNext();
-        try {
-            return $this->Annotations();
-        } catch (annotationException $e) {
-        }
     }
 
     private function findInitialTokenPosition($input): ?int

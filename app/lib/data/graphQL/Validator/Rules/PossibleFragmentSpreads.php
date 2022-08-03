@@ -22,6 +22,25 @@ use function sprintf;
 
 class PossibleFragmentSpreads extends ValidationRule
 {
+    public static function typeIncompatibleAnonSpreadMessage($parentType, $fragType): string
+    {
+        return sprintf(
+            'Fragment cannot be spread here as objects of type "%s" can never be of type "%s".',
+            $parentType,
+            $fragType
+        );
+    }
+
+    public static function typeIncompatibleSpreadMessage($fragName, $parentType, $fragType): string
+    {
+        return sprintf(
+            'Fragment "%s" cannot be spread here as objects of type "%s" can never be of type "%s".',
+            $fragName,
+            $parentType,
+            $fragType
+        );
+    }
+
     #[ArrayShape([NodeKind::INLINE_FRAGMENT => "\Closure", NodeKind::FRAGMENT_SPREAD => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
@@ -128,15 +147,6 @@ class PossibleFragmentSpreads extends ValidationRule
         return false;
     }
 
-    public static function typeIncompatibleAnonSpreadMessage($parentType, $fragType): string
-    {
-        return sprintf(
-            'Fragment cannot be spread here as objects of type "%s" can never be of type "%s".',
-            $parentType,
-            $fragType
-        );
-    }
-
     private function getFragmentType(ValidationContext $context, $name): CompositeType|Type|null
     {
         $frag = $context->getFragment($name);
@@ -151,15 +161,5 @@ class PossibleFragmentSpreads extends ValidationRule
         }
 
         return null;
-    }
-
-    public static function typeIncompatibleSpreadMessage($fragName, $parentType, $fragType): string
-    {
-        return sprintf(
-            'Fragment "%s" cannot be spread here as objects of type "%s" can never be of type "%s".',
-            $fragName,
-            $parentType,
-            $fragType
-        );
     }
 }

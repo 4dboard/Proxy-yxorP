@@ -31,6 +31,19 @@ use function sprintf;
  */
 class KnownArgumentNamesOnDirectives extends ValidationRule
 {
+    /**
+     * @param string[] $suggestedArgs
+     */
+    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs): string
+    {
+        $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
+        if (isset($suggestedArgs[0])) {
+            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
+        }
+
+        return $message;
+    }
+
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getSDLVisitor(SDLValidationContext $context): array
     {
         try {
@@ -101,19 +114,6 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
                 return Visitor::skipNode();
             },
         ];
-    }
-
-    /**
-     * @param string[] $suggestedArgs
-     */
-    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs): string
-    {
-        $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
-        if (isset($suggestedArgs[0])) {
-            $message .= sprintf(' Did you mean %s?', Utils::quotedOrList($suggestedArgs));
-        }
-
-        return $message;
     }
 
     #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getVisitor(ValidationContext $context): array

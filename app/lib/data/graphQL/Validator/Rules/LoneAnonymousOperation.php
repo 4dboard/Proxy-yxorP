@@ -22,6 +22,11 @@ use function count;
  */
 class LoneAnonymousOperation extends ValidationRule
 {
+    public static function anonOperationNotAloneMessage(): string
+    {
+        return 'This anonymous operation must be the only defined operation.';
+    }
+
     #[ArrayShape([NodeKind::DOCUMENT => "\Closure", NodeKind::OPERATION_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $operationCount = 0;
@@ -48,10 +53,5 @@ class LoneAnonymousOperation extends ValidationRule
                 );
             },
         ];
-    }
-
-    public static function anonOperationNotAloneMessage(): string
-    {
-        return 'This anonymous operation must be the only defined operation.';
     }
 }
