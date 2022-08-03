@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace yxorP\app\lib\file\Flysystem;
+
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 

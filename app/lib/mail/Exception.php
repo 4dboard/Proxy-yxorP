@@ -1,4 +1,5 @@
 <?php namespace yxorP\app\lib\mail;
+
 use JetBrains\PhpStorm\Pure;
 
 class Exception extends \Exception

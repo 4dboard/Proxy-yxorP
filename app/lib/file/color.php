@@ -1,4 +1,5 @@
 <?php namespace yxorP\app\lib\file\ColorExtractor;
+
 use JetBrains\PhpStorm\ArrayShape;
 
 class color

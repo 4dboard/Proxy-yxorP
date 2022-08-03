@@ -49,7 +49,6 @@ use function session_status;
 use function session_write_close;
 use function str_replace;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function substr;
 use function trim;

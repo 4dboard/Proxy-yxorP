@@ -5,7 +5,6 @@ use function is_numeric;
 use function str_replace;
 use function stripos;
 use function strlen;
-use function strpos;
 use function strtolower;
 use function substr;
 

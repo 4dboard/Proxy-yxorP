@@ -7,7 +7,6 @@ use function in_array;
 use function is_file;
 use function str_replace;
 use function stream_resolve_include_path;
-use function strpos;
 use const DIRECTORY_SEPARATOR;
 
 final class annotationRegistry

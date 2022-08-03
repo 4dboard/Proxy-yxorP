@@ -27,7 +27,6 @@ use function implode;
 use function in_array;
 use function interface_exists;
 use function is_array;
-use function is_object;
 use function json_encode;
 use function ltrim;
 use function preg_match;

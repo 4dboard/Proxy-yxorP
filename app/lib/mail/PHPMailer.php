@@ -143,207 +143,6 @@ class PHPMailer
         static::$LE = $le;
     }
 
-    public static function idnSupported(): bool
-    {
-        return function_exists('idn_to_ascii') && function_exists('mb_convert_encoding');
-    }
-
-    public static function normalizeBreaks($text, $breaktype = null): array|string
-    {
-        if (null === $breaktype) {
-            $breaktype = static::$LE;
-        }
-        $text = str_replace([self::CRLF, "\r"], "\n", $text);
-        if ("\n" !== $breaktype) {
-            $text = str_replace("\n", $breaktype, $text);
-        }
-        return $text;
-    }
-
-    public static function hasLineLongerThanMax($str): bool
-    {
-        return (bool)preg_match('/^(.{' . (self::MAX_LINE_LENGTH + strlen(static::$LE)) . ',})/m', $str);
-    }
-
-    public static function quotedString($str)
-    {
-        if (preg_match('/[ ()<>@,;:"\/\[\]?=]/', $str)) {
-            return '"' . str_replace('"', '\\"', $str) . '"';
-        }
-        return $str;
-    }
-
-    public static function rfcDate(): string
-    {
-        date_default_timezone_set(@date_default_timezone_get());
-        return date('D, j M Y H:i:s O');
-    }
-
-    public static function isValidHost($host): bool
-    {
-        if (empty($host) || !is_string($host) || strlen($host) > 256 || !preg_match('/^([a-zA-Z\d.-]*|\[[a-fA-F\d:]+\])$/', $host)) {
-            return false;
-        }
-        if (strlen($host) > 2 && str_starts_with($host, '[') && str_ends_with($host, ']')) {
-            return filter_var(substr($host, 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
-        }
-        if (is_numeric(str_replace('.', '', $host))) {
-            return filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
-        }
-        return filter_var('https://' . $host, FILTER_VALIDATE_URL) !== false;
-    }
-
-    public static function stripTrailingWSP($text): string
-    {
-        return rtrim($text, " \r\n\t");
-    }
-
-    public static function parseAddresses($addrstr, $useimap = true, $charset = self::CHARSET_ISO88591): array
-    {
-        $addresses = [];
-        if ($useimap && function_exists('imap_rfc822_parse_adrlist')) {
-            $list = imap_rfc822_parse_adrlist($addrstr, '');
-            imap_errors();
-            foreach ($list as $address) {
-                if ('.SYNTAX-ERROR.' !== $address->host && static::validateAddress($address->mailbox . '@' . $address->host)) {
-                    if (property_exists($address, 'personal') && defined('MB_CASE_UPPER') && preg_match('/^=\?.*\?=$/s', $address->personal)) {
-                        $origCharset = mb_internal_encoding();
-                        mb_internal_encoding($charset);
-                        $address->personal = str_replace('_', '=20', $address->personal);
-                        $address->personal = mb_decode_mimeheader($address->personal);
-                        mb_internal_encoding($origCharset);
-                    }
-                    $addresses[] = ['name' => (property_exists($address, 'personal') ? $address->personal : ''), 'address' => $address->mailbox . '@' . $address->host,];
-                }
-            }
-        } else {
-            $list = explode(',', $addrstr);
-            foreach ($list as $address) {
-                $address = trim($address);
-                if (!str_contains($address, '<')) {
-                    if (static::validateAddress($address)) {
-                        $addresses[] = ['name' => '', 'address' => $address,];
-                    }
-                } else {
-                    list($name, $email) = explode('<', $address);
-                    $email = trim(str_replace('>', '', $email));
-                    $name = trim($name);
-                    if (static::validateAddress($email)) {
-                        if (defined('MB_CASE_UPPER') && preg_match('/^=\?.*\?=$/s', $name)) {
-                            $origCharset = mb_internal_encoding();
-                            mb_internal_encoding($charset);
-                            $name = str_replace('_', '=20', $name);
-                            $name = mb_decode_mimeheader($name);
-                            mb_internal_encoding($origCharset);
-                        }
-                        $addresses[] = ['name' => trim($name, '\'" '), 'address' => $email,];
-                    }
-                }
-            }
-        }
-        return $addresses;
-    }
-
-    public static function validateAddress($address, $patternselect = null)
-    {
-        if (null === $patternselect) {
-            $patternselect = static::$validator;
-        }
-        if (is_callable($patternselect) && !is_string($patternselect)) {
-            return call_user_func($patternselect, $address);
-        }
-        if (str_contains($address, "\n") || str_contains($address, "\r")) {
-            return false;
-        }
-        return match ($patternselect) {
-            'pcre', 'pcre8' => (bool)preg_match('/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)' . '((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)' . '(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)' . '([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*' . '(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)' . '(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}' . '|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:' . '|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}' . '|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD', $address),
-            'html5' => (bool)preg_match('/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}' . '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD', $address),
-            default => filter_var($address, FILTER_VALIDATE_EMAIL) !== false,
-        };
-    }
-
-    public static function filenameToType($filename): string
-    {
-        $qpos = strpos($filename, '?');
-        if (false !== $qpos) {
-            $filename = substr($filename, 0, $qpos);
-        }
-        $ext = static::mb_pathinfo($filename, PATHINFO_EXTENSION);
-        return static::_mime_types($ext);
-    }
-
-    public static function mb_pathinfo($path, $options = null)
-    {
-        $ret = ['dirname' => '', 'basename' => '', 'extension' => '', 'filename' => ''];
-        $pathinfo = [];
-        if (preg_match('#^(.*?)[\\\\/]*(([^/\\\\]*?)(\.([^.\\\\/]+?)|))[\\\\/.]*$#m', $path, $pathinfo)) {
-            if (array_key_exists(1, $pathinfo)) {
-                $ret['dirname'] = $pathinfo[1];
-            }
-            if (array_key_exists(2, $pathinfo)) {
-                $ret['basename'] = $pathinfo[2];
-            }
-            if (array_key_exists(5, $pathinfo)) {
-                $ret['extension'] = $pathinfo[5];
-            }
-            if (array_key_exists(3, $pathinfo)) {
-                $ret['filename'] = $pathinfo[3];
-            }
-        }
-        return match ($options) {
-            PATHINFO_DIRNAME, 'dirname' => $ret['dirname'],
-            PATHINFO_BASENAME, 'basename' => $ret['basename'],
-            PATHINFO_EXTENSION, 'extension' => $ret['extension'],
-            PATHINFO_FILENAME, 'filename' => $ret['filename'],
-            default => $ret,
-        };
-    }
-
-    public static function _mime_types($ext = ''): string
-    {
-        $mimes = ['xl' => 'application/excel', 'js' => 'application/javascript', 'hqx' => 'application/mac-binhex40', 'cpt' => 'application/mac-compactpro', 'bin' => 'application/macbinary', 'doc' => 'application/msword', 'word' => 'application/msword', 'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'xltx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template', 'potx' => 'application/vnd.openxmlformats-officedocument.presentationml.template', 'ppsx' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow', 'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'sldx' => 'application/vnd.openxmlformats-officedocument.presentationml.slide', 'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'dotx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template', 'xlam' => 'application/vnd.ms-excel.addin.macroEnabled.12', 'xlsb' => 'application/vnd.ms-excel.sheet.binary.macroEnabled.12', 'class' => 'application/octet-stream', 'dll' => 'application/octet-stream', 'dms' => 'application/octet-stream', 'exe' => 'application/octet-stream', 'lha' => 'application/octet-stream', 'lzh' => 'application/octet-stream', 'psd' => 'application/octet-stream', 'sea' => 'application/octet-stream', 'so' => 'application/octet-stream', 'oda' => 'application/oda', 'pdf' => 'application/pdf', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'smi' => 'application/smil', 'smil' => 'application/smil', 'mif' => 'application/vnd.mif', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'wbxml' => 'application/vnd.wap.wbxml', 'wmlc' => 'application/vnd.wap.wmlc', 'dcr' => 'application/x-director', 'dir' => 'application/x-director', 'dxr' => 'application/x-director', 'dvi' => 'application/x-dvi', 'gtar' => 'application/x-gtar', 'php3' => 'application/x-httpd-php', 'php4' => 'application/x-httpd-php', 'php' => 'application/x-httpd-php', 'phtml' => 'application/x-httpd-php', 'phps' => 'application/x-httpd-php-source', 'swf' => 'application/x-shockwave-flash', 'sit' => 'application/x-stuffit', 'tar' => 'application/x-tar', 'tgz' => 'application/x-tar', 'xht' => 'application/xhtml+xml', 'xhtml' => 'application/xhtml+xml', 'zip' => 'application/zip', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'mp2' => 'audio/mpeg', 'mp3' => 'audio/mpeg', 'm4a' => 'audio/mp4', 'mpga' => 'audio/mpeg', 'aif' => 'audio/x-aiff', 'aifc' => 'audio/x-aiff', 'aiff' => 'audio/x-aiff', 'ram' => 'audio/x-pn-realaudio', 'rm' => 'audio/x-pn-realaudio', 'rpm' => 'audio/x-pn-realaudio-plugin', 'ra' => 'audio/x-realaudio', 'wav' => 'audio/x-wav', 'mka' => 'audio/x-matroska', 'bmp' => 'image/bmp', 'gif' => 'image/gif', 'jpeg' => 'image/jpeg', 'jpe' => 'image/jpeg', 'jpg' => 'image/jpeg', 'png' => 'image/png', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'webp' => 'image/webp', 'avif' => 'image/avif', 'heif' => 'image/heif', 'heifs' => 'image/heif-sequence', 'heic' => 'image/heic', 'heics' => 'image/heic-sequence', 'eml' => 'message/rfc822', 'css' => 'text/css', 'html' => 'text/html', 'htm' => 'text/html', 'shtml' => 'text/html', 'log' => 'text/plain', 'text' => 'text/plain', 'txt' => 'text/plain', 'rtx' => 'text/richtext', 'rtf' => 'text/rtf', 'vcf' => 'text/vcard', 'vcard' => 'text/vcard', 'ics' => 'text/calendar', 'xml' => 'text/xml', 'xsl' => 'text/xml', 'wmv' => 'video/x-ms-wmv', 'mpeg' => 'video/mpeg', 'mpe' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mp4' => 'video/mp4', 'm4v' => 'video/mp4', 'mov' => 'video/quicktime', 'qt' => 'video/quicktime', 'rv' => 'video/vnd.rn-realvideo', 'avi' => 'video/x-msvideo', 'movie' => 'video/x-sgi-movie', 'webm' => 'video/webm', 'mkv' => 'video/x-matroska',];
-        $ext = strtolower($ext);
-        if (array_key_exists($ext, $mimes)) {
-            return $mimes[$ext];
-        }
-        return 'application/octet-stream';
-    }
-
-    protected static function fileIsAccessible($path): bool
-    {
-        if (!static::isPermittedPath($path)) {
-            return false;
-        }
-        $readable = file_exists($path);
-        if (!str_starts_with($path, '\\\\')) {
-            $readable = $readable && is_readable($path);
-        }
-        return $readable;
-    }
-
-    protected static function isPermittedPath($path): bool
-    {
-        return !preg_match('#^[a-z][a-z\d+.-]*://#i', $path);
-    }
-
-    protected static function isShellSafe($string): bool
-    {
-        if (!function_exists('escapeshellarg') || !function_exists('escapeshellcmd')) {
-            return false;
-        }
-        if (escapeshellcmd($string) !== $string || !in_array(escapeshellarg($string), ["'$string'", "\"$string\""])) {
-            return false;
-        }
-        $length = strlen($string);
-        for ($i = 0; $i < $length; ++$i) {
-            $c = $string[$i];
-            if (!ctype_alnum($c) && !str_contains('@_-.', $c)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public function __destruct()
     {
         $this->smtpClose();
@@ -397,6 +196,60 @@ class PHPMailer
         return $this->addOrEnqueueAnAddress('to', $address, $name);
     }
 
+    /**
+     * @throws Exception
+     */
+    protected function addOrEnqueueAnAddress($kind, $address, $name)
+    {
+        $pos = false;
+        if ($address !== null) {
+            $address = trim($address);
+            $pos = strrpos($address, '@');
+        }
+        if (false === $pos) {
+            $error_message = sprintf('%s (%s): %s', $this->lang('invalid_address'), $kind, $address);
+            $this->setError($error_message);
+            $this->edebug($error_message);
+            if ($this->exceptions) {
+                throw new Exception($error_message);
+            }
+            return false;
+        }
+        if ($name !== null) {
+            $name = trim(preg_replace('/[\r\n]+/', '', $name));
+        } else {
+            $name = '';
+        }
+        $params = [$kind, $address, $name];
+        if (static::idnSupported() && $this->has8bitChars(substr($address, ++$pos))) {
+            if ('Reply-To' !== $kind) {
+                if (!array_key_exists($address, $this->RecipientsQueue)) {
+                    $this->RecipientsQueue[$address] = $params;
+                    return true;
+                }
+            } elseif (!array_key_exists($address, $this->ReplyToQueue)) {
+                $this->ReplyToQueue[$address] = $params;
+                return true;
+            }
+            return false;
+        }
+        return call_user_func_array([$this, 'addAnAddress'], $params);
+    }
+
+    protected function lang($key)
+    {
+        if (count($this->language) < 1) {
+            $this->setLanguage();
+        }
+        if (array_key_exists($key, $this->language)) {
+            if ('smtp_connect_failed' === $key) {
+                return $this->language[$key] . ' https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting';
+            }
+            return $this->language[$key];
+        }
+        return $key;
+    }
+
     public function setLanguage($langcode = 'en', $lang_path = ''): bool
     {
         $renamed_langcodes = ['br' => 'pt_br', 'cz' => 'cs', 'dk' => 'da', 'no' => 'nb', 'se' => 'sv', 'rs' => 'sr', 'tg' => 'tl', 'am' => 'hy',];
@@ -447,6 +300,76 @@ class PHPMailer
         }
         $this->language = $PHPMAILER_LANG;
         return $foundlang;
+    }
+
+    protected static function fileIsAccessible($path): bool
+    {
+        if (!static::isPermittedPath($path)) {
+            return false;
+        }
+        $readable = file_exists($path);
+        if (!str_starts_with($path, '\\\\')) {
+            $readable = $readable && is_readable($path);
+        }
+        return $readable;
+    }
+
+    protected static function isPermittedPath($path): bool
+    {
+        return !preg_match('#^[a-z][a-z\d+.-]*://#i', $path);
+    }
+
+    protected function setError($msg)
+    {
+        ++$this->error_count;
+        if ('smtp' === $this->Mailer && null !== $this->smtp) {
+            $lasterror = $this->smtp->getError();
+            if (!empty($lasterror['error'])) {
+                $msg .= $this->lang('smtp_error') . $lasterror['error'];
+                if (!empty($lasterror['detail'])) {
+                    $msg .= ' ' . $this->lang('smtp_detail') . $lasterror['detail'];
+                }
+                if (!empty($lasterror['smtp_code'])) {
+                    $msg .= ' ' . $this->lang('smtp_code') . $lasterror['smtp_code'];
+                }
+                if (!empty($lasterror['smtp_code_ex'])) {
+                    $msg .= ' ' . $this->lang('smtp_code_ex') . $lasterror['smtp_code_ex'];
+                }
+            }
+        }
+        $this->ErrorInfo = $msg;
+    }
+
+    protected function edebug($str)
+    {
+        if ($this->SMTPDebug <= 0) {
+            return;
+        }
+        if ($this->Debugoutput instanceof loggerInterface) {
+            $this->Debugoutput->debug($str);
+            return;
+        }
+        if (is_callable($this->Debugoutput) && !in_array($this->Debugoutput, ['error_log', 'html', 'echo'])) {
+            call_user_func($this->Debugoutput, $str, $this->SMTPDebug);
+            return;
+        }
+        switch ($this->Debugoutput) {
+            case 'error_log':
+                error_log($str);
+                break;
+            case 'html':
+                echo htmlentities(preg_replace('/[\r\n]+/', '', $str), ENT_QUOTES, 'UTF-8'), "<br>\n";
+                break;
+            case 'echo':
+            default:
+                $str = preg_replace('/\r\n|\r/m', "\n", $str);
+                echo gmdate('Y-m-d H:i:s'), "\t", trim(str_replace("\n", "\n                   \t                  ", trim($str))), "\n";
+        }
+    }
+
+    public static function idnSupported(): bool
+    {
+        return function_exists('idn_to_ascii') && function_exists('mb_convert_encoding');
     }
 
     public function has8bitChars($text): bool
@@ -628,6 +551,24 @@ class PHPMailer
     public function alternativeExists(): bool
     {
         return !empty($this->AltBody);
+    }
+
+    protected function setMessageType()
+    {
+        $type = [];
+        if ($this->alternativeExists()) {
+            $type[] = 'alt';
+        }
+        if ($this->inlineImageExists()) {
+            $type[] = 'inline';
+        }
+        if ($this->attachmentExists()) {
+            $type[] = 'attach';
+        }
+        $this->message_type = implode('_', $type);
+        if ('' === $this->message_type) {
+            $this->message_type = 'plain';
+        }
     }
 
     public function inlineImageExists(): bool
@@ -845,6 +786,24 @@ class PHPMailer
         return $body;
     }
 
+    protected function generateId(): array|string
+    {
+        $len = 32;
+        $bytes = '';
+        if (function_exists('random_bytes')) {
+            try {
+                $bytes = random_bytes($len);
+            } catch (\Exception $e) {
+            }
+        } elseif (function_exists('openssl_random_pseudo_bytes')) {
+            $bytes = openssl_random_pseudo_bytes($len);
+        }
+        if ($bytes === '') {
+            $bytes = hash('sha256', uniqid((string)mt_rand(), true), true);
+        }
+        return str_replace(['=', '+', '/'], '', base64_encode(hash('sha256', $bytes, true)));
+    }
+
     #[Pure] public function getMailMIME(): string
     {
         $result = '';
@@ -991,6 +950,18 @@ class PHPMailer
         return $message;
     }
 
+    public static function normalizeBreaks($text, $breaktype = null): array|string
+    {
+        if (null === $breaktype) {
+            $breaktype = static::$LE;
+        }
+        $text = str_replace([self::CRLF, "\r"], "\n", $text);
+        if ("\n" !== $breaktype) {
+            $text = str_replace("\n", $breaktype, $text);
+        }
+        return $text;
+    }
+
     public function utf8CharBoundary($encodedText, $maxLength): int
     {
         $foundSplitPos = false;
@@ -1017,6 +988,33 @@ class PHPMailer
             }
         }
         return $maxLength;
+    }
+
+    public static function hasLineLongerThanMax($str): bool
+    {
+        return (bool)preg_match('/^(.{' . (self::MAX_LINE_LENGTH + strlen(static::$LE)) . ',})/m', $str);
+    }
+
+    #[Pure] protected function getBoundary($boundary, $charSet, $contentType, $encoding): string
+    {
+        $result = '';
+        if ('' === $charSet) {
+            $charSet = $this->CharSet;
+        }
+        if ('' === $contentType) {
+            $contentType = $this->ContentType;
+        }
+        if ('' === $encoding) {
+            $encoding = $this->Encoding;
+        }
+        $result .= $this->textLine('--' . $boundary);
+        $result .= sprintf('Content-Type: %s; charset=%s', $contentType, $charSet);
+        $result .= static::$LE;
+        if (static::ENCODING_7BIT !== $encoding) {
+            $result .= $this->headerLine('Content-Transfer-Encoding', $encoding);
+        }
+        $result .= static::$LE;
+        return $result;
     }
 
     /**
@@ -1055,6 +1053,83 @@ class PHPMailer
     public function encodeQP($string): array|string
     {
         return static::normalizeBreaks(quoted_printable_encode($string));
+    }
+
+    /**
+     * @throws Exception
+     */
+    protected function attachAll($disposition_type, $boundary): string
+    {
+        $mime = [];
+        $cidUniq = [];
+        $incl = [];
+        foreach ($this->attachment as $attachment) {
+            if ($attachment[6] === $disposition_type) {
+                $string = '';
+                $path = '';
+                $bString = $attachment[5];
+                if ($bString) {
+                    $string = $attachment[0];
+                } else {
+                    $path = $attachment[0];
+                }
+                $inclhash = hash('sha256', serialize($attachment));
+                if (in_array($inclhash, $incl, true)) {
+                    continue;
+                }
+                $incl[] = $inclhash;
+                $name = $attachment[2];
+                $encoding = $attachment[3];
+                $type = $attachment[4];
+                $disposition = $attachment[6];
+                $cid = $attachment[7];
+                if ('inline' === $disposition && array_key_exists($cid, $cidUniq)) {
+                    continue;
+                }
+                $cidUniq[$cid] = true;
+                $mime[] = sprintf('--%s%s', $boundary, static::$LE);
+                if (!empty($name)) {
+                    $mime[] = sprintf('Content-Type: %s; name=%s%s', $type, static::quotedString($this->encodeHeader($this->secureHeader($name))), static::$LE);
+                } else {
+                    $mime[] = sprintf('Content-Type: %s%s', $type, static::$LE);
+                }
+                if (static::ENCODING_7BIT !== $encoding) {
+                    $mime[] = sprintf('Content-Transfer-Encoding: %s%s', $encoding, static::$LE);
+                }
+                if ((string)$cid !== '' && $disposition === 'inline') {
+                    $mime[] = 'Content-ID: <' . $this->encodeHeader($this->secureHeader($cid)) . '>' . static::$LE;
+                }
+                if (!empty($disposition)) {
+                    $encoded_name = $this->encodeHeader($this->secureHeader($name));
+                    if (!empty($encoded_name)) {
+                        $mime[] = sprintf('Content-Disposition: %s; filename=%s%s', $disposition, static::quotedString($encoded_name), static::$LE . static::$LE);
+                    } else {
+                        $mime[] = sprintf('Content-Disposition: %s%s', $disposition, static::$LE . static::$LE);
+                    }
+                } else {
+                    $mime[] = static::$LE;
+                }
+                if ($bString) {
+                    $mime[] = $this->encodeString($string, $encoding);
+                } else {
+                    $mime[] = $this->encodeFile($path, $encoding);
+                }
+                if ($this->isError()) {
+                    return '';
+                }
+                $mime[] = static::$LE;
+            }
+        }
+        $mime[] = sprintf('--%s--%s', $boundary, static::$LE);
+        return implode('', $mime);
+    }
+
+    public static function quotedString($str)
+    {
+        if (preg_match('/[ ()<>@,;:"\/\[\]?=]/', $str)) {
+            return '"' . str_replace('"', '\\"', $str) . '"';
+        }
+        return $str;
     }
 
     public function encodeHeader($str, $position = 'text')
@@ -1191,9 +1266,38 @@ class PHPMailer
         return trim(str_replace(["\r", "\n"], '', $str));
     }
 
+    /**
+     * @throws Exception
+     */
+    protected function encodeFile($path, $encoding = self::ENCODING_BASE64)
+    {
+        try {
+            if (!static::fileIsAccessible($path)) {
+                throw new Exception($this->lang('file_open') . $path, self::STOP_CONTINUE);
+            }
+            $file_buffer = file_get_contents($path);
+            if (false === $file_buffer) {
+                throw new Exception($this->lang('file_open') . $path, self::STOP_CONTINUE);
+            }
+            return $this->encodeString($file_buffer, $encoding);
+        } catch (Exception $exc) {
+            $this->setError($exc->getMessage());
+            $this->edebug($exc->getMessage());
+            if ($this->exceptions) {
+                throw $exc;
+            }
+            return '';
+        }
+    }
+
     public function isError(): bool
     {
         return $this->error_count > 0;
+    }
+
+    protected function endBoundary($boundary): string
+    {
+        return static::$LE . '--' . $boundary . '--' . static::$LE;
     }
 
     public function createHeader(): string
@@ -1250,6 +1354,12 @@ class PHPMailer
         return $result;
     }
 
+    public static function rfcDate(): string
+    {
+        date_default_timezone_set(@date_default_timezone_get());
+        return date('D, j M Y H:i:s O');
+    }
+
     public function addrFormat($addr): string
     {
         if (empty($addr[1])) {
@@ -1265,6 +1375,38 @@ class PHPMailer
             $addresses[] = $this->addrFormat($address);
         }
         return $type . ': ' . implode(', ', $addresses) . static::$LE;
+    }
+
+    protected function serverHostname()
+    {
+        $result = '';
+        if (!empty($this->Hostname)) {
+            $result = $this->Hostname;
+        } elseif (isset($_SERVER) && array_key_exists('SERVER_NAME', $_SERVER)) {
+            $result = $_SERVER['SERVER_NAME'];
+        } elseif (function_exists('gethostname') && gethostname() !== false) {
+            $result = gethostname();
+        } elseif (php_uname('n') != false) {
+            $result = php_uname('n');
+        }
+        if (!static::isValidHost($result)) {
+            return 'localhost.localdomain';
+        }
+        return $result;
+    }
+
+    public static function isValidHost($host): bool
+    {
+        if (empty($host) || !is_string($host) || strlen($host) > 256 || !preg_match('/^([a-zA-Z\d.-]*|\[[a-fA-F\d:]+\])$/', $host)) {
+            return false;
+        }
+        if (strlen($host) > 2 && str_starts_with($host, '[') && str_ends_with($host, ']')) {
+            return filter_var(substr($host, 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+        }
+        if (is_numeric(str_replace('.', '', $host))) {
+            return filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
+        }
+        return filter_var('https://' . $host, FILTER_VALIDATE_URL) !== false;
     }
 
     /**
@@ -1383,6 +1525,11 @@ class PHPMailer
         return static::stripTrailingWSP($body) . self::CRLF;
     }
 
+    public static function stripTrailingWSP($text): string
+    {
+        return rtrim($text, " \r\n\t");
+    }
+
     public function DKIM_HeaderC($signHeader): string
     {
         $signHeader = static::normalizeBreaks($signHeader, self::CRLF);
@@ -1461,6 +1608,214 @@ class PHPMailer
             }
         }
         return false;
+    }
+
+    /**
+     * @throws Exception
+     */
+    protected function sendmailSend($header, $body): bool
+    {
+        if ($this->Mailer === 'qmail') {
+            $this->edebug('Sending with qmail');
+        } else {
+            $this->edebug('Sending with sendmail');
+        }
+        $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
+        $sendmail_from_value = ini_get('sendmail_from');
+        if (empty($this->Sender) && !empty($sendmail_from_value)) {
+            $this->Sender = ini_get('sendmail_from');
+        }
+        if (!empty($this->Sender) && static::validateAddress($this->Sender) && self::isShellSafe($this->Sender)) {
+            if ($this->Mailer === 'qmail') {
+                $sendmailFmt = '%s -f%s';
+            } else {
+                $sendmailFmt = '%s -oi -f%s -t';
+            }
+        } else {
+            $sendmailFmt = '%s -oi -t';
+        }
+        $sendmail = sprintf($sendmailFmt, escapeshellcmd($this->Sendmail), $this->Sender);
+        $this->edebug('Sendmail path: ' . $this->Sendmail);
+        $this->edebug('Sendmail command: ' . $sendmail);
+        $this->edebug('Envelope sender: ' . $this->Sender);
+        $this->edebug("Headers: {$header}");
+        if ($this->SingleTo) {
+            foreach ($this->SingleToArray as $toAddr) {
+                $mail = @popen($sendmail, 'w');
+                if (!$mail) {
+                    throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
+                }
+                $this->edebug("To: {$toAddr}");
+                fwrite($mail, 'To: ' . $toAddr . "\n");
+                fwrite($mail, $header);
+                fwrite($mail, $body);
+                $result = pclose($mail);
+                $addrinfo = static::parseAddresses($toAddr, true, $this->CharSet);
+                $this->doCallback(($result === 0), [[$addrinfo['address'], $addrinfo['name']]], $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
+                $this->edebug("Result: " . ($result === 0 ? 'true' : 'false'));
+                if (0 !== $result) {
+                    throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
+                }
+            }
+        } else {
+            $mail = @popen($sendmail, 'w');
+            if (!$mail) {
+                throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
+            }
+            fwrite($mail, $header);
+            fwrite($mail, $body);
+            $result = pclose($mail);
+            $this->doCallback(($result === 0), $this->to, $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
+            $this->edebug("Result: " . ($result === 0 ? 'true' : 'false'));
+            if (0 !== $result) {
+                throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
+            }
+        }
+        return true;
+    }
+
+    protected static function isShellSafe($string): bool
+    {
+        if (!function_exists('escapeshellarg') || !function_exists('escapeshellcmd')) {
+            return false;
+        }
+        if (escapeshellcmd($string) !== $string || !in_array(escapeshellarg($string), ["'$string'", "\"$string\""])) {
+            return false;
+        }
+        $length = strlen($string);
+        for ($i = 0; $i < $length; ++$i) {
+            $c = $string[$i];
+            if (!ctype_alnum($c) && !str_contains('@_-.', $c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static function parseAddresses($addrstr, $useimap = true, $charset = self::CHARSET_ISO88591): array
+    {
+        $addresses = [];
+        if ($useimap && function_exists('imap_rfc822_parse_adrlist')) {
+            $list = imap_rfc822_parse_adrlist($addrstr, '');
+            imap_errors();
+            foreach ($list as $address) {
+                if ('.SYNTAX-ERROR.' !== $address->host && static::validateAddress($address->mailbox . '@' . $address->host)) {
+                    if (property_exists($address, 'personal') && defined('MB_CASE_UPPER') && preg_match('/^=\?.*\?=$/s', $address->personal)) {
+                        $origCharset = mb_internal_encoding();
+                        mb_internal_encoding($charset);
+                        $address->personal = str_replace('_', '=20', $address->personal);
+                        $address->personal = mb_decode_mimeheader($address->personal);
+                        mb_internal_encoding($origCharset);
+                    }
+                    $addresses[] = ['name' => (property_exists($address, 'personal') ? $address->personal : ''), 'address' => $address->mailbox . '@' . $address->host,];
+                }
+            }
+        } else {
+            $list = explode(',', $addrstr);
+            foreach ($list as $address) {
+                $address = trim($address);
+                if (!str_contains($address, '<')) {
+                    if (static::validateAddress($address)) {
+                        $addresses[] = ['name' => '', 'address' => $address,];
+                    }
+                } else {
+                    list($name, $email) = explode('<', $address);
+                    $email = trim(str_replace('>', '', $email));
+                    $name = trim($name);
+                    if (static::validateAddress($email)) {
+                        if (defined('MB_CASE_UPPER') && preg_match('/^=\?.*\?=$/s', $name)) {
+                            $origCharset = mb_internal_encoding();
+                            mb_internal_encoding($charset);
+                            $name = str_replace('_', '=20', $name);
+                            $name = mb_decode_mimeheader($name);
+                            mb_internal_encoding($origCharset);
+                        }
+                        $addresses[] = ['name' => trim($name, '\'" '), 'address' => $email,];
+                    }
+                }
+            }
+        }
+        return $addresses;
+    }
+
+    public static function validateAddress($address, $patternselect = null)
+    {
+        if (null === $patternselect) {
+            $patternselect = static::$validator;
+        }
+        if (is_callable($patternselect) && !is_string($patternselect)) {
+            return call_user_func($patternselect, $address);
+        }
+        if (str_contains($address, "\n") || str_contains($address, "\r")) {
+            return false;
+        }
+        return match ($patternselect) {
+            'pcre', 'pcre8' => (bool)preg_match('/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)' . '((?>(?>(?>((?>(?>(?>\x0D\x0A)?[\t ])+|(?>[\t ]*\x0D\x0A)?[\t ]+)?)(\((?>(?2)' . '(?>[\x01-\x08\x0B\x0C\x0E-\'*-\[\]-\x7F]|\\\[\x00-\x7F]|(?3)))*(?2)\)))+(?2))|(?2))?)' . '([!#-\'*+\/-9=?^-~-]+|"(?>(?2)(?>[\x01-\x08\x0B\x0C\x0E-!#-\[\]-\x7F]|\\\[\x00-\x7F]))*' . '(?2)")(?>(?1)\.(?1)(?4))*(?1)@(?!(?1)[a-z0-9-]{64,})(?1)(?>([a-z0-9](?>[a-z0-9-]*[a-z0-9])?)' . '(?>(?1)\.(?!(?1)[a-z0-9-]{64,})(?1)(?5)){0,126}|\[(?:(?>IPv6:(?>([a-f0-9]{1,4})(?>:(?6)){7}' . '|(?!(?:.*[a-f0-9][:\]]){8,})((?6)(?>:(?6)){0,6})?::(?7)?))|(?>(?>IPv6:(?>(?6)(?>:(?6)){5}:' . '|(?!(?:.*[a-f0-9]:){6,})(?8)?::(?>((?6)(?>:(?6)){0,4}):)?))?(25[0-5]|2[0-4][0-9]|1[0-9]{2}' . '|[1-9]?[0-9])(?>\.(?9)){3}))\])(?1)$/isD', $address),
+            'html5' => (bool)preg_match('/^[a-zA-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}' . '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD', $address),
+            default => filter_var($address, FILTER_VALIDATE_EMAIL) !== false,
+        };
+    }
+
+    protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body, $from, $extra)
+    {
+        if (!empty($this->action_function) && is_callable($this->action_function)) {
+            call_user_func($this->action_function, $isSent, $to, $cc, $bcc, $subject, $body, $from, $extra);
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    protected function smtpSend($header, $body): bool
+    {
+        $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
+        $bad_rcpt = [];
+        if (!$this->smtpConnect($this->SMTPOptions)) {
+            throw new Exception($this->lang('smtp_connect_failed'), self::STOP_CRITICAL);
+        }
+        if ('' === $this->Sender) {
+            $smtp_from = $this->From;
+        } else {
+            $smtp_from = $this->Sender;
+        }
+        if (!$this->smtp->mail($smtp_from)) {
+            $this->setError($this->lang('from_failed') . $smtp_from . ' : ' . implode(',', $this->smtp->getError()));
+            throw new Exception($this->ErrorInfo, self::STOP_CRITICAL);
+        }
+        $callbacks = [];
+        foreach ([$this->to, $this->cc, $this->bcc] as $togroup) {
+            foreach ($togroup as $to) {
+                if (!$this->smtp->recipient($to[0], $this->dsn)) {
+                    $error = $this->smtp->getError();
+                    $bad_rcpt[] = ['to' => $to[0], 'error' => $error['detail']];
+                    $isSent = false;
+                } else {
+                    $isSent = true;
+                }
+                $callbacks[] = ['issent' => $isSent, 'to' => $to[0], 'name' => $to[1]];
+            }
+        }
+        if ((count($this->all_recipients) > count($bad_rcpt)) && !$this->smtp->data($header . $body)) {
+            throw new Exception($this->lang('data_not_accepted'), self::STOP_CRITICAL);
+        }
+        $smtp_transaction_id = $this->smtp->getLastTransactionID();
+        if ($this->SMTPKeepAlive) {
+            $this->smtp->reset();
+        } else {
+            $this->smtp->quit();
+            $this->smtp->close();
+        }
+        foreach ($callbacks as $cb) {
+            $this->doCallback($cb['issent'], [[$cb['to'], $cb['name']]], [], [], $this->Subject, $body, $this->From, ['smtp_transaction_id' => $smtp_transaction_id]);
+        }
+        if (count($bad_rcpt) > 0) {
+            $errstr = '';
+            foreach ($bad_rcpt as $bad) {
+                $errstr .= $bad['to'] . ': ' . $bad['error'];
+            }
+            throw new Exception($this->lang('recipients_failed') . $errstr, self::STOP_CONTINUE);
+        }
+        return true;
     }
 
     /**
@@ -1563,6 +1918,85 @@ class PHPMailer
         return $this->smtp;
     }
 
+    private function getSmtpErrorMessage()
+    {
+        $message = $this->lang('connect_host');
+        $error = $this->smtp->getError();
+        if (!empty($error['error'])) {
+            $message .= ' ' . $error['error'];
+            if (!empty($error['detail'])) {
+                $message .= ' ' . $error['detail'];
+            }
+        }
+        return $message;
+    }
+
+    /**
+     * @throws Exception
+     */
+    protected function mailSend($header, $body): bool
+    {
+        $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
+        $toArr = [];
+        foreach ($this->to as $toaddr) {
+            $toArr[] = $this->addrFormat($toaddr);
+        }
+        $to = implode(', ', $toArr);
+        $params = null;
+        $sendmail_from_value = ini_get('sendmail_from');
+        if (empty($this->Sender) && !empty($sendmail_from_value)) {
+            $this->Sender = ini_get('sendmail_from');
+        }
+        if (!empty($this->Sender) && static::validateAddress($this->Sender)) {
+            if (self::isShellSafe($this->Sender)) {
+                $params = sprintf('-f%s', $this->Sender);
+            }
+            $old_from = ini_get('sendmail_from');
+            ini_set('sendmail_from', $this->Sender);
+        }
+        $result = false;
+        if ($this->SingleTo && count($toArr) > 1) {
+            foreach ($toArr as $toAddr) {
+                $result = $this->mailPassthru($toAddr, $this->Subject, $body, $header, $params);
+                $addrinfo = static::parseAddresses($toAddr, true, $this->CharSet);
+                $this->doCallback($result, [[$addrinfo['address'], $addrinfo['name']]], $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
+            }
+        } else {
+            $result = $this->mailPassthru($to, $this->Subject, $body, $header, $params);
+            $this->doCallback($result, $this->to, $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
+        }
+        if (isset($old_from)) {
+            ini_set('sendmail_from', $old_from);
+        }
+        if (!$result) {
+            throw new Exception($this->lang('instantiate'), self::STOP_CRITICAL);
+        }
+        return true;
+    }
+
+    private function mailPassthru($to, $subject, $body, $header, $params): bool
+    {
+        if (ini_get('mbstring.func_overload') & 1) {
+            $subject = $this->secureHeader($subject);
+        } else {
+            $subject = $this->encodeHeader($this->secureHeader($subject));
+        }
+        $this->edebug('Sending with mail()');
+        $this->edebug('Sendmail path: ' . ini_get('sendmail_path'));
+        $this->edebug("Envelope sender: {$this->Sender}");
+        $this->edebug("To: {$to}");
+        $this->edebug("Subject: {$subject}");
+        $this->edebug("Headers: {$header}");
+        if (!$this->UseSendmailOptions || null === $params) {
+            $result = @mail($to, $subject, $body, $header);
+        } else {
+            $this->edebug("Additional params: {$params}");
+            $result = @mail($to, $subject, $body, $header, $params);
+        }
+        $this->edebug('Result: ' . ($result ? 'true' : 'false'));
+        return $result;
+    }
+
     public function setSMTPInstance(SMTP $smtp): SMTP
     {
         $this->smtp = $smtp;
@@ -1611,6 +2045,58 @@ class PHPMailer
             return false;
         }
         return true;
+    }
+
+    public static function filenameToType($filename): string
+    {
+        $qpos = strpos($filename, '?');
+        if (false !== $qpos) {
+            $filename = substr($filename, 0, $qpos);
+        }
+        $ext = static::mb_pathinfo($filename, PATHINFO_EXTENSION);
+        return static::_mime_types($ext);
+    }
+
+    public static function mb_pathinfo($path, $options = null)
+    {
+        $ret = ['dirname' => '', 'basename' => '', 'extension' => '', 'filename' => ''];
+        $pathinfo = [];
+        if (preg_match('#^(.*?)[\\\\/]*(([^/\\\\]*?)(\.([^.\\\\/]+?)|))[\\\\/.]*$#m', $path, $pathinfo)) {
+            if (array_key_exists(1, $pathinfo)) {
+                $ret['dirname'] = $pathinfo[1];
+            }
+            if (array_key_exists(2, $pathinfo)) {
+                $ret['basename'] = $pathinfo[2];
+            }
+            if (array_key_exists(5, $pathinfo)) {
+                $ret['extension'] = $pathinfo[5];
+            }
+            if (array_key_exists(3, $pathinfo)) {
+                $ret['filename'] = $pathinfo[3];
+            }
+        }
+        return match ($options) {
+            PATHINFO_DIRNAME, 'dirname' => $ret['dirname'],
+            PATHINFO_BASENAME, 'basename' => $ret['basename'],
+            PATHINFO_EXTENSION, 'extension' => $ret['extension'],
+            PATHINFO_FILENAME, 'filename' => $ret['filename'],
+            default => $ret,
+        };
+    }
+
+    public static function _mime_types($ext = ''): string
+    {
+        $mimes = ['xl' => 'application/excel', 'js' => 'application/javascript', 'hqx' => 'application/mac-binhex40', 'cpt' => 'application/mac-compactpro', 'bin' => 'application/macbinary', 'doc' => 'application/msword', 'word' => 'application/msword', 'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'xltx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template', 'potx' => 'application/vnd.openxmlformats-officedocument.presentationml.template', 'ppsx' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow', 'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'sldx' => 'application/vnd.openxmlformats-officedocument.presentationml.slide', 'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'dotx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template', 'xlam' => 'application/vnd.ms-excel.addin.macroEnabled.12', 'xlsb' => 'application/vnd.ms-excel.sheet.binary.macroEnabled.12', 'class' => 'application/octet-stream', 'dll' => 'application/octet-stream', 'dms' => 'application/octet-stream', 'exe' => 'application/octet-stream', 'lha' => 'application/octet-stream', 'lzh' => 'application/octet-stream', 'psd' => 'application/octet-stream', 'sea' => 'application/octet-stream', 'so' => 'application/octet-stream', 'oda' => 'application/oda', 'pdf' => 'application/pdf', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'smi' => 'application/smil', 'smil' => 'application/smil', 'mif' => 'application/vnd.mif', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'wbxml' => 'application/vnd.wap.wbxml', 'wmlc' => 'application/vnd.wap.wmlc', 'dcr' => 'application/x-director', 'dir' => 'application/x-director', 'dxr' => 'application/x-director', 'dvi' => 'application/x-dvi', 'gtar' => 'application/x-gtar', 'php3' => 'application/x-httpd-php', 'php4' => 'application/x-httpd-php', 'php' => 'application/x-httpd-php', 'phtml' => 'application/x-httpd-php', 'phps' => 'application/x-httpd-php-source', 'swf' => 'application/x-shockwave-flash', 'sit' => 'application/x-stuffit', 'tar' => 'application/x-tar', 'tgz' => 'application/x-tar', 'xht' => 'application/xhtml+xml', 'xhtml' => 'application/xhtml+xml', 'zip' => 'application/zip', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'mp2' => 'audio/mpeg', 'mp3' => 'audio/mpeg', 'm4a' => 'audio/mp4', 'mpga' => 'audio/mpeg', 'aif' => 'audio/x-aiff', 'aifc' => 'audio/x-aiff', 'aiff' => 'audio/x-aiff', 'ram' => 'audio/x-pn-realaudio', 'rm' => 'audio/x-pn-realaudio', 'rpm' => 'audio/x-pn-realaudio-plugin', 'ra' => 'audio/x-realaudio', 'wav' => 'audio/x-wav', 'mka' => 'audio/x-matroska', 'bmp' => 'image/bmp', 'gif' => 'image/gif', 'jpeg' => 'image/jpeg', 'jpe' => 'image/jpeg', 'jpg' => 'image/jpeg', 'png' => 'image/png', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'webp' => 'image/webp', 'avif' => 'image/avif', 'heif' => 'image/heif', 'heifs' => 'image/heif-sequence', 'heic' => 'image/heic', 'heics' => 'image/heic-sequence', 'eml' => 'message/rfc822', 'css' => 'text/css', 'html' => 'text/html', 'htm' => 'text/html', 'shtml' => 'text/html', 'log' => 'text/plain', 'text' => 'text/plain', 'txt' => 'text/plain', 'rtx' => 'text/richtext', 'rtf' => 'text/rtf', 'vcf' => 'text/vcard', 'vcard' => 'text/vcard', 'ics' => 'text/calendar', 'xml' => 'text/xml', 'xsl' => 'text/xml', 'wmv' => 'video/x-ms-wmv', 'mpeg' => 'video/mpeg', 'mpe' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mp4' => 'video/mp4', 'm4v' => 'video/mp4', 'mov' => 'video/quicktime', 'qt' => 'video/quicktime', 'rv' => 'video/vnd.rn-realvideo', 'avi' => 'video/x-msvideo', 'movie' => 'video/x-sgi-movie', 'webm' => 'video/webm', 'mkv' => 'video/x-matroska',];
+        $ext = strtolower($ext);
+        if (array_key_exists($ext, $mimes)) {
+            return $mimes[$ext];
+        }
+        return 'application/octet-stream';
+    }
+
+    protected function validateEncoding($encoding): bool
+    {
+        return in_array($encoding, [self::ENCODING_7BIT, self::ENCODING_QUOTED_PRINTABLE, self::ENCODING_BASE64, self::ENCODING_8BIT, self::ENCODING_BINARY,], true);
     }
 
     public function getAttachments(): array
@@ -1781,6 +2267,16 @@ class PHPMailer
         return $this->Body;
     }
 
+    protected function cidExists($cid): bool
+    {
+        foreach ($this->attachment as $attachment) {
+            if ('inline' === $attachment[6] && $cid === $attachment[7]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * @throws Exception
      */
@@ -1909,466 +2405,6 @@ class PHPMailer
     /**
      * @throws Exception
      */
-    protected function addOrEnqueueAnAddress($kind, $address, $name)
-    {
-        $pos = false;
-        if ($address !== null) {
-            $address = trim($address);
-            $pos = strrpos($address, '@');
-        }
-        if (false === $pos) {
-            $error_message = sprintf('%s (%s): %s', $this->lang('invalid_address'), $kind, $address);
-            $this->setError($error_message);
-            $this->edebug($error_message);
-            if ($this->exceptions) {
-                throw new Exception($error_message);
-            }
-            return false;
-        }
-        if ($name !== null) {
-            $name = trim(preg_replace('/[\r\n]+/', '', $name));
-        } else {
-            $name = '';
-        }
-        $params = [$kind, $address, $name];
-        if (static::idnSupported() && $this->has8bitChars(substr($address, ++$pos))) {
-            if ('Reply-To' !== $kind) {
-                if (!array_key_exists($address, $this->RecipientsQueue)) {
-                    $this->RecipientsQueue[$address] = $params;
-                    return true;
-                }
-            } elseif (!array_key_exists($address, $this->ReplyToQueue)) {
-                $this->ReplyToQueue[$address] = $params;
-                return true;
-            }
-            return false;
-        }
-        return call_user_func_array([$this, 'addAnAddress'], $params);
-    }
-
-    protected function lang($key)
-    {
-        if (count($this->language) < 1) {
-            $this->setLanguage();
-        }
-        if (array_key_exists($key, $this->language)) {
-            if ('smtp_connect_failed' === $key) {
-                return $this->language[$key] . ' https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting';
-            }
-            return $this->language[$key];
-        }
-        return $key;
-    }
-
-    protected function setError($msg)
-    {
-        ++$this->error_count;
-        if ('smtp' === $this->Mailer && null !== $this->smtp) {
-            $lasterror = $this->smtp->getError();
-            if (!empty($lasterror['error'])) {
-                $msg .= $this->lang('smtp_error') . $lasterror['error'];
-                if (!empty($lasterror['detail'])) {
-                    $msg .= ' ' . $this->lang('smtp_detail') . $lasterror['detail'];
-                }
-                if (!empty($lasterror['smtp_code'])) {
-                    $msg .= ' ' . $this->lang('smtp_code') . $lasterror['smtp_code'];
-                }
-                if (!empty($lasterror['smtp_code_ex'])) {
-                    $msg .= ' ' . $this->lang('smtp_code_ex') . $lasterror['smtp_code_ex'];
-                }
-            }
-        }
-        $this->ErrorInfo = $msg;
-    }
-
-    protected function edebug($str)
-    {
-        if ($this->SMTPDebug <= 0) {
-            return;
-        }
-        if ($this->Debugoutput instanceof loggerInterface) {
-            $this->Debugoutput->debug($str);
-            return;
-        }
-        if (is_callable($this->Debugoutput) && !in_array($this->Debugoutput, ['error_log', 'html', 'echo'])) {
-            call_user_func($this->Debugoutput, $str, $this->SMTPDebug);
-            return;
-        }
-        switch ($this->Debugoutput) {
-            case 'error_log':
-                error_log($str);
-                break;
-            case 'html':
-                echo htmlentities(preg_replace('/[\r\n]+/', '', $str), ENT_QUOTES, 'UTF-8'), "<br>\n";
-                break;
-            case 'echo':
-            default:
-                $str = preg_replace('/\r\n|\r/m', "\n", $str);
-                echo gmdate('Y-m-d H:i:s'), "\t", trim(str_replace("\n", "\n                   \t                  ", trim($str))), "\n";
-        }
-    }
-
-    protected function setMessageType()
-    {
-        $type = [];
-        if ($this->alternativeExists()) {
-            $type[] = 'alt';
-        }
-        if ($this->inlineImageExists()) {
-            $type[] = 'inline';
-        }
-        if ($this->attachmentExists()) {
-            $type[] = 'attach';
-        }
-        $this->message_type = implode('_', $type);
-        if ('' === $this->message_type) {
-            $this->message_type = 'plain';
-        }
-    }
-
-    protected function generateId(): array|string
-    {
-        $len = 32;
-        $bytes = '';
-        if (function_exists('random_bytes')) {
-            try {
-                $bytes = random_bytes($len);
-            } catch (\Exception $e) {
-            }
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $bytes = openssl_random_pseudo_bytes($len);
-        }
-        if ($bytes === '') {
-            $bytes = hash('sha256', uniqid((string)mt_rand(), true), true);
-        }
-        return str_replace(['=', '+', '/'], '', base64_encode(hash('sha256', $bytes, true)));
-    }
-
-    #[Pure] protected function getBoundary($boundary, $charSet, $contentType, $encoding): string
-    {
-        $result = '';
-        if ('' === $charSet) {
-            $charSet = $this->CharSet;
-        }
-        if ('' === $contentType) {
-            $contentType = $this->ContentType;
-        }
-        if ('' === $encoding) {
-            $encoding = $this->Encoding;
-        }
-        $result .= $this->textLine('--' . $boundary);
-        $result .= sprintf('Content-Type: %s; charset=%s', $contentType, $charSet);
-        $result .= static::$LE;
-        if (static::ENCODING_7BIT !== $encoding) {
-            $result .= $this->headerLine('Content-Transfer-Encoding', $encoding);
-        }
-        $result .= static::$LE;
-        return $result;
-    }
-
-    /**
-     * @throws Exception
-     */
-    protected function attachAll($disposition_type, $boundary): string
-    {
-        $mime = [];
-        $cidUniq = [];
-        $incl = [];
-        foreach ($this->attachment as $attachment) {
-            if ($attachment[6] === $disposition_type) {
-                $string = '';
-                $path = '';
-                $bString = $attachment[5];
-                if ($bString) {
-                    $string = $attachment[0];
-                } else {
-                    $path = $attachment[0];
-                }
-                $inclhash = hash('sha256', serialize($attachment));
-                if (in_array($inclhash, $incl, true)) {
-                    continue;
-                }
-                $incl[] = $inclhash;
-                $name = $attachment[2];
-                $encoding = $attachment[3];
-                $type = $attachment[4];
-                $disposition = $attachment[6];
-                $cid = $attachment[7];
-                if ('inline' === $disposition && array_key_exists($cid, $cidUniq)) {
-                    continue;
-                }
-                $cidUniq[$cid] = true;
-                $mime[] = sprintf('--%s%s', $boundary, static::$LE);
-                if (!empty($name)) {
-                    $mime[] = sprintf('Content-Type: %s; name=%s%s', $type, static::quotedString($this->encodeHeader($this->secureHeader($name))), static::$LE);
-                } else {
-                    $mime[] = sprintf('Content-Type: %s%s', $type, static::$LE);
-                }
-                if (static::ENCODING_7BIT !== $encoding) {
-                    $mime[] = sprintf('Content-Transfer-Encoding: %s%s', $encoding, static::$LE);
-                }
-                if ((string)$cid !== '' && $disposition === 'inline') {
-                    $mime[] = 'Content-ID: <' . $this->encodeHeader($this->secureHeader($cid)) . '>' . static::$LE;
-                }
-                if (!empty($disposition)) {
-                    $encoded_name = $this->encodeHeader($this->secureHeader($name));
-                    if (!empty($encoded_name)) {
-                        $mime[] = sprintf('Content-Disposition: %s; filename=%s%s', $disposition, static::quotedString($encoded_name), static::$LE . static::$LE);
-                    } else {
-                        $mime[] = sprintf('Content-Disposition: %s%s', $disposition, static::$LE . static::$LE);
-                    }
-                } else {
-                    $mime[] = static::$LE;
-                }
-                if ($bString) {
-                    $mime[] = $this->encodeString($string, $encoding);
-                } else {
-                    $mime[] = $this->encodeFile($path, $encoding);
-                }
-                if ($this->isError()) {
-                    return '';
-                }
-                $mime[] = static::$LE;
-            }
-        }
-        $mime[] = sprintf('--%s--%s', $boundary, static::$LE);
-        return implode('', $mime);
-    }
-
-    /**
-     * @throws Exception
-     */
-    protected function encodeFile($path, $encoding = self::ENCODING_BASE64)
-    {
-        try {
-            if (!static::fileIsAccessible($path)) {
-                throw new Exception($this->lang('file_open') . $path, self::STOP_CONTINUE);
-            }
-            $file_buffer = file_get_contents($path);
-            if (false === $file_buffer) {
-                throw new Exception($this->lang('file_open') . $path, self::STOP_CONTINUE);
-            }
-            return $this->encodeString($file_buffer, $encoding);
-        } catch (Exception $exc) {
-            $this->setError($exc->getMessage());
-            $this->edebug($exc->getMessage());
-            if ($this->exceptions) {
-                throw $exc;
-            }
-            return '';
-        }
-    }
-
-    protected function endBoundary($boundary): string
-    {
-        return static::$LE . '--' . $boundary . '--' . static::$LE;
-    }
-
-    protected function serverHostname()
-    {
-        $result = '';
-        if (!empty($this->Hostname)) {
-            $result = $this->Hostname;
-        } elseif (isset($_SERVER) && array_key_exists('SERVER_NAME', $_SERVER)) {
-            $result = $_SERVER['SERVER_NAME'];
-        } elseif (function_exists('gethostname') && gethostname() !== false) {
-            $result = gethostname();
-        } elseif (php_uname('n') != false) {
-            $result = php_uname('n');
-        }
-        if (!static::isValidHost($result)) {
-            return 'localhost.localdomain';
-        }
-        return $result;
-    }
-
-    /**
-     * @throws Exception
-     */
-    protected function sendmailSend($header, $body): bool
-    {
-        if ($this->Mailer === 'qmail') {
-            $this->edebug('Sending with qmail');
-        } else {
-            $this->edebug('Sending with sendmail');
-        }
-        $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
-        $sendmail_from_value = ini_get('sendmail_from');
-        if (empty($this->Sender) && !empty($sendmail_from_value)) {
-            $this->Sender = ini_get('sendmail_from');
-        }
-        if (!empty($this->Sender) && static::validateAddress($this->Sender) && self::isShellSafe($this->Sender)) {
-            if ($this->Mailer === 'qmail') {
-                $sendmailFmt = '%s -f%s';
-            } else {
-                $sendmailFmt = '%s -oi -f%s -t';
-            }
-        } else {
-            $sendmailFmt = '%s -oi -t';
-        }
-        $sendmail = sprintf($sendmailFmt, escapeshellcmd($this->Sendmail), $this->Sender);
-        $this->edebug('Sendmail path: ' . $this->Sendmail);
-        $this->edebug('Sendmail command: ' . $sendmail);
-        $this->edebug('Envelope sender: ' . $this->Sender);
-        $this->edebug("Headers: {$header}");
-        if ($this->SingleTo) {
-            foreach ($this->SingleToArray as $toAddr) {
-                $mail = @popen($sendmail, 'w');
-                if (!$mail) {
-                    throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
-                }
-                $this->edebug("To: {$toAddr}");
-                fwrite($mail, 'To: ' . $toAddr . "\n");
-                fwrite($mail, $header);
-                fwrite($mail, $body);
-                $result = pclose($mail);
-                $addrinfo = static::parseAddresses($toAddr, true, $this->CharSet);
-                $this->doCallback(($result === 0), [[$addrinfo['address'], $addrinfo['name']]], $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
-                $this->edebug("Result: " . ($result === 0 ? 'true' : 'false'));
-                if (0 !== $result) {
-                    throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
-                }
-            }
-        } else {
-            $mail = @popen($sendmail, 'w');
-            if (!$mail) {
-                throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
-            }
-            fwrite($mail, $header);
-            fwrite($mail, $body);
-            $result = pclose($mail);
-            $this->doCallback(($result === 0), $this->to, $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
-            $this->edebug("Result: " . ($result === 0 ? 'true' : 'false'));
-            if (0 !== $result) {
-                throw new Exception($this->lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
-            }
-        }
-        return true;
-    }
-
-    protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body, $from, $extra)
-    {
-        if (!empty($this->action_function) && is_callable($this->action_function)) {
-            call_user_func($this->action_function, $isSent, $to, $cc, $bcc, $subject, $body, $from, $extra);
-        }
-    }
-
-    /**
-     * @throws Exception
-     */
-    protected function smtpSend($header, $body): bool
-    {
-        $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
-        $bad_rcpt = [];
-        if (!$this->smtpConnect($this->SMTPOptions)) {
-            throw new Exception($this->lang('smtp_connect_failed'), self::STOP_CRITICAL);
-        }
-        if ('' === $this->Sender) {
-            $smtp_from = $this->From;
-        } else {
-            $smtp_from = $this->Sender;
-        }
-        if (!$this->smtp->mail($smtp_from)) {
-            $this->setError($this->lang('from_failed') . $smtp_from . ' : ' . implode(',', $this->smtp->getError()));
-            throw new Exception($this->ErrorInfo, self::STOP_CRITICAL);
-        }
-        $callbacks = [];
-        foreach ([$this->to, $this->cc, $this->bcc] as $togroup) {
-            foreach ($togroup as $to) {
-                if (!$this->smtp->recipient($to[0], $this->dsn)) {
-                    $error = $this->smtp->getError();
-                    $bad_rcpt[] = ['to' => $to[0], 'error' => $error['detail']];
-                    $isSent = false;
-                } else {
-                    $isSent = true;
-                }
-                $callbacks[] = ['issent' => $isSent, 'to' => $to[0], 'name' => $to[1]];
-            }
-        }
-        if ((count($this->all_recipients) > count($bad_rcpt)) && !$this->smtp->data($header . $body)) {
-            throw new Exception($this->lang('data_not_accepted'), self::STOP_CRITICAL);
-        }
-        $smtp_transaction_id = $this->smtp->getLastTransactionID();
-        if ($this->SMTPKeepAlive) {
-            $this->smtp->reset();
-        } else {
-            $this->smtp->quit();
-            $this->smtp->close();
-        }
-        foreach ($callbacks as $cb) {
-            $this->doCallback($cb['issent'], [[$cb['to'], $cb['name']]], [], [], $this->Subject, $body, $this->From, ['smtp_transaction_id' => $smtp_transaction_id]);
-        }
-        if (count($bad_rcpt) > 0) {
-            $errstr = '';
-            foreach ($bad_rcpt as $bad) {
-                $errstr .= $bad['to'] . ': ' . $bad['error'];
-            }
-            throw new Exception($this->lang('recipients_failed') . $errstr, self::STOP_CONTINUE);
-        }
-        return true;
-    }
-
-    /**
-     * @throws Exception
-     */
-    protected function mailSend($header, $body): bool
-    {
-        $header = static::stripTrailingWSP($header) . static::$LE . static::$LE;
-        $toArr = [];
-        foreach ($this->to as $toaddr) {
-            $toArr[] = $this->addrFormat($toaddr);
-        }
-        $to = implode(', ', $toArr);
-        $params = null;
-        $sendmail_from_value = ini_get('sendmail_from');
-        if (empty($this->Sender) && !empty($sendmail_from_value)) {
-            $this->Sender = ini_get('sendmail_from');
-        }
-        if (!empty($this->Sender) && static::validateAddress($this->Sender)) {
-            if (self::isShellSafe($this->Sender)) {
-                $params = sprintf('-f%s', $this->Sender);
-            }
-            $old_from = ini_get('sendmail_from');
-            ini_set('sendmail_from', $this->Sender);
-        }
-        $result = false;
-        if ($this->SingleTo && count($toArr) > 1) {
-            foreach ($toArr as $toAddr) {
-                $result = $this->mailPassthru($toAddr, $this->Subject, $body, $header, $params);
-                $addrinfo = static::parseAddresses($toAddr, true, $this->CharSet);
-                $this->doCallback($result, [[$addrinfo['address'], $addrinfo['name']]], $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
-            }
-        } else {
-            $result = $this->mailPassthru($to, $this->Subject, $body, $header, $params);
-            $this->doCallback($result, $this->to, $this->cc, $this->bcc, $this->Subject, $body, $this->From, []);
-        }
-        if (isset($old_from)) {
-            ini_set('sendmail_from', $old_from);
-        }
-        if (!$result) {
-            throw new Exception($this->lang('instantiate'), self::STOP_CRITICAL);
-        }
-        return true;
-    }
-
-    protected function validateEncoding($encoding): bool
-    {
-        return in_array($encoding, [self::ENCODING_7BIT, self::ENCODING_QUOTED_PRINTABLE, self::ENCODING_BASE64, self::ENCODING_8BIT, self::ENCODING_BINARY,], true);
-    }
-
-    protected function cidExists($cid): bool
-    {
-        foreach ($this->attachment as $attachment) {
-            if ('inline' === $attachment[6] && $cid === $attachment[7]) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * @throws Exception
-     */
     protected function addAnAddress($kind, $address, $name = ''): bool
     {
         if (!in_array($kind, ['to', 'cc', 'bcc', 'Reply-To'])) {
@@ -2400,41 +2436,5 @@ class PHPMailer
             return true;
         }
         return false;
-    }
-
-    private function getSmtpErrorMessage()
-    {
-        $message = $this->lang('connect_host');
-        $error = $this->smtp->getError();
-        if (!empty($error['error'])) {
-            $message .= ' ' . $error['error'];
-            if (!empty($error['detail'])) {
-                $message .= ' ' . $error['detail'];
-            }
-        }
-        return $message;
-    }
-
-    private function mailPassthru($to, $subject, $body, $header, $params): bool
-    {
-        if (ini_get('mbstring.func_overload') & 1) {
-            $subject = $this->secureHeader($subject);
-        } else {
-            $subject = $this->encodeHeader($this->secureHeader($subject));
-        }
-        $this->edebug('Sending with mail()');
-        $this->edebug('Sendmail path: ' . ini_get('sendmail_path'));
-        $this->edebug("Envelope sender: {$this->Sender}");
-        $this->edebug("To: {$to}");
-        $this->edebug("Subject: {$subject}");
-        $this->edebug("Headers: {$header}");
-        if (!$this->UseSendmailOptions || null === $params) {
-            $result = @mail($to, $subject, $body, $header);
-        } else {
-            $this->edebug("Additional params: {$params}");
-            $result = @mail($to, $subject, $body, $header, $params);
-        }
-        $this->edebug('Result: ' . ($result ? 'true' : 'false'));
-        return $result;
     }
 }
