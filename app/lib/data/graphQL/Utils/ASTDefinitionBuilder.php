@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Utils;
 
+use JetBrains\PhpStorm\ArrayShape;
 use Throwable;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Executor\Values;
@@ -304,7 +305,7 @@ class ASTDefinitionBuilder
     /**
      * @return array<string, mixed>
      */
-    public function buildField(FieldDefinitionNode $field): array
+    #[ArrayShape(['type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'args' => "mixed", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\FieldDefinitionNode"])] public function buildField(FieldDefinitionNode $field): array
     {
         return [
             // Note: While this could make assertions to get the correctly typed
@@ -463,7 +464,7 @@ class ASTDefinitionBuilder
     /**
      * @return array<string, mixed>
      */
-    public function buildInputField(InputValueDefinitionNode $value): array
+    #[ArrayShape(['name' => "string", 'type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\InputValueDefinitionNode", 'defaultValue' => "mixed"])] public function buildInputField(InputValueDefinitionNode $value): array
     {
         $type = $this->buildWrappedType($value->type);
 
@@ -484,7 +485,7 @@ class ASTDefinitionBuilder
     /**
      * @return array<string, mixed>
      */
-    public function buildEnumValue(EnumValueDefinitionNode $value): array
+    #[ArrayShape(['description' => "null|string", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\EnumValueDefinitionNode"])] public function buildEnumValue(EnumValueDefinitionNode $value): array
     {
         return [
             'description' => $this->getDescription($value),

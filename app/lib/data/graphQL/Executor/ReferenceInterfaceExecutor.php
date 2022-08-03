@@ -7,6 +7,7 @@ namespace yxorP\app\lib\data\graphQL\Executor;
 use ArrayAccess;
 use ArrayObject;
 use Exception;
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use SplObjectStorage;
 use stdClass;
@@ -1187,7 +1188,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return array<mixed>|stdClass|mixed
      */
-    protected static function fixResultsIfEmptyArray($results)
+    #[Pure] protected static function fixResultsIfEmptyArray($results)
     {
         if ($results === []) {
             return new stdClass();

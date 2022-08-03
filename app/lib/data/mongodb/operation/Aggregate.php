@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
 use ArrayIterator;
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 use stdClass;
@@ -323,7 +324,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createCommandDocument()
+    #[Pure] private function createCommandDocument()
     {
         $cmd = [
             'aggregate' => $this->collectionName ?? 1,

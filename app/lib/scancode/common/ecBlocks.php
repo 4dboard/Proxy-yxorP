@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\common;
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Encapsulates a set of error-correction blocks in one symbol version.
  *
@@ -51,7 +53,7 @@ final class ecBlocks
     /**
      * Returns the total number of EC block appearances.
      */
-    public function getNumBlocks(): int
+    #[Pure] public function getNumBlocks(): int
     {
         $total = 0;
 

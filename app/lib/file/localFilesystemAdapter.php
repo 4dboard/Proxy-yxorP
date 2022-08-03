@@ -7,6 +7,7 @@ namespace yxorP\app\lib\file\Flysystem\Local;
 use DirectoryIterator;
 use FilesystemIterator;
 use Generator;
+use JetBrains\PhpStorm\Pure;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
@@ -369,14 +370,14 @@ class localFilesystemAdapter implements filesystemAdapterInterface
         return $contents;
     }
 
-    public function fileExists(string $location): bool
+    #[Pure] public function fileExists(string $location): bool
     {
         $location = $this->prefixer->prefixPath($location);
 
         return is_file($location);
     }
 
-    public function directoryExists(string $location): bool
+    #[Pure] public function directoryExists(string $location): bool
     {
         $location = $this->prefixer->prefixPath($location);
 

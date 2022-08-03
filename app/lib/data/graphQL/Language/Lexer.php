@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Language;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\SyntaxError;
 use yxorP\app\lib\data\graphQL\Utils\BlockString;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
@@ -93,7 +94,7 @@ class Lexer
     /**
      * @param bool[] $options
      */
-    public function __construct(Source $source, array $options = [])
+    #[Pure] public function __construct(Source $source, array $options = [])
     {
         $startOfFileToken = new Token(Token::SOF, 0, 0, 0, 0, null);
 

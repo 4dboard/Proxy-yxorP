@@ -17,6 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Driver\CursorInterface;
 use stdClass;
 use yxorP\app\lib\http\mongoDB\Driver\CursorInterface;
@@ -106,7 +108,7 @@ class ReadableStream
      * @see http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
      * @return array
      */
-    public function __debugInfo()
+    #[Pure] #[ArrayShape(['bucketName' => "string", 'databaseName' => "string", 'file' => "\stdClass"])] public function __debugInfo()
     {
         return [
             'bucketName' => $this->collectionWrapper->getBucketName(),

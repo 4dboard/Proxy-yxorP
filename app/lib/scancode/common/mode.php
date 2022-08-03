@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\common;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\enum\abstractEnum;
 
 /**
@@ -51,7 +52,7 @@ final class mode extends abstractEnum
     /**
      * Returns the number of bits used in a specific QR code version.
      */
-    public function getCharacterCountBits(version $version): int
+    #[Pure] public function getCharacterCountBits(version $version): int
     {
         $number = $version->getVersionNumber();
 

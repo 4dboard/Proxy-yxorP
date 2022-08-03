@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 use function rtrim;
@@ -11,7 +12,7 @@ final class unableToSetVisibility extends RuntimeException implements filesystem
     private $location;
     private $reason;
 
-    public static function atLocation(string $filename, string $extraMessage = '', Throwable $previous = null): self
+    #[Pure] public static function atLocation(string $filename, string $extraMessage = '', Throwable $previous = null): self
     {
         $message = "Unable to set visibility for file {$filename}. $extraMessage";
         $e = new static(rtrim($message), 0, $previous);

@@ -2,6 +2,8 @@
 
 namespace yxorP\app\modules\app\controller;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 /**
  * Class Controller
  * @property \yxorP\app\lib\http\App $app
@@ -15,7 +17,7 @@ class authenticated extends base
 
     protected $user;
 
-    public function unlockResource($resourceId)
+    #[ArrayShape(['success' => "bool"])] public function unlockResource($resourceId)
     {
 
         $meta = $this->helper('admin')->isResourceLocked($resourceId);

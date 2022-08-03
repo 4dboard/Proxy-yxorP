@@ -20,6 +20,7 @@ namespace yxorP\app\lib\data\mongoDB\Model;
 use Countable;
 use Iterator;
 use IteratorIterator;
+use JetBrains\PhpStorm\Pure;
 use ReturnTypeWillChange;
 use Traversable;
 use function count;
@@ -151,7 +152,7 @@ class CachingIterator implements Countable, Iterator
      * @see http://php.net/iterator.valid
      * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[Pure] #[ReturnTypeWillChange]
     public function valid()
     {
         return $this->key() !== null;

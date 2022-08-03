@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator;
 
+use JetBrains\PhpStorm\Pure;
 use SplObjectStorage;
 use yxorP\app\lib\data\graphQL\Language\AST\DocumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FieldNode;
@@ -52,7 +53,7 @@ class ValidationContext extends ASTValidationContext
     /** @var SplObjectStorage */
     private $recursiveVariableUsages;
 
-    public function __construct(Schema $schema, DocumentNode $ast, TypeInfo $typeInfo)
+    #[Pure] public function __construct(Schema $schema, DocumentNode $ast, TypeInfo $typeInfo)
     {
         parent::__construct($ast, $schema);
         $this->typeInfo = $typeInfo;
@@ -252,12 +253,12 @@ class ValidationContext extends ASTValidationContext
         return $this->typeInfo->getFieldDef();
     }
 
-    public function getDirective()
+    #[Pure] public function getDirective()
     {
         return $this->typeInfo->getDirective();
     }
 
-    public function getArgument()
+    #[Pure] public function getArgument()
     {
         return $this->typeInfo->getArgument();
     }

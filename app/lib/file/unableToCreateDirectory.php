@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -9,7 +10,7 @@ final class unableToCreateDirectory extends RuntimeException implements filesyst
 {
     private $location;
 
-    public static function atLocation(string $dirname, string $errorMessage = ''): unableToCreateDirectory
+    #[Pure] public static function atLocation(string $dirname, string $errorMessage = ''): unableToCreateDirectory
     {
         $message = "Unable to create a directory at {$dirname}. {$errorMessage}";
         $e = new static(rtrim($message));
@@ -17,7 +18,7 @@ final class unableToCreateDirectory extends RuntimeException implements filesyst
         return $e;
     }
 
-    public static function dueToFailure(string $dirname, Throwable $previous): unableToCreateDirectory
+    #[Pure] public static function dueToFailure(string $dirname, Throwable $previous): unableToCreateDirectory
     {
         $message = "Unable to create a directory at {$dirname}";
         $e = new static($message, 0, $previous);

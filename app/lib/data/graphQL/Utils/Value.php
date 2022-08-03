@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Utils;
 
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
 use stdClass;
 use Throwable;
 use Traversable;
@@ -219,7 +220,7 @@ class Value
         throw new Error(sprintf('Unexpected type %s', $type->name));
     }
 
-    private static function ofErrors($errors)
+    #[ArrayShape(['errors' => "", 'value' => "mixed|\stdClass"])] private static function ofErrors($errors)
     {
         return ['errors' => $errors, 'value' => Utils::undefined()];
     }
@@ -283,7 +284,7 @@ class Value
      *
      * @return (mixed|null)[]
      */
-    private static function ofValue($value)
+    #[ArrayShape(['errors' => "null", 'value' => "mixed"])] private static function ofValue($value)
     {
         return ['errors' => null, 'value' => $value];
     }
@@ -294,7 +295,7 @@ class Value
      *
      * @return (mixed|null)[]
      */
-    private static function atPath($prev, $key)
+    #[ArrayShape(['prev' => "mixed", 'key' => "mixed"])] private static function atPath($prev, $key)
     {
         return ['prev' => $prev, 'key' => $key];
     }

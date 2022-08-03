@@ -2,13 +2,14 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 
 final class symbolicLinkEncountered extends RuntimeException implements filesystemExceptionInterface
 {
     private $location;
 
-    public static function atLocation(string $pathName): symbolicLinkEncountered
+    #[Pure] public static function atLocation(string $pathName): symbolicLinkEncountered
     {
         $e = new static("Unsupported symbolic link encountered at location $pathName");
         $e->location = $pathName;

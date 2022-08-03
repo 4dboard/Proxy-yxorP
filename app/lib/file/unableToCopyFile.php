@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use Throwable;
 
@@ -10,7 +11,7 @@ final class unableToCopyFile extends RuntimeException implements filesystemOpera
     private $source;
     private $destination;
 
-    public static function fromLocationTo(string $sourcePath, string $destinationPath, Throwable $previous = null): unableToCopyFile
+    #[Pure] public static function fromLocationTo(string $sourcePath, string $destinationPath, Throwable $previous = null): unableToCopyFile
     {
         $e = new static("Unable to copy file from $sourcePath to $destinationPath", 0, $previous);
         $e->source = $sourcePath;

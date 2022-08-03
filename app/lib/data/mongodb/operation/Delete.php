@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\data\mongoDB\deleteResult;
 use yxorP\app\lib\data\mongoDB\Exception\UnsupportedException;
@@ -168,7 +169,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    #[ArrayShape(['delete' => "string", 'deletes' => "mixed", 'writeConcern' => "mixed"])] public function getCommandDocument(Server $server)
     {
         $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
 
@@ -187,7 +188,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createDeleteOptions()
+    #[ArrayShape(['limit' => "int|null", 'hint' => "mixed", 'collation' => "object"])] private function createDeleteOptions()
     {
         $deleteOptions = ['limit' => $this->limit];
 

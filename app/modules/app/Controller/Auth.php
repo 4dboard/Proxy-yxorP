@@ -3,6 +3,7 @@
 namespace yxorP\app\modules\app\controller;
 
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
 use function compact;
 use function is_string;
 use function substr;
@@ -47,7 +48,7 @@ class auth extends base
         return $this->render('app:views/auth/login.php', compact('redirectTo'));
     }
 
-    public function logout()
+    #[ArrayShape(['logout' => "bool"])] public function logout()
     {
 
         $this->helper('auth')->logout();

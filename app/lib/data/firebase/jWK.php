@@ -2,6 +2,7 @@
 
 use DomainException;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use UnexpectedValueException;
 use function base64_encode;
 use function chr;
@@ -71,7 +72,7 @@ class jWK
         return null;
     }
 
-    private static function createPemFromModulusAndExponent(string $n, string $e): string
+    #[Pure] private static function createPemFromModulusAndExponent(string $n, string $e): string
     {
         $mod = jWT::urlsafeB64Decode($n);
         $exp = jWT::urlsafeB64Decode($e);

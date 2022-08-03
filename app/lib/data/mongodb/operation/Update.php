@@ -17,6 +17,7 @@
 
 namespace yxorP\app\lib\data\mongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\WriteConcern;
 use yxorP\app\lib\http\mongoDB\Driver\BulkWrite as Bulk;
 use yxorP\app\lib\http\mongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -210,7 +211,7 @@ class Update implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    #[ArrayShape(['update' => "string", 'updates' => "array[]", 'writeConcern' => "false|mixed", 'bypassDocumentValidation' => "false|mixed"])] public function getCommandDocument(Server $server)
     {
         $cmd = ['update' => $this->collectionName, 'updates' => [['q' => $this->filter, 'u' => $this->update] + $this->createUpdateOptions()]];
 

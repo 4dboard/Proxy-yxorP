@@ -2,6 +2,7 @@
 
 namespace yxorP\app\lib\file\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use function rtrim;
 use function strlen;
 use function substr;
@@ -20,7 +21,7 @@ final class pathPrefixer
         $this->separator = $separator;
     }
 
-    public function stripDirectoryPrefix(string $path): string
+    #[Pure] public function stripDirectoryPrefix(string $path): string
     {
         return rtrim($this->stripPrefix($path), '\\/');
     }
@@ -30,7 +31,7 @@ final class pathPrefixer
         return substr($path, strlen($this->prefix));
     }
 
-    public function prefixDirectoryPath(string $path): string
+    #[Pure] public function prefixDirectoryPath(string $path): string
     {
         $prefixedPath = $this->prefixPath(rtrim($path, '\\/'));
         if ($prefixedPath === '' || substr($prefixedPath, -1) === $this->separator) {

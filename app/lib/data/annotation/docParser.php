@@ -1,6 +1,8 @@
 <?php namespace yxorP\app\lib\data\annotation;
 
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use ReflectionClass;
 use ReflectionProperty;
 use RuntimeException;
@@ -58,7 +60,7 @@ final class docParser
     private $ignoredAnnotationNamespaces = [];
     private $context = '';
 
-    public function __construct()
+    #[Pure] public function __construct()
     {
         $this->lexer = new docLexer();
     }
@@ -455,7 +457,7 @@ S
         return $values;
     }
 
-    private function Values(): array
+    #[ArrayShape(['named_arguments' => "array", 'positional_arguments' => "array"])] private function Values(): array
     {
         $values = [$this->Value()];
         while ($this->lexer->isNextToken(docLexer::T_COMMA)) {
@@ -627,7 +629,7 @@ S
         return constant($identifier);
     }
 
-    private function identifierEndsWithClassConstant(string $identifier): bool
+    #[Pure] private function identifierEndsWithClassConstant(string $identifier): bool
     {
         return $this->getClassConstantPositionInIdentifier($identifier) === strlen($identifier) - strlen('::class');
     }

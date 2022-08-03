@@ -2,6 +2,7 @@
 
 namespace yxorP\app\modules\app\helper;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\http\helperAware;
 
 
@@ -28,7 +29,7 @@ class eventStream extends helperAware
         return $events;
     }
 
-    public function add(string $event, $data, array $options)
+    #[ArrayShape(['type' => "string", 'data' => "", 'options' => "array", '_created' => "int"])] public function add(string $event, $data, array $options)
     {
 
         $evt = [

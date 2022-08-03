@@ -3,6 +3,7 @@
 namespace yxorP\app\lib\file\MimeTypeDetection;
 
 use finfo;
+use JetBrains\PhpStorm\Pure;
 use const FILEINFO_MIME_TYPE;
 use const PATHINFO_EXTENSION;
 
@@ -45,12 +46,12 @@ class finfoMimeTypeDetector implements mimeTypeDetectorInterface
         return $this->extensionMap->lookupMimeType($extension);
     }
 
-    public function detectMimeTypeFromFile(string $path): ?string
+    #[Pure] public function detectMimeTypeFromFile(string $path): ?string
     {
         return @$this->finfo->file($path) ?: null;
     }
 
-    public function detectMimeTypeFromBuffer(string $contents): ?string
+    #[Pure] public function detectMimeTypeFromBuffer(string $contents): ?string
     {
         return @$this->finfo->buffer($this->takeSample($contents)) ?: null;
     }

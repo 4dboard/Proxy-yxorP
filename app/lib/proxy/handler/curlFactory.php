@@ -2,6 +2,7 @@
 
 use Exception;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
@@ -137,7 +138,7 @@ class curlFactory implements curlFactoryInterface
         return $easy;
     }
 
-    private function getDefaultConf(easyHandle $easy)
+    #[ArrayShape(['_headers' => "mixed", \yxorP\app\lib\proxy\handler\CURLOPT_CUSTOMREQUEST => "mixed", \yxorP\app\lib\proxy\handler\CURLOPT_URL => "string", \yxorP\app\lib\proxy\handler\CURLOPT_RETURNTRANSFER => "false", \yxorP\app\lib\proxy\handler\CURLOPT_HEADER => "false", \yxorP\app\lib\proxy\handler\CURLOPT_CONNECTTIMEOUT => "int", \yxorP\app\lib\proxy\handler\CURLOPT_HTTP_VERSION => "int", \yxorP\app\lib\proxy\handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(easyHandle $easy)
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
         if (defined('CURLOPT_PROTOCOLS')) {

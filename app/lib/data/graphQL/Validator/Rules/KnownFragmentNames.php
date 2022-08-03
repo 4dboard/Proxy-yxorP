@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
 use yxorP\app\lib\data\graphQL\Language\AST\NodeKind;
@@ -12,7 +13,7 @@ use function sprintf;
 
 class KnownFragmentNames extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::FRAGMENT_SPREAD => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         return [
             NodeKind::FRAGMENT_SPREAD => static function (FragmentSpreadNode $node) use ($context): void {

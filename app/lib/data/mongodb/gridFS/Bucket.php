@@ -17,6 +17,8 @@
 
 namespace yxorP\app\lib\data\mongoDB\GridFS;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Driver\ReadConcern;
 use MongoDB\Driver\ReadPreference;
 use stdClass;
@@ -213,7 +215,7 @@ class Bucket
      * @see http://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.debuginfo
      * @return array
      */
-    public function __debugInfo()
+    #[ArrayShape(['bucketName' => "string", 'databaseName' => "string", 'manager' => "\yxorP\app\lib\http\mongoDB\Driver\Manager", 'chunkSizeBytes' => "int", 'readConcern' => "mixed", 'readPreference' => "mixed", 'typeMap' => "array|string[]", 'writeConcern' => "mixed"])] public function __debugInfo()
     {
         return [
             'bucketName' => $this->bucketName,
@@ -477,7 +479,7 @@ class Bucket
      *
      * @return collection
      */
-    public function getChunksCollection()
+    #[Pure] public function getChunksCollection()
     {
         return $this->collectionWrapper->getChunksCollection();
     }
@@ -548,7 +550,7 @@ class Bucket
      *
      * @return collection
      */
-    public function getFilesCollection()
+    #[Pure] public function getFilesCollection()
     {
         return $this->collectionWrapper->getFilesCollection();
     }

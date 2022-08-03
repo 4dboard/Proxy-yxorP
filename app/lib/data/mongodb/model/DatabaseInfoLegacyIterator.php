@@ -18,6 +18,7 @@
 namespace yxorP\app\lib\data\mongoDB\Model;
 
 
+use JetBrains\PhpStorm\Pure;
 use ReturnTypeWillChange;
 use function current;
 use function key;
@@ -54,7 +55,7 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIteratorInterface
      * @see http://php.net/iterator.current
      * @see DatabaseInfoIteratorInterface::current()
      */
-    public function current()
+    #[Pure] #[ReturnTypeWillChange] public function current()
     {
         return new DatabaseInfo(current($this->databases));
     }

@@ -1,4 +1,5 @@
 <?php use claviska\simpleImage;
+use JetBrains\PhpStorm\ArrayShape;
 
 class simpleImageLib extends simpleImage
 {
@@ -76,7 +77,7 @@ class simpleImageLib extends simpleImage
         return $this;
     }
 
-    protected function generate($mimeType = null, $quality = 100)
+    #[ArrayShape(['data' => "false|string", 'mimeType' => "mixed"])] protected function generate($mimeType = null, $quality = 100)
     {
         $mimeType = $mimeType ?: $this->mimeType;
         if ($quality === null) $quality = 100;

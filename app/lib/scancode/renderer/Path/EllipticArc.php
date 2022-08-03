@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\scancode\Renderer\Path;
 
+use JetBrains\PhpStorm\Pure;
+
 final class EllipticArc implements OperationInterface
 {
     private const ZERO_TOLERANCE = 1e-05;
@@ -99,7 +101,7 @@ final class EllipticArc implements OperationInterface
     /**
      * @return self
      */
-    public function translate(float $x, float $y): OperationInterface
+    #[Pure] public function translate(float $x, float $y): OperationInterface
     {
         return new self(
             $this->xRadius,
@@ -180,7 +182,7 @@ final class EllipticArc implements OperationInterface
     /**
      * @return float[]
      */
-    private function calculateCenterPointParameters(float $fromX, float $fromY, float $xAngle)
+    #[Pure] private function calculateCenterPointParameters(float $fromX, float $fromY, float $xAngle)
     {
         $rX = $this->xRadius;
         $rY = $this->yRadius;

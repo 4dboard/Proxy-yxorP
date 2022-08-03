@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Language;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\data\graphQL\Error\SyntaxError;
 use yxorP\app\lib\data\graphQL\Language\AST\ArgumentNode;
 use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
@@ -1011,7 +1012,7 @@ class Parser
 
     // Implements the parsing rules in the Types section.
 
-    private function peekDescription(): bool
+    #[Pure] private function peekDescription(): bool
     {
         return $this->peek(Token::STRING) || $this->peek(Token::BLOCK_STRING);
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace yxorP\app\lib\data\graphQL\Validator\Rules;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\Error\Error;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentDefinitionNode;
 use yxorP\app\lib\data\graphQL\Language\AST\FragmentSpreadNode;
@@ -29,7 +30,7 @@ class NoFragmentCycles extends ValidationRule
     /** @var (int|null)[] */
     public $spreadPathIndexByName;
 
-    public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
     {
         // Tracks already visited fragments to maintain O(N) and to ensure that cycles
         // are not redundantly reported.

@@ -2,6 +2,8 @@
 
 namespace yxorP\app\lib\openapi;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\openapi\logger\defaultLogger;
 
 /**
@@ -64,7 +66,7 @@ class Context
 {
     private $_parent;
 
-    public function __construct(array $properties = [], ?Context $parent = null)
+    #[Pure] public function __construct(array $properties = [], ?Context $parent = null)
     {
         foreach ($properties as $property => $value) {
             $this->$property = $value;
@@ -211,7 +213,7 @@ class Context
         return $namespace . $source;
     }
 
-    public function __debugInfo()
+    #[ArrayShape(['-' => "string"])] public function __debugInfo()
     {
         return ['-' => $this->getDebugLocation()];
     }

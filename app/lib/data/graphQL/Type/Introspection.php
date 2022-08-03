@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace yxorP\app\lib\data\graphQL\Type;
 
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\app\lib\data\graphQL\GraphQL;
 use yxorP\app\lib\data\graphQL\Language\DirectiveLocation;
 use yxorP\app\lib\data\graphQL\Language\Printer;
@@ -50,7 +51,7 @@ class Introspection
         return array_key_exists($type->name, self::getTypes());
     }
 
-    public static function getTypes()
+    #[ArrayShape(['__Schema' => "mixed", '__Type' => "mixed", '__Directive' => "mixed", '__Field' => "mixed", '__InputValue' => "mixed", '__EnumValue' => "mixed", '__TypeKind' => "mixed", '__DirectiveLocation' => "mixed"])] public static function getTypes()
     {
         return [
             '__Schema' => self::_schema(),
