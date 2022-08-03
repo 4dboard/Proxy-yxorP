@@ -10,7 +10,7 @@ class InterfaceTypeDefinitionNode extends Node implements TypeDefinitionNodeInte
     public string $kind = NodeKind::INTERFACE_TYPE_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<DirectiveNode> */
     public NodeList $directives;

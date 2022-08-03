@@ -10,7 +10,7 @@ class DirectiveDefinitionNode extends Node implements TypeSystemDefinitionNode
     public string $kind = NodeKind::DIRECTIVE_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var StringValueNode|null */
     public ?StringValueNode $description;

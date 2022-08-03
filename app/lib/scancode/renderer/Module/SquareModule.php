@@ -7,8 +7,6 @@ use BaconQrCode\Encoder\ByteMatrix;
 use BaconQrCode\Renderer\Module\EdgeIterator\EdgeIterator;
 use BaconQrCode\Renderer\Path\Path;
 use yxorP\app\lib\scancode\Encoder\byteMatrix;
-use yxorP\app\lib\scancode\Renderer\Module\EdgeIterator\EdgeIterator;
-use yxorP\app\lib\scancode\Renderer\Path\Path;
 
 /**
  * Groups modules together to a single path.

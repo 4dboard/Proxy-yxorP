@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace yxorP\app\lib\scancode\Renderer\RendererStyle;
 
 use BaconQrCode\Renderer\Color\ColorInterface;
-use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
 
 final class Gradient
 {

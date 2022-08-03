@@ -10,7 +10,7 @@ class ObjectTypeDefinitionNode extends Node implements TypeDefinitionNodeInterfa
     public string $kind = NodeKind::OBJECT_TYPE_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<NamedTypeNode> */
     public NodeList $interfaces;

@@ -10,7 +10,7 @@ class InterfaceTypeExtensionNode extends Node implements TypeExtensionNodeInterf
     public string $kind = NodeKind::INTERFACE_TYPE_EXTENSION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<DirectiveNode> */
     public NodeList $directives;

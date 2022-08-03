@@ -7,10 +7,7 @@ use BaconQrCode\Renderer\Eye\EyeInterface;
 use BaconQrCode\Renderer\Eye\ModuleEye;
 use BaconQrCode\Renderer\Module\ModuleInterface;
 use BaconQrCode\Renderer\Module\SquareModule;
-use yxorP\app\lib\scancode\Renderer\Eye\EyeInterface;
-use yxorP\app\lib\scancode\Renderer\Eye\ModuleEye;
 use yxorP\app\lib\scancode\Renderer\Module\ModuleInterface;
-use yxorP\app\lib\scancode\Renderer\Module\SquareModule;
 
 final class RendererStyle
 {

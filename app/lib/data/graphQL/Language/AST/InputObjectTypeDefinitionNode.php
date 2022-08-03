@@ -10,7 +10,7 @@ class InputObjectTypeDefinitionNode extends Node implements TypeDefinitionNodeIn
     public string $kind = NodeKind::INPUT_OBJECT_TYPE_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<DirectiveNode> */
     public NodeList $directives;

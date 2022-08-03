@@ -2,9 +2,7 @@
 
 namespace yxorP\app\modules\app\graphQL\types;
 
-use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
 use yxorP\app\lib\data\graphQL\Language\AST\Node;
-use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 use yxorP\app\modules\app\graphQL\Error\Error;
 use yxorP\app\modules\app\graphQL\Error\InvariantViolation;

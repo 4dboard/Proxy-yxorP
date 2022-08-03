@@ -10,7 +10,7 @@ class ScalarTypeDefinitionNode extends Node implements TypeDefinitionNodeInterfa
     public string $kind = NodeKind::SCALAR_TYPE_DEFINITION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<DirectiveNode> */
     public NodeList $directives;

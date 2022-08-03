@@ -10,7 +10,7 @@ class ObjectTypeExtensionNode extends Node implements TypeExtensionNodeInterface
     public string $kind = NodeKind::OBJECT_TYPE_EXTENSION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<NamedTypeNode> */
     public NodeList $interfaces;

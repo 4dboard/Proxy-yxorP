@@ -10,7 +10,7 @@ class UnionTypeExtensionNode extends Node implements TypeExtensionNodeInterface
     public string $kind = NodeKind::UNION_TYPE_EXTENSION;
 
     /** @var NameNode */
-    public $name;
+    public NameNode $name;
 
     /** @var NodeList<DirectiveNode> */
     public NodeList $directives;

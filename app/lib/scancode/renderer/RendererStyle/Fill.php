@@ -8,7 +8,6 @@ use BaconQrCode\Renderer\Color\ColorInterface;
 use BaconQrCode\Renderer\Color\Gray;
 use JetBrains\PhpStorm\Pure;
 use yxorP\app\lib\scancode\Renderer\Color\ColorInterface;
-use yxorP\app\lib\scancode\Renderer\Color\Gray;
 
 final class Fill
 {
