@@ -22,8 +22,9 @@ class NTPTimeProvider implements ITimeProviderInterface
      * @param string $host
      * @param int $port
      * @param int $timeout
+     * @throws \yxorP\app\lib\twoFactor\Providers\Time\TimeException
      */
-    public function __construct($host = 'time.google.com', $port = 123, $timeout = 1)
+    public function __construct(string $host = 'time.google.com', int $port = 123, int $timeout = 1)
     {
         $this->host = $host;
 
@@ -40,6 +41,7 @@ class NTPTimeProvider implements ITimeProviderInterface
 
     /**
      * {@inheritdoc}
+     * @throws TimeException
      */
     public function getTime()
     {

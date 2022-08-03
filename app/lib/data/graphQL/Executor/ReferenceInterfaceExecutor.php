@@ -227,9 +227,11 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     /**
      * Implements the "Evaluating operations" section of the spec.
      *
+     * @param OperationDefinitionNode $operation
      * @param mixed $rootValue
      *
      * @return array|Promise|stdClass|null
+     * @throws Error
      */
     protected function executeOperation(OperationDefinitionNode $operation, $rootValue)
     {
@@ -378,7 +380,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Determines if a field should be included based on the @include and @skip
      * directives, where @skip has higher precedence than @include.
      *
-     * @param FragmentSpreadNode|FieldNode|InlineFragmentNode $node
+     * @param SelectionNodeInterface $node
+     * @return bool
+     * @throws Error
      */
     protected function shouldIncludeNode(SelectionNodeInterface $node): bool
     {
@@ -413,7 +417,10 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     /**
      * Determines if a fragment is applicable to the given type.
      *
-     * @param FragmentDefinitionNode|InlineFragmentNode $fragment
+     * @param Node $fragment
+     * @param ObjectType $type
+     * @return bool
+     * @throws Exception
      */
     protected function doesFragmentConditionMatch(Node $fragment, ObjectType $type): bool
     {
@@ -664,10 +671,14 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * This is a small wrapper around completeValue which detects and logs errors
      * in the execution context.
      *
+     * @param Type $returnType
+     * @param ArrayObject $fieldNodes
+     * @param ResolveInfo $info
      * @param array<string|int> $path
      * @param mixed $result
      *
      * @return array|Promise|stdClass|null
+     * @throws Error
      */
     protected function completeValueCatchingError(
         Type        $returnType,
@@ -808,7 +819,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @param array<string|int> $path
      * @param array|Traversable $results
      *
-     * @return array|Promise|stdClass
+     * @return array|Promise
      *
      * @throws Exception
      */
@@ -939,7 +950,8 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @param mixed|null $value
      * @param mixed|null $contextValue
-     * @param InterfaceType|UnionType $abstractType
+     * @param ResolveInfo $info
+     * @param AbstractType $abstractType
      *
      * @return Promise|Type|string|null
      */
@@ -1071,12 +1083,13 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     }
 
     /**
+     * @param ObjectType $returnType
+     * @param ArrayObject $fieldNodes
      * @param array<string|int> $path
      * @param mixed $result
      *
      * @return array|Promise|stdClass
      *
-     * @throws Error
      */
     protected function collectAndExecuteSubfields(
         ObjectType  $returnType,
@@ -1207,8 +1220,10 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
 
     /**
      * @param string|ObjectType|null $runtimeTypeOrName
-     * @param InterfaceType|UnionType $returnType
+     * @param AbstractType $returnType
+     * @param ResolveInfo $info
      * @param mixed $result
+     * @return ObjectType
      */
     protected function ensureValidRuntimeType(
         $runtimeTypeOrName,

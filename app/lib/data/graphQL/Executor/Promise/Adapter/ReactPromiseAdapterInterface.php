@@ -6,6 +6,7 @@ namespace yxorP\app\lib\data\graphQL\Executor\Promise\Adapter;
 
 use React\Promise\Promise as ReactPromise;
 use React\Promise\PromiseInterface as ReactPromiseInterface;
+use Throwable;
 use yxorP\app\lib\data\graphQL\Executor\Promise\Promise;
 use yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface;
 use yxorP\app\lib\data\graphQL\Utils\Utils;
@@ -65,7 +66,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function createRejected($reason)
+    public function createRejected(Throwable $reason)
     {
         $promise = reject($reason);
 
@@ -74,6 +75,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
     public function all(array $promisesOrValues)
     {

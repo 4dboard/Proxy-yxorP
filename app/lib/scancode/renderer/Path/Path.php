@@ -97,7 +97,7 @@ final class Path implements IteratorAggregate
     }
 
     /**
-     * @return OperationInterface[]|Traversable
+     * @return \Traversable
      */
     public function getIterator(): Traversable
     {

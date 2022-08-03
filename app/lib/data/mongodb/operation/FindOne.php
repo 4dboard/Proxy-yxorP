@@ -92,11 +92,11 @@ class FindOne implements ExecutableInterface, ExplainableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to filter documents
+     * @param object|array $filter Query by which to filter documents
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, array $options = [])
     {
         $this->find = new Find(
             $databaseName,

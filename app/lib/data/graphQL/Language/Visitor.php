@@ -172,7 +172,7 @@ class Visitor
     /**
      * Visit the AST (see class description for details)
      *
-     * @param Node|ArrayObject|stdClass $root
+     * @param ArrayObject|stdClass|Node $root
      * @param callable[] $visitor
      * @param array|null $keyMap
      *
@@ -182,7 +182,7 @@ class Visitor
      *
      * @api
      */
-    public static function visit($root, $visitor, $keyMap = null)
+    public static function visit(ArrayObject|Node|stdClass $root, array $visitor, array $keyMap = null)
     {
         $visitorKeys = $keyMap ?? self::$visitorKeys;
 
@@ -344,7 +344,7 @@ class Visitor
      * @param string $kind
      * @param bool $isLeaving
      */
-    public static function getVisitFn($visitor, $kind, $isLeaving): ?callable
+    public static function getVisitFn(?array $visitor, string $kind, bool $isLeaving): ?callable
     {
         if ($visitor === null) {
             return null;
@@ -432,7 +432,7 @@ class Visitor
      *
      * @return array<string, callable>
      */
-    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitInParallel($visitors)
+    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitInParallel(array $visitors)
     {
         $visitorsCount = count($visitors);
         $skipping = new SplFixedArray($visitorsCount);

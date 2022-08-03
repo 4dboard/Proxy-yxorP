@@ -50,12 +50,12 @@ interface LeafType
      *
      * In the case of an invalid node or value this method must throw an Exception
      *
-     * @param IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|NullValueNode $valueNode
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $valueNode
      * @param array|null $variables
      *
      * @return mixed
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null);
 }

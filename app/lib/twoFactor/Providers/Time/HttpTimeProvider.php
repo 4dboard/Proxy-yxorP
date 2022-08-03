@@ -22,9 +22,9 @@ class HttpTimeProvider implements ITimeProviderInterface
     /**
      * @param string $url
      * @param string $expectedtimeformat
-     * @param array $options
+     * @param array|null $options
      */
-    public function __construct($url = 'https://google.com', $expectedtimeformat = 'D, d M Y H:i:s O+', array $options = null)
+    public function __construct(string $url = 'https://google.com', string $expectedtimeformat = 'D, d M Y H:i:s O+', array $options = null)
     {
         $this->url = $url;
         $this->expectedtimeformat = $expectedtimeformat;
@@ -49,6 +49,7 @@ class HttpTimeProvider implements ITimeProviderInterface
 
     /**
      * {@inheritdoc}
+     * @throws TimeException
      */
     public function getTime()
     {

@@ -114,6 +114,7 @@ class OpenApi extends AbstractAnnotation
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
     public function validate(array $parents = null, array $skip = null, string $ref = ''): bool
     {
@@ -128,6 +129,7 @@ class OpenApi extends AbstractAnnotation
 
     /**
      * Save the OpenAPI documentation to a file.
+     * @throws \Exception
      */
     public function saveAs(string $filename, string $format = 'auto'): void
     {
@@ -150,6 +152,8 @@ class OpenApi extends AbstractAnnotation
      * Look up an annotation with a $ref url.
      *
      * @param string $ref The $ref value, for example: "#/components/schemas/Product"
+     * @return mixed
+     * @throws \Exception
      */
     public function ref(string $ref)
     {
@@ -163,6 +167,8 @@ class OpenApi extends AbstractAnnotation
 
     /**
      * Recursive helper for ref().
+     * @throws \Exception
+     * @throws \Exception
      */
     private static function resolveRef(string $ref, string $resolved, $container, array $mapping)
     {

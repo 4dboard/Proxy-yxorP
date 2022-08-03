@@ -54,7 +54,12 @@ class SchemaExtender
     protected static $astBuilder;
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\DocumentNode $documentAST
      * @param array<string, bool> $options
+     * @param callable|null $typeConfigDecorator
+     * @return \yxorP\app\lib\data\graphQL\Type\Schema
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public static function extend(
         Schema       $schema,
@@ -331,9 +336,10 @@ class SchemaExtender
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $type
      *
      * @return array<int, InterfaceType>
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     protected static function extendImplementedInterfaces(ImplementingType $type): array
     {
@@ -505,7 +511,9 @@ class SchemaExtender
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\EnumType $type
      * @return array
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     protected static function extendValueMap(EnumType $type): array
     {
@@ -556,7 +564,9 @@ class SchemaExtender
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputObjectType $type
      * @return array
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     protected static function extendInputFieldMap(InputObjectType $type): array
     {
@@ -594,7 +604,7 @@ class SchemaExtender
     }
 
     /**
-     * @return mixed|null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
      */
     protected static function extendMaybeNamedType(?NamedType $type = null)
     {

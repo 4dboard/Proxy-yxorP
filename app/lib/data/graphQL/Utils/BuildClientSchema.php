@@ -438,6 +438,7 @@ class BuildClientSchema
      * @param array<string, mixed> $inputValueIntrospection
      *
      * @return array<string, mixed>
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      */
     #[ArrayShape(['description' => "mixed", 'type' => "\yxorP\app\lib\data\graphQL\Type\Definition\InputType", 'defaultValue' => "mixed"])] public function buildInputValue(array $inputValueIntrospection): array
     {

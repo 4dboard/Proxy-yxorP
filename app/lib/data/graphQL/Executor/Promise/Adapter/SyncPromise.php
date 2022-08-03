@@ -46,7 +46,7 @@ class SyncPromise
     private $waiting = [];
 
     /**
-     * @param callable() : mixed $executor
+     * @param callable|null $executor
      */
     public function __construct(?callable $executor = null)
     {
@@ -187,8 +187,9 @@ class SyncPromise
     }
 
     /**
-     * @param callable(mixed) : mixed $onFulfilled
-     * @param callable(Throwable) : mixed $onRejected
+     * @param callable|null $onFulfilled
+     * @param callable|null $onRejected
+     * @return \yxorP\app\lib\data\graphQL\Executor\Promise\Adapter\SyncPromise
      */
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null): self
     {

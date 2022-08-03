@@ -9,7 +9,7 @@ trait HandlesDataUri
      *
      * @return null|array
      */
-    private function DecodeDataUri($datauri)
+    private function DecodeDataUri(string $datauri)
     {
         if (preg_match('/data:(?P<mimetype>[\w\.\-\+\/]+);(?P<encoding>\w+),(?P<data>.*)/', $datauri, $m) === 1) {
             return array(

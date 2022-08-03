@@ -179,9 +179,13 @@ class Helper
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Executor\Promise\PromiseAdapterInterface $promiseAdapter
+     * @param \yxorP\app\lib\data\graphQL\Server\ServerConfig $config
+     * @param \yxorP\app\lib\data\graphQL\Server\OperationParams $op
      * @param bool $isBatch
      *
      * @return Promise
+     * @throws \Exception
      */
     private function promiseToExecuteOperation(
         PromiseAdapterInterface $promiseAdapter,
@@ -323,7 +327,7 @@ class Helper
     }
 
     /**
-     * @return mixed
+     * @return string|\yxorP\app\lib\data\graphQL\Language\AST\DocumentNode
      *
      * @throws RequestError
      */

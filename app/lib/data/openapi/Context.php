@@ -224,7 +224,7 @@ class Context
         if (!$summary) {
             return Generator::UNDEFINED;
         }
-        if (false !== ($substr = substr($this->phpdocContent(), strlen($summary)))) {
+        if (false != ($substr = substr($this->phpdocContent(), strlen($summary)))) {
             $description = trim($substr);
         } else {
             $description = '';

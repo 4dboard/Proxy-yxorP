@@ -63,7 +63,7 @@ class Attachable extends AbstractAnnotation
      * annotation classes.
      * This is most likely going to be a v4 (PHP 8.1) PHP attribute feature only.
      *
-     * @return array List of valid parent annotation classes. If `null`` the default nesting rules apply.
+     * @return array|null List of valid parent annotation classes. If `null`` the default nesting rules apply.
      */
     public function allowedParents(): ?array
     {

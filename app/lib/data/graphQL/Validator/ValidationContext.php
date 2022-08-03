@@ -86,7 +86,9 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\HasSelectionSetInterface $node
      * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @throws \Exception
      */
     private function getVariableUsages(HasSelectionSetInterface $node)
     {
@@ -161,7 +163,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @param OperationDefinitionNode|FragmentDefinitionNode $node
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\HasSelectionSetInterface $node
      *
      * @return FragmentSpreadNode[]
      */
@@ -222,7 +224,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return (CompositeType & Type) | null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType|null (CompositeType & Type) | null
      */
     public function getParentType(): ?CompositeType
     {
@@ -230,7 +232,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return (Type & InputType) | null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type & InputType) | null
      */
     public function getInputType(): ?InputType
     {
@@ -238,7 +240,7 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return (Type&InputType)|null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
     {

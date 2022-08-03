@@ -465,7 +465,7 @@ class sVGSanitizer
      * Removes non-printable ASCII characters from string & trims it
      *
      * @param string $value
-     * @return bool
+     * @return string
      */
     protected function removeNonPrintableCharacters($value)
     {

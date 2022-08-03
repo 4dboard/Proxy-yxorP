@@ -140,10 +140,10 @@ class Parser
     private $lexer;
 
     /**
-     * @param Source|string $source
+     * @param string|Source $source
      * @param bool[] $options
      */
-    public function __construct($source, array $options = [])
+    public function __construct(Source|string $source, array $options = [])
     {
         $sourceObj = $source instanceof Source ? $source : new Source($source);
         $this->lexer = new Lexer($sourceObj, $options);
@@ -190,7 +190,7 @@ class Parser
      *   Note: this feature is experimental and may change or be removed in the
      *   future.)
      *
-     * @param Source|string $source
+     * @param string|Source $source
      * @param bool[] $options
      *
      * @return DocumentNode
@@ -199,7 +199,7 @@ class Parser
      *
      * @api
      */
-    public static function parse($source, array $options = [])
+    public static function parse(Source|string $source, array $options = [])
     {
         $parser = new self($source, $options);
 
@@ -286,7 +286,7 @@ class Parser
     }
 
     /**
-     * @return ExecutableDefinitionNode|TypeSystemDefinitionNode
+     * @return DefinitionNode
      *
      * @throws SyntaxError
      */
@@ -412,6 +412,8 @@ class Parser
      *   - Field
      *   - FragmentSpread
      *   - InlineFragment
+     * @throws SyntaxError
+     * @throws SyntaxError
      */
     private function parseSelection(): SelectionNodeInterface
     {
@@ -421,7 +423,7 @@ class Parser
     }
 
     /**
-     * @return FragmentSpreadNode|InlineFragmentNode
+     * @return SelectionNodeInterface
      *
      * @throws SyntaxError
      */
@@ -577,7 +579,7 @@ class Parser
     }
 
     /**
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|StringValueNode|VariableNode
+* @return ValueNodeInterface
      *
      * @throws SyntaxError
      */
@@ -604,7 +606,8 @@ class Parser
      *
      * EnumValue : Name but not `true`, `false` or `null`
      *
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|StringValueNode|VariableNode|ListValueNode|ObjectValueNode|NullValueNode
+     * @param bool $isConst
+     * @return ValueNodeInterface
      *
      * @throws SyntaxError
      */
@@ -689,7 +692,8 @@ class Parser
     }
 
     /**
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
+     * @return ValueNodeInterface
+     * @throws SyntaxError
      */
     private function parseVariableValue(): ValueNodeInterface
     {
@@ -899,7 +903,7 @@ class Parser
     /**
      * Handles the Type: TypeName, ListType, and NonNullType parsing rules.
      *
-     * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
+     * @return TypeNodeInterface
      *
      * @throws SyntaxError
      */
@@ -1211,7 +1215,6 @@ class Parser
      */
     private function parseArgumentsDefinition(): NodeList
     {
-        /** @var NodeList<InputValueDefinitionNode&Node> $nodeList */
         return $this->peek(Token::PAREN_L)
             ? $this->many(
                 Token::PAREN_L,
@@ -1341,7 +1344,6 @@ class Parser
      */
     private function parseEnumValuesDefinition(): NodeList
     {
-        /** @var NodeList<EnumValueDefinitionNode&Node> $nodeList */
         return $this->peek(Token::BRACE_L)
             ? $this->many(
                 Token::BRACE_L,
@@ -1397,7 +1399,6 @@ class Parser
      */
     private function parseInputFieldsDefinition(): NodeList
     {
-        /** @var NodeList<InputValueDefinitionNode&Node> $nodeList */
         return $this->peek(Token::BRACE_L)
             ? $this->many(
                 Token::BRACE_L,
@@ -1695,14 +1696,15 @@ class Parser
      *
      * Consider providing the results to the utility function: `GraphQL\Utils\AST::valueFromAST()`.
      *
-     * @param Source|string $source
+     * @param string|Source $source
      * @param bool[] $options
      *
      * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
      *
+     * @throws SyntaxError
      * @api
      */
-    public static function parseValue($source, array $options = [])
+    public static function parseValue(Source|string $source, array $options = [])
     {
         $parser = new Parser($source, $options);
         $parser->expect(Token::SOF);
@@ -1722,14 +1724,15 @@ class Parser
      *
      * Consider providing the results to the utility function: `GraphQL\Utils\AST::typeFromAST()`.
      *
-     * @param Source|string $source
+     * @param string|Source $source
      * @param bool[] $options
      *
      * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
      *
+     * @throws SyntaxError
      * @api
      */
-    public static function parseType($source, array $options = [])
+    public static function parseType(Source|string $source, array $options = [])
     {
         $parser = new Parser($source, $options);
         $parser->expect(Token::SOF);

@@ -94,7 +94,7 @@ class BSONIterator implements Iterator
 
     /**
      * @see http://php.net/iterator.key
-     * @return mixed
+     * @return int
      */
     #[ReturnTypeWillChange]
     public function key()

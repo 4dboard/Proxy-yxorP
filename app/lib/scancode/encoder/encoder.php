@@ -596,6 +596,7 @@ final class encoder
      * Generates EC bytes for given data.
      *
      * @param SplFixedArray<int> $dataBytes
+     * @param int $numEcBytesInBlock
      * @return SplFixedArray<int>
      */
     private static function generateEcBytes(SplFixedArray $dataBytes, int $numEcBytesInBlock): SplFixedArray

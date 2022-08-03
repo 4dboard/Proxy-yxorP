@@ -44,7 +44,7 @@ abstract class Node
     public $kind;
 
     /**
-     * @param (NameNode|NodeList|SelectionSetNode|Location|string|int|bool|float|null)[] $vars
+     * @param array $vars
      */
     public function __construct(array $vars)
     {

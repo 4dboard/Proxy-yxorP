@@ -238,7 +238,7 @@ class TypeInfo
     }
 
     /**
-     * @return (Type&InputType)|null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type&InputType)|null
      */
     public function getParentInputType(): ?InputType
     {
@@ -372,7 +372,7 @@ class TypeInfo
     }
 
     /**
-     * @return (Type & OutputType) | null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\OutputType|null (Type & OutputType) | null
      */
     public function getType(): ?OutputType
     {
@@ -380,7 +380,7 @@ class TypeInfo
     }
 
     /**
-     * @return (CompositeType & Type) | null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\CompositeType|null (CompositeType & Type) | null
      */
     public function getParentType(): ?CompositeType
     {
@@ -419,9 +419,11 @@ class TypeInfo
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
      * @param NamedTypeNode|ListTypeNode|NonNullTypeNode $inputTypeNode
      *
-     * @throws InvariantViolation
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
+     * @throws \Exception
      */
     public static function typeFromAST(Schema $schema, $inputTypeNode): ?Type
     {
@@ -439,7 +441,7 @@ class TypeInfo
     }
 
     /**
-     * @return (Type & InputType) | null
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\InputType|null (Type & InputType) | null
      */
     public function getInputType(): ?InputType
     {

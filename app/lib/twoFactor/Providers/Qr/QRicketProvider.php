@@ -23,7 +23,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
      * @param string $color
      * @param string $format
      */
-    public function __construct($errorcorrectionlevel = 'L', $bgcolor = 'ffffff', $color = '000000', $format = 'p')
+    public function __construct(string $errorcorrectionlevel = 'L', string $bgcolor = 'ffffff', string $color = '000000', string $format = 'p')
     {
         $this->verifyssl = false;
 
@@ -35,6 +35,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
 
     /**
      * {@inheritdoc}
+     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
      */
     public function getMimeType()
     {
@@ -52,7 +53,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage($qrtext, $size)
+    public function getQRCodeImage(string $qrtext, int $size)
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }
@@ -63,7 +64,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
      *
      * @return string file contents of the QR code
      */
-    public function getUrl($qrtext, $size)
+    public function getUrl(string $qrtext, int|string $size)
     {
         return 'http://qrickit.com/api/qr'
             . '?qrsize=' . $size

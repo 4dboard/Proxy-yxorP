@@ -130,7 +130,7 @@ class SchemaValidationContext
      * @param Type $type
      * @param string $operation
      *
-     * @return NamedTypeNode|ListTypeNode|NonNullTypeNode|TypeDefinitionNodeInterface
+     * @return NamedTypeNode|TypeDefinitionNodeInterface|null
      */
     private function getOperationTypeNode($type, $operation)
     {
@@ -258,9 +258,11 @@ class SchemaValidationContext
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Directive $directive
      * @param string $argName
      *
      * @return InputValueDefinitionNode[]
+     * @throws \Exception
      */
     private function getAllDirectiveArgNodes(Directive $directive, $argName)
     {
@@ -323,9 +325,11 @@ class SchemaValidationContext
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Directive $directive
      * @param string $argName
      *
-     * @return NamedTypeNode|ListTypeNode|NonNullTypeNode|null
+     * @return \yxorP\app\lib\data\graphQL\Language\AST\TypeNodeInterface|null
+     * @throws \Exception
      */
     private function getDirectiveArgTypeNode(Directive $directive, $argName): ?TypeNodeInterface
     {
@@ -582,6 +586,7 @@ class SchemaValidationContext
      * @param string $fieldName
      *
      * @return FieldDefinitionNode[]
+     * @throws \Exception
      */
     private function getAllFieldNodes($type, $fieldName)
     {
@@ -598,7 +603,7 @@ class SchemaValidationContext
      * @param ObjectType|InterfaceType $type
      * @param string $fieldName
      *
-     * @return NamedTypeNode|ListTypeNode|NonNullTypeNode|null
+     * @return \yxorP\app\lib\data\graphQL\Language\AST\TypeNodeInterface|null
      */
     private function getFieldTypeNode($type, $fieldName): ?TypeNodeInterface
     {
@@ -649,7 +654,7 @@ class SchemaValidationContext
      * @param string $fieldName
      * @param string $argName
      *
-     * @return NamedTypeNode|ListTypeNode|NonNullTypeNode|null
+     * @return \yxorP\app\lib\data\graphQL\Language\AST\TypeNodeInterface|null
      */
     private function getFieldArgTypeNode($type, $fieldName, $argName): ?TypeNodeInterface
     {
@@ -673,7 +678,8 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $type
+     * @throws \Exception
      */
     private function validateInterfaces(ImplementingType $type): void
     {
@@ -717,7 +723,10 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $shouldBeInterface
+     * @return \yxorP\app\lib\data\graphQL\Language\AST\NamedTypeNode|null
+     * @throws \Exception
      */
     private function getImplementsInterfaceNode(ImplementingType $type, Type $shouldBeInterface): ?NamedTypeNode
     {
@@ -727,9 +736,10 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
-     *
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $shouldBeInterface
      * @return array<int, NamedTypeNode>
+     * @throws \Exception
      */
     private function getAllImplementsInterfaceNodes(ImplementingType $type, Type $shouldBeInterface): array
     {
@@ -744,7 +754,9 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType $iface
+     * @throws \Exception
      */
     private function validateTypeImplementsAncestors(ImplementingType $type, InterfaceType $iface): void
     {
@@ -777,7 +789,8 @@ class SchemaValidationContext
     }
 
     /**
-     * @param ObjectType|InterfaceType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InterfaceType $iface
      */
     private function validateTypeImplementsInterface(ImplementingType $type, InterfaceType $iface)
     {
@@ -960,9 +973,11 @@ class SchemaValidationContext
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\UnionType $union
      * @param string $typeName
      *
      * @return NamedTypeNode[]
+     * @throws \Exception
      */
     private function getUnionMemberTypeNodes(UnionType $union, $typeName)
     {
@@ -1020,9 +1035,11 @@ class SchemaValidationContext
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\EnumType $enum
      * @param string $valueName
      *
      * @return EnumValueDefinitionNode[]
+     * @throws \Exception
      */
     private function getEnumValueNodes(EnumType $enum, $valueName)
     {

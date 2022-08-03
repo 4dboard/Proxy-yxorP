@@ -58,7 +58,7 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         return 'image/png';
     }
 
-    public function getQRCodeImage($qrtext, $size)
+    public function getQRCodeImage(string $qrtext, int $size)
     {
         if (!$this->endroid4) {
             return $this->qrCodeInstance($qrtext, $size)->writeString();

@@ -9,8 +9,9 @@ class HashRNGProvider implements IRNGProviderInterface
 
     /**
      * @param string $algorithm
+     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      */
-    public function __construct($algorithm = 'sha256')
+    public function __construct(string $algorithm = 'sha256')
     {
         $algos = array_values(hash_algos());
         if (!in_array($algorithm, $algos, true)) {
@@ -22,7 +23,7 @@ class HashRNGProvider implements IRNGProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getRandomBytes($bytecount)
+    public function getRandomBytes(int $bytecount)
     {
         $result = '';
         $hash = mt_rand();

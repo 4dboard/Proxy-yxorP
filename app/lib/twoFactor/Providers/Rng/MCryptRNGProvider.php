@@ -10,15 +10,16 @@ class MCryptRNGProvider implements IRNGProviderInterface
     /**
      * @param int $source
      */
-    public function __construct($source = MCRYPT_DEV_URANDOM)
+    public function __construct(int $source = MCRYPT_DEV_URANDOM)
     {
         $this->source = $source;
     }
 
     /**
      * {@inheritdoc}
+     * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      */
-    public function getRandomBytes($bytecount)
+    public function getRandomBytes(int $bytecount)
     {
         $result = @mcrypt_create_iv($bytecount, $this->source);
         if ($result === false) {

@@ -130,6 +130,7 @@ class KnownDirectives extends ValidationRule
      * @param Node[]|NodeList[] $ancestors The type is actually (Node|NodeList)[] but this PSR-5 syntax is so far not supported by most of the tools
      *
      * @return string
+     * @throws \Exception
      */
     private function getDirectiveLocationForASTPath(array $ancestors)
     {

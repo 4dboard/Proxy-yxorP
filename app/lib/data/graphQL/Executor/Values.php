@@ -54,10 +54,12 @@ class Values
      * variable definitions and arbitrary input. If the input cannot be coerced
      * to match the variable definitions, a Error will be thrown.
      *
+     * @param \yxorP\app\lib\data\graphQL\Type\Schema $schema
      * @param VariableDefinitionNode[] $varDefNodes
      * @param array $inputs
      *
      * @return array
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public static function getVariableValues(Schema $schema, $varDefNodes, array $inputs)
     {
@@ -151,10 +153,12 @@ class Values
      *
      * If the directive does not exist on the node, returns undefined.
      *
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Directive $directiveDef
      * @param FragmentSpreadNode|FieldNode|InlineFragmentNode|EnumValueDefinitionNode|FieldDefinitionNode $node
-     * @param array|null $variableValues
+     * @param null $variableValues
      *
      * @return array|null
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public static function getDirectiveValues(Directive $directiveDef, $node, $variableValues = null)
     {
@@ -210,6 +214,7 @@ class Values
      * @return array
      *
      * @throws Error
+     * @throws \Exception
      */
     public static function getArgumentValuesForMap($fieldDefinition, $argumentValueMap, $variableValues = null, $referenceNode = null)
     {
@@ -293,15 +298,15 @@ class Values
     }
 
     /**
-     * @param VariableNode|NullValueNode|IntValueNode|FloatValueNode|StringValueNode|BooleanValueNode|EnumValueNode|ListValueNode|ObjectValueNode $valueNode
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
      * @param array|null $variables
      *
      * @return array|stdClass|null
      *
+     * @throws \Exception
      * @codeCoverageIgnore
      * @deprecated as of 8.0 (Moved to \GraphQL\Utils\AST::valueFromAST)
-     *
      */
     public static function valueFromAST(ValueNodeInterface $valueNode, InputType $type, ?array $variables = null)
     {
@@ -310,13 +315,13 @@ class Values
 
     /**
      * @param array $value
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
      *
      * @return string[]
      *
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      * @codeCoverageIgnore
      * @deprecated as of 0.12 (Use coerceValue() directly for richer information)
-     *
      */
     public static function isValidPHPValue($value, InputType $type)
     {

@@ -37,7 +37,7 @@ class Source
      * @param string $body
      * @param string|null $name
      */
-    public function __construct($body, $name = null, ?SourceLocation $location = null)
+    public function __construct(string $body, string $name = null, ?SourceLocation $location = null)
     {
         Utils::invariant(
             is_string($body),
@@ -64,7 +64,7 @@ class Source
      *
      * @return SourceLocation
      */
-    public function getLocation($position)
+    public function getLocation(int $position)
     {
         $line = 1;
         $column = $position + 1;

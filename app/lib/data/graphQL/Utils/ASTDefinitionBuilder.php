@@ -144,7 +144,9 @@ class ASTDefinitionBuilder
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\NodeList $values
      * @return array<string, array<string, mixed>>
+     * @throws \Exception
      */
     private function makeInputValues(NodeList $values): array
     {
@@ -189,6 +191,8 @@ class ASTDefinitionBuilder
 
     /**
      * @param string|(Node &NamedTypeNode)|(Node&TypeDefinitionNode) $ref
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public function buildType($ref): Type
     {
@@ -200,9 +204,10 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param (Node &NamedTypeNode)|(Node&TypeDefinitionNode)|null $typeNode
-     *
-     * @throws Error
+     * @param string $typeName
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node|null $typeNode
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     private function internalBuildType(string $typeName, ?Node $typeNode = null): Type
     {
@@ -246,11 +251,11 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode|EnumTypeDefinitionNode|ScalarTypeDefinitionNode|InputObjectTypeDefinitionNode|UnionTypeDefinitionNode $def
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
      *
-     * @return CustomScalarType|EnumType|InputObjectType|InterfaceType|ObjectType|UnionType
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
      *
-     * @throws Error
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     private function makeSchemaDef(Node $def): Type
     {
@@ -281,7 +286,7 @@ class ASTDefinitionBuilder
     }
 
     /**
-     * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode $def
+* @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
      *
      * @return array<string, array<string, mixed>>
      */
@@ -319,7 +324,9 @@ class ASTDefinitionBuilder
      * Given a collection of directives, returns the string value for the
      * deprecation reason.
      *
-     * @param EnumValueDefinitionNode|FieldDefinitionNode $node
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\Node $node
+     * @return string|null
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     private function getDeprecationReason(Node $node): ?string
     {
@@ -335,6 +342,7 @@ class ASTDefinitionBuilder
      * @param ObjectTypeDefinitionNode|InterfaceTypeDefinitionNode $def
      *
      * @return array<int, Type>
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     private function makeImplementedInterfaces($def): array
     {
@@ -431,11 +439,12 @@ class ASTDefinitionBuilder
     }
 
     /**
+* @param \yxorP\app\lib\data\graphQL\Language\AST\Node $def
      * @param array<string, mixed> $config
      *
-     * @return CustomScalarType|EnumType|InputObjectType|InterfaceType|ObjectType|UnionType
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type
      *
-     * @throws Error
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     private function makeSchemaDefFromConfig(Node $def, array $config): Type
     {
