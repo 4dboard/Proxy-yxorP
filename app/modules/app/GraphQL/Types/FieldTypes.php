@@ -37,6 +37,11 @@ class fieldTypes
         return $fields;
     }
 
+    public static function instance($field)
+    {
+        self::getType($field);
+    }
+
     protected static function getType($field): ?array
     {
 
@@ -67,10 +72,5 @@ class fieldTypes
         }
 
         return $name;
-    }
-
-    public static function instance($field)
-    {
-        self::getType($field);
     }
 }

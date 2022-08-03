@@ -131,6 +131,34 @@ final class version
     }
 
     /**
+     * Decodes version information from an integer and returns the version.
+     */
+    public static function decodeVersionInformation(int $versionBits): ?self
+    {
+        $bestDifference = PHP_INT_MAX;
+        $bestVersion = 0;
+
+        foreach (self::VERSION_DECODE_INFO as $i => $targetVersion) {
+            if ($targetVersion === $versionBits) {
+                return self::getVersionForNumber($i + 7);
+            }
+
+            $bitsDifference = formatInformation::numBitsDiffering($versionBits, $targetVersion);
+
+            if ($bitsDifference < $bestDifference) {
+                $bestVersion = $i + 7;
+                $bestDifference = $bitsDifference;
+            }
+        }
+
+        if ($bestDifference <= 3) {
+            return self::getVersionForNumber($bestVersion);
+        }
+
+        return null;
+    }
+
+    /**
      * Build and cache a specific version.
      *
      * See ISO 18004:2006 6.5.1 Table 9.
@@ -465,34 +493,6 @@ final class version
                 new ecBlocks(30, new ecBlock(20, 15), new ecBlock(61, 16))
             ),
         ];
-    }
-
-    /**
-     * Decodes version information from an integer and returns the version.
-     */
-    public static function decodeVersionInformation(int $versionBits): ?self
-    {
-        $bestDifference = PHP_INT_MAX;
-        $bestVersion = 0;
-
-        foreach (self::VERSION_DECODE_INFO as $i => $targetVersion) {
-            if ($targetVersion === $versionBits) {
-                return self::getVersionForNumber($i + 7);
-            }
-
-            $bitsDifference = formatInformation::numBitsDiffering($versionBits, $targetVersion);
-
-            if ($bitsDifference < $bestDifference) {
-                $bestVersion = $i + 7;
-                $bestDifference = $bitsDifference;
-            }
-        }
-
-        if ($bestDifference <= 3) {
-            return self::getVersionForNumber($bestVersion);
-        }
-
-        return null;
     }
 
     /**
