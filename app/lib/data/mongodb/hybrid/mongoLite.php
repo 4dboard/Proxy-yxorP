@@ -97,14 +97,14 @@ class mongoLite
         return new resultSet($this, $docs);
     }
 
-    public function aggregate(string $collection, array $pipeline)
+    public function aggregate(string $collection, array $pipeline): resultSet
     {
         $cursor = $this->getCollection($collection)->aggregate($pipeline);
         $docs = $cursor->toArray();
         return new resultSet($this, $docs);
     }
 
-    public function getFindTermFilter($term)
+    public function getFindTermFilter($term): \Closure
     {
         $terms = str_getcsv(trim($term), ' ');
         $filter = function ($doc) use ($term) {
@@ -131,7 +131,7 @@ class mongoLite
         return $this->getCollection($collection)->save($data, $create);
     }
 
-    public function update(string $collection, mixed $criteria, array $data)
+    public function update(string $collection, mixed $criteria, array $data): int
     {
         return $this->getCollection($collection)->update($criteria, $data);
     }

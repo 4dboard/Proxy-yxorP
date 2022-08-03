@@ -10,12 +10,12 @@ use function preg_match;
 
 final class utils
 {
-    public static function currentTime()
+    public static function currentTime(): float
     {
         return function_exists('hrtime') ? hrtime(true) / 1e9 : microtime(true);
     }
 
-    public static function idnUriConvert(uriInterface $uri, $options = 0)
+    public static function idnUriConvert(uriInterface $uri, $options = 0): uriInterface
     {
         if ($uri->getHost()) {
             $asciiHost = self::idnToAsci($uri->getHost(), $options, $info);

@@ -33,12 +33,12 @@ class mockHandler implements Countable
         }
     }
 
-    public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null)
+    public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null): handlerStack
     {
         return handlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(requestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options): \yxorP\app\lib\proxy\promise\promise|\yxorP\app\lib\proxy\promise\fulfilledPromise|\yxorP\app\lib\proxy\promise\rejectedPromise|promiseInterface
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');
@@ -120,7 +120,7 @@ class mockHandler implements Countable
         return $this->lastOptions;
     }
 
-    #[ReturnTypeWillChange] public function count()
+    #[ReturnTypeWillChange] public function count(): int
     {
         return count($this->queue);
     }

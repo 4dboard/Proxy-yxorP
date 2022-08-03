@@ -55,7 +55,7 @@ class request implements requestInterface
         $this->headers = [$header => [$host]] + $this->headers;
     }
 
-    public function getRequestTarget()
+    public function getRequestTarget(): string
     {
         if ($this->requestTarget !== null) {
             return $this->requestTarget;
@@ -70,7 +70,7 @@ class request implements requestInterface
         return $target;
     }
 
-    public function withRequestTarget(mixed $requestTarget)
+    public function withRequestTarget(mixed $requestTarget): request
     {
         if (preg_match('#\s#', $requestTarget)) {
             throw new InvalidArgumentException('Invalid request target provided; cannot contain whitespace');
@@ -80,12 +80,12 @@ class request implements requestInterface
         return $new;
     }
 
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
 
-    public function withMethod(string $method)
+    public function withMethod(string $method): request
     {
         $this->assertMethod($method);
         $new = clone $this;
@@ -98,7 +98,7 @@ class request implements requestInterface
         return $this->uri;
     }
 
-    public function withUri(uriInterface $uri, bool $preserveHost = false)
+    public function withUri(uriInterface $uri, bool $preserveHost = false): request|static
     {
         if ($uri === $this->uri) {
             return $this;

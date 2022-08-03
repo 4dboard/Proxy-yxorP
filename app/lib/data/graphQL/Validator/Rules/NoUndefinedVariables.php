@@ -18,7 +18,7 @@ use function sprintf;
  */
 class NoUndefinedVariables extends ValidationRule
 {
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $variableNameDefined = [];
 
@@ -54,7 +54,7 @@ class NoUndefinedVariables extends ValidationRule
         ];
     }
 
-    public static function undefinedVarMessage($varName, $opName = null)
+    public static function undefinedVarMessage($varName, $opName = null): string
     {
         return $opName
             ? sprintf('Variable "$%s" is not defined by operation "%s".', $varName, $opName)

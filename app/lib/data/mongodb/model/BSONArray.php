@@ -72,7 +72,7 @@ class BSONArray extends ArrayObject implements JsonSerializable, Serializable, U
      * @see http://php.net/mongodb-bson-serializable.bsonserialize
      * @return array
      */
-    public function bsonSerialize()
+    public function bsonSerialize(): array
     {
         return array_values($this->getArrayCopy());
     }
@@ -98,7 +98,7 @@ class BSONArray extends ArrayObject implements JsonSerializable, Serializable, U
      * @return array
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return array_values($this->getArrayCopy());
     }

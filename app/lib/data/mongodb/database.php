@@ -75,7 +75,7 @@ class database
         return $this->selectCollection($collectionName);
     }
 
-    public function selectCollection($collectionName, array $options = [])
+    public function selectCollection($collectionName, array $options = []): collection
     {
         $options += ['readConcern' => $this->readConcern, 'readPreference' => $this->readPreference, 'typeMap' => $this->typeMap, 'writeConcern' => $this->writeConcern,];
         return new collection($this->manager, $this->databaseName, $collectionName, $options);
@@ -155,32 +155,32 @@ class database
         return $operation->execute($server);
     }
 
-    public function getDatabaseName()
+    public function getDatabaseName(): string
     {
         return $this->databaseName;
     }
 
-    public function getManager()
+    public function getManager(): Manager
     {
         return $this->manager;
     }
 
-    public function getReadConcern()
+    public function getReadConcern(): \yxorP\app\lib\data\mongoDB\ReadConcern
     {
         return $this->readConcern;
     }
 
-    public function getReadPreference()
+    public function getReadPreference(): ReadPreference
     {
         return $this->readPreference;
     }
 
-    public function getTypeMap()
+    public function getTypeMap(): array
     {
         return $this->typeMap;
     }
 
-    public function getWriteConcern()
+    public function getWriteConcern(): \yxorP\app\lib\data\mongoDB\WriteConcern
     {
         return $this->writeConcern;
     }
@@ -228,7 +228,7 @@ class database
         return $operation->execute($server);
     }
 
-    public function selectGridFSBucket(array $options = [])
+    public function selectGridFSBucket(array $options = []): Bucket
     {
         $options += ['readConcern' => $this->readConcern, 'readPreference' => $this->readPreference, 'typeMap' => $this->typeMap, 'writeConcern' => $this->writeConcern,];
         return new Bucket($this->manager, $this->databaseName, $options);
@@ -250,7 +250,7 @@ class database
         return $operation->execute($server);
     }
 
-    public function withOptions(array $options = [])
+    public function withOptions(array $options = []): database
     {
         $options += ['readConcern' => $this->readConcern, 'readPreference' => $this->readPreference, 'typeMap' => $this->typeMap, 'writeConcern' => $this->writeConcern,];
         return new database($this->manager, $this->databaseName, $options);

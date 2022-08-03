@@ -48,7 +48,7 @@ class async extends helperAware
 
     public $phpPath = null;
 
-    public function exec($script, $params = [], $maxTime = 60)
+    public function exec($script, $params = [], $maxTime = 60): string
     {
 
         $processId = uniqid('worker') . '-' . (time() + $maxTime);
@@ -136,7 +136,7 @@ unlink(__FILE__);
         }
     }
 
-    protected function isExecAvailable()
+    protected function isExecAvailable(): bool
     {
 
         if (!$this->phpPath || in_array(strtolower(ini_get('safe_mode')), ['on', '1'], true) || (!function_exists('exec'))) {
@@ -148,7 +148,7 @@ unlink(__FILE__);
         return !in_array('exec', $disabled_functions) && strlen(trim(exec($this->phpPath . ' -v')));
     }
 
-    public function finished($processId, &$error = null)
+    public function finished($processId, &$error = null): bool
     {
 
         $processId = str_replace('..', '', $processId);
@@ -171,7 +171,7 @@ unlink(__FILE__);
         return true;
     }
 
-    public function possible()
+    public function possible(): bool
     {
         return $this->isExecAvailable() || function_exists('fsockopen');
     }

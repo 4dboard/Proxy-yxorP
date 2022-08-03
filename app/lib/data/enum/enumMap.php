@@ -43,7 +43,7 @@ final class enumMap implements Serializable, IteratorAggregate
         return in_array($this->maskNull($value), $this->values, true);
     }
 
-    private function maskNull($value)
+    private function maskNull($value): nullValue
     {
         if (null === $value) {
             return nullValue::instance();

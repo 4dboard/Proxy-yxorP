@@ -267,7 +267,7 @@ class MapReduce implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): mapReduceResult
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction) {
@@ -332,7 +332,7 @@ class MapReduce implements ExecutableInterface
      *
      * @return Command
      */
-    private function createCommand()
+    private function createCommand(): command
     {
         $cmd = [
             'mapReduce' => $this->collectionName,
@@ -364,7 +364,7 @@ class MapReduce implements ExecutableInterface
      * @param boolean $hasOutputCollection
      * @return array
      */
-    private function createOptions(bool $hasOutputCollection)
+    private function createOptions(bool $hasOutputCollection): array
     {
         $options = [];
 
@@ -395,7 +395,7 @@ class MapReduce implements ExecutableInterface
      * @return callable
      * @throws UnexpectedValueException if the command response was malformed
      */
-    private function createGetIteratorCallable(stdClass $result, Server $server)
+    private function createGetIteratorCallable(stdClass $result, Server $server): callable|\Closure
     {
         // Inline results can be wrapped with an ArrayIterator
         if (isset($result->results) && is_array($result->results)) {

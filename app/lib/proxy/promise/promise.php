@@ -85,17 +85,17 @@ class promise implements promiseInterface
         }
     }
 
-    public function getState()
+    public function getState(): string
     {
         return $this->state;
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): promise|fulfilledPromise|promiseInterface|rejectedPromise
     {
         return $this->then(null, $onRejected);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): promise|fulfilledPromise|rejectedPromise|promiseInterface
     {
         if ($this->state === self::PENDING) {
             $p = new promise(null, [$this, 'cancel']);

@@ -16,7 +16,7 @@ class handlerStack
         $this->handler = $handler;
     }
 
-    public static function create(callable $handler = null)
+    public static function create(callable $handler = null): handlerStack
     {
         $stack = new self($handler ?: choose_handler());
         $stack->push(middleware::httpErrors(), 'http_errors');
@@ -73,7 +73,7 @@ class handlerStack
         return $result;
     }
 
-    private function debugCallable($fn)
+    private function debugCallable($fn): string
     {
         if (is_string($fn)) {
             return "callable({$fn})";
@@ -90,7 +90,7 @@ class handlerStack
         $this->cached = null;
     }
 
-    public function hasHandler()
+    public function hasHandler(): bool
     {
         return (bool)$this->handler;
     }
@@ -126,7 +126,7 @@ class handlerStack
         }
     }
 
-    private function findByName($name)
+    private function findByName($name): int|string
     {
         foreach ($this->stack as $k => $v) {
             if ($v[1] === $name) {

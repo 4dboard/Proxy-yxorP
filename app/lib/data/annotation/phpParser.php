@@ -10,7 +10,7 @@ use function preg_replace;
 
 final class phpParser
 {
-    public function parseClass(ReflectionClass $class)
+    public function parseClass(ReflectionClass $class): array
     {
         return $this->parseUseStatements($class);
     }
@@ -34,7 +34,7 @@ final class phpParser
         return $tokenizer->parseUseStatements($reflection->getNamespaceName());
     }
 
-    private function getFileContent($filename, $lineNumber)
+    private function getFileContent($filename, $lineNumber): ?string
     {
         if (!is_file($filename)) {
             return null;

@@ -66,7 +66,7 @@ class ValidationContext extends ASTValidationContext
     /**
      * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
      */
-    public function getRecursiveVariableUsages(OperationDefinitionNode $operation)
+    public function getRecursiveVariableUsages(OperationDefinitionNode $operation): ?array
     {
         $usages = $this->recursiveVariableUsages[$operation] ?? null;
 
@@ -90,7 +90,7 @@ class ValidationContext extends ASTValidationContext
      * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
      * @throws \Exception
      */
-    private function getVariableUsages(HasSelectionSetInterface $node)
+    private function getVariableUsages(HasSelectionSetInterface $node): ?array
     {
         $usages = $this->variableUsages[$node] ?? null;
 
@@ -128,7 +128,7 @@ class ValidationContext extends ASTValidationContext
     /**
      * @return FragmentDefinitionNode[]
      */
-    public function getRecursivelyReferencedFragments(OperationDefinitionNode $operation)
+    public function getRecursivelyReferencedFragments(OperationDefinitionNode $operation): ?array
     {
         $fragments = $this->recursivelyReferencedFragments[$operation] ?? null;
 
@@ -200,7 +200,7 @@ class ValidationContext extends ASTValidationContext
      *
      * @return FragmentDefinitionNode|null
      */
-    public function getFragment(string $name)
+    public function getFragment(string $name): ?FragmentDefinitionNode
     {
         $fragments = $this->fragments;
         if (!$fragments) {
@@ -250,17 +250,17 @@ class ValidationContext extends ASTValidationContext
     /**
      * @return FieldDefinition
      */
-    public function getFieldDef()
+    public function getFieldDef(): FieldDefinition
     {
         return $this->typeInfo->getFieldDef();
     }
 
-    #[Pure] public function getDirective()
+    #[Pure] public function getDirective(): ?\yxorP\app\lib\data\graphQL\Type\Definition\Directive
     {
         return $this->typeInfo->getDirective();
     }
 
-    #[Pure] public function getArgument()
+    #[Pure] public function getArgument(): ?\yxorP\app\lib\data\graphQL\Type\Definition\FieldArgument
     {
         return $this->typeInfo->getArgument();
     }

@@ -11,7 +11,7 @@ class fieldTypes
     protected static array $types = [];
     protected static array $names = [];
 
-    public static function buildFieldsDefinitions($meta)
+    public static function buildFieldsDefinitions($meta): array
     {
 
         $fields = [];
@@ -37,7 +37,7 @@ class fieldTypes
         return $fields;
     }
 
-    protected static function getType($field)
+    protected static function getType($field): ?array
     {
 
         $def = [];

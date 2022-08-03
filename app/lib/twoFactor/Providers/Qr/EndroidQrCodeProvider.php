@@ -33,7 +33,7 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         $this->errorcorrectionlevel = $this->handleErrorCorrectionLevel($errorcorrectionlevel);
     }
 
-    #[Pure] private function handleColor($color)
+    #[Pure] private function handleColor($color): \yxorP\app\lib\twoFactor\Providers\Qr\Color|array
     {
         $split = str_split($color, 2);
         $r = hexdec($split[0]);
@@ -43,7 +43,7 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         return $this->endroid4 ? new Color($r, $g, $b, 0) : ['r' => $r, 'g' => $g, 'b' => $b, 'a' => 0];
     }
 
-    private function handleErrorCorrectionLevel($level)
+    private function handleErrorCorrectionLevel($level): ErrorCorrectionLevelLow|ErrorCorrectionLevelHigh|ErrorCorrectionLevelQuartile|ErrorCorrectionLevelMedium
     {
         return match ($level) {
             'L' => $this->endroid4 ? new ErrorCorrectionLevelLow() : ErrorCorrectionLevel::LOW(),
@@ -53,12 +53,12 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         };
     }
 
-    public function getMimeType()
+    public function getMimeType(): string
     {
         return 'image/png';
     }
 
-    public function getQRCodeImage(string $qrtext, int $size)
+    public function getQRCodeImage(string $qrtext, int $size): string
     {
         if (!$this->endroid4) {
             return $this->qrCodeInstance($qrtext, $size)->writeString();
@@ -68,7 +68,7 @@ class EndroidQrCodeProvider implements IQRCodeProviderInterface
         return $writer->write($this->qrCodeInstance($qrtext, $size))->getString();
     }
 
-    protected function qrCodeInstance($qrtext, $size)
+    protected function qrCodeInstance($qrtext, $size): QrCode
     {
         $qrCode = new QrCode($qrtext);
         $qrCode->setSize($size);

@@ -43,17 +43,17 @@ class response implements responseInterface
         }
     }
 
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
-    public function getReasonPhrase()
+    public function getReasonPhrase(): mixed
     {
         return $this->reasonPhrase;
     }
 
-    public function withStatus(int $code, string $reasonPhrase = '')
+    public function withStatus(int $code, string $reasonPhrase = ''): response
     {
         $this->assertStatusCodeIsInteger($code);
         $code = (int)$code;

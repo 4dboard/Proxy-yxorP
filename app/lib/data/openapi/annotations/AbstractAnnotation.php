@@ -138,7 +138,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @return AbstractAnnotation
      */
-    private function nested(AbstractAnnotation $annotation, Context $nestedContext)
+    private function nested(AbstractAnnotation $annotation, Context $nestedContext): AbstractAnnotation
     {
         if (property_exists($annotation, '_context') && $annotation->_context === $this->_context) {
             $annotation->_context = $nestedContext;
@@ -235,7 +235,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @return null|object key/value object or `null`
      */
-    public static function matchNested(string $class)
+    public static function matchNested(string $class): ?object
     {
         if (array_key_exists($class, static::$_nested)) {
             return (object)['key' => $class, 'value' => static::$_nested[$class]];
@@ -347,7 +347,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = new stdClass();
 

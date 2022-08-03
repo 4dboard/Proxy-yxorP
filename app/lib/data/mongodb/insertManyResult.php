@@ -24,7 +24,7 @@ class insertManyResult
         throw BadMethodCallException::unacknowledgedWriteResultAccess(__METHOD__);
     }
 
-    public function getInsertedIds()
+    public function getInsertedIds(): array
     {
         return $this->insertedIds;
     }

@@ -209,7 +209,7 @@ class CreateCollection implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array
     {
         $cursor = $server->executeWriteCommand($this->databaseName, $this->createCommand(), $this->createOptions());
 
@@ -225,7 +225,7 @@ class CreateCollection implements ExecutableInterface
      *
      * @return \yxorP\app\lib\data\mongoDB\Operation\Command
      */
-    private function createCommand()
+    private function createCommand(): \yxorP\app\lib\data\mongoDB\Operation\Command
     {
         $cmd = ['create' => $this->collectionName];
 
@@ -250,7 +250,7 @@ class CreateCollection implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

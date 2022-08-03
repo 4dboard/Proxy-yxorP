@@ -14,7 +14,7 @@ class utils extends app
     /**
      * @throws \Exception
      */
-    #[ArrayShape(['token' => "string"])] public function generateToken($length = 20)
+    #[ArrayShape(['token' => "string"])] public function generateToken($length = 20): array
     {
 
         $this->helper('session')->close();
@@ -22,7 +22,7 @@ class utils extends app
         return ['token' => bin2hex(random_bytes($length))];
     }
 
-    public function csrf($name = null, $generate = false, $expire = null)
+    public function csrf($name = null, $generate = false, $expire = null): bool|array
     {
 
         if (!$name) {
@@ -32,7 +32,7 @@ class utils extends app
         return ['token' => $this->helper('csrf')->token($name, $generate, $expire)];
     }
 
-    public function search()
+    public function search(): array
     {
 
         $this->helper('session')->close();

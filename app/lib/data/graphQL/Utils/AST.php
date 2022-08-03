@@ -153,7 +153,7 @@ class AST
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      * @api
      */
-    public static function astFromValue(mixed $value, InputType $type)
+    public static function astFromValue(mixed $value, InputType $type): NullValueNode|ListValueNode|StringValueNode|IntValueNode|FloatValueNode|BooleanValueNode|EnumValueNode|ObjectValueNode|null
     {
         if ($type instanceof NonNull) {
             $astValue = self::astFromValue($value, $type->getWrappedType());
@@ -316,7 +316,7 @@ class AST
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      * @api
      */
-    public static function valueFromAST(?ValueNodeInterface $valueNode, Type $type, ?array $variables = null)
+    public static function valueFromAST(?ValueNodeInterface $valueNode, Type $type, ?array $variables = null): array|stdClass|null
     {
         $undefined = Utils::undefined();
 
@@ -472,7 +472,7 @@ class AST
      *
      * @return bool
      */
-    private static function isMissingVariable(ValueNodeInterface $valueNode, array $variables)
+    private static function isMissingVariable(ValueNodeInterface $valueNode, array $variables): bool
     {
         return $valueNode instanceof VariableNode &&
             (count($variables) === 0 || !array_key_exists($valueNode->name->value, $variables));
@@ -503,7 +503,7 @@ class AST
      *
      * @api
      */
-    public static function valueFromASTUntyped(Node $valueNode, ?array $variables = null)
+    public static function valueFromASTUntyped(Node $valueNode, ?array $variables = null): mixed
     {
         switch (true) {
             case $valueNode instanceof NullValueNode:
@@ -560,7 +560,7 @@ class AST
      *
      * @api
      */
-    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode)
+    public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ListOfType|NonNull|Type|null
     {
         if ($inputTypeNode instanceof ListTypeNode) {
             $innerType = self::typeFromAST($schema, $inputTypeNode->type);
@@ -590,7 +590,7 @@ class AST
      *
      * @api
      */
-    public static function getOperation(DocumentNode $document, string $operationName = null)
+    public static function getOperation(DocumentNode $document, string $operationName = null): bool|string
     {
         if ($document->definitions) {
             foreach ($document->definitions as $def) {

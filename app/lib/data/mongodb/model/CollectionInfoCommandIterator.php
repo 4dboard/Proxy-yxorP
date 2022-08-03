@@ -55,7 +55,7 @@ class CollectionInfoCommandIterator extends IteratorIterator implements Collecti
      * @see CollectionInfoIteratorInterface::current()
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): CollectionInfo
     {
         $info = parent::current();
 

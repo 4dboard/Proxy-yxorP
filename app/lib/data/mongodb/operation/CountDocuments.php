@@ -115,7 +115,7 @@ class CountDocuments implements ExecutableInterface
     /**
      * @return Aggregate
      */
-    private function createAggregate()
+    private function createAggregate(): Aggregate
     {
         $pipeline = [
             ['$match' => (object)$this->filter],
@@ -144,7 +144,7 @@ class CountDocuments implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): int
     {
         $cursor = $this->aggregate->execute($server);
         $allResults = $cursor->toArray();

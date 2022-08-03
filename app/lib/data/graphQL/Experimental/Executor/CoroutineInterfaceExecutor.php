@@ -132,7 +132,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                                 $variableValues,
         ?string                 $operationName,
         callable                $fieldResolver
-    )
+    ): static
     {
         return new static(
             $promiseAdapter,
@@ -230,7 +230,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         return new ExecutionResult($value, $errors);
     }
 
-    private static function resultToArray($value, $emptyObjectAsStdClass = true)
+    private static function resultToArray($value, $emptyObjectAsStdClass = true): array|stdClass
     {
         if ($value instanceof stdClass) {
             $array = (array)$value;
@@ -257,7 +257,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         return $value;
     }
 
-    private function findFieldDefinition(CoroutineContext $ctx)
+    private function findFieldDefinition(CoroutineContext $ctx): \yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition
     {
         if ($ctx->shared->fieldName === Introspection::SCHEMA_FIELD_NAME && $ctx->type === $this->schema->getQueryType()) {
             return Introspection::schemaMetaFieldDef();
@@ -452,7 +452,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      *
      * @return bool
      */
-    private function isPromise(mixed $value)
+    private function isPromise(mixed $value): bool
     {
         return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
     }
@@ -472,7 +472,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      *
      * @return mixed
      */
-    private function completeValue(CoroutineContext $ctx, Type $type, mixed $value, array $path, ?array $nullFence)
+    private function completeValue(CoroutineContext $ctx, Type $type, mixed $value, array $path, ?array $nullFence): mixed
     {
         $nonNull = false;
         $returnValue = null;
@@ -798,7 +798,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      *
      * @return Generator|ObjectType|Type|null
      */
-    private function resolveTypeSlow(CoroutineContext $ctx, $value, AbstractType $abstractType)
+    private function resolveTypeSlow(CoroutineContext $ctx, $value, AbstractType $abstractType): ObjectType|Generator|Type|null
     {
         if (is_array($value) &&
             isset($value['__typename']) &&
@@ -839,7 +839,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         return $selectedType;
     }
 
-    private function mergeSelectionSets(CoroutineContext $ctx)
+    private function mergeSelectionSets(CoroutineContext $ctx): SelectionSetNode
     {
         $selections = [];
 
@@ -965,7 +965,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
      * @throws \Exception
      * @internal
      */
-    public function evaluate(ValueNodeInterface $valueNode, InputType $type)
+    public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null
     {
         return AST::valueFromAST($valueNode, $type, $this->variableValues);
     }

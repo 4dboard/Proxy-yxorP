@@ -13,12 +13,12 @@ abstract class ValidationRule
     /** @var string */
     protected string $name;
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name === '' || $this->name === null ? static::class : $this->name;
     }
 
-    public function __invoke(ValidationContext $context)
+    public function __invoke(ValidationContext $context): array
     {
         return $this->getVisitor($context);
     }
@@ -30,7 +30,7 @@ abstract class ValidationRule
      * @see \GraphQL\Language\Visitor
      *
      */
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return [];
     }
@@ -42,7 +42,7 @@ abstract class ValidationRule
      * @see \GraphQL\Language\Visitor
      *
      */
-    public function getSDLVisitor(SDLValidationContext $context)
+    public function getSDLVisitor(SDLValidationContext $context): array
     {
         return [];
     }

@@ -65,7 +65,7 @@ class FormattedError
      *
      * @return string
      */
-    public static function printError(Error $error)
+    public static function printError(Error $error): string
     {
         $printedLocations = [];
         if (count($error->nodes ?? []) !== 0) {
@@ -102,7 +102,7 @@ class FormattedError
      *
      * @return string
      */
-    private static function highlightSourceAtLocation(Source $source, SourceLocation $location)
+    private static function highlightSourceAtLocation(Source $source, SourceLocation $location): string
     {
         $line = $location->line;
         $lineOffset = $source->locationOffset->line - 1;
@@ -131,7 +131,7 @@ class FormattedError
     /**
      * @return int
      */
-    private static function getColumnOffset(Source $source, SourceLocation $location)
+    private static function getColumnOffset(Source $source, SourceLocation $location): int
     {
         return $location->line === 1 ? $source->locationOffset->column - 1 : 0;
     }
@@ -141,7 +141,7 @@ class FormattedError
      *
      * @return string
      */
-    private static function whitespace(int $len)
+    private static function whitespace(int $len): string
     {
         return str_repeat(' ', $len);
     }
@@ -151,7 +151,7 @@ class FormattedError
      *
      * @return string
      */
-    #[Pure] private static function lpad(int $len, $str)
+    #[Pure] private static function lpad(int $len, $str): string
     {
         return self::whitespace($len - mb_strlen($str)) . $str;
     }
@@ -302,7 +302,7 @@ class FormattedError
      *
      * @api
      */
-    public static function toSafeTrace(Throwable $error)
+    public static function toSafeTrace(Throwable $error): array
     {
         $trace = $error->getTrace();
 
@@ -342,7 +342,7 @@ class FormattedError
      *
      * @return string
      */
-    public static function printVar(mixed $var)
+    public static function printVar(mixed $var): float|bool|int|string
     {
         if ($var instanceof Type) {
             // FIXME: Replace with schema printer call
@@ -386,7 +386,7 @@ class FormattedError
      * @deprecated as of v0.8.0
      *
      */
-    #[ArrayShape(['message' => "string", 'locations' => "array[]"])] public static function create(string $error, array $locations = [])
+    #[ArrayShape(['message' => "string", 'locations' => "array[]"])] public static function create(string $error, array $locations = []): array
     {
         $formatted = ['message' => $error];
 
@@ -409,7 +409,7 @@ class FormattedError
      * @deprecated as of v0.10.0, use general purpose method createFromException() instead
      *
      */
-    #[ArrayShape(['message' => "string", 'severity' => "int", 'trace' => "mixed[]"])] public static function createFromPHPError(ErrorException $e)
+    #[ArrayShape(['message' => "string", 'severity' => "int", 'trace' => "mixed[]"])] public static function createFromPHPError(ErrorException $e): array
     {
         return [
             'message' => $e->getMessage(),

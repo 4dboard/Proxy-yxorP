@@ -58,7 +58,7 @@ abstract class Node
     /**
      * @return self
      */
-    public function cloneDeep()
+    public function cloneDeep(): NodeList|Location|Node|array|string
     {
         return $this->cloneValue($this);
     }
@@ -68,7 +68,7 @@ abstract class Node
      *
      * @return string|NodeList|Location|Node
      */
-    private function cloneValue($value)
+    private function cloneValue($value): NodeList|Location|Node|array|string
     {
         if (is_array($value)) {
             $cloned = [];
@@ -118,7 +118,7 @@ abstract class Node
     /**
      * @return array
      */
-    private function recursiveToArray(Node $node)
+    private function recursiveToArray(Node $node): array
     {
         $result = [
             'kind' => $node->kind,

@@ -156,7 +156,7 @@ abstract class Operation extends AbstractAnnotation
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = parent::jsonSerialize();
 

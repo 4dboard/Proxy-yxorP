@@ -196,7 +196,7 @@ class GraphQL
         mixed               $contextValue = null,
         array               $variableValues = null,
         ?string             $operationName = null
-    )
+    ): array|Promise
     {
         trigger_error(
             __METHOD__ . ' is deprecated, use yxorP\app\lib\data\graphQL::executeQuery()->toArray() as a quick replacement',
@@ -244,7 +244,7 @@ class GraphQL
         mixed               $contextValue = null,
         array               $variableValues = null,
         ?string             $operationName = null
-    )
+    ): Promise|ExecutionResult
     {
         trigger_error(
             __METHOD__ . ' is deprecated, use yxorP\app\lib\data\graphQL::executeQuery() as a quick replacement',

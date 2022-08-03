@@ -14,7 +14,7 @@ class RequestError extends Exception implements ClientAwareInterface
      *
      * @return bool
      */
-    public function isClientSafe()
+    public function isClientSafe(): bool
     {
         return true;
     }
@@ -26,7 +26,7 @@ class RequestError extends Exception implements ClientAwareInterface
      *
      * @return string
      */
-    public function getCategory()
+    public function getCategory(): string
     {
         return 'request';
     }

@@ -43,7 +43,7 @@ class NTPTimeProvider implements ITimeProviderInterface
      * {@inheritdoc}
      * @throws TimeException
      */
-    public function getTime()
+    public function getTime(): int
     {
         try {
             /* Create a socket and connect to NTP server */

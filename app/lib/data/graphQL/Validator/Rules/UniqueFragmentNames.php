@@ -19,7 +19,7 @@ class UniqueFragmentNames extends ValidationRule
     /** @var NameNode[] */
     public array $knownFragmentNames;
 
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $this->knownFragmentNames = [];
 
@@ -43,7 +43,7 @@ class UniqueFragmentNames extends ValidationRule
         ];
     }
 
-    public static function duplicateFragmentNameMessage($fragName)
+    public static function duplicateFragmentNameMessage($fragName): string
     {
         return sprintf('There can be only one fragment named "%s".', $fragName);
     }

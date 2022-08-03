@@ -11,7 +11,7 @@ use yxorP\app\lib\psr\http\message\serverRequestInterface;
 use yxorP\app\lib\psr\http\message\streamInterface;
 use yxorP\app\lib\psr\http\message\uriInterface;
 
-function str(messageInterface $message)
+function str(messageInterface $message): string
 {
     if ($message instanceof requestInterface) {
         $msg = trim($message->getMethod() . ' ' . $message->getRequestTarget()) . ' HTTP/' . $message->getProtocolVersion();
@@ -29,7 +29,7 @@ function str(messageInterface $message)
     return "{$msg}\r\n\r\n" . $message->getBody();
 }
 
-function uri_for($uri)
+function uri_for($uri): uri|uriInterface
 {
     if ($uri instanceof uriInterface) {
         return $uri;
@@ -39,7 +39,7 @@ function uri_for($uri)
     throw new InvalidArgumentException('URI must be a string or UriInterface');
 }
 
-function stream_for($resource = '', array $options = [])
+function stream_for($resource = '', array $options = []): stream|streamInterface|pumpStream
 {
     if (is_scalar($resource)) {
         $stream = fopen('php://temp', 'r+');
@@ -77,7 +77,7 @@ function stream_for($resource = '', array $options = [])
     throw new InvalidArgumentException('Invalid resource type: ' . gettype($resource));
 }
 
-function parse_header($header)
+function parse_header($header): array
 {
     static $trimmed = "\"'  \n\t\r";
     $params = $matches = [];
@@ -100,7 +100,7 @@ function parse_header($header)
     return $params;
 }
 
-function normalize_header($header)
+function normalize_header($header): array
 {
     if (!is_array($header)) {
         return array_map('trim', explode(',', $header));
@@ -120,7 +120,7 @@ function normalize_header($header)
     return $result;
 }
 
-function modify_request(requestInterface $request, array $changes)
+function modify_request(requestInterface $request, array $changes): request|requestInterface|serverRequest
 {
     if (!$changes) {
         return $request;
@@ -165,7 +165,7 @@ function rewind_body(messageInterface $message)
     }
 }
 
-function try_fopen($filename, $mode)
+function try_fopen($filename, $mode): bool
 {
     $ex = null;
     set_error_handler(function () use ($filename, $mode, &$ex) {
@@ -179,7 +179,7 @@ function try_fopen($filename, $mode)
     return $handle;
 }
 
-function copy_to_string(streamInterface $stream, $maxLen = -1)
+function copy_to_string(streamInterface $stream, $maxLen = -1): string
 {
     $buffer = '';
     if ($maxLen === -1) {
@@ -227,7 +227,7 @@ function copy_to_stream(streamInterface $source, streamInterface $dest, $maxLen 
     }
 }
 
-function hash(streamInterface $stream, $algo, $rawOutput = false)
+function hash(streamInterface $stream, $algo, $rawOutput = false): string
 {
     $pos = $stream->tell();
     if ($pos > 0) {
@@ -242,7 +242,7 @@ function hash(streamInterface $stream, $algo, $rawOutput = false)
     return $out;
 }
 
-function readline(streamInterface $stream, $maxLength = null)
+function readline(streamInterface $stream, $maxLength = null): string
 {
     $buffer = '';
     $size = 0;
@@ -258,7 +258,7 @@ function readline(streamInterface $stream, $maxLength = null)
     return $buffer;
 }
 
-function parse_request($message)
+function parse_request($message): request
 {
     $data = _parse_message($message);
     $matches = [];
@@ -271,7 +271,7 @@ function parse_request($message)
     return $matches[1] === '/' ? $request : $request->withRequestTarget($parts[1]);
 }
 
-function parse_response($message)
+function parse_response($message): response
 {
     $data = _parse_message($message);
     if (!preg_match('/^HTTP\/.* [0-9]{3}( .*|$)/', $data['start-line'])) {
@@ -281,7 +281,7 @@ function parse_response($message)
     return new response($parts[1], $data['headers'], $data['body'], explode('/', $parts[0])[1], $parts[2] ?? null);
 }
 
-function parse_query($str, $urlEncoding = true)
+function parse_query($str, $urlEncoding = true): array
 {
     $result = [];
     if ($str === '') {
@@ -316,7 +316,7 @@ function parse_query($str, $urlEncoding = true)
     return $result;
 }
 
-function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
+function build_query(array $params, $encoding = PHP_QUERY_RFC3986): string
 {
     if (!$params) {
         return '';
@@ -354,19 +354,19 @@ function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
     return $qs ? substr($qs, 0, -1) : '';
 }
 
-function mimetype_from_filename($filename)
+function mimetype_from_filename($filename): ?string
 {
     return mimetype_from_extension(pathinfo($filename, PATHINFO_EXTENSION));
 }
 
-function mimetype_from_extension($extension)
+function mimetype_from_extension($extension): ?string
 {
     static $mimetypes = ['3gp' => 'video/3gpp', '7z' => 'application/x-7z-compressed', 'aac' => 'audio/x-aac', 'ai' => 'application/postscript', 'aif' => 'audio/x-aiff', 'asc' => 'text/plain', 'asf' => 'video/x-ms-asf', 'atom' => 'application/atom+xml', 'avi' => 'video/x-msvideo', 'bmp' => 'image/bmp', 'bz2' => 'application/x-bzip2', 'cer' => 'application/pkix-cert', 'crl' => 'application/pkix-crl', 'crt' => 'application/x-x509-ca-cert', 'css' => 'text/css', 'csv' => 'text/csv', 'cu' => 'application/cu-seeme', 'deb' => 'application/x-debian-package', 'doc' => 'application/msword', 'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'dvi' => 'application/x-dvi', 'eot' => 'application/vnd.ms-fontobject', 'eps' => 'application/postscript', 'epub' => 'application/epub+zip', 'etx' => 'text/x-setext', 'flac' => 'audio/flac', 'flv' => 'video/x-flv', 'gif' => 'image/gif', 'gz' => 'application/gzip', 'htm' => 'text/html', 'html' => 'text/html', 'ico' => 'image/x-icon', 'ics' => 'text/calendar', 'ini' => 'text/plain', 'iso' => 'application/x-iso9660-image', 'jar' => 'application/java-archive', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'js' => 'text/javascript', 'json' => 'application/json', 'latex' => 'application/x-latex', 'log' => 'text/plain', 'm4a' => 'audio/mp4', 'm4v' => 'video/mp4', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'mov' => 'video/quicktime', 'mkv' => 'video/x-matroska', 'mp3' => 'audio/mpeg', 'mp4' => 'video/mp4', 'mp4a' => 'audio/mp4', 'mp4v' => 'video/mp4', 'mpe' => 'video/mpeg', 'mpeg' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mpg4' => 'video/mp4', 'oga' => 'audio/ogg', 'ogg' => 'audio/ogg', 'ogv' => 'video/ogg', 'ogx' => 'application/ogg', 'pbm' => 'image/x-portable-bitmap', 'pdf' => 'application/pdf', 'pgm' => 'image/x-portable-graymap', 'png' => 'image/png', 'pnm' => 'image/x-portable-anymap', 'ppm' => 'image/x-portable-pixmap', 'ppt' => 'application/vnd.ms-powerpoint', 'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'ps' => 'application/postscript', 'qt' => 'video/quicktime', 'rar' => 'application/x-rar-compressed', 'ras' => 'image/x-cmu-raster', 'rss' => 'application/rss+xml', 'rtf' => 'application/rtf', 'sgm' => 'text/sgml', 'sgml' => 'text/sgml', 'svg' => 'image/svg+xml', 'swf' => 'application/x-shockwave-flash', 'tar' => 'application/x-tar', 'tif' => 'image/tiff', 'tiff' => 'image/tiff', 'torrent' => 'application/x-bittorrent', 'ttf' => 'application/x-font-ttf', 'txt' => 'text/plain', 'wav' => 'audio/x-wav', 'webm' => 'video/webm', 'webp' => 'image/webp', 'wma' => 'audio/x-ms-wma', 'wmv' => 'video/x-ms-wmv', 'woff' => 'application/x-font-woff', 'wsdl' => 'application/wsdl+xml', 'xbm' => 'image/x-xbitmap', 'xls' => 'application/vnd.ms-excel', 'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'xml' => 'application/xml', 'xpm' => 'image/x-xpixmap', 'xwd' => 'image/x-xwindowdump', 'yaml' => 'text/yaml', 'yml' => 'text/yaml', 'zip' => 'application/zip',];
     $extension = strtolower($extension);
     return $mimetypes[$extension] ?? null;
 }
 
-#[ArrayShape(['start-line' => "mixed|string", 'headers' => "array", 'body' => "mixed|string"])] function _parse_message($message)
+#[ArrayShape(['start-line' => "mixed|string", 'headers' => "array", 'body' => "mixed|string"])] function _parse_message($message): array
 {
     if (!$message) {
         throw new InvalidArgumentException('Invalid message');
@@ -413,7 +413,7 @@ function _parse_request_uri($path, array $headers)
     return $scheme . '://' . $host . '/' . ltrim($path, '/');
 }
 
-function get_message_body_summary(messageInterface $message, $truncateAt = 120)
+function get_message_body_summary(messageInterface $message, $truncateAt = 120): ?string
 {
     $body = $message->getBody();
     if (!$body->isSeekable() || !$body->isReadable()) {
@@ -434,7 +434,7 @@ function get_message_body_summary(messageInterface $message, $truncateAt = 120)
     return $summary;
 }
 
-function _caseless_remove($keys, array $data)
+function _caseless_remove($keys, array $data): array
 {
     $result = [];
     foreach ($keys as &$key) {

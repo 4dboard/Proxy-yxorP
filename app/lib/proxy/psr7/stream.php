@@ -98,7 +98,7 @@ class stream implements streamInterface
         }
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -129,12 +129,12 @@ class stream implements streamInterface
         return null;
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return $this->readable;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return $this->writable;
     }
@@ -144,7 +144,7 @@ class stream implements streamInterface
         return $this->seekable;
     }
 
-    public function eof()
+    public function eof(): bool
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -152,7 +152,7 @@ class stream implements streamInterface
         return feof($this->stream);
     }
 
-    public function tell()
+    public function tell(): int
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -169,7 +169,7 @@ class stream implements streamInterface
         $this->seek(0);
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -190,7 +190,7 @@ class stream implements streamInterface
         return $string;
     }
 
-    public function write(string $string)
+    public function write(string $string): int
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');

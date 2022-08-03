@@ -46,12 +46,12 @@ class Introspection
      *
      * @return bool
      */
-    public static function isIntrospectionType(Type $type)
+    public static function isIntrospectionType(Type $type): bool
     {
         return array_key_exists($type->name, self::getTypes());
     }
 
-    #[ArrayShape(['__Schema' => "mixed", '__Type' => "mixed", '__Directive' => "mixed", '__Field' => "mixed", '__InputValue' => "mixed", '__EnumValue' => "mixed", '__TypeKind' => "mixed", '__DirectiveLocation' => "mixed"])] public static function getTypes()
+    #[ArrayShape(['__Schema' => "mixed", '__Type' => "mixed", '__Directive' => "mixed", '__Field' => "mixed", '__InputValue' => "mixed", '__EnumValue' => "mixed", '__TypeKind' => "mixed", '__DirectiveLocation' => "mixed"])] public static function getTypes(): array
     {
         return [
             '__Schema' => self::_schema(),
@@ -660,7 +660,7 @@ class Introspection
      *
      * @api
      */
-    public static function getIntrospectionQuery(array $options = [])
+    public static function getIntrospectionQuery(array $options = []): string
     {
         $optionsWithDefaults = array_merge([
             'descriptions' => true,

@@ -26,7 +26,7 @@ class DisableIntrospection extends QuerySecurityRule
         $this->isEnabled = $enabled;
     }
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->invokeIfNeeded(
             $context,
@@ -45,12 +45,12 @@ class DisableIntrospection extends QuerySecurityRule
         );
     }
 
-    public static function introspectionDisabledMessage()
+    public static function introspectionDisabledMessage(): string
     {
         return 'GraphQL introspection is not allowed, but the query contained __schema or __type';
     }
 
-    protected function isEnabled()
+    protected function isEnabled(): bool
     {
         return $this->isEnabled != self::DISABLED;
     }

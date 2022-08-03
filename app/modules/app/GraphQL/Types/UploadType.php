@@ -40,7 +40,7 @@ class uploadType extends ScalarType
      *
      * @return mixed
      */
-    public function serialize(mixed $value)
+    public function serialize(mixed $value): mixed
     {
         throw new InvariantViolation('`Upload` cannot be serialized');
     }
@@ -52,7 +52,7 @@ class uploadType extends ScalarType
      *
      * @return UploadedFileInterface
      */
-    public function parseValue(mixed $value)
+    public function parseValue(mixed $value): uploadedFileInterface
     {
         // if (!$value instanceof UploadedFileInterface) {
         //     throw new \UnexpectedValueException('Could not get uploaded file, be sure to conform to GraphQL multipart request specification. Instead got: ' . Utils::printSafe($value));
@@ -69,7 +69,7 @@ class uploadType extends ScalarType
      *
      * @return mixed
      */
-    public function parseLiteral(Node $valueNode, array $variables = null)
+    public function parseLiteral(Node $valueNode, array $variables = null): mixed
     {
         throw new Error('`Upload` cannot be hardcoded in query, be sure to conform to GraphQL multipart request specification. Instead got: ' . $valueNode->kind, $valueNode);
     }

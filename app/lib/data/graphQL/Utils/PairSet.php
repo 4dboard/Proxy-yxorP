@@ -25,7 +25,7 @@ class PairSet
      *
      * @return bool
      */
-    public function has(string $a, string $b, bool $areMutuallyExclusive)
+    public function has(string $a, string $b, bool $areMutuallyExclusive): bool
     {
         $first = $this->data[$a] ?? null;
         $result = $first && isset($first[$b]) ? $first[$b] : null;

@@ -15,7 +15,7 @@ class multipartStream implements streamInterface
         $this->stream = $this->createStream($elements);
     }
 
-    protected function createStream(array $elements)
+    protected function createStream(array $elements): appendStream
     {
         $stream = new appendStream();
         foreach ($elements as $element) {
@@ -45,7 +45,7 @@ class multipartStream implements streamInterface
         $stream->addStream(stream_for("\r\n"));
     }
 
-    private function createElement($name, streamInterface $stream, $filename, array $headers)
+    private function createElement($name, streamInterface $stream, $filename, array $headers): array
     {
         $disposition = $this->getHeader($headers, 'content-disposition');
         if (!$disposition) {
@@ -77,7 +77,7 @@ class multipartStream implements streamInterface
         return null;
     }
 
-    private function getHeaders(array $headers)
+    private function getHeaders(array $headers): string
     {
         $str = '';
         foreach ($headers as $key => $value) {
@@ -91,7 +91,7 @@ class multipartStream implements streamInterface
         return $this->boundary;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }

@@ -29,7 +29,7 @@ class ResumeTokenException extends RuntimeException
      * @param mixed $value Actual value (used to derive the type)
      * @return self
      */
-    #[Pure] public static function invalidType(mixed $value)
+    #[Pure] public static function invalidType(mixed $value): ResumeTokenException
     {
         return new static(sprintf('Expected resume token to have type "array or object" but found "%s"', get_debug_type($value)));
     }
@@ -39,7 +39,7 @@ class ResumeTokenException extends RuntimeException
      *
      * @return self
      */
-    #[Pure] public static function notFound()
+    #[Pure] public static function notFound(): ResumeTokenException
     {
         return new static('Resume token not found in change document');
     }

@@ -178,7 +178,7 @@ final class docParser
         $this->target = $target;
     }
 
-    public function parse($input, $context = '')
+    public function parse($input, $context = ''): array
     {
         $pos = $this->findInitialTokenPosition($input);
         if ($pos === null) {
@@ -677,7 +677,7 @@ S
         return $this->getClassConstantPositionInIdentifier($identifier) === strlen($identifier) - strlen('::class');
     }
 
-    private function getClassConstantPositionInIdentifier(string $identifier)
+    private function getClassConstantPositionInIdentifier(string $identifier): bool|int
     {
         return stripos($identifier, '::class');
     }

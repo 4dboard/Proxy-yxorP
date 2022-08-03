@@ -138,7 +138,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\deleteResult
     {
         /* CRUD spec requires a client-side error when using "hint" with an
          * unacknowledged write concern on an unsupported server. */
@@ -169,7 +169,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    #[ArrayShape(['delete' => "string", 'deletes' => "mixed", 'writeConcern' => "mixed"])] public function getCommandDocument(Server $server)
+    #[ArrayShape(['delete' => "string", 'deletes' => "mixed", 'writeConcern' => "mixed"])] public function getCommandDocument(Server $server): array
     {
         $cmd = ['delete' => $this->collectionName, 'deletes' => [['q' => $this->filter] + $this->createDeleteOptions()]];
 
@@ -188,7 +188,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    #[ArrayShape(['limit' => "int|null", 'hint' => "mixed", 'collation' => "object"])] private function createDeleteOptions()
+    #[ArrayShape(['limit' => "int|null", 'hint' => "mixed", 'collation' => "object"])] private function createDeleteOptions(): array
     {
         $deleteOptions = ['limit' => $this->limit];
 
@@ -209,7 +209,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 

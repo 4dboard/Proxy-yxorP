@@ -17,7 +17,7 @@ class authenticated extends base
 
     protected $user;
 
-    #[ArrayShape(['success' => "bool"])] public function unlockResource($resourceId)
+    #[ArrayShape(['success' => "bool"])] public function unlockResource($resourceId): array
     {
 
         $meta = $this->helper('admin')->isResourceLocked($resourceId);

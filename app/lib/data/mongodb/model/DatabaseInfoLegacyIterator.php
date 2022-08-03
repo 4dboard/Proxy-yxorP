@@ -55,7 +55,7 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIteratorInterface
      * @see http://php.net/iterator.current
      * @see DatabaseInfoIteratorInterface::current()
      */
-    #[Pure] #[ReturnTypeWillChange] public function current()
+    #[Pure] #[ReturnTypeWillChange] public function current(): DatabaseInfo
     {
         return new DatabaseInfo(current($this->databases));
     }
@@ -67,7 +67,7 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIteratorInterface
      * @return integer
      */
     #[ReturnTypeWillChange]
-    public function key()
+    public function key(): int
     {
         return key($this->databases);
     }
@@ -103,7 +103,7 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIteratorInterface
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return key($this->databases) !== null;
     }

@@ -248,7 +248,7 @@ class SchemaExtender
         }
     }
 
-    protected static function extendNamedType(Type $type)
+    protected static function extendNamedType(Type $type): Type
     {
         if (Introspection::isIntrospectionType($type) || static::isSpecifiedScalarType($type)) {
             return $type;
@@ -403,7 +403,7 @@ class SchemaExtender
         return $newFieldMap;
     }
 
-    protected static function extendType($typeDef)
+    protected static function extendType($typeDef): ListOfType|NonNull|Type
     {
         if ($typeDef instanceof ListOfType) {
             return Type::listOf(static::extendType($typeDef->getOfType()));
@@ -606,7 +606,7 @@ class SchemaExtender
     /**
      * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
      */
-    protected static function extendMaybeNamedType(?NamedType $type = null)
+    protected static function extendMaybeNamedType(?NamedType $type = null): ?Type
     {
         if ($type !== null) {
             return static::extendNamedType($type);

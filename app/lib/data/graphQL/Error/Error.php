@@ -129,7 +129,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @inheritdoc
      */
-    public function isClientSafe()
+    public function isClientSafe(): bool
     {
         return $this->isClientSafe;
     }
@@ -137,7 +137,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @inheritdoc
      */
-    public function getCategory()
+    public function getCategory(): string
     {
         return $this->category;
     }
@@ -153,7 +153,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @return Error
      */
-    public static function createLocatedError(mixed $error, array $nodes = null, array $path = null)
+    public static function createLocatedError(mixed $error, array $nodes = null, array $path = null): Error
     {
         if ($error instanceof self) {
             if ($error->path !== null && $error->nodes !== null && count($error->nodes) !== 0) {
@@ -197,7 +197,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @return array
      */
-    public static function formatError(Error $error)
+    public static function formatError(Error $error): array
     {
         return $error->toSerializableArray();
     }
@@ -211,7 +211,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * @codeCoverageIgnore
      * @deprecated Use FormattedError::createFromException() instead
      */
-    #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "mixed[]|null", 'locations' => "mixed"])] public function toSerializableArray()
+    #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "mixed[]|null", 'locations' => "mixed"])] public function toSerializableArray(): array
     {
         $arr = [
             'message' => $this->getMessage(),
@@ -328,7 +328,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @return Node[]|null
      */
-    public function getNodes()
+    public function getNodes(): Traversable|array|Node|null
     {
         return $this->nodes;
     }
@@ -341,7 +341,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @api
      */
-    public function getPath()
+    public function getPath(): ?array
     {
         return $this->path;
     }
@@ -349,7 +349,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     /**
      * @return array
      */
-    public function getExtensions()
+    public function getExtensions(): ?array
     {
         return $this->extensions;
     }
@@ -363,7 +363,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      * which is a value of any type other than a resource.
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toSerializableArray();
     }

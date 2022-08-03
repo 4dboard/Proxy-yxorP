@@ -8,7 +8,7 @@ class CSRNGProvider implements IRNGProviderInterface
      * {@inheritdoc}
      * @throws \Exception
      */
-    public function getRandomBytes(int $bytecount)
+    public function getRandomBytes(int $bytecount): string
     {
         return random_bytes($bytecount);    // PHP7+
     }
@@ -16,7 +16,7 @@ class CSRNGProvider implements IRNGProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function isCryptographicallySecure()
+    public function isCryptographicallySecure(): bool
     {
         return true;
     }

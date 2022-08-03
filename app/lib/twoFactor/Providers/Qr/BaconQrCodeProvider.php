@@ -48,7 +48,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
      * Ensure colour is an array of three values but also
      * accept a string and assume its a 3 or 6 character hex
      */
-    private function handleColour($colour)
+    private function handleColour($colour): array
     {
         if (is_string($colour) && $colour[0] == '#') {
             $hexToRGB = function ($input) {
@@ -88,7 +88,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
      * Standard functions from IQRCodeProvider
      */
 
-    public function getMimeType()
+    public function getMimeType(): string
     {
         switch ($this->format) {
             case 'png':
@@ -107,7 +107,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
         throw new RuntimeException(sprintf('Unknown MIME-type: %s', $this->format));
     }
 
-    public function getQRCodeImage(string $qrtext, int $size)
+    public function getQRCodeImage(string $qrtext, int $size): string
     {
         $backend = match ($this->format) {
             'svg' => new SvgImageBackEnd,

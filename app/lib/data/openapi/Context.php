@@ -218,7 +218,7 @@ class Context
         return ['-' => $this->getDebugLocation()];
     }
 
-    public function phpdocDescription()
+    public function phpdocDescription(): string
     {
         $summary = $this->phpdocSummary();
         if (!$summary) {
@@ -235,7 +235,7 @@ class Context
         return $description;
     }
 
-    public function phpdocSummary()
+    public function phpdocSummary(): string
     {
         $content = $this->phpdocContent();
         if (!$content) {
@@ -256,7 +256,7 @@ class Context
         return $summary;
     }
 
-    public function phpdocContent()
+    public function phpdocContent(): string
     {
         $comment = preg_split('/(\n|\r\n)/', (string)$this->comment);
         $comment[0] = preg_replace('/[ \t]*\\/\*\*/', '', $comment[0]);

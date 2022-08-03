@@ -12,7 +12,7 @@ class curlHandler
         $this->factory = $options['handle_factory'] ?? new curlFactory(3);
     }
 
-    public function __invoke(requestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options): \yxorP\app\lib\proxy\promise\fulfilledPromise|\yxorP\app\lib\proxy\promise\rejectedPromise|\yxorP\app\lib\proxy\promise\promiseInterface
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);

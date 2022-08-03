@@ -23,7 +23,7 @@ use function sprintf;
  */
 class ExecutableDefinitions extends ValidationRule
 {
-    #[ArrayShape([NodeKind::DOCUMENT => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::DOCUMENT => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::DOCUMENT => static function (DocumentNode $node) use ($context): VisitorOperation {
@@ -44,7 +44,7 @@ class ExecutableDefinitions extends ValidationRule
         ];
     }
 
-    public static function nonExecutableDefinitionMessage($defName)
+    public static function nonExecutableDefinitionMessage($defName): string
     {
         return sprintf('The "%s" definition is not executable.', $defName);
     }

@@ -42,7 +42,7 @@ class changeStream implements Iterator
         return null;
     }
 
-    #[ReturnTypeWillChange] public function valid()
+    #[ReturnTypeWillChange] public function valid(): bool
     {
         return $this->iterator->valid();
     }
@@ -85,7 +85,7 @@ class changeStream implements Iterator
         throw $exception;
     }
 
-    private function isResumableError(RuntimeException $exception)
+    private function isResumableError(RuntimeException $exception): bool
     {
         if ($exception instanceof ConnectionException) {
             return true;

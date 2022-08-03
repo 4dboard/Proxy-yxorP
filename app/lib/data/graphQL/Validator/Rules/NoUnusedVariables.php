@@ -17,7 +17,7 @@ class NoUnusedVariables extends ValidationRule
     /** @var VariableDefinitionNode[] */
     public array $variableDefs;
 
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $this->variableDefs = [];
 
@@ -56,7 +56,7 @@ class NoUnusedVariables extends ValidationRule
         ];
     }
 
-    public static function unusedVariableMessage($varName, $opName = null)
+    public static function unusedVariableMessage($varName, $opName = null): string
     {
         return $opName
             ? sprintf('Variable "$%s" is never used in operation "%s".', $varName, $opName)

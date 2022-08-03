@@ -16,7 +16,7 @@ use function sprintf;
 
 class VariablesAreInputTypes extends ValidationRule
 {
-    #[ArrayShape([NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::VARIABLE_DEFINITION => static function (VariableDefinitionNode $node) use ($context): void {
@@ -36,7 +36,7 @@ class VariablesAreInputTypes extends ValidationRule
         ];
     }
 
-    public static function nonInputTypeOnVarMessage($variableName, $typeName)
+    public static function nonInputTypeOnVarMessage($variableName, $typeName): string
     {
         return sprintf('Variable "$%s" cannot be non-input type "%s".', $variableName, $typeName);
     }

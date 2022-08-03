@@ -21,7 +21,7 @@ use function sprintf;
  */
 class KnownArgumentNames extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         $knownArgumentNamesOnDirectives = new KnownArgumentNamesOnDirectives();
 
@@ -63,7 +63,7 @@ class KnownArgumentNames extends ValidationRule
     /**
      * @param string[] $suggestedArgs
      */
-    public static function unknownArgMessage($argName, $fieldName, $typeName, array $suggestedArgs)
+    public static function unknownArgMessage($argName, $fieldName, $typeName, array $suggestedArgs): string
     {
         $message = sprintf('Unknown argument "%s" on field "%s" of type "%s".', $argName, $fieldName, $typeName);
         if (isset($suggestedArgs[0])) {

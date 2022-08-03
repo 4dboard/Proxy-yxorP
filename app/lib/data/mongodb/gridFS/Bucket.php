@@ -254,7 +254,7 @@ class Bucket
      *
      * @return string
      */
-    private function getFilesNamespace()
+    private function getFilesNamespace(): string
     {
         return sprintf('%s.%s.files', $this->databaseName, $this->bucketName);
     }
@@ -325,7 +325,7 @@ class Bucket
      * @param stdClass $file GridFS file document
      * @return string
      */
-    private function createPathForFile(stdClass $file)
+    private function createPathForFile(stdClass $file): string
     {
         if (!is_object($file->_id) || method_exists($file->_id, '__toString')) {
             $id = (string)$file->_id;
@@ -442,7 +442,7 @@ class Bucket
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see Find::__construct() for supported options
      */
-    public function find(object|array $filter = [], array $options = [])
+    public function find(object|array $filter = [], array $options = []): Cursor
     {
         return $this->collectionWrapper->findFiles($filter, $options);
     }
@@ -459,7 +459,7 @@ class Bucket
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see FindOne::__construct() for supported options
      */
-    public function findOne(object|array $filter = [], array $options = [])
+    public function findOne(object|array $filter = [], array $options = []): object|array|null
     {
         return $this->collectionWrapper->findOneFile($filter, $options);
     }
@@ -469,7 +469,7 @@ class Bucket
      *
      * @return string
      */
-    public function getBucketName()
+    public function getBucketName(): string
     {
         return $this->bucketName;
     }
@@ -479,7 +479,7 @@ class Bucket
      *
      * @return collection
      */
-    #[Pure] public function getChunksCollection()
+    #[Pure] public function getChunksCollection(): collection
     {
         return $this->collectionWrapper->getChunksCollection();
     }
@@ -489,7 +489,7 @@ class Bucket
      *
      * @return integer
      */
-    public function getChunkSizeBytes()
+    public function getChunkSizeBytes(): int
     {
         return $this->chunkSizeBytes;
     }
@@ -499,7 +499,7 @@ class Bucket
      *
      * @return string
      */
-    public function getDatabaseName()
+    public function getDatabaseName(): string
     {
         return $this->databaseName;
     }
@@ -512,7 +512,7 @@ class Bucket
      * @throws InvalidArgumentException if $stream is not a GridFS stream
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function getFileDocumentForStream($stream)
+    public function getFileDocumentForStream($stream): object|array
     {
         $file = $this->getRawFileDocumentForStream($stream);
 
@@ -530,7 +530,7 @@ class Bucket
      * @return stdClass
      * @throws InvalidArgumentException
      */
-    private function getRawFileDocumentForStream($stream)
+    private function getRawFileDocumentForStream($stream): stdClass
     {
         if (!is_resource($stream) || get_resource_type($stream) != "stream") {
             throw InvalidArgumentException::invalidType('$stream', $stream, 'resource');
@@ -550,7 +550,7 @@ class Bucket
      *
      * @return collection
      */
-    #[Pure] public function getFilesCollection()
+    #[Pure] public function getFilesCollection(): collection
     {
         return $this->collectionWrapper->getFilesCollection();
     }
@@ -561,7 +561,7 @@ class Bucket
      * @see http://php.net/manual/en/mongodb-driver-readconcern.isdefault.php
      * @return ReadConcern
      */
-    public function getReadConcern()
+    public function getReadConcern(): \yxorP\app\lib\data\mongoDB\GridFS\ReadConcern|ReadConcern
     {
         return $this->readConcern;
     }
@@ -571,7 +571,7 @@ class Bucket
      *
      * @return ReadPreference
      */
-    public function getReadPreference()
+    public function getReadPreference(): ReadPreference|\yxorP\app\lib\data\mongoDB\GridFS\ReadPreference
     {
         return $this->readPreference;
     }
@@ -581,7 +581,7 @@ class Bucket
      *
      * @return array
      */
-    public function getTypeMap()
+    public function getTypeMap(): array
     {
         return $this->typeMap;
     }
@@ -592,7 +592,7 @@ class Bucket
      * @see http://php.net/manual/en/mongodb-driver-writeconcern.isdefault.php
      * @return WriteConcern
      */
-    public function getWriteConcern()
+    public function getWriteConcern(): WriteConcern
     {
         return $this->writeConcern;
     }
@@ -649,7 +649,7 @@ class Bucket
      * @return mixed ID of the newly created GridFS file
      * @throws \yxorP\app\lib\data\mongoDB\GridFS\Exception\CorruptFileException
      */
-    public function uploadFromStream(string $filename, $source, array $options = [])
+    public function uploadFromStream(string $filename, $source, array $options = []): mixed
     {
         if (!is_resource($source) || get_resource_type($source) != "stream") {
             throw InvalidArgumentException::invalidType('$source', $source, 'resource');
@@ -707,7 +707,7 @@ class Bucket
      *
      * @return string
      */
-    private function createPathForUpload()
+    private function createPathForUpload(): string
     {
         return sprintf(
             '%s://%s/%s.files',
@@ -726,7 +726,7 @@ class Bucket
      * @throws InvalidArgumentException if $stream is not a GridFS stream
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    public function getFileIdForStream($stream)
+    public function getFileIdForStream($stream): mixed
     {
         $file = $this->getRawFileDocumentForStream($stream);
 

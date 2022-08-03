@@ -58,7 +58,7 @@ class zipStream
         }
     }
 
-    protected function isLargeFile($path)
+    protected function isLargeFile($path): bool
     {
         $st = stat($path);
         return ($this->opt[self::OPTION_LARGE_FILE_SIZE] > 0) && ($st['size'] > $this->opt[self::OPTION_LARGE_FILE_SIZE]);
@@ -115,7 +115,7 @@ class zipStream
         fclose($fh);
     }
 
-    protected function addFileHeader($name, &$opt, $meth, $crc, $zlen, $len, $genb = 0x00)
+    protected function addFileHeader($name, &$opt, $meth, $crc, $zlen, $len, $genb = 0x00): int
     {
         $name = preg_replace('/^\\/+/', '', $name);
         $nlen = strlen($name);
@@ -132,7 +132,7 @@ class zipStream
         return $num_bytes_written;
     }
 
-    protected final function dostime($when)
+    protected final function dostime($when): int
     {
         $d = getdate($when);
         if ($d['year'] < 1980) {
@@ -202,7 +202,7 @@ class zipStream
         $this->send($zdata);
     }
 
-    protected function getStorageConstant($storage_method)
+    protected function getStorageConstant($storage_method): int
     {
         return $storage_method == self::METHOD_STORE ? self::NOCOMPRESS : self::COMPRESS;
     }
@@ -255,7 +255,7 @@ class zipStream
         }
     }
 
-    protected function addDataDescriptorHeader($len, $zlen, $crc)
+    protected function addDataDescriptorHeader($len, $zlen, $crc): int
     {
         $fields = array(array('V', 0x08074b50), array('V', $crc), array('V', $zlen), array('V', $len),);
         $ret = $this->packFields($fields);

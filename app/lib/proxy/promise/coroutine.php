@@ -26,12 +26,12 @@ final class coroutine implements promiseInterface
         $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): promise|fulfilledPromise|rejectedPromise|promiseInterface
     {
         return $this->result->then($onFulfilled, $onRejected);
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): promise|fulfilledPromise|promiseInterface|rejectedPromise
     {
         return $this->result->otherwise($onRejected);
     }
@@ -44,7 +44,7 @@ final class coroutine implements promiseInterface
         return $this->result->wait($unwrap);
     }
 
-    #[Pure] public function getState()
+    #[Pure] public function getState(): string
     {
         return $this->result->getState();
     }

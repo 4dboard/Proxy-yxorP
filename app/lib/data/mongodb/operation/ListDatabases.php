@@ -72,7 +72,7 @@ class ListDatabases implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\DatabaseInfoLegacyIterator
     {
         return new DatabaseInfoLegacyIterator($this->listDatabases->execute($server));
     }

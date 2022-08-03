@@ -165,7 +165,7 @@ class api extends app
         ])->toArray();
     }
 
-    public function openapi()
+    public function openapi(): array|string
     {
 
         $this->helper('session')->close();

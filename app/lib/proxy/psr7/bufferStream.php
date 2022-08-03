@@ -18,7 +18,7 @@ class bufferStream implements streamInterface
         return $this->getContents();
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         $buffer = $this->buffer;
         $this->buffer = '';
@@ -35,22 +35,22 @@ class bufferStream implements streamInterface
         $this->buffer = '';
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return strlen($this->buffer);
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return true;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return true;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return false;
     }
@@ -65,17 +65,17 @@ class bufferStream implements streamInterface
         throw new RuntimeException('Cannot seek a BufferStream');
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return strlen($this->buffer) === 0;
     }
 
-    public function tell()
+    public function tell(): int
     {
         throw new RuntimeException('Cannot determine the position of a BufferStream');
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         $currentLength = strlen($this->buffer);
         if ($length >= $currentLength) {
@@ -88,7 +88,7 @@ class bufferStream implements streamInterface
         return $result;
     }
 
-    public function write(string $string)
+    public function write(string $string): bool|int
     {
         $this->buffer .= $string;
         if (strlen($this->buffer) >= $this->hwm) {

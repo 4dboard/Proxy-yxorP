@@ -80,7 +80,7 @@ class StreamWrapper
      *
      * @return stdClass
      */
-    #[Pure] public function getFile()
+    #[Pure] public function getFile(): stdClass
     {
         return $this->stream->getFile();
     }
@@ -105,7 +105,7 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-eof.php
      * @return boolean
      */
-    #[Pure] public function stream_eof()
+    #[Pure] public function stream_eof(): bool
     {
         if (!$this->stream instanceof ReadableStream) {
             return false;
@@ -124,7 +124,7 @@ class StreamWrapper
      * @param string $openedPath Not used
      * @return boolean
      */
-    public function stream_open(string $path, string $mode, int $options, string &$openedPath)
+    public function stream_open(string $path, string $mode, int $options, string &$openedPath): bool
     {
         $this->initProtocol($path);
         $this->mode = $mode;
@@ -158,7 +158,7 @@ class StreamWrapper
      * @return boolean
      * @see StreamWrapper::stream_open()
      */
-    private function initReadableStream()
+    private function initReadableStream(): bool
     {
         $context = stream_context_get_options($this->context);
 
@@ -176,7 +176,7 @@ class StreamWrapper
      * @return boolean
      * @see StreamWrapper::stream_open()
      */
-    private function initWritableStream()
+    private function initWritableStream(): bool
     {
         $context = stream_context_get_options($this->context);
 
@@ -199,7 +199,7 @@ class StreamWrapper
      * @param integer $length Number of bytes to read
      * @return string
      */
-    public function stream_read(int $length)
+    public function stream_read(int $length): string
     {
         if (!$this->stream instanceof ReadableStream) {
             return '';
@@ -216,7 +216,7 @@ class StreamWrapper
      * @param integer $whence One of SEEK_SET, SEEK_CUR, or SEEK_END
      * @return boolean True if the position was updated and false otherwise
      */
-    public function stream_seek(int $offset, int $whence = SEEK_SET)
+    public function stream_seek(int $offset, int $whence = SEEK_SET): bool
     {
         $size = $this->stream->getSize();
 
@@ -248,7 +248,7 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-stat.php
      * @return array
      */
-    public function stream_stat()
+    public function stream_stat(): array
     {
         $stat = $this->getStatTemplate();
 
@@ -277,7 +277,7 @@ class StreamWrapper
      *
      * @return array
      */
-    private function getStatTemplate()
+    private function getStatTemplate(): array
     {
         return [
             // phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
@@ -304,7 +304,7 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-tell.php
      * @return integer The current position of the stream
      */
-    public function stream_tell()
+    public function stream_tell(): int
     {
         return $this->stream->tell();
     }
@@ -316,7 +316,7 @@ class StreamWrapper
      * @param string $data Data to write
      * @return integer The number of bytes written
      */
-    public function stream_write(string $data)
+    public function stream_write(string $data): int
     {
         if (!$this->stream instanceof WritableStream) {
             return 0;

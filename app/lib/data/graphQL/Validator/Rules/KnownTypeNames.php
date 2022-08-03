@@ -24,7 +24,7 @@ use function sprintf;
  */
 class KnownTypeNames extends ValidationRule
 {
-    #[ArrayShape([NodeKind::OBJECT_TYPE_DEFINITION => "\Closure", NodeKind::INTERFACE_TYPE_DEFINITION => "\Closure", NodeKind::UNION_TYPE_DEFINITION => "\Closure", NodeKind::INPUT_OBJECT_TYPE_DEFINITION => "\Closure", NodeKind::NAMED_TYPE => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OBJECT_TYPE_DEFINITION => "\Closure", NodeKind::INTERFACE_TYPE_DEFINITION => "\Closure", NodeKind::UNION_TYPE_DEFINITION => "\Closure", NodeKind::INPUT_OBJECT_TYPE_DEFINITION => "\Closure", NodeKind::NAMED_TYPE => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $skip = static function (): VisitorOperation {
             return Visitor::skipNode();
@@ -61,7 +61,7 @@ class KnownTypeNames extends ValidationRule
      * @param string $type
      * @param string[] $suggestedTypes
      */
-    public static function unknownTypeMessage(string $type, array $suggestedTypes)
+    public static function unknownTypeMessage(string $type, array $suggestedTypes): string
     {
         $message = sprintf('Unknown type "%s".', $type);
         if (count($suggestedTypes) > 0) {

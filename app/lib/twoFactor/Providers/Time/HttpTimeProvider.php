@@ -51,7 +51,7 @@ class HttpTimeProvider implements ITimeProviderInterface
      * {@inheritdoc}
      * @throws TimeException
      */
-    public function getTime()
+    public function getTime(): int
     {
         try {
             $context = stream_context_create($this->options);

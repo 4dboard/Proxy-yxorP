@@ -14,7 +14,7 @@ class palette implements Countable, IteratorAggregate
         $this->colors = [];
     }
 
-    public static function fromFilename($filename, $backgroundColor = null)
+    public static function fromFilename($filename, $backgroundColor = null): palette
     {
         $image = imagecreatefromstring(file_get_contents($filename));
         $palette = self::fromGD($image, $backgroundColor);
@@ -22,7 +22,7 @@ class palette implements Countable, IteratorAggregate
         return $palette;
     }
 
-    public static function fromGD($image, $backgroundColor = null)
+    public static function fromGD($image, $backgroundColor = null): palette
     {
         if (!is_resource($image) || get_resource_type($image) != 'gd') {
             throw new InvalidArgumentException('Image must be a gd resource');
@@ -59,12 +59,12 @@ class palette implements Countable, IteratorAggregate
         return $palette;
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->colors);
     }
 
-    public function getIterator()
+    public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->colors);
     }
@@ -74,7 +74,7 @@ class palette implements Countable, IteratorAggregate
         return $this->colors[$color];
     }
 
-    public function getMostUsedColors($limit = null)
+    public function getMostUsedColors($limit = null): array
     {
         return array_slice($this->colors, 0, $limit, true);
     }

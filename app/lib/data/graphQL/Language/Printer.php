@@ -86,7 +86,7 @@ class Printer
      *
      * @api
      */
-    public static function doPrint(Node $ast)
+    public static function doPrint(Node $ast): string
     {
         static $instance;
         $instance = $instance ?? new static();
@@ -489,7 +489,7 @@ class Printer
      * If maybeString is not null or empty, then wrap with start and end, otherwise
      * print an empty string.
      */
-    public function wrap($start, $maybeString, $end = '')
+    public function wrap($start, $maybeString, $end = ''): string
     {
         return $maybeString ? ($start . $maybeString . $end) : '';
     }
@@ -498,19 +498,19 @@ class Printer
      * Given array, print each item on its own line, wrapped in an
      * indented "{ }" block.
      */
-    public function block($array)
+    public function block($array): string
     {
         return $array && $this->length($array)
             ? "{\n" . $this->indent($this->join($array, "\n")) . "\n}"
             : '';
     }
 
-    public function length($maybeArray)
+    public function length($maybeArray): int
     {
         return $maybeArray ? count($maybeArray) : 0;
     }
 
-    public function indent($maybeString)
+    public function indent($maybeString): string
     {
         return $maybeString ? '  ' . str_replace("\n", "\n  ", $maybeString) : '';
     }
@@ -520,7 +520,7 @@ class Printer
      * trailing blank line. However, if a block string starts with whitespace and is
      * a single-line, adding a leading blank line would strip that whitespace.
      */
-    private function printBlockString($value, $isDescription)
+    private function printBlockString($value, $isDescription): string
     {
         $escaped = str_replace('"""', '\\"""', $value);
 
@@ -529,14 +529,14 @@ class Printer
             : ('"""' . "\n" . ($isDescription ? $escaped : $this->indent($escaped)) . "\n" . '"""');
     }
 
-    public function addDescription(callable $cb)
+    public function addDescription(callable $cb): \Closure
     {
         return function ($node) use ($cb): string {
             return $this->join([$node->description, $cb($node)], "\n");
         };
     }
 
-    public function manyList($start, $list, $separator, $end)
+    public function manyList($start, $list, $separator, $end): ?string
     {
         return $this->length($list) === 0 ? null : ($start . $this->join($list, $separator) . $end);
     }

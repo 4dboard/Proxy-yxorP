@@ -36,5 +36,5 @@ interface DatabaseInfoIteratorInterface extends Iterator
      * @return DatabaseInfo
      */
     #[ReturnTypeWillChange]
-    public function current();
+    public function current(): DatabaseInfo;
 }

@@ -16,12 +16,12 @@ class fulfilledPromise implements promiseInterface
         $this->value = $value;
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): promise|static
     {
         return $this->then(null, $onRejected);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): promise|static
     {
         if (!$onFulfilled) {
             return $this;
@@ -46,7 +46,7 @@ class fulfilledPromise implements promiseInterface
         return null;
     }
 
-    public function getState()
+    public function getState(): string
     {
         return self::FULFILLED;
     }

@@ -21,7 +21,7 @@ use function sprintf;
 
 class PossibleFragmentSpreads extends ValidationRule
 {
-    #[ArrayShape([NodeKind::INLINE_FRAGMENT => "\Closure", NodeKind::FRAGMENT_SPREAD => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::INLINE_FRAGMENT => "\Closure", NodeKind::FRAGMENT_SPREAD => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::INLINE_FRAGMENT => function (InlineFragmentNode $node) use ($context): void {
@@ -59,7 +59,7 @@ class PossibleFragmentSpreads extends ValidationRule
         ];
     }
 
-    private function doTypesOverlap(Schema $schema, CompositeType $fragType, CompositeType $parentType)
+    private function doTypesOverlap(Schema $schema, CompositeType $fragType, CompositeType $parentType): bool
     {
         // Checking in the order of the most frequently used scenarios:
         // Parent type === fragment type
@@ -127,7 +127,7 @@ class PossibleFragmentSpreads extends ValidationRule
         return false;
     }
 
-    public static function typeIncompatibleAnonSpreadMessage($parentType, $fragType)
+    public static function typeIncompatibleAnonSpreadMessage($parentType, $fragType): string
     {
         return sprintf(
             'Fragment cannot be spread here as objects of type "%s" can never be of type "%s".',
@@ -136,7 +136,7 @@ class PossibleFragmentSpreads extends ValidationRule
         );
     }
 
-    private function getFragmentType(ValidationContext $context, $name)
+    private function getFragmentType(ValidationContext $context, $name): CompositeType|\yxorP\app\lib\data\graphQL\Type\Definition\Type|null
     {
         $frag = $context->getFragment($name);
         if ($frag) {
@@ -149,7 +149,7 @@ class PossibleFragmentSpreads extends ValidationRule
         return null;
     }
 
-    public static function typeIncompatibleSpreadMessage($fragName, $parentType, $fragType)
+    public static function typeIncompatibleSpreadMessage($fragName, $parentType, $fragType): string
     {
         return sprintf(
             'Fragment "%s" cannot be spread here as objects of type "%s" can never be of type "%s".',

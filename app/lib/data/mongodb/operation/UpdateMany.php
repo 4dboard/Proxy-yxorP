@@ -104,7 +104,7 @@ class UpdateMany implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): updateResult
     {
         return $this->update->execute($server);
     }
@@ -116,7 +116,7 @@ class UpdateMany implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->update->getCommandDocument($server);
     }

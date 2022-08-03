@@ -66,7 +66,7 @@ class BuildSchema
      * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      * @api
      */
-    public static function build(Source|DocumentNode|string $source, ?callable $typeConfigDecorator = null, array $options = [])
+    public static function build(Source|DocumentNode|string $source, ?callable $typeConfigDecorator = null, array $options = []): Schema
     {
         $doc = $source instanceof DocumentNode
             ? $source
@@ -99,7 +99,7 @@ class BuildSchema
      *
      * @api
      */
-    public static function buildAST(DocumentNode $ast, ?callable $typeConfigDecorator = null, array $options = [])
+    public static function buildAST(DocumentNode $ast, ?callable $typeConfigDecorator = null, array $options = []): Schema
     {
         $builder = new self($ast, $typeConfigDecorator, $options);
 
@@ -109,7 +109,7 @@ class BuildSchema
     /**
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    public function buildSchema()
+    public function buildSchema(): Schema
     {
         $options = $this->options;
         if (!($options['assumeValid'] ?? false) && !($options['assumeValidSDL'] ?? false)) {
@@ -219,7 +219,7 @@ class BuildSchema
      *
      * @throws Error
      */
-    private function getOperationTypes(SchemaDefinitionNode $schemaDef)
+    private function getOperationTypes(SchemaDefinitionNode $schemaDef): array
     {
         $opTypes = [];
 

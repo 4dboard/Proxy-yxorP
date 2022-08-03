@@ -37,7 +37,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getMimeType()
+    public function getMimeType(): string
     {
         return 'image/png';
     }
@@ -45,7 +45,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage(string $qrtext, int $size)
+    public function getQRCodeImage(string $qrtext, int $size): bool|string
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }
@@ -56,7 +56,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
      *
      * @return string file contents of the QR code
      */
-    public function getUrl(string $qrtext, int|string $size)
+    public function getUrl(string $qrtext, int|string $size): string
     {
         return 'https://chart.googleapis.com/chart'
             . '?chs=' . $size . 'x' . $size

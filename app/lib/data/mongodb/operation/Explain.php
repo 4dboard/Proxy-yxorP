@@ -107,7 +107,7 @@ class Explain implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array
     {
         if ($this->explainable instanceof Aggregate && !server_supports_feature($server, self::$wireVersionForAggregate)) {
             throw UnsupportedException::explainNotSupported();
@@ -134,7 +134,7 @@ class Explain implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

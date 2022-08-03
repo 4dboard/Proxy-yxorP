@@ -138,7 +138,7 @@ class MixedStore implements ArrayAccess
      * @return mixed Can return all value types.
      */
     #[ReturnTypeWillChange]
-    public function offsetGet(mixed $offset)
+    public function offsetGet(mixed $offset): mixed
     {
         if ($offset === true) {
             return $this->trueValue;

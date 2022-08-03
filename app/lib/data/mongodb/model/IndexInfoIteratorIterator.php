@@ -58,7 +58,7 @@ class IndexInfoIteratorIterator extends IteratorIterator implements IndexInfoIte
      * @see IndexInfoIteratorInterface::current()
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): IndexInfo
     {
         $info = parent::current();
 

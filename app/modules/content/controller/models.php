@@ -43,7 +43,7 @@ class models extends app
         return $this->render('content:views/models/model.php', compact('model', 'isUpdate', 'groups'));
     }
 
-    protected function getGroups()
+    protected function getGroups(): array
     {
 
         $groups = [];
@@ -133,7 +133,7 @@ class models extends app
         return $this->module('content')->saveModel($model['name'], $model);
     }
 
-    public function load()
+    public function load(): array
     {
 
         return array_values($this->module('content')->models());

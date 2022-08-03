@@ -32,7 +32,7 @@ class setCookie
         $this->data['Expires'] = is_numeric($timestamp) ? (int)$timestamp : strtotime($timestamp);
     }
 
-    public static function fromString($cookie)
+    public static function fromString($cookie): setCookie
     {
         $data = self::$defaults;
         $pieces = array_filter(array_map('trim', explode(';', $cookie)));
@@ -74,7 +74,7 @@ class setCookie
         return rtrim($str, '; ');
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return $this->data;
     }
@@ -134,7 +134,7 @@ class setCookie
         $this->data['HttpOnly'] = $httpOnly;
     }
 
-    public function matchesPath($requestPath)
+    public function matchesPath($requestPath): bool
     {
         $cookiePath = $this->getPath();
         if ($cookiePath === '/' || $cookiePath === $requestPath) {
@@ -154,7 +154,7 @@ class setCookie
         return $this->data['Path'];
     }
 
-    public function matchesDomain($domain)
+    public function matchesDomain($domain): bool
     {
         $cookieDomain = ltrim($this->getDomain(), '.');
         if (!$cookieDomain || !strcasecmp($domain, $cookieDomain)) {
@@ -171,12 +171,12 @@ class setCookie
         return $this->data['Domain'];
     }
 
-    public function isExpired()
+    public function isExpired(): bool
     {
         return $this->getExpires() !== null && time() > $this->getExpires();
     }
 
-    public function validate()
+    public function validate(): bool|string
     {
         $name = $this->getName();
         if (empty($name) && !is_numeric($name)) {

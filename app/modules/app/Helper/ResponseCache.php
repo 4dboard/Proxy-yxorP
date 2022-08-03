@@ -27,7 +27,7 @@ class ResponseCache extends helperAware
         return true;
     }
 
-    protected function getCache($request)
+    protected function getCache($request): bool
     {
 
         $cache = $this->cacheHandler->getCache($request);

@@ -87,7 +87,7 @@ class BSONIterator implements Iterator
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return $this->current;
     }
@@ -97,7 +97,7 @@ class BSONIterator implements Iterator
      * @return int
      */
     #[ReturnTypeWillChange]
-    public function key()
+    public function key(): int
     {
         return $this->key;
     }
@@ -152,7 +152,7 @@ class BSONIterator implements Iterator
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return $this->current !== null;
     }

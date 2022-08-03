@@ -3,17 +3,17 @@ use JetBrains\PhpStorm\ArrayShape;
 
 class color
 {
-    public static function fromIntToHex($color, $prependHash = true)
+    public static function fromIntToHex($color, $prependHash = true): string
     {
         return ($prependHash ? '#' : '') . sprintf('%06X', $color);
     }
 
-    public static function fromHexToInt($color)
+    public static function fromHexToInt($color): float|int
     {
         return hexdec(ltrim($color, '#'));
     }
 
-    #[ArrayShape(['r' => "int", 'g' => "int", 'b' => "int"])] public static function fromIntToRgb($color)
+    #[ArrayShape(['r' => "int", 'g' => "int", 'b' => "int"])] public static function fromIntToRgb($color): array
     {
         return ['r' => $color >> 16 & 0xFF, 'g' => $color >> 8 & 0xFF, 'b' => $color & 0xFF,];
     }

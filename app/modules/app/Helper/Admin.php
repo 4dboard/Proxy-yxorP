@@ -18,7 +18,7 @@ use yxorP\app\lib\http\helperAware;
 class admin extends helperAware
 {
 
-    public function lockResourceId($resourceId, $user = null)
+    public function lockResourceId($resourceId, $user = null): bool
     {
 
         if (!$resourceId) {
@@ -48,7 +48,7 @@ class admin extends helperAware
         return true;
     }
 
-    public function updateLockedResourceId($resourceId)
+    public function updateLockedResourceId($resourceId): bool
     {
 
         $meta = null;
@@ -68,7 +68,7 @@ class admin extends helperAware
         return true;
     }
 
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
+    public function isResourceEditableByCurrentUser($resourceId, &$meta = null): bool
     {
 
         $meta = $this->isResourceLocked($resourceId);
@@ -86,7 +86,7 @@ class admin extends helperAware
         return false;
     }
 
-    public function isResourceLocked($resourceId, $ttl = null)
+    public function isResourceLocked($resourceId, $ttl = null): bool
     {
 
         $ttl = $ttl ?? 300;
@@ -105,7 +105,7 @@ class admin extends helperAware
         return false;
     }
 
-    public function unlockResourceId($resourceId)
+    public function unlockResourceId($resourceId): bool
     {
 
         $meta = $this->isResourceLocked($resourceId);

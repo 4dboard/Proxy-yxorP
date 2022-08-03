@@ -33,5 +33,5 @@ interface ExplainableInterface extends ExecutableInterface
      * @param Server $server
      * @return array
      */
-    public function getCommandDocument(Server $server);
+    public function getCommandDocument(Server $server): array;
 }

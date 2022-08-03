@@ -68,7 +68,7 @@ class query extends appAware
         $this->initialized = true;
     }
 
-    protected function isPathMatching($path, $pattern, &$params = null)
+    protected function isPathMatching($path, $pattern, &$params = null): bool
     {
 
         $params = [];
@@ -91,7 +91,7 @@ class query extends appAware
         return false;
     }
 
-    protected function getRegex($pattern)
+    protected function getRegex($pattern): bool|string
     {
 
         if (preg_match('/[^-:\/_{}()a-zA-Z\d]/', $pattern)) return false; // Invalid pattern

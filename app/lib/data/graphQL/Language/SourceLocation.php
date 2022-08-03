@@ -31,7 +31,7 @@ class SourceLocation implements JsonSerializable
      * @return int[]
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toSerializableArray();
     }
@@ -39,7 +39,7 @@ class SourceLocation implements JsonSerializable
     /**
      * @return int[]
      */
-    #[Pure] public function toSerializableArray()
+    #[Pure] public function toSerializableArray(): array
     {
         return $this->toArray();
     }
@@ -47,7 +47,7 @@ class SourceLocation implements JsonSerializable
     /**
      * @return int[]
      */
-    #[ArrayShape(['line' => "int", 'column' => "int"])] public function toArray()
+    #[ArrayShape(['line' => "int", 'column' => "int"])] public function toArray(): array
     {
         return [
             'line' => $this->line,

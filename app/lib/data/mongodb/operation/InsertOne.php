@@ -111,7 +111,7 @@ class InsertOne implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\insertOneResult
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if (isset($this->options['writeConcern']) && $inTransaction) {
@@ -132,7 +132,7 @@ class InsertOne implements ExecutableInterface
      * @see https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
      * @return array
      */
-    private function createBulkWriteOptions()
+    private function createBulkWriteOptions(): array
     {
         $options = [];
 
@@ -149,7 +149,7 @@ class InsertOne implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 

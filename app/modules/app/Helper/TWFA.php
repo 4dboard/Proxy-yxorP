@@ -26,7 +26,7 @@ class TWFA extends helperAware
      * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
      */
-    public function createSecret(int $length = 160)
+    public function createSecret(int $length = 160): string
     {
         return $this->tfa->createSecret($length);
     }

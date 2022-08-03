@@ -20,17 +20,17 @@ final class transferStats
         $this->handlerStats = $handlerStats;
     }
 
-    public function getRequest()
+    public function getRequest(): requestInterface
     {
         return $this->request;
     }
 
-    public function getResponse()
+    public function getResponse(): ?responseInterface
     {
         return $this->response;
     }
 
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return $this->response !== null;
     }
@@ -40,7 +40,7 @@ final class transferStats
         return $this->handlerErrorData;
     }
 
-    public function getEffectiveUri()
+    public function getEffectiveUri(): \yxorP\app\lib\psr\http\message\uriInterface
     {
         return $this->request->getUri();
     }
@@ -50,7 +50,7 @@ final class transferStats
         return $this->transferTime;
     }
 
-    public function getHandlerStats()
+    public function getHandlerStats(): array
     {
         return $this->handlerStats;
     }

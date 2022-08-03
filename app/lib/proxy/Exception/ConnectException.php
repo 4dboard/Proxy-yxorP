@@ -15,7 +15,7 @@ class connectException extends aRequestException
         return null;
     }
 
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return false;
     }

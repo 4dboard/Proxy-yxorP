@@ -25,12 +25,12 @@ class UniqueInputFieldNames extends ValidationRule
     /** @var array<array<string, NameNode>> */
     public array $knownNameStack;
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
 
-    #[ArrayShape([NodeKind::OBJECT => "\Closure[]", NodeKind::OBJECT_FIELD => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape([NodeKind::OBJECT => "\Closure[]", NodeKind::OBJECT_FIELD => "\Closure"])] public function getASTVisitor(ASTValidationContext $context): array
     {
         $this->knownNames = [];
         $this->knownNameStack = [];
@@ -62,12 +62,12 @@ class UniqueInputFieldNames extends ValidationRule
         ];
     }
 
-    public static function duplicateInputFieldMessage($fieldName)
+    public static function duplicateInputFieldMessage($fieldName): string
     {
         return sprintf('There can be only one input field named "%s".', $fieldName);
     }
 
-    public function getSDLVisitor(SDLValidationContext $context)
+    public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

@@ -6,7 +6,7 @@ use yxorP\app\lib\proxy\cookie\fileCookieJar;
 
 class helpers
 {
-    public static function getallheaders()
+    public static function getallheaders(): array
     {
         $headers = array();
         $copy_server = array('CONTENT_TYPE' => 'Content-Type', 'CONTENT_LENGTH' => 'Content-Length', 'CONTENT_MD5' => 'Content-Md5',);

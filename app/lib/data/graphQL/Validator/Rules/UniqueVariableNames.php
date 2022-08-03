@@ -17,7 +17,7 @@ class UniqueVariableNames extends ValidationRule
     /** @var NameNode[] */
     public array $knownVariableNames;
 
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $this->knownVariableNames = [];
 
@@ -39,7 +39,7 @@ class UniqueVariableNames extends ValidationRule
         ];
     }
 
-    public static function duplicateVariableMessage($variableName)
+    public static function duplicateVariableMessage($variableName): string
     {
         return sprintf('There can be only one variable named "%s".', $variableName);
     }

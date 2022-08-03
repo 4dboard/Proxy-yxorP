@@ -25,7 +25,7 @@ class taskQueue implements taskQueueInterface
         }
     }
 
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return !$this->queue;
     }

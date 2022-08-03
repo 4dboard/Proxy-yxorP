@@ -30,12 +30,12 @@ class appendStream implements streamInterface
         $this->streams[] = $stream;
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return true;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->seekable;
     }
@@ -78,12 +78,12 @@ class appendStream implements streamInterface
         }
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return !$this->streams || ($this->current >= count($this->streams) - 1 && $this->streams[$this->current]->eof());
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         $buffer = '';
         $total = count($this->streams) - 1;
@@ -109,7 +109,7 @@ class appendStream implements streamInterface
         return $buffer;
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return copy_to_string($this);
     }
@@ -134,12 +134,12 @@ class appendStream implements streamInterface
         $this->streams = [];
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->pos;
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         $size = 0;
         foreach ($this->streams as $stream) {
@@ -152,17 +152,17 @@ class appendStream implements streamInterface
         return $size;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }
 
-    public function write(string $string)
+    public function write(string $string): int
     {
         throw new RuntimeException('Cannot write to an AppendStream');
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(string $key = null): ?array
     {
         return $key ? null : [];
     }

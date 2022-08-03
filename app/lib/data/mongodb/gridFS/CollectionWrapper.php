@@ -109,7 +109,7 @@ class CollectionWrapper
      * @param integer $fromChunk Starting chunk (inclusive)
      * @return Cursor
      */
-    public function findChunksByFileId(mixed $id, int $fromChunk = 0)
+    public function findChunksByFileId(mixed $id, int $fromChunk = 0): Cursor
     {
         return $this->chunksCollection->find(
             [
@@ -141,7 +141,7 @@ class CollectionWrapper
      * @see Bucket::openDownloadStreamByName()
      * @see Bucket::downloadToStreamByName()
      */
-    public function findFileByFilenameAndRevision(string $filename, int $revision)
+    public function findFileByFilenameAndRevision(string $filename, int $revision): ?stdClass
     {
         $filename = (string)$filename;
         $revision = (integer)$revision;
@@ -170,7 +170,7 @@ class CollectionWrapper
      * @param mixed $id
      * @return stdClass|null
      */
-    public function findFileById(mixed $id)
+    public function findFileById(mixed $id): ?stdClass
     {
         return $this->filesCollection->findOne(
             ['_id' => $id],
@@ -186,7 +186,7 @@ class CollectionWrapper
      * @return Cursor
      * @see Find::__construct() for supported options
      */
-    public function findFiles(object|array $filter, array $options = [])
+    public function findFiles(object|array $filter, array $options = []): Cursor
     {
         return $this->filesCollection->find($filter, $options);
     }
@@ -198,7 +198,7 @@ class CollectionWrapper
      * @param array $options Additional options
      * @return array|object|null
      */
-    public function findOneFile(object|array $filter, array $options = [])
+    public function findOneFile(object|array $filter, array $options = []): object|array|null
     {
         return $this->filesCollection->findOne($filter, $options);
     }
@@ -208,7 +208,7 @@ class CollectionWrapper
      *
      * @return string
      */
-    public function getBucketName()
+    public function getBucketName(): string
     {
         return $this->bucketName;
     }
@@ -218,7 +218,7 @@ class CollectionWrapper
      *
      * @return collection
      */
-    public function getChunksCollection()
+    public function getChunksCollection(): collection
     {
         return $this->chunksCollection;
     }
@@ -228,7 +228,7 @@ class CollectionWrapper
      *
      * @return string
      */
-    public function getDatabaseName()
+    public function getDatabaseName(): string
     {
         return $this->databaseName;
     }
@@ -238,7 +238,7 @@ class CollectionWrapper
      *
      * @return collection
      */
-    public function getFilesCollection()
+    public function getFilesCollection(): collection
     {
         return $this->filesCollection;
     }
@@ -284,7 +284,7 @@ class CollectionWrapper
      *
      * @return boolean
      */
-    private function isFilesCollectionEmpty()
+    private function isFilesCollectionEmpty(): bool
     {
         return null === $this->filesCollection->findOne([], [
                 'readPreference' => new ReadPreference(ReadPreference::RP_PRIMARY),
@@ -378,7 +378,7 @@ class CollectionWrapper
      * @param string $filename
      * @return updateResult
      */
-    public function updateFilenameForId(mixed $id, string $filename)
+    public function updateFilenameForId(mixed $id, string $filename): updateResult
     {
         return $this->filesCollection->updateOne(
             ['_id' => $id],

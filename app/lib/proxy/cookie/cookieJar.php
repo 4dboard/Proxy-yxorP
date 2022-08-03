@@ -22,7 +22,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    public function setCookie(setCookie $cookie)
+    public function setCookie(setCookie $cookie): bool
     {
         $name = $cookie->getName();
         if (!$name && $name !== '0') {
@@ -86,7 +86,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    public static function fromArray(array $cookies, $domain)
+    public static function fromArray(array $cookies, $domain): cookieJar
     {
         $cookieJar = new self();
         foreach ($cookies as $name => $value) {
@@ -100,7 +100,7 @@ class cookieJar implements cookieJarInterface
         return $value;
     }
 
-    public static function shouldPersist(setCookie $cookie, $allowSessionCookies = false)
+    public static function shouldPersist(setCookie $cookie, $allowSessionCookies = false): bool
     {
         if ($cookie->getExpires() || $allowSessionCookies) {
             if (!$cookie->getDiscard()) {
@@ -126,14 +126,14 @@ class cookieJar implements cookieJarInterface
     /**
      * @throws \Exception
      */
-    public function toArray()
+    public function toArray(): array
     {
         return array_map(function (setCookie $cookie) {
             return $cookie->toArray();
         }, $this->getIterator()->getArrayCopy());
     }
 
-    #[ReturnTypeWillChange] public function getIterator()
+    #[ReturnTypeWillChange] public function getIterator(): ArrayIterator
     {
         return new ArrayIterator(array_values($this->cookies));
     }
@@ -145,7 +145,7 @@ class cookieJar implements cookieJarInterface
         });
     }
 
-    #[ReturnTypeWillChange] public function count()
+    #[ReturnTypeWillChange] public function count(): int
     {
         return count($this->cookies);
     }
@@ -166,7 +166,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    private function getCookiePathFromRequest(requestInterface $request)
+    private function getCookiePathFromRequest(requestInterface $request): string
     {
         $uriPath = $request->getUri()->getPath();
         if ('' === $uriPath) {
@@ -184,7 +184,7 @@ class cookieJar implements cookieJarInterface
         return substr($uriPath, 0, $lastSlashPos);
     }
 
-    public function withCookieHeader(requestInterface $request)
+    public function withCookieHeader(requestInterface $request): requestInterface
     {
         $values = [];
         $uri = $request->getUri();

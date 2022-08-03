@@ -30,7 +30,7 @@ class NoFragmentCycles extends ValidationRule
     /** @var (int|null)[] */
     public $spreadPathIndexByName;
 
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         // Tracks already visited fragments to maintain O(N) and to ensure that cycles
         // are not redundantly reported.
@@ -105,7 +105,7 @@ class NoFragmentCycles extends ValidationRule
     /**
      * @param string[] $spreadNames
      */
-    public static function cycleErrorMessage($fragName, array $spreadNames = [])
+    public static function cycleErrorMessage($fragName, array $spreadNames = []): string
     {
         return sprintf(
             'Cannot spread fragment "%s" within itself%s.',

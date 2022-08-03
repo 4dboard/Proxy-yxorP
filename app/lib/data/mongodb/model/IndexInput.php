@@ -91,7 +91,7 @@ class IndexInput implements Serializable
      * @see http://php.net/mongodb-bson-serializable.bsonserialize
      * @see \MongoDB\collection::createIndexes()
      */
-    public function bsonSerialize()
+    public function bsonSerialize(): array
     {
         return $this->index;
     }

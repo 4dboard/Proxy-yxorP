@@ -22,7 +22,7 @@ class NoUnusedFragments extends ValidationRule
     /** @var FragmentDefinitionNode[] */
     public array $fragmentDefs;
 
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure", NodeKind::DOCUMENT => "\Closure[]"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure", NodeKind::DOCUMENT => "\Closure[]"])] public function getVisitor(ValidationContext $context): array
     {
         $this->operationDefs = [];
         $this->fragmentDefs = [];
@@ -64,7 +64,7 @@ class NoUnusedFragments extends ValidationRule
         ];
     }
 
-    public static function unusedFragMessage($fragName)
+    public static function unusedFragMessage($fragName): string
     {
         return sprintf('Fragment "%s" is never used.', $fragName);
     }

@@ -144,7 +144,7 @@ class Count implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): int
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['readConcern'])) {
@@ -167,7 +167,7 @@ class Count implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createCommandDocument()
+    private function createCommandDocument(): array
     {
         $cmd = ['count' => $this->collectionName];
 
@@ -198,7 +198,7 @@ class Count implements ExecutableInterface, ExplainableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executereadcommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 
@@ -224,7 +224,7 @@ class Count implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }

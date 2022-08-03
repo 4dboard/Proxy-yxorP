@@ -20,7 +20,7 @@ class serverRequest extends request implements serverRequestInterface
         parent::__construct($method, $uri, $headers, $body, $version);
     }
 
-    public static function fromGlobals()
+    public static function fromGlobals(): serverRequest
     {
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
         $headers = helpers::getallheaders();
@@ -31,7 +31,7 @@ class serverRequest extends request implements serverRequestInterface
         return $serverRequest->withCookieParams($_COOKIE)->withQueryParams($_GET)->withParsedBody($_POST)->withUploadedFiles(self::normalizeFiles($_FILES));
     }
 
-    public static function getUriFromGlobals()
+    public static function getUriFromGlobals(): uri
     {
         $uri = new uri('');
         $uri = $uri->withScheme(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http');
@@ -68,7 +68,7 @@ class serverRequest extends request implements serverRequestInterface
         return $uri;
     }
 
-    private static function extractHostAndPortFromAuthority($authority)
+    private static function extractHostAndPortFromAuthority($authority): array
     {
         $uri = 'http://' . $authority;
         $parts = parse_url($uri);
@@ -80,35 +80,35 @@ class serverRequest extends request implements serverRequestInterface
         return [$host, $port];
     }
 
-    public function withUploadedFiles(array $uploadedFiles)
+    public function withUploadedFiles(array $uploadedFiles): serverRequest
     {
         $new = clone $this;
         $new->uploadedFiles = $uploadedFiles;
         return $new;
     }
 
-    public function withParsedBody(object|array|null $data)
+    public function withParsedBody(object|array|null $data): serverRequest
     {
         $new = clone $this;
         $new->parsedBody = $data;
         return $new;
     }
 
-    public function withQueryParams(array $query)
+    public function withQueryParams(array $query): serverRequest
     {
         $new = clone $this;
         $new->queryParams = $query;
         return $new;
     }
 
-    public function withCookieParams(array $cookies)
+    public function withCookieParams(array $cookies): serverRequest
     {
         $new = clone $this;
         $new->cookieParams = $cookies;
         return $new;
     }
 
-    public static function normalizeFiles(array $files)
+    public static function normalizeFiles(array $files): array
     {
         $normalized = [];
         foreach ($files as $key => $value) {
@@ -125,7 +125,7 @@ class serverRequest extends request implements serverRequestInterface
         return $normalized;
     }
 
-    private static function createUploadedFileFromSpec(array $value)
+    private static function createUploadedFileFromSpec(array $value): array|uploadedFile
     {
         if (is_array($value['cache_name'])) {
             return self::normalizeNestedFileSpec($value);
@@ -133,7 +133,7 @@ class serverRequest extends request implements serverRequestInterface
         return new uploadedFile($value['cache_name'], (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
     }
 
-    private static function normalizeNestedFileSpec(array $files = [])
+    private static function normalizeNestedFileSpec(array $files = []): array
     {
         $normalizedFiles = [];
         foreach (array_keys($files['cache_name']) as $key) {
@@ -143,32 +143,32 @@ class serverRequest extends request implements serverRequestInterface
         return $normalizedFiles;
     }
 
-    public function getServerParams()
+    public function getServerParams(): array
     {
         return $this->serverParams;
     }
 
-    public function getUploadedFiles()
+    public function getUploadedFiles(): array
     {
         return $this->uploadedFiles;
     }
 
-    public function getCookieParams()
+    public function getCookieParams(): array
     {
         return $this->cookieParams;
     }
 
-    public function getQueryParams()
+    public function getQueryParams(): array
     {
         return $this->queryParams;
     }
 
-    public function getParsedBody()
+    public function getParsedBody(): object|array|null
     {
         return $this->parsedBody;
     }
 
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return $this->attributes;
     }
@@ -181,14 +181,14 @@ class serverRequest extends request implements serverRequestInterface
         return $this->attributes[$name];
     }
 
-    public function withAttribute(string $name, mixed $value)
+    public function withAttribute(string $name, mixed $value): serverRequest
     {
         $new = clone $this;
         $new->attributes[$name] = $value;
         return $new;
     }
 
-    public function withoutAttribute(string $name)
+    public function withoutAttribute(string $name): serverRequest|static
     {
         if (false === array_key_exists($name, $this->attributes)) {
             return $this;

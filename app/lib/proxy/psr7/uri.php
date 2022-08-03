@@ -45,7 +45,7 @@ class uri implements uriInterface
         $this->removeDefaultPort();
     }
 
-    private function filterScheme($scheme)
+    private function filterScheme($scheme): string
     {
         if (!is_string($scheme)) {
             throw new InvalidArgumentException('Scheme must be a string');
@@ -53,7 +53,7 @@ class uri implements uriInterface
         return strtolower($scheme);
     }
 
-    private function filterUserInfoComponent($component)
+    private function filterUserInfoComponent($component): array|string|null
     {
         if (!is_string($component)) {
             throw new InvalidArgumentException('User info must be a string');
@@ -61,7 +61,7 @@ class uri implements uriInterface
         return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ']+|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $component);
     }
 
-    private function filterHost($host)
+    private function filterHost($host): string
     {
         if (!is_string($host)) {
             throw new InvalidArgumentException('Host must be a string');
@@ -69,7 +69,7 @@ class uri implements uriInterface
         return strtolower($host);
     }
 
-    private function filterPort($port)
+    private function filterPort($port): ?int
     {
         if ($port === null) {
             return null;
@@ -81,7 +81,7 @@ class uri implements uriInterface
         return $port;
     }
 
-    private function filterPath($path)
+    private function filterPath($path): array|string|null
     {
         if (!is_string($path)) {
             throw new InvalidArgumentException('Path must be a string');
@@ -89,7 +89,7 @@ class uri implements uriInterface
         return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ':@\/]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $path);
     }
 
-    private function filterQueryAndFragment($str)
+    private function filterQueryAndFragment($str): array|string|null
     {
         if (!is_string($str)) {
             throw new InvalidArgumentException('Query and fragment must be a string');
@@ -104,32 +104,32 @@ class uri implements uriInterface
         }
     }
 
-    public static function isDefaultPort(uriInterface $uri)
+    public static function isDefaultPort(uriInterface $uri): bool
     {
         return $uri->getPort() === null || (isset(self::$defaultPorts[$uri->getScheme()]) && $uri->getPort() === self::$defaultPorts[$uri->getScheme()]);
     }
 
-    public function getPort()
+    public function getPort(): ?int
     {
         return $this->port;
     }
 
-    public function getScheme()
+    public function getScheme(): string
     {
         return $this->scheme;
     }
 
-    public static function isAbsolute(uriInterface $uri)
+    public static function isAbsolute(uriInterface $uri): bool
     {
         return $uri->getScheme() !== '';
     }
 
-    public static function isNetworkPathReference(uriInterface $uri)
+    public static function isNetworkPathReference(uriInterface $uri): bool
     {
         return $uri->getScheme() === '' && $uri->getAuthority() !== '';
     }
 
-    public function getAuthority()
+    public function getAuthority(): string
     {
         $authority = $this->host;
         if ($this->userInfo !== '') {
@@ -141,22 +141,22 @@ class uri implements uriInterface
         return $authority;
     }
 
-    public static function isAbsolutePathReference(uriInterface $uri)
+    public static function isAbsolutePathReference(uriInterface $uri): bool
     {
         return $uri->getScheme() === '' && $uri->getAuthority() === '' && isset($uri->getPath()[0]) && $uri->getPath()[0] === '/';
     }
 
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
 
-    public static function isRelativePathReference(uriInterface $uri)
+    public static function isRelativePathReference(uriInterface $uri): bool
     {
         return $uri->getScheme() === '' && $uri->getAuthority() === '' && (!isset($uri->getPath()[0]) || $uri->getPath()[0] !== '/');
     }
 
-    public static function isSameDocumentReference(uriInterface $uri, uriInterface $base = null)
+    public static function isSameDocumentReference(uriInterface $uri, uriInterface $base = null): bool
     {
         if ($base !== null) {
             $uri = uriResolver::resolve($base, $uri);
@@ -165,17 +165,17 @@ class uri implements uriInterface
         return $uri->getScheme() === '' && $uri->getAuthority() === '' && $uri->getPath() === '' && $uri->getQuery() === '';
     }
 
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->query;
     }
 
-    public static function removeDotSegments($path)
+    public static function removeDotSegments($path): ?string
     {
         return uriResolver::removeDotSegments($path);
     }
 
-    public static function resolve(uriInterface $base, $rel)
+    public static function resolve(uriInterface $base, $rel): uri|uriInterface
     {
         if (!($rel instanceof uriInterface)) {
             $rel = new self($rel);
@@ -183,13 +183,13 @@ class uri implements uriInterface
         return uriResolver::resolve($base, $rel);
     }
 
-    public static function withoutQueryValue(uriInterface $uri, $key)
+    public static function withoutQueryValue(uriInterface $uri, $key): uriInterface
     {
         $result = self::getFilteredQueryString($uri, [$key]);
         return $uri->withQuery(implode('&', $result));
     }
 
-    private static function getFilteredQueryString(uriInterface $uri, array $keys)
+    private static function getFilteredQueryString(uriInterface $uri, array $keys): array
     {
         $current = $uri->getQuery();
         if ($current === '') {
@@ -201,7 +201,7 @@ class uri implements uriInterface
         });
     }
 
-    public function withQuery(string $query)
+    public function withQuery(string $query): uri|static
     {
         $query = $this->filterQueryAndFragment($query);
         if ($this->query === $query) {
@@ -212,14 +212,14 @@ class uri implements uriInterface
         return $new;
     }
 
-    public static function withQueryValue(uriInterface $uri, $key, $value)
+    public static function withQueryValue(uriInterface $uri, $key, $value): uriInterface
     {
         $result = self::getFilteredQueryString($uri, [$key]);
         $result[] = self::generateQueryString($key, $value);
         return $uri->withQuery(implode('&', $result));
     }
 
-    private static function generateQueryString($key, $value)
+    private static function generateQueryString($key, $value): string
     {
         $queryString = strtr($key, self::$replaceQuery);
         if ($value !== null) {
@@ -228,7 +228,7 @@ class uri implements uriInterface
         return $queryString;
     }
 
-    public static function withQueryValues(uriInterface $uri, array $keyValueArray)
+    public static function withQueryValues(uriInterface $uri, array $keyValueArray): uriInterface
     {
         $result = self::getFilteredQueryString($uri, array_keys($keyValueArray));
         foreach ($keyValueArray as $key => $value) {
@@ -237,7 +237,7 @@ class uri implements uriInterface
         return $uri->withQuery(implode('&', $result));
     }
 
-    public static function fromParts(array $parts)
+    public static function fromParts(array $parts): uri
     {
         $uri = new self();
         $uri->applyParts($parts);
@@ -268,7 +268,7 @@ class uri implements uriInterface
         return self::composeComponents($this->scheme, $this->getAuthority(), $this->path, $this->query, $this->fragment);
     }
 
-    public static function composeComponents($scheme, $authority, $path, $query, $fragment)
+    public static function composeComponents($scheme, $authority, $path, $query, $fragment): string
     {
         $uri = '';
         if ($scheme != '') {
@@ -287,22 +287,22 @@ class uri implements uriInterface
         return $uri;
     }
 
-    public function getUserInfo()
+    public function getUserInfo(): string
     {
         return $this->userInfo;
     }
 
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
 
-    public function getFragment()
+    public function getFragment(): string
     {
         return $this->fragment;
     }
 
-    public function withScheme(string $scheme)
+    public function withScheme(string $scheme): uri|static
     {
         $scheme = $this->filterScheme($scheme);
         if ($this->scheme === $scheme) {
@@ -315,7 +315,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withUserInfo(string $user, string $password = null)
+    public function withUserInfo(string $user, string $password = null): uri|static
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
@@ -330,7 +330,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withHost(string $host)
+    public function withHost(string $host): uri|static
     {
         $host = $this->filterHost($host);
         if ($this->host === $host) {
@@ -342,7 +342,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withPort(?int $port)
+    public function withPort(?int $port): uri|static
     {
         $port = $this->filterPort($port);
         if ($this->port === $port) {
@@ -355,7 +355,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withPath(string $path)
+    public function withPath(string $path): uri|static
     {
         $path = $this->filterPath($path);
         if ($this->path === $path) {
@@ -367,7 +367,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    public function withFragment(string $fragment)
+    public function withFragment(string $fragment): uri|static
     {
         $fragment = $this->filterQueryAndFragment($fragment);
         if ($this->fragment === $fragment) {
@@ -378,7 +378,7 @@ class uri implements uriInterface
         return $new;
     }
 
-    private function rawurlencodeMatchZero(array $match)
+    private function rawurlencodeMatchZero(array $match): string
     {
         return rawurlencode($match[0]);
     }

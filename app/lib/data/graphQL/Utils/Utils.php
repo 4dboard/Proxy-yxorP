@@ -60,7 +60,7 @@ class Utils
      *
      * @return bool
      */
-    public static function isInvalid(mixed $value)
+    public static function isInvalid(mixed $value): bool
     {
         return self::undefined() === $value;
     }
@@ -79,7 +79,7 @@ class Utils
      *
      * @return object
      */
-    public static function assign(object $obj, array $vars, array $requiredKeys = [])
+    public static function assign(object $obj, array $vars, array $requiredKeys = []): object
     {
         foreach ($requiredKeys as $key) {
             if (!isset($vars[$key])) {
@@ -106,7 +106,7 @@ class Utils
      *
      * @return mixed|null
      */
-    public static function find(array $iterable, callable $predicate)
+    public static function find(array $iterable, callable $predicate): mixed
     {
         self::invariant(
             is_array($iterable) || $iterable instanceof Traversable,
@@ -338,7 +338,7 @@ class Utils
      *
      * @return string
      */
-    public static function getVariableType(mixed $var)
+    public static function getVariableType(mixed $var): string
     {
         if ($var instanceof Type) {
             // FIXME: Replace with schema printer call
@@ -357,7 +357,7 @@ class Utils
      *
      * @return string
      */
-    public static function printSafeJson(mixed $var)
+    public static function printSafeJson(mixed $var): string
     {
         if ($var instanceof stdClass) {
             $var = (array)$var;
@@ -392,7 +392,7 @@ class Utils
      *
      * @return string
      */
-    public static function printSafe(mixed $var)
+    public static function printSafe(mixed $var): string
     {
         if ($var instanceof Type) {
             return $var->toString();
@@ -437,7 +437,7 @@ class Utils
      *
      * @return mixed
      */
-    public static function charCodeAt(string $string, int $position)
+    public static function charCodeAt(string $string, int $position): mixed
     {
         $char = mb_substr($string, $position, 1, 'UTF-8');
 
@@ -452,7 +452,7 @@ class Utils
      *
      * @return mixed
      */
-    public static function ord(string $char, string $encoding = 'UTF-8')
+    public static function ord(string $char, string $encoding = 'UTF-8'): mixed
     {
         if (!$char && $char !== '0') {
             return 0;
@@ -472,7 +472,7 @@ class Utils
      *
      * @return string
      */
-    public static function printCharCode(?int $code)
+    public static function printCharCode(?int $code): string
     {
         if ($code === null) {
             return '<EOF>';
@@ -493,7 +493,7 @@ class Utils
      *
      * @return string
      */
-    public static function chr(string $ord, string $encoding = 'UTF-8')
+    public static function chr(string $ord, string $encoding = 'UTF-8'): string
     {
         if ($encoding === 'UCS-4BE') {
             return pack('N', $ord);
@@ -525,7 +525,7 @@ class Utils
      *
      * @return Error|null
      */
-    public static function isValidNameError(string $name, Node $node = null)
+    public static function isValidNameError(string $name, Node $node = null): ?Error
     {
         self::invariant(is_string($name), 'Expected string');
 
@@ -555,7 +555,7 @@ class Utils
      *
      * @return callable
      */
-    public static function withErrorHandling(callable $fn, array &$errors)
+    public static function withErrorHandling(callable $fn, array &$errors): callable|\Closure
     {
         return static function () use ($fn, &$errors) {
             // Catch custom errors (to report them in query results)
@@ -576,7 +576,7 @@ class Utils
      *
      * @return string
      */
-    public static function quotedOrList(array $items)
+    public static function quotedOrList(array $items): string
     {
         $items = array_map(
             static function ($item): string {
@@ -593,7 +593,7 @@ class Utils
      *
      * @return string
      */
-    public static function orList(array $items)
+    public static function orList(array $items): string
     {
         if (count($items) === 0) {
             throw new LogicException('items must not need to be empty.');
@@ -631,7 +631,7 @@ class Utils
      *
      * @return string[]
      */
-    public static function suggestionList(string $input, array $options)
+    public static function suggestionList(string $input, array $options): array
     {
         $optionsByDistance = [];
         $threshold = mb_strlen($input) * 0.4 + 1;

@@ -113,7 +113,7 @@ class UnionType extends Type implements AbstractType, OutputType, CompositeType,
      *
      * @return callable|null
      */
-    public function resolveType(object $objectValue, array $context, ResolveInfo $info)
+    public function resolveType(object $objectValue, array $context, ResolveInfo $info): ?callable
     {
         if (isset($this->config['resolveType'])) {
             $fn = $this->config['resolveType'];

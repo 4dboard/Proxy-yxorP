@@ -102,7 +102,7 @@ class ListCollections implements Executable
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): CachingIterator
     {
         $cmd = ['listCollections' => 1];
 
@@ -131,7 +131,7 @@ class ListCollections implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

@@ -97,7 +97,7 @@ class client
         return $this->selectDatabase($databaseName);
     }
 
-    public function selectDatabase($databaseName, array $options = [])
+    public function selectDatabase($databaseName, array $options = []): database
     {
         $options += ['typeMap' => $this->typeMap];
         return new database($this->manager, $databaseName, $options);
@@ -133,7 +133,7 @@ class client
         return $operation->execute($server);
     }
 
-    public function getManager()
+    public function getManager(): Manager
     {
         return $this->manager;
     }
@@ -148,7 +148,7 @@ class client
         return $this->readPreference;
     }
 
-    public function getTypeMap()
+    public function getTypeMap(): ?array
     {
         return $this->typeMap;
     }
@@ -172,7 +172,7 @@ class client
         return $operation->execute($server);
     }
 
-    public function selectCollection($databaseName, $collectionName, array $options = [])
+    public function selectCollection($databaseName, $collectionName, array $options = []): collection
     {
         $options += ['typeMap' => $this->typeMap];
         return new collection($this->manager, $databaseName, $collectionName, $options);

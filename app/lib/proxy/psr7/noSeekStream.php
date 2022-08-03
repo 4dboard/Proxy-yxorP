@@ -12,7 +12,7 @@ class noSeekStream implements streamInterface
         throw new RuntimeException('Cannot seek a NoSeekStream');
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return false;
     }

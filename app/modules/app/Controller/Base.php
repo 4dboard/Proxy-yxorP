@@ -27,7 +27,7 @@ class base extends appAware
     /**
      * @return string
      */
-    public function index()
+    public function index(): string
     {
         return 'Please implement the index action';
     }
@@ -78,7 +78,7 @@ class base extends appAware
      * @param null $default
      * @return Mixed
      */
-    protected function param(string $key, mixed $default = null)
+    protected function param(string $key, mixed $default = null): mixed
     {
         return $this->app->request->param($key, $default);
     }

@@ -23,12 +23,12 @@ use function sprintf;
  */
 class UniqueDirectivesPerLocation extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
 
-    #[ArrayShape(['enter' => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape(['enter' => "\Closure"])] public function getASTVisitor(ASTValidationContext $context): array
     {
         /** @var array<string, true> $uniqueDirectiveMap */
         $uniqueDirectiveMap = [];
@@ -85,12 +85,12 @@ class UniqueDirectivesPerLocation extends ValidationRule
         ];
     }
 
-    public static function duplicateDirectiveMessage($directiveName)
+    public static function duplicateDirectiveMessage($directiveName): string
     {
         return sprintf('The directive "%s" can only be used once at this location.', $directiveName);
     }
 
-    public function getSDLVisitor(SDLValidationContext $context)
+    public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

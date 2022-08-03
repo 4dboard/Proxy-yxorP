@@ -67,7 +67,7 @@ class Helper
      *
      * @api
      */
-    public function parseHttpRequest(?callable $readRawBodyFn = null)
+    public function parseHttpRequest(?callable $readRawBodyFn = null): OperationParams|array
     {
         $method = $_SERVER['REQUEST_METHOD'] ?? null;
         $bodyParams = [];
@@ -116,7 +116,7 @@ class Helper
     /**
      * @return bool|string
      */
-    private function readRawBody()
+    private function readRawBody(): bool|string
     {
         return file_get_contents('php://input');
     }
@@ -137,7 +137,7 @@ class Helper
      *
      * @api
      */
-    public function parseRequestParams(string $method, array $bodyParams, array $queryParams)
+    public function parseRequestParams(string $method, array $bodyParams, array $queryParams): OperationParams|array
     {
         if ($method === 'GET') {
             $result = OperationParams::create($queryParams, true);
@@ -166,7 +166,7 @@ class Helper
      *
      * @api
      */
-    public function executeOperation(ServerConfig $config, OperationParams $op)
+    public function executeOperation(ServerConfig $config, OperationParams $op): Promise|ExecutionResult
     {
         $promiseAdapter = $config->getPromiseAdapter() ?? Executor::getPromiseAdapter();
         $result = $this->promiseToExecuteOperation($promiseAdapter, $config, $op);
@@ -192,7 +192,7 @@ class Helper
         ServerConfig            $config,
         OperationParams         $op,
         bool $isBatch = false
-    )
+    ): Promise
     {
         try {
             if ($config->getSchema() === null) {
@@ -284,7 +284,7 @@ class Helper
      *
      * @api
      */
-    public function validateOperationParams(OperationParams $params)
+    public function validateOperationParams(OperationParams $params): array
     {
         $errors = [];
         if (!$params->query && !$params->queryId) {
@@ -331,7 +331,7 @@ class Helper
      *
      * @throws RequestError
      */
-    private function loadPersistedQuery(ServerConfig $config, OperationParams $operationParams)
+    private function loadPersistedQuery(ServerConfig $config, OperationParams $operationParams): DocumentNode|string
     {
         // Load query if we got persisted query id:
         $loader = $config->getPersistentQueryLoader();
@@ -356,7 +356,7 @@ class Helper
     /**
      * @return mixed
      */
-    private function resolveRootValue(ServerConfig $config, OperationParams $params, DocumentNode $doc, string $operationType)
+    private function resolveRootValue(ServerConfig $config, OperationParams $params, DocumentNode $doc, string $operationType): mixed
     {
         $rootValue = $config->getRootValue();
 
@@ -377,7 +377,7 @@ class Helper
         OperationParams $params,
         DocumentNode    $doc,
         string $operationType
-    )
+    ): mixed
     {
         $context = $config->getContext();
 
@@ -398,7 +398,7 @@ class Helper
         OperationParams $params,
         DocumentNode    $doc,
         string $operationType
-    )
+    ): ?array
     {
         // Allow customizing validation rules per operation:
         $validationRules = $config->getValidationRules();
@@ -427,7 +427,7 @@ class Helper
      *
      * @api
      */
-    public function executeBatch(ServerConfig $config, array $operations)
+    public function executeBatch(ServerConfig $config, array $operations): array|Promise|ExecutionResult
     {
         $promiseAdapter = $config->getPromiseAdapter() ?? Executor::getPromiseAdapter();
         $result = [];
@@ -476,7 +476,7 @@ class Helper
      *
      * @return int
      */
-    private function resolveHttpStatus(array|ExecutionResult $result)
+    private function resolveHttpStatus(array|ExecutionResult $result): int
     {
         if (is_array($result) && isset($result[0])) {
             Utils::each(
@@ -536,7 +536,7 @@ class Helper
      *
      * @api
      */
-    public function parsePsrRequest(RequestInterface $request)
+    public function parsePsrRequest(RequestInterface $request): OperationParams|array
     {
         if ($request->getMethod() === 'GET') {
             $bodyParams = [];
@@ -613,7 +613,7 @@ class Helper
      *
      * @api
      */
-    public function toPsrResponse(array|Promise|ExecutionResult $result, ResponseInterface $response, StreamInterface $writableBodyStream)
+    public function toPsrResponse(array|Promise|ExecutionResult $result, ResponseInterface $response, StreamInterface $writableBodyStream): Promise|ResponseInterface
     {
         if ($result instanceof Promise) {
             return $result->then(function ($actualResult) use ($response, $writableBodyStream) {

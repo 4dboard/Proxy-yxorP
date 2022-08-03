@@ -34,7 +34,7 @@ class logs extends app
         return $this->render('system:views/logs/index.php', compact('channels'));
     }
 
-    public function load()
+    public function load(): array
     {
 
         $this->helper('session')->close();

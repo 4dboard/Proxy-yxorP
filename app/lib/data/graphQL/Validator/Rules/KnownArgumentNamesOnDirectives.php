@@ -30,7 +30,7 @@ use function sprintf;
  */
 class KnownArgumentNamesOnDirectives extends ValidationRule
 {
-    public function getSDLVisitor(SDLValidationContext $context)
+    public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
@@ -38,7 +38,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
     /**
      * @throws \Exception
      */
-    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure"])] public function getASTVisitor(ASTValidationContext $context): array
     {
         $directiveArgs = [];
         $schema = $context->getSchema();
@@ -102,7 +102,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
     /**
      * @param string[] $suggestedArgs
      */
-    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs)
+    public static function unknownDirectiveArgMessage($argName, $directiveName, array $suggestedArgs): string
     {
         $message = sprintf('Unknown argument "%s" on directive "@%s".', $argName, $directiveName);
         if (isset($suggestedArgs[0])) {
@@ -112,7 +112,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
         return $message;
     }
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

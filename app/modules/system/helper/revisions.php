@@ -34,7 +34,7 @@ class revisions extends helperAware
         ])->toArray();
     }
 
-    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null)
+    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null): bool|array
     {
 
         if ($by === true) {

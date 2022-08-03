@@ -741,7 +741,7 @@ class app implements ArrayAccess
         return $modules;
     }
 
-    public function loadModule($path, $prefix = null)
+    public function loadModule($path, $prefix = null): bool
     {
         if (is_array($path)) {
             foreach ($path as $p) $this->loadModule($p);
@@ -807,7 +807,7 @@ class app implements ArrayAccess
         unset($this->registry[$key]);
     }
 
-    public function __invoke($helper)
+    public function __invoke($helper): helperAware
     {
         return $this->helper($helper);
     }

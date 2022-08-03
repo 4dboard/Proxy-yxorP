@@ -17,7 +17,7 @@ class indexLiteManager
     /**
      * @throws \Exception
      */
-    public function createIndex(string $name, array $options)
+    public function createIndex(string $name, array $options): indexLite
     {
         if ($this->exists($name)) {
             throw new Exception("Index <{$name}> already exists.");

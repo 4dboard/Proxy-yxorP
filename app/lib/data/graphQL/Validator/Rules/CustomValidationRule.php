@@ -21,7 +21,7 @@ class CustomValidationRule extends ValidationRule
     /**
      * @return Error[]
      */
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         $fn = $this->visitorFn;
 

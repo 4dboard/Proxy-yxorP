@@ -51,7 +51,7 @@ class QueryComplexity extends QuerySecurityRule
         $this->setMaxQueryComplexity($maxQueryComplexity);
     }
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         $this->context = $context;
 
@@ -188,7 +188,7 @@ class QueryComplexity extends QuerySecurityRule
     /**
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    private function directiveExcludesField(FieldNode $node)
+    private function directiveExcludesField(FieldNode $node): mixed
     {
         foreach ($node->directives as $directiveNode) {
             if ($directiveNode->name->value === 'deprecated') {
@@ -227,7 +227,7 @@ class QueryComplexity extends QuerySecurityRule
         return false;
     }
 
-    public function getRawVariableValues()
+    public function getRawVariableValues(): ?array
     {
         return $this->rawVariableValues;
     }
@@ -243,7 +243,7 @@ class QueryComplexity extends QuerySecurityRule
     /**
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    private function buildFieldArguments(FieldNode $node)
+    private function buildFieldArguments(FieldNode $node): array
     {
         $rawVariableValues = $this->getRawVariableValues();
         $astFieldInfo = $this->astFieldInfo($node);
@@ -276,12 +276,12 @@ class QueryComplexity extends QuerySecurityRule
         return $args;
     }
 
-    public function getQueryComplexity()
+    public function getQueryComplexity(): int
     {
         return $this->complexity;
     }
 
-    public function getMaxQueryComplexity()
+    public function getMaxQueryComplexity(): int
     {
         return $this->maxQueryComplexity;
     }
@@ -296,12 +296,12 @@ class QueryComplexity extends QuerySecurityRule
         $this->maxQueryComplexity = (int)$maxQueryComplexity;
     }
 
-    public static function maxQueryComplexityErrorMessage($max, $count)
+    public static function maxQueryComplexityErrorMessage($max, $count): string
     {
         return sprintf('Max query complexity should be %d but got %d.', $max, $count);
     }
 
-    #[Pure] protected function isEnabled()
+    #[Pure] protected function isEnabled(): bool
     {
         return $this->getMaxQueryComplexity() !== self::DISABLED;
     }

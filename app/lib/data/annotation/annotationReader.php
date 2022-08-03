@@ -63,7 +63,7 @@ class annotationReader
         return null;
     }
 
-    public function getClassAnnotations(ReflectionClass $class)
+    public function getClassAnnotations(ReflectionClass $class): array
     {
         $this->parser->setTarget(target::TARGET_CLASS);
         $this->parser->setImports($this->getImports($class));
@@ -123,7 +123,7 @@ class annotationReader
         return null;
     }
 
-    public function getPropertyAnnotations(ReflectionProperty $property)
+    public function getPropertyAnnotations(ReflectionProperty $property): array
     {
         $class = $property->getDeclaringClass();
         $context = 'property ' . $class->getName() . '::$' . $property->getName();
@@ -134,7 +134,7 @@ class annotationReader
         return $this->parser->parse($property->getDocComment(), $context);
     }
 
-    private function getPropertyImports(ReflectionProperty $property)
+    private function getPropertyImports(ReflectionProperty $property): array
     {
         $class = $property->getDeclaringClass();
         $classImports = $this->getImports($class);
@@ -159,7 +159,7 @@ class annotationReader
         return null;
     }
 
-    public function getMethodAnnotations(ReflectionMethod $method)
+    public function getMethodAnnotations(ReflectionMethod $method): array
     {
         $class = $method->getDeclaringClass();
         $context = 'method ' . $class->getName() . '::' . $method->getName() . '()';
@@ -170,7 +170,7 @@ class annotationReader
         return $this->parser->parse($method->getDocComment(), $context);
     }
 
-    private function getMethodImports(ReflectionMethod $method)
+    private function getMethodImports(ReflectionMethod $method): array
     {
         $class = $method->getDeclaringClass();
         $classImports = $this->getImports($class);

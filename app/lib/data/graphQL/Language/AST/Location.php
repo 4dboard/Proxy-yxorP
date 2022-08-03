@@ -68,7 +68,7 @@ class Location
      *
      * @return static
      */
-    public static function create(int $start, int $end)
+    public static function create(int $start, int $end): static
     {
         $tmp = new static();
         $tmp->start = $start;

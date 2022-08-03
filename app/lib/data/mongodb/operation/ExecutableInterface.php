@@ -35,5 +35,5 @@ interface ExecutableInterface
      * @param Server $server
      * @return mixed
      */
-    public function execute(Server $server);
+    public function execute(Server $server): mixed;
 }

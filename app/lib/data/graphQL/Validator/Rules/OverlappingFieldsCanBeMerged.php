@@ -54,7 +54,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      */
     private SplObjectStorage $cachedFieldsAndFragmentNames;
 
-    #[ArrayShape([NodeKind::SELECTION_SET => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::SELECTION_SET => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         $this->comparedFragmentPairs = new PairSet();
         $this->cachedFieldsAndFragmentNames = new SplObjectStorage();
@@ -92,7 +92,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         ValidationContext $context,
         CompositeType     $parentType,
         SelectionSetNode  $selectionSet
-    )
+    ): array
     {
         [$fieldMap, $fragmentNames] = $this->getFieldsAndFragmentNames(
             $context,
@@ -156,7 +156,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         ValidationContext $context,
         CompositeType     $parentType,
         SelectionSetNode  $selectionSet
-    )
+    ): SplObjectStorage|array
     {
         if (isset($this->cachedFieldsAndFragmentNames[$selectionSet])) {
             $cached = $this->cachedFieldsAndFragmentNames[$selectionSet];
@@ -349,7 +349,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         string            $responseName,
         array             $field1,
         array             $field2
-    )
+    ): ?array
     {
         [$parentType1, $ast1, $def1] = $field1;
         [$parentType2, $ast2, $def2] = $field2;
@@ -435,7 +435,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @return bool
      */
-    private function sameArguments(array $arguments1, array $arguments2)
+    private function sameArguments(array $arguments1, array $arguments2): bool
     {
         if (count($arguments1) !== count($arguments2)) {
             return false;
@@ -463,7 +463,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     /**
      * @return bool
      */
-    private function sameValue(Node $value1, Node $value2)
+    private function sameValue(Node $value1, Node $value2): bool
     {
         return (Printer::doPrint($value1) === Printer::doPrint($value2));
     }
@@ -512,7 +512,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         SelectionSetNode  $selectionSet1,
         CompositeType     $parentType2,
         SelectionSetNode  $selectionSet2
-    )
+    ): array
     {
         $conflicts = [];
 
@@ -712,7 +712,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     private function getReferencedFieldsAndFragmentNames(
         ValidationContext      $context,
         FragmentDefinitionNode $fragment
-    )
+    ): SplObjectStorage|array
     {
         // Short-circuit building a type from the AST if possible.
         if (isset($this->cachedFieldsAndFragmentNames[$fragment->selectionSet])) {
@@ -831,7 +831,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         string    $responseName,
         FieldNode $ast1,
         FieldNode $ast2
-    )
+    ): ?array
     {
         if (count($conflicts) === 0) {
             return null;
@@ -868,7 +868,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * @param string $responseName
      * @param string $reason
      */
-    public static function fieldsConflictMessage(string $responseName, string $reason)
+    public static function fieldsConflictMessage(string $responseName, string $reason): string
     {
         $reasonMessage = self::reasonMessage($reason);
 
@@ -879,7 +879,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
         );
     }
 
-    public static function reasonMessage($reason)
+    public static function reasonMessage($reason): string
     {
         if (is_array($reason)) {
             $tmp = array_map(

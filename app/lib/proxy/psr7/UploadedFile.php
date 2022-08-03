@@ -54,7 +54,7 @@ class uploadedFile implements uploadedFileInterface
         $this->clientFilename = $clientFilename;
     }
 
-    private function isStringOrNull($param)
+    private function isStringOrNull($param): bool
     {
         return in_array(gettype($param), ['string', 'NULL']);
     }
@@ -67,7 +67,7 @@ class uploadedFile implements uploadedFileInterface
         $this->clientMediaType = $clientMediaType;
     }
 
-    private function isOk()
+    private function isOk(): bool
     {
         return $this->error === UPLOAD_ERR_OK;
     }
@@ -112,17 +112,17 @@ class uploadedFile implements uploadedFileInterface
         }
     }
 
-    public function isMoved()
+    public function isMoved(): bool
     {
         return $this->moved;
     }
 
-    private function isStringNotEmpty($param)
+    private function isStringNotEmpty($param): bool
     {
         return is_string($param) && false === empty($param);
     }
 
-    public function getStream()
+    public function getStream(): streamInterface|lazyOpenStream
     {
         $this->validateActive();
         if ($this->stream instanceof streamInterface) {
@@ -131,22 +131,22 @@ class uploadedFile implements uploadedFileInterface
         return new lazyOpenStream($this->file, 'r+');
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->size;
     }
 
-    public function getError()
+    public function getError(): int
     {
         return $this->error;
     }
 
-    public function getClientFilename()
+    public function getClientFilename(): ?string
     {
         return $this->clientFilename;
     }
 
-    public function getClientMediaType()
+    public function getClientMediaType(): ?string
     {
         return $this->clientMediaType;
     }

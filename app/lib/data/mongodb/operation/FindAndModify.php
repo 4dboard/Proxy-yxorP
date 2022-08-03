@@ -217,7 +217,7 @@ class FindAndModify implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array|null
     {
         /* Server versions >= 4.2.0 raise errors for unsupported update options.
          * For previous versions, the CRUD spec requires a client-side error. */
@@ -257,7 +257,7 @@ class FindAndModify implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }
@@ -267,7 +267,7 @@ class FindAndModify implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createCommandDocument()
+    private function createCommandDocument(): array
     {
         $cmd = ['findAndModify' => $this->collectionName];
 
@@ -305,7 +305,7 @@ class FindAndModify implements ExecutableInterface, ExplainableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

@@ -32,7 +32,7 @@ class key
         return $this->algorithm;
     }
 
-    public function getKeyMaterial()
+    public function getKeyMaterial(): OpenSSLAsymmetricKey|string|OpenSSLCertificate
     {
         return $this->keyMaterial;
     }

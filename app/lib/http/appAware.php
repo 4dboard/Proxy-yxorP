@@ -28,7 +28,7 @@ class appAware
         return $this;
     }
 
-    public function __invoke($helper)
+    public function __invoke($helper): helperAware
     {
         return $this->app->helper($helper);
     }

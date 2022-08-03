@@ -41,7 +41,7 @@ class redirectMiddleware
         });
     }
 
-    public function checkRedirect(requestInterface $request, array $options, responseInterface $response)
+    public function checkRedirect(requestInterface $request, array $options, responseInterface $response): responseInterface
     {
         if (!str_starts_with($response->getStatusCode(), '3') || !$response->hasHeader('Location')) {
             return $response;
@@ -68,7 +68,7 @@ class redirectMiddleware
         }
     }
 
-    public function modifyRequest(requestInterface $request, array $options, responseInterface $response)
+    public function modifyRequest(requestInterface $request, array $options, responseInterface $response): psr7\request|requestInterface|psr7\serverRequest
     {
         $modify = [];
         $protocols = $options['allow_redirects']['protocols'];
@@ -96,7 +96,7 @@ class redirectMiddleware
         return Psr7\modify_request($request, $modify);
     }
 
-    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols)
+    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols): psr7\uri|\yxorP\app\lib\psr\http\message\uriInterface
     {
         $location = Psr7\uriResolver::resolve($request->getUri(), new Psr7\uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {

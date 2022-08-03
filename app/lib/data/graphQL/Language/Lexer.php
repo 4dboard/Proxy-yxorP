@@ -110,7 +110,7 @@ class Lexer
     /**
      * @return Token
      */
-    public function advance()
+    public function advance(): Token
     {
         $this->lastToken = $this->token;
 
@@ -120,7 +120,7 @@ class Lexer
     /**
      * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      */
-    public function lookahead()
+    public function lookahead(): Token
     {
         $token = $this->token;
         if ($token->kind !== Token::EOF) {
@@ -137,7 +137,7 @@ class Lexer
      *
      * @throws SyntaxError
      */
-    private function readToken(Token $prev)
+    private function readToken(Token $prev): Token
     {
         $bodyLength = $this->source->length;
 
@@ -329,7 +329,7 @@ class Lexer
      *
      * @return array (string|int)[]
      */
-    private function readChar(bool $advance = false, $byteStreamPosition = null)
+    private function readChar(bool $advance = false, $byteStreamPosition = null): array
     {
         if ($byteStreamPosition === null) {
             $byteStreamPosition = $this->byteStreamPosition;
@@ -376,7 +376,7 @@ class Lexer
      *
      * @return self
      */
-    private function moveStringCursor(int $positionOffset, int $byteStreamOffset)
+    private function moveStringCursor(int $positionOffset, int $byteStreamOffset): Lexer
     {
         $this->position += $positionOffset;
         $this->byteStreamPosition += $byteStreamOffset;
@@ -394,7 +394,7 @@ class Lexer
      *
      * @return Token
      */
-    private function readComment(int $line, int $col, Token $prev)
+    private function readComment(int $line, int $col, Token $prev): Token
     {
         $start = $this->position;
         $value = '';
@@ -429,7 +429,7 @@ class Lexer
      *
      * @return Token
      */
-    private function readName(int $line, int $col, Token $prev)
+    private function readName(int $line, int $col, Token $prev): Token
     {
         $value = '';
         $start = $this->position;
@@ -470,7 +470,7 @@ class Lexer
      *
      * @throws SyntaxError
      */
-    private function readNumber(int $line, int $col, Token $prev)
+    private function readNumber(int $line, int $col, Token $prev): Token
     {
         $value = '';
         $start = $this->position;
@@ -536,7 +536,7 @@ class Lexer
      * Returns string with all digits + changes current string cursor position to point to the first char after digits
      * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      */
-    private function readDigits()
+    private function readDigits(): string
     {
         [$char, $code] = $this->readChar();
 
@@ -569,7 +569,7 @@ class Lexer
      * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      */
-    private function readBlockString($line, $col, Token $prev)
+    private function readBlockString($line, $col, Token $prev): Token
     {
         $start = $this->position;
 
@@ -660,7 +660,7 @@ class Lexer
      *
      * @throws SyntaxError
      */
-    private function readString(int $line, int $col, Token $prev)
+    private function readString(int $line, int $col, Token $prev): Token
     {
         $start = $this->position;
 
@@ -802,7 +802,7 @@ class Lexer
      *
      * @return array (string|int)[]
      */
-    private function readChars(int $charCount, bool $advance = false)
+    private function readChars(int $charCount, bool $advance = false): array
     {
         $byteStreamPosition = null;
         $result = '';
@@ -822,7 +822,7 @@ class Lexer
         return [$result, $totalBytes];
     }
 
-    private function unexpectedCharacterMessage($code)
+    private function unexpectedCharacterMessage($code): string
     {
         // SourceCharacter
         if ($code < 0x0020 && $code !== 0x0009 && $code !== 0x000A && $code !== 0x000D) {

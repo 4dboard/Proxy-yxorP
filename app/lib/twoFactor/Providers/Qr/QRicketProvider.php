@@ -37,7 +37,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
      * {@inheritdoc}
      * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
      */
-    public function getMimeType()
+    public function getMimeType(): string
     {
         switch (strtolower($this->format)) {
             case 'p':
@@ -53,7 +53,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage(string $qrtext, int $size)
+    public function getQRCodeImage(string $qrtext, int $size): bool|string
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }
@@ -64,7 +64,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
      *
      * @return string file contents of the QR code
      */
-    public function getUrl(string $qrtext, int|string $size)
+    public function getUrl(string $qrtext, int|string $size): string
     {
         return 'http://qrickit.com/api/qr'
             . '?qrsize=' . $size

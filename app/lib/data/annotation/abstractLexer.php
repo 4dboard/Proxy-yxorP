@@ -58,7 +58,7 @@ abstract class abstractLexer
 
     abstract protected function getNonCatchablePatterns();
 
-    protected function getModifiers()
+    protected function getModifiers(): string
     {
         return 'iu';
     }
@@ -75,17 +75,17 @@ abstract class abstractLexer
         $this->position = $position;
     }
 
-    public function getInputUntilPosition($position)
+    public function getInputUntilPosition($position): string
     {
         return substr($this->input, 0, $position);
     }
 
-    public function isNextToken($type)
+    public function isNextToken($type): bool
     {
         return $this->lookahead !== null && $this->lookahead['type'] === $type;
     }
 
-    public function isNextTokenAny(array $types)
+    public function isNextTokenAny(array $types): bool
     {
         return $this->lookahead !== null && in_array($this->lookahead['type'], $types, true);
     }
@@ -97,7 +97,7 @@ abstract class abstractLexer
         }
     }
 
-    public function moveNext()
+    public function moveNext(): bool
     {
         $this->peek = 0;
         $this->token = $this->lookahead;
@@ -105,7 +105,7 @@ abstract class abstractLexer
         return $this->lookahead !== null;
     }
 
-    public function isA($value, $token)
+    public function isA($value, $token): bool
     {
         return $this->getType($value) === $token;
     }

@@ -29,7 +29,7 @@ class VariablesInAllowedPosition extends ValidationRule
      */
     public array $varDefMap;
 
-    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::OPERATION_DEFINITION => "\Closure[]", NodeKind::VARIABLE_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::OPERATION_DEFINITION => [
@@ -105,7 +105,7 @@ class VariablesInAllowedPosition extends ValidationRule
      * expected type is nullable. If both are list types, the variable item type can
      * be more strict than the expected item type.
      */
-    public static function badVarPosMessage($varName, $varType, $expectedType)
+    public static function badVarPosMessage($varName, $varType, $expectedType): string
     {
         return sprintf(
             'Variable "$%s" of type "%s" used in position expecting type "%s".',

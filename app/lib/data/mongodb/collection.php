@@ -349,42 +349,42 @@ class collection
         return $operation->execute($server);
     }
 
-    public function getCollectionName()
+    public function getCollectionName(): string
     {
         return $this->collectionName;
     }
 
-    public function getDatabaseName()
+    public function getDatabaseName(): string
     {
         return $this->databaseName;
     }
 
-    public function getManager()
+    public function getManager(): Manager
     {
         return $this->manager;
     }
 
-    public function getNamespace()
+    public function getNamespace(): string
     {
         return $this->databaseName . '.' . $this->collectionName;
     }
 
-    public function getReadConcern()
+    public function getReadConcern(): ReadConcern
     {
         return $this->readConcern;
     }
 
-    public function getReadPreference()
+    public function getReadPreference(): \yxorP\app\lib\data\mongoDB\ReadPreference
     {
         return $this->readPreference;
     }
 
-    public function getTypeMap()
+    public function getTypeMap(): array
     {
         return $this->typeMap;
     }
 
-    public function getWriteConcern()
+    public function getWriteConcern(): \yxorP\app\lib\data\mongoDB\WriteConcern
     {
         return $this->writeConcern;
     }
@@ -501,7 +501,7 @@ class collection
         return $operation->execute($server);
     }
 
-    public function withOptions(array $options = [])
+    public function withOptions(array $options = []): collection
     {
         $options += ['readConcern' => $this->readConcern, 'readPreference' => $this->readPreference, 'typeMap' => $this->typeMap, 'writeConcern' => $this->writeConcern,];
         return new collection($this->manager, $this->databaseName, $this->collectionName, $options);

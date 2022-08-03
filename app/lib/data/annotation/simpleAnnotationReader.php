@@ -30,7 +30,7 @@ class simpleAnnotationReader implements readerInterface
         return null;
     }
 
-    public function getClassAnnotations(ReflectionClass $class)
+    public function getClassAnnotations(ReflectionClass $class): array
     {
         return $this->parser->parse($class->getDocComment(), 'class ' . $class->getName());
     }
@@ -45,7 +45,7 @@ class simpleAnnotationReader implements readerInterface
         return null;
     }
 
-    public function getMethodAnnotations(ReflectionMethod $method)
+    public function getMethodAnnotations(ReflectionMethod $method): array
     {
         return $this->parser->parse($method->getDocComment(), 'method ' . $method->getDeclaringClass()->name . '::' . $method->getName() . '()');
     }
@@ -60,7 +60,7 @@ class simpleAnnotationReader implements readerInterface
         return null;
     }
 
-    public function getPropertyAnnotations(ReflectionProperty $property)
+    public function getPropertyAnnotations(ReflectionProperty $property): array
     {
         return $this->parser->parse($property->getDocComment(), 'property ' . $property->getDeclaringClass()->name . '::$' . $property->getName());
     }

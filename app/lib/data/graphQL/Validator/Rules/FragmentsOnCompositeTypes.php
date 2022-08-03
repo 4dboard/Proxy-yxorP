@@ -17,7 +17,7 @@ use function sprintf;
 
 class FragmentsOnCompositeTypes extends ValidationRule
 {
-    #[ArrayShape([NodeKind::INLINE_FRAGMENT => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::INLINE_FRAGMENT => "\Closure", NodeKind::FRAGMENT_DEFINITION => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::INLINE_FRAGMENT => static function (InlineFragmentNode $node) use ($context): void {
@@ -53,12 +53,12 @@ class FragmentsOnCompositeTypes extends ValidationRule
         ];
     }
 
-    public static function inlineFragmentOnNonCompositeErrorMessage($type)
+    public static function inlineFragmentOnNonCompositeErrorMessage($type): string
     {
         return sprintf('Fragment cannot condition on non composite type "%s".', $type);
     }
 
-    public static function fragmentOnNonCompositeErrorMessage($fragName, $type)
+    public static function fragmentOnNonCompositeErrorMessage($fragName, $type): string
     {
         return sprintf('Fragment "%s" cannot condition on non composite type "%s".', $fragName, $type);
     }

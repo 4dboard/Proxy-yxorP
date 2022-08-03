@@ -89,7 +89,7 @@ class DropDatabase implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array
     {
         $command = new Command(['dropDatabase' => 1]);
         $cursor = $server->executeWriteCommand($this->databaseName, $command, $this->createOptions());
@@ -107,7 +107,7 @@ class DropDatabase implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

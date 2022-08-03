@@ -111,7 +111,7 @@ class Collector
     /**
      * @return Generator
      */
-    public function collectFields(ObjectType $runtimeType, ?SelectionSetNode $selectionSet)
+    public function collectFields(ObjectType $runtimeType, ?SelectionSetNode $selectionSet): Generator
     {
         $this->fields = [];
         $this->visitedFragments = [];

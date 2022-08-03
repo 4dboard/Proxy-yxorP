@@ -266,7 +266,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): Cursor|ArrayIterator
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction) {
@@ -314,7 +314,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }
@@ -324,7 +324,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    #[Pure] private function createCommandDocument()
+    #[Pure] private function createCommandDocument(): array
     {
         $cmd = [
             'aggregate' => $this->collectionName ?? 1,

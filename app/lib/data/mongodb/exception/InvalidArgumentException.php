@@ -35,7 +35,7 @@ class InvalidArgumentException extends DriverInvalidArgumentException implements
      * @param string|string[] $expectedType Expected type
      * @return self
      */
-    public static function invalidType(string $name, mixed $value, array|string $expectedType)
+    public static function invalidType(string $name, mixed $value, array|string $expectedType): InvalidArgumentException
     {
         if (is_array($expectedType)) {
             switch (count($expectedType)) {

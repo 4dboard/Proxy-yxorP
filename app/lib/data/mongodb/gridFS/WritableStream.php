@@ -253,7 +253,7 @@ class WritableStream
      *
      * @return stdClass
      */
-    public function getFile()
+    public function getFile(): object|stdClass
     {
         return (object)$this->file;
     }
@@ -268,7 +268,7 @@ class WritableStream
      * @return integer
      * @see WritableStream::getSize()
      */
-    #[Pure] public function tell()
+    #[Pure] public function tell(): int
     {
         return $this->getSize();
     }
@@ -280,7 +280,7 @@ class WritableStream
      *
      * @return integer
      */
-    public function getSize()
+    public function getSize(): int
     {
         return $this->length + strlen($this->buffer);
     }

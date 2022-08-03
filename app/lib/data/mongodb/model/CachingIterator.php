@@ -85,7 +85,7 @@ class CachingIterator implements Countable, Iterator
      * @return integer
      */
     #[ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         $this->exhaustIterator();
 
@@ -126,7 +126,7 @@ class CachingIterator implements Countable, Iterator
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return current($this->items);
     }
@@ -153,7 +153,7 @@ class CachingIterator implements Countable, Iterator
      * @return boolean
      */
     #[Pure] #[ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return $this->key() !== null;
     }
@@ -163,7 +163,7 @@ class CachingIterator implements Countable, Iterator
      * @return int|string|null
      */
     #[ReturnTypeWillChange]
-    public function key()
+    public function key(): int|string|null
     {
         return key($this->items);
     }

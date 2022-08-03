@@ -93,7 +93,7 @@ class ListIndexes implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): \yxorP\app\lib\data\mongoDB\Operation\IndexInfoIteratorIterator|IndexInfoIteratorIterator
     {
         return $this->executeCommand($server);
     }
@@ -106,7 +106,7 @@ class ListIndexes implements ExecutableInterface
      * @return \yxorP\app\lib\data\mongoDB\Operation\IndexInfoIteratorIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    private function executeCommand(Server $server)
+    private function executeCommand(Server $server): \yxorP\app\lib\data\mongoDB\Operation\IndexInfoIteratorIterator
     {
         $cmd = ['listIndexes' => $this->collectionName];
 
@@ -142,7 +142,7 @@ class ListIndexes implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

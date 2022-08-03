@@ -64,7 +64,7 @@ class CollectionInfo implements ArrayAccess
      * @deprecated 1.0 Deprecated in favor of using getOptions
      *
      */
-    public function getCappedMax()
+    public function getCappedMax(): ?int
     {
         /* The MongoDB server might return this number as an integer or float */
         return isset($this->info['options']['max']) ? (integer)$this->info['options']['max'] : null;
@@ -77,7 +77,7 @@ class CollectionInfo implements ArrayAccess
      * @deprecated 1.0 Deprecated in favor of using getOptions
      *
      */
-    public function getCappedSize()
+    public function getCappedSize(): ?int
     {
         /* The MongoDB server might return this number as an integer or float */
         return isset($this->info['options']['size']) ? (integer)$this->info['options']['size'] : null;
@@ -110,7 +110,7 @@ class CollectionInfo implements ArrayAccess
      * @see https://docs.mongodb.com/manual/reference/command/listCollections/#output
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return (string)$this->info['name'];
     }
@@ -121,7 +121,7 @@ class CollectionInfo implements ArrayAccess
      * @see https://docs.mongodb.com/manual/reference/command/listCollections/#output
      * @return array
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return (array)($this->info['options'] ?? []);
     }
@@ -144,7 +144,7 @@ class CollectionInfo implements ArrayAccess
      * @deprecated 1.0 Deprecated in favor of using getOptions
      *
      */
-    public function isCapped()
+    public function isCapped(): bool
     {
         return !empty($this->info['options']['capped']);
     }
@@ -157,7 +157,7 @@ class CollectionInfo implements ArrayAccess
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function offsetExists(mixed $key)
+    public function offsetExists(mixed $key): bool
     {
         return array_key_exists($key, $this->info);
     }
@@ -170,7 +170,7 @@ class CollectionInfo implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet(mixed $key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->info[$key];
     }

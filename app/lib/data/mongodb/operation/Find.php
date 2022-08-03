@@ -301,7 +301,7 @@ class Find implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): Cursor
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['readConcern'])) {
@@ -325,7 +325,7 @@ class Find implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createQueryOptions()
+    private function createQueryOptions(): array
     {
         $options = [];
 
@@ -367,7 +367,7 @@ class Find implements ExecutableInterface, ExplainableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executequery.php
      * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 
@@ -389,7 +389,7 @@ class Find implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }

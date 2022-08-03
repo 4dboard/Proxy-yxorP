@@ -25,7 +25,7 @@ class Mailer
         return $message->send();
     }
 
-    public function createMessage(mixed $to, string $subject, string $message, array $options = [])
+    public function createMessage(mixed $to, string $subject, string $message, array $options = []): Mailer_Message
     {
         $mail = new PHPMailer(true);
         if ($this->transport === 'smtp') {

@@ -8,7 +8,7 @@ final class uriResolver
     {
     }
 
-    public static function resolve(uriInterface $base, uriInterface $rel)
+    public static function resolve(uriInterface $base, uriInterface $rel): uri|uriInterface
     {
         if ((string)$rel === '') {
             return $base;
@@ -47,7 +47,7 @@ final class uriResolver
         return new uri(uri::composeComponents($base->getScheme(), $targetAuthority, $targetPath, $targetQuery, $rel->getFragment()));
     }
 
-    public static function removeDotSegments($path)
+    public static function removeDotSegments($path): ?string
     {
         if ($path === '' || $path === '/') {
             return $path;
@@ -70,7 +70,7 @@ final class uriResolver
         return $newPath;
     }
 
-    public static function relativize(uriInterface $base, uriInterface $target)
+    public static function relativize(uriInterface $base, uriInterface $target): uriInterface
     {
         if ($target->getScheme() !== '' && ($base->getScheme() !== $target->getScheme() || $target->getAuthority() === '' && $base->getAuthority() !== '')) {
             return $target;
@@ -96,7 +96,7 @@ final class uriResolver
         return $emptyPathUri;
     }
 
-    private static function getRelativePath(uriInterface $base, uriInterface $target)
+    private static function getRelativePath(uriInterface $base, uriInterface $target): string
     {
         $sourceSegments = explode('/', $base->getPath());
         $targetSegments = explode('/', $target->getPath());

@@ -21,7 +21,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function isThenable(mixed $value)
+    public function isThenable(mixed $value): bool
     {
         return $value instanceof SyncPromise;
     }
@@ -29,7 +29,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function convertThenable(object $thenable)
+    public function convertThenable(object $thenable): Promise
     {
         if (!$thenable instanceof SyncPromise) {
             // End-users should always use Deferred (and don't use SyncPromise directly)
@@ -42,7 +42,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null)
+    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null): Promise
     {
         /** @var SyncPromise $adoptedPromise */
         $adoptedPromise = $promise->adoptedPromise;
@@ -54,7 +54,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
      * @inheritdoc
      * @throws \Exception
      */
-    public function create(callable $resolver)
+    public function create(callable $resolver): Promise
     {
         $promise = new SyncPromise();
 
@@ -80,7 +80,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
      * @inheritdoc
      * @throws \Exception
      */
-    public function createFulfilled(mixed $value = null)
+    public function createFulfilled(mixed $value = null): Promise
     {
         $promise = new SyncPromise();
 
@@ -91,7 +91,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
      * @inheritdoc
      * @throws \Exception
      */
-    public function createRejected(Throwable $reason)
+    public function createRejected(Throwable $reason): Promise
     {
         $promise = new SyncPromise();
 
@@ -102,7 +102,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
      * @inheritdoc
      * @throws \Exception
      */
-    public function all(array $promisesOrValues)
+    public function all(array $promisesOrValues): Promise
     {
         $all = new SyncPromise();
 
@@ -142,7 +142,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
      *
      * @return ExecutionResult
      */
-    public function wait(Promise $promise)
+    public function wait(Promise $promise): ExecutionResult
     {
         $this->beforeWait($promise);
         $taskQueue = SyncPromise::getQueue();

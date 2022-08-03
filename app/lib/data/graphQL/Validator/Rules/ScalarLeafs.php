@@ -14,7 +14,7 @@ use function sprintf;
 
 class ScalarLeafs extends ValidationRule
 {
-    #[ArrayShape([NodeKind::FIELD => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::FIELD => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::FIELD => static function (FieldNode $node) use ($context): void {
@@ -40,12 +40,12 @@ class ScalarLeafs extends ValidationRule
         ];
     }
 
-    public static function noSubselectionAllowedMessage($field, $type)
+    public static function noSubselectionAllowedMessage($field, $type): string
     {
         return sprintf('Field "%s" of type "%s" must not have a sub selection.', $field, $type);
     }
 
-    public static function requiredSubselectionMessage($field, $type)
+    public static function requiredSubselectionMessage($field, $type): string
     {
         return sprintf('Field "%s" of type "%s" must have a sub selection.', $field, $type);
     }

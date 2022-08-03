@@ -135,7 +135,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): array
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['readConcern'])) {
@@ -164,7 +164,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->createCommandDocument();
     }
@@ -174,7 +174,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    #[ArrayShape(['distinct' => "string", 'key' => "string", 'maxTimeMS' => "mixed", 'collation' => "object", 'query' => "object"])] private function createCommandDocument()
+    #[ArrayShape(['distinct' => "string", 'key' => "string", 'maxTimeMS' => "mixed", 'collation' => "object", 'query' => "object"])] private function createCommandDocument(): array
     {
         $cmd = [
             'distinct' => $this->collectionName,
@@ -202,7 +202,7 @@ class Distinct implements ExecutableInterface, ExplainableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executereadcommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

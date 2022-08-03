@@ -60,7 +60,7 @@ class users extends app
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
     }
 
-    protected function geti18n()
+    protected function geti18n(): array
     {
 
         $languages = [['i18n' => 'en', 'language' => 'English']];
@@ -193,7 +193,7 @@ class users extends app
         return ['success' => true];
     }
 
-    public function load()
+    public function load(): array
     {
 
         $this->helper('session')->close();
@@ -244,7 +244,7 @@ class users extends app
         return compact('users', 'count', 'pages', 'page');
     }
 
-    public function getSecretQRCode($secret = null, $size = 150)
+    public function getSecretQRCode($secret = null, $size = 150): bool
     {
 
         $this->helper('session')->close();

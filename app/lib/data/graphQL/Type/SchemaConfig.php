@@ -65,7 +65,7 @@ class SchemaConfig
      *
      * @api
      */
-    public static function create(array $options = [])
+    public static function create(array $options = []): SchemaConfig
     {
         $config = new static();
 
@@ -118,7 +118,7 @@ class SchemaConfig
     /**
      * @return SchemaDefinitionNode|null
      */
-    public function getAstNode()
+    public function getAstNode(): ?SchemaDefinitionNode
     {
         return $this->astNode;
     }
@@ -126,7 +126,7 @@ class SchemaConfig
     /**
      * @return SchemaConfig
      */
-    public function setAstNode(SchemaDefinitionNode $astNode)
+    public function setAstNode(SchemaDefinitionNode $astNode): static
     {
         $this->astNode = $astNode;
 
@@ -138,7 +138,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function getQuery()
+    public function getQuery(): ?ObjectType
     {
         return $this->query;
     }
@@ -150,7 +150,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setQuery(?ObjectType $query)
+    public function setQuery(?ObjectType $query): static
     {
         $this->query = $query;
 
@@ -162,7 +162,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function getMutation()
+    public function getMutation(): ?ObjectType
     {
         return $this->mutation;
     }
@@ -174,7 +174,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setMutation(?ObjectType $mutation)
+    public function setMutation(?ObjectType $mutation): static
     {
         $this->mutation = $mutation;
 
@@ -186,7 +186,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function getSubscription()
+    public function getSubscription(): ?ObjectType
     {
         return $this->subscription;
     }
@@ -198,7 +198,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setSubscription(?ObjectType $subscription)
+    public function setSubscription(?ObjectType $subscription): static
     {
         $this->subscription = $subscription;
 
@@ -210,7 +210,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function getTypes()
+    public function getTypes(): callable|array
     {
         return $this->types;
     }
@@ -222,7 +222,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setTypes(callable|array $types)
+    public function setTypes(callable|array $types): static
     {
         $this->types = $types;
 
@@ -234,7 +234,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function getDirectives()
+    public function getDirectives(): ?array
     {
         return $this->directives;
     }
@@ -246,7 +246,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setDirectives(array $directives)
+    public function setDirectives(array $directives): static
     {
         $this->directives = $directives;
 
@@ -258,7 +258,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function getTypeLoader()
+    public function getTypeLoader(): ?callable
     {
         return $this->typeLoader;
     }
@@ -268,7 +268,7 @@ class SchemaConfig
      *
      * @api
      */
-    public function setTypeLoader(callable $typeLoader)
+    public function setTypeLoader(callable $typeLoader): static
     {
         $this->typeLoader = $typeLoader;
 
@@ -278,7 +278,7 @@ class SchemaConfig
     /**
      * @return bool
      */
-    public function getAssumeValid()
+    public function getAssumeValid(): bool
     {
         return $this->assumeValid;
     }
@@ -288,7 +288,7 @@ class SchemaConfig
      *
      * @return SchemaConfig
      */
-    public function setAssumeValid(bool $assumeValid)
+    public function setAssumeValid(bool $assumeValid): static
     {
         $this->assumeValid = $assumeValid;
 
@@ -298,7 +298,7 @@ class SchemaConfig
     /**
      * @return SchemaTypeExtensionNode[]
      */
-    public function getExtensionASTNodes()
+    public function getExtensionASTNodes(): array
     {
         return $this->extensionASTNodes;
     }

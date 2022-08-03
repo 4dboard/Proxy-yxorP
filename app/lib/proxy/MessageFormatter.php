@@ -17,7 +17,7 @@ class messageFormatter
         $this->template = $template ?: self::CLF;
     }
 
-    public function format(requestInterface $request, responseInterface $response = null, Exception $error = null)
+    public function format(requestInterface $request, responseInterface $response = null, Exception $error = null): array|string|null
     {
         $cache = [];
         return preg_replace_callback('/{\s*([A-Za-z_\-.0-9]+)\s*}/', function (array $matches) use ($request, $response, $error, &$cache) {
@@ -95,7 +95,7 @@ class messageFormatter
         }, $this->template);
     }
 
-    private function headers(messageInterface $message)
+    private function headers(messageInterface $message): string
     {
         $result = '';
         foreach ($message->getHeaders() as $name => $values) {

@@ -27,7 +27,7 @@ class eventStream extends helperAware
         ])->toArray();
     }
 
-    #[ArrayShape(['type' => "string", 'data' => "", 'options' => "array", '_created' => "int"])] public function add(string $event, $data, array $options)
+    #[ArrayShape(['type' => "string", 'data' => "", 'options' => "array", '_created' => "int"])] public function add(string $event, $data, array $options): array
     {
 
         $evt = [

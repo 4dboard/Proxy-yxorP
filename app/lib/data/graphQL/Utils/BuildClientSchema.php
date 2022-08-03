@@ -231,7 +231,7 @@ class BuildClientSchema
     /**
      * @param array<string, mixed> $typeIntrospection
      */
-    private function buildFieldDefMap(array $typeIntrospection)
+    private function buildFieldDefMap(array $typeIntrospection): array
     {
         if (!array_key_exists('fields', $typeIntrospection)) {
             throw new InvariantViolation('Introspection result missing fields: ' . json_encode($typeIntrospection) . '.');

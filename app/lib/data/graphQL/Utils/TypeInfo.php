@@ -118,7 +118,7 @@ class TypeInfo
      *
      * @codeCoverageIgnore
      */
-    public static function isTypeSubTypeOf(Schema $schema, Type $maybeSubType, Type $superType)
+    public static function isTypeSubTypeOf(Schema $schema, Type $maybeSubType, Type $superType): bool
     {
         return TypeComparators::isTypeSubTypeOf($schema, $maybeSubType, $superType);
     }
@@ -128,7 +128,7 @@ class TypeInfo
      *
      * @codeCoverageIgnore
      */
-    public static function doTypesOverlap(Schema $schema, CompositeType $typeA, CompositeType $typeB)
+    public static function doTypesOverlap(Schema $schema, CompositeType $typeA, CompositeType $typeB): bool
     {
         return TypeComparators::doTypesOverlap($schema, $typeA, $typeB);
     }
@@ -138,7 +138,7 @@ class TypeInfo
      *
      * @return Type[]
      */
-    public static function extractTypesFromDirectives(Directive $directive, array $typeMap = [])
+    public static function extractTypesFromDirectives(Directive $directive, array $typeMap = []): ?array
     {
         if (is_array($directive->args)) {
             foreach ($directive->args as $arg) {
@@ -165,7 +165,7 @@ class TypeInfo
      *
      * @return Type[]|null
      */
-    public static function extractTypes(?Type $type, ?array $typeMap = null)
+    public static function extractTypes(?Type $type, ?array $typeMap = null): ?array
     {
         if (!$typeMap) {
             $typeMap = [];
@@ -253,7 +253,7 @@ class TypeInfo
     /**
      * @return mixed
      */
-    public function getEnumValue()
+    public function getEnumValue(): mixed
     {
         return $this->enumValue;
     }
@@ -451,7 +451,7 @@ class TypeInfo
     /**
      * @return mixed|null
      */
-    public function getDefaultValue()
+    public function getDefaultValue(): mixed
     {
         return $this->defaultValueStack[count($this->defaultValueStack) - 1] ?? null;
     }

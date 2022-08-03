@@ -10,12 +10,12 @@ trait messageTrait
     private string $protocol = '1.1';
     private $stream;
 
-    public function getProtocolVersion()
+    public function getProtocolVersion(): string
     {
         return $this->protocol;
     }
 
-    public function withProtocolVersion(string $version)
+    public function withProtocolVersion(string $version): response|request|static
     {
         if ($this->protocol === $version) {
             return $this;
@@ -25,17 +25,17 @@ trait messageTrait
         return $new;
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
 
-    public function hasHeader(string $name)
+    public function hasHeader(string $name): bool
     {
         return isset($this->headerNames[strtolower($name)]);
     }
 
-    public function getHeaderLine(string $name)
+    public function getHeaderLine(string $name): string
     {
         return implode(', ', $this->getHeader($name));
     }
@@ -50,7 +50,7 @@ trait messageTrait
         return $this->headers[$name];
     }
 
-    public function withHeader(string $name, array|string $value)
+    public function withHeader(string $name, array|string $value): response|request
     {
         $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
@@ -74,7 +74,7 @@ trait messageTrait
         }
     }
 
-    private function normalizeHeaderValue($value)
+    private function normalizeHeaderValue($value): array
     {
         if (!is_array($value)) {
             return $this->trimHeaderValues([$value]);
@@ -85,7 +85,7 @@ trait messageTrait
         return $this->trimHeaderValues($value);
     }
 
-    private function trimHeaderValues(array $values)
+    private function trimHeaderValues(array $values): array
     {
         return array_map(function ($value) {
             if (!is_scalar($value) && null !== $value) {
@@ -95,7 +95,7 @@ trait messageTrait
         }, $values);
     }
 
-    public function withAddedHeader(string $name, array|string $value)
+    public function withAddedHeader(string $name, array|string $value): response|request
     {
         $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
@@ -111,7 +111,7 @@ trait messageTrait
         return $new;
     }
 
-    public function withoutHeader(string $name)
+    public function withoutHeader(string $name): response|request|static
     {
         $normalized = strtolower($name);
         if (!isset($this->headerNames[$normalized])) {
@@ -123,7 +123,7 @@ trait messageTrait
         return $new;
     }
 
-    public function getBody()
+    public function getBody(): stream|streamInterface|pumpStream
     {
         if (!$this->stream) {
             $this->stream = stream_for();
@@ -131,7 +131,7 @@ trait messageTrait
         return $this->stream;
     }
 
-    public function withBody(streamInterface $body)
+    public function withBody(streamInterface $body): response|request|static
     {
         if ($body === $this->stream) {
             return $this;

@@ -16,12 +16,12 @@ class rejectedPromise implements promiseInterface
         $this->reason = $reason;
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): promise|static
     {
         return $this->then(null, $onRejected);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): promise|static
     {
         if (!$onRejected) {
             return $this;
@@ -51,7 +51,7 @@ class rejectedPromise implements promiseInterface
         }
     }
 
-    public function getState()
+    public function getState(): string
     {
         return self::REJECTED;
     }

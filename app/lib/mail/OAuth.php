@@ -22,7 +22,7 @@ class OAuth implements OAuthTokenProviderInterface
         $this->oauthRefreshToken = $options['refreshToken'];
     }
 
-    public function getOauth64()
+    public function getOauth64(): string
     {
         if (null === $this->oauthToken || $this->oauthToken->hasExpired()) {
             $this->oauthToken = $this->getToken();
@@ -35,7 +35,7 @@ class OAuth implements OAuthTokenProviderInterface
         return $this->provider->getAccessToken($this->getGrant(), ['refresh_token' => $this->oauthRefreshToken]);
     }
 
-    protected function getGrant()
+    protected function getGrant(): RefreshToken
     {
         return new RefreshToken();
     }

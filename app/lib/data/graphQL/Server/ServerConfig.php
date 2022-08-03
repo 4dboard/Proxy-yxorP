@@ -64,7 +64,7 @@ class ServerConfig
      *
      * @api
      */
-    public static function create(array $config = [])
+    public static function create(array $config = []): ServerConfig
     {
         $instance = new static();
         foreach ($config as $key => $value) {
@@ -81,7 +81,7 @@ class ServerConfig
     /**
      * @return mixed|callable
      */
-    public function getContext()
+    public function getContext(): mixed
     {
         return $this->context;
     }
@@ -93,7 +93,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setContext(mixed $context)
+    public function setContext(mixed $context): static
     {
         $this->context = $context;
 
@@ -103,7 +103,7 @@ class ServerConfig
     /**
      * @return mixed|callable
      */
-    public function getRootValue()
+    public function getRootValue(): mixed
     {
         return $this->rootValue;
     }
@@ -115,7 +115,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setRootValue(mixed $rootValue)
+    public function setRootValue(mixed $rootValue): static
     {
         $this->rootValue = $rootValue;
 
@@ -125,7 +125,7 @@ class ServerConfig
     /**
      * @return Schema|null
      */
-    public function getSchema()
+    public function getSchema(): ?Schema
     {
         return $this->schema;
     }
@@ -135,7 +135,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setSchema(Schema $schema)
+    public function setSchema(Schema $schema): static
     {
         $this->schema = $schema;
 
@@ -145,7 +145,7 @@ class ServerConfig
     /**
      * @return callable|null
      */
-    public function getErrorFormatter()
+    public function getErrorFormatter(): ?callable
     {
         return $this->errorFormatter;
     }
@@ -157,7 +157,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setErrorFormatter(callable $errorFormatter)
+    public function setErrorFormatter(callable $errorFormatter): static
     {
         $this->errorFormatter = $errorFormatter;
 
@@ -167,7 +167,7 @@ class ServerConfig
     /**
      * @return callable|null
      */
-    public function getErrorsHandler()
+    public function getErrorsHandler(): ?callable
     {
         return $this->errorsHandler;
     }
@@ -179,7 +179,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setErrorsHandler(callable $handler)
+    public function setErrorsHandler(callable $handler): static
     {
         $this->errorsHandler = $handler;
 
@@ -189,7 +189,7 @@ class ServerConfig
     /**
      * @return PromiseAdapterInterface|null
      */
-    public function getPromiseAdapter()
+    public function getPromiseAdapter(): ?PromiseAdapterInterface
     {
         return $this->promiseAdapter;
     }
@@ -199,7 +199,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setPromiseAdapter(PromiseAdapterInterface $promiseAdapter)
+    public function setPromiseAdapter(PromiseAdapterInterface $promiseAdapter): static
     {
         $this->promiseAdapter = $promiseAdapter;
 
@@ -209,7 +209,7 @@ class ServerConfig
     /**
      * @return ValidationRule[]|callable|null
      */
-    public function getValidationRules()
+    public function getValidationRules(): callable|array|null
     {
         return $this->validationRules;
     }
@@ -223,7 +223,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setValidationRules(callable|array|null $validationRules)
+    public function setValidationRules(callable|array|null $validationRules): static
     {
         if (!is_callable($validationRules) && !is_array($validationRules) && $validationRules !== null) {
             throw new InvariantViolation(
@@ -240,7 +240,7 @@ class ServerConfig
     /**
      * @return callable|null
      */
-    public function getFieldResolver()
+    public function getFieldResolver(): ?callable
     {
         return $this->fieldResolver;
     }
@@ -250,7 +250,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setFieldResolver(callable $fieldResolver)
+    public function setFieldResolver(callable $fieldResolver): static
     {
         $this->fieldResolver = $fieldResolver;
 
@@ -260,7 +260,7 @@ class ServerConfig
     /**
      * @return callable|null
      */
-    public function getPersistentQueryLoader()
+    public function getPersistentQueryLoader(): ?callable
     {
         return $this->persistentQueryLoader;
     }
@@ -274,7 +274,7 @@ class ServerConfig
      *
      * @api
      */
-    public function setPersistentQueryLoader(callable $persistentQueryLoader)
+    public function setPersistentQueryLoader(callable $persistentQueryLoader): static
     {
         $this->persistentQueryLoader = $persistentQueryLoader;
 
@@ -301,7 +301,7 @@ class ServerConfig
     /**
      * @return bool
      */
-    public function getQueryBatching()
+    public function getQueryBatching(): bool
     {
         return $this->queryBatching;
     }

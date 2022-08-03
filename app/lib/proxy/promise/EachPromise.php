@@ -80,7 +80,7 @@ class eachPromise implements promisorInterface
         while (--$concurrency && $this->advanceIterator() && $this->addPending()) ;
     }
 
-    private function addPending()
+    private function addPending(): bool
     {
         if (!$this->iterable || !$this->iterable->valid()) {
             return false;
@@ -112,7 +112,7 @@ class eachPromise implements promisorInterface
         }
     }
 
-    private function advanceIterator()
+    private function advanceIterator(): bool
     {
         if ($this->mutex) {
             return false;
@@ -129,7 +129,7 @@ class eachPromise implements promisorInterface
         }
     }
 
-    private function checkIfFinished()
+    private function checkIfFinished(): bool
     {
         if (!$this->pending && !$this->iterable->valid()) {
             $this->aggregate->resolve(null);

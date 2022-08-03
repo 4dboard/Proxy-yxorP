@@ -20,12 +20,12 @@ class mapReduceResult implements IteratorAggregate
         $this->timing = isset($result->timing) ? (array)$result->timing : [];
     }
 
-    public function getCounts()
+    public function getCounts(): array
     {
         return $this->counts;
     }
 
-    public function getExecutionTimeMS()
+    public function getExecutionTimeMS(): int
     {
         return $this->executionTimeMS;
     }
@@ -35,7 +35,7 @@ class mapReduceResult implements IteratorAggregate
         return call_user_func($this->getIterator);
     }
 
-    public function getTiming()
+    public function getTiming(): array
     {
         return $this->timing;
     }

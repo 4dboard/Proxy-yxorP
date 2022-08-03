@@ -105,7 +105,7 @@ class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterfac
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): int
     {
         $command = $this->createCommand($server);
 
@@ -129,7 +129,7 @@ class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterfac
     }
 
     /** @return Aggregate|Count */
-    private function createCommand(Server $server)
+    private function createCommand(Server $server): Count|Aggregate
     {
         return server_supports_feature($server, self::$wireVersionForCollStats)
             ? $this->createAggregate()
@@ -161,7 +161,7 @@ class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterfac
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->createCommand($server)->getCommandDocument($server);
     }

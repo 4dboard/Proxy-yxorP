@@ -162,7 +162,7 @@ class FieldDefinition
      *
      * @return FieldDefinition
      */
-    public static function create(array $field)
+    public static function create(array $field): FieldDefinition
     {
         return new self($field);
     }
@@ -177,7 +177,7 @@ class FieldDefinition
      *
      * @return int
      */
-    public static function defaultComplexity(int $childrenComplexity)
+    public static function defaultComplexity(int $childrenComplexity): int
     {
         return $childrenComplexity + 1;
     }
@@ -187,7 +187,7 @@ class FieldDefinition
      *
      * @return FieldArgument|null
      */
-    public function getArg(string $name)
+    public function getArg(string $name): ?FieldArgument
     {
         foreach ($this->args ?? [] as $arg) {
             /** @var FieldArgument $arg */
@@ -268,7 +268,7 @@ class FieldDefinition
     /**
      * @return bool
      */
-    public function isDeprecated()
+    public function isDeprecated(): bool
     {
         return (bool)$this->deprecationReason;
     }
@@ -276,7 +276,7 @@ class FieldDefinition
     /**
      * @return callable
      */
-    public function getComplexityFn()
+    public function getComplexityFn(): callable|string
     {
         return $this->complexityFn;
     }

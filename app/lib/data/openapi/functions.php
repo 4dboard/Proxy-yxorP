@@ -10,7 +10,7 @@ if (defined('OpenApi\\UNDEFINED') === false) {
     define('OpenApi\\Processors\\UNDEFINED', Generator::UNDEFINED);
 }
 if (!function_exists('OpenApi\\scan')) {
-    function scan($directory, $options = [])
+    function scan($directory, $options = []): annotations\openApi
     {
         $exclude = array_key_exists('exclude', $options) ? $options['exclude'] : null;
         $pattern = array_key_exists('pattern', $options) ? $options['pattern'] : null;

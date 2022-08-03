@@ -91,7 +91,7 @@ class Analysis
         self::processors()[] = $processor;
     }
 
-    public static function &processors()
+    public static function &processors(): array
     {
         if (!self::$processors) {
             self::$processors = [new DocBlockDescriptions(), new MergeIntoOpenApi(), new MergeIntoComponents(), new ExpandClasses(), new ExpandInterfaces(), new ExpandTraits(), new AugmentSchemas(), new AugmentProperties(), new BuildPaths(), new AugmentParameters(), new MergeJsonContent(), new MergeXmlContent(), new OperationId(), new CleanUnmerged(),];
@@ -302,7 +302,7 @@ class Analysis
     /**
      * @throws \Exception
      */
-    public function split()
+    public function split(): stdClass
     {
         $result = new stdClass();
         $result->merged = $this->merged();

@@ -21,7 +21,7 @@ class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
         $this->logoSize = (array)$size;
     }
 
-    public function getQRCodeImage(string $qrtext, int $size)
+    public function getQRCodeImage(string $qrtext, int $size): string
     {
         if (!$this->endroid4) {
             return $this->qrCodeInstance($qrtext, $size)->writeString();
@@ -41,7 +41,7 @@ class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
         return $writer->write($this->qrCodeInstance($qrtext, $size), $logo)->getString();
     }
 
-    protected function qrCodeInstance($qrtext, $size)
+    protected function qrCodeInstance($qrtext, $size): \Endroid\QrCode\QrCode
     {
         $qrCode = parent::qrCodeInstance($qrtext, $size);
 

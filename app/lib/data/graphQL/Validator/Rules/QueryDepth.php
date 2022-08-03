@@ -26,7 +26,7 @@ class QueryDepth extends QuerySecurityRule
         $this->setMaxQueryDepth($maxQueryDepth);
     }
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->invokeIfNeeded(
             $context,
@@ -92,7 +92,7 @@ class QueryDepth extends QuerySecurityRule
         return $maxDepth;
     }
 
-    public function getMaxQueryDepth()
+    public function getMaxQueryDepth(): int
     {
         return $this->maxQueryDepth;
     }
@@ -107,12 +107,12 @@ class QueryDepth extends QuerySecurityRule
         $this->maxQueryDepth = (int)$maxQueryDepth;
     }
 
-    public static function maxQueryDepthErrorMessage($max, $count)
+    public static function maxQueryDepthErrorMessage($max, $count): string
     {
         return sprintf('Max query depth should be %d but got %d.', $max, $count);
     }
 
-    #[Pure] protected function isEnabled()
+    #[Pure] protected function isEnabled(): bool
     {
         return $this->getMaxQueryDepth() !== self::DISABLED;
     }

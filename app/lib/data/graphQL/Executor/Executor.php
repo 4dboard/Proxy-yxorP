@@ -86,7 +86,7 @@ class Executor
         ArrayAccess|array $variableValues = null,
         string            $operationName = null,
         ?callable         $fieldResolver = null
-    )
+    ): Promise|ExecutionResult
     {
         // TODO: deprecate (just always use SyncAdapter here) and have `promiseToExecute()` for other cases
 
@@ -139,7 +139,7 @@ class Executor
         array                   $variableValues = null,
         string                  $operationName = null,
         ?callable               $fieldResolver = null
-    )
+    ): Promise
     {
         $factory = self::$implementationFactory;
 
@@ -170,7 +170,7 @@ class Executor
      *
      * @return mixed|null
      */
-    public static function defaultFieldResolver(mixed $objectValue, array $args, mixed $contextValue, ResolveInfo $info)
+    public static function defaultFieldResolver(mixed $objectValue, array $args, mixed $contextValue, ResolveInfo $info): mixed
     {
         $fieldName = $info->fieldName;
         $property = null;

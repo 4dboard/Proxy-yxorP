@@ -87,7 +87,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
      *
      * @return Type[]
      */
-    public static function getAllBuiltInTypes()
+    public static function getAllBuiltInTypes(): array
     {
         if (self::$builtInTypes === null) {
             self::$builtInTypes = array_merge(
@@ -104,7 +104,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
      *
      * @return ScalarType[]
      */
-    #[ArrayShape([self::ID => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::STRING => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::FLOAT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::INT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::BOOLEAN => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType"])] public static function getStandardTypes()
+    #[ArrayShape([self::ID => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::STRING => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::FLOAT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::INT => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType", self::BOOLEAN => "\yxorP\app\lib\data\graphQL\Type\Definition\ScalarType"])] public static function getStandardTypes(): array
     {
         return [
             self::ID => static::id(),
@@ -182,7 +182,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
      * @deprecated Use method getStandardTypes() instead
      *
      */
-    public static function getInternalTypes()
+    public static function getInternalTypes(): array
     {
         trigger_error(__METHOD__ . ' is deprecated. Use Type::getStandardTypes() instead', E_USER_DEPRECATED);
 
@@ -311,7 +311,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
      * @return string
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): string
     {
         return $this->toString();
     }
@@ -319,7 +319,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
     /**
      * @return string
      */
-    public function toString()
+    public function toString(): string
     {
         return $this->name;
     }
@@ -335,7 +335,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
     /**
      * @return string|null
      */
-    protected function tryInferName()
+    protected function tryInferName(): ?string
     {
         if ($this->name) {
             return $this->name;

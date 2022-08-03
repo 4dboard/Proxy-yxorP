@@ -29,7 +29,7 @@ use function array_filter;
  */
 class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
 {
-    public function getSDLVisitor(SDLValidationContext $context)
+    public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
@@ -37,7 +37,7 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
     /**
      * @throws \Exception
      */
-    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape([NodeKind::DIRECTIVE => "\Closure[]"])] public function getASTVisitor(ASTValidationContext $context): array
     {
         $requiredArgsMap = [];
         $schema = $context->getSchema();
@@ -118,13 +118,13 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
         ];
     }
 
-    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type)
+    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type): string
     {
         return 'Directive "@' . $directiveName . '" argument "' . $argName
             . '" of type "' . $type . '" is required but not provided.';
     }
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

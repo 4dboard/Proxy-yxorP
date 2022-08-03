@@ -95,7 +95,7 @@ class DatabaseCommand implements ExecutableInterface
      * @return Cursor
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): Cursor
     {
         $cursor = $server->executeCommand($this->databaseName, $this->command, $this->createOptions());
 
@@ -112,7 +112,7 @@ class DatabaseCommand implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

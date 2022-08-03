@@ -60,7 +60,7 @@ class curlMultiHandler
         }
     }
 
-    public function __invoke(requestInterface $request, array $options)
+    public function __invoke(requestInterface $request, array $options): promise
     {
         $easy = $this->factory->create($request, $options);
         $id = (int)$easy->handle;
@@ -71,7 +71,7 @@ class curlMultiHandler
         return $promise;
     }
 
-    private function cancel($id)
+    private function cancel($id): bool
     {
         if (!isset($this->handles[$id])) {
             return false;
@@ -106,7 +106,7 @@ class curlMultiHandler
         }
     }
 
-    #[Pure] private function timeToNext()
+    #[Pure] private function timeToNext(): float|int
     {
         $currentTime = utils::currentTime();
         $nextTime = PHP_INT_MAX;

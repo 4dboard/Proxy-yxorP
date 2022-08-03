@@ -47,7 +47,7 @@ class CallbackIterator implements Iterator
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return ($this->callback)($this->iterator->current());
     }
@@ -57,7 +57,7 @@ class CallbackIterator implements Iterator
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function key()
+    public function key(): mixed
     {
         return $this->iterator->key();
     }
@@ -87,7 +87,7 @@ class CallbackIterator implements Iterator
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return $this->iterator->valid();
     }

@@ -22,7 +22,7 @@ class aRequestException extends transferException
         $this->handlerContext = $handlerContext;
     }
 
-    public static function wrapException(requestInterface $request, Exception $e)
+    public static function wrapException(requestInterface $request, Exception $e): aRequestException|Exception
     {
         return $e instanceof aRequestException ? $e : new aRequestException($e->getMessage(), $request, null, $e);
     }
@@ -53,7 +53,7 @@ class aRequestException extends transferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
-    private static function obfuscateUri(uriInterface $uri)
+    private static function obfuscateUri(uriInterface $uri): uriInterface
     {
         $userInfo = $uri->getUserInfo();
         if (false !== ($pos = strpos($userInfo, ':'))) {
@@ -62,27 +62,27 @@ class aRequestException extends transferException
         return $uri;
     }
 
-    public static function getResponseBodySummary(responseInterface $response)
+    public static function getResponseBodySummary(responseInterface $response): ?string
     {
         return get_message_body_summary($response);
     }
 
-    public function getRequest()
+    public function getRequest(): requestInterface
     {
         return $this->request;
     }
 
-    public function getResponse()
+    public function getResponse(): ?responseInterface
     {
         return $this->response;
     }
 
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return $this->response !== null;
     }
 
-    public function getHandlerContext()
+    public function getHandlerContext(): array
     {
         return $this->handlerContext;
     }

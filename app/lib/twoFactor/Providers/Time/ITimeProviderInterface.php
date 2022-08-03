@@ -7,5 +7,5 @@ interface ITimeProviderInterface
     /**
      * @return int the current timestamp according to this provider
      */
-    public function getTime();
+    public function getTime(): int;
 }

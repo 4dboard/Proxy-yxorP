@@ -37,17 +37,17 @@ final class docLexer extends abstractLexer
         return $this->token === null || ($this->lookahead !== null && ($this->lookahead['position'] - $this->token['position']) === strlen($this->token['value']));
     }
 
-    protected function getCatchablePatterns()
+    protected function getCatchablePatterns(): array
     {
         return ['[a-z_\\\][a-z0-9_\:\\\]*[a-z_][a-z0-9_]*', '(?:[+-]?[0-9]+(?:[\.][0-9]+)*)(?:[eE][+-]?[0-9]+)?', '"(?:""|[^"])*+"',];
     }
 
-    protected function getNonCatchablePatterns()
+    protected function getNonCatchablePatterns(): array
     {
         return ['\s+', '\*+', '(.)'];
     }
 
-    protected function getType(&$value)
+    protected function getType(&$value): mixed
     {
         $type = self::T_NONE;
         if ($value[0] === '"') {

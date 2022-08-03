@@ -21,12 +21,12 @@ class UniqueArgumentNames extends ValidationRule
     /** @var NameNode[] */
     public array $knownArgNames;
 
-    public function getSDLVisitor(SDLValidationContext $context)
+    public function getSDLVisitor(SDLValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }
 
-    #[ArrayShape([NodeKind::FIELD => "\Closure", NodeKind::DIRECTIVE => "\Closure", NodeKind::ARGUMENT => "\Closure"])] public function getASTVisitor(ASTValidationContext $context)
+    #[ArrayShape([NodeKind::FIELD => "\Closure", NodeKind::DIRECTIVE => "\Closure", NodeKind::ARGUMENT => "\Closure"])] public function getASTVisitor(ASTValidationContext $context): array
     {
         $this->knownArgNames = [];
 
@@ -53,12 +53,12 @@ class UniqueArgumentNames extends ValidationRule
         ];
     }
 
-    public static function duplicateArgMessage($argName)
+    public static function duplicateArgMessage($argName): string
     {
         return sprintf('There can be only one argument named "%s".', $argName);
     }
 
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         return $this->getASTVisitor($context);
     }

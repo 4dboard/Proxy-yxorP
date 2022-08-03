@@ -16,7 +16,7 @@ class uriTemplate
         return preg_replace_callback('/{([^}]+)}/', [$this, 'expandMatch'], $template1);
     }
 
-    private function expandMatch(array $matches)
+    private function expandMatch(array $matches): string
     {
         static $rfc1738to3986 = ['+' => '%20', '%7e' => '~'];
         $replacements = [];
@@ -100,7 +100,7 @@ class uriTemplate
         return $ret;
     }
 
-    private function parseExpression($expression)
+    private function parseExpression($expression): array
     {
         $result = [];
         if (isset(self::$operatorHash[$expression[0]])) {
@@ -128,12 +128,12 @@ class uriTemplate
         return $result;
     }
 
-    private function isAssoc(array $array)
+    private function isAssoc(array $array): bool
     {
         return $array && array_keys($array)[0] !== 0;
     }
 
-    private function decodeReserved($string)
+    private function decodeReserved($string): array|string
     {
         return str_replace(self::$delimsPct, self::$delims, $string);
     }

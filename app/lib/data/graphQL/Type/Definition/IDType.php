@@ -35,7 +35,7 @@ When expected as an input type, any string (such as `"4"`) or integer
      *
      * @throws Error
      */
-    public function serialize(mixed $value)
+    public function serialize(mixed $value): string
     {
         $canCast = is_string($value)
             || is_int($value)
@@ -68,7 +68,7 @@ When expected as an input type, any string (such as `"4"`) or integer
      *
      * @throws Exception
      */
-    public function parseLiteral(Node $valueNode, ?array $variables = null)
+    public function parseLiteral(Node $valueNode, ?array $variables = null): string
     {
         if ($valueNode instanceof StringValueNode || $valueNode instanceof IntValueNode) {
             return $valueNode->value;

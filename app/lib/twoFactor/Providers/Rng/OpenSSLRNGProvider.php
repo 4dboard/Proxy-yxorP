@@ -20,7 +20,7 @@ class OpenSSLRNGProvider implements IRNGProviderInterface
      * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      */
-    public function getRandomBytes(int $bytecount)
+    public function getRandomBytes(int $bytecount): string
     {
         $result = openssl_random_pseudo_bytes($bytecount, $crypto_strong);
         if ($this->requirestrong && ($crypto_strong === false)) {
@@ -35,7 +35,7 @@ class OpenSSLRNGProvider implements IRNGProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function isCryptographicallySecure()
+    public function isCryptographicallySecure(): bool
     {
         return $this->requirestrong;
     }

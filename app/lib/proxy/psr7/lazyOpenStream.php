@@ -15,7 +15,7 @@ class lazyOpenStream implements streamInterface
         $this->mode = $mode;
     }
 
-    protected function createStream()
+    protected function createStream(): stream|streamInterface|pumpStream
     {
         return stream_for(try_fopen($this->filename, $this->mode));
     }

@@ -15,7 +15,7 @@ class seekException extends RuntimeException implements proxyException
         parent::__construct($msg);
     }
 
-    public function getStream()
+    public function getStream(): streamInterface
     {
         return $this->stream;
     }

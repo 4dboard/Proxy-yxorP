@@ -102,7 +102,7 @@ class DocumentValidator
         DocumentNode $ast,
         ?array       $rules = null,
         ?TypeInfo    $typeInfo = null
-    )
+    ): array
     {
         if ($rules === null) {
             $rules = static::allRules();
@@ -125,7 +125,7 @@ class DocumentValidator
      *
      * @api
      */
-    public static function allRules()
+    public static function allRules(): array
     {
         if (!self::$initRules) {
             static::$rules = array_merge(static::defaultRules(), self::securityRules(), self::$rules);
@@ -135,7 +135,7 @@ class DocumentValidator
         return self::$rules;
     }
 
-    public static function defaultRules()
+    public static function defaultRules(): ?array
     {
         if (self::$defaultRules === null) {
             self::$defaultRules = [
@@ -174,7 +174,7 @@ class DocumentValidator
     /**
      * @return QuerySecurityRule[]
      */
-    public static function securityRules()
+    public static function securityRules(): ?array
     {
         // This way of defining rules is deprecated
         // When custom security rule is required - it should be just added via DocumentValidator::addRule();
@@ -203,7 +203,7 @@ class DocumentValidator
      * @return Error[]
      * @throws \Exception
      */
-    public static function visitUsingRules(Schema $schema, TypeInfo $typeInfo, DocumentNode $documentNode, array $rules)
+    public static function visitUsingRules(Schema $schema, TypeInfo $typeInfo, DocumentNode $documentNode, array $rules): array
     {
         $context = new ValidationContext($schema, $documentNode, $typeInfo);
         $visitors = [];
@@ -227,7 +227,7 @@ class DocumentValidator
      *
      * @api
      */
-    public static function getRule(string $name)
+    public static function getRule(string $name): ?ValidationRule
     {
         $rules = static::allRules();
 
@@ -250,7 +250,7 @@ class DocumentValidator
         self::$rules[$rule->getName()] = $rule;
     }
 
-    public static function isError($value)
+    public static function isError($value): bool
     {
         return is_array($value)
             ? count(array_filter(
@@ -285,7 +285,7 @@ class DocumentValidator
      * @throws \Exception
      * @deprecated
      */
-    public static function isValidLiteralValue(Type $type, $valueNode)
+    public static function isValidLiteralValue(Type $type, $valueNode): array
     {
         $emptySchema = new Schema([]);
         $emptyDoc = new DocumentNode(['definitions' => []]);
@@ -320,7 +320,7 @@ class DocumentValidator
         DocumentNode $documentAST,
         ?Schema      $schemaToExtend = null,
         ?array       $rules = null
-    )
+    ): array
     {
         $usedRules = $rules ?? self::sdlRules();
         $context = new SDLValidationContext($documentAST, $schemaToExtend);
@@ -333,7 +333,7 @@ class DocumentValidator
         return $context->getErrors();
     }
 
-    public static function sdlRules()
+    public static function sdlRules(): ?array
     {
         if (self::$sdlRules === null) {
             self::$sdlRules = [

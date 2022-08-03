@@ -160,7 +160,7 @@ class Schema
     /**
      * @return Generator
      */
-    private function resolveAdditionalTypes()
+    private function resolveAdditionalTypes(): Generator
     {
         $types = $this->config->types ?? [];
 
@@ -216,7 +216,7 @@ class Schema
     /**
      * @return Type[]
      */
-    private function collectAllTypes()
+    private function collectAllTypes(): array
     {
         $typeMap = [];
         foreach ($this->resolvedTypes as $type) {
@@ -246,7 +246,7 @@ class Schema
      *
      * @api
      */
-    public function getDirectives()
+    public function getDirectives(): array
     {
         return $this->config->directives ?? GraphQL::getStandardDirectives();
     }
@@ -256,7 +256,7 @@ class Schema
      *
      * @return ObjectType|null
      */
-    #[Pure] public function getOperationType(string $operation)
+    #[Pure] public function getOperationType(string $operation): ObjectType|Type|null
     {
         return match ($operation) {
             'query' => $this->getQueryType(),
@@ -307,7 +307,7 @@ class Schema
      *
      * @api
      */
-    public function getConfig()
+    public function getConfig(): SchemaConfig|array
     {
         return $this->config;
     }
@@ -566,7 +566,7 @@ class Schema
      *
      * @api
      */
-    public function validate()
+    public function validate(): array
     {
         // If this Schema has already been validated, return the previous results.
         if ($this->validationErrors !== null) {

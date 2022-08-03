@@ -141,12 +141,12 @@ final class json5Decoder
         throw new syntaxError($message, $this->lineNumber, $column);
     }
 
-    private static function renderChar($chr)
+    private static function renderChar($chr): string
     {
         return $chr === null ? 'EOF' : "'" . $chr . "'";
     }
 
-    private function currentChar()
+    private function currentChar(): ?string
     {
         if ($this->at >= $this->length) {
             return null;
@@ -299,7 +299,7 @@ final class json5Decoder
         return $matches[0][0];
     }
 
-    private static function getEscapee($ch)
+    private static function getEscapee($ch): ?string
     {
         return match ($ch) {
             "'" => "'",
@@ -319,7 +319,7 @@ final class json5Decoder
     /**
      * @throws \yxorP\app\lib\data\json\syntaxError
      */
-    private function identifier()
+    private function identifier(): array|string|null
     {
         $match = $this->match('/^(?:[\$_\p{L}\p{Nl}]|\\\\u[0-9A-Fa-f]{4})(?:[\$_\p{L}\p{Nl}\p{Mn}\p{Mc}\p{Nd}\p{Pc}‌‍]|\\\\u[0-9A-Fa-f]{4})*/u');
         if ($match === null) {

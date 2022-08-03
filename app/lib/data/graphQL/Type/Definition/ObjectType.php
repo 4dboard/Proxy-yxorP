@@ -162,7 +162,7 @@ class ObjectType extends TypeWithFields implements OutputType, CompositeType, Nu
      *
      * @return bool|Deferred|null
      */
-    public function isTypeOf(mixed $value, mixed $context, ResolveInfo $info)
+    public function isTypeOf(mixed $value, mixed $context, ResolveInfo $info): bool|Deferred|null
     {
         return isset($this->config['isTypeOf'])
             ? $this->config['isTypeOf'](

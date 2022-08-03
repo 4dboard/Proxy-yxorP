@@ -12,7 +12,7 @@ interface IQRCodeProviderInterface
      *
      * @return string file contents of the QR code
      */
-    public function getQRCodeImage(string $qrtext, int $size);
+    public function getQRCodeImage(string $qrtext, int $size): string;
 
     /**
      * Returns the appropriate mime type for the QR code
@@ -20,5 +20,5 @@ interface IQRCodeProviderInterface
      *
      * @return string
      */
-    public function getMimeType();
+    public function getMimeType(): string;
 }

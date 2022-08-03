@@ -39,7 +39,7 @@ class BooleanType extends ScalarType
      *
      * @throws Error
      */
-    public function parseValue(mixed $value)
+    public function parseValue(mixed $value): bool
     {
         if (is_bool($value)) {
             return $value;

@@ -21,7 +21,7 @@ class BlockString
      *
      * This implements the GraphQL spec's BlockStringValue() static algorithm.
      */
-    public static function value($rawString)
+    public static function value($rawString): string
     {
         // Expand a block string's raw value into independent lines.
         $lines = preg_split("/\\r\\n|[\\n\\r]/", $rawString);
@@ -65,7 +65,7 @@ class BlockString
         return implode("\n", $lines);
     }
 
-    private static function leadingWhitespace($str)
+    private static function leadingWhitespace($str): int
     {
         $i = 0;
         while ($i < mb_strlen($str) && ($str[$i] === ' ' || $str[$i] === '\t')) {

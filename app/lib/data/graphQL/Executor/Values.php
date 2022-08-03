@@ -61,7 +61,7 @@ class Values
      * @return array
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    public static function getVariableValues(Schema $schema, array $varDefNodes, array $inputs)
+    public static function getVariableValues(Schema $schema, array $varDefNodes, array $inputs): array
     {
         $errors = [];
         $coercedValues = [];
@@ -160,7 +160,7 @@ class Values
      * @return array|null
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    public static function getDirectiveValues(Directive $directiveDef, EnumValueDefinitionNode|InlineFragmentNode|FieldNode|FieldDefinitionNode|FragmentSpreadNode $node, $variableValues = null)
+    public static function getDirectiveValues(Directive $directiveDef, EnumValueDefinitionNode|InlineFragmentNode|FieldNode|FieldDefinitionNode|FragmentSpreadNode $node, $variableValues = null): ?array
     {
         if (isset($node->directives) && $node->directives instanceof NodeList) {
             $directiveNode = Utils::find(
@@ -190,7 +190,7 @@ class Values
      *
      * @throws Error
      */
-    public static function getArgumentValues(Directive|FieldDefinition $def, FieldNode|DirectiveNode $node, array $variableValues = null)
+    public static function getArgumentValues(Directive|FieldDefinition $def, FieldNode|DirectiveNode $node, array $variableValues = null): array
     {
         if (count($def->args) === 0) {
             return [];
@@ -216,7 +216,7 @@ class Values
      * @throws Error
      * @throws \Exception
      */
-    public static function getArgumentValuesForMap(Directive|FieldDefinition $fieldDefinition, array $argumentValueMap, array $variableValues = null, Node $referenceNode = null)
+    public static function getArgumentValuesForMap(Directive|FieldDefinition $fieldDefinition, array $argumentValueMap, array $variableValues = null, Node $referenceNode = null): array
     {
         $argumentDefinitions = $fieldDefinition->args;
         $coercedValues = [];
@@ -308,7 +308,7 @@ class Values
      * @codeCoverageIgnore
      * @deprecated as of 8.0 (Moved to \GraphQL\Utils\AST::valueFromAST)
      */
-    public static function valueFromAST(ValueNodeInterface $valueNode, InputType $type, ?array $variables = null)
+    public static function valueFromAST(ValueNodeInterface $valueNode, InputType $type, ?array $variables = null): array|stdClass|null
     {
         return AST::valueFromAST($valueNode, $type, $variables);
     }
@@ -323,7 +323,7 @@ class Values
      * @codeCoverageIgnore
      * @deprecated as of 0.12 (Use coerceValue() directly for richer information)
      */
-    public static function isValidPHPValue(array $value, InputType $type)
+    public static function isValidPHPValue(array $value, InputType $type): array
     {
         $errors = Value::coerceValue($value, $type)['errors'];
 

@@ -52,19 +52,19 @@ class cachingStream implements streamInterface
         return max($this->stream->getSize(), $this->remoteStream->getSize());
     }
 
-    private function cacheEntireStream()
+    private function cacheEntireStream(): int
     {
         $target = new fnStream(['write' => 'strlen']);
         copy_to_stream($this, $target);
         return $this->tell();
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof() && $this->remoteStream->eof();
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         $data = $this->stream->read($length);
         $remaining = $length - strlen($data);
@@ -81,7 +81,7 @@ class cachingStream implements streamInterface
         return $data;
     }
 
-    public function write(string $string)
+    public function write(string $string): int
     {
         $overflow = (strlen($string) + $this->tell()) - $this->remoteStream->tell();
         if ($overflow > 0) {

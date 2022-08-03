@@ -124,7 +124,7 @@ class StandardServer
      * @throws \yxorP\app\lib\data\graphQL\Server\RequestError
      * @api
      */
-    public function executeRequest($parsedBody = null)
+    public function executeRequest($parsedBody = null): array|Promise|ExecutionResult
     {
         if ($parsedBody === null) {
             $parsedBody = $this->helper->parseHttpRequest();
@@ -151,7 +151,7 @@ class StandardServer
         RequestInterface  $request,
         ResponseInterface $response,
         StreamInterface   $writableBodyStream
-    )
+    ): Promise|ResponseInterface
     {
         $result = $this->executePsrRequest($request);
 
@@ -168,7 +168,7 @@ class StandardServer
      * @throws \yxorP\app\lib\data\graphQL\Server\RequestError
      * @api
      */
-    public function executePsrRequest(RequestInterface $request)
+    public function executePsrRequest(RequestInterface $request): array|Promise|ExecutionResult
     {
         $parsedBody = $this->helper->parsePsrRequest($request);
 
@@ -183,7 +183,7 @@ class StandardServer
      *
      * @api
      */
-    public function getHelper()
+    public function getHelper(): Helper
     {
         return $this->helper;
     }

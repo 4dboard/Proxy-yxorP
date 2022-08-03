@@ -46,7 +46,7 @@ use function sprintf;
  */
 class ValuesOfCorrectType extends ValidationRule
 {
-    public function getVisitor(ValidationContext $context)
+    public function getVisitor(ValidationContext $context): array
     {
         $fieldName = '';
 
@@ -176,7 +176,7 @@ class ValuesOfCorrectType extends ValidationRule
         ];
     }
 
-    private static function getBadValueMessage($typeName, $valueName, $message = null, $context = null, $fieldName = null)
+    private static function getBadValueMessage($typeName, $valueName, $message = null, $context = null, $fieldName = null): string
     {
         if ($context) {
             $arg = $context->getArgument();
@@ -188,13 +188,13 @@ class ValuesOfCorrectType extends ValidationRule
         return self::badValueMessage($typeName, $valueName, $message);
     }
 
-    public static function badArgumentValueMessage($typeName, $valueName, $fieldName, $argName, $message = null)
+    public static function badArgumentValueMessage($typeName, $valueName, $fieldName, $argName, $message = null): string
     {
         return sprintf('Field "%s" argument "%s" requires type %s, found %s', $fieldName, $argName, $typeName, $valueName) .
             ($message ? sprintf('; %s', $message) : '.');
     }
 
-    public static function badValueMessage($typeName, $valueName, $message = null)
+    public static function badValueMessage($typeName, $valueName, $message = null): string
     {
         return sprintf('Expected type %s, found %s', $typeName, $valueName) .
             ($message ? "; ${message}" : '.');
@@ -281,12 +281,12 @@ class ValuesOfCorrectType extends ValidationRule
         }
     }
 
-    public static function requiredFieldMessage($typeName, $fieldName, $fieldTypeName)
+    public static function requiredFieldMessage($typeName, $fieldName, $fieldTypeName): string
     {
         return sprintf('Field %s.%s of required type %s was not provided.', $typeName, $fieldName, $fieldTypeName);
     }
 
-    public static function unknownFieldMessage($typeName, $fieldName, $message = null)
+    public static function unknownFieldMessage($typeName, $fieldName, $message = null): string
     {
         return sprintf('Field "%s" is not defined by type %s', $fieldName, $typeName) .
             ($message ? sprintf('; %s', $message) : '.');

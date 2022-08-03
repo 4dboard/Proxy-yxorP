@@ -45,12 +45,12 @@ class pumpStream implements streamInterface
         return $this->size;
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->tellPos;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return false;
     }
@@ -65,22 +65,22 @@ class pumpStream implements streamInterface
         throw new RuntimeException('Cannot seek a PumpStream');
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }
 
-    public function write(string $string)
+    public function write(string $string): int
     {
         throw new RuntimeException('Cannot write to a PumpStream');
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return true;
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         $result = '';
         while (!$this->eof()) {
@@ -89,12 +89,12 @@ class pumpStream implements streamInterface
         return $result;
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return !$this->source;
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         $data = $this->buffer->read($length);
         $readLen = strlen($data);

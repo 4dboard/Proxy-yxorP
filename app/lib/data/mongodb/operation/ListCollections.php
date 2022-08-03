@@ -74,7 +74,7 @@ class ListCollections implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): CollectionInfoCommandIterator
     {
         return new CollectionInfoCommandIterator($this->listCollections->execute($server), $this->databaseName);
     }

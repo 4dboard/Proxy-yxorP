@@ -180,7 +180,7 @@ class Update implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): updateResult
     {
         /* CRUD spec requires a client-side error when using "hint" with an
          * unacknowledged write concern on an unsupported server. */
@@ -211,7 +211,7 @@ class Update implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    #[ArrayShape(['update' => "string", 'updates' => "array[]", 'writeConcern' => "false|mixed", 'bypassDocumentValidation' => "false|mixed"])] public function getCommandDocument(Server $server)
+    #[ArrayShape(['update' => "string", 'updates' => "array[]", 'writeConcern' => "false|mixed", 'bypassDocumentValidation' => "false|mixed"])] public function getCommandDocument(Server $server): array
     {
         $cmd = ['update' => $this->collectionName, 'updates' => [['q' => $this->filter, 'u' => $this->update] + $this->createUpdateOptions()]];
 
@@ -232,7 +232,7 @@ class Update implements ExecutableInterface, ExplainableInterface
      * @see https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
      * @return array
      */
-    private function createBulkWriteOptions()
+    private function createBulkWriteOptions(): array
     {
         $options = [];
 
@@ -251,7 +251,7 @@ class Update implements ExecutableInterface, ExplainableInterface
      *
      * @return array
      */
-    private function createUpdateOptions()
+    private function createUpdateOptions(): array
     {
         $updateOptions = [
             'multi' => $this->options['multi'],
@@ -277,7 +277,7 @@ class Update implements ExecutableInterface, ExplainableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 

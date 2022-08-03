@@ -102,7 +102,7 @@ class FindOneAndDelete implements ExecutableInterface, ExplainableInterface
      * @return array|object|null
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array|null
     {
         return $this->findAndModify->execute($server);
     }
@@ -114,7 +114,7 @@ class FindOneAndDelete implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->findAndModify->getCommandDocument($server);
     }

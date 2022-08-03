@@ -18,7 +18,7 @@ class utils extends app
 {
 
 
-    public function user($id)
+    public function user($id): bool|array
     {
 
         $this->helper('session')->close();
@@ -61,7 +61,7 @@ class utils extends app
 
     }
 
-    public function icons()
+    public function icons(): array
     {
 
         $icons = new ArrayObject([]);

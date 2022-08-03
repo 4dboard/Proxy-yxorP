@@ -38,7 +38,7 @@ class pool implements promisorInterface
         $this->each = new eachPromise($requests(), $config);
     }
 
-    public static function batch(clientInterface $client, $requests, array $options = [])
+    public static function batch(clientInterface $client, $requests, array $options = []): array
     {
         $res = [];
         self::cmpCallback($options, 'fulfilled', $res);

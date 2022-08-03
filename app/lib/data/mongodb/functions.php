@@ -40,7 +40,7 @@ function all_servers_support_write_stage_on_secondary(array $servers): bool
     return true;
 }
 
-function apply_type_map_to_document($document, array $typeMap)
+function apply_type_map_to_document($document, array $typeMap): object
 {
     if (!is_array($document) && !is_object($document)) {
         throw InvalidArgumentException::invalidType('$document', $document, 'array or object');

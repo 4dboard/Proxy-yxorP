@@ -76,7 +76,7 @@ values as specified by
      *
      * @throws Exception
      */
-    public function parseLiteral(Node $valueNode, ?array $variables = null)
+    public function parseLiteral(Node $valueNode, ?array $variables = null): float
     {
         if ($valueNode instanceof FloatValueNode || $valueNode instanceof IntValueNode) {
             return (float)$valueNode->value;

@@ -23,7 +23,7 @@ class HashRNGProvider implements IRNGProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getRandomBytes(int $bytecount)
+    public function getRandomBytes(int $bytecount): string
     {
         $result = '';
         $hash = mt_rand();
@@ -37,7 +37,7 @@ class HashRNGProvider implements IRNGProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function isCryptographicallySecure()
+    public function isCryptographicallySecure(): bool
     {
         return false;
     }

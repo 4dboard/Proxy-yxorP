@@ -17,7 +17,7 @@ class retryMiddleware
         $this->delay = $delay ?: __CLASS__ . '::exponentialDelay';
     }
 
-    public static function exponentialDelay($retries)
+    public static function exponentialDelay($retries): float|int
     {
         return (int)pow(2, $retries - 1) * 1000;
     }
@@ -31,7 +31,7 @@ class retryMiddleware
         return $fn($request, $options)->then($this->onFulfilled($request, $options), $this->onRejected($request, $options));
     }
 
-    private function onFulfilled(requestInterface $req, array $options)
+    private function onFulfilled(requestInterface $req, array $options): \Closure
     {
         return function ($value) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, $value, null)) {
@@ -47,7 +47,7 @@ class retryMiddleware
         return $this($request, $options);
     }
 
-    private function onRejected(requestInterface $req, array $options)
+    private function onRejected(requestInterface $req, array $options): \Closure
     {
         return function ($reason) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, null, $reason)) {

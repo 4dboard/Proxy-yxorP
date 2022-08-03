@@ -95,7 +95,7 @@ class theme extends helperAware
         return $this->app->helper('auth')->getUser('theme', $theme);
     }
 
-    public function assets(array $assets = [], ?string $context = null)
+    public function assets(array $assets = [], ?string $context = null): string
     {
 
         $debug = $this->app->retrieve('debug');
@@ -115,7 +115,7 @@ class theme extends helperAware
         return $this->app->assets($assets, $this->app->retrieve('app.version'));
     }
 
-    public function pageClass(?string $class = null)
+    public function pageClass(?string $class = null): ?string
     {
 
         if ($class) {

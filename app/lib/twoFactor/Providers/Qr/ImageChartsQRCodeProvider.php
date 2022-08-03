@@ -32,7 +32,7 @@ class ImageChartsQRCodeProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getMimeType()
+    public function getMimeType(): string
     {
         return 'image/png';
     }
@@ -40,7 +40,7 @@ class ImageChartsQRCodeProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage(string $qrtext, int $size)
+    public function getQRCodeImage(string $qrtext, int $size): bool|string
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }
@@ -51,7 +51,7 @@ class ImageChartsQRCodeProvider extends BaseHTTPQRCodeProvider
      *
      * @return string file contents of the QR code
      */
-    public function getUrl(string $qrtext, int $size)
+    public function getUrl(string $qrtext, int $size): string
     {
         return 'https://image-charts.com/chart?cht=qr'
             . '&chs=' . ceil($size / 2) . 'x' . ceil($size / 2)

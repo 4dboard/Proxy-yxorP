@@ -30,7 +30,7 @@ class tokenParser
         $this->numTokens = count($this->tokens);
     }
 
-    public function parseUseStatements($namespaceName)
+    public function parseUseStatements($namespaceName): array
     {
         $statements = [];
         while (($token = $this->next())) {
@@ -58,7 +58,7 @@ class tokenParser
         return null;
     }
 
-    public function parseUseStatement()
+    public function parseUseStatement(): array
     {
         $groupRoot = '';
         $class = '';
@@ -101,7 +101,7 @@ class tokenParser
         return $statements;
     }
 
-    public function parseNamespace()
+    public function parseNamespace(): string
     {
         $name = '';
         while (($token = $this->next()) && ($token[0] === T_STRING || $token[0] === T_NS_SEPARATOR || (PHP_VERSION_ID >= 80000 && ($token[0] === T_NAME_QUALIFIED || $token[0] === T_NAME_FULLY_QUALIFIED)))) {
@@ -110,7 +110,7 @@ class tokenParser
         return $name;
     }
 
-    public function parseClass()
+    public function parseClass(): string
     {
         return $this->parseNamespace();
     }

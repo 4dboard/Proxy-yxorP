@@ -48,7 +48,7 @@ class acl extends helperAware
         return isset($this->roles[$role]['permissions'][$permission]) && $this->roles[$role]['permissions'][$permission];
     }
 
-    public function isSuperAdmin($role = null)
+    public function isSuperAdmin($role = null): bool
     {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');

@@ -34,7 +34,7 @@ use function strpos;
 class Asset extends helperAware
 {
 
-    public function image(array $options = [], bool $asPath = false)
+    public function image(array $options = [], bool $asPath = false): array|bool|string
     {
 
         $options = array_merge([
@@ -226,19 +226,19 @@ class Img
         $this->image = new SimpleImage($img);
     }
 
-    public function negative()
+    public function negative(): static
     {
         $this->image->invert();
         return $this;
     }
 
-    public function grayscale()
+    public function grayscale(): static
     {
         $this->image->desaturate();
         return $this;
     }
 
-    public function base64data($format = null, $quality = 100)
+    public function base64data($format = null, $quality = 100): string
     {
         return $this->image->toDataUri($format, $quality);
     }
@@ -248,12 +248,12 @@ class Img
         $this->image->toScreen($format, $quality);
     }
 
-    public function blur($passes = 1, $type = 'gaussian')
+    public function blur($passes = 1, $type = 'gaussian'): SimpleImage
     {
         return $this->image->blur($type, $passes);
     }
 
-    public function thumbnail($width, $height, $anchor = 'center')
+    public function thumbnail($width, $height, $anchor = 'center'): SimpleImage
     {
 
 

@@ -182,7 +182,7 @@ class Visitor
      *
      * @api
      */
-    public static function visit(ArrayObject|Node|stdClass $root, array $visitor, array $keyMap = null)
+    public static function visit(ArrayObject|Node|stdClass $root, array $visitor, array $keyMap = null): mixed
     {
         $visitorKeys = $keyMap ?? self::$visitorKeys;
 
@@ -389,7 +389,7 @@ class Visitor
      *
      * @api
      */
-    #[Pure] public static function stop()
+    #[Pure] public static function stop(): VisitorOperation
     {
         $r = new VisitorOperation();
         $r->doBreak = true;
@@ -404,7 +404,7 @@ class Visitor
      *
      * @api
      */
-    #[Pure] public static function skipNode()
+    #[Pure] public static function skipNode(): VisitorOperation
     {
         $r = new VisitorOperation();
         $r->doContinue = true;
@@ -419,7 +419,7 @@ class Visitor
      *
      * @api
      */
-    #[Pure] public static function removeNode()
+    #[Pure] public static function removeNode(): VisitorOperation
     {
         $r = new VisitorOperation();
         $r->removeNode = true;
@@ -432,7 +432,7 @@ class Visitor
      *
      * @return array<string, callable>
      */
-    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitInParallel(array $visitors)
+    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitInParallel(array $visitors): array
     {
         $visitorsCount = count($visitors);
         $skipping = new SplFixedArray($visitorsCount);
@@ -502,7 +502,7 @@ class Visitor
      * Creates a new visitor instance which maintains a provided TypeInfo instance
      * along with visiting visitor.
      */
-    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitWithTypeInfo(TypeInfo $typeInfo, $visitor)
+    #[ArrayShape(['enter' => "\Closure", 'leave' => "\Closure"])] public static function visitWithTypeInfo(TypeInfo $typeInfo, $visitor): array
     {
         return [
             'enter' => static function (Node $node) use ($typeInfo, $visitor) {

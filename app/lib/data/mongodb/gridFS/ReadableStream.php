@@ -127,7 +127,7 @@ class ReadableStream
      *
      * @return stdClass
      */
-    public function getFile()
+    public function getFile(): stdClass
     {
         return $this->file;
     }
@@ -137,7 +137,7 @@ class ReadableStream
      *
      * @return integer
      */
-    public function getSize()
+    public function getSize(): int
     {
         return $this->length;
     }
@@ -147,7 +147,7 @@ class ReadableStream
      *
      * @return boolean
      */
-    public function isEOF()
+    public function isEOF(): bool
     {
         if ($this->chunkOffset === $this->numChunks - 1) {
             return $this->bufferOffset >= $this->expectedLastChunkSize;
@@ -166,7 +166,7 @@ class ReadableStream
      * @return string
      * @throws InvalidArgumentException if $length is negative
      */
-    public function readBytes(int $length)
+    public function readBytes(int $length): string
     {
         if ($length < 0) {
             throw new InvalidArgumentException(sprintf('$length must be >= 0; given: %d', $length));
@@ -210,7 +210,7 @@ class ReadableStream
      * @return boolean Whether there was a current chunk to read
      * @throws CorruptFileException if an expected chunk could not be read successfully
      */
-    private function initBufferFromCurrentChunk()
+    private function initBufferFromCurrentChunk(): bool
     {
         if ($this->chunkOffset === 0 && $this->numChunks === 0) {
             return false;
@@ -247,7 +247,7 @@ class ReadableStream
      * @return boolean Whether there was a next chunk to read
      * @throws CorruptFileException if an expected chunk could not be read successfully
      */
-    private function initBufferFromNextChunk()
+    private function initBufferFromNextChunk(): bool
     {
         if ($this->chunkOffset === $this->numChunks - 1) {
             return false;
@@ -317,7 +317,7 @@ class ReadableStream
      *
      * @return integer
      */
-    public function tell()
+    public function tell(): float|int
     {
         return ($this->chunkOffset * $this->chunkSize) + $this->bufferOffset;
     }

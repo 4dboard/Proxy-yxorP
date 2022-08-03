@@ -139,7 +139,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ?string                  $operationName = null,
         ?callable                $fieldResolver = null,
         ?PromiseAdapterInterface $promiseAdapter = null
-    )
+    ): array|ExecutionContext
     {
         $errors = [];
         $fragments = [];
@@ -233,7 +233,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * @return array|Promise|stdClass|null
      * @throws Error
      */
-    protected function executeOperation(OperationDefinitionNode $operation, mixed $rootValue)
+    protected function executeOperation(OperationDefinitionNode $operation, mixed $rootValue): array|Promise|stdClass|null
     {
         $type = $this->getOperationRootType($this->exeContext->schema, $operation);
         $fields = $this->collectFields($type, $operation->selectionSet, new ArrayObject(), new ArrayObject());
@@ -448,7 +448,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return array|Promise|stdClass
      */
-    protected function executeFieldsSerially(ObjectType $parentType, mixed $rootValue, array $path, ArrayObject $fields)
+    protected function executeFieldsSerially(ObjectType $parentType, mixed $rootValue, array $path, ArrayObject $fields): array|Promise|stdClass
     {
         $result = $this->promiseReduce(
             array_keys($fields->getArrayCopy()),
@@ -496,7 +496,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return Promise|mixed|null
      */
-    protected function promiseReduce(array $values, callable $callback, mixed $initialValue)
+    protected function promiseReduce(array $values, callable $callback, mixed $initialValue): mixed
     {
         return array_reduce(
             $values,
@@ -553,7 +553,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return array|Throwable|mixed|null
      */
-    protected function resolveField(ObjectType $parentType, mixed $rootValue, ArrayObject $fieldNodes, array $path)
+    protected function resolveField(ObjectType $parentType, mixed $rootValue, ArrayObject $fieldNodes, array $path): mixed
     {
         $exeContext = $this->exeContext;
         $fieldNode = $fieldNodes[0];
@@ -649,7 +649,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         callable        $resolveFn,
         mixed           $rootValue,
         ResolveInfo     $info
-    )
+    ): mixed
     {
         try {
             // Build a map of arguments from the field.arguments AST, using the
@@ -686,7 +686,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ResolveInfo $info,
         array       $path,
         mixed $result
-    )
+    ): array|Promise|stdClass|null
     {
         // Otherwise, error protection is applied, logging the error and resolving
         // a null value for this field if one is encountered.
@@ -750,7 +750,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ResolveInfo $info,
         array       $path,
         mixed &$result
-    )
+    ): mixed
     {
         // If result is an Error, throw a located error.
         if ($result instanceof Throwable) {
@@ -823,7 +823,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @throws Exception
      */
-    protected function completeListValue(ListOfType $returnType, ArrayObject $fieldNodes, ResolveInfo $info, array $path, Traversable|array $results)
+    protected function completeListValue(ListOfType $returnType, ArrayObject $fieldNodes, ResolveInfo $info, array $path, Traversable|array $results): array|Promise
     {
         $itemType = $returnType->getWrappedType();
         Utils::invariant(
@@ -858,7 +858,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @throws Exception
      */
-    protected function completeLeafValue(LeafType $returnType, mixed $result)
+    protected function completeLeafValue(LeafType $returnType, mixed $result): mixed
     {
         try {
             return $returnType->serialize($result);
@@ -888,7 +888,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ResolveInfo  $info,
         array        $path,
         array &$result
-    )
+    ): array|Promise|stdClass
     {
         $exeContext = $this->exeContext;
         $typeCandidate = $returnType->resolveType((object)$result, $exeContext->contextValue, $info);
@@ -955,7 +955,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return Promise|Type|string|null
      */
-    protected function defaultTypeResolver(mixed $value, mixed $contextValue, ResolveInfo $info, AbstractType $abstractType)
+    protected function defaultTypeResolver(mixed $value, mixed $contextValue, ResolveInfo $info, AbstractType $abstractType): Promise|string|Type|null
     {
         // First, look for `__typename`.
         if ((is_array($value) || $value instanceof ArrayAccess) &&
@@ -1025,7 +1025,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ResolveInfo $info,
         array       $path,
         mixed &$result
-    )
+    ): array|Promise|stdClass
     {
         // If there is an isTypeOf predicate function, call it with the
         // current result. If isTypeOf returns false, then raise an error rather
@@ -1074,7 +1074,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ObjectType  $returnType,
         array       $result,
         ArrayObject $fieldNodes
-    )
+    ): Error
     {
         return new Error(
             'Expected value of type "' . $returnType->name . '" but got: ' . Utils::printSafe($result) . '.',
@@ -1096,7 +1096,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ArrayObject $fieldNodes,
         array       $path,
         mixed $result
-    )
+    ): array|Promise|stdClass
     {
         $subFieldNodes = $this->collectSubFields($returnType, $fieldNodes);
 
@@ -1143,7 +1143,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return Promise|stdClass|array
      */
-    protected function executeFields(ObjectType $parentType, mixed $rootValue, array $path, ArrayObject $fields)
+    protected function executeFields(ObjectType $parentType, mixed $rootValue, array $path, ArrayObject $fields): array|Promise|stdClass
     {
         $containsPromise = false;
         $results = [];
@@ -1187,7 +1187,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return array|stdClass|mixed
      */
-    #[Pure] protected static function fixResultsIfEmptyArray(mixed $results)
+    #[Pure] protected static function fixResultsIfEmptyArray(mixed $results): mixed
     {
         if ($results === []) {
             return new stdClass();
@@ -1301,7 +1301,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @return ExecutionResult|Promise
      */
-    protected function buildResponse(mixed $data)
+    protected function buildResponse(mixed $data): Promise|ExecutionResult
     {
         if ($this->isPromise($data)) {
             return $data->then(function ($resolved) {

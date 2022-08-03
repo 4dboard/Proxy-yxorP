@@ -69,7 +69,7 @@ class SchemaValidationContext
     /**
      * @return Error[]
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }
@@ -132,7 +132,7 @@ class SchemaValidationContext
      *
      * @return NamedTypeNode|TypeDefinitionNodeInterface|null
      */
-    private function getOperationTypeNode(Type $type, string $operation)
+    private function getOperationTypeNode(Type $type, string $operation): TypeDefinitionNodeInterface|NamedTypeNode|null
     {
         $astNode = $this->schema->getAstNode();
 
@@ -264,7 +264,7 @@ class SchemaValidationContext
      * @return InputValueDefinitionNode[]
      * @throws \Exception
      */
-    private function getAllDirectiveArgNodes(Directive $directive, string $argName)
+    private function getAllDirectiveArgNodes(Directive $directive, string $argName): array
     {
         $subNodes = $this->getAllSubNodes(
             $directive,
@@ -308,7 +308,7 @@ class SchemaValidationContext
      *
      * @return ObjectTypeDefinitionNode[]|ObjectTypeExtensionNode[]|InterfaceTypeDefinitionNode[]|InterfaceTypeExtensionNode[]
      */
-    private function getAllNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType|InputObjectType $obj)
+    private function getAllNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType|InputObjectType $obj): array
     {
         if ($obj instanceof Schema) {
             $astNode = $obj->getAstNode();
@@ -401,7 +401,7 @@ class SchemaValidationContext
      *
      * @return NodeList<DirectiveNode>
      */
-    private function getDirectives(Schema|Type $object)
+    private function getDirectives(Schema|Type $object): NodeList
     {
         return $this->getAllSubNodes($object, static function ($node) {
             return $node->directives;
@@ -588,7 +588,7 @@ class SchemaValidationContext
      * @return FieldDefinitionNode[]
      * @throws \Exception
      */
-    private function getAllFieldNodes(InterfaceType|ObjectType $type, string $fieldName)
+    private function getAllFieldNodes(InterfaceType|ObjectType $type, string $fieldName): array
     {
         $subNodes = $this->getAllSubNodes($type, static function ($typeNode) {
             return $typeNode->fields;
@@ -618,7 +618,7 @@ class SchemaValidationContext
      *
      * @return FieldDefinitionNode|null
      */
-    private function getFieldNode(InterfaceType|ObjectType $type, string $fieldName)
+    private function getFieldNode(InterfaceType|ObjectType $type, string $fieldName): ?FieldDefinitionNode
     {
         $nodes = $this->getAllFieldNodes($type, $fieldName);
 
@@ -632,7 +632,7 @@ class SchemaValidationContext
      *
      * @return InputValueDefinitionNode[]
      */
-    private function getAllFieldArgNodes(InterfaceType|ObjectType $type, string $fieldName, string $argName)
+    private function getAllFieldArgNodes(InterfaceType|ObjectType $type, string $fieldName, string $argName): array
     {
         $argNodes = [];
         $fieldNode = $this->getFieldNode($type, $fieldName);
@@ -670,7 +670,7 @@ class SchemaValidationContext
      *
      * @return InputValueDefinitionNode|null
      */
-    private function getFieldArgNode(InterfaceType|ObjectType $type, string $fieldName, string $argName)
+    private function getFieldArgNode(InterfaceType|ObjectType $type, string $fieldName, string $argName): ?InputValueDefinitionNode
     {
         $nodes = $this->getAllFieldArgNodes($type, $fieldName, $argName);
 
@@ -979,7 +979,7 @@ class SchemaValidationContext
      * @return NamedTypeNode[]
      * @throws \Exception
      */
-    private function getUnionMemberTypeNodes(UnionType $union, string $typeName)
+    private function getUnionMemberTypeNodes(UnionType $union, string $typeName): array
     {
         $subNodes = $this->getAllSubNodes($union, static function ($unionNode) {
             return $unionNode->types;
@@ -1041,7 +1041,7 @@ class SchemaValidationContext
      * @return EnumValueDefinitionNode[]
      * @throws \Exception
      */
-    private function getEnumValueNodes(EnumType $enum, string $valueName)
+    private function getEnumValueNodes(EnumType $enum, string $valueName): array
     {
         $subNodes = $this->getAllSubNodes($enum, static function ($enumNode) {
             return $enumNode->values;

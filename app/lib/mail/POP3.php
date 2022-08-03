@@ -18,13 +18,13 @@ class POP3
     protected bool $connected = false;
     protected array $errors = [];
 
-    public static function popBeforeSmtp($host, $port = false, $timeout = false, $username = '', $password = '', $debug_level = 0)
+    public static function popBeforeSmtp($host, $port = false, $timeout = false, $username = '', $password = '', $debug_level = 0): bool
     {
         $pop = new self();
         return $pop->authorise($host, $port, $timeout, $username, $password, $debug_level);
     }
 
-    public function authorise($host, $port = false, $timeout = false, $username = '', $password = '', $debug_level = 0)
+    public function authorise($host, $port = false, $timeout = false, $username = '', $password = '', $debug_level = 0): bool
     {
         $this->host = $host;
         if (false === $port) {
@@ -53,7 +53,7 @@ class POP3
         return false;
     }
 
-    public function connect($host, $port = false, $tval = 30)
+    public function connect($host, $port = false, $tval = 30): bool
     {
         if ($this->connected) {
             return true;
@@ -91,7 +91,7 @@ class POP3
         }
     }
 
-    protected function getResponse($size = 128)
+    protected function getResponse($size = 128): bool|string
     {
         $response = fgets($this->pop_conn, $size);
         if ($this->do_debug >= self::DEBUG_SERVER) {
@@ -100,7 +100,7 @@ class POP3
         return $response;
     }
 
-    protected function checkResponse($string)
+    protected function checkResponse($string): bool
     {
         if (!str_starts_with($string, '+OK')) {
             $this->setError("Server reported an error: $string");
@@ -109,7 +109,7 @@ class POP3
         return true;
     }
 
-    public function login($username = '', $password = '')
+    public function login($username = '', $password = ''): bool
     {
         if (!$this->connected) {
             $this->setError('Not connected to POP3 server');
@@ -133,7 +133,7 @@ class POP3
         return false;
     }
 
-    protected function sendString($string)
+    protected function sendString($string): bool|int
     {
         if ($this->pop_conn) {
             if ($this->do_debug >= self::DEBUG_CLIENT) {
@@ -153,7 +153,7 @@ class POP3
         $this->pop_conn = false;
     }
 
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }

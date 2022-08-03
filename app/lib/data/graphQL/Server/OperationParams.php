@@ -124,7 +124,7 @@ class OperationParams
      *
      * @api
      */
-    public function getOriginalInput(string $key)
+    public function getOriginalInput(string $key): mixed
     {
         return $this->originalInput[$key] ?? null;
     }
@@ -137,7 +137,7 @@ class OperationParams
      *
      * @api
      */
-    public function isReadOnly()
+    public function isReadOnly(): bool
     {
         return $this->readOnly;
     }

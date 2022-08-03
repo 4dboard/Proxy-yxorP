@@ -20,7 +20,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function isThenable(mixed $value);
+    public function isThenable(mixed $value): bool;
 
     /**
      * Converts thenable of the underlying platform into GraphQL\Executor\Promise\Promise instance
@@ -31,7 +31,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function convertThenable(object $thenable);
+    public function convertThenable(object $thenable): Promise;
 
     /**
      * Accepts our Promise wrapper, extracts adopted promise out of it and executes actual `then` logic described
@@ -41,7 +41,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null);
+    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null): Promise;
 
     /**
      * Creates a Promise
@@ -53,7 +53,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function create(callable $resolver);
+    public function create(callable $resolver): Promise;
 
     /**
      * Creates a fulfilled Promise for a value if the value is not a promise.
@@ -64,7 +64,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function createFulfilled(mixed $value = null);
+    public function createFulfilled(mixed $value = null): Promise;
 
     /**
      * Creates a rejected promise for a reason if the reason is not a promise. If
@@ -76,7 +76,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function createRejected(Throwable $reason);
+    public function createRejected(Throwable $reason): Promise;
 
     /**
      * Given an array of promises (or values), returns a promise that is fulfilled when all the
@@ -88,5 +88,5 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function all(array $promisesOrValues);
+    public function all(array $promisesOrValues): Promise;
 }

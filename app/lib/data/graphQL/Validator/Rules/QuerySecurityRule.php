@@ -41,7 +41,7 @@ abstract class QuerySecurityRule extends ValidationRule
         }
     }
 
-    #[Pure] protected function getFragment(FragmentSpreadNode $fragmentSpread)
+    #[Pure] protected function getFragment(FragmentSpreadNode $fragmentSpread): ?FragmentDefinitionNode
     {
         $spreadName = $fragmentSpread->name->value;
         $fragments = $this->getFragments();
@@ -52,7 +52,7 @@ abstract class QuerySecurityRule extends ValidationRule
     /**
      * @return FragmentDefinitionNode[]
      */
-    protected function getFragments()
+    protected function getFragments(): array
     {
         return $this->fragments;
     }
@@ -62,7 +62,7 @@ abstract class QuerySecurityRule extends ValidationRule
      *
      * @return callable[]
      */
-    protected function invokeIfNeeded(ValidationContext $context, array $validators)
+    protected function invokeIfNeeded(ValidationContext $context, array $validators): array
     {
         // is disabled?
         if (!$this->isEnabled()) {
@@ -110,7 +110,7 @@ abstract class QuerySecurityRule extends ValidationRule
         SelectionSetNode  $selectionSet,
         ?ArrayObject      $visitedFragmentNames = null,
         ?ArrayObject      $astAndDefs = null
-    )
+    ): ArrayObject|array
     {
         $_visitedFragmentNames = $visitedFragmentNames ?? new ArrayObject();
         $_astAndDefs = $astAndDefs ?? new ArrayObject();
@@ -175,7 +175,7 @@ abstract class QuerySecurityRule extends ValidationRule
         return $_astAndDefs;
     }
 
-    protected function getFieldName(FieldNode $node)
+    protected function getFieldName(FieldNode $node): string
     {
         $fieldName = $node->name->value;
 

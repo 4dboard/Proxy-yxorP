@@ -39,7 +39,7 @@ class NonNull extends Type implements WrappingType, OutputType, InputType
             : $type;
     }
 
-    public function getOfType()
+    public function getOfType(): Type
     {
         return Schema::resolveType($this->ofType);
     }

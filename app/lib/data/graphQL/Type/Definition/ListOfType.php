@@ -25,7 +25,7 @@ class ListOfType extends Type implements WrappingType, OutputType, NullableType,
         return '[' . $this->getOfType()->toString() . ']';
     }
 
-    public function getOfType()
+    public function getOfType(): Type
     {
         return Schema::resolveType($this->ofType);
     }

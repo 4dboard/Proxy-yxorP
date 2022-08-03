@@ -61,7 +61,7 @@ class DatabaseInfo implements ArrayAccess
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return (string)$this->info['name'];
     }
@@ -71,7 +71,7 @@ class DatabaseInfo implements ArrayAccess
      *
      * @return integer
      */
-    public function getSizeOnDisk()
+    public function getSizeOnDisk(): int
     {
         /* The MongoDB server might return this number as an integer or float */
         return (integer)$this->info['sizeOnDisk'];
@@ -82,7 +82,7 @@ class DatabaseInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return (boolean)$this->info['empty'];
     }
@@ -95,7 +95,7 @@ class DatabaseInfo implements ArrayAccess
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function offsetExists(mixed $key)
+    public function offsetExists(mixed $key): bool
     {
         return array_key_exists($key, $this->info);
     }
@@ -108,7 +108,7 @@ class DatabaseInfo implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet(mixed $key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->info[$key];
     }

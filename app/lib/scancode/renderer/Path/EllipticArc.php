@@ -184,7 +184,7 @@ final class EllipticArc implements OperationInterface
     /**
      * @return float[]
      */
-    #[Pure] private function calculateCenterPointParameters(float $fromX, float $fromY, float $xAngle)
+    #[Pure] private function calculateCenterPointParameters(float $fromX, float $fromY, float $xAngle): array
     {
         $rX = $this->xRadius;
         $rY = $this->yRadius;

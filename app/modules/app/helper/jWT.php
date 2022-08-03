@@ -19,17 +19,17 @@ class jWT extends helperAware
     /**
      * alias for create
      **/
-    public function encode(array $payload, ?string $key = null)
+    public function encode(array $payload, ?string $key = null): string
     {
         return $this->create($payload, $key);
     }
 
-    public function create(array $payload, ?string $key = null)
+    public function create(array $payload, ?string $key = null): string
     {
         return JWTLIB::encode($payload, $key ?? $this->app->retrieve('sec-key'), 'HS256');
     }
 
-    public function decode(string $token, ?string $key = null)
+    public function decode(string $token, ?string $key = null): \stdClass
     {
         return JWTLIB::decode($token, new key($key ?? $this->app->retrieve('sec-key'), 'HS256'));
     }

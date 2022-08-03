@@ -82,7 +82,7 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
      * @see http://php.net/mongodb-bson-serializable.bsonserialize
      * @return object
      */
-    public function bsonSerialize()
+    public function bsonSerialize(): object
     {
         return (object)$this->getArrayCopy();
     }
@@ -105,7 +105,7 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
      * @return object
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): object
     {
         return (object)$this->getArrayCopy();
     }

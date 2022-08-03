@@ -34,7 +34,7 @@ class assets extends app
         return $this->render('assets:views/index.php');
     }
 
-    public function assets()
+    public function assets(): array
     {
 
         $this->helper('session')->close();
@@ -121,7 +121,7 @@ class assets extends app
         return compact('assets', 'count', 'pages', 'page', 'folders');
     }
 
-    public function asset($id = null)
+    public function asset($id = null): bool
     {
 
         if (!$id) {

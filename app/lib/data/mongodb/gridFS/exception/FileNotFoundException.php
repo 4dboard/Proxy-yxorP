@@ -33,7 +33,7 @@ class FileNotFoundException extends RuntimeException
      * @param string $namespace Namespace for the files collection
      * @return self
      */
-    #[Pure] public static function byFilenameAndRevision(string $filename, int $revision, string $namespace)
+    #[Pure] public static function byFilenameAndRevision(string $filename, int $revision, string $namespace): FileNotFoundException
     {
         return new static(sprintf('File with name "%s" and revision "%d" not found in "%s"', $filename, $revision, $namespace));
     }
@@ -45,7 +45,7 @@ class FileNotFoundException extends RuntimeException
      * @param string $namespace Namespace for the files collection
      * @return self
      */
-    public static function byId(mixed $id, string $namespace)
+    public static function byId(mixed $id, string $namespace): FileNotFoundException
     {
         $json = toJSON(fromPHP(['_id' => $id]));
 

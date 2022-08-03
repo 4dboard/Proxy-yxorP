@@ -248,7 +248,7 @@ class sVGSanitizer
     /**
      * SVGSanitizer::clean('<svg ...>')
      */
-    public static function clean($svgText)
+    public static function clean($svgText): bool|string
     {
 
         $sanitizer = new static();
@@ -262,7 +262,7 @@ class sVGSanitizer
      * @param string $dirty
      * @return string
      */
-    public function sanitize(string $dirty)
+    public function sanitize(string $dirty): bool|string
     {
         // Don't run on an empty string
         if (empty($dirty)) {
@@ -424,7 +424,7 @@ class sVGSanitizer
      *
      * @return bool
      */
-    protected function isAriaAttribute($attributeName)
+    protected function isAriaAttribute($attributeName): bool
     {
         return str_starts_with($attributeName, 'aria-');
     }
@@ -436,7 +436,7 @@ class sVGSanitizer
      *
      * @return bool
      */
-    protected function isDataAttribute($attributeName)
+    protected function isDataAttribute($attributeName): bool
     {
         return str_starts_with($attributeName, 'data-');
     }
@@ -447,7 +447,7 @@ class sVGSanitizer
      * @param $value
      * @return bool
      */
-    protected function hasRemoteReference($value)
+    protected function hasRemoteReference($value): bool
     {
         $value = $this->removeNonPrintableCharacters($value);
 
@@ -467,7 +467,7 @@ class sVGSanitizer
      * @param string $value
      * @return string
      */
-    protected function removeNonPrintableCharacters(string $value)
+    protected function removeNonPrintableCharacters(string $value): string
     {
         return trim(preg_replace('/[^ -~]/xu', '', $value));
     }
@@ -513,7 +513,7 @@ class sVGSanitizer
      * @param DOMElement $element
      * @return bool
      */
-    protected function isUseTagDirty(DOMElement $element)
+    protected function isUseTagDirty(DOMElement $element): bool
     {
         $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
         if ($xlinks && !str_starts_with($xlinks, '#')) {
@@ -529,7 +529,7 @@ class sVGSanitizer
      *
      * @return int
      */
-    public function getXMLOptions()
+    public function getXMLOptions(): int
     {
         return $this->xmlOptions;
     }
@@ -550,7 +550,7 @@ class sVGSanitizer
      *
      * @return array
      */
-    public function getAllowedTags()
+    public function getAllowedTags(): array
     {
         return $this->allowedTags;
     }
@@ -570,7 +570,7 @@ class sVGSanitizer
      *
      * @return array
      */
-    public function getAllowedAttrs()
+    public function getAllowedAttrs(): array
     {
         return $this->allowedAttrs;
     }

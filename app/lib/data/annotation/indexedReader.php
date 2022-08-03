@@ -16,7 +16,7 @@ class indexedReader implements readerInterface
         $this->delegate = $reader;
     }
 
-    public function getClassAnnotations(ReflectionClass $class)
+    public function getClassAnnotations(ReflectionClass $class): array
     {
         $annotations = [];
         foreach ($this->delegate->getClassAnnotations($class) as $annot) {
@@ -30,7 +30,7 @@ class indexedReader implements readerInterface
         return $this->delegate->getClassAnnotation($class, $annotationName);
     }
 
-    public function getMethodAnnotations(ReflectionMethod $method)
+    public function getMethodAnnotations(ReflectionMethod $method): array
     {
         $annotations = [];
         foreach ($this->delegate->getMethodAnnotations($method) as $annot) {
@@ -44,7 +44,7 @@ class indexedReader implements readerInterface
         return $this->delegate->getMethodAnnotation($method, $annotationName);
     }
 
-    public function getPropertyAnnotations(ReflectionProperty $property)
+    public function getPropertyAnnotations(ReflectionProperty $property): array
     {
         $annotations = [];
         foreach ($this->delegate->getPropertyAnnotations($property) as $annot) $annotations[get_class($annot)] = $annot;

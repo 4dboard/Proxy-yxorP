@@ -36,7 +36,7 @@ class client
         return $this->driver->insert($collection, $doc);
     }
 
-    public function findTerm(string $collection, string $term, array $options = [])
+    public function findTerm(string $collection, string $term, array $options = []): resultSet
     {
         $options['filter'] = $this->driver->getFindTermFilter($term);
         return $this->driver->find($collection, $options);

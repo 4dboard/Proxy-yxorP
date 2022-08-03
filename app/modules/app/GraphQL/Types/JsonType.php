@@ -55,7 +55,7 @@ class jsonType extends ScalarType
         return $this->identity($value);
     }
 
-    public function parseLiteral($valueNode, array $variables = null)
+    public function parseLiteral($valueNode, array $variables = null): float|array|null
     {
 
         switch ($valueNode) {

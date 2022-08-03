@@ -77,7 +77,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return (string)$this->info['name'];
     }
@@ -87,7 +87,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return string
      */
-    public function getNamespace()
+    public function getNamespace(): string
     {
         return (string)$this->info['ns'];
     }
@@ -97,7 +97,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return integer
      */
-    public function getVersion()
+    public function getVersion(): int
     {
         return (integer)$this->info['v'];
     }
@@ -107,7 +107,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function is2dSphere()
+    public function is2dSphere(): bool
     {
         return in_array('2dsphere', $this->getKey(), true);
     }
@@ -117,7 +117,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return array
      */
-    public function getKey()
+    public function getKey(): array
     {
         return (array)$this->info['key'];
     }
@@ -127,7 +127,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function isGeoHaystack()
+    public function isGeoHaystack(): bool
     {
         return in_array('geoHaystack', $this->getKey(), true);
     }
@@ -138,7 +138,7 @@ class IndexInfo implements ArrayAccess
      * @see http://docs.mongodb.org/manual/core/index-sparse/
      * @return boolean
      */
-    public function isSparse()
+    public function isSparse(): bool
     {
         return !empty($this->info['sparse']);
     }
@@ -148,7 +148,7 @@ class IndexInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function isText()
+    public function isText(): bool
     {
         return in_array('text', $this->getKey(), true);
     }
@@ -159,7 +159,7 @@ class IndexInfo implements ArrayAccess
      * @see http://docs.mongodb.org/manual/core/index-ttl/
      * @return boolean
      */
-    public function isTtl()
+    public function isTtl(): bool
     {
         return array_key_exists('expireAfterSeconds', $this->info);
     }
@@ -170,7 +170,7 @@ class IndexInfo implements ArrayAccess
      * @see http://docs.mongodb.org/manual/core/index-unique/
      * @return boolean
      */
-    public function isUnique()
+    public function isUnique(): bool
     {
         return !empty($this->info['unique']);
     }
@@ -183,7 +183,7 @@ class IndexInfo implements ArrayAccess
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function offsetExists(mixed $key)
+    public function offsetExists(mixed $key): bool
     {
         return array_key_exists($key, $this->info);
     }
@@ -201,7 +201,7 @@ class IndexInfo implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet(mixed $key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->info[$key];
     }

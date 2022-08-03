@@ -19,7 +19,7 @@ class TypeComparators
      *
      * @return bool
      */
-    public static function isEqualType(Type $typeA, Type $typeB)
+    public static function isEqualType(Type $typeA, Type $typeB): bool
     {
         // Equivalent types are equal.
         if ($typeA === $typeB) {
@@ -46,7 +46,7 @@ class TypeComparators
      *
      * @return bool
      */
-    public static function isTypeSubTypeOf(Schema $schema, Type $maybeSubType, Type $superType)
+    public static function isTypeSubTypeOf(Schema $schema, Type $maybeSubType, Type $superType): bool
     {
         // Equivalent type is a valid subtype
         if ($maybeSubType === $superType) {
@@ -101,7 +101,7 @@ class TypeComparators
      *
      * @return bool
      */
-    public static function doTypesOverlap(Schema $schema, CompositeType $typeA, CompositeType $typeB)
+    public static function doTypesOverlap(Schema $schema, CompositeType $typeA, CompositeType $typeB): bool
     {
         // Equivalent types overlap
         if ($typeA === $typeB) {

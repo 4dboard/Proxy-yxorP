@@ -103,7 +103,7 @@ class ReplaceOne implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): updateResult
     {
         return $this->update->execute($server);
     }

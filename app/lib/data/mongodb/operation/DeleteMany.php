@@ -73,7 +73,7 @@ class DeleteMany implements ExecutableInterface, ExplainableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): deleteResult
     {
         return $this->delete->execute($server);
     }
@@ -85,7 +85,7 @@ class DeleteMany implements ExecutableInterface, ExplainableInterface
      * @return array
      * @see ExplainableInterface::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->delete->getCommandDocument($server);
     }

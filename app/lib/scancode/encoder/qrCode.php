@@ -113,7 +113,7 @@ final class qrCode
      *
      * @return byteMatrix
      */
-    public function getMatrix()
+    public function getMatrix(): byteMatrix
     {
         return $this->matrix;
     }

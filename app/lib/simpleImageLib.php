@@ -8,7 +8,7 @@ class simpleImageLib extends simpleImage
     /**
      * @throws \Exception
      */
-    public function fromDataUri($uri)
+    public function fromDataUri($uri): simpleImageLib|static
     {
         preg_match('/^data:(.*?);/', $uri, $matches);
         if (!count($matches)) {
@@ -29,7 +29,7 @@ class simpleImageLib extends simpleImage
     /**
      * @throws \Exception
      */
-    public function fromFile($file)
+    public function fromFile($file): simpleImageLib|static
     {
         $handle = @fopen($file, 'r');
         if ($handle === false) {
@@ -86,7 +86,7 @@ class simpleImageLib extends simpleImage
     /**
      * @throws \Exception
      */
-    #[ArrayShape(['data' => "false|string", 'mimeType' => "mixed"])] protected function generate($mimeType = null, $quality = 100)
+    #[ArrayShape(['data' => "false|string", 'mimeType' => "mixed"])] protected function generate($mimeType = null, $quality = 100): array
     {
         $mimeType = $mimeType ?: $this->mimeType;
         if ($quality === null) $quality = 100;

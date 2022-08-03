@@ -50,7 +50,7 @@ class indexLite
         $stmt->execute();
     }
 
-    protected function stringify($value)
+    protected function stringify($value): string
     {
         if (is_string($value)) {
             return $value;

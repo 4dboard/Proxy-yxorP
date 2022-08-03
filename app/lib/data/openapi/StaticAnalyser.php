@@ -309,7 +309,7 @@ class StaticAnalyser
         return $namespace;
     }
 
-    private function php8NamespaceToken()
+    private function php8NamespaceToken(): array
     {
         return defined('T_NAME_QUALIFIED') ? [T_NAME_QUALIFIED, T_NAME_FULLY_QUALIFIED] : [];
     }

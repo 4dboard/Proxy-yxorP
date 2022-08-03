@@ -19,7 +19,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function isThenable(mixed $value)
+    public function isThenable(mixed $value): bool
     {
         return $value instanceof ReactPromiseInterface;
     }
@@ -27,7 +27,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function convertThenable(object $thenable)
+    public function convertThenable(object $thenable): Promise
     {
         return new Promise($thenable, $this);
     }
@@ -35,7 +35,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null)
+    public function then(Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null): Promise
     {
         /** @var ReactPromiseInterface $adoptedPromise */
         $adoptedPromise = $promise->adoptedPromise;
@@ -46,7 +46,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function create(callable $resolver)
+    public function create(callable $resolver): Promise
     {
         $promise = new ReactPromise($resolver);
 
@@ -56,7 +56,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function createFulfilled(mixed $value = null)
+    public function createFulfilled(mixed $value = null): Promise
     {
         $promise = resolve($value);
 
@@ -66,7 +66,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function createRejected(Throwable $reason)
+    public function createRejected(Throwable $reason): Promise
     {
         $promise = reject($reason);
 
@@ -77,7 +77,7 @@ class ReactPromiseAdapterInterface implements PromiseAdapterInterface
      * @inheritdoc
      * @throws \Exception
      */
-    public function all(array $promisesOrValues)
+    public function all(array $promisesOrValues): Promise
     {
         // TODO: rework with generators when PHP minimum required version is changed to 5.5+
         $promisesOrValues = Utils::map(

@@ -21,7 +21,7 @@ interface ClientAwareInterface
      *
      * @api
      */
-    public function isClientSafe();
+    public function isClientSafe(): bool;
 
     /**
      * Returns string describing a category of the error.
@@ -32,5 +32,5 @@ interface ClientAwareInterface
      *
      * @api
      */
-    public function getCategory();
+    public function getCategory(): string;
 }

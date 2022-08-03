@@ -113,7 +113,7 @@ class DropIndexes implements ExecutableInterface
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['writeConcern'])) {
@@ -134,7 +134,7 @@ class DropIndexes implements ExecutableInterface
      *
      * @return Command
      */
-    private function createCommand()
+    private function createCommand(): command
     {
         $cmd = [
             'dropIndexes' => $this->collectionName,
@@ -154,7 +154,7 @@ class DropIndexes implements ExecutableInterface
      * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

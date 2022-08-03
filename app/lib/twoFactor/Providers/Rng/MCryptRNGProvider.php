@@ -19,7 +19,7 @@ class MCryptRNGProvider implements IRNGProviderInterface
      * {@inheritdoc}
      * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      */
-    public function getRandomBytes(int $bytecount)
+    public function getRandomBytes(int $bytecount): string
     {
         $result = @mcrypt_create_iv($bytecount, $this->source);
         if ($result === false) {
@@ -31,7 +31,7 @@ class MCryptRNGProvider implements IRNGProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function isCryptographicallySecure()
+    public function isCryptographicallySecure(): bool
     {
         return true;
     }
