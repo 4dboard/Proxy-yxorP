@@ -1148,6 +1148,7 @@ class PHPMailer
                 break;
             case 'comment':
                 $matchcount = preg_match_all('/[()"]/', $str, $matches);
+                break;
             case 'text':
             default:
                 $matchcount += preg_match_all('/[\000-\010\013\014\016-\037\177-\377]/', $str, $matches);
@@ -1240,6 +1241,7 @@ class PHPMailer
                 break;
             case 'comment':
                 $pattern = '\(\)"';
+                break;
             case 'text':
             default:
                 $pattern = '\000-\011\013\014\016-\037\075\077\137\177-\377' . $pattern;
@@ -1384,7 +1386,7 @@ class PHPMailer
             $result = $_SERVER['SERVER_NAME'];
         } elseif (function_exists('gethostname') && gethostname() !== false) {
             $result = gethostname();
-        } elseif (php_uname('n') !== false) {
+        } elseif (php_uname('n') != false) {
             $result = php_uname('n');
         }
         if (!static::isValidHost($result)) {

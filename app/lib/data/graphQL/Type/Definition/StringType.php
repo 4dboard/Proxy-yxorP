@@ -28,7 +28,7 @@ represent free-form human-readable text.';
     /**
      * @param mixed $value
      *
-     * @return mixed|string
+     * @return string
      *
      * @throws Error
      */

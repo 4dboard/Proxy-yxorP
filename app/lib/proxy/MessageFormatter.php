@@ -54,6 +54,7 @@ class messageFormatter
                 case 'method':
                     $result = $request->getMethod();
                     break;
+                case 'req_version':
                 case 'version':
                     $result = $request->getProtocolVersion();
                     break;
@@ -63,9 +64,6 @@ class messageFormatter
                     break;
                 case 'target':
                     $result = $request->getRequestTarget();
-                    break;
-                case 'req_version':
-                    $result = $request->getProtocolVersion();
                     break;
                 case 'res_version':
                     $result = $response ? $response->getProtocolVersion() : 'NULL';

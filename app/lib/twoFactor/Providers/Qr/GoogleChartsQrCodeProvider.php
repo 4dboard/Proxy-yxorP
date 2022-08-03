@@ -19,8 +19,9 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
      * @param string $errorcorrectionlevel
      * @param int $margin
      * @param string $encoding
+     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
      */
-    public function __construct($verifyssl = false, $errorcorrectionlevel = 'L', $margin = 4, $encoding = 'UTF-8')
+    public function __construct(bool $verifyssl = false, string $errorcorrectionlevel = 'L', int $margin = 4, string $encoding = 'UTF-8')
     {
         if (!is_bool($verifyssl)) {
             throw new QRException('VerifySSL must be bool');
@@ -44,7 +45,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage($qrtext, $size)
+    public function getQRCodeImage(string $qrtext, int $size)
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }
@@ -55,7 +56,7 @@ class GoogleChartsQrCodeProvider extends BaseHTTPQRCodeProvider
      *
      * @return string file contents of the QR code
      */
-    public function getUrl($qrtext, $size)
+    public function getUrl(string $qrtext, int|string $size)
     {
         return 'https://chart.googleapis.com/chart'
             . '?chs=' . $size . 'x' . $size

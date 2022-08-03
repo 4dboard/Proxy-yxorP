@@ -269,7 +269,7 @@ class Schema
     /**
      * Returns schema query type
      *
-     * @return ObjectType
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type|null
      *
      * @api
      */
@@ -397,9 +397,9 @@ class Schema
      *
      * This operation requires full schema scan. Do not use in production environment.
      *
-     * @param InterfaceType|UnionType $abstractType
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $abstractType
      *
-     * @return array<Type&ObjectType>
+     * @return array
      *
      * @api
      */
@@ -477,9 +477,10 @@ class Schema
     /**
      * Returns true if the given type is a sub type of the given abstract type.
      *
-     * @param UnionType|InterfaceType $abstractType
-     * @param ObjectType|InterfaceType $maybeSubType
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\AbstractType $abstractType
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\ImplementingType $maybeSubType
      *
+     * @return bool
      * @api
      */
     public function isSubType(AbstractType $abstractType, ImplementingType $maybeSubType): bool

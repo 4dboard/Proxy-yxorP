@@ -76,7 +76,7 @@ interface PromiseAdapterInterface
      *
      * @api
      */
-    public function createRejected($reason);
+    public function createRejected(Throwable $reason);
 
     /**
      * Given an array of promises (or values), returns a promise that is fulfilled when all the

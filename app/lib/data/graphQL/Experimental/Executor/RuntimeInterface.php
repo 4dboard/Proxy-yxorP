@@ -18,7 +18,8 @@ use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
 interface RuntimeInterface
 {
     /**
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
      */
     public function evaluate(ValueNodeInterface $valueNode, InputType $type);
 

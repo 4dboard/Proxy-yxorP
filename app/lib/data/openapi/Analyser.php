@@ -9,7 +9,7 @@ use yxorP\app\lib\data\annotation\docParser;
 
 if (class_exists(AnnotationRegistry::class, true)) {
     AnnotationRegistry::registerLoader(function (string $class): bool {
-        if (Analyser::$whitelist === false) {
+        if (Analyser::$whitelist == false) {
             $whitelist = ['OpenApi\\Annotations\\'];
         } else {
             $whitelist = Analyser::$whitelist;

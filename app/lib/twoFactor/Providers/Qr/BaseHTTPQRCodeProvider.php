@@ -12,7 +12,7 @@ abstract class BaseHTTPQRCodeProvider implements IQRCodeProviderInterface
      *
      * @return string|bool
      */
-    protected function getContent($url)
+    protected function getContent(string $url)
     {
         $curlhandle = curl_init();
 

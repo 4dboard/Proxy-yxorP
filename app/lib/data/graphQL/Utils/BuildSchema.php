@@ -57,10 +57,13 @@ class BuildSchema
      * document.
      *
      * @param DocumentNode|Source|string $source
+     * @param callable|null $typeConfigDecorator
      * @param array<string, bool> $options
      *
      * @return Schema
      *
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      * @api
      */
     public static function build($source, ?callable $typeConfigDecorator = null, array $options = [])

@@ -9,7 +9,7 @@ interface IRNGProviderInterface
      *
      * @return string the random bytes
      */
-    public function getRandomBytes($bytecount);
+    public function getRandomBytes(int $bytecount);
 
     /**
      * @return bool whether this provider is cryptographically secure

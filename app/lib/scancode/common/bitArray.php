@@ -311,6 +311,8 @@ final class bitArray
     /**
      * Converts the bit array to a byte array.
      *
+     * @param int $bitOffset
+     * @param int $numBytes
      * @return SplFixedArray<int>
      */
     public function toBytes(int $bitOffset, int $numBytes): SplFixedArray

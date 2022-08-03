@@ -32,7 +32,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
      * @param string $foregroundColour hex reference for the foreground colour
      * @param string $format the desired output, png or svg
      */
-    public function __construct($borderWidth = 4, $backgroundColour = '#ffffff', $foregroundColour = '#000000', $format = 'png')
+    public function __construct(int $borderWidth = 4, string $backgroundColour = '#ffffff', string $foregroundColour = '#000000', string $format = 'png')
     {
         if (!class_exists(ImagickImageBackEnd::class)) {
             throw new RuntimeException('Make sure you are using version 2 of Bacon QR Code');
@@ -107,7 +107,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
         throw new RuntimeException(sprintf('Unknown MIME-type: %s', $this->format));
     }
 
-    public function getQRCodeImage($qrText, $size)
+    public function getQRCodeImage(string $qrtext, int $size)
     {
         $backend = match ($this->format) {
             'svg' => new SvgImageBackEnd,
@@ -115,7 +115,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
             default => new ImagickImageBackEnd($this->format),
         };
 
-        $output = $this->getQRCodeByBackend($qrText, $size, $backend);
+        $output = $this->getQRCodeByBackend($qrtext, $size, $backend);
 
         if ($this->format == 'svg') {
             $svg = explode("\n", $output);

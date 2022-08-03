@@ -66,12 +66,12 @@ class ReplaceOne implements ExecutableInterface
      *
      * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array|object $filter Query by which to filter documents
-     * @param array|object $replacement Replacement document
+     * @param object|array $filter Query by which to filter documents
+     * @param object|array $replacement Replacement document
      * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, $replacement, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, object|array $replacement, array $options = [])
     {
         if (!is_array($replacement) && !is_object($replacement)) {
             throw InvalidArgumentException::invalidType('$replacement', $replacement, 'array or object');

@@ -37,8 +37,12 @@ class Value
     /**
      * Given a type and any value, return a runtime value coerced to match the type.
      *
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
-     * @param array $path
+     * @param $value
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @param null $blameNode
+     * @param array|null $path
+     * @return array
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public static function coerceValue($value, InputType $type, $blameNode = null, ?array $path = null)
     {
@@ -282,7 +286,7 @@ class Value
     /**
      * @param mixed $value
      *
-     * @return (mixed|null)[]
+     * @return array (mixed|null)[]
      */
     #[ArrayShape(['errors' => "null", 'value' => "mixed"])] private static function ofValue($value)
     {
@@ -293,7 +297,7 @@ class Value
      * @param mixed|null $prev
      * @param mixed|null $key
      *
-     * @return (mixed|null)[]
+     * @return array (mixed|null)[]
      */
     #[ArrayShape(['prev' => "mixed", 'key' => "mixed"])] private static function atPath($prev, $key)
     {

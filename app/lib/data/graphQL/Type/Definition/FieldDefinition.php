@@ -87,6 +87,7 @@ class FieldDefinition
     }
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $type
      * @param (callable():mixed[])|mixed[] $fields
      *
      * @return array<string, self>
@@ -174,7 +175,7 @@ class FieldDefinition
     /**
      * @param int $childrenComplexity
      *
-     * @return mixed
+     * @return int
      */
     public static function defaultComplexity($childrenComplexity)
     {
@@ -273,7 +274,7 @@ class FieldDefinition
     }
 
     /**
-     * @return callable|callable
+     * @return callable
      */
     public function getComplexityFn()
     {

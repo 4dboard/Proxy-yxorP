@@ -325,11 +325,11 @@ class Lexer
      * Reads next UTF8Character from the byte stream, starting from $byteStreamPosition.
      *
      * @param bool $advance
-     * @param int $byteStreamPosition
+     * @param null $byteStreamPosition
      *
-     * @return (string|int)[]
+     * @return array (string|int)[]
      */
-    private function readChar($advance = false, $byteStreamPosition = null)
+    private function readChar(bool $advance = false, $byteStreamPosition = null)
     {
         if ($byteStreamPosition === null) {
             $byteStreamPosition = $this->byteStreamPosition;
@@ -376,7 +376,7 @@ class Lexer
      *
      * @return self
      */
-    private function moveStringCursor($positionOffset, $byteStreamOffset)
+    private function moveStringCursor(int $positionOffset, int $byteStreamOffset)
     {
         $this->position += $positionOffset;
         $this->byteStreamPosition += $byteStreamOffset;
@@ -394,7 +394,7 @@ class Lexer
      *
      * @return Token
      */
-    private function readComment($line, $col, Token $prev)
+    private function readComment(int $line, int $col, Token $prev)
     {
         $start = $this->position;
         $value = '';
@@ -429,7 +429,7 @@ class Lexer
      *
      * @return Token
      */
-    private function readName($line, $col, Token $prev)
+    private function readName(int $line, int $col, Token $prev)
     {
         $value = '';
         $start = $this->position;
@@ -470,7 +470,7 @@ class Lexer
      *
      * @throws SyntaxError
      */
-    private function readNumber($line, $col, Token $prev)
+    private function readNumber(int $line, int $col, Token $prev)
     {
         $value = '';
         $start = $this->position;
@@ -534,6 +534,7 @@ class Lexer
 
     /**
      * Returns string with all digits + changes current string cursor position to point to the first char after digits
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      */
     private function readDigits()
     {
@@ -565,6 +566,8 @@ class Lexer
      * Reads a block string token from the source file.
      *
      * """("?"?(\\"""|\\(?!=""")|[^"\\]))*"""
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
+     * @throws \yxorP\app\lib\data\graphQL\Error\SyntaxError
      */
     private function readBlockString($line, $col, Token $prev)
     {
@@ -657,7 +660,7 @@ class Lexer
      *
      * @throws SyntaxError
      */
-    private function readString($line, $col, Token $prev)
+    private function readString(int $line, int $col, Token $prev)
     {
         $start = $this->position;
 
@@ -797,9 +800,9 @@ class Lexer
      * @param int $charCount
      * @param bool $advance
      *
-     * @return (string|int)[]
+     * @return array (string|int)[]
      */
-    private function readChars($charCount, $advance = false)
+    private function readChars(int $charCount, bool $advance = false)
     {
         $byteStreamPosition = null;
         $result = '';

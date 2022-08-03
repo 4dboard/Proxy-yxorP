@@ -27,7 +27,8 @@ class NonNull extends Type implements WrappingType, OutputType, InputType
     }
 
     /**
-     * @return (NullableType&Type)
+     * @param bool $recurse
+     * @return \yxorP\app\lib\data\graphQL\Type\Definition\Type (NullableType&Type)
      */
     public function getWrappedType(bool $recurse = false): Type
     {

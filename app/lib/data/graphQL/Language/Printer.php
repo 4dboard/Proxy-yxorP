@@ -86,7 +86,7 @@ class Printer
      *
      * @api
      */
-    public static function doPrint($ast)
+    public static function doPrint(Node $ast)
     {
         static $instance;
         $instance = $instance ?? new static();
@@ -99,6 +99,7 @@ class Printer
      *
      * That means the AST is manipulated in such a way that it no longer
      * resembles the well-formed result of parsing.
+     * @throws \Exception
      */
     public function printAST($ast)
     {

@@ -6,8 +6,9 @@ class CSRNGProvider implements IRNGProviderInterface
 {
     /**
      * {@inheritdoc}
+     * @throws \Exception
      */
-    public function getRandomBytes($bytecount)
+    public function getRandomBytes(int $bytecount)
     {
         return random_bytes($bytecount);    // PHP7+
     }

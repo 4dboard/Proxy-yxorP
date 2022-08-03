@@ -217,7 +217,6 @@ class ResolveInfo
             } elseif ($selectionNode instanceof FragmentSpreadNode) {
                 $spreadName = $selectionNode->name->value;
                 if (isset($this->fragments[$spreadName])) {
-                    /** @var FragmentDefinitionNode $fragment */
                     $fragment = $this->fragments[$spreadName];
                     $fields = array_merge_recursive(
                         $this->foldSelectionSet($fragment->selectionSet, $descend),

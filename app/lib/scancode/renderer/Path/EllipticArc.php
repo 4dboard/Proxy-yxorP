@@ -121,7 +121,9 @@ final class EllipticArc implements OperationInterface
      * resembling the same result.
      *
      * @see https://mortoray.com/2017/02/16/rendering-an-svg-elliptical-arc-as-bezier-curves/
-     * @return array<Curve|Line>
+     * @param float $fromX
+     * @param float $fromY
+     * @return array
      */
     public function toCurves(float $fromX, float $fromY): array
     {

@@ -93,7 +93,7 @@
 
 // upper case: [A-Z] [Ø-Þ] [À-Ö]
 // lower case: [a-z] [ß-ö] [ø-ÿ]
-        const anumRE = /[\w@Ø-ÞÀ-Öß-öø-ÿ]/;
+        const anumRE = /[\w@Ø-öÀ-Öø-ÿ]/;
         const escapesRE =
             /[0-7]{1,3}|[bdefnrstv\\"']|\^[a-zA-Z]|x[0-9a-zA-Z]{2}|x{[0-9a-zA-Z]+}/;
 
@@ -120,7 +120,7 @@
 
             // attributes and type specs
             if (!peekToken(state) &&
-                stream.match(/-\s*[a-zß-öø-ÿ][\wØ-ÞÀ-Öß-öø-ÿ]*/)) {
+                stream.match(/-\s*[a-zß-öø-ÿ][\wØ-öÀ-Öø-ÿ]*/)) {
                 if (is_member(stream.current(), typeWords)) {
                     return rval(state, stream, "type");
                 } else {

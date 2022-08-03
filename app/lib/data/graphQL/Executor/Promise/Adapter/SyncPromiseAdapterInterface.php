@@ -52,6 +52,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
     public function create(callable $resolver)
     {
@@ -77,6 +78,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
     public function createFulfilled($value = null)
     {
@@ -87,8 +89,9 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
-    public function createRejected($reason)
+    public function createRejected(Throwable $reason)
     {
         $promise = new SyncPromise();
 
@@ -97,6 +100,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
     public function all(array $promisesOrValues)
     {

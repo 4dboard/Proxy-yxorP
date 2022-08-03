@@ -174,7 +174,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         $this->variableValues = $coercedVariableValues;
 
         foreach ($this->collector->collectFields($this->collector->rootType, $this->collector->operation->selectionSet) as $shared) {
-            /** @var CoroutineContextShared $shared */
 
             // !!! assign to keep object keys sorted
             $this->rootResult->{$shared->resultName} = null;
@@ -793,7 +792,9 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
-     * @param InterfaceType|UnionType $abstractType
+     * @param \yxorP\app\lib\data\graphQL\Experimental\Executor\CoroutineContext $ctx
+     * @param $value
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\AbstractType $abstractType
      *
      * @return Generator|ObjectType|Type|null
      */
@@ -958,9 +959,11 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
-     * @param ScalarType|EnumType|InputObjectType|ListOfType|NonNull $type
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @return array|array[]|null[]|\stdClass|\stdClass[]|null
+     * @throws \Exception
      * @internal
-     *
      */
     public function evaluate(ValueNodeInterface $valueNode, InputType $type)
     {

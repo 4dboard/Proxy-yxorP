@@ -16,7 +16,7 @@ use yxorP\app\lib\psr\http\message\requestInterface;
  * @property CurlMultiHandle $_mh
  * @property CurlMultiHandle $_mh
  * @property CurlMultiHandle $_mh
- * @property CurlMultiHandle|CurlMultiHandle $_mh
+ * @property CurlMultiHandle $_mh
  */
 class curlMultiHandler
 {

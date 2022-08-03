@@ -63,6 +63,7 @@ class Filesystem extends helperAware
         switch (count($args)) {
             case 0:
                 $dir = getcwd();
+                break;
             case 1:
                 $dir = (strpos($args[0], ':')) ? $this->app->path($args[0]) : $args[0];
                 break;
@@ -148,11 +149,11 @@ class Filesystem extends helperAware
     }
 
     /**
-     * @param $path
-     * @param $newpath
+     * @param string $path
+     * @param string $newpath
      * @param bool|true $overwrite
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
     public function rename(string $path, string $newpath, bool $overwrite = true): bool
     {

@@ -50,10 +50,8 @@ class WithTransaction
      *
      * @param Session $session A session object as retrieved by Client::startSession
      * @return void
-     * @throws RuntimeException for driver errors while committing the transaction
-     * @throws Exception for any other errors, including those thrown in the callback
+     * @throws \Throwable
      * @see client::startSession
-     *
      */
     public function execute(Session $session)
     {

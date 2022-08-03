@@ -90,22 +90,22 @@ class NodeList implements ArrayAccess, IteratorAggregate, Countable
     }
 
     /**
-     * @param mixed $replacement
+     * @param mixed|null $replacement
      *
      * @phpstan-return NodeList<T>
      */
-    public function splice(int $offset, int $length, $replacement = null): NodeList
+    public function splice(int $offset, int $length, mixed $replacement = null): NodeList
     {
         return new NodeList(array_splice($this->nodes, $offset, $length, $replacement));
     }
 
     /**
-     * @param NodeList|Node[] $list
+     * @param Node[]|NodeList $list
      *
      * @phpstan-param NodeList<T>|array<T> $list
      * @phpstan-return NodeList<T>
      */
-    #[Pure] public function merge($list): NodeList
+    #[Pure] public function merge(NodeList|array $list): NodeList
     {
         if ($list instanceof self) {
             $list = $list->nodes;

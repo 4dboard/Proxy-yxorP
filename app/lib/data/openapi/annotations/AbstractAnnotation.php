@@ -157,7 +157,7 @@ abstract class AbstractAnnotation implements JsonSerializable
         $properties = [];
         foreach (static::$_parents as $parent) {
             foreach ($parent::$_nested as $annotationClass => $entry) {
-                if ($annotationClass === $class && is_array($entry) && $this->{$entry[1]} !== Generator::UNDEFINED) {
+                if ($annotationClass === $class && is_array($entry) && $this->{$entry[1]} != Generator::UNDEFINED) {
                     $properties[] = $entry[1];
                     break 2;
                 }
@@ -175,7 +175,7 @@ abstract class AbstractAnnotation implements JsonSerializable
         $fields = [];
         foreach ($properties as $property) {
             $value = $this->$property;
-            if ($value !== null && $value !== Generator::UNDEFINED) {
+            if ($value !== null && $value != Generator::UNDEFINED) {
                 $fields[] = $property . '=' . (is_string($value) ? '"' . $value . '"' : $value);
             }
         }
@@ -204,12 +204,12 @@ abstract class AbstractAnnotation implements JsonSerializable
                 $property = $details->value;
                 if (is_array($property)) {
                     $property = $property[0];
-                    if ($this->$property === Generator::UNDEFINED) {
+                    if ($this->$property == Generator::UNDEFINED) {
                         $this->$property = [];
                     }
                     $this->$property[] = $this->nested($annotation, $nestedContext);
                     $mapped = true;
-                } elseif ($this->$property === Generator::UNDEFINED) {
+                } elseif ($this->$property == Generator::UNDEFINED) {
                     // ignore duplicate nested if only one expected
                     $this->$property = $this->nested($annotation, $nestedContext);
                     $mapped = true;
@@ -385,7 +385,7 @@ abstract class AbstractAnnotation implements JsonSerializable
                 continue;
             }
             $property = $nested[0];
-            if ($this->$property === Generator::UNDEFINED) {
+            if ($this->$property == Generator::UNDEFINED) {
                 continue;
             }
             $keyField = $nested[1];
@@ -422,6 +422,9 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @param array $parents the path of annotations above this annotation in the tree
      * @param array $skip (prevent stack overflow, when traversing an infinite dependency graph)
+     * @param string $ref
+     * @return bool
+     * @throws \Exception
      */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {
@@ -461,7 +464,7 @@ abstract class AbstractAnnotation implements JsonSerializable
                 continue;
             }
             $property = $nested[0];
-            if ($this->$property === Generator::UNDEFINED) {
+            if ($this->$property == Generator::UNDEFINED) {
                 continue;
             }
             $keys = [];
@@ -479,7 +482,7 @@ abstract class AbstractAnnotation implements JsonSerializable
                 }
             }
         }
-        if (property_exists($this, 'ref') && $this->ref !== Generator::UNDEFINED && $this->ref !== null) {
+        if (property_exists($this, 'ref') && $this->ref != Generator::UNDEFINED && $this->ref !== null) {
             if (str_starts_with((string)$this->ref, '#/') && count($parents) > 0 && $parents[0] instanceof OpenApi) {
                 // Internal reference
                 try {
@@ -491,7 +494,7 @@ abstract class AbstractAnnotation implements JsonSerializable
         } else {
             // Report missing required fields (when not a $ref)
             foreach (static::$_required as $property) {
-                if ($this->$property === Generator::UNDEFINED) {
+                if ($this->$property == Generator::UNDEFINED) {
                     $message = 'Missing required field "' . $property . '" for ' . $this->identity() . ' in ' . $this->_context;
                     foreach (static::$_nested as $class => $nested) {
                         $nestedProperty = is_array($nested) ? $nested[0] : $nested;
@@ -514,7 +517,7 @@ abstract class AbstractAnnotation implements JsonSerializable
         // Report invalid types
         foreach (static::$_types as $property => $type) {
             $value = $this->$property;
-            if ($value === Generator::UNDEFINED || $value === null) {
+            if ($value == Generator::UNDEFINED || $value === null) {
                 continue;
             }
             if (is_string($type)) {
@@ -540,6 +543,8 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @param string $type The annotations property type
      * @param mixed $value The property value
+     * @return bool
+     * @throws \Exception
      */
     private function validateType(string $type, $value): bool
     {
@@ -569,6 +574,8 @@ abstract class AbstractAnnotation implements JsonSerializable
      *
      * @param string $type The property type
      * @param mixed $value The value to validate
+     * @return bool
+     * @throws \Exception
      */
     private function validateDefaultTypes(string $type, $value): bool
     {

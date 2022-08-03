@@ -62,7 +62,12 @@ class SchemaPrinter
     }
 
     /**
+     * @param Schema $schema
+     * @param callable $directiveFilter
+     * @param callable $typeFilter
      * @param array<string, bool> $options
+     * @return string
+     * @throws Error
      */
     protected static function printFilteredSchema(Schema $schema, callable $directiveFilter, callable $typeFilter, array $options): string
     {
@@ -318,7 +323,10 @@ class SchemaPrinter
     }
 
     /**
+     * @param Type $type
      * @param array<string, bool> $options
+     * @return string
+     * @throws Error
      */
     public static function printType(Type $type, array $options = []): string
     {

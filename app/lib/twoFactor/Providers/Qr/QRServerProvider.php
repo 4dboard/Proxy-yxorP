@@ -31,8 +31,9 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
      * @param string $bgcolor
      * @param string $color
      * @param string $format
+     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
      */
-    public function __construct($verifyssl = false, $errorcorrectionlevel = 'L', $margin = 4, $qzone = 1, $bgcolor = 'ffffff', $color = '000000', $format = 'png')
+    public function __construct(bool $verifyssl = false, string $errorcorrectionlevel = 'L', int $margin = 4, int $qzone = 1, string $bgcolor = 'ffffff', string $color = '000000', string $format = 'png')
     {
         if (!is_bool($verifyssl)) {
             throw new QRException('VerifySSL must be bool');
@@ -50,6 +51,7 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
 
     /**
      * {@inheritdoc}
+     * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
      */
     public function getMimeType()
     {
@@ -72,7 +74,7 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
     /**
      * {@inheritdoc}
      */
-    public function getQRCodeImage($qrtext, $size)
+    public function getQRCodeImage(string $qrtext, int $size)
     {
         return $this->getContent($this->getUrl($qrtext, $size));
     }
@@ -83,7 +85,7 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
      *
      * @return string file contents of the QR code
      */
-    public function getUrl($qrtext, $size)
+    public function getUrl(string $qrtext, int|string $size)
     {
         return 'https://api.qrserver.com/v1/create-qr-code/'
             . '?size=' . $size . 'x' . $size
@@ -101,7 +103,7 @@ class QRServerProvider extends BaseHTTPQRCodeProvider
      *
      * @return string
      */
-    private function decodeColor($value)
+    private function decodeColor(string $value)
     {
         return vsprintf('%d-%d-%d', sscanf($value, "%02x%02x%02x"));
     }

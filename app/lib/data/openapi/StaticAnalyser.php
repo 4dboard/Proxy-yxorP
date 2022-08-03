@@ -220,7 +220,7 @@ class StaticAnalyser
                         $traitDefinition['traits'][] = $schemaContext->fullyQualifiedName($target);
                     } else {
                         $parseContext->uses[$alias] = $target;
-                        if (Analyser::$whitelist === false) {
+                        if (Analyser::$whitelist == false) {
                             $imports[strtolower($alias)] = $target;
                         } else {
                             foreach (Analyser::$whitelist as $namespace) {

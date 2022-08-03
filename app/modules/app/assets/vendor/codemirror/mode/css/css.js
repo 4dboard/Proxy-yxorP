@@ -233,7 +233,7 @@
             if (type === "}" || type === "{") return popAndPass(type, stream, state);
             if (type === "(") return pushContext(state, stream, "parens");
 
-            if (type === "hash" && !/^#([0-9a-fA-f]{3,4}|[0-9a-fA-f]{6}|[0-9a-fA-f]{8})$/.test(stream.current())) {
+            if (type === "hash" && !/^#([0-9A-f]{3,4}|[0-9A-f]{6}|[0-9A-f]{8})$/.test(stream.current())) {
                 override += " error";
             } else if (type === "word") {
                 wordAsValue(stream);

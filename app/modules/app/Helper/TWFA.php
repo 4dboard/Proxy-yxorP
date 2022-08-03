@@ -72,7 +72,7 @@ class TWFAQRCodeRenderer implements IQRCodeProviderInterface
         return 'image/svg+xml';
     }
 
-    public function getQRCodeImage($qrtext, $size = 200, $margin = 0): string
+    public function getQRCodeImage(string $qrtext, int $size): string
     {
 
         $renderer = new ImageRenderer(

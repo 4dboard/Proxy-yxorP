@@ -300,7 +300,7 @@ abstract class Type extends UnionType implements JsonSerializable, CompositeType
     }
 
     /**
-     * @throws InvariantViolation
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public function assertValid()
     {

@@ -13,15 +13,15 @@ class EndroidQrCodeWithLogoProvider extends EndroidQrCodeProvider
     /**
      * Adds an image to the middle of the QR Code.
      * @param string $path Path to an image file
-     * @param array|int $size Just the width, or [width, height]
+     * @param int|array|null $size Just the width, or [width, height]
      */
-    public function setLogo($path, $size = null)
+    public function setLogo(string $path, int|array $size = null)
     {
         $this->logoPath = $path;
         $this->logoSize = (array)$size;
     }
 
-    public function getQRCodeImage($qrtext, $size)
+    public function getQRCodeImage(string $qrtext, int $size)
     {
         if (!$this->endroid4) {
             return $this->qrCodeInstance($qrtext, $size)->writeString();

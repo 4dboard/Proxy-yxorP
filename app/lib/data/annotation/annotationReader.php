@@ -30,7 +30,7 @@ class annotationReader
         if (extension_loaded('Zend Optimizer+') && (ini_get('zend_optimizerplus.save_comments') === '0' || ini_get('opcache.save_comments') === '0')) {
             throw annotationException::optimizerPlusSaveComments();
         }
-        if (extension_loaded('Zend OPcache') && ini_get('opcache.save_comments') === 0) {
+        if (extension_loaded('Zend OPcache') && ini_get('opcache.save_comments') == 0) {
             throw annotationException::optimizerPlusSaveComments();
         }
         class_exists(ignoreAnnotation::class);

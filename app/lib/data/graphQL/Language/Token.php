@@ -87,9 +87,9 @@ class Token
     public $next;
 
     /**
-     * @param mixed $value
+     * @param mixed|null $value
      */
-    public function __construct(string $kind, int $start, int $end, int $line, int $column, ?Token $previous = null, $value = null)
+    public function __construct(string $kind, int $start, int $end, int $line, int $column, ?Token $previous = null, mixed $value = null)
     {
         $this->kind = $kind;
         $this->start = $start;
@@ -107,7 +107,7 @@ class Token
     }
 
     /**
-     * @return (string|int|null)[]
+     * @return array (string|int|null)[]
      */
     #[ArrayShape(['kind' => "string", 'value' => "mixed|null|string", 'line' => "int", 'column' => "int"])] public function toArray(): array
     {

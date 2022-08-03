@@ -160,7 +160,7 @@ class CachingIterator implements Countable, Iterator
 
     /**
      * @see http://php.net/iterator.key
-     * @return mixed
+     * @return int|string|null
      */
     #[ReturnTypeWillChange]
     public function key()

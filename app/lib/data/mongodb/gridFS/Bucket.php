@@ -647,9 +647,7 @@ class Bucket
      * @param resource $source Readable stream
      * @param array $options Stream options
      * @return mixed ID of the newly created GridFS file
-     * @throws InvalidArgumentException if $source is not a GridFS stream
-     * @throws StreamException if the file could not be uploaded
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @throws \yxorP\app\lib\data\mongoDB\GridFS\Exception\CorruptFileException
      */
     public function uploadFromStream($filename, $source, array $options = [])
     {

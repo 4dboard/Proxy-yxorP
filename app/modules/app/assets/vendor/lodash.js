@@ -270,7 +270,7 @@
         cn = /{(?:\n\/\* \[wrapped with .+] \*\/)?\n?/, an = /{\n\/\* \[wrapped with (.+)] \*/, ln = /,? & /,
         sn = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g, hn = /\\(\\)?/g, pn = /\${([^\\}]*(?:\\.[^\\}]*)*)}/g,
         _n = /\w*$/, vn = /^[-+]0x[0-9a-f]+$/i, gn = /^0b[01]+$/i, dn = /^\[object .+?Constructor]$/,
-        yn = /^0o[0-7]+$/i, bn = /^(?:0|[1-9]\d*)$/, xn = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g, jn = /($^)/,
+        yn = /^0o[0-7]+$/i, bn = /^(?:0|[1-9]\d*)$/, xn = /[\xc0-\xd6\xd8-\xf6\xf8-\u017f]/g, jn = /($^)/,
         wn = /['\n\r\u2028\u2029\\]/g,
         mn = "[\\ufe0e\\ufe0f]?(?:[\\u0300-\\u036f\\ufe20-\\ufe2f\\u20d0-\\u20ff]|\\ud83c[\\udffb-\\udfff])?(?:\\u200d(?:[^\\ud800-\\udfff]|(?:\\ud83c[\\udde6-\\uddff]){2}|[\\ud800-\\udbff][\\udc00-\\udfff])[\\ufe0e\\ufe0f]?(?:[\\u0300-\\u036f\\ufe20-\\ufe2f\\u20d0-\\u20ff]|\\ud83c[\\udffb-\\udfff])?)*",
         An = "(?:[\\u2700-\\u27bf]|(?:\\ud83c[\\udde6-\\uddff]){2}|[\\ud800-\\udbff][\\udc00-\\udfff])" + mn,

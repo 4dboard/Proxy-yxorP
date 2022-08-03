@@ -33,7 +33,6 @@ class base extends appAware
     }
 
     /**
-     * @param $app
      */
     protected function initialize()
     {
@@ -53,7 +52,7 @@ class base extends appAware
     }
 
     /**
-     * @param $view
+     * @param string $view
      * @param array $params
      * @return mixed
      */
@@ -66,7 +65,7 @@ class base extends appAware
     }
 
     /**
-     * @param $path
+     * @param string $path
      * @return mixed
      */
     protected function path(string $path): mixed
@@ -75,7 +74,7 @@ class base extends appAware
     }
 
     /**
-     * @param $key
+     * @param string $key
      * @param null $default
      * @return Mixed
      */
@@ -85,7 +84,7 @@ class base extends appAware
     }
 
     /**
-     * @param $module
+     * @param string $module
      * @return mixed
      */
     protected function module(string $module): mixed
@@ -94,7 +93,7 @@ class base extends appAware
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @return \yxorP\app\lib\http\helperAware
      */
     protected function helper(string $name): \yxorP\app\lib\http\helperAware

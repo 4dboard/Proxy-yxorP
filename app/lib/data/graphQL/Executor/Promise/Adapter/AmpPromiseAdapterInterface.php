@@ -107,7 +107,7 @@ class AmpPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * @inheritdoc
      */
-    public function createRejected($reason): Promise
+    public function createRejected(Throwable $reason): Promise
     {
         $promise = new Failure($reason);
 

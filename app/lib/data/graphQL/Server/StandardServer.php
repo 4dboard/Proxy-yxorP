@@ -74,6 +74,7 @@ class StandardServer
      * @param int $debug
      * @param bool $exitWhenDone
      *
+     * @throws \Throwable
      * @api
      */
     public static function send500Error($error, $debug = DebugFlag::NONE, $exitWhenDone = false)
@@ -116,12 +117,11 @@ class StandardServer
      *
      * PSR-7 compatible method executePsrRequest() does exactly this.
      *
-     * @param OperationParams|OperationParams[] $parsedBody
+     * @param null $parsedBody
      *
      * @return ExecutionResult|ExecutionResult[]|Promise
      *
-     * @throws InvariantViolation
-     *
+     * @throws \yxorP\app\lib\data\graphQL\Server\RequestError
      * @api
      */
     public function executeRequest($parsedBody = null)
@@ -162,8 +162,10 @@ class StandardServer
      * Executes GraphQL operation and returns execution result
      * (or promise when promise adapter is different from SyncPromiseAdapter)
      *
+     * @param \Psr\Http\Message\RequestInterface $request
      * @return ExecutionResult|ExecutionResult[]|Promise
      *
+     * @throws \yxorP\app\lib\data\graphQL\Server\RequestError
      * @api
      */
     public function executePsrRequest(RequestInterface $request)

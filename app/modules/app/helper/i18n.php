@@ -530,7 +530,7 @@ class i18n extends helperAware
         'ZWD' => 'Z$'
     ];
     /**
-     * @var $locale current language
+     * @var $locale string language
      */
     public string $locale = 'en';
     private array $_languages = [];
@@ -539,8 +539,9 @@ class i18n extends helperAware
      * Get translated string by key
      *
      * @param string $key translation key
-     * @param string $alternative returns if $key doesn't exist
-     * @return  string
+     * @param string|null $alternative returns if $key doesn't exist
+     * @param string|null $lang
+     * @return string|null
      */
     public function get(string $key, ?string $alternative = null, ?string $lang = null): ?string
     {
@@ -557,8 +558,9 @@ class i18n extends helperAware
      *
      * @param string $key translation key
      * @param array $params
-     * @param array $alternative returns if $key doesn''t exist
-     * @return  string
+     * @param string|null $alternative returns if $key doesn''t exist
+     * @param string|null $lang
+     * @return string|null
      */
     public function getstr(string $key, array $params = [], ?string $alternative = null, ?string $lang = null): ?string
     {
@@ -573,7 +575,7 @@ class i18n extends helperAware
     /**
      * Load language files
      * @param string $langfile path to language file
-     * @param string $lang language to merge to
+     * @param string|null $lang language to merge to
      * @return boolean
      */
     public function load(string $langfile, ?string $lang = null): bool
@@ -597,7 +599,7 @@ class i18n extends helperAware
 
     /**
      * Get language data
-     * @param string $lang language
+     * @param string|null $lang language
      * @return array
      */
     public function data(?string $lang = null): array

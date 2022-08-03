@@ -209,6 +209,7 @@ class Parameter extends AbstractAnnotation
 
     /**
      * @inheritdoc
+     * @throws \Exception
      */
     public function validate(array $parents = [], array $skip = [], string $ref = ''): bool
     {

@@ -20,6 +20,8 @@ class UnresolvedFieldDefinition
     private $resolver;
 
     /**
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\Type $type
+     * @param string $name
      * @param callable(): (FieldDefinition|array<string, mixed>|Type) $resolver
      */
     public function __construct(Type $type, string $name, callable $resolver)

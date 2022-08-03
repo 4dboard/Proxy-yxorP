@@ -100,8 +100,6 @@ class FindOneAndDelete implements ExecutableInterface, ExplainableInterface
      *
      * @param Server $server
      * @return array|object|null
-     * @throws UnsupportedException if collation or write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server)
