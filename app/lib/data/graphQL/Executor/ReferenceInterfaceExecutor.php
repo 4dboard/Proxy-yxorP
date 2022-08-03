@@ -205,6 +205,32 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         );
     }
 
+    /**
+     * Implements the logic to compute the key of a given fields entry
+     */
+    protected static function getFieldEntryKey(FieldNode $node): string
+    {
+        return $node->alias === null ? $node->name->value : $node->alias->value;
+    }
+
+    /**
+     * Differentiate empty objects from empty lists.
+     *
+     * @see https://github.com/webonyx/graphql-php/issues/59
+     *
+     * @param array|mixed $results
+     *
+     * @return array|stdClass|mixed
+     */
+    #[Pure] protected static function fixResultsIfEmptyArray(mixed $results): mixed
+    {
+        if ($results === []) {
+            return new stdClass();
+        }
+
+        return $results;
+    }
+
     public function doExecute(): Promise
     {
         // Return a Promise that will eventually resolve to the data described by
@@ -404,14 +430,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         );
 
         return !isset($include['if']) || $include['if'] !== false;
-    }
-
-    /**
-     * Implements the logic to compute the key of a given fields entry
-     */
-    protected static function getFieldEntryKey(FieldNode $node): string
-    {
-        return $node->alias === null ? $node->name->value : $node->alias->value;
     }
 
     /**
@@ -685,7 +703,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ArrayObject $fieldNodes,
         ResolveInfo $info,
         array       $path,
-        mixed $result
+        mixed       $result
     ): array|Promise|stdClass|null
     {
         // Otherwise, error protection is applied, logging the error and resolving
@@ -749,7 +767,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ArrayObject $fieldNodes,
         ResolveInfo $info,
         array       $path,
-        mixed &$result
+        mixed       &$result
     ): mixed
     {
         // If result is an Error, throw a located error.
@@ -797,7 +815,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
             throw new InvariantViolation(
                 sprintf(
                     'Schema must contain unique named types but contains multiple types named "%s". %s ' .
-                    '(see http://webonyx.github.io/graphql-php/type-system/#type-registry).',
+                    '(see https://webonyx.github.io/graphql-php/type-system/#type-registry).',
                     $returnType,
                     $hint
                 )
@@ -887,7 +905,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ArrayObject  $fieldNodes,
         ResolveInfo  $info,
         array        $path,
-        array &$result
+        array        &$result
     ): array|Promise|stdClass
     {
         $exeContext = $this->exeContext;
@@ -1024,7 +1042,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ArrayObject $fieldNodes,
         ResolveInfo $info,
         array       $path,
-        mixed &$result
+        mixed       &$result
     ): array|Promise|stdClass
     {
         // If there is an isTypeOf predicate function, call it with the
@@ -1095,7 +1113,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         ObjectType  $returnType,
         ArrayObject $fieldNodes,
         array       $path,
-        mixed $result
+        mixed       $result
     ): array|Promise|stdClass
     {
         $subFieldNodes = $this->collectSubFields($returnType, $fieldNodes);
@@ -1179,24 +1197,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     }
 
     /**
-     * Differentiate empty objects from empty lists.
-     *
-     * @see https://github.com/webonyx/graphql-php/issues/59
-     *
-     * @param array|mixed $results
-     *
-     * @return array|stdClass|mixed
-     */
-    #[Pure] protected static function fixResultsIfEmptyArray(mixed $results): mixed
-    {
-        if ($results === []) {
-            return new stdClass();
-        }
-
-        return $results;
-    }
-
-    /**
      * Transform an associative array with Promises to a Promise which resolves to an
      * associative array where all Promises were resolved.
      *
@@ -1262,7 +1262,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
                     'Schema must contain unique named types but contains multiple types named "%s". ' .
                     'Make sure that `resolveType` function of abstract type "%s" returns the same ' .
                     'type instance as referenced anywhere else within the schema ' .
-                    '(see http://webonyx.github.io/graphql-php/type-system/#type-registry).',
+                    '(see https://webonyx.github.io/graphql-php/type-system/#type-registry).',
                     $runtimeType,
                     $returnType
                 )

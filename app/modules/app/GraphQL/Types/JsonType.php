@@ -19,7 +19,7 @@ class jsonType extends ScalarType
     public string $name = 'JsonType';
     public string $description =
         'The `JSON` scalar type represents JSON values as specified by
-        [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).';
+        [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).';
 
     public function __construct(string $name = null)
     {
@@ -43,11 +43,6 @@ class jsonType extends ScalarType
     #[Pure] public function parseValue($value)
     {
         return $this->identity($value);
-    }
-
-    private function identity($value)
-    {
-        return $value;
     }
 
     #[Pure] public function serialize($value)
@@ -78,5 +73,10 @@ class jsonType extends ScalarType
             default:
                 return null;
         }
+    }
+
+    private function identity($value)
+    {
+        return $value;
     }
 }

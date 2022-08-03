@@ -146,6 +146,33 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         );
     }
 
+    private static function resultToArray($value, $emptyObjectAsStdClass = true): array|stdClass
+    {
+        if ($value instanceof stdClass) {
+            $array = (array)$value;
+            foreach ($array as $propertyName => $propertyValue) {
+                $array[$propertyName] = self::resultToArray($propertyValue);
+            }
+
+            if ($emptyObjectAsStdClass && count($array) === 0) {
+                return new stdClass();
+            }
+
+            return $array;
+        }
+
+        if (is_array($value)) {
+            $array = [];
+            foreach ($value as $key => $item) {
+                $array[$key] = self::resultToArray($item);
+            }
+
+            return $array;
+        }
+
+        return $value;
+    }
+
     public function doExecute(): Promise
     {
         $this->rootResult = new stdClass();
@@ -210,6 +237,26 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
+     * @internal
+     */
+    public function addError($error)
+    {
+        $this->errors[] = $error;
+    }
+
+    /**
+     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
+     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
+     * @return array|array[]|null[]|\stdClass|\stdClass[]|null
+     * @throws \Exception
+     * @internal
+     */
+    public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null
+    {
+        return AST::valueFromAST($valueNode, $type, $this->variableValues);
+    }
+
+    /**
      * @param object|null $value
      * @param Error[] $errors
      */
@@ -228,33 +275,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
         }
 
         return new ExecutionResult($value, $errors);
-    }
-
-    private static function resultToArray($value, $emptyObjectAsStdClass = true): array|stdClass
-    {
-        if ($value instanceof stdClass) {
-            $array = (array)$value;
-            foreach ($array as $propertyName => $propertyValue) {
-                $array[$propertyName] = self::resultToArray($propertyValue);
-            }
-
-            if ($emptyObjectAsStdClass && count($array) === 0) {
-                return new stdClass();
-            }
-
-            return $array;
-        }
-
-        if (is_array($value)) {
-            $array = [];
-            foreach ($value as $key => $item) {
-                $array[$key] = self::resultToArray($item);
-            }
-
-            return $array;
-        }
-
-        return $value;
     }
 
     private function findFieldDefinition(CoroutineContext $ctx): \yxorP\app\lib\data\graphQL\Type\Definition\FieldDefinition
@@ -399,7 +419,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                 new InvariantViolation(
                     sprintf(
                         'Schema must contain unique named types but contains multiple types named "%s". %s ' .
-                        '(see http://webonyx.github.io/graphql-php/type-system/#type-registry).',
+                        '(see https://webonyx.github.io/graphql-php/type-system/#type-registry).',
                         $type->name,
                         $hint
                     )
@@ -455,14 +475,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     private function isPromise(mixed $value): bool
     {
         return $value instanceof Promise || $this->promiseAdapter->isThenable($value);
-    }
-
-    /**
-     * @internal
-     */
-    public function addError($error)
-    {
-        $this->errors[] = $error;
     }
 
     /**
@@ -566,7 +578,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                     new InvariantViolation(
                         sprintf(
                             'Schema must contain unique named types but contains multiple types named "%s". %s ' .
-                            '(see http://webonyx.github.io/graphql-php/type-system/#type-registry).',
+                            '(see https://webonyx.github.io/graphql-php/type-system/#type-registry).',
                             $type->name,
                             $hint
                         )
@@ -663,7 +675,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                                     'Schema must contain unique named types but contains multiple types named "%s". ' .
                                     'Make sure that `resolveType` function of abstract type "%s" returns the same ' .
                                     'type instance as referenced anywhere else within the schema ' .
-                                    '(see http://webonyx.github.io/graphql-php/type-system/#type-registry).',
+                                    '(see https://webonyx.github.io/graphql-php/type-system/#type-registry).',
                                     $objectType,
                                     $type
                                 )
@@ -956,17 +968,5 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
 
         $doResolve = $this->doResolve;
         $doResolve($this->finishExecute($this->rootResult, $this->errors));
-    }
-
-    /**
-     * @param \yxorP\app\lib\data\graphQL\Language\AST\ValueNodeInterface $valueNode
-     * @param \yxorP\app\lib\data\graphQL\Type\Definition\InputType $type
-     * @return array|array[]|null[]|\stdClass|\stdClass[]|null
-     * @throws \Exception
-     * @internal
-     */
-    public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null
-    {
-        return AST::valueFromAST($valueNode, $type, $this->variableValues);
     }
 }

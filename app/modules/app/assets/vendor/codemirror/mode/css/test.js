@@ -127,8 +127,8 @@
         "[def @font-face] {",
         "  [property font-family]: [string 'myfont'];",
         "  [error nonsense]: [string 'abc'];",
-        "  [property src]: [variable&callee url]([string http://blah]),",
-        "    [variable&callee url]([string http://foo]);",
+        "  [property src]: [variable&callee url]([string https://blah]),",
+        "    [variable&callee url]([string https://foo]);",
         "}");
 
     MT("empty_url",
@@ -166,7 +166,7 @@
         "}");
 
     MT("document",
-        "[def @document] [variable&callee url]([string http://blah]),",
+        "[def @document] [variable&callee url]([string https://blah]),",
         "  [variable&callee url-prefix]([string https://]),",
         "  [variable&callee domain]([string blah.com]),",
         "  [variable&callee regexp]([string \".*blah.+\"]) {",
@@ -179,7 +179,7 @@
         "}");
 
     MT("document_url",
-        "[def @document] [variable&callee url]([string http://blah]) { [qualifier .class] { } }");
+        "[def @document] [variable&callee url]([string https://blah]) { [qualifier .class] { } }");
 
     MT("document_urlPrefix",
         "[def @document] [variable&callee url-prefix]([string https://]) { [builtin #id] { } }");

@@ -95,13 +95,13 @@
         '3 + 3 = 6');
 
     MT('image',
-        'An image: [string !http://www.example.com/image.png!]');
+        'An image: [string !https://www.example.com/image.png!]');
 
     MT('imageWithAltText',
-        'An image: [string !http://www.example.com/image.png (Alt Text)!]');
+        'An image: [string !https://www.example.com/image.png (Alt Text)!]');
 
     MT('imageWithUrl',
-        'An image: [string !http://www.example.com/image.png!:http://www.example.com/]');
+        'An image: [string !https://www.example.com/image.png!:http://www.example.com/]');
 
     /*
      * Headers
@@ -289,7 +289,7 @@
         ' has an id.');
 
     MT('linkWithClass',
-        '[link "(my-class). This is a link with class":http://redcloth.org]');
+        '[link "(my-class). This is a link with class":https://redcloth.org]');
 
     /*
      * Layouts
@@ -381,7 +381,7 @@
         '[variable-2 * Item one]',
         '[variable-2 * Item two]',
         '',
-        '[comment <a href="http://example.com">Example</a>]',
+        '[comment <a href="https:///example.com">Example</a>]',
         '',
         '[comment </section>]',
         '[comment </div>]');

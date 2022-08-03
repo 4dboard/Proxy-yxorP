@@ -123,7 +123,7 @@
         "[em *foo ][em&link bar/hello#1][em *]");
 
     MT("vanillaLink",
-        "foo [link http://www.example.com/] bar");
+        "foo [link https://www.example.com/] bar");
 
     MT("vanillaLinkNoScheme",
         "foo [link www.example.com] bar");
@@ -135,26 +135,26 @@
         "foo [link data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==] bar");
 
     MT("vanillaLinkPunctuation",
-        "foo [link http://www.example.com/]. bar");
+        "foo [link https://www.example.com/]. bar");
 
     MT("vanillaLinkExtension",
-        "foo [link http://www.example.com/index.html] bar");
+        "foo [link https://www.example.com/index.html] bar");
 
     MT("vanillaLinkEmphasis",
-        "foo [em *][em&link http://www.example.com/index.html][em *] bar");
+        "foo [em *][em&link https://www.example.com/index.html][em *] bar");
 
     MT("notALink",
         "foo asfd:asdf bar");
 
     MT("notALink",
-        "[comment ``foo `bar` http://www.example.com/``] hello");
+        "[comment ``foo `bar` https://www.example.com/``] hello");
 
     MT("notALink",
         "[comment `foo]",
-        "[comment&link http://www.example.com/]",
+        "[comment&link https://www.example.com/]",
         "[comment `] foo",
         "",
-        "[link http://www.example.com/]");
+        "[link https://www.example.com/]");
 
     MT("strikethrough",
         "[strikethrough ~~foo~~]");

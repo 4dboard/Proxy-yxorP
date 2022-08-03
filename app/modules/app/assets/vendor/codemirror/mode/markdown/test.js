@@ -116,14 +116,14 @@
         "[variable-2&formatting&formatting-list&formatting-list-ol 1. ][variable-2 foo]");
 
     FT("formatting_link",
-        "[link&formatting&formatting-link [][link foo][link&formatting&formatting-link ]]][string&formatting&formatting-link-string&url (][string&url http://example.com/][string&formatting&formatting-link-string&url )]");
+        "[link&formatting&formatting-link [][link foo][link&formatting&formatting-link ]]][string&formatting&formatting-link-string&url (][string&url https://example.com/][string&formatting&formatting-link-string&url )]");
 
     FT("formatting_linkReference",
         "[link&formatting&formatting-link [][link foo][link&formatting&formatting-link ]]][string&formatting&formatting-link-string&url [][string&url bar][string&formatting&formatting-link-string&url ]]]",
-        "[link&formatting&formatting-link [][link bar][link&formatting&formatting-link ]]:] [string&url http://example.com/]");
+        "[link&formatting&formatting-link [][link bar][link&formatting&formatting-link ]]:] [string&url https://example.com/]");
 
     FT("formatting_linkWeb",
-        "[link&formatting&formatting-link <][link http://example.com/][link&formatting&formatting-link >]");
+        "[link&formatting&formatting-link <][link https://example.com/][link&formatting&formatting-link >]");
 
     FT("formatting_linkEmail",
         "[link&formatting&formatting-link <][link user@example.com][link&formatting&formatting-link >]");
@@ -132,7 +132,7 @@
         "[formatting-escape \\*]");
 
     FT("formatting_image",
-        "[formatting&formatting-image&image&image-marker !][formatting&formatting-image&image&image-alt-text&link [[][image&image-alt-text&link alt text][formatting&formatting-image&image&image-alt-text&link ]]][formatting&formatting-link-string&string&url (][url&string http://link.to/image.jpg][formatting&formatting-link-string&string&url )]");
+        "[formatting&formatting-image&image&image-marker !][formatting&formatting-image&image&image-alt-text&link [[][image&image-alt-text&link alt text][formatting&formatting-image&image&image-alt-text&link ]]][formatting&formatting-link-string&string&url (][url&string https://link.to/image.jpg][formatting&formatting-link-string&string&url )]");
 
     FT("codeBlock",
         "[comment&formatting&formatting-code-block ```css]",
@@ -405,7 +405,7 @@
         "[header&header-1 =]");
 
     MT("setext_linkDef",
-        "[link [[aaa]]:] [string&url http://google.com 'title']",
+        "[link [[aaa]]:] [string&url https://google.com 'title']",
         "[hr ---]");
 
     // currently, looks max one line ahead, thus won't catch valid CommonMark
@@ -850,41 +850,41 @@
 
     //Images
     MT("Images",
-        "[image&image-marker !][image&image-alt-text&link [[alt text]]][string&url (http://link.to/image.jpg)]")
+        "[image&image-marker !][image&image-alt-text&link [[alt text]]][string&url (https://link.to/image.jpg)]")
 
     //Images with highlight alt text
     MT("imageEm",
-        "[image&image-marker !][image&image-alt-text&link [[][image-alt-text&em&image&link *alt text*][image&image-alt-text&link ]]][string&url (http://link.to/image.jpg)]");
+        "[image&image-marker !][image&image-alt-text&link [[][image-alt-text&em&image&link *alt text*][image&image-alt-text&link ]]][string&url (https://link.to/image.jpg)]");
 
     MT("imageStrong",
-        "[image&image-marker !][image&image-alt-text&link [[][image-alt-text&strong&image&link **alt text**][image&image-alt-text&link ]]][string&url (http://link.to/image.jpg)]");
+        "[image&image-marker !][image&image-alt-text&link [[][image-alt-text&strong&image&link **alt text**][image&image-alt-text&link ]]][string&url (https://link.to/image.jpg)]");
 
     MT("imageEmStrong",
-        "[image&image-marker !][image&image-alt-text&link [[][image&image-alt-text&em&strong&link ***alt text***][image&image-alt-text&link ]]][string&url (http://link.to/image.jpg)]");
+        "[image&image-marker !][image&image-alt-text&link [[][image&image-alt-text&em&strong&link ***alt text***][image&image-alt-text&link ]]][string&url (https://link.to/image.jpg)]");
 
     // Inline link with title
     MT("linkTitle",
-        "[link [[foo]]][string&url (http://example.com/ \"bar\")] hello");
+        "[link [[foo]]][string&url (https://example.com/ \"bar\")] hello");
 
     // Inline link without title
     MT("linkNoTitle",
-        "[link [[foo]]][string&url (http://example.com/)] bar");
+        "[link [[foo]]][string&url (https://example.com/)] bar");
 
     // Inline link with image
     MT("linkImage",
-        "[link [[][link&image&image-marker !][link&image&image-alt-text&link [[alt text]]][string&url (http://link.to/image.jpg)][link ]]][string&url (http://example.com/)] bar");
+        "[link [[][link&image&image-marker !][link&image&image-alt-text&link [[alt text]]][string&url (https://link.to/image.jpg)][link ]]][string&url https:///example.com/)] bar");
 
     // Inline link with Em
     MT("linkEm",
-        "[link [[][link&em *foo*][link ]]][string&url (http://example.com/)] bar");
+        "[link [[][link&em *foo*][link ]]][string&url (https://example.com/)] bar");
 
     // Inline link with Strong
     MT("linkStrong",
-        "[link [[][link&strong **foo**][link ]]][string&url (http://example.com/)] bar");
+        "[link [[][link&strong **foo**][link ]]][string&url (https://example.com/)] bar");
 
     // Inline link with EmStrong
     MT("linkEmStrong",
-        "[link [[][link&em&strong ***foo***][link ]]][string&url (http://example.com/)] bar");
+        "[link [[][link&em&strong ***foo***][link ]]][string&url (https://example.com/)] bar");
 
     MT("multilineLink",
         "[link [[foo]",
@@ -893,15 +893,15 @@
 
     // Image with title
     MT("imageTitle",
-        "[image&image-marker !][image&image-alt-text&link [[alt text]]][string&url (http://example.com/ \"bar\")] hello");
+        "[image&image-marker !][image&image-alt-text&link [[alt text]]][string&url (https://example.com/ \"bar\")] hello");
 
     // Image without title
     MT("imageNoTitle",
-        "[image&image-marker !][image&image-alt-text&link [[alt text]]][string&url (http://example.com/)] bar");
+        "[image&image-marker !][image&image-alt-text&link [[alt text]]][string&url (https://example.com/)] bar");
 
     // Image with asterisks
     MT("imageAsterisks",
-        "[image&image-marker !][image&image-alt-text&link [[ ][image&image-alt-text&em&link *alt text*][image&image-alt-text&link ]]][string&url (http://link.to/image.jpg)] bar");
+        "[image&image-marker !][image&image-alt-text&link [[ ][image&image-alt-text&em&link *alt text*][image&image-alt-text&link ]]][string&url (https://link.to/image.jpg)] bar");
 
     // Not a link. Should be normal text due to square brackets being used
     // regularly in text, especially in quoted material, and no space is allowed
@@ -944,62 +944,62 @@
     // Link label, for reference-style links (taken from documentation)
 
     MT("labelNoTitle",
-        "[link [[foo]]:] [string&url http://example.com/]");
+        "[link [[foo]]:] [string&url https://example.com/]");
 
     MT("labelIndented",
-        "   [link [[foo]]:] [string&url http://example.com/]");
+        "   [link [[foo]]:] [string&url https://example.com/]");
 
     MT("labelSpaceTitle",
-        "[link [[foo bar]]:] [string&url http://example.com/ \"hello\"]");
+        "[link [[foo bar]]:] [string&url https://example.com/ \"hello\"]");
 
     MT("labelDoubleTitle",
-        "[link [[foo bar]]:] [string&url http://example.com/ \"hello\"] \"world\"");
+        "[link [[foo bar]]:] [string&url https://example.com/ \"hello\"] \"world\"");
 
     MT("labelTitleDoubleQuotes",
-        "[link [[foo]]:] [string&url http://example.com/  \"bar\"]");
+        "[link [[foo]]:] [string&url https://example.com/  \"bar\"]");
 
     MT("labelTitleSingleQuotes",
-        "[link [[foo]]:] [string&url http://example.com/  'bar']");
+        "[link [[foo]]:] [string&url https://example.com/  'bar']");
 
     MT("labelTitleParentheses",
-        "[link [[foo]]:] [string&url http://example.com/  (bar)]");
+        "[link [[foo]]:] [string&url https://example.com/  (bar)]");
 
     MT("labelTitleInvalid",
-        "[link [[foo]]:] [string&url http://example.com/] bar");
+        "[link [[foo]]:] [string&url https://example.com/] bar");
 
     MT("labelLinkAngleBrackets",
-        "[link [[foo]]:] [string&url <http://example.com/>  \"bar\"]");
+        "[link [[foo]]:] [string&url <https://example.com/>  \"bar\"]");
 
     MT("labelTitleNextDoubleQuotes",
-        "[link [[foo]]:] [string&url http://example.com/]",
+        "[link [[foo]]:] [string&url https://example.com/]",
         "[string \"bar\"] hello");
 
     MT("labelTitleNextSingleQuotes",
-        "[link [[foo]]:] [string&url http://example.com/]",
+        "[link [[foo]]:] [string&url https://example.com/]",
         "[string 'bar'] hello");
 
     MT("labelTitleNextParentheses",
-        "[link [[foo]]:] [string&url http://example.com/]",
+        "[link [[foo]]:] [string&url https://example.com/]",
         "[string (bar)] hello");
 
     MT("labelTitleNextMixed",
-        "[link [[foo]]:] [string&url http://example.com/]",
+        "[link [[foo]]:] [string&url https://example.com/]",
         "(bar\" hello");
 
     MT("labelEscape",
-        "[link [[foo \\]] ]]:] [string&url http://example.com/]");
+        "[link [[foo \\]] ]]:] [string&url https://example.com/]");
 
     MT("labelEscapeColon",
-        "[link [[foo \\]]: bar]]:] [string&url http://example.com/]");
+        "[link [[foo \\]]: bar]]:] [string&url https://example.com/]");
 
     MT("labelEscapeEnd",
-        "\\[[foo\\]]: http://example.com/");
+        "\\[[foo\\]]: https://example.com/");
 
     MT("linkWeb",
-        "[link <http://example.com/>] foo");
+        "[link <https://example.com/>] foo");
 
     MT("linkWebDouble",
-        "[link <http://example.com/>] foo [link <http://example.com/>]");
+        "[link <https://example.com/>] foo [link https:///example.com/>]");
 
     MT("linkEmail",
         "[link <user@example.com>] foo");
@@ -1156,10 +1156,10 @@
         "[override-hr * * *]");
 
     TokenTypeOverrideTest("overrideImage",
-        "[override-image&override-image-marker !][override-image&override-image-alt-text&link [[alt text]]][override-link-href&url (http://link.to/image.jpg)]");
+        "[override-image&override-image-marker !][override-image&override-image-alt-text&link [[alt text]]][override-link-href&url (https://link.to/image.jpg)]");
 
     TokenTypeOverrideTest("overrideLinkText",
-        "[override-link-text [[foo]]][override-link-href&url (http://example.com)]");
+        "[override-link-text [[foo]]][override-link-href&url (https://example.com)]");
 
     TokenTypeOverrideTest("overrideLinkEmailAndInline",
         "[override-link-email <][override-link-inline foo@example.com>]");
@@ -1307,16 +1307,16 @@
     MT("xmlMode",
         "[tag&bracket <][tag div][tag&bracket >]",
         "  *foo*",
-        "  [tag&bracket <][tag http://github.com][tag&bracket />]",
+        "  [tag&bracket <][tag https://github.com][tag&bracket />]",
         "[tag&bracket </][tag div][tag&bracket >]",
-        "[link <http://github.com/>]");
+        "[link <https://github.com/>]");
 
     MT("xmlModeWithMarkdownInside",
         "[tag&bracket <][tag div] [attribute markdown]=[string 1][tag&bracket >]",
         "[em *foo*]",
-        "[link <http://github.com/>]",
+        "[link <https://github.com/>]",
         "[tag </div>]",
-        "[link <http://github.com/>]",
+        "[link <https://github.com/>]",
         "[tag&bracket <][tag div][tag&bracket >]",
         "[tag&bracket </][tag div][tag&bracket >]");
 

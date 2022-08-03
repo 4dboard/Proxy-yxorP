@@ -66,7 +66,7 @@ class QRicketProvider extends BaseHTTPQRCodeProvider
      */
     public function getUrl(string $qrtext, int|string $size): string
     {
-        return 'http://qrickit.com/api/qr'
+        return 'https://qrickit.com/api/qr'
             . '?qrsize=' . $size
             . '&e=' . strtolower($this->errorcorrectionlevel)
             . '&bgdcolor=' . $this->bgcolor
