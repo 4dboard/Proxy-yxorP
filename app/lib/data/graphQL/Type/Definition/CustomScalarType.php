@@ -18,7 +18,7 @@ class CustomScalarType extends ScalarType
      *
      * @return mixed
      */
-    public function serialize(mixed $value)
+    public function serialize(mixed $value): mixed
     {
         return $this->config['serialize']($value);
     }
@@ -28,7 +28,7 @@ class CustomScalarType extends ScalarType
      *
      * @return mixed
      */
-    public function parseValue(mixed $value)
+    public function parseValue(mixed $value): mixed
     {
         if (isset($this->config['parseValue'])) {
             return $this->config['parseValue']($value);
@@ -44,7 +44,7 @@ class CustomScalarType extends ScalarType
      *
      * @throws Exception
      */
-    public function parseLiteral(Node $valueNode, ?array $variables = null)
+    public function parseLiteral(Node $valueNode, ?array $variables = null): mixed
     {
         if (isset($this->config['parseLiteral'])) {
             return $this->config['parseLiteral']($valueNode, $variables);

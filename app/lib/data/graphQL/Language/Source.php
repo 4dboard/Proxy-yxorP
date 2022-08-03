@@ -64,7 +64,7 @@ class Source
      *
      * @return SourceLocation
      */
-    public function getLocation(int $position)
+    public function getLocation(int $position): SourceLocation
     {
         $line = 1;
         $column = $position + 1;

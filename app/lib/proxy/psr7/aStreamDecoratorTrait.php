@@ -39,7 +39,7 @@ trait aStreamDecoratorTrait
         }
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->stream->isSeekable();
     }
@@ -49,7 +49,7 @@ trait aStreamDecoratorTrait
         $this->stream->seek($offset, $whence);
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return copy_to_string($this);
     }
@@ -75,27 +75,27 @@ trait aStreamDecoratorTrait
         return $this->stream->detach();
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->stream->getSize();
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof();
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->stream->tell();
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return $this->stream->isReadable();
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return $this->stream->isWritable();
     }
@@ -105,12 +105,12 @@ trait aStreamDecoratorTrait
         $this->seek(0);
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         return $this->stream->read($length);
     }
 
-    public function write(string $string)
+    public function write(string $string): int
     {
         return $this->stream->write($string);
     }

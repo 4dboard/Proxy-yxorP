@@ -34,7 +34,7 @@ abstract class ASTValidationContext
     /**
      * @return Error[]
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }
@@ -42,7 +42,7 @@ abstract class ASTValidationContext
     /**
      * @return DocumentNode
      */
-    public function getDocument()
+    public function getDocument(): DocumentNode
     {
         return $this->ast;
     }

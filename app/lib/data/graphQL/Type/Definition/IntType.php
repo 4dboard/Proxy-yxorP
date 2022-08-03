@@ -40,7 +40,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
      *
      * @throws Error
      */
-    public function serialize(mixed $value)
+    public function serialize(mixed $value): ?int
     {
         // Fast path for 90+% of cases:
         if (is_int($value) && $value <= self::MAX_INT && $value >= self::MIN_INT) {
@@ -101,7 +101,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
      *
      * @throws Exception
      */
-    public function parseLiteral(Node $valueNode, ?array $variables = null)
+    public function parseLiteral(Node $valueNode, ?array $variables = null): int
     {
         if ($valueNode instanceof IntValueNode) {
             $val = (int)$valueNode->value;

@@ -24,7 +24,7 @@ class ConsoleLogger extends abstractLogger implements loggerInterface
         $this->debug = $debug;
     }
 
-    public function called()
+    public function called(): bool
     {
         return $this->called;
     }

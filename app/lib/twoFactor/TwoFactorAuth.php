@@ -56,7 +56,7 @@ class TwoFactorAuth
      * @throws \yxorP\app\lib\twoFactor\Providers\Rng\RNGException
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
      */
-    public function createSecret($bits = 80, $requirecryptosecure = true)
+    public function createSecret($bits = 80, $requirecryptosecure = true): string
     {
         $secret = '';
         $bytes = (int)ceil($bits / 5);
@@ -74,7 +74,7 @@ class TwoFactorAuth
     /**
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
      */
-    public function getRngProvider()
+    public function getRngProvider(): MCryptRNGProvider|OpenSSLRNGProvider|HashRNGProvider|IRNGProviderInterface|CSRNGProvider|null
     {
         if (null !== $this->rngprovider) {
             return $this->rngprovider;
@@ -94,7 +94,7 @@ class TwoFactorAuth
         throw new TwoFactorAuthException('Unable to find a suited RNGProvider');
     }
 
-    public function verifyCode($secret, $code, $discrepancy = 1, $time = null, &$timeslice = 0)
+    public function verifyCode($secret, $code, $discrepancy = 1, $time = null, &$timeslice = 0): bool
     {
         $timestamp = $this->getTime($time);
         $timeslice = 0;
@@ -111,7 +111,7 @@ class TwoFactorAuth
         return ($time === null) ? $this->getTimeProvider()->getTime() : $time;
     }
 
-    public function getTimeProvider()
+    public function getTimeProvider(): ITimeProviderInterface|LocalMachineTimeProvider|null
     {
         if (null === $this->timeprovider) {
             return $this->timeprovider = new LocalMachineTimeProvider();
@@ -119,12 +119,12 @@ class TwoFactorAuth
         return $this->timeprovider;
     }
 
-    private function getTimeSlice($time = null)
+    private function getTimeSlice($time = null): float|int
     {
         return (int)floor($time / $this->period) + (0 * $this->period);
     }
 
-    private function codeEquals($safe, $user)
+    private function codeEquals($safe, $user): bool
     {
         if (function_exists('hash_equals')) {
             return hash_equals($safe, $user);
@@ -142,7 +142,7 @@ class TwoFactorAuth
     /**
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
      */
-    public function getCode($secret, $time = null)
+    public function getCode($secret, $time = null): string
     {
         $secretkey = $this->base32Decode($secret);
         $timestamp = "\0\0\0\0" . pack('N*', $this->getTimeSlice($this->getTime($time)));
@@ -156,7 +156,7 @@ class TwoFactorAuth
     /**
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
      */
-    private function base32Decode($value)
+    private function base32Decode($value): string
     {
         if (strlen($value) == 0) {
             return '';
@@ -183,7 +183,7 @@ class TwoFactorAuth
      * @throws \yxorP\app\lib\twoFactor\Providers\Qr\QRException
      * @throws \yxorP\app\lib\twoFactor\TwoFactorAuthException
      */
-    public function getQRCodeImageAsDataUri($label, $secret, $size = 200)
+    public function getQRCodeImageAsDataUri($label, $secret, $size = 200): string
     {
         if (!is_int($size) || $size <= 0) {
             throw new TwoFactorAuthException('Size must be int > 0');
@@ -192,7 +192,7 @@ class TwoFactorAuth
         return 'data:' . $qrcodeprovider->getMimeType() . ';base64,' . base64_encode($qrcodeprovider->getQRCodeImage($this->getQRText($label, $secret), $size));
     }
 
-    public function getQrCodeProvider()
+    public function getQrCodeProvider(): IQRCodeProviderInterface|QRServerProvider|null
     {
         if (null === $this->qrcodeprovider) {
             return $this->qrcodeprovider = new QRServerProvider();
@@ -200,7 +200,7 @@ class TwoFactorAuth
         return $this->qrcodeprovider;
     }
 
-    public function getQRText($label, $secret)
+    public function getQRText($label, $secret): string
     {
         return 'otpauth://totp/' . rawurlencode($label) . '?secret=' . rawurlencode($secret) . '&issuer=' . rawurlencode((string)$this->issuer) . '&period=' . $this->period . '&algorithm=' . rawurlencode(strtoupper($this->algorithm)) . '&digits=' . $this->digits;
     }

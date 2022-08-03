@@ -44,7 +44,7 @@ class Value
      * @return array
      * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
-    public static function coerceValue($value, InputType $type, $blameNode = null, ?array $path = null)
+    public static function coerceValue($value, InputType $type, $blameNode = null, ?array $path = null): array
     {
         if ($type instanceof NonNull) {
             if ($value === null) {
@@ -224,7 +224,7 @@ class Value
         throw new Error(sprintf('Unexpected type %s', $type->name));
     }
 
-    #[ArrayShape(['errors' => "", 'value' => "mixed|\stdClass"])] private static function ofErrors($errors)
+    #[ArrayShape(['errors' => "", 'value' => "mixed|\stdClass"])] private static function ofErrors($errors): array
     {
         return ['errors' => $errors, 'value' => Utils::undefined()];
     }
@@ -244,7 +244,7 @@ class Value
         ?array              $path = null,
         string              $subMessage = null,
         Throwable|Exception $originalError = null
-    )
+    ): Error
     {
         $pathStr = self::printPath($path);
 
@@ -268,7 +268,7 @@ class Value
      *
      * @return string
      */
-    private static function printPath(?array $path = null)
+    private static function printPath(?array $path = null): string
     {
         $pathStr = '';
         $currentPath = $path;
@@ -288,7 +288,7 @@ class Value
      *
      * @return array (mixed|null)[]
      */
-    #[ArrayShape(['errors' => "null", 'value' => "mixed"])] private static function ofValue(mixed $value)
+    #[ArrayShape(['errors' => "null", 'value' => "mixed"])] private static function ofValue(mixed $value): array
     {
         return ['errors' => null, 'value' => $value];
     }
@@ -299,7 +299,7 @@ class Value
      *
      * @return array (mixed|null)[]
      */
-    #[ArrayShape(['prev' => "mixed", 'key' => "mixed"])] private static function atPath(mixed $prev, mixed $key)
+    #[ArrayShape(['prev' => "mixed", 'key' => "mixed"])] private static function atPath(mixed $prev, mixed $key): array
     {
         return ['prev' => $prev, 'key' => $key];
     }
@@ -310,7 +310,7 @@ class Value
      *
      * @return Error[]
      */
-    private static function add(array $errors, array|Error $moreErrors)
+    private static function add(array $errors, array|Error $moreErrors): array
     {
         return array_merge($errors, is_array($moreErrors) ? $moreErrors : [$moreErrors]);
     }

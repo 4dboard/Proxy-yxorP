@@ -63,7 +63,7 @@ class client implements clientInterface
         return str_ends_with($method, 'Async') ? $this->requestAsync(substr($method, 0, -5), $uri, $opts) : $this->request($method, $uri, $opts);
     }
 
-    public function requestAsync($method, $uri = '', array $options = [])
+    public function requestAsync($method, $uri = '', array $options = []): promise\promise|promise\fulfilledPromise|promise\rejectedPromise|promise\promiseInterface
     {
         $options = $this->prepareDefaults($options);
         $headers = $options['headers'] ?? [];
@@ -78,7 +78,7 @@ class client implements clientInterface
         return $this->transfer($request, $options);
     }
 
-    private function prepareDefaults(array $options)
+    private function prepareDefaults(array $options): mixed
     {
         $defaults = $this->config;
         if (!empty($defaults['headers'])) {
@@ -102,7 +102,7 @@ class client implements clientInterface
         return $result;
     }
 
-    private function buildUri($uri, array $config)
+    private function buildUri($uri, array $config): psr7\uri|\yxorP\app\lib\psr\http\message\uriInterface
     {
         $uri = Psr7\uri_for($uri === null ? '' : $uri);
         if (isset($config['base_uri'])) {
@@ -120,7 +120,7 @@ class client implements clientInterface
         throw new InvalidArgumentException('Passing in the "body" request ' . 'option as an array to send a POST request has been deprecated. ' . 'Please use the "form_params" request option to send a ' . 'application/x-www-form-urlencoded request, or the "multipart" ' . 'request option to send a multipart/form-data request.');
     }
 
-    private function transfer(requestInterface $request, array $options)
+    private function transfer(requestInterface $request, array $options): promise\promise|promise\fulfilledPromise|promise\promiseInterface|promise\rejectedPromise
     {
         if (isset($options['save_to'])) {
             $options['sink'] = $options['save_to'];
@@ -139,7 +139,7 @@ class client implements clientInterface
         }
     }
 
-    private function applyOptions(requestInterface $request, array &$options)
+    private function applyOptions(requestInterface $request, array &$options): psr7\request|requestInterface|psr7\serverRequest
     {
         $modify = ['set_headers' => [],];
         if (isset($options['headers'])) {
@@ -246,7 +246,7 @@ class client implements clientInterface
         return $this->sendAsync($request, $options)->wait();
     }
 
-    public function sendAsync(requestInterface $request, array $options = [])
+    public function sendAsync(requestInterface $request, array $options = []): promise\promise|promise\fulfilledPromise|promise\promiseInterface|promise\rejectedPromise
     {
         $options = $this->prepareDefaults($options);
         return $this->transfer($request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')), $options);

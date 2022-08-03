@@ -45,7 +45,7 @@ final class cachedReader
         return $this->loadedAnnotations[$cacheKey] = $annots;
     }
 
-    private function fetchFromCache($cacheKey, ReflectionClass $class)
+    private function fetchFromCache($cacheKey, ReflectionClass $class): bool
     {
         $data = $this->cache->fetch($cacheKey);
         if ($data !== false) {
@@ -56,7 +56,7 @@ final class cachedReader
         return false;
     }
 
-    private function isCacheFresh($cacheKey, ReflectionClass $class)
+    private function isCacheFresh($cacheKey, ReflectionClass $class): bool
     {
         $lastModification = $this->getLastModification($class);
         if ($lastModification === 0) {

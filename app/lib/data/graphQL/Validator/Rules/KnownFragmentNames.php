@@ -13,7 +13,7 @@ use function sprintf;
 
 class KnownFragmentNames extends ValidationRule
 {
-    #[ArrayShape([NodeKind::FRAGMENT_SPREAD => "\Closure"])] public function getVisitor(ValidationContext $context)
+    #[ArrayShape([NodeKind::FRAGMENT_SPREAD => "\Closure"])] public function getVisitor(ValidationContext $context): array
     {
         return [
             NodeKind::FRAGMENT_SPREAD => static function (FragmentSpreadNode $node) use ($context): void {
@@ -34,7 +34,7 @@ class KnownFragmentNames extends ValidationRule
     /**
      * @param string $fragName
      */
-    public static function unknownFragmentMessage(string $fragName)
+    public static function unknownFragmentMessage(string $fragName): string
     {
         return sprintf('Unknown fragment "%s".', $fragName);
     }

@@ -10,7 +10,7 @@ class collections extends
     helper
 {
 
-    public function index()
+    public function index(): int
     {
         return 1;
     }

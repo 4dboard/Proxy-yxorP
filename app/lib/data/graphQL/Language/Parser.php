@@ -199,7 +199,7 @@ class Parser
      *
      * @api
      */
-    public static function parse(Source|string $source, array $options = [])
+    public static function parse(Source|string $source, array $options = []): DocumentNode
     {
         $parser = new self($source, $options);
 
@@ -1704,7 +1704,7 @@ class Parser
      * @throws SyntaxError
      * @api
      */
-    public static function parseValue(Source|string $source, array $options = [])
+    public static function parseValue(Source|string $source, array $options = []): VariableNode|ListValueNode|StringValueNode|IntValueNode|ValueNodeInterface|FloatValueNode|BooleanValueNode|EnumValueNode|ObjectValueNode
     {
         $parser = new Parser($source, $options);
         $parser->expect(Token::SOF);
@@ -1732,7 +1732,7 @@ class Parser
      * @throws SyntaxError
      * @api
      */
-    public static function parseType(Source|string $source, array $options = [])
+    public static function parseType(Source|string $source, array $options = []): NonNullTypeNode|ListTypeNode|NamedTypeNode|TypeNodeInterface
     {
         $parser = new Parser($source, $options);
         $parser->expect(Token::SOF);

@@ -84,7 +84,7 @@ class ExecutionResult implements JsonSerializable
      *
      * @api
      */
-    public function setErrorFormatter(callable $errorFormatter)
+    public function setErrorFormatter(callable $errorFormatter): static
     {
         $this->errorFormatter = $errorFormatter;
 
@@ -105,7 +105,7 @@ class ExecutionResult implements JsonSerializable
      *
      * @api
      */
-    public function setErrorsHandler(callable $handler)
+    public function setErrorsHandler(callable $handler): static
     {
         $this->errorsHandler = $handler;
 
