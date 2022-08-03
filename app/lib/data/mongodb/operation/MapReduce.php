@@ -267,10 +267,7 @@ class MapReduce implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return mapReduceResult
-     * @throws UnexpectedValueException if the command response was malformed
-     * @throws UnsupportedException if read concern or write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\mapReduceResult
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): mapReduceResult
@@ -398,8 +395,7 @@ class MapReduce implements ExecutableInterface
      *
      * @param stdClass $result
      * @param Server $server
-     * @return callable
-     * @throws UnexpectedValueException if the command response was malformed
+     * @return callable|Closure
      */
     private function createGetIteratorCallable(stdClass $result, Server $server): callable|Closure
     {

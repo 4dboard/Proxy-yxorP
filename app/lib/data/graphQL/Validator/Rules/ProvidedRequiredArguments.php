@@ -23,9 +23,6 @@ class ProvidedRequiredArguments extends ValidationRule
                     'leave' => static function (FieldNode $fieldNode) use ($context): ?VisitorOperation {
                         $fieldDef = $context->getFieldDef();
 
-                        if (!$fieldDef) {
-                            return Visitor::skipNode();
-                        }
                         $argNodes = $fieldNode->arguments ?? [];
 
                         $argNodeMap = [];

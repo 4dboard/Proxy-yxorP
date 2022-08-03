@@ -21,9 +21,6 @@ class FragmentsOnCompositeTypes extends ValidationRule
     {
         return [
             NodeKind::INLINE_FRAGMENT => static function (InlineFragmentNode $node) use ($context): void {
-                if (!$node->typeCondition) {
-                    return;
-                }
 
                 $type = TypeInfo::typeFromAST($context->getSchema(), $node->typeCondition);
                 if (!$type || Type::isCompositeType($type)) {

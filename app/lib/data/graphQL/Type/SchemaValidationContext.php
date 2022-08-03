@@ -281,6 +281,8 @@ class SchemaValidationContext
 
     /**
      * @param Directive|EnumType|InterfaceType|ObjectType|Schema|UnionType $obj
+     * @param callable $getter
+     * @return NodeList
      */
     private function getAllSubNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType $obj, callable $getter): NodeList
     {
@@ -304,7 +306,7 @@ class SchemaValidationContext
     /**
      * @param Directive|EnumType|InputObjectType|InterfaceType|ObjectType|Schema|UnionType $obj
      *
-     * @return ObjectTypeDefinitionNode[]|ObjectTypeExtensionNode[]|InterfaceTypeDefinitionNode[]|InterfaceTypeExtensionNode[]
+     * @return array
      */
     #[Pure] private function getAllNodes(Directive|InterfaceType|Schema|EnumType|UnionType|ObjectType|InputObjectType $obj): array
     {
@@ -338,6 +340,7 @@ class SchemaValidationContext
 
     /**
      * @param NodeList<DirectiveNode> $directives
+     * @param string $location
      */
     private function validateDirectivesAtLocation(NodeList $directives, string $location)
     {
@@ -480,6 +483,7 @@ class SchemaValidationContext
 
     /**
      * @param InterfaceType|ObjectType $type
+     * @throws Exception
      */
     private function validateFields(InterfaceType|ObjectType $type)
     {
@@ -614,6 +618,7 @@ class SchemaValidationContext
      * @param string $fieldName
      *
      * @return FieldDefinitionNode|null
+     * @throws Exception
      */
     private function getFieldNode(InterfaceType|ObjectType $type, string $fieldName): ?FieldDefinitionNode
     {
@@ -633,7 +638,7 @@ class SchemaValidationContext
     {
         $argNodes = [];
         $fieldNode = $this->getFieldNode($type, $fieldName);
-        if ($fieldNode && $fieldNode->arguments) {
+        if ($fieldNode) {
             foreach ($fieldNode->arguments as $node) {
                 if ($node->name->value !== $argName) {
                     continue;

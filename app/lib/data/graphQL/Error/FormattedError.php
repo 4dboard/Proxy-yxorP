@@ -63,6 +63,7 @@ class FormattedError
      * Prints a GraphQLError to a string, representing useful location information
      * about the error's position in the source.
      *
+     * @param Error $error
      * @return string
      */
     public static function printError(Error $error): string
@@ -100,6 +101,8 @@ class FormattedError
      * Render a helpful description of the location of the error in the GraphQL
      * Source document.
      *
+     * @param Source $source
+     * @param SourceLocation $location
      * @return string
      */
     private static function highlightSourceAtLocation(Source $source, SourceLocation $location): string
@@ -129,6 +132,8 @@ class FormattedError
     }
 
     /**
+     * @param Source $source
+     * @param SourceLocation $location
      * @return int
      */
     private static function getColumnOffset(Source $source, SourceLocation $location): int
@@ -148,7 +153,7 @@ class FormattedError
 
     /**
      * @param int $len
-     *
+     * @param $str
      * @return string
      */
     #[Pure] private static function lpad(int $len, $str): string
@@ -181,14 +186,14 @@ class FormattedError
      * This method only exposes exception message when exception implements ClientAware interface
      * (or when debug flags are passed).
      *
-     * For a list of available debug flags @param string|null $internalErrorMessage
+     * For a list of available debug flags
+     * @param Throwable $exception
+     * @param int $debug
+     * @param string|null $internalErrorMessage
      *
      * @return array
      *
-     * @throws Throwable
-     *
-     * @see \GraphQL\Error\DebugFlag constants.
-     *
+     * @throws Throwable @see \GraphQL\Error\DebugFlag constants.
      * @api
      */
     public static function createFromException(Throwable $exception, int $debug = DebugFlag::NONE, string $internalErrorMessage = null): array
@@ -239,13 +244,13 @@ class FormattedError
 
     /**
      * Decorates spec-compliant $formattedError with debug entries according to $debug flags
-     * (@param array $formattedError
-     *
+     * (
+     * @param array $formattedError
+     * @param Throwable $e
+     * @param int $debugFlag
      * @return array
      *
-     * @throws Throwable
-     * @see \GraphQL\Error\DebugFlag for available flags)
-     *
+     * @throws Throwable @see \GraphQL\Error\DebugFlag for available flags)
      */
     public static function addDebugEntries(array $formattedError, Throwable $e, int $debugFlag): array
     {
@@ -340,7 +345,7 @@ class FormattedError
     /**
      * @param mixed $var
      *
-     * @return string
+     * @return float|bool|int|string
      */
     public static function printVar(mixed $var): float|bool|int|string
     {
@@ -403,11 +408,11 @@ class FormattedError
     }
 
     /**
+     * @param ErrorException $e
      * @return array
      *
      * @codeCoverageIgnore
      * @deprecated as of v0.10.0, use general purpose method createFromException() instead
-     *
      */
     #[ArrayShape(['message' => "string", 'severity' => "int", 'trace' => "mixed[]"])] public static function createFromPHPError(ErrorException $e): array
     {

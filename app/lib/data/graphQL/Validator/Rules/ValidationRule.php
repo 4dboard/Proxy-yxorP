@@ -17,7 +17,7 @@ abstract class ValidationRule
 
     public function getName(): string
     {
-        return $this->name === '' || $this->name === null ? static::class : $this->name;
+        return $this->name === '' ? static::class : $this->name;
     }
 
     #[ArrayShape([NodeKind::SELECTION_SET => "\Closure"])] public function __invoke(ValidationContext $context): array
@@ -28,9 +28,9 @@ abstract class ValidationRule
     /**
      * Returns structure suitable for GraphQL\Language\Visitor
      *
+     * @param ValidationContext $context
      * @return array
      * @see \GraphQL\Language\Visitor
-     *
      */
     public function getVisitor(ValidationContext $context): array
     {
@@ -40,9 +40,9 @@ abstract class ValidationRule
     /**
      * Returns structure suitable for GraphQL\Language\Visitor
      *
+     * @param SDLValidationContext $context
      * @return array
      * @see \GraphQL\Language\Visitor
-     *
      */
     public function getSDLVisitor(SDLValidationContext $context): array
     {

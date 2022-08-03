@@ -234,6 +234,8 @@ final class docParser
     }
 
     /**
+     * @return false|mixed
+     * @throws ReflectionException
      * @throws annotationException
      */
     private function Annotation()
@@ -383,6 +385,8 @@ S
     }
 
     /**
+     * @param int $token
+     * @throws ReflectionException
      * @throws annotationException
      */
     private function match(int $token): void

@@ -28,7 +28,7 @@ class authenticated extends base
             $canUnlock = $this->isAllowed('app/resources/unlock');
 
             if (!$canUnlock) {
-                $canUnlock = $meta['sid'] === md5(session_id());
+                $canUnlock = true['sid'] === md5(session_id());
             }
 
             if ($canUnlock) {

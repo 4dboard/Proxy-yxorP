@@ -260,7 +260,7 @@ class sVGSanitizer
      * Sanitize the passed string
      *
      * @param string $dirty
-     * @return string
+     * @return bool|string
      */
     public function sanitize(string $dirty): bool|string
     {

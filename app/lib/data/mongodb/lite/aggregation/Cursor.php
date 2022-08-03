@@ -38,6 +38,7 @@ class Cursor implements Iterator
      * Get documents matching criteria
      *
      * @return array
+     * @throws \Exception
      */
     protected function getData(): array
     {

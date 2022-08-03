@@ -67,7 +67,9 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @param OperationDefinitionNode $operation
+     * @return array|null List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @throws Exception
      */
     public function getRecursiveVariableUsages(OperationDefinitionNode $operation): ?array
     {
@@ -90,7 +92,7 @@ class ValidationContext extends ASTValidationContext
 
     /**
      * @param HasSelectionSetInterface $node
-     * @return array[] List of ['node' => VariableNode, 'type' => ?InputObjectType]
+     * @return array|null List of ['node' => VariableNode, 'type' => ?InputObjectType]
      * @throws Exception
      */
     private function getVariableUsages(HasSelectionSetInterface $node): ?array
@@ -129,7 +131,8 @@ class ValidationContext extends ASTValidationContext
     }
 
     /**
-     * @return FragmentDefinitionNode[]
+     * @param OperationDefinitionNode $operation
+     * @return array|null
      */
     public function getRecursivelyReferencedFragments(OperationDefinitionNode $operation): ?array
     {
@@ -184,7 +187,7 @@ class ValidationContext extends ASTValidationContext
                     if ($selection instanceof FragmentSpreadNode) {
                         $spreads[] = $selection;
                     } else {
-                        assert($selection instanceof FieldNode || $selection instanceof InlineFragmentNode);
+                        assert($selection instanceof InlineFragmentNode);
                         $selectionSet = $selection->selectionSet;
                         if ($selectionSet !== null) {
                             $setsToVisit[] = $selectionSet;

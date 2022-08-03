@@ -346,7 +346,7 @@ class simpleImage
 
     public function getExif()
     {
-        return $this->exif ?? null;
+        return null;
     }
 
     public function flip($direction): static

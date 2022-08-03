@@ -34,6 +34,8 @@ class CoroutineContext
     public ?array $nullFence;
 
     /**
+     * @param CoroutineContextShared $shared
+     * @param ObjectType $type
      * @param mixed $value
      * @param object $result
      * @param string[] $path

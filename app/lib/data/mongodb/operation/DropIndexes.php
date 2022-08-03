@@ -135,7 +135,7 @@ class DropIndexes implements ExecutableInterface
     /**
      * Create the dropIndexes command.
      *
-     * @return Command
+     * @return \yxorP\app\lib\data\mongoDB\Operation\command
      */
     private function createCommand(): command
     {

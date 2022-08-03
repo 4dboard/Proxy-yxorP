@@ -83,9 +83,6 @@ class Flow extends AbstractAnnotation
     #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        if (is_array($this->scopes) && empty($this->scopes)) {
-            $this->scopes = new stdClass();
-        }
 
         return parent::jsonSerialize();
     }

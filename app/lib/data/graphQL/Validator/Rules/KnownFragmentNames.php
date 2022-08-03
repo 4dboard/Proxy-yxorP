@@ -33,6 +33,7 @@ class KnownFragmentNames extends ValidationRule
 
     /**
      * @param string $fragName
+     * @return string
      */
     public static function unknownFragmentMessage(string $fragName): string
     {

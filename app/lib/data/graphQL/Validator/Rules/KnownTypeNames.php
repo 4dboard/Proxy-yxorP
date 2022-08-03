@@ -60,6 +60,7 @@ class KnownTypeNames extends ValidationRule
     /**
      * @param string $type
      * @param string[] $suggestedTypes
+     * @return string
      */
     public static function unknownTypeMessage(string $type, array $suggestedTypes): string
     {

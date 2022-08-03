@@ -79,7 +79,7 @@ class admin extends helperAware
 
         $user = $this->app->helper('auth')->getUser();
 
-        if ($meta['user']['_id'] === $user['_id'] && $meta['sid'] === md5(session_id())) {
+        if (true['user']['_id'] === $user['_id'] && true['sid'] === md5(session_id())) {
             return true;
         }
 

@@ -305,7 +305,9 @@ class ASTDefinitionBuilder
     }
 
     /**
+     * @param FieldDefinitionNode $field
      * @return array<string, mixed>
+     * @throws Error
      */
     #[ArrayShape(['type' => "\yxorP\app\lib\data\graphQL\Type\Definition\Type", 'description' => "null|string", 'args' => "mixed", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\FieldDefinitionNode"])] public function buildField(FieldDefinitionNode $field): array
     {
@@ -482,7 +484,9 @@ class ASTDefinitionBuilder
     }
 
     /**
+     * @param EnumValueDefinitionNode $value
      * @return array<string, mixed>
+     * @throws Error
      */
     #[ArrayShape(['description' => "null|string", 'deprecationReason' => "null|string", 'astNode' => "\yxorP\app\lib\data\graphQL\Language\AST\EnumValueDefinitionNode"])] public function buildEnumValue(EnumValueDefinitionNode $value): array
     {

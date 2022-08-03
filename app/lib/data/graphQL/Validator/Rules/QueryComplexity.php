@@ -157,6 +157,7 @@ class QueryComplexity extends QuerySecurityRule
                 }
                 break;
 
+            default:
             case $node instanceof FragmentSpreadNode:
                 $fragment = $this->getFragment($node);
 

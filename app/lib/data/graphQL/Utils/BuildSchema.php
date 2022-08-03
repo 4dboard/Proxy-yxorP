@@ -92,12 +92,13 @@ class BuildSchema
      *        Provide true to use preceding comments as the description.
      *        This option is provided to ease adoption and will be removed in v16.
      *
+     * @param DocumentNode $ast
+     * @param callable|null $typeConfigDecorator
      * @param array<string, bool> $options
      *
      * @return Schema
      *
      * @throws Error
-     *
      * @api
      */
     public static function buildAST(DocumentNode $ast, ?callable $typeConfigDecorator = null, array $options = []): Schema

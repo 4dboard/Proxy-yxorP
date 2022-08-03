@@ -91,10 +91,13 @@ class DocumentValidator
     /**
      * Primary method for query validation. See class description for details.
      *
+     * @param Schema $schema
+     * @param DocumentNode $ast
      * @param ValidationRule[]|null $rules
-     *
+     * @param TypeInfo|null $typeInfo
      * @return Error[]
      *
+     * @throws Exception
      * @api
      */
     public static function validate(
@@ -172,7 +175,7 @@ class DocumentValidator
     }
 
     /**
-     * @return QuerySecurityRule[]
+     * @return array|null
      */
     public static function securityRules(): ?array
     {
@@ -223,7 +226,7 @@ class DocumentValidator
      *
      * @param string $name
      *
-     * @return ValidationRule
+     * @return ValidationRule|null
      *
      * @api
      */

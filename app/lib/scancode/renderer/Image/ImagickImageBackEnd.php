@@ -160,7 +160,10 @@ final class ImagickImageBackEnd implements ImageBackEndInterface
     }
 
     /**
+     * @param \yxorP\app\lib\scancode\Renderer\Image\Path $path
+     * @param \yxorP\app\lib\scancode\Renderer\Image\ColorInterface $color
      * @throws ImagickDrawException
+     * @throws ImagickPixelException
      */
     public function drawPathWithColor(Path $path, ColorInterface|ColorInterface $color): void
     {

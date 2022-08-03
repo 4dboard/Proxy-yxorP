@@ -51,6 +51,7 @@ When expected as an input type, any string (such as `"4"`) or integer
     /**
      * @param mixed $value
      *
+     * @return string
      * @throws Error
      */
     public function parseValue(mixed $value): string
@@ -62,11 +63,12 @@ When expected as an input type, any string (such as `"4"`) or integer
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return string
      *
-     * @throws Exception
+     * @throws Error
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null): string
     {

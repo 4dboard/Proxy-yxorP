@@ -71,6 +71,7 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
     /**
      * @param mixed $value
      *
+     * @return int
      * @throws Error
      */
     public function parseValue(mixed $value): int
@@ -95,11 +96,12 @@ values. Int can represent values between -(2^31) and 2^31 - 1. ';
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return int
      *
-     * @throws Exception
+     * @throws Error
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null): int
     {

@@ -75,13 +75,6 @@ abstract class EnumType extends Type implements InputType, OutputType, LeafType,
 
     private function getNameLookup(): ArrayObject
     {
-        if (!$this->nameLookup) {
-            $lookup = new ArrayObject();
-            foreach ($this->getValues() as $value) {
-                $lookup[$value->name] = $value;
-            }
-            $this->nameLookup = $lookup;
-        }
 
         return $this->nameLookup;
     }
@@ -175,11 +168,12 @@ abstract class EnumType extends Type implements InputType, OutputType, LeafType,
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return null
      *
-     * @throws Exception
+     * @throws Error
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
@@ -198,7 +192,7 @@ abstract class EnumType extends Type implements InputType, OutputType, LeafType,
     }
 
     /**
-     * @throws InvariantViolation
+     * @throws Error
      */
     public function assertValid()
     {

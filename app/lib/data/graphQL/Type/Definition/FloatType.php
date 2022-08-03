@@ -30,6 +30,7 @@ values as specified by
     /**
      * @param mixed $value
      *
+     * @return float
      * @throws Error
      */
     public function serialize(mixed $value): float
@@ -51,6 +52,7 @@ values as specified by
     /**
      * @param mixed $value
      *
+     * @return float
      * @throws Error
      */
     public function parseValue(mixed $value): float
@@ -70,11 +72,12 @@ values as specified by
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return float
      *
-     * @throws Exception
+     * @throws Error
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null): float
     {

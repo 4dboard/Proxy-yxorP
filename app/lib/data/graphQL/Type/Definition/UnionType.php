@@ -110,7 +110,7 @@ abstract class UnionType extends Type implements AbstractType, OutputType, Compo
      *
      * @param object $objectValue
      * @param array $context
-     *
+     * @param ResolveInfo $info
      * @return callable|null
      */
     public function resolveType(object $objectValue, array $context, ResolveInfo $info): ?callable
@@ -125,7 +125,7 @@ abstract class UnionType extends Type implements AbstractType, OutputType, Compo
     }
 
     /**
-     * @throws InvariantViolation
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public function assertValid(): void
     {

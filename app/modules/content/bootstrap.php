@@ -378,9 +378,7 @@ $this->module('content')->extend([
                 continue;
             }
 
-            if (is_array($v)) {
-                $array[$k] = $this->populate($v, $maxlevel, ($level + 1), $process);
-            }
+            $array[$k] = $this->populate($v, $maxlevel, ($level + 1), $process);
 
             if ($level > 0 && isset($v['_id'], $v['_model'])) {
 
@@ -421,7 +419,7 @@ $this->module('content')->extend([
 
             foreach ($items as $k => &$v) {
                 if (!is_array($v)) continue;
-                if (is_array($v)) $items[$k] = $update($v);
+                $items[$k] = $update($v);
                 if (isset($v['_id']) && $v['_id'] === $refId) $items[$k] = $value;
             }
             return $items;

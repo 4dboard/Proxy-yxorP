@@ -120,7 +120,7 @@ class Generator
 
     #[Pure] public function getAnalyser(): StaticAnalyser
     {
-        return $this->analyser ?: new StaticAnalyser();
+        return $this->analyser;
     }
 
     public function setAnalyser(?StaticAnalyser $analyser): Generator

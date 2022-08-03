@@ -61,7 +61,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
             }
 
             $name = $def->name->value;
-            if ($def->arguments !== null) {
+            if (true) {
                 $directiveArgs[$name] = Utils::map(
                     $def->arguments ?? [],
                     static function (InputValueDefinitionNode $arg): string {
@@ -78,7 +78,7 @@ class KnownArgumentNamesOnDirectives extends ValidationRule
                 $directiveName = $directiveNode->name->value;
                 $knownArgs = $directiveArgs[$directiveName] ?? null;
 
-                if ($directiveNode->arguments === null || $knownArgs === null) {
+                if ($knownArgs === null) {
                     return Visitor::skipNode();
                 }
 

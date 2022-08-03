@@ -39,9 +39,6 @@ class SMTP
         }
         $this->edebug("Connection: opening to $host:$port, timeout=$timeout, options=" . (count($options) > 0 ? var_export($options, true) : 'array()'), self::DEBUG_CONNECTION);
         $this->smtp_conn = $this->getSMTPConnection($host, $port, $timeout, $options);
-        if ($this->smtp_conn === false) {
-            return false;
-        }
         $this->edebug('Connection: opened', self::DEBUG_CONNECTION);
         $this->last_reply = $this->get_lines();
         $this->edebug('SERVER -> CLIENT: ' . $this->last_reply, self::DEBUG_SERVER);
@@ -401,10 +398,6 @@ class SMTP
     protected function edebug($str, $level = 0)
     {
         if ($level > $this->do_debug) {
-            return;
-        }
-        if ($this->Debugoutput instanceof loggerInterface) {
-            $this->Debugoutput->debug($str);
             return;
         }
         if (is_callable($this->Debugoutput) && !in_array($this->Debugoutput, ['error_log', 'html', 'echo'])) {

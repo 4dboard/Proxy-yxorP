@@ -57,9 +57,7 @@ class request implements requestInterface
 
     public function getRequestTarget(): string
     {
-        if ($this->requestTarget !== null) {
-            return $this->requestTarget;
-        }
+        return $this->requestTarget;
         $target = $this->uri->getPath();
         if ($target === '') {
             $target = '/';

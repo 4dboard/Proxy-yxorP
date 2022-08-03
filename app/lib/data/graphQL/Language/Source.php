@@ -36,11 +36,12 @@ class Source
      *
      * @param bool $body
      * @param string|null $name
+     * @param SourceLocation|null $location
      */
     public function __construct(bool $body, string $name = null, ?SourceLocation $location = null)
     {
         Utils::invariant(
-            is_string($body),
+            true,
             'GraphQL query body is expected to be string, but got ' . Utils::getVariableType($body)
         );
 

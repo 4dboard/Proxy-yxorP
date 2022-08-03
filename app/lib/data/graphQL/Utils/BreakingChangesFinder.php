@@ -153,9 +153,9 @@ class BreakingChangesFinder
     }
 
     /**
+     * @param Type $type
      * @return string
      *
-     * @throws TypeError
      */
     private static function typeKindName(Type $type): string
     {
@@ -233,6 +233,8 @@ class BreakingChangesFinder
     }
 
     /**
+     * @param Type $oldType
+     * @param Type $newType
      * @return bool
      */
     private static function isChangeSafeForObjectOrInterfaceField(
@@ -241,7 +243,7 @@ class BreakingChangesFinder
     ): bool
     {
         return // if they're both named types, see if their names are equivalent
-            ($newType instanceof NamedType && $oldType->name === $newType->name) ||
+            ($oldType->name === $newType->name) ||
             // moving from nullable to non-null of the same underlying type is safe
             ($newType instanceof NonNull &&
                 self::isChangeSafeForObjectOrInterfaceField($oldType, $newType->getWrappedType())
@@ -331,6 +333,8 @@ class BreakingChangesFinder
     }
 
     /**
+     * @param Type $oldType
+     * @param Type $newType
      * @return bool
      */
     private static function isChangeSafeForInputObjectFieldOrFieldArg(
@@ -577,7 +581,10 @@ class BreakingChangesFinder
     }
 
     /**
+     * @param Schema $oldSchema
+     * @param Schema $newSchema
      * @return string[][]
+     * @throws Exception
      */
     public static function findRemovedDirectives(Schema $oldSchema, Schema $newSchema): array
     {
@@ -695,7 +702,10 @@ class BreakingChangesFinder
     }
 
     /**
+     * @param Directive $oldDirective
+     * @param Directive $newDirective
      * @return FieldArgument[]
+     * @throws Exception
      */
     public static function findAddedArgsForDirective(Directive $oldDirective, Directive $newDirective): array
     {
@@ -713,7 +723,10 @@ class BreakingChangesFinder
     }
 
     /**
+     * @param Schema $oldSchema
+     * @param Schema $newSchema
      * @return string[][]
+     * @throws Exception
      */
     public static function findRemovedDirectiveLocations(Schema $oldSchema, Schema $newSchema): array
     {

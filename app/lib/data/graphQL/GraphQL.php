@@ -70,12 +70,17 @@ class GraphQL
      *    Empty array would allow to skip query validation (may be convenient for persisted
      *    queries which are validated before persisting and assumed valid during execution)
      *
+     * @param SchemaType $schema
      * @param string|DocumentNode $source
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
      * @param array|null $variableValues
+     * @param string|null $operationName
+     * @param callable|null $fieldResolver
      * @param ValidationRule[] $validationRules
      *
+     * @return ExecutionResult
+     * @throws \Exception
      * @api
      */
     public static function executeQuery(
@@ -110,12 +115,18 @@ class GraphQL
      * Same as executeQuery(), but requires PromiseAdapter and always returns a Promise.
      * Useful for Async PHP platforms.
      *
+     * @param PromiseAdapterInterface $promiseAdapter
+     * @param SchemaType $schema
      * @param string|DocumentNode $source
      * @param mixed|null $rootValue
      * @param mixed|null $context
      * @param array|null $variableValues
+     * @param string|null $operationName
+     * @param callable|null $fieldResolver
      * @param ValidationRule[]|null $validationRules
      *
+     * @return Promise
+     * @throws \Exception
      * @api
      */
     public static function promiseToExecute(
@@ -178,16 +189,16 @@ class GraphQL
     }
 
     /**
+     * @param SchemaType $schema
      * @param string|DocumentNode $source
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
      * @param array|null $variableValues
-     *
+     * @param string|null $operationName
      * @return Promise|array
      *
      * @codeCoverageIgnore
      * @deprecated Use executeQuery()->toArray() instead
-     *
      */
     public static function execute(
         SchemaType          $schema,
@@ -226,16 +237,16 @@ class GraphQL
     }
 
     /**
+     * @param SchemaType $schema
      * @param string|DocumentNode $source
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
      * @param array|null $variableValues
-     *
+     * @param string|null $operationName
      * @return ExecutionResult|Promise
      *
      * @codeCoverageIgnore
      * @deprecated renamed to executeQuery()
-     *
      */
     public static function executeAndReturnResult(
         SchemaType          $schema,

@@ -109,6 +109,7 @@ class Lexer
 
     /**
      * @return Token
+     * @throws SyntaxError
      */
     public function advance(): Token
     {
@@ -133,6 +134,7 @@ class Lexer
     }
 
     /**
+     * @param Token $prev
      * @return Token
      *
      * @throws SyntaxError
@@ -391,7 +393,7 @@ class Lexer
      *
      * @param int $line
      * @param int $col
-     *
+     * @param Token $prev
      * @return Token
      */
     private function readComment(int $line, int $col, Token $prev): Token
@@ -426,7 +428,7 @@ class Lexer
      *
      * @param int $line
      * @param int $col
-     *
+     * @param Token $prev
      * @return Token
      */
     private function readName(int $line, int $col, Token $prev): Token
@@ -465,7 +467,7 @@ class Lexer
      *
      * @param int $line
      * @param int $col
-     *
+     * @param Token $prev
      * @return Token
      *
      * @throws SyntaxError
@@ -655,7 +657,7 @@ class Lexer
     /**
      * @param int $line
      * @param int $col
-     *
+     * @param Token $prev
      * @return Token
      *
      * @throws SyntaxError

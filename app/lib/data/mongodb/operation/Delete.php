@@ -134,9 +134,7 @@ class Delete implements ExecutableInterface, ExplainableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return deleteResult
-     * @throws UnsupportedException if hint or write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\deleteResult
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): deleteResult

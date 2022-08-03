@@ -209,6 +209,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     /**
      * @param object|null $value
      * @param Error[] $errors
+     * @return ExecutionResult
      */
     private function finishExecute(?object $value, array $errors): ExecutionResult
     {
@@ -348,7 +349,7 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
 
         if ($returnValue !== self::$undefined) {
             $ctx->result->{$ctx->shared->resultName} = $returnValue;
-        } elseif ($ctx->resolveInfo !== null && $ctx->resolveInfo->returnType instanceof NonNull) { // !!! $ctx->resolveInfo might not have been initialized yet
+        } elseif ($ctx->resolveInfo->returnType instanceof NonNull) { // !!! $ctx->resolveInfo might not have been initialized yet
             $result =& $this->rootResult;
             foreach ($ctx->nullFence ?? [] as $key) {
                 if (is_string($key)) {
@@ -362,9 +363,12 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
+     * @param CoroutineContext $ctx
+     * @param Type $type
      * @param mixed $value
      * @param string[] $path
      * @param mixed $returnValue
+     * @return bool
      */
     private function completeValueFast(CoroutineContext $ctx, Type $type, mixed $value, array $path, mixed &$returnValue): bool
     {
@@ -463,6 +467,8 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     }
 
     /**
+     * @param CoroutineContext $ctx
+     * @param Type $type
      * @param mixed $value
      * @param string[] $path
      * @param string[]|null $nullFence
@@ -548,7 +554,6 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
                 $returnValue[$index] = $itemReturnValue;
             }
 
-            goto CHECKED_RETURN;
         } else {
             if ($type !== $this->schema->getType($type->name)) {
                 $hint = '';
@@ -767,8 +772,8 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
 
                 $returnValue = null;
             }
-            goto CHECKED_RETURN;
         }
+        goto CHECKED_RETURN;
 
         CHECKED_RETURN:
         if ($nonNull && $returnValue === null) {
@@ -958,8 +963,8 @@ class CoroutineInterfaceExecutor implements RuntimeInterface, ExecutorImplementa
     /**
      * @param ValueNodeInterface $valueNode
      * @param InputType $type
-     * @return array|array[]|null[]|stdClass|stdClass[]|null
-     * @throws Exception
+     * @return array|stdClass|null
+     * @throws Error
      * @internal
      */
     public function evaluate(ValueNodeInterface $valueNode, InputType $type): array|stdClass|null

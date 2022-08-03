@@ -37,6 +37,9 @@ interface PromiseAdapterInterface
      * Accepts our Promise wrapper, extracts adopted promise out of it and executes actual `then` logic described
      * in Promises/A+ specs. Then returns new wrapped instance of GraphQL\Executor\Promise\Promise.
      *
+     * @param Promise $promise
+     * @param callable|null $onFulfilled
+     * @param callable|null $onRejected
      * @return Promise
      *
      * @api
@@ -49,6 +52,7 @@ interface PromiseAdapterInterface
      * Expected resolver signature:
      *     function(callable $resolve, callable $reject)
      *
+     * @param callable $resolver
      * @return Promise
      *
      * @api

@@ -21,6 +21,7 @@ class Promise
 
     /**
      * @param mixed $adoptedPromise
+     * @param PromiseAdapterInterface $adapter
      */
     public function __construct(mixed $adoptedPromise, PromiseAdapterInterface $adapter)
     {
@@ -31,6 +32,8 @@ class Promise
     }
 
     /**
+     * @param callable|null $onFulfilled
+     * @param callable|null $onRejected
      * @return Promise
      */
     public function then(?callable $onFulfilled = null, ?callable $onRejected = null): Promise

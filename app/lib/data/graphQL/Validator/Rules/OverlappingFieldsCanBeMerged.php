@@ -84,9 +84,11 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * via spreading in fragments. Called when visiting each SelectionSet in the
      * GraphQL Document.
      *
+     * @param ValidationContext $context
      * @param CompositeType $parentType
-     *
+     * @param SelectionSetNode $selectionSet
      * @return array
+     * @throws \Exception
      */
     private function findConflictsWithinSelectionSet(
         ValidationContext $context,
@@ -148,8 +150,9 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * name to field ASTs and definitions) as well as a list of fragment names
      * referenced via fragment spreads.
      *
+     * @param ValidationContext $context
      * @param CompositeType $parentType
-     *
+     * @param SelectionSetNode $selectionSet
      * @return array|SplObjectStorage
      */
     private function getFieldsAndFragmentNames(
@@ -236,7 +239,9 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Given a reference to a fragment, return the represented collection of fields
      * as well as a list of nested fragment names referenced via fragment spreads.
      *
+     * @param ValidationContext $context
      * @param CompositeType $parentType
+     * @param SelectionSetNode $selectionSet
      * @param array[][] $astAndDefs
      * @param bool[] $fragmentNames
      */
@@ -269,20 +274,6 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
                     break;
                 case $selection instanceof FragmentSpreadNode:
                     $fragmentNames[$selection->name->value] = true;
-                    break;
-                case $selection instanceof InlineFragmentNode:
-                    $typeCondition = $selection->typeCondition;
-                    $inlineFragmentType = $typeCondition
-                        ? TypeInfo::typeFromAST($context->getSchema(), $typeCondition)
-                        : $parentType;
-
-                    $this->internalCollectFieldsAndFragmentNames(
-                        $context,
-                        $inlineFragmentType,
-                        $selection->selectionSet,
-                        $astAndDefs,
-                        $fragmentNames
-                    );
                     break;
             }
         }
@@ -336,12 +327,14 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Determines if there is a conflict between two particular fields, including
      * comparing their sub-fields.
      *
+     * @param ValidationContext $context
      * @param bool $parentFieldsAreMutuallyExclusive
      * @param string $responseName
      * @param array $field1
      * @param array $field2
      *
      * @return array|null
+     * @throws \Exception
      */
     private function findConflict(
         ValidationContext $context,
@@ -461,7 +454,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     }
 
     /**
+     * @param Node $value1
+     * @param Node $value2
      * @return bool
+     * @throws \Exception
      */
     private function sameValue(Node $value1, Node $value2): bool
     {
@@ -499,11 +495,14 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * via spreading in fragments. Called when determining if conflicts exist
      * between the sub-fields of two overlapping fields.
      *
+     * @param ValidationContext $context
      * @param bool $areMutuallyExclusive
      * @param CompositeType $parentType1
+     * @param SelectionSetNode $selectionSet1
      * @param CompositeType $parentType2
-     *
+     * @param SelectionSetNode $selectionSet2
      * @return array[]
+     * @throws \Exception
      */
     private function findConflictsBetweenSubSelectionSets(
         ValidationContext $context,
@@ -595,6 +594,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * provided collection of fields. This is true because this validator traverses
      * each individual selection set.
      *
+     * @param ValidationContext $context
      * @param array[] $conflicts
      * @param bool $parentFieldsAreMutuallyExclusive
      * @param array $fieldMap1
@@ -644,11 +644,13 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Collect all conflicts found between a set of fields and a fragment reference
      * including via spreading in any nested fragments.
      *
+     * @param ValidationContext $context
      * @param array[] $conflicts
      * @param bool[] $comparedFragments
      * @param bool $areMutuallyExclusive
      * @param array[] $fieldMap
      * @param string $fragmentName
+     * @throws \Exception
      */
     private function collectConflictsBetweenFieldsAndFragment(
         ValidationContext $context,
@@ -707,7 +709,10 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Given a reference to a fragment, return the represented collection of fields
      * as well as a list of nested fragment names referenced via fragment spreads.
      *
+     * @param ValidationContext $context
+     * @param FragmentDefinitionNode $fragment
      * @return array|SplObjectStorage
+     * @throws \Exception
      */
     private function getReferencedFieldsAndFragmentNames(
         ValidationContext      $context,
@@ -732,10 +737,12 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      * Collect all conflicts found between two fragments, including via spreading in
      * any nested fragments.
      *
+     * @param ValidationContext $context
      * @param array[] $conflicts
      * @param bool $areMutuallyExclusive
      * @param string $fragmentName1
      * @param string $fragmentName2
+     * @throws \Exception
      */
     private function collectConflictsBetweenFragments(
         ValidationContext $context,
@@ -823,7 +830,8 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
      *
      * @param array[] $conflicts
      * @param string $responseName
-     *
+     * @param FieldNode $ast1
+     * @param FieldNode $ast2
      * @return array|null
      */
     private function subfieldConflicts(
@@ -867,6 +875,7 @@ class OverlappingFieldsCanBeMerged extends ValidationRule
     /**
      * @param string $responseName
      * @param string $reason
+     * @return string
      */
     public static function fieldsConflictMessage(string $responseName, string $reason): string
     {

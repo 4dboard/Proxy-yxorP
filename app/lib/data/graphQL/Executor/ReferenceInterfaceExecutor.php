@@ -73,9 +73,16 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     }
 
     /**
+     * @param PromiseAdapterInterface $promiseAdapter
+     * @param Schema $schema
+     * @param DocumentNode $documentNode
      * @param mixed $rootValue
      * @param mixed $contextValue
      * @param Traversable|array $variableValues
+     * @param string|null $operationName
+     * @param callable $fieldResolver
+     * @return ExecutorImplementationInterface
+     * @throws Error
      */
     public static function create(
         PromiseAdapterInterface $promiseAdapter,
@@ -123,11 +130,16 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Constructs an ExecutionContext object from the arguments passed to
      * execute, which we will pass throughout the other execution methods.
      *
+     * @param Schema $schema
+     * @param DocumentNode $documentNode
      * @param mixed $rootValue
      * @param mixed $contextValue
      * @param Traversable|array $rawVariableValues
-     *
+     * @param string|null $operationName
+     * @param callable|null $fieldResolver
+     * @param PromiseAdapterInterface|null $promiseAdapter
      * @return ExecutionContext|array<Error>
+     * @throws Error
      */
     protected static function buildExecutionContext(
         Schema                   $schema,
@@ -424,9 +436,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     protected function doesFragmentConditionMatch(Node $fragment, ObjectType $type): bool
     {
         $typeConditionNode = $fragment->typeCondition;
-        if ($typeConditionNode === null) {
-            return true;
-        }
         $conditionalType = TypeInfo::typeFromAST($this->exeContext->schema, $typeConditionNode);
         if ($conditionalType === $type) {
             return true;
@@ -442,9 +451,10 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Implements the "Evaluating selection sets" section of the spec
      * for "write" mode.
      *
+     * @param ObjectType $parentType
      * @param mixed $rootValue
      * @param array<string|int> $path
-     *
+     * @param ArrayObject $fields
      * @return array|Promise|stdClass
      */
     protected function executeFieldsSerially(ObjectType $parentType, mixed $rootValue, array $path, ArrayObject $fields): array|Promise|stdClass
@@ -491,9 +501,10 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * return a Promise.
      *
      * @param array $values
+     * @param callable $callback
      * @param Promise|mixed|null $initialValue
      *
-     * @return Promise|mixed|null
+     * @return mixed
      */
     protected function promiseReduce(array $values, callable $callback, mixed $initialValue): mixed
     {
@@ -518,6 +529,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * otherwise returns null.
      *
      * @param mixed $value
+     * @return Promise|null
      */
     protected function getPromise(mixed $value): ?Promise
     {
@@ -526,13 +538,6 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
         }
         if ($this->exeContext->promiseAdapter->isThenable($value)) {
             $promise = $this->exeContext->promiseAdapter->convertThenable($value);
-            if (!$promise instanceof Promise) {
-                throw new InvariantViolation(sprintf(
-                    '%s::convertThenable is expected to return instance of GraphQL\Executor\Promise\Promise, got: %s',
-                    get_class($this->exeContext->promiseAdapter),
-                    Utils::printSafe($promise)
-                ));
-            }
 
             return $promise;
         }
@@ -547,10 +552,13 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * by calling its resolve function, then calls completeValue to complete promises,
      * serialize scalars, or execute the sub-selection-set for objects.
      *
+     * @param ObjectType $parentType
      * @param mixed $rootValue
+     * @param ArrayObject $fieldNodes
      * @param array<string|int> $path
      *
      * @return stdClass|array|\Promise|object|null
+     * @throws Error
      */
     protected function resolveField(ObjectType $parentType, mixed $rootValue, ArrayObject $fieldNodes, array $path): stdClass|array|\Promise|null|object
     {
@@ -638,9 +646,12 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Isolates the "ReturnOrAbrupt" behavior to not de-opt the `resolveField` function.
      * Returns the result of resolveFn or the abrupt-return Error object.
      *
+     * @param FieldDefinition $fieldDef
+     * @param FieldNode $fieldNode
+     * @param callable $resolveFn
      * @param mixed $rootValue
-     *
-     * @return Throwable|Promise|mixed
+     * @param ResolveInfo $info
+     * @return mixed
      */
     protected function resolveFieldValueOrError(
         FieldDefinition $fieldDef,
@@ -735,10 +746,13 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Otherwise, the field type expects a sub-selection set, and will complete the
      * value by evaluating all sub-selections.
      *
+     * @param Type $returnType
+     * @param ArrayObject $fieldNodes
+     * @param ResolveInfo $info
      * @param array<string|int> $path
      * @param mixed $result
      *
-     * @return array|mixed|Promise|null
+     * @return mixed
      *
      * @throws Error
      * @throws Throwable
@@ -815,18 +829,21 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     /**
      * Complete a list value by completing each item in the list with the inner type.
      *
+     * @param ListOfType $returnType
+     * @param ArrayObject $fieldNodes
+     * @param ResolveInfo $info
      * @param array<string|int> $path
      * @param Traversable|array $results
      *
      * @return array|Promise
      *
-     * @throws Exception
+     * @throws Error
      */
     protected function completeListValue(ListOfType $returnType, ArrayObject $fieldNodes, ResolveInfo $info, array $path, Traversable|array $results): array|Promise
     {
         $itemType = $returnType->getWrappedType();
         Utils::invariant(
-            is_array($results) || $results instanceof Traversable,
+            true,
             'User Error: expected iterable, but did not find one for field ' . $info->parentType . '.' . $info->fieldName . '.'
         );
         $containsPromise = false;
@@ -851,11 +868,11 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     /**
      * Complete a Scalar or Enum by serializing to a valid value, throwing if serialization is not possible.
      *
+     * @param LeafType $returnType
      * @param mixed $result
      *
      * @return mixed
      *
-     * @throws Exception
      */
     protected function completeLeafValue(LeafType $returnType, mixed $result): mixed
     {
@@ -874,6 +891,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Complete a value of an abstract type by determining the runtime object type
      * of that value, then complete the value for that type.
      *
+     * @param AbstractType $returnType
+     * @param ArrayObject $fieldNodes
+     * @param ResolveInfo $info
      * @param array<string|int> $path
      * @param array $result
      *
@@ -1011,6 +1031,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     /**
      * Complete an Object value by executing all sub-selections.
      *
+     * @param ObjectType $returnType
+     * @param ArrayObject $fieldNodes
+     * @param ResolveInfo $info
      * @param array<string|int> $path
      * @param mixed $result
      *
@@ -1065,8 +1088,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
     }
 
     /**
+     * @param ObjectType $returnType
      * @param array $result
-     *
+     * @param ArrayObject $fieldNodes
      * @return Error
      */
     protected function invalidReturnTypeError(
@@ -1137,10 +1161,12 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      * Implements the "Evaluating selection sets" section of the spec
      * for "read" mode.
      *
+     * @param ObjectType $parentType
      * @param mixed $rootValue
      * @param array<string|int> $path
-     *
+     * @param ArrayObject $fields
      * @return Promise|stdClass|array
+     * @throws Error
      */
     protected function executeFields(ObjectType $parentType, mixed $rootValue, array $path, ArrayObject $fields): array|Promise|stdClass
     {
@@ -1171,6 +1197,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
 
     /**
      * @param mixed $value
+     * @return bool
      */
     protected function isPromise(mixed $value): bool
     {
@@ -1184,7 +1211,7 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
      *
      * @param array|mixed $results
      *
-     * @return array|stdClass|mixed
+     * @return mixed
      */
     #[Pure] protected static function fixResultsIfEmptyArray(mixed $results): mixed
     {
@@ -1273,8 +1300,9 @@ class ReferenceInterfaceExecutor implements ExecutorImplementationInterface
 
     /**
      * @param mixed $rawError
+     * @param ArrayObject $fieldNodes
      * @param array<string|int> $path
-     *
+     * @param Type $returnType
      * @throws Error
      */
     protected function handleFieldError(mixed $rawError, ArrayObject $fieldNodes, array $path, Type $returnType): void

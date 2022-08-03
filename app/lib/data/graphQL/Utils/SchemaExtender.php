@@ -167,9 +167,6 @@ class SchemaExtender
         }
 
         foreach ($schemaExtensions as $schemaExtension) {
-            if ($schemaExtension->operationTypes === null) {
-                continue;
-            }
 
             foreach ($schemaExtension->operationTypes as $operationType) {
                 $operation = $operationType->operation;
@@ -476,7 +473,9 @@ class SchemaExtender
     }
 
     /**
+     * @param UnionType $type
      * @return ObjectType[]
+     * @throws Error
      */
     protected static function extendPossibleTypes(UnionType $type): array
     {
@@ -551,6 +550,7 @@ class SchemaExtender
     }
 
     /**
+     * @param NamedType|null $type
      * @return Type|null
      */
     protected static function extendMaybeNamedType(?NamedType $type = null): ?Type
@@ -563,9 +563,11 @@ class SchemaExtender
     }
 
     /**
+     * @param Schema $schema
      * @param DirectiveDefinitionNode[] $directiveDefinitions
      *
      * @return Directive[]
+     * @throws \Exception
      */
     protected static function getMergedDirectives(Schema $schema, array $directiveDefinitions): array
     {

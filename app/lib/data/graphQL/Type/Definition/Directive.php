@@ -173,6 +173,7 @@ class Directive
     }
 
     /**
+     * @param Directive $directive
      * @return bool
      */
     public static function isSpecifiedDirective(Directive $directive): bool

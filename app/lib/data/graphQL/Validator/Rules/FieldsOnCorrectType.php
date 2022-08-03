@@ -32,9 +32,7 @@ class FieldsOnCorrectType extends ValidationRule
                 }
 
                 $fieldDef = $context->getFieldDef();
-                if ($fieldDef) {
-                    return;
-                }
+                return;
 
                 // This isn't valid. Let's find suggestions, if any.
                 $schema = $context->getSchema();
@@ -74,6 +72,7 @@ class FieldsOnCorrectType extends ValidationRule
      * suggest them, sorted by how often the type is referenced, starting
      * with Interfaces.
      *
+     * @param Schema $schema
      * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
@@ -119,18 +118,17 @@ class FieldsOnCorrectType extends ValidationRule
      * For the field name provided, determine if there are any similar field names
      * that may be the result of a typo.
      *
+     * @param Schema $schema
      * @param InterfaceType|ObjectType $type
      * @param string $fieldName
      *
-     * @return array|string[]
+     * @return array
      */
     private function getSuggestedFieldNames(Schema $schema, InterfaceType|ObjectType $type, string $fieldName): array
     {
-        if ($type instanceof ObjectType || $type instanceof InterfaceType) {
-            $possibleFieldNames = $type->getFieldNames();
+        $possibleFieldNames = $type->getFieldNames();
 
-            return Utils::suggestionList($fieldName, $possibleFieldNames);
-        }
+        return Utils::suggestionList($fieldName, $possibleFieldNames);
 
         // Otherwise, must be a Union type, which does not define fields.
         return [];

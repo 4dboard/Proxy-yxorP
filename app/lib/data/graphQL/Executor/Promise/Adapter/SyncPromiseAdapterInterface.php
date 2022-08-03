@@ -141,6 +141,7 @@ class SyncPromiseAdapterInterface implements PromiseAdapterInterface
     /**
      * Synchronously wait when promise completes
      *
+     * @param Promise $promise
      * @return ExecutionResult
      */
     public function wait(Promise $promise): ExecutionResult

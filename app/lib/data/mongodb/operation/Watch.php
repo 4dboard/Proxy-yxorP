@@ -378,6 +378,7 @@ class Watch implements ExecutableInterface, /* @internal */
      *
      * @param Server $server
      * @return Cursor
+     * @throws UnsupportedException
      */
     private function executeAggregate(Server $server)
     {

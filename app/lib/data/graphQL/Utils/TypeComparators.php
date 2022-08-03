@@ -16,6 +16,8 @@ class TypeComparators
     /**
      * Provided two types, return true if the types are equal (invariant).
      *
+     * @param Type $typeA
+     * @param Type $typeB
      * @return bool
      */
     public static function isEqualType(Type $typeA, Type $typeB): bool
@@ -43,6 +45,9 @@ class TypeComparators
      * Provided a type and a super type, return true if the first type is either
      * equal or a subset of the second super type (covariant).
      *
+     * @param Schema $schema
+     * @param Type $maybeSubType
+     * @param Type $superType
      * @return bool
      */
     public static function isTypeSubTypeOf(Schema $schema, Type $maybeSubType, Type $superType): bool
@@ -98,6 +103,9 @@ class TypeComparators
      *
      * This function is commutative.
      *
+     * @param Schema $schema
+     * @param CompositeType $typeA
+     * @param CompositeType $typeB
      * @return bool
      */
     public static function doTypesOverlap(Schema $schema, CompositeType $typeA, CompositeType $typeB): bool

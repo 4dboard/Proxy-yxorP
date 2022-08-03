@@ -38,7 +38,7 @@ class InheritProperties
                 $processed[] = $schema->_context;
 
                 $existing = [];
-                if (is_array($schema->properties) || $schema->properties instanceof Traversable) {
+                if (is_array($schema->properties)) {
                     foreach ($schema->properties as $property) {
                         $existing[] = $property->property;
                     }

@@ -145,7 +145,7 @@ class Parser
      */
     public function __construct(string|\yxorP\app\lib\data\graphQL\Language\Source $source, array $options = [])
     {
-        $sourceObj = $source instanceof Source ? $source : new Source($source);
+        $sourceObj = new Source($source);
         $this->lexer = new Lexer($sourceObj, $options);
     }
 
@@ -219,7 +219,7 @@ class Parser
      * @param string|Source $source
      * @param bool[] $options
      *
-     * @return BooleanValueNode|EnumValueNode|FloatValueNode|IntValueNode|ListValueNode|ObjectValueNode|StringValueNode|VariableNode
+     * @return VariableNode|ListValueNode|StringValueNode|IntValueNode|ValueNodeInterface|FloatValueNode|BooleanValueNode|EnumValueNode|ObjectValueNode
      *
      * @throws SyntaxError
      * @api
@@ -247,7 +247,7 @@ class Parser
      * @param string|Source $source
      * @param bool[] $options
      *
-     * @return ListTypeNode|NamedTypeNode|NonNullTypeNode
+     * @return NonNullTypeNode|ListTypeNode|NamedTypeNode|TypeNodeInterface
      *
      * @throws SyntaxError
      * @api
@@ -722,8 +722,8 @@ class Parser
             case Token::BLOCK_STRING:
                 return $this->parseStringLiteral();
             case Token::NAME:
+                $this->lexer->advance();
                 if ($token->value === 'true' || $token->value === 'false') {
-                    $this->lexer->advance();
 
                     return new BooleanValueNode([
                         'value' => $token->value === 'true',
@@ -731,7 +731,6 @@ class Parser
                     ]);
                 }
 
-                $this->lexer->advance();
                 if ($token->value === 'null') {
 
                     return new NullValueNode([

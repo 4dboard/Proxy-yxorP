@@ -124,6 +124,7 @@ class SchemaConfig
     }
 
     /**
+     * @param SchemaDefinitionNode $astNode
      * @return SchemaConfig
      */
     public function setAstNode(SchemaDefinitionNode $astNode): static
@@ -264,6 +265,7 @@ class SchemaConfig
     }
 
     /**
+     * @param callable $typeLoader
      * @return SchemaConfig
      *
      * @api

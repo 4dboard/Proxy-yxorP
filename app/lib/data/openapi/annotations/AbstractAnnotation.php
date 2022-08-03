@@ -135,7 +135,7 @@ abstract class AbstractAnnotation implements JsonSerializable
      * Wrap the context with a reference to the annotation it is nested in.
      *
      * @param AbstractAnnotation $annotation
-     *
+     * @param Context $nestedContext
      * @return AbstractAnnotation
      */
     private function nested(AbstractAnnotation $annotation, Context $nestedContext): AbstractAnnotation
@@ -482,7 +482,7 @@ abstract class AbstractAnnotation implements JsonSerializable
                 }
             }
         }
-        if (property_exists($this, 'ref') && $this->ref != Generator::UNDEFINED && $this->ref !== null) {
+        if (property_exists($this, 'ref') && $this->ref != Generator::UNDEFINED) {
             if (str_starts_with((string)$this->ref, '#/') && count($parents) > 0 && $parents[0] instanceof OpenApi) {
                 // Internal reference
                 try {
@@ -617,6 +617,8 @@ abstract class AbstractAnnotation implements JsonSerializable
      * @param object|array $fields
      * @param array $parents the path of annotations above this annotation in the tree
      * @param array $skip List of objects already validated
+     * @param string $baseRef
+     * @return bool
      */
     private static function _validate(object|array $fields, array $parents, array $skip, string $baseRef): bool
     {

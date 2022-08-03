@@ -64,7 +64,8 @@ class OperationParams
      * Creates an instance from given array
      *
      * @param array $params
-     *
+     * @param bool $readonly
+     * @return OperationParams
      * @api
      */
     public static function create(array $params, bool $readonly = false): OperationParams

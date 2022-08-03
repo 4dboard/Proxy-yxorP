@@ -66,11 +66,12 @@ represent free-form human-readable text.';
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return string
      *
-     * @throws Exception
+     * @throws Error
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null): string
     {

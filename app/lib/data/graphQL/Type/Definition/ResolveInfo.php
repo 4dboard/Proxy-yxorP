@@ -116,10 +116,14 @@ class ResolveInfo
     private QueryPlan $queryPlan;
 
     /**
+     * @param FieldDefinition $fieldDefinition
      * @param FieldNode[] $fieldNodes
+     * @param ObjectType $parentType
      * @param string[] $path
+     * @param Schema $schema
      * @param FragmentDefinitionNode[] $fragments
      * @param mixed|null $rootValue
+     * @param OperationDefinitionNode|null $operation
      * @param array $variableValues
      */
     public function __construct(
@@ -223,11 +227,6 @@ class ResolveInfo
                         $fields
                     );
                 }
-            } elseif ($selectionNode instanceof InlineFragmentNode) {
-                $fields = array_merge_recursive(
-                    $this->foldSelectionSet($selectionNode->selectionSet, $descend),
-                    $fields
-                );
             }
         }
 
@@ -236,6 +235,8 @@ class ResolveInfo
 
     /**
      * @param array $options
+     * @return QueryPlan
+     * @throws \yxorP\app\lib\data\graphQL\Error\Error
      */
     public function lookAhead(array $options = []): QueryPlan
     {

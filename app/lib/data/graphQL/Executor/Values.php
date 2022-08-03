@@ -152,7 +152,7 @@ class Values
      */
     public static function getDirectiveValues(Directive $directiveDef, EnumValueDefinitionNode|InlineFragmentNode|FieldNode|FieldDefinitionNode|FragmentSpreadNode $node, $variableValues = null): ?array
     {
-        if (isset($node->directives) && $node->directives instanceof NodeList) {
+        if (isset($node->directives)) {
             $directiveNode = Utils::find(
                 (array)$node->directives,
                 static function (DirectiveNode $directive) use ($directiveDef): bool {

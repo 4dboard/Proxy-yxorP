@@ -255,7 +255,7 @@ class WritableStream
     /**
      * Return the stream's file document.
      *
-     * @return stdClass
+     * @return object|stdClass
      */
     public function getFile(): object|stdClass
     {

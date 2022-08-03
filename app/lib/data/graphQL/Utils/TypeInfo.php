@@ -132,16 +132,15 @@ class TypeInfo
     }
 
     /**
+     * @param Directive $directive
      * @param Type[] $typeMap
      *
-     * @return Type[]
+     * @return array|null
      */
     public static function extractTypesFromDirectives(Directive $directive, array $typeMap = []): ?array
     {
-        if (is_array($directive->args)) {
-            foreach ($directive->args as $arg) {
-                $typeMap = self::extractTypes($arg->getType(), $typeMap);
-            }
+        foreach ($directive->args as $arg) {
+            $typeMap = self::extractTypes($arg->getType(), $typeMap);
         }
 
         return $typeMap;
@@ -301,12 +300,10 @@ class TypeInfo
             case $node instanceof InlineFragmentNode:
             case $node instanceof FragmentDefinitionNode:
                 $typeConditionNode = $node->typeCondition;
-                $outputType = $typeConditionNode
-                    ? self::typeFromAST(
-                        $schema,
-                        $typeConditionNode
-                    )
-                    : Type::getNamedType($this->getType());
+                $outputType = self::typeFromAST(
+                    $schema,
+                    $typeConditionNode
+                );
                 $this->typeStack[] = Type::isOutputType($outputType) ? $outputType : null;
                 break;
 
@@ -447,7 +444,7 @@ class TypeInfo
     }
 
     /**
-     * @return mixed|null
+     * @return mixed
      */
     public function getDefaultValue(): mixed
     {

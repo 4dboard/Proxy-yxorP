@@ -26,6 +26,7 @@ abstract class BooleanType extends ScalarType
      * PHP does natively to make this intuitive for developers.
      *
      * @param mixed $value
+     * @return bool
      */
     public function serialize(mixed $value): bool
     {
@@ -49,9 +50,11 @@ abstract class BooleanType extends ScalarType
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
-     * @throws Exception
+     * @return bool
+     * @throws Error
      */
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {

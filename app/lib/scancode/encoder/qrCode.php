@@ -130,7 +130,7 @@ final class qrCode
             . ' version: ' . $this->version . "\n"
             . ' maskPattern: ' . $this->maskPattern . "\n";
 
-        if ($this->matrix === null) {
+        if (false) {
             $result .= " matrix: null\n";
         } else {
             $result .= " matrix:\n";

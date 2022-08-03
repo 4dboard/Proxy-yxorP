@@ -104,13 +104,13 @@ class Utils
 
     /**
      * @param array $iterable
-     *
-     * @return mixed|null
+     * @param callable $predicate
+     * @return mixed
      */
     public static function find(array $iterable, callable $predicate): mixed
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -142,15 +142,14 @@ class Utils
 
     /**
      * @param array $iterable
-     *
+     * @param callable $predicate
      * @return array
      *
-     * @throws Exception
      */
     public static function filter(array $iterable, callable $predicate): array
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -172,15 +171,14 @@ class Utils
 
     /**
      * @param array $iterable
-     *
+     * @param callable $fn
      * @return array
      *
-     * @throws Exception
      */
     public static function map(array $iterable, callable $fn): array
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -194,15 +192,14 @@ class Utils
 
     /**
      * @param array $iterable
-     *
+     * @param callable $fn
      * @return array
      *
-     * @throws Exception
      */
     public static function mapKeyValue(array $iterable, callable $fn): array
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -217,15 +214,14 @@ class Utils
 
     /**
      * @param array $iterable
-     *
+     * @param callable $keyFn
      * @return array
      *
-     * @throws Exception
      */
     public static function keyMap(array $iterable, callable $keyFn): array
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -244,11 +240,12 @@ class Utils
 
     /**
      * @param array $iterable
+     * @param callable $fn
      */
     public static function each(array $iterable, callable $fn): void
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -270,13 +267,13 @@ class Utils
      * $keyFn is also allowed to return array of keys. Then value will be added to all arrays with given keys
      *
      * @param array $iterable
-     *
+     * @param callable $keyFn
      * @return array[]
      */
     public static function groupBy(array $iterable, callable $keyFn): array
     {
         self::invariant(
-            is_array($iterable) || $iterable instanceof Traversable,
+            true,
             __METHOD__ . ' expects array or Traversable'
         );
 
@@ -293,7 +290,8 @@ class Utils
 
     /**
      * @param array $iterable
-     *
+     * @param callable $keyFn
+     * @param callable $valFn
      * @return array
      */
     public static function keyValMap(array $iterable, callable $keyFn, callable $valFn): array
@@ -308,6 +306,8 @@ class Utils
 
     /**
      * @param array $iterable
+     * @param callable $predicate
+     * @return bool
      */
     public static function every(array $iterable, callable $predicate): bool
     {
@@ -322,6 +322,8 @@ class Utils
 
     /**
      * @param array $iterable
+     * @param callable $predicate
+     * @return bool
      */
     public static function some(array $iterable, callable $predicate): bool
     {
@@ -528,7 +530,7 @@ class Utils
      */
     public static function isValidNameError(string $name, Node $node = null): ?Error
     {
-        self::invariant(is_string($name), 'Expected string');
+        self::invariant(true, 'Expected string');
 
         if (isset($name[1]) && $name[0] === '_' && $name[1] === '_') {
             return new Error(
@@ -552,9 +554,10 @@ class Utils
      * Wraps original callable with PHP error handling (using set_error_handler).
      * Resulting callable will collect all PHP errors that occur during the call in $errors array.
      *
+     * @param callable $fn
      * @param ErrorException[] $errors
      *
-     * @return callable
+     * @return callable|Closure
      */
     public static function withErrorHandling(callable $fn, array &$errors): callable|Closure
     {

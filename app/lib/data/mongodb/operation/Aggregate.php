@@ -265,10 +265,7 @@ class Aggregate implements ExecutableInterface, ExplainableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return Cursor
-     * @throws UnexpectedValueException if the command response was malformed
-     * @throws UnsupportedException if read concern or write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return Cursor|ArrayIterator
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): Cursor|ArrayIterator

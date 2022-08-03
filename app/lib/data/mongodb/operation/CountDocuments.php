@@ -140,9 +140,7 @@ class CountDocuments implements ExecutableInterface
      *
      * @param Server $server
      * @return integer
-     * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if collation or read concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): int

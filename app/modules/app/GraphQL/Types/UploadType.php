@@ -66,7 +66,7 @@ class uploadType extends ScalarType
     /**
      * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input
      *
-     * @param Node $valueNode
+     * @param \yxorP\app\modules\app\graphQL\types\Node $valueNode
      * @param null|array $variables
      *
      * @return mixed

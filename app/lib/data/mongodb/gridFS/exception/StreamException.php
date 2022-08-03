@@ -26,6 +26,7 @@ class StreamException extends RuntimeException
      * @param mixed $id
      * @param resource $source
      * @param resource $destination
+     * @return StreamException
      */
     public static function downloadFromIdFailed(mixed $id, $source, $destination): self
     {

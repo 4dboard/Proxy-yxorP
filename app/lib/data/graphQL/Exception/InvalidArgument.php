@@ -12,7 +12,9 @@ use function sprintf;
 final class InvalidArgument extends InvalidArgumentException
 {
     /**
+     * @param string $expectedType
      * @param mixed $argument
+     * @return InvalidArgument
      */
     #[Pure] public static function fromExpectedTypeAndArgument(string $expectedType, mixed $argument): self
     {

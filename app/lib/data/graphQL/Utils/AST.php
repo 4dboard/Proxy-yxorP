@@ -82,6 +82,7 @@ class AST
      *
      * @param array $node
      *
+     * @return Node
      * @api
      */
     public static function fromArray(array $node): Node
@@ -118,6 +119,7 @@ class AST
     /**
      * Convert AST node to serializable array
      *
+     * @param Node $node
      * @return array
      *
      * @api
@@ -552,12 +554,12 @@ class AST
     /**
      * Returns type definition for given AST Type node
      *
+     * @param Schema $schema
      * @param ListTypeNode|NamedTypeNode|NonNullTypeNode $inputTypeNode
      *
-     * @return Type|null
+     * @return ListOfType|NonNull|Type|null
      *
-     * @throws Exception
-     *
+     * @throws Error
      * @api
      */
     public static function typeFromAST(Schema $schema, NonNullTypeNode|ListTypeNode|NamedTypeNode $inputTypeNode): ListOfType|NonNull|Type|null
@@ -580,6 +582,7 @@ class AST
     }
 
     /**
+     * @param DocumentNode $document
      * @param string|null $operationName
      *
      * @return bool|string
@@ -592,15 +595,13 @@ class AST
      */
     public static function getOperation(DocumentNode $document, string $operationName = null): bool|string
     {
-        if ($document->definitions) {
-            foreach ($document->definitions as $def) {
-                if (!($def instanceof OperationDefinitionNode)) {
-                    continue;
-                }
+        foreach ($document->definitions as $def) {
+            if (!($def instanceof OperationDefinitionNode)) {
+                continue;
+            }
 
-                if (!$operationName || (isset($def->name->value) && $def->name->value === $operationName)) {
-                    return $def->operation;
-                }
+            if (!$operationName || (isset($def->name->value) && $def->name->value === $operationName)) {
+                return $def->operation;
             }
         }
 

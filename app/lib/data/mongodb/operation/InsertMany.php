@@ -133,9 +133,7 @@ class InsertMany implements ExecutableInterface
      * Execute the operation.
      *
      * @param Server $server
-     * @return insertManyResult
-     * @throws UnsupportedException if write concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @return \yxorP\app\lib\data\mongoDB\Operation\insertManyResult
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): insertManyResult

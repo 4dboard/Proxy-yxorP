@@ -109,6 +109,8 @@ class Collector
     }
 
     /**
+     * @param ObjectType $runtimeType
+     * @param SelectionSetNode|null $selectionSet
      * @return Generator
      */
     public function collectFields(ObjectType $runtimeType, ?SelectionSetNode $selectionSet): Generator
@@ -245,32 +247,6 @@ class Collector
                 }
 
                 $this->doCollectFields($runtimeType, $fragmentDefinition->selectionSet);
-            } elseif ($selection instanceof InlineFragmentNode) {
-                if ($selection->typeCondition !== null) {
-                    $conditionTypeName = $selection->typeCondition->name->value;
-
-                    if (!$this->schema->hasType($conditionTypeName)) {
-                        $this->runtime->addError(new Error(
-                            sprintf('Cannot spread inline fragment, type "%s" does not exist.', $conditionTypeName),
-                            $selection
-                        ));
-                        continue;
-                    }
-
-                    $conditionType = $this->schema->getType($conditionTypeName);
-
-                    if ($conditionType instanceof ObjectType) {
-                        if ($runtimeType->name !== $conditionType->name) {
-                            continue;
-                        }
-                    } elseif ($conditionType instanceof AbstractType) {
-                        if (!$this->schema->isSubType($conditionType, $runtimeType)) {
-                            continue;
-                        }
-                    }
-                }
-
-                $this->doCollectFields($runtimeType, $selection->selectionSet);
             }
         }
     }

@@ -176,10 +176,9 @@ class Visitor
      * @param callable[] $visitor
      * @param array|null $keyMap
      *
-     * @return Node|mixed
+     * @return mixed
      *
      * @throws Exception
-     *
      * @api
      */
     public static function visit(ArrayObject|Node|stdClass $root, array $visitor, array $keyMap = null): mixed
@@ -187,7 +186,7 @@ class Visitor
         $visitorKeys = $keyMap ?? self::$visitorKeys;
 
         $stack = null;
-        $inArray = $root instanceof NodeList || is_array($root);
+        $inArray = is_array($root);
         $keys = [$root];
         $index = -1;
         $edits = [];
@@ -343,6 +342,7 @@ class Visitor
      * @param callable[]|null $visitor
      * @param string $kind
      * @param bool $isLeaving
+     * @return callable|null
      */
     public static function getVisitFn(?array $visitor, string $kind, bool $isLeaving): ?callable
     {

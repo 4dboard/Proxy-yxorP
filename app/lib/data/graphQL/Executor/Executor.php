@@ -69,11 +69,13 @@ class Executor
      * Always returns ExecutionResult and never throws.
      * All errors which occur during operation execution are collected in `$result->errors`.
      *
+     * @param Schema $schema
+     * @param DocumentNode $documentNode
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
      * @param ArrayAccess|array|null $variableValues
      * @param string|null $operationName
-     *
+     * @param callable|null $fieldResolver
      * @return ExecutionResult|Promise
      *
      * @api
@@ -121,11 +123,14 @@ class Executor
      *
      * Useful for async PHP platforms.
      *
+     * @param PromiseAdapterInterface $promiseAdapter
+     * @param Schema $schema
+     * @param DocumentNode $documentNode
      * @param mixed|null $rootValue
      * @param mixed|null $contextValue
      * @param array|null $variableValues
      * @param string|null $operationName
-     *
+     * @param callable|null $fieldResolver
      * @return Promise
      *
      * @api
@@ -167,8 +172,8 @@ class Executor
      * @param mixed $objectValue
      * @param array<string, mixed> $args
      * @param mixed|null $contextValue
-     *
-     * @return mixed|null
+     * @param ResolveInfo $info
+     * @return mixed
      */
     public static function defaultFieldResolver(mixed $objectValue, array $args, mixed $contextValue, ResolveInfo $info): mixed
     {

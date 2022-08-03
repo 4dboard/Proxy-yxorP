@@ -165,7 +165,6 @@ class ReadableStream
      *
      * @param integer $length Number of bytes to read
      * @return string
-     * @throws InvalidArgumentException if $length is negative
      */
     public function readBytes(int $length): string
     {
@@ -316,7 +315,7 @@ class ReadableStream
      *
      * This is the offset within the stream where the next byte would be read.
      *
-     * @return integer
+     * @return float|int
      */
     public function tell(): float|int
     {

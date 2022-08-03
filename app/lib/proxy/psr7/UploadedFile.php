@@ -125,9 +125,7 @@ class uploadedFile implements uploadedFileInterface
     public function getStream(): streamInterface|lazyOpenStream
     {
         $this->validateActive();
-        if ($this->stream instanceof streamInterface) {
-            return $this->stream;
-        }
+        return $this->stream;
         return new lazyOpenStream($this->file, 'r+');
     }
 

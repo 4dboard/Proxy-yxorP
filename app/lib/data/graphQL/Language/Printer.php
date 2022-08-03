@@ -85,6 +85,7 @@ class Printer
      *
      * @return string
      *
+     * @throws Exception
      * @api
      */
     public static function doPrint(Node $ast): string

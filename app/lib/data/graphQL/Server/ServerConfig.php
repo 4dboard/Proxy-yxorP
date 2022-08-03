@@ -79,7 +79,7 @@ class ServerConfig
     }
 
     /**
-     * @return mixed|callable
+     * @return mixed
      */
     public function getContext(): mixed
     {
@@ -101,7 +101,7 @@ class ServerConfig
     }
 
     /**
-     * @return mixed|callable
+     * @return mixed
      */
     public function getRootValue(): mixed
     {
@@ -131,6 +131,7 @@ class ServerConfig
     }
 
     /**
+     * @param Schema $schema
      * @return self
      *
      * @api
@@ -153,6 +154,7 @@ class ServerConfig
     /**
      * Expects function(Throwable $e) : array
      *
+     * @param callable $errorFormatter
      * @return self
      *
      * @api
@@ -175,6 +177,7 @@ class ServerConfig
     /**
      * Expects function(array $errors, callable $formatter) : array
      *
+     * @param callable $handler
      * @return self
      *
      * @api
@@ -195,6 +198,7 @@ class ServerConfig
     }
 
     /**
+     * @param PromiseAdapterInterface $promiseAdapter
      * @return self
      *
      * @api
@@ -246,6 +250,7 @@ class ServerConfig
     }
 
     /**
+     * @param callable $fieldResolver
      * @return self
      *
      * @api
@@ -270,6 +275,7 @@ class ServerConfig
      *
      * This function must return query string or valid DocumentNode.
      *
+     * @param callable $persistentQueryLoader
      * @return self
      *
      * @api

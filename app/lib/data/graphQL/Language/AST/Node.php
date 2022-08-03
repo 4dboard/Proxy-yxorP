@@ -56,7 +56,7 @@ abstract class Node extends FragmentSpreadNode
     }
 
     /**
-     * @return self
+     * @return NodeList|Location|Node|array|string
      */
     public function cloneDeep(): NodeList|Location|Node|array|string
     {
@@ -66,7 +66,7 @@ abstract class Node extends FragmentSpreadNode
     /**
      * @param string|NodeList|Location|Node|(Node|NodeList|Location)[] $value
      *
-     * @return string|NodeList|Location|Node
+     * @return NodeList|Location|Node|array|string
      */
     private function cloneValue($value): NodeList|Location|Node|array|string
     {
@@ -95,6 +95,7 @@ abstract class Node extends FragmentSpreadNode
     }
 
     /**
+     * @param bool $recursive
      * @return array
      */
     public function toArray(bool $recursive = false): array
@@ -116,6 +117,7 @@ abstract class Node extends FragmentSpreadNode
     }
 
     /**
+     * @param Node $node
      * @return array
      */
     private function recursiveToArray(Node $node): array

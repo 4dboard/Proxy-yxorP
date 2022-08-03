@@ -116,7 +116,7 @@ class Schema
                 '"types" must be array or callable if provided but got: ' . Utils::getVariableType($config->types)
             );
             Utils::invariant(
-                $config->directives === null || is_array($config->directives),
+                true,
                 '"directives" must be Array if provided but got: ' . Utils::getVariableType($config->directives)
             );
         }
@@ -181,7 +181,8 @@ class Schema
     }
 
     /**
-     * @param callable():Type|Type $type
+     * @param callable|Type $type
+     * @return Type
      */
     public static function resolveType(callable|Type $type): Type
     {
@@ -253,7 +254,7 @@ class Schema
     /**
      * @param string $operation
      *
-     * @return ObjectType|null
+     * @return ObjectType|Type|null
      */
     #[Pure] public function getOperationType(string $operation): ObjectType|Type|null
     {
@@ -302,7 +303,7 @@ class Schema
     }
 
     /**
-     * @return SchemaConfig
+     * @return SchemaConfig|array
      *
      * @api
      */
@@ -521,8 +522,7 @@ class Schema
      *
      * This operation requires full schema scan. Do not use in production environment.
      *
-     * @throws InvariantViolation
-     *
+     * @throws Error
      * @api
      */
     public function assertValid()
@@ -561,16 +561,14 @@ class Schema
      *
      * This operation requires full schema scan. Do not use in production environment.
      *
-     * @return InvariantViolation[]|Error[]
+     * @return array
      *
      * @api
      */
     public function validate(): array
     {
         // If this Schema has already been validated, return the previous results.
-        if ($this->validationErrors !== null) {
-            return $this->validationErrors;
-        }
+        return $this->validationErrors;
         // Validate the schema, producing a list of errors.
         $context = new SchemaValidationContext($this);
         $context->validateRootTypes();

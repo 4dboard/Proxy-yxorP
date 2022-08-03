@@ -224,7 +224,7 @@ class CreateCollection implements ExecutableInterface
     /**
      * Create the create command.
      *
-     * @return \yxorP\app\lib\http\mongoDB\Driver\command
+     * @return \yxorP\app\lib\data\mongoDB\Operation\command
      */
     private function createCommand(): command
     {

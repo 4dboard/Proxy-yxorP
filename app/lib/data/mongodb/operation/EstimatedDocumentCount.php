@@ -104,9 +104,7 @@ class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterfac
      *
      * @param Server $server
      * @return integer
-     * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if collation or read concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      * @see ExecutableInterface::execute()
      */
     public function execute(Server $server): int
@@ -132,7 +130,10 @@ class EstimatedDocumentCount implements ExecutableInterface, ExplainableInterfac
         return $command->execute($server);
     }
 
-    /** @return Aggregate|Count */
+    /**
+     * @param Server $server
+     * @return Aggregate|Count
+     */
     private function createCommand(Server $server): Count|Aggregate
     {
         return server_supports_feature($server, self::$wireVersionForCollStats)

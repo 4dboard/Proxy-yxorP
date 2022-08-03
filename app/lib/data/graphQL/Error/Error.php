@@ -78,7 +78,8 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
 
     /**
      * @param string $message
-     * @param Node|Node[]|Traversable|null $nodes
+     * @param null $nodes
+     * @param Source|null $source
      * @param array $positions
      * @param array|null $path
      * @param Throwable|null $previous
@@ -116,7 +117,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
         if ($previous instanceof ClientAwareInterface) {
             $this->isClientSafe = $previous->isClientSafe();
             $cat = $previous->getCategory();
-            $this->category = $cat === '' || $cat === null ? self::CATEGORY_INTERNAL : $cat;
+            $this->category = $cat === '' ? self::CATEGORY_INTERNAL : $cat;
         } elseif ($previous !== null) {
             $this->isClientSafe = false;
             $this->category = self::CATEGORY_INTERNAL;
@@ -195,7 +196,9 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     }
 
     /**
+     * @param Error $error
      * @return array
+     * @throws Exception
      */
     #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "\mixed[]|null", 'locations' => "mixed"])] public static function formatError(Error $error): array
     {
@@ -326,7 +329,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     }
 
     /**
-     * @return Node[]|null
+     * @return Traversable|array|Node|null
      */
     public function getNodes(): Traversable|array|Node|null
     {
@@ -347,7 +350,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getExtensions(): ?array
     {
@@ -361,6 +364,7 @@ class Error extends Exception implements JsonSerializable, ClientAwareInterface
      *
      * @return array data which can be serialized by <b>json_encode</b>,
      * which is a value of any type other than a resource.
+     * @throws Exception
      */
     #[ArrayShape(['message' => "string", 'extensions' => "mixed", 'path' => "\mixed[]|null", 'locations' => "mixed"])] #[ReturnTypeWillChange]
     public function jsonSerialize(): array

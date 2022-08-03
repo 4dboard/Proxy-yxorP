@@ -34,7 +34,7 @@ class KnownArgumentNames extends ValidationRule
 
                     $fieldDef = $context->getFieldDef();
                     $parentType = $context->getParentType();
-                    if ($fieldDef === null || !($parentType instanceof Type)) {
+                    if (!($parentType instanceof Type)) {
                         return;
                     }
 

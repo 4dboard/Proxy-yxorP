@@ -16,7 +16,7 @@ interface AbstractType
      *
      * @param object $objectValue
      * @param array $context
-     *
+     * @param ResolveInfo $info
      * @return mixed
      */
     public function resolveType(object $objectValue, array $context, ResolveInfo $info): mixed;

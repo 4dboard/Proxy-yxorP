@@ -80,6 +80,7 @@ class ExecutionResult implements JsonSerializable
      *    // ... other keys
      * );
      *
+     * @param callable $errorFormatter
      * @return self
      *
      * @api
@@ -101,6 +102,7 @@ class ExecutionResult implements JsonSerializable
      *     return array_map($formatter, $errors);
      * }
      *
+     * @param callable $handler
      * @return self
      *
      * @api
@@ -127,8 +129,9 @@ class ExecutionResult implements JsonSerializable
      * If debug argument is passed, output of error formatter is enriched which debugging information
      * ("debugMessage", "trace" keys depending on flags).
      *
-     * $debug argument must sum of flags from @return array
-     *
+     * $debug argument must sum of flags from
+     * @param int $debug
+     * @return array
      * @see \GraphQL\Error\DebugFlag
      *
      * @api

@@ -40,12 +40,15 @@ use function substr;
 class SchemaPrinter
 {
     /**
+     * @param Schema $schema
      * @param array<string, bool> $options
      *    Available options:
      *    - commentDescriptions:
      *        Provide true to use preceding comments as the description.
      *        This option is provided to ease adoption and will be removed in v16.
      *
+     * @return string
+     * @throws Error
      * @api
      */
     public static function doPrint(Schema $schema, array $options = []): string
@@ -275,6 +278,11 @@ class SchemaPrinter
 
     /**
      * @param array<string, bool> $options
+     * @param $args
+     * @param string $indentation
+     * @return string
+     * @throws Error
+     * @throws Throwable
      */
     protected static function printArgs(array $options, $args, $indentation = ''): string
     {
@@ -380,6 +388,10 @@ class SchemaPrinter
 
     /**
      * @param array<string, bool> $options
+     * @param $type
+     * @return string
+     * @throws Error
+     * @throws Throwable
      */
     protected static function printFields(array $options, $type): string
     {
@@ -449,8 +461,11 @@ class SchemaPrinter
     }
 
     /**
+     * @param Schema $schema
      * @param array<string, bool> $options
      *
+     * @return string
+     * @throws Error
      * @api
      */
     public static function printIntrospectionSchema(Schema $schema, array $options = []): string
@@ -473,7 +488,11 @@ class SchemaPrinter
     }
 
     /**
+     * @param $values
      * @param array<string, bool> $options
+     * @return string
+     * @throws Error
+     * @throws Throwable
      */
     protected static function printEnumValues($values, array $options): string
     {
@@ -491,7 +510,11 @@ class SchemaPrinter
     }
 
     /**
+     * @param InputObjectType $type
      * @param array<string, bool> $options
+     * @return string
+     * @throws Error
+     * @throws Throwable
      */
     protected static function printInputObject(InputObjectType $type, array $options): string
     {

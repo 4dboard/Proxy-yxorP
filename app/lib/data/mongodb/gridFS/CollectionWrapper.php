@@ -59,11 +59,10 @@ class CollectionWrapper
     /**
      * Constructs a GridFS collection wrapper.
      *
-     * @param Manager $manager Manager instance from the driver
+     * @param \yxorP\app\lib\data\mongoDB\GridFS\Manager $manager Manager instance from the driver
      * @param string $databaseName Database name
      * @param string $bucketName Bucket name
      * @param array $collectionOptions Collection options
-     * @throws InvalidArgumentException
      * @see collection::__construct() for supported options
      */
     public function __construct(Manager $manager, string $databaseName, string $bucketName, array $collectionOptions = [])

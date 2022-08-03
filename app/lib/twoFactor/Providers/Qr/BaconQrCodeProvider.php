@@ -140,7 +140,7 @@ class BaconQrCodeProvider implements IQRCodeProviderInterface
     {
         $rendererStyleArgs = array($size, $this->borderWidth);
 
-        if (is_array($this->foregroundColour) && is_array($this->backgroundColour)) {
+        if (is_array($this->backgroundColour)) {
             $rendererStyleArgs = array_merge($rendererStyleArgs, array(
                 null,
                 null,

@@ -345,10 +345,6 @@ class PHPMailer
         if ($this->SMTPDebug <= 0) {
             return;
         }
-        if ($this->Debugoutput instanceof loggerInterface) {
-            $this->Debugoutput->debug($str);
-            return;
-        }
         if (is_callable($this->Debugoutput) && !in_array($this->Debugoutput, ['error_log', 'html', 'echo'])) {
             call_user_func($this->Debugoutput, $str, $this->SMTPDebug);
             return;
@@ -1348,7 +1344,7 @@ class PHPMailer
         }
         if ('' === $this->XMailer) {
             $result .= $this->headerLine('X-Mailer', 'PHPMailer ' . self::VERSION . ' (https://github.com/PHPMailer/PHPMailer)');
-        } elseif (is_string($this->XMailer) && trim($this->XMailer) !== '') {
+        } elseif (trim($this->XMailer) !== '') {
             $result .= $this->headerLine('X-Mailer', trim($this->XMailer));
         }
         if ('' !== $this->ConfirmReadingTo) {

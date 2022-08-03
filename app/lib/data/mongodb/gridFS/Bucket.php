@@ -566,7 +566,7 @@ class Bucket
      * Return the read concern for this GridFS bucket.
      *
      * @see http://php.net/manual/en/mongodb-driver-readconcern.isdefault.php
-     * @return ReadConcern
+     * @return \yxorP\app\lib\data\mongoDB\GridFS\ReadConcern
      */
     public function getReadConcern(): \yxorP\app\lib\data\mongoDB\GridFS\ReadConcern|ReadConcern
     {
@@ -576,7 +576,7 @@ class Bucket
     /**
      * Return the read preference for this GridFS bucket.
      *
-     * @return ReadPreference
+     * @return \yxorP\app\lib\data\mongoDB\GridFS\ReadPreference
      */
     public function getReadPreference(): ReadPreference|\yxorP\app\lib\data\mongoDB\GridFS\ReadPreference
     {
@@ -597,7 +597,7 @@ class Bucket
      * Return the write concern for this GridFS bucket.
      *
      * @see http://php.net/manual/en/mongodb-driver-writeconcern.isdefault.php
-     * @return WriteConcern
+     * @return \yxorP\app\lib\data\mongoDB\GridFS\WriteConcern
      */
     public function getWriteConcern(): WriteConcern
     {

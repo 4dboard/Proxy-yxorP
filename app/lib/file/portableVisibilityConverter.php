@@ -52,6 +52,8 @@ class portableVisibilityConverter implements visibilityConverterInterface
 
     /**
      * @param array $permissionMap
+     * @param string $defaultForDirectories
+     * @return portableVisibilityConverter
      */
     #[Pure] public static function fromArray(array $permissionMap, string $defaultForDirectories = visibility::PRIVATE): portableVisibilityConverter
     {

@@ -48,10 +48,13 @@ class QueryPlan
     private bool $groupImplementorFields;
 
     /**
+     * @param ObjectType $parentType
+     * @param Schema $schema
      * @param FieldNode[] $fieldNodes
      * @param array $variableValues
      * @param FragmentDefinitionNode[] $fragments
      * @param array $options
+     * @throws Error
      */
     public function __construct(ObjectType $parentType, Schema $schema, iterable $fieldNodes, array $variableValues, array $fragments, array $options = [])
     {
@@ -152,10 +155,6 @@ class QueryPlan
                     $subfields = $this->analyzeSubFields($type, $fragment->selectionSet);
                     $fields = $this->mergeFields($parentType, $type, $fields, $subfields, $implementors);
                 }
-            } elseif ($selectionNode instanceof InlineFragmentNode) {
-                $type = $this->schema->getType($selectionNode->typeCondition->name->value);
-                $subfields = $this->analyzeSubFields($type, $selectionNode->selectionSet);
-                $fields = $this->mergeFields($parentType, $type, $fields, $subfields, $implementors);
             }
         }
 
@@ -187,6 +186,8 @@ class QueryPlan
     }
 
     /**
+     * @param Type $parentType
+     * @param Type $type
      * @param array $fields
      * @param array $subfields
      * @param array $implementors

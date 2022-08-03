@@ -275,7 +275,7 @@ class FieldDefinition
     }
 
     /**
-     * @return callable
+     * @return callable|string
      */
     public function getComplexityFn(): callable|string
     {
@@ -283,7 +283,8 @@ class FieldDefinition
     }
 
     /**
-     * @throws InvariantViolation
+     * @param Type $parentType
+     * @throws Error
      */
     public function assertValid(Type $parentType)
     {

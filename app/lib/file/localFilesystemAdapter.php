@@ -148,7 +148,9 @@ class localFilesystemAdapter implements filesystemAdapterInterface
     }
 
     /**
+     * @param string $path
      * @param string $contents
+     * @param config $config
      */
     private function writeToFile(string $path, string $contents, config $config): void
     {

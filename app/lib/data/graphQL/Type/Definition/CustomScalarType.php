@@ -38,6 +38,7 @@ abstract class CustomScalarType extends ScalarType
     }
 
     /**
+     * @param Node $valueNode
      * @param array|null $variables
      *
      * @return mixed

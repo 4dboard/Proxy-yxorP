@@ -80,8 +80,12 @@ class VariablesInAllowedPosition extends ValidationRule
      * which includes considering if default values exist for either the variable
      * or the location at which it is located.
      *
+     * @param Schema $schema
+     * @param Type $varType
      * @param ValueNodeInterface|null $varDefaultValue
+     * @param Type $locationType
      * @param mixed $locationDefaultValue
+     * @return bool
      */
     private function allowedVariableUsage(Schema $schema, Type $varType, ?ValueNodeInterface $varDefaultValue, Type $locationType, mixed $locationDefaultValue): bool
     {
