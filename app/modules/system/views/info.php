@@ -16,10 +16,9 @@
                 <kiss-row class="kiss-flex-middle">
                     <div><kiss-svg src="<?=$this->baseUrl('app:assets/logo.svg')?>" width="60" height="60"></kiss-svg></div>
                     <div class="kiss-flex-1">
-                        <div class="kiss-size-4 kiss-text-bold">Cockpit</div>
+                        <div class="kiss-size-4 kiss-text-bold">yxorP</div>
                         <div class="kiss-text-caption kiss-margin-small kiss-color-muted">
-                            A product by
-                            <strong><a class="kiss-link-muted" href="https://agentejo.com/" target="_blank" rel="noopener">Agentejo</a></strong>
+                            Web Proxy Guzzler +  SAAS(y) Cockpit (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play, Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to provide multi-tenancy, multiple threads, caching, and an article spinner service.
                         </div>
                     </div>
                 </kiss-row>
@@ -63,16 +62,6 @@
                         <?php endforeach ?>
                     </kiss-grid>
                     <?php endif ?>
-
-                    <div class="kiss-text-caption kiss-text-bold kiss-size-bold kiss-margin">
-                        <?=('License')?>
-                    </div>
-
-                    <kiss-card class="kiss-padding kiss-bgcolor-contrast">
-                        <div class="kiss-text-monospace kiss-size-small kiss-color-muted" style="max-height:200px;overflow:auto;">
-                            <?=($this->path('#root:LICENSE') ? nl2br($this->helper('fs')->read('#root:LICENSE')) : '!!! LICENSE IS MISSING !!!')?>
-                        </div>
-                    </kiss-card>
 
                 </tab>
 
