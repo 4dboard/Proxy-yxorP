@@ -92,6 +92,28 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/psr.html" class="">Psr</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/psr-cache.html" class="">Cache</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/psr-container.html" class="">Container</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/psr-http.html" class="">Http</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/psr-log.html" class="">Log</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/baconqrcode.html" class="">BaconQrCode</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -263,28 +285,6 @@
     <ul class="phpdocumentor-list">
                     <li>
                 <a href="namespaces/phpmailer-phpmailer.html" class="">PHPMailer</a>
-                
-            </li>
-            </ul>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/psr.html" class="">Psr</a>
-</h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/psr-cache.html" class="">Cache</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/psr-container.html" class="">Container</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/psr-http.html" class="">Http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/psr-log.html" class="">Log</a>
                 
             </li>
             </ul>
@@ -573,13 +573,16 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/yxorp-app.html">app</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/yxorp-app-lib.html">lib</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/yxorp-app-lib-proxy.html">proxy</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/yxorp-app-lib-proxy-cookie.html">Cookie</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/yxorp-app-lib-proxy-cookie.html">cookie</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
     sessionCookieJar
 
+        <span class="phpdocumentor-element__extends">
+        extends <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html"><abbr title="\yxorP\app\lib\proxy\cookie\cookieJar">cookieJar</abbr></a>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -592,9 +595,9 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2</span>
+    <span class="phpdocumentor-element-found-in__line">5</span>
 
     </aside>
 
@@ -615,196 +618,154 @@
 
 <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#property_data">$data</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#property_cookies">$cookies</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#property_defaults">$defaults</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#property_sessionKey">$sessionKey</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#property_storeSessionCookies">$storeSessionCookies</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#property_strictMode">$strictMode</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method___construct">__construct()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method___toString">__toString()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method___destruct">__destruct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_fromString">fromString()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_clear">clear()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getDiscard">getDiscard()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_clearSessionCookies">clearSessionCookies()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getDomain">getDomain()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_count">count()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getExpires">getExpires()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_extractCookies">extractCookies()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getHttpOnly">getHttpOnly()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_fromArray">fromArray()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getMaxAge">getMaxAge()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getCookieByName">getCookieByName()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getName">getName()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getCookieValue">getCookieValue()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getPath">getPath()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getIterator">getIterator()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getSecure">getSecure()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method_save">save()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getValue">getValue()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_setCookie">setCookie()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_isExpired">isExpired()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_shouldPersist">shouldPersist()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_matchesDomain">matchesDomain()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_toArray">toArray()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_matchesPath">matchesPath()</a>
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_withCookieHeader">withCookieHeader()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setDiscard">setDiscard()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method_load">load()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setDomain">setDomain()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getCookiePathFromRequest">getCookiePathFromRequest()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setExpires">setExpires()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setHttpOnly">setHttpOnly()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setMaxAge">setMaxAge()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setName">setName()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setPath">setPath()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setSecure">setSecure()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setValue">setValue()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_toArray">toArray()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_validate">validate()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_removeCookieIfEmpty">removeCookieIfEmpty()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
@@ -820,7 +781,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
@@ -829,16 +790,16 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_data">
-        $data
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#property_data" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_cookies">
+        $cookies
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#property_cookies" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
@@ -846,7 +807,41 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$data</span>
+    <span class="phpdocumentor-signature__name">$cookies</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_sessionKey">
+        $sessionKey
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#property_sessionKey" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">7</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$sessionKey</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -861,27 +856,61 @@
             phpdocumentor-element
             -property
             -private
-            -static                                            "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="property_defaults">
-        $defaults
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#property_defaults" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_storeSessionCookies">
+        $storeSessionCookies
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#property_storeSessionCookies" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">$defaults</span>
-     = <span class="phpdocumentor-signature__default-value">[&#039;Name&#039; =&gt; null, &#039;Value&#039; =&gt; null, &#039;Domain&#039; =&gt; null, &#039;Path&#039; =&gt; &#039;/&#039;, &#039;Max-Age&#039; =&gt; null, &#039;Expires&#039; =&gt; null, &#039;Secure&#039; =&gt; false, &#039;Discard&#039; =&gt; false, &#039;HttpOnly&#039; =&gt; false]</span></code>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$storeSessionCookies</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_strictMode">
+        $strictMode
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#property_strictMode" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">11</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$strictMode</span>
+    </code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -895,7 +924,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -905,28 +934,36 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sessionKey</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$storeSessionCookies</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$sessionKey</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$storeSessionCookies</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
 
@@ -947,25 +984,203 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___toString">
-        __toString()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method___destruct">
+        __destruct()
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method___destruct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__destruct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
     
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_clear">
+        clear()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_clear" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clear</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$domain</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$domain</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$path</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_clearSessionCookies">
+        clearSessionCookies()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_clearSessionCookies" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">138</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clearSessionCookies</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_count">
+        count()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_count" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">145</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">count</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_extractCookies">
+        extractCookies()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_extractCookies" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">extractCookies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-requestInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\requestInterface">requestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-responseInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\responseInterface">responseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-requestInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\requestInterface">requestInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-responseInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\responseInterface">responseInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -980,518 +1195,12 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_fromString">
-        fromString()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_fromString" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_fromArray">
+        fromArray()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_fromArray" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">fromString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cookie</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$cookie</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getDiscard">
-        getDiscard()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getDiscard" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">114</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDiscard</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getDomain">
-        getDomain()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getDomain" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">166</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDomain</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getExpires">
-        getExpires()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getExpires" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">17</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getExpires</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getHttpOnly">
-        getHttpOnly()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getHttpOnly" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">124</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getHttpOnly</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getMaxAge">
-        getMaxAge()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getMaxAge" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getMaxAge</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getName">
-        getName()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getName" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">196</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getName</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getPath">
-        getPath()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getPath" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">149</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getPath</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getSecure">
-        getSecure()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getSecure" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">104</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getSecure</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getValue">
-        getValue()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">201</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isExpired">
-        isExpired()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_isExpired" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">171</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isExpired</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_matchesDomain">
-        matchesDomain()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_matchesDomain" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">154</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">matchesDomain</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$domain</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$domain</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_matchesPath">
-        matchesPath()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_matchesPath" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">134</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">matchesPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestPath</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$requestPath</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setDiscard">
-        setDiscard()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setDiscard" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">119</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setDiscard</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$discard</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$discard</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setDomain">
-        setDomain()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setDomain" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">89</span>
 
@@ -1500,12 +1209,20 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setDomain</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$domain</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">fromArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cookies</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$domain</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$cookies</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$domain</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
@@ -1530,153 +1247,21 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setExpires">
-        setExpires()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setExpires" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getCookieByName">
+        getCookieByName()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getCookieByName" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setExpires</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timestamp</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$timestamp</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setHttpOnly">
-        setHttpOnly()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setHttpOnly" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">129</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setHttpOnly</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$httpOnly</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$httpOnly</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setMaxAge">
-        setMaxAge()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setMaxAge" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">99</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setMaxAge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxAge</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$maxAge</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setName">
-        setName()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setName" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">79</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getCookieByName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1704,111 +1289,23 @@
         class="phpdocumentor-element
             -method
             -public
-                                                        "
+                                    -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setPath">
-        setPath()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setPath" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getCookieValue">
+        getCookieValue()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getCookieValue" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$path</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setSecure">
-        setSecure()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setSecure" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">109</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setSecure</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$secure</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$secure</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setValue">
-        setValue()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_setValue" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">84</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getCookieValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1838,14 +1335,176 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_toArray">
-        toArray()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getIterator">
+        getIterator()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getIterator" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getIterator</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_save">
+        save()
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">save</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setCookie">
+        setCookie()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_setCookie" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setCookie</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-proxy-cookie-setCookie.html"><abbr title="\yxorP\app\lib\proxy\cookie\setCookie">setCookie</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cookie</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$cookie</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-proxy-cookie-setCookie.html"><abbr title="\yxorP\app\lib\proxy\cookie\setCookie">setCookie</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_shouldPersist">
+        shouldPersist()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_shouldPersist" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">103</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">shouldPersist</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-proxy-cookie-setCookie.html"><abbr title="\yxorP\app\lib\proxy\cookie\setCookie">setCookie</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cookie</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$allowSessionCookies</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$cookie</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-proxy-cookie-setCookie.html"><abbr title="\yxorP\app\lib\proxy\cookie\setCookie">setCookie</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$allowSessionCookies</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -1871,25 +1530,157 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_validate">
-        validate()
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#method_validate" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_withCookieHeader">
+        withCookieHeader()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_withCookieHeader" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/setCookie.php"><a href="files/app-lib-proxy-cookie-setcookie.html"><abbr title="app/lib/proxy/cookie/setCookie.php">setCookie.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">validate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">withCookieHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-requestInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\requestInterface">requestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-requestInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\requestInterface">requestInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_load">
+        load()
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#method_load" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/sessionCookieJar.php"><a href="files/app-lib-proxy-cookie-sessioncookiejar.html"><abbr title="app/lib/proxy/cookie/sessionCookieJar.php">sessionCookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">load</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
     
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCookiePathFromRequest">
+        getCookiePathFromRequest()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_getCookiePathFromRequest" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">166</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">getCookiePathFromRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-requestInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\requestInterface">requestInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-psr-http-message-requestInterface.html"><abbr title="\yxorP\app\lib\psr\http\message\requestInterface">requestInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeCookieIfEmpty">
+        removeCookieIfEmpty()
+        <a href="classes/yxorP-app-lib-proxy-cookie-cookieJar.html#method_removeCookieIfEmpty" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="app/lib/proxy/cookie/cookieJar.php"><a href="files/app-lib-proxy-cookie-cookiejar.html"><abbr title="app/lib/proxy/cookie/cookieJar.php">cookieJar.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">removeCookieIfEmpty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-proxy-cookie-setCookie.html"><abbr title="\yxorP\app\lib\proxy\cookie\setCookie">setCookie</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cookie</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$cookie</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/yxorP-app-lib-proxy-cookie-setCookie.html"><abbr title="\yxorP\app\lib\proxy\cookie\setCookie">setCookie</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1976,7 +1767,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/yxorP-app-lib-proxy-Cookie-sessionCookieJar.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/yxorP-app-lib-proxy-cookie-sessionCookieJar.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
