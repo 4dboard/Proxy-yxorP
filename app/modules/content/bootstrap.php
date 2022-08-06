@@ -4,13 +4,13 @@
 $this->helpers['content'] = 'Content\\Helper\\Content';
 
 // load admin related code
-$this->on('app.admin.init', function () {
-    include(__DIR__ . '/admin.php');
+$this->on('app.admin.init', function() {
+    include(__DIR__.'/admin.php');
 });
 
 // load api request related code
-$this->on('app.api.request', function () {
-    include(__DIR__ . '/api.php');
+$this->on('app.api.request', function() {
+    include(__DIR__.'/api.php');
 });
 
 // content api
@@ -20,13 +20,13 @@ $this->module('content')->extend([
     '_models' => [],
     '_refs' => [],
 
-    'createModel' => function (string $name, array $data = []): mixed {
+    'createModel' => function(string $name, array $data = []): mixed {
 
         if (!trim($name)) {
             return false;
         }
 
-        $storagepath = $this->app->path('#storage:') . '/content';
+        $storagepath = $this->app->path('#storage:').'/content';
 
         if (!$this->app->path('#storage:content')) {
 
@@ -42,15 +42,15 @@ $this->module('content')->extend([
         $time = time();
 
         $model = array_replace_recursive([
-            'name' => $name,
-            'label' => $name,
-            'info' => '',
-            'type' => 'collection',
-            'fields' => [],
-            'preview' => [],
-            'group' => null,
-            'sortable' => false,
-            '_created' => $time,
+            'name'      => $name,
+            'label'     => $name,
+            'info'      => '',
+            'type'      => 'collection',
+            'fields'    => [],
+            'preview'   => [],
+            'group'     => null,
+            'sortable'  => false,
+            '_created'  => $time,
             '_modified' => $time
         ], $data);
 
@@ -65,7 +65,7 @@ $this->module('content')->extend([
         return $model;
     },
 
-    'updateModel' => function (string $name, array $data): mixed {
+    'updateModel' => function(string $name, array $data): mixed {
 
         if (!$this->exists($name)) {
             return false;
@@ -79,8 +79,8 @@ $this->module('content')->extend([
 
         $data['_modified'] = time();
 
-        $model = include($metapath);
-        $model = array_merge($model, $data);
+        $model  = include($metapath);
+        $model  = array_merge($model, $data);
         $export = $this->app->helper('utils')->var_export($model, true);
 
         if (!$this->app->helper('fs')->write($metapath, "<?php\n return {$export};")) {
@@ -95,7 +95,7 @@ $this->module('content')->extend([
         return $model;
     },
 
-    'saveModel' => function (string $name, array $data): mixed {
+    'saveModel' => function(string $name, array $data): mixed {
 
         if (!trim($name)) {
             return false;
@@ -104,7 +104,7 @@ $this->module('content')->extend([
         return $this->exists($name) ? $this->updateModel($name, $data) : $this->createModel($name, $data);
     },
 
-    'removeModel' => function (string $name): bool {
+    'removeModel' => function(string $name): bool {
 
         $model = $this->model($name);
 
@@ -125,7 +125,7 @@ $this->module('content')->extend([
         return true;
     },
 
-    'models' => function (bool $extended = false): array {
+    'models' => function(bool $extended = false): array {
 
         $models = [];
 
@@ -145,11 +145,11 @@ $this->module('content')->extend([
         return $models;
     },
 
-    'exists' => function (string $name): ?string {
+    'exists' => function(string $name): ?string {
         return $this->app->path("#storage:content/{$name}.model.php");
     },
 
-    'model' => function (string $name): mixed {
+    'model' => function(string $name): mixed {
 
         if (!isset($this->_models[$name])) {
 
@@ -163,7 +163,7 @@ $this->module('content')->extend([
         return $this->_models[$name];
     },
 
-    'getDefaultModelItem' => function (string $model): array {
+    'getDefaultModelItem' => function(string $model): array {
 
         $item = [];
         $model = $this->model($model);
@@ -198,7 +198,7 @@ $this->module('content')->extend([
         return $item;
     },
 
-    'saveItem' => function (string $modelName, array $item, array $context = []): ?array {
+    'saveItem' => function(string $modelName, array $item, array $context = []): ?array {
 
         $model = $this->model($modelName);
         $context = array_merge([
@@ -206,7 +206,7 @@ $this->module('content')->extend([
         ], $context);
 
         if (!$model) {
-            throw new Exception('Try to access unknown model "' . $modelName . '"');
+            throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
         $time = time();
@@ -265,12 +265,12 @@ $this->module('content')->extend([
         return $item;
     },
 
-    'item' => function (string $modelName, array $filter = [], ?array $fields = null, $process = []) {
+    'item' => function(string $modelName, array $filter = [], ?array $fields = null, $process = []) {
 
         $model = $this->model($modelName);
 
         if (!$model) {
-            throw new Exception('Try to access unknown model "' . $modelName . '"');
+            throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
         if ($model['type'] == 'singleton') {
@@ -300,12 +300,12 @@ $this->module('content')->extend([
         return $item;
     },
 
-    'items' => function (string $modelName, array $options = [], $process = []): array {
+    'items' => function(string $modelName, array $options = [], $process = []): array {
 
         $model = $this->model($modelName);
 
         if (!$model) {
-            throw new Exception('Try to access unknown model "' . $modelName . '"');
+            throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
         if ($model['type'] != 'collection') {
@@ -314,7 +314,7 @@ $this->module('content')->extend([
 
         $collection = "content/collections/{$modelName}";
 
-        $items = (array)$this->app->dataStorage->find($collection, $options);
+        $items = (array) $this->app->dataStorage->find($collection, $options);
 
         if (isset($process['locale'])) {
             $items = $this->app->helper('locales')->applyLocales($items, $process['locale']);
@@ -327,12 +327,12 @@ $this->module('content')->extend([
         return $items;
     },
 
-    'remove' => function (string $modelName, mixed $filter = []) {
+    'remove' => function(string $modelName, mixed $filter = []) {
 
         $model = $this->model($modelName);
 
         if (!$model) {
-            throw new Exception('Try to access unknown model "' . $modelName . '"');
+            throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
         if ($model['type'] == 'singleton') {
@@ -346,12 +346,12 @@ $this->module('content')->extend([
         return $result;
     },
 
-    'count' => function (string $modelName, mixed $filter = []): int {
+    'count' => function(string $modelName, mixed $filter = []): int {
 
         $model = $this->model($modelName);
 
         if (!$model) {
-            throw new Exception('Try to access unknown model "' . $modelName . '"');
+            throw new Exception('Try to access unknown model "'.$modelName.'"');
         }
 
         if ($model['type'] == 'singleton') {
@@ -368,13 +368,13 @@ $this->module('content')->extend([
 
     },
 
-    'populate' => function (array $array, $maxlevel = -1, $level = 0, $process = []) {
+    'populate' => function(array $array, $maxlevel = -1, $level = 0, $process = []) {
 
         if (!is_array($array)) {
             return $array;
         }
 
-        if (is_numeric($maxlevel) && $maxlevel > -1 && $level > ($maxlevel + 1)) {
+        if (is_numeric($maxlevel) && $maxlevel > -1 && $level > ($maxlevel+1)) {
             return $array;
         }
 
@@ -419,9 +419,9 @@ $this->module('content')->extend([
         return $this->_refs[$model][$_id] ? $this->_refs[$model][$_id] : null;
     },
 
-    'updateRefs' => function (string $refId, mixed $value = null) {
+    'updateRefs' => function(string $refId, mixed $value = null) {
 
-        $update = function (&$items) use ($value, $refId, &$update) {
+        $update = function(&$items) use($value, $refId, &$update) {
 
             if (!is_array($items)) return $items;
 
@@ -458,20 +458,20 @@ $this->module('content')->extend([
 ]);
 
 // update assets references on asset remove
-$this->on('assets.asset.remove', function (array $asset) {
+$this->on('assets.asset.remove', function(array $asset) {
 
     if ($this->helper('async')->possible()) {
-        $this->helper('async')->exec('Yxorp()->module("content")->updateRefs($asset["_id"], null);', compact('asset'));
+        $this->helper('async')->exec('Cockpit()->module("content")->updateRefs($asset["_id"], null);', compact('asset'));
     } else {
         $this->module('content')->updateRefs($asset['_id'], null);
     }
 });
 
 // update assets references on asset update
-$this->on('assets.asset.update', function (array $asset) {
+$this->on('assets.asset.update', function(array $asset) {
 
     if ($this->helper('async')->possible()) {
-        $this->helper('async')->exec('Yxorp()->module("content")->updateRefs($asset["_id"], $asset);', compact('asset'));
+        $this->helper('async')->exec('Cockpit()->module("content")->updateRefs($asset["_id"], $asset);', compact('asset'));
     } else {
         $this->module('content')->updateRefs($asset['_id'], $asset);
     }

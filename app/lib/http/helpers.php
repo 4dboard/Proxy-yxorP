@@ -337,7 +337,7 @@ class helpers
         /**
          * Storing the app object in the cache store.
          */
-        store::handler(YXORP_APP, yxorP::instance());
+        store::handler(YXORP_APP, \Cockpit::instance());
 
         /**
          * Reading the file and then calling the env function on each line.

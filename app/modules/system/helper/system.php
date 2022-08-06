@@ -2,16 +2,12 @@
 
 namespace System\Helper;
 
-use Lime\Helper;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use ArrayObject;
 
-class System extends Helper
-{
+class System extends \Lime\Helper {
 
 
-    public function try(callable $callback, $rescue = null, $report = true)
-    {
+    public function try(callable $callback, $rescue = null, $report = true) {
         try {
             return $callback();
         } catch (Throwable $e) {
@@ -23,21 +19,19 @@ class System extends Helper
         }
     }
 
-    public function report()
-    {
+    public function report() {
         // to be implemented
     }
 
-    public function flushCache()
-    {
+    public function flushCache() {
 
-        $dirs = ['#cache:', '#tmp:'];
+        $dirs = ['#cache:','#tmp:'];
         $fs = $this->app->helper('fs');
 
         foreach ($dirs as $dir) {
 
             $path = $this->app->path($dir);
-            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
+            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
 
             foreach ($files as $file) {
 

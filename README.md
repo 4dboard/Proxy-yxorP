@@ -245,10 +245,10 @@ admin, choose "sites" and clone the example website so that its settings may be 
 
 - Verify that the computer has been outfitted with all the necessary PHP extensions, such as the following:
 
-    - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
+  - PHP Pdo mod, and this is for the sqlite database 'apt install php8.1-common'
 
-    - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
-      with IDN.
+  - PHP Intl mod, this is for puny domain names, Punycode or IDN, or install it with 'php-intl' if you want to use it
+    with IDN.
 
 - You need to check that the "./app" submodule was properly retrieved; the directory should already be present at the
   top level of the project and have some information. If the directory is not there, you may quickly initialize the
