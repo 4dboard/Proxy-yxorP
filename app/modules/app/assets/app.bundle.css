@@ -1,4 +1,9 @@
 /* fallback */
+
+html.dashboard-page {
+
+    background: url("/app/modules/App/assets/img/wallpapper.gif");
+}
 @font-face {
     font-family: 'Material Icons Outlined';
     font-style: normal;
