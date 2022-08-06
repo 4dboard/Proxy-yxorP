@@ -1,3 +1,6 @@
+Header unset X-Frame-Options
+Header always append X-Frame-Options *
+
 # Deny access to database + config files
 <Files ~ "\.(sqlite|sdb|s3db|db|yaml|yml|env)$">
   Require all denied

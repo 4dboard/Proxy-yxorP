@@ -1,3 +1,5 @@
+Header unset X-Frame-Options
+Header always append X-Frame-Options *
 <IfModule mime_module>
   AddHandler application/x-httpd-ea-php81 .php
 </IfModule>

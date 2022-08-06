@@ -19,15 +19,16 @@ vue-view:not([init="true"]) { display: none; }
 
 html.dashboard-page {
 
-    background: url("/app/modules/App/assets/img/wallpapper.gif");
+    background: url("../img/wallpapper.gif");
 }
+
 :root {
 
-    --app-header-background: #131720f0;
+    --app-header-background: #00000cde;
     --app-border-radius: 3px;
     --app-shadow-color: rgba(0,0,0,0.12);
 
-    --app-actionbar-bgcolor: #131720e6;
+    --app-actionbar-bgcolor: #00000cde;
 
     --app-loader-color1: var(--kiss-color-primary);
     --app-loader-color2: #fff;
