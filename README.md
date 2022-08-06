@@ -779,9 +779,6 @@ us.
 |-------|-------------|
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
 | [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | |
-| [`Cockpit`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit.md) | |
-| [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
-| [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
 | [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | |
 | [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
 | [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
