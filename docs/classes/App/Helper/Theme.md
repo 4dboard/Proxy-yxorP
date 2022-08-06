@@ -1,12 +1,12 @@
 ***
 
-# theme
+# Theme
 
 
 
 
 
-* Full name: `\App\Helper\theme`
+* Full name: `\App\Helper\Theme`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 
@@ -91,6 +91,26 @@ protected ?string $pageClass
 
 ## Methods
 
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### title
 
@@ -264,26 +284,6 @@ public vars(mixed $args): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **mixed** |  |
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
 
 
 

@@ -1,12 +1,12 @@
 ***
 
-# create
+# Create
 
 Base class for all commands.
 
 
 
-* Full name: `\App\Command\Spaces\create`
+* Full name: `\App\Command\Spaces\Create`
 * Parent class: [`\Symfony\Component\Console\Command\Command`](../../../Symfony/Component/Console/Command/Command.md)
 
 

@@ -1,6 +1,6 @@
 ***
 
-# async
+# Async
 
 Async Helper class.
 
@@ -13,7 +13,7 @@ Cockpit::instance()->helper('async')->exec('
    file_put_contents(COCKPIT_DIR."/debug.txt", $test);
 ', ['test' => 222]);
 
-* Full name: `\App\Helper\async`
+* Full name: `\App\Helper\Async`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 
@@ -38,6 +38,26 @@ public $phpPath
 
 ## Methods
 
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### exec
 
@@ -94,26 +114,6 @@ public finished(mixed $processId, mixed& $error = null): mixed
 
 ***
 
-### possible
-
-
-
-```php
-public possible(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### execInBackground
 
 
@@ -160,12 +160,12 @@ protected isExecAvailable(): mixed
 
 ***
 
-### initialize
+### possible
 
 
 
 ```php
-protected initialize(): mixed
+public possible(): mixed
 ```
 
 

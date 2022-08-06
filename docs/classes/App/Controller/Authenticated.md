@@ -1,13 +1,13 @@
 ***
 
-# authenticated
+# Authenticated
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\authenticated`
-* Parent class: [`\App\Controller\base`](./base.md)
+* Full name: `\App\Controller\Authenticated`
+* Parent class: [`\App\Controller\Base`](./Base.md)
 
 
 
@@ -31,32 +31,6 @@ protected $user
 
 ## Methods
 
-
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-
-
-
-
-***
 
 ### initialize
 
@@ -130,16 +104,42 @@ protected checkAndLockResource(mixed $resourceId): mixed
 
 ***
 
-
-## Inherited methods
-
-
-### index
+### unlockResource
 
 
 
 ```php
-public index(): string
+public unlockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
+
+## Inherited methods
+
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
 ```
 
 
@@ -154,12 +154,12 @@ public index(): string
 
 ***
 
-### initialize
+### index
 
 
 
 ```php
-protected initialize(): mixed
+public index(): string
 ```
 
 

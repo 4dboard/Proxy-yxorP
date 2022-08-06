@@ -1,12 +1,12 @@
 ***
 
-# query
+# Query
 
 
 
 
 
-* Full name: `\App\RestApi\query`
+* Full name: `\App\RestApi\Query`
 * Parent class: [`\Lime\AppAware`](../../Lime/AppAware.md)
 
 

@@ -1,12 +1,12 @@
 ***
 
-# auth
+# Auth
 
 
 
 
 
-* Full name: `\App\Helper\auth`
+* Full name: `\App\Helper\Auth`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

@@ -1,12 +1,12 @@
 ***
 
-# acl
+# Acl
 
 
 
 
 
-* Full name: `\App\Helper\acl`
+* Full name: `\App\Helper\Acl`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 
@@ -31,6 +31,26 @@ protected array $roles
 
 ## Methods
 
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### roles
 
@@ -111,26 +131,6 @@ public isSuperAdmin(mixed $role = null): mixed
 
 ```php
 public cache(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
 ```
 
 

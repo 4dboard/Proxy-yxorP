@@ -1,13 +1,13 @@
 ***
 
-# app
+# App
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\app`
-* Parent class: [`\App\Controller\authenticated`](./authenticated.md)
+* Full name: `\App\Controller\App`
+* Parent class: [`\App\Controller\Authenticated`](./Authenticated.md)
 
 
 
@@ -63,32 +63,6 @@ protected render(string $view, array $params = []): mixed
 ## Inherited methods
 
 
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-
-
-
-
-***
-
 ### initialize
 
 
@@ -141,6 +115,32 @@ protected isAllowed(string $permission): bool
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
+### unlockResource
+
+
+
+```php
+public unlockResource(mixed $resourceId): mixed
 ```
 
 

@@ -1,12 +1,12 @@
 ***
 
-# base
+# Base
 
 Class Controller
 
 
 
-* Full name: `\App\Controller\base`
+* Full name: `\App\Controller\Base`
 * Parent class: [`\Lime\AppAware`](../../Lime/AppAware.md)
 
 
@@ -32,12 +32,12 @@ protected $layout
 ## Methods
 
 
-### index
+### initialize
 
 
 
 ```php
-public index(): string
+protected initialize(): mixed
 ```
 
 
@@ -52,12 +52,12 @@ public index(): string
 
 ***
 
-### initialize
+### index
 
 
 
 ```php
-protected initialize(): mixed
+public index(): string
 ```
 
 

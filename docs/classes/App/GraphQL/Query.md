@@ -1,18 +1,33 @@
 ***
 
-# query
+# Query
 
 
 
 
 
-* Full name: `\App\GraphQL\query`
+* Full name: `\App\GraphQL\Query`
 * Parent class: [`\Lime\AppAware`](../../Lime/AppAware.md)
 
 
 
 ## Properties
 
+
+### initialized
+
+
+
+```php
+protected $initialized
+```
+
+
+
+
+
+
+***
 
 ### queries
 
@@ -65,21 +80,6 @@ public $types
 
 ```php
 public $directives
-```
-
-
-
-
-
-
-***
-
-### initialized
-
-
-
-```php
-protected $initialized
 ```
 
 

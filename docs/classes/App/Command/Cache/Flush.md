@@ -1,12 +1,12 @@
 ***
 
-# flush
+# Flush
 
 Base class for all commands.
 
 
 
-* Full name: `\App\Command\Cache\flush`
+* Full name: `\App\Command\Cache\Flush`
 * Parent class: [`\Symfony\Component\Console\Command\Command`](../../../Symfony/Component/Console/Command/Command.md)
 
 

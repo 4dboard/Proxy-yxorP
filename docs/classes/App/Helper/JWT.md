@@ -1,12 +1,12 @@
 ***
 
-# jWT
+# JWT
 
 
 
 
 
-* Full name: `\App\Helper\jWT`
+* Full name: `\App\Helper\JWT`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

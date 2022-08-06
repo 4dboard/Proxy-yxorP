@@ -1,13 +1,13 @@
 ***
 
-# collection
+# Collection
 
 Class Controller
 
 
 
-* Full name: `\Content\Controller\collection`
-* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
+* Full name: `\Content\Controller\Collection`
+* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
 
 
 
@@ -151,32 +151,6 @@ protected render( $view, array $params = []): mixed
 
 ***
 
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
-
-
-
-
-***
-
 ### initialize
 
 
@@ -229,6 +203,32 @@ protected isAllowed(string $permission): bool
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
+### unlockResource
+
+
+
+```php
+public unlockResource(mixed $resourceId): mixed
 ```
 
 
