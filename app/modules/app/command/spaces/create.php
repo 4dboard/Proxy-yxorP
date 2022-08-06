@@ -42,7 +42,7 @@ class Create extends Command {
 
         $path = $this->app->path("#app:.spaces/{$name}");
         $created = time();
-        $instance = \Cockpit::instance($path);
+        $instance = \yxorP::instance($path);
 
         $user = [
             'active' => true,

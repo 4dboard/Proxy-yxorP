@@ -57,9 +57,9 @@ if (!count($failed)) {
         include (__DIR__.'/../bootstrap.php');
     }
 
-    $app = Cockpit::instance();
+    $app = yxorP::instance();
 
-    // check whether cockpit is already installed
+    // check whether yxorP is already installed
     try {
 
         if ($app->dataStorage->getCollection('system/users')->count()) {
