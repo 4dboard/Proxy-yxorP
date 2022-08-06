@@ -1,12 +1,12 @@
 ***
 
-# utils
+# Utils
 
 Class Utils
 
 
 
-* Full name: `\Lime\Helper\utils`
+* Full name: `\Lime\Helper\Utils`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
 

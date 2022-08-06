@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\multipartStream`
+* Full name: `\yxorP\app\lib\proxy\psr7\multipartStream`
 * This class implements:
-[`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
+[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -91,7 +91,7 @@ protected createStream(array $elements): mixed
 
 
 ```php
-private addElement(\yxorP\app\lib\proxy\Psr7\appendStream $stream, array $element): mixed
+private addElement(\yxorP\app\lib\proxy\psr7\appendStream $stream, array $element): mixed
 ```
 
 
@@ -105,7 +105,7 @@ private addElement(\yxorP\app\lib\proxy\Psr7\appendStream $stream, array $elemen
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\proxy\Psr7\appendStream** |  |
+| `$stream` | **\yxorP\app\lib\proxy\psr7\appendStream** |  |
 | `$element` | **array** |  |
 
 
@@ -118,7 +118,7 @@ private addElement(\yxorP\app\lib\proxy\Psr7\appendStream $stream, array $elemen
 
 
 ```php
-private createElement(mixed $name, \yxorP\app\lib\Psr\Http\Message\StreamInterface $stream, mixed $filename, array $headers): mixed
+private createElement(mixed $name, \yxorP\app\lib\psr\http\message\streamInterface $stream, mixed $filename, array $headers): mixed
 ```
 
 
@@ -133,7 +133,7 @@ private createElement(mixed $name, \yxorP\app\lib\Psr\Http\Message\StreamInterfa
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-| `$stream` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
+| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 | `$filename` | **mixed** |  |
 | `$headers` | **array** |  |
 
@@ -244,7 +244,7 @@ public isWritable(): bool
 
 
 ```php
-public __construct(\yxorP\app\lib\Psr\Http\Message\StreamInterface $stream): mixed
+public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -258,7 +258,7 @@ public __construct(\yxorP\app\lib\Psr\Http\Message\StreamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
+| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 
 
 
@@ -285,26 +285,6 @@ public __get(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
-
-***
-
-### createStream
-
-
-
-```php
-protected createStream(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -657,6 +637,26 @@ public write(mixed $string): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
+
+
+
+
+***
+
+### createStream
+
+
+
+```php
+protected createStream(): mixed
+```
+
+
+
+
+
+
+
 
 
 

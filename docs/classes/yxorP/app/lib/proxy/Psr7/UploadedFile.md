@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\uploadedFile`
+* Full name: `\yxorP\app\lib\proxy\psr7\uploadedFile`
 * This class implements:
-[`\yxorP\app\lib\Psr\Http\Message\UploadedFileInterface`](../../Psr/Http/Message/UploadedFileInterface.md)
+[`\yxorP\app\lib\psr\http\message\uploadedFileInterface`](../../psr/http/message/uploadedFileInterface.md)
 
 
 
@@ -163,6 +163,219 @@ public __construct(mixed $streamOrFile, mixed $size, mixed $errorStatus, mixed $
 | `$clientFilename` | **mixed** |  |
 | `$clientMediaType` | **mixed** |  |
 
+
+
+
+***
+
+### moveTo
+
+Move the uploaded file to a new location.
+
+```php
+public moveTo(mixed $targetPath): mixed
+```
+
+Use this method as an alternative to move_uploaded_file(). This method is
+guaranteed to work in both SAPI and non-SAPI environments.
+Implementations must determine which environment they are in, and use the
+appropriate method (move_uploaded_file(), rename(), or a stream
+operation) to perform the operation.
+
+$targetPath may be an absolute path, or a relative path. If it is a
+relative path, resolution should be the same as used by PHP's rename()
+function.
+
+The original file or stream MUST be removed on completion.
+
+If this method is called more than once, any subsequent calls MUST raise
+an exception.
+
+When used in an SAPI environment where $_FILES is populated, when writing
+files via moveTo(), is_uploaded_file() and move_uploaded_file() SHOULD be
+used to ensure permissions and upload status are verified correctly.
+
+If you wish to move to a stream, use getStream(), as SAPI operations
+cannot guarantee writing to stream destinations.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$targetPath` | **mixed** | Path to which to move the uploaded file. |
+
+
+
+
+***
+
+### isMoved
+
+
+
+```php
+public isMoved(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getStream
+
+Retrieve a stream representing the uploaded file.
+
+```php
+public getStream(): \yxorP\app\lib\psr\http\message\streamInterface
+```
+
+This method MUST return a StreamInterface instance, representing the
+uploaded file. The purpose of this method is to allow utilizing native PHP
+stream functionality to manipulate the file upload, such as
+stream_copy_to_stream() (though the result will need to be decorated in a
+native PHP stream wrapper to work with such functions).
+
+If the moveTo() method has been called previously, this method MUST raise
+an exception.
+
+
+
+
+
+
+
+**Return Value:**
+
+Stream representation of the uploaded file.
+
+
+
+***
+
+### getSize
+
+Retrieve the file size.
+
+```php
+public getSize(): int|null
+```
+
+Implementations SHOULD return the value stored in the "size" key of
+the file in the $_FILES array if available, as PHP calculates this based
+on the actual size transmitted.
+
+
+
+
+
+
+
+**Return Value:**
+
+The file size in bytes or null if unknown.
+
+
+
+***
+
+### getError
+
+Retrieve the error associated with the uploaded file.
+
+```php
+public getError(): int
+```
+
+The return value MUST be one of PHP's UPLOAD_ERR_XXX constants.
+
+If the file was uploaded successfully, this method MUST return
+UPLOAD_ERR_OK.
+
+Implementations SHOULD return the value stored in the "error" key of
+the file in the $_FILES array.
+
+
+
+
+
+
+
+**Return Value:**
+
+One of PHP's UPLOAD_ERR_XXX constants.
+
+
+
+***
+
+### getClientFilename
+
+Retrieve the filename sent by the client.
+
+```php
+public getClientFilename(): string|null
+```
+
+Do not trust the value returned by this method. A client could send
+a malicious filename with the intention to corrupt or hack your
+application.
+
+Implementations SHOULD return the value stored in the "name" key of
+the file in the $_FILES array.
+
+
+
+
+
+
+
+**Return Value:**
+
+The filename sent by the client or null if none
+was provided.
+
+
+
+***
+
+### getClientMediaType
+
+Retrieve the media type sent by the client.
+
+```php
+public getClientMediaType(): string|null
+```
+
+Do not trust the value returned by this method. A client could send
+a malicious media type with the intention to corrupt or hack your
+application.
+
+Implementations SHOULD return the value stored in the "type" key of
+the file in the $_FILES array.
+
+
+
+
+
+
+
+**Return Value:**
+
+The media type sent by the client or null if none
+was provided.
 
 
 
@@ -344,78 +557,12 @@ private setStreamOrFile(mixed $streamOrFile): mixed
 
 ***
 
-### moveTo
-
-Move the uploaded file to a new location.
-
-```php
-public moveTo(mixed $targetPath): mixed
-```
-
-Use this method as an alternative to move_uploaded_file(). This method is
-guaranteed to work in both SAPI and non-SAPI environments.
-Implementations must determine which environment they are in, and use the
-appropriate method (move_uploaded_file(), rename(), or a stream
-operation) to perform the operation.
-
-$targetPath may be an absolute path, or a relative path. If it is a
-relative path, resolution should be the same as used by PHP's rename()
-function.
-
-The original file or stream MUST be removed on completion.
-
-If this method is called more than once, any subsequent calls MUST raise
-an exception.
-
-When used in an SAPI environment where $_FILES is populated, when writing
-files via moveTo(), is_uploaded_file() and move_uploaded_file() SHOULD be
-used to ensure permissions and upload status are verified correctly.
-
-If you wish to move to a stream, use getStream(), as SAPI operations
-cannot guarantee writing to stream destinations.
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$targetPath` | **mixed** | Path to which to move the uploaded file. |
-
-
-
-
-***
-
 ### validateActive
 
 
 
 ```php
 private validateActive(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### isMoved
-
-
-
-```php
-public isMoved(): mixed
 ```
 
 
@@ -451,153 +598,6 @@ private isStringNotEmpty(mixed $param): mixed
 |-----------|------|-------------|
 | `$param` | **mixed** |  |
 
-
-
-
-***
-
-### getStream
-
-Retrieve a stream representing the uploaded file.
-
-```php
-public getStream(): \yxorP\app\lib\Psr\Http\Message\StreamInterface
-```
-
-This method MUST return a StreamInterface instance, representing the
-uploaded file. The purpose of this method is to allow utilizing native PHP
-stream functionality to manipulate the file upload, such as
-stream_copy_to_stream() (though the result will need to be decorated in a
-native PHP stream wrapper to work with such functions).
-
-If the moveTo() method has been called previously, this method MUST raise
-an exception.
-
-
-
-
-
-
-
-**Return Value:**
-
-Stream representation of the uploaded file.
-
-
-
-***
-
-### getSize
-
-Retrieve the file size.
-
-```php
-public getSize(): int|null
-```
-
-Implementations SHOULD return the value stored in the "size" key of
-the file in the $_FILES array if available, as PHP calculates this based
-on the actual size transmitted.
-
-
-
-
-
-
-
-**Return Value:**
-
-The file size in bytes or null if unknown.
-
-
-
-***
-
-### getError
-
-Retrieve the error associated with the uploaded file.
-
-```php
-public getError(): int
-```
-
-The return value MUST be one of PHP's UPLOAD_ERR_XXX constants.
-
-If the file was uploaded successfully, this method MUST return
-UPLOAD_ERR_OK.
-
-Implementations SHOULD return the value stored in the "error" key of
-the file in the $_FILES array.
-
-
-
-
-
-
-
-**Return Value:**
-
-One of PHP's UPLOAD_ERR_XXX constants.
-
-
-
-***
-
-### getClientFilename
-
-Retrieve the filename sent by the client.
-
-```php
-public getClientFilename(): string|null
-```
-
-Do not trust the value returned by this method. A client could send
-a malicious filename with the intention to corrupt or hack your
-application.
-
-Implementations SHOULD return the value stored in the "name" key of
-the file in the $_FILES array.
-
-
-
-
-
-
-
-**Return Value:**
-
-The filename sent by the client or null if none
-was provided.
-
-
-
-***
-
-### getClientMediaType
-
-Retrieve the media type sent by the client.
-
-```php
-public getClientMediaType(): string|null
-```
-
-Do not trust the value returned by this method. A client could send
-a malicious media type with the intention to corrupt or hack your
-application.
-
-Implementations SHOULD return the value stored in the "type" key of
-the file in the $_FILES array.
-
-
-
-
-
-
-
-**Return Value:**
-
-The media type sent by the client or null if none
-was provided.
 
 
 

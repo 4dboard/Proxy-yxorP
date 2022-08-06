@@ -1,47 +1,17 @@
 ***
 
-# response
+# Response
 
 
 
 
 
-* Full name: `\Lime\response`
+* Full name: `\Lime\Response`
 
 
 
 ## Properties
 
-
-### statusCodes
-
-
-
-```php
-public static array $statusCodes
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### mimeTypes
-
-
-
-```php
-public static array $mimeTypes
-```
-
-
-
-* This property is **static**.
-
-
-***
 
 ### body
 
@@ -144,6 +114,36 @@ public array $headers
 
 
 
+
+
+***
+
+### statusCodes
+
+
+
+```php
+public static array $statusCodes
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### mimeTypes
+
+
+
+```php
+public static array $mimeTypes
+```
+
+
+
+* This property is **static**.
 
 
 ***

@@ -1,20 +1,65 @@
 ***
 
-# clientException
+# aRequestException
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\exception\clientException`
-* Parent class: [`\yxorP\app\lib\proxy\exception\badResponseException`](./badResponseException.md)
+* Full name: `\yxorP\app\lib\proxy\exception\aRequestException`
+* Parent class: [`\yxorP\app\lib\proxy\exception\transferExceptionInterface`](./transferExceptionInterface.md)
+
+
+
+## Properties
+
+
+### request
+
+
+
+```php
+private $request
+```
 
 
 
 
 
 
-## Inherited methods
+***
+
+### response
+
+
+
+```php
+private $response
+```
+
+
+
+
+
+
+***
+
+### handlerContext
+
+
+
+```php
+private $handlerContext
+```
+
+
+
+
+
+
+***
+
+## Methods
 
 
 ### __construct

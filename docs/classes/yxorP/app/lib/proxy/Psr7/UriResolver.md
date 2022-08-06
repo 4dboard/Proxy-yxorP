@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\uriResolver`
+* Full name: `\yxorP\app\lib\proxy\psr7\uriResolver`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
@@ -41,7 +41,7 @@ private __construct(): mixed
 
 
 ```php
-public static resolve(\yxorP\app\lib\Psr\Http\Message\UriInterface $base, \yxorP\app\lib\Psr\Http\Message\UriInterface $rel): mixed
+public static resolve(\yxorP\app\lib\psr\http\message\uriInterface $base, \yxorP\app\lib\psr\http\message\uriInterface $rel): mixed
 ```
 
 
@@ -55,8 +55,8 @@ public static resolve(\yxorP\app\lib\Psr\Http\Message\UriInterface $base, \yxorP
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$base` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
-| `$rel` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
+| `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$rel` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -94,7 +94,7 @@ public static removeDotSegments(mixed $path): mixed
 
 
 ```php
-public static relativize(\yxorP\app\lib\Psr\Http\Message\UriInterface $base, \yxorP\app\lib\Psr\Http\Message\UriInterface $target): mixed
+public static relativize(\yxorP\app\lib\psr\http\message\uriInterface $base, \yxorP\app\lib\psr\http\message\uriInterface $target): mixed
 ```
 
 
@@ -108,8 +108,8 @@ public static relativize(\yxorP\app\lib\Psr\Http\Message\UriInterface $base, \yx
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$base` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
-| `$target` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
+| `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$target` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -121,7 +121,7 @@ public static relativize(\yxorP\app\lib\Psr\Http\Message\UriInterface $base, \yx
 
 
 ```php
-private static getRelativePath(\yxorP\app\lib\Psr\Http\Message\UriInterface $base, \yxorP\app\lib\Psr\Http\Message\UriInterface $target): mixed
+private static getRelativePath(\yxorP\app\lib\psr\http\message\uriInterface $base, \yxorP\app\lib\psr\http\message\uriInterface $target): mixed
 ```
 
 
@@ -135,8 +135,8 @@ private static getRelativePath(\yxorP\app\lib\Psr\Http\Message\UriInterface $bas
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$base` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
-| `$target` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
+| `$base` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
+| `$target` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 
 
 

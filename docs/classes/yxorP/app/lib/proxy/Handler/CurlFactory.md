@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\curlFactory`
+* Full name: `\yxorP\app\lib\proxy\handler\curlFactory`
 * This class implements:
-[`\yxorP\app\lib\proxy\Handler\curlFactoryInterface`](./curlFactoryInterface.md)
+[`\yxorP\app\lib\proxy\handler\curlFactoryInterface`](./curlFactoryInterface.md)
 
 
 ## Constants
@@ -85,7 +85,7 @@ public __construct(mixed $maxHandles): mixed
 
 
 ```php
-public static finish(callable $handler, \yxorP\app\lib\proxy\Handler\easyHandle $easy, \yxorP\app\lib\proxy\Handler\curlFactoryInterface $factory): mixed
+public static finish(callable $handler, \yxorP\app\lib\proxy\handler\easyHandle $easy, \yxorP\app\lib\proxy\handler\curlFactoryInterface $factory): mixed
 ```
 
 
@@ -100,8 +100,8 @@ public static finish(callable $handler, \yxorP\app\lib\proxy\Handler\easyHandle 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
-| `$factory` | **\yxorP\app\lib\proxy\Handler\curlFactoryInterface** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
+| `$factory` | **\yxorP\app\lib\proxy\handler\curlFactoryInterface** |  |
 
 
 
@@ -113,7 +113,7 @@ public static finish(callable $handler, \yxorP\app\lib\proxy\Handler\easyHandle 
 
 
 ```php
-private static invokeStats(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
+private static invokeStats(\yxorP\app\lib\proxy\handler\easyHandle $easy): mixed
 ```
 
 
@@ -127,7 +127,7 @@ private static invokeStats(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 
 
 
@@ -139,7 +139,7 @@ private static invokeStats(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 
 ```php
-private static finishError(callable $handler, \yxorP\app\lib\proxy\Handler\easyHandle $easy, \yxorP\app\lib\proxy\Handler\curlFactoryInterface $factory): mixed
+private static finishError(callable $handler, \yxorP\app\lib\proxy\handler\easyHandle $easy, \yxorP\app\lib\proxy\handler\curlFactoryInterface $factory): mixed
 ```
 
 
@@ -154,8 +154,8 @@ private static finishError(callable $handler, \yxorP\app\lib\proxy\Handler\easyH
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
-| `$factory` | **\yxorP\app\lib\proxy\Handler\curlFactoryInterface** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
+| `$factory` | **\yxorP\app\lib\proxy\handler\curlFactoryInterface** |  |
 
 
 
@@ -167,7 +167,7 @@ private static finishError(callable $handler, \yxorP\app\lib\proxy\Handler\easyH
 
 
 ```php
-public release(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
+public release(\yxorP\app\lib\proxy\handler\easyHandle $easy): mixed
 ```
 
 
@@ -181,7 +181,7 @@ public release(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 
 
 
@@ -193,7 +193,7 @@ public release(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 
 ```php
-private static retryFailedRewind(callable $handler, \yxorP\app\lib\proxy\Handler\easyHandle $easy, array $ctx): mixed
+private static retryFailedRewind(callable $handler, \yxorP\app\lib\proxy\handler\easyHandle $easy, array $ctx): mixed
 ```
 
 
@@ -208,7 +208,7 @@ private static retryFailedRewind(callable $handler, \yxorP\app\lib\proxy\Handler
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** |  |
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 | `$ctx` | **array** |  |
 
 
@@ -221,7 +221,7 @@ private static retryFailedRewind(callable $handler, \yxorP\app\lib\proxy\Handler
 
 
 ```php
-private static createRejection(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array $ctx): mixed
+private static createRejection(\yxorP\app\lib\proxy\handler\easyHandle $easy, array $ctx): mixed
 ```
 
 
@@ -235,7 +235,7 @@ private static createRejection(\yxorP\app\lib\proxy\Handler\easyHandle $easy, ar
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 | `$ctx` | **array** |  |
 
 
@@ -248,7 +248,7 @@ private static createRejection(\yxorP\app\lib\proxy\Handler\easyHandle $easy, ar
 
 
 ```php
-public create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options): mixed
+public create(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -262,7 +262,7 @@ public create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -275,7 +275,7 @@ public create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $
 
 
 ```php
-private getDefaultConf(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
+private getDefaultConf(\yxorP\app\lib\proxy\handler\easyHandle $easy): mixed
 ```
 
 
@@ -289,7 +289,7 @@ private getDefaultConf(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 
 
 
@@ -301,7 +301,7 @@ private getDefaultConf(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 
 ```php
-private applyMethod(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf): mixed
+private applyMethod(\yxorP\app\lib\proxy\handler\easyHandle $easy, array& $conf): mixed
 ```
 
 
@@ -315,7 +315,7 @@ private applyMethod(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf)
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 | `$conf` | **array** |  |
 
 
@@ -328,7 +328,7 @@ private applyMethod(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf)
 
 
 ```php
-private applyBody(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options, array& $conf): mixed
+private applyBody(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options, array& $conf): mixed
 ```
 
 
@@ -342,7 +342,7 @@ private applyBody(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, arr
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 | `$conf` | **array** |  |
 
@@ -383,7 +383,7 @@ private removeHeader(mixed $name, array& $options): mixed
 
 
 ```php
-private applyHandlerOptions(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf): mixed
+private applyHandlerOptions(\yxorP\app\lib\proxy\handler\easyHandle $easy, array& $conf): mixed
 ```
 
 
@@ -397,7 +397,7 @@ private applyHandlerOptions(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 | `$conf` | **array** |  |
 
 
@@ -410,7 +410,7 @@ private applyHandlerOptions(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array
 
 
 ```php
-private applyHeaders(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf): mixed
+private applyHeaders(\yxorP\app\lib\proxy\handler\easyHandle $easy, array& $conf): mixed
 ```
 
 
@@ -424,7 +424,7 @@ private applyHeaders(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 | `$conf` | **array** |  |
 
 
@@ -437,7 +437,7 @@ private applyHeaders(\yxorP\app\lib\proxy\Handler\easyHandle $easy, array& $conf
 
 
 ```php
-private createHeaderFn(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
+private createHeaderFn(\yxorP\app\lib\proxy\handler\easyHandle $easy): mixed
 ```
 
 
@@ -451,7 +451,7 @@ private createHeaderFn(\yxorP\app\lib\proxy\Handler\easyHandle $easy): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$easy` | **\yxorP\app\lib\proxy\Handler\easyHandle** |  |
+| `$easy` | **\yxorP\app\lib\proxy\handler\easyHandle** |  |
 
 
 

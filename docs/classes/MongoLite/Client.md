@@ -1,12 +1,12 @@
 ***
 
-# client
+# Client
 
 Client object.
 
 
 
-* Full name: `\MongoLite\client`
+* Full name: `\MongoLite\Client`
 
 
 
@@ -117,7 +117,7 @@ List of database names
 Select Collection
 
 ```php
-public selectCollection(string $database, string $collection): \MongoLite\collection
+public selectCollection(string $database, string $collection): \MongoLite\Collection
 ```
 
 

@@ -1,12 +1,12 @@
 ***
 
-# collectionReader
+# CollectionReader
 
 
 
 
 
-* Full name: `\JSONStream\collectionReader`
+* Full name: `\JSONStream\CollectionReader`
 
 
 ## Constants
@@ -108,6 +108,26 @@ public __construct(string $path, bool $asArray = true): mixed
 
 ***
 
+### close
+
+
+
+```php
+public close(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### get
 
 
@@ -160,26 +180,6 @@ private parseChunk(mixed $chunk): \Generator
 
 ```php
 public __destruct(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### close
-
-
-
-```php
-public close(): void
 ```
 
 

@@ -1,35 +1,20 @@
 ***
 
-# aRejectionException
+# cancellationException
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\promise\aRejectionException`
-* Parent class: [`RuntimeException`](../../../../../RuntimeException.md)
-
-
-
-## Properties
-
-
-### reason
-
-
-
-```php
-private $reason
-```
+* Full name: `\yxorP\app\lib\proxy\promise\cancellationException`
+* Parent class: [`\yxorP\app\lib\proxy\promise\aRejectionException`](./aRejectionException.md)
 
 
 
 
 
 
-***
-
-## Methods
+## Inherited methods
 
 
 ### __construct

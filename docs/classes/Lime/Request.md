@@ -1,12 +1,12 @@
 ***
 
-# request
+# Request
 
 
 
 
 
-* Full name: `\Lime\request`
+* Full name: `\Lime\Request`
 
 
 
@@ -226,32 +226,6 @@ public bool $stopped
 ## Methods
 
 
-### __construct
-
-
-
-```php
-public __construct(array $config = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$config` | **array** |  |
-
-
-
-
-***
-
 ### fromGlobalRequest
 
 
@@ -278,17 +252,17 @@ public static fromGlobalRequest(array $config = []): self
 
 ***
 
-### getAllHeaders
+### __construct
 
 
 
 ```php
-public static getAllHeaders(array $server): array
+public __construct(array $config = []): mixed
 ```
 
 
 
-* This method is **static**.
+
 
 
 
@@ -297,7 +271,7 @@ public static getAllHeaders(array $server): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$server` | **array** |  |
+| `$config` | **array** |  |
 
 
 
@@ -378,32 +352,6 @@ public getClientLang(string $default = &#039;en&#039;): string
 
 ***
 
-### is
-
-
-
-```php
-public is(string $type): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$type` | **string** |  |
-
-
-
-
-***
-
 ### getSiteUrl
 
 
@@ -430,6 +378,32 @@ public getSiteUrl(bool $withpath = false): string
 
 ***
 
+### is
+
+
+
+```php
+public is(string $type): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$type` | **string** |  |
+
+
+
+
+***
+
 ### getBearerToken
 
 
@@ -444,6 +418,32 @@ public getBearerToken(): ?string
 
 
 
+
+
+
+
+***
+
+### getAllHeaders
+
+
+
+```php
+public static getAllHeaders(array $server): array
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$server` | **array** |  |
 
 
 

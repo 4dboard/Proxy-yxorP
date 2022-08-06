@@ -41,7 +41,7 @@ public static currentTime(): mixed
 
 
 ```php
-public static idnUriConvert(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri, mixed $options): mixed
+public static idnUriConvert(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $options): mixed
 ```
 
 
@@ -55,7 +55,7 @@ public static idnUriConvert(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri, m
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
+| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 | `$options` | **mixed** |  |
 
 

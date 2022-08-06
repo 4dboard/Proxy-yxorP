@@ -1,24 +1,24 @@
 ***
 
-# client
+# Client
 
 
 
 
 
-* Full name: `\MongoHybrid\client`
+* Full name: `\MongoHybrid\Client`
 
 
 
 ## Properties
 
 
-### type
+### driver
 
 
 
 ```php
-public ?string $type
+protected \MongoHybrid\Mongo|\MongoHybrid\MongoLite $driver
 ```
 
 
@@ -28,12 +28,12 @@ public ?string $type
 
 ***
 
-### driver
+### type
 
 
 
 ```php
-protected \MongoHybrid\mongo|\MongoHybrid\mongoLite $driver
+public ?string $type
 ```
 
 
@@ -211,6 +211,62 @@ public findTerm(string $collection, string $term, array $options = []): mixed
 
 ***
 
+### getKey
+
+Get value for specific key
+
+```php
+public getKey(string $collection, string $key, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$key` | **string** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
+### setKey
+
+Set value for specific key
+
+```php
+public setKey(string $collection, string $key, mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$key` | **string** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
 ### removeKey
 
 Delete Key(s)
@@ -287,62 +343,6 @@ public incrKey(string $collection, string $key, int $by = 1): int
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$by` | **int** |  |
-
-
-
-
-***
-
-### getKey
-
-Get value for specific key
-
-```php
-public getKey(string $collection, string $key, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **string** |  |
-| `$key` | **string** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
-### setKey
-
-Set value for specific key
-
-```php
-public setKey(string $collection, string $key, mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **string** |  |
-| `$key` | **string** |  |
-| `$value` | **mixed** |  |
 
 
 
@@ -490,6 +490,64 @@ public lindex(string $collection, string $key, int $index): mixed
 
 ***
 
+### hset
+
+Set the string value of a hash field
+
+```php
+public hset(string $collection, string $key, string $field, mixed $value): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$key` | **string** |  |
+| `$field` | **string** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### hget
+
+Get the value of a hash field
+
+```php
+public hget(string $collection, string $key, string $field, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$key` | **string** |  |
+| `$field` | **string** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
 ### hgetall
 
 Get all the fields and values in a hash
@@ -545,6 +603,33 @@ public hexists(string $collection, string $key, string $field): bool
 
 ***
 
+### hkeys
+
+Get all the fields in a hash
+
+```php
+public hkeys(string $collection, string $key): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **string** |  |
+| `$key` | **string** |  |
+
+
+
+
+***
+
 ### hvals
 
 Get all the values in a hash
@@ -578,33 +663,6 @@ Get the number of fields in a hash
 
 ```php
 public hlen(string $collection, string $key): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **string** |  |
-| `$key` | **string** |  |
-
-
-
-
-***
-
-### hkeys
-
-Get all the fields in a hash
-
-```php
-public hkeys(string $collection, string $key): array
 ```
 
 
@@ -676,64 +734,6 @@ public hincrby(string $collection, string $key, string $field, int $by = 1): int
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$by` | **int** |  |
-
-
-
-
-***
-
-### hget
-
-Get the value of a hash field
-
-```php
-public hget(string $collection, string $key, string $field, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **string** |  |
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
-### hset
-
-Set the string value of a hash field
-
-```php
-public hset(string $collection, string $key, string $field, mixed $value): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **string** |  |
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$value` | **mixed** |  |
 
 
 

@@ -1,12 +1,12 @@
 ***
 
-# cli
+# CLI
 
 
 
 
 
-* Full name: `\cli`
+* Full name: `\CLI`
 
 
 
@@ -61,12 +61,12 @@ public static opts(?string $name = null, mixed $default = null): mixed
 
 ***
 
-### writeln
+### write
 
 
 
 ```php
-public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
+public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
 
@@ -89,12 +89,12 @@ public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = n
 
 ***
 
-### write
+### writeln
 
 
 
 ```php
-public static write(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
+public static writeln(string $out, ?string $fgcolor = null, ?string $bgcolor = null): void
 ```
 
 

@@ -1,12 +1,12 @@
 ***
 
-# SetCookie
+# setCookie
 
 
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Cookie\SetCookie`
+* Full name: `\yxorP\app\lib\proxy\cookie\setCookie`
 
 
 
@@ -169,7 +169,7 @@ public static fromString(mixed $cookie): mixed
 
 
 ```php
-public __toString(): mixed
+public __toString(): string
 ```
 
 

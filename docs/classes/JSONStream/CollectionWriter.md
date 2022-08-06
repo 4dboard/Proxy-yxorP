@@ -1,12 +1,12 @@
 ***
 
-# collectionWriter
+# CollectionWriter
 
 
 
 
 
-* Full name: `\JSONStream\collectionWriter`
+* Full name: `\JSONStream\CollectionWriter`
 
 
 
@@ -98,12 +98,12 @@ public push(mixed $item): void
 
 ***
 
-### __destruct
+### close
 
 
 
 ```php
-public __destruct(): mixed
+public close(): void
 ```
 
 
@@ -118,12 +118,12 @@ public __destruct(): mixed
 
 ***
 
-### close
+### __destruct
 
 
 
 ```php
-public close(): void
+public __destruct(): mixed
 ```
 
 

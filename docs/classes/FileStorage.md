@@ -1,12 +1,12 @@
 ***
 
-# fileStorage
+# FileStorage
 
 
 
 
 
-* Full name: `\fileStorage`
+* Full name: `\FileStorage`
 
 
 
@@ -114,32 +114,6 @@ public addStorage(string $name, array $config): self
 
 ***
 
-### initStorage
-
-
-
-```php
-protected initStorage(string $name): \League\Flysystem\Filesystem
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
 ### use
 
 
@@ -186,6 +160,32 @@ public getURL(string $file): ?string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
+
+
+
+
+***
+
+### initStorage
+
+
+
+```php
+protected initStorage(string $name): \League\Flysystem\Filesystem
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
 
 
 

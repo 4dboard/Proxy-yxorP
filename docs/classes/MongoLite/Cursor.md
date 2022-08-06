@@ -1,12 +1,12 @@
 ***
 
-# cursor
+# Cursor
 
 Cursor object.
 
 
 
-* Full name: `\MongoLite\cursor`
+* Full name: `\MongoLite\Cursor`
 * This class implements:
 [`\Iterator`](../Iterator.md)
 
@@ -50,7 +50,7 @@ protected array $data
 
 
 ```php
-protected \MongoLite\collection $collection
+protected \MongoLite\Collection $collection
 ```
 
 
@@ -302,26 +302,6 @@ public each(mixed $callable): object
 
 ***
 
-### current
-
-
-
-```php
-public current(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### toArray
 
 Get documents matching criteria
@@ -368,6 +348,26 @@ Iterator implementation
 
 ```php
 public rewind(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### current
+
+
+
+```php
+public current(): array
 ```
 
 

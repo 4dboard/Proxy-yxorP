@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\promise`
+* Full name: `\yxorP\app\lib\proxy\promise\promise`
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\promiseInterface`](./promiseInterface.md)
+[`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
 
 
 

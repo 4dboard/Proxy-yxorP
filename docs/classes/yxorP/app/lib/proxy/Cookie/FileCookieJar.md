@@ -6,8 +6,8 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Cookie\fileCookieJar`
-* Parent class: [`\yxorP\app\lib\proxy\Cookie\cookieJar`](./cookieJar.md)
+* Full name: `\yxorP\app\lib\proxy\cookie\fileCookieJar`
+* Parent class: [`\yxorP\app\lib\proxy\cookie\cookieJar`](./cookieJar.md)
 
 
 
@@ -182,7 +182,7 @@ public __construct(mixed $strictMode = false, mixed $cookieArray = []): mixed
 
 
 ```php
-public setCookie(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
+public setCookie(\yxorP\app\lib\proxy\cookie\setCookie $cookie): mixed
 ```
 
 
@@ -196,7 +196,7 @@ public setCookie(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
+| `$cookie` | **\yxorP\app\lib\proxy\cookie\setCookie** |  |
 
 
 
@@ -208,7 +208,7 @@ public setCookie(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
 
 
 ```php
-private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie): mixed
+private removeCookieIfEmpty(\yxorP\app\lib\proxy\cookie\setCookie $cookie): mixed
 ```
 
 
@@ -222,7 +222,7 @@ private removeCookieIfEmpty(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
+| `$cookie` | **\yxorP\app\lib\proxy\cookie\setCookie** |  |
 
 
 
@@ -315,7 +315,7 @@ public static getCookieValue(mixed $value): mixed
 
 
 ```php
-public static shouldPersist(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie, mixed $allowSessionCookies = false): mixed
+public static shouldPersist(\yxorP\app\lib\proxy\cookie\setCookie $cookie, mixed $allowSessionCookies = false): mixed
 ```
 
 
@@ -329,7 +329,7 @@ public static shouldPersist(\yxorP\app\lib\proxy\Cookie\sessionCookieJar $cookie
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cookie` | **\yxorP\app\lib\proxy\Cookie\sessionCookieJar** |  |
+| `$cookie` | **\yxorP\app\lib\proxy\cookie\setCookie** |  |
 | `$allowSessionCookies` | **mixed** |  |
 
 
@@ -448,7 +448,7 @@ public count(): mixed
 
 
 ```php
-public extractCookies(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response): mixed
+public extractCookies(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response): mixed
 ```
 
 
@@ -462,8 +462,8 @@ public extractCookies(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request,
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 
 
 
@@ -475,7 +475,7 @@ public extractCookies(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request,
 
 
 ```php
-private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
+private getCookiePathFromRequest(\yxorP\app\lib\psr\http\message\requestInterface $request): mixed
 ```
 
 
@@ -489,7 +489,7 @@ private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterfac
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 
 
 
@@ -501,7 +501,7 @@ private getCookiePathFromRequest(\yxorP\app\lib\Psr\Http\Message\RequestInterfac
 
 
 ```php
-public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request): mixed
+public withCookieHeader(\yxorP\app\lib\psr\http\message\requestInterface $request): mixed
 ```
 
 
@@ -515,7 +515,7 @@ public withCookieHeader(\yxorP\app\lib\Psr\Http\Message\RequestInterface $reques
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 
 
 

@@ -17,23 +17,25 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`App`](./classes/App.md) | |
 | [`Attribute`](./classes/Attribute.md) | |
-| [`ComposerAutoloaderInit`](./classes/ComposerAutoloaderInit.md) | |
+| [`CLI`](./classes/CLI.md) | |
+| [`Cockpit`](./classes/Cockpit.md) | |
 | [`ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055`](./classes/ComposerAutoloaderInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/ComposerAutoloaderInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
+| [`DotEnv`](./classes/DotEnv.md) | |
+| [`FileStorage`](./classes/FileStorage.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
 | [`JsonException`](./classes/JsonException.md) | |
 | [`Mailer`](./classes/Mailer.md) | |
 | [`Mailer_Message`](./classes/Mailer_Message.md) | |
 | [`Normalizer`](./classes/Normalizer.md) | |
 | [`PhpToken`](./classes/PhpToken.md) | |
+| [`RedisLite`](./classes/RedisLite.md) | RedisLite class.|
 | [`ReturnTypeWillChange`](./classes/ReturnTypeWillChange.md) | |
+| [`SVGSanitizer`](./classes/SVGSanitizer.md) | Class SVGSanitizer|
+| [`SimpleImageLib`](./classes/SimpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 | [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
 | [`ValueError`](./classes/ValueError.md) | |
-| [`cli`](./classes/cli.md) | |
-| [`dotEnv`](./classes/dotEnv.md) | |
-| [`fileStorage`](./classes/fileStorage.md) | |
 | [`onCheckAction`](./classes/onCheckAction.md) | Importing the wrapper class from the yxorP\app\lib\http namespace. Extending the wrapper class, which is a class that is used to wrap events.|
 | [`onCompleteAction`](./classes/onCompleteAction.md) | Extending the wrapper class, which is a class that allows you to hook into the request lifecycle.|
 | [`onContextAction`](./classes/onContextAction.md) | Extending the wrapper class, which is a class that is used to wrap the request and response objects.|
@@ -45,9 +47,6 @@ This is an automatically generated documentation for **Documentation**.
 | [`onSendAction`](./classes/onSendAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onSentAction`](./classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onWriteAction`](./classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
-| [`redisLite`](./classes/redisLite.md) | |
-| [`sVGSanitizer`](./classes/sVGSanitizer.md) | Class SVGSanitizer|
-| [`simpleImageLib`](./classes/simpleImageLib.md) | A PHP class that makes working with images as simple as possible.|
 
 
 
@@ -65,7 +64,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`flush`](./classes/App/Command/Cache/flush.md) | Base class for all commands.|
+| [`Flush`](./classes/App/Command/Cache/Flush.md) | Base class for all commands.|
 
 
 
@@ -76,7 +75,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`create`](./classes/App/Command/Spaces/create.md) | Base class for all commands.|
+| [`Create`](./classes/App/Command/Spaces/Create.md) | Base class for all commands.|
 
 
 
@@ -87,7 +86,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`createTranslation`](./classes/App/Command/i18n/createTranslation.md) | Base class for all commands.|
+| [`CreateTranslation`](./classes/App/Command/i18n/CreateTranslation.md) | Base class for all commands.|
 
 
 
@@ -98,12 +97,12 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`app`](./classes/App/Controller/app.md) | Class Controller|
-| [`auth`](./classes/App/Controller/auth.md) | Class Controller|
-| [`authenticated`](./classes/App/Controller/authenticated.md) | Class Controller|
-| [`base`](./classes/App/Controller/base.md) | Class Controller|
-| [`dashboard`](./classes/App/Controller/dashboard.md) | Class Controller|
-| [`utils`](./classes/App/Controller/utils.md) | Class Controller|
+| [`App`](./classes/App/Controller/App.md) | Class Controller|
+| [`Auth`](./classes/App/Controller/Auth.md) | Class Controller|
+| [`Authenticated`](./classes/App/Controller/Authenticated.md) | Class Controller|
+| [`Base`](./classes/App/Controller/Base.md) | Class Controller|
+| [`Dashboard`](./classes/App/Controller/Dashboard.md) | Class Controller|
+| [`Utils`](./classes/App/Controller/Utils.md) | Class Controller|
 
 
 
@@ -114,7 +113,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`query`](./classes/App/GraphQL/query.md) | |
+| [`Query`](./classes/App/GraphQL/Query.md) | |
 
 
 
@@ -125,9 +124,9 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`fieldTypes`](./classes/App/GraphQL/Types/fieldTypes.md) | |
-| [`jsonType`](./classes/App/GraphQL/Types/jsonType.md) | Scalar Type Definition|
-| [`uploadType`](./classes/App/GraphQL/Types/uploadType.md) | Scalar Type Definition|
+| [`FieldTypes`](./classes/App/GraphQL/Types/FieldTypes.md) | |
+| [`JsonType`](./classes/App/GraphQL/Types/JsonType.md) | Scalar Type Definition|
+| [`UploadType`](./classes/App/GraphQL/Types/UploadType.md) | Scalar Type Definition|
 
 
 
@@ -138,22 +137,22 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
+| [`Acl`](./classes/App/Helper/Acl.md) | |
+| [`Admin`](./classes/App/Helper/Admin.md) | |
 | [`App`](./classes/App/Helper/App.md) | |
+| [`Async`](./classes/App/Helper/Async.md) | Async Helper class.|
+| [`Auth`](./classes/App/Helper/Auth.md) | |
+| [`Csrf`](./classes/App/Helper/Csrf.md) | |
+| [`EventStream`](./classes/App/Helper/EventStream.md) | |
+| [`JWT`](./classes/App/Helper/JWT.md) | |
+| [`Menus`](./classes/App/Helper/Menus.md) | |
 | [`ResponseCache`](./classes/App/Helper/ResponseCache.md) | |
 | [`ResponseCacheFileHandler`](./classes/App/Helper/ResponseCacheFileHandler.md) | |
 | [`ResponseCacheMemoryeHandler`](./classes/App/Helper/ResponseCacheMemoryeHandler.md) | |
 | [`TWFA`](./classes/App/Helper/TWFA.md) | |
 | [`TWFAQRCodeRenderer`](./classes/App/Helper/TWFAQRCodeRenderer.md) | |
-| [`acl`](./classes/App/Helper/acl.md) | |
-| [`admin`](./classes/App/Helper/admin.md) | |
-| [`async`](./classes/App/Helper/async.md) | Async Helper class.|
-| [`auth`](./classes/App/Helper/auth.md) | |
-| [`csrf`](./classes/App/Helper/csrf.md) | |
-| [`eventStream`](./classes/App/Helper/eventStream.md) | |
+| [`Theme`](./classes/App/Helper/Theme.md) | |
 | [`i18n`](./classes/App/Helper/i18n.md) | I18n class. Manage translations|
-| [`jWT`](./classes/App/Helper/jWT.md) | |
-| [`menus`](./classes/App/Helper/menus.md) | |
-| [`theme`](./classes/App/Helper/theme.md) | |
 
 
 
@@ -164,7 +163,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`query`](./classes/App/RestApi/query.md) | |
+| [`Query`](./classes/App/RestApi/Query.md) | |
 
 
 
@@ -175,7 +174,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`assets`](./classes/Assets/Controller/assets.md) | Class Controller|
+| [`Assets`](./classes/Assets/Controller/Assets.md) | Class Controller|
 
 
 
@@ -432,7 +431,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`collections`](./classes/Collections/Helper/collections.md) | |
+| [`Collections`](./classes/Collections/Helper/Collections.md) | |
 
 
 
@@ -512,7 +511,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
-| [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
 
 
 
@@ -525,8 +523,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
-| [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
-| [`ComposerStaticInit`](./classes/Composer/Autoload/ComposerStaticInit.md) | |
 | [`ComposerStaticInit00d1f9b6bf944011268c41c2b4662055`](./classes/Composer/Autoload/ComposerStaticInit00d1f9b6bf944011268c41c2b4662055.md) | |
 | [`ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c`](./classes/Composer/Autoload/ComposerStaticInit05e79f1c0a61bd31841b9c7a1b54b18c.md) | |
 
@@ -539,10 +535,10 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`collection`](./classes/Content/Controller/collection.md) | Class Controller|
-| [`content`](./classes/Content/Controller/content.md) | Class Controller|
-| [`models`](./classes/Content/Controller/models.md) | Class Controller|
-| [`singleton`](./classes/Content/Controller/singleton.md) | Class Controller|
+| [`Collection`](./classes/Content/Controller/Collection.md) | Class Controller|
+| [`Content`](./classes/Content/Controller/Content.md) | Class Controller|
+| [`Models`](./classes/Content/Controller/Models.md) | Class Controller|
+| [`Singleton`](./classes/Content/Controller/Singleton.md) | Class Controller|
 
 
 
@@ -1232,8 +1228,8 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`index`](./classes/IndexLite/index.md) | |
-| [`manager`](./classes/IndexLite/manager.md) | |
+| [`Index`](./classes/IndexLite/Index.md) | |
+| [`Manager`](./classes/IndexLite/Manager.md) | |
 
 
 
@@ -1244,8 +1240,8 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`collectionReader`](./classes/JSONStream/collectionReader.md) | |
-| [`collectionWriter`](./classes/JSONStream/collectionWriter.md) | |
+| [`CollectionReader`](./classes/JSONStream/CollectionReader.md) | |
+| [`CollectionWriter`](./classes/JSONStream/CollectionWriter.md) | |
 
 
 
@@ -1411,8 +1407,8 @@ This is an automatically generated documentation for **Documentation**.
 | [`AppAware`](./classes/Lime/AppAware.md) | |
 | [`Helper`](./classes/Lime/Helper.md) | |
 | [`Module`](./classes/Lime/Module.md) | |
-| [`request`](./classes/Lime/request.md) | |
-| [`response`](./classes/Lime/response.md) | |
+| [`Request`](./classes/Lime/Request.md) | |
+| [`Response`](./classes/Lime/Response.md) | |
 
 
 
@@ -1423,11 +1419,11 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
+| [`Cache`](./classes/Lime/Helper/Cache.md) | |
 | [`FileObject`](./classes/Lime/Helper/FileObject.md) | Use custom FileObject to prevent &quot;too many files open&quot; error|
 | [`Filesystem`](./classes/Lime/Helper/Filesystem.md) | |
-| [`cache`](./classes/Lime/Helper/cache.md) | |
-| [`session`](./classes/Lime/Helper/session.md) | |
-| [`utils`](./classes/Lime/Helper/utils.md) | Class Utils|
+| [`Session`](./classes/Lime/Helper/Session.md) | |
+| [`Utils`](./classes/Lime/Helper/Utils.md) | Class Utils|
 
 
 
@@ -1438,7 +1434,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`client`](./classes/MemoryStorage/client.md) | |
+| [`Client`](./classes/MemoryStorage/Client.md) | |
 
 
 
@@ -1585,10 +1581,10 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`client`](./classes/MongoHybrid/client.md) | |
-| [`mongo`](./classes/MongoHybrid/mongo.md) | |
-| [`mongoLite`](./classes/MongoHybrid/mongoLite.md) | |
-| [`resultSet`](./classes/MongoHybrid/resultSet.md) | |
+| [`Client`](./classes/MongoHybrid/Client.md) | |
+| [`Mongo`](./classes/MongoHybrid/Mongo.md) | |
+| [`MongoLite`](./classes/MongoHybrid/MongoLite.md) | |
+| [`ResultSet`](./classes/MongoHybrid/ResultSet.md) | |
 
 
 
@@ -1599,11 +1595,11 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
+| [`Client`](./classes/MongoLite/Client.md) | Client object.|
+| [`Collection`](./classes/MongoLite/Collection.md) | Collection object.|
+| [`Cursor`](./classes/MongoLite/Cursor.md) | Cursor object.|
 | [`Database`](./classes/MongoLite/Database.md) | Database object.|
 | [`UtilArrayQuery`](./classes/MongoLite/UtilArrayQuery.md) | |
-| [`client`](./classes/MongoLite/client.md) | Client object.|
-| [`collection`](./classes/MongoLite/collection.md) | Collection object.|
-| [`cursor`](./classes/MongoLite/cursor.md) | Cursor object.|
 
 
 
@@ -1814,8 +1810,12 @@ This is an automatically generated documentation for **Documentation**.
 | Interface | Description |
 |-----------|-------------|
 | [`CacheException`](./classes/Psr/Cache/CacheException.md) | Exception interface for all exceptions thrown by an Implementing Library.|
+| [`CacheException`](./classes/Psr/Cache/CacheException.md) | Exception interface for all exceptions thrown by an Implementing Library.|
+| [`CacheItemInterface`](./classes/Psr/Cache/CacheItemInterface.md) | CacheItemInterface defines an interface for interacting with objects inside a cache.|
 | [`CacheItemInterface`](./classes/Psr/Cache/CacheItemInterface.md) | CacheItemInterface defines an interface for interacting with objects inside a cache.|
 | [`CacheItemPoolInterface`](./classes/Psr/Cache/CacheItemPoolInterface.md) | CacheItemPoolInterface generates CacheItemInterface objects.|
+| [`CacheItemPoolInterface`](./classes/Psr/Cache/CacheItemPoolInterface.md) | CacheItemPoolInterface generates CacheItemInterface objects.|
+| [`InvalidArgumentException`](./classes/Psr/Cache/InvalidArgumentException.md) | Exception interface for invalid cache arguments.|
 | [`InvalidArgumentException`](./classes/Psr/Cache/InvalidArgumentException.md) | Exception interface for invalid cache arguments.|
 
 
@@ -2610,12 +2610,12 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`api`](./classes/System/Controller/api.md) | Class Controller|
-| [`locales`](./classes/System/Controller/locales.md) | Class Controller|
-| [`logs`](./classes/System/Controller/logs.md) | Class Controller|
-| [`settings`](./classes/System/Controller/settings.md) | Class Controller|
-| [`users`](./classes/System/Controller/users.md) | Class Controller|
-| [`utils`](./classes/System/Controller/utils.md) | Class Controller|
+| [`Api`](./classes/System/Controller/Api.md) | Class Controller|
+| [`Locales`](./classes/System/Controller/Locales.md) | Class Controller|
+| [`Logs`](./classes/System/Controller/Logs.md) | Class Controller|
+| [`Settings`](./classes/System/Controller/Settings.md) | Class Controller|
+| [`Users`](./classes/System/Controller/Users.md) | Class Controller|
+| [`Utils`](./classes/System/Controller/Utils.md) | Class Controller|
 
 
 
@@ -2626,7 +2626,7 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
-| [`roles`](./classes/System/Controller/Users/roles.md) | Class Controller|
+| [`Roles`](./classes/System/Controller/Users/Roles.md) | Class Controller|
 
 
 
@@ -2637,13 +2637,13 @@ This is an automatically generated documentation for **Documentation**.
 
 | Class | Description |
 |-------|-------------|
+| [`Api`](./classes/System/Helper/Api.md) | |
+| [`Locales`](./classes/System/Helper/Locales.md) | |
 | [`Log`](./classes/System/Helper/Log.md) | |
 | [`LogChannel`](./classes/System/Helper/LogChannel.md) | |
-| [`api`](./classes/System/Helper/api.md) | |
-| [`locales`](./classes/System/Helper/locales.md) | |
-| [`revisions`](./classes/System/Helper/revisions.md) | |
-| [`settings`](./classes/System/Helper/settings.md) | |
-| [`system`](./classes/System/Helper/system.md) | |
+| [`Revisions`](./classes/System/Helper/Revisions.md) | |
+| [`Settings`](./classes/System/Helper/Settings.md) | |
+| [`System`](./classes/System/Helper/System.md) | |
 
 
 
@@ -2705,25 +2705,6 @@ This is an automatically generated documentation for **Documentation**.
 |-------|-------------|
 | [`yP`](./classes/yxorP/app/lib/yP.md) | It&#039;s a class that&#039;s used to dispatch events.|
 
-
-
-
-### \yxorP\app\lib\Psr\Http\Message
-
-
-
-
-#### Interfaces
-
-| Interface | Description |
-|-----------|-------------|
-| [`MessageInterface`](./classes/yxorP/app/lib/Psr/Http/Message/MessageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
-| [`RequestInterface`](./classes/yxorP/app/lib/Psr/Http/Message/RequestInterface.md) | Representation of an outgoing, client-side request.|
-| [`ResponseInterface`](./classes/yxorP/app/lib/Psr/Http/Message/ResponseInterface.md) | Representation of an outgoing, server-side response.|
-| [`ServerRequestInterface`](./classes/yxorP/app/lib/Psr/Http/Message/ServerRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
-| [`StreamInterface`](./classes/yxorP/app/lib/Psr/Http/Message/StreamInterface.md) | Describes a data stream.|
-| [`UploadedFileInterface`](./classes/yxorP/app/lib/Psr/Http/Message/UploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
-| [`UriInterface`](./classes/yxorP/app/lib/Psr/Http/Message/UriInterface.md) | Value object representing a URI.|
 
 
 
@@ -2804,16 +2785,16 @@ This is an automatically generated documentation for **Documentation**.
 
 
 
-### \yxorP\app\lib\proxy\Cookie
+### \yxorP\app\lib\proxy\cookie
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`cookieJar`](./classes/yxorP/app/lib/proxy/Cookie/cookieJar.md) | |
-| [`fileCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/fileCookieJar.md) | |
-| [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/sessionCookieJar.md) | |
-| [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/Cookie/sessionCookieJar.md) | |
+| [`cookieJar`](./classes/yxorP/app/lib/proxy/cookie/cookieJar.md) | |
+| [`fileCookieJar`](./classes/yxorP/app/lib/proxy/cookie/fileCookieJar.md) | |
+| [`sessionCookieJar`](./classes/yxorP/app/lib/proxy/cookie/sessionCookieJar.md) | |
+| [`setCookie`](./classes/yxorP/app/lib/proxy/cookie/setCookie.md) | |
 
 
 
@@ -2821,25 +2802,25 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`cookieJarInterface`](./classes/yxorP/app/lib/proxy/Cookie/cookieJarInterface.md) | |
+| [`cookieJarInterface`](./classes/yxorP/app/lib/proxy/cookie/cookieJarInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\Exception
+### \yxorP\app\lib\proxy\exception
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`aRequestExceptionAa`](./classes/yxorP/app/lib/proxy/Exception/aRequestExceptionAa.md) | |
-| [`aaTransferException`](./classes/yxorP/app/lib/proxy/Exception/aaTransferException.md) | |
-| [`badResponseException`](./classes/yxorP/app/lib/proxy/Exception/badResponseException.md) | |
-| [`clientException`](./classes/yxorP/app/lib/proxy/Exception/clientException.md) | |
-| [`connectException`](./classes/yxorP/app/lib/proxy/Exception/connectException.md) | |
-| [`invalidArgumentException`](./classes/yxorP/app/lib/proxy/Exception/invalidArgumentException.md) | |
-| [`seekException`](./classes/yxorP/app/lib/proxy/Exception/seekException.md) | |
-| [`serverException`](./classes/yxorP/app/lib/proxy/Exception/serverException.md) | |
-| [`tooManyRedirectsException`](./classes/yxorP/app/lib/proxy/Exception/tooManyRedirectsException.md) | |
+| [`aRequestException`](./classes/yxorP/app/lib/proxy/exception/aRequestException.md) | |
+| [`badResponseException`](./classes/yxorP/app/lib/proxy/exception/badResponseException.md) | |
+| [`clientException`](./classes/yxorP/app/lib/proxy/exception/clientException.md) | |
+| [`connectException`](./classes/yxorP/app/lib/proxy/exception/connectException.md) | |
+| [`invalidArgumentException`](./classes/yxorP/app/lib/proxy/exception/invalidArgumentException.md) | |
+| [`seekException`](./classes/yxorP/app/lib/proxy/exception/seekException.md) | |
+| [`serverException`](./classes/yxorP/app/lib/proxy/exception/serverException.md) | |
+| [`tooManyRedirectsException`](./classes/yxorP/app/lib/proxy/exception/tooManyRedirectsException.md) | |
+| [`transferExceptionInterface`](./classes/yxorP/app/lib/proxy/exception/transferExceptionInterface.md) | |
 
 
 
@@ -2847,23 +2828,23 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`ProxyException`](./classes/yxorP/app/lib/proxy/Exception/ProxyException.md) | |
+| [`proxyException`](./classes/yxorP/app/lib/proxy/exception/proxyException.md) | |
 
 
 
-### \yxorP\app\lib\proxy\Handler
+### \yxorP\app\lib\proxy\handler
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`curlFactory`](./classes/yxorP/app/lib/proxy/Handler/curlFactory.md) | |
-| [`curlHandler`](./classes/yxorP/app/lib/proxy/Handler/curlHandler.md) | |
-| [`curlMultiHandler`](./classes/yxorP/app/lib/proxy/Handler/curlMultiHandler.md) | |
-| [`easyHandle`](./classes/yxorP/app/lib/proxy/Handler/easyHandle.md) | |
-| [`mockHandler`](./classes/yxorP/app/lib/proxy/Handler/mockHandler.md) | |
-| [`proxy`](./classes/yxorP/app/lib/proxy/Handler/proxy.md) | |
-| [`streamHandler`](./classes/yxorP/app/lib/proxy/Handler/streamHandler.md) | |
+| [`curlFactory`](./classes/yxorP/app/lib/proxy/handler/curlFactory.md) | |
+| [`curlHandler`](./classes/yxorP/app/lib/proxy/handler/curlHandler.md) | |
+| [`curlMultiHandler`](./classes/yxorP/app/lib/proxy/handler/curlMultiHandler.md) | |
+| [`easyHandle`](./classes/yxorP/app/lib/proxy/handler/easyHandle.md) | |
+| [`mockHandler`](./classes/yxorP/app/lib/proxy/handler/mockHandler.md) | |
+| [`proxy`](./classes/yxorP/app/lib/proxy/handler/proxy.md) | |
+| [`streamHandler`](./classes/yxorP/app/lib/proxy/handler/streamHandler.md) | |
 
 
 
@@ -2871,25 +2852,25 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`curlFactoryInterface`](./classes/yxorP/app/lib/proxy/Handler/curlFactoryInterface.md) | |
+| [`curlFactoryInterface`](./classes/yxorP/app/lib/proxy/handler/curlFactoryInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\Promise
+### \yxorP\app\lib\proxy\promise
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`aRejectionException`](./classes/yxorP/app/lib/proxy/Promise/aRejectionException.md) | |
-| [`aggregateExceptionA`](./classes/yxorP/app/lib/proxy/Promise/aggregateExceptionA.md) | |
-| [`cancellationExceptionA`](./classes/yxorP/app/lib/proxy/Promise/cancellationExceptionA.md) | |
-| [`coroutine`](./classes/yxorP/app/lib/proxy/Promise/coroutine.md) | |
-| [`eachPromise`](./classes/yxorP/app/lib/proxy/Promise/eachPromise.md) | |
-| [`fulfilledPromise`](./classes/yxorP/app/lib/proxy/Promise/fulfilledPromise.md) | |
-| [`promise`](./classes/yxorP/app/lib/proxy/Promise/promise.md) | |
-| [`rejectedPromise`](./classes/yxorP/app/lib/proxy/Promise/rejectedPromise.md) | |
-| [`taskQueue`](./classes/yxorP/app/lib/proxy/Promise/taskQueue.md) | |
+| [`aRejectionException`](./classes/yxorP/app/lib/proxy/promise/aRejectionException.md) | |
+| [`aggregateException`](./classes/yxorP/app/lib/proxy/promise/aggregateException.md) | |
+| [`cancellationException`](./classes/yxorP/app/lib/proxy/promise/cancellationException.md) | |
+| [`coroutine`](./classes/yxorP/app/lib/proxy/promise/coroutine.md) | |
+| [`eachPromise`](./classes/yxorP/app/lib/proxy/promise/eachPromise.md) | |
+| [`fulfilledPromise`](./classes/yxorP/app/lib/proxy/promise/fulfilledPromise.md) | |
+| [`promise`](./classes/yxorP/app/lib/proxy/promise/promise.md) | |
+| [`rejectedPromise`](./classes/yxorP/app/lib/proxy/promise/rejectedPromise.md) | |
+| [`taskQueue`](./classes/yxorP/app/lib/proxy/promise/taskQueue.md) | |
 
 
 
@@ -2897,48 +2878,67 @@ This is an automatically generated documentation for **Documentation**.
 
 | Interface | Description |
 |-----------|-------------|
-| [`promiseInterface`](./classes/yxorP/app/lib/proxy/Promise/promiseInterface.md) | |
-| [`promisorInterface`](./classes/yxorP/app/lib/proxy/Promise/promisorInterface.md) | |
-| [`taskQueueInterface`](./classes/yxorP/app/lib/proxy/Promise/taskQueueInterface.md) | |
+| [`promiseInterface`](./classes/yxorP/app/lib/proxy/promise/promiseInterface.md) | |
+| [`promisorInterface`](./classes/yxorP/app/lib/proxy/promise/promisorInterface.md) | |
+| [`taskQueueInterface`](./classes/yxorP/app/lib/proxy/promise/taskQueueInterface.md) | |
 
 
 
-### \yxorP\app\lib\proxy\Psr7
+### \yxorP\app\lib\proxy\psr7
 
 #### Classes
 
 | Class | Description |
 |-------|-------------|
-| [`appendStream`](./classes/yxorP/app/lib/proxy/Psr7/appendStream.md) | |
-| [`bufferStream`](./classes/yxorP/app/lib/proxy/Psr7/bufferStream.md) | |
-| [`cachingStream`](./classes/yxorP/app/lib/proxy/Psr7/cachingStream.md) | |
-| [`droppingStream`](./classes/yxorP/app/lib/proxy/Psr7/droppingStream.md) | |
-| [`fnStream`](./classes/yxorP/app/lib/proxy/Psr7/fnStream.md) | |
-| [`inflateStream`](./classes/yxorP/app/lib/proxy/Psr7/inflateStream.md) | |
-| [`lazyOpenStream`](./classes/yxorP/app/lib/proxy/Psr7/lazyOpenStream.md) | |
-| [`limitStream`](./classes/yxorP/app/lib/proxy/Psr7/limitStream.md) | |
-| [`multipartStream`](./classes/yxorP/app/lib/proxy/Psr7/multipartStream.md) | |
-| [`noSeekStream`](./classes/yxorP/app/lib/proxy/Psr7/noSeekStream.md) | |
-| [`pumpStream`](./classes/yxorP/app/lib/proxy/Psr7/pumpStream.md) | |
-| [`request`](./classes/yxorP/app/lib/proxy/Psr7/request.md) | |
-| [`response`](./classes/yxorP/app/lib/proxy/Psr7/response.md) | |
-| [`rfc7230`](./classes/yxorP/app/lib/proxy/Psr7/rfc7230.md) | |
-| [`serverRequest`](./classes/yxorP/app/lib/proxy/Psr7/serverRequest.md) | |
-| [`stream`](./classes/yxorP/app/lib/proxy/Psr7/stream.md) | |
-| [`streamWrapper`](./classes/yxorP/app/lib/proxy/Psr7/streamWrapper.md) | |
-| [`uploadedFile`](./classes/yxorP/app/lib/proxy/Psr7/uploadedFile.md) | |
-| [`uri`](./classes/yxorP/app/lib/proxy/Psr7/uri.md) | |
-| [`uriNormalizer`](./classes/yxorP/app/lib/proxy/Psr7/uriNormalizer.md) | |
-| [`uriResolver`](./classes/yxorP/app/lib/proxy/Psr7/uriResolver.md) | |
+| [`appendStream`](./classes/yxorP/app/lib/proxy/psr7/appendStream.md) | |
+| [`bufferStream`](./classes/yxorP/app/lib/proxy/psr7/bufferStream.md) | |
+| [`cachingStream`](./classes/yxorP/app/lib/proxy/psr7/cachingStream.md) | |
+| [`droppingStream`](./classes/yxorP/app/lib/proxy/psr7/droppingStream.md) | |
+| [`fnStream`](./classes/yxorP/app/lib/proxy/psr7/fnStream.md) | |
+| [`inflateStream`](./classes/yxorP/app/lib/proxy/psr7/inflateStream.md) | |
+| [`lazyOpenStream`](./classes/yxorP/app/lib/proxy/psr7/lazyOpenStream.md) | |
+| [`limitStream`](./classes/yxorP/app/lib/proxy/psr7/limitStream.md) | |
+| [`multipartStream`](./classes/yxorP/app/lib/proxy/psr7/multipartStream.md) | |
+| [`noSeekStream`](./classes/yxorP/app/lib/proxy/psr7/noSeekStream.md) | |
+| [`pumpStream`](./classes/yxorP/app/lib/proxy/psr7/pumpStream.md) | |
+| [`request`](./classes/yxorP/app/lib/proxy/psr7/request.md) | |
+| [`response`](./classes/yxorP/app/lib/proxy/psr7/response.md) | |
+| [`rfc7230`](./classes/yxorP/app/lib/proxy/psr7/rfc7230.md) | |
+| [`serverRequest`](./classes/yxorP/app/lib/proxy/psr7/serverRequest.md) | |
+| [`stream`](./classes/yxorP/app/lib/proxy/psr7/stream.md) | |
+| [`streamWrapper`](./classes/yxorP/app/lib/proxy/psr7/streamWrapper.md) | |
+| [`uploadedFile`](./classes/yxorP/app/lib/proxy/psr7/uploadedFile.md) | |
+| [`uri`](./classes/yxorP/app/lib/proxy/psr7/uri.md) | |
+| [`uriNormalizer`](./classes/yxorP/app/lib/proxy/psr7/uriNormalizer.md) | |
+| [`uriResolver`](./classes/yxorP/app/lib/proxy/psr7/uriResolver.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`aStreamDecoratorTrait`](./classes/yxorP/app/lib/proxy/Psr7/aStreamDecoratorTrait.md) | |
-| [`messageTrait`](./classes/yxorP/app/lib/proxy/Psr7/messageTrait.md) | |
+| [`aStreamDecoratorTrait`](./classes/yxorP/app/lib/proxy/psr7/aStreamDecoratorTrait.md) | |
+| [`messageTrait`](./classes/yxorP/app/lib/proxy/psr7/messageTrait.md) | |
 
+
+
+
+### \yxorP\app\lib\psr\http\message
+
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`messageInterface`](./classes/yxorP/app/lib/psr/http/message/messageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
+| [`requestInterface`](./classes/yxorP/app/lib/psr/http/message/requestInterface.md) | Representation of an outgoing, client-side request.|
+| [`responseInterface`](./classes/yxorP/app/lib/psr/http/message/responseInterface.md) | Representation of an outgoing, server-side response.|
+| [`serverRequestInterface`](./classes/yxorP/app/lib/psr/http/message/serverRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
+| [`streamInterface`](./classes/yxorP/app/lib/psr/http/message/streamInterface.md) | Describes a data stream.|
+| [`uploadedFileInterface`](./classes/yxorP/app/lib/psr/http/message/uploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
+| [`uriInterface`](./classes/yxorP/app/lib/psr/http/message/uriInterface.md) | Value object representing a URI.|
 
 
 

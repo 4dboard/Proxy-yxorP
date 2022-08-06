@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\coroutine`
+* Full name: `\yxorP\app\lib\proxy\promise\coroutine`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\promiseInterface`](./promiseInterface.md)
+[`\yxorP\app\lib\proxy\promise\promiseInterface`](./promiseInterface.md)
 * This class is a **Final class**
 
 
@@ -85,32 +85,6 @@ public __construct(callable $generatorFn): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$generatorFn` | **callable** |  |
-
-
-
-
-***
-
-### nextCoroutine
-
-
-
-```php
-private nextCoroutine(mixed $yielded): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$yielded` | **mixed** |  |
 
 
 
@@ -334,6 +308,32 @@ public _handleFailure(mixed $reason): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
+
+
+
+
+***
+
+### nextCoroutine
+
+
+
+```php
+private nextCoroutine(mixed $yielded): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$yielded` | **mixed** |  |
 
 
 

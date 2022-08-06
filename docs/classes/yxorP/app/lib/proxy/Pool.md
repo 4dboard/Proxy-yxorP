@@ -8,7 +8,7 @@
 
 * Full name: `\yxorP\app\lib\proxy\pool`
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\promisorInterface`](./Promise/promisorInterface.md)
+[`\yxorP\app\lib\proxy\promise\promisorInterface`](./promise/promisorInterface.md)
 
 
 

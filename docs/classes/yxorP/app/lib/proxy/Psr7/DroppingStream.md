@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\droppingStream`
+* Full name: `\yxorP\app\lib\proxy\psr7\droppingStream`
 * This class implements:
-[`\yxorP\app\lib\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
+[`\yxorP\app\lib\psr\http\message\streamInterface`](../../psr/http/message/streamInterface.md)
 
 
 
@@ -38,7 +38,7 @@ private $maxLength
 
 
 ```php
-public __construct(\yxorP\app\lib\Psr\Http\Message\StreamInterface $stream, mixed $maxLength): mixed
+public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream, mixed $maxLength): mixed
 ```
 
 
@@ -52,7 +52,7 @@ public __construct(\yxorP\app\lib\Psr\Http\Message\StreamInterface $stream, mixe
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
+| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 | `$maxLength` | **mixed** |  |
 
 
@@ -99,7 +99,7 @@ Returns the number of bytes written to the stream.
 
 
 ```php
-public __construct(\yxorP\app\lib\Psr\Http\Message\StreamInterface $stream): mixed
+public __construct(\yxorP\app\lib\psr\http\message\streamInterface $stream): mixed
 ```
 
 
@@ -113,7 +113,7 @@ public __construct(\yxorP\app\lib\Psr\Http\Message\StreamInterface $stream): mix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$stream` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
+| `$stream` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
 
 
 
@@ -140,26 +140,6 @@ public __get(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
-
-***
-
-### createStream
-
-
-
-```php
-protected createStream(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -512,6 +492,26 @@ public write(mixed $string): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
+
+
+
+
+***
+
+### createStream
+
+
+
+```php
+protected createStream(): mixed
+```
+
+
+
+
+
+
+
 
 
 

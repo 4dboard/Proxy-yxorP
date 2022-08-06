@@ -6,7 +6,7 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Handler\proxy`
+* Full name: `\yxorP\app\lib\proxy\handler\proxy`
 
 
 

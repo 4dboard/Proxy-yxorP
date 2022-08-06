@@ -1,12 +1,12 @@
 ***
 
-# simpleImageLib
+# SimpleImageLib
 
 A PHP class that makes working with images as simple as possible.
 
 
 
-* Full name: `\simpleImageLib`
+* Full name: `\SimpleImageLib`
 * Parent class: [`\claviska\SimpleImage`](./claviska/SimpleImage.md)
 
 
@@ -25,7 +25,7 @@ A PHP class that makes working with images as simple as possible.
 Loads an image from a data URI.
 
 ```php
-public fromDataUri(mixed $uri): \claviska\SimpleImage
+public fromDataUri(string $uri): \claviska\SimpleImage
 ```
 
 
@@ -39,7 +39,7 @@ public fromDataUri(mixed $uri): \claviska\SimpleImage
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **mixed** | A data URI. |
+| `$uri` | **string** | A data URI. |
 
 
 
@@ -51,7 +51,7 @@ public fromDataUri(mixed $uri): \claviska\SimpleImage
 Loads an image from a file.
 
 ```php
-public fromFile(mixed $file): \claviska\SimpleImage
+public fromFile(string $file): \claviska\SimpleImage
 ```
 
 
@@ -65,7 +65,7 @@ public fromFile(mixed $file): \claviska\SimpleImage
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$file` | **mixed** | The image file to load. |
+| `$file` | **string** | The image file to load. |
 
 
 
@@ -77,7 +77,7 @@ public fromFile(mixed $file): \claviska\SimpleImage
 Generates an image.
 
 ```php
-protected generate(mixed $mimeType = null, mixed $quality = 100): array
+protected generate(string $mimeType = null, int $quality = 100): array
 ```
 
 
@@ -91,8 +91,8 @@ protected generate(mixed $mimeType = null, mixed $quality = 100): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$mimeType` | **mixed** | The image format to output as a mime type (defaults to the original mime type). |
-| `$quality` | **mixed** | Image quality as a percentage (default 100). |
+| `$mimeType` | **string** | The image format to output as a mime type (defaults to the original mime type). |
+| `$quality` | **int** | Image quality as a percentage (default 100). |
 
 
 **Return Value:**

@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\taskQueue`
+* Full name: `\yxorP\app\lib\proxy\promise\taskQueue`
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\taskQueueInterface`](./taskQueueInterface.md)
+[`\yxorP\app\lib\proxy\promise\taskQueueInterface`](./taskQueueInterface.md)
 
 
 

@@ -2,11 +2,9 @@
 
 # InstalledVersions
 
-This class is copied in every Composer installed project and available to all
 
-See also https://getcomposer.org/doc/07-runtime.md#installed-versions
 
-To require its presence, you can require `composer-runtime-api ^2.0`
+
 
 * Full name: `\Composer\InstalledVersions`
 
@@ -20,7 +18,7 @@ To require its presence, you can require `composer-runtime-api ^2.0`
 
 
 ```php
-private static array|null $installed
+private static $installed
 ```
 
 
@@ -35,7 +33,7 @@ private static array|null $installed
 
 
 ```php
-private static bool|null $canGetVendors
+private static $canGetVendors
 ```
 
 
@@ -50,7 +48,7 @@ private static bool|null $canGetVendors
 
 
 ```php
-private static array[] $installedByVendor
+private static $installedByVendor
 ```
 
 
@@ -65,10 +63,10 @@ private static array[] $installedByVendor
 
 ### getInstalledPackages
 
-Returns a list of all package names which are present, either by being installed, replaced or provided
+
 
 ```php
-public static getInstalledPackages(): string[]
+public static getInstalledPackages(): mixed
 ```
 
 
@@ -77,32 +75,6 @@ public static getInstalledPackages(): string[]
 
 
 
-
-
-
-
-***
-
-### getInstalledPackagesByType
-
-Returns a list of all package names with a specific type e.g. 'library'
-
-```php
-public static getInstalledPackagesByType(string $type): string[]
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$type` | **string** |  |
 
 
 
@@ -111,13 +83,13 @@ public static getInstalledPackagesByType(string $type): string[]
 
 ### isInstalled
 
-Checks whether the given package is installed
+
 
 ```php
-public static isInstalled(string $packageName, bool $includeDevRequirements = true): bool
+public static isInstalled(mixed $packageName): mixed
 ```
 
-This also returns true if the package name is provided or replaced by another package
+
 
 * This method is **static**.
 
@@ -128,8 +100,7 @@ This also returns true if the package name is provided or replaced by another pa
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$packageName` | **string** |  |
-| `$includeDevRequirements` | **bool** |  |
+| `$packageName` | **mixed** |  |
 
 
 
@@ -138,15 +109,13 @@ This also returns true if the package name is provided or replaced by another pa
 
 ### satisfies
 
-Checks whether the given package satisfies a version constraint
+
 
 ```php
-public static satisfies(\Composer\Semver\VersionParser $parser, string $packageName, string|null $constraint): bool
+public static satisfies(\Composer\Semver\VersionParser $parser, mixed $packageName, mixed $constraint): mixed
 ```
 
-e.g. If you want to know whether version 2.3+ of package foo/bar is installed, you would call:
 
-Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')
 
 * This method is **static**.
 
@@ -157,9 +126,9 @@ Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$parser` | **\Composer\Semver\VersionParser** | Install composer/semver to have access to this class and functionality |
-| `$packageName` | **string** |  |
-| `$constraint` | **string&#124;null** | A version constraint to check for, if you pass one you have to make sure composer/semver is required by your package |
+| `$parser` | **\Composer\Semver\VersionParser** |  |
+| `$packageName` | **mixed** |  |
+| `$constraint` | **mixed** |  |
 
 
 
@@ -168,14 +137,13 @@ Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')
 
 ### getVersionRanges
 
-Returns a version constraint representing all the range(s) which are installed for a given package
+
 
 ```php
-public static getVersionRanges(string $packageName): string
+public static getVersionRanges(mixed $packageName): mixed
 ```
 
-It is easier to use this via isInstalled() with the $constraint argument if you need to check
-whether a given version of a package is installed, and not just whether it exists
+
 
 * This method is **static**.
 
@@ -186,12 +154,8 @@ whether a given version of a package is installed, and not just whether it exist
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$packageName` | **string** |  |
+| `$packageName` | **mixed** |  |
 
-
-**Return Value:**
-
-Version constraint usable with composer/semver
 
 
 
@@ -202,7 +166,7 @@ Version constraint usable with composer/semver
 
 
 ```php
-public static getVersion(string $packageName): string|null
+public static getVersion(mixed $packageName): mixed
 ```
 
 
@@ -216,12 +180,8 @@ public static getVersion(string $packageName): string|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$packageName` | **string** |  |
+| `$packageName` | **mixed** |  |
 
-
-**Return Value:**
-
-If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present
 
 
 
@@ -232,7 +192,7 @@ If the package is being replaced or provided but is not really installed, null w
 
 
 ```php
-public static getPrettyVersion(string $packageName): string|null
+public static getPrettyVersion(mixed $packageName): mixed
 ```
 
 
@@ -246,12 +206,8 @@ public static getPrettyVersion(string $packageName): string|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$packageName` | **string** |  |
+| `$packageName` | **mixed** |  |
 
-
-**Return Value:**
-
-If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present
 
 
 
@@ -262,7 +218,7 @@ If the package is being replaced or provided but is not really installed, null w
 
 
 ```php
-public static getReference(string $packageName): string|null
+public static getReference(mixed $packageName): mixed
 ```
 
 
@@ -276,42 +232,8 @@ public static getReference(string $packageName): string|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$packageName` | **string** |  |
+| `$packageName` | **mixed** |  |
 
-
-**Return Value:**
-
-If the package is being replaced or provided but is not really installed, null will be returned as reference
-
-
-
-***
-
-### getInstallPath
-
-
-
-```php
-public static getInstallPath(string $packageName): string|null
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$packageName` | **string** |  |
-
-
-**Return Value:**
-
-If the package is being replaced or provided but is not really installed, null will be returned as install path. Packages of type metapackages also have a null install path.
 
 
 
@@ -322,7 +244,7 @@ If the package is being replaced or provided but is not really installed, null w
 
 
 ```php
-public static getRootPackage(): array
+public static getRootPackage(): mixed
 ```
 
 
@@ -339,32 +261,10 @@ public static getRootPackage(): array
 
 ### getRawData
 
-Returns the raw installed.php data for custom implementations
+
 
 ```php
-public static getRawData(): array[]
-```
-
-
-
-* This method is **static**.
-
-
-* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
-
-***
-
-### getAllRawData
-
-Returns the raw data of all installed.php which are currently loaded for custom implementations
-
-```php
-public static getAllRawData(): array[]
+public static getRawData(): mixed
 ```
 
 
@@ -381,21 +281,13 @@ public static getAllRawData(): array[]
 
 ### reload
 
-Lets you reload the static array from another file
+
 
 ```php
-public static reload(array[] $data): void
+public static reload(mixed $data): mixed
 ```
 
-This is only useful for complex integrations in which a project needs to use
-this class but then also needs to execute another project's autoloader in process,
-and wants to ensure both projects have access to their version of installed.php.
 
-A typical case would be PHPUnit, where it would need to make sure it reads all
-the data it needs from this class, then call reload() with
-`require $CWD/vendor/composer/installed.php` (or similar) as input to make sure
-the project in which it runs can then also use this class safely, without
-interference between PHPUnit's dependencies and the project's dependencies.
 
 * This method is **static**.
 
@@ -406,7 +298,7 @@ interference between PHPUnit's dependencies and the project's dependencies.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$data` | **array[]** | A vendor/composer/installed.php data set |
+| `$data` | **mixed** |  |
 
 
 
@@ -418,7 +310,7 @@ interference between PHPUnit's dependencies and the project's dependencies.
 
 
 ```php
-private static getInstalled(): array[]
+private static getInstalled(): mixed
 ```
 
 

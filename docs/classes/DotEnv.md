@@ -1,12 +1,12 @@
 ***
 
-# dotEnv
+# DotEnv
 
 
 
 
 
-* Full name: `\dotEnv`
+* Full name: `\DotEnv`
 
 
 

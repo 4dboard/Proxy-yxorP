@@ -6,10 +6,10 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Psr7\serverRequest`
-* Parent class: [`\yxorP\app\lib\proxy\Psr7\request`](./request.md)
+* Full name: `\yxorP\app\lib\proxy\psr7\serverRequest`
+* Parent class: [`\yxorP\app\lib\proxy\psr7\request`](./request.md)
 * This class implements:
-[`\yxorP\app\lib\Psr\Http\Message\ServerRequestInterface`](../../Psr/Http/Message/ServerRequestInterface.md)
+[`\yxorP\app\lib\psr\http\message\serverRequestInterface`](../../psr/http/message/serverRequestInterface.md)
 
 
 
@@ -180,6 +180,32 @@ public static getUriFromGlobals(): mixed
 
 ***
 
+### normalizeFiles
+
+
+
+```php
+public static normalizeFiles(array $files): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$files` | **array** |  |
+
+
+
+
+***
+
 ### extractHostAndPortFromAuthority
 
 
@@ -200,6 +226,58 @@ private static extractHostAndPortFromAuthority(mixed $authority): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$authority` | **mixed** |  |
+
+
+
+
+***
+
+### createUploadedFileFromSpec
+
+
+
+```php
+private static createUploadedFileFromSpec(array $value): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **array** |  |
+
+
+
+
+***
+
+### normalizeNestedFileSpec
+
+
+
+```php
+private static normalizeNestedFileSpec(array $files = []): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$files` | **array** |  |
 
 
 
@@ -351,84 +429,6 @@ updated cookie values.
 
 ***
 
-### normalizeFiles
-
-
-
-```php
-public static normalizeFiles(array $files): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$files` | **array** |  |
-
-
-
-
-***
-
-### createUploadedFileFromSpec
-
-
-
-```php
-private static createUploadedFileFromSpec(array $value): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **array** |  |
-
-
-
-
-***
-
-### normalizeNestedFileSpec
-
-
-
-```php
-private static normalizeNestedFileSpec(array $files = []): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$files` | **array** |  |
-
-
-
-
-***
-
 ### getServerParams
 
 Retrieve server parameters.
@@ -460,7 +460,7 @@ public getUploadedFiles(): array
 ```
 
 This method returns upload metadata in a normalized tree, with each leaf
-an instance of yxorP\app\lib\Psr\Http\Message\UploadedFileInterface.
+an instance of yxorP\app\lib\psr\http\message\UploadedFileInterface.
 
 These values MAY be prepared from $_FILES or the message body during
 instantiation, or MAY be injected via withUploadedFiles().
@@ -886,7 +886,7 @@ changed request method.
 Retrieves the URI instance.
 
 ```php
-public getUri(): \yxorP\app\lib\Psr\Http\Message\UriInterface
+public getUri(): \yxorP\app\lib\psr\http\message\uriInterface
 ```
 
 This method MUST return a UriInterface instance.
@@ -911,7 +911,7 @@ representing the URI of the request.
 Returns an instance with the provided URI.
 
 ```php
-public withUri(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri, mixed $preserveHost = false): static
+public withUri(\yxorP\app\lib\psr\http\message\uriInterface $uri, mixed $preserveHost = false): static
 ```
 
 This method MUST update the Host header of the returned request by
@@ -945,7 +945,7 @@ new UriInterface instance.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** | New request URI to use. |
+| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** | New request URI to use. |
 | `$preserveHost` | **mixed** | Preserve the original state of the Host header. |
 
 
@@ -1124,84 +1124,6 @@ public withHeader(mixed $header, mixed $value): mixed
 
 ***
 
-### assertHeader
-
-
-
-```php
-private assertHeader(mixed $header): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$header` | **mixed** |  |
-
-
-
-
-***
-
-### normalizeHeaderValue
-
-
-
-```php
-private normalizeHeaderValue(mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### trimHeaderValues
-
-
-
-```php
-private trimHeaderValues(array $values): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$values` | **array** |  |
-
-
-
-
-***
-
 ### withAddedHeader
 
 
@@ -1280,7 +1202,7 @@ public getBody(): mixed
 
 
 ```php
-public withBody(\yxorP\app\lib\Psr\Http\Message\StreamInterface $body): mixed
+public withBody(\yxorP\app\lib\psr\http\message\streamInterface $body): mixed
 ```
 
 
@@ -1294,7 +1216,85 @@ public withBody(\yxorP\app\lib\Psr\Http\Message\StreamInterface $body): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$body` | **\yxorP\app\lib\Psr\Http\Message\StreamInterface** |  |
+| `$body` | **\yxorP\app\lib\psr\http\message\streamInterface** |  |
+
+
+
+
+***
+
+### assertHeader
+
+
+
+```php
+private assertHeader(mixed $header): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$header` | **mixed** |  |
+
+
+
+
+***
+
+### normalizeHeaderValue
+
+
+
+```php
+private normalizeHeaderValue(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### trimHeaderValues
+
+
+
+```php
+private trimHeaderValues(array $values): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$values` | **array** |  |
 
 
 

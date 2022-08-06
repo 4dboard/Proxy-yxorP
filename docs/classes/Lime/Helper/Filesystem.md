@@ -128,6 +128,32 @@ public mkdir( $path, int $mode = 0755): bool
 
 ***
 
+### delete
+
+
+
+```php
+public delete( $path): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **** |  |
+
+
+
+
+***
+
 ### copy
 
 
@@ -178,32 +204,6 @@ public rename( $path,  $newpath, bool|true $overwrite = true): bool
 | `$path` | **** |  |
 | `$newpath` | **** |  |
 | `$overwrite` | **bool&#124;true** |  |
-
-
-
-
-***
-
-### delete
-
-
-
-```php
-public delete( $path): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **** |  |
 
 
 

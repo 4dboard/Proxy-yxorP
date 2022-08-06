@@ -30,66 +30,6 @@ protected static $apps
 
 ***
 
-### response
-
-
-
-```php
-public ?\Lime\response $response
-```
-
-
-
-
-
-
-***
-
-### request
-
-
-
-```php
-public ?\Lime\request $request
-```
-
-
-
-
-
-
-***
-
-### helpers
-
-
-
-```php
-public \ArrayObject $helpers
-```
-
-
-
-
-
-
-***
-
-### layout
-
-
-
-```php
-public mixed $layout
-```
-
-
-
-
-
-
-***
-
 ### registry
 
 
@@ -165,6 +105,66 @@ protected array $blocks
 
 ***
 
+### response
+
+
+
+```php
+public ?\Lime\Response $response
+```
+
+
+
+
+
+
+***
+
+### request
+
+
+
+```php
+public ?\Lime\Request $request
+```
+
+
+
+
+
+
+***
+
+### helpers
+
+
+
+```php
+public \ArrayObject $helpers
+```
+
+
+
+
+
+
+***
+
+### layout
+
+
+
+```php
+public mixed $layout
+```
+
+
+
+
+
+
+***
+
 ## Methods
 
 
@@ -194,12 +194,12 @@ public __construct(array $settings = []): mixed
 
 ***
 
-### retrieve
+### __clone
 
-Get a value from the Lime registry
+Object behavior on clone
 
 ```php
-public retrieve(string $key, mixed $default = null): mixed
+public __clone(): void
 ```
 
 
@@ -208,13 +208,6 @@ public retrieve(string $key, mixed $default = null): mixed
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$default` | **mixed** |  |
 
 
 
@@ -252,26 +245,6 @@ Lime app object
 
 ***
 
-### __clone
-
-Object behavior on clone
-
-```php
-public __clone(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### service
 
 Returns a closure that stores the result of the given closure
@@ -299,12 +272,12 @@ public service(string $name, \Closure $callable): object
 
 ***
 
-### base
+### stop
 
-
+stop application (exit)
 
 ```php
-public base(string $path): void
+public stop(mixed $data = null, ?int $status = null): void
 ```
 
 
@@ -318,7 +291,8 @@ public base(string $path): void
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** |  |
+| `$data` | **mixed** |  |
+| `$status` | **?int** |  |
 
 
 
@@ -355,59 +329,12 @@ Link
 
 ***
 
-### pathToUrl
+### base
 
 
 
 ```php
-public pathToUrl( $path, bool $full = false): bool|string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **** |  |
-| `$full` | **bool** |  |
-
-
-
-
-***
-
-### path
-
-Path helper method
-
-```php
-public path(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### isAbsolutePath
-
-
-
-```php
-public isAbsolutePath(string $path): bool
+public base(string $path): void
 ```
 
 
@@ -422,26 +349,6 @@ public isAbsolutePath(string $path): bool
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
-
-***
-
-### route
-
-
-
-```php
-public route(): void
-```
-
-
-
-
-
-
-
 
 
 
@@ -478,6 +385,26 @@ Link
 
 ***
 
+### route
+
+
+
+```php
+public route(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### reroute
 
 Redirect to path.
@@ -504,66 +431,12 @@ public reroute(string $path): void
 
 ***
 
-### stop
-
-stop application (exit)
-
-```php
-public stop(mixed $data = null, ?int $status = null): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$data` | **mixed** |  |
-| `$status` | **?int** |  |
-
-
-
-
-***
-
-### trigger
-
-Trigger event.
-
-```php
-public trigger(string $event, array $params = []): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$event` | **string** |  |
-| `$params` | **array** |  |
-
-
-
-
-***
-
 ### set
 
 Put a value in the Lime registry
 
 ```php
-public set(string $key, mixed $value): \Lime\App
+public set(string $key, mixed $value): self
 ```
 
 
@@ -579,6 +452,53 @@ public set(string $key, mixed $value): \Lime\App
 |-----------|------|-------------|
 | `$key` | **string** | Key name |
 | `$value` | **mixed** | Value |
+
+
+
+
+***
+
+### retrieve
+
+Get a value from the Lime registry
+
+```php
+public retrieve(string $key, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **string** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
+### path
+
+Path helper method
+
+```php
+public path(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -611,6 +531,33 @@ public paths( $namespace = null): array
 
 ***
 
+### pathToUrl
+
+
+
+```php
+public pathToUrl( $path, bool $full = false): bool|string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **** |  |
+| `$full` | **bool** |  |
+
+
+
+
+***
+
 ### cache
 
 Cache helper method
@@ -625,32 +572,6 @@ public cache(): mixed
 
 
 
-
-
-
-
-***
-
-### helper
-
-
-
-```php
-public helper(string $helper): \Lime\Helper
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$helper` | **string** |  |
 
 
 
@@ -679,6 +600,33 @@ public on(string $event, \Closure $callback, int $priority): \Lime\App
 | `$event` | **string** |  |
 | `$callback` | **\Closure** |  |
 | `$priority` | **int** |  |
+
+
+
+
+***
+
+### trigger
+
+Trigger event.
+
+```php
+public trigger(string $event, array $params = []): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$event` | **string** |  |
+| `$params` | **array** |  |
 
 
 
@@ -822,12 +770,12 @@ public escape(string $string, string $charset = null): string
 
 ***
 
-### assets
+### style
 
-Get assets inc. markup
+Get style inc. markup
 
 ```php
-public assets(array|string $src, mixed $version = null): string
+public style(mixed $href, ?string $version = null): string
 ```
 
 
@@ -841,8 +789,8 @@ public assets(array|string $src, mixed $version = null): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$src` | **array&#124;string** |  |
-| `$version` | **mixed** |  |
+| `$href` | **mixed** |  |
+| `$version` | **?string** |  |
 
 
 
@@ -876,12 +824,12 @@ public script(mixed $src, ?string $version = null): string
 
 ***
 
-### style
+### assets
 
-Get style inc. markup
+Get assets inc. markup
 
 ```php
-public style(mixed $href, ?string $version = null): string
+public assets(array|string $src, mixed $version = null): string
 ```
 
 
@@ -895,8 +843,8 @@ public style(mixed $href, ?string $version = null): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$href` | **mixed** |  |
-| `$version` | **?string** |  |
+| `$src` | **array&#124;string** |  |
+| `$version` | **mixed** |  |
 
 
 
@@ -909,34 +857,6 @@ Bind GET request to route
 
 ```php
 public get(string $path, \Closure $callback, bool $condition = true): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **string** |  |
-| `$callback` | **\Closure** |  |
-| `$condition` | **bool** |  |
-
-
-
-
-***
-
-### bind
-
-Bind request to route
-
-```php
-public bind(string $path, \Closure $callback, bool $condition = true): void
 ```
 
 
@@ -1014,34 +934,6 @@ public bindClass(string $class, ?string $alias = null): void
 
 ***
 
-### invoke
-
-Invoke Class as controller
-
-```php
-public invoke(string $class, string $action = &#039;index&#039;, array $params = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$class` | **string** |  |
-| `$action` | **string** |  |
-| `$params` | **array** |  |
-
-
-
-
-***
-
 ### bindNamespace
 
 Bind namespace to routes
@@ -1069,12 +961,40 @@ public bindNamespace(string $namespace, ?string $alias = null): void
 
 ***
 
+### bind
+
+Bind request to route
+
+```php
+public bind(string $path, \Closure $callback, bool $condition = true): void
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
+| `$callback` | **\Closure** |  |
+| `$condition` | **bool** |  |
+
+
+
+
+***
+
 ### run
 
 Run Application request
 
 ```php
-public run(string $route = null, ?\Lime\request $request = null, bool $flush = true): void
+public run(string $route = null, ?\Lime\Request $request = null, bool $flush = true): void
 ```
 
 
@@ -1089,28 +1009,8 @@ public run(string $route = null, ?\Lime\request $request = null, bool $flush = t
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$route` | **string** | Route to parse |
-| `$request` | **?\Lime\request** |  |
+| `$request` | **?\Lime\Request** |  |
 | `$flush` | **bool** |  |
-
-
-
-
-***
-
-### getRequestfromGlobals
-
-
-
-```php
-protected getRequestfromGlobals(): \Lime\request
-```
-
-
-
-
-
-
-
 
 
 
@@ -1163,6 +1063,34 @@ protected render_route(string $route, array $params = []): string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$route` | **string** |  |
+| `$params` | **array** |  |
+
+
+
+
+***
+
+### invoke
+
+Invoke Class as controller
+
+```php
+public invoke(string $class, string $action = &#039;index&#039;, array $params = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$class` | **string** |  |
+| `$action` | **string** |  |
 | `$params` | **array** |  |
 
 
@@ -1323,6 +1251,34 @@ public hash(string $text, mixed $algo = PASSWORD_BCRYPT): string
 
 ***
 
+### encode
+
+RC4 encryption
+
+```php
+public encode(string $data, string $pwd, bool $base64encoded = false): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$data` | **string** |  |
+| `$pwd` | **string** |  |
+| `$base64encoded` | **bool** |  |
+
+
+
+
+***
+
 ### decode
 
 Decode RC4 encrypted text
@@ -1350,12 +1306,12 @@ public decode(string $data, string $pwd): string
 
 ***
 
-### encode
+### helper
 
-RC4 encryption
+
 
 ```php
-public encode(string $data, string $pwd, bool $base64encoded = false): string
+public helper(string $helper): \Lime\Helper
 ```
 
 
@@ -1369,9 +1325,33 @@ public encode(string $data, string $pwd, bool $base64encoded = false): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$data` | **string** |  |
-| `$pwd` | **string** |  |
-| `$base64encoded` | **bool** |  |
+| `$helper` | **string** |  |
+
+
+
+
+***
+
+### isAbsolutePath
+
+
+
+```php
+public isAbsolutePath(string $path): bool
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **string** |  |
 
 
 
@@ -1404,12 +1384,12 @@ public module(string $name): mixed
 
 ***
 
-### loadModules
+### registerModule
 
 
 
 ```php
-public loadModules(mixed $dirs, bool $autoload = true, mixed $prefix = null): array
+public registerModule(string $name, string $dir): \Lime\Module
 ```
 
 
@@ -1423,9 +1403,8 @@ public loadModules(mixed $dirs, bool $autoload = true, mixed $prefix = null): ar
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$dirs` | **mixed** |  |
-| `$autoload` | **bool** |  |
-| `$prefix` | **mixed** |  |
+| `$name` | **string** |  |
+| `$dir` | **string** |  |
 
 
 
@@ -1459,12 +1438,12 @@ public loadModule(mixed $path, mixed $prefix = null): mixed
 
 ***
 
-### registerModule
+### loadModules
 
 
 
 ```php
-public registerModule(string $name, string $dir): \Lime\Module
+public loadModules(mixed $dirs, bool $autoload = true, mixed $prefix = null): array
 ```
 
 
@@ -1478,8 +1457,9 @@ public registerModule(string $name, string $dir): \Lime\Module
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** |  |
-| `$dir` | **string** |  |
+| `$dirs` | **mixed** |  |
+| `$autoload` | **bool** |  |
+| `$prefix` | **mixed** |  |
 
 
 
@@ -1663,6 +1643,26 @@ public __invoke(mixed $helper): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
+
+
+
+
+***
+
+### getRequestfromGlobals
+
+
+
+```php
+protected getRequestfromGlobals(): \Lime\Request
+```
+
+
+
+
+
+
+
 
 
 

@@ -6,8 +6,8 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Exception\badResponseException`
-* Parent class: [`\yxorP\app\lib\proxy\Exception\aRequestExceptionAa`](./aRequestExceptionAa.md)
+* Full name: `\yxorP\app\lib\proxy\exception\badResponseException`
+* Parent class: [`\yxorP\app\lib\proxy\exception\aRequestException`](./aRequestException.md)
 
 
 
@@ -20,7 +20,7 @@
 
 
 ```php
-public __construct(mixed $message, \yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response = null, \Exception $previous = null, array $handlerContext = []): mixed
+public __construct(mixed $message, \yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, \Exception $previous = null, array $handlerContext = []): mixed
 ```
 
 
@@ -35,8 +35,8 @@ public __construct(mixed $message, \yxorP\app\lib\Psr\Http\Message\RequestInterf
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 | `$previous` | **\Exception** |  |
 | `$handlerContext` | **array** |  |
 
@@ -54,7 +54,7 @@ public __construct(mixed $message, \yxorP\app\lib\Psr\Http\Message\RequestInterf
 
 
 ```php
-public __construct(mixed $message, \yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response = null, \Exception $previous = null, array $handlerContext = []): mixed
+public __construct(mixed $message, \yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, \Exception $previous = null, array $handlerContext = []): mixed
 ```
 
 
@@ -69,8 +69,8 @@ public __construct(mixed $message, \yxorP\app\lib\Psr\Http\Message\RequestInterf
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **mixed** |  |
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 | `$previous` | **\Exception** |  |
 | `$handlerContext` | **array** |  |
 
@@ -84,7 +84,7 @@ public __construct(mixed $message, \yxorP\app\lib\Psr\Http\Message\RequestInterf
 
 
 ```php
-public static wrapException(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \Exception $e): mixed
+public static wrapException(\yxorP\app\lib\psr\http\message\requestInterface $request, \Exception $e): mixed
 ```
 
 
@@ -98,7 +98,7 @@ public static wrapException(\yxorP\app\lib\Psr\Http\Message\RequestInterface $re
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$e` | **\Exception** |  |
 
 
@@ -111,7 +111,7 @@ public static wrapException(\yxorP\app\lib\Psr\Http\Message\RequestInterface $re
 
 
 ```php
-public static create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response = null, \Exception $previous = null, array $ctx = []): mixed
+public static create(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, \Exception $previous = null, array $ctx = []): mixed
 ```
 
 
@@ -125,8 +125,8 @@ public static create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 | `$previous` | **\Exception** |  |
 | `$ctx` | **array** |  |
 
@@ -140,7 +140,7 @@ public static create(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, 
 
 
 ```php
-private static obfuscateUri(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri): mixed
+private static obfuscateUri(\yxorP\app\lib\psr\http\message\uriInterface $uri): mixed
 ```
 
 
@@ -154,7 +154,7 @@ private static obfuscateUri(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri): 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$uri` | **\yxorP\app\lib\Psr\Http\Message\UriInterface** |  |
+| `$uri` | **\yxorP\app\lib\psr\http\message\uriInterface** |  |
 
 
 
@@ -166,7 +166,7 @@ private static obfuscateUri(\yxorP\app\lib\Psr\Http\Message\UriInterface $uri): 
 
 
 ```php
-public static getResponseBodySummary(\yxorP\app\lib\Psr\Http\Message\ResponseInterface $response): mixed
+public static getResponseBodySummary(\yxorP\app\lib\psr\http\message\responseInterface $response): mixed
 ```
 
 
@@ -180,7 +180,7 @@ public static getResponseBodySummary(\yxorP\app\lib\Psr\Http\Message\ResponseInt
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 
 
 

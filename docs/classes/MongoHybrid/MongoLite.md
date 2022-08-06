@@ -1,12 +1,12 @@
 ***
 
-# mongoLite
+# MongoLite
 
 
 
 
 
-* Full name: `\MongoHybrid\mongoLite`
+* Full name: `\MongoHybrid\MongoLite`
 
 
 
@@ -18,7 +18,7 @@
 
 
 ```php
-protected \MongoLite\client $client
+protected \MongoLite\Client $client
 ```
 
 
@@ -72,6 +72,33 @@ public lstCollections(): array
 
 
 
+
+
+
+
+***
+
+### getCollection
+
+
+
+```php
+public getCollection(string $name, ?string $db = null): \MongoLite\Collection
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **string** |  |
+| `$db` | **?string** |  |
 
 
 
@@ -161,33 +188,6 @@ public findOne(string $collection, ?array $filter = null, ?array $projection = n
 
 ***
 
-### getCollection
-
-
-
-```php
-public getCollection(string $name, ?string $db = null): \MongoLite\collection
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-| `$db` | **?string** |  |
-
-
-
-
-***
-
 ### findOneById
 
 
@@ -220,7 +220,7 @@ public findOneById(string $collection, string $id): ?array
 
 
 ```php
-public find(string $collection, array $options = []): \MongoHybrid\resultSet
+public find(string $collection, array $options = []): \MongoHybrid\ResultSet
 ```
 
 

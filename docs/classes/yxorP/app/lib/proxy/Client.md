@@ -59,32 +59,6 @@ public __construct(array $config = []): mixed
 
 ***
 
-### configureDefaults
-
-
-
-```php
-private configureDefaults(array $config): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$config` | **array** |  |
-
-
-
-
-***
-
 ### __call
 
 
@@ -134,6 +108,140 @@ public requestAsync(mixed $method, mixed $uri = &#039;&#039;, array $options = [
 | `$method` | **mixed** |  |
 | `$uri` | **mixed** |  |
 | `$options` | **array** |  |
+
+
+
+
+***
+
+### request
+
+
+
+```php
+public request(mixed $method, mixed $uri = &#039;&#039;, array $options = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$method` | **mixed** |  |
+| `$uri` | **mixed** |  |
+| `$options` | **array** |  |
+
+
+
+
+***
+
+### send
+
+
+
+```php
+public send(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$options` | **array** |  |
+
+
+
+
+***
+
+### sendAsync
+
+
+
+```php
+public sendAsync(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$options` | **array** |  |
+
+
+
+
+***
+
+### getConfig
+
+
+
+```php
+public getConfig(mixed $option = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$option` | **mixed** |  |
+
+
+
+
+***
+
+### configureDefaults
+
+
+
+```php
+private configureDefaults(array $config): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$config` | **array** |  |
 
 
 
@@ -218,7 +326,7 @@ private invalidBody(): mixed
 
 
 ```php
-private transfer(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options): mixed
+private transfer(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -232,7 +340,7 @@ private transfer(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -245,7 +353,7 @@ private transfer(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, arra
 
 
 ```php
-private applyOptions(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array& $options): mixed
+private applyOptions(\yxorP\app\lib\psr\http\message\requestInterface $request, array& $options): mixed
 ```
 
 
@@ -259,116 +367,8 @@ private applyOptions(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, 
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
-
-
-
-
-***
-
-### request
-
-
-
-```php
-public request(mixed $method, mixed $uri = &#039;&#039;, array $options = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$method` | **mixed** |  |
-| `$uri` | **mixed** |  |
-| `$options` | **array** |  |
-
-
-
-
-***
-
-### send
-
-
-
-```php
-public send(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$options` | **array** |  |
-
-
-
-
-***
-
-### sendAsync
-
-
-
-```php
-public sendAsync(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options = []): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$options` | **array** |  |
-
-
-
-
-***
-
-### getConfig
-
-
-
-```php
-public getConfig(mixed $option = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$option` | **mixed** |  |
 
 
 

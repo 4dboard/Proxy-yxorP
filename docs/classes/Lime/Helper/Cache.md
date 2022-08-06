@@ -1,12 +1,12 @@
 ***
 
-# cache
+# Cache
 
 
 
 
 
-* Full name: `\Lime\Helper\cache`
+* Full name: `\Lime\Helper\Cache`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
 
@@ -47,12 +47,12 @@ protected ?string $cachePath
 ## Methods
 
 
-### getCachePath
+### initialize
 
 
 
 ```php
-public getCachePath(): mixed
+protected initialize(): mixed
 ```
 
 
@@ -87,6 +87,26 @@ public setCachePath(string $path): void
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
+
+
+
+***
+
+### getCachePath
+
+
+
+```php
+public getCachePath(): mixed
+```
+
+
+
+
+
+
+
 
 
 
@@ -182,26 +202,6 @@ public delete(string $key): void
 
 ```php
 public clear(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
 ```
 
 

@@ -1,12 +1,12 @@
 ***
 
-# session
+# Session
 
 
 
 
 
-* Full name: `\Lime\Helper\session`
+* Full name: `\Lime\Helper\Session`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
 
@@ -14,12 +14,12 @@
 ## Properties
 
 
-### name
+### initialized
 
 
 
 ```php
-public string $name
+protected bool $initialized
 ```
 
 
@@ -29,12 +29,12 @@ public string $name
 
 ***
 
-### initialized
+### name
 
 
 
 ```php
-protected bool $initialized
+public string $name
 ```
 
 

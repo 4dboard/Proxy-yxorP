@@ -1,12 +1,12 @@
 ***
 
-# collection
+# Collection
 
 Collection object.
 
 
 
-* Full name: `\MongoLite\collection`
+* Full name: `\MongoLite\Collection`
 
 
 
@@ -292,7 +292,7 @@ public count(mixed $criteria = null): int
 Find documents
 
 ```php
-public find(mixed $criteria = null, ?array $projection = null): \MongoLite\cursor
+public find(mixed $criteria = null, ?array $projection = null): \MongoLite\Cursor
 ```
 
 

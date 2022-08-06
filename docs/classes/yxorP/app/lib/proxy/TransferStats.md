@@ -98,7 +98,7 @@ private $handlerErrorData
 
 
 ```php
-public __construct(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \yxorP\app\lib\Psr\Http\Message\ResponseInterface $response = null, mixed $transferTime = null, mixed $handlerErrorData = null, mixed $handlerStats = []): mixed
+public __construct(\yxorP\app\lib\psr\http\message\requestInterface $request, \yxorP\app\lib\psr\http\message\responseInterface $response = null, mixed $transferTime = null, mixed $handlerErrorData = null, mixed $handlerStats = []): mixed
 ```
 
 
@@ -112,8 +112,8 @@ public __construct(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, \y
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
-| `$response` | **\yxorP\app\lib\Psr\Http\Message\ResponseInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
+| `$response` | **\yxorP\app\lib\psr\http\message\responseInterface** |  |
 | `$transferTime` | **mixed** |  |
 | `$handlerErrorData` | **mixed** |  |
 | `$handlerStats` | **mixed** |  |

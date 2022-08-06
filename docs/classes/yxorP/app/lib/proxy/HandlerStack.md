@@ -145,7 +145,7 @@ public push(callable $middleware, mixed $name = &#039;&#039;): mixed
 
 
 ```php
-public __invoke(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options): mixed
+public __invoke(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options): mixed
 ```
 
 
@@ -159,7 +159,7 @@ public __invoke(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -201,32 +201,6 @@ public __toString(): mixed
 
 
 
-
-
-
-
-***
-
-### debugCallable
-
-
-
-```php
-private debugCallable(mixed $fn): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$fn` | **mixed** |  |
 
 
 
@@ -334,6 +308,86 @@ public before(mixed $findName, callable $middleware, mixed $withName = &#039;&#0
 
 ***
 
+### after
+
+
+
+```php
+public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$findName` | **mixed** |  |
+| `$middleware` | **callable** |  |
+| `$withName` | **mixed** |  |
+
+
+
+
+***
+
+### remove
+
+
+
+```php
+public remove(mixed $remove): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$remove` | **mixed** |  |
+
+
+
+
+***
+
+### debugCallable
+
+
+
+```php
+private debugCallable(mixed $fn): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$fn` | **mixed** |  |
+
+
+
+
+***
+
 ### splice
 
 
@@ -383,60 +437,6 @@ private findByName(mixed $name): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
-
-***
-
-### after
-
-
-
-```php
-public after(mixed $findName, callable $middleware, mixed $withName = &#039;&#039;): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$findName` | **mixed** |  |
-| `$middleware` | **callable** |  |
-| `$withName` | **mixed** |  |
-
-
-
-
-***
-
-### remove
-
-
-
-```php
-public remove(mixed $remove): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$remove` | **mixed** |  |
 
 
 

@@ -6,9 +6,9 @@
 
 
 
-* Full name: `\yxorP\app\lib\proxy\Promise\eachPromise`
+* Full name: `\yxorP\app\lib\proxy\promise\eachPromise`
 * This class implements:
-[`\yxorP\app\lib\proxy\Promise\promisorInterface`](./promisorInterface.md)
+[`\yxorP\app\lib\proxy\promise\promisorInterface`](./promisorInterface.md)
 
 
 
