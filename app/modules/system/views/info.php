@@ -18,7 +18,7 @@
                         <kiss-svg src="<?= $this->baseUrl('app:assets/logo.svg') ?>" width="60" height="60"></kiss-svg>
                     </div>
                     <div class="kiss-flex-1">
-                        <div class="kiss-size-4 kiss-text-bold">yxorP</div>
+                        <div class="kiss-size-4 kiss-text-bold">Yxorp</div>
                         <div class="kiss-text-caption kiss-margin-small kiss-color-muted">
                             A product by
                             <strong><a class="kiss-link-muted" href="https://agentejo.com/" target="_blank"

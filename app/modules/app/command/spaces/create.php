@@ -1,18 +1,19 @@
 <?php
 
-namespace yxorP\app\modules\app\command\spaces;
+namespace App\Command\Spaces;
 
+use Lime\App;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use yxorP;
-use yxorP\app\lib\http\app;
+use Yxorp;
 
-class create
+class Create extends Command
 {
 
-    protected static string $defaultName = 'app:spaces:create';
-    protected ?app $app = null;
+    protected static $defaultName = 'app:spaces:create';
+    protected $app = null;
 
     public function __construct(App $app)
     {
@@ -22,7 +23,9 @@ class create
 
     protected function configure(): void
     {
-        $this->setHelp('This command creates a new app space /.spaces folder')->addArgument('name', InputArgument::REQUIRED, 'What is the name of the new space?');
+        $this
+            ->setHelp('This command creates a new app space /.spaces folder')
+            ->addArgument('name', InputArgument::REQUIRED, 'What is the name of the new space?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -33,7 +36,7 @@ class create
 
         if ($this->app->path("#app:.spaces/{$name}")) {
             $output->writeln("<error>[error]</error> A space with the name <info>{$name}</info> already exists!");
-            return 0;
+            return Command::FAILURE;
         }
 
         // create env folders
@@ -45,7 +48,7 @@ class create
 
         $path = $this->app->path("#app:.spaces/{$name}");
         $created = time();
-        $instance = yxorP::instance($path);
+        $instance = Yxorp::instance($path);
 
         $user = [
             'active' => true,
@@ -63,6 +66,6 @@ class create
         $instance->dataStorage->save('system/users', $user);
 
         $output->writeln("<info>[✓]</info> Space <info>{$name}</info> created!");
-        return 1;
+        return Command::SUCCESS;
     }
 }

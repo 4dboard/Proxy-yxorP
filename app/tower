@@ -5,14 +5,30 @@ if (PHP_SAPI !== 'cli') {
     exit('Script needs to be run from Command Line Interface (cli)');
 }
 
-define('SITE_CLI', true);
+define('APP_CLI', true);
 
-require __DIR__ . '/bootstrap.php';
+require __DIR__.'/bootstrap.php';
 
 use Symfony\Component\Console\Application;
 
-$app = App::instance();
-$cli = new Application("yxorP {$app['app.name']} Tower", $app['app.version']);
+$app = Cockpit::instance();
+$cli = new Application("
+  _|_|_|                      _|                  _|    _|
+_|          _|_|      _|_|_|  _|  _|    _|_|_|        _|_|_|_|
+_|        _|    _|  _|        _|_|      _|    _|  _|    _|
+_|        _|    _|  _|        _|  _|    _|    _|  _|    _|
+  _|_|_|    _|_|      _|_|_|  _|    _|  _|_|_|    _|      _|_|
+                                        _|
+                                        _|
+
+_|_|_|_|_|
+    _|      _|_|    _|      _|      _|    _|_|    _|  _|_|
+    _|    _|    _|  _|      _|      _|  _|_|_|_|  _|_|
+    _|    _|    _|    _|  _|  _|  _|    _|        _|
+    _|      _|_|        _|      _|        _|_|_|  _|
+
+
+{$app['app.name']} Tower", $app['app.version']);
 
 $app->trigger('app.cli.init', [$cli]);
 

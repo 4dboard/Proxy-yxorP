@@ -31,9 +31,9 @@ use function var_export;
  *
  * Usage:
  *
- * yxorP::instance()->helper('async')->exec('
+ * Yxorp::instance()->helper('async')->exec('
  *    sleep(10);
- *    file_put_contents(yxorP_DIR."/debug.txt", $test);
+ *    file_put_contents(YXORP_DIR."/debug.txt", $test);
  * ', ['test' => 222]);
  */
 class Async extends Helper
@@ -65,15 +65,15 @@ if (isset(\$_GET['async'])) {
     \session_write_close();
 }
 
-// include yxorP
+// include yxorp
 include('{$appDir}/bootstrap.php');
 
-function yxorP() {
+function Yxorp() {
 
     static \$instance;
 
     if (!isset(\$instance)) {
-        \$instance = yxorP::instance('{$envDir}');
+        \$instance = Yxorp::instance('{$envDir}');
     }
 
     return \$instance;
