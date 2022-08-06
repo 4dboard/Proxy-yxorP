@@ -370,7 +370,7 @@
   'sortable' => false,
   'in_menu' => 0,
   '_created' => 1658962514,
-  '_modified' => 1659763415,
+  '_modified' => 1659780694,
   'color' => '#00ffb3',
   'acl' => [
   ],
@@ -393,6 +393,10 @@
     ],
   ],
   'preview' => [
+    0 => [
+      'name' => 'host',
+      'uri' => 'https://www.obeyi.com',
+    ],
   ],
   'group' => 'core',
   'revisions' => false,

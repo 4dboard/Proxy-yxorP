@@ -231,6 +231,8 @@
 
     <script type="module">
 
+        <?php $model['preview'][0]['uri'] = 'https://' . $item['host'];  ?>
+
         export default {
             data() {
                 return {

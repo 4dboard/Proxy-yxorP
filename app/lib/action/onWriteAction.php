@@ -18,7 +18,6 @@ class onWriteAction extends wrapper
      */
     public function onWrite(): void
     {
-        if (!store::handler(VAR_RESPONSE)) exit(header(YXORP_SITE_DOMAIN, true, 301));
         /* Getting the response body from the `VAR_RESPONSE` variable. */
         $content = store::handler(VAR_RESPONSE)->getBody();
         /* Checking if the MIME type is HTML. */
@@ -39,7 +38,7 @@ class onWriteAction extends wrapper
             if (store::handler(TARGET_LINK)) $css[] = ['a' => 'color:' . store::handler(TARGET_LINK)];
 
             /* Checking if the `TARGET_BG_COLOR` variable is set and if it is, it is adding a CSS rule to the `$css` array. */
-            if (store::handler(TARGET_BG_COLOR)) $css[] = ['body' => 'background-color:' . store::handler(TARGET_BG_COLOR) . ''];
+            if (store::handler(TARGET_BG_COLOR)) $css[] = ['body' => 'background-color:' . store::handler(TARGET_BG_COLOR)];
             /* Adding a CSS rule to the `$css` array. */
             if (store::handler(TARGET_BG_IMG)) $css[] = ['body' => 'background-image:url(' . store::handler(TARGET_BG_IMG) . ')'];
 
@@ -62,10 +61,53 @@ class onWriteAction extends wrapper
 
         /* Checking if the response is not empty and if the MIME type is HTML, JavaScript, CSS, XML, text or HTML. If it
         is, it will cache the response. */
-        if (!store::handler(YXORP_CONTENT) && store::handler(VAR_RESPONSE)) echo store::handler(YXORP_CONTENT, ((store::handler(VAR_RESPONSE)) && (helpers::MIME() === VAR_TEXT_HTML || helpers::MIME() === 'application/javascript' || helpers::MIME() === 'text/css' || helpers::MIME() === 'application/xml' || str_contains(helpers::MIME(), VAR_TEXT) || str_contains(helpers::MIME(), VAR_HTML))) ? (minify::createDefault())->process(str_replace(helpers::array_merge_ignore(array(YXORP_domain_target), array_keys((array)store::handler(YXORP_GLOBAL_REPLACE)), array_keys((array)store::handler(VAR_TARGET_REPLACE)), array_keys($inject = ['</head>' => (minify::createDefault())->process(sprintf("<style>%s %s %s</style><script>%s %s</script></head>", store::handler(YXORP_GLOBAL_CSS), store::handler(YXORP_TARGET_CSS), $styles, store::handler(YXORP_GLOBAL_JS), store::handler(YXORP_TARGET_JS)))])), helpers::array_merge_ignore(array(YXORP_SITE_DOMAIN), array_values((array)store::handler(YXORP_GLOBAL_REPLACE)), array_values((array)store::handler(VAR_TARGET_REPLACE)), array_values($inject)), preg_replace(helpers::array_merge_ignore(array_keys((array)store::handler(YXORP_GLOBAL_PATTERN)), array_keys((array)store::handler(VAR_TARGET_PATTERN))), helpers::array_merge_ignore(array_values((array)store::handler(YXORP_GLOBAL_PATTERN)), array_values((array)store::handler(VAR_TARGET_PATTERN))), $content))) : $content);
+        if (!store::handler(YXORP_CONTENT) && store::handler(VAR_RESPONSE)) {
 
-        /* Caching the response. */
-        store::handler(YXORP_CONTENT, $content);
+            if ((store::handler(VAR_RESPONSE)) && (helpers::MIME() === VAR_TEXT_HTML
+                    || helpers::MIME() === 'application/javascript'
+                    || helpers::MIME() === 'text/css'
+                    || helpers::MIME() === 'application/xml'
+                    || str_contains(helpers::MIME(), VAR_TEXT)
+                    || str_contains(helpers::MIME(), VAR_HTML))) {
+
+                $inline = [
+                    '</head>' => (minify::createDefault())->process(
+                        sprintf(
+                            "<style>%s %s %s</style><script>%s %s</script></head>",
+                            store::handler(YXORP_GLOBAL_CSS),
+                            store::handler(YXORP_TARGET_CSS),
+                            $styles,
+                            store::handler(YXORP_GLOBAL_JS),
+                            store::handler(YXORP_TARGET_JS)
+                        )
+                    )
+                ];
+
+                $search = helpers::array_merge_ignore(
+                    array(YXORP_domain_target),
+                    array_keys((array)store::handler(YXORP_GLOBAL_REPLACE)),
+                    array_keys((array)store::handler(VAR_TARGET_REPLACE)),
+                    array_keys($inline)
+                );
+
+                $replace = helpers::array_merge_ignore(
+                    array(YXORP_SITE_DOMAIN),
+                    array_values((array)store::handler(YXORP_GLOBAL_REPLACE)),
+                    array_values((array)store::handler(VAR_TARGET_REPLACE)),
+                    array_values($inline)
+                );
+
+                $psearch = helpers::array_merge_ignore(array_keys((array)store::handler(YXORP_GLOBAL_PATTERN)), array_keys((array)store::handler(VAR_TARGET_PATTERN)));
+                $preplace = helpers::array_merge_ignore(array_values((array)store::handler(YXORP_GLOBAL_PATTERN)), array_values((array)store::handler(VAR_TARGET_PATTERN)));
+
+                $content = (minify::createDefault())->process(str_ireplace($search, $replace, preg_replace($psearch, $preplace, $content)));
+            }
+
+            echo store::handler(YXORP_CONTENT, $content);
+
+        }
+
+
     }
 
 }
