@@ -1,7 +1,7 @@
 <kiss-container class="kiss-margin">
 
     <ul class="kiss-breadcrumbs">
-        <li><a href="<?= $this->route('/assets') ?>"><?= t('Assets') ?></a></li>
+        <li><a href="<?=$this->route('/assets')?>"><?=t('Assets')?></a></li>
     </ul>
 
     <vue-view>

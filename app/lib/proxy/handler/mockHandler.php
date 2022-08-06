@@ -4,13 +4,9 @@ use Countable;
 use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use ReturnTypeWillChange;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\handlerStack;
-use yxorP\app\lib\proxy\promise\fulfilledPromise;
-use yxorP\app\lib\proxy\promise\promise;
 use yxorP\app\lib\proxy\promise\promiseInterface;
-use yxorP\app\lib\proxy\promise\rejectedPromise;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
@@ -21,7 +17,7 @@ use function yxorP\app\lib\proxy\promise\rejection_for;
 
 class mockHandler implements Countable
 {
-    private array $queue = [];
+    private $queue = [];
     private $lastRequest;
     private $lastOptions;
     private $onFulfilled;
@@ -36,12 +32,12 @@ class mockHandler implements Countable
         }
     }
 
-    public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null): handlerStack
+    public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null)
     {
         return handlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(requestInterface $request, array $options): promise|fulfilledPromise|rejectedPromise|promiseInterface
+    public function __invoke(requestInterface $request, array $options)
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');
@@ -96,7 +92,7 @@ class mockHandler implements Countable
     private function invokeStats(requestInterface $request, array $options, responseInterface $response = null, $reason = null)
     {
         if (isset($options['on_stats'])) {
-            $transferTime = $options['transfer_time'] ?? 0;
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
             $stats = new transferStats($request, $response, $transferTime, $reason);
             call_user_func($options['on_stats'], $stats);
         }
@@ -123,7 +119,7 @@ class mockHandler implements Countable
         return $this->lastOptions;
     }
 
-    #[ReturnTypeWillChange] public function count(): int
+    #[ReturnTypeWillChange] public function count()
     {
         return count($this->queue);
     }

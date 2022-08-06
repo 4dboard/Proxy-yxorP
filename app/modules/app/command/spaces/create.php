@@ -2,10 +2,10 @@
 
 namespace yxorP\app\modules\app\command\spaces;
 
-use Cockpit;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use yxorP;
 use yxorP\app\lib\http\app;
 
 class create
@@ -45,7 +45,7 @@ class create
 
         $path = $this->app->path("#app:.spaces/{$name}");
         $created = time();
-        $instance = Cockpit::instance($path);
+        $instance = yxorP::instance($path);
 
         $user = [
             'active' => true,

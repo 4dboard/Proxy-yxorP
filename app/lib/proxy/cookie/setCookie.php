@@ -2,8 +2,8 @@
 
 class setCookie
 {
-    private static array $defaults = ['Name' => null, 'Value' => null, 'Domain' => null, 'Path' => '/', 'Max-Age' => null, 'Expires' => null, 'Secure' => false, 'Discard' => false, 'HttpOnly' => false];
-    private array $data;
+    private static $defaults = ['Name' => null, 'Value' => null, 'Domain' => null, 'Path' => '/', 'Max-Age' => null, 'Expires' => null, 'Secure' => false, 'Discard' => false, 'HttpOnly' => false];
+    private $data;
 
     public function __construct(array $data = [])
     {
@@ -32,7 +32,7 @@ class setCookie
         $this->data['Expires'] = is_numeric($timestamp) ? (int)$timestamp : strtotime($timestamp);
     }
 
-    public static function fromString($cookie): setCookie
+    public static function fromString($cookie)
     {
         $data = self::$defaults;
         $pieces = array_filter(array_map('trim', explode(';', $cookie)));
@@ -74,7 +74,7 @@ class setCookie
         return rtrim($str, '; ');
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return $this->data;
     }
@@ -134,16 +134,16 @@ class setCookie
         $this->data['HttpOnly'] = $httpOnly;
     }
 
-    public function matchesPath($requestPath): bool
+    public function matchesPath($requestPath)
     {
         $cookiePath = $this->getPath();
         if ($cookiePath === '/' || $cookiePath === $requestPath) {
             return true;
         }
-        if (!str_starts_with($requestPath, $cookiePath)) {
+        if (0 !== strpos($requestPath, $cookiePath)) {
             return false;
         }
-        if (str_ends_with($cookiePath, '/')) {
+        if (substr($cookiePath, -1, 1) === '/') {
             return true;
         }
         return substr($requestPath, strlen($cookiePath), 1) === '/';
@@ -154,7 +154,7 @@ class setCookie
         return $this->data['Path'];
     }
 
-    public function matchesDomain($domain): bool
+    public function matchesDomain($domain)
     {
         $cookieDomain = ltrim($this->getDomain(), '.');
         if (!$cookieDomain || !strcasecmp($domain, $cookieDomain)) {
@@ -171,12 +171,12 @@ class setCookie
         return $this->data['Domain'];
     }
 
-    public function isExpired(): bool
+    public function isExpired()
     {
         return $this->getExpires() !== null && time() > $this->getExpires();
     }
 
-    public function validate(): bool|string
+    public function validate()
     {
         $name = $this->getName();
         if (empty($name) && !is_numeric($name)) {

@@ -1,23 +1,20 @@
 <?php
 
 
-namespace yxorP\app\modules\app\helper;
-
-use yxorP\app\lib\http\helperAware;
-use function array_merge;
-use function vsprintf;
-
+namespace App\Helper;
 
 /**
  * I18n class. Manage translations
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
  */
-class i18n extends helperAware
-{
+class i18n extends \Lime\Helper {
 
-    public
-    static array $locales = [
+    /**
+     * @var $locale current language
+     */
+    public string $locale     = 'en';
+    private array $_languages = [];
+
+    public static array $locales = [
 
         'aa' => 'Afar',
         'ab' => 'Abkhazian',
@@ -204,6 +201,8 @@ class i18n extends helperAware
         'zh' => 'Chinese',
         'zu' => 'Zulu'
     ];
+
+
     public static array $countries = [
 
         'AF' => 'Afghanistan',
@@ -446,6 +445,7 @@ class i18n extends helperAware
         'ZM' => 'Zambia',
         'ZW' => 'Zimbabwe'
     ];
+
     public static array $currencies = [
         'ALL' => 'Lek',
         'ARS' => '$',
@@ -529,67 +529,82 @@ class i18n extends helperAware
         'VEF' => 'Bs',
         'ZWD' => 'Z$'
     ];
+
     /**
-     * @var $locale string language
+     * @inherit
      */
-    public string $locale = 'en';
-    private array $_languages = [];
+    protected function initialize() {
+
+        $locale = $this->app->getClientLang();
+
+        if ($locale) {
+            $this->locale = $locale;
+        }
+    }
 
     /**
      * Get translated string by key
      *
-     * @param string $key translation key
-     * @param string|null $alternative returns if $key doesn't exist
-     * @param string|null $lang
-     * @return string|null
+     * @param   string $key translation key
+     * @param   string $alternative  returns if $key doesn't exist
+     * @return  string
      */
-    public function get(string $key, ?string $alternative = null, ?string $lang = null): ?string
-    {
+    public function get(string $key, ?string $alternative = null, ?string $lang = null): ?string {
 
-        if (!$lang) $lang = $this->locale;
+        if (!$lang) {
+            $lang = $this->locale;
+        }
 
-        if (!$alternative) $alternative = $key;
+        if (!$alternative) {
+            $alternative = $key;
+        }
 
-        return $this->_languages[$lang][$key] ?? $alternative;
+        return isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative;
     }
 
     /**
      * Get translated string by key and params
      *
-     * @param string $key translation key
-     * @param array $params
-     * @param string|null $alternative returns if $key doesn''t exist
-     * @param string|null $lang
-     * @return string|null
+     * @param   string $key translation key
+     * @param   array $params
+     * @param   array $alternative  returns if $key doesn''t exist
+     * @return  string
      */
-    public function getstr(string $key, array $params = [], ?string $alternative = null, ?string $lang = null): ?string
-    {
+    public function getstr(string $key, array $params = [], ?string $alternative = null, ?string $lang = null): ?string {
 
-        if (!$lang) $lang = $this->locale;
+        if (!$lang) {
+            $lang = $this->locale;
+        }
 
-        if (!$alternative) $alternative = $key;
+        if (!$alternative) {
+            $alternative = $key;
+        }
 
-        return vsprintf($this->_languages[$lang][$key] ?? $alternative, $params);
+        return \vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
     }
+
 
     /**
      * Load language files
-     * @param string $langfile path to language file
-     * @param string|null $lang language to merge to
+     * @param  string $langfile path to language file
+     * @param  string $lang     language to merge to
      * @return boolean
      */
-    public function load(string $langfile, ?string $lang = null): bool
-    {
+    public function load(string $langfile, ?string $lang = null): bool {
 
-        if (!$lang) $lang = $this->locale;
+        if (!$lang) {
+            $lang = $this->locale;
+        }
 
         if ($path = $this->app->path($langfile)) {
 
-            if (!isset($this->_languages[$lang])) $this->_languages[$lang] = [];
+            if (!isset($this->_languages[$lang])) {
+                $this->_languages[$lang] = [];
+            }
 
             $langtable = include($path);
 
-            $this->_languages[$lang] = array_merge($this->_languages[$lang], (array)$langtable);
+            $this->_languages[$lang] = \array_merge($this->_languages[$lang], (array)$langtable);
 
             return true;
         }
@@ -599,25 +614,15 @@ class i18n extends helperAware
 
     /**
      * Get language data
-     * @param string|null $lang language
+     * @param  string $lang     language
      * @return array
      */
-    public function data(?string $lang = null): array
-    {
+    public function data(?string $lang = null): array {
 
-        if ($lang) return $this->_languages[$lang] ?? [];
+        if ($lang) {
+            return isset($this->_languages[$lang]) ? $this->_languages[$lang] : [];
+        }
 
         return $this->_languages;
-    }
-
-    /**
-     * @inherit
-     */
-    protected function initialize()
-    {
-
-        $locale = $this->app->getClientLang();
-
-        if ($locale) $this->locale = $locale;
     }
 }

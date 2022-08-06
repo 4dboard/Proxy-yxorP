@@ -1,18 +1,28 @@
 <?php
 
-namespace yxorP\app\modules\app\graphQL\types;
+namespace App\GraphQL\Types;
 
-use yxorP\app\modules\app\graphQL\Type\Definition\ObjectType;
-use yxorP\app\modules\app\graphQL\Type\Definition\Type;
+use GraphQL\Type\Definition\ObjectType;
+use GraphQL\Type\Definition\Type;
 
-class fieldTypes
-{
+class FieldTypes {
 
-    protected static array $types = [];
-    protected static array $names = [];
+    protected static $types = [];
+    protected static $names = [];
 
-    public static function buildFieldsDefinitions($meta): array
-    {
+    private static function getName($name) {
+
+        if (!isset(self::$names[$name])) {
+            self::$names[$name] = 0;
+        } else {
+            self::$names[$name]++;
+            $name .= self::$names[$name];
+        }
+
+        return $name;
+    }
+
+    public static function buildFieldsDefinitions($meta) {
 
         $fields = [];
 
@@ -37,40 +47,46 @@ class fieldTypes
         return $fields;
     }
 
-    public static function instance($field)
-    {
-        self::getType($field);
-    }
-
-    protected static function getType($field): ?array
-    {
+    protected static function getType($field) {
 
         $def = [];
 
-        $def['type'] = match ($field['type']) {
-            'text', 'code', 'color', 'date', 'datetime', 'wysiwyg', 'time', 'select' => Type::string(),
-            'boolean' => Type::boolean(),
-            'number' => Type::int(),
-            'set' => new ObjectType([
-                'name' => self::getName('Set' . ucfirst($field['name'])),
-                'fields' => self::buildFieldsDefinitions($field['opts'])
-            ]),
-            default => jsonType::instance(),
-        };
+        switch ($field['type']) {
+            case 'text':
+            case 'code':
+            case 'color':
+            case 'date':
+            case 'datetime':
+            case 'wysiwyg':
+            case 'time':
+            case 'select':
+                $def['type'] = Type::string();
+                break;
+            case 'boolean':
+                $def['type'] = Type::boolean();
+                break;
+            case 'number':
+                $def['type'] = Type::int();
+                break;
+            case 'layout':
+                $def['type'] = JsonType::instance();
+                break;
+            case 'set':
+                $def['type'] = new ObjectType([
+                    'name' => self::getName('Set'.ucfirst($field['name'])),
+                    'fields' => self::buildFieldsDefinitions($field['opts'])
+                ]);
+                break;
+
+            default:
+                $def['type'] = JsonType::instance();
+        }
 
         return count($def) ? $def : null;
     }
 
-    private static function getName($name)
-    {
 
-        if (!isset(self::$names[$name])) {
-            self::$names[$name] = 0;
-        } else {
-            self::$names[$name]++;
-            $name .= self::$names[$name];
-        }
-
-        return $name;
+    public static function instance($field) {
+        self::getType($field);
     }
 }

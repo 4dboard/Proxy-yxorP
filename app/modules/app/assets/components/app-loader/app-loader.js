@@ -1,11 +1,11 @@
 customElements.define('app-loader', class extends HTMLElement {
 
-    constructor() {
-        super();
-    }
-
     static get observedAttributes() {
         return ['label', 'mode'];
+    }
+
+    constructor() {
+        super();
     }
 
     connectedCallback() {
@@ -13,7 +13,7 @@ customElements.define('app-loader', class extends HTMLElement {
     }
 
     attributeChangedCallback(oldvalue, newvalue) {
-        if (oldvalue !== newvalue) this.render();
+        if (oldvalue != newvalue)this.render();
     }
 
     render() {
@@ -40,12 +40,12 @@ customElements.define('app-loader', class extends HTMLElement {
 
 customElements.define('app-loader-cover', class extends HTMLElement {
 
-    constructor() {
-        super();
-    }
-
     static get observedAttributes() {
         return ['label', 'mode'];
+    }
+
+    constructor() {
+        super();
     }
 
     connectedCallback() {

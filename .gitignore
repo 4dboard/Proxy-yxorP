@@ -1,8 +1,6 @@
 .idea
 .env
 /override/*
-/node_modules/
-/node_modules/*
 !/override/.gitignore
 !/override/.htaccess
 !/override/example

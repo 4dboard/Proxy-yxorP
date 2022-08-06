@@ -71,11 +71,11 @@ export default {
                                 <td fixed="left"><a class="kiss-badge kiss-link-muted" :title="item._id">...{{ item._id.substr(-5) }}</a></td>
                                 <td class="kiss-align-center"><icon :class="{'kiss-color-success': item._state === 1, 'kiss-color-danger': !item._state}">trip_origin</icon></td>
                                 <td v-for="field in model.fields">
-                                    <span class="kiss-badge kiss-badge-outline kiss-color-muted" v-if="item[field.name] === null">n/a</span>
+                                    <span class="kiss-badge kiss-badge-outline kiss-color-muted" v-if="item[field.name] == null">n/a</span>
                                     <div class="kiss-text-truncate" v-else-if="fieldTypes[field.type] && fieldTypes[field.type].render" v-html="fieldTypes[field.type].render(item[field.name], field, 'table-cell')"></div>
                                     <div class="kiss-text-truncate" v-else>
                                         <span class="kiss-badge kiss-badge-outline" v-if="Array.isArray(item[field.name])">{{ item[field.name].length }}</span>
-                                        <span class="kiss-badge kiss-badge-outline" v-else-if="typeof(item[field.name]) === 'object'">Object</span>
+                                        <span class="kiss-badge kiss-badge-outline" v-else-if="typeof(item[field.name]) == 'object'">Object</span>
                                         <span v-else>{{ item[field.name] }}</span>
                                     </div>
                                 </td>
@@ -90,7 +90,7 @@ export default {
             <div class="kiss-flex kiss-flex-right kiss-margin-top">
 
                 <div class="kiss-flex kiss-flex-middle kiss-flex-1" v-if="!loading && count">
-                    <div class="kiss-size-small">{{ count }} {{count === 1 ? t('Item') : t('Items') }}</div>
+                    <div class="kiss-size-small">{{ count }} {{count == 1 ? t('Item') : t('Items') }}</div>
                     <div class="kiss-margin-small-left kiss-overlay-input">
                         <span class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
                         <select v-model="page" @change="load(page)" v-if="pages > 1"><option v-for="p in pages" :value="p">{{ p }}</option></select>

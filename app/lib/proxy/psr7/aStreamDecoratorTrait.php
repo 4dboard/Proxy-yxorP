@@ -21,11 +21,6 @@ trait aStreamDecoratorTrait
         throw new UnexpectedValueException("$name not found on class");
     }
 
-    protected function createStream()
-    {
-        throw new BadMethodCallException('Not implemented');
-    }
-
     public function __toString()
     {
         try {
@@ -34,22 +29,22 @@ trait aStreamDecoratorTrait
             }
             return $this->getContents();
         } catch (Exception $e) {
-            trigger_error('StreamDecorator::__toString exception: ' . $e, E_USER_ERROR);
+            trigger_error('StreamDecorator::__toString exception: ' . (string)$e, E_USER_ERROR);
             return '';
         }
     }
 
-    public function isSeekable(): bool
+    public function isSeekable()
     {
         return $this->stream->isSeekable();
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET)
     {
         $this->stream->seek($offset, $whence);
     }
 
-    public function getContents(): string
+    public function getContents()
     {
         return copy_to_string($this);
     }
@@ -65,7 +60,7 @@ trait aStreamDecoratorTrait
         $this->stream->close();
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata($key = null)
     {
         return $this->stream->getMetadata($key);
     }
@@ -75,27 +70,27 @@ trait aStreamDecoratorTrait
         return $this->stream->detach();
     }
 
-    public function getSize(): ?int
+    public function getSize()
     {
         return $this->stream->getSize();
     }
 
-    public function eof(): bool
+    public function eof()
     {
         return $this->stream->eof();
     }
 
-    public function tell(): int
+    public function tell()
     {
         return $this->stream->tell();
     }
 
-    public function isReadable(): bool
+    public function isReadable()
     {
         return $this->stream->isReadable();
     }
 
-    public function isWritable(): bool
+    public function isWritable()
     {
         return $this->stream->isWritable();
     }
@@ -105,13 +100,18 @@ trait aStreamDecoratorTrait
         $this->seek(0);
     }
 
-    public function read(int $length): string
+    public function read($length)
     {
         return $this->stream->read($length);
     }
 
-    public function write(string $string): int
+    public function write($string)
     {
         return $this->stream->write($string);
+    }
+
+    protected function createStream()
+    {
+        throw new BadMethodCallException('Not implemented');
     }
 }

@@ -5,17 +5,17 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 
 trait messageTrait
 {
-    private array $headers = [];
-    private array $headerNames = [];
-    private string $protocol = '1.1';
+    private $headers = [];
+    private $headerNames = [];
+    private $protocol = '1.1';
     private $stream;
 
-    public function getProtocolVersion(): string
+    public function getProtocolVersion()
     {
         return $this->protocol;
     }
 
-    public function withProtocolVersion(string $version): response|request|static
+    public function withProtocolVersion($version)
     {
         if ($this->protocol === $version) {
             return $this;
@@ -25,42 +25,88 @@ trait messageTrait
         return $new;
     }
 
-    public function getHeaders(): array
+    public function getHeaders()
     {
         return $this->headers;
     }
 
-    public function hasHeader(string $name): bool
+    public function hasHeader($header)
     {
-        return isset($this->headerNames[strtolower($name)]);
+        return isset($this->headerNames[strtolower($header)]);
     }
 
-    public function getHeaderLine(string $name): string
+    public function getHeaderLine($header)
     {
-        return implode(', ', $this->getHeader($name));
+        return implode(', ', $this->getHeader($header));
     }
 
-    public function getHeader(string $name)
+    public function getHeader($header)
     {
-        $name = strtolower($name);
-        if (!isset($this->headerNames[$name])) {
+        $header = strtolower($header);
+        if (!isset($this->headerNames[$header])) {
             return [];
         }
-        $name = $this->headerNames[$name];
-        return $this->headers[$name];
+        $header = $this->headerNames[$header];
+        return $this->headers[$header];
     }
 
-    public function withHeader(string $name, array|string $value): response|request
+    public function withHeader($header, $value)
     {
-        $this->assertHeader($name);
+        $this->assertHeader($header);
         $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($name);
+        $normalized = strtolower($header);
         $new = clone $this;
         if (isset($new->headerNames[$normalized])) {
             unset($new->headers[$new->headerNames[$normalized]]);
         }
-        $new->headerNames[$normalized] = $name;
-        $new->headers[$name] = $value;
+        $new->headerNames[$normalized] = $header;
+        $new->headers[$header] = $value;
+        return $new;
+    }
+
+    public function withAddedHeader($header, $value)
+    {
+        $this->assertHeader($header);
+        $value = $this->normalizeHeaderValue($value);
+        $normalized = strtolower($header);
+        $new = clone $this;
+        if (isset($new->headerNames[$normalized])) {
+            $header = $this->headerNames[$normalized];
+            $new->headers[$header] = array_merge($this->headers[$header], $value);
+        } else {
+            $new->headerNames[$normalized] = $header;
+            $new->headers[$header] = $value;
+        }
+        return $new;
+    }
+
+    public function withoutHeader($header)
+    {
+        $normalized = strtolower($header);
+        if (!isset($this->headerNames[$normalized])) {
+            return $this;
+        }
+        $header = $this->headerNames[$normalized];
+        $new = clone $this;
+        unset($new->headers[$header], $new->headerNames[$normalized]);
+        return $new;
+    }
+
+    public function getBody()
+    {
+        if (!$this->stream) {
+            $this->stream = stream_for('');
+        }
+        return $this->stream;
+    }
+
+    public function withBody(streamInterface $body)
+    {
+        if ($body === $this->stream) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->stream = $body;
         return $new;
     }
 
@@ -74,7 +120,7 @@ trait messageTrait
         }
     }
 
-    private function normalizeHeaderValue($value): array
+    private function normalizeHeaderValue($value)
     {
         if (!is_array($value)) {
             return $this->trimHeaderValues([$value]);
@@ -85,7 +131,7 @@ trait messageTrait
         return $this->trimHeaderValues($value);
     }
 
-    private function trimHeaderValues(array $values): array
+    private function trimHeaderValues(array $values)
     {
         return array_map(function ($value) {
             if (!is_scalar($value) && null !== $value) {
@@ -93,52 +139,6 @@ trait messageTrait
             }
             return trim((string)$value, " \t");
         }, $values);
-    }
-
-    public function withAddedHeader(string $name, array|string $value): response|request
-    {
-        $this->assertHeader($name);
-        $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($name);
-        $new = clone $this;
-        if (isset($new->headerNames[$normalized])) {
-            $name = $this->headerNames[$normalized];
-            $new->headers[$name] = array_merge($this->headers[$name], $value);
-        } else {
-            $new->headerNames[$normalized] = $name;
-            $new->headers[$name] = $value;
-        }
-        return $new;
-    }
-
-    public function withoutHeader(string $name): response|request|static
-    {
-        $normalized = strtolower($name);
-        if (!isset($this->headerNames[$normalized])) {
-            return $this;
-        }
-        $name = $this->headerNames[$normalized];
-        $new = clone $this;
-        unset($new->headers[$name], $new->headerNames[$normalized]);
-        return $new;
-    }
-
-    public function getBody(): stream|streamInterface|pumpStream
-    {
-        if (!$this->stream) {
-            $this->stream = stream_for();
-        }
-        return $this->stream;
-    }
-
-    public function withBody(streamInterface $body): response|request|static
-    {
-        if ($body === $this->stream) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->stream = $body;
-        return $new;
     }
 
     private function setHeaders(array $headers)

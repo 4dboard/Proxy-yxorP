@@ -80,3 +80,34 @@
     outline: none;
 }
 
+.tabulator .tabulator-header .tabulator-col.tabulator-moving,
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title .tabulator-title-editor,
+.tabulator .tabulator-header .tabulator-col.tabulator-col-group .tabulator-col-group-cols,
+.tabulator .tabulator-header .tabulator-frozen.tabulator-frozen-left,
+.tabulator .tabulator-header .tabulator-frozen.tabulator-frozen-right,
+.tabulator .tabulator-header .tabulator-calcs-holder,
+.tabulator .tabulator-tableholder .tabulator-table .tabulator-row.tabulator-calcs.tabulator-calcs-top,
+.tabulator .tabulator-tableholder .tabulator-table .tabulator-row.tabulator-calcs.tabulator-calcs-bottom,
+.tabulator .tabulator-footer,
+.tabulator .tabulator-footer .tabulator-calcs-holder,
+.tabulator .tabulator-footer .tabulator-page-size,
+.tabulator .tabulator-footer .tabulator-page,
+.tabulator-row.tabulator-moving,
+.tabulator-row .tabulator-frozen.tabulator-frozen-left,
+.tabulator-row .tabulator-frozen.tabulator-frozen-right,
+.tabulator-row .tabulator-responsive-collapse,
+.tabulator-row .tabulator-cell,
+.tabulator-row .tabulator-cell.tabulator-editing,
+.tabulator-row .tabulator-cell .tabulator-data-tree-branch,
+.tabulator-row.tabulator-group,
+.tabulator-popup-container,
+.tabulator-menu .tabulator-menu-item.tabulator-menu-item-submenu::after,
+.tabulator-menu .tabulator-menu-separator,
+.tabulator-edit-list .tabulator-edit-list-group,
+.tabulator.tabulator-rtl .tabulator-header .tabulator-col,
+.tabulator.tabulator-rtl .tabulator-row .tabulator-cell,
+.tabulator.tabulator-rtl .tabulator-row .tabulator-cell .tabulator-data-tree-branch,
+.tabulator-print-table .tabulator-data-tree-branch,
+.tabulator-print-table .tabulator-print-table-group {
+    border-color: var(--kiss-hr-color);
+}

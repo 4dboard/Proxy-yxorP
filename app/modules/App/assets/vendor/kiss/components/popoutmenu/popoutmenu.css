@@ -2,7 +2,7 @@ kiss-popoutmenu {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    background: var(--kiss-popoutmenu-background, rgba(0, 0, 0, .1));
+    background: var(--kiss-popoutmenu-background, rgba(0,0,0,.1));
     top: 0;
     left: 0;
     right: 0;
@@ -19,7 +19,10 @@ kiss-popoutmenu {
 kiss-popoutmenu > kiss-content {
     position: relative;
     display: flow-root;
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
 
     padding: var(--kiss-popoutmenu-content-spacing, 15px);
 
@@ -27,7 +30,7 @@ kiss-popoutmenu > kiss-content {
     color: var(--kiss-popoutmenu-content-color, inherit);
 
     min-width: var(--kiss-popoutmenu-width, 250px);
-    max-width: calc(100% - 0px) !important;
+    max-width: calc(100% - 0.01px) !important;
 
     box-sizing: border-box;
 
@@ -43,7 +46,6 @@ kiss-popoutmenu[open] {
     opacity: 1;
     pointer-events: auto;
 }
-
 kiss-popoutmenu[open] > kiss-content {
     transform: translateY(10px);
 }

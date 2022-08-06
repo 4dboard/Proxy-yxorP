@@ -8,7 +8,7 @@ final class uriResolver
     {
     }
 
-    public static function resolve(uriInterface $base, uriInterface $rel): uri|uriInterface
+    public static function resolve(uriInterface $base, uriInterface $rel)
     {
         if ((string)$rel === '') {
             return $base;
@@ -47,7 +47,7 @@ final class uriResolver
         return new uri(uri::composeComponents($base->getScheme(), $targetAuthority, $targetPath, $targetQuery, $rel->getFragment()));
     }
 
-    public static function removeDotSegments($path): ?string
+    public static function removeDotSegments($path)
     {
         if ($path === '' || $path === '/') {
             return $path;
@@ -70,7 +70,7 @@ final class uriResolver
         return $newPath;
     }
 
-    public static function relativize(uriInterface $base, uriInterface $target): uriInterface
+    public static function relativize(uriInterface $base, uriInterface $target)
     {
         if ($target->getScheme() !== '' && ($base->getScheme() !== $target->getScheme() || $target->getAuthority() === '' && $base->getAuthority() !== '')) {
             return $target;
@@ -96,7 +96,7 @@ final class uriResolver
         return $emptyPathUri;
     }
 
-    private static function getRelativePath(uriInterface $base, uriInterface $target): string
+    private static function getRelativePath(uriInterface $base, uriInterface $target)
     {
         $sourceSegments = explode('/', $base->getPath());
         $targetSegments = explode('/', $target->getPath());
@@ -111,7 +111,7 @@ final class uriResolver
         }
         $targetSegments[] = $targetLastSegment;
         $relativePath = str_repeat('../', count($sourceSegments)) . implode('/', $targetSegments);
-        if ('' === $relativePath || str_contains(explode('/', $relativePath, 2)[0], ':')) {
+        if ('' === $relativePath || false !== strpos(explode('/', $relativePath, 2)[0], ':')) {
             $relativePath = "./$relativePath";
         } elseif ('/' === $relativePath[0]) {
             if ($base->getAuthority() != '' && $base->getPath() === '') {

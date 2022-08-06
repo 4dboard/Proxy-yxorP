@@ -1,22 +1,17 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
-use Closure;
 use Exception;
 use InvalidArgumentException;
-use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\promise\fulfilledPromise;
-use yxorP\app\lib\proxy\promise\promiseInterface;
-use yxorP\app\lib\proxy\promise\rejectedPromise;
 use yxorP\app\lib\proxy\psr7;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\proxy\utils;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 use yxorP\app\lib\psr\http\message\streamInterface;
-use yxorP\app\lib\psr\http\message\uriInterface;
 use function yxorP\app\lib\proxy\debug_resource;
 use function yxorP\app\lib\proxy\default_ca_bundle;
 use function yxorP\app\lib\proxy\headers_from_lines;
@@ -27,9 +22,9 @@ use function yxorP\app\lib\proxy\promise\rejection_for;
 
 class streamHandler
 {
-    private array $lastHeaders = [];
+    private $lastHeaders = [];
 
-    public function __invoke(requestInterface $request, array $options): fulfilledPromise|rejectedPromise|promiseInterface
+    public function __invoke(requestInterface $request, array $options)
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);
@@ -54,14 +49,14 @@ class streamHandler
         }
     }
 
-    private function createResponse(requestInterface $request, array $options, $stream, $startTime): fulfilledPromise|rejectedPromise|promiseInterface
+    private function createResponse(requestInterface $request, array $options, $stream, $startTime)
     {
         $hdrs = $this->lastHeaders;
         $this->lastHeaders = [];
         $parts = explode(' ', array_shift($hdrs), 3);
         $ver = explode('/', $parts[0])[1];
         $status = $parts[1];
-        $reason = $parts[2] ?? null;
+        $reason = isset($parts[2]) ? $parts[2] : null;
         $headers = headers_from_lines($hdrs);
         list($stream, $headers) = $this->checkDecode($options, $headers, $stream);
         $stream = Psr7\stream_for($stream);
@@ -82,11 +77,11 @@ class streamHandler
         if ($sink !== $stream) {
             $this->drain($stream, $sink, $response->getHeaderLine('Content-Length'));
         }
-        $this->invokeStats($options, $request, $startTime, $response);
+        $this->invokeStats($options, $request, $startTime, $response, null);
         return new fulfilledPromise($response);
     }
 
-    private function checkDecode(array $options, array $headers, $stream): array
+    private function checkDecode(array $options, array $headers, $stream)
     {
         if (!empty($options['decode_content'])) {
             $normalizedKeys = normalize_header_keys($headers);
@@ -111,20 +106,21 @@ class streamHandler
         return [$stream, $headers];
     }
 
-    private function createSink(streamInterface $stream, array $options): psr7\stream|streamInterface|psr7\pumpStream|psr7\lazyOpenStream
+    private function createSink(streamInterface $stream, array $options)
     {
         if (!empty($options['stream'])) {
             return $stream;
         }
-        $sink = $options['sink'] ?? fopen('php://temp', 'r+');
+        $sink = isset($options['sink']) ? $options['sink'] : fopen('php://temp', 'r+');
         return is_string($sink) ? new Psr7\lazyOpenStream($sink, 'w+') : Psr7\stream_for($sink);
     }
 
-    private function drain(streamInterface $source, streamInterface $sink, $contentLength): void
+    private function drain(streamInterface $source, streamInterface $sink, $contentLength)
     {
         Psr7\copy_to_stream($source, $sink, (strlen($contentLength) > 0 && (int)$contentLength > 0) ? (int)$contentLength : -1);
         $sink->seek(0);
         $source->close();
+        return $sink;
     }
 
     private function invokeStats(array $options, requestInterface $request, $startTime, responseInterface $response = null, $error = null)
@@ -186,7 +182,7 @@ class streamHandler
         });
     }
 
-    #[ArrayShape(['http' => "array"])] private function getDefaultContext(requestInterface $request): array
+    private function getDefaultContext(requestInterface $request)
     {
         $headers = '';
         foreach ($request->getHeaders() as $name => $value) {
@@ -206,7 +202,7 @@ class streamHandler
         return $context;
     }
 
-    private function resolveHost(requestInterface $request, array $options): uriInterface
+    private function resolveHost(requestInterface $request, array $options)
     {
         $uri = $request->getUri();
         if (isset($options['force_ip_resolve']) && !filter_var($uri->getHost(), FILTER_VALIDATE_IP)) {
@@ -322,7 +318,7 @@ class streamHandler
         }
     }
 
-    private function callArray(array $functions): Closure
+    private function callArray(array $functions)
     {
         return function () use ($functions) {
             $args = func_get_args();

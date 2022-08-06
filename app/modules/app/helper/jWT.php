@@ -1,37 +1,25 @@
 <?php
 
-namespace yxorP\app\modules\app\helper;
+namespace App\Helper;
 
-use helper;
-use stdClass;
-use yxorP\app\lib\data\firebase\jWT as JWTLIB;
-use yxorP\app\lib\data\firebase\key;
-use yxorP\app\lib\http\helperAware;
+use Firebase\JWT\JWT as JWTLIB;
+use Firebase\JWT\Key;
+
+class JWT extends \Lime\Helper {
 
 
-/**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class jWT extends helperAware
-{
-
+    public function create(array $payload, ?string $key = null) {
+        return JWTLIB::encode($payload, $key ?? $this->app->retrieve('sec-key'), 'HS256');
+    }
 
     /**
      * alias for create
      **/
-    public function encode(array $payload, ?string $key = null): string
-    {
+    public function encode(array $payload, ?string $key = null) {
         return $this->create($payload, $key);
     }
 
-    public function create(array $payload, ?string $key = null): string
-    {
-        return JWTLIB::encode($payload, $key ?? $this->app->retrieve('sec-key'), 'HS256');
-    }
-
-    public function decode(string $token, ?string $key = null): stdClass
-    {
-        return JWTLIB::decode($token, new key($key ?? $this->app->retrieve('sec-key'), 'HS256'));
+    public function decode(string $token, ?string $key = null) {
+        return JWTLIB::decode($token, new Key($key ?? $this->app->retrieve('sec-key'), 'HS256'));
     }
 }

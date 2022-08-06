@@ -2,7 +2,9 @@ export default {
 
     data() {
 
-        return {}
+        return {
+
+        }
     },
 
     props: {
@@ -43,7 +45,7 @@ export default {
                             </kiss-row>
                         </div>
 
-                        <div v-if="model.type === 'collection'">
+                        <div v-if="model.type == 'collection'">
                             <strong class="kiss-size-xsmall">{{ t('Items') }}</strong>
                             <kiss-row class="kiss-flex kiss-margin-xsmall kiss-size-small">
                                 <div><input class="kiss-checkbox kiss-margin-xsmall-right" type="checkbox" v-model="modelValue['content/'+name+'/read']"> <span :class="{'kiss-color-muted':!modelValue['content/'+name+'/read']}">{{ t('Read')}}</span></div>
@@ -54,7 +56,7 @@ export default {
                             </kiss-row>
                         </div>
 
-                        <div v-if="model.type === 'singleton'">
+                        <div v-if="model.type == 'singleton'">
                             <strong class="kiss-size-xsmall">{{ t('Data') }}</strong>
                             <kiss-row class="kiss-flex kiss-margin-xsmall kiss-size-small">
                                 <div><input class="kiss-checkbox kiss-margin-xsmall-right" type="checkbox" v-model="modelValue['content/'+name+'/read']"> <span :class="{'kiss-color-muted':!modelValue['content/'+name+'/read']}">{{ t('Read')}}</span></div>

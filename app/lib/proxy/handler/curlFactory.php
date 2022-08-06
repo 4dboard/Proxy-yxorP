@@ -1,15 +1,11 @@
 <?php namespace yxorP\app\lib\proxy\handler;
 
-use Closure;
 use Exception;
 use InvalidArgumentException;
-use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\app\lib\proxy\exception\aRequestException;
 use yxorP\app\lib\proxy\exception\connectException;
 use yxorP\app\lib\proxy\promise\fulfilledPromise;
-use yxorP\app\lib\proxy\promise\promiseInterface;
-use yxorP\app\lib\proxy\promise\rejectedPromise;
 use yxorP\app\lib\proxy\psr7\lazyOpenStream;
 use yxorP\app\lib\proxy\transferStats;
 use yxorP\app\lib\psr\http\message\requestInterface;
@@ -22,7 +18,7 @@ class curlFactory implements curlFactoryInterface
 {
     const CURL_VERSION_STR = 'curl_version';
     const LOW_CURL_VERSION_NUMBER = '7.21.2';
-    private array $handles = [];
+    private $handles = [];
     private $maxHandles;
 
     public function __construct($maxHandles)
@@ -30,7 +26,7 @@ class curlFactory implements curlFactoryInterface
         $this->maxHandles = $maxHandles;
     }
 
-    public static function finish(callable $handler, easyHandle $easy, curlFactoryInterface $factory): fulfilledPromise|promiseInterface|rejectedPromise
+    public static function finish(callable $handler, easyHandle $easy, curlFactoryInterface $factory)
     {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
@@ -54,7 +50,7 @@ class curlFactory implements curlFactoryInterface
         call_user_func($easy->options['on_stats'], $stats);
     }
 
-    private static function finishError(callable $handler, easyHandle $easy, curlFactoryInterface $factory): promiseInterface|rejectedPromise
+    private static function finishError(callable $handler, easyHandle $easy, curlFactoryInterface $factory)
     {
         $ctx = ['errno' => $easy->errno, 'error' => curl_error($easy->handle), 'appconnect_time' => curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME),] + curl_getinfo($easy->handle);
         $ctx[self::CURL_VERSION_STR] = curl_version()['version'];
@@ -81,7 +77,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    private static function retryFailedRewind(callable $handler, easyHandle $easy, array $ctx): rejectedPromise|promiseInterface
+    private static function retryFailedRewind(callable $handler, easyHandle $easy, array $ctx)
     {
         try {
             $body = $easy->request->getBody();
@@ -103,7 +99,7 @@ class curlFactory implements curlFactoryInterface
         return $handler($easy->request, $easy->options);
     }
 
-    private static function createRejection(easyHandle $easy, array $ctx): promiseInterface|rejectedPromise
+    private static function createRejection(easyHandle $easy, array $ctx)
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
@@ -118,7 +114,7 @@ class curlFactory implements curlFactoryInterface
         return rejection_for($error);
     }
 
-    public function create(requestInterface $request, array $options): easyHandle
+    public function create(requestInterface $request, array $options)
     {
         if (isset($options['curl']['body_as_string'])) {
             $options['_body_as_string'] = $options['curl']['body_as_string'];
@@ -141,7 +137,7 @@ class curlFactory implements curlFactoryInterface
         return $easy;
     }
 
-    #[ArrayShape(['_headers' => "mixed", CURLOPT_CUSTOMREQUEST => "mixed", CURLOPT_URL => "string", CURLOPT_RETURNTRANSFER => "false", CURLOPT_HEADER => "false", CURLOPT_CONNECTTIMEOUT => "int", CURLOPT_HTTP_VERSION => "int", CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(easyHandle $easy): array
+    private function getDefaultConf(easyHandle $easy)
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
         if (defined('CURLOPT_PROTOCOLS')) {
@@ -316,7 +312,7 @@ class curlFactory implements curlFactoryInterface
                     list($sslKey) = $options['ssl_key'];
                 }
             }
-            $sslKey = $sslKey ?? $options['ssl_key'];
+            $sslKey = isset($sslKey) ? $sslKey : $options['ssl_key'];
             if (!file_exists($sslKey)) {
                 throw new InvalidArgumentException("SSL private key not found: {$sslKey}");
             }
@@ -359,7 +355,7 @@ class curlFactory implements curlFactoryInterface
         }
     }
 
-    private function createHeaderFn(easyHandle $easy): Closure
+    private function createHeaderFn(easyHandle $easy)
     {
         if (isset($easy->options['on_headers'])) {
             $onHeaders = $easy->options['on_headers'];

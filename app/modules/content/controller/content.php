@@ -2,13 +2,12 @@
 
 namespace Content\Controller;
 
-use yxorP\app\modules\app\controller\app;
+use App\Controller\App;
+use ArrayObject;
 
-class content extends app
-{
+class Content extends App {
 
-    public function index()
-    {
+    public function index() {
 
         $this->helper('theme')->favicon('content:icon.svg');
 

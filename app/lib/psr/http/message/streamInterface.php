@@ -50,7 +50,7 @@ interface streamInterface
      *
      * @return int|null Returns the size in bytes if known, or null if unknown.
      */
-    public function getSize(): ?int;
+    public function getSize();
 
     /**
      * Returns the current position of the file read/write pointer
@@ -58,21 +58,21 @@ interface streamInterface
      * @return int Position of the file pointer
      * @throws RuntimeException on error.
      */
-    public function tell(): int;
+    public function tell();
 
     /**
      * Returns true if the stream is at the end of the stream.
      *
      * @return bool
      */
-    public function eof(): bool;
+    public function eof();
 
     /**
      * Returns whether or not the stream is seekable.
      *
      * @return bool
      */
-    public function isSeekable(): bool;
+    public function isSeekable();
 
     /**
      * Seek to a position in the stream.
@@ -86,7 +86,7 @@ interface streamInterface
      *     SEEK_END: Set position to end-of-stream plus offset.
      * @throws RuntimeException on failure.
      */
-    public function seek(int $offset, int $whence = SEEK_SET);
+    public function seek($offset, $whence = SEEK_SET);
 
     /**
      * Seek to the beginning of the stream.
@@ -105,7 +105,7 @@ interface streamInterface
      *
      * @return bool
      */
-    public function isWritable(): bool;
+    public function isWritable();
 
     /**
      * Write data to the stream.
@@ -114,14 +114,14 @@ interface streamInterface
      * @return int Returns the number of bytes written to the stream.
      * @throws RuntimeException on failure.
      */
-    public function write(string $string): int;
+    public function write($string);
 
     /**
      * Returns whether or not the stream is readable.
      *
      * @return bool
      */
-    public function isReadable(): bool;
+    public function isReadable();
 
     /**
      * Read data from the stream.
@@ -133,7 +133,7 @@ interface streamInterface
      *     if no bytes are available.
      * @throws RuntimeException if an error occurs.
      */
-    public function read(int $length): string;
+    public function read($length);
 
     /**
      * Returns the remaining contents in a string
@@ -142,7 +142,7 @@ interface streamInterface
      * @throws RuntimeException if unable to read or an error occurs while
      *     reading.
      */
-    public function getContents(): string;
+    public function getContents();
 
     /**
      * Get stream metadata as an associative array or retrieve a specific key.
@@ -151,10 +151,10 @@ interface streamInterface
      * stream_get_meta_data() function.
      *
      * @link http://php.net/manual/en/function.stream-get-meta-data.php
-     * @param string|null $key Specific metadata to retrieve.
-     * @return mixed Returns an associative array if no key is
+     * @param string $key Specific metadata to retrieve.
+     * @return array|mixed|null Returns an associative array if no key is
      *     provided. Returns a specific key value if a key is provided and the
      *     value is found, or null if the key is not found.
      */
-    public function getMetadata(string $key = null): mixed;
+    public function getMetadata($key = null);
 }

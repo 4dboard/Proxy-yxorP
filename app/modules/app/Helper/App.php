@@ -1,13 +1,8 @@
 <?php
 
-namespace yxorP\app\modules\app\helper;
+namespace App\Helper;
 
-use helper;
-use yxorP\app\lib\http\helperAware;
-
-
-class App extends helperAware
-{
+class App extends \Lime\Helper {
 
 
 }

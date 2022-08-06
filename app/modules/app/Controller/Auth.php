@@ -1,32 +1,16 @@
 <?php
 
-namespace yxorP\app\modules\app\controller;
-
-use Exception;
-use JetBrains\PhpStorm\ArrayShape;
-use function compact;
-use function is_string;
+namespace App\Controller;
 
 /**
  * Class Controller
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
  * @package App
  */
-class auth extends base
-{
+class Auth extends Base {
 
-    protected bool $layout = 'app:layouts/canvas.php';
+    protected $layout = 'app:layouts/canvas.php';
 
-    public function login()
-    {
+    public function login() {
 
         if ($this->helper('auth')->getUser()) {
             $this->app->reroute('/');
@@ -36,19 +20,18 @@ class auth extends base
 
         $redirectTo = $this->param('to', '/');
 
-        if (!str_starts_with($redirectTo, '/')) {
+        if (\substr($redirectTo, 0, 1) !== '/') {
             $redirectTo = '/';
         }
 
-        $redirectTo = htmlspecialchars($this->routeUrl($redirectTo), ENT_QUOTES);
+        $redirectTo = htmlspecialchars($this->routeUrl($redirectTo), ENT_QUOTES, 'UTF-8');
 
         $this->helper('theme')->pageClass('login-page');
 
-        return $this->render('app:views/auth/login.php', compact('redirectTo'));
+        return $this->render('app:views/auth/login.php', \compact('redirectTo'));
     }
 
-    #[ArrayShape(['logout' => "bool"])] public function logout()
-    {
+    public function logout() {
 
         $this->helper('auth')->logout();
 
@@ -59,8 +42,7 @@ class auth extends base
         }
     }
 
-    public function check()
-    {
+    public function check() {
 
         if ($this->helper('auth')->getUser()) {
             return false;
@@ -68,7 +50,7 @@ class auth extends base
 
         $auth = $this->param('auth');
 
-        if (!$auth || !isset($auth['user'], $auth['password']) || !is_string($auth['user']) || !is_string($auth['password'])) {
+        if (!$auth || !isset($auth['user'], $auth['password']) || !\is_string($auth['user']) || !\is_string($auth['password'])) {
             return $this->stop(412);
         }
 
@@ -81,14 +63,14 @@ class auth extends base
             'password' => $auth['password'],
         ];
 
-        if ($this->helper('utils')->isEmail($auth['user'])) {
+        if (isset($auth['user']) && $this->helper('utils')->isEmail($auth['user'])) {
             $auth['email'] = $auth['user'];
-            $auth['user'] = '';
+            $auth['user']  = '';
         }
 
         $user = $this->helper('auth')->authenticate($auth);
 
-        if ($user && $user['role'] === 'public') {
+        if ($user && $user['role'] == 'public') {
             return $this->stop(412);
         }
 
@@ -124,15 +106,14 @@ class auth extends base
         return ['success' => false];
     }
 
-    public function validate2FA()
-    {
+    public function validate2FA() {
 
-        $code = $this->param('code');
-        $token = $this->param('token');
+        $code = $this->param('code', null);
+        $token = $this->param('token', null);
 
         try {
-            $user = (array)$this->app->helper('jwt')->decode($token);
-        } catch (Exception $e) {
+            $user = (array) $this->app->helper('jwt')->decode($token);
+        } catch(\Exception $e) {
             return $this->stop(412);
         }
 

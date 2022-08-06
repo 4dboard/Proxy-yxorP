@@ -25,7 +25,7 @@ let App = {
 
     base: function (url) {
 
-        let path = url.match(/^(.*?):/);
+        let path = url.match(/^(.*?)\:/);
 
         if (path && this._paths[path[1]]) {
             return url.replace(path[0], this._paths[path[1]]);
@@ -73,7 +73,7 @@ let App = {
 
                 let resdata = xhr.responseText;
 
-                if (type === 'json') {
+                if (type == 'json') {
                     try {
                         resdata = JSON.parse(xhr.responseText);
                     } catch (e) {
@@ -81,7 +81,7 @@ let App = {
                     }
                 }
 
-                if (this.status === 200) {
+                if (this.status == 200) {
                     fulfill(resdata, xhr);
                 } else {
                     reject(resdata, xhr);
@@ -118,7 +118,7 @@ let App = {
 
         if (!this._events[name]) return;
 
-        let event = {name, params};
+        let event = { name, params };
 
         for (let i = 0; i < this._events[name].length; i++) {
             this._events[name][i].apply(App, [event]);
@@ -156,8 +156,8 @@ App.ui = ui;
 App.utils = utils;
 
 // custom utils
-App.utils.import = function (uri) {
-    return import(App.base(uri) + '?v=' + App.version);
+App.utils.import = function(uri) {
+    return import(App.base(uri)+'?v='+App.version);
 };
 
 window.App = App;

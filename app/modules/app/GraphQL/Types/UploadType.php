@@ -1,39 +1,25 @@
 <?php
 
-namespace yxorP\app\modules\app\graphQL\types;
+namespace App\GraphQL\Types;
 
-use yxorP\app\lib\data\graphQL\Error\InvariantViolation;
-use yxorP\app\lib\data\graphQL\Language\AST\Node;
-use yxorP\app\lib\psr\http\message\uploadedFileInterface;
-use yxorP\app\modules\app\graphQL\Error\Error;
-use yxorP\app\modules\app\graphQL\Error\InvariantViolation;
-use yxorP\app\modules\app\graphQL\Language\AST\Node;
-use yxorP\app\modules\app\graphQL\Type\Definition\ScalarType;
+use GraphQL\Error\Error;
+use GraphQL\Error\InvariantViolation;
+use GraphQL\Type\Definition\ScalarType;
+use Psr\Http\Message\UploadedFileInterface;
 
-class uploadType extends ScalarType
+class UploadType extends ScalarType
 {
     /**
      * @var string
      */
-    public string $name = 'Upload';
+    public $name = 'Upload';
 
     /**
      * @var string
      */
-    public string $description =
+    public $description =
         'The `Upload` special type represents a file to be uploaded in the same HTTP request as specified by
  [graphql-multipart-request-spec](https://github.com/jaydenseric/graphql-multipart-request-spec).';
-
-    public static function instance()
-    {
-        static $instance;
-
-        if (is_null($instance)) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
 
     /**
      * Serializes an internal value to include in a response.
@@ -42,7 +28,7 @@ class uploadType extends ScalarType
      *
      * @return mixed
      */
-    public function serialize(mixed $value): mixed
+    public function serialize($value)
     {
         throw new InvariantViolation('`Upload` cannot be serialized');
     }
@@ -54,7 +40,7 @@ class uploadType extends ScalarType
      *
      * @return UploadedFileInterface
      */
-    public function parseValue(mixed $value): uploadedFileInterface
+    public function parseValue($value)
     {
         // if (!$value instanceof UploadedFileInterface) {
         //     throw new \UnexpectedValueException('Could not get uploaded file, be sure to conform to GraphQL multipart request specification. Instead got: ' . Utils::printSafe($value));
@@ -66,13 +52,23 @@ class uploadType extends ScalarType
     /**
      * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input
      *
-     * @param \yxorP\app\modules\app\graphQL\types\Node $valueNode
+     * @param \GraphQL\Language\AST\Node $valueNode
      * @param null|array $variables
      *
      * @return mixed
      */
-    public function parseLiteral(Node $valueNode, array $variables = null): mixed
+    public function parseLiteral($valueNode, array $variables = null)
     {
         throw new Error('`Upload` cannot be hardcoded in query, be sure to conform to GraphQL multipart request specification. Instead got: ' . $valueNode->kind, $valueNode);
+    }
+
+    public static function instance() {
+        static $instance;
+
+        if (is_null($instance)) {
+            $instance = new static();
+        }
+
+        return $instance;
     }
 }

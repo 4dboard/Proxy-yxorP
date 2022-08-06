@@ -1,20 +1,17 @@
+
 export default {
 
     _ress: {},
 
     require: function (ress, onSuccess, onError) {
 
-        onSuccess = onSuccess || function () {
-        };
-        onError = onError || function () {
-        };
+        onSuccess = onSuccess || function () { };
+        onError = onError || function () { };
 
         var req = [],
             ress = Array.isArray(ress) ? ress : [ress];
 
-        let i = 0;
-        const len = ress.length;
-        for (; i < len; i++) {
+        for (var i = 0, len = ress.length; i < len; i++) {
 
             if (!ress[i]) continue;
 
@@ -43,7 +40,7 @@ export default {
 
         return new Promise(function (resolve, reject) {
 
-            const script = document.createElement('script');
+            var script = document.createElement('script');
 
             script.async = true;
 
@@ -66,14 +63,14 @@ export default {
 
         return new Promise(function (resolve, reject) {
 
-            const link = document.createElement('link');
+            var link = document.createElement('link');
             link.type = 'text/css';
             link.rel = 'stylesheet';
             link.href = (url.match(/^(\/\/|http)/) ? url : App.base(url)) + '?v=' + App.version;
 
             document.getElementsByTagName('head')[0].appendChild(link);
 
-            const img = document.createElement('img');
+            var img = document.createElement('img');
             img.onerror = function () {
                 resolve(url);
             };
@@ -85,14 +82,10 @@ export default {
 
         return new Promise(function (resolve, reject) {
 
-            const img = document.createElement('img');
+            var img = document.createElement('img');
 
-            img.onload = function () {
-                resolve(url);
-            };
-            img.onerror = function () {
-                reject(url);
-            };
+            img.onload = function () { resolve(url); };
+            img.onerror = function () { reject(url); };
 
             img.src = (url.match(/^(\/\/|http)/) ? url : App.base(url)) + '?v=' + App.version;
         });

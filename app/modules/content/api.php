@@ -8,9 +8,7 @@
  * )
  */
 
-use function yxorP\app\lib\data\json\json5_decode;
-
-$this->on('restApi.config', function ($restApi) {
+$this->on('restApi.config', function($restApi) {
 
     /**
      * @OA\Get(
@@ -64,7 +62,7 @@ $this->on('restApi.config', function ($restApi) {
 
     $restApi->addEndPoint('/content/item/{model}', [
 
-        'GET' => function ($params, $app) {
+        'GET' => function($params, $app) {
 
             $model = $params['model'];
 
@@ -89,7 +87,7 @@ $this->on('restApi.config', function ($restApi) {
             if ($filter) {
                 try {
                     $filter = json5_decode($filter, true);
-                } catch (Throwable $e) {
+                } catch(\Throwable $e) {
                     $app->response->status = 400;
                     return ['error' => "<filter> is not valid json"];
                 }
@@ -98,7 +96,7 @@ $this->on('restApi.config', function ($restApi) {
             if ($fields) {
                 try {
                     $fields = json5_decode($fields, true);
-                } catch (Throwable $e) {
+                } catch(\Throwable $e) {
                     $app->response->status = 400;
                     return ['error' => "<fields> is not valid json"];
                 }
@@ -108,7 +106,7 @@ $this->on('restApi.config', function ($restApi) {
                 $process['populate'] = $populate;
             }
 
-            $item = $app->module('content')->item($model, $filter ?: [], $fields, $process);
+            $item = $app->module('content')->item($model, $filter ? $filter : [], $fields, $process);
 
             if ($item) {
                 $app->trigger('content.api.item', [&$item, $model]);
@@ -192,7 +190,7 @@ $this->on('restApi.config', function ($restApi) {
 
     $restApi->addEndPoint('/content/items/{model}', [
 
-        'GET' => function ($params, $app) {
+        'GET' => function($params, $app) {
 
             $model = $params['model'];
 
@@ -226,7 +224,7 @@ $this->on('restApi.config', function ($restApi) {
                 if (isset($options[$prop])) {
                     try {
                         $options[$prop] = json5_decode($options[$prop], true);
-                    } catch (Throwable $e) {
+                    } catch(\Throwable $e) {
                         $app->response->status = 400;
                         return ['error' => "<{$prop}> is not valid json"];
                     }
@@ -263,8 +261,8 @@ $this->on('restApi.config', function ($restApi) {
     ]);
 });
 
-$this->on('graphql.config', function ($gql) {
+$this->on('graphql.config', function($gql) {
     $app = $this;
-    include(__DIR__ . '/graphql/content.php');
-    include(__DIR__ . '/graphql/models.php');
+    include(__DIR__.'/graphql/content.php');
+    include(__DIR__.'/graphql/models.php');
 });

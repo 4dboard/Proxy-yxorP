@@ -1,8 +1,8 @@
-let ready = new Promise(function (resolve) {
+let ready = new Promise(function(resolve) {
 
     App.assets.require([
         'app:assets/vendor/tinymce/tinymce.min.js'
-    ], function () {
+    ], function() {
         resolve(window.tinymce);
     });
 });
@@ -16,7 +16,7 @@ export default {
         info: 'Rich text field',
         icon: 'system:assets/icons/wysiwyg.svg',
         render(value, field, context) {
-            return App.utils.truncate(App.utils.stripTags(value), context === 'table-cell' ? 20 : 50);
+            return App.utils.truncate(App.utils.stripTags(value), context == 'table-cell' ? 20 : 50);
         }
     },
 
@@ -60,30 +60,27 @@ export default {
             let opts = Object.assign({
                 deprecation_warnings: false,
                 target: this.$el.querySelector('.wysiwyg-container'),
-                plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
-                editimage_cors_hosts: ['picsum.photos'],
-                menubar: 'file edit view insert format tools table help',
-                toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-                toolbar_sticky: true,
-                autosave_ask_before_unload: true,
-                autosave_interval: '30s',
-                autosave_prefix: '{path}{query}-{id}-',
-                autosave_restore_when_empty: false,
-                autosave_retention: '2m',
-                image_advtab: true,
+                menubar: false,
+                plugins: [
+                    'advlist autolink lists link image imagetools preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table hr paste code wordcount'
+                ],
+                toolbar: [
+                    'undo redo | formatselect',
+                    'bold italic | alignleft aligncenter',
+                    'alignright alignjustify | bullist numlist outdent indent',
+                    'removeformat | hr image link table'
+                ].join(' | '),
+
                 height: 400,
-                template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
-                template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
-                image_caption: true,
-                quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
-                noneditable_class: 'mceNonEditable',
-                toolbar_mode: 'sliding',
-                contextmenu: 'link image table',
-                skin: 'oxide-dark',
-                content_css: 'dark',
-                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-                relative_urls: false,
+
+                content_style: '',
+
+                skin_url: App.base('app:assets/css/vendor/tinymce'),
+                relative_urls : false,
                 paste_as_text: true
+
             }, this.tinymce || {});
 
             opts.content_style += `
@@ -108,10 +105,7 @@ export default {
 
                     editor.on('focus blur', e => {
                         editor.isFocused = !editor.isFocused;
-                        this.$el.dispatchEvent(new Event(editor.isFocused ? 'focusin' : 'focusout', {
-                            bubbles: true,
-                            cancelable: true
-                        }));
+                        this.$el.dispatchEvent(new Event(editor.isFocused ? 'focusin':'focusout', { bubbles: true, cancelable: true }));
                     });
                 });
 

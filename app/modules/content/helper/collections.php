@@ -2,17 +2,9 @@
 
 namespace Collections\Helper;
 
+class Collections extends \Lime\Helper {
 
-use helper;
-use yxorP\app\lib\data\graphQL\Server\Helper;
-
-class collections extends
-
-    helper
-{
-
-    public function index(): int
-    {
+    public function index() {
         return 1;
     }
 }

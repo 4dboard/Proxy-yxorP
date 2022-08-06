@@ -52,9 +52,7 @@ export default {
 
     watch: {
         data: {
-            handler() {
-                this.updateIframe()
-            },
+            handler() { this.updateIframe() },
             deep: true
         },
         locale() {

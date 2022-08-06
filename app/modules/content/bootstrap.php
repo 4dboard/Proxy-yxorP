@@ -20,7 +20,7 @@ $this->module('content')->extend([
     '_models' => [],
     '_refs' => [],
 
-    'createModel' => function (string $name, array $data = []): array|bool {
+    'createModel' => function (string $name, array $data = []): mixed {
 
         if (!trim($name)) {
             return false;
@@ -65,7 +65,7 @@ $this->module('content')->extend([
         return $model;
     },
 
-    'updateModel' => function (string $name, array $data): array|bool {
+    'updateModel' => function (string $name, array $data): mixed {
 
         if (!$this->exists($name)) {
             return false;
@@ -114,9 +114,9 @@ $this->module('content')->extend([
 
         $this->app->helper('fs')->delete("#storage:content/{$name}.model.php");
 
-        if ($model['type'] === 'singleton') {
+        if ($model['type'] == 'singleton') {
             $this->app->dataStorage->remove('content/singletons', ['_model' => $name]);
-        } elseif ($model['type'] === 'collection') {
+        } elseif ($model['type'] == 'collection') {
             $this->app->dataStorage->dropCollection("content/collections/{$name}");
         }
 
@@ -149,7 +149,7 @@ $this->module('content')->extend([
         return $this->app->path("#storage:content/{$name}.model.php");
     },
 
-    'model' => function (string $name): bool {
+    'model' => function (string $name): mixed {
 
         if (!isset($this->_models[$name])) {
 
@@ -187,7 +187,7 @@ $this->module('content')->extend([
             if ($i18n) {
 
                 foreach ($locales as $locale) {
-                    if ($locale['i18n'] === 'default') continue;
+                    if ($locale['i18n'] == 'default') continue;
                     $localeName = "{$name}_{$locale['i18n']}";
                     $locDefault = $field['opts']["default_{$locale['i18n']}"] ?? null;
                     $item[$localeName] = $multiple ? ($locDefault ?? []) : ($locDefault ?? null);
@@ -220,7 +220,7 @@ $this->module('content')->extend([
             unset($item['_state']);
         }
 
-        if ($model['type'] === 'singleton') {
+        if ($model['type'] == 'singleton') {
 
             $collection = 'content/singletons';
             $current = $this->app->dataStorage->findOne('content/singletons', ['_model' => $modelName]);
@@ -234,7 +234,7 @@ $this->module('content')->extend([
 
             $item = array_merge($current, $item);
 
-        } elseif ($model['type'] === 'collection') {
+        } elseif ($model['type'] == 'collection') {
 
             $collection = "content/collections/{$modelName}";
             $item = array_merge($default, $item);
@@ -273,7 +273,7 @@ $this->module('content')->extend([
             throw new Exception('Try to access unknown model "' . $modelName . '"');
         }
 
-        if ($model['type'] === 'singleton') {
+        if ($model['type'] == 'singleton') {
 
             $item = $this->app->dataStorage->findOne('content/singletons', ['_model' => $modelName], $fields);
 
@@ -283,7 +283,7 @@ $this->module('content')->extend([
 
             $item['_model'] = $modelName;
 
-        } elseif ($model['type'] === 'collection') {
+        } elseif ($model['type'] == 'collection') {
 
             $collection = "content/collections/{$modelName}";
             $item = $this->app->dataStorage->findOne($collection, $filter, $fields);
@@ -335,13 +335,15 @@ $this->module('content')->extend([
             throw new Exception('Try to access unknown model "' . $modelName . '"');
         }
 
-        if ($model['type'] === 'singleton') {
+        if ($model['type'] == 'singleton') {
             return false;
         }
 
         $collection = "content/collections/{$modelName}";
 
-        return $this->app->dataStorage->remove($collection, $filter);
+        $result = $this->app->dataStorage->remove($collection, $filter);
+
+        return $result;
     },
 
     'count' => function (string $modelName, mixed $filter = []): int {
@@ -352,7 +354,7 @@ $this->module('content')->extend([
             throw new Exception('Try to access unknown model "' . $modelName . '"');
         }
 
-        if ($model['type'] === 'singleton') {
+        if ($model['type'] == 'singleton') {
             return 1;
         }
 
@@ -368,6 +370,10 @@ $this->module('content')->extend([
 
     'populate' => function (array $array, $maxlevel = -1, $level = 0, $process = []) {
 
+        if (!is_array($array)) {
+            return $array;
+        }
+
         if (is_numeric($maxlevel) && $maxlevel > -1 && $level > ($maxlevel + 1)) {
             return $array;
         }
@@ -378,7 +384,9 @@ $this->module('content')->extend([
                 continue;
             }
 
-            $array[$k] = $this->populate($v, $maxlevel, ($level + 1), $process);
+            if (is_array($array[$k])) {
+                $array[$k] = $this->populate($array[$k], $maxlevel, ($level + 1), $process);
+            }
 
             if ($level > 0 && isset($v['_id'], $v['_model'])) {
 
@@ -408,7 +416,7 @@ $this->module('content')->extend([
             }
         }
 
-        return $this->_refs[$model][$_id] ?: null;
+        return $this->_refs[$model][$_id] ? $this->_refs[$model][$_id] : null;
     },
 
     'updateRefs' => function (string $refId, mixed $value = null) {
@@ -419,8 +427,8 @@ $this->module('content')->extend([
 
             foreach ($items as $k => &$v) {
                 if (!is_array($v)) continue;
-                $items[$k] = $update($v);
-                if (isset($v['_id']) && $v['_id'] === $refId) $items[$k] = $value;
+                if (is_array($items[$k])) $items[$k] = $update($items[$k]);
+                if (isset($v['_id']) && $v['_id'] == $refId) $items[$k] = $value;
             }
             return $items;
         };
@@ -453,7 +461,7 @@ $this->module('content')->extend([
 $this->on('assets.asset.remove', function (array $asset) {
 
     if ($this->helper('async')->possible()) {
-        $this->helper('async')->exec('App()->module("content")->updateRefs($asset["_id"], null);', compact('asset'));
+        $this->helper('async')->exec('yxorP()->module("content")->updateRefs($asset["_id"], null);', compact('asset'));
     } else {
         $this->module('content')->updateRefs($asset['_id'], null);
     }
@@ -463,7 +471,7 @@ $this->on('assets.asset.remove', function (array $asset) {
 $this->on('assets.asset.update', function (array $asset) {
 
     if ($this->helper('async')->possible()) {
-        $this->helper('async')->exec('App()->module("content")->updateRefs($asset["_id"], $asset);', compact('asset'));
+        $this->helper('async')->exec('yxorP()->module("content")->updateRefs($asset["_id"], $asset);', compact('asset'));
     } else {
         $this->module('content')->updateRefs($asset['_id'], $asset);
     }

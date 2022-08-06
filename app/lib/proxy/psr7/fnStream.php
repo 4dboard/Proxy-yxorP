@@ -1,7 +1,6 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use BadMethodCallException;
-use JetBrains\PhpStorm\Pure;
 use LogicException;
 use yxorP\app\lib\psr\http\message\streamInterface;
 
@@ -25,7 +24,7 @@ use yxorP\app\lib\psr\http\message\streamInterface;
  */
 class fnStream implements streamInterface
 {
-    private static array $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
+    private static $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
 
     public function __construct(array $methods)
     {
@@ -35,7 +34,7 @@ class fnStream implements streamInterface
         }
     }
 
-    #[Pure] public static function decorate(streamInterface $stream, array $methods): fnStream
+    public static function decorate(streamInterface $stream, array $methods)
     {
         foreach (array_diff(self::$slots, array_keys($methods)) as $diff) {
             $methods[$diff] = [$stream, $diff];
@@ -100,7 +99,7 @@ class fnStream implements streamInterface
         call_user_func($this->_fn_rewind);
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET)
     {
         call_user_func($this->_fn_seek, $offset, $whence);
     }
@@ -110,7 +109,7 @@ class fnStream implements streamInterface
         return call_user_func($this->_fn_isWritable);
     }
 
-    public function write(string $string)
+    public function write($string)
     {
         return call_user_func($this->_fn_write, $string);
     }
@@ -120,7 +119,7 @@ class fnStream implements streamInterface
         return call_user_func($this->_fn_isReadable);
     }
 
-    public function read(int $length)
+    public function read($length)
     {
         return call_user_func($this->_fn_read, $length);
     }
@@ -130,7 +129,7 @@ class fnStream implements streamInterface
         return call_user_func($this->_fn_getContents);
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata($key = null)
     {
         return call_user_func($this->_fn_getMetadata, $key);
     }

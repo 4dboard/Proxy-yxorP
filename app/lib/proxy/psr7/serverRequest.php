@@ -1,18 +1,17 @@
 <?php namespace yxorP\app\lib\proxy\psr7;
 
 use InvalidArgumentException;
-use yxorP\app\lib\http\helpers;
 use yxorP\app\lib\psr\http\message\serverRequestInterface;
 use yxorP\app\lib\psr\http\message\uploadedFileInterface;
 
 class serverRequest extends request implements serverRequestInterface
 {
-    private array $attributes = [];
-    private array $cookieParams = [];
-    private array|null|object $parsedBody;
-    private array $queryParams = [];
-    private array $serverParams;
-    private array $uploadedFiles = [];
+    private $attributes = [];
+    private $cookieParams = [];
+    private $parsedBody;
+    private $queryParams = [];
+    private $serverParams;
+    private $uploadedFiles = [];
 
     public function __construct($method, $uri, array $headers = [], $body = null, $version = '1.1', array $serverParams = [])
     {
@@ -20,10 +19,10 @@ class serverRequest extends request implements serverRequestInterface
         parent::__construct($method, $uri, $headers, $body, $version);
     }
 
-    public static function fromGlobals(): serverRequest
+    public static function fromGlobals()
     {
-        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-        $headers = helpers::getallheaders();
+        $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $headers = getallheaders();
         $uri = self::getUriFromGlobals();
         $body = new cachingStream(new lazyOpenStream('php://input', 'r+'));
         $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? str_replace('HTTP/', '', $_SERVER['SERVER_PROTOCOL']) : '1.1';
@@ -31,7 +30,7 @@ class serverRequest extends request implements serverRequestInterface
         return $serverRequest->withCookieParams($_COOKIE)->withQueryParams($_GET)->withParsedBody($_POST)->withUploadedFiles(self::normalizeFiles($_FILES));
     }
 
-    public static function getUriFromGlobals(): uri
+    public static function getUriFromGlobals()
     {
         $uri = new uri('');
         $uri = $uri->withScheme(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http');
@@ -68,47 +67,7 @@ class serverRequest extends request implements serverRequestInterface
         return $uri;
     }
 
-    private static function extractHostAndPortFromAuthority($authority): array
-    {
-        $uri = 'https://' . $authority;
-        $parts = parse_url($uri);
-        if (false === $parts) {
-            return [null, null];
-        }
-        $host = $parts['host'] ?? null;
-        $port = $parts['port'] ?? null;
-        return [$host, $port];
-    }
-
-    public function withUploadedFiles(array $uploadedFiles): serverRequest
-    {
-        $new = clone $this;
-        $new->uploadedFiles = $uploadedFiles;
-        return $new;
-    }
-
-    public function withParsedBody(object|array|null $data): serverRequest
-    {
-        $new = clone $this;
-        $new->parsedBody = $data;
-        return $new;
-    }
-
-    public function withQueryParams(array $query): serverRequest
-    {
-        $new = clone $this;
-        $new->queryParams = $query;
-        return $new;
-    }
-
-    public function withCookieParams(array $cookies): serverRequest
-    {
-        $new = clone $this;
-        $new->cookieParams = $cookies;
-        return $new;
-    }
-
-    public static function normalizeFiles(array $files): array
+    public static function normalizeFiles(array $files)
     {
         $normalized = [];
         foreach ($files as $key => $value) {
@@ -118,6 +77,7 @@ class serverRequest extends request implements serverRequestInterface
                 $normalized[$key] = self::createUploadedFileFromSpec($value);
             } elseif (is_array($value)) {
                 $normalized[$key] = self::normalizeFiles($value);
+                continue;
             } else {
                 throw new InvalidArgumentException('Invalid value in files specification');
             }
@@ -125,7 +85,19 @@ class serverRequest extends request implements serverRequestInterface
         return $normalized;
     }
 
-    private static function createUploadedFileFromSpec(array $value): array|uploadedFile
+    private static function extractHostAndPortFromAuthority($authority)
+    {
+        $uri = 'http://' . $authority;
+        $parts = parse_url($uri);
+        if (false === $parts) {
+            return [null, null];
+        }
+        $host = isset($parts['host']) ? $parts['host'] : null;
+        $port = isset($parts['port']) ? $parts['port'] : null;
+        return [$host, $port];
+    }
+
+    private static function createUploadedFileFromSpec(array $value)
     {
         if (is_array($value['cache_name'])) {
             return self::normalizeNestedFileSpec($value);
@@ -133,7 +105,7 @@ class serverRequest extends request implements serverRequestInterface
         return new uploadedFile($value['cache_name'], (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
     }
 
-    private static function normalizeNestedFileSpec(array $files = []): array
+    private static function normalizeNestedFileSpec(array $files = [])
     {
         $normalizedFiles = [];
         foreach (array_keys($files['cache_name']) as $key) {
@@ -143,58 +115,86 @@ class serverRequest extends request implements serverRequestInterface
         return $normalizedFiles;
     }
 
-    public function getServerParams(): array
+    public function withUploadedFiles(array $uploadedFiles)
+    {
+        $new = clone $this;
+        $new->uploadedFiles = $uploadedFiles;
+        return $new;
+    }
+
+    public function withParsedBody($data)
+    {
+        $new = clone $this;
+        $new->parsedBody = $data;
+        return $new;
+    }
+
+    public function withQueryParams(array $query)
+    {
+        $new = clone $this;
+        $new->queryParams = $query;
+        return $new;
+    }
+
+    public function withCookieParams(array $cookies)
+    {
+        $new = clone $this;
+        $new->cookieParams = $cookies;
+        return $new;
+    }
+
+    public function getServerParams()
     {
         return $this->serverParams;
     }
 
-    public function getUploadedFiles(): array
+    public function getUploadedFiles()
     {
         return $this->uploadedFiles;
     }
 
-    public function getCookieParams(): array
+    public function getCookieParams()
     {
         return $this->cookieParams;
     }
 
-    public function getQueryParams(): array
+    public function getQueryParams()
     {
         return $this->queryParams;
     }
 
-    public function getParsedBody(): object|array|null
+    public function getParsedBody()
     {
         return $this->parsedBody;
     }
 
-    public function getAttributes(): array
+    public function getAttributes()
     {
         return $this->attributes;
     }
 
-    public function getAttribute(string $name, mixed $default = null)
+    public function getAttribute($attribute, $default = null)
     {
-        if (false === array_key_exists($name, $this->attributes)) {
+        if (false === array_key_exists($attribute, $this->attributes)) {
             return $default;
         }
-        return $this->attributes[$name];
+        return $this->attributes[$attribute];
     }
 
-    public function withAttribute(string $name, mixed $value): serverRequest
+    public function withAttribute($attribute, $value)
     {
         $new = clone $this;
-        $new->attributes[$name] = $value;
+        $new->attributes[$attribute] = $value;
         return $new;
     }
 
-    public function withoutAttribute(string $name): static
+    public function withoutAttribute($attribute)
     {
-        if (false === array_key_exists($name, $this->attributes)) {
+        if (false === array_key_exists($attribute, $this->attributes)) {
             return $this;
         }
         $new = clone $this;
-        unset($new->attributes[$name]);
+        unset($new->attributes[$attribute]);
         return $new;
     }
 }

@@ -1,16 +1,14 @@
 <?php namespace yxorP\app\lib\proxy\cookie;
 
 use ArrayIterator;
-use Exception;
-use ReturnTypeWillChange;
 use RuntimeException;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
 
 class cookieJar implements cookieJarInterface
 {
-    private array $cookies = [];
-    private mixed $strictMode;
+    private $cookies = [];
+    private $strictMode;
 
     public function __construct($strictMode = false, $cookieArray = [])
     {
@@ -23,7 +21,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    public function setCookie(setCookie $cookie): bool
+    public function setCookie(setCookie $cookie)
     {
         $name = $cookie->getName();
         if (!$name && $name !== '0') {
@@ -72,6 +70,7 @@ class cookieJar implements cookieJarInterface
     {
         if (!$domain) {
             $this->cookies = [];
+            return;
         } elseif (!$path) {
             $this->cookies = array_filter($this->cookies, function (setCookie $cookie) use ($domain) {
                 return !$cookie->matchesDomain($domain);
@@ -87,7 +86,7 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    public static function fromArray(array $cookies, $domain): cookieJar
+    public static function fromArray(array $cookies, $domain)
     {
         $cookieJar = new self();
         foreach ($cookies as $name => $value) {
@@ -101,7 +100,7 @@ class cookieJar implements cookieJarInterface
         return $value;
     }
 
-    public static function shouldPersist(setCookie $cookie, $allowSessionCookies = false): bool
+    public static function shouldPersist(setCookie $cookie, $allowSessionCookies = false)
     {
         if ($cookie->getExpires() || $allowSessionCookies) {
             if (!$cookie->getDiscard()) {
@@ -113,7 +112,7 @@ class cookieJar implements cookieJarInterface
 
     public function getCookieByName($name)
     {
-        if (!is_scalar($name)) {
+        if ($name === null || !is_scalar($name)) {
             return null;
         }
         foreach ($this->cookies as $cookie) {
@@ -124,17 +123,14 @@ class cookieJar implements cookieJarInterface
         return null;
     }
 
-    /**
-     * @throws Exception
-     */
-    public function toArray(): array
+    public function toArray()
     {
         return array_map(function (setCookie $cookie) {
             return $cookie->toArray();
         }, $this->getIterator()->getArrayCopy());
     }
 
-    #[ReturnTypeWillChange] public function getIterator(): ArrayIterator
+    #[ReturnTypeWillChange] public function getIterator()
     {
         return new ArrayIterator(array_values($this->cookies));
     }
@@ -146,7 +142,7 @@ class cookieJar implements cookieJarInterface
         });
     }
 
-    #[ReturnTypeWillChange] public function count(): int
+    #[ReturnTypeWillChange] public function count()
     {
         return count($this->cookies);
     }
@@ -159,7 +155,7 @@ class cookieJar implements cookieJarInterface
                 if (!$sc->getDomain()) {
                     $sc->setDomain($request->getUri()->getHost());
                 }
-                if (!str_starts_with($sc->getPath(), '/')) {
+                if (0 !== strpos($sc->getPath(), '/')) {
                     $sc->setPath($this->getCookiePathFromRequest($request));
                 }
                 $this->setCookie($sc);
@@ -167,13 +163,13 @@ class cookieJar implements cookieJarInterface
         }
     }
 
-    private function getCookiePathFromRequest(requestInterface $request): string
+    private function getCookiePathFromRequest(requestInterface $request)
     {
         $uriPath = $request->getUri()->getPath();
         if ('' === $uriPath) {
             return '/';
         }
-        if (!str_starts_with($uriPath, '/')) {
+        if (0 !== strpos($uriPath, '/')) {
             return '/';
         }
         if ('/' === $uriPath) {
@@ -185,7 +181,7 @@ class cookieJar implements cookieJarInterface
         return substr($uriPath, 0, $lastSlashPos);
     }
 
-    public function withCookieHeader(requestInterface $request): requestInterface
+    public function withCookieHeader(requestInterface $request)
     {
         $values = [];
         $uri = $request->getUri();

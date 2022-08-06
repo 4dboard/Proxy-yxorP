@@ -1,43 +1,26 @@
 <?php
 
-namespace yxorP\app\modules\system\controller;
+namespace System\Controller;
 
-use Exception;
-use yxorP\app\modules\app\controller\app;
-use function preg_match;
-use function yxorP\app\lib\data\json\json5_decode;
+use App\Controller\App;
 
-/**
- * @property mixed|null $context
- * @property mixed|null $context
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class users extends app
-{
+class Users extends App {
 
-    public function index()
-    {
+    protected function before() {
+
+        $isAccountView = $this->context['action'] == 'user' && !count($this->context['params']);
+
+        if (!$isAccountView && !$this->isAllowed('app/users/manage')) {
+            return $this->stop(401);
+        }
+    }
+
+    public function index() {
 
         return $this->render('system:views/users/index.php');
     }
 
-    public function user($id = null)
-    {
+    public function user($id = null) {
 
         $isAccountView = !$id;
 
@@ -60,33 +43,15 @@ class users extends app
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
     }
 
-    protected function geti18n(): array
-    {
-
-        $languages = [['i18n' => 'en', 'language' => 'English']];
-
-        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
-
-            $lang = include($file->getRealPath());
-            $i18n = $file->getBasename('.php');
-            $language = $lang['@meta']['language'] ?? $i18n;
-
-            $languages[] = ['i18n' => $i18n, 'language' => $language];
-        }
-
-        return $languages;
-    }
-
-    public function create()
-    {
+    public function create() {
 
         $user = [
             'active' => true,
-            'user' => '',
-            'email' => '',
-            'role' => 'admin',
-            'theme' => 'auto',
-            'i18n' => $this->app->helper('i18n')->locale
+            'user'   => '',
+            'email'  => '',
+            'role'   => 'admin',
+            'theme'  => 'auto',
+            'i18n'   => $this->app->helper('i18n')->locale
         ];
 
         $isAccountView = false;
@@ -95,8 +60,7 @@ class users extends app
         return $this->render('system:views/users/user.php', compact('user', 'isAccountView', 'languages'));
     }
 
-    public function save()
-    {
+    public function save() {
 
         $user = $this->param('user');
 
@@ -123,7 +87,7 @@ class users extends app
 
         if (isset($user['password'])) {
 
-            if (strlen($user['password'])) {
+            if (strlen($user['password'])){
                 $user['password'] = $this->app->hash($user['password']);
             } else {
                 unset($user['password']);
@@ -151,13 +115,13 @@ class users extends app
         $_user = $this->app->dataStorage->findOne('system/users', ['user' => $user['user']]);
 
         if ($_user && (!isset($user['_id']) || $user['_id'] != $_user['_id'])) {
-            return $this->app->stop(['error' => 'Username is already used!'], 412);
+            return $this->app->stop(['error' =>  'Username is already used!'], 412);
         }
 
-        $_user = $this->app->dataStorage->findOne('system/users', ['email' => $user['email']]);
+        $_user = $this->app->dataStorage->findOne('system/users', ['email'  => $user['email']]);
 
         if ($_user && (!isset($user['_id']) || $user['_id'] != $_user['_id'])) {
-            return $this->app->stop(['error' => 'Email is already used!'], 412);
+            return $this->app->stop(['error' =>  'Email is already used!'], 412);
         }
         // --
 
@@ -168,15 +132,14 @@ class users extends app
 
         unset($user['password'], $user['_reset_token']);
 
-        if ($user['_id'] === $this->user['_id']) {
+        if ($user['_id'] == $this->user['_id']) {
             $this->helper('auth')->setUser($user);
         }
 
         return $user;
     }
 
-    public function remove()
-    {
+    public function remove() {
 
         $user = $this->param('user');
 
@@ -184,7 +147,7 @@ class users extends app
             return $this->stop(['error' => 'User is missing'], 412);
         }
 
-        if ($user['_id'] === $this->user['_id']) {
+        if ($user['_id'] == $this->user['_id']) {
             return $this->stop(['error' => "User can't delete himself"], 412);
         }
 
@@ -193,26 +156,24 @@ class users extends app
         return ['success' => true];
     }
 
-    public function load(): array
-    {
+    public function load() {
 
         $this->helper('session')->close();
 
         $options = array_merge([
-            'sort' => ['user' => 1],
-            'limit' => 1
+            'sort'   => ['user' => 1],
+            'limit'  => 1
         ], $this->param('options', []));
 
         if (isset($options['filter']) && $options['filter'] && is_string($options['filter'])) {
 
             $filter = null;
 
-            if (preg_match('/^{(.*)}$/', $options['filter'])) {
+            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (Exception $e) {
-                }
+                } catch (\Exception $e) {}
             }
 
             if (!$filter) {
@@ -229,9 +190,9 @@ class users extends app
         }
 
         $users = $this->app->dataStorage->find('system/users', $options)->toArray();
-        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($users) : $this->app->dataStorage->count('system/users', $options['filter'] ?? []);
+        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($users) : $this->app->dataStorage->count('system/users', isset($options['filter']) ? $options['filter'] : []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page = 1;
+        $page  = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -244,8 +205,7 @@ class users extends app
         return compact('users', 'count', 'pages', 'page');
     }
 
-    public function getSecretQRCode($secret = null, $size = 150): bool
-    {
+    public function getSecretQRCode($secret = null, $size = 150) {
 
         $this->helper('session')->close();
 
@@ -258,13 +218,19 @@ class users extends app
         return $this->helper('twfa')->getQRCodeImage($secret, intval($size));
     }
 
-    protected function before()
-    {
+    protected function geti18n() {
 
-        $isAccountView = $this->context['action'] === 'user' && !count($this->context['params']);
+        $languages = [['i18n' => 'en', 'language' => 'English']];
 
-        if (!$isAccountView && !$this->isAllowed('app/users/manage')) {
-            return $this->stop(401);
+        foreach ($this->app->helper('fs')->ls('*.php', '#config:i18n/App') as $file) {
+
+            $lang     = include($file->getRealPath());
+            $i18n     = $file->getBasename('.php');
+            $language = $lang['@meta']['language'] ?? $i18n;
+
+            $languages[] = ['i18n' => $i18n, 'language'=> $language];
         }
+
+        return $languages;
     }
 }

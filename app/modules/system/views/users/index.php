@@ -1,12 +1,13 @@
+
 <kiss-container class="kiss-margin-large" size="small">
     <ul class="kiss-breadcrumbs">
-        <li><a href="<?= $this->route('/system') ?>"><?= t('Settings') ?></a></li>
+        <li><a href="<?=$this->route('/system')?>"><?=t('Settings')?></a></li>
     </ul>
     <vue-view>
         <template>
 
             <div class="kiss-margin-large-bottom kiss-flex kiss-flex-middle">
-                <div class="kiss-size-4 kiss-flex-1"><strong><?= t('Users') ?></strong></div>
+                <div class="kiss-size-4 kiss-flex-1"><strong><?=t('Users')?></strong></div>
             </div>
 
             <app-loader v-if="loading"></app-loader>
@@ -15,14 +16,10 @@
 
                 <form class="kiss-flex kiss-flex-middle kiss-margin-large-bottom" @submit.prevent="filter = txtFilter">
 
-                    <label>
-                        <input type="text" class="kiss-input kiss-flex-1 kiss-margin-xsmall-right"
-                               :placeholder="t('Filter users...')" v-model="txtFilter">
-                    </label>
+                    <input type="text" class="kiss-input kiss-flex-1 kiss-margin-xsmall-right" :placeholder="t('Filter users...')" v-model="txtFilter">
 
                     <div class="kiss-button-group kiss-margin-small-left">
-                        <button type="button" class="kiss-button" @click="filter = ''"
-                                v-if="filter"><?= t('Reset') ?></button>
+                        <button type="button" class="kiss-button" @click="filter = ''" v-if="filter"><?= t('Reset') ?></button>
                         <button class="kiss-button kiss-flex"><?= t('Search') ?></button>
                     </div>
                 </form>
@@ -43,10 +40,8 @@
                                 </div>
                                 <a class="kiss-cover" :href="$route('/system/users/user/'+user._id)"></a>
                             </div>
-                            <div class="kiss-margin-left" v-if="user._id != '<?= $this['user/_id'] ?>'">
-                                <a class="kiss-color-danger" @click="remove(user)">
-                                    <icon class="kiss-size-large">delete</icon>
-                                </a>
+                            <div class="kiss-margin-left" v-if="user._id != '<?=$this['user/_id']?>'">
+                                <a class="kiss-color-danger" @click="remove(user)"><icon class="kiss-size-large">delete</icon></a>
                             </div>
                         </div>
 
@@ -60,30 +55,24 @@
                 <kiss-container size="small">
                     <div class="kiss-flex kiss-flex-middle">
                         <div class="kiss-flex kiss-flex-middle" v-if="!loading && count">
-                            <div class="kiss-size-small">{{ `${count} ${count === 1 ? t('User') : t('Users')}` }}</div>
+                            <div class="kiss-size-small">{{ `${count} ${count == 1 ? t('User') : t('Users')}` }}</div>
                             <div class="kiss-margin-small-left kiss-overlay-input">
-                                <span
-                                    class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
-                                <label>
-                                    <select v-model="page" @change="load(page)" v-if="pages > 1">
-                                        <option v-for="p in pages" :value="p">{{ p }}</option>
-                                    </select>
-                                </label>
+                                <span class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
+                                <select v-model="page" @change="load(page)" v-if="pages > 1">
+                                    <option v-for="p in pages" :value="p">{{ p }}</option>
+                                </select>
                             </div>
                             <div class="kiss-margin-small-left kiss-size-small">
-                                <a class="kiss-margin-small-right" v-if="(page - 1) >= 1"
-                                   @click="load(page - 1)"><?= t('Previous') ?></a>
+                                <a class="kiss-margin-small-right" v-if="(page - 1) >= 1" @click="load(page - 1)"><?= t('Previous') ?></a>
                                 <a v-if="(page + 1) <= pages" @click="load(page + 1)"><?= t('Next') ?></a>
                             </div>
                         </div>
                         <div class="kiss-flex-1"></div>
                         <div class="kiss-button-group">
                             <?php if ($this->helper('acl')->isAllowed('app.roles.manage')): ?>
-                                <a class="kiss-button"
-                                   href="<?= $this->route('/system/users/roles') ?>"><?= t('Manage roles') ?></a>
+                            <a class="kiss-button" href="<?=$this->route('/system/users/roles')?>"><?=t('Manage roles')?></a>
                             <?php endif ?>
-                            <a class="kiss-button kiss-button-primary"
-                               href="<?= $this->route('/system/users/create') ?>"><?= t('Add user') ?></a>
+                            <a class="kiss-button kiss-button-primary" href="<?=$this->route('/system/users/create')?>"><?=t('Add user')?></a>
                         </div>
                     </div>
                 </kiss-container>
@@ -115,15 +104,14 @@
 
                     if (searchParams.has('state')) {
                         try {
-                            const q = JSON.parse(atob(searchParams.get('state')));
+                            var q = JSON.parse(atob(searchParams.get('state')));
                             if (q.page) this.page = q.page;
                             if (q.limit) this.limit = (parseInt(q.limit) || this.limit);
                             if (q.filter) {
                                 this.filter = q.filter;
                                 this.txtFilter = q.filter;
                             }
-                        } catch (e) {
-                        }
+                        } catch (e) {}
                     }
 
                     this.load(this.page, false);
@@ -168,7 +156,7 @@
 
                             this.users = data.users;
                             this.pages = data.pages;
-                            this.page = data.page;
+                            this.page  = data.page;
                             this.count = data.count;
 
                             this.loading = false;
@@ -180,7 +168,7 @@
                         App.ui.confirm('Are you sure?', () => {
 
                             this.$request('/system/users/remove', {user}).then(res => {
-                                this.load(this.page === 1 ? 1 : (this.items.length - 1 ? this.page : this.page - 1));
+                                this.load(this.page == 1 ? 1 : (this.items.length - 1 ? this.page : this.page - 1));
                             });
                         });
                     }

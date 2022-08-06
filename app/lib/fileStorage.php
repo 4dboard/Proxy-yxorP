@@ -1,77 +1,83 @@
-<?php use yxorP\app\lib\file\Flysystem\filesystem;
-use yxorP\app\lib\file\Flysystem\mountManager;
+<?php
 
-class fileStorage
-{
+use League\Flysystem\Filesystem;
+use League\Flysystem\MountManager;
+
+class FileStorage {
+
     protected array $config = [];
     protected array $storages = [];
-    protected mountManager $manager;
+    protected MountManager $manager;
 
-    public function __construct(array $config = [])
-    {
-        $this->manager = new mountManager();
+    public function __construct(array $config = []) {
+
+        $this->manager = new MountManager();
+
         foreach ($config as $name => $_config) {
             $this->addStorage($name, $_config);
         }
     }
 
-    public function addStorage(string $name, array $config): self
-    {
+    public function addStorage(string $name, array $config): self {
+
         $this->config[$name] = $config;
+
         if (isset($config['mount']) && $config['mount']) {
-            try {
-                $this->initStorage($name);
-            } catch (ReflectionException $e) {
-            }
+            $this->initStorage($name);
         }
+
         return $this;
     }
 
-    public function use(string $name): ?filesystem
-    {
+    public function use(string $name): ?Filesystem {
+
         if (!isset($this->storages[$name]) && isset($this->config[$name])) {
-            try {
-                $this->initStorage($name);
-            } catch (ReflectionException $e) {
-            }
+            $this->initStorage($name);
         }
+
         return $this->storages[$name] ?? null;
     }
 
-    public function getURL(string $file): ?string
-    {
+    public function getURL(string $file): ?string {
+
         $url = null;
+
         list($prefix, $path) = explode('://', $file, 2);
+
         if (isset($this->config[$prefix]['url'])) {
+
             if (!$path) {
                 $url = $this->config[$prefix]['url'];
             } elseif ($this->fileExists($file)) {
-                $url = rtrim($this->config[$prefix]['url'], '/') . '/' . ltrim($path, '/');
+                $url = rtrim($this->config[$prefix]['url'], '/').'/'.ltrim($path, '/');
             }
         }
+
         return $url;
     }
 
-    public function __call($name, $args)
-    {
-        return call_user_func_array([$this->manager, $name], $args);
-    }
+    protected function initStorage(string $name): Filesystem  {
 
-    /**
-     * @throws ReflectionException
-     */
-    protected function initStorage(string $name): filesystem
-    {
         static $mountMethod;
+
         if (!$mountMethod) {
-            $mountMethod = new ReflectionMethod('yxorP\app\lib\file\Flysystem\mountManager', 'mountFilesystem');
+            $mountMethod = new \ReflectionMethod('League\Flysystem\MountManager', 'mountFilesystem');
+            $mountMethod->setAccessible(true);
         }
+
         $config = $this->config[$name];
-        $adapter = new ReflectionClass($config['adapter']);
-        $this->storages[$name] = new filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+        $adapter = new \ReflectionClass($config['adapter']);
+        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+
         if (isset($config['mount']) && $config['mount']) {
             $mountMethod->invokeArgs($this->manager, [$name, $this->storages[$name]]);
         }
+
         return $this->storages[$name];
+    }
+
+    public function __call($name, $args) {
+
+        return call_user_func_array([$this->manager, $name], $args);
     }
 }

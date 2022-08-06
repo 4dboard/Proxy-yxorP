@@ -2,7 +2,7 @@ kiss-dialog {
     display: flex;
     align-items: flex-start;
     position: fixed;
-    background: var(--kiss-dialog-background, rgba(0, 0, 0, .1));
+    background: var(--kiss-dialog-background, rgba(0,0,0,.1));
     top: 0;
     left: 0;
     right: 0;
@@ -18,7 +18,10 @@ kiss-dialog {
 kiss-dialog > kiss-content {
     position: relative;
     display: flow-root;
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
 
     padding: var(--kiss-dialog-content-spacing, 10px);
 
@@ -26,7 +29,7 @@ kiss-dialog > kiss-content {
     color: var(--kiss-dialog-content-color, inherit);
 
     width: var(--kiss-dialog-width, 350px);
-    max-width: calc(100% - 0px) !important;
+    max-width: calc(100% - 0.01px) !important;
 
     box-sizing: border-box;
 }

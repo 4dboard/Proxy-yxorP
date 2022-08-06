@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @OA\Server(url=SITE_DIR)
+ * @OA\Server(url=APP_DIR)
  *
  * @OA\Info(title="{{ app.name }}", version="{{ app.version }}")
  *
@@ -16,16 +16,18 @@
 $app = $this;
 
 // GraphQl service
-$this->service('gql', function () use ($app) {
-    return new yxorP\app\modules\app\graphQL\query($app);
+$this->service('gql', function() use($app) {
+    $gql = new App\GraphQL\Query($app);
+    return $gql;
 });
 
 // Rest Api service
-$this->service('restApi', function () use ($app) {
-    return new yxorP\app\modules\app\RestApi\query($app);
+$this->service('restApi', function() use($app) {
+    $restApi = new App\RestApi\Query($app);
+    return $restApi;
 });
 
-$this->bind('/api/*', function ($params) {
+$this->bind('/api/*', function($params) {
 
     $token = $this->param('api_key', $this->request->server['HTTP_API_KEY'] ?? $this->request->getBearerToken());
 
@@ -38,7 +40,7 @@ $this->bind('/api/*', function ($params) {
         'role' => null
     ];
 
-    if (str_starts_with($token, 'USR-')) {
+    if (preg_match('/^USR-/', $token)) {
 
         $user = $this->dataStorage->findOne('system/users', ['apiKey' => $token]);
 
@@ -50,7 +52,7 @@ $this->bind('/api/*', function ($params) {
         $apiUser['user'] = $user['user'];
         $apiUser['role'] = $user['role'];
 
-        // is jwt token?
+    // is jwt token?
     } elseif ($token != 'public' && preg_match('/^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/', $token)) {
 
         // todo
@@ -71,7 +73,7 @@ $this->bind('/api/*', function ($params) {
     $this->helper('auth')->setUser($apiUser, false);
 
     //graphql query
-    if ($params[':splat'][0] === 'gql') {
+    if ($params[':splat'][0] == 'gql') {
 
         $query = $this->param('query', '{}');
         $variables = $this->param('variables', null);
@@ -101,7 +103,7 @@ $this->bind('/api/*', function ($params) {
 
                 foreach ($locations as $location) {
                     $parts = explode('.', $location);
-                    if ($parts[0] === 'variables') array_shift($parts);
+                    if ($parts[0] == 'variables') array_shift($parts);
                     $v = &$variables;
 
                     foreach ($parts as $key) {
@@ -118,7 +120,7 @@ $this->bind('/api/*', function ($params) {
     }
 
     // rest api query
-    $path = '/' . $params[':splat'][0];
+    $path = '/'.$params[':splat'][0];
 
     return $this->restApi->process($path, $this->request->method);
 });

@@ -8,7 +8,7 @@
  *
  * @package enshrined\svgSanitize
  */
-class sVGSanitizer
+class SVGSanitizer
 {
 
     /**
@@ -19,17 +19,17 @@ class sVGSanitizer
     /**
      * @var DOMDocument
      */
-    protected DOMDocument $xmlDocument;
+    protected $xmlDocument;
 
     /**
      * @var array
      */
-    protected array $allowedTags;
+    protected $allowedTags;
 
     /**
      * @var array
      */
-    protected array $allowedAttrs;
+    protected $allowedAttrs;
 
     /**
      * @var
@@ -39,22 +39,33 @@ class sVGSanitizer
     /**
      * @var bool
      */
-    protected bool $minifyXML = false;
+    protected $minifyXML = false;
 
     /**
      * @var bool
      */
-    protected bool $removeRemoteReferences = false;
+    protected $removeRemoteReferences = false;
 
     /**
      * @var bool
      */
-    protected bool $removeXMLTag = false;
+    protected $removeXMLTag = false;
 
     /**
      * @var int
      */
-    protected int $xmlOptions = LIBXML_NOEMPTYTAG;
+    protected $xmlOptions = LIBXML_NOEMPTYTAG;
+
+
+    /**
+     * SVGSanitizer::clean('<svg ...>')
+     */
+    public static function clean($svgText) {
+
+        $sanitizer = new static();
+
+        return $sanitizer->sanitize($svgText);
+    }
 
     /**
      *
@@ -246,23 +257,95 @@ class sVGSanitizer
     }
 
     /**
-     * SVGSanitizer::clean('<svg ...>')
+     * Set up the DOMDocument
      */
-    public static function clean($svgText): bool|string
+    protected function resetInternal()
     {
+        $this->xmlDocument = new DOMDocument();
+        $this->xmlDocument->preserveWhiteSpace = false;
+        $this->xmlDocument->strictErrorChecking = false;
+        $this->xmlDocument->formatOutput = !$this->minifyXML;
+    }
 
-        $sanitizer = new static();
+    /**
+     * Set XML options to use when saving XML
+     * See: DOMDocument::saveXML
+     *
+     * @param int  $xmlOptions
+     */
+    public function setXMLOptions($xmlOptions)
+    {
+        $this->xmlOptions = $xmlOptions;
+    }
 
-        return $sanitizer->sanitize($svgText);
+     /**
+     * Get XML options to use when saving XML
+     * See: DOMDocument::saveXML
+     *
+     * @return int
+     */
+    public function getXMLOptions()
+    {
+       return $this->xmlOptions;
+    }
+
+    /**
+     * Get the array of allowed tags
+     *
+     * @return array
+     */
+    public function getAllowedTags()
+    {
+        return $this->allowedTags;
+    }
+
+    /**
+     * Set custom allowed tags
+     *
+     * @param array $allowedTags
+     */
+    public function setAllowedTags($allowedTags)
+    {
+        $this->allowedTags = array_map('strtolower', $allowedTags);
+    }
+
+    /**
+     * Get the array of allowed attributes
+     *
+     * @return array
+     */
+    public function getAllowedAttrs()
+    {
+        return $this->allowedAttrs;
+    }
+
+    /**
+     * Set custom allowed attributes
+     *
+     * @param array $allowedAttrs
+     */
+    public function setAllowedAttrs($allowedAttrs)
+    {
+        $this->allowedAttrs = array_map('strtolower', $allowedAttrs);
+    }
+
+    /**
+     * Should we remove references to remote files?
+     *
+     * @param bool $removeRemoteRefs
+     */
+    public function removeRemoteReferences($removeRemoteRefs = false)
+    {
+        $this->removeRemoteReferences = $removeRemoteRefs;
     }
 
     /**
      * Sanitize the passed string
      *
      * @param string $dirty
-     * @return bool|string
+     * @return string
      */
-    public function sanitize(string $dirty): bool|string
+    public function sanitize($dirty)
     {
         // Don't run on an empty string
         if (empty($dirty)) {
@@ -310,24 +393,13 @@ class sVGSanitizer
     }
 
     /**
-     * Set up the DOMDocument
-     */
-    protected function resetInternal()
-    {
-        $this->xmlDocument = new DOMDocument();
-        $this->xmlDocument->preserveWhiteSpace = false;
-        $this->xmlDocument->strictErrorChecking = false;
-        $this->xmlDocument->formatOutput = !$this->minifyXML;
-    }
-
-    /**
      * Set up libXML before we start
      */
     protected function setUpBefore()
     {
         if (!version_compare(phpversion(), '8.0.0', '>=')) {
             // Turn off the entity loader
-            $this->xmlLoaderValue = libxml_disable_entity_loader();
+            $this->xmlLoaderValue = libxml_disable_entity_loader(true);
         }
 
         // Suppress the errors because we don't really have to worry about formation before cleansing
@@ -361,9 +433,9 @@ class sVGSanitizer
     /**
      * Start the cleaning with tags, then we move onto attributes and hrefs later
      *
-     * @param DOMNodeList $elements
+     * @param \DOMNodeList $elements
      */
-    protected function startClean(DOMNodeList $elements)
+    protected function startClean(\DOMNodeList $elements)
     {
         // loop through all elements
         // we do this backwards so we don't skip anything if we delete a node
@@ -386,6 +458,7 @@ class sVGSanitizer
             if (strtolower($currentElement->tagName) === 'use') {
                 if ($this->isUseTagDirty($currentElement)) {
                     $currentElement->parentNode->removeChild($currentElement);
+                    continue;
                 }
             }
         }
@@ -394,9 +467,9 @@ class sVGSanitizer
     /**
      * Only allow attributes that are on the whitelist
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      */
-    protected function cleanAttributesOnWhitelist(DOMElement $element)
+    protected function cleanAttributesOnWhitelist(\DOMElement $element)
     {
         for ($x = $element->attributes->length - 1; $x >= 0; $x--) {
             // get attribute name
@@ -408,7 +481,7 @@ class sVGSanitizer
             }
 
             // Do we want to strip remote references?
-            if ($this->removeRemoteReferences) {
+            if($this->removeRemoteReferences) {
                 // Remove attribute if it has a remote reference
                 if (isset($element->attributes->item($x)->value) && $this->hasRemoteReference($element->attributes->item($x)->value)) {
                     $element->removeAttribute($attrName);
@@ -418,66 +491,11 @@ class sVGSanitizer
     }
 
     /**
-     * Check to see if an attribute is an aria attribute or not
-     *
-     * @param $attributeName
-     *
-     * @return bool
-     */
-    protected function isAriaAttribute($attributeName): bool
-    {
-        return str_starts_with($attributeName, 'aria-');
-    }
-
-    /**
-     * Check to see if an attribute is an data attribute or not
-     *
-     * @param $attributeName
-     *
-     * @return bool
-     */
-    protected function isDataAttribute($attributeName): bool
-    {
-        return str_starts_with($attributeName, 'data-');
-    }
-
-    /**
-     * Does this attribute value have a remote reference?
-     *
-     * @param $value
-     * @return bool
-     */
-    protected function hasRemoteReference($value): bool
-    {
-        $value = $this->removeNonPrintableCharacters($value);
-
-        $wrapped_in_url = preg_match('~^url\(\s*[\'"]\s*(.*)\s*[\'"]\s*\)$~xi', $value, $match);
-        if (!$wrapped_in_url) {
-            return false;
-        }
-
-        $value = trim($match[1], '\'"');
-
-        return preg_match('~^((https?|ftp|file):)?//~xi', $value);
-    }
-
-    /**
-     * Removes non-printable ASCII characters from string & trims it
-     *
-     * @param string $value
-     * @return string
-     */
-    protected function removeNonPrintableCharacters(string $value): string
-    {
-        return trim(preg_replace('/[^ -~]/xu', '', $value));
-    }
-
-    /**
      * Clean the xlink:hrefs of script and data embeds
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      */
-    protected function cleanXlinkHrefs(DOMElement $element)
+    protected function cleanXlinkHrefs(\DOMElement $element)
     {
         $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
         if (preg_match(self::SCRIPT_REGEX, $xlinks) === 1) {
@@ -489,7 +507,7 @@ class sVGSanitizer
                 'data:image/pjp', // PJPEG
                 'data:image/webp', // WEBP
             ))) {
-                $element->removeAttributeNS('http://www.w3.org/1999/xlink', 'href');
+                $element->removeAttributeNS( 'http://www.w3.org/1999/xlink', 'href' );
             }
         }
     }
@@ -497,9 +515,9 @@ class sVGSanitizer
     /**
      * Clean the hrefs of script and data embeds
      *
-     * @param DOMElement $element
+     * @param \DOMElement $element
      */
-    protected function cleanHrefs(DOMElement $element)
+    protected function cleanHrefs(\DOMElement $element)
     {
         $href = $element->getAttribute('href');
         if (preg_match(self::SCRIPT_REGEX, $href) === 1) {
@@ -508,91 +526,34 @@ class sVGSanitizer
     }
 
     /**
-     * Make sure our use tag is only referencing internal resources
+     * Removes non-printable ASCII characters from string & trims it
      *
-     * @param DOMElement $element
+     * @param string $value
      * @return bool
      */
-    protected function isUseTagDirty(DOMElement $element): bool
+    protected function removeNonPrintableCharacters($value)
     {
-        $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
-        if ($xlinks && !str_starts_with($xlinks, '#')) {
-            return true;
+        return trim(preg_replace('/[^ -~]/xu','',$value));
+    }
+
+    /**
+     * Does this attribute value have a remote reference?
+     *
+     * @param $value
+     * @return bool
+     */
+    protected function hasRemoteReference($value)
+    {
+        $value = $this->removeNonPrintableCharacters($value);
+
+        $wrapped_in_url = preg_match('~^url\(\s*[\'"]\s*(.*)\s*[\'"]\s*\)$~xi', $value, $match);
+        if (!$wrapped_in_url){
+            return false;
         }
 
-        return false;
-    }
+        $value = trim($match[1], '\'"');
 
-    /**
-     * Get XML options to use when saving XML
-     * See: DOMDocument::saveXML
-     *
-     * @return int
-     */
-    public function getXMLOptions(): int
-    {
-        return $this->xmlOptions;
-    }
-
-    /**
-     * Set XML options to use when saving XML
-     * See: DOMDocument::saveXML
-     *
-     * @param int $xmlOptions
-     */
-    public function setXMLOptions(int $xmlOptions)
-    {
-        $this->xmlOptions = $xmlOptions;
-    }
-
-    /**
-     * Get the array of allowed tags
-     *
-     * @return array
-     */
-    public function getAllowedTags(): array
-    {
-        return $this->allowedTags;
-    }
-
-    /**
-     * Set custom allowed tags
-     *
-     * @param array $allowedTags
-     */
-    public function setAllowedTags(array $allowedTags)
-    {
-        $this->allowedTags = array_map('strtolower', $allowedTags);
-    }
-
-    /**
-     * Get the array of allowed attributes
-     *
-     * @return array
-     */
-    public function getAllowedAttrs(): array
-    {
-        return $this->allowedAttrs;
-    }
-
-    /**
-     * Set custom allowed attributes
-     *
-     * @param array $allowedAttrs
-     */
-    public function setAllowedAttrs(array $allowedAttrs)
-    {
-        $this->allowedAttrs = array_map('strtolower', $allowedAttrs);
-    }
-
-    /**
-     * Should we remove references to remote files?
-     *
-     * @param bool $removeRemoteRefs
-     */
-    public function removeRemoteReferences(bool $removeRemoteRefs = false)
-    {
-        $this->removeRemoteReferences = $removeRemoteRefs;
+        return preg_match('~^((https?|ftp|file):)?//~xi', $value);
     }
 
     /**
@@ -600,9 +561,9 @@ class sVGSanitizer
      *
      * @param bool $shouldMinify
      */
-    public function minify(bool $shouldMinify = false)
+    public function minify($shouldMinify = false)
     {
-        $this->minifyXML = $shouldMinify;
+        $this->minifyXML = (bool) $shouldMinify;
     }
 
     /**
@@ -610,8 +571,48 @@ class sVGSanitizer
      *
      * @param bool $removeXMLTag
      */
-    public function removeXMLTag(bool $removeXMLTag = false)
+    public function removeXMLTag($removeXMLTag = false)
     {
-        $this->removeXMLTag = $removeXMLTag;
+        $this->removeXMLTag = (bool) $removeXMLTag;
+    }
+
+    /**
+     * Check to see if an attribute is an aria attribute or not
+     *
+     * @param $attributeName
+     *
+     * @return bool
+     */
+    protected function isAriaAttribute($attributeName)
+    {
+        return strpos($attributeName, 'aria-') === 0;
+    }
+
+    /**
+     * Check to see if an attribute is an data attribute or not
+     *
+     * @param $attributeName
+     *
+     * @return bool
+     */
+    protected function isDataAttribute($attributeName)
+    {
+        return strpos($attributeName, 'data-') === 0;
+    }
+
+    /**
+     * Make sure our use tag is only referencing internal resources
+     *
+     * @param \DOMElement $element
+     * @return bool
+     */
+    protected function isUseTagDirty(\DOMElement $element)
+    {
+        $xlinks = $element->getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+        if ($xlinks && substr($xlinks, 0, 1) !== '#') {
+            return true;
+        }
+
+        return false;
     }
 }

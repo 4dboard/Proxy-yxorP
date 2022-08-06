@@ -28,14 +28,14 @@ export default {
             this.uppy = true;
         })
 
-        this.$request(`/assets/asset/${this.asset._id}`, {asset: this.asset}).then(asset => {
+        this.$request(`/assets/asset/${this.asset._id}`, {asset:this.asset}).then(asset => {
             this.item = asset;
             this.loading = false;
         }).catch(rsp => {
             App.ui.notify(rsp.error || 'Asset not found!', 'error');
         });
 
-        this.$request(`/assets/folders`, {nc: Math.random()}).then(folders => {
+        this.$request(`/assets/folders`, {nc:Math.random()}).then(folders => {
             this.folders = folders;
         }).catch(rsp => {
             App.ui.notify(rsp.error || 'Loading folders failed!', 'error');
@@ -47,7 +47,7 @@ export default {
         folder() {
 
             if (this.item && Array.isArray(this.folders) && this.folders.length) {
-                return this.folders.find(folder => folder._id === this.item.folder) || null;
+                return this.folders.find(folder => folder._id == this.item.folder) || null;
             }
 
             return null;
@@ -63,7 +63,7 @@ export default {
                 return {left: '50%', top: '50%'};
             }
 
-            return {left: (this.item.fp.x * 100) + '%', top: (this.item.fp.y * 100) + '%'}
+            return {left: (this.item.fp.x * 100)+'%', top: (this.item.fp.y * 100)+'%'}
         }
     },
 
@@ -80,7 +80,7 @@ export default {
 
                 <form v-if="item" @submit.prevent="update">
 
-                    <div class="kiss-bgcolor-contrast kiss-position-relative kiss-padding" :class="{'kiss-bgcolor-transparentimage': item.type === 'image'}">
+                    <div class="kiss-bgcolor-contrast kiss-position-relative kiss-padding" :class="{'kiss-bgcolor-transparentimage': item.type == 'image'}">
                         <canvas width="400" height="150"></canvas>
                         <div class="kiss-cover kiss-align-center kiss-flex kiss-flex-middle kiss-flex-center">
                             <asset-preview :asset="item"></asset-preview>
@@ -99,7 +99,7 @@ export default {
                         </div>
                         <div class="kiss-position-absolute kiss-position-bottom-right kiss-padding-small">
                             <button type="button" class="kiss-button kiss-button-small" @click="uploadAsset" v-if="!focalPointing"><icon>upload</icon></button>
-                            <button type="button" class="kiss-button kiss-button-small kiss-margin-xsmall-left" :class="{'kiss-bgcolor-warning': focalPointing}" :title="t('Set focal point')" @click="focalPointing = !focalPointing" v-if="item.type === 'image'"><icon>gps_fixed</icon></button>
+                            <button type="button" class="kiss-button kiss-button-small kiss-margin-xsmall-left" :class="{'kiss-bgcolor-warning': focalPointing}" :title="t('Set focal point')" @click="focalPointing = !focalPointing" v-if="item.type == 'image'"><icon>gps_fixed</icon></button>
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@ export default {
                         <div class="kiss-margin-small-right kiss-color-muted kiss-text-monospace kiss-size-small kiss-flex-1">
                             {{ size }} <span v-if="item.type=='image' && item.mime!='image/svg+xml'">&mdash; {{ item.width }}x{{ item.height }}</span>
                         </div>
-                        <div v-if="item.type === 'image' && Array.isArray(item.colors) && item.colors.length">
+                        <div v-if="item.type == 'image' && Array.isArray(item.colors) && item.colors.length">
                             <div class="kiss-size-4">
                                 <a class="kiss-margin-xsmall-right" :style="{color}" :title="color" @click="copyColor(color)" v-for="color in item.colors"><icon>invert_colors</icon></a>
                             </div>
@@ -172,15 +172,15 @@ export default {
     methods: {
 
         copyID() {
-            App.utils.copyText(this.item._id, () => App.ui.notify('ID copied!'));
+            App.utils.copyText(this.item._id, () =>  App.ui.notify('ID copied!'));
         },
 
         copyAssetLinkID() {
-            App.utils.copyText(location.origin + App.base(`/assets/link/${this.item._id}`), () => App.ui.notify('Asset link copied!'));
+            App.utils.copyText(location.origin + App.base(`/assets/link/${this.item._id}`), () =>  App.ui.notify('Asset link copied!'));
         },
 
         copyColor(color) {
-            App.utils.copyText(color, () => App.ui.notify('Color copied!'));
+            App.utils.copyText(color, () =>  App.ui.notify('Color copied!'));
         },
 
         setFocalPoint(e) {
@@ -213,9 +213,9 @@ export default {
             }).use(Uppy.XHRUpload, {
                 endpoint: App.route('/assets/replace'),
                 bundle: true
-            }).use(Uppy.Webcam, {target: Uppy.Dashboard, showVideoSourceDropdown: true})
-                .use(Uppy.ScreenCapture, {target: Uppy.Dashboard})
-                .use(Uppy.ImageEditor, {target: Uppy.Dashboard});
+            }).use(Uppy.Webcam, { target: Uppy.Dashboard, showVideoSourceDropdown: true })
+            .use(Uppy.ScreenCapture, { target: Uppy.Dashboard })
+            .use(Uppy.ImageEditor, { target: Uppy.Dashboard });
 
             this.uppy.on('complete', result => {
                 Object.assign(this.item, result.successful[0].response.body)

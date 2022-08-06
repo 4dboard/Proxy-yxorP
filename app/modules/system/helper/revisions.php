@@ -1,41 +1,32 @@
 <?php
 
-namespace yxorP\app\modules\system\helper;
+namespace System\Helper;
 
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
-
-/**
- * @property App $app
- * @property App $app
- */
-class revisions extends helperAware
-{
+class Revisions extends \Lime\Helper {
 
     protected $storage;
 
-    public function initialize()
-    {
+    public function initialize(){
         $this->storage = $this->app->dataStorage;
     }
 
-    public function count($id)
-    {
+    public function count($id) {
         return $this->storage->count('system/revisions', ['_oid' => $id]);
     }
 
-    public function getList(string $id, int $limit = 50, int $skip = 0)
-    {
-        return $this->storage->find('system/revisions', [
+    public function getList(string $id, int $limit = 50, int $skip = 0) {
+
+        $options = [
             'filter' => ['_oid' => $id],
-            'sort' => ['_created' => -1],
-            'limit' => $limit,
-            'skip' => $skip
-        ])->toArray();
+            'sort'   => ['_created' => -1],
+            'limit'  => $limit,
+            'skip'   => $skip
+        ];
+
+        return $this->storage->find('system/revisions', $options)->toArray();
     }
 
-    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null): bool|array
-    {
+    public function add($id, $data, $meta = null, $by = null, $created = null, $ref = null) {
 
         if ($by === true) {
 
@@ -49,9 +40,9 @@ class revisions extends helperAware
 
         $filtered = [];
 
-        foreach ($data as $key => $value) {
+        foreach($data as $key => $value) {
 
-            if ($key[0] === '_') {
+            if ($key[0] == '_') {
                 continue;
             }
 
@@ -92,32 +83,30 @@ class revisions extends helperAware
         return $revision;
     }
 
-    public function get($id)
-    {
+    public function get($id) {
         return $this->storage->findOne('system/revisions', ['_oid' => $id]);
     }
 
 
-    public function latest($id)
-    {
+    public function latest($id) {
 
-        $revs = $this->storage->find('system/revisions', [
+        $options = [
             'filter' => ['_oid' => $id],
-            'sort' => ['_created' => -1],
-            'limit' => 1
-        ])->toArray();
+            'sort'   => ['_created' => -1],
+            'limit'  => 1
+        ];
+
+        $revs = $this->storage->find('system/revisions', $options)->toArray();
 
         return $revs[0] ?? null;
     }
 
 
-    public function remove($rid)
-    {
+    public function remove($rid) {
         return $this->storage->remove('system/revisions', ['_id' => $rid]);
     }
 
-    public function removeAll($id)
-    {
+    public function removeAll($id) {
         return $this->storage->remove('system/revisions', ['_oid' => $id]);
     }
 

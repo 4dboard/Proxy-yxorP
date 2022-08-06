@@ -7,16 +7,16 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 class pumpStream implements streamInterface
 {
     private $source;
-    private mixed $size;
-    private int $tellPos = 0;
-    private mixed $metadata;
-    private bufferStream $buffer;
+    private $size;
+    private $tellPos = 0;
+    private $metadata;
+    private $buffer;
 
     public function __construct(callable $source, array $options = [])
     {
         $this->source = $source;
-        $this->size = $options['size'] ?? null;
-        $this->metadata = $options['metadata'] ?? [];
+        $this->size = isset($options['size']) ? $options['size'] : null;
+        $this->metadata = isset($options['metadata']) ? $options['metadata'] : [];
         $this->buffer = new bufferStream();
     }
 
@@ -45,12 +45,12 @@ class pumpStream implements streamInterface
         return $this->size;
     }
 
-    public function tell(): int
+    public function tell()
     {
         return $this->tellPos;
     }
 
-    public function isSeekable(): bool
+    public function isSeekable()
     {
         return false;
     }
@@ -60,27 +60,27 @@ class pumpStream implements streamInterface
         $this->seek(0);
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET)
     {
         throw new RuntimeException('Cannot seek a PumpStream');
     }
 
-    public function isWritable(): bool
+    public function isWritable()
     {
         return false;
     }
 
-    public function write(string $string): int
+    public function write($string)
     {
         throw new RuntimeException('Cannot write to a PumpStream');
     }
 
-    public function isReadable(): bool
+    public function isReadable()
     {
         return true;
     }
 
-    public function getContents(): string
+    public function getContents()
     {
         $result = '';
         while (!$this->eof()) {
@@ -89,12 +89,12 @@ class pumpStream implements streamInterface
         return $result;
     }
 
-    public function eof(): bool
+    public function eof()
     {
         return !$this->source;
     }
 
-    public function read(int $length): string
+    public function read($length)
     {
         $data = $this->buffer->read($length);
         $readLen = strlen($data);
@@ -123,11 +123,11 @@ class pumpStream implements streamInterface
         }
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata($key = null)
     {
         if (!$key) {
             return $this->metadata;
         }
-        return $this->metadata[$key] ?? null;
+        return isset($this->metadata[$key]) ? $this->metadata[$key] : null;
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 namespace yxorP\app\lib;
 /**
  * Setting the memory limit to unlimited.
@@ -37,6 +38,7 @@ class yP
      */
     private array $listeners = [];
 
+
     /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
      * @param string $root
@@ -51,7 +53,7 @@ class yP
          */
         define('DIR_ROOT', $root . DIRECTORY_SEPARATOR);
         define('PATH_SITE_BOOTSTRAP', DIR_ROOT . DIR_APP . FILE_SITE_BOOTSTRAP);
-        define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_APP_STORAGE . DIR_APP_STORAGE_DATA . FILE_COOKIE_JAR);
+        define('PATH_COOKIE_JAR', DIR_ROOT . DIR_APP . DIR_LIB . DIR_DATA . FILE_COOKIE_JAR);
         define('PATH_DIR_APP', DIR_ROOT . DIR_APP);
         define('PATH_SITE_LOCAL', DIR_ROOT . DIR_APP . DIR_LIB . DIR_INSTALL . DIR_APP);
         define('PATH_SITE_INDEX', DIR_ROOT . DIR_APP . FILE_INDEX);
@@ -104,7 +106,7 @@ class yP
      * @param string $root
      * @return void
      */
-    public static function autoLoader(string $root): void
+    final protected static function autoLoader(string $root): void
     {
         /**
          * Creating an empty array.
@@ -113,7 +115,7 @@ class yP
         /**
          * Loading all the PHP files in the directory.
          */
-        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if ((str_contains($path, 'Interface') || str_contains($path, 'Trait')) && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
+        foreach (glob("$root/*") as $path) if (is_dir($path)) self::autoLoader($path); else if ((str_contains($path, VAR_INTERFACE) || str_contains($path, VAR_TRAIT)) && str_contains($path, EXT_PHP)) require_once $path; else $classes[] = $path;
         /**
          * Loading all the classes in the classes folder.
          */
@@ -198,7 +200,6 @@ class yP
          */
         if (isset(self::$instance->listeners[$event_name])) foreach ((array)self::$instance->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
     }
-
 
     /**
      * This function adds a listener to the listeners array

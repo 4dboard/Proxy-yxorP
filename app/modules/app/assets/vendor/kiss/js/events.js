@@ -1,3 +1,4 @@
+
 // WebReflection / element-notifier
 export function onMutation(callback, root) {
 
@@ -47,7 +48,7 @@ export function onMutation(callback, root) {
 export function on(element, name, delegate, fn) {
 
     if (!fn) {
-        element.addEventListener(name, arguments[2]);
+       element.addEventListener(name, arguments[2]);
     } else {
         element.addEventListener(name, function (e) {
 
@@ -59,7 +60,7 @@ export function on(element, name, delegate, fn) {
                     break;
                 }
 
-                if (target.matches(delegate)) {
+                if (target.matches(delegate)){
                     return fn.apply(target, arguments);
                 }
 
@@ -69,7 +70,7 @@ export function on(element, name, delegate, fn) {
     }
 
     return element;
-}
+};
 
 
 export function trigger(ele, name, data = {}) {

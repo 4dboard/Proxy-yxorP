@@ -10,12 +10,12 @@ class stream implements streamInterface
     const READABLE_MODES = '/r|a\+|ab\+|w\+|wb\+|x\+|xb\+|c\+|cb\+/';
     const WRITABLE_MODES = '/a|w|r\+|rb\+|rw|x|c/';
     private $stream;
-    private mixed $size;
-    private mixed $seekable;
-    private bool $readable;
-    private bool $writable;
-    private mixed $uri;
-    private mixed $customMetadata;
+    private $size;
+    private $seekable;
+    private $readable;
+    private $writable;
+    private $uri;
+    private $customMetadata;
 
     public function __construct($stream, $options = [])
     {
@@ -25,7 +25,7 @@ class stream implements streamInterface
         if (isset($options['size'])) {
             $this->size = $options['size'];
         }
-        $this->customMetadata = $options['metadata'] ?? [];
+        $this->customMetadata = isset($options['metadata']) ? $options['metadata'] : [];
         $this->stream = $stream;
         $meta = stream_get_meta_data($this->stream);
         $this->seekable = $meta['seekable'];
@@ -34,7 +34,7 @@ class stream implements streamInterface
         $this->uri = $this->getMetadata('uri');
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata($key = null)
     {
         if (!isset($this->stream)) {
             return $key ? null : [];
@@ -44,7 +44,7 @@ class stream implements streamInterface
             return $this->customMetadata[$key];
         }
         $meta = stream_get_meta_data($this->stream);
-        return $meta[$key] ?? null;
+        return isset($meta[$key]) ? $meta[$key] : null;
     }
 
     public function __destruct()
@@ -84,9 +84,9 @@ class stream implements streamInterface
         }
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET)
     {
-        $whence = $whence;
+        $whence = (int)$whence;
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
         }
@@ -98,7 +98,7 @@ class stream implements streamInterface
         }
     }
 
-    public function getContents(): string
+    public function getContents()
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -129,12 +129,12 @@ class stream implements streamInterface
         return null;
     }
 
-    public function isReadable(): bool
+    public function isReadable()
     {
         return $this->readable;
     }
 
-    public function isWritable(): bool
+    public function isWritable()
     {
         return $this->writable;
     }
@@ -144,7 +144,7 @@ class stream implements streamInterface
         return $this->seekable;
     }
 
-    public function eof(): bool
+    public function eof()
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -152,7 +152,7 @@ class stream implements streamInterface
         return feof($this->stream);
     }
 
-    public function tell(): int
+    public function tell()
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -169,7 +169,7 @@ class stream implements streamInterface
         $this->seek(0);
     }
 
-    public function read(int $length): string
+    public function read($length)
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -190,7 +190,7 @@ class stream implements streamInterface
         return $string;
     }
 
-    public function write(string $string): int
+    public function write($string)
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');

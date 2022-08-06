@@ -1,21 +1,14 @@
 <?php
 
-namespace yxorP\app\modules\system\helper;
+namespace System\Helper;
 
-use yxorP\app\lib\data\graphQL\Server\Helper;
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
+use ArrayObject;
 
-/**
- * @property App $app
- */
-class Log extends helperAware
-{
+class Log extends \Lime\Helper {
 
     protected array $channels = [];
 
-    public function channel(string $name): LogChannel
-    {
+    public function channel(string $name): LogChannel {
 
         if (!isset($this->channels[$name])) {
             $this->channels[$name] = new LogChannel($name, $this->app);
@@ -25,51 +18,18 @@ class Log extends helperAware
     }
 }
 
-class LogChannel
-{
+class LogChannel {
 
     protected $app;
-    protected string $name;
+    protected $name;
 
-    public function __construct(string $name, $app)
-    {
+    public function __construct(string $name, $app) {
 
         $this->name = $name;
         $this->app = $app;
     }
 
-    public function info(string $message, ?array $context = null): void
-    {
-        $this->addRecord($message, 'info', $context);
-    }
-
-    public function debug(string $message, ?array $context = null): void
-    {
-        $this->addRecord($message, 'debug', $context);
-    }
-
-    public function notice(string $message, ?array $context = null): void
-    {
-        $this->addRecord($message, 'notice', $context);
-    }
-
-    public function warning(string $message, ?array $context = null): void
-    {
-        $this->addRecord($message, 'warning', $context);
-    }
-
-    public function alert(string $message, ?array $context = null): void
-    {
-        $this->addRecord($message, 'alert', $context);
-    }
-
-    public function error(string $message, ?array $context = null): void
-    {
-        $this->addRecord($message, 'error', $context);
-    }
-
-    protected function addRecord(string $message, $type = 'info', ?array $context = null): void
-    {
+    protected function addRecord(string $message, $type = 'info', ?array $context = null): void {
 
         $time = time();
 
@@ -84,6 +44,30 @@ class LogChannel
 
         $this->app->dataStorage->save('system/log', $record);
 
+    }
+
+    public function info(string $message, ?array $context = null): void {
+        $this->addRecord($message, 'info', $context);
+    }
+
+    public function debug(string $message, ?array $context = null): void {
+        $this->addRecord($message, 'debug', $context);
+    }
+
+    public function notice(string $message, ?array $context = null): void {
+        $this->addRecord($message, 'notice', $context);
+    }
+
+    public function warning(string $message, ?array $context = null): void {
+        $this->addRecord($message, 'warning', $context);
+    }
+
+    public function alert(string $message, ?array $context = null): void {
+        $this->addRecord($message, 'alert', $context);
+    }
+
+    public function error(string $message, ?array $context = null): void {
+        $this->addRecord($message, 'error', $context);
     }
 
 }

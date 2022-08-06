@@ -1,25 +1,37 @@
 <?php
 
-namespace yxorP\app\modules\system\helper;
-
-use yxorP\app\lib\data\graphQL\Server\Helper;
-use Throwable;
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
-
-/**
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- */
-class locales extends helperAware
-{
+namespace System\Helper;
+class Locales extends \Lime\Helper {
 
     protected array $locales = [];
 
-    public function applyLocales($obj, $locale = 'default')
-    {
+    protected function initialize() {
+
+        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function() {
+            return $this->cache();
+        });
+    }
+
+    public function locales(bool $assoc = false): array {
+
+        if ($assoc) {
+            return $this->locales;
+        }
+
+        $locales = [];
+
+        foreach ($this->locales as $locale) {
+
+            $locales[] = [
+                'i18n' => $locale['i18n'],
+                'name' => $locale['name'],
+            ];
+        }
+
+        return $locales;
+    }
+
+    public function applyLocales($obj, $locale = 'default') {
 
         static $locales;
 
@@ -31,11 +43,11 @@ class locales extends helperAware
             $locales = array_keys($this->locales(true));
         }
 
-        $apply = function ($obj) use ($locales, $locale) {
+        $apply = function($obj) use($locales, $locale) {
 
             if (!is_array($obj)) return $obj;
 
-            $keys = array_filter(array_keys($obj), function ($key) use ($locales) {
+            $keys = array_filter(array_keys($obj), function($key) use($locales) {
 
                 foreach ($locales as $l) {
                     if (preg_match("/_{$l}$/", $key)) return false;
@@ -50,7 +62,7 @@ class locales extends helperAware
 
                     if (isset($obj["{$key}_{$l}"]) && $obj["{$key}_{$l}"] !== '') {
 
-                        if ($l === $locale) {
+                        if ($l == $locale) {
 
                             $obj[$key] = $obj["{$key}_{$l}"];
 
@@ -81,28 +93,7 @@ class locales extends helperAware
         return $obj;
     }
 
-    public function locales(bool $assoc = false): array
-    {
-
-        if ($assoc) {
-            return $this->locales;
-        }
-
-        $locales = [];
-
-        foreach ($this->locales as $locale) {
-
-            $locales[] = [
-                'i18n' => $locale['i18n'],
-                'name' => $locale['name'],
-            ];
-        }
-
-        return $locales;
-    }
-
-    public function cache(bool $persistent = true): array
-    {
+    public function cache(bool $persistent = true): array {
 
         $cache = [
             'default' => [
@@ -126,7 +117,7 @@ class locales extends helperAware
                 $cache[$locale['i18n']] = $locale;
             }
 
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             $locales = null;
         }
 
@@ -135,13 +126,5 @@ class locales extends helperAware
         }
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->locales = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.locales', function () {
-            return $this->cache();
-        });
     }
 }

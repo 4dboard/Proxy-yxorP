@@ -1,4 +1,4 @@
-import {FieldTypes} from "../js/settings.js"
+import { FieldTypes } from "../js/settings.js"
 
 let fuid = 0;
 
@@ -8,7 +8,7 @@ let FieldRenderer = {
 
         if (this.modelValue === undefined) {
 
-            let val = null;
+            let val =  null;
 
             if (this.field.opts) {
 
@@ -116,7 +116,7 @@ let FieldRenderer = {
                     pass = false;
                 }
 
-                if (!val && !(val === false || val === 0)) {
+                if (!val && !(val===false || val===0)) {
                     pass = false;
                 }
 
@@ -160,11 +160,11 @@ let FieldRenderer = {
                     <template #item="{ element, index }">
                         <div class="kiss-margin-small kiss-flex kiss-flex-middle">
                             <kiss-card class="kiss-flex-1 kiss-padding-small kiss-size-small kiss-position-relative" theme="bordered contrast">
-                                <span class="kiss-badge kiss-badge-outline kiss-color-muted" v-if="val[index] === null">n/a</span>
+                                <span class="kiss-badge kiss-badge-outline kiss-color-muted" v-if="val[index] == null">n/a</span>
                                 <div class="kiss-text-truncate" v-else-if="fieldTypes[field.type] && fieldTypes[field.type].render" v-html="fieldTypes[field.type].render(val[index], field)"></div>
                                 <div v-else>
                                     <span class="kiss-badge kiss-badge-outline" v-if="Array.isArray(val[index])">{{ val[index].length }}</span>
-                                    <span class="kiss-badge kiss-badge-outline" v-else-if="typeof(val[index]) === 'object'">Object</span>
+                                    <span class="kiss-badge kiss-badge-outline" v-else-if="typeof(val[index]) == 'object'">Object</span>
                                     <div class="kiss-text-truncate" v-else>{{ val[index] }}</div>
                                 </div>
                                 <a class="kiss-cover" @click="editFieldItem(field, index)"></a>
@@ -266,7 +266,7 @@ export default {
                         pass = false;
                     }
 
-                    if (!val && !(val === false || val === 0)) {
+                    if (!val && !(val===false || val===0)) {
                         pass = false;
                     }
                 }
@@ -285,9 +285,7 @@ export default {
 
     watch: {
         val: {
-            handler() {
-                this.update()
-            },
+            handler() { this.update() },
             deep: true
         },
         modelValue() {
@@ -318,7 +316,7 @@ export default {
                     return false;
                 }
 
-                return !this.group || this.group === field.group;
+                return !this.group || this.group == field.group;
             });
         },
         visibleLocales() {
@@ -345,8 +343,8 @@ export default {
         },
 
         copyLocaleValue(to, from, field) {
-            to = field + (to === 'default' ? '' : '_' + to);
-            from = field + (from === 'default' ? '' : '_' + from);
+            to = field+(to == 'default' ? '': '_'+to);
+            from = field+(from == 'default' ? '': '_'+from);
 
             this.val[to] = JSON.parse(JSON.stringify(this.val[from]));
         },
@@ -362,14 +360,13 @@ export default {
             }
 
             // compile condition
-            if (typeof (field.condition) === 'string') {
+            if (typeof(field.condition) === 'string') {
                 field.condition = new Function('data', `return ${field.condition}`);
             }
 
             try {
                 return field.condition(this.val);
-            } catch (e) {
-            }
+            } catch(e) {}
 
             return true;
         }
@@ -388,7 +385,7 @@ export default {
                 </div>
                 <select v-model="group">
                     <option :value="null">{{t('All')}}</option>
-                    <option :selected="group === name" v-for="name in groups">{{ name }}</option>
+                    <option :selected="group == name" v-for="name in groups">{{ name }}</option>
                 </select>
             </kiss-card>
 
@@ -420,13 +417,13 @@ export default {
                                     <kiss-navlist>
                                         <ul>
                                             <li class="kiss-nav-header">{{ t('Locale') }}</li>
-                                            <li :class="{'kiss-hidden': l.i18n === locale.i18n}" v-for="l in locales"><a @click="copyLocaleValue(locale.i18n, l.i18n, field.name)">{{ l.name }}</a></li>
+                                            <li :class="{'kiss-hidden': l.i18n == locale.i18n}" v-for="l in locales"><a @click="copyLocaleValue(locale.i18n, l.i18n, field.name)">{{ l.name }}</a></li>
                                         </ul>
                                     </kiss-navlist>
                                 </kiss-dropdownbox>
                             </kiss-dropdown>
                         </div>
-                        <field-renderer :field="field" :locale="locale.i18n" v-model="val[field.name+(locale.i18n === 'default' ? '': '_'+locale.i18n)]"></field-renderer>
+                        <field-renderer :field="field" :locale="locale.i18n" v-model="val[field.name+(locale.i18n == 'default' ? '': '_'+locale.i18n)]"></field-renderer>
                     </div>
                 </div>
 

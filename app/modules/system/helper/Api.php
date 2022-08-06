@@ -1,34 +1,27 @@
 <?php
 
-namespace yxorP\app\modules\system\helper;
+namespace System\Helper;
 
-use yxorP\app\lib\data\graphQL\Server\Helper;
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
-
-/**
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- */
-class api extends helperAware
-{
+class Api extends \Lime\Helper {
 
     protected array $keys = [];
 
-    public function getKey(string $key)
-    {
+    protected function initialize() {
+
+        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function() {
+            return $this->cache();
+        });
+    }
+
+    public function getKey(string $key) {
         return $this->keys[$key] ?? null;
     }
 
-    public function keys(): array
-    {
+    public function keys(): array {
         return array_keys($this->keys);
     }
 
-    public function cache(bool $persistent = true): array
-    {
+    public function cache(bool $persistent = true): array {
 
         $cache = [];
         $keys = $this->app->dataStorage->find('system/api_keys')->toArray();
@@ -42,13 +35,5 @@ class api extends helperAware
         }
 
         return $cache;
-    }
-
-    protected function initialize()
-    {
-
-        $this->keys = $this->app['debug'] ? $this->cache(false) : $this->app->memory->get('app.api.keys', function () {
-            return $this->cache();
-        });
     }
 }

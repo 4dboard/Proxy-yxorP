@@ -1,28 +1,22 @@
 <?php
 
-namespace yxorP\app\modules\system\controller;
+namespace System\Controller;
 
-use yxorP\app\modules\app\controller\app;
+use App\Controller\App;
 
-/**
- * @property \yxorP\app\lib\http\App $app
- */
-class settings extends app
-{
+class Settings extends App {
 
-    public function index()
-    {
+    public function index() {
         return $this->render('system:views/settings.php');
     }
 
-    public function info()
-    {
+    public function info() {
 
         if (!$this->isAllowed('app/system/info')) {
             return $this->stop(401);
         }
 
-        $addons = array_filter(array_keys($this->app['modules']->getArrayCopy()), fn($name) => !in_array($name, ['app', 'assets', 'content', 'system']));
+        $addons = array_filter(array_keys($this->app['modules']->getArrayCopy()), fn($name) => !in_array($name, ['app', 'assets', 'content','system']));
 
         return $this->render('system:views/info.php', compact('addons'));
     }

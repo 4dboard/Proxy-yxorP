@@ -19,7 +19,7 @@ postcss()
         to: __dirname + "/app.bundle.css"
     })
     .then(function (result) {
-        const output = result.css;
+        var output = result.css
 
         fs.writeFileSync(__dirname + "/app.bundle.css", result.css)
     })

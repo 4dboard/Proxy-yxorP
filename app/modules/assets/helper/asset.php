@@ -1,41 +1,12 @@
 <?php
 
-namespace yxorP\app\modules\assets\Helper;
+namespace Assets\Helper;
 
-use Exception;
-use simpleImageLib as SimpleImage;
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
-use function call_user_func_array;
-use function explode;
-use function floor;
-use function preg_match;
-use function str_replace;
+use SimpleImageLib as SimpleImage;
 
-/**
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- */
-class Asset extends helperAware
-{
+class Asset extends \Lime\Helper {
 
-    public function image(array $options = [], bool $asPath = false): array|bool|string
-    {
+    public function image(array $options = [], bool $asPath = false) {
 
         $options = array_merge([
             'cachefolder' => 'tmp://thumbs',
@@ -64,13 +35,13 @@ class Asset extends helperAware
 
         if (!$rebuild && $mime) {
 
-            $hash = md5(json_encode($options)) . "_{$quality}_{$mode}.{$mime}";
-            $thumbpath = $cachefolder . "/{$hash}";
+            $hash = md5(json_encode($options))."_{$quality}_{$mode}.{$mime}";
+            $thumbpath = $cachefolder."/{$hash}";
 
             if ($this->app->fileStorage->fileExists($thumbpath)) {
 
                 if ($base64) {
-                    return "data:image/{$mime};base64," . base64_encode($this->app->fileStorage->read($thumbpath));
+                    return "data:image/{$mime};base64,".base64_encode($this->app->fileStorage->read($thumbpath));
                 }
 
                 return $asPath ? $thumbpath : $this->app->fileStorage->getURL($thumbpath);
@@ -78,15 +49,15 @@ class Asset extends helperAware
         }
 
         // normalize path
-        if (str_contains($src, '../')) {
-            $src = implode('/', array_filter(explode('/', $src), fn($s) => trim($s, '.')));
+        if (strpos($src, '../') !== false) {
+            $src = implode('/', array_filter(explode('/', $src), fn ($s) => trim($s, '.')));
         }
 
-        $src = rawurldecode($src);
+        $src   = rawurldecode($src);
         $asset = null;
 
-        if (str_starts_with($src, 'assets://')) {
-            $asset = ['path' => str_replace('assets://', '', $src)];
+        if (\strpos($src, 'assets://') === 0) {
+            $asset = ['path' => \str_replace('assets://', '', $src)];
         } elseif (!preg_match('/\.(png|jpg|jpeg|gif|svg|webp|avif)$/i', $src)) {
             $asset = $this->app->dataStorage->findOne('assets', ['_id' => $src]);
         } else {
@@ -116,16 +87,16 @@ class Asset extends helperAware
         }
 
         if (isset($asset['fp']) && !$fp) {
-            $fp = $asset['fp']['x'] . ' ' . $asset['fp']['y'];
+            $fp = $asset['fp']['x'].' '.$asset['fp']['y'];
         }
 
         $ext = strtolower(pathinfo($src, PATHINFO_EXTENSION));
 
         // handle svg files
-        if ($ext === 'svg') {
+        if ($ext == 'svg') {
 
             if ($base64) {
-                return 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($src));
+                return 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($src));
             }
 
             return $asPath ? "uploads://{$path}" : $srcUrl;
@@ -136,12 +107,12 @@ class Asset extends helperAware
             return $srcUrl;
         }
 
-        if (!$width || !$height || $width === 'original' || $height === 'original') {
+        if (!$width || !$height || $width == 'original' || $height == 'original') {
 
-            list($w, $h, $type, $attr) = getimagesize($src);
+            list($w, $h, $type, $attr)  = getimagesize($src);
 
-            if ($width === 'original') $width = $w;
-            if ($height === 'original') $height = $h;
+            if ($width == 'original') $width = $w;
+            if ($height == 'original') $height = $h;
 
             if (!$width) $width = ceil($w * ($height / $h));
             if (!$height) $height = ceil($h * ($width / $w));
@@ -159,7 +130,7 @@ class Asset extends helperAware
             $mode = 'thumbnail';
         }
 
-        if (in_array($mime, ['avif', 'gif', 'jpeg', 'png', 'webp', 'bmp'])) {
+        if ($mime && in_array($mime, ['avif', 'gif', 'jpeg', 'png', 'webp', 'bmp'])) {
             $ext = $mime;
             $mime = "image/{$ext}";
         } else {
@@ -168,8 +139,8 @@ class Asset extends helperAware
 
         $method = $mode;
 
-        $hash = md5(json_encode($options)) . "_{$quality}_{$mode}.{$ext}";
-        $thumbpath = $cachefolder . "/{$hash}";
+        $hash = md5(json_encode($options))."_{$quality}_{$mode}.{$ext}";
+        $thumbpath = $cachefolder."/{$hash}";
 
         if ($rebuild || !$this->app->fileStorage->fileExists($thumbpath)) {
 
@@ -177,10 +148,7 @@ class Asset extends helperAware
                 $this->app->fileStorage->delete($thumbpath);
             }
 
-            try {
-                $img = new Img($src);
-            } catch (Exception $e) {
-            }
+            $img = new Img($src);
             $img->{$method}($width, $height, $fp);
 
             // Apply image filters
@@ -198,7 +166,7 @@ class Asset extends helperAware
                     'edgeDetect', 'emboss',
                     'flip', 'invert', 'opacity', 'pixelate', 'sepia', 'sharpen', 'sketch'
                 ])) {
-                    call_user_func_array([$img, $filter], (array)$opts);
+                    call_user_func_array([$img, $filter], (array) $opts);
                 }
             }
 
@@ -208,65 +176,48 @@ class Asset extends helperAware
         }
 
         if ($base64) {
-            return "data:image/{$ext};base64," . base64_encode($this->app->fileStorage->read($thumbpath));
+            return "data:image/{$ext};base64,".base64_encode($this->app->fileStorage->read($thumbpath));
         }
 
         return $asPath ? $thumbpath : $this->app->fileStorage->getURL($thumbpath);
     }
 }
 
-class Img
-{
+class Img {
 
-    protected SimpleImage $image;
+    protected $image;
 
-    /**
-     * @throws Exception
-     */
-    public function __construct($img)
-    {
+    public function __construct($img) {
 
         $this->image = new SimpleImage($img);
     }
 
-    public function negative(): static
-    {
+    public function negative() {
         $this->image->invert();
         return $this;
     }
 
-    public function grayscale(): static
-    {
+    public function grayscale() {
         $this->image->desaturate();
         return $this;
     }
 
-    public function base64data($format = null, $quality = 100): string
-    {
-        try {
-            return $this->image->toDataUri($format, $quality);
-        } catch (Exception $e) {
-        }
+    public function base64data($format = null, $quality = 100) {
+        return $this->image->toDataUri($format, $quality);
     }
 
-    public function show($format = null, $quality = 100)
-    {
-        try {
-            $this->image->toScreen($format, $quality);
-        } catch (Exception $e) {
-        }
+    public function show($format = null, $quality = 100) {
+        $this->image->toScreen($format, $quality);
     }
 
-    public function blur($passes = 1, $type = 'gaussian'): SimpleImage
-    {
+    public function blur($passes = 1, $type = 'gaussian') {
         return $this->image->blur($type, $passes);
     }
 
-    public function thumbnail($width, $height, $anchor = 'center'): SimpleImage
-    {
+    public function thumbnail($width, $height, $anchor = 'center') {
 
 
-        if (preg_match('/\d \d/', $anchor)) {
+        if (\preg_match('/\d \d/', $anchor)) {
 
             // Determine aspect ratios
             $currentRatio = $this->image->getHeight() / $this->image->getWidth();
@@ -276,14 +227,14 @@ class Img
             if ($targetRatio > $currentRatio) {
                 $this->image->resize(null, $height);
             } else {
-                $this->image->resize($width);
+                $this->image->resize($width, null);
             }
 
-            $anchor = explode(' ', $anchor);
+            $anchor = \explode(' ', $anchor);
 
-            $x1 = floor(($this->image->getWidth() * $anchor[0]) - ($width * $anchor[0]));
+            $x1 = \floor(($this->image->getWidth() * $anchor[0]) - ($width * $anchor[0]));
             $x2 = $width + $x1;
-            $y1 = floor(($this->image->getHeight() * $anchor[1]) - ($height * $anchor[1]));
+            $y1 = \floor(($this->image->getHeight() * $anchor[1]) - ($height * $anchor[1]));
             $y2 = $height + $y1;
 
             return $this->image->crop($x1, $y1, $x2, $y2);
@@ -292,10 +243,9 @@ class Img
         return $this->image->thumbnail($width, $height, $anchor);
     }
 
-    public function __call($method, $args)
-    {
+    public function __call($method, $args) {
 
-        $ret = call_user_func_array([$this->image, $method], $args);
+        $ret = \call_user_func_array([$this->image, $method], $args);
 
         if ($ret !== $this->image) {
             return $ret;

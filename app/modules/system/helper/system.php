@@ -1,51 +1,37 @@
 <?php
 
-namespace yxorP\app\modules\system\helper;
+namespace System\Helper;
 
-use Closure;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
-use Throwable;
-use yxorP\app\lib\html\store;
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
-use yxorP\app\lib\http\store;
+use ArrayObject;
 
-/**
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property mixed $name
- */
-class system extends helperAware
-{
+class System extends \Lime\Helper {
 
-    public function try(callable $callback, $rescue = null, $report = true)
-    {
+
+    public function try(callable $callback, $rescue = null, $report = true) {
         try {
             return $callback();
         } catch (Throwable $e) {
-            store::handler(YXORP_APP)->dataStorage->save('system/log', ['message' => $e->getMessage(), 'type' => 'error', 'channel' => $this->name, 'context' => null, 'timestamp' => time(), 'datetime' => date('Y-m-d G:i:s T', time())]);
+            if ($report) {
+                $this->report($e);
+            }
+
             return $rescue instanceof Closure ? $rescue($e) : $rescue;
         }
     }
 
-    public function report()
-    {
+    public function report() {
         // to be implemented
     }
 
-    public function flushCache()
-    {
+    public function flushCache() {
 
-        $dirs = ['#cache:', '#tmp:'];
+        $dirs = ['#cache:','#tmp:'];
         $fs = $this->app->helper('fs');
 
         foreach ($dirs as $dir) {
 
             $path = $this->app->path($dir);
-            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
+            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
 
             foreach ($files as $file) {
 

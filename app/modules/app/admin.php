@@ -1,25 +1,23 @@
 <?php
 
 // Register helpers
-use yxorP\app\lib\http\request;
-
-$this->helpers['admin'] = 'yxorP\\app\\modules\\app\\Helper\\admin';
-$this->helpers['eventStream'] = 'yxorP\\app\\modules\\app\\Helper\\eventStream';
-$this->helpers['menus'] = 'yxorP\\app\\modules\\app\\Helper\\menus';
-$this->helpers['theme'] = 'yxorP\\app\\modules\\app\\Helper\\theme';
-$this->helpers['twfa'] = 'yxorP\\app\\modules\\app\\Helper\\TWFA';
+$this->helpers['admin'] = 'App\\Helper\\Admin';
+$this->helpers['eventStream'] = 'App\\Helper\\EventStream';
+$this->helpers['menus'] = 'App\\Helper\\Menus';
+$this->helpers['theme'] = 'App\\Helper\\Theme';
+$this->helpers['twfa']  = 'App\\Helper\\TWFA';
 
 // Register routes
-$this->bindClass('yxorP\\app\\modules\\app\\Controller\\auth', '/auth');
-$this->bindClass('yxorP\\app\\modules\\app\\Controller\\utils', '/utils');
+$this->bindClass('App\\Controller\\Auth', '/auth');
+$this->bindClass('App\\Controller\\Utils', '/utils');
 
-$this->bind('/', function () {
+$this->bind('/', function() {
 
-    return $this->invoke('yxorP\\app\\modules\\app\\Controller\\dashboard', 'index');
+    return $this->invoke('App\\Controller\\Dashboard', 'index');
 });
 
 // global event stream for long polling
-$this->bind('/app-event-stream', function () {
+$this->bind('/app-event-stream', function() {
 
     $now = time();
     $lastCheck = $this->helper('session')->read('app.eventstream.lastcheck', $now);
@@ -45,7 +43,7 @@ $this->bind('/app-event-stream', function () {
     $events = $this->helper('eventStream')->getEvents($lastCheck);
 
     // filter events
-    $events = array_filter($events, function ($event) use ($user, $sessionId) {
+    $events = array_filter($events, function($event) use($user, $sessionId) {
 
         if (isset($event['options']['to'])) {
 
@@ -75,14 +73,14 @@ $this->bind('/app-event-stream', function () {
 
 
 // check + validate session time
-$this->on('app.admin.request', function (request $request) {
+$this->on('app.admin.request', function(Lime\Request $request) {
 
     $user = $this->helper('auth')->getUser();
 
     if (in_array($request->route, ['/check-session', '/app-event-stream'])) {
 
-        $status = (bool)$user;
-        $start = $this->helper('session')->read('app.session.start', 0);
+        $status = $user ? true : false;
+        $start  = $this->helper('session')->read('app.session.start', 0);
 
         // check for inactivity: 45min by default
         if ($status && $start && ($start + $this->retrieve('session.lifetime', 2700) < time())) {
@@ -90,9 +88,9 @@ $this->on('app.admin.request', function (request $request) {
             $status = false;
         }
 
-        $this->bind('/check-session', function () use ($status) {
+        $this->bind('/check-session', function() use($status) {
             return compact('status');
-        }, $request->route === '/check-session');
+        }, $request->route == '/check-session');
 
         return;
     }
@@ -103,7 +101,7 @@ $this->on('app.admin.request', function (request $request) {
 
     $locale = $user && isset($user['i18n']) && $user['i18n'] ? $user['i18n'] : $i18n->locale;
 
-    if ($translationspath = $this->path("#config:i18n/App/$locale.php")) {
+    if ($translationspath = $this->path("#config:i18n/App/{$locale}.php")) {
 
         $i18n->locale = $locale;
 
@@ -111,7 +109,7 @@ $this->on('app.admin.request', function (request $request) {
 
             $name = basename($m->_dir);
 
-            if ($translationspath = $this->path("#config:i18n/$name/$locale.php")) {
+            if ($translationspath = $this->path("#config:i18n/{$name}/{$locale}.php")) {
                 $i18n->load($translationspath, $locale);
             }
         }
@@ -119,12 +117,12 @@ $this->on('app.admin.request', function (request $request) {
 
     $this->trigger('app.admin.i18n.load', [$locale, $i18n]);
 
-    $this->bind('app.i18n.data.js', function () use ($locale) {
+    $this->bind('/app.i18n.data.js', function() use($locale) {
         $this->helper('session')->close();
         $this->response->mime = 'js';
         $data = $this->helper('i18n')->data($locale);
         return 'if (window.i18n) {
-            window.i18n.register(' . (count($data) ? json_encode($data) : '{}') . ');
+            window.i18n.register('.(count($data) ? json_encode($data):'{}').');
         }';
     });
 
@@ -140,7 +138,7 @@ $this->on('app.admin.request', function (request $request) {
 /**
  * handle after request
  */
-$this->on('after', function () {
+$this->on('after', function() {
 
     // handle error pages
     switch ($this->response->status) {
@@ -168,21 +166,21 @@ $this->on('after', function () {
             break;
     }
 
-    /**
+     /**
      * send some debug information
      * back to client (visible in the network panel)
      */
     if ($this['debug'] && $this->response) {
 
         /**
-         * some system info
-         */
+        * some system info
+        */
 
-        $DURATION_TIME = microtime(true) - SITE_START_TIME;
-        $MEMORY_USAGE = memory_get_peak_usage() / 1024 / 1024;
+        $DURATION_TIME = microtime(true) - APP_START_TIME;
+        $MEMORY_USAGE  = memory_get_peak_usage(false)/1024/1024;
 
-        $this->response->headers["SITE_DURATION_TIME"] = "{$DURATION_TIME}SEC";
-        $this->response->headers["SITE_MEMORY_USAGE"] = "{$MEMORY_USAGE}MB";
-        $this->response->headers["SITE_LOADED_FILES"] = count(get_included_files());
+        $this->response->headers["APP_DURATION_TIME"] = "{$DURATION_TIME}SEC";
+        $this->response->headers["APP_MEMORY_USAGE"] = "{$MEMORY_USAGE}MB";
+        $this->response->headers["APP_LOADED_FILES"] = count(get_included_files());
     }
 });

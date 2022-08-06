@@ -1,31 +1,24 @@
 <?php
 
-namespace yxorP\app\modules\system\controller;
+namespace System\Controller;
 
+use App\Controller\App;
 use ArrayObject;
-use yxorP\app\modules\app\controller\app;
 
-/**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class locales extends app
-{
+class Locales extends App {
 
-    public function index()
-    {
+    protected function before() {
+
+        if (!$this->isAllowed('app/locales/manage')) {
+            return $this->stop(401);
+        }
+    }
+
+    public function index() {
         return $this->render('system:views/locales/index.php');
     }
 
-    public function locale($id = null)
-    {
+    public function locale($id = null) {
 
         if (!$id) {
             return $this->stop(['error' => 'local id is missing'], 412);
@@ -49,12 +42,11 @@ class locales extends app
         return $this->render('system:views/locales/locale.php', compact('locale'));
     }
 
-    public function create()
-    {
+    public function create() {
 
         $locale = [
             'i18n' => '',
-            'name' => '',
+            'name'  => '',
             'enabled' => true,
             'meta' => new ArrayObject([]),
         ];
@@ -62,8 +54,7 @@ class locales extends app
         return $this->render('system:views/locales/locale.php', compact('locale'));
     }
 
-    public function remove()
-    {
+    public function remove() {
 
         $locale = $this->param('locale');
 
@@ -80,13 +71,7 @@ class locales extends app
         return ['success' => true];
     }
 
-    protected function cache()
-    {
-        $this->helper('locales')->cache();
-    }
-
-    public function save()
-    {
+    public function save() {
 
         $locale = $this->param('locale');
 
@@ -109,7 +94,7 @@ class locales extends app
             $locale[$key] = strip_tags(trim($locale[$key]));
         }
 
-        if ($locale['i18n'] === 'default') {
+        if ($locale['i18n'] == 'default') {
             $locale['enabled'] = true;
         }
 
@@ -133,21 +118,18 @@ class locales extends app
         return $locale;
     }
 
-    public function load()
-    {
+    public function load() {
 
         $this->helper('session')->close();
 
-        return $this->app->dataStorage->find('system/locales', [
+        $locales = $this->app->dataStorage->find('system/locales', [
             'sort' => ['name' => 1]
         ])->toArray();
+
+        return $locales;
     }
 
-    protected function before()
-    {
-
-        if (!$this->isAllowed('app/locales/manage')) {
-            return $this->stop(401);
-        }
+    protected function cache() {
+        $this->helper('locales')->cache();
     }
 }

@@ -18,10 +18,10 @@ function getUppy(meta = {}) {
     }).use(Uppy.XHRUpload, {
         endpoint: App.route('/assets/upload'),
         bundle: true
-    }).use(Uppy.Webcam, {target: Uppy.Dashboard, showVideoSourceDropdown: true})
-        .use(Uppy.ScreenCapture, {target: Uppy.Dashboard})
-        //.use(Uppy.Url, { target: Uppy.Dashboard, companionUrl: 'https://companion.uppy.io' })
-        .use(Uppy.ImageEditor, {target: Uppy.Dashboard});
+    }).use(Uppy.Webcam, { target: Uppy.Dashboard, showVideoSourceDropdown: true })
+    .use(Uppy.ScreenCapture, { target: Uppy.Dashboard })
+    //.use(Uppy.Url, { target: Uppy.Dashboard, companionUrl: 'https://companion.uppy.io' })
+    .use(Uppy.ImageEditor, { target: Uppy.Dashboard });
 }
 
 
@@ -150,12 +150,11 @@ export default {
             App.ui.confirm('Are you sure?', () => {
 
                 this.$request(`/assets/remove`, {assets: [asset._id]}).then(res => {
-                    this.load(this.page === 1 ? 1 : (this.assets.length - 1 ? this.page : this.page - 1));
+                    this.load(this.page == 1 ? 1 : (this.assets.length - 1 ? this.page : this.page - 1));
                     App.ui.notify('Asset removed!');
                 }).catch(rsp => {
                     App.ui.notify(rsp.error || 'Deleting asset failed!', 'error');
-                });
-
+                });;
             });
         },
 
@@ -164,7 +163,7 @@ export default {
             App.ui.confirm('Are you sure?', () => {
 
                 this.$request(`/assets/remove`, {assets: this.selected}).then(res => {
-                    this.load(this.page === 1 ? 1 : (this.assets.length - this.selected.length ? this.page : this.page - 1));
+                    this.load(this.page == 1 ? 1 : (this.assets.length - this.selected.length ? this.page : this.page - 1));
                     App.ui.notify('Assets removed!');
                 });
             });
@@ -247,7 +246,7 @@ export default {
                 let skip = false;
 
                 this.breadcrumbs = this.breadcrumbs.filter(f => {
-                    if (f._id === folder._id) skip = true;
+                    if (f._id == folder._id) skip = true;
                     return !skip;
                 });
 
@@ -261,7 +260,7 @@ export default {
         },
 
         copyAssetLinkID(asset) {
-            App.utils.copyText(location.origin + App.base(`/assets/link/${asset._id}`), () => App.ui.notify('Asset link copied!'));
+            App.utils.copyText(location.origin + App.base(`/assets/link/${asset._id}`), () =>  App.ui.notify('Asset link copied!'));
         },
     },
 
@@ -308,8 +307,8 @@ export default {
 
             <kiss-grid cols="2@s 5@m 6@xl" class="spotlight-group" gap="small" v-if="!loading && assets.length" match="true" hover="shadow">
 
-                    <kiss-card class="kiss-position-relative kiss-bgcolor-contrast" theme="bordered" :style="{borderColor: (selectedAsset && selectedAsset._id === asset._id && 'var(--kiss-color-primary)') || null}" v-for="asset in assets">
-                        <div class="kiss-position-relative" :class="{'kiss-bgcolor-transparentimage': asset.type === 'image'}">
+                    <kiss-card class="kiss-position-relative kiss-bgcolor-contrast" theme="bordered" :style="{borderColor: (selectedAsset && selectedAsset._id == asset._id && 'var(--kiss-color-primary)') || null}" v-for="asset in assets">
+                        <div class="kiss-position-relative" :class="{'kiss-bgcolor-transparentimage': asset.type == 'image'}">
                             <canvas width="400" height="300"></canvas>
                             <div class="kiss-cover kiss-padding kiss-flex kiss-flex-middle kiss-flex-center">
                                 <div><asset-preview :asset="asset"></asset-preview></div>
@@ -329,7 +328,7 @@ export default {
 
         <div class="kiss-flex kiss-flex-middle kiss-margin-large-top" v-if="modal">
             <div class="kiss-flex kiss-flex-middle" v-if="!loading && count">
-                <div class="kiss-size-small">{{ count}} {{ count === 1 ? t('Item') : t('Items') }}</div>
+                <div class="kiss-size-small">{{ count}} {{ count == 1 ? t('Item') : t('Items') }}</div>
                 <div class="kiss-margin-small-left kiss-overlay-input">
                     <span class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
                     <select v-model="page" @change="load(page)" v-if="pages > 1"><option v-for="p in pages" :value="p">{{ p }}</option></select>
@@ -354,7 +353,7 @@ export default {
             <kiss-container>
                 <div class="kiss-flex kiss-flex-middle">
                     <div class="kiss-flex kiss-flex-middle" v-if="!loading && count">
-                        <div class="kiss-size-small">{{ count}} {{ count === 1 ? t('Item') : t('Items') }}</div>
+                        <div class="kiss-size-small">{{ count}} {{ count == 1 ? t('Item') : t('Items') }}</div>
                         <div class="kiss-margin-small-left kiss-overlay-input">
                             <span class="kiss-badge kiss-badge-outline kiss-color-muted">{{ page }} / {{pages}}</span>
                             <select v-model="page" @change="load(page)" v-if="pages > 1"><option v-for="p in pages" :value="p">{{ p }}</option></select>

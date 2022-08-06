@@ -11,6 +11,9 @@ class whitespacesRemover implements minfyInterface
 {
     private const BLOCK_ELEMENTS = ['address', 'article', 'aside', 'audio', 'blockquote', 'body', 'canvas', 'caption', 'colgroup', 'datalist', 'details', 'div', 'dl', 'dt', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h[1-6]', 'head', 'header', 'hr', 'html', 'li', 'link', 'main', 'map', 'meta', 'meter', 'nav', 'noframes', 'noscript', 'object', 'ol', 'optgroup', 'option', 'p', 'param', 'pre', 'progress', 'ruby', 'script', 'section', 'select', 'source', 'style', 'summary', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'title', 'tr', 'track', 'ul', 'video'];
 
+    /**
+     *
+     */
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {

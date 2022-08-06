@@ -41,7 +41,7 @@ interface requestInterface extends messageInterface
      *
      * @return string
      */
-    public function getRequestTarget(): string;
+    public function getRequestTarget();
 
     /**
      * Return an instance with the specific request-target.
@@ -60,14 +60,14 @@ interface requestInterface extends messageInterface
      * @param mixed $requestTarget
      * @return static
      */
-    public function withRequestTarget(mixed $requestTarget): static;
+    public function withRequestTarget($requestTarget);
 
     /**
      * Retrieves the HTTP method of the request.
      *
      * @return string Returns the request method.
      */
-    public function getMethod(): string;
+    public function getMethod();
 
     /**
      * Return an instance with the provided HTTP method.
@@ -84,7 +84,7 @@ interface requestInterface extends messageInterface
      * @return static
      * @throws InvalidArgumentException for invalid HTTP methods.
      */
-    public function withMethod(string $method): static;
+    public function withMethod($method);
 
     /**
      * Retrieves the URI instance.
@@ -95,7 +95,7 @@ interface requestInterface extends messageInterface
      * @return uriInterface Returns a UriInterface instance
      *     representing the URI of the request.
      */
-    public function getUri(): uriInterface;
+    public function getUri();
 
     /**
      * Returns an instance with the provided URI.
@@ -127,5 +127,5 @@ interface requestInterface extends messageInterface
      * @param bool $preserveHost Preserve the original state of the Host header.
      * @return static
      */
-    public function withUri(uriInterface $uri, bool $preserveHost = false): static;
+    public function withUri(uriInterface $uri, $preserveHost = false);
 }

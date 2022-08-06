@@ -16,12 +16,12 @@ class fulfilledPromise implements promiseInterface
         $this->value = $value;
     }
 
-    public function otherwise(callable $onRejected): promise|static
+    public function otherwise(callable $onRejected)
     {
         return $this->then(null, $onRejected);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null): promise|static
+    public function then(callable $onFulfilled = null, callable $onRejected = null)
     {
         if (!$onFulfilled) {
             return $this;
@@ -43,10 +43,10 @@ class fulfilledPromise implements promiseInterface
 
     public function wait($unwrap = true, $defaultDelivery = null)
     {
-        return null;
+        return $unwrap ? $this->value : null;
     }
 
-    public function getState(): string
+    public function getState()
     {
         return self::FULFILLED;
     }

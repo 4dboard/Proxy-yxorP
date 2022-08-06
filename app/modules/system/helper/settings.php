@@ -1,22 +1,12 @@
 <?php
 
-namespace yxorP\app\modules\system\helper;
+namespace System\Helper;
 
 use ArrayObject;
-use yxorP\app\lib\data\graphQL\Server\Helper;
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\helperAware;
-use function array_filter;
 
-/**
- * @property App $app
- * @property App $app
- */
-class settings extends helperAware
-{
+class Settings extends \Lime\Helper {
 
-    public function groups(bool $filter = false): ArrayObject
-    {
+    public function groups(bool $filter = false): ArrayObject {
 
         $settings = new ArrayObject([
             'System' => [
@@ -75,7 +65,7 @@ class settings extends helperAware
 
             foreach ($settings as $group => $items) {
 
-                $items = array_filter($items, function ($item) use ($acl) {
+                $items = \array_filter($items, function($item) use($acl) {
                     return isset($item['permission']) && $item['permission'] ? $acl->isAllowed($item['permission']) : true;
                 });
 

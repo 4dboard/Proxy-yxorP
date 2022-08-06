@@ -1,25 +1,20 @@
 <?php
 
-namespace yxorP\app\modules\app\helper;
+namespace App\Helper;
 
 
-use yxorP\app\lib\http\helperAware;
-
-
-/**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class acl extends helperAware
-{
+class Acl extends \Lime\Helper {
 
     protected array $roles = [];
 
-    public function roles(): array
-    {
+    protected function initialize() {
+
+        $this->roles = $this->app->memory->get('app.roles.permissions', function() {
+            return $this->cache();
+        });
+    }
+
+    public function roles(): array {
 
         $roles = [
             ['appid' => 'admin', 'name' => 'Admin']
@@ -36,8 +31,7 @@ class acl extends helperAware
         return $roles;
     }
 
-    public function isAllowed(string $permission, ?string $role = null): bool
-    {
+    public function isAllowed(string $permission, ?string $role = null): bool {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
 
@@ -48,28 +42,18 @@ class acl extends helperAware
         return isset($this->roles[$role]['permissions'][$permission]) && $this->roles[$role]['permissions'][$permission];
     }
 
-    public function isSuperAdmin($role = null): bool
-    {
+    public function isSuperAdmin($role = null) {
 
         $role = $role ?? $this->app->helper('auth')->getUser('role');
 
-        if ($role === 'admin') {
+        if ($role == 'admin') {
             return true;
         }
 
         return false;
     }
 
-    protected function initialize()
-    {
-
-        $this->roles = $this->app->memory->get('app.roles.permissions', function () {
-            return $this->cache();
-        });
-    }
-
-    public function cache(): array
-    {
+    public function cache(): array {
 
         $cache = [];
 

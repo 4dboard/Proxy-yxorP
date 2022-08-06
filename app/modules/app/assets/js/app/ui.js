@@ -1,3 +1,5 @@
+
+
 export default {
 
     notify: function (message, status, timeout) {
@@ -16,7 +18,7 @@ export default {
         }).show();
     },
 
-    block: function (info = '', context = 'ui-block') {
+    block: function (info='', context = 'ui-block') {
 
         document.body.insertAdjacentHTML('beforeend', `
             <app-loader-cover class="${context}" label="${info}"></app-loader-cover>
@@ -66,14 +68,14 @@ export default {
         offcanvas.__close = offcanvas.close;
         offcanvas.__show = offcanvas.show;
 
-        offcanvas.close = function () {
+        offcanvas.close = function() {
             offcanvas.__close();
             setTimeout(() => {
                 offcanvas.parentNode.removeChild(offcanvas);
             }, 300)
         };
 
-        offcanvas.show = function () {
+        offcanvas.show = function() {
             offcanvas.__show();
 
             setTimeout(() => {
@@ -110,12 +112,12 @@ export default {
         dialog.__close = dialog.close;
         dialog.__show = dialog.show;
 
-        dialog.close = function () {
+        dialog.close = function() {
             dialog.__close();
             dialog.parentNode.removeChild(dialog);
         };
 
-        dialog.show = function () {
+        dialog.show = function() {
             dialog.__show();
 
             setTimeout(() => {

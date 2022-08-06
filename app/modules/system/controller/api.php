@@ -1,50 +1,33 @@
 <?php
 
-namespace yxorP\app\modules\system\controller;
+namespace System\Controller;
 
+use App\Controller\App;
 use ArrayObject;
-use Symfony\Component\Finder\Finder;
-use yxorP\app\lib\openapi\Generator;
-use yxorP\app\modules\app\controller\app;
-use function file_exists;
-use function str_replace;
 
-/**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class api extends app
-{
+class Api extends App {
 
-    public function index()
-    {
+    protected function before() {
+
+        if (!$this->isAllowed('app/api/manage')) {
+            return $this->stop(401);
+        }
+    }
+
+    public function index() {
         return $this->render('system:views/api/index.php');
     }
 
-    public function public()
-    {
+    public function public() {
 
         $key = $this->app->dataStorage->findOne('system/api_keys', ['key' => 'public']);
 
         if (!$key) {
 
             $key = [
-                'key' => 'public',
-                'name' => 'public',
-                'role' => null,
+                'key'  => 'public',
+                'name'  => 'public',
+                'role'  => null,
                 'meta' => new ArrayObject([])
             ];
         }
@@ -54,8 +37,7 @@ class api extends app
         return $this->render('system:views/api/key.php', compact('key'));
     }
 
-    public function key($id = null)
-    {
+    public function key($id = null) {
 
         if (!$id) {
             return $this->stop(['error' => 'key id is missing'], 412);
@@ -69,26 +51,24 @@ class api extends app
 
         $this->checkAndLockResource($id);
 
-        $key['meta'] = new ArrayObject($key['meta']);
+        $key['meta'] = new ArrayObject( $key['meta']);
 
         return $this->render('system:views/api/key.php', compact('key'));
     }
 
-    public function create()
-    {
+    public function create() {
 
         $key = [
-            'key' => '',
-            'name' => '',
-            'role' => null,
+            'key'  => '',
+            'name'  => '',
+            'role'  => null,
             'meta' => new ArrayObject([])
         ];
 
         return $this->render('system:views/api/key.php', compact('key'));
     }
 
-    public function remove()
-    {
+    public function remove() {
 
         $key = $this->param('key');
 
@@ -105,13 +85,7 @@ class api extends app
         return ['success' => true];
     }
 
-    protected function cache()
-    {
-        $this->helper('api')->cache();
-    }
-
-    public function save()
-    {
+    public function save() {
 
         $key = $this->param('key');
 
@@ -154,41 +128,41 @@ class api extends app
         return $key;
     }
 
-    public function load()
-    {
+    public function load() {
 
         $this->helper('session')->close();
 
-        return $this->app->dataStorage->find('system/api_keys', [
+        $keys = $this->app->dataStorage->find('system/api_keys', [
             'filter' => ['key' => ['$ne' => 'public']],
             'sort' => ['name' => 1]
         ])->toArray();
+
+        return $keys;
     }
 
-    public function openapi(): array|string
-    {
+    public function openapi() {
 
         $this->helper('session')->close();
 
-        $paths = [(new Finder())->files()->in(SITE_DIR . '/modules')->notPath('#vendor#')];
+        $paths = [(new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR.'/modules')->notPath('#vendor#')];
 
-        if (file_exists(SITE_DIR . '/addons')) {
-            $paths[] = (new Finder())->files()->in(SITE_DIR . '/addons')->notPath('#vendor#');
+        if (\file_exists(APP_DIR.'/addons')) {
+            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR.'/addons')->notPath('#vendor#');
         }
 
-        if (file_exists(SITE_DIR . '/config/api')) {
-            $paths[] = (new Finder())->files()->in(SITE_DIR . '/config/api')->notPath('#vendor#');
+        if (\file_exists(APP_DIR.'/config/api')) {
+            $paths[] = (new \Symfony\Component\Finder\Finder())->files()->in(APP_DIR.'/config/api')->notPath('#vendor#');
         }
 
-        $yaml = Generator::scan($paths)->toYaml();
+        $yaml = \OpenApi\Generator::scan($paths)->toYaml();
 
         // replace placeholders
-        $yaml = str_replace([
-            SITE_DIR,
+        $yaml = \str_replace([
+            APP_DIR,
             '{{ app.name }}',
             '{{ app.version }}',
         ], [
-            $this->app->getSiteUrl(true) . '/api',
+            $this->app->getSiteUrl(true).'/api',
             $this->app->retrieve('app.name'),
             $this->app->retrieve('app.version'),
         ], $yaml);
@@ -198,8 +172,7 @@ class api extends app
         return $yaml;
     }
 
-    public function restApiViewer()
-    {
+    public function restApiViewer() {
 
         $this->helper('session')->close();
 
@@ -215,8 +188,7 @@ class api extends app
         return $this->render('system:views/api/rest-api-viewer.php', compact('openApiUrl', 'apiKey', 'bgColor', 'primaryColor', 'textColor'));
     }
 
-    public function graphqlViewer()
-    {
+    public function graphqlViewer() {
 
         $this->helper('session')->close();
 
@@ -230,11 +202,7 @@ class api extends app
         return $this->render('system:views/api/graphql-viewer.php', compact('apiKey', 'bgColor', 'primaryColor', 'textColor'));
     }
 
-    protected function before()
-    {
-
-        if (!$this->isAllowed('app/api/manage')) {
-            return $this->stop(401);
-        }
+    protected function cache() {
+        $this->helper('api')->cache();
     }
 }

@@ -1,12 +1,10 @@
 <?php
 
-namespace yxorP\app\modules\app\controller;
+namespace App\Controller;
 
-class dashboard extends app
-{
+class Dashboard extends App {
 
-    public function index()
-    {
+    public function index() {
 
         $this->helper('theme')->pageClass('dashboard-page');
 

@@ -7,6 +7,9 @@ use function strlen;
 
 abstract class areplacerInterface
 {
+    /**
+     *
+     */
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {
@@ -15,6 +18,9 @@ abstract class areplacerInterface
         return $this->replace($this->getReplacePatternData(), $buffer);
     }
 
+    /**
+     *
+     */
     public function replace(array $replace, string $buffer): string
     {
         $result = preg_replace(array_keys($replace), array_values($replace), $buffer);

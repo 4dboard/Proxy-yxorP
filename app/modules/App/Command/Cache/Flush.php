@@ -1,34 +1,30 @@
 <?php
 
-namespace yxorP\app\modules\app\command\Cache;
+namespace App\Command\Cache;
 
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use yxorP\app\lib\http\app;
 
-class flush
-{
+class Flush extends Command {
 
-    protected static string $defaultName = 'app:cache:flush';
-    protected ?app $app = null;
+    protected static $defaultName = 'app:cache:flush';
+    protected $app = null;
 
-    public function __construct(App $app)
-    {
+    public function __construct(\Lime\App $app) {
         $this->app = $app;
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
+    protected function configure(): void {
         $this->setHelp('This command empties the /storage/tmp folder');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(InputInterface $input, OutputInterface $output): int {
 
         $this->app->helper('system')->flushCache();
 
         $output->writeln('<info>[✓]</info> Tmp folder was flushed!');
-        return 1;
+        return Command::SUCCESS;
     }
 }

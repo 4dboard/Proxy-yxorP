@@ -39,10 +39,16 @@
 }
 
 th.kiss-text-truncate,
-td.kiss-text-truncate {
-    max-width: 0;
+td.kiss-text-truncate { max-width: 0; }
+
+
+.kiss-text-pacing-loose {
+    letter-spacing: .05em !important;
 }
 
+.kiss-text-pacing-looser {
+    letter-spacing: .1em !important;
+}
 
 .kiss-text-monospace {
     font-family: ui-monospace,
@@ -57,22 +63,8 @@ td.kiss-text-truncate {
     "Courier New", Courier, monospace;
 }
 
-.kiss-text-leading-normal {
-    line-height: var(--kiss-base-line-height, 1.5) !important;
-}
-
-.kiss-text-leading-tight {
-    line-height: 1.25 !important;
-}
-
-.kiss-text-leading-relaxed {
-    line-height: 1.65 !important;
-}
-
-.kiss-text-leading-loose {
-    line-height: 2 !important;
-}
-
-.kiss-text-leading-none {
-    line-height: 1 !important;
-}
+.kiss-text-leading-normal { line-height: var(--kiss-base-line-height, 1.5) !important; }
+.kiss-text-leading-tight { line-height: 1.25 !important; }
+.kiss-text-leading-relaxed { line-height: 1.65 !important; }
+.kiss-text-leading-loose { line-height: 2 !important; }
+.kiss-text-leading-none { line-height: 1 !important; }

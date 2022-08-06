@@ -1,61 +1,39 @@
 <?php
 
-namespace yxorP\app\modules\app\graphQL\types;
+namespace App\GraphQL\Types;
 
-use JetBrains\PhpStorm\Pure;
-use yxorP\app\lib\data\graphQL\Language\AST\BooleanValueNode;
-use yxorP\app\lib\data\graphQL\Language\AST\FloatValueNode;
-use yxorP\app\lib\data\graphQL\Language\AST\IntValueNode;
-use yxorP\app\lib\data\graphQL\Language\AST\ListValueNode;
-use yxorP\app\lib\data\graphQL\Language\AST\ObjectValueNode;
-use yxorP\app\lib\data\graphQL\Language\AST\StringValueNode;
-use yxorP\app\lib\data\graphQL\Type\Definition\ScalarType;
-use yxorP\app\modules\app\graphQL\Language\AST\BooleanValueNode;
-use yxorP\app\modules\app\graphQL\Language\AST\FloatValueNode;
-use yxorP\app\modules\app\graphQL\Language\AST\IntValueNode;
-use yxorP\app\modules\app\graphQL\Language\AST\ListValueNode;
-use yxorP\app\modules\app\graphQL\Language\AST\ObjectValueNode;
-use yxorP\app\modules\app\graphQL\Language\AST\StringValueNode;
-use yxorP\app\modules\app\graphQL\Type\Definition\ScalarType;
+use GraphQL\Language\AST\BooleanValueNode;
+use GraphQL\Language\AST\FloatValueNode;
+use GraphQL\Language\AST\IntValueNode;
+use GraphQL\Language\AST\ListValueNode;
+use GraphQL\Language\AST\Node;
+use GraphQL\Language\AST\ObjectValueNode;
+use GraphQL\Language\AST\StringValueNode;
+use GraphQL\Type\Definition\ScalarType;
 
-class jsonType extends ScalarType
+class JsonType extends ScalarType
 {
-    public string $name = 'JsonType';
-    public string $description =
+    public $name = 'JsonType';
+    public $description =
         'The `JSON` scalar type represents JSON values as specified by
-        [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).';
+        [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).';
 
-    public function __construct(string $name = null)
-    {
+    public function __construct(string $name = null) {
         if ($name) {
             $this->name = $name;
         }
         parent::__construct();
     }
 
-    public static function instance()
-    {
-        static $instance;
-
-        if (is_null($instance)) {
-            $instance = new static();
-        }
-
-        return $instance;
-    }
-
-    #[Pure] public function parseValue($value)
-    {
+    public function parseValue($value) {
         return $this->identity($value);
     }
 
-    #[Pure] public function serialize($value)
-    {
+    public function serialize($value) {
         return $this->identity($value);
     }
 
-    public function parseLiteral($valueNode, array $variables = null): float|array|null
-    {
+    public function parseLiteral($valueNode, array $variables = null) {
 
         switch ($valueNode) {
             case ($valueNode instanceof StringValueNode):
@@ -64,8 +42,7 @@ class jsonType extends ScalarType
             case ($valueNode instanceof IntValueNode):
             case ($valueNode instanceof FloatValueNode):
                 return floatval($valueNode->value);
-            case ($valueNode instanceof ObjectValueNode):
-            {
+            case ($valueNode instanceof ObjectValueNode): {
                 $value = [];
                 foreach ($valueNode->fields as $field) {
                     $value[$field->name->value] = $this->parseLiteral($field->value);
@@ -79,8 +56,17 @@ class jsonType extends ScalarType
         }
     }
 
-    private function identity($value)
-    {
+    private function identity($value) {
         return $value;
+    }
+
+    public static function instance() {
+        static $instance;
+
+        if (is_null($instance)) {
+            $instance = new static();
+        }
+
+        return $instance;
     }
 }

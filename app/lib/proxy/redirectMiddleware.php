@@ -7,13 +7,12 @@ use yxorP\app\lib\proxy\promise\promiseInterface;
 use yxorP\app\lib\proxy\psr7;
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
-use yxorP\app\lib\psr\http\message\uriInterface;
 
 class redirectMiddleware
 {
     const HISTORY_HEADER = 'X-Proxy-Redirect-History';
     const STATUS_HISTORY_HEADER = 'X-Proxy-Redirect-Status-History';
-    public static array $defaultSettings = ['max' => 5, 'protocols' => ['http', 'https'], 'strict' => false, 'referer' => false, 'track_redirects' => false,];
+    public static $defaultSettings = ['max' => 5, 'protocols' => ['http', 'https'], 'strict' => false, 'referer' => false, 'track_redirects' => false,];
     private $nextHandler;
 
     public function __construct(callable $nextHandler)
@@ -42,9 +41,9 @@ class redirectMiddleware
         });
     }
 
-    public function checkRedirect(requestInterface $request, array $options, responseInterface $response): responseInterface
+    public function checkRedirect(requestInterface $request, array $options, responseInterface $response)
     {
-        if (!str_starts_with($response->getStatusCode(), '3') || !$response->hasHeader('Location')) {
+        if (substr($response->getStatusCode(), 0, 1) != '3' || !$response->hasHeader('Location')) {
             return $response;
         }
         $this->guardMax($request, $options);
@@ -59,17 +58,7 @@ class redirectMiddleware
         return $promise;
     }
 
-    private function guardMax(requestInterface $request, array &$options)
-    {
-        $current = $options['__redirect_count'] ?? 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-        if ($options['__redirect_count'] > $max) {
-            throw new tooManyRedirectsException("Will not follow more than {$max} redirects", $request);
-        }
-    }
-
-    public function modifyRequest(requestInterface $request, array $options, responseInterface $response): psr7\request|requestInterface|psr7\serverRequest
+    public function modifyRequest(requestInterface $request, array $options, responseInterface $response)
     {
         $modify = [];
         $protocols = $options['allow_redirects']['protocols'];
@@ -97,7 +86,17 @@ class redirectMiddleware
         return Psr7\modify_request($request, $modify);
     }
 
-    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols): psr7\uri|uriInterface
+    private function guardMax(requestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+        if ($options['__redirect_count'] > $max) {
+            throw new tooManyRedirectsException("Will not follow more than {$max} redirects", $request);
+        }
+    }
+
+    private function redirectUri(requestInterface $request, responseInterface $response, array $protocols)
     {
         $location = Psr7\uriResolver::resolve($request->getUri(), new Psr7\uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {

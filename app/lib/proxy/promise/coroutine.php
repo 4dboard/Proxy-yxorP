@@ -1,14 +1,13 @@
 <?php namespace yxorP\app\lib\proxy\promise;
 
 use Exception;
-use JetBrains\PhpStorm\Pure;
 use Throwable;
 
 final class coroutine implements promiseInterface
 {
     private $currentPromise;
     private $generator;
-    private promise $result;
+    private $result;
 
     public function __construct(callable $generatorFn)
     {
@@ -21,30 +20,22 @@ final class coroutine implements promiseInterface
         $this->nextCoroutine($this->generator->current());
     }
 
-    private function nextCoroutine($yielded)
-    {
-        $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
-    }
-
-    public function then(callable $onFulfilled = null, callable $onRejected = null): promise|fulfilledPromise|rejectedPromise|promiseInterface
+    public function then(callable $onFulfilled = null, callable $onRejected = null)
     {
         return $this->result->then($onFulfilled, $onRejected);
     }
 
-    public function otherwise(callable $onRejected): promise|fulfilledPromise|promiseInterface|rejectedPromise
+    public function otherwise(callable $onRejected)
     {
         return $this->result->otherwise($onRejected);
     }
 
-    /**
-     * @throws Throwable
-     */
     public function wait($unwrap = true)
     {
         return $this->result->wait($unwrap);
     }
 
-    #[Pure] public function getState(): string
+    public function getState()
     {
         return $this->result->getState();
     }
@@ -93,5 +84,10 @@ final class coroutine implements promiseInterface
         } catch (Throwable $throwable) {
             $this->result->reject($throwable);
         }
+    }
+
+    private function nextCoroutine($yielded)
+    {
+        $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 }

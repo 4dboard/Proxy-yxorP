@@ -5,7 +5,7 @@
     --kiss-base-text-color: #fafafa;
     --kiss-base-font-size: 15px;
     --kiss-font-size-1: 2rem;
-    --kiss-hr-color: rgba(255, 255, 255, .1);
+    --kiss-hr-color: rgba(255,255,255,.1);
     --kiss-link-color: var(--kiss-color-primary);
     --kiss-link-hover-color: #1994ff;
 
@@ -19,14 +19,14 @@
     --kiss-color-success: #4caf50;
     --kiss-color-warning: orange;
     --kiss-color-danger: #f91941;
-    --kiss-color-muted: rgba(255, 255, 255, .5);
+    --kiss-color-muted: rgba(255,255,255,.5);
     --kiss-color-overlay: rgba(0, 0, 0, .6);
 
     --kiss-container-max-width: 1800px;
     --kiss-container-small-max-width: 900px;
 
-    --kiss-input-border-color: rgba(255, 255, 255, .1);
-    --kiss-input-background: rgba(255, 255, 255, .05);
+    --kiss-input-border-color: rgba(255,255,255,.1);
+    --kiss-input-background: rgba(255,255,255,.05);
 
     --kiss-badge-bgcolor: var(--kiss-color-primary);
 
@@ -83,28 +83,30 @@ kiss-tooltip {
     filter: grayscale(1);
 }
 
-.kiss-height-30vh {
-    min-height: 30vh;
+.kiss-bgcolor-transparentimage {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%), linear-gradient(-45deg, rgba(255, 255, 255, .15) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, .15) 75%), linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, .15) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
-.kiss-height-50vh {
-    min-height: 50vh;
-}
+.kiss-height-30vh { min-height: 30vh; }
+.kiss-height-50vh { min-height: 50vh; }
+.kiss-height-100vh { min-height: 100vh; }
 
 kiss-dialog,
 kiss-offcanvas,
 kiss-popoutmenu {
-    backdrop-filter: grayscale(1) blur(2px);
+    backdrop-filter: grayscale(1) blur(1.5px);
 }
 
 kiss-offcanvas kiss-content,
 kiss-dialog kiss-content,
 kiss-popoutmenu kiss-content {
-    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034),
-    0 7px 5px rgba(0, 0, 0, 0.048),
-    0 13px 10px rgba(0, 0, 0, 0.06),
-    0 22px 18px rgba(0, 0, 0, 0.072),
-    0 42px 33px rgba(0, 0, 0, 0.086),
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
@@ -141,7 +143,7 @@ select.kiss-input option {
 }
 
 .kiss-input:focus {
-    background: var(--kiss-input-background-active, rgba(255, 255, 255, .15));
+    background: var(--kiss-input-background-active, rgba(255,255,255,.15));
     border-color: var(--kiss-input-border-color-active, var(--kiss-color-primary));
 }
 
@@ -150,16 +152,14 @@ select.kiss-input option {
 }
 
 .kiss-input::placeholder {
-    color: var(--kiss-input-placeholder-color, rgba(255, 255, 255, .2));
+    color: var(--kiss-input-placeholder-color, rgba(255,255,255,.2));
 }
 
 .kiss-input-small {
     padding: .3em .3em;
 }
 
-.kiss-disabled {
-    opacity: .6;
-}
+.kiss-disabled { opacity: .6; }
 
 kiss-offcanvas kiss-navlist ul > li > a,
 kiss-dropdownbox kiss-navlist ul > li > a {
@@ -184,7 +184,7 @@ kiss-offcanvas kiss-navlist ul > li > * {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 }
 
 kiss-offcanvas kiss-navlist[space="small"] ul > li > * {
@@ -198,7 +198,10 @@ kiss-offcanvas kiss-navlist .kiss-nav-header {
 }
 
 kiss-offcanvas kiss-navlist .kiss-nav-divider {
-    margin: 1.2rem calc(-1 * var(--kiss-padding, 1rem));
+    margin-left: calc(-1 * var(--kiss-padding, 1rem));
+    margin-right: calc(-1 * var(--kiss-padding, 1rem));
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 kiss-dropdownbox kiss-navlist ul > li a icon,
@@ -213,11 +216,11 @@ kiss-offcanvas kiss-navlist ul > li a kiss-svg {
 }
 
 kiss-card[hover="shadow"]:hover {
-    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034),
-    0 7px 5px rgba(0, 0, 0, 0.048),
-    0 13px 10px rgba(0, 0, 0, 0.06),
-    0 22px 18px rgba(0, 0, 0, 0.072),
-    0 42px 33px rgba(0, 0, 0, 0.086),
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
@@ -237,7 +240,7 @@ kiss-card[hover*="contrast"]:hover {
 
 .kiss-button-group .kiss-button:not(:last-child) {
     border-right-width: 1px;
-    border-right-color: rgba(0, 0, 0, .08);
+    border-right-color: rgba(0,0,0,.08);
     border-right-style: solid;
 }
 
@@ -262,17 +265,17 @@ kiss-card[hover*="contrast"]:hover {
     margin-bottom: 1rem;
 }
 
-.kiss-breadcrumbs > *:not(.active) > * {
+.kiss-breadcrumbs > *:not(.active) > *  {
     opacity: .6;
     transition: opacity .3s;
 }
 
-.kiss-breadcrumbs > *:not(.active):hover > * {
+.kiss-breadcrumbs > *:not(.active):hover > *  {
     opacity: 1;
     color: inherit;
 }
 
-.kiss-breadcrumbs > .active > * {
+.kiss-breadcrumbs > .active > *  {
     font-weight: bold;
 }
 
@@ -342,10 +345,7 @@ kiss-card[hover*="contrast"]:hover {
     cursor: pointer;
     color: var(--kiss-base-text-color);
 }
-
-.kiss-checkbox:focus {
-    outline: none;
-}
+.kiss-checkbox:focus { outline: none; }
 
 .kiss-checkbox:before {
     font-family: 'Material Icons Outlined';

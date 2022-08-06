@@ -7,10 +7,10 @@ use yxorP\app\lib\psr\http\message\streamInterface;
 
 class appendStream implements streamInterface
 {
-    private array $streams = [];
-    private bool $seekable = true;
-    private int $current = 0;
-    private int $pos = 0;
+    private $streams = [];
+    private $seekable = true;
+    private $current = 0;
+    private $pos = 0;
 
     public function __construct(array $streams = [])
     {
@@ -30,12 +30,12 @@ class appendStream implements streamInterface
         $this->streams[] = $stream;
     }
 
-    public function isReadable(): bool
+    public function isReadable()
     {
         return true;
     }
 
-    public function isSeekable(): bool
+    public function isSeekable()
     {
         return $this->seekable;
     }
@@ -55,7 +55,7 @@ class appendStream implements streamInterface
         $this->seek(0);
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET)
     {
         if (!$this->seekable) {
             throw new RuntimeException('This AppendStream is not seekable');
@@ -78,12 +78,12 @@ class appendStream implements streamInterface
         }
     }
 
-    public function eof(): bool
+    public function eof()
     {
         return !$this->streams || ($this->current >= count($this->streams) - 1 && $this->streams[$this->current]->eof());
     }
 
-    public function read(int $length): string
+    public function read($length)
     {
         $buffer = '';
         $total = count($this->streams) - 1;
@@ -109,7 +109,7 @@ class appendStream implements streamInterface
         return $buffer;
     }
 
-    public function getContents(): string
+    public function getContents()
     {
         return copy_to_string($this);
     }
@@ -134,12 +134,12 @@ class appendStream implements streamInterface
         $this->streams = [];
     }
 
-    public function tell(): int
+    public function tell()
     {
         return $this->pos;
     }
 
-    public function getSize(): ?int
+    public function getSize()
     {
         $size = 0;
         foreach ($this->streams as $stream) {
@@ -152,17 +152,17 @@ class appendStream implements streamInterface
         return $size;
     }
 
-    public function isWritable(): bool
+    public function isWritable()
     {
         return false;
     }
 
-    public function write(string $string): int
+    public function write($string)
     {
         throw new RuntimeException('Cannot write to an AppendStream');
     }
 
-    public function getMetadata(string $key = null): ?array
+    public function getMetadata($key = null)
     {
         return $key ? null : [];
     }

@@ -1,6 +1,7 @@
 <?php namespace yxorP\app\lib\proxy\promise;
 
 use ArrayIterator;
+use Exception;
 use Iterator;
 use Throwable;
 
@@ -15,7 +16,7 @@ function queue(taskQueueInterface $assign = null)
     return $queue;
 }
 
-function task(callable $task): promise
+function task(callable $task)
 {
     $queue = queue();
     $promise = new promise([$queue, 'run']);
@@ -29,7 +30,7 @@ function task(callable $task): promise
     return $promise;
 }
 
-function promise_for($value): promise|fulfilledPromise|promiseInterface
+function promise_for($value)
 {
     if ($value instanceof promiseInterface) {
         return $value;
@@ -44,7 +45,7 @@ function promise_for($value): promise|fulfilledPromise|promiseInterface
     return new fulfilledPromise($value);
 }
 
-function rejection_for($reason): promiseInterface|rejectedPromise
+function rejection_for($reason)
 {
     if ($reason instanceof promiseInterface) {
         return $reason;
@@ -52,12 +53,12 @@ function rejection_for($reason): promiseInterface|rejectedPromise
     return new rejectedPromise($reason);
 }
 
-function exception_for($reason): Throwable|aRejectionException
+function exception_for($reason)
 {
-    return $reason instanceof Throwable ? $reason : new aRejectionException($reason);
+    return $reason instanceof Exception || $reason instanceof Throwable ? $reason : new aRejectionException($reason);
 }
 
-function iter_for($value): Iterator|ArrayIterator
+function iter_for($value)
 {
     if ($value instanceof Iterator) {
         return $value;
@@ -68,7 +69,7 @@ function iter_for($value): Iterator|ArrayIterator
     }
 }
 
-function inspect(promiseInterface $promise): array
+function inspect(promiseInterface $promise)
 {
     try {
         return ['state' => promiseInterface::FULFILLED, 'value' => $promise->wait()];
@@ -79,7 +80,7 @@ function inspect(promiseInterface $promise): array
     }
 }
 
-function inspect_all($promises): array
+function inspect_all($promises)
 {
     $results = [];
     foreach ($promises as $key => $promise) {
@@ -88,7 +89,7 @@ function inspect_all($promises): array
     return $results;
 }
 
-function unwrap($promises): array
+function unwrap($promises)
 {
     $results = [];
     foreach ($promises as $key => $promise) {
@@ -170,22 +171,22 @@ function each_limit_all($iterable, $concurrency, callable $onFulfilled = null)
     });
 }
 
-function is_fulfilled(promiseInterface $promise): bool
+function is_fulfilled(promiseInterface $promise)
 {
     return $promise->getState() === promiseInterface::FULFILLED;
 }
 
-function is_rejected(promiseInterface $promise): bool
+function is_rejected(promiseInterface $promise)
 {
     return $promise->getState() === promiseInterface::REJECTED;
 }
 
-function is_settled(promiseInterface $promise): bool
+function is_settled(promiseInterface $promise)
 {
     return $promise->getState() !== promiseInterface::PENDING;
 }
 
-function coroutine(callable $generatorFn): coroutine
+function coroutine(callable $generatorFn)
 {
     return new coroutine($generatorFn);
 }

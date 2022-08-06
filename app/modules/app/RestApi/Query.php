@@ -1,35 +1,30 @@
 <?php
 
-namespace yxorP\app\modules\app\RestApi;
+namespace App\RestApi;
 
-use yxorP\app\lib\http\App;
-use yxorP\app\lib\http\appAware;
-use yxorP\app\lib\http\appAware;
-use function call_user_func;
-use function is_callable;
+use ArrayObject;
 
-/**
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- * @property App $app
- */
-class query extends appAware
-{
+class Query extends \Lime\AppAware {
 
     protected array $endpoints = [];
     protected bool $initialized = false;
 
-    public function process(string $path, string $method = 'GET', ?string $apiKey = null)
-    {
+    public function init() {
+
+        if ($this->initialized) return;
+
+        $this->app->trigger('restApi.config', [$this]);
+        $this->initialized = true;
+    }
+
+    public function process(string $path, string $method = 'GET', ?string $apiKey = null) {
 
         if (!$this->initialized) {
             $this->init();
         }
 
         $handler = false;
-        $params = [];
+        $params  = [];
         $idx = $method;
 
         foreach ($this->endpoints as $pattern => $endpoint) {
@@ -41,15 +36,19 @@ class query extends appAware
             }
         }
 
-        if ($handler && is_callable($handler)) return call_user_func($handler, $params, $this->app);
+        if ($handler && \is_callable($handler)) {
+            return \call_user_func($handler, $params, $this->app);
+        }
 
         // custom file based route
         // normalize path
-        if (str_contains($path, '../')) $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
+        if (strpos($path, '../') !== false) {
+            $path = implode('/', array_filter(explode('/', $path), fn($s) => trim($s, '.')));
+        }
 
-        if ($file = $this->app->path('#config:api/' . trim($path, '/') . '.php')) {
+        if ($file = $this->app->path('#config:api/'.trim($path, '/').'.php')) {
 
-            $handler = (function () use ($file) {
+            $handler = (function() use($file) {
                 return include($file);
             })->bindTo($this->app, $this->app);
 
@@ -59,21 +58,18 @@ class query extends appAware
         return false;
     }
 
-    public function init()
-    {
+    public function addEndPoint(string $path, array $methods = []) {
 
-        if ($this->initialized) return;
-
-        $this->app->trigger('restApi.config', [$this]);
-        $this->initialized = true;
+        $this->endpoints[$path] = $methods;
     }
 
-    protected function isPathMatching($path, $pattern, &$params = null): bool
-    {
+    protected function isPathMatching($path, $pattern, &$params = null) {
 
         $params = [];
 
-        if ($path === $pattern) return true;
+        if ($path == $pattern) {
+            return true;
+        }
 
         $regex = $this->getRegex($pattern);
 
@@ -91,8 +87,7 @@ class query extends appAware
         return false;
     }
 
-    protected function getRegex($pattern): bool|string
-    {
+    protected function getRegex($pattern) {
 
         if (preg_match('/[^-:\/_{}()a-zA-Z\d]/', $pattern)) return false; // Invalid pattern
 
@@ -109,18 +104,14 @@ class query extends appAware
 
         // Create capture group for '{parameter}'
         $pattern = preg_replace(
-            '/{(' . $allowedParamChars . ')}/',    # Replace "{parameter}"
+            '/{('. $allowedParamChars .')}/',    # Replace "{parameter}"
             '(?<$1>' . $allowedParamChars . ')', # with "(?<parameter>[a-zA-Z0-9\_\-]+)"
             $pattern
         );
 
         // Add start and end matching
-        return "@^" . $pattern . "$@D";
-    }
+        $patternAsRegex = "@^" . $pattern . "$@D";
 
-    public function addEndPoint(string $path, array $methods = [])
-    {
-
-        $this->endpoints[$path] = $methods;
+        return $patternAsRegex;
     }
 }

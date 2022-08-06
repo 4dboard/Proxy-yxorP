@@ -29,7 +29,7 @@ interface responseInterface extends messageInterface
      *
      * @return int Status code.
      */
-    public function getStatusCode(): int;
+    public function getStatusCode();
 
     /**
      * Return an instance with the specified status code and, optionally, reason phrase.
@@ -51,7 +51,7 @@ interface responseInterface extends messageInterface
      * @return static
      * @throws InvalidArgumentException For invalid status code arguments.
      */
-    public function withStatus(int $code, string $reasonPhrase = ''): static;
+    public function withStatus($code, $reasonPhrase = '');
 
     /**
      * Gets the response reason phrase associated with the status code.
@@ -66,5 +66,5 @@ interface responseInterface extends messageInterface
      * @link http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
      * @return string Reason phrase; must return an empty string if none present.
      */
-    public function getReasonPhrase(): string;
+    public function getReasonPhrase();
 }

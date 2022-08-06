@@ -10,11 +10,11 @@ final class easyHandle
 {
     public $handle;
     public $sink;
-    public array $headers = [];
+    public $headers = [];
     public $response;
     public $request;
-    public array $options = [];
-    public int $errno = 0;
+    public $options = [];
+    public $errno = 0;
     public $onHeadersException;
 
     public function createResponse()
@@ -38,7 +38,7 @@ final class easyHandle
                 }
             }
         }
-        $this->response = new response($startLine[1], $headers, $this->sink, substr($startLine[0], 5), $startLine[2] ?? null);
+        $this->response = new response($startLine[1], $headers, $this->sink, substr($startLine[0], 5), isset($startLine[2]) ? (string)$startLine[2] : null);
     }
 
     public function __get($name)

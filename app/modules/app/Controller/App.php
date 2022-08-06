@@ -1,19 +1,16 @@
 <?php
 
-namespace yxorP\app\modules\app\controller;
+namespace App\Controller;
 
 /**
  * Class Controller
- * @property \yxorP\app\lib\http\App $app
  * @package App
  */
-class app extends authenticated
-{
+class App extends Authenticated {
 
-    protected bool $layout = 'app:layouts/app.php';
+    protected $layout = 'app:layouts/app.php';
 
-    protected function render(string $view, array $params = []): mixed
-    {
+    protected function render(string $view, array $params = []): mixed {
 
         $this->app->trigger('app.layout.render');
 

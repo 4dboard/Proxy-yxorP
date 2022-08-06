@@ -2,15 +2,14 @@
 
 use yxorP\app\lib\psr\http\message\requestInterface;
 use yxorP\app\lib\psr\http\message\responseInterface;
-use yxorP\app\lib\psr\http\message\uriInterface;
 
 final class transferStats
 {
-    private requestInterface $request;
-    private ?responseInterface $response;
-    private mixed $transferTime;
-    private array $handlerStats;
-    private mixed $handlerErrorData;
+    private $request;
+    private $response;
+    private $transferTime;
+    private $handlerStats;
+    private $handlerErrorData;
 
     public function __construct(requestInterface $request, responseInterface $response = null, $transferTime = null, $handlerErrorData = null, $handlerStats = [])
     {
@@ -21,17 +20,17 @@ final class transferStats
         $this->handlerStats = $handlerStats;
     }
 
-    public function getRequest(): requestInterface
+    public function getRequest()
     {
         return $this->request;
     }
 
-    public function getResponse(): ?responseInterface
+    public function getResponse()
     {
         return $this->response;
     }
 
-    public function hasResponse(): bool
+    public function hasResponse()
     {
         return $this->response !== null;
     }
@@ -41,7 +40,7 @@ final class transferStats
         return $this->handlerErrorData;
     }
 
-    public function getEffectiveUri(): uriInterface
+    public function getEffectiveUri()
     {
         return $this->request->getUri();
     }
@@ -51,13 +50,13 @@ final class transferStats
         return $this->transferTime;
     }
 
-    public function getHandlerStats(): array
+    public function getHandlerStats()
     {
         return $this->handlerStats;
     }
 
     public function getHandlerStat($stat)
     {
-        return $this->handlerStats[$stat] ?? null;
+        return isset($this->handlerStats[$stat]) ? $this->handlerStats[$stat] : null;
     }
 }

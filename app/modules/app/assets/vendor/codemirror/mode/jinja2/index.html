@@ -2,39 +2,36 @@
 
 <title>CodeMirror: Jinja2 mode</title>
 <meta charset="utf-8"/>
-<link href="../../doc/docs.css" rel=stylesheet>
+<link rel=stylesheet href="../../doc/docs.css">
 
-<link href="../../lib/codemirror.css" rel="stylesheet">
+<link rel="stylesheet" href="../../lib/codemirror.css">
 <script src="../../lib/codemirror.js"></script>
 <script src="jinja2.js"></script>
-<style>.CodeMirror {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}</style>
+<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
 <div id=nav>
-    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
+  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
 
-    <ul>
-        <li><a href="../../index.html">Home</a>
-        <li><a href="../../doc/manual.html">Manual</a>
-        <li><a href="https://github.com/codemirror/codemirror">Code</a>
-    </ul>
-    <ul>
-        <li><a href="../index.html">Language modes</a>
-        <li><a class=active href="#">Jinja2</a>
-    </ul>
+  <ul>
+    <li><a href="../../index.html">Home</a>
+    <li><a href="../../doc/manual.html">Manual</a>
+    <li><a href="https://github.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.html">Language modes</a>
+    <li><a class=active href="#">Jinja2</a>
+  </ul>
 </div>
 
 <article>
-    <h2>Jinja2 mode</h2>
-    <form><label for="code"></label><textarea id="code" name="code">
+<h2>Jinja2 mode</h2>
+<form><textarea id="code" name="code">
 {# this is a comment #}
 {%- for item in li -%}
   &lt;li&gt;{{ item.label }}&lt;/li&gt;
 {% endfor -%}
-{{ item.sand === true and item.keyword === false ? 1 : 0 }}
+{{ item.sand == true and item.keyword == false ? 1 : 0 }}
 {{ app.get(55, 1.2, true) }}
-{% if app.get(&#39;_route&#39;) === (&#39;_home&#39;) %}home{% endif %}
+{% if app.get(&#39;_route&#39;) == (&#39;_home&#39;) %}home{% endif %}
 {% if app.session.flashbag.has(&#39;message&#39;) %}
   {% for message in app.session.flashbag.get(&#39;message&#39;) %}
     {{ message.content }}
@@ -50,10 +47,8 @@
 {% include (&#39;test.incl.html.twig&#39;) %}
 </textarea></form>
     <script>
-        const editor =
-            CodeMirror.fromTextArea(document.getElementById("code"), {
-                mode:
-                    {name: "jinja2", htmlMode: true}
-            });
+      var editor =
+      CodeMirror.fromTextArea(document.getElementById("code"), {mode:
+        {name: "jinja2", htmlMode: true}});
     </script>
-</article>
+  </article>

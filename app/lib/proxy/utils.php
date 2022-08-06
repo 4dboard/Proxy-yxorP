@@ -10,19 +10,19 @@ use function preg_match;
 
 final class utils
 {
-    public static function currentTime(): float
+    public static function currentTime()
     {
         return function_exists('hrtime') ? hrtime(true) / 1e9 : microtime(true);
     }
 
-    public static function idnUriConvert(uriInterface $uri, $options = 0): uriInterface
+    public static function idnUriConvert(uriInterface $uri, $options = 0)
     {
         if ($uri->getHost()) {
             $asciiHost = self::idnToAsci($uri->getHost(), $options, $info);
             if ($asciiHost === false) {
-                $errorBitSet = $info['errors'] ?? 0;
+                $errorBitSet = isset($info['errors']) ? $info['errors'] : 0;
                 $errorConstants = array_filter(array_keys(get_defined_constants()), function ($name) {
-                    return str_starts_with($name, 'IDNA_ERROR_');
+                    return substr($name, 0, 11) === 'IDNA_ERROR_';
                 });
                 $errors = [];
                 foreach ($errorConstants as $errorConstant) {

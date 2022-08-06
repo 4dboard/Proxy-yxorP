@@ -1,54 +1,58 @@
 <?php
 
-namespace yxorP\app\modules\app\helper;
+namespace App\Helper;
 
-use yxorP\app\lib\data\graphQL\Server\Helper;
 use SplPriorityQueue;
-use yxorP\app\lib\http\helperAware;
 
-
-class menus extends helperAware
-{
+class Menus extends \Lime\Helper {
 
     protected array $menus = [];
 
-    public function addLink(string $menu, array $link): void
-    {
+    public function addLink(string $menu, array $link): void {
 
-        if (!isset($this->menus[$menu])) $this->menus[$menu] = [];
+        if (!isset($this->menus[$menu])) {
+            $this->menus[$menu] = [];
+        }
 
         $link = array_merge([
-            'label' => '',
-            'icon' => 'cube',
-            'route' => '/',
+            'label'  => '',
+            'icon'   => 'cube',
+            'route'  => '/',
             'active' => true,
-            'group' => '',
-            'prio' => 0
+            'group'  => '',
+            'prio'   => 0
         ], $link);
 
-        if ($link['group'] && !$link['prio']) $link['prio'] = 1;
+        if ($link['group'] && !$link['prio']) {
+            $link['prio'] = 1;
+        }
 
         $this->menus[$menu][] = $link;
     }
 
-    public function menu(string $name, bool $grouped = false): array
-    {
+    public function menu(string $name, bool $grouped = false): array {
 
-        if (!isset($this->menus[$name]) || !count($this->menus[$name])) return [];
+        if (!isset($this->menus[$name]) || !count($this->menus[$name])) {
+            return [];
+        }
 
         $groups = [];
         $links = $this->menus[$name];
         $queue = new SplPriorityQueue();
-        $list = [];
+        $list  = [];
 
-        foreach ($links as $index => $link) $queue->insert($index, $link['prio']);
+        foreach ($links as $index => $link){
+            $queue->insert($index, $link['prio']);
+        }
 
-        while ($queue->valid()) {
+        while ($queue->valid()){
 
             $link = $links[$queue->current()];
             $list[] = $link;
 
-            if (!isset($groups[$link['group']])) $groups[$link['group']] = [];
+            if (!isset($groups[$link['group']])) {
+                $groups[$link['group']] = [];
+            }
 
             $groups[$link['group']][] = $link;
 

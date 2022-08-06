@@ -2,14 +2,13 @@
 
 namespace Content\Controller;
 
-use yxorP\app\modules\app\controller\app;
+use App\Controller\App;
+use ArrayObject;
 
-class singleton extends app
-{
+class Singleton extends App {
 
 
-    public function item($model = null)
-    {
+    public function item($model = null) {
 
         if (!$model) {
             return false;
@@ -33,7 +32,7 @@ class singleton extends app
 
         $locales = $this->helper('locales')->locales();
 
-        if (count($locales) === 1) {
+        if (count($locales) == 1) {
             $locales = [];
         } else {
             $locales[0]['visible'] = true;

@@ -1,34 +1,24 @@
 <?php
 
-namespace yxorP\app\modules\system\controller\users;
+namespace System\Controller\Users;
 
+use App\Controller\App;
 use ArrayObject;
-use yxorP\app\modules\app\controller\app;
-use function is_array;
-use function strtolower;
 
-/**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class roles extends app
-{
+class Roles extends App {
 
-    public function index()
-    {
+    protected function before() {
+
+        if (!$this->isAllowed('app/roles/manage')) {
+            $this->stop(401);
+        }
+    }
+
+    public function index() {
         return $this->render('system:views/users/roles/index.php');
     }
 
-    public function role($id = null)
-    {
+    public function role($id = null) {
 
         if (!$id) {
             return $this->stop(['error' => 'Role id is missing'], 412);
@@ -47,21 +37,19 @@ class roles extends app
         return $this->render('system:views/users/roles/role.php', compact('role'));
     }
 
-    public function create()
-    {
+    public function create() {
 
         $role = [
             'appid' => '',
-            'name' => '',
-            'info' => '',
+            'name'  => '',
+            'info'  => '',
             'permissions' => new ArrayObject([])
         ];
 
         return $this->render('system:views/users/roles/role.php', compact('role'));
     }
 
-    public function remove()
-    {
+    public function remove() {
 
         $role = $this->param('role');
 
@@ -77,13 +65,7 @@ class roles extends app
         return ['success' => true];
     }
 
-    protected function cache()
-    {
-        $this->helper('acl')->cache();
-    }
-
-    public function save()
-    {
+    public function save() {
 
         $role = $this->param('role');
 
@@ -95,7 +77,7 @@ class roles extends app
         $isUpdate = isset($role['_id']);
 
         if (!$isUpdate) {
-            $role['appid'] = strtolower($role['appid']);
+            $role['appid'] = \strtolower($role['appid']);
             $role['_created'] = $role['_modified'];
         }
 
@@ -116,12 +98,12 @@ class roles extends app
         }
 
         // admin role is protected (superadmin)
-        if ($role['appid'] === 'admin') {
+        if ($role['appid'] == 'admin') {
             return $this->app->stop(['error' => 'appid is already used!'], 412);
         }
 
         // cleanup permissions
-        if (isset($role['permissions']) && is_array($role['permissions'])) {
+        if (isset($role['permissions']) && \is_array($role['permissions'])) {
 
             foreach ($role['permissions'] as $key => $value) {
                 if (!$value) unset($role['permissions'][$key]);
@@ -136,29 +118,27 @@ class roles extends app
 
         $role = $this->app->dataStorage->findOne('system/roles', ['_id' => $role['_id']]);
 
-        $role['permissions'] = new ArrayObject($role['permissions']);
+        $role['permissions'] = new ArrayObject( $role['permissions']);
 
         $this->cache();
 
         return $role;
     }
 
-    public function load()
-    {
+
+    public function load() {
 
         $this->helper('session')->close();
 
-        return $this->app->dataStorage->find('system/roles', [
+        $roles = $this->app->dataStorage->find('system/roles', [
             'sort' => ['name' => 1]
         ])->toArray();
+
+        return $roles;
     }
 
-    protected function before()
-    {
-
-        if (!$this->isAllowed('app/roles/manage')) {
-            $this->stop(401);
-        }
+    protected function cache() {
+        $this->helper('acl')->cache();
     }
 
 }

@@ -1,40 +1,14 @@
 <?php
 
-namespace yxorP\app\modules\app\helper;
+namespace App\Helper;
 
-use Exception;
-use yxorP\app\lib\http\helperAware;
+class Csrf extends \Lime\Helper {
 
-
-/**
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- */
-class csrf extends helperAware
-{
-
-    public function token(string $key, bool $generate = false, ?int $expire = null): string
-    {
-
-        $token = $this->app->helper('session')->read("app.csrf.token.{$key}", null);
-
-        if (!$token || $generate) {
-            $token = $this->generateToken($key, $expire);
-        }
-
-        return $token;
-    }
-
-    public function generateToken(string $key, ?int $expire = null): string
-    {
+    public function generateToken(string $key, ?int $expire = null): string {
 
         $payload = ['csrf' => $key];
 
-        if ($expire) {
+        if ($expire && is_numeric($expire)) {
             $payload['exp'] = $expire;
         }
 
@@ -45,8 +19,18 @@ class csrf extends helperAware
         return $token;
     }
 
-    public function isValid(string $key, string $token, bool $checkpayload = false): bool
-    {
+    public function token(string $key, bool $generate = false, ?int $expire = null): string {
+
+        $token = $this->app->helper('session')->read("app.csrf.token.{$key}", null);
+
+        if (!$token || $generate) {
+            $token = $this->generateToken($key, $expire);
+        }
+
+        return $token;
+    }
+
+    public function isValid(string $key, string $token, bool $checkpayload = false): bool {
 
         if (!$token) {
             return false;
@@ -55,8 +39,8 @@ class csrf extends helperAware
         if ($checkpayload) {
             try {
                 $payload = $this->app->helper('jwt')->decode($token);
-                return isset($payload->csrf) && $payload->csrf === $key;
-            } catch (Exception $e) {
+                return isset($payload->csrf) && $payload->csrf == $key;
+            } catch(\Exception $e) {
                 return false;
             }
         }
@@ -69,7 +53,7 @@ class csrf extends helperAware
 
         try {
             $token = $this->app->helper('jwt')->decode($token);
-        } catch (Exception $e) {
+        } catch(\Exception $e) {
             return false;
         }
 

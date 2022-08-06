@@ -16,7 +16,7 @@ class inflateStream implements streamInterface
         $this->stream = $stream->isSeekable() ? new stream($resource) : new noSeekStream(new stream($resource));
     }
 
-    private function getLengthOfPossibleFilenameHeader(streamInterface $stream, $header): int
+    private function getLengthOfPossibleFilenameHeader(streamInterface $stream, $header)
     {
         $filename_header_length = 0;
         if (substr(bin2hex($header), 6, 2) === '08') {

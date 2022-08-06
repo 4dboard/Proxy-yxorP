@@ -1,8 +1,8 @@
 <?php
 
-namespace yxorP\app\modules\app\helper;
+namespace App\Helper;
 
-use yxorP\app\lib\http\helperAware;
+use Lime\Helper;
 use function exec;
 use function explode;
 use function fclose;
@@ -31,24 +31,17 @@ use function var_export;
  *
  * Usage:
  *
- * Cockpit::instance()->helper('async')->exec('
+ * yxorP::instance()->helper('async')->exec('
  *    sleep(10);
- *    file_put_contents(COCKPIT_DIR."/debug.txt", $test);
+ *    file_put_contents(yxorP_DIR."/debug.txt", $test);
  * ', ['test' => 222]);
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
- * @property \yxorP\app\lib\http\App $app
  */
-class async extends helperAware
+class Async extends Helper
 {
 
     public $phpPath = null;
 
-    public function exec($script, $params = [], $maxTime = 60): string
+    public function exec($script, $params = [], $maxTime = 60)
     {
 
         $processId = uniqid('worker') . '-' . (time() + $maxTime);
@@ -64,7 +57,7 @@ class async extends helperAware
             $script = "<?php " . $script;
         }
 
-        $appDir = SITE_DIR;
+        $appDir = APP_DIR;
         $envDir = rtrim($this->app->path('#root:'), '/');
         $script = "<?php
 
@@ -72,15 +65,15 @@ if (isset(\$_GET['async'])) {
     \session_write_close();
 }
 
-// include cockpit
+// include yxorP
 include('{$appDir}/bootstrap.php');
 
-function Cockpit() {
+function yxorP() {
 
     static \$instance;
 
     if (!isset(\$instance)) {
-        \$instance = Cockpit::instance('{$envDir}');
+        \$instance = yxorP::instance('{$envDir}');
     }
 
     return \$instance;
@@ -111,7 +104,7 @@ unlink(__FILE__);
             // fire and forget calling script
             $url = $this->app->pathToUrl($scriptfile, true) . '?async=true';
             $parts = parse_url($url);
-            $fp = fsockopen($parts['host'], $parts['port'] ?? 80, $errno, $errstr, 30);
+            $fp = fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
 
             if ($fp) {
                 $out = "POST " . $parts['path'] . " HTTP/1.1\r\n";
@@ -129,14 +122,14 @@ unlink(__FILE__);
 
         $cmd = $this->phpPath . " -f $scriptfile";
 
-        if (str_starts_with(php_uname(), "Windows")) {
+        if (substr(php_uname(), 0, 7) == "Windows") {
             pclose(popen("start /B " . $cmd, "r"));
         } else {
             exec($cmd . " > /dev/null &");
         }
     }
 
-    protected function isExecAvailable(): bool
+    protected function isExecAvailable()
     {
 
         if (!$this->phpPath || in_array(strtolower(ini_get('safe_mode')), ['on', '1'], true) || (!function_exists('exec'))) {
@@ -148,7 +141,7 @@ unlink(__FILE__);
         return !in_array('exec', $disabled_functions) && strlen(trim(exec($this->phpPath . ' -v')));
     }
 
-    public function finished($processId, &$error = null): bool
+    public function finished($processId, &$error = null)
     {
 
         $processId = str_replace('..', '', $processId);
@@ -171,7 +164,7 @@ unlink(__FILE__);
         return true;
     }
 
-    public function possible(): bool
+    public function possible()
     {
         return $this->isExecAvailable() || function_exists('fsockopen');
     }

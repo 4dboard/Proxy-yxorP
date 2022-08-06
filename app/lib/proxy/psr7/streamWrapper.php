@@ -9,7 +9,7 @@ class streamWrapper
     private $stream;
     private $mode;
 
-    public static function getResource(streamInterface $stream): bool
+    public static function getResource(streamInterface $stream)
     {
         self::register();
         if ($stream->isReadable()) {
@@ -34,7 +34,7 @@ class streamWrapper
         return stream_context_create(['proxy' => ['stream' => $stream]]);
     }
 
-    public function stream_open($path, $mode, $options, &$opened_path): bool
+    public function stream_open($path, $mode, $options, &$opened_path)
     {
         $options = stream_context_get_options($this->context);
         if (!isset($options['proxy']['stream'])) {
@@ -50,7 +50,7 @@ class streamWrapper
         return $this->stream->read($count);
     }
 
-    public function stream_write($data): int
+    public function stream_write($data)
     {
         return (int)$this->stream->write($data);
     }
@@ -65,7 +65,7 @@ class streamWrapper
         return $this->stream->eof();
     }
 
-    public function stream_seek($offset, $whence): bool
+    public function stream_seek($offset, $whence)
     {
         $this->stream->seek($offset, $whence);
         return true;
@@ -77,13 +77,13 @@ class streamWrapper
         return $stream->detach();
     }
 
-    public function stream_stat(): array
+    public function stream_stat()
     {
         static $modeMap = ['r' => 33060, 'rb' => 33060, 'r+' => 33206, 'w' => 33188, 'wb' => 33188];
         return ['dev' => 0, 'ino' => 0, 'mode' => $modeMap[$this->mode], 'nlink' => 0, 'uid' => 0, 'gid' => 0, 'rdev' => 0, 'size' => $this->stream->getSize() ?: 0, 'atime' => 0, 'mtime' => 0, 'ctime' => 0, 'blksize' => 0, 'blocks' => 0];
     }
 
-    public function url_stat($path, $flags): array
+    public function url_stat($path, $flags)
     {
         return ['dev' => 0, 'ino' => 0, 'mode' => 0, 'nlink' => 0, 'uid' => 0, 'gid' => 0, 'rdev' => 0, 'size' => 0, 'atime' => 0, 'mtime' => 0, 'ctime' => 0, 'blksize' => 0, 'blocks' => 0];
     }

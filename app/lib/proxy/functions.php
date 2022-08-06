@@ -1,6 +1,5 @@
 <?php namespace yxorP\app\lib\proxy;
 
-use Closure;
 use InvalidArgumentException;
 use RuntimeException;
 use yxorP\app\lib\proxy\handler\curlHandler;
@@ -21,7 +20,7 @@ function uri_template($template, array $variables)
     return $uriTemplate->expand($template, $variables);
 }
 
-function describe_type($input): array|string
+function describe_type($input)
 {
     switch (gettype($input)) {
         case 'object':
@@ -35,7 +34,7 @@ function describe_type($input): array|string
     }
 }
 
-function headers_from_lines($lines): array
+function headers_from_lines($lines)
 {
     $headers = [];
     foreach ($lines as $line) {
@@ -45,7 +44,7 @@ function headers_from_lines($lines): array
     return $headers;
 }
 
-function debug_resource($value = null): resource
+function debug_resource($value = null)
 {
     if (is_resource($value)) {
         return $value;
@@ -55,7 +54,7 @@ function debug_resource($value = null): resource
     return fopen('php://output', 'w');
 }
 
-function choose_handler(): streamHandler|curlHandler|curlMultiHandler|Closure
+function choose_handler()
 {
     $handler = null;
     if (function_exists('curl_multi_exec') && function_exists('curl_exec')) {
@@ -73,11 +72,11 @@ function choose_handler(): streamHandler|curlHandler|curlMultiHandler|Closure
     return $handler;
 }
 
-function default_user_agent(): string
+function default_user_agent()
 {
     static $defaultAgent = '';
     if (!$defaultAgent) {
-        $defaultAgent = 'ProxyHttp/' . clientInterface::VERSION;
+        $defaultAgent = 'ProxyHttp/' . client::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }
@@ -107,7 +106,7 @@ function default_ca_bundle()
     throw new RuntimeException();
 }
 
-function normalize_header_keys(array $headers): array
+function normalize_header_keys(array $headers)
 {
     $result = [];
     foreach (array_keys($headers) as $key) {
@@ -116,7 +115,7 @@ function normalize_header_keys(array $headers): array
     return $result;
 }
 
-function is_host_in_noproxy($host, array $noProxyArray): bool
+function is_host_in_noproxy($host, array $noProxyArray)
 {
     if (strlen($host) === 0) {
         throw new InvalidArgumentException('Empty host provided');
@@ -148,7 +147,7 @@ function json_decode($json, $assoc = false, $depth = 512, $options = 0)
     return $data;
 }
 
-function json_encode($value, $options = 0, $depth = 512): bool|string
+function json_encode($value, $options = 0, $depth = 512)
 {
     $json = \json_encode($value, $options, $depth);
     if (JSON_ERROR_NONE !== json_last_error()) throw new Exception\invalidArgumentException('json_encode error: ' . json_last_error_msg());

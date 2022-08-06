@@ -1,30 +1,17 @@
 <?php
 
-namespace yxorP\app\modules\app\controller;
+namespace App\Controller;
 
-use ArrayObject;
-use Exception;
-use JetBrains\PhpStorm\ArrayShape;
+class Utils extends App {
 
-/**
- * @property \yxorP\app\lib\http\App $app
- */
-class utils extends app
-{
-
-    /**
-     * @throws Exception
-     */
-    #[ArrayShape(['token' => "string"])] public function generateToken($length = 20): array
-    {
+    public function generateToken($length = 20) {
 
         $this->helper('session')->close();
 
         return ['token' => bin2hex(random_bytes($length))];
     }
 
-    public function csrf($name = null, $generate = false, $expire = null): bool|array
-    {
+    public function csrf($name = null, $generate = false, $expire = null) {
 
         if (!$name) {
             return false;
@@ -33,12 +20,11 @@ class utils extends app
         return ['token' => $this->helper('csrf')->token($name, $generate, $expire)];
     }
 
-    public function search(): array
-    {
+    public function search() {
 
         $this->helper('session')->close();
 
-        $findings = new ArrayObject([]);
+        $findings = new \ArrayObject([]);
         $search = $this->param('search');
 
         if ($search) {

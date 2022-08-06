@@ -1,11 +1,12 @@
+
 let instanceCount = 0;
 
-let ready = new Promise(function (resolve) {
+let ready = new Promise(function(resolve) {
 
     App.assets.require([
         'app:assets/vendor/choices/choices.js',
         'app:assets/vendor/choices/choices.css',
-    ], function () {
+    ], function() {
         resolve(window.Choices);
     });
 });
@@ -23,13 +24,13 @@ export default {
         ],
         render(value, field, context) {
 
-            if (typeof (value) === 'object') {
+            if (typeof(value) === 'object') {
                 value = JSON.stringify(value);
             } else {
                 value = '';
             }
 
-            return context === 'table-cell' && value.length > 100 ? App.utils.truncate(value, 100) : value;
+            return context == 'table-cell' && value.length > 100 ? App.utils.truncate(value, 100) : value;
         }
     },
 
@@ -66,7 +67,7 @@ export default {
             if (Array.isArray(this.list) && this.list.length) {
 
                 this.options = this.list.map((item, idx) => {
-                    return {id: idx, value: item}
+                    return { id: idx, value: item}
                 });
             }
 
@@ -76,7 +77,7 @@ export default {
                 paste: false,
                 duplicateItemsAllowed: false,
                 maxItemCount: this.max || -1,
-                placeholder: this.placeholder,
+                placeholder: this.placeholder ? true : false,
                 placeholderValue: this.placeholder || '',
                 removeItemButton: true,
                 searchResultLimit: 8,
@@ -108,7 +109,9 @@ export default {
         }
     },
 
-    computed: {},
+    computed: {
+
+    },
 
     methods: {
 
