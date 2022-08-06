@@ -808,8 +808,6 @@ us.
 | [`onSentAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onSentAction.md) | Extending the `wrapper` class, which is a class that is used to wrap the `event` class.|
 | [`onWriteAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/onWriteAction.md) | Importing the `response` class from the `http` namespace.|
 
-
-
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179353295-c5b6f399-2624-4c9e-98a2-6f54869bde2b.png)
