@@ -1,12 +1,12 @@
 ***
 
-# system
+# System
 
 
 
 
 
-* Full name: `\System\Helper\system`
+* Full name: `\System\Helper\System`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

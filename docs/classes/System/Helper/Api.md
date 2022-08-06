@@ -1,12 +1,12 @@
 ***
 
-# api
+# Api
 
 
 
 
 
-* Full name: `\System\Helper\api`
+* Full name: `\System\Helper\Api`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 
@@ -31,6 +31,26 @@ protected array $keys
 
 ## Methods
 
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### getKey
 
@@ -98,26 +118,6 @@ public cache(bool $persistent = true): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
 
 
 

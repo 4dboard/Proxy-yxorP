@@ -1,19 +1,39 @@
 ***
 
-# api
+# Api
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\api`
-* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
+* Full name: `\System\Controller\Api`
+* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
 
 
 
 
 ## Methods
 
+
+### before
+
+
+
+```php
+protected before(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### index
 
@@ -241,26 +261,6 @@ protected cache(): mixed
 
 ***
 
-### before
-
-
-
-```php
-protected before(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 
 ## Inherited methods
 
@@ -286,32 +286,6 @@ protected render( $view, array $params = []): mixed
 |-----------|------|-------------|
 | `$view` | **** |  |
 | `$params` | **array** |  |
-
-
-
-
-***
-
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
 
 
 
@@ -370,6 +344,32 @@ protected isAllowed(string $permission): bool
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
+### unlockResource
+
+
+
+```php
+public unlockResource(mixed $resourceId): mixed
 ```
 
 

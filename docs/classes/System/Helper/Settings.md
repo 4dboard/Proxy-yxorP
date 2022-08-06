@@ -1,12 +1,12 @@
 ***
 
-# settings
+# Settings
 
 
 
 
 
-* Full name: `\System\Helper\settings`
+* Full name: `\System\Helper\Settings`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 

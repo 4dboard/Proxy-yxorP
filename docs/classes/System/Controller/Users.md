@@ -1,19 +1,39 @@
 ***
 
-# users
+# Users
 
 Class Controller
 
 
 
-* Full name: `\System\Controller\users`
-* Parent class: [`\App\Controller\app`](../../App/Controller/app.md)
+* Full name: `\System\Controller\Users`
+* Parent class: [`\App\Controller\App`](../../App/Controller/App.md)
 
 
 
 
 ## Methods
 
+
+### before
+
+
+
+```php
+protected before(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### index
 
@@ -168,26 +188,6 @@ public getSecretQRCode(mixed $secret = null, mixed $size = 150): mixed
 
 ***
 
-### before
-
-
-
-```php
-protected before(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### geti18n
 
 
@@ -233,32 +233,6 @@ protected render( $view, array $params = []): mixed
 |-----------|------|-------------|
 | `$view` | **** |  |
 | `$params` | **array** |  |
-
-
-
-
-***
-
-### unlockResource
-
-
-
-```php
-public unlockResource(mixed $resourceId): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$resourceId` | **mixed** |  |
 
 
 
@@ -317,6 +291,32 @@ protected isAllowed(string $permission): bool
 
 ```php
 protected checkAndLockResource(mixed $resourceId): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$resourceId` | **mixed** |  |
+
+
+
+
+***
+
+### unlockResource
+
+
+
+```php
+public unlockResource(mixed $resourceId): mixed
 ```
 
 

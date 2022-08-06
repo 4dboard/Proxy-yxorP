@@ -1,12 +1,12 @@
 ***
 
-# locales
+# Locales
 
 
 
 
 
-* Full name: `\System\Helper\locales`
+* Full name: `\System\Helper\Locales`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
 
@@ -31,6 +31,26 @@ protected array $locales
 
 ## Methods
 
+
+### initialize
+
+
+
+```php
+protected initialize(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
 
 ### locales
 
@@ -105,26 +125,6 @@ public cache(bool $persistent = true): array
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
-
-
-
-
-***
-
-### initialize
-
-
-
-```php
-protected initialize(): mixed
-```
-
-
-
-
-
-
-
 
 
 

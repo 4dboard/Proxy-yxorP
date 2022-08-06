@@ -23,7 +23,7 @@
 
 
 ```php
-public send(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options = []): mixed
+public send(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
 ```
 
 
@@ -37,7 +37,7 @@ public send(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $op
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
@@ -50,7 +50,7 @@ public send(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $op
 
 
 ```php
-public sendAsync(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, array $options = []): mixed
+public sendAsync(\yxorP\app\lib\psr\http\message\requestInterface $request, array $options = []): mixed
 ```
 
 
@@ -64,7 +64,7 @@ public sendAsync(\yxorP\app\lib\Psr\Http\Message\RequestInterface $request, arra
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$request` | **\yxorP\app\lib\Psr\Http\Message\RequestInterface** |  |
+| `$request` | **\yxorP\app\lib\psr\http\message\requestInterface** |  |
 | `$options` | **array** |  |
 
 
