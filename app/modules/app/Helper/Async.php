@@ -8,9 +8,9 @@ namespace App\Helper;
  *
  * Usage:
  *
- * yxorP::instance()->helper('async')->exec('
+ * Cockpit::instance()->helper('async')->exec('
  *    sleep(10);
- *    file_put_contents(yxorP_DIR."/debug.txt", $test);
+ *    file_put_contents(COCKPIT_DIR."/debug.txt", $test);
  * ', ['test' => 222]);
  */
 
@@ -46,15 +46,15 @@ if (isset(\$_GET['async'])) {
     \session_write_close();
 }
 
-// include yxorP
+// include cockpit
 include('{$appDir}/bootstrap.php');
 
-function yxorP() {
+function Cockpit() {
 
     static \$instance;
 
     if (!isset(\$instance)) {
-        \$instance = yxorP::instance('{$envDir}');
+        \$instance = Cockpit::instance('{$envDir}');
     }
 
     return \$instance;

@@ -55,7 +55,7 @@ if (PHP_SAPI == 'cli-server') {
     $APP_ROUTE       = preg_replace('#'.preg_quote($APP_BASE_URL, '#').'#', '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), 1);
 }
 
-// support /:myenv/* to load custom yxorP instance from /.envs/*
+// support /:myenv/* to load custom cockpit instance from /.envs/*
 if ($APP_ROUTE && substr($APP_ROUTE, 0, 2) == '/:') {
 
     $parts  = explode('/', $APP_ROUTE);
@@ -78,7 +78,7 @@ define('APP_DOCUMENT_ROOT', $APP_DOCUMENT_ROOT);
 define('APP_BASE_URL', $APP_BASE_URL);
 define('APP_API_REQUEST', strpos($APP_ROUTE, '/api/') === 0 ? 1:0);
 
-$app = yxorP::instance($APP_SPACE_DIR, [
+$app = Cockpit::instance($APP_SPACE_DIR, [
     'base_route' => $APP_BASE_ROUTE,
     'base_url' => $APP_BASE_URL
 ]);
