@@ -772,10 +772,6 @@ us.
 #### Classes
 
 | Class | Description |
-
-|-------|-------------|
-
-| Class | Description |
 |-------|-------------|
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
 | [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | |
