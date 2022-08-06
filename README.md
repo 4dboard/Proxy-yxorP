@@ -769,7 +769,6 @@ us.
 
 ![image](https://user-images.githubusercontent.com/6468571/179241342-da132147-a8fa-4d44-9131-7fcb1d873b57.png)
 
-
 | Class | Description |
 |-------|-------------|
 | [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
