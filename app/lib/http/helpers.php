@@ -330,11 +330,10 @@ class helpers
      */
     public static function define(?array $request): void
     {
-
-        /**
-         * Requiring the APP library.
-         */
-        require PATH_SITE_BOOTSTRAP;
+        date_default_timezone_set('UTC');
+        define('APP_START_TIME', microtime(true));
+        define('APP_ADMIN', true);
+        require(PATH_SITE_BOOTSTRAP);
         /**
          * Storing the app object in the cache store.
          */
