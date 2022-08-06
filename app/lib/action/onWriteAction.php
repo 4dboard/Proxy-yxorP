@@ -37,10 +37,7 @@ class onWriteAction extends wrapper
             if (store::handler(TARGET_LINK_VISITED)) $css[] = ['a:visited' => 'color:' . store::handler(TARGET_LINK_VISITED)];
             /* Adding a CSS rule to the `$css` array. */
             if (store::handler(TARGET_LINK)) $css[] = ['a' => 'color:' . store::handler(TARGET_LINK)];
-            /* Adding a CSS rule to the `$css` array. */
-            if (store::handler(TARGET_MENU)) $css[] = ['nav' => 'display:none'];
-            /* Adding a CSS rule to the `$css` array. */
-            if (store::handler(TARGET_HEAD)) $css[] = ['header' => 'display:none'];
+            
             /* Checking if the `TARGET_BG_COLOR` variable is set and if it is, it is adding a CSS rule to the `$css` array. */
             if (store::handler(TARGET_BG_COLOR)) $css[] = ['body' => 'background-color:' . store::handler(TARGET_BG_COLOR) . ''];
             /* Adding a CSS rule to the `$css` array. */
