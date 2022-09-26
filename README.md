@@ -218,11 +218,25 @@ docker run
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
-Create a duplicate of the  "example.env" file and save it as ".env"
+> 🔥   Requires: PHP Extensions GD + OpenSSL + Curl + Fileinfo + Intl + Pdo_sqlite
+
+Add the following lines to the conclusion of your "php.ini" file to activate the necessary PHP extensions; they should be active by default, but you may need to activate them if the application is not functioning as expected. Even though this allows the required PHP extension, you should still validate your PHP version (8.1 is recommended):
+
+```
+extension=curl
+extension=fileinfo
+extension=gd
+extension=intl
+extension=mysqli
+extension=openssl
+extension=pdo_sqlite
+```
+
+Create a duplicate of the  "env.example" file and save it as ".env"
 
 ```
 
-cp ./example.env ./.env 
+cp ./env.example ./.env 
 
 ```
 
