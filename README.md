@@ -106,6 +106,41 @@ non-blocking I/O." This is evident from the description.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
+![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
+
+> ⚠️Requires: Minimum requirement is PHP version 8.0 +\
+> 🔥   GD extension, OpenSSL extension, Curl extension\
+> 🔥   Fileinfo extension, Intl extension and Pdo_sqlite extension
+
+Add the following lines to the conclusion of your "php.ini" file to activate the necessary PHP extensions; they should be active by default, but you may need to activate them if the application is not functioning as expected. Even though this allows the required PHP extension, you should still validate your PHP version (8.1 is recommended):
+
+```
+extension=curl
+extension=fileinfo
+extension=gd
+extension=intl
+extension=mysqli
+extension=openssl
+extension=pdo_sqlite
+```
+
+Create a duplicate of the  "env.example" file and save it as ".env"
+
+```
+
+cp ./env.example ./.env 
+
+```
+
+Modify the settings included inside the ".env" file as necessary. The program is configured to respond to query from any
+domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the ".env"
+file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
+domain, go to http://localhost/app and enter the login username 'yxorP' and the password 'yxorP'. This will allow you to
+configure the application to direct traffic from a given domain to a specific website. After gaining access to the
+admin, choose "sites" and clone the example website so that its settings may be modified.
+
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/181399560-6c5fc08e-9d8c-46ec-99bf-a9f06f931213.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/179233034-8e2e3fa1-9c10-4e7b-9a26-34037073fd0d.png)
@@ -217,41 +252,6 @@ docker run
 -p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp 
 
 ```
-
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
-
-> ⚠️Requires: Minimum requirement is PHP version 8.0 +
-
-> 🔥   Requires: PHP Extensions GD + OpenSSL + Curl + Fileinfo + Intl + Pdo_sqlite
-
-Add the following lines to the conclusion of your "php.ini" file to activate the necessary PHP extensions; they should be active by default, but you may need to activate them if the application is not functioning as expected. Even though this allows the required PHP extension, you should still validate your PHP version (8.1 is recommended):
-
-```
-extension=curl
-extension=fileinfo
-extension=gd
-extension=intl
-extension=mysqli
-extension=openssl
-extension=pdo_sqlite
-```
-
-Create a duplicate of the  "env.example" file and save it as ".env"
-
-```
-
-cp ./env.example ./.env 
-
-```
-
-Modify the settings included inside the ".env" file as necessary. The program is configured to respond to query from any
-domain by acting as a proxy and forwarding them to the "example.com" website. Replace "www.example.com" in the ".env"
-file with a new URL, and all future queries will reflect the change. After serving the website on localhost or any other
-domain, go to http://localhost/app and enter the login username 'yxorP' and the password 'yxorP'. This will allow you to
-configure the application to direct traffic from a given domain to a specific website. After gaining access to the
-admin, choose "sites" and clone the example website so that its settings may be modified.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
