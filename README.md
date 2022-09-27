@@ -1,8 +1,12 @@
 <p align="center"><center>
 
-> <sup><b>🏆️ [ LIVE DEMO ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> : A live, interactive demonstration is now accessible through Gitpod. ([ open demo ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP))</i></sup>
+<blockquote align="center">
+<p dir="auto" align="center"><sup><b><g-emoji class="g-emoji" alias="trophy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c6.png">🏆️</g-emoji> <a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> LIVE DEMO </a></b><i> : A live, interactive demonstration is now accessible through Gitpod. (<a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> open demo </a>)</i></sup></p>
+</blockquote>
 
-> <sup><b>🎥️ [ MAKING OF VIDEO ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> : A brief film detailing the development of the yxorP project. ([ watch video ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4))</i></sup>
+<blockquote align="center">
+<p dir="auto" align="center"><sup><b><g-emoji class="g-emoji" alias="movie_camera" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png">🎥️</g-emoji> <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> MAKING OF VIDEO </a></b><i> : A brief film detailing the development of the yxorP project. (<a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> watch video </a>)</i></sup></p>
+</blockquote>
 
 </center></p>
 
