@@ -50,6 +50,8 @@ Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizabl
 
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 
+![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399467-1878166c-d1e5-4a1a-8155-e880aac4c6e0.png)
@@ -91,8 +93,6 @@ might take as little as two minutes due to the program's interoperability with t
 error tracking solutions. This is the situation due to the interoperability capabilities of the bulk of these systems.
 This conclusion was attainable due to the software's capacity to monitor the system and report any vulnerabilities it
 detects.
-
-![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
 yxorP was developed from the ground up with compatibility with both stateless and stateful servers, such as Apache (like
 IIS). It is compatible with TCP, UDP, Unix socket, HTTP, and Websocket and facilitates the development of concurrent
