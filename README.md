@@ -14,13 +14,9 @@ provide multi-tenancy, multiple threads, caching, and an article spinner service
 
 ### _What is yxorP and what can it do for you?_
 
-yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
+To put it more simply, yxorP is an extremely efficient web proxy management solution that is remarkable in its versatility, user-friendliness, and high degree of adaptability. yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
 facilitates rapid and simple customization through plugins and themes.
-
-### _What can yxorP do for you?_
-
-To put it more simply, yxorP is an extremely efficient web proxy management solution that is remarkable in its versatility, user-friendliness, and high degree of adaptability.
 
 > The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project
 
