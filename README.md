@@ -1,14 +1,5 @@
-<p align="center"><center>
-
-<blockquote align="center">
-<p dir="auto" align="center"><sup><b><g-emoji class="g-emoji" alias="trophy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c6.png">🏆️</g-emoji> <a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> LIVE DEMO </a></b><i> : A live, interactive demonstration is now accessible through Gitpod. (<a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> open demo </a>)</i></sup></p>
-</blockquote>
-
-<blockquote align="center">
-<p dir="auto" align="center"><sup><b><g-emoji class="g-emoji" alias="movie_camera" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png">🎥️</g-emoji> <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> MAKING OF VIDEO </a></b><i> : A brief film detailing the development of the yxorP project. (<a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> watch video </a>)</i></sup></p>
-</blockquote>
-
-</center></p>
+<p align="center"><sup><b><g-emoji class="g-emoji" alias="trophy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3c6.png">🏆️</g-emoji> <a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> LIVE DEMO </a></b><i> : A live, interactive demonstration is now accessible through Gitpod. (<a href="https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP" rel="nofollow"> open demo </a>)</i></sup></p>
+<p align="center"><sup><b><g-emoji class="g-emoji" alias="movie_camera" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png">🎥️</g-emoji> <a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> MAKING OF VIDEO </a></b><i> : A brief film detailing the development of the yxorP project. (<a href="https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4" rel="nofollow"> watch video </a>)</i></sup></p>
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
