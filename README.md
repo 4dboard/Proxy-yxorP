@@ -6,7 +6,7 @@
 🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
 
-## _yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional_
+## _yxorP SAAS(y) Web Proxy Portal Manager + Admin Dashboard (GUI)_
 
 🐱‍👤 Lean & Mean Web-proxy Machine: yxorP is an exceptionally effective Web proxy CMS. Multi-tenancy, Plug-and-Play, Flat-file, Advanced Caching, Multi-threaded, User-defined Extensions, and Content Spinner - PHP CURL & Composer are optional.
 
