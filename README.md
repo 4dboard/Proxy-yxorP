@@ -19,7 +19,7 @@ yxorP is an adjustable, flexible, and user-friendly web proxy management solutio
 
 > The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
 
-![image](https://user-images.githubusercontent.com/6468571/192425637-6dc11222-75c0-4e0a-9b56-150f1f5d7735.png)
+![image](https://user-images.githubusercontent.com/6468571/192425957-63cca137-934f-4aad-96b3-5ec45606f4b0.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
