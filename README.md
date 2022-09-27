@@ -1,3 +1,7 @@
+> <small>🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) A live, interactive demonstration is now accessible through Gitpod.</small>
+
+> <small>🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) A brief film detailing the development of the yxorP project.</small>
+
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
 📢  [ [ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
@@ -15,19 +19,6 @@
 yxorP is an adjustable, flexible, and user-friendly web proxy management solution. Using basic plugins and themes, the plug-and-play program was designed to give a system that is simply extensible and changeable.
 
 > The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
-
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/181399379-3996858c-4a4c-4407-bb33-0649bf89b973.png)
-
-![image](https://user-images.githubusercontent.com/6468571/179232489-113ce332-b853-41f9-b32b-e61fef62c007.png)
-
-
-> 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) We have just launched the first working live demo / sneak preview via Gitpod
-
-<hr />
-
-> 🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
