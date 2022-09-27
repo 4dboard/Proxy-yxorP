@@ -6,12 +6,12 @@
 🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
 
+## _yxorP SAAS(y) Web Proxy Portal Manager + Admin Dashboard (GUI)_
+
 > <sup><b>🏆️ [ LIVE DEMO ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> : A live, interactive demonstration is now accessible through Gitpod. ([ open demo ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP))</i></sup>
 
 > <sup><b>🎥️ [ MAKING OF VIDEO ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> : A brief film detailing the development of the yxorP project. ([ watch video ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4))</i></sup>
-
-## _yxorP SAAS(y) Web Proxy Portal Manager + Admin Dashboard (GUI)_
-
+> 
 🐱‍👤 Lean & Mean Web-proxy Machine: yxorP is an exceptionally effective Web proxy CMS. Multi-tenancy, Plug-and-Play, Flat-file, Advanced Caching, Multi-threaded, User-defined Extensions, and Content Spinner - PHP CURL & Composer are optional.
 
 ### _"Like Glype, KnProxy, or PHP Proxy, but on steroids"_
