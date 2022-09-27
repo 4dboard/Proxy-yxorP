@@ -1,6 +1,6 @@
-> <sup>🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) A live, interactive demonstration is now accessible through Gitpod.</sup>
+> <sup><b>🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> A live, interactive demonstration is now accessible through Gitpod.</i></sup>
 
-> <sup>🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) A brief film detailing the development of the yxorP project.</sup>
+> <sup><b>🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> A brief film detailing the development of the yxorP project.</i></sup> 
 
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
