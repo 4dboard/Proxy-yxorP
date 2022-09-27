@@ -24,8 +24,6 @@ Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizabl
 
 > The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project
 
-![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399379-3996858c-4a4c-4407-bb33-0649bf89b973.png)
@@ -55,6 +53,8 @@ Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizabl
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399467-1878166c-d1e5-4a1a-8155-e880aac4c6e0.png)
+
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.gif)
 
 ![image](https://user-images.githubusercontent.com/6468571/179232649-2da011cc-1d8a-4e20-ab01-632d05e56e4c.png)
 
