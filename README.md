@@ -1,7 +1,3 @@
-> <sup><b>🏆️ [ LIVE DEMO ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> : A live, interactive demonstration is now accessible through Gitpod. ([ open demo ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP))</i></sup>
-
-> <sup><b>🎥️ [ MAKING OF VIDEO ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> : A brief film detailing the development of the yxorP project. ([ watch video ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4))</i></sup> 
-
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
 📢  [ [ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
@@ -9,6 +5,10 @@
 🌈  [ [DOCUMENTATION](https://4dboard.github.io/Proxy-yxorP/docs/) ]
 🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
+
+> <sup><b>🏆️ [ LIVE DEMO ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> : A live, interactive demonstration is now accessible through Gitpod. ([ open demo ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP))</i></sup>
+
+> <sup><b>🎥️ [ MAKING OF VIDEO ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> : A brief film detailing the development of the yxorP project. ([ watch video ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4))</i></sup>
 
 ## _yxorP SAAS(y) Web Proxy Portal Manager + Admin Dashboard (GUI)_
 
