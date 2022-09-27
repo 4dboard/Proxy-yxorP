@@ -6,19 +6,15 @@
 🔥  [ [CREATION VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🚀️  [ [WEBSITE](https://4dboard.github.io/) ]
 
-### _yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional_
+## _yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional_
 
-Web Proxy *🐱‍👤* yxorP: SAAS(y) Guzzler + App (GUI Dashboard incl.). Feature Rich, Multi-tenancy, Headless, Plug & Play,
-Augmentation & Content Spinning Web Proxy with Caching - PHP CURL+Composer are Optional. Leveraging SAAS architecture to
-provide multi-tenancy, multiple threads, caching, and an article spinner service.
+🐱‍👤 Lean & Mean Web-proxy Machine: yxorP is an exceptionally effective Web proxy CMS. Multi-tenancy, Plug-and-Play, Flat-file, Advanced Caching, Multi-threaded, User-defined Extensions, and Content Spinner - PHP CURL & Composer are optional.
 
-### _What is yxorP and what can it do for you?_
+### _"Like Glype, KnProxy, or PHP Proxy, but on steroids"_
 
-To put it more simply, yxorP is an extremely efficient web proxy management solution that is remarkable in its versatility, user-friendliness, and high degree of adaptability. yxorP is a PHP-based proxy application that is very lightweight and easily customizable per user needs. The standalone
-library was designed with the intention of providing a system that is not only easy to extend and alter, but also
-facilitates rapid and simple customization through plugins and themes.
+yxorP is an adjustable, flexible, and user-friendly web proxy management solution. Using basic plugins and themes, the plug-and-play program was designed to give a system that is simply extensible and changeable.
 
-> The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project
+> The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -27,26 +23,11 @@ facilitates rapid and simple customization through plugins and themes.
 ![image](https://user-images.githubusercontent.com/6468571/179232489-113ce332-b853-41f9-b32b-e61fef62c007.png)
 
 
-
-> ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you like the project. Assuming there is at least some enthusiasm for the idea, development will proceed.
-
-<hr />
-
-> 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) We have just launched the first working live demo / sneak preview via Gitpod`
+> 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) We have just launched the first working live demo / sneak preview via Gitpod
 
 <hr />
 
 > 🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so.
-
-<hr />
-
-> ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via GitHub (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), PayPal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
-
-<hr />
-
-> ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
-
-![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
