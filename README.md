@@ -54,8 +54,6 @@ Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizabl
 
 ![image](https://user-images.githubusercontent.com/6468571/181399467-1878166c-d1e5-4a1a-8155-e880aac4c6e0.png)
 
-![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.gif)
-
 ![image](https://user-images.githubusercontent.com/6468571/179232649-2da011cc-1d8a-4e20-ab01-632d05e56e4c.png)
 
 Files (Flat-File) are used to hold the information created by the plug-and-play application yxorP. Since they are not
