@@ -1,3 +1,11 @@
+<p align="center"><center>
+
+> <sup><b>🏆️ [ LIVE DEMO ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> : A live, interactive demonstration is now accessible through Gitpod. ([ open demo ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP))</i></sup>
+
+> <sup><b>🎥️ [ MAKING OF VIDEO ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> : A brief film detailing the development of the yxorP project. ([ watch video ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4))</i></sup>
+
+</center></p>
+
 ![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
 📢  [ [ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
@@ -14,11 +22,7 @@
 
 yxorP is an adjustable, flexible, and user-friendly web proxy management solution. Using basic plugins and themes, the plug-and-play program was designed to give a system that is simply extensible and changeable.
 
-The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
-
-> <sup><b>🏆️ [ LIVE DEMO ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP)</b><i> : A live, interactive demonstration is now accessible through Gitpod. ([ open demo ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP))</i></sup>
-
-> <sup><b>🎥️ [ MAKING OF VIDEO ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4)</b><i> : A brief film detailing the development of the yxorP project. ([ watch video ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4))</i></sup>
+> The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
