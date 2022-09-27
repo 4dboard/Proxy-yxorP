@@ -19,8 +19,6 @@ yxorP is an adjustable, flexible, and user-friendly web proxy management solutio
 
 > The plug-and-play system can quickly process millions of requests since it has flat-file, cache, and database engines. The intuitive graphical user interface (GUI) of the system enables the rendering of several customized webpages from a single instance, and the event-driven yxorP architecture makes it simple to administer and modify.
 
-![image](https://user-images.githubusercontent.com/6468571/192425957-63cca137-934f-4aad-96b3-5ec45606f4b0.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/181399467-1878166c-d1e5-4a1a-8155-e880aac4c6e0.png)
@@ -28,6 +26,8 @@ yxorP is an adjustable, flexible, and user-friendly web proxy management solutio
 ![image](https://user-images.githubusercontent.com/6468571/179232649-2da011cc-1d8a-4e20-ab01-632d05e56e4c.png)
 
 The plug-and-play yxroP Proxy Management System does not need database administration, PHP CURL, or Composer; nonetheless, they are suggested but optional. The application's event-driven architecture and modular design make it easy to alter and grow. Since the flat-file caching engine does not serialize and deserialize the data, the sophisticated caching system is 500 times quicker than Memcache and Redis. The initial design of yxorP supports both stateless (Standard PHP) and stateful (Swoole) modes, however stateful mode is more efficient. Using the program's proxy interface, you may proxy many editable websites using a single application. The yxorP web proxy centralizes proxy administration.
+
+![image](https://user-images.githubusercontent.com/6468571/192425957-63cca137-934f-4aad-96b3-5ec45606f4b0.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
