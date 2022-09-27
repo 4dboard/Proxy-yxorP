@@ -18,9 +18,9 @@ yxorP is a PHP-based proxy application that is very lightweight and easily custo
 library was designed with the intention of providing a system that is not only easy to extend and alter, but also
 facilitates rapid and simple customization through plugins and themes.
 
-### _Why has YXORP become the most popular web proxy script so rapidly?_
+### _What can yxorP do for you?_
 
-Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizable, Extensible, and User-friendly.
+To put it more simply, yxorP is an extremely efficient web proxy management solution that is remarkable in its versatility, user-friendliness, and high degree of adaptability.
 
 > The combination of a flat-file and caching engine, in addition to a database, makes the system exceptionally responsive and able to deal with heavy traffic. The appeal of this system is further enhanced by the presence of a graphical user interface at the backend. YXORP is an event-driven and plugin-based framework that has straightforward extension and modification possibilities. This provides you with the flexibility to tailor the framework to meet the specific requirements of your project
 
@@ -58,49 +58,7 @@ Short Answer is that because yxorP Web Proxy is very Fast, Powerful, Customizabl
 
 ![image](https://user-images.githubusercontent.com/6468571/179232649-2da011cc-1d8a-4e20-ab01-632d05e56e4c.png)
 
-Files (Flat-File) are used to hold the information created by the plug-and-play application yxorP. Since they are not
-necessary, Composer, PHP CURL, and databases are optional for the execution of this application. yxorP was created to
-function as a proxy and is capable of altering the contents of several websites. This was the original aim behind its
-creation. The Admin, the system's principal backend, controls this component (GUI). It is common knowledge that yxorP is
-one of the web proxy systems that, compared to other web proxy systems now available on the market, enables users to
-tailor their surfing experience in the most ways. yxorP is among the most flexible web proxy solutions in terms of
-browsing capabilities. 
-
-Moreover, yxorP is one of the first web proxy systems ever created. This is due to its
-event-driven architecture and emphasis on its plugin-based design, rather than its built-in features, which are the most
-essential and defining components that enable customization and extension of its capabilities. Due to its versatility
-and scalability, this is the case. Because they provide customization and expansion of a product's capabilities, the
-built-in features are the most distinguishing and significant aspects. This is due to its adaptable and expandable
-qualities, which has led to the current circumstance. This is due to the fact that the inherent characteristics are the
-most fundamental and distinctive characteristics, allowing for the change and expansion of its capabilities. This is the
-reason behind the present situation. 
-
-In addition to a graphical user interface (GUI) and a back-end content management
-system (CMS), yxorP has a number of additional distinguishing features. These qualities include a number of additional
-characteristics that separate it in a variety of ways from its competitors. These distinctive characteristics, such as
-the product's quality, set it apart from its rivals. Currently, the hostname of the request being processed is utilized
-to search the backend for website-specific requirements. Then, using these criteria, the best website is selected and
-any required revisions are made. The user may spin the website's content using the pre-integrated article-spinning
-engine of the application. The user has access to this option. This activity is undertaken in accordance with the user's
-preferences. Flat-file caching solutions are about 500 times faster than memory-based caching systems such as Memcache
-or Redis. This is accomplished by reducing the overall number of serialization and deserialization operations, which
-results in a cache that operates much faster. 
-
-Due to a recent update, the most thorough version of yxorP may now be
-examined by the BugSnag error reporting and warning system. Recent adjustments have been made. This function was
-designed to determine whether Snag is compatible with a previously issued update. Changing the default logging system
-might take as little as two minutes due to the program's interoperability with the great majority of industry-standard
-error tracking solutions. This is the situation due to the interoperability capabilities of the bulk of these systems.
-This conclusion was attainable due to the software's capacity to monitor the system and report any vulnerabilities it
-detects.
-
-yxorP was developed from the ground up with compatibility with both stateless and stateful servers, such as Apache (like
-IIS). It is compatible with TCP, UDP, Unix socket, HTTP, and Websocket and facilitates the development of concurrent
-services that are both rapid and scalable (* Parallel *). It is also compatible with each of these protocols. In
-addition, it is compatible with each of these protocols without issue. (Swoole). The term "high-performance" is used to
-describe both of these servers, which are networking frameworks. These two servers are under the category of networking
-frameworks. According to the description, each of these servers is designed with "event-driven, asynchronous, and
-non-blocking I/O." This is evident from the description.
+The plug-and-play yxroP Proxy Management System does not need database administration, PHP CURL, or Composer; nonetheless, they are suggested but optional. The application's event-driven architecture and modular design make it easy to alter and grow. Since the flat-file caching engine does not serialize and deserialize the data, the sophisticated caching system is 500 times quicker than Memcache and Redis. The initial design of yxorP supports both stateless (Standard PHP) and stateful (Swoole) modes, however stateful mode is more efficient. Using the program's proxy interface, you may proxy many editable websites using a single application. The yxorP web proxy centralizes proxy administration.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
