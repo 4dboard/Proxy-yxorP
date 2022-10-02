@@ -49,6 +49,16 @@ class TableStyle
     private $padType = \STR_PAD_RIGHT;
 
     /**
+     * Gets padding character, used for cell padding.
+     *
+     * @return string
+     */
+    public function getPaddingChar()
+    {
+        return $this->paddingChar;
+    }
+
+    /**
      * Sets padding character, used for cell padding.
      *
      * @return $this
@@ -62,16 +72,6 @@ class TableStyle
         $this->paddingChar = $paddingChar;
 
         return $this;
-    }
-
-    /**
-     * Gets padding character, used for cell padding.
-     *
-     * @return string
-     */
-    public function getPaddingChar()
-    {
-        return $this->paddingChar;
     }
 
     /**
@@ -139,6 +139,16 @@ class TableStyle
     }
 
     /**
+     * Sets default crossing character used for each cross.
+     *
+     * @see {@link setCrossingChars()} for setting each crossing individually.
+     */
+    public function setDefaultCrossingChar(string $char): self
+    {
+        return $this->setCrossingChars($char, $char, $char, $char, $char, $char, $char, $char, $char);
+    }
+
+    /**
      * Sets crossing characters.
      *
      * Example:
@@ -154,17 +164,17 @@ class TableStyle
      * 7═══════════════6══════════════════════════6══════════════════5
      * </code>
      *
-     * @param string      $cross          Crossing char (see #0 of example)
-     * @param string      $topLeft        Top left char (see #1 of example)
-     * @param string      $topMid         Top mid char (see #2 of example)
-     * @param string      $topRight       Top right char (see #3 of example)
-     * @param string      $midRight       Mid right char (see #4 of example)
-     * @param string      $bottomRight    Bottom right char (see #5 of example)
-     * @param string      $bottomMid      Bottom mid char (see #6 of example)
-     * @param string      $bottomLeft     Bottom left char (see #7 of example)
-     * @param string      $midLeft        Mid left char (see #8 of example)
-     * @param string|null $topLeftBottom  Top left bottom char (see #8' of example), equals to $midLeft if null
-     * @param string|null $topMidBottom   Top mid bottom char (see #0' of example), equals to $cross if null
+     * @param string $cross Crossing char (see #0 of example)
+     * @param string $topLeft Top left char (see #1 of example)
+     * @param string $topMid Top mid char (see #2 of example)
+     * @param string $topRight Top right char (see #3 of example)
+     * @param string $midRight Mid right char (see #4 of example)
+     * @param string $bottomRight Bottom right char (see #5 of example)
+     * @param string $bottomMid Bottom mid char (see #6 of example)
+     * @param string $bottomLeft Bottom left char (see #7 of example)
+     * @param string $midLeft Mid left char (see #8 of example)
+     * @param string|null $topLeftBottom Top left bottom char (see #8' of example), equals to $midLeft if null
+     * @param string|null $topMidBottom Top mid bottom char (see #0' of example), equals to $cross if null
      * @param string|null $topRightBottom Top right bottom char (see #4' of example), equals to $midRight if null
      *
      * @return $this
@@ -185,16 +195,6 @@ class TableStyle
         $this->crossingTopRightBottomChar = $topRightBottom ?? $midRight;
 
         return $this;
-    }
-
-    /**
-     * Sets default crossing character used for each cross.
-     *
-     * @see {@link setCrossingChars()} for setting each crossing individually.
-     */
-    public function setDefaultCrossingChar(string $char): self
-    {
-        return $this->setCrossingChars($char, $char, $char, $char, $char, $char, $char, $char, $char);
     }
 
     /**
@@ -231,18 +231,6 @@ class TableStyle
     }
 
     /**
-     * Sets header cell format.
-     *
-     * @return $this
-     */
-    public function setCellHeaderFormat(string $cellHeaderFormat)
-    {
-        $this->cellHeaderFormat = $cellHeaderFormat;
-
-        return $this;
-    }
-
-    /**
      * Gets header cell format.
      *
      * @return string
@@ -253,13 +241,13 @@ class TableStyle
     }
 
     /**
-     * Sets row cell format.
+     * Sets header cell format.
      *
      * @return $this
      */
-    public function setCellRowFormat(string $cellRowFormat)
+    public function setCellHeaderFormat(string $cellHeaderFormat)
     {
-        $this->cellRowFormat = $cellRowFormat;
+        $this->cellHeaderFormat = $cellHeaderFormat;
 
         return $this;
     }
@@ -275,13 +263,13 @@ class TableStyle
     }
 
     /**
-     * Sets row cell content format.
+     * Sets row cell format.
      *
      * @return $this
      */
-    public function setCellRowContentFormat(string $cellRowContentFormat)
+    public function setCellRowFormat(string $cellRowFormat)
     {
-        $this->cellRowContentFormat = $cellRowContentFormat;
+        $this->cellRowFormat = $cellRowFormat;
 
         return $this;
     }
@@ -297,13 +285,13 @@ class TableStyle
     }
 
     /**
-     * Sets table border format.
+     * Sets row cell content format.
      *
      * @return $this
      */
-    public function setBorderFormat(string $borderFormat)
+    public function setCellRowContentFormat(string $cellRowContentFormat)
     {
-        $this->borderFormat = $borderFormat;
+        $this->cellRowContentFormat = $cellRowContentFormat;
 
         return $this;
     }
@@ -316,6 +304,28 @@ class TableStyle
     public function getBorderFormat()
     {
         return $this->borderFormat;
+    }
+
+    /**
+     * Sets table border format.
+     *
+     * @return $this
+     */
+    public function setBorderFormat(string $borderFormat)
+    {
+        $this->borderFormat = $borderFormat;
+
+        return $this;
+    }
+
+    /**
+     * Gets cell padding type.
+     *
+     * @return int
+     */
+    public function getPadType()
+    {
+        return $this->padType;
     }
 
     /**
@@ -332,16 +342,6 @@ class TableStyle
         $this->padType = $padType;
 
         return $this;
-    }
-
-    /**
-     * Gets cell padding type.
-     *
-     * @return int
-     */
-    public function getPadType()
-    {
-        return $this->padType;
     }
 
     public function getHeaderTitleFormat(): string
