@@ -2,19 +2,11 @@
 
 # ReactPromiseAdapter
 
-
-
-
-
 * Full name: `\GraphQL\Executor\Promise\Adapter\ReactPromiseAdapter`
 * This class implements:
-[`\GraphQL\Executor\Promise\PromiseAdapter`](../PromiseAdapter.md)
-
-
-
+  [`\GraphQL\Executor\Promise\PromiseAdapter`](../PromiseAdapter.md)
 
 ## Methods
-
 
 ### isThenable
 
@@ -24,21 +16,11 @@ Return true if the value is a promise or a deferred of the underlying platform
 public isThenable(mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -50,21 +32,11 @@ Converts thenable of the underlying platform into GraphQL\Executor\Promise\Promi
 public convertThenable(mixed $thenable): \GraphQL\Executor\Promise\Promise
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$thenable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -77,13 +49,6 @@ in Promises/A+ specs. Then returns new wrapped instance of GraphQL\Executor\Prom
 public then(\GraphQL\Executor\Promise\Promise $promise, ?callable $onFulfilled = null, ?callable $onRejected = null): \GraphQL\Executor\Promise\Promise
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -91,9 +56,6 @@ public then(\GraphQL\Executor\Promise\Promise $promise, ?callable $onFulfilled =
 | `$promise` | **\GraphQL\Executor\Promise\Promise** |  |
 | `$onFulfilled` | **?callable** |  |
 | `$onRejected` | **?callable** |  |
-
-
-
 
 ***
 
@@ -105,21 +67,11 @@ Creates a Promise
 public create(callable $resolver): \GraphQL\Executor\Promise\Promise
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resolver` | **callable** |  |
-
-
-
 
 ***
 
@@ -131,21 +83,11 @@ Creates a fulfilled Promise for a value if the value is not a promise.
 public createFulfilled(mixed $value = null): \GraphQL\Executor\Promise\Promise
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -158,21 +100,11 @@ the provided reason is a promise, then it is returned as-is.
 public createRejected(mixed $reason): \GraphQL\Executor\Promise\Promise
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reason` | **mixed** |  |
-
-
-
 
 ***
 
@@ -185,21 +117,11 @@ items in the array are fulfilled.
 public all(array $promisesOrValues): \GraphQL\Executor\Promise\Promise
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$promisesOrValues` | **array** | Promises or values. |
-
-
-
 
 ***
 
