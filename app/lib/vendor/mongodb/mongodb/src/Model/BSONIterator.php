@@ -21,7 +21,6 @@ use Iterator;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnexpectedValueException;
 use ReturnTypeWillChange;
-
 use function is_array;
 use function MongoDB\BSON\toPHP;
 use function sprintf;
@@ -62,19 +61,19 @@ class BSONIterator implements Iterator
      *
      *  * typeMap (array): Type map for BSON deserialization.
      *
-     * @internal
-     * @see http://php.net/manual/en/function.mongodb.bson-tophp.php
-     * @param string $data    Concatenated, valid, BSON-encoded documents
-     * @param array  $options Iterator options
+     * @param string $data Concatenated, valid, BSON-encoded documents
+     * @param array $options Iterator options
      * @throws InvalidArgumentException for parameter/option parsing errors
+     * @see http://php.net/manual/en/function.mongodb.bson-tophp.php
+     * @internal
      */
     public function __construct($data, array $options = [])
     {
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (! isset($options['typeMap'])) {
+        if (!isset($options['typeMap'])) {
             $options['typeMap'] = [];
         }
 
@@ -115,6 +114,26 @@ class BSONIterator implements Iterator
         $this->advance();
     }
 
+    private function advance()
+    {
+        if ($this->position === $this->bufferLength) {
+            return;
+        }
+
+        if ($this->bufferLength - $this->position < self::$bsonSize) {
+            throw new UnexpectedValueException(sprintf('Expected at least %d bytes; %d remaining', self::$bsonSize, $this->bufferLength - $this->position));
+        }
+
+        [, $documentLength] = unpack('V', substr($this->buffer, $this->position, self::$bsonSize));
+
+        if ($this->bufferLength - $this->position < $documentLength) {
+            throw new UnexpectedValueException(sprintf('Expected %d bytes; %d remaining', $documentLength, $this->bufferLength - $this->position));
+        }
+
+        $this->current = toPHP(substr($this->buffer, $this->position, $documentLength), $this->options['typeMap']);
+        $this->position += $documentLength;
+    }
+
     /**
      * @see http://php.net/iterator.rewind
      * @return void
@@ -136,25 +155,5 @@ class BSONIterator implements Iterator
     public function valid()
     {
         return $this->current !== null;
-    }
-
-    private function advance()
-    {
-        if ($this->position === $this->bufferLength) {
-            return;
-        }
-
-        if ($this->bufferLength - $this->position < self::$bsonSize) {
-            throw new UnexpectedValueException(sprintf('Expected at least %d bytes; %d remaining', self::$bsonSize, $this->bufferLength - $this->position));
-        }
-
-        [, $documentLength] = unpack('V', substr($this->buffer, $this->position, self::$bsonSize));
-
-        if ($this->bufferLength - $this->position < $documentLength) {
-            throw new UnexpectedValueException(sprintf('Expected %d bytes; %d remaining', $documentLength, $this->bufferLength - $this->position));
-        }
-
-        $this->current = toPHP(substr($this->buffer, $this->position, $documentLength), $this->options['typeMap']);
-        $this->position += $documentLength;
     }
 }

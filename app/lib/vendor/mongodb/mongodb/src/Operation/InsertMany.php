@@ -25,7 +25,6 @@ use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnsupportedException;
 use MongoDB\InsertManyResult;
-
 use function is_array;
 use function is_bool;
 use function is_object;
@@ -68,10 +67,10 @@ class InsertMany implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string           $databaseName   Database name
-     * @param string           $collectionName Collection name
-     * @param array[]|object[] $documents      List of documents to insert
-     * @param array            $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param array[]|object[] $documents List of documents to insert
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct($databaseName, $collectionName, array $documents, array $options = [])
@@ -87,7 +86,7 @@ class InsertMany implements Executable
                 throw new InvalidArgumentException(sprintf('$documents is not a list (unexpected index: "%s")', $i));
             }
 
-            if (! is_array($document) && ! is_object($document)) {
+            if (!is_array($document) && !is_object($document)) {
                 throw InvalidArgumentException::invalidType(sprintf('$documents[%d]', $i), $document, 'array or object');
             }
 
@@ -96,23 +95,23 @@ class InsertMany implements Executable
 
         $options += ['ordered' => true];
 
-        if (isset($options['bypassDocumentValidation']) && ! is_bool($options['bypassDocumentValidation'])) {
+        if (isset($options['bypassDocumentValidation']) && !is_bool($options['bypassDocumentValidation'])) {
             throw InvalidArgumentException::invalidType('"bypassDocumentValidation" option', $options['bypassDocumentValidation'], 'boolean');
         }
 
-        if (! is_bool($options['ordered'])) {
+        if (!is_bool($options['ordered'])) {
             throw InvalidArgumentException::invalidType('"ordered" option', $options['ordered'], 'boolean');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! $options['bypassDocumentValidation']) {
+        if (isset($options['bypassDocumentValidation']) && !$options['bypassDocumentValidation']) {
             unset($options['bypassDocumentValidation']);
         }
 
@@ -120,8 +119,8 @@ class InsertMany implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->documents = $documents;
         $this->options = $options;
     }
@@ -129,11 +128,11 @@ class InsertMany implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return InsertManyResult
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
     public function execute(Server $server)
     {
