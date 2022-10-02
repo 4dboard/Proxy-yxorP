@@ -4,12 +4,9 @@
 
 Version representation.
 
-
-
 * Full name: `\BaconQrCode\Common\Version`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -19,7 +16,6 @@ Version representation.
 
 ## Properties
 
-
 ### versionNumber
 
 Version number of this version.
@@ -27,11 +23,6 @@ Version number of this version.
 ```php
 private int $versionNumber
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +34,6 @@ Alignment pattern centers.
 private \SplFixedArray $alignmentPatternCenters
 ```
 
-
-
-
-
-
 ***
 
 ### ecBlocks
@@ -57,11 +43,6 @@ Error correction blocks.
 ```php
 private \BaconQrCode\Common\EcBlocks[] $ecBlocks
 ```
-
-
-
-
-
 
 ***
 
@@ -73,11 +54,6 @@ Total number of codewords.
 private int $totalCodewords
 ```
 
-
-
-
-
-
 ***
 
 ### versions
@@ -88,30 +64,17 @@ Cached version instances.
 private static array&lt;int,self&gt;|null $versions
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 private __construct(int $versionNumber, int[] $alignmentPatternCenters, \BaconQrCode\Common\EcBlocks $ecBlocks): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -120,9 +83,6 @@ private __construct(int $versionNumber, int[] $alignmentPatternCenters, \BaconQr
 | `$versionNumber` | **int** |  |
 | `$alignmentPatternCenters` | **int[]** |  |
 | `$ecBlocks` | **\BaconQrCode\Common\EcBlocks** |  |
-
-
-
 
 ***
 
@@ -134,16 +94,6 @@ Returns the version number.
 public getVersionNumber(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getAlignmentPatternCenters
@@ -153,16 +103,6 @@ Returns the alignment pattern centers.
 ```php
 public getAlignmentPatternCenters(): int[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -174,16 +114,6 @@ Returns the total number of codewords.
 public getTotalCodewords(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDimensionForVersion
@@ -193,16 +123,6 @@ Calculates the dimension for the current version.
 ```php
 public getDimensionForVersion(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -214,21 +134,11 @@ Returns the number of EC blocks for a specific EC level.
 public getEcBlocksForLevel(\BaconQrCode\Common\ErrorCorrectionLevel $ecLevel): \BaconQrCode\Common\EcBlocks
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ecLevel` | **\BaconQrCode\Common\ErrorCorrectionLevel** |  |
-
-
-
 
 ***
 
@@ -240,21 +150,13 @@ Gets a provisional version number for a specific dimension.
 public static getProvisionalVersionForDimension(int $dimension): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dimension` | **int** |  |
-
-
-
 
 ***
 
@@ -266,21 +168,13 @@ Gets a version instance for a specific version number.
 public static getVersionForNumber(int $versionNumber): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$versionNumber` | **int** |  |
-
-
-
 
 ***
 
@@ -292,21 +186,13 @@ Decodes version information from an integer and returns the version.
 public static decodeVersionInformation(int $versionBits): ?self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$versionBits` | **int** |  |
-
-
-
 
 ***
 
@@ -318,16 +204,6 @@ Builds the function pattern for the current version.
 public buildFunctionPattern(): \BaconQrCode\Common\BitMatrix
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -337,16 +213,6 @@ Returns a string representation for the version.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -361,12 +227,6 @@ private static versions(): array&lt;int,self&gt;
 See ISO 18004:2006 6.5.1 Table 9.
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 

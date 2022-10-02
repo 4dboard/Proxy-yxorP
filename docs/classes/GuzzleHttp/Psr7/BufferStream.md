@@ -12,70 +12,40 @@ preferred size of the buffer.
 * Full name: `\GuzzleHttp\Psr7\BufferStream`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
+  [`\Psr\Http\Message\StreamInterface`](../../Psr/Http/Message/StreamInterface.md)
 * This class is a **Final class**
-
-
 
 ## Properties
 
-
 ### hwm
-
-
 
 ```php
 private int $hwm
 ```
 
-
-
-
-
-
 ***
 
 ### buffer
-
-
 
 ```php
 private string $buffer
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $hwm = 16384): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$hwm` | **int** | High water mark, representing the preferred maximum<br />buffer size. If the size of the buffer exceeds the high<br />water mark, then calls to write will continue to succeed<br />but will return 0 to inform writers to slow down<br />until the buffer has been drained by reading from it. |
-
-
-
 
 ***
 
@@ -113,16 +83,6 @@ Returns the remaining contents in a string
 public getContents(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### close
@@ -132,16 +92,6 @@ Closes the stream and any underlying resources.
 ```php
 public close(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -154,12 +104,6 @@ public detach(): resource|null
 ```
 
 After the stream has been detached, the stream is in an unusable state.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -177,14 +121,6 @@ Get the size of the stream if known.
 public getSize(): int|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Returns the size in bytes if known, or null if unknown.
@@ -201,16 +137,6 @@ Returns whether or not the stream is readable.
 public isReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isWritable
@@ -221,16 +147,6 @@ Returns whether or not the stream is writable.
 public isWritable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isSeekable
@@ -240,16 +156,6 @@ Returns whether or not the stream is seekable.
 ```php
 public isSeekable(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -282,22 +188,12 @@ Seek to a position in the stream.
 public seek(mixed $offset, mixed $whence = SEEK_SET): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | Stream offset |
 | `$whence` | **mixed** | Specifies how the cursor position will be calculated<br />based on the seek offset. Valid values are identical to the built-in<br />PHP $whence values for `fseek()`.  SEEK_SET: Set position equal to<br />offset bytes SEEK_CUR: Set position to current location plus offset<br />SEEK_END: Set position to end-of-stream plus offset. |
-
-
-
 
 ***
 
@@ -309,16 +205,6 @@ Returns true if the stream is at the end of the stream.
 public eof(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### tell
@@ -328,14 +214,6 @@ Returns the current position of the file read/write pointer
 ```php
 public tell(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -353,19 +231,11 @@ Reads data from the buffer.
 public read(mixed $length): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$length` | **mixed** | Read up to $length bytes from the object and return<br />them. Fewer than $length bytes may be returned if underlying stream<br />call returns fewer bytes. |
-
 
 **Return Value:**
 
@@ -384,19 +254,11 @@ Writes data to the buffer.
 public write(mixed $string): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **mixed** | The string that is to be written. |
-
 
 **Return Value:**
 
@@ -414,21 +276,11 @@ Get stream metadata as an associative array or retrieve a specific key.
 public getMetadata(mixed $key = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | Specific metadata to retrieve. |
-
-
-
 
 ***
 
