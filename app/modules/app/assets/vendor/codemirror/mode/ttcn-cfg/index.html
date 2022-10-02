@@ -2,9 +2,9 @@
 
 <title>CodeMirror: TTCN-CFG mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="ttcn-cfg.js"></script>
@@ -16,7 +16,7 @@
 </style>
 <div id=nav>
     <a href="https://codemirror.net"><h1>CodeMirror</h1>
-        <img id=logo src="../../doc/logo.png" alt="">
+        <img alt="" id=logo src="../../doc/logo.png">
     </a>
 
     <ul>
@@ -91,15 +91,15 @@ LocalAddress :=
         </textarea>
     </div>
 
-    <script> 
-      var ttcnEditor = CodeMirror.fromTextArea(document.getElementById("ttcn-cfg-code"), {
-        lineNumbers: true,
-        matchBrackets: true,
-        mode: "text/x-ttcn-cfg"
-      });
-      ttcnEditor.setSize(600, 860);
-      var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
-      CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
+    <script>
+        var ttcnEditor = CodeMirror.fromTextArea(document.getElementById("ttcn-cfg-code"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            mode: "text/x-ttcn-cfg"
+        });
+        ttcnEditor.setSize(600, 860);
+        var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
+        CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
     </script>
     <br/>
     <p><strong>Language:</strong> Testing and Test Control Notation -
