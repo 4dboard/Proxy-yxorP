@@ -37,6 +37,15 @@ final class VcsIgnoredFilterIterator extends \FilterIterator
         parent::__construct($iterator);
     }
 
+    private function normalizePath(string $path): string
+    {
+        if ('\\' === \DIRECTORY_SEPARATOR) {
+            return str_replace('\\', '/', $path);
+        }
+
+        return $path;
+    }
+
     public function accept(): bool
     {
         $file = $this->current();
@@ -138,14 +147,5 @@ final class VcsIgnoredFilterIterator extends \FilterIterator
             Gitignore::toRegex($gitignoreFileContent),
             Gitignore::toRegexMatchingNegatedPatterns($gitignoreFileContent),
         ];
-    }
-
-    private function normalizePath(string $path): string
-    {
-        if ('\\' === \DIRECTORY_SEPARATOR) {
-            return str_replace('\\', '/', $path);
-        }
-
-        return $path;
     }
 }

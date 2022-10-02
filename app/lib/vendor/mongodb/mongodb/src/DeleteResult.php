@@ -38,24 +38,6 @@ class DeleteResult
     }
 
     /**
-     * Return the number of documents that were deleted.
-     *
-     * This method should only be called if the write was acknowledged.
-     *
-     * @see DeleteResult::isAcknowledged()
-     * @return integer
-     * @throws BadMethodCallException is the write result is unacknowledged
-     */
-    public function getDeletedCount()
-    {
-        if ($this->isAcknowledged) {
-            return $this->writeResult->getDeletedCount();
-        }
-
-        throw BadMethodCallException::unacknowledgedWriteResultAccess(__METHOD__);
-    }
-
-    /**
      * Return whether this delete was acknowledged by the server.
      *
      * If the delete was not acknowledged, other fields from the WriteResult
@@ -66,5 +48,23 @@ class DeleteResult
     public function isAcknowledged()
     {
         return $this->isAcknowledged;
+    }
+
+    /**
+     * Return the number of documents that were deleted.
+     *
+     * This method should only be called if the write was acknowledged.
+     *
+     * @return integer
+     * @throws BadMethodCallException is the write result is unacknowledged
+     * @see DeleteResult::isAcknowledged()
+     */
+    public function getDeletedCount()
+    {
+        if ($this->isAcknowledged) {
+            return $this->writeResult->getDeletedCount();
+        }
+
+        throw BadMethodCallException::unacknowledgedWriteResultAccess(__METHOD__);
     }
 }

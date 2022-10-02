@@ -36,7 +36,7 @@ class InsertManyResult
 
     /**
      * @param WriteResult $writeResult
-     * @param mixed[]     $insertedIds
+     * @param mixed[] $insertedIds
      */
     public function __construct(WriteResult $writeResult, array $insertedIds)
     {
@@ -46,13 +46,26 @@ class InsertManyResult
     }
 
     /**
+     * Return whether this insert result was acknowledged by the server.
+     *
+     * If the insert was not acknowledged, other fields from the WriteResult
+     * (e.g. insertedCount) will be undefined.
+     *
+     * @return boolean
+     */
+    public function isAcknowledged()
+    {
+        return $this->writeResult->isAcknowledged();
+    }
+
+    /**
      * Return the number of documents that were inserted.
      *
      * This method should only be called if the write was acknowledged.
      *
-     * @see InsertManyResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
+     * @see InsertManyResult::isAcknowledged()
      */
     public function getInsertedCount()
     {
@@ -77,18 +90,5 @@ class InsertManyResult
     public function getInsertedIds()
     {
         return $this->insertedIds;
-    }
-
-    /**
-     * Return whether this insert result was acknowledged by the server.
-     *
-     * If the insert was not acknowledged, other fields from the WriteResult
-     * (e.g. insertedCount) will be undefined.
-     *
-     * @return boolean
-     */
-    public function isAcknowledged()
-    {
-        return $this->writeResult->isAcknowledged();
     }
 }

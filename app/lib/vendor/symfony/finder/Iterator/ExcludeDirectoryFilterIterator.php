@@ -27,8 +27,8 @@ class ExcludeDirectoryFilterIterator extends \FilterIterator implements \Recursi
     private ?string $excludedPattern = null;
 
     /**
-     * @param \Iterator $iterator    The Iterator to filter
-     * @param string[]  $directories An array of directories to exclude
+     * @param \Iterator $iterator The Iterator to filter
+     * @param string[] $directories An array of directories to exclude
      */
     public function __construct(\Iterator $iterator, array $directories)
     {
@@ -44,7 +44,7 @@ class ExcludeDirectoryFilterIterator extends \FilterIterator implements \Recursi
             }
         }
         if ($patterns) {
-            $this->excludedPattern = '#(?:^|/)(?:'.implode('|', $patterns).')(?:/|$)#';
+            $this->excludedPattern = '#(?:^|/)(?:' . implode('|', $patterns) . ')(?:/|$)#';
         }
 
         parent::__construct($iterator);

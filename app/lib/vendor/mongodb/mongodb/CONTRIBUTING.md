@@ -57,7 +57,6 @@ The library's code is checked using [PHP_CodeSniffer](https://github.com/squizla
 which is installed as a development dependency by Composer. To check the code
 for style errors, run the `phpcs` binary:
 
-
 ```
 $ vendor/bin/phpcs
 ```
@@ -79,16 +78,16 @@ That said, any changes to the documentation should be tested locally before
 committing. Follow the following steps to build the docs locally with the tools
 repository:
 
- * Clone the
-   [mongodb/docs-php-library](https://github.com/mongodb/docs-php-library) tools
-   repository.
- * Install [giza](https://pypi.python.org/pypi/giza/), as noted in the tools
-   README.
- * Sync your working copy of the documentation to the `source/` directory with
-   `rsync -a --delete /path/to/mongo-php-library/docs/ source/`.
- * Build the documentation with `giza make publish`. You can suppress
-   informational log messages with the `--level warning` option.
- * Generated documentation may be found in the `build/master/html` directory.
+* Clone the
+  [mongodb/docs-php-library](https://github.com/mongodb/docs-php-library) tools
+  repository.
+* Install [giza](https://pypi.python.org/pypi/giza/), as noted in the tools
+  README.
+* Sync your working copy of the documentation to the `source/` directory with
+  `rsync -a --delete /path/to/mongo-php-library/docs/ source/`.
+* Build the documentation with `giza make publish`. You can suppress
+  informational log messages with the `--level warning` option.
+* Generated documentation may be found in the `build/master/html` directory.
 
 ## Creating a maintenance branch and updating master branch alias
 
@@ -223,23 +222,25 @@ Thanks for our community contributors for this release:
  * [$CONTRIBUTOR_NAME](https://github.com/$GITHUB_USERNAME)
 ```
 
-Release announcements should also be posted in the [MongoDB Product & Driver Announcements: Driver Releases](https://www.mongodb.com/community/forums/tags/c/announcements/driver-releases/110/php) forum and shared on Twitter.
+Release announcements should also be posted in
+the [MongoDB Product & Driver Announcements: Driver Releases](https://www.mongodb.com/community/forums/tags/c/announcements/driver-releases/110/php)
+forum and shared on Twitter.
 
 ### Documentation Updates for New Major and Minor Versions
 
 New major and minor releases will also require documentation updates to other
 projects:
 
- * Create a DOCSP ticket to add the new version to PHP's server and language
-   [compatibility tables](https://docs.mongodb.com/drivers/php/#compatibility)
-   in the driver docs portal. See
-   [mongodb/docs-ecosystem#642](https://github.com/mongodb/docs-ecosystem/pull/642)
-   for an example.
+* Create a DOCSP ticket to add the new version to PHP's server and language
+  [compatibility tables](https://docs.mongodb.com/drivers/php/#compatibility)
+  in the driver docs portal. See
+  [mongodb/docs-ecosystem#642](https://github.com/mongodb/docs-ecosystem/pull/642)
+  for an example.
 
- * Create a DOCSP ticket to update the "current" and "upcoming" navigation links
-   in the library's [documentation](https://docs.mongodb.com/php-library/). This
-   will require updating
-   [mongodb/docs-php-library](https://github.com/mongodb/docs-php-library).
+* Create a DOCSP ticket to update the "current" and "upcoming" navigation links
+  in the library's [documentation](https://docs.mongodb.com/php-library/). This
+  will require updating
+  [mongodb/docs-php-library](https://github.com/mongodb/docs-php-library).
 
 These tasks can be initiated prior to tagging a new release to ensure that the
 updated content becomes accessible soon after the release is published.

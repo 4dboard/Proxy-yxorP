@@ -33,7 +33,7 @@ class SortableIterator implements \IteratorAggregate
 
     /**
      * @param \Traversable<string, \SplFileInfo> $iterator
-     * @param int|callable                       $sort     The sort type (SORT_BY_NAME, SORT_BY_TYPE, or a PHP callback)
+     * @param int|callable $sort The sort type (SORT_BY_NAME, SORT_BY_TYPE, or a PHP callback)
      *
      * @throws \InvalidArgumentException
      */
@@ -75,7 +75,9 @@ class SortableIterator implements \IteratorAggregate
         } elseif (self::SORT_BY_NONE === $sort) {
             $this->sort = $order;
         } elseif (\is_callable($sort)) {
-            $this->sort = $reverseOrder ? static function (\SplFileInfo $a, \SplFileInfo $b) use ($sort) { return -$sort($a, $b); } : \Closure::fromCallable($sort);
+            $this->sort = $reverseOrder ? static function (\SplFileInfo $a, \SplFileInfo $b) use ($sort) {
+                return -$sort($a, $b);
+            } : \Closure::fromCallable($sort);
         } else {
             throw new \InvalidArgumentException('The SortableIterator takes a PHP callable or a valid built-in sort algorithm as an argument.');
         }
