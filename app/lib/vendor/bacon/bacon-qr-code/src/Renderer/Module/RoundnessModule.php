@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace BaconQrCode\Renderer\Module;
 
@@ -31,7 +31,7 @@ final class RoundnessModule implements ModuleInterface
         $this->intensity = $intensity / 2;
     }
 
-    public function createPath(ByteMatrix $matrix) : Path
+    public function createPath(ByteMatrix $matrix): Path
     {
         $path = new Path();
 
@@ -77,7 +77,7 @@ final class RoundnessModule implements ModuleInterface
 
                     if ($this->intensity < 0.5
                         || ($right && $previousPoint[0] !== $currentPoint[0] - 1)
-                        || (! $right && $previousPoint[0] - 1 !== $currentPoint[0])
+                        || (!$right && $previousPoint[0] - 1 !== $currentPoint[0])
                     ) {
                         $path = $path->line(
                             $currentPoint[0] + ($right ? -$this->intensity : $this->intensity),
@@ -97,11 +97,11 @@ final class RoundnessModule implements ModuleInterface
                 } else {
                     $up = $previousPoint[1] > $currentPoint[1];
                     $right = $nextPoint[0] > $currentPoint[0];
-                    $sweep = ! ($up xor $right);
+                    $sweep = !($up xor $right);
 
                     if ($this->intensity < 0.5
                         || ($up && $previousPoint[1] !== $currentPoint[1] + 1)
-                        || (! $up && $previousPoint[0] + 1 !== $currentPoint[0])
+                        || (!$up && $previousPoint[0] + 1 !== $currentPoint[0])
                     ) {
                         $path = $path->line(
                             $currentPoint[0],

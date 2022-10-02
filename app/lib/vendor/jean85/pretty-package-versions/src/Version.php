@@ -7,21 +7,16 @@ namespace Jean85;
 class Version
 {
     private const SHORT_COMMIT_LENGTH = 7;
-
-    /** @var string */
-    private $packageName;
-
-    /** @var string */
-    private $prettyVersion;
-
-    /** @var string */
-    private $reference;
-
-    /** @var bool */
-    private $versionIsTagged;
-
     public const NO_VERSION_TEXT = '{no version}';
     public const NO_REFERENCE_TEXT = '{no reference}';
+    /** @var string */
+    private $packageName;
+    /** @var string */
+    private $prettyVersion;
+    /** @var string */
+    private $reference;
+    /** @var bool */
+    private $versionIsTagged;
 
     public function __construct(string $packageName, ?string $prettyVersion = null, ?string $reference = null)
     {
@@ -31,18 +26,19 @@ class Version
         $this->versionIsTagged = preg_match('/[^v\d.]/', $this->getShortVersion()) === 0;
     }
 
-    public function getPrettyVersion(): string
+    public function getShortVersion(): string
     {
-        if ($this->versionIsTagged) {
-            return $this->prettyVersion;
-        }
-
-        return $this->getVersionWithShortReference();
+        return $this->prettyVersion;
     }
 
     public function getFullVersion(): string
     {
         return $this->prettyVersion . '@' . $this->getReference();
+    }
+
+    public function getReference(): string
+    {
+        return $this->reference;
     }
 
     /**
@@ -58,14 +54,14 @@ class Version
         return $this->prettyVersion . '@' . $this->getShortReference();
     }
 
+    public function getShortReference(): string
+    {
+        return substr($this->reference, 0, self::SHORT_COMMIT_LENGTH);
+    }
+
     public function getPackageName(): string
     {
         return $this->packageName;
-    }
-
-    public function getShortVersion(): string
-    {
-        return $this->prettyVersion;
     }
 
     /**
@@ -76,11 +72,6 @@ class Version
         return $this->getReference();
     }
 
-    public function getReference(): string
-    {
-        return $this->reference;
-    }
-
     /**
      * @deprecated
      */
@@ -89,13 +80,17 @@ class Version
         return $this->getShortReference();
     }
 
-    public function getShortReference(): string
-    {
-        return substr($this->reference, 0, self::SHORT_COMMIT_LENGTH);
-    }
-
     public function __toString(): string
     {
         return $this->getPrettyVersion();
+    }
+
+    public function getPrettyVersion(): string
+    {
+        if ($this->versionIsTagged) {
+            return $this->prettyVersion;
+        }
+
+        return $this->getVersionWithShortReference();
     }
 }
