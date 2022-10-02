@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace GraphQL\Validator;
 
-use GraphQL\Error\InvariantViolation;
 use GraphQL\Language\AST\DocumentNode;
 use GraphQL\Language\AST\FieldNode;
 use GraphQL\Language\AST\FragmentDefinitionNode;
@@ -17,14 +16,9 @@ use GraphQL\Language\AST\SelectionSetNode;
 use GraphQL\Language\AST\VariableNode;
 use GraphQL\Language\Visitor;
 use GraphQL\Type\Definition\CompositeType;
-use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\FieldDefinition;
-use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\InputType;
-use GraphQL\Type\Definition\ListOfType;
-use GraphQL\Type\Definition\NonNull;
 use GraphQL\Type\Definition\OutputType;
-use GraphQL\Type\Definition\ScalarType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use GraphQL\Utils\TypeInfo;
@@ -62,11 +56,11 @@ class ValidationContext extends ASTValidationContext
     public function __construct(Schema $schema, DocumentNode $ast, TypeInfo $typeInfo)
     {
         parent::__construct($ast, $schema);
-        $this->typeInfo                       = $typeInfo;
-        $this->fragmentSpreads                = new SplObjectStorage();
+        $this->typeInfo = $typeInfo;
+        $this->fragmentSpreads = new SplObjectStorage();
         $this->recursivelyReferencedFragments = new SplObjectStorage();
-        $this->variableUsages                 = new SplObjectStorage();
-        $this->recursiveVariableUsages        = new SplObjectStorage();
+        $this->variableUsages = new SplObjectStorage();
+        $this->recursiveVariableUsages = new SplObjectStorage();
     }
 
     /**
@@ -77,14 +71,14 @@ class ValidationContext extends ASTValidationContext
         $usages = $this->recursiveVariableUsages[$operation] ?? null;
 
         if ($usages === null) {
-            $usages    = $this->getVariableUsages($operation);
+            $usages = $this->getVariableUsages($operation);
             $fragments = $this->getRecursivelyReferencedFragments($operation);
 
             $allUsages = [$usages];
             foreach ($fragments as $fragment) {
                 $allUsages[] = $this->getVariableUsages($fragment);
             }
-            $usages                                    = array_merge(...$allUsages);
+            $usages = array_merge(...$allUsages);
             $this->recursiveVariableUsages[$operation] = $usages;
         }
 
@@ -100,19 +94,19 @@ class ValidationContext extends ASTValidationContext
 
         if ($usages === null) {
             $newUsages = [];
-            $typeInfo  = new TypeInfo($this->schema);
+            $typeInfo = new TypeInfo($this->schema);
             Visitor::visit(
                 $node,
                 Visitor::visitWithTypeInfo(
                     $typeInfo,
                     [
-                        NodeKind::VARIABLE_DEFINITION => static function () : bool {
+                        NodeKind::VARIABLE_DEFINITION => static function (): bool {
                             return false;
                         },
-                        NodeKind::VARIABLE            => static function (VariableNode $variable) use (
+                        NodeKind::VARIABLE => static function (VariableNode $variable) use (
                             &$newUsages,
                             $typeInfo
-                        ) : void {
+                        ): void {
                             $newUsages[] = [
                                 'node' => $variable,
                                 'type' => $typeInfo->getInputType(),
@@ -122,11 +116,19 @@ class ValidationContext extends ASTValidationContext
                     ]
                 )
             );
-            $usages                      = $newUsages;
+            $usages = $newUsages;
             $this->variableUsages[$node] = $usages;
         }
 
         return $usages;
+    }
+
+    /**
+     * @return (Type & InputType) | null
+     */
+    public function getInputType(): ?InputType
+    {
+        return $this->typeInfo->getInputType();
     }
 
     /**
@@ -137,11 +139,11 @@ class ValidationContext extends ASTValidationContext
         $fragments = $this->recursivelyReferencedFragments[$operation] ?? null;
 
         if ($fragments === null) {
-            $fragments      = [];
+            $fragments = [];
             $collectedNames = [];
-            $nodesToVisit   = [$operation];
+            $nodesToVisit = [$operation];
             while (count($nodesToVisit) > 0) {
-                $node    = array_pop($nodesToVisit);
+                $node = array_pop($nodesToVisit);
                 $spreads = $this->getFragmentSpreads($node);
                 foreach ($spreads as $spread) {
                     $fragName = $spread->name->value;
@@ -151,12 +153,12 @@ class ValidationContext extends ASTValidationContext
                     }
 
                     $collectedNames[$fragName] = true;
-                    $fragment                  = $this->getFragment($fragName);
-                    if (! $fragment) {
+                    $fragment = $this->getFragment($fragName);
+                    if (!$fragment) {
                         continue;
                     }
 
-                    $fragments[]    = $fragment;
+                    $fragments[] = $fragment;
                     $nodesToVisit[] = $fragment;
                 }
             }
@@ -171,7 +173,7 @@ class ValidationContext extends ASTValidationContext
      *
      * @return FragmentSpreadNode[]
      */
-    public function getFragmentSpreads(HasSelectionSet $node) : array
+    public function getFragmentSpreads(HasSelectionSet $node): array
     {
         $spreads = $this->fragmentSpreads[$node] ?? null;
         if ($spreads === null) {
@@ -207,10 +209,10 @@ class ValidationContext extends ASTValidationContext
     public function getFragment($name)
     {
         $fragments = $this->fragments;
-        if (! $fragments) {
+        if (!$fragments) {
             $fragments = [];
             foreach ($this->getDocument()->definitions as $statement) {
-                if (! ($statement instanceof FragmentDefinitionNode)) {
+                if (!($statement instanceof FragmentDefinitionNode)) {
                     continue;
                 }
 
@@ -222,7 +224,7 @@ class ValidationContext extends ASTValidationContext
         return $fragments[$name] ?? null;
     }
 
-    public function getType() : ?OutputType
+    public function getType(): ?OutputType
     {
         return $this->typeInfo->getType();
     }
@@ -230,23 +232,15 @@ class ValidationContext extends ASTValidationContext
     /**
      * @return (CompositeType & Type) | null
      */
-    public function getParentType() : ?CompositeType
+    public function getParentType(): ?CompositeType
     {
         return $this->typeInfo->getParentType();
     }
 
     /**
-     * @return (Type & InputType) | null
-     */
-    public function getInputType() : ?InputType
-    {
-        return $this->typeInfo->getInputType();
-    }
-
-    /**
      * @return (Type&InputType)|null
      */
-    public function getParentInputType() : ?InputType
+    public function getParentInputType(): ?InputType
     {
         return $this->typeInfo->getParentInputType();
     }

@@ -21,7 +21,7 @@ abstract class ASTValidationContext
 
     public function __construct(DocumentNode $ast, ?Schema $schema = null)
     {
-        $this->ast    = $ast;
+        $this->ast = $ast;
         $this->schema = $schema;
         $this->errors = [];
     }
@@ -47,7 +47,7 @@ abstract class ASTValidationContext
         return $this->ast;
     }
 
-    public function getSchema() : ?Schema
+    public function getSchema(): ?Schema
     {
         return $this->schema;
     }

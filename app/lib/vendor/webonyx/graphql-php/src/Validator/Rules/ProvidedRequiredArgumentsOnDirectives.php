@@ -28,36 +28,25 @@ use function array_filter;
  */
 class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
 {
-    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type)
-    {
-        return 'Directive "@' . $directiveName . '" argument "' . $argName
-            . '" of type "' . $type . '" is required but not provided.';
-    }
-
     public function getSDLVisitor(SDLValidationContext $context)
-    {
-        return $this->getASTVisitor($context);
-    }
-
-    public function getVisitor(ValidationContext $context)
     {
         return $this->getASTVisitor($context);
     }
 
     public function getASTVisitor(ASTValidationContext $context)
     {
-        $requiredArgsMap   = [];
-        $schema            = $context->getSchema();
+        $requiredArgsMap = [];
+        $schema = $context->getSchema();
         $definedDirectives = $schema
             ? $schema->getDirectives()
             : Directive::getInternalDirectives();
 
         foreach ($definedDirectives as $directive) {
             $requiredArgsMap[$directive->name] = Utils::keyMap(
-                array_filter($directive->args, static function (FieldArgument $arg) : bool {
+                array_filter($directive->args, static function (FieldArgument $arg): bool {
                     return $arg->isRequired();
                 }),
-                static function (FieldArgument $arg) : string {
+                static function (FieldArgument $arg): string {
                     return $arg->name;
                 }
             );
@@ -65,20 +54,20 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
 
         $astDefinition = $context->getDocument()->definitions;
         foreach ($astDefinition as $def) {
-            if (! ($def instanceof DirectiveDefinitionNode)) {
+            if (!($def instanceof DirectiveDefinitionNode)) {
                 continue;
             }
             $arguments = $def->arguments ?? [];
 
             $requiredArgsMap[$def->name->value] = Utils::keyMap(
-                Utils::filter($arguments, static function (InputValueDefinitionNode $argument) : bool {
+                Utils::filter($arguments, static function (InputValueDefinitionNode $argument): bool {
                     return $argument->type instanceof NonNullTypeNode &&
                         (
-                            ! isset($argument->defaultValue) ||
+                            !isset($argument->defaultValue) ||
                             $argument->defaultValue === null
                         );
                 }),
-                static function (InputValueDefinitionNode $argument) : string {
+                static function (InputValueDefinitionNode $argument): string {
                     return $argument->name->value;
                 }
             );
@@ -87,17 +76,17 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
         return [
             NodeKind::DIRECTIVE => [
                 // Validate on leave to allow for deeper errors to appear first.
-                'leave' => static function (DirectiveNode $directiveNode) use ($requiredArgsMap, $context) : ?string {
+                'leave' => static function (DirectiveNode $directiveNode) use ($requiredArgsMap, $context): ?string {
                     $directiveName = $directiveNode->name->value;
-                    $requiredArgs  = $requiredArgsMap[$directiveName] ?? null;
-                    if (! $requiredArgs) {
+                    $requiredArgs = $requiredArgsMap[$directiveName] ?? null;
+                    if (!$requiredArgs) {
                         return null;
                     }
 
-                    $argNodes   = $directiveNode->arguments ?? [];
+                    $argNodes = $directiveNode->arguments ?? [];
                     $argNodeMap = Utils::keyMap(
                         $argNodes,
-                        static function (ArgumentNode $arg) : string {
+                        static function (ArgumentNode $arg): string {
                             return $arg->name->value;
                         }
                     );
@@ -108,7 +97,7 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
                         }
 
                         if ($arg instanceof FieldArgument) {
-                            $argType = (string) $arg->getType();
+                            $argType = (string)$arg->getType();
                         } elseif ($arg instanceof InputValueDefinitionNode) {
                             $argType = Printer::doPrint($arg->type);
                         } else {
@@ -124,5 +113,16 @@ class ProvidedRequiredArgumentsOnDirectives extends ValidationRule
                 },
             ],
         ];
+    }
+
+    public static function missingDirectiveArgMessage(string $directiveName, string $argName, string $type)
+    {
+        return 'Directive "@' . $directiveName . '" argument "' . $argName
+            . '" of type "' . $type . '" is required but not provided.';
+    }
+
+    public function getVisitor(ValidationContext $context)
+    {
+        return $this->getASTVisitor($context);
     }
 }
