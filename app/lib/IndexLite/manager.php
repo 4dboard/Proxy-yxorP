@@ -4,20 +4,18 @@ namespace IndexLite;
 
 use SQLite3;
 
-class Manager {
+class Manager
+{
 
     protected string $path;
 
-    public function __construct(string $path, array $options = []) {
+    public function __construct(string $path, array $options = [])
+    {
         $this->path = rtrim($path, '/');
     }
 
-    public function index(string $name): Index {
-        $index = new Index("{$this->path}/$name.idx");
-        return $index;
-    }
-
-    public function createIndex(string $name, array $options) {
+    public function createIndex(string $name, array $options)
+    {
 
         if ($this->exists($name)) {
             throw new \Exception("Index <{$name}> already exists.");
@@ -34,7 +32,7 @@ class Manager {
 
         $init = "
             CREATE VIRTUAL TABLE documents
-                USING fts5(id,".implode(',', $options['fields']).", tokenize=\"{$options['tokenizer']}\");
+                USING fts5(id," . implode(',', $options['fields']) . ", tokenize=\"{$options['tokenizer']}\");
         ";
 
         $db->exec($init);
@@ -42,16 +40,24 @@ class Manager {
         return $this->index($name);
     }
 
-    public function removeIndex(string $name) {
+    public function exists(string $name): bool
+    {
+        return \file_exists("{$this->path}/$name.idx");
+    }
+
+    public function index(string $name): Index
+    {
+        $index = new Index("{$this->path}/$name.idx");
+        return $index;
+    }
+
+    public function removeIndex(string $name)
+    {
 
         if (!$this->exists($name)) {
             return;
         }
 
         \unlink("{$this->path}/$name.idx");
-    }
-
-    public function exists(string $name): bool {
-        return \file_exists("{$this->path}/$name.idx");
     }
 }

@@ -6,7 +6,8 @@
 
 use claviska\SimpleImage;
 
-class SimpleImageLib extends SimpleImage {
+class SimpleImageLib extends SimpleImage
+{
 
     const ERR_AVIF_NOT_ENABLED = 12;
 
@@ -14,8 +15,8 @@ class SimpleImageLib extends SimpleImage {
      * Loads an image from a data URI.
      *
      * @param string $uri A data URI.
-     * @throws \Exception Thrown if URI or image data is invalid.
      * @return \claviska\SimpleImage
+     * @throws \Exception Thrown if URI or image data is invalid.
      */
     public function fromDataUri($uri)
     {
@@ -48,8 +49,8 @@ class SimpleImageLib extends SimpleImage {
      * Loads an image from a file.
      *
      * @param string $file The image file to load.
-     * @throws \Exception Thrown if file or image data is invalid.
      * @return \claviska\SimpleImage
+     * @throws \Exception Thrown if file or image data is invalid.
      */
     public function fromFile($file)
     {
@@ -78,7 +79,7 @@ class SimpleImageLib extends SimpleImage {
                     // workaround to prevent imagepalettetruecolor() from borking transparency.
                     $width = imagesx($gif);
                     $height = imagesy($gif);
-                    $this->image = imagecreatetruecolor((int) $width, (int) $height);
+                    $this->image = imagecreatetruecolor((int)$width, (int)$height);
                     $transparentColor = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
                     imagecolortransparent($this->image, $transparentColor);
                     imagefill($this->image, 0, 0, $transparentColor);
@@ -129,8 +130,8 @@ class SimpleImageLib extends SimpleImage {
      *
      * @param string $mimeType The image format to output as a mime type (defaults to the original mime type).
      * @param integer $quality Image quality as a percentage (default 100).
-     * @throws \Exception Thrown when WEBP support is not enabled or unsupported format.
      * @return array Returns an array containing the image data and mime type ['data' => '', 'mimeType' => ''].
+     * @throws \Exception Thrown when WEBP support is not enabled or unsupported format.
      */
     protected function generate($mimeType = null, $quality = 100)
     {
@@ -139,7 +140,7 @@ class SimpleImageLib extends SimpleImage {
 
         // Ensure quality is a valid integer
         if ($quality === null) $quality = 100;
-        $quality = self::keepWithin((int) $quality, 0, 100);
+        $quality = self::keepWithin((int)$quality, 0, 100);
 
         // Capture output
         ob_start();

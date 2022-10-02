@@ -2,12 +2,14 @@
 
 namespace MemoryStorage;
 
-class Client {
+class Client
+{
 
     protected $driver;
     protected $key;
 
-    public function __construct(string $server, array $options = []) {
+    public function __construct(string $server, array $options = [])
+    {
 
         if (strpos($server, 'redis://') === 0) {
 
@@ -49,11 +51,13 @@ class Client {
         }
     }
 
-    public function flush(): void  {
+    public function flush(): void
+    {
         $this->driver->flushdb();
     }
 
-    public function get(string $key, mixed $default = null, bool $decrypt = false): mixed {
+    public function get(string $key, mixed $default = null, bool $decrypt = false): mixed
+    {
 
         $value = $this->driver->get($key);
 
@@ -68,28 +72,8 @@ class Client {
         return $value;
     }
 
-    public function set(string $key, mixed $value, bool $encrypt = false): void {
-
-        if ($encrypt) {
-            $value = $this->encrypt($value);
-        }
-
-        $this->driver->set($key, $value);
-    }
-
-    protected function encrypt(mixed $value): string {
-
-        $str = json_encode($value);
-        $key = hash('sha256', $this->key, true);
-        $iv = openssl_random_pseudo_bytes(16);
-
-        $ciphertext = openssl_encrypt($str, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
-        $hash = hash_hmac('sha256', $ciphertext . $iv, $key, true);
-
-        return base64_encode($iv . $hash . $ciphertext);
-    }
-
-    protected function decrypt(string $value): mixed {
+    protected function decrypt(string $value): mixed
+    {
 
         $value = base64_decode($value);
 
@@ -105,7 +89,31 @@ class Client {
         return json_decode(openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv), true);
     }
 
-    public function __call($method, $args) {
+    public function set(string $key, mixed $value, bool $encrypt = false): void
+    {
+
+        if ($encrypt) {
+            $value = $this->encrypt($value);
+        }
+
+        $this->driver->set($key, $value);
+    }
+
+    protected function encrypt(mixed $value): string
+    {
+
+        $str = json_encode($value);
+        $key = hash('sha256', $this->key, true);
+        $iv = openssl_random_pseudo_bytes(16);
+
+        $ciphertext = openssl_encrypt($str, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+        $hash = hash_hmac('sha256', $ciphertext . $iv, $key, true);
+
+        return base64_encode($iv . $hash . $ciphertext);
+    }
+
+    public function __call($method, $args)
+    {
 
         return call_user_func_array([$this->driver, $method], $args);
     }
